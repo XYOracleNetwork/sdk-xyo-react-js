@@ -13,7 +13,7 @@
   },
   "license": "LGPL-3.0",
   "private": false,
-  "version": "2.0.1",
+  "version": "2.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
@@ -24,6 +24,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "yarn lint && rollup -c rollup.config.ts",
+    "deploy": "yarn version --patch && yarn publish --access public",
     "lint": "eslint --ext .ts,.tsx ./src",
     "fix": "eslint --ext .ts,.tsx ./src --fix",
     "clean": "rm -r -f build && rm -f .eslintcache && rm -f yarn.lock && rm -f *.tsbuildinfo",
