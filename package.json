@@ -1,0 +1,76 @@
+{
+  "name": "@xyo-network/sdk-xyo-react-js",
+  "homepage": "https://xyo.network",
+  "bugs": {
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues",
+    "email": "support@xyo.network"
+  },
+  "description": "Common React library for all XYO projects that use React",
+  "author": {
+    "name": "XYO Development Team",
+    "url": "https://xyo.network",
+    "email": "support@xyo.network"
+  },
+  "license": "LGPL-3.0",
+  "private": false,
+  "version": "2.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.js",
+  "sideEffects": false,
+  "scripts": {
+    "build": "yarn lint && rollup -c rollup.config.ts",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "fix": "eslint --ext .ts,.tsx ./src --fix",
+    "clean": "rm -r -f build && rm -f .eslintcache && rm -f yarn.lock && rm -f *.tsbuildinfo",
+    "reinstall": "rm -r -f ./node_modules && rm -f ./yarn.lock && rm -f ./yarn-error.log && yarn install && yarn outdated",
+    "tsprune": "yarn ts-prune"
+  },
+  "dependencies": {
+    "@material-ui/core": "^5.0.0-alpha.30",
+    "@xyo-network/sdk-xyo-js": "^2.0.9",
+    "async-mutex": "^0.3.1",
+    "axios": "^0.21.1",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "numeral": "^2.0.6",
+    "query-string": "^7.0.0",
+    "randombytes": "^2.1.0",
+    "react": "^17.0.1",
+    "react-cookie-consent": "^6.2.2",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.1.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.108",
+    "@types/numeral": "^2.0.1",
+    "@types/randombytes": "^2.0.0",
+    "@types/react": "^17.0.2",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^2.1.1",
+    "eslint-plugin-no-secrets": "^0.8.9",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "eslint-plugin-typescript-sort-keys": "^1.6.0",
+    "prettier": "^2.0.5",
+    "rollup": "^2.45.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "~4.2.2"
+  }
+}
