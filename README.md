@@ -39,7 +39,7 @@ Made with 🔥and ❄️ by [XYO](https://xyo.network)
 [npm-badge]: https://img.shields.io/npm/v/@xyo-network/sdk-xyo-react-js.svg
 [npm-link]: https://www.npmjs.com/package/@xyo-network/sdk-xyo-react-js
 
-[bch-badge]: https://bettercodehub.com/edge/badge/XYOracleNetwork/sdk-xyo-react-js?branch=develop
+[bch-badge]: https://bettercodehub.com/edge/badge/XYOracleNetwork/sdk-xyo-react-js?branch=master
 [bch-link]: https://bettercodehub.com/results/XYOracleNetwork/sdk-xyo-react-js
 
 [codacy-badge]: https://app.codacy.com/project/badge/Grade/c0301191bb724dc78d703f6178f30f6a
