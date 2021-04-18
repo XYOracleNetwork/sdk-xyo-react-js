@@ -1,6 +1,6 @@
 import { BoxProps, Breadcrumbs, Link } from '@material-ui/core'
 import { assertEx } from '@xyo-network/sdk-xyo-js'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { Link as RouteLink } from 'react-router-dom'
 
 import { FlexRow } from '../FlexBox'

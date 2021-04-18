@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react'
 
 function useAsyncEffect(effect: (isMounted: () => boolean) => Promise<(() => void) | void>, inputs: any[]) {

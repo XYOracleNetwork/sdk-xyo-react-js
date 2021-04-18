@@ -7,6 +7,8 @@
     "prettier",
     "sort-keys-fix",
     "typescript-sort-keys",
+    "react",
+    "react-hooks",
     "json",
     "import",
     "simple-import-sort",
@@ -17,6 +19,8 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:json/recommended",
     "plugin:prettier/recommended"
@@ -24,6 +28,9 @@
   "settings": {
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "react": {
+      "version": "detect"
     }
   },
   "rules": {
@@ -32,6 +39,7 @@
     "prettier/prettier": "warn",
     "semi": ["warn", "never"],
     "@typescript-eslint/semi": ["warn", "never"],
+    "react/prop-types": ["off"],
 
     "no-tabs": ["error"],
     "@typescript-eslint/member-delimiter-style": [
