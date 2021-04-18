@@ -2,16 +2,13 @@
   "extends": "./tsconfig.esnext.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "outDir": "dist",
+    "outDir": ".",
     "rootDir": "src",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ]
+    "lib": ["DOM"]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx"
-  ]
+  ],
+  "exclude": ["src/**/*.spec.ts"]
 }
