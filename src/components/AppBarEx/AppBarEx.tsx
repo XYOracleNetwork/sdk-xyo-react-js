@@ -1,5 +1,5 @@
 import { AppBar, AppBarProps, Container, Toolbar, ToolbarProps, useTheme } from '@material-ui/core'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 
 import { FlexGrowRow } from '../FlexBox'
 

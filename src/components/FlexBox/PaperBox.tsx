@@ -1,4 +1,5 @@
 import { Box, CircularProgress, Paper, PaperProps, useTheme } from '@material-ui/core'
+import React from 'react'
 
 import BoxlikeComponentProps from '../../BoxlikeComponentProps'
 import BusyComponentProps from '../../BusyComponentProps'

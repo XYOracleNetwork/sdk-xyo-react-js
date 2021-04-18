@@ -1,4 +1,5 @@
 import { Link, Typography, useTheme } from '@material-ui/core'
+import React from 'react'
 import CookieConsent from 'react-cookie-consent'
 
 import { FlexGrowRow } from './FlexBox'

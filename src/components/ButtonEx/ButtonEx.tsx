@@ -1,5 +1,5 @@
 import { Button, useTheme } from '@material-ui/core'
-import { MouseEvent } from 'react'
+import React, { MouseEvent } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import mergeBoxlikeStyles from '../../mergeBoxlikeStyles'
