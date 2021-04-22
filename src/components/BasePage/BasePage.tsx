@@ -2,7 +2,7 @@ import { Container, Typography, useTheme } from '@material-ui/core'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import { FlexCol, FlexGrowCol, FlexRow } from '../FlexBox'
+import { FlexCol, FlexRow } from '../FlexBox'
 import BasePageProps from './BasePageProps'
 
 const BasePage: React.FC<BasePageProps> = (props) => {
@@ -40,7 +40,11 @@ const BasePage: React.FC<BasePageProps> = (props) => {
         </FlexRow>
       ) : null}
       {container ? (
-        <Container component={FlexGrowCol} maxWidth={container} alignItems="stretch" disableGutters={disableGutters}>
+        <Container
+          style={{ alignItems: 'stretch', display: 'flex', flexGrow: 1 }}
+          maxWidth={container}
+          disableGutters={disableGutters}
+        >
           {children}
         </Container>
       ) : (
