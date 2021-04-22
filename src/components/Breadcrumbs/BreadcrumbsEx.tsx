@@ -7,6 +7,7 @@ import { FlexRow } from '../FlexBox'
 
 interface Props extends BreadcrumbsProps {
   logo?: string | ReactElement
+  path?: string
   titles: string[]
 }
 
@@ -19,8 +20,8 @@ const getPartialPath = (pathParts: string[], index: number) => {
 }
 
 const BreadcrumbsEx: React.FC<Props> = (props) => {
-  const { titles, separator = '|', logo, children, ...rootProps } = props
-  const pathParts = document.location.pathname.split('/')
+  const { titles, path = document.location.pathname, separator = '|', logo, children, ...rootProps } = props
+  const pathParts = path.split('/')
   //if the url has a trailing '/', remove the last part
   if (pathParts[pathParts.length - 1].length === 0) {
     pathParts.pop()
