@@ -14,6 +14,7 @@ const BasePage: React.FC<BasePageProps> = (props) => {
     hideFooter,
     appFooter,
     appBar,
+    hideAppBar,
     noindex = false,
     title,
     ...baseProps
@@ -31,7 +32,7 @@ const BasePage: React.FC<BasePageProps> = (props) => {
       {...baseProps}
     >
       <Helmet title={title}>{noindex ? <meta content="noindex" name="robots" /> : null}</Helmet>
-      {appBar}
+      {hideAppBar ? null : appBar}
       {beta ? (
         <FlexRow margin={1}>
           <Typography variant="body1">
