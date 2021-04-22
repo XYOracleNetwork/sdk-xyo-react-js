@@ -1,3 +1,3 @@
-import BreadcrumbToolbar from './BreadcrumbToolbar'
+import BreadcrumbEx from './BreadcrumbEx'
 
-export { BreadcrumbToolbar }
+export { BreadcrumbEx }
