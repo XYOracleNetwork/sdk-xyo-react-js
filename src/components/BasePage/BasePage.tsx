@@ -6,7 +6,18 @@ import { FlexCol, FlexGrowCol, FlexRow } from '../FlexBox'
 import BasePageProps from './BasePageProps'
 
 const BasePage: React.FC<BasePageProps> = (props) => {
-  const { children, beta, container, hideFooter, appFooter, appBar, noindex = false, title, ...baseProps } = props
+  const {
+    disableGutters,
+    children,
+    beta,
+    container,
+    hideFooter,
+    appFooter,
+    appBar,
+    noindex = false,
+    title,
+    ...baseProps
+  } = props
 
   const theme = useTheme()
 
@@ -29,7 +40,7 @@ const BasePage: React.FC<BasePageProps> = (props) => {
         </FlexRow>
       ) : null}
       {container ? (
-        <Container component={FlexGrowCol} maxWidth={container} alignItems="stretch">
+        <Container component={FlexGrowCol} maxWidth={container} alignItems="stretch" disableGutters={disableGutters}>
           {children}
         </Container>
       ) : (
