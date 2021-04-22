@@ -27,7 +27,10 @@ const BreadcrumbsEx: React.FC<Props> = (props) => {
     pathParts.pop()
   }
 
-  assertEx(pathParts.length - 1 === titles.length, 'Path/Title length mismatch')
+  assertEx(
+    pathParts.length - 1 === titles.length,
+    `Path/Title length mismatch: ${JSON.stringify(titles)} with ${JSON.stringify(pathParts)}`
+  )
   return (
     <Breadcrumbs separator={separator} {...rootProps}>
       {pathParts.map((_pathPart, index) => {
