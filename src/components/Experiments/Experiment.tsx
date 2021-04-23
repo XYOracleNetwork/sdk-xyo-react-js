@@ -1,12 +1,12 @@
-import { Box, BoxProps } from '@material-ui/core'
 import React, { PropsWithChildren } from 'react'
 
-export interface ExperimentProps extends BoxProps {
+export interface ExperimentProps {
   weight: number
 }
 
 const Experiment: React.FC<PropsWithChildren<ExperimentProps>> = (props) => {
-  return <Box {...props} />
+  const { children } = props
+  return <>{children}</>
 }
 
 export default Experiment
