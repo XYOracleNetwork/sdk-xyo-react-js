@@ -34,7 +34,7 @@ const BasePage: React.FC<BasePageProps> = (props) => {
       <Helmet title={title}>{noindex ? <meta content="noindex" name="robots" /> : null}</Helmet>
       {hideAppBar ? null : appBar}
       {beta ? (
-        <FlexRow margin={1}>
+        <FlexRow margin={1} position="absolute" top={8} bgcolor="#cccccc88">
           <Typography variant="body1">
             Important: This page is a Beta page. It is possible that some information may not be correct.
           </Typography>
