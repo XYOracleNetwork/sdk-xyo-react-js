@@ -2,7 +2,7 @@ import { Link, Typography, useTheme } from '@material-ui/core'
 import React from 'react'
 import CookieConsent, { CookieConsentProps } from 'react-cookie-consent'
 
-import { FlexGrowRow } from './FlexBox'
+import { FlexGrowPaper } from './FlexBox'
 
 const CustomCookieConsent: React.FC<CookieConsentProps> = (props) => {
   const { buttonStyle, style, ...rootProps } = props
@@ -19,6 +19,7 @@ const CustomCookieConsent: React.FC<CookieConsentProps> = (props) => {
       expires={150}
       location="bottom"
       style={{
+        alignItems: 'stretch',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'none',
@@ -27,7 +28,7 @@ const CustomCookieConsent: React.FC<CookieConsentProps> = (props) => {
       }}
       {...rootProps}
     >
-      <FlexGrowRow justifyContent="flex-start">
+      <FlexGrowPaper justifyContent="flex-start">
         <Typography variant="body2">
           This site uses{' '}
           <Link href="https://cookiesandyou.com/" rel="noopener noreferrer" target="_blank">
@@ -39,7 +40,7 @@ const CustomCookieConsent: React.FC<CookieConsentProps> = (props) => {
           </Link>{' '}
           to analyze traffic and for ads measurement purposes.
         </Typography>
-      </FlexGrowRow>
+      </FlexGrowPaper>
     </CookieConsent>
   )
 }
