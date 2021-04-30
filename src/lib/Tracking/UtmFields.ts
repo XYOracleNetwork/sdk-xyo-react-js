@@ -1,4 +1,4 @@
-import { isEqual } from 'lodash'
+import isEqual from 'lodash/isEqual'
 
 class UtmFields {
   private static localStorageId = '_coin_utm'
