@@ -24,7 +24,6 @@ const CustomCookieConsent: React.FC<CookieConsentProps> = (props) => {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'none',
-        zoom: 0.75,
         ...style,
       }}
       {...rootProps}
