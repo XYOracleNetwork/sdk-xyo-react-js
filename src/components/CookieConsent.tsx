@@ -1,16 +1,18 @@
 import { Link, Typography, useTheme } from '@material-ui/core'
 import React from 'react'
-import CookieConsent from 'react-cookie-consent'
+import CookieConsent, { CookieConsentProps } from 'react-cookie-consent'
 
 import { FlexGrowRow } from './FlexBox'
 
-const CustomCookieConsent: React.FC = () => {
+const CustomCookieConsent: React.FC<CookieConsentProps> = (props) => {
+  const { buttonStyle, style, ...rootProps } = props
   const theme = useTheme()
   return (
     <CookieConsent
       buttonStyle={{
         background: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,
+        ...buttonStyle,
       }}
       buttonText="Accept"
       cookieName="CookiesAccepted"
@@ -22,8 +24,9 @@ const CustomCookieConsent: React.FC = () => {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'none',
-        zoom: 0.75,
+        ...style,
       }}
+      {...rootProps}
     >
       <FlexGrowRow>
         <Typography variant="body2">
