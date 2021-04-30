@@ -19,7 +19,7 @@ const CustomCookieConsent: React.FC<CookieConsentProps> = (props) => {
       expires={150}
       location="bottom"
       style={{
-        background: theme.palette.background.default,
+        background: theme.palette.background.paper,
         color: theme.palette.text.primary,
         display: 'flex',
         flexDirection: 'row',
