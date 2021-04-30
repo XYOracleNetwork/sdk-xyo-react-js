@@ -28,12 +28,10 @@ const InvertableThemeProvider: React.FC<InvertableThemeProviderProps> = (props) 
   options.palette = options.palette ?? {}
 
   if (invert) {
-    options.palette = options.palette ?? {}
     options.palette.mode = options.palette.mode === 'dark' ? 'light' : 'dark'
   }
 
   if (dark !== undefined) {
-    options.palette = options.palette ?? {}
     options.palette.mode = dark ? 'dark' : 'light'
   }
 
