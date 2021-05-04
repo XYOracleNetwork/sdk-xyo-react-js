@@ -50,7 +50,7 @@ const BasePage: React.FC<BasePageProps> = (props) => {
       ) : null}
       {container ? (
         <Container
-          style={{ alignItems: 'stretch', display: 'flex', flexGrow: 1 }}
+          style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1 }}
           maxWidth={container}
           disableGutters={disableGutters}
         >
