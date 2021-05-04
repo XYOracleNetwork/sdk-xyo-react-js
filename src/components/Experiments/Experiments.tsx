@@ -30,7 +30,7 @@ type Props = {
   children: ReactElement<ExperimentProps>[] | ReactElement<ExperimentProps>
   localStorageProp?: string | boolean
   name: string
-  testStarted: () => Promise<void>
+  testStarted?: () => Promise<void>
 }
 
 const missingKeyError = new Error('Experiment Elements must have Keys')
@@ -77,7 +77,7 @@ const Experiments: React.FC<Props> = (props) => {
           localStorage.setItem(localStorageKey, mergeData(experimentsTestData))
         }
         if (!isLocalhost) {
-          testStarted()
+          testStarted?.()
         }
       }
       return child
