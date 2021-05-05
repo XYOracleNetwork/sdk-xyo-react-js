@@ -18,9 +18,12 @@
     "type": "git",
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.js",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.js",
+  "exports": {
+    ".": "./dist/index.esm.js"
+  },
   "sideEffects": false,
   "scripts": {
     "build": "yarn deps && yarn lint && yarn compile",
@@ -38,7 +41,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^5.0.0-alpha.30",
-    "@xyo-network/sdk-xyo-js": "^2.0.22",
+    "@xyo-network/sdk-xyo-js": "^2.1.2",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
     "numeral": "^2.0.6",
