@@ -13,26 +13,27 @@
   },
   "license": "LGPL-3.0",
   "private": false,
-  "version": "2.0.30",
+  "version": "2.0.31",
   "repository": {
     "type": "git",
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.js",
+  "main": "./index.cjs.js",
+  "module": "./index.esm.js",
+  "types": "./index.d.js",
   "exports": {
-    ".": "./dist/index.esm.js"
+    ".": "./index.esm.js"
   },
   "sideEffects": false,
   "scripts": {
-    "build": "yarn deps && yarn lint && yarn compile",
+    "build": "rm -r -f dist && yarn deps && yarn lint && yarn compile && yarn copy-src",
+    "copy-src": "cp package.json ./dist && cp -R ./src/* ./dist",
     "compile": "rollup -c rollup.config.ts",
-    "deploy": "yarn version --patch && cp package.json ./dist && cp -R ./src ./dist/src && yarn publish ./dist --access public",
+    "deploy": "yarn version --patch && yarn build && yarn publish ./dist --access public",
     "lint": "eslint --ext .ts,.tsx ./src",
     "fix": "eslint --ext .ts,.tsx ./src --fix",
     "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'",
-    "clean": "rm -r -f build && rm -f .eslintcache && rm -f yarn.lock && rm -f *.tsbuildinfo",
+    "clean": "rm -r -f dist && rm -f .eslintcache && rm -f yarn.lock && rm -f *.tsbuildinfo",
     "reinstall": "rm -r -f ./node_modules && rm -f ./yarn.lock && rm -f ./yarn-error.log && yarn install && yarn outdated",
     "tsprune": "yarn ts-prune",
     "deps": "yarn depcheck --ignores \"vue, ts-node, @types/jest, jest, ts-jest\""
@@ -41,7 +42,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^5.0.0-alpha.30",
-    "@xyo-network/sdk-xyo-js": "^2.1.4",
+    "@xyo-network/sdk-xyo-js": "^2.1.6",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
     "numeral": "^2.0.6",
