@@ -1,20 +1,39 @@
 import typescript from 'rollup-plugin-typescript2'
 
-export default {
-  input: './src/index.ts',
-  output: [
-    {
-      exports: 'auto',
-      file: './dist/index.cjs.js',
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      exports: 'auto',
-      file: './dist/index.esm.js',
-      format: 'es',
-      sourcemap: true,
-    },
-  ],
-  plugins: [typescript()],
-}
+export default [
+  {
+    external: [
+      '@emotion/react',
+      '@emotion/styled',
+      '@material-ui/core',
+      '@xyo-network/sdk-xyo-js',
+      'axios',
+      'lodash',
+      'numeral',
+      'query-string',
+      'randombytes',
+      'react',
+      'react-cookie-consent',
+      'react-dom',
+      'react-helmet',
+      'react-icons',
+      'react-router-dom',
+    ],
+    input: './src/index.ts',
+    output: [
+      {
+        exports: 'auto',
+        file: './dist/index.cjs.js',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        exports: 'auto',
+        file: './dist/index.js',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    plugins: [typescript()],
+  },
+]
