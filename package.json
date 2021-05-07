@@ -19,10 +19,10 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "main": "./index.cjs.js",
-  "module": "./index.esm.js",
+  "module": "./index.js",
   "types": "./index.d.js",
   "exports": {
-    ".": "./index.esm.js"
+    ".": "./index.js"
   },
   "sideEffects": false,
   "scripts": {
@@ -39,23 +39,23 @@
     "deps": "yarn depcheck --ignores \"vue, ts-node, @types/jest, jest, ts-jest\""
   },
   "dependencies": {
-    "@emotion/react": "^11.1.5",
-    "@emotion/styled": "^11.3.0",
-    "@material-ui/core": "^5.0.0-alpha.30",
     "@xyo-network/sdk-xyo-js": "^2.1.6",
+    "@material-ui/core": "^5.0.0-alpha.30",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
     "numeral": "^2.0.6",
     "query-string": "^7.0.0",
     "randombytes": "^2.1.0",
-    "react": "^17.0.1",
     "react-cookie-consent": "^6.2.2",
-    "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
     "@types/jest": "^26.0.22",
     "@types/lodash": "^4.14.108",
     "@types/numeral": "^2.0.1",
