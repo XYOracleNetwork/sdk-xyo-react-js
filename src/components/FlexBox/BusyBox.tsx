@@ -1,17 +1,30 @@
 import { Box, BoxProps, CircularProgress, useTheme } from '@material-ui/core'
 import React from 'react'
 
+import { useBreakpoint } from '../../hooks'
+
 interface BusyBoxProps extends BoxProps {
   busy?: boolean
   busyOpacity?: string | number
   busySize?: number
 }
 
-const BusyBox: React.ComponentType<BusyBoxProps> = (props) => {
+interface BusyBoxExProps extends BusyBoxProps {
+  lg?: BusyBoxProps
+  md?: BusyBoxProps
+  sm?: BusyBoxProps
+  xl?: BusyBoxProps
+  xs?: BusyBoxProps
+}
+
+const BusyBox: React.ComponentType<BusyBoxExProps> = (props) => {
   const theme = useTheme()
-  const { children, busySize, busyOpacity = 0.85, busy, ...boxProps } = props
+  const breakpoint = useBreakpoint()
+  const propsToUse = { ...props, ...(breakpoint ? props[breakpoint] : {}) }
+
+  const { children, busySize, busyOpacity = 0.85, busy, ...rootProps } = propsToUse
   return (
-    <Box position="relative" {...boxProps}>
+    <Box position="relative" {...rootProps}>
       {children}
       {busy ? (
         <Box

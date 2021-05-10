@@ -1,3 +1,5 @@
+import useBreakpoint from './useBreakpoint'
 import useMounted from './useMounted'
+import useWindowSize from './useWindowSize'
 
-export { useMounted }
+export { useBreakpoint, useMounted, useWindowSize }
