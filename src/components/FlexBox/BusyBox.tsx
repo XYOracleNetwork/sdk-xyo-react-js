@@ -3,21 +3,21 @@ import React from 'react'
 
 import { useBreakpoint } from '../../hooks'
 
-interface BusyBoxProps extends BoxProps {
+interface BusyBoxBaseProps extends BoxProps {
   busy?: boolean
   busyOpacity?: string | number
   busySize?: number
 }
 
-interface BusyBoxExProps extends BusyBoxProps {
-  lg?: BusyBoxProps
-  md?: BusyBoxProps
-  sm?: BusyBoxProps
-  xl?: BusyBoxProps
-  xs?: BusyBoxProps
+interface BusyBoxProps extends BusyBoxBaseProps {
+  lg?: BusyBoxBaseProps
+  md?: BusyBoxBaseProps
+  sm?: BusyBoxBaseProps
+  xl?: BusyBoxBaseProps
+  xs?: BusyBoxBaseProps
 }
 
-const BusyBox: React.ComponentType<BusyBoxExProps> = (props) => {
+const BusyBox: React.ComponentType<BusyBoxProps> = (props) => {
   const theme = useTheme()
   const breakpoint = useBreakpoint()
   const propsToUse = { ...props, ...(breakpoint ? props[breakpoint] : {}) }
