@@ -1,13 +1,11 @@
-import { Box, BoxProps, CircularProgress, useTheme } from '@material-ui/core'
+import { Box, BoxProps } from '@material-ui/core'
 import React from 'react'
 
+import BusyProps from '../../BusyProps'
 import { useBreakpoint } from '../../hooks'
+import BusyBoxBody from './BusyBoxBody'
 
-interface BusyBoxBaseProps extends BoxProps {
-  busy?: boolean
-  busyOpacity?: string | number
-  busySize?: number
-}
+interface BusyBoxBaseProps extends BusyProps, BoxProps {}
 
 interface BusyBoxProps extends BusyBoxBaseProps {
   lg?: BusyBoxBaseProps
@@ -17,8 +15,7 @@ interface BusyBoxProps extends BusyBoxBaseProps {
   xs?: BusyBoxBaseProps
 }
 
-const BusyBox: React.ComponentType<BusyBoxProps> = (props) => {
-  const theme = useTheme()
+const BusyBox: React.FC<BusyBoxProps> = (props) => {
   const breakpoint = useBreakpoint()
   const propsToUse = { ...props, ...(breakpoint ? props[breakpoint] : {}) }
 
@@ -26,24 +23,7 @@ const BusyBox: React.ComponentType<BusyBoxProps> = (props) => {
   return (
     <Box position="relative" {...rootProps}>
       {children}
-      {busy ? (
-        <Box
-          display="flex"
-          bgcolor={props.bgcolor ?? theme.palette.background.default}
-          flexGrow={1}
-          position="absolute"
-          left={0}
-          right={0}
-          top={0}
-          bottom={0}
-          justifyContent="center"
-          alignItems="center"
-          style={{ opacity: busyOpacity }}
-          zIndex={1000}
-        >
-          <CircularProgress size={busySize} />
-        </Box>
-      ) : null}
+      {busy ? <BusyBoxBody opacity={busyOpacity} size={busySize} /> : null}
     </Box>
   )
 }
