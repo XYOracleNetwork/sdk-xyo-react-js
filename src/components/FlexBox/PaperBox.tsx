@@ -1,9 +1,10 @@
-import { Box, CircularProgress, Paper, PaperProps, useTheme } from '@material-ui/core'
+import { Box, Paper, PaperProps, useTheme } from '@material-ui/core'
 import React from 'react'
 
 import BoxlikeComponentProps from '../../BoxlikeComponentProps'
-import BusyComponentProps from '../../BusyComponentProps'
+import BusyComponentProps from '../../BusyProps'
 import mergeBoxlikeStyles from '../../mergeBoxlikeStyles'
+import BusyBoxBody from './BusyBoxBody'
 
 interface PaperBoxProps extends PaperProps, BoxlikeComponentProps, BusyComponentProps {}
 
@@ -17,27 +18,10 @@ const PaperBox: React.FC<PaperBoxProps> = (props) => {
     ...rootProps
   } = mergeBoxlikeStyles<PaperBoxProps>(theme, props, { position: 'relative' })
   return (
-    <Paper {...rootProps}>
+    <Box component={Paper} {...rootProps}>
       {children}
-      {busy ? (
-        <Box
-          display="flex"
-          bgcolor={props.bgcolor ?? theme.palette.background.paper}
-          flexGrow={1}
-          position="absolute"
-          left={0}
-          right={0}
-          top={0}
-          bottom={0}
-          justifyContent="center"
-          alignItems="center"
-          style={{ opacity: busyOpacity }}
-          zIndex={1000}
-        >
-          <CircularProgress size={busySize} />
-        </Box>
-      ) : null}
-    </Paper>
+      {busy ? <BusyBoxBody opacity={busyOpacity} size={busySize} /> : null}
+    </Box>
   )
 }
 

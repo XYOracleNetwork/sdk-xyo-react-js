@@ -1,7 +1,7 @@
-interface BusyComponentProps {
+interface BusyProps {
   busy?: boolean
   busyOpacity?: string | number
   busySize?: number
 }
 
-export default BusyComponentProps
+export default BusyProps
