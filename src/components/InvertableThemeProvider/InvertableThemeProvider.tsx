@@ -1,4 +1,5 @@
-import { createMuiTheme, responsiveFontSizes, ThemeOptions, ThemeProvider } from '@material-ui/core'
+import { responsiveFontSizes, ThemeOptions, ThemeProvider } from '@material-ui/core'
+import { createTheme } from '@material-ui/core/styles'
 import React, { useContext } from 'react'
 
 interface InvertableTheme {
@@ -35,7 +36,7 @@ const InvertableThemeProvider: React.FC<InvertableThemeProviderProps> = (props) 
     options.palette.mode = dark ? 'dark' : 'light'
   }
 
-  let theme = createMuiTheme(options)
+  let theme = createTheme(options)
 
   if (!noResponsiveFonts) {
     theme = responsiveFontSizes(theme)
