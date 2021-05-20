@@ -1,3 +1,4 @@
+import Background from './Background'
 import CookieConsent from './CookieConsent'
 import CoverProgress from './CoverProgress'
 import HoverScale from './HoverScale'
@@ -14,4 +15,4 @@ export * from './LinkEx'
 export * from './NumberStatus'
 export * from './RichResult'
 
-export { CookieConsent, CoverProgress, HoverScale, RedirectWithQuery }
+export { Background, CookieConsent, CoverProgress, HoverScale, RedirectWithQuery }

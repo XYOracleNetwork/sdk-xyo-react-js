@@ -7,7 +7,6 @@ import { FlexCol, FlexGrowRow } from '../FlexBox'
 
 interface NumberStatusProps extends ButtonExProps {
   autoWidth?: boolean
-  children?: undefined
   error?: Error
   fontSize?: number
   shorten?: string | boolean
