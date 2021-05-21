@@ -18,11 +18,14 @@
     "type": "git",
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
-  "main": "./index.cjs.js",
-  "module": "./index.js",
-  "types": "./index.d.js",
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
   "exports": {
-    ".": "./index.js"
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    }
   },
   "sideEffects": false,
   "scripts": {
@@ -41,7 +44,7 @@
   "dependencies": {
     "@material-ui/core": "^5.0.0-alpha.33",
     "@material-ui/styles": "^5.0.0-alpha.33",
-    "@xyo-network/sdk-xyo-js": "^2.1.6",
+    "@xyo-network/sdk-xyo-js": "^2.1.10",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
     "numeral": "^2.0.6",
