@@ -1,8 +1,7 @@
 {
-  "extends": "./tsconfig.es6.json",
+  "extends": "./tsconfig.esnext.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "./src",
+    "outDir": ".",
     "jsx": "react-jsx"
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
