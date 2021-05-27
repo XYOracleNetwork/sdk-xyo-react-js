@@ -23,8 +23,9 @@ export default [
       'react-icons',
       'react-icons/ai',
       'react-router-dom',
+      'tslib',
     ],
-    input: './src/index.ts',
+    input: 'src/index.ts',
     output: [
       {
         file: 'dist/index.cjs',
