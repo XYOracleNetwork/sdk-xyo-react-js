@@ -5,6 +5,7 @@ import useAsyncEffect from './useAsyncEffect'
 
 export * from './profile'
 export * from './safeLocalStorage'
+export * from './safeSessionStorage'
 export * from './Tracking'
 
 export { getApiStage, isLocalhost, useAsyncEffect }

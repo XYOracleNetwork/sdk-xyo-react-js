@@ -1,6 +1,7 @@
 import { Log } from '@xyo-network/sdk-xyo-js'
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useContext } from 'react'
 
+import { UserEventsContext } from '../../contexts'
 import { getLocalStorageObject, isLocalhost, setLocalStorageObject } from '../../lib'
 import { ExperimentProps } from './Experiment'
 
@@ -45,6 +46,8 @@ const makeChildrenArray = (children: ReactElement<ExperimentProps>[] | ReactElem
 
 const Experiments: React.FC<Props> = (props) => {
   const { name, children, testStarted, localStorageProp = true } = props
+  const userEventsConntext = useContext(UserEventsContext)
+  const { userEvents } = userEventsConntext
   loadOutcomes()
 
   const localStorageKey =
@@ -77,6 +80,7 @@ const Experiments: React.FC<Props> = (props) => {
           localStorage.setItem(localStorageKey, mergeData(experimentsTestData))
         }
         if (!isLocalhost) {
+          userEvents?.testStarted({})
           testStarted?.()
         }
       }
