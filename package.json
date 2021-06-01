@@ -11,23 +11,36 @@
     "url": "https://xyo.network",
     "email": "support@xyo.network"
   },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
+  ],
   "license": "LGPL-3.0",
   "private": false,
-  "version": "2.0.53",
+  "version": "2.0.55",
   "repository": {
     "type": "git",
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
-  "main": "./index.cjs",
-  "module": "./index.js",
-  "types": "./index.d.ts",
-  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "rm -r -f dist && yarn deps && yarn lint && yarn compile && yarn copy-src",
-    "copy-src": "cp package.json ./dist",
+    "build": "rm -r -f dist && yarn deps && yarn lint && yarn compile",
     "compile": "rollup -c rollup.config.ts",
-    "deploy": "yarn version --patch && yarn build && yarn publish ./dist --access public",
+    "deploy": "yarn version --patch && yarn build && yarn publish",
     "lint": "eslint --ext .ts,.tsx ./src",
     "lint-pkg": "npmPkgJsonLint .",
     "fix": "eslint --ext .ts,.tsx ./src --fix",
@@ -40,7 +53,7 @@
   "dependencies": {
     "@material-ui/core": "^5.0.0-alpha.34",
     "@material-ui/styles": "^5.0.0-alpha.33",
-    "@xyo-network/sdk-xyo-js": "^2.1.15",
+    "@xyo-network/sdk-xyo-js": "^2.1.17",
     "axios": "^0.21.1",
     "lodash": "^4.17.21",
     "numeral": "^2.0.6",
