@@ -28,14 +28,12 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/index.cjs',
+        file: 'dist/index.cjs.js',
         format: 'cjs',
-        sourcemap: true,
       },
       {
-        file: 'dist/index.js',
+        file: 'dist/index.mjs.js',
         format: 'es',
-        sourcemap: true,
       },
     ],
     plugins: [typescript({ tsconfig: './tsconfig.json' })],
