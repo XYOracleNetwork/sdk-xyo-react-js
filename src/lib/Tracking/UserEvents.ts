@@ -1,3 +1,4 @@
+import FunnelStartedData from './FunnelStartedData'
 import UserClickData from './UserClickData'
 import UserEventHandler from './UserEventHandler'
 import ViewContentData from './ViewContentData'
@@ -11,6 +12,10 @@ class UserEvents<T> extends UserEventHandler<T> {
 
   async testStarted(data: T) {
     await Promise.all(this.handlers.map((handler) => handler.testStarted(data)))
+  }
+
+  async funnelStarted(data: T | FunnelStartedData) {
+    await Promise.all(this.handlers.map((handler) => handler.funnelStarted(data)))
   }
 
   async viewContent(data: T | ViewContentData) {
