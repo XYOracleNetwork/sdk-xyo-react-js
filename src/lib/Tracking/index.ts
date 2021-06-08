@@ -6,5 +6,6 @@ export * from './Facebook'
 export * from './Google'
 export * from './Snapchat'
 export * from './Tiktok'
+export * from './Xy'
 
 export { Referrer, XyoUserEventHandler }
