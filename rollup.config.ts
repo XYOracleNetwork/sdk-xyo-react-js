@@ -9,6 +9,7 @@ export default [
       '@material-ui/core/styles',
       '@material-ui/styles',
       '@xyo-network/sdk-xyo-js',
+      '@xylabs/pixel',
       'axios',
       'lodash',
       'lodash/isEqual',
