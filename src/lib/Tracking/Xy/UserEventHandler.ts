@@ -2,7 +2,7 @@ import { FunnelStartedFields, UserClickFields, UserEventHandler, ViewContentFiel
 
 import CustomEvent from './CustomEvent'
 
-class FacebookUserEventHandler<T> implements UserEventHandler<T> {
+class XyUserEventHandler<T> implements UserEventHandler<T> {
   public async testStarted(data: T) {
     const event = new CustomEvent<T>('TestStarted')
     return await event.send(data)
@@ -24,4 +24,4 @@ class FacebookUserEventHandler<T> implements UserEventHandler<T> {
   }
 }
 
-export default FacebookUserEventHandler
+export default XyUserEventHandler

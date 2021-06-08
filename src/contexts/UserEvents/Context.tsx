@@ -1,6 +1,5 @@
+import { UserEventHandler } from '@xylabs/pixel'
 import React from 'react'
-
-import { UserEventHandler } from '../../lib'
 
 interface Props {
   userEvents?: UserEventHandler<any>

@@ -9,6 +9,7 @@ export default [
       '@material-ui/core/styles',
       '@material-ui/styles',
       '@xyo-network/sdk-xyo-js',
+      '@xylabs/pixel',
       'axios',
       'lodash',
       'lodash/isEqual',
@@ -28,11 +29,11 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/index.cjs.js',
+        file: 'dist/index.cjs',
         format: 'cjs',
       },
       {
-        file: 'dist/index.mjs.js',
+        file: 'dist/index.js',
         format: 'es',
       },
     ],

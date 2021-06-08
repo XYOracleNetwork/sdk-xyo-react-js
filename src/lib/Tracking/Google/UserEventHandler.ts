@@ -1,7 +1,5 @@
-import FunnelStartedData from '../FunnelStartedData'
-import UserClickData from '../UserClickData'
-import UserEventHandler from '../UserEventHandler'
-import ViewContentData from '../ViewContentData'
+import { FunnelStartedFields, UserClickFields, UserEventHandler, ViewContentFields } from '@xylabs/pixel'
+
 import CustomEvent from './CustomEvent'
 
 class GoogleUserEventHandler<T> implements UserEventHandler<T> {
@@ -10,18 +8,18 @@ class GoogleUserEventHandler<T> implements UserEventHandler<T> {
     return await event.send(data)
   }
 
-  public async funnelStarted(data: FunnelStartedData | T) {
-    const event = new CustomEvent<FunnelStartedData | T>('FunnelStarted')
+  public async funnelStarted(data: FunnelStartedFields | T) {
+    const event = new CustomEvent<FunnelStartedFields | T>('FunnelStarted')
     return await event.send(data)
   }
 
-  public async viewContent(data: ViewContentData | T) {
-    const event = new CustomEvent<ViewContentData | T>('ViewContent')
+  public async viewContent(data: ViewContentFields | T) {
+    const event = new CustomEvent<ViewContentFields | T>('ViewContent')
     return await event.send(data)
   }
 
-  public async userClick(data: UserClickData | T) {
-    const event = new CustomEvent<UserClickData | T>('UserClick')
+  public async userClick(data: UserClickFields | T) {
+    const event = new CustomEvent<UserClickFields | T>('UserClick')
     return await event.send(data)
   }
 }
