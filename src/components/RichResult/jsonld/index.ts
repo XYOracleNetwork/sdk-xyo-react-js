@@ -2,6 +2,7 @@ import Action from './Action'
 import ActionStatusType from './ActionStatusType'
 import AdministrativeArea from './AdministrativeArea'
 import AggregateRating from './AggrigateRating'
+import Article from './Article'
 import Base from './Base'
 import Class from './Class'
 import ContactPoint from './ContactPoint'
@@ -49,6 +50,7 @@ export type {
   Action,
   AdministrativeArea,
   AggregateRating,
+  Article,
   Base,
   Class,
   ContactPoint,
