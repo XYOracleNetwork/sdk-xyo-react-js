@@ -1,9 +1,9 @@
 {
-  "extends": "./tsconfig.es6.json",
+  "extends": "./tsconfig.es2020.json",
   "compilerOptions": {
-    "outDir": ".",
+    "outDir": "./dist",
     "jsx": "react-jsx"
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["./src/**/*.spec.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.spec.ts"]
 }
