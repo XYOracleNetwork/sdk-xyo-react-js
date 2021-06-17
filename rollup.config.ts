@@ -18,7 +18,6 @@ export default [
       'randombytes',
       'react',
       'react/jsx-runtime',
-      'react-cookie-consent',
       'react-dom',
       'react-helmet',
       'react-icons',
