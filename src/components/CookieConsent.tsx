@@ -6,23 +6,21 @@ import { ButtonEx } from './ButtonEx'
 import { FlexRow } from './FlexBox'
 
 interface Props extends BoxProps {
-  hideOnScroll?: boolean
+  acceptOnScroll?: boolean
 }
 
 const CookieConsent: React.FC<Props> = (props) => {
-  const { hideOnScroll } = props
+  const { acceptOnScroll } = props
   const [accepted, setAccepted] = useState(localStorage.getItem('CookiesAccepted') === 'true')
 
-  const [showCookieConsent, setShowCookieConsent] = useState(true)
-
   const onScroll = () => {
-    if (showCookieConsent) {
-      setShowCookieConsent(false)
+    if (!accepted) {
+      onAcceptClick()
     }
   }
 
   useEffect(() => {
-    if (hideOnScroll) {
+    if (acceptOnScroll) {
       window.addEventListener('scroll', onScroll)
 
       return () => {
@@ -36,9 +34,7 @@ const CookieConsent: React.FC<Props> = (props) => {
     setAccepted(true)
   }
 
-  const show = !accepted && showCookieConsent
-
-  return show ? (
+  return accepted ? null : (
     <Background
       display="flex"
       position="fixed"
@@ -66,7 +62,7 @@ const CookieConsent: React.FC<Props> = (props) => {
         Accept
       </ButtonEx>
     </Background>
-  ) : null
+  )
 }
 
 export default CookieConsent
