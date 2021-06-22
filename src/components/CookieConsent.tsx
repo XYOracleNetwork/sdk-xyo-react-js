@@ -14,8 +14,11 @@ const CookieConsent: React.FC<Props> = (props) => {
   const [accepted, setAccepted] = useState(localStorage.getItem('CookiesAccepted') === 'true')
 
   const onScroll = () => {
-    if (!accepted) {
-      onAcceptClick()
+    //hide it one the user has scrolled at least one page
+    if (window.pageYOffset > window.innerHeight) {
+      if (!accepted) {
+        onAcceptClick()
+      }
     }
   }
 
