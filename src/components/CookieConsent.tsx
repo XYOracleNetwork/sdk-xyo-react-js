@@ -1,19 +1,44 @@
 import { BoxProps, Link, Typography } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Background from './Background'
 import { ButtonEx } from './ButtonEx'
 import { FlexRow } from './FlexBox'
 
-const CookieConsent: React.FC<BoxProps> = (props) => {
+interface Props extends BoxProps {
+  hideOnScroll?: boolean
+}
+
+const CookieConsent: React.FC<Props> = (props) => {
+  const { hideOnScroll } = props
   const [accepted, setAccepted] = useState(localStorage.getItem('CookiesAccepted') === 'true')
+
+  const [showCookieConsent, setShowCookieConsent] = useState(true)
+
+  const onScroll = () => {
+    if (showCookieConsent) {
+      setShowCookieConsent(false)
+    }
+  }
+
+  useEffect(() => {
+    if (hideOnScroll) {
+      window.addEventListener('scroll', onScroll)
+
+      return () => {
+        window.removeEventListener('scroll', onScroll)
+      }
+    }
+  })
 
   const onAcceptClick = () => {
     localStorage.setItem('CookiesAccepted', 'true')
     setAccepted(true)
   }
 
-  return accepted ? null : (
+  const show = !accepted && showCookieConsent
+
+  return show ? (
     <Background
       display="flex"
       position="fixed"
@@ -41,7 +66,7 @@ const CookieConsent: React.FC<BoxProps> = (props) => {
         Accept
       </ButtonEx>
     </Background>
-  )
+  ) : null
 }
 
 export default CookieConsent
