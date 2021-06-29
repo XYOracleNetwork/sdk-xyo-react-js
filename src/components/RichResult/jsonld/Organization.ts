@@ -36,7 +36,7 @@ interface Organization extends Thing {
   diversityStaffingReport?: Article | URL
   duns?: Text
   email?: Text
-  employee?: Person
+  employee?: Person | Person[]
   ethicsPolicy?: CreativeWork | URL
   event?: Event
   faxNumber?: Text
