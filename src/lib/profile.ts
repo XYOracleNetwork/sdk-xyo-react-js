@@ -12,7 +12,7 @@ export const enableProfileLogging = (enabled: boolean) => {
 
 export const profileResults: Array<ProfileResult> = []
 
-export const profileBlock = async (name: string, closure: () => Promise<any>) => {
+export const profileBlock = async (name: string, closure: () => Promise<unknown>) => {
   const startTime = Date.now()
   await closure()
   const endTime = Date.now()

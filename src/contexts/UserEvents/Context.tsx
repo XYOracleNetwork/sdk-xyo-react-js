@@ -2,7 +2,7 @@ import { UserEventHandler } from '@xylabs/pixel'
 import React from 'react'
 
 interface Props {
-  userEvents?: UserEventHandler<any>
+  userEvents?: UserEventHandler<unknown>
 }
 
 const Context = React.createContext<Props>({})

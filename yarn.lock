@@ -1061,7 +1061,7 @@
     eslint-scope "^5.0.0"
     eslint-utils "^2.0.0"
 
-"@typescript-eslint/parser@^4.26.1", "@typescript-eslint/parser@^4.28.1":
+"@typescript-eslint/parser@^4.26.1":
   version "4.28.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-4.28.1.tgz#5181b81658414f47291452c15bf6cd44a32f85bd"
   integrity sha512-UjrMsgnhQIIK82hXGaD+MCN8IfORS1CbMdu7VlZbYa8LCZtbZjJA26De4IPQB7XYZbL8gJ99KWNj0l6WD0guJg==
@@ -1197,23 +1197,20 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.1.2.tgz#1069c0bc7d6f4bd15ccf3a5f3be29450aca368f9"
   integrity sha512-EmH/poaDWBPJaPILXNI/1fvUbArJQmmTyVCwvvyDYDFnkPoTclAbHRAtyIvqfez7jybTDn077HTNILpxlsoWhg==
 
-"@xylabs/pixel@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/@xylabs/pixel/-/pixel-1.0.15.tgz#4caab093a5334cf7b499bb791fd6c90e7d564cb4"
-  integrity sha512-XG3Y6ay8yFfHJfeyLJPB0aWkV40s+fl1/lu3Kq/9SEJSGK7abY1foq1urjWe+u4CElckeM75oN6SyXzDefgx5w==
+"@xylabs/eslint-config-react@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@xylabs/eslint-config-react/-/eslint-config-react-2.0.5.tgz#141e28f7ab854371586bc32bc8f2e2b167a4e644"
+  integrity sha512-zt+QetI2lOc6XLPmM/qmj8Yjzg3pJt24OMBRKxRje31Q6lRQciPzngoxhoZN3i1l0tVpi/VUJp1MyGBQuIYz0Q==
   dependencies:
-    "@xyo-network/sdk-xyo-js" "^2.1.17"
-    async-mutex "^0.3.1"
-    axios "^0.21.1"
-    lodash "^4.17.21"
-    md5 "^2.3.0"
-    randombytes "^2.1.0"
-    tslib "^2.2.0"
+    "@xylabs/eslint-config" "^2.0.3"
+    eslint "^7.29.0"
+    eslint-plugin-react "^7.20.6"
+    eslint-plugin-react-hooks "^4.0.4"
 
-"@xyo-network/eslint-config@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@xyo-network/eslint-config/-/eslint-config-2.0.1.tgz#c42c32dffb4caf3d85f37df4c017140083c702ce"
-  integrity sha512-Xs1pN/kdFl4mMihHozCJXaSlXN6fFHJzXYX+Og0WhQlgZ2dKdKMqbR6hBfYGcbrudDV964UPHu47eRR71dsmXA==
+"@xylabs/eslint-config@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@xylabs/eslint-config/-/eslint-config-2.0.3.tgz#45920d1e2e7b0d34a6eeb93f8b86ccd57626ee9e"
+  integrity sha512-4eckeg/ePBibYEQLpiuLSy6DcRVhmVn7nyGTkbp+KeXn/m9MFwBVjHMddAVBYU2Fr4pBepv3Z9Acv0Clu6FSZQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.26.1"
     "@typescript-eslint/parser" "^4.26.1"
@@ -1223,10 +1220,26 @@
     eslint-plugin-json "^3.0.0"
     eslint-plugin-no-secrets "^0.8.9"
     eslint-plugin-prettier "^3.2.0"
+    eslint-plugin-react "^7.20.6"
+    eslint-plugin-react-hooks "^4.0.4"
     eslint-plugin-simple-import-sort "^7.0.0"
     eslint-plugin-sort-keys-fix "^1.1.1"
     eslint-plugin-typescript-sort-keys "^1.6.0"
     prettier "^2.3.1"
+    typescript "^4.3.4"
+
+"@xylabs/pixel@^1.0.15":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@xylabs/pixel/-/pixel-1.0.16.tgz#d4952488fa53a0e154630a9cf501f081bebbbdff"
+  integrity sha512-Edm1vQ0kravmNajeXgJn1yxWegQ/G5wNYkv9oGzhr3+YRl1zCf2YnGIiLW4ehobt9RlJTWL2euFRsuCYFq3vLg==
+  dependencies:
+    "@xyo-network/sdk-xyo-js" "^2.1.17"
+    async-mutex "^0.3.1"
+    axios "^0.21.1"
+    lodash "^4.17.21"
+    md5 "^2.3.0"
+    randombytes "^2.1.0"
+    tslib "^2.2.0"
 
 "@xyo-network/sdk-xyo-js@^2.1.17", "@xyo-network/sdk-xyo-js@^2.1.24":
   version "2.1.26"
@@ -4680,9 +4693,9 @@ rollbar@^2.21.1:
     decache "^3.0.5"
 
 rollup@^2.52.1:
-  version "2.52.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.52.3.tgz#062fc3c85f67736d6758749310cfee64836c4e2a"
-  integrity sha512-QF3Sju8Kl2z0osI4unyOLyUudyhOMK6G0AeqJWgfiyigqLAlnNrfBcDWDx+f1cqn+JU2iIYVkDrgQ6/KtwEfrg==
+  version "2.52.4"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.52.4.tgz#0150247d54fb2f21be4915b898f8764389fea292"
+  integrity sha512-AXgUxxWXyGfsj8GKleR1k8KsG8G+7ZZDRU9RZb9PnLGSyTqI/1qf/+QSp1hRaR40j4yfBCKXs5khtGKiFwihfg==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -5218,7 +5231,7 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^4.3.3:
+typescript@^4.3.3, typescript@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
   integrity sha512-uauPG7XZn9F/mo+7MrsRjyvbxFpzemRjKEZXS4AK83oP2KKOJPvb+9cO/gmnv8arWZvhnjVOXz7B49m1l0e9Ew==

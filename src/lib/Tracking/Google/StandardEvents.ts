@@ -1,6 +1,6 @@
 import StandardEvent from './StandardEvent'
 
-export interface GoogleBaseProperties {
+export interface GoogleBaseProperties extends Record<string, unknown> {
   lib: 'xyga'
 }
 
@@ -25,12 +25,12 @@ export interface GoogleAdwordsItem {
 
 export interface GoogleItem extends GoogleAdwordsItem, GoogleAnalyticsItem {}
 
-export interface GoogleValueProperties {
+export interface GoogleValueProperties extends Record<string, unknown> {
   currency?: string
   value?: number
 }
 
-export interface GoogleItemsProperties {
+export interface GoogleItemsProperties extends Record<string, unknown> {
   items?: GoogleItem[]
 }
 
@@ -53,7 +53,7 @@ export type GoogleViewItemProperties = GoogleCartProperties
 
 export interface GoogleAddToWishlistProperties extends GoogleValueProperties, GoogleItemsProperties {}
 
-export interface GoogleEarnVirtualCurrencyProperties {
+export interface GoogleEarnVirtualCurrencyProperties extends Record<string, unknown> {
   value?: number
   virtual_currency_name?: string
 }
@@ -66,7 +66,7 @@ export interface GoogleBeginCheckoutProperties extends GoogleValueProperties, Go
   coupon?: string
 }
 
-export interface GoogleJoinGroupProperties {
+export interface GoogleJoinGroupProperties extends Record<string, unknown> {
   group_id?: string
 }
 
@@ -108,7 +108,7 @@ export interface GoogleRefundProperties extends GoogleValueProperties, GoogleIte
   transaction_id?: string
 }
 
-export class GoogleStandardEvents<T> {
+export class GoogleStandardEvents<T extends Record<string, unknown>> {
   public addPaymentInfo() {
     return new StandardEvent<GoogleBaseProperties | GoogleAddPaymentInfoProperties | T>('add_paymennt_info')
   }

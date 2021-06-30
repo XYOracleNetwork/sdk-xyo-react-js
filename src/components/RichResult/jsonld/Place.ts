@@ -17,12 +17,12 @@ interface Place extends Thing, GeospatialGeometry {
   additionalProperty?: PropertyValue
   address?: PostalAddress | Text
   aggrigateRating?: AggregateRating
-  amenityFeature?: any
+  amenityFeature?: unknown
   branchCode?: Text
   containedInPlace?: Place
   containsPlace?: Place
   event?: Event
-  geo?: any
+  geo?: unknown
   geoLocationNumber?: Text
   hasDriveThroughService?: boolean
   hasMap?: Map | URL
@@ -32,13 +32,13 @@ interface Place extends Thing, GeospatialGeometry {
   logo?: ImageObject | URL
   longitude?: number | Text
   maximumAttendeeCapacity?: Integer
-  openingHoursSpecification?: any
+  openingHoursSpecification?: unknown
   photo?: ImageObject | Photograph
   publicAccess?: boolean
   review?: Review
   slogan?: Text
   smokingAllowed?: boolean
-  specialOpeningHoursSpecification?: any
+  specialOpeningHoursSpecification?: unknown
   telephone?: Text
   tourBookingPage?: URL
 }

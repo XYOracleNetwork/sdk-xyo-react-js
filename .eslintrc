@@ -1,27 +1,9 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
-  "ignorePatterns": ["node_modules/", "dist/"],
-  "plugins": [
-    "react",
-    "react-hooks"
-  ],
   "extends": [
-    "@xyo-network",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "@xylabs/react"
   ],
-  "settings": {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
-    },
-    "react": {
-      "version": "detect"
-    }
-  },
   "rules": {
-    "react/prop-types": ["off"],
-    "react/react-in-jsx-scope": ["off"],
     "import/no-internal-modules": ["warn", {"allow": [
       "**/*.jpg",
       "**/*.png",

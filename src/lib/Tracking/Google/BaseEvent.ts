@@ -3,7 +3,7 @@ import { assertEx } from '@xyo-network/sdk-xyo-js'
 import Gtag from './Gtag'
 import Gtm from './Gtm'
 
-class BaseEvent<T> {
+class BaseEvent<T extends Record<string, unknown>> {
   public name: string
   protected adwordConversionId?: string
   constructor(name: string, adwordConversionId?: string) {

@@ -18,14 +18,14 @@ import URL from './URL'
 interface Service extends Intangible {
   aggregateRating?: AggregateRating
   areaServed?: AdministrativeArea | GeoShape | Place | Text
-  audience?: any
-  availableChannel?: any
+  audience?: unknown
+  availableChannel?: unknown
   award?: Text
-  brand?: any | Organization
+  brand?: unknown | Organization
   broker?: Organization | Person
-  category?: any | Text | Thing | URL
-  hasOfferCatalog?: any
-  hoursAvailable?: any
+  category?: unknown | Text | Thing | URL
+  hasOfferCatalog?: unknown
+  hoursAvailable?: unknown
   isRelatedTo?: Product | Service
   isSimilarTo?: Product | Service
   logo?: ImageObject | URL
@@ -34,7 +34,7 @@ interface Service extends Intangible {
   providerMobility?: Text
   review?: Review
   serviceOutput?: Thing
-  serviceType?: any | Text
+  serviceType?: unknown | Text
   slogan?: Text
   termsOfService?: Text | URL
 }

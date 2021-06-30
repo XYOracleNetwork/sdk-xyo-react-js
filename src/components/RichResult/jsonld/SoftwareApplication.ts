@@ -26,7 +26,7 @@ interface SoftwareApplication extends CreativeWork {
   softwareRequirements?: Text | URL
   softwareVersion?: Text
   storageRequirements?: Text | URL
-  supportingData?: any
+  supportingData?: unknown
 }
 
 export default SoftwareApplication
