@@ -1,9 +1,11 @@
+import { WithDataLayer } from './DataLayer'
+
 class Gtm {
   public containerId?: string
 
   private constructor(containerId: string) {
     this.containerId = containerId
-    const global = window as any
+    const global = window as WithDataLayer
     global.dataLayer = global.dataLayer || []
     global.dataLayer.push({ event: 'gtm.js', 'gtm.start': new Date().getTime() })
   }
@@ -13,7 +15,7 @@ class Gtm {
   }
 
   public static clearDataLayer() {
-    const global = window as any
+    const global = window as WithDataLayer
     const dataLayer = global.dataLayer as []
     dataLayer.length = 0
   }
@@ -26,10 +28,10 @@ class Gtm {
     return this.instance
   }
 
-  public send(event: string, data: any, eventTimeout = 500) {
+  public send(event: string, data: Record<string, unknown>, eventTimeout = 500) {
     return new Promise<void>((resolve) => {
-      const global = window as any
-      global.dataLayer.push({
+      const global = window as WithDataLayer
+      global.dataLayer?.push({
         event,
         ...data,
         eventCallback: () => {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { delay } from '@xyo-network/sdk-xyo-js'
 
 class Ttq {
@@ -12,7 +13,7 @@ class Ttq {
 
     this.ttq = function () {
       // eslint-disable-next-line prefer-rest-params,prefer-spread
-      this.ttq.callMethod ? this.ttq.callMethod.apply(this.ttq, arguments) : this.ttq.queue.push(arguments)
+      this.ttq?.callMethod ? this.ttq.callMethod.apply(this.ttq, arguments) : this.ttq.queue.push(arguments)
     }
 
     this.ttq = []

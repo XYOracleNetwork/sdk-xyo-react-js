@@ -21,7 +21,7 @@ interface CreativeWork extends Thing {
   about?: Thing
   abstract?: Text
   accessMode?: Text
-  accessModeSufficient?: any
+  accessModeSufficient?: unknown
   accessibilityAPI?: Text
   accessibilityControl?: Text
   accessibilityFeature?: Text
@@ -31,15 +31,15 @@ interface CreativeWork extends Thing {
   acquireLicensePage?: CreativeWork | URL
   aggregateRating?: AggregateRating
   alternativeHeading?: Text
-  assesses?: any | Text
+  assesses?: unknown | Text
   associatedMedia?: MediaObject
-  audience?: any
-  audio?: any | any | any
+  audience?: unknown
+  audio?: unknown | unknown | unknown
   author?: Organization | Person
   award?: Text
   character?: Person
   citation?: CreativeWork | Text
-  comment?: any
+  comment?: unknown
   commentCount?: Integer
   conditionsOfAccess?: Text
   contentLocation?: Place
@@ -49,8 +49,8 @@ interface CreativeWork extends Thing {
   copyrightHolder?: Organization | Person
   copyrightNotice?: Text
   copyrightYear?: number
-  correction?: any | Text | URL
-  creativeWorkStatus?: any | Text
+  correction?: unknown | Text | URL
+  creativeWorkStatus?: unknown | Text
   creator?: Organization | Person
   creditText?: Text
   dateCreated?: DateTime
@@ -59,9 +59,9 @@ interface CreativeWork extends Thing {
   discussionUrl?: URL
   editEIDR?: Text | URL
   editor?: Person
-  educationalAlignment?: any
-  educationalLevel?: any | Text | URL
-  educationalUse?: any | Text
+  educationalAlignment?: unknown
+  educationalLevel?: unknown | Text | URL
+  educationalUse?: unknown | Text
   encoding?: MediaObject
   encodingFormat?: Text | URL
   exampleOfWork?: CreativeWork
@@ -71,14 +71,14 @@ interface CreativeWork extends Thing {
   hasPart?: CreativeWork
   headline?: Text
   inLanguage?: Language | Text
-  interactionStatistic?: any
+  interactionStatistic?: unknown
   interactiveityType?: Text
   isAccessibleForFree?: boolean
   isBasedOn?: CreativeWork | Product | URL
   isFamilyFriendly?: boolean
   isPartOf?: CreativeWork | URL
-  keywords?: any | Text | URL
-  learningResourceType?: any | Text
+  keywords?: unknown | Text | URL
+  learningResourceType?: unknown | Text
   license?: CreativeWork | URL
   locationCreated?: Place
   mainEntry?: Thing
@@ -86,39 +86,39 @@ interface CreativeWork extends Thing {
   material?: Product | Text | URL
   materialExtent?: QuantitativeValue | Text
   mentions?: Thing
-  offers?: any | Offer[]
-  pattern?: any | Text
+  offers?: unknown | Offer[]
+  pattern?: unknown | Text
   position?: Integer | Text
   producer?: Organization | Person
   provider?: Organization | Person
-  publication?: any
+  publication?: unknown
   publisher?: Organization | Person
   publisherImprint?: Organization
   publishingPrinciples?: CreativeWork | URL
   recordedAt?: Event
-  releasedEvent?: any
+  releasedEvent?: unknown
   review?: Review
   schemaVersion?: Text | URL
   sdDatePublished?: DateTime
   sdLicense?: CreativeWork | URL
   sdPublisher?: Organization | Person
-  size?: any | QuantitativeValue | Text
+  size?: unknown | QuantitativeValue | Text
   sourceOrganization?: Organization
   spatial?: Place
   spatialCoverage?: Place
   sponsor?: Organization | Person
-  teaches?: any | Text
+  teaches?: unknown | Text
   temporal?: DateTime | Text
   temporalCoverage?: DateTime | Text | URL
   text?: Text
   thumbnailUrl?: URL
-  timeRequired?: any
+  timeRequired?: unknown
   translationOfWork?: CreativeWork
   translator?: Organization | Person
   typicalAgeRange?: Text
   usageInfo?: CreativeWork | URL
   version?: number | Text
-  video?: any
+  video?: unknown
   workExample?: CreativeWork
   workTranslation?: CreativeWork
 }

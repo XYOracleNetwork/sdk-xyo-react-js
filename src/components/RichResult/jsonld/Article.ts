@@ -10,7 +10,7 @@ interface Article extends CreativeWork {
   pageEnd?: Integer | Text
   pageStart?: Integer | Text
   pagination?: Text
-  speakable?: any | URL
+  speakable?: unknown | URL
   wordCount?: Integer
 }
 

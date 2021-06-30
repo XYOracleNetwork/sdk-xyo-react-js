@@ -36,38 +36,38 @@ interface Person extends Thing {
   gender?: string
   givenName?: string
   globalLocationNumber?: string
-  hasCredential?: any
-  hasOccupation?: any
-  hasOfferCatalog?: any
+  hasCredential?: unknown
+  hasOccupation?: unknown
+  hasOfferCatalog?: unknown
   hasPOS?: Place
-  height?: any
+  height?: unknown
   homeLocation?: ContactPoint | Place
   honorificPrefix?: string
   honorificSuffix?: string
-  interactionStatistic?: any
+  interactionStatistic?: unknown
   isicV4?: string
   jobTitle?: string
   knows?: Person | Person[]
   knowsAbout?: string | Thing | (string | Thing)[]
   knowsLanguage?: Language | string | (Language | string)[]
   makesOffer?: Offer | Offer[]
-  memberOf?: Organization | any | (Organization | any)[]
+  memberOf?: Organization | unknown | (Organization | unknown)[]
   naics?: string
   nationality?: Country
-  netWorth?: any
-  owns?: Product | any | (Product | any)[]
+  netWorth?: unknown
+  owns?: Product | unknown | (Product | unknown)[]
   parent?: Person | Person[]
   performerIn?: Event | CreativeWork | string | (Event | CreativeWork | string)[]
   publishingPrinciples?: CreativeWork | string
   relatedTo?: Person | Person[]
-  seeks?: any
+  seeks?: unknown
   sibling?: Person | Person[]
   sponsor?: Organization | Person | (Organization | Person)[]
   spouse?: Person
   taxID?: string
   telephone?: string
   vatID?: string
-  weight?: any
+  weight?: unknown
   workLocation?: ContactPoint | Place | (ContactPoint | Place)[]
   worksFor?: Organization | Organization[]
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { delay } from '@xyo-network/sdk-xyo-js'
 
 class SnapTr {

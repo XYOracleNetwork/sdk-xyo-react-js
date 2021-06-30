@@ -1026,7 +1026,7 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@typescript-eslint/eslint-plugin@^4.25.0":
+"@typescript-eslint/eslint-plugin@^4.26.1":
   version "4.28.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.28.1.tgz#c045e440196ae45464e08e20c38aff5c3a825947"
   integrity sha512-9yfcNpDaNGQ6/LQOX/KhUFTR1sCKH+PBr234k6hI9XJ0VP5UqGxap0AnNwBnWFk1MNyWBylJH9ZkzBXC+5akZQ==
@@ -1061,7 +1061,7 @@
     eslint-scope "^5.0.0"
     eslint-utils "^2.0.0"
 
-"@typescript-eslint/parser@^4.25.0":
+"@typescript-eslint/parser@^4.26.1":
   version "4.28.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-4.28.1.tgz#5181b81658414f47291452c15bf6cd44a32f85bd"
   integrity sha512-UjrMsgnhQIIK82hXGaD+MCN8IfORS1CbMdu7VlZbYa8LCZtbZjJA26De4IPQB7XYZbL8gJ99KWNj0l6WD0guJg==
@@ -1197,10 +1197,41 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.1.2.tgz#1069c0bc7d6f4bd15ccf3a5f3be29450aca368f9"
   integrity sha512-EmH/poaDWBPJaPILXNI/1fvUbArJQmmTyVCwvvyDYDFnkPoTclAbHRAtyIvqfez7jybTDn077HTNILpxlsoWhg==
 
+"@xylabs/eslint-config-react@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@xylabs/eslint-config-react/-/eslint-config-react-2.0.5.tgz#141e28f7ab854371586bc32bc8f2e2b167a4e644"
+  integrity sha512-zt+QetI2lOc6XLPmM/qmj8Yjzg3pJt24OMBRKxRje31Q6lRQciPzngoxhoZN3i1l0tVpi/VUJp1MyGBQuIYz0Q==
+  dependencies:
+    "@xylabs/eslint-config" "^2.0.3"
+    eslint "^7.29.0"
+    eslint-plugin-react "^7.20.6"
+    eslint-plugin-react-hooks "^4.0.4"
+
+"@xylabs/eslint-config@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@xylabs/eslint-config/-/eslint-config-2.0.3.tgz#45920d1e2e7b0d34a6eeb93f8b86ccd57626ee9e"
+  integrity sha512-4eckeg/ePBibYEQLpiuLSy6DcRVhmVn7nyGTkbp+KeXn/m9MFwBVjHMddAVBYU2Fr4pBepv3Z9Acv0Clu6FSZQ==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^4.26.1"
+    "@typescript-eslint/parser" "^4.26.1"
+    eslint "^7.29.0"
+    eslint-config-prettier "^8.1.0"
+    eslint-plugin-import "^2.22.1"
+    eslint-plugin-json "^3.0.0"
+    eslint-plugin-no-secrets "^0.8.9"
+    eslint-plugin-prettier "^3.2.0"
+    eslint-plugin-react "^7.20.6"
+    eslint-plugin-react-hooks "^4.0.4"
+    eslint-plugin-simple-import-sort "^7.0.0"
+    eslint-plugin-sort-keys-fix "^1.1.1"
+    eslint-plugin-typescript-sort-keys "^1.6.0"
+    prettier "^2.3.1"
+    typescript "^4.3.4"
+
 "@xylabs/pixel@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/@xylabs/pixel/-/pixel-1.0.15.tgz#4caab093a5334cf7b499bb791fd6c90e7d564cb4"
-  integrity sha512-XG3Y6ay8yFfHJfeyLJPB0aWkV40s+fl1/lu3Kq/9SEJSGK7abY1foq1urjWe+u4CElckeM75oN6SyXzDefgx5w==
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@xylabs/pixel/-/pixel-1.0.16.tgz#d4952488fa53a0e154630a9cf501f081bebbbdff"
+  integrity sha512-Edm1vQ0kravmNajeXgJn1yxWegQ/G5wNYkv9oGzhr3+YRl1zCf2YnGIiLW4ehobt9RlJTWL2euFRsuCYFq3vLg==
   dependencies:
     "@xyo-network/sdk-xyo-js" "^2.1.17"
     async-mutex "^0.3.1"
@@ -1211,9 +1242,11 @@
     tslib "^2.2.0"
 
 "@xyo-network/sdk-xyo-js@^2.1.17", "@xyo-network/sdk-xyo-js@^2.1.24":
-  version "2.1.24"
-  resolved "https://registry.yarnpkg.com/@xyo-network/sdk-xyo-js/-/sdk-xyo-js-2.1.24.tgz#7c7e8fd8fbe014baa31d9d1fa9e70a794c792bdf"
-  integrity sha512-uTuC94ebaVwh2U/9Ow2xnH6S5Q0ifrk9pzHwVFIpoWlDcAh5DQpS99IzT29D+YeuNIX5qhcvMF/cJhqSY4jYjQ==
+  version "2.1.26"
+  resolved "https://registry.yarnpkg.com/@xyo-network/sdk-xyo-js/-/sdk-xyo-js-2.1.26.tgz#ff39883093c83d30cd9b0a528ee366d8589be0f8"
+  integrity sha512-zKovqGC5u2peU5fxJEl3J5Htd6PMoKZpZKaVTSfbSlYHNNIMHkxLDYTH3b+ElM2qc0wawhXZi/DAOSpxTAxB5w==
+  optionalDependencies:
+    rollbar "^2.21.1"
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
@@ -1987,9 +2020,9 @@ domexception@^2.0.1:
     webidl-conversions "^5.0.0"
 
 electron-to-chromium@^1.3.723:
-  version "1.3.761"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.761.tgz#6a1748bab8ed94984391ec8be8a7e7ec1fe3d843"
-  integrity sha512-7a/wV/plM/b95XjTdA2Q4zAxxExTDKkNQpTiaU/nVT8tGCQVtX9NsnTjhALBFICpOB58hU6xg5fFC3CT2Bybpg==
+  version "1.3.762"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.762.tgz#3fa4e3bcbda539b50e3aa23041627063a5cffe61"
+  integrity sha512-LehWjRpfPcK8F1Lf/NZoAwWLWnjJVo0SZeQ9j/tvnBWYcT99qDqgo4raAfS2oTKZjPrR/jxruh85DGgDUmywEA==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -2145,7 +2178,7 @@ eslint-plugin-no-secrets@^0.8.9:
   resolved "https://registry.yarnpkg.com/eslint-plugin-no-secrets/-/eslint-plugin-no-secrets-0.8.9.tgz#5a7cfdf8816dffdc0aa45cd2b28dfda249629523"
   integrity sha512-CqaBxXrImABCtxMWspAnm8d5UKkpNylC7zqVveb+fJHEvsSiNGJlSWzdSIvBUnW1XhJXkzifNIZQC08rEII5Ng==
 
-eslint-plugin-prettier@^3.4.0:
+eslint-plugin-prettier@^3.2.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.4.0.tgz#cdbad3bf1dbd2b177e9825737fe63b476a08f0c7"
   integrity sha512-UDK6rJT6INSfcOo545jiaOwB701uAIt2/dR7WnFQoGCVl1/EMqdANBmwUaqqQ45aXprsTGzSa39LI1PyuRBxxw==
@@ -2228,7 +2261,7 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-2.1.0.tgz#f65328259305927392c938ed44eb0a5c9b2bd303"
   integrity sha512-0rSmRBzXgDzIsD6mGdJgevzgezI534Cer5L/vyMX0kHzT/jiB43jRhd9YUlMGYLQy2zprNmoT8qasCGtY+QaKw==
 
-eslint@^7.28.0:
+eslint@^7.29.0:
   version "7.29.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.29.0.tgz#ee2a7648f2e729485e4d0bd6383ec1deabc8b3c0"
   integrity sha512-82G/JToB9qIy/ArBzIWG9xvvwL3R86AlCjtGw+A29OMZDqhTybz/MByORSukGxeI+YPCR4coYyITKk8BFH9nDA==
@@ -4660,9 +4693,9 @@ rollbar@^2.21.1:
     decache "^3.0.5"
 
 rollup@^2.52.1:
-  version "2.52.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.52.3.tgz#062fc3c85f67736d6758749310cfee64836c4e2a"
-  integrity sha512-QF3Sju8Kl2z0osI4unyOLyUudyhOMK6G0AeqJWgfiyigqLAlnNrfBcDWDx+f1cqn+JU2iIYVkDrgQ6/KtwEfrg==
+  version "2.52.4"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.52.4.tgz#0150247d54fb2f21be4915b898f8764389fea292"
+  integrity sha512-AXgUxxWXyGfsj8GKleR1k8KsG8G+7ZZDRU9RZb9PnLGSyTqI/1qf/+QSp1hRaR40j4yfBCKXs5khtGKiFwihfg==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -5198,7 +5231,7 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^4.3.3:
+typescript@^4.3.3, typescript@^4.3.4:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
   integrity sha512-uauPG7XZn9F/mo+7MrsRjyvbxFpzemRjKEZXS4AK83oP2KKOJPvb+9cO/gmnv8arWZvhnjVOXz7B49m1l0e9Ew==

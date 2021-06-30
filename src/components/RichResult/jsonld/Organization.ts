@@ -45,29 +45,29 @@ interface Organization extends Thing {
   foundingLocation?: Place
   funder?: Organization | Person
   globalLocationNumber?: Text
-  hasCredential?: any
-  hasMerchantReturnPolicy?: any
-  hasOfferCatalog?: any
+  hasCredential?: unknown
+  hasMerchantReturnPolicy?: unknown
+  hasOfferCatalog?: unknown
   hasPOS?: Place
-  interactionStatistic?: any
+  interactionStatistic?: unknown
   isicV4?: Text
   knowsAbout?: Text | Thing | URL
   knowsLanguage?: Language | Text
   legalName?: Text
   location?: Place | PostalAddress | Text | VirtualLocation
-  logo?: any
+  logo?: unknown
   makesOffer?: Offer
   member?: Organization | Person
-  memberOf?: Organization | any
+  memberOf?: Organization | unknown
   naics?: Text
-  nonprofitStatus?: any
+  nonprofitStatus?: unknown
   numberOfEmployees?: QuantitativeValue
-  ownershipFundingInfo?: any | CreativeWork | Text | URL
-  owns?: any | Product
+  ownershipFundingInfo?: unknown | CreativeWork | Text | URL
+  owns?: unknown | Product
   parentOrganization?: Organization
   publishingPrinciples?: CreativeWork | URL
   review?: Review
-  seeks?: any
+  seeks?: unknown
   slogan?: Text
   sponsor?: Organization | Person
   subOrganization?: Organization

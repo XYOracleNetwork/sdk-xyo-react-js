@@ -2,7 +2,7 @@ import { FunnelStartedFields, UserClickFields, UserEventHandler, ViewContentFiel
 
 import CustomEvent from './CustomEvent'
 
-class XyUserEventHandler<T> implements UserEventHandler<T> {
+class XyUserEventHandler<T extends Record<string, unknown>> implements UserEventHandler<T> {
   public async testStarted(data: T) {
     const event = new CustomEvent<T>('TestStarted')
     return await event.send(data)

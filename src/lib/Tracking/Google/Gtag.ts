@@ -1,28 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { assertEx } from '@xyo-network/sdk-xyo-js'
 import { parse, stringify } from 'query-string'
-
-/*class CustomArray extends Array {
-  private oldProto: any
-  private preventEvents: string[]
-  constructor(preventEvents: string[]) {
-    super()
-    this.preventEvents = preventEvents
-    this.oldProto = Object.getPrototypeOf(this)
-    Object.setPrototypeOf(this, CustomArray.prototype)
-  }
-  push(item: any): number {
-    let allowed = true
-    console.log(`Checking Event: ${JSON.stringify(item)}`)
-    if (item['0'] === undefined) {
-      console.log(`Disallowing Event: ${JSON.stringify(item)}`)
-      allowed = false
-    }
-    if (allowed) {
-      this.oldProto.push.apply(this, [item])
-    }
-    return this.length
-  }
-}*/
 
 class Gtag {
   public updatePagePath(page_path: string) {

@@ -18,9 +18,8 @@ import Thing from './Thing'
 import Time from './Time'
 import URL from './URL'
 
-//TODO: Resolve Anys
 interface Offer extends Intangible {
-  acceptedPaymentMethod?: any
+  acceptedPaymentMethod?: unknown
   addOn?: Offer
   advanceBookingRequirement?: QuantitativeValue
   aggrigateRating?: AggregateRating
@@ -29,40 +28,40 @@ interface Offer extends Intangible {
   availabilityAtOrFrom?: Place
   availabilityEnds?: DateTime | Time
   availabilityStarts?: DateTime | Time
-  availableDeliveryMethod?: any
-  businessFunction?: any
-  category?: any | Text | Thing | URL
+  availableDeliveryMethod?: unknown
+  businessFunction?: unknown
+  category?: unknown | Text | Thing | URL
   deliveryLeadTime?: QuantitativeValue
-  eligibleCustomerType?: any
+  eligibleCustomerType?: unknown
   eligibleDuration?: QuantitativeValue
   eligibleQuantity?: QuantitativeValue
   eligibleRegion?: GeoShape | Place | Text
-  eligibleTransactionVolume?: any
+  eligibleTransactionVolume?: unknown
   gtin?: Text
   gtin12?: Text
   gtin13?: Text
   gtin14?: Text
   gtin8?: Text
-  includesObject?: any
+  includesObject?: unknown
   ineligibleRegion?: GeoShape | Place | Text
   inventoryLevel?: QuantitativeValue
-  itemCondition?: any
-  itemOffered?: any | CreativeWork | Event | any | Product | Service | any
-  leaseLength?: any | QuantitativeValue
+  itemCondition?: unknown
+  itemOffered?: unknown | CreativeWork | Event | unknown | Product | Service | unknown
+  leaseLength?: unknown | QuantitativeValue
   mpn?: Text
   offeredBy?: Organization | Person
   price?: number | Text
   priceCurrency?: Text
-  priceSpecification?: any
+  priceSpecification?: unknown
   priceValidUntil?: DateTime
   review?: Review
   seller?: Organization | Person
   serialNumber?: Text
-  shippingDetails?: any
+  shippingDetails?: unknown
   sku?: Text
   validFrom?: DateTime
   validThrough?: DateTime
-  warranty?: any
+  warranty?: unknown
 }
 
 export default Offer

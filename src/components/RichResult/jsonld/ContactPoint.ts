@@ -14,7 +14,7 @@ interface ContactPoint extends Thing {
   contactOption?: ContactPointOption
   contactType?: Text
   email?: Text
-  hoursAvailable?: any
+  hoursAvailable?: unknown
   productsSupported?: Product | Text
   telephone?: Text
 }

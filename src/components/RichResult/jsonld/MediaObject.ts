@@ -6,8 +6,8 @@ import URL from './URL'
 interface MediaObject extends CreativeWork {
   contentSize?: Text
   contentUrl?: URL
-  height?: any
-  width?: any
+  height?: unknown
+  width?: unknown
 }
 
 export default MediaObject
