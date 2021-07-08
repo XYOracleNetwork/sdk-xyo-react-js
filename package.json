@@ -47,6 +47,8 @@
     "deps": "yarn depcheck"
   },
   "dependencies": {
+    "@types/numeral": "^2.0.1",
+    "@types/react-helmet": "^6.1.1",
     "@xylabs/pixel": "^1.0.17",
     "axios": "^0.21.1",
     "numeral": "^2.0.6",
@@ -55,14 +57,13 @@
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^5.0.0-beta.0",
     "@material-ui/styles": "^5.0.0-beta.0",
     "@rollup/plugin-typescript": "^8.2.1",
-    "@types/numeral": "^2.0.1",
     "@types/react": "^17",
-    "@types/react-helmet": "^6.1.1",
     "@types/react-router-dom": "^5.1.7",
     "@xylabs/eslint-config-react": "^2.0.5",
     "@xyo-network/sdk-xyo-js": "^2.1.24",
