@@ -34,7 +34,7 @@
   "scripts": {
     "build": "rm -r -f dist && yarn deps && yarn lint && yarn lint-pkg && yarn compile && yarn copy-src",
     "copy-src": "mkdir -p dist && cp package.json dist && cp README.md dist && cp LICENSE dist && cp -R src/* dist",
-    "compile": "tsc && rollup -c rollup.config.ts",
+    "compile": "tsc -p tsconfig.build.json && rollup -c rollup.config.ts",
     "deploy": "yarn version --patch && yarn build && yarn publish ./dist",
     "lint": "eslint --ext .ts,.tsx ./src",
     "lint-pkg": "npmPkgJsonLint .",
