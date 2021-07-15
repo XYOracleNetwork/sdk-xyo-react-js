@@ -806,13 +806,14 @@
     typescript "^4.3.4"
 
 "@xylabs/pixel@^1.0.17":
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/@xylabs/pixel/-/pixel-1.0.17.tgz#b7cdcd29e0a46124a7e5fde8e823b9b2b7ac8662"
-  integrity sha512-sUxDohmxr1G0UfHtfvOX9ECLeWLBGnrAinlclzRSYHMuX+Nc4hLeyJywU4LO+GFR88IA32qzQJYGGgOsr0oPzg==
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/@xylabs/pixel/-/pixel-1.0.21.tgz#235db2cd669a5401a83f7c58ae83861fc57fa3ff"
+  integrity sha512-ZkgqybmwyxVveN5TypW6kbAiLJ7xm27YYbJ2nlqHWCqJtjaIekldkBNXWll+hMHbqU/9JoQwM5+hRCx2/IzyAw==
   dependencies:
     "@xyo-network/sdk-xyo-js" "^2.1.17"
     async-mutex "^0.3.1"
     axios "^0.21.1"
+    bowser "^2.11.0"
     lodash "^4.17.21"
     md5 "^2.3.0"
     randombytes "^2.1.0"
@@ -1002,6 +1003,11 @@ bluebird@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
+
+bowser@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/bowser/-/bowser-2.11.0.tgz#5ca3c35757a7aa5771500c70a73a9f91ef420a8f"
+  integrity sha512-AlcaJBi/pqqJBIQ8U9Mcpc9i8Aqxn88Skv5d+xBX006BY5u8N3mGLHa5Lgppa7L/HfwgwLgZ6NYs+Ag6uUmJRA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
