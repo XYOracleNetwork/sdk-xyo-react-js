@@ -1,7 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react'
 
-function useAsyncEffect(effect: (isMounted: () => boolean) => Promise<(() => void) | void>, inputs: unknown[]) {
+type EffectFuncWithMounted = (isMounted: () => boolean) => Promise<(() => void) | void>
+type EffectFuncWithoutMounted = () => Promise<(() => void) | void>
+type EffectFunc = EffectFuncWithMounted | EffectFuncWithoutMounted
+
+function useAsyncEffect(effect: EffectFunc, inputs?: unknown[]) {
   useEffect(function () {
     let mounted = true
     const promise: Promise<(() => void) | void> = effect(() => {
@@ -17,7 +21,7 @@ function useAsyncEffect(effect: (isMounted: () => boolean) => Promise<(() => voi
     return function () {
       mounted = false
     }
-  }, inputs)
+  }, inputs ?? [])
 }
 
 export default useAsyncEffect
