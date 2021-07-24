@@ -1,4 +1,4 @@
-import { responsiveFontSizes, ThemeOptions, ThemeProvider } from '@material-ui/core'
+import { responsiveFontSizes, ScopedCssBaseline, ThemeOptions, ThemeProvider } from '@material-ui/core'
 import { createTheme } from '@material-ui/core/styles'
 import React, { useContext } from 'react'
 
@@ -44,7 +44,10 @@ const InvertableThemeProvider: React.FC<InvertableThemeProviderProps> = (props) 
 
   return (
     <InvertableThemeContext.Provider value={{ options }}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <ScopedCssBaseline />
+        {children}
+      </ThemeProvider>
     </InvertableThemeContext.Provider>
   )
 }
