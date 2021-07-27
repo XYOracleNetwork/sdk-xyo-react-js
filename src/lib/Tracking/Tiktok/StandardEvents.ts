@@ -1,6 +1,6 @@
 import StandardEvent from './StandardEvent'
 
-export class TiktokStandardEvents<T> {
+export class TiktokStandardEvents<T extends Record<string, unknown>> {
   public pageView() {
     return new StandardEvent<T>('Browse')
   }
