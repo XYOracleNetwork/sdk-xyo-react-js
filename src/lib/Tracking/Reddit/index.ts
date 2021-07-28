@@ -1,5 +1,5 @@
 import RedditCustomEvent from './CustomEvent'
 import Rdt from './Rdt'
-export * from './StandardEvents'
+import RedditStandardEvents from './StandardEvents'
 
-export { Rdt, RedditCustomEvent }
+export { Rdt, RedditCustomEvent, RedditStandardEvents }
