@@ -7,10 +7,10 @@ class Ttq {
   public static init(pixelId: string) {
     try {
       Ttq.instance = new Ttq()
-      this.getTtq().load(pixelId)
+      Ttq.getTtq().load(pixelId)
       Ttq.page()
     } catch (ex) {
-      console.log(ex)
+      console.error(ex)
     }
   }
 

@@ -7,16 +7,23 @@ class Rdt {
   public static init(pixelId: string) {
     try {
       Rdt.instance = new Rdt()
-      this.getRdt().load(pixelId)
-      this.getRdt().track('PageVisit')
+      Rdt.getRdt().load(pixelId)
+      Rdt.getRdt().track('PageVisit')
     } catch (ex) {
-      console.log(ex)
+      console.error(ex)
     }
   }
 
   public static getRdt() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return global.rdt
+  }
+
+  public init(id: string) {
+    try {
+      Rdt.getRdt()('init', id)
+    } catch (ex) {
+      console.error(ex)
+    }
   }
 
   public async track(event: string, data?: Record<string, unknown>) {
