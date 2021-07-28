@@ -1,6 +1,6 @@
 import DripResult from './Result'
 
-interface DripBaseData {
+interface DripBaseData extends Record<string, unknown> {
   failure?: (result?: DripResult) => void
   success?: (result?: DripResult) => void
 }

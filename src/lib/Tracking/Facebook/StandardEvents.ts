@@ -7,13 +7,13 @@ export interface FacebookContentsItem {
   quantity: number
 }
 
-export interface FacebookContentProperties {
+export interface FacebookContentProperties extends Record<string, unknown> {
   content_category?: string
   content_name?: string
   content_type?: 'product' | 'product_group'
 }
 
-export interface FacebookValueProperties {
+export interface FacebookValueProperties extends Record<string, unknown> {
   currency?: string
   value?: number
 }
@@ -54,7 +54,7 @@ export interface FacebookSubscribe extends FacebookValueProperties {
 
 export type FacebookViewContent = FacebookCartProperties
 
-export class FacebookStandardEvents<T> {
+export class FacebookStandardEvents<T extends Record<string, unknown>> {
   public addPaymentInfo() {
     return new StandardEvent<FacebookAddPaymentInfo | T>('AddPaymentInfo')
   }

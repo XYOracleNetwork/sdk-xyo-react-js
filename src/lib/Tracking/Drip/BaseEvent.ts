@@ -1,13 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { delay } from '@xyo-network/sdk-xyo-js'
 
-type DripEvent<T extends Record<string, any>> = (string | T)[]
+import global from '../../global'
 
-class BaseEvent<T> {
+type DripEvent<T extends Record<string, unknown>> = (string | T)[]
+
+class BaseEvent<T extends Record<string, unknown>> {
   public name: string
   public param?: string
   public dcq: DripEvent<T>[]
-  public dcs: any
+  public dcs: unknown
   constructor(name: string, param?: string) {
     this.name = name
     this.param = param
@@ -26,7 +27,6 @@ class BaseEvent<T> {
   }
 
   private getDcq() {
-    const global = window as any
     if (!global._dcq) {
       throw Error('DCQ not found')
     }
@@ -34,7 +34,6 @@ class BaseEvent<T> {
   }
 
   private getDcs() {
-    const global = window as any
     if (!global._dcs) {
       throw Error('DCS not found')
     }

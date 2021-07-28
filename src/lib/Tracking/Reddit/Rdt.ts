@@ -2,34 +2,26 @@ import { delay } from '@xyo-network/sdk-xyo-js'
 
 import global from '../../global'
 
-class Ttq {
-  public static instance: Ttq
+class Rdt {
+  public static instance: Rdt
   public static init(pixelId: string) {
     try {
-      Ttq.instance = new Ttq()
-      this.getTtq().load(pixelId)
-      Ttq.page()
+      Rdt.instance = new Rdt()
+      this.getRdt().load(pixelId)
+      this.getRdt().track('PageVisit')
     } catch (ex) {
       console.log(ex)
     }
   }
 
-  public static getTtq() {
-    return global.ttq
-  }
-
-  public static async page() {
-    try {
-      Ttq.getTtq().page()
-      await delay(0)
-    } catch (ex) {
-      console.error(ex)
-    }
+  public static getRdt() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return global.rdt
   }
 
   public async track(event: string, data?: Record<string, unknown>) {
     try {
-      Ttq.getTtq().track(event, {
+      Rdt.getRdt()('track', event, {
         ...data,
       })
       await delay(0)
@@ -39,4 +31,4 @@ class Ttq {
   }
 }
 
-export default Ttq
+export default Rdt
