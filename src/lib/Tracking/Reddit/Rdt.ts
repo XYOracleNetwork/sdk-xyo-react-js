@@ -7,18 +7,18 @@ class Rdt {
   public static init(pixelId: string) {
     try {
       Rdt.instance = new Rdt()
-      Rdt.getRdt().load(pixelId)
-      Rdt.getRdt().track('PageVisit')
+      Rdt.instance.load(pixelId)
+      Rdt.instance.track('PageVisit')
     } catch (ex) {
       console.error(ex)
     }
   }
 
-  public static getRdt() {
+  private static getRdt() {
     return global.rdt
   }
 
-  public init(id: string) {
+  public load(id: string) {
     try {
       Rdt.getRdt()('init', id)
     } catch (ex) {
