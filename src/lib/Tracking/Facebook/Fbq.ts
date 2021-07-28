@@ -1,8 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { delay } from '@xyo-network/sdk-xyo-js'
+
+import global from '../../global'
 
 class Fbq {
   public pixelId?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public fbq?: any
 
   private constructor(pixelId: string) {
@@ -19,7 +21,6 @@ class Fbq {
     this.fbq.queue = []
 
     //we have to set these to globals because that is where the facebook script looks for them
-    const global = window as any
     global.fbq = this.fbq
     global._fbq = this.fbq
 
@@ -35,14 +36,14 @@ class Fbq {
     return this.instance
   }
 
-  public async track(event: string, data: any) {
+  public async track(event: string, data: Record<string, unknown>) {
     this.fbq('track', event, {
       ...data,
     })
     await delay(0)
   }
 
-  public async trackCustom(event: string, data: any) {
+  public async trackCustom(event: string, data: Record<string, unknown>) {
     this.fbq('trackCustom', event, {
       ...data,
     })

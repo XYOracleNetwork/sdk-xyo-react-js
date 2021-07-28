@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { delay } from '@xyo-network/sdk-xyo-js'
 
+import global from '../../global'
+
 class SnapTr {
   public pixelId?: string
   public userEmail?: string
@@ -17,7 +19,6 @@ class SnapTr {
 
     this.snaptr.queue = []
 
-    const global = window as any
     global.snaptr = this.snaptr
 
     this.snaptr('init', pixelId, { user_email: userEmail })

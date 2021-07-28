@@ -1,6 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { assertEx } from '@xyo-network/sdk-xyo-js'
 import { parse, stringify } from 'query-string'
+
+import global from '../../global'
 
 class Gtag {
   public updatePagePath(page_path: string) {
@@ -13,16 +14,15 @@ class Gtag {
   public ga4id?: string
   public awid?: string
   public domains?: string[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public gtag?: any
 
   private constructor(ga4id: string, awid: string, domains?: string[]) {
     this.ga4id = ga4id
     this.awid = awid
     this.domains = domains
-    const global = window as any
     global.dataLayer = global.dataLayer || []
     this.gtag = function () {
-      const global = window as any
       // eslint-disable-next-line prefer-rest-params
       global.dataLayer.push(arguments)
     }
@@ -57,7 +57,6 @@ class Gtag {
   }
 
   public static clearDataLayer() {
-    const global = window as any
     const dataLayer = global.dataLayer as []
     dataLayer.length = 0
   }
@@ -80,7 +79,7 @@ class Gtag {
     return instance.updatePagePath(page_path)
   }
 
-  public sendAnalytics(event: string, data: any) {
+  public sendAnalytics(event: string, data: Record<string, unknown>) {
     return new Promise<void>((resolve) => {
       this.gtag('event', event, {
         ...data,
@@ -95,7 +94,7 @@ class Gtag {
     })
   }
 
-  public sendAdwords(event: string, data: any) {
+  public sendAdwords(event: string, data: Record<string, unknown>) {
     return new Promise<void>((resolve) => {
       this.gtag('event', 'conversion', {
         ...data,
