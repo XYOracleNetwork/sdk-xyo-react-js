@@ -1,9 +1,10 @@
 {
-  "extends": "./tsconfig.es6.json",
+  "extends": "./tsconfig.es.json",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "sourceMap": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["src/**/*.spec.ts"]

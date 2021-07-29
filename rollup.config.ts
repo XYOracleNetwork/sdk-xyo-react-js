@@ -25,6 +25,7 @@ export default [
         exports: 'auto',
         file: 'dist/index.cjs',
         format: 'cjs',
+        sourcemap: true,
       },
     ],
     plugins: [typescript({ tsconfig: './tsconfig.cjs.json' })],
