@@ -10,7 +10,7 @@ class Ttq {
       Ttq.getTtq().load(pixelId)
       Ttq.page()
     } catch (ex) {
-      console.error(ex)
+      console.error(`Ttq.init: ${ex}`)
     }
   }
 
@@ -23,7 +23,7 @@ class Ttq {
       Ttq.getTtq().page()
       await delay(0)
     } catch (ex) {
-      console.error(ex)
+      console.error(`Ttq.page: ${ex}`)
     }
   }
 
@@ -34,7 +34,7 @@ class Ttq {
       })
       await delay(0)
     } catch (ex) {
-      console.error(ex)
+      console.error(`Ttq.track: ${ex}`)
     }
   }
 }
