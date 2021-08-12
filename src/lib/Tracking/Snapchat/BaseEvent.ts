@@ -1,13 +1,9 @@
-import { assertEx, delay } from '@xyo-network/sdk-xyo-js'
-
-import SnapTr from './Snaptr'
+import { delay } from '@xyo-network/sdk-xyo-js'
 
 class BaseEvent<T> {
   public name: string
-  public snaptr: SnapTr
   constructor(name: string) {
     this.name = name
-    this.snaptr = assertEx(SnapTr.instance, 'Missing SnapTr')
   }
 
   async send(_data: T) {
