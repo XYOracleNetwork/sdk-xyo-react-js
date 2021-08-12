@@ -14,9 +14,7 @@ class SnapTr {
   }
 
   public static async track<T>(event: string, data?: T) {
-    this.getSnapTr()('track', event, {
-      ...data,
-    })
+    this.getSnapTr()('track', event, data)
     await delay(0)
   }
 }
