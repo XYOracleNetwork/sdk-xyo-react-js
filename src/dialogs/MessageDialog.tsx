@@ -1,57 +1,26 @@
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@material-ui/core'
-import React, { ReactElement } from 'react'
+import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@material-ui/core'
 
-interface Props {
-  children: ReactElement | ReactElement[]
-  onClose?: () => void
-  open?: boolean
-  title: string
-}
+import { FlexCol, FlexRow } from '../components'
 
-const MessageDialogOpen: React.FC<Props> = (props) => {
-  const { onClose, children, title, open = false } = props
-
-  const onCloseClicked = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.stopPropagation()
-    onClose?.()
-  }
-
-  return (
-    <Dialog onClose={onClose} open={open}>
+const MessageDialog: React.FC<DialogProps> = ({ onClose, children, title, open = false, ...props }) => {
+  return open ? (
+    <Dialog onClose={onClose} open={open} {...props}>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>
-        <Box display="flex" flexDirection="column">
-          <Box display="flex" width="100%">
-            {children}
-          </Box>
-        </Box>
+        <FlexCol alignItems="stretch">{children}</FlexCol>
       </DialogContent>
       <DialogActions>
-        <Box display="flex" width="100%">
-          <Box>
-            <Button onClick={onCloseClicked} variant="text">
-              Close
-            </Button>
-          </Box>
-          <Box flexGrow={1}></Box>
-          <Box>
-            <Button onClick={onCloseClicked} variant="text">
-              Ok
-            </Button>
-          </Box>
-        </Box>
+        <FlexRow justifyContent="space-between" width="100%">
+          <Button onClick={(event) => onClose?.(event, 'escapeKeyDown')} variant="text">
+            Close
+          </Button>
+          <Button onClick={(event) => onClose?.(event, 'escapeKeyDown')} variant="text">
+            Ok
+          </Button>
+        </FlexRow>
       </DialogActions>
     </Dialog>
-  )
-}
-
-const MessageDialog: React.FC<Props> = (props) => {
-  const { open } = props
-  if (open) {
-    return <MessageDialogOpen {...props} />
-  } else {
-    return null
-  }
+  ) : null
 }
 
 export default MessageDialog

@@ -1,4 +1,4 @@
-import { IconButton, IconButtonProps, Typography } from '@material-ui/core'
+import { IconButton, IconButtonProps } from '@material-ui/core'
 import React, { MouseEvent, useState } from 'react'
 import { AiOutlineQuestionCircle } from 'react-icons/ai'
 
@@ -16,7 +16,7 @@ const QuickTipButton: React.FC<IconButtonProps> = ({ title, children, ...props }
     <IconButton onClick={onClick} size="small" {...props}>
       <AiOutlineQuestionCircle size={16} />
       <MessageDialog onClose={() => setMessageOpen(false)} open={messageOpen} title={title ?? ''}>
-        <Typography variant="body1">{children}</Typography>
+        {children}
       </MessageDialog>
     </IconButton>
   )
