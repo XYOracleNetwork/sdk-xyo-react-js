@@ -15,9 +15,17 @@ const QuickTipButton: React.FC<IconButtonProps> = ({ title, children, ...props }
   return (
     <IconButton onClick={onClick} size="small" {...props}>
       <AiOutlineQuestionCircle size={16} />
-      <MessageDialog onClose={() => setMessageOpen(false)} open={messageOpen} title={title ?? ''}>
-        {children}
-      </MessageDialog>
+      {messageOpen ? (
+        <MessageDialog
+          onOk={() => setMessageOpen(false)}
+          onCancel={() => setMessageOpen(false)}
+          onClose={() => setMessageOpen(false)}
+          open={messageOpen}
+          title={title ?? ''}
+        >
+          {children}
+        </MessageDialog>
+      ) : null}
     </IconButton>
   )
 }
