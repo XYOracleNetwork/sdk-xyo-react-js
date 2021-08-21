@@ -32,20 +32,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -r -f dist && yarn deps && yarn lint && yarn lint-pkg && yarn compile",
-    "compile": "tsc -p tsconfig.build.json && rollup -c rollup.config.ts",
-    "deploy": "yarn version --patch && yarn build && yarn publish .",
-    "lint": "eslint --ext .ts,.tsx ./src",
     "lint-pkg": "npmPkgJsonLint .",
-    "fix": "eslint --ext .ts,.tsx ./src --fix",
-    "cycle": "NODE_ENV=--max-old-space-size=8092 eslint --rule 'import/no-cycle: [1, { maxDepth: 10 }]' ./src",
-    "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'",
-    "clean": "rm -r -f dist && rm -f .eslintcache && rm -f yarn.lock && rm -f *.tsbuildinfo",
-    "reinstall": "rm -r -f ./node_modules && rm -f ./yarn.lock && rm -f ./yarn-error.log && yarn install && yarn outdated",
-    "tsprune": "yarn ts-prune",
-    "up": "yarn ncu",
-    "updo": "yarn upgrade && yarn ncu -u && yarn reinstall",
-    "deps": "yarn depcheck"
+    "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -54,8 +42,8 @@
     "@material-ui/styles": "^5.0.0-beta.4",
     "@types/numeral": "^2.0.1",
     "@types/react-helmet": "^6.1.2",
-    "@xylabs/pixel": "^1.0.25",
-    "@xyo-network/sdk-xyo-js": "^2.1.36",
+    "@xylabs/pixel": "^1.0.26",
+    "@xyo-network/sdk-xyo-js": "^2.1.40",
     "axios": "^0.21.1",
     "numeral": "^2.0.6",
     "query-string": "^7.0.1",
@@ -72,13 +60,9 @@
     "@types/react": "^17",
     "@types/react-router-dom": "^5.1.8",
     "@xylabs/eslint-config-react": "^2.0.10",
-    "depcheck": "^1.4.2",
-    "npm-check-updates": "^11.8.3",
+    "@xylabs/ts-scripts": "^1.0.3",
     "npm-package-json-lint": "^5.2.3",
     "npm-package-json-lint-config-default": "^3.0.0",
-    "rollup": "^2",
-    "tslib": "^2.3.1",
-    "typescript": "^4",
-    "vue": "^3.2.2"
+    "typescript": "^4"
   }
 }
