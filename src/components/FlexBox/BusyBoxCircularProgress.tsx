@@ -6,8 +6,7 @@ interface Props extends BoxProps {
   size?: string | number
 }
 
-const BusyBoxCircularProgress: React.FC<Props> = (props) => {
-  const { size, opacity, ...rootProps } = props
+const BusyBoxCircularProgress: React.FC<Props> = ({ size, opacity = 0.85, ...props }) => {
   const theme = useTheme()
   return (
     <Box
@@ -23,7 +22,7 @@ const BusyBoxCircularProgress: React.FC<Props> = (props) => {
       alignItems="center"
       style={{ opacity }}
       zIndex={1000}
-      {...rootProps}
+      {...props}
     >
       <CircularProgress size={size} />
     </Box>

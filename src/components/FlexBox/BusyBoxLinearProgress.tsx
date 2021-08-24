@@ -5,12 +5,12 @@ interface Props extends BoxProps {
   opacity?: string | number
 }
 
-const BusyBoxLinearProgress: React.FC<Props> = (props) => {
-  const { opacity, ...rootProps } = props
+const BusyBoxLinearProgress: React.FC<Props> = ({ opacity = 0.85, ...props }) => {
   const theme = useTheme()
   return (
     <Box
       display="flex"
+      flexDirection="column"
       bgcolor={props.bgcolor ?? theme.palette.background.default}
       flexGrow={1}
       position="absolute"
@@ -19,10 +19,10 @@ const BusyBoxLinearProgress: React.FC<Props> = (props) => {
       top={0}
       bottom={0}
       justifyContent="center"
-      alignItems="center"
+      alignItems="stretch"
       style={{ opacity }}
       zIndex={1000}
-      {...rootProps}
+      {...props}
     >
       <LinearProgress />
     </Box>
