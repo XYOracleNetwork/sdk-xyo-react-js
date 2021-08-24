@@ -15,20 +15,19 @@ interface NumberStatusProps extends ButtonExProps {
   width?: number
 }
 
-const NumberStatus: React.FC<NumberStatusProps> = (props) => {
+const NumberStatus: React.FC<NumberStatusProps> = ({
+  error,
+  width = 1,
+  shorten = false,
+  color = 'primary',
+  title,
+  value,
+  size,
+  fontSize,
+  autoWidth = false,
+  ...props
+}) => {
   const theme = useTheme()
-  const {
-    error,
-    width = 1,
-    shorten = false,
-    color = 'primary',
-    title,
-    value,
-    size,
-    fontSize,
-    autoWidth = false,
-    ...buttonProps
-  } = props
 
   const bgColorTop =
     color === 'primary'
@@ -66,11 +65,11 @@ const NumberStatus: React.FC<NumberStatusProps> = (props) => {
   }
 
   return (
-    <ButtonEx size={size} {...buttonProps} padding={0}>
+    <ButtonEx size={size} padding={0} {...props}>
       <FlexCol
+        alignItems="stretch"
         height={autoWidth ? 'auto' : sizePixels}
         width={autoWidth ? '100%' : sizePixels * width}
-        overflow="hidden"
         busy={value === undefined && !error}
       >
         <FlexGrowRow
