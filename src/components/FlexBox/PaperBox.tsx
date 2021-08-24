@@ -4,7 +4,7 @@ import React from 'react'
 import BoxlikeComponentProps from '../../BoxlikeComponentProps'
 import BusyComponentProps from '../../BusyProps'
 import mergeBoxlikeStyles from '../../mergeBoxlikeStyles'
-import BusyBoxBody from './BusyBoxBody'
+import BusyBoxBody from './BusyBoxCircularProgress'
 
 interface PaperBoxProps extends PaperProps, BoxlikeComponentProps, BusyComponentProps {}
 

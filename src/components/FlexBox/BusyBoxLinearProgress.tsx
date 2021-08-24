@@ -1,13 +1,12 @@
-import { Box, BoxProps, CircularProgress, useTheme } from '@material-ui/core'
+import { Box, BoxProps, LinearProgress, useTheme } from '@material-ui/core'
 import React from 'react'
 
 interface Props extends BoxProps {
   opacity?: string | number
-  size?: string | number
 }
 
-const BusyBoxBody: React.FC<Props> = (props) => {
-  const { size, opacity, ...rootProps } = props
+const BusyBoxLinearProgress: React.FC<Props> = (props) => {
+  const { opacity, ...rootProps } = props
   const theme = useTheme()
   return (
     <Box
@@ -25,9 +24,9 @@ const BusyBoxBody: React.FC<Props> = (props) => {
       zIndex={1000}
       {...rootProps}
     >
-      <CircularProgress size={size} />
+      <LinearProgress />
     </Box>
   )
 }
 
-export default BusyBoxBody
+export default BusyBoxLinearProgress
