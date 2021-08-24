@@ -18,7 +18,7 @@ const BusyBoxLinearProgress: React.FC<Props> = ({ opacity = 0.85, ...props }) =>
       right={0}
       top={0}
       bottom={0}
-      justifyContent="center"
+      justifyContent="flex-start"
       alignItems="stretch"
       style={{ opacity }}
       zIndex={1000}
