@@ -2,24 +2,24 @@ import { Container, Typography, useTheme } from '@material-ui/core'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
+import CookieConsent from '../CookieConsent'
 import { FlexCol, FlexRow } from '../FlexBox'
 import BasePageProps from './BasePageProps'
 
-const BasePage: React.FC<BasePageProps> = (props) => {
-  const {
-    disableGutters,
-    children,
-    beta,
-    container,
-    hideFooter,
-    appFooter,
-    appBar,
-    hideAppBar,
-    noindex = false,
-    title,
-    ...baseProps
-  } = props
-
+const BasePage: React.FC<BasePageProps> = ({
+  disableGutters,
+  children,
+  beta,
+  container,
+  hideFooter,
+  appFooter,
+  appBar,
+  cookieConsent,
+  hideAppBar,
+  noindex = false,
+  title,
+  ...props
+}) => {
   const theme = useTheme()
 
   return (
@@ -29,7 +29,7 @@ const BasePage: React.FC<BasePageProps> = (props) => {
       alignItems="stretch"
       width="100vw"
       minHeight="100vh"
-      {...baseProps}
+      {...props}
     >
       <Helmet title={title}>{noindex ? <meta content="noindex" name="robots" /> : null}</Helmet>
       {hideAppBar ? null : appBar}
@@ -60,6 +60,7 @@ const BasePage: React.FC<BasePageProps> = (props) => {
         children
       )}
       {hideFooter ? null : <footer>{appFooter}</footer>}
+      {cookieConsent ?? <CookieConsent />}
     </FlexCol>
   )
 }

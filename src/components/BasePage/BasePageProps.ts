@@ -1,5 +1,5 @@
 import { BoxProps } from '@material-ui/core'
-import { ReactElement } from 'react'
+import { ReactElement, ReactNode } from 'react'
 
 import { AppBarExProps } from '../AppBarEx'
 
@@ -12,6 +12,7 @@ interface BasePageProps extends BoxProps {
   hideAppBar?: boolean
   hideFooter?: boolean
   noindex?: boolean
+  cookieConsent?: ReactNode
   title?: string
 }
 
