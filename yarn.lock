@@ -897,10 +897,18 @@
     tslib "^2.3.1"
     typescript "^4.4.2"
 
-"@xyo-network/sdk-xyo-js@^2.1.36", "@xyo-network/sdk-xyo-js@^2.1.41":
+"@xyo-network/sdk-xyo-js@^2.1.36":
   version "2.1.41"
   resolved "https://registry.yarnpkg.com/@xyo-network/sdk-xyo-js/-/sdk-xyo-js-2.1.41.tgz#a293019ea8f96b742b656c4d91062c0a126b1c5f"
   integrity sha512-aoYZMZwuRsD+CL98Cz9DKyJRh6Kxuc6CdArmx/745TvMeQK2vF4wlu+AB4nc1K1gWPtdUDh4zpDTaBXBSEHSQg==
+  dependencies:
+    axios "^0.21.1"
+    rollbar "^2.24.0"
+
+"@xyo-network/sdk-xyo-js@^2.1.42":
+  version "2.1.42"
+  resolved "https://registry.yarnpkg.com/@xyo-network/sdk-xyo-js/-/sdk-xyo-js-2.1.42.tgz#a7651ffe9a7c03b5e1a7d651e10036ef3a3ecf7b"
+  integrity sha512-QbV/zlXTCHZO3gzeG6mCjCnEdD3NCyso3ESTs6k/kAwpAJgSkHjBSzZKILHU7BEXQtsG3ve2jKp3DTkjvfHPUw==
   dependencies:
     axios "^0.21.1"
     rollbar "^2.24.0"
