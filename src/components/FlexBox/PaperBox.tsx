@@ -8,6 +8,9 @@ import BusyBoxBody from './BusyBoxCircularProgress'
 
 interface PaperBoxProps extends PaperProps, BoxlikeComponentProps, BusyComponentProps {}
 
+/**
+ * @deprecated Merger of Box and Paper never worked out
+ */
 const PaperBox: React.FC<PaperBoxProps> = (props) => {
   const theme = useTheme()
   const {
