@@ -19,7 +19,7 @@
   ],
   "license": "LGPL-3.0",
   "private": false,
-  "version": "2.1.1",
+  "version": "2.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
@@ -43,7 +43,7 @@
     "@types/numeral": "^2.0.1",
     "@types/react-helmet": "^6.1.2",
     "@xylabs/pixel": "^1.0.26",
-    "@xyo-network/sdk-xyo-js": "^2.1.40",
+    "@xyo-network/sdk-xyo-js": "^2.1.41",
     "axios": "^0.21.1",
     "numeral": "^2.0.6",
     "query-string": "^7.0.1",
@@ -53,6 +53,9 @@
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0"
   },
+  "resolutions": {
+    "typescript": "4.3.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@rollup/plugin-typescript": "^8.2.5",
@@ -60,9 +63,9 @@
     "@types/react": "^17",
     "@types/react-router-dom": "^5.1.8",
     "@xylabs/eslint-config-react": "^2.0.10",
-    "@xylabs/ts-scripts": "^1.0.5",
+    "@xylabs/ts-scripts": "^1.0.8",
     "npm-package-json-lint": "^5.2.3",
     "npm-package-json-lint-config-default": "^3.0.0",
-    "typescript": "^4"
+    "typescript": "4.3.5"
   }
 }
