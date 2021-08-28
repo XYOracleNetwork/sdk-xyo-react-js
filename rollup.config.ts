@@ -18,6 +18,7 @@ export default [
       '@xylabs/pixel',
       'query-string',
       'react-router-dom',
+      'lodash/clone',
     ],
     input: 'src/index.ts',
     output: [
