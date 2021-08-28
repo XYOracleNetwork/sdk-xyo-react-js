@@ -21,7 +21,6 @@ const BusyBoxCircularProgress: React.FC<Props> = ({ size, opacity = 0.85, ...pro
       justifyContent="center"
       alignItems="center"
       style={{ opacity }}
-      zIndex={1000}
       {...props}
     >
       <CircularProgress size={size} />
