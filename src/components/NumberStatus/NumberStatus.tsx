@@ -28,19 +28,10 @@ const NumberStatus: React.FC<NumberStatusProps> = ({
   ...props
 }) => {
   const theme = useTheme()
+  const palette = color === 'inherit' ? undefined : theme.palette[color]
 
-  const bgColorTop =
-    color === 'primary'
-      ? theme.palette.primary.dark
-      : color === 'secondary'
-      ? theme.palette.secondary.dark
-      : theme.palette.background.paper
-  const bgColorBottom =
-    color === 'primary'
-      ? theme.palette.primary.main
-      : color === 'secondary'
-      ? theme.palette.secondary.main
-      : theme.palette.background.default
+  const bgColorTop = palette?.dark ?? theme.palette.background.paper
+  const bgColorBottom = palette?.main ?? theme.palette.background.default
 
   const sizePixels = size === 'large' ? 96 : size === 'medium' ? 80 : 64
   const numeralFormat = typeof shorten === 'string' ? shorten : '0[.]0a'
