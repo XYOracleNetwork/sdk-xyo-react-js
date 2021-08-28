@@ -34,11 +34,11 @@ const InvertableThemeProvider: React.FC<InvertableThemeProviderProps> = (props) 
   }
 
   return (
-    <InvertableThemeContext.Provider value={{ options }}>
-      <ThemeProvider theme={theme}>
-        <ScopedCssBaseline>{children}</ScopedCssBaseline>
-      </ThemeProvider>
-    </InvertableThemeContext.Provider>
+    <ScopedCssBaseline>
+      <InvertableThemeContext.Provider value={{ options }}>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      </InvertableThemeContext.Provider>
+    </ScopedCssBaseline>
   )
 }
 
