@@ -7,6 +7,7 @@ import InvertableThemeContext from './InvertableThemeContext'
 
 interface InvertableThemeProviderProps {
   dark?: boolean
+  scoped?: boolean
   invert?: boolean
   noResponsiveFonts?: boolean
   options?: ThemeOptions
@@ -14,7 +15,7 @@ interface InvertableThemeProviderProps {
 
 const InvertableThemeProvider: React.FC<InvertableThemeProviderProps> = (props) => {
   const contextInvertableTheme = useContext(InvertableThemeContext)
-  const { children, dark, invert = false, noResponsiveFonts } = props
+  const { children, dark, scoped = false, invert = false, noResponsiveFonts } = props
   const { options = clone(contextInvertableTheme.options) } = props
 
   options.palette = options.palette ?? {}
@@ -33,12 +34,16 @@ const InvertableThemeProvider: React.FC<InvertableThemeProviderProps> = (props) 
     theme = responsiveFontSizes(theme)
   }
 
-  return (
+  return scoped ? (
     <ScopedCssBaseline>
       <InvertableThemeContext.Provider value={{ options }}>
         <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </InvertableThemeContext.Provider>
     </ScopedCssBaseline>
+  ) : (
+    <InvertableThemeContext.Provider value={{ options }}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </InvertableThemeContext.Provider>
   )
 }
 
