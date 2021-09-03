@@ -3,11 +3,21 @@ import React, { MouseEvent } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import mergeBoxlikeStyles from '../../mergeBoxlikeStyles'
+import BusyCircularProgress from '../BusyCircularProgress'
+import BusyLinearProgress from '../BusyLinearProgress'
 import ButtonExProps from './ButtonExProps'
 
 const ButtonEx: React.FC<ButtonExProps> = (props) => {
   const theme = useTheme()
-  const { to, onClick, ...rootProps } = mergeBoxlikeStyles<ButtonExProps>(theme, props)
+  const {
+    to,
+    busy,
+    busyVariant = 'linear',
+    busyOpacity,
+    onClick,
+    children,
+    ...rootProps
+  } = mergeBoxlikeStyles<ButtonExProps>(theme, props)
   const history = useHistory()
 
   const localOnClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -17,7 +27,13 @@ const ButtonEx: React.FC<ButtonExProps> = (props) => {
     }
   }
 
-  return <Button onClick={localOnClick} {...rootProps} />
+  return (
+    <Button onClick={localOnClick} {...rootProps}>
+      {busy && busyVariant === 'linear' ? <BusyLinearProgress opacity={busyOpacity} /> : null}
+      {busy && busyVariant === 'circular' ? <BusyCircularProgress opacity={busyOpacity} /> : null}
+      {children}
+    </Button>
+  )
 }
 
 export default ButtonEx

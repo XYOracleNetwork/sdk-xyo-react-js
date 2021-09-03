@@ -2,8 +2,8 @@ import { Box, BoxProps } from '@material-ui/core'
 import React from 'react'
 
 import BusyProps from '../../BusyProps'
-import BusyBoxCircularProgress from './BusyBoxCircularProgress'
-import BusyBoxLinearProgress from './BusyBoxLinearProgress'
+import BusyCircularProgress from '../BusyCircularProgress'
+import BusyLinearProgress from '../BusyLinearProgress'
 
 interface BusyBoxProps extends BusyProps, BoxProps {}
 
@@ -18,8 +18,8 @@ const BusyBox: React.FC<BusyBoxProps> = ({
   return (
     <Box position="relative" {...props}>
       {children}
-      {busy && busyVariant === 'linear' ? <BusyBoxLinearProgress opacity={busyOpacity} /> : null}
-      {busy && busyVariant === 'circular' ? <BusyBoxCircularProgress opacity={busyOpacity} size={busySize} /> : null}
+      {busy && busyVariant === 'linear' ? <BusyLinearProgress opacity={busyOpacity} /> : null}
+      {busy && busyVariant === 'circular' ? <BusyCircularProgress opacity={busyOpacity} size={busySize} /> : null}
     </Box>
   )
 }
