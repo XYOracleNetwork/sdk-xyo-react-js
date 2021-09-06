@@ -1,17 +1,19 @@
-import { Box, BoxProps, CircularProgress, useTheme } from '@material-ui/core'
+import { alpha, Box, CircularProgress, CircularProgressProps, useTheme } from '@material-ui/core'
 import React from 'react'
 
-interface Props extends BoxProps {
-  opacity?: string | number
+interface Props extends CircularProgressProps {
+  opacity?: number | string
+  bgcolor?: string
+  rounded?: boolean
   size?: string | number
 }
 
-const BusyBoxCircularProgress: React.FC<Props> = ({ size, opacity = 0.85, ...props }) => {
+const BusyCircularProgress: React.FC<Props> = ({ bgcolor, style, rounded, size, opacity = 0.85, ...props }) => {
   const theme = useTheme()
   return (
     <Box
       display="flex"
-      bgcolor={props.bgcolor ?? theme.palette.background.default}
+      bgcolor={alpha(bgcolor ?? theme.palette.background.default, parseFloat(`${opacity}`))}
       flexGrow={1}
       position="absolute"
       left={0}
@@ -20,12 +22,12 @@ const BusyBoxCircularProgress: React.FC<Props> = ({ size, opacity = 0.85, ...pro
       bottom={0}
       justifyContent="center"
       alignItems="center"
-      style={{ opacity }}
-      {...props}
+      overflow="hidden"
+      style={{ borderRadius: rounded ? theme.shape.borderRadius : 0, ...style }}
     >
-      <CircularProgress size={size} />
+      <CircularProgress size={size} {...props} />
     </Box>
   )
 }
 
-export default BusyBoxCircularProgress
+export default BusyCircularProgress
