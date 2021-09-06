@@ -21,16 +21,20 @@ const ButtonEx: React.FC<ButtonExProps> = (props) => {
   const history = useHistory()
 
   const localOnClick = (event: MouseEvent<HTMLButtonElement>) => {
-    onClick?.(event)
-    if (to) {
-      history.push(to)
+    if (!busy) {
+      onClick?.(event)
+      if (to) {
+        history.push(to)
+      }
     }
   }
 
   return (
     <Button onClick={localOnClick} {...rootProps}>
-      {busy && busyVariant === 'linear' ? <BusyLinearProgress opacity={busyOpacity} /> : null}
-      {busy && busyVariant === 'circular' ? <BusyCircularProgress opacity={busyOpacity} /> : null}
+      {busy && busyVariant === 'linear' ? <BusyLinearProgress rounded opacity={busyOpacity ?? 0} /> : null}
+      {busy && busyVariant === 'circular' ? (
+        <BusyCircularProgress rounded size={24} opacity={busyOpacity ?? 0.5} />
+      ) : null}
       {children}
     </Button>
   )

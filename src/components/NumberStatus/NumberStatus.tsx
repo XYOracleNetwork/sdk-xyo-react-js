@@ -2,29 +2,21 @@ import { useTheme } from '@material-ui/core'
 import numeral from 'numeral'
 import React from 'react'
 
-import { ButtonEx, ButtonExProps } from '../ButtonEx'
+import { ButtonEx } from '../ButtonEx'
 import { FlexCol, FlexGrowRow } from '../FlexBox'
-
-interface NumberStatusProps extends ButtonExProps {
-  autoWidth?: boolean
-  error?: Error
-  fontSize?: number
-  shorten?: string | boolean
-  title?: string
-  value?: number | string
-  width?: number
-}
+import NumberStatusProps from './NumberStatusProps'
 
 const NumberStatus: React.FC<NumberStatusProps> = ({
   error,
-  width = 1,
-  shorten = false,
+  format = '0[.]0a',
   color = 'primary',
   title,
   value,
   size,
   fontSize,
+  rounded = false,
   autoWidth = false,
+  style,
   ...props
 }) => {
   const theme = useTheme()
@@ -33,34 +25,25 @@ const NumberStatus: React.FC<NumberStatusProps> = ({
   const bgColorTop = palette?.dark ?? theme.palette.background.paper
   const bgColorBottom = palette?.main ?? theme.palette.background.default
 
-  const sizePixels = size === 'large' ? 96 : size === 'medium' ? 80 : 64
-  const numeralFormat = typeof shorten === 'string' ? shorten : '0[.]0a'
+  const sizePixels = size === 'large' ? 96 : size === 'small' ? 64 : 80
 
-  let calcFontSize = fontSize ?? sizePixels * width * 0.5
-  if (!fontSize) {
-    if (!shorten) {
-      if (value !== undefined) {
-        if (parseInt(value.toString()) >= 100) {
-          calcFontSize = calcFontSize * 0.7
-        }
-        if (parseInt(value.toString()) >= 1000) {
-          calcFontSize = calcFontSize * 0.7
-        }
-        if (parseInt(value.toString()) >= 10000) {
-          calcFontSize = calcFontSize * 0.7
-        }
-      }
-    } else {
-      calcFontSize = calcFontSize * 0.45
-    }
-  }
+  const calcFontSize = fontSize ?? sizePixels * 0.2
 
   return (
-    <ButtonEx size={size} padding={0} {...props}>
+    <ButtonEx
+      size={size}
+      padding={0}
+      style={{
+        borderRadius: rounded ? theme.shape.borderRadius : 0,
+        overflow: rounded ? 'hidden' : undefined,
+        ...style,
+      }}
+      {...props}
+    >
       <FlexCol
         alignItems="stretch"
-        height={autoWidth ? 'auto' : sizePixels}
-        width={autoWidth ? '100%' : sizePixels * width}
+        height={sizePixels}
+        width={autoWidth ? '100%' : sizePixels}
         busy={value === undefined && !error}
       >
         <FlexGrowRow
@@ -71,7 +54,7 @@ const NumberStatus: React.FC<NumberStatusProps> = ({
           alignItems="center"
           height={sizePixels * 0.75}
         >
-          {shorten ? numeral(value).format(numeralFormat) : value}
+          {numeral(value).format(format)}
         </FlexGrowRow>
         <FlexGrowRow
           bgcolor={bgColorBottom}

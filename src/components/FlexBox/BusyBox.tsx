@@ -12,14 +12,21 @@ const BusyBox: React.FC<BusyBoxProps> = ({
   busyVariant = 'circular',
   busySize,
   busyOpacity = 0.85,
+  busyColor,
   busy,
+  busyCircularProps,
+  busyLinearProps,
   ...props
 }) => {
   return (
     <Box position="relative" {...props}>
       {children}
-      {busy && busyVariant === 'linear' ? <BusyLinearProgress opacity={busyOpacity} /> : null}
-      {busy && busyVariant === 'circular' ? <BusyCircularProgress opacity={busyOpacity} size={busySize} /> : null}
+      {busy && busyVariant === 'linear' ? (
+        <BusyLinearProgress color={busyColor} opacity={busyOpacity} {...busyLinearProps} />
+      ) : null}
+      {busy && busyVariant === 'circular' ? (
+        <BusyCircularProgress color={busyColor} opacity={busyOpacity} size={busySize} {...busyCircularProps} />
+      ) : null}
     </Box>
   )
 }
