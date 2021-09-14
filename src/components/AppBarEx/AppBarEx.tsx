@@ -1,15 +1,9 @@
-import { AppBar, AppBarProps, Container, Toolbar, ToolbarProps, useTheme } from '@material-ui/core'
-import React, { ReactElement } from 'react'
+import { AppBar, Container, Toolbar, useTheme } from '@material-ui/core'
 
 import { FlexGrowRow } from '../FlexBox'
+import AppBarExProps from './AppBarExProps'
 
-interface Props extends AppBarProps {
-  container?: 'xl' | 'lg' | 'md' | 'sm' | 'xs'
-  contextToolbar?: ReactElement<ToolbarProps>
-  systemToolbar?: ReactElement<ToolbarProps>
-}
-
-const AppBarEx: React.FC<Props> = (props) => {
+const AppBarEx: React.FC<AppBarExProps> = (props) => {
   const { contextToolbar, systemToolbar, container, style, ...appbarProps } = props
   const theme = useTheme()
 
