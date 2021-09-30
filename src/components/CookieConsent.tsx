@@ -7,10 +7,11 @@ import { FlexRow } from './FlexBox'
 
 interface Props extends BoxProps {
   acceptOnScroll?: boolean
+  acceptOnTimer?: number
 }
 
 const CookieConsent: React.FC<Props> = (props) => {
-  const { acceptOnScroll } = props
+  const { acceptOnScroll, acceptOnTimer } = props
   const [accepted, setAccepted] = useState(localStorage.getItem('CookiesAccepted') === 'true')
 
   const onScroll = () => {
@@ -20,6 +21,12 @@ const CookieConsent: React.FC<Props> = (props) => {
         onAcceptClick()
       }
     }
+  }
+
+  if (acceptOnTimer) {
+    setTimeout(() => {
+      onAcceptClick()
+    }, acceptOnTimer)
   }
 
   useEffect(() => {
