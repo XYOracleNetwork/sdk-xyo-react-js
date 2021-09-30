@@ -3,7 +3,7 @@ import { create } from '@storybook/theming';
 
 addons.setConfig({
   theme: create({
-    base: 'dark',
+    base: 'light',
     colorPrimary: '#384afd',
     colorSecondary: '#f8cb1c',
     brandTitle: 'XY Labs',

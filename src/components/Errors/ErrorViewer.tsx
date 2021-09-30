@@ -1,13 +1,10 @@
-import { BoxProps, Typography, useTheme } from '@material-ui/core'
+import { Typography, useTheme } from '@material-ui/core'
 import React from 'react'
 
 import { FlexCol } from '../FlexBox'
+import ErrorViewerProps from './ErrorViewerProps'
 
-interface Props extends BoxProps {
-  error?: Error
-}
-
-const ErrorViewer: React.FC<Props> = (props) => {
+const ErrorViewer: React.FC<ErrorViewerProps> = (props) => {
   const { error, ...boxProps } = props
   const theme = useTheme()
   return (

@@ -1,15 +1,10 @@
-import { Breadcrumbs, BreadcrumbsProps, Link } from '@material-ui/core'
+import { Breadcrumbs, Link } from '@material-ui/core'
 import { assertEx } from '@xyo-network/sdk-xyo-js'
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Link as RouteLink } from 'react-router-dom'
 
 import { FlexRow } from '../FlexBox'
-
-interface Props extends BreadcrumbsProps {
-  logo?: string | ReactElement
-  path?: string
-  titles: string[]
-}
+import BreadcrumbsExProps from './BreadcrumbsExProps'
 
 const getPartialPath = (pathParts: string[], index: number) => {
   const result = []
@@ -19,31 +14,41 @@ const getPartialPath = (pathParts: string[], index: number) => {
   return result.join('')
 }
 
-const BreadcrumbsEx: React.FC<Props> = (props) => {
-  const { titles, path = document.location.pathname, separator = '|', logo, children, ...rootProps } = props
+const BreadcrumbsEx: React.FC<BreadcrumbsExProps> = ({
+  titles,
+  path = document.location.pathname,
+  separator = '|',
+  logo,
+  children,
+  ...props
+}) => {
   const pathParts = path.split('/')
   //if the url has a trailing '/', remove the last part
-  if (pathParts[pathParts.length - 1].length === 0) {
+  if (pathParts[pathParts.length - 1]?.length === 0) {
     pathParts.pop()
   }
 
   assertEx(
-    pathParts.length - 1 === titles.length,
+    pathParts.length - 1 === titles?.length,
     `Path/Title length mismatch: ${JSON.stringify(titles)} with ${JSON.stringify(pathParts)}`
   )
   return (
-    <Breadcrumbs separator={separator} {...rootProps}>
+    <Breadcrumbs separator={separator} {...props}>
       {pathParts.map((_pathPart, index) => {
         const path = getPartialPath(pathParts, index)
         return (
           <Link
-            title={index > 0 ? titles[index - 1] : 'COIN'}
+            title={index > 0 ? titles?.[index - 1] : 'COIN'}
             color={index === pathParts.length - 1 ? 'textPrimary' : 'inherit'}
             key={path}
             component={RouteLink}
             to={path}
           >
-            {index > 0 ? titles[index - 1] : <FlexRow>{typeof logo === 'string' ? <img src={logo} /> : logo}</FlexRow>}
+            {index > 0 ? (
+              titles?.[index - 1]
+            ) : (
+              <FlexRow>{typeof logo === 'string' ? <img src={logo} /> : logo}</FlexRow>
+            )}
           </Link>
         )
       })}

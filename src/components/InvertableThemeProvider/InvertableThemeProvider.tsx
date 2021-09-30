@@ -1,17 +1,10 @@
-import { responsiveFontSizes, ScopedCssBaseline, ThemeOptions, ThemeProvider } from '@material-ui/core'
+import { responsiveFontSizes, ScopedCssBaseline, ThemeProvider } from '@material-ui/core'
 import { createTheme } from '@material-ui/core/styles'
 import clone from 'lodash/clone'
 import React, { useContext } from 'react'
 
 import InvertableThemeContext from './InvertableThemeContext'
-
-interface InvertableThemeProviderProps {
-  dark?: boolean
-  scoped?: boolean
-  invert?: boolean
-  noResponsiveFonts?: boolean
-  options?: ThemeOptions
-}
+import InvertableThemeProviderProps from './InvertableThemeProviderProps'
 
 const InvertableThemeProvider: React.FC<InvertableThemeProviderProps> = (props) => {
   const contextInvertableTheme = useContext(InvertableThemeContext)
