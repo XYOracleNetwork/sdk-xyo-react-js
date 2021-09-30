@@ -23,7 +23,7 @@ const CookieConsent: React.FC<Props> = (props) => {
     }
   }
 
-  if (acceptOnTimer) {
+  if (acceptOnTimer && !accepted) {
     setTimeout(() => {
       onAcceptClick()
     }, acceptOnTimer)
