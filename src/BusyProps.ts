@@ -1,4 +1,4 @@
-import { CircularProgressProps, LinearProgressProps } from '@material-ui/core'
+import { CircularProgressProps, LinearProgressProps } from '@mui/material'
 
 type MaterialUIThemeColor = 'inherit' | 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning'
 type BusyVariant = 'circular' | 'linear'

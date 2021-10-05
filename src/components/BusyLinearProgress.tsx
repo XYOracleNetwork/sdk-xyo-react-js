@@ -1,4 +1,4 @@
-import { alpha, Box, LinearProgress, LinearProgressProps, useTheme } from '@material-ui/core'
+import { alpha, Box, LinearProgress, LinearProgressProps, useTheme } from '@mui/material'
 import React from 'react'
 
 interface Props extends LinearProgressProps {

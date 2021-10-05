@@ -1,4 +1,4 @@
-import { ButtonProps } from '@material-ui/core'
+import { ButtonProps } from '@mui/material'
 import type { LocationDescriptor, LocationState } from 'history'
 
 import BoxlikeComponentProps from '../../BoxlikeComponentProps'

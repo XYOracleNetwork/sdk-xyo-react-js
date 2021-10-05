@@ -1,4 +1,4 @@
-import { Theme } from '@material-ui/core'
+import { Theme } from '@mui/material'
 
 import BoxlikeComponentProps from './BoxlikeComponentProps'
 import calcSpacing from './calcSpacing'

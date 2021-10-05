@@ -1,4 +1,4 @@
-import { BoxProps, Link, Typography } from '@material-ui/core'
+import { BoxProps, Link, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
 import Background from './Background'

@@ -1,4 +1,4 @@
-import { IconButton } from '@material-ui/core'
+import { IconButton } from '@mui/material'
 import React from 'react'
 import { AiOutlineReload } from 'react-icons/ai'
 

@@ -1,4 +1,4 @@
-import { Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@material-ui/core'
+import { Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material'
 import { AxiosError } from 'axios'
 import React from 'react'
 

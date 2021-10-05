@@ -1,4 +1,4 @@
-import { BoxProps, Paper, useTheme } from '@material-ui/core'
+import { BoxProps, Paper, useTheme } from '@mui/material'
 import React from 'react'
 
 import { FlexRow } from './FlexBox'

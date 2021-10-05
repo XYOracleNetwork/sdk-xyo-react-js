@@ -1,4 +1,4 @@
-import { BreadcrumbsProps } from '@material-ui/core'
+import { BreadcrumbsProps } from '@mui/material'
 import { ReactElement } from 'react'
 
 interface BreadcrumbsExProps extends BreadcrumbsProps {

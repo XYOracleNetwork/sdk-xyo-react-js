@@ -1,4 +1,4 @@
-import { alpha, Box, CircularProgress, CircularProgressProps, useTheme } from '@material-ui/core'
+import { alpha, Box, CircularProgress, CircularProgressProps, useTheme } from '@mui/material'
 import React from 'react'
 
 interface Props extends CircularProgressProps {

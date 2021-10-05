@@ -1,4 +1,4 @@
-import { Button, useTheme } from '@material-ui/core'
+import { Button, useTheme } from '@mui/material'
 import React, { MouseEvent } from 'react'
 import { useHistory } from 'react-router-dom'
 

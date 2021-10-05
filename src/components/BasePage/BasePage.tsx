@@ -1,4 +1,4 @@
-import { Container, Typography, useTheme } from '@material-ui/core'
+import { Container, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
