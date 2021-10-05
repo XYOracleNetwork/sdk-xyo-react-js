@@ -1,5 +1,5 @@
-import { responsiveFontSizes, ScopedCssBaseline, ThemeProvider } from '@material-ui/core'
-import { createTheme } from '@material-ui/core/styles'
+import { responsiveFontSizes, ScopedCssBaseline, ThemeProvider } from '@mui/material'
+import { createTheme } from '@mui/material/styles'
 import clone from 'lodash/clone'
 import React, { useContext } from 'react'
 

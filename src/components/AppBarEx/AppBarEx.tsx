@@ -1,4 +1,4 @@
-import { AppBar, Container, Toolbar, useTheme } from '@material-ui/core'
+import { AppBar, Container, Toolbar, useTheme } from '@mui/material'
 
 import { FlexGrowRow } from '../FlexBox'
 import AppBarExProps from './AppBarExProps'

@@ -1,4 +1,4 @@
-import { BoxProps } from '@material-ui/core'
+import { BoxProps } from '@mui/material'
 import { ReactElement, ReactNode } from 'react'
 
 import { AppBarExProps } from '../AppBarEx'

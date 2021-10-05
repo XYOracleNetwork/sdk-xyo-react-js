@@ -1,5 +1,5 @@
-import { Box } from '@material-ui/core'
-import { createStyles, makeStyles } from '@material-ui/styles'
+import { Box } from '@mui/material'
+import { createStyles, makeStyles } from '@mui/styles'
 import React, { PropsWithChildren } from 'react'
 
 import { FlexRow } from './FlexBox'

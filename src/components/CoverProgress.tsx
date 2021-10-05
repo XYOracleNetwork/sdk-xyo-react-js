@@ -1,4 +1,4 @@
-import { CircularProgress, useTheme } from '@material-ui/core'
+import { CircularProgress, useTheme } from '@mui/material'
 import React from 'react'
 
 import { ErrorsViewer } from './Errors'

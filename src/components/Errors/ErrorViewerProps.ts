@@ -1,4 +1,4 @@
-import { BoxProps } from '@material-ui/core'
+import { BoxProps } from '@mui/material'
 
 interface ErrorViewerProps extends BoxProps {
   error?: Error

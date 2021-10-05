@@ -1,4 +1,4 @@
-import { Breadcrumbs, Link } from '@material-ui/core'
+import { Breadcrumbs, Link } from '@mui/material'
 import { assertEx } from '@xyo-network/sdk-xyo-js'
 import React from 'react'
 import { Link as RouteLink } from 'react-router-dom'

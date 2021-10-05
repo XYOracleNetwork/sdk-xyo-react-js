@@ -1,4 +1,4 @@
-import { Box, Paper, PaperProps, useTheme } from '@material-ui/core'
+import { Box, Paper, PaperProps, useTheme } from '@mui/material'
 import React from 'react'
 
 import BoxlikeComponentProps from '../../BoxlikeComponentProps'
@@ -13,11 +13,13 @@ interface PaperBoxProps extends PaperProps, BoxlikeComponentProps, BusyComponent
  */
 const PaperBox: React.FC<PaperBoxProps> = (props) => {
   const theme = useTheme()
-  const { children, busySize, busyOpacity = 0.85, busy, ...rootProps } = mergeBoxlikeStyles<PaperBoxProps>(
-    theme,
-    props,
-    { position: 'relative' }
-  )
+  const {
+    children,
+    busySize,
+    busyOpacity = 0.85,
+    busy,
+    ...rootProps
+  } = mergeBoxlikeStyles<PaperBoxProps>(theme, props, { position: 'relative' })
   return (
     <Box component={Paper} {...rootProps}>
       {children}

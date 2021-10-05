@@ -1,4 +1,4 @@
-import { AppBarProps, ToolbarProps } from '@material-ui/core'
+import { AppBarProps, ToolbarProps } from '@mui/material'
 import { ReactElement } from 'react'
 
 interface AppBarExProps extends AppBarProps {
