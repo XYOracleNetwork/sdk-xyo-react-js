@@ -16,9 +16,7 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof FlexCol> = (args) => <FlexCol {...args}></FlexCol>
 
-const StretchAlignedItems = Template.bind({})
-StretchAlignedItems.args = {
-  alignItems: 'stretch',
+const testRows = {
   border: 'solid 1px gray',
   children: (
     <>
@@ -33,46 +31,26 @@ StretchAlignedItems.args = {
       </FlexRow>
     </>
   ),
+}
+
+const StretchAlignedItems = Template.bind({})
+StretchAlignedItems.args = {
+  alignItems: 'stretch',
+  ...testRows,
   title: 'StretchAlignedItems',
 }
 
 const FlexStartAlignedItems = Template.bind({})
 FlexStartAlignedItems.args = {
   alignItems: 'flex-start',
-  border: 'solid 1px gray',
-  children: (
-    <>
-      <FlexRow margin={1} padding={1} bgcolor="gray">
-        Row One
-      </FlexRow>
-      <FlexRow margin={1} padding={1} bgcolor="gray">
-        Row Two (Longer)
-      </FlexRow>
-      <FlexRow margin={1} padding={1} bgcolor="gray">
-        Row Three
-      </FlexRow>
-    </>
-  ),
+  ...testRows,
   title: 'FlexStartAlignedItems',
 }
 
 const FlexEndAlignedItems = Template.bind({})
 FlexEndAlignedItems.args = {
   alignItems: 'flex-end',
-  border: 'solid 1px gray',
-  children: (
-    <>
-      <FlexRow margin={1} padding={1} bgcolor="gray">
-        Row One
-      </FlexRow>
-      <FlexRow margin={1} padding={1} bgcolor="gray">
-        Row Two (Longer)
-      </FlexRow>
-      <FlexRow margin={1} padding={1} bgcolor="gray">
-        Row Three
-      </FlexRow>
-    </>
-  ),
+  ...testRows,
   title: 'FlexEndAlignedItems',
 }
 

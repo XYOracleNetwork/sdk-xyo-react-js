@@ -40,8 +40,24 @@ const makeChildrenArray = (children: ReactElement<ExperimentProps>[] | ReactElem
   if (Array.isArray(children)) {
     return children as ReactElement<ExperimentProps>[]
   } else {
-    return [children]
+    return [children] as ReactElement<ExperimentProps>[]
   }
+}
+
+const buildLocalStorageKey = (localStorageProp: boolean | string) => {
+  return localStorageProp === true
+    ? defaultLocalStorageKey
+    : typeof localStorageProp === 'string'
+    ? localStorageProp ?? defaultLocalStorageKey
+    : ''
+}
+
+const calcTotalWeight = (childList: ReactElement<ExperimentProps>[]) => {
+  let totalWeight = 0
+  for (const child of childList) {
+    totalWeight += child.props.weight
+  }
+  return totalWeight
 }
 
 const Experiments: React.FC<Props> = (props) => {
@@ -50,42 +66,34 @@ const Experiments: React.FC<Props> = (props) => {
   const { userEvents } = userEventsConntext
   loadOutcomes()
 
-  const localStorageKey =
-    localStorageProp === true
-      ? defaultLocalStorageKey
-      : typeof localStorageProp === 'string'
-      ? localStorageProp ?? defaultLocalStorageKey
-      : ''
+  const localStorageKey = buildLocalStorageKey(localStorageProp)
 
   const childList = makeChildrenArray(children)
 
-  let totalWeight = 0
-  for (const child of childList) {
-    totalWeight += child.props.weight
-  }
+  const totalWeight = calcTotalWeight(childList)
+
   const firstTime = outcomes[name] === undefined
   let targetWeight = outcomes[name] ?? Math.random() * totalWeight
   outcomes[name] = targetWeight
   saveOutcomes()
   for (const child of childList) {
     targetWeight -= child.props.weight
-    if (targetWeight <= 0) {
-      if (child.key) {
-        experimentsTestData[name] = child.key?.toString()
-      } else {
-        throw missingKeyError
-      }
-      if (child.key && firstTime) {
-        if (localStorageProp !== false) {
-          localStorage.setItem(localStorageKey, mergeData(experimentsTestData))
-        }
-        if (!isLocalhost) {
-          userEvents?.testStarted({})
-          testStarted?.()
-        }
-      }
-      return child
+    if (targetWeight > 0) continue
+    if (!child.key) {
+      throw missingKeyError
     }
+    experimentsTestData[name] = child.key?.toString()
+    if (firstTime) {
+      if (localStorageProp !== false) {
+        localStorage.setItem(localStorageKey, mergeData(experimentsTestData))
+      }
+      if (!isLocalhost) {
+        userEvents?.testStarted({})
+        testStarted?.()
+      }
+    }
+
+    return child
   }
   throw new Error('Experiment Choice Failed')
 }
