@@ -16,8 +16,7 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof FlexRow> = (args) => <FlexRow {...args}></FlexRow>
 
-const SpaceBetweenJustifiedContent = Template.bind({})
-SpaceBetweenJustifiedContent.args = {
+const testColumns = {
   border: 'solid 1px gray',
   children: (
     <>
@@ -32,86 +31,39 @@ SpaceBetweenJustifiedContent.args = {
       </FlexCol>
     </>
   ),
+}
+
+const SpaceBetweenJustifiedContent = Template.bind({})
+SpaceBetweenJustifiedContent.args = {
+  ...testColumns,
   justifyContent: 'space-between',
   title: 'SpaceBetweenJustifiedContent',
 }
 
 const SpaceAroundJustifiedContent = Template.bind({})
 SpaceAroundJustifiedContent.args = {
-  border: 'solid 1px gray',
-  children: (
-    <>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column One
-      </FlexCol>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column Two
-      </FlexCol>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column Three
-      </FlexCol>
-    </>
-  ),
+  ...testColumns,
   justifyContent: 'space-around',
   title: 'SpaceAroundJustifiedContent',
 }
 
 const SpaceEvenlyJustifiedContent = Template.bind({})
 SpaceEvenlyJustifiedContent.args = {
-  border: 'solid 1px gray',
-  children: (
-    <>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column One
-      </FlexCol>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column Two
-      </FlexCol>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column Three
-      </FlexCol>
-    </>
-  ),
+  ...testColumns,
   justifyContent: 'space-evenly',
   title: 'SpaceEvenlyJustifiedContent',
 }
 
 const FlexStartJustifiedContent = Template.bind({})
 FlexStartJustifiedContent.args = {
-  border: 'solid 1px gray',
-  children: (
-    <>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column One
-      </FlexCol>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column Two
-      </FlexCol>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column Three
-      </FlexCol>
-    </>
-  ),
+  ...testColumns,
   justifyContent: 'flex-start',
   title: 'FlexStartJustifiedContent',
 }
 
 const FlexEndJustifiedContent = Template.bind({})
 FlexEndJustifiedContent.args = {
-  border: 'solid 1px gray',
-  children: (
-    <>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column One
-      </FlexCol>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column Two
-      </FlexCol>
-      <FlexCol margin={1} padding={1} bgcolor="gray">
-        Column Three
-      </FlexCol>
-    </>
-  ),
+  ...testColumns,
   justifyContent: 'flex-end',
   title: 'FlexEndJustifiedContent',
 }
