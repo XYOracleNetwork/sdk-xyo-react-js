@@ -2,7 +2,7 @@ import { Container, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import CookieConsent from '../CookieConsent'
+import { CookieConsent } from '../CookieConsent'
 import { FlexCol, FlexRow } from '../FlexBox'
 import BasePageProps from './BasePageProps'
 

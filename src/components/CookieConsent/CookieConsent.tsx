@@ -1,9 +1,9 @@
 import { BoxProps, Link, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
-import Background from './Background'
-import { ButtonEx } from './ButtonEx'
-import { FlexRow } from './FlexBox'
+import Background from '../Background'
+import { ButtonEx } from '../ButtonEx'
+import { FlexRow } from '../FlexBox'
 
 interface Props extends BoxProps {
   acceptOnScroll?: boolean
