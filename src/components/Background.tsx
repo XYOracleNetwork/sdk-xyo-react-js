@@ -1,28 +1,11 @@
-import { BoxProps, Paper, useTheme } from '@mui/material'
-import React from 'react'
+import { FlexBoxProps, FlexRow } from './FlexBox'
 
-import { FlexRow } from './FlexBox'
-
-interface Props extends BoxProps {
-  paper?: boolean
+/**
+ * @deprecated The functionality of Background is now part of FlexBox.  Use the 'background' property to enable the background.
+ */
+const Background: React.FC<FlexBoxProps> = (props) => {
+  return <FlexRow {...props} />
 }
 
-const Background: React.FC<Props> = (props) => {
-  const { paper, style, ...rootProps } = props
-  const theme = useTheme()
-  if (paper) {
-    return <FlexRow component={Paper} {...rootProps} />
-  }
-  return (
-    <FlexRow
-      style={{
-        backgroundColor: theme.palette.background.default,
-        color: theme.palette.text.primary,
-        ...style,
-      }}
-      {...rootProps}
-    />
-  )
-}
-
+// eslint-disable-next-line deprecation/deprecation
 export default Background
