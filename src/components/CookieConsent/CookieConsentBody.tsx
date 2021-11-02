@@ -1,22 +1,17 @@
-import { BoxProps, Link, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { Link, Typography } from '@mui/material'
+import { useEffect } from 'react'
 
-import Background from '../Background'
+import { useCookieConsent } from '../../contexts'
 import { ButtonEx } from '../ButtonEx'
 import { FlexRow } from '../FlexBox'
+import CookieConsentProps from './CookieConsentProps'
 
-interface Props extends BoxProps {
-  acceptOnScroll?: boolean
-  acceptOnTimer?: number
-}
-
-const CookieConsentBody: React.FC<Props> = (props) => {
-  const { acceptOnScroll, acceptOnTimer } = props
-  const [accepted, setAccepted] = useState(localStorage.getItem('CookiesAccepted') === 'true')
+const CookieConsentBody: React.FC<CookieConsentProps> = ({ acceptOnScroll, acceptOnTimer, onAccept, ...props }) => {
+  const { accepted, setAccepted, storageName } = useCookieConsent()
 
   const onScroll = () => {
     //hide it one the user has scrolled at least one page
-    if (window.pageYOffset > window.innerHeight && !accepted) {
+    if (window.scrollY > window.innerHeight && !accepted) {
       onAcceptClick()
     }
   }
@@ -38,38 +33,45 @@ const CookieConsentBody: React.FC<Props> = (props) => {
   })
 
   const onAcceptClick = () => {
-    localStorage.setItem('CookiesAccepted', 'true')
-    setAccepted(true)
+    if (setAccepted) {
+      console.log('onAcceptClick1')
+      setAccepted?.(true)
+    } else {
+      console.log(`onAcceptClick2: ${storageName}`)
+      localStorage.setItem(storageName ?? 'CookiesAccepted', 'true')
+    }
+    onAccept?.(true)
+  }
+
+  if (!storageName) {
+    return (
+      <FlexRow justifyContent="center" paddingY={2} {...props}>
+        <Typography color="error" variant="body1">
+          Missing CookieConsentContext
+        </Typography>
+      </FlexRow>
+    )
   }
 
   return accepted ? null : (
-    <Background
-      display="flex"
-      position="fixed"
-      justifyContent="space-between"
-      paddingY={2}
-      bottom={0}
-      width="100vw"
-      zIndex={1000}
-      {...props}
-    >
-      <FlexRow marginX={2}>
+    <FlexRow justifyContent="space-between" paddingY={2} {...props}>
+      <FlexRow>
         <Typography variant="body2">
-          This site uses{' '}
+          {'This site uses '}
           <Link href="https://cookiesandyou.com/" rel="noopener noreferrer" target="_blank">
             cookies
-          </Link>{' '}
-          and{' '}
+          </Link>
+          {' and '}
           <Link href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer" target="_blank">
             Google&nbsp;tools
-          </Link>{' '}
-          to analyze traffic and for ads measurement purposes.
+          </Link>
+          {' to analyze traffic and for ads measurement purposes.'}
         </Typography>
       </FlexRow>
       <ButtonEx variant="contained" color="secondary" marginX={2} onClick={onAcceptClick}>
         Accept
       </ButtonEx>
-    </Background>
+    </FlexRow>
   )
 }
 

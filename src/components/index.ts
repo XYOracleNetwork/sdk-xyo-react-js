@@ -15,4 +15,5 @@ export * from './LinkEx'
 export * from './NumberStatus'
 export * from './RichResult'
 
+// eslint-disable-next-line deprecation/deprecation
 export { Background, CoverProgress, HoverScale, RedirectWithQuery }
