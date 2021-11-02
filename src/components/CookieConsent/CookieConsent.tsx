@@ -8,7 +8,7 @@ const CookieConsent: React.FC<CookieConsentProps> = (props) => {
   const Inner: React.FC = () => {
     const { accepted } = useCookieConsent()
     return accepted ? null : (
-      <CookieConsentBody background position="fixed" bottom={0} width="100vw" zIndex={1000} {...props} />
+      <CookieConsentBody background paper position="fixed" bottom={0} width="100vw" zIndex={1000} {...props} />
     )
   }
 
