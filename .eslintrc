@@ -3,11 +3,6 @@
   "extends": [
     "@xylabs/react"
   ],
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
-  },
   "rules": {
     "import/no-internal-modules": ["warn", {"allow": [
       "**/*.jpg",
