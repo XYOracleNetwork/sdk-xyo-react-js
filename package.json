@@ -38,26 +38,32 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@mui/material": "^5.0.6",
-    "@mui/styles": "^5.0.2",
     "@types/numeral": "^2.0.2",
     "@types/react-helmet": "^6.1.4",
-    "@xylabs/pixel": "^1.0.26",
-    "@xyo-network/sdk-xyo-js": "^2.1",
     "axios": "^0.24.0",
     "lodash": "^4.17.21",
     "numeral": "^2.0.6",
     "query-string": "^7.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.3.0"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@mui/material": "^5",
+    "@mui/styles": "^5",
+    "@xylabs/pixel": "^1",
+    "@xyo-network/sdk-xyo-js": "^2",
+    "react": "^17",
+    "react-dom": "^17"
   },
   "devDependencies": {
     "@babel/core": "^7",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@mui/material": "^5.0.6",
+    "@mui/styles": "^5.0.2",
     "@rollup/plugin-typescript": "^8.3.0",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-docs": "^6.3.12",
@@ -78,6 +84,8 @@
     "@xyo-network/sdk-xyo-js": "^2.1",
     "babel-loader": "^8.2.3",
     "eslint-plugin-prettier": "^4.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "tslib": "^2.3.1",
     "typescript": "^4"
   }
