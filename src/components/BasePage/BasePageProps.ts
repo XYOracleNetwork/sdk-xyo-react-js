@@ -13,6 +13,7 @@ interface BasePageProps extends BoxProps {
   hideFooter?: boolean
   noindex?: boolean
   cookieConsent?: ReactNode
+  scrollToTopButton?: boolean
   title?: string
 }
 

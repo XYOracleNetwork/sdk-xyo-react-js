@@ -10,6 +10,7 @@ export default [
       '@mui/material',
       '@mui/styles',
       '@mui/material/styles',
+      '@mui/icons-material',
       'react',
       'react-icons/ai',
       '@xyo-network/sdk-xyo-js',
