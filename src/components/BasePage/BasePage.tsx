@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 
 import { CookieConsent } from '../CookieConsent'
 import { FlexCol, FlexRow } from '../FlexBox'
+import { InvertableThemeProvider } from '../InvertableThemeProvider'
 import BasePageProps from './BasePageProps'
 
 const BasePage: React.FC<BasePageProps> = ({
@@ -60,7 +61,11 @@ const BasePage: React.FC<BasePageProps> = ({
         children
       )}
       {hideFooter ? null : <footer>{appFooter}</footer>}
-      {cookieConsent ?? <CookieConsent />}
+      {cookieConsent ?? (
+        <InvertableThemeProvider invert>
+          <CookieConsent />
+        </InvertableThemeProvider>
+      )}
     </FlexCol>
   )
 }
