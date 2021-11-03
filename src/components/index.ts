@@ -2,6 +2,7 @@ import Background from './Background'
 import CoverProgress from './CoverProgress'
 import HoverScale from './HoverScale'
 import RedirectWithQuery from './RedirectWithQuery'
+import ScrollToTopButton from './ScrollToTopButton'
 
 export * from './AppBarEx'
 export * from './BasePage'
@@ -16,4 +17,4 @@ export * from './NumberStatus'
 export * from './RichResult'
 
 // eslint-disable-next-line deprecation/deprecation
-export { Background, CoverProgress, HoverScale, RedirectWithQuery }
+export { Background, CoverProgress, HoverScale, RedirectWithQuery, ScrollToTopButton }

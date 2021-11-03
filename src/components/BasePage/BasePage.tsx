@@ -1,10 +1,12 @@
-import { Container, Typography, useTheme } from '@mui/material'
+import { KeyboardArrowUp as KeyboardArrowUpIcon } from '@mui/icons-material'
+import { Container, Fab, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import { CookieConsent } from '../CookieConsent'
 import { FlexCol, FlexRow } from '../FlexBox'
 import { InvertableThemeProvider } from '../InvertableThemeProvider'
+import ScrollToTopButton from '../ScrollToTopButton'
 import BasePageProps from './BasePageProps'
 
 const BasePage: React.FC<BasePageProps> = ({
@@ -18,10 +20,12 @@ const BasePage: React.FC<BasePageProps> = ({
   cookieConsent,
   hideAppBar,
   noindex = false,
+  scrollToTopButton = false,
   title,
   ...props
 }) => {
   const theme = useTheme()
+  const scrollToTopAnchorId = 'scroll-to-top-anchor'
 
   return (
     <FlexCol
@@ -33,6 +37,7 @@ const BasePage: React.FC<BasePageProps> = ({
       {...props}
     >
       <Helmet title={title}>{noindex ? <meta content="noindex" name="robots" /> : null}</Helmet>
+      {scrollToTopButton ? <div id={scrollToTopAnchorId} /> : null}
       {hideAppBar ? null : appBar}
       {beta ? (
         <FlexRow
@@ -66,6 +71,13 @@ const BasePage: React.FC<BasePageProps> = ({
           <CookieConsent />
         </InvertableThemeProvider>
       )}
+      {scrollToTopButton ? (
+        <ScrollToTopButton anchorId={scrollToTopAnchorId}>
+          <Fab aria-label="scroll to top" color="secondary" size="small">
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </ScrollToTopButton>
+      ) : null}
     </FlexCol>
   )
 }
