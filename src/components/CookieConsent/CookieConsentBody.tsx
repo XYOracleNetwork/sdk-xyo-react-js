@@ -6,7 +6,7 @@ import { ButtonEx } from '../ButtonEx'
 import { FlexRow } from '../FlexBox'
 import CookieConsentProps from './CookieConsentProps'
 
-const CookieConsentBody: React.FC<CookieConsentProps> = ({ acceptOnScroll, acceptOnTimer, onAccept, ...props }) => {
+const CookieConsentBody: React.FC<CookieConsentProps> = ({ acceptOnScroll, acceptOnTimer = 0, onAccept, ...props }) => {
   const { accepted, setAccepted, storageName } = useCookieConsent()
 
   const onScroll = () => {
@@ -14,12 +14,6 @@ const CookieConsentBody: React.FC<CookieConsentProps> = ({ acceptOnScroll, accep
     if (window.scrollY > window.innerHeight && !accepted) {
       onAcceptClick()
     }
-  }
-
-  if (acceptOnTimer && !accepted) {
-    setTimeout(() => {
-      onAcceptClick()
-    }, acceptOnTimer)
   }
 
   useEffect(() => {
@@ -41,6 +35,12 @@ const CookieConsentBody: React.FC<CookieConsentProps> = ({ acceptOnScroll, accep
       localStorage.setItem(storageName ?? 'CookiesAccepted', 'true')
     }
     onAccept?.(true)
+  }
+
+  if (acceptOnTimer > 0 && !accepted) {
+    setTimeout(() => {
+      onAcceptClick()
+    }, acceptOnTimer)
   }
 
   if (!storageName) {
