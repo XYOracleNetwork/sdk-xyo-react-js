@@ -12,6 +12,7 @@ const CookieConsentBody: React.FC<CookieConsentProps> = ({ acceptOnScroll, accep
   const onScroll = () => {
     //hide it one the user has scrolled at least one page
     if (window.scrollY > window.innerHeight && !accepted) {
+      console.log('onAcceptClick-Scroll')
       onAcceptClick()
     }
   }
@@ -39,6 +40,7 @@ const CookieConsentBody: React.FC<CookieConsentProps> = ({ acceptOnScroll, accep
 
   if (acceptOnTimer > 0 && !accepted) {
     setTimeout(() => {
+      console.log('onAcceptClick-Timer')
       onAcceptClick()
     }, acceptOnTimer)
   }
