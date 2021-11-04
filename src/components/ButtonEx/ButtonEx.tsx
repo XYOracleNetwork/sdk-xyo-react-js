@@ -1,6 +1,6 @@
 import { Button, useTheme } from '@mui/material'
 import React, { MouseEvent } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import mergeBoxlikeStyles from '../../mergeBoxlikeStyles'
 import BusyCircularProgress from '../BusyCircularProgress'
@@ -18,13 +18,13 @@ const ButtonEx: React.FC<ButtonExProps> = (props) => {
     children,
     ...rootProps
   } = mergeBoxlikeStyles<ButtonExProps>(theme, props)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const localOnClick = (event: MouseEvent<HTMLButtonElement>) => {
     if (!busy) {
       onClick?.(event)
       if (to) {
-        history.push(to)
+        navigate(to)
       }
     }
   }

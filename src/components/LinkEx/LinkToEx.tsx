@@ -1,12 +1,13 @@
 import { Link, LinkProps } from '@mui/material'
 import React from 'react'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, To } from 'react-router-dom'
 
-type Props = LinkProps<RouterLink>
+interface Props extends LinkProps {
+  to: To
+}
 
-const LinkToEx: React.FC<Props> = (props) => {
-  const { to, ...rootProps } = props
-  return <Link component={RouterLink} to={to} {...rootProps} />
+const LinkToEx: React.FC<Props> = ({ to, ...props }) => {
+  return <Link component={RouterLink} to={to} {...props} />
 }
 
 export default LinkToEx

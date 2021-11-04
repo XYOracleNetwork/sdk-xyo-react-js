@@ -1,9 +1,19 @@
-import React from 'react'
-import { Redirect, RedirectProps } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { To, useNavigate } from 'react-router-dom'
 
-const RedirectWithQuery: React.ComponentType<RedirectProps> = (props) => {
-  const to = `${props.to}${document.location.search}`
-  return <Redirect {...props} to={to} />
+interface RedirectProps {
+  to: To
+}
+
+const RedirectWithQuery: React.ComponentType<RedirectProps> = ({ to }) => {
+  const newUrl = `${to}${document.location.search}`
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate(newUrl, { replace: true })
+  })
+
+  return <div />
 }
 
 export default RedirectWithQuery
