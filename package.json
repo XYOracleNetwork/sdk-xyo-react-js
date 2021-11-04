@@ -19,12 +19,13 @@
   ],
   "license": "LGPL-3.0",
   "private": false,
-  "version": "2.3.8",
+  "version": "2.4.0",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
@@ -32,6 +33,7 @@
     "access": "public"
   },
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
     "lint-pkg": "npmPkgJsonLint .",
     "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'",
     "start": "start-storybook -p 6006",

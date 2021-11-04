@@ -1,5 +1,5 @@
 import { KeyboardArrowUp as KeyboardArrowUpIcon } from '@mui/icons-material'
-import { Container, Fab, Typography, useTheme } from '@mui/material'
+import { Container, Fab, ScopedCssBaseline, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
@@ -67,9 +67,11 @@ const BasePage: React.FC<BasePageProps> = ({
       )}
       {hideFooter ? null : <footer>{appFooter}</footer>}
       {cookieConsent ?? (
-        <InvertableThemeProvider invert>
-          <CookieConsent />
-        </InvertableThemeProvider>
+        <ScopedCssBaseline>
+          <InvertableThemeProvider invert>
+            <CookieConsent borderRadius={0} />
+          </InvertableThemeProvider>
+        </ScopedCssBaseline>
       )}
       {scrollToTopButton ? (
         <ScrollToTopButton anchorId={scrollToTopAnchorId}>
