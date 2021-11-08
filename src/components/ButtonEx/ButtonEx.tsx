@@ -11,6 +11,7 @@ const ButtonEx: React.FC<ButtonExProps> = (props) => {
   const theme = useTheme()
   const {
     to,
+    toOptions,
     busy,
     busyVariant = 'linear',
     busyOpacity,
@@ -24,7 +25,7 @@ const ButtonEx: React.FC<ButtonExProps> = (props) => {
     if (!busy) {
       onClick?.(event)
       if (to) {
-        navigate(to)
+        navigate(to, toOptions)
       }
     }
   }

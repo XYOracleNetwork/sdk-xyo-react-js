@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 
 import NumberStatus from './NumberStatus'
 
@@ -13,7 +14,11 @@ const StorybookEntry = {
   title: 'NumberStatus',
 } as ComponentMeta<typeof NumberStatus>
 
-const NumberStatusTemplate: ComponentStory<typeof NumberStatus> = (args) => <NumberStatus {...args}></NumberStatus>
+const NumberStatusTemplate: ComponentStory<typeof NumberStatus> = (args) => (
+  <BrowserRouter>
+    <NumberStatus {...args}></NumberStatus>
+  </BrowserRouter>
+)
 
 const Default = NumberStatusTemplate.bind({})
 Default.args = {
