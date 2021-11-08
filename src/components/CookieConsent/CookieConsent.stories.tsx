@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { CookieConsentLoader, useCookieConsent } from '../../contexts'
 import { ButtonEx } from '../ButtonEx'
@@ -35,17 +36,21 @@ const TemplateWithContext: ComponentStory<typeof CookieConsent> = (args) => {
   }
 
   return (
-    <CookieConsentLoader>
-      <Inner />
-    </CookieConsentLoader>
+    <BrowserRouter>
+      <CookieConsentLoader>
+        <Inner />
+      </CookieConsentLoader>
+    </BrowserRouter>
   )
 }
 
 const TemplateWithoutContext: ComponentStory<typeof CookieConsent> = (args) => {
   return (
-    <FlexRow>
-      <CookieConsent {...args}></CookieConsent>
-    </FlexRow>
+    <BrowserRouter>
+      <FlexRow>
+        <CookieConsent {...args}></CookieConsent>
+      </FlexRow>
+    </BrowserRouter>
   )
 }
 
