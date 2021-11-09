@@ -1,6 +1,8 @@
 import Background from './Background'
 import CoverProgress from './CoverProgress'
+import EthAccount from './EthAccount'
 import HoverScale from './HoverScale'
+import Identicon from './Identicon'
 import RedirectWithQuery from './RedirectWithQuery'
 import ScrollToTopButton from './ScrollToTopButton'
 
@@ -17,4 +19,4 @@ export * from './NumberStatus'
 export * from './RichResult'
 
 // eslint-disable-next-line deprecation/deprecation
-export { Background, CoverProgress, HoverScale, RedirectWithQuery, ScrollToTopButton }
+export { Background, CoverProgress, EthAccount, HoverScale, Identicon, RedirectWithQuery, ScrollToTopButton }
