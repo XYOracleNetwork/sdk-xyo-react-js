@@ -16,6 +16,7 @@ export * from './FlexBox'
 export * from './InvertableThemeProvider'
 export * from './LinkEx'
 export * from './NumberStatus'
+export * from './QuickTipButton'
 export * from './RichResult'
 
 // eslint-disable-next-line deprecation/deprecation

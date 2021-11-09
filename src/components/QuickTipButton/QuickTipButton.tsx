@@ -2,7 +2,7 @@ import { IconButton, IconButtonProps } from '@mui/material'
 import { useState } from 'react'
 import { AiOutlineQuestionCircle } from 'react-icons/ai'
 
-import { MessageDialog } from './dialogs'
+import { MessageDialog } from '../../dialogs'
 
 const QuickTipButton: React.FC<IconButtonProps> = ({ title, children, ...props }) => {
   const [messageOpen, setMessageOpen] = useState(false)
