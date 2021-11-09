@@ -1,6 +1,5 @@
 import Background from './Background'
 import CoverProgress from './CoverProgress'
-import EthAccount from './EthAccount'
 import HoverScale from './HoverScale'
 import Identicon from './Identicon'
 import RedirectWithQuery from './RedirectWithQuery'
@@ -11,6 +10,7 @@ export * from './BasePage'
 export * from './Breadcrumbs'
 export * from './ButtonEx'
 export * from './CookieConsent'
+export * from './EthAccount'
 export * from './Experiments'
 export * from './FlexBox'
 export * from './InvertableThemeProvider'
@@ -19,4 +19,4 @@ export * from './NumberStatus'
 export * from './RichResult'
 
 // eslint-disable-next-line deprecation/deprecation
-export { Background, CoverProgress, EthAccount, HoverScale, Identicon, RedirectWithQuery, ScrollToTopButton }
+export { Background, CoverProgress, HoverScale, Identicon, RedirectWithQuery, ScrollToTopButton }
