@@ -15,6 +15,7 @@ const EthAccount: React.FC<EthAccountProps> = ({
   auto,
   size = 16,
   to,
+  page,
   onClick,
   toEtherScan,
   ...props
@@ -33,7 +34,7 @@ const EthAccount: React.FC<EthAccountProps> = ({
       if (onClick) {
         onClick()
       } else {
-        navigateToEthAddress(address, event, 'entity', to, toEtherScan)
+        navigateToEthAddress(address, event, page, to, toEtherScan)
       }
     }
 

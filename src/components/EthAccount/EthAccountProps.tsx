@@ -10,6 +10,7 @@ interface EthAccountProps extends BoxProps {
   size?: number
   text?: boolean
   to?: string
+  page?: string
   toEtherScan?: boolean
 }
 
