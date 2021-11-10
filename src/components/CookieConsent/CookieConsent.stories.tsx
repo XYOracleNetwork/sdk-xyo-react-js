@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
 
 import { CookieConsentLoader, useCookieConsent } from '../../contexts'
 import { ButtonEx } from '../ButtonEx'
