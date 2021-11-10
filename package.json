@@ -33,6 +33,11 @@
     "access": "public"
   },
   "scripts": {
+    "compile": "rm -r -f dist && tsc -p tsconfig.build.json && yarn copy-svg && yarn copy-png && yarn copy-jpg && yarn copy-gif",
+    "copy-svg": "yarn copyfiles -u 1 \"./src/**/*.svg\" dist",
+    "copy-png": "yarn copyfiles -u 1 \"./src/**/*.png\" dist",
+    "copy-jpg": "yarn copyfiles -u 1 \"./src/**/*.jpg\" dist",
+    "copy-gif": "yarn copyfiles -u 1 \"./src/**/*.gif\" dist",
     "lint-pkg": "npmPkgJsonLint .",
     "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'",
     "start": "start-storybook -p 6006",
