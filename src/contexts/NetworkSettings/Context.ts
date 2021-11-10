@@ -5,5 +5,6 @@ const Context = React.createContext<{
   xyStakingConsensusAddress?: EthAddress
   xyBondAddress?: EthAddress
   xyGovernanceAddress?: EthAddress
+  xyFhrMerkleSend?: EthAddress
 }>({})
 export default Context
