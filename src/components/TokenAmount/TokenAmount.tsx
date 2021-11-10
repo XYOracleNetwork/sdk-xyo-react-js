@@ -34,7 +34,7 @@ const TokenAmount: React.FC<TokenAmountProps> = (props) => {
         ) : null}
         {logo ? <FlexRow></FlexRow> : null}
         <FlexGrowRow flexGrow={1} justifyContent="flex-end" marginLeft={1}>
-          <Typography noWrap={true} color={textColor} fontFamily={fontFamily} variant="button">
+          <Typography noWrap={true} color={textColor} fontFamily={fontFamily} variant="body1">
             {amountString}
           </Typography>
         </FlexGrowRow>

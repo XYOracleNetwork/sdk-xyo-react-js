@@ -47,7 +47,7 @@ const EthAccount: React.FC<EthAccountProps> = ({
             <FlexRow marginX={1}>
               {text ? (
                 <FlexRow alignItems="center">
-                  <Typography variant="button" fontFamily={fontFamily}>
+                  <Typography variant="body1" fontFamily={fontFamily}>
                     {testToDisplay}
                   </Typography>
                 </FlexRow>
