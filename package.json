@@ -19,7 +19,7 @@
   ],
   "license": "LGPL-3.0",
   "private": false,
-  "version": "2.5.12",
+  "version": "2.5.14",
   "type": "module",
   "repository": {
     "type": "git",
@@ -33,6 +33,11 @@
     "access": "public"
   },
   "scripts": {
+    "compile": "rm -r -f dist && tsc -p tsconfig.build.json && yarn copy-svg && yarn copy-png && yarn copy-jpg && yarn copy-gif",
+    "copy-svg": "yarn copyfiles -u 1 \"./src/**/*.svg\" dist",
+    "copy-png": "yarn copyfiles -u 1 \"./src/**/*.png\" dist",
+    "copy-jpg": "yarn copyfiles -u 1 \"./src/**/*.jpg\" dist",
+    "copy-gif": "yarn copyfiles -u 1 \"./src/**/*.gif\" dist",
     "lint-pkg": "npmPkgJsonLint .",
     "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'",
     "start": "start-storybook -p 6006",
@@ -92,6 +97,7 @@
     "@xyo-network/sdk-xyo-js": "^2.2.6",
     "babel-loader": "^8.2.3",
     "bn.js": "^5.2.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^7",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1",
