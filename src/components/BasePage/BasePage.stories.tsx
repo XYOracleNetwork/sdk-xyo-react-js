@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
 
 import BasePage from './BasePage'
 
@@ -14,11 +13,7 @@ const StorybookEntry = {
   title: 'BasePage',
 } as ComponentMeta<typeof BasePage>
 
-const Template: ComponentStory<typeof BasePage> = (args) => (
-  <BrowserRouter>
-    <BasePage {...args}></BasePage>
-  </BrowserRouter>
-)
+const Template: ComponentStory<typeof BasePage> = (args) => <BasePage {...args}></BasePage>
 
 const Default = Template.bind({})
 Default.args = {

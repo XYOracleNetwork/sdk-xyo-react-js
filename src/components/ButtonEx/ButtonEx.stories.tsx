@@ -16,23 +16,21 @@ const StorybookEntry = {
 } as ComponentMeta<typeof ButtonEx>
 
 const DefaultTemplate: ComponentStory<typeof ButtonEx> = (args) => (
-  <BrowserRouter>
-    <FlexRow justifyContent="flex-start">
-      <FlexCol marginX={1}>
-        <ButtonEx {...args}>Default</ButtonEx>
-      </FlexCol>
-      <FlexCol marginX={1}>
-        <ButtonEx variant="outlined" {...args}>
-          Outlined
-        </ButtonEx>
-      </FlexCol>
-      <FlexCol marginX={1}>
-        <ButtonEx variant="contained" {...args}>
-          Contained
-        </ButtonEx>
-      </FlexCol>
-    </FlexRow>
-  </BrowserRouter>
+  <FlexRow justifyContent="flex-start">
+    <FlexCol marginX={1}>
+      <ButtonEx {...args}>Default</ButtonEx>
+    </FlexCol>
+    <FlexCol marginX={1}>
+      <ButtonEx variant="outlined" {...args}>
+        Outlined
+      </ButtonEx>
+    </FlexCol>
+    <FlexCol marginX={1}>
+      <ButtonEx variant="contained" {...args}>
+        Contained
+      </ButtonEx>
+    </FlexCol>
+  </FlexRow>
 )
 
 const Default = DefaultTemplate.bind({})
