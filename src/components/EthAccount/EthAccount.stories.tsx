@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { EthAddress } from '@xyo-network/sdk-xyo-js'
-import { BrowserRouter } from 'react-router-dom'
 
 import EthAccount from './EthAccount'
 
@@ -15,11 +14,7 @@ const StorybookEntry = {
   title: 'EthAccount',
 } as ComponentMeta<typeof EthAccount>
 
-const Template: ComponentStory<typeof EthAccount> = (args) => (
-  <BrowserRouter>
-    <EthAccount {...args}></EthAccount>
-  </BrowserRouter>
-)
+const Template: ComponentStory<typeof EthAccount> = (args) => <EthAccount {...args}></EthAccount>
 
 const Default = Template.bind({})
 Default.args = {

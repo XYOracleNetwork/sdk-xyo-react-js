@@ -18,6 +18,7 @@ export * from './LinkEx'
 export * from './NumberStatus'
 export * from './QuickTipButton'
 export * from './RichResult'
+export * from './TokenAmount'
 
 // eslint-disable-next-line deprecation/deprecation
 export { Background, CoverProgress, HoverScale, Identicon, RedirectWithQuery, ScrollToTopButton }

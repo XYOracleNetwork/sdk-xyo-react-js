@@ -36,21 +36,17 @@ const TemplateWithContext: ComponentStory<typeof CookieConsent> = (args) => {
   }
 
   return (
-    <BrowserRouter>
-      <CookieConsentLoader>
-        <Inner />
-      </CookieConsentLoader>
-    </BrowserRouter>
+    <CookieConsentLoader>
+      <Inner />
+    </CookieConsentLoader>
   )
 }
 
 const TemplateWithoutContext: ComponentStory<typeof CookieConsent> = (args) => {
   return (
-    <BrowserRouter>
-      <FlexRow>
-        <CookieConsent {...args}></CookieConsent>
-      </FlexRow>
-    </BrowserRouter>
+    <FlexRow>
+      <CookieConsent {...args}></CookieConsent>
+    </FlexRow>
   )
 }
 
