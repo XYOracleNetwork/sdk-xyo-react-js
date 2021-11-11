@@ -18,12 +18,12 @@ const Template: ComponentStory<typeof TokenAmount> = (args) => <TokenAmount {...
 
 const Default = Template.bind({})
 Default.args = {
-  amount: new BigNumber(5).shln(18),
+  amount: new BigNumber('1195c751dbcc90ab4200000', 16),
 }
 
 const WithLogo = Template.bind({})
 WithLogo.args = {
-  amount: new BigNumber(5).shln(18),
+  amount: new BigNumber('1195c751dbcc90ab4200000', 16),
   logo: true,
 }
 

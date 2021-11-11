@@ -1,14 +1,24 @@
 import { Typography } from '@mui/material'
+import { BigNumber } from '@xyo-network/sdk-xyo-js'
 
 import { ButtonEx } from '../ButtonEx'
 import { FlexGrowRow, FlexRow } from '../FlexBox'
 import xyoLogo from './img/xyo.svg'
 import TokenAmountProps from './TokenAmountProps'
 
-const TokenAmount: React.FC<TokenAmountProps> = (props) => {
-  const { amount, places = 18, variant = 'outlined', logo, textColor, label, onClick, ...buttonExProps } = props
+const base10Shift = (bn: BigNumber, places: number) => {
+  const factor = new BigNumber(10).pow(new BigNumber(Math.abs(places)))
+  if (places > 0) {
+    return bn.mul(factor)
+  } else {
+    return bn.div(factor)
+  }
+}
 
-  const adjustedAmount = amount?.shrn(places).toNumber()
+const TokenAmount: React.FC<TokenAmountProps> = (props) => {
+  const { amount, places = -18, variant = 'outlined', logo, textColor, label, onClick, ...buttonExProps } = props
+
+  const adjustedAmount = amount ? base10Shift(amount, places).toNumber() : undefined
 
   const amountString = adjustedAmount ? Math.trunc(adjustedAmount).toLocaleString() : '-'
 
