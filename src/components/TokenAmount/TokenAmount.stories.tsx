@@ -27,6 +27,19 @@ WithLogo.args = {
   logo: true,
 }
 
-export { Default, WithLogo }
+const WithLabel = Template.bind({})
+WithLabel.args = {
+  amount: new BigNumber('1195c751dbcc90ab4200000', 16),
+  label: 'Balance',
+}
+
+const WithLogoAndLabel = Template.bind({})
+WithLogoAndLabel.args = {
+  amount: new BigNumber('1195c751dbcc90ab4200000', 16),
+  label: 'Balance',
+  logo: true,
+}
+
+export { Default, WithLabel, WithLogo, WithLogoAndLabel }
 
 export default StorybookEntry

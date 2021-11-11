@@ -1,14 +1,14 @@
 import { BigNumber } from '@xyo-network/sdk-xyo-js'
+import { MouseEventHandler } from 'react'
 
-import { ButtonExProps } from '../ButtonEx'
+import { FlexBoxProps } from '../FlexBox'
 
-interface TokenAmountProps extends ButtonExProps {
+interface TokenAmountProps extends FlexBoxProps {
   amount?: BigNumber | null
   label?: string
   logo?: boolean
-  onClick?: () => void
-  textColor?: string
   places?: number
+  onButtonClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 export default TokenAmountProps
