@@ -6,9 +6,9 @@ import xyoLogo from './img/xyo.svg'
 import TokenAmountProps from './TokenAmountProps'
 
 const TokenAmount: React.FC<TokenAmountProps> = (props) => {
-  const { amount, variant = 'outlined', logo, textColor, label, onClick, ...buttonExProps } = props
+  const { amount, places = 18, variant = 'outlined', logo, textColor, label, onClick, ...buttonExProps } = props
 
-  const adjustedAmount = amount?.shln(18).toNumber()
+  const adjustedAmount = amount?.shrn(places).toNumber()
 
   const amountString = adjustedAmount ? Math.trunc(adjustedAmount).toLocaleString() : '-'
 
