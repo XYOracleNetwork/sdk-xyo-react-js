@@ -8,6 +8,7 @@ interface TokenAmountProps extends ButtonExProps {
   logo?: boolean
   onClick?: () => void
   textColor?: string
+  places?: number
 }
 
 export default TokenAmountProps
