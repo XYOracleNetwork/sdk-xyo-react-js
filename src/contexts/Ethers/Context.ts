@@ -1,6 +1,6 @@
 import { Signer } from '@ethersproject/abstract-signer'
 import { Provider } from '@ethersproject/providers'
-import { EthAddress } from '@xyo-network/sdk-xyo-js'
+import { EthAddress } from '@xylabs/sdk-js'
 import React from 'react'
 
 export interface EthersData {

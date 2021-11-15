@@ -1,4 +1,4 @@
-import { Log } from '@xyo-network/sdk-xyo-js'
+import { Log } from '@xylabs/sdk-js'
 import React, { ReactElement, useContext } from 'react'
 
 import { UserEventsContext } from '../../contexts'

@@ -1,4 +1,4 @@
-import { BigNumber } from '@xyo-network/sdk-xyo-js'
+import { BigNumber } from '@xylabs/sdk-js'
 import { MouseEventHandler } from 'react'
 
 import { FlexBoxProps } from '../FlexBox'

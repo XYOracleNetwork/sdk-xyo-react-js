@@ -1,4 +1,4 @@
-import { Log } from '@xyo-network/sdk-xyo-js'
+import { Log } from '@xylabs/sdk-js'
 
 export const getLocalStorageObject = <T>(key: string, log?: Log): T => {
   let result = {} as T

@@ -1,5 +1,5 @@
 import { JsonRpcProvider, JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
-import { EthAddress } from '@xyo-network/sdk-xyo-js'
+import { EthAddress } from '@xylabs/sdk-js'
 import React, { PropsWithChildren, useState } from 'react'
 
 import { EthersContext } from './Context'

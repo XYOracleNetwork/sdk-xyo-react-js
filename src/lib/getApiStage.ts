@@ -1,4 +1,4 @@
-import { getApiStage } from '@xyo-network/sdk-xyo-js'
+import { getApiStage } from '@xylabs/sdk-js'
 
 const get = () => {
   return getApiStage(document.location.hostname)

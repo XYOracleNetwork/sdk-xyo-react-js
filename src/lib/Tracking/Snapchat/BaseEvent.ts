@@ -1,4 +1,4 @@
-import { delay } from '@xyo-network/sdk-xyo-js'
+import { delay } from '@xylabs/sdk-js'
 
 class BaseEvent<T> {
   public name: string
