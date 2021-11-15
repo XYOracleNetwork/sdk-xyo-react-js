@@ -61,7 +61,7 @@ See the [LICENSE](LICENSE) file for license details
 [npm-badge]: https://img.shields.io/npm/v/@xyo-network/sdk-xyo-react-js.svg
 [npm-link]: https://www.npmjs.com/package/@xyo-network/sdk-xyo-react-js
 
-[bch-badge]: https://bettercodehub.com/edge/badge/XYOracleNetwork/sdk-xyo-react-js?branch=master
+[bch-badge]: https://bettercodehub.com/edge/badge/XYOracleNetwork/sdk-xyo-react-js?branch=main
 [bch-link]: https://bettercodehub.com/results/XYOracleNetwork/sdk-xyo-react-js
 
 [codacy-badge]: https://app.codacy.com/project/badge/Grade/0c82dd3b33c3494886a30b1c4ff5a8c0
