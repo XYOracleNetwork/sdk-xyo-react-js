@@ -1,4 +1,4 @@
-import { EthAddress } from '@xyo-network/sdk-xyo-js'
+import { EthAddress } from '@xylabs/sdk-js'
 import { NavigateOptions, To, useNavigate } from 'react-router-dom'
 
 const useNavigateToEthAddress = () => {

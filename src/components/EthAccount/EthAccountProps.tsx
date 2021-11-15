@@ -1,5 +1,5 @@
 import { BoxProps } from '@mui/material'
-import { EthAddress } from '@xyo-network/sdk-xyo-js'
+import { EthAddress } from '@xylabs/sdk-js'
 import { MouseEventHandler } from 'react'
 import { NavigateOptions, To } from 'react-router-dom'
 

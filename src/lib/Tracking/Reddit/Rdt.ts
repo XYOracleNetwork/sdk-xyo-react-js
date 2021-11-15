@@ -1,4 +1,4 @@
-import { delay } from '@xyo-network/sdk-xyo-js'
+import { delay } from '@xylabs/sdk-js'
 
 import global from '../../global'
 

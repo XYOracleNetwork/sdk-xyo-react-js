@@ -1,4 +1,4 @@
-import { assertEx, delay } from '@xyo-network/sdk-xyo-js'
+import { assertEx, delay } from '@xylabs/sdk-js'
 
 import Fbq from './Fbq'
 

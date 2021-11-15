@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { BigNumber } from '@xyo-network/sdk-xyo-js'
+import { BigNumber } from '@xylabs/sdk-js'
 
 import { ButtonEx } from '../ButtonEx'
 import { FlexRow } from '../FlexBox'

@@ -1,4 +1,4 @@
-import { EthAddress } from '@xyo-network/sdk-xyo-js'
+import { EthAddress } from '@xylabs/sdk-js'
 import React from 'react'
 
 const Context = React.createContext<{

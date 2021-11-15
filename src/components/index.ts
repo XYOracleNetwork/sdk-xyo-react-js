@@ -20,5 +20,5 @@ export * from './QuickTipButton'
 export * from './RichResult'
 export * from './TokenAmount'
 
-// eslint-disable-next-line deprecation/deprecation
+// eslint-disable-next-line @delagen/deprecation/deprecation
 export { Background, CoverProgress, HoverScale, Identicon, RedirectWithQuery, ScrollToTopButton }
