@@ -67,7 +67,7 @@ See the [LICENSE](LICENSE) file for license details
 [codacy-badge]: https://app.codacy.com/project/badge/Grade/0c82dd3b33c3494886a30b1c4ff5a8c0
 [codacy-link]: https://www.codacy.com/gh/XYOracleNetwork/sdk-xyo-react-js/dashboard?utm_source=github.com&utm_medium=referral&utm_content=XYOracleNetwork/sdk-xyo-react-js&utm_campaign=Badge_Grade
 
-[codeclimate-badge]: https://api.codeclimate.com/v1/badges/2763b2f223ba8822d0f6/maintainability
+[codeclimate-badge]: https://api.codeclimate.com/v1/badges/3d9b970fc814bbdd7d8f/maintainability
 [codeclimate-link]: https://codeclimate.com/github/XYOracleNetwork/sdk-xyo-react-js/maintainability
 
 [snyk-badge]: https://snyk.io/test/github/XYOracleNetwork/sdk-xyo-react-js/badge.svg?targetFile=package.json
