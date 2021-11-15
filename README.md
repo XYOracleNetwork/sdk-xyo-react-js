@@ -1,7 +1,9 @@
 [![logo][]](https://xyo.network)
 
-# sdk-xyo-react-js
+# @xyo-network/sdk-xyo-react-js
 
+[![main-build][]][main-build-link]
+[![beta-build][]][beta-build-link]
 [![npm-badge]][npm-link]
 [![bch-badge]][bch-link]
 [![codacy-badge]][codacy-link]
@@ -12,8 +14,8 @@
 
 ## Table of Contents
 
--   [Title](#sdk-xyo-react-js)
 -   [Description](#description)
+-   [Install](#install)
 -   [Maintainers](#maintainers)
 -   [License](#license)
 -   [Credits](#credits)
@@ -22,9 +24,23 @@
 
 Common React code that is used throughtout XYO projects that use React.
 
+## Install
+
+Using npm:
+
+```
+$ npm i --save @xyo-network/sdk-xyo-react-js
+```
+
+Using yarn:
+
+```
+$ yarn add @xyo-network/sdk-xyo-react-js
+```
+
 ## Maintainers
 
--   Arie Trouw
+-   [Arie Trouw](https://github.com/arietrouw) (https://arietrouw.com)
 
 ## License
 
@@ -32,9 +48,15 @@ See the [LICENSE](LICENSE) file for license details
 
 ## Credits
 
-Made with 🔥and ❄️ by [XYO](https://xyo.network)
+[Made with 🔥and ❄️ by XYO](https://xyo.network)
 
 [logo]: https://cdn.xy.company/img/brand/XYO_full_colored.png
+
+[main-build]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/actions/workflows/build-main.yml/badge.svg
+[main-build-link]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/actions/workflows/build-main.yml
+
+[beta-build]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/actions/workflows/build-beta.yml/badge.svg
+[beta-build-link]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/actions/workflows/build-beta.yml
 
 [npm-badge]: https://img.shields.io/npm/v/@xyo-network/sdk-xyo-react-js.svg
 [npm-link]: https://www.npmjs.com/package/@xyo-network/sdk-xyo-react-js
@@ -42,7 +64,7 @@ Made with 🔥and ❄️ by [XYO](https://xyo.network)
 [bch-badge]: https://bettercodehub.com/edge/badge/XYOracleNetwork/sdk-xyo-react-js?branch=master
 [bch-link]: https://bettercodehub.com/results/XYOracleNetwork/sdk-xyo-react-js
 
-[codacy-badge]: https://app.codacy.com/project/badge/Grade/c0301191bb724dc78d703f6178f30f6a
+[codacy-badge]: https://app.codacy.com/project/badge/Grade/0c82dd3b33c3494886a30b1c4ff5a8c0
 [codacy-link]: https://www.codacy.com/gh/XYOracleNetwork/sdk-xyo-react-js/dashboard?utm_source=github.com&utm_medium=referral&utm_content=XYOracleNetwork/sdk-xyo-react-js&utm_campaign=Badge_Grade
 
 [codeclimate-badge]: https://api.codeclimate.com/v1/badges/2763b2f223ba8822d0f6/maintainability
