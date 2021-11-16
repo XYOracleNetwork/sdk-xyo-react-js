@@ -6,7 +6,7 @@ import BusyCircularProgress from '../BusyCircularProgress'
 import BusyLinearProgress from '../BusyLinearProgress'
 import ButtonExProps from './ButtonExProps'
 
-const ButtonEx: React.FC<ButtonExProps> = (props) => {
+const ButtonExBase: React.FC<ButtonExProps> = (props) => {
   const theme = useTheme()
   const {
     busy,
@@ -34,4 +34,4 @@ const ButtonEx: React.FC<ButtonExProps> = (props) => {
   )
 }
 
-export default ButtonEx
+export default ButtonExBase
