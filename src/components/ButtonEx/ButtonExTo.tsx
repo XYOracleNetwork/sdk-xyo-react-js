@@ -1,4 +1,4 @@
-import { ButtonBase } from '@mui/material'
+import { Button } from '@mui/material'
 import React, { MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -13,7 +13,7 @@ const ButtonExTo: React.FC<ButtonExProps> = ({ to, toOptions, onClick, ...props 
     }
   }
 
-  return <ButtonBase onClick={localOnClick} {...props} />
+  return <Button onClick={localOnClick} {...props} />
 }
 
 export default ButtonExTo
