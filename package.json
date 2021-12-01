@@ -1,47 +1,12 @@
 {
-  "name": "@xyo-network/sdk-xyo-react-js",
-  "homepage": "https://xyo.network",
-  "bugs": {
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues",
-    "email": "support@xyo.network"
-  },
-  "description": "Common React library for all XYO projects that use React",
   "author": {
+    "email": "support@xyo.network",
     "name": "XYO Development Team",
-    "url": "https://xyo.network",
-    "email": "support@xyo.network"
+    "url": "https://xyo.network"
   },
-  "keywords": [
-    "xyo",
-    "utility",
-    "typescript",
-    "react"
-  ],
-  "license": "LGPL-3.0",
-  "private": false,
-  "version": "2.7.0",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
-  },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "compile": "rm -r -f dist && tsc -p tsconfig.build.json && yarn copy-svg && yarn copy-png && yarn copy-jpg && yarn copy-gif",
-    "copy-svg": "yarn copyfiles -u 1 \"./src/**/*.svg\" dist",
-    "copy-png": "yarn copyfiles -u 1 \"./src/**/*.png\" dist",
-    "copy-jpg": "yarn copyfiles -u 1 \"./src/**/*.jpg\" dist",
-    "copy-gif": "yarn copyfiles -u 1 \"./src/**/*.gif\" dist",
-    "lint-pkg": "npmPkgJsonLint .",
-    "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'",
-    "start": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+  "bugs": {
+    "email": "support@xyo.network",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
     "@types/numeral": "^2.0.2",
@@ -54,6 +19,60 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1"
   },
+  "description": "Common React library for all XYO projects that use React",
+  "devDependencies": {
+    "@babel/core": "^7",
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@ethersproject/abstract-signer": "^5.5.0",
+    "@ethersproject/providers": "^5.5.1",
+    "@mui/icons-material": "^5.2.0",
+    "@mui/material": "^5.2.2",
+    "@mui/styles": "^5.2.2",
+    "@storybook/addon-actions": "^6.4.3",
+    "@storybook/addon-docs": "^6.4.3",
+    "@storybook/addon-essentials": "^6.4.3",
+    "@storybook/addon-links": "^6.4.3",
+    "@storybook/addons": "^6.4.3",
+    "@storybook/components": "^6.4.3",
+    "@storybook/core-events": "^6.4.3",
+    "@storybook/react": "^6.4.3",
+    "@storybook/theming": "^6.4.3",
+    "@types/bn.js": "^5.1.0",
+    "@types/lodash": "^4.14.177",
+    "@types/md5": "^2.3.1",
+    "@types/react": "^17",
+    "@xylabs/eslint-config-react": "^2",
+    "@xylabs/pixel": "^1.1.6",
+    "@xylabs/sdk-js": "^2.3.9",
+    "@xylabs/ts-scripts": "^1.0.23",
+    "babel-loader": "^8.2.3",
+    "bn.js": "^5.2.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6",
+    "rollbar": "^2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2",
+    "webpack": "^5"
+  },
+  "homepage": "https://xyo.network",
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
+  ],
+  "license": "LGPL-3.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "name": "@xyo-network/sdk-xyo-react-js",
   "peerDependencies": {
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
@@ -69,46 +88,27 @@
     "react-dom": "^17",
     "react-router-dom": "^6"
   },
-  "devDependencies": {
-    "@babel/core": "^7",
-    "@emotion/react": "^11.6.0",
-    "@emotion/styled": "^11.6.0",
-    "@ethersproject/abstract-signer": "^5.5.0",
-    "@ethersproject/providers": "^5.5.0",
-    "@mui/icons-material": "^5.1.0",
-    "@mui/material": "^5.1.0",
-    "@mui/styles": "^5.1.0",
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-docs": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/addons": "^6.3.12",
-    "@storybook/components": "^6.3.12",
-    "@storybook/core-events": "^6.3.12",
-    "@storybook/react": "^6.3.12",
-    "@storybook/theming": "^6.3.12",
-    "@types/bn.js": "^5.1.0",
-    "@types/lodash": "^4.14.177",
-    "@types/md5": "^2.3.1",
-    "@types/react": "^17",
-    "@xylabs/eslint-config-react": "^2",
-    "@xylabs/pixel": "^1.1.5",
-    "@xylabs/sdk-js": "^2.3.4",
-    "@xylabs/ts-scripts": "^1.0.17",
-    "babel-loader": "^8.2.3",
-    "bn.js": "^5.2.0",
-    "copyfiles": "^2.4.1",
-    "eslint": "^8",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.27.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.4.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^6",
-    "rollbar": "^2",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.4.4",
-    "webpack": "^5"
-  }
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "scripts": {
+    "build-storybook": "build-storybook",
+    "compile": "rm -r -f dist && tsc -p tsconfig.build.json && yarn copy-svg && yarn copy-png && yarn copy-jpg && yarn copy-gif",
+    "copy-gif": "yarn copyfiles -u 1 \"./src/**/*.gif\" dist",
+    "copy-jpg": "yarn copyfiles -u 1 \"./src/**/*.jpg\" dist",
+    "copy-png": "yarn copyfiles -u 1 \"./src/**/*.png\" dist",
+    "copy-svg": "yarn copyfiles -u 1 \"./src/**/*.svg\" dist",
+    "lint-pkg": "npmPkgJsonLint .",
+    "start": "start-storybook -p 6006",
+    "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "2.7.0"
 }
