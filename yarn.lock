@@ -3505,10 +3505,13 @@
     randombytes "^2.1.0"
 
 "@xylabs/sdk-js@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@xylabs/sdk-js/-/sdk-js-2.3.9.tgz#3b6cbc453126854c7fb2b8f7630e90ba1cd5eea7"
-  integrity sha512-UtrMNLaPB9n9ZXn+4UQYMrASz/MAR7lPVVwnUspwSSMZPLpeQ1SWEDNKGINLlGXXw3/NpmkyfjsdPnIBQwPM0A==
-  optionalDependencies:
+  version "2.3.28"
+  resolved "https://registry.yarnpkg.com/@xylabs/sdk-js/-/sdk-js-2.3.28.tgz#5f6ca26a1ba4f5e98c87a163d4883078111715fd"
+  integrity sha512-wmN9JjosiflrLv8z+uPBpGh2Uv7NFpR9Va4rij7+zMsywX2gRA3CP+zn8lxDXg1MSP+Duk3rA4+5cECBEObz0A==
+  dependencies:
+    "@types/bn.js" "^5.1.0"
+    axios "^0.24.0"
+    bn.js "^5.2.0"
     rollbar "^2.24.0"
 
 "@xylabs/ts-scripts@^1.0.23":
