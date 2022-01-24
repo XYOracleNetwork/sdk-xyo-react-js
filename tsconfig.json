@@ -2,9 +2,9 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "outDir": "./dist",
-    "rootDir": "./src",
     "sourceMap": true
   },
-  "extends": "./tsconfig.es.json",
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "exclude": ["src/**/*.spec.ts"],
+  "extends": "@xylabs/tsconfig",
+  "include": ["src"]
 }

@@ -1,1 +1,1 @@
-export * from './moved-to-xylabs'
+export const hello = 'remove me'
