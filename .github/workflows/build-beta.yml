@@ -18,5 +18,7 @@ jobs:
           node-version: "16"
       - name: install
         run: yarn install
+      - name: cycle
+        run: yarn cycle
       - name: build
         run: yarn build
