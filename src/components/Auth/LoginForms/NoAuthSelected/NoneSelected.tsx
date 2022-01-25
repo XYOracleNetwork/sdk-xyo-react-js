@@ -1,14 +1,14 @@
 import { ButtonGroup, Container, Typography } from '@mui/material'
 import { memo } from 'react'
 
-import { AuthState, IAuthService } from '../../../../Contexts'
-import AuthService from './AuthService'
+import { AuthState, IAuthService } from '../../../../contexts'
+import { AuthService } from './AuthService'
 
 interface NoneSelectedProps {
   authState: AuthState
 }
 
-const NoneSelected: React.FC<NoneSelectedProps> = ({ authState }) => {
+const NoneSelectedComponent: React.FC<NoneSelectedProps> = ({ authState }) => {
   const { isLoggedIn, authServiceList } = authState
   return (
     <>
@@ -28,4 +28,6 @@ const NoneSelected: React.FC<NoneSelectedProps> = ({ authState }) => {
   )
 }
 
-export default memo(NoneSelected)
+const NoneSelected = memo(NoneSelectedComponent)
+
+export { NoneSelected }

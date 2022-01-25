@@ -1,8 +1,8 @@
 import { ErrorDialog } from '@xylabs/sdk-react'
 
-import { AuthActionTypes, AuthServiceId, useAuthState } from '../../../Contexts'
-import AuthFooter from './AuthFooter'
-import MapActiveAuthService from './MapActiveService'
+import { AuthActionTypes, AuthServiceId, useAuthState } from '../../../contexts'
+import { AuthFooter } from './AuthFooter'
+import { MapActiveAuthService } from './MapActiveService'
 
 const backPayload = {
   payload: { activeAuthServiceId: AuthServiceId.None },
@@ -35,4 +35,4 @@ const AuthServiceWrapper: React.FC = () => {
   )
 }
 
-export default AuthServiceWrapper
+export { AuthServiceWrapper }

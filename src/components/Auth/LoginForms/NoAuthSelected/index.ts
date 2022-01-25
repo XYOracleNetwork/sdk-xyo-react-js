@@ -1,3 +1,1 @@
-import NoneSelected from './NoneSelected'
-
-export { NoneSelected }
+export * from './NoneSelected'

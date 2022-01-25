@@ -1,3 +1,1 @@
-import AuthServiceWrapper from './AuthServiceWrapper'
-
-export default AuthServiceWrapper
+export * from './AuthServiceWrapper'

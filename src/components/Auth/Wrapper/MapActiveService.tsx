@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material'
 import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
 import { memo } from 'react'
 
-import { AuthServiceId, AuthState } from '../../../Contexts'
+import { AuthServiceId, AuthState } from '../../../contexts'
 import { EmailPassword, NoneSelected, Web3Login } from '../LoginForms'
 
 interface ActiveAuthServiceProps {
@@ -11,7 +11,7 @@ interface ActiveAuthServiceProps {
   handleBack: () => void
 }
 
-const MapActiveAuthService: React.FC<ActiveAuthServiceProps> = ({ authState, handleBack, isLoading }) => {
+const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authState, handleBack, isLoading }) => {
   const theme = useTheme()
   const { activeAuthServiceId } = authState
   let SelectedAuthService
@@ -47,4 +47,6 @@ const MapActiveAuthService: React.FC<ActiveAuthServiceProps> = ({ authState, han
   )
 }
 
-export default memo(MapActiveAuthService)
+const MapActiveAuthService = memo(MapActiveAuthServiceComponent)
+
+export { MapActiveAuthService }

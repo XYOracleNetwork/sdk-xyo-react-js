@@ -6,7 +6,7 @@ interface AuthFooterProps {
   isLoggedIn: boolean
 }
 
-const AuthFooter: React.FC<AuthFooterProps> = ({ handleLogout, isLoggedIn }) => {
+const AuthFooterComponent: React.FC<AuthFooterProps> = ({ handleLogout, isLoggedIn }) => {
   if (isLoggedIn) {
     return (
       <ButtonEx variant="outlined" onClick={handleLogout}>
@@ -18,4 +18,6 @@ const AuthFooter: React.FC<AuthFooterProps> = ({ handleLogout, isLoggedIn }) => 
   }
 }
 
-export default memo(AuthFooter)
+const AuthFooter = memo(AuthFooterComponent)
+
+export { AuthFooter }

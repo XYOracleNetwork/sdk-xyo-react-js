@@ -3,10 +3,10 @@ import { ButtonEx, FlexCol, useAsyncEffect } from '@xylabs/sdk-react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthActionTypes, useAuthState } from '../../../Contexts'
+import { AuthActionTypes, useAuthState } from '../../../contexts'
 import { MetaMaskService } from '../../../lib'
 
-const Web3LoginForm: React.FC = () => {
+const Web3Login: React.FC = () => {
   const theme = useTheme()
   const navigate = useNavigate()
   const { state: authState, dispatch: authDispatch } = useAuthState()
@@ -84,4 +84,4 @@ const Web3LoginForm: React.FC = () => {
   }
 }
 
-export default Web3LoginForm
+export { Web3Login }

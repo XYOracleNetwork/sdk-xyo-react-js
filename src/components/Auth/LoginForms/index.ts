@@ -1,5 +1,3 @@
-import EmailPassword from './EmailPassword'
-import Web3Login from './Web3Login'
-
+export * from './EmailPassword'
 export { NoneSelected } from './NoAuthSelected'
-export { EmailPassword, Web3Login }
+export * from './Web3Login'

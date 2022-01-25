@@ -4,7 +4,7 @@ import { AxiosError } from 'axios'
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthActionTypes, useAuthState } from '../../../Contexts'
+import { AuthActionTypes, useAuthState } from '../../../contexts'
 import { AuthApiService } from '../../../lib'
 
 interface LoginCredentials {
@@ -97,4 +97,4 @@ const EmailPassword: React.FC = () => {
   )
 }
 
-export default EmailPassword
+export { EmailPassword }

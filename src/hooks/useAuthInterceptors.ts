@@ -1,8 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import { getApiDomain } from '../../lib'
-import { useAuthState } from './AuthContext'
-import { AuthActionTypes } from './AuthStateTypes'
+import { AuthActionTypes, useAuthState } from '../contexts'
 
 const apiDomain = getApiDomain()
 
