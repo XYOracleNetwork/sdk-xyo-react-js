@@ -1,5 +1,4 @@
 import { AxiosError } from 'axios'
-import React from 'react'
 
 enum AuthServiceId {
   EmailPassword = 'EmailPassword',
@@ -39,7 +38,6 @@ export interface AuthServiceComponentProps {
 export interface IAuthService {
   id: AuthServiceId
   title: string
-  component: React.FC<AuthServiceComponentProps>
 }
 
 export { AuthServiceId }

@@ -37,7 +37,9 @@ const authReducer = (state: AuthState, action: AuthAction) => {
 
     case AuthActionTypes.Logout: {
       localStorage.setItem('token', '')
-      return { ...DefaultState }
+      // Keep the existing AuthService List provided by consumers
+      const { authServiceList } = state
+      return { ...DefaultState, ...{ authServiceList } }
     }
 
     default: {

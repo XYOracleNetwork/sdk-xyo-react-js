@@ -1,8 +1,10 @@
 import { useTheme } from '@mui/material'
+import { assertEx } from '@xylabs/sdk-js'
 import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
-import { memo } from 'react'
+import React, { memo } from 'react'
 
 import { AuthState } from '../../contexts'
+import { AuthServiceComponentMap } from './AuthServiceComponentMap'
 
 interface ActiveAuthServiceProps {
   authState: AuthState
@@ -12,18 +14,14 @@ interface ActiveAuthServiceProps {
 
 const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authState, handleBack, isLoading }) => {
   const theme = useTheme()
-  const { activeAuthServiceId, authServiceList } = authState
-  const { component: SelectedAuthService } = authServiceList.filter(
-    (authService) => authService.id === activeAuthServiceId
-  )[0]
+  const { activeAuthServiceId } = authState
+  const SelectedAuthService = AuthServiceComponentMap[activeAuthServiceId]
 
-  if (SelectedAuthService === undefined) {
-    throw new Error(`No Mapping for AuthServiceId ${activeAuthServiceId}`)
-  }
+  assertEx(SelectedAuthService, `No Mapping for AuthServiceId ${activeAuthServiceId}`)
 
   return (
     <FlexCol maxWidth="xs">
-      <SelectedAuthService authState={authState} />
+      <SelectedAuthService />
       <ButtonEx marginTop={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={handleBack}>
         Back
       </ButtonEx>

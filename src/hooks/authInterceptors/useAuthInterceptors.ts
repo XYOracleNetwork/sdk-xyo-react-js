@@ -9,16 +9,18 @@ import { AuthInterceptors } from './interceptorCallbacks'
  *
  * @returns {Object}
  */
-const useAxiosInterceptors = () => {
+const useAuthInterceptors = (apiDomain: string) => {
   const { dispatch: authDispatch } = useAuthState()
-  const [authInterceptor] = useState<AuthInterceptors>(AuthInterceptors.get(authDispatch))
+  const [authInterceptor] = useState<AuthInterceptors>(AuthInterceptors.get(authDispatch, apiDomain))
 
   const newTokenInterceptor = axios.interceptors.response.use<AxiosResponse>(
-    authInterceptor.newTokenInterceptor,
-    authInterceptor.unauthorizedInterceptor
+    authInterceptor.newTokenInterceptor.bind(authInterceptor),
+    authInterceptor.unauthorizedInterceptor.bind(authInterceptor)
   )
 
-  const appendTokenInterceptor = axios.interceptors.request.use(authInterceptor.appendTokenInterceptor)
+  const appendTokenInterceptor = axios.interceptors.request.use(
+    authInterceptor.appendTokenInterceptor.bind(authInterceptor)
+  )
 
   const teardown = () => {
     axios.interceptors.response.eject(newTokenInterceptor)
@@ -27,4 +29,4 @@ const useAxiosInterceptors = () => {
   return { teardown }
 }
 
-export { useAxiosInterceptors }
+export { useAuthInterceptors }

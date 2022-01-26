@@ -11,7 +11,8 @@ interface AuthLoaderProps {
 }
 
 const AuthLoader: React.FC<AuthLoaderProps> = ({ children, authServiceList }) => {
-  const [state, dispatch] = useReducer(authReducer, { ...DefaultState, ...authServiceList })
+  const defaultStateWithServices = { ...DefaultState, ...{ authServiceList } }
+  const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 
   useHydrateState(state, dispatch)
 

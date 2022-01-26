@@ -2,18 +2,19 @@ import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 import React from 'react'
 
 import { AuthAction, AuthActionTypes } from '../../contexts'
-import { getApiDomain } from '../../lib'
 
 class AuthInterceptors {
   static instance: AuthInterceptors
-  private apiDomain = getApiDomain()
+  private apiDomain: string
   private token = localStorage.getItem('token')
 
-  private constructor(private authDispatch: React.Dispatch<AuthAction>) {}
+  private constructor(private authDispatch: React.Dispatch<AuthAction>, apiDomain: string) {
+    this.apiDomain = apiDomain
+  }
 
-  public static get(authDispatch: React.Dispatch<AuthAction>) {
+  public static get(authDispatch: React.Dispatch<AuthAction>, apiDomain: string) {
     if (!AuthInterceptors.instance) {
-      AuthInterceptors.instance = new AuthInterceptors(authDispatch)
+      AuthInterceptors.instance = new AuthInterceptors(authDispatch, apiDomain)
     }
     return AuthInterceptors.instance
   }
