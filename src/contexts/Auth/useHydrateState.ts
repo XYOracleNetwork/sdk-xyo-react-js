@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { AuthAction, AuthActionTypes, AuthState } from '../contexts'
+import { AuthAction, AuthActionTypes, AuthState } from './AuthStateTypes'
 
 const useHydrateState = (state: AuthState, dispatch: React.Dispatch<AuthAction>) => {
   const [isFirstRun, setIsFirstRun] = useState<boolean>(true)

@@ -1,10 +1,10 @@
 import { useReducer } from 'react'
 
-import { useHydrateState } from '../../hooks'
 import { AuthContext } from './AuthContext'
 import { authReducer } from './AuthReducer'
 import { IAuthService } from './AuthStateTypes'
 import { DefaultState } from './DefaultState'
+import { useHydrateState } from './useHydrateState'
 
 interface AuthLoaderProps {
   authServiceList: IAuthService[]
