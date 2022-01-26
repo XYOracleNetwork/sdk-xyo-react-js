@@ -1,7 +1,7 @@
 import { ButtonGroup, Container, Typography } from '@mui/material'
 import { memo } from 'react'
 
-import { AuthState, IAuthService } from '../../../../contexts'
+import { AuthState, IAuthService } from '../../../contexts'
 import { AuthService } from './AuthService'
 
 interface NoneSelectedProps {

@@ -1,6 +1,6 @@
 import { ErrorDialog } from '@xylabs/sdk-react'
 
-import { AuthActionTypes, AuthServiceId, useAuthState } from '../../../contexts'
+import { AuthActionTypes, AuthServiceId, useAuthState } from '../../contexts'
 import { AuthFooter } from './AuthFooter'
 import { MapActiveAuthService } from './MapActiveService'
 

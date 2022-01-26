@@ -2,12 +2,16 @@ import { useEffect, useReducer, useState } from 'react'
 
 import { AuthContext } from './AuthContext'
 import { authReducer } from './AuthReducer'
-import { AuthActionTypes } from './AuthStateTypes'
+import { AuthActionTypes, IAuthService } from './AuthStateTypes'
 import { DefaultState } from './DefaultState'
 
-const AuthLoader: React.FC = ({ children }) => {
+interface AuthLoaderProps {
+  authServiceList: IAuthService[]
+}
+
+const AuthLoader: React.FC<AuthLoaderProps> = ({ children, authServiceList }) => {
   const [isFirstRun, setIsFirstRun] = useState<boolean>(true)
-  const [state, dispatch] = useReducer(authReducer, DefaultState)
+  const [state, dispatch] = useReducer(authReducer, { ...DefaultState, ...authServiceList })
 
   useEffect(() => {
     const savedState = localStorage.getItem('AuthState') as string

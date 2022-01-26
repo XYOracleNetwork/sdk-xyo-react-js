@@ -1,4 +1,5 @@
 import { AxiosError } from 'axios'
+import React from 'react'
 
 enum AuthServiceId {
   EmailPassword = 'EmailPassword',
@@ -8,7 +9,7 @@ enum AuthServiceId {
 
 export interface AuthState {
   activeAuthServiceId: AuthServiceId
-  readonly authServiceList: IAuthService[]
+  authServiceList: IAuthService[]
   isLoading: boolean
   isLoggedIn: boolean
   authError: undefined | Error | AxiosError
@@ -31,9 +32,14 @@ export interface AuthAction {
 export type AuthDispatch = (action: AuthAction) => void
 export type AuthContextType = { state: AuthState; dispatch: AuthDispatch } | undefined
 
+export interface AuthServiceComponentProps {
+  authState?: AuthState
+}
+
 export interface IAuthService {
   id: AuthServiceId
   title: string
+  component: React.FC<AuthServiceComponentProps>
 }
 
 export { AuthServiceId }

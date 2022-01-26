@@ -4,8 +4,7 @@ import { AxiosError } from 'axios'
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthActionTypes, useAuthState } from '../../../contexts'
-import { AuthApiService } from '../../../lib'
+import { AuthActionTypes, useAuthApi, useAuthState } from '../../contexts'
 
 interface LoginCredentials {
   email: string
@@ -21,10 +20,12 @@ const EmailPassword: React.FC = () => {
   const { state: authState, dispatch: authDispatch } = useAuthState()
   const [credentials, setCredentials] = useState<LoginCredentials>({ email: '', password: '' })
 
+  const { AuthApi } = useAuthApi()
+
   useAsyncEffect(async () => {
     if (credentials?.email && credentials?.password && authState.isLoading) {
       try {
-        await AuthApiService.login(credentials)
+        await AuthApi.login(credentials)
         authDispatch({ payload: { isLoading: false }, type: AuthActionTypes.UpdateLoadingState })
         navigate('/')
       } catch (err) {

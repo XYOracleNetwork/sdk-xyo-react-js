@@ -3,8 +3,8 @@ import { ButtonEx, FlexCol, useAsyncEffect } from '@xylabs/sdk-react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthActionTypes, useAuthState } from '../../../contexts'
-import { MetaMaskService } from '../../../lib'
+import metaMaskSVG from '../../assets/metamask-fox.svg'
+import { AuthActionTypes, useAuthApi, useAuthState } from '../../contexts'
 
 const Web3Login: React.FC = () => {
   const theme = useTheme()
@@ -12,6 +12,7 @@ const Web3Login: React.FC = () => {
   const { state: authState, dispatch: authDispatch } = useAuthState()
   const [missingMetaMask, setMissingMetaMask] = useState(false)
   const [checkedWallet, setCheckedWallet] = useState(false)
+  const { MetaMaskService } = useAuthApi()
 
   const connectWallet = async () => {
     if (!MetaMaskService.currentAccount) {
@@ -43,7 +44,7 @@ const Web3Login: React.FC = () => {
         }
       }
     },
-    [authDispatch, authState.authError, checkedWallet]
+    [authDispatch, authState.authError, checkedWallet, MetaMaskService]
   )
 
   useEffect(() => {
@@ -54,6 +55,7 @@ const Web3Login: React.FC = () => {
         MetaMaskService.isWalletIsConnected()
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (missingMetaMask) {
@@ -73,7 +75,7 @@ const Web3Login: React.FC = () => {
           <FlexCol marginBottom={theme.spacing(1)} marginTop={theme.spacing(1)}>
             <ButtonEx size="large" variant="outlined" className="buttons" onClick={connectWallet}>
               <span>
-                <img width="40px" style={{ marginRight: '14px', paddingTop: '8px' }} src="metamask-fox.svg" />
+                <img width="40px" style={{ marginRight: '14px', paddingTop: '8px' }} src={metaMaskSVG} />
               </span>
               Login with MetaMask
             </ButtonEx>

@@ -2,8 +2,7 @@ import { useTheme } from '@mui/material'
 import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
 import { memo } from 'react'
 
-import { AuthServiceId, AuthState } from '../../../contexts'
-import { EmailPassword, NoneSelected, Web3Login } from '../LoginForms'
+import { AuthState } from '../../contexts'
 
 interface ActiveAuthServiceProps {
   authState: AuthState
@@ -13,28 +12,13 @@ interface ActiveAuthServiceProps {
 
 const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authState, handleBack, isLoading }) => {
   const theme = useTheme()
-  const { activeAuthServiceId } = authState
-  let SelectedAuthService
+  const { activeAuthServiceId, authServiceList } = authState
+  const { component: SelectedAuthService } = authServiceList.filter(
+    (authService) => authService.id === activeAuthServiceId
+  )[0]
 
-  switch (activeAuthServiceId) {
-    case AuthServiceId.EmailPassword: {
-      SelectedAuthService = EmailPassword
-      break
-    }
-
-    case AuthServiceId.Web3Wallet: {
-      SelectedAuthService = Web3Login
-      break
-    }
-
-    case AuthServiceId.None: {
-      SelectedAuthService = NoneSelected
-      break
-    }
-
-    default: {
-      throw new Error(`No Mapping for AuthServiceId ${activeAuthServiceId}`)
-    }
+  if (SelectedAuthService === undefined) {
+    throw new Error(`No Mapping for AuthServiceId ${activeAuthServiceId}`)
   }
 
   return (

@@ -1,7 +1,7 @@
 import { SxProps, useTheme } from '@mui/material'
 import { ButtonEx } from '@xylabs/sdk-react'
 
-import { AuthActionTypes, IAuthService, useAuthState } from '../../../../contexts'
+import { AuthActionTypes, IAuthService, useAuthState } from '../../../contexts'
 
 interface AuthServiceProps {
   service: IAuthService

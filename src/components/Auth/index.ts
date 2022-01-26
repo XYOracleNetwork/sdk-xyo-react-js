@@ -1,2 +1,1 @@
-export * from './LoginForms'
-export * from './Wrapper'
+export * from './AuthServiceWrapper'
