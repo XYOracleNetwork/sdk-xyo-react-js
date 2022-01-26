@@ -1,24 +1,19 @@
-import { FormControl, TextField, Typography, useTheme } from '@mui/material'
+import { Typography, useTheme } from '@mui/material'
 import { BusyBox, ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthActionTypes, useAuthApi, useAuthState } from '../../contexts'
-
-interface LoginCredentials {
-  email: string
-  password: string
-}
+import { AuthActionTypes, useAuthApi, useAuthState } from '../../../contexts'
+import { FormFields } from './FormFields'
+import { LoginCredentials } from './LoginCredentials'
 
 const EmailPassword: React.FC = () => {
   const theme = useTheme()
-  const TextFieldStyles = {
-    marginBottom: theme.spacing(2),
-  }
   const navigate = useNavigate()
   const { state: authState, dispatch: authDispatch } = useAuthState()
-  const [credentials, setCredentials] = useState<LoginCredentials>({ email: '', password: '' })
+  const credentialsState = useState<LoginCredentials>({ email: '', password: '' })
+  const [credentials] = credentialsState
 
   const { AuthApi } = useAuthApi()
 
@@ -40,17 +35,6 @@ const EmailPassword: React.FC = () => {
     authDispatch({ payload: { isLoading: true }, type: AuthActionTypes.UpdateLoadingState })
   }
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = event.target
-
-    setCredentials({
-      ...credentials,
-      ...{
-        [name]: value,
-      },
-    })
-  }
-
   return (
     <>
       <Typography marginY={4} variant="h3">
@@ -58,31 +42,7 @@ const EmailPassword: React.FC = () => {
       </Typography>
       <form onSubmit={handleSubmit}>
         <BusyBox marginY={2}>
-          <FormControl fullWidth={true}>
-            <TextField
-              required
-              type="email"
-              disabled={authState.isLoading}
-              sx={TextFieldStyles}
-              variant="outlined"
-              autoFocus={true}
-              name="email"
-              placeholder="Email*"
-              onChange={handleInputChange}
-            />
-          </FormControl>
-          <FormControl fullWidth={true}>
-            <TextField
-              required
-              disabled={authState.isLoading}
-              sx={TextFieldStyles}
-              variant="outlined"
-              name="password"
-              type="password"
-              placeholder="Password*"
-              onChange={handleInputChange}
-            />
-          </FormControl>
+          <FormFields authState={authState} credentialsState={credentialsState} />
           <ButtonEx
             disabled={authState.isLoading}
             width="100%"
