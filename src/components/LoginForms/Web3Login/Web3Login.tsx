@@ -1,31 +1,17 @@
-import { Typography, useTheme } from '@mui/material'
-import { ButtonEx, FlexCol, useAsyncEffect } from '@xylabs/sdk-react'
+import { Typography } from '@mui/material'
+import { useAsyncEffect } from '@xylabs/sdk-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import metaMaskSVG from '../../../assets/metamask-fox.svg'
 import { AuthActionTypes, useAuthApi, useAuthState } from '../../../contexts'
 import { CheckForMetaMask } from './CheckForMetaMask'
+import { ConnectWallet } from './ConnectWallet'
 
 const Web3Login: React.FC = () => {
-  const theme = useTheme()
   const navigate = useNavigate()
   const { state: authState, dispatch: authDispatch } = useAuthState()
   const [checkedWallet, setCheckedWallet] = useState(false)
   const { MetaMaskService } = useAuthApi()
-
-  const connectWallet = async () => {
-    if (!MetaMaskService.currentAccount) {
-      try {
-        await MetaMaskService.connectWallet()
-        setCheckedWallet(true)
-      } catch (err) {
-        authDispatch({ payload: { authError: err as Error }, type: AuthActionTypes.UpdateAuthError })
-      }
-    } else {
-      setCheckedWallet(true)
-    }
-  }
 
   useAsyncEffect(
     async (mounted) => {
@@ -49,7 +35,7 @@ const Web3Login: React.FC = () => {
 
   return (
     <>
-      <CheckForMetaMask>
+      <CheckForMetaMask MetaMaskService={MetaMaskService}>
         <Typography marginY={4} variant="h3">
           Login with Web3 Wallet
         </Typography>
@@ -59,14 +45,11 @@ const Web3Login: React.FC = () => {
             <p>Disconnect your account from your wallet to logout</p>
           </>
         ) : (
-          <FlexCol marginBottom={theme.spacing(1)} marginTop={theme.spacing(1)}>
-            <ButtonEx size="large" variant="outlined" className="buttons" onClick={connectWallet}>
-              <span>
-                <img width="40px" style={{ marginRight: '14px', paddingTop: '8px' }} src={metaMaskSVG} />
-              </span>
-              Login with MetaMask
-            </ButtonEx>
-          </FlexCol>
+          <ConnectWallet
+            authDispatch={authDispatch}
+            setCheckedWallet={setCheckedWallet}
+            MetaMaskService={MetaMaskService}
+          />
         )}
       </CheckForMetaMask>
     </>

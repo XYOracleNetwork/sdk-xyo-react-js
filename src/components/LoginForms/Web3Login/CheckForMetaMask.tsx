@@ -1,9 +1,11 @@
+import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
-import { useAuthApi } from '../../../contexts'
+interface CheckForMetaMaskProps {
+  MetaMaskService: XyoMetaMaskConnector
+}
 
-const CheckForMetaMask: React.FC = ({ children }) => {
-  const { MetaMaskService } = useAuthApi()
+const CheckForMetaMask: React.FC<CheckForMetaMaskProps> = ({ children, MetaMaskService }) => {
   const [missingMetaMask, setMissingMetaMask] = useState(false)
 
   useEffect(() => {
