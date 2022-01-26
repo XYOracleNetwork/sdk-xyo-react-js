@@ -1,16 +1,16 @@
 import { Typography, useTheme } from '@mui/material'
 import { ButtonEx, FlexCol, useAsyncEffect } from '@xylabs/sdk-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import metaMaskSVG from '../../assets/metamask-fox.svg'
-import { AuthActionTypes, useAuthApi, useAuthState } from '../../contexts'
+import metaMaskSVG from '../../../assets/metamask-fox.svg'
+import { AuthActionTypes, useAuthApi, useAuthState } from '../../../contexts'
+import { CheckForMetaMask } from './CheckForMetaMask'
 
 const Web3Login: React.FC = () => {
   const theme = useTheme()
   const navigate = useNavigate()
   const { state: authState, dispatch: authDispatch } = useAuthState()
-  const [missingMetaMask, setMissingMetaMask] = useState(false)
   const [checkedWallet, setCheckedWallet] = useState(false)
   const { MetaMaskService } = useAuthApi()
 
@@ -47,22 +47,9 @@ const Web3Login: React.FC = () => {
     [authDispatch, authState.authError, checkedWallet, MetaMaskService]
   )
 
-  useEffect(() => {
-    if (!MetaMaskService.isMetaMaskInstalled()) {
-      setMissingMetaMask(true)
-    } else {
-      if (!MetaMaskService.currentAccount) {
-        MetaMaskService.isWalletIsConnected()
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  if (missingMetaMask) {
-    return <p>Please install MetaMask and reload the app.</p>
-  } else {
-    return (
-      <>
+  return (
+    <>
+      <CheckForMetaMask>
         <Typography marginY={4} variant="h3">
           Login with Web3 Wallet
         </Typography>
@@ -81,9 +68,9 @@ const Web3Login: React.FC = () => {
             </ButtonEx>
           </FlexCol>
         )}
-      </>
-    )
-  }
+      </CheckForMetaMask>
+    </>
+  )
 }
 
 export { Web3Login }
