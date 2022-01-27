@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: "16"
       - name: install
-        run: yarn install
+        run: yarn install --network-timeout 10000
       - name: build
         run: yarn build
   build-macos:
