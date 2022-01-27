@@ -3,8 +3,8 @@ import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
 import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch, SetStateAction } from 'react'
 
-import metaMaskSVG from '../../../assets/metamask-fox.svg'
 import { AuthAction, AuthActionTypes } from '../../../contexts'
+import { MetaMaskSVG } from './MetaMaskSVG'
 
 interface ConnectWalletProps {
   setCheckedWallet: Dispatch<SetStateAction<boolean>>
@@ -32,7 +32,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, authDis
     <FlexCol marginBottom={theme.spacing(1)} marginTop={theme.spacing(1)}>
       <ButtonEx size="large" variant="outlined" className="buttons" onClick={connectWallet}>
         <span>
-          <img width="40px" style={{ marginRight: '14px', paddingTop: '8px' }} src={metaMaskSVG} />
+          <MetaMaskSVG style={{ marginRight: '14px', paddingTop: '8px', width: '40px' }} />
         </span>
         Login with MetaMask
       </ButtonEx>
