@@ -40,8 +40,8 @@ yarn add @xyo-network/sdk-xyo-react-js
 
 ## Maintainers
 
-- [Arie Trouw](https://arietrouw.com) ([Github](https://github.com/arietrouw))
-- Matt Jones ([Github](https://github.com/jonesmac))
+-   [Arie Trouw](https://github.com/arietrouw) (<https://arietrouw.com>)
+-   [Matt Jones](https://github.com/jonesmac)
 
 ## License
 
