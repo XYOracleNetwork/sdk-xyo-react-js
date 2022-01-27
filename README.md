@@ -14,11 +14,11 @@
 
 ## Table of Contents
 
-- [Description](#description)
-- [Install](#install)
-- [Maintainers](#maintainers)
-- [License](#license)
-- [Credits](#credits)
+-   [Description](#description)
+-   [Install](#install)
+-   [Maintainers](#maintainers)
+-   [License](#license)
+-   [Credits](#credits)
 
 ## Description
 
