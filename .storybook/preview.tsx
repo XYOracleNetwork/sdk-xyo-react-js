@@ -16,6 +16,8 @@ export const parameters = {
 const defaultTheme = createTheme(theme)
 
 const withThemeProvider = (Story, context) => {
+  // Clear the auth state with each story
+  localStorage.setItem('AuthState', null)
   return (
     <Emotion10ThemeProvider theme={defaultTheme}>
       <ThemeProvider theme={defaultTheme}>
