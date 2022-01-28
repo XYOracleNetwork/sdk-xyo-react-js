@@ -13,7 +13,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Auth/Web3LoginProvider',
+  title: 'Auth/Web3Login',
 } as ComponentMeta<typeof Web3Login>
 
 const Template: ComponentStory<typeof Web3Login> = (args) => {
