@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
+import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { AuthApiLoader, AuthLoader, AuthServiceId } from '../../../contexts'
@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof Web3Login> = (args) => {
     },
   ]
   const apiDomain = 'http://localhost:8080'
-  console.log(XyoMetaMaskConnector)
+
   return (
     <BrowserRouter>
       <AuthLoader authServiceList={authServiceList}>
@@ -38,6 +38,13 @@ const Template: ComponentStory<typeof Web3Login> = (args) => {
 
 const Default = Template.bind({})
 Default.args = {}
+Default.decorators = [
+  (Story) => (
+    <FlexGrowCol marginY={2} justifyContent="flex-start" alignItems="center">
+      <Story />
+    </FlexGrowCol>
+  ),
+]
 
 export { Default }
 
