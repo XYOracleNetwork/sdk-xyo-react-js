@@ -1,13 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { FlexGrowCol } from '@xylabs/sdk-react'
-import { BrowserRouter } from 'react-router-dom'
-
-import { AuthApiLoader, AuthLoader, AuthServiceId, IAuthService } from '../../contexts'
+import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook'
 import { AuthServiceWrapper } from './AuthServiceWrapper'
+
 
 const StorybookEntry = {
   argTypes: {
-    authServiceList: [],
+    authServiceList: []
   },
   component: AuthServiceWrapper,
   parameters: {
@@ -18,56 +16,23 @@ const StorybookEntry = {
   title: 'Auth/AuthServiceWrapper',
 } as ComponentMeta<typeof AuthServiceWrapper>
 
-interface WrappedArgs {
-  authServiceList: IAuthService[]
-}
-type WrappedAuthServiceWrapper = (props: WrappedArgs) => React.ReactElement
-
-const Template: ComponentStory<WrappedAuthServiceWrapper> = (args) => {
-  const apiDomain = 'http://localhost:8080'
-  const { authServiceList } = args
+const Template: ComponentStory<WrappedAuthComponent> = () => {
   return (
-    <BrowserRouter>
-      <AuthLoader authServiceList={authServiceList}>
-        <AuthApiLoader apiDomain={apiDomain}>
-          <AuthServiceWrapper></AuthServiceWrapper>
-        </AuthApiLoader>
-      </AuthLoader>
-    </BrowserRouter>
+    <AuthServiceWrapper></AuthServiceWrapper>
   )
 }
 
-const commonDecorator = (Story) => (
-  <FlexGrowCol marginY={2} justifyContent="flex-start" alignItems="center">
-    <Story />
-  </FlexGrowCol>
-)
-
 const Default = Template.bind({})
 Default.args = {
-  authServiceList: [
-    {
-      id: AuthServiceId.Web3Wallet,
-      title: 'Web3 wallet',
-    },
-  ],
+  authServiceList: [authServiceList[0]]
 }
-Default.decorators = [commonDecorator]
+Default.decorators = [authDecorator]
 
 const FullAuthServiceList = Template.bind({})
 FullAuthServiceList.args = {
-  authServiceList: [
-    {
-      id: AuthServiceId.Web3Wallet,
-      title: 'Web3 wallet',
-    },
-    {
-      id: AuthServiceId.EmailPassword,
-      title: 'Email and Password',
-    },
-  ],
+  authServiceList,
 }
-FullAuthServiceList.decorators = [commonDecorator]
+FullAuthServiceList.decorators = [authDecorator]
 
 export { Default, FullAuthServiceList }
 
