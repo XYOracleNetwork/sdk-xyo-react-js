@@ -1,4 +1,4 @@
-import { FormControl, TextField, useTheme } from '@mui/material'
+import { createTheme, FormControl, TextField, ThemeProvider, useTheme } from '@mui/material'
 import { Dispatch, SetStateAction } from 'react'
 
 import { AuthState } from '../../../contexts'
@@ -10,10 +10,20 @@ interface FormFieldsProps<S> {
 }
 
 const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, credentialsState }) => {
-  const theme = useTheme()
-  const TextFieldStyles = {
-    marginBottom: theme.spacing(2),
+  const baseTheme = useTheme()
+  const authFormThemeOptions = {
+    components: {
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            marginBottom: baseTheme.spacing(2),
+          },
+        },
+      },
+    },
   }
+
+  const authFormTheme = createTheme(authFormThemeOptions)
   const [credentials, setCredentials] = credentialsState
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,31 +39,31 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
 
   return (
     <>
-      <FormControl fullWidth={true}>
-        <TextField
-          required
-          type="email"
-          disabled={authState.isLoading}
-          sx={TextFieldStyles}
-          variant="outlined"
-          autoFocus={true}
-          name="email"
-          placeholder="Email*"
-          onChange={handleInputChange}
-        />
-      </FormControl>
-      <FormControl fullWidth={true}>
-        <TextField
-          required
-          disabled={authState.isLoading}
-          sx={TextFieldStyles}
-          variant="outlined"
-          name="password"
-          type="password"
-          placeholder="Password*"
-          onChange={handleInputChange}
-        />
-      </FormControl>
+      <ThemeProvider theme={authFormTheme}>
+        <FormControl fullWidth={true}>
+          <TextField
+            required
+            type="email"
+            disabled={authState.isLoading}
+            variant="outlined"
+            autoFocus={true}
+            name="email"
+            placeholder="Email*"
+            onChange={handleInputChange}
+          />
+        </FormControl>
+        <FormControl fullWidth={true}>
+          <TextField
+            required
+            disabled={authState.isLoading}
+            variant="outlined"
+            name="password"
+            type="password"
+            placeholder="Password*"
+            onChange={handleInputChange}
+          />
+        </FormControl>
+      </ThemeProvider>
     </>
   )
 }
