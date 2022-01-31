@@ -19,7 +19,7 @@ const Template: ComponentStory<WrappedAuthComponent> = () => <NoneSelected></Non
 const Default = Template.bind({})
 Default.args = {
   authState: {
-    authServiceList: authServiceList,
+    authServiceList,
   },
 }
 Default.decorators = [authDecorator]

@@ -6,12 +6,13 @@ import { AuthThemeExtender } from '../Auth'
 
 interface WrappedArgs {
   authState?: Partial<AuthState>
+  apiDomain?: string
 }
 type WrappedAuthComponent = (props: WrappedArgs) => React.ReactElement
 
 export type { WrappedAuthComponent }
 
-const authServiceList: readonly IAuthService[] = [
+const authServiceList: IAuthService[] = [
   {
     id: AuthServiceId.Web3Wallet,
     title: 'Web3 wallet',

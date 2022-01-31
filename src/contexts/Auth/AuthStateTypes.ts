@@ -8,7 +8,7 @@ enum AuthServiceId {
 
 export interface AuthState {
   activeAuthServiceId: AuthServiceId
-  authServiceList: IAuthService[]
+  readonly authServiceList: IAuthService[]
   isLoading: boolean
   isLoggedIn: boolean
   authError: undefined | Error | AxiosError
