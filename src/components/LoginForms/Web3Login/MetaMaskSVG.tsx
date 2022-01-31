@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react'
 
 interface MetaMaskSVGprops {
-  style: CSSProperties
+  style?: CSSProperties
 }
 
 const MetaMaskSVG: React.FC<MetaMaskSVGprops> = ({ style }) => {

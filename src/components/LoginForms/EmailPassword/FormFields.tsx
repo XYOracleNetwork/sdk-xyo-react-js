@@ -1,4 +1,5 @@
-import { FormControl, TextField, useTheme } from '@mui/material'
+import { FormControl, TextField } from '@mui/material'
+import { ButtonEx } from '@xylabs/sdk-react'
 import { Dispatch, SetStateAction } from 'react'
 
 import { AuthState } from '../../../contexts'
@@ -10,10 +11,6 @@ interface FormFieldsProps<S> {
 }
 
 const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, credentialsState }) => {
-  const theme = useTheme()
-  const TextFieldStyles = {
-    marginBottom: theme.spacing(2),
-  }
   const [credentials, setCredentials] = credentialsState
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,9 +29,9 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
       <FormControl fullWidth={true}>
         <TextField
           required
+          inputProps={{ 'data-testid': 'email' }}
           type="email"
           disabled={authState.isLoading}
-          sx={TextFieldStyles}
           variant="outlined"
           autoFocus={true}
           name="email"
@@ -45,8 +42,8 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
       <FormControl fullWidth={true}>
         <TextField
           required
+          inputProps={{ 'data-testid': 'password' }}
           disabled={authState.isLoading}
-          sx={TextFieldStyles}
           variant="outlined"
           name="password"
           type="password"
@@ -54,6 +51,9 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
           onChange={handleInputChange}
         />
       </FormControl>
+      <ButtonEx disabled={authState.isLoading} variant="contained" type="submit">
+        Login
+      </ButtonEx>
     </>
   )
 }
