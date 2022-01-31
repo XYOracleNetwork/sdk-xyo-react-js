@@ -2,16 +2,16 @@ import { useReducer } from 'react'
 
 import { AuthContext } from './AuthContext'
 import { authReducer } from './AuthReducer'
-import { IAuthService } from './AuthStateTypes'
+import { AuthState } from './AuthStateTypes'
 import { DefaultState } from './DefaultState'
 import { useHydrateState } from './useHydrateState'
 
 interface AuthLoaderProps {
-  authServiceList: IAuthService[]
+  authState: Partial<AuthState>
 }
 
-const AuthLoader: React.FC<AuthLoaderProps> = ({ children, authServiceList }) => {
-  const defaultStateWithServices = { ...DefaultState, ...{ authServiceList } }
+const AuthLoader: React.FC<AuthLoaderProps> = ({ children, authState }) => {
+  const defaultStateWithServices = { ...DefaultState, ...authState }
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 
   useHydrateState(state, dispatch)

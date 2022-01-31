@@ -1,4 +1,4 @@
-import { createTheme, FormControl, TextField, ThemeProvider, useTheme } from '@mui/material'
+import { FormControl, TextField } from '@mui/material'
 import { ButtonEx } from '@xylabs/sdk-react'
 import { Dispatch, SetStateAction } from 'react'
 
@@ -11,27 +11,6 @@ interface FormFieldsProps<S> {
 }
 
 const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, credentialsState }) => {
-  const baseTheme = useTheme()
-  const authFormThemeOptions = {
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            width: '100%',
-          },
-        },
-      },
-      MuiTextField: {
-        styleOverrides: {
-          root: {
-            marginBottom: baseTheme.spacing(2),
-          },
-        },
-      },
-    },
-  }
-
-  const authFormTheme = createTheme({ ...baseTheme, ...authFormThemeOptions })
   const [credentials, setCredentials] = credentialsState
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,34 +26,32 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
 
   return (
     <>
-      <ThemeProvider theme={authFormTheme}>
-        <FormControl fullWidth={true}>
-          <TextField
-            required
-            type="email"
-            disabled={authState.isLoading}
-            variant="outlined"
-            autoFocus={true}
-            name="email"
-            placeholder="Email*"
-            onChange={handleInputChange}
-          />
-        </FormControl>
-        <FormControl fullWidth={true}>
-          <TextField
-            required
-            disabled={authState.isLoading}
-            variant="outlined"
-            name="password"
-            type="password"
-            placeholder="Password*"
-            onChange={handleInputChange}
-          />
-        </FormControl>
-        <ButtonEx disabled={authState.isLoading} variant="contained" type="submit">
-          Login
-        </ButtonEx>
-      </ThemeProvider>
+      <FormControl fullWidth={true}>
+        <TextField
+          required
+          type="email"
+          disabled={authState.isLoading}
+          variant="outlined"
+          autoFocus={true}
+          name="email"
+          placeholder="Email*"
+          onChange={handleInputChange}
+        />
+      </FormControl>
+      <FormControl fullWidth={true}>
+        <TextField
+          required
+          disabled={authState.isLoading}
+          variant="outlined"
+          name="password"
+          type="password"
+          placeholder="Password*"
+          onChange={handleInputChange}
+        />
+      </FormControl>
+      <ButtonEx disabled={authState.isLoading} variant="contained" type="submit">
+        Login
+      </ButtonEx>
     </>
   )
 }

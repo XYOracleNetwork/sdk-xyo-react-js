@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook'
 import { AuthServiceWrapper } from './AuthServiceWrapper'
 
-
 const StorybookEntry = {
   argTypes: {
-    authServiceList: []
+    authServiceList: [],
   },
   component: AuthServiceWrapper,
   parameters: {
@@ -17,24 +17,35 @@ const StorybookEntry = {
 } as ComponentMeta<typeof AuthServiceWrapper>
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
-  return (
-    <AuthServiceWrapper></AuthServiceWrapper>
-  )
+  return <AuthServiceWrapper></AuthServiceWrapper>
 }
 
 const Default = Template.bind({})
 Default.args = {
-  authServiceList: [authServiceList[0]]
+  authState: {
+    authServiceList: [authServiceList[0]],
+  },
 }
 Default.decorators = [authDecorator]
 
 const FullAuthServiceList = Template.bind({})
 FullAuthServiceList.args = {
-  authServiceList,
+  authState: {
+    authServiceList,
+  },
 }
 FullAuthServiceList.decorators = [authDecorator]
 
-export { Default, FullAuthServiceList }
+const ErrorState = Template.bind({})
+ErrorState.args = {
+  authState: {
+    apiDomain: 'http://bogus.domain',
+    authServiceList,
+  },
+}
+ErrorState.decorators = [authDecorator]
+
+export { Default, ErrorState, FullAuthServiceList }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+
 import { authDecorator, WrappedAuthComponent } from '../../.storybook'
 import { EmailPassword } from './EmailPassword'
-
 
 const StorybookEntry = {
   argTypes: {},
@@ -14,13 +14,19 @@ const StorybookEntry = {
   title: 'Auth/EmailPassword',
 } as ComponentMeta<typeof EmailPassword>
 
-const Template: ComponentStory<WrappedAuthComponent> = () => (
-  <EmailPassword></EmailPassword>
-)
+const Template: ComponentStory<WrappedAuthComponent> = () => <EmailPassword></EmailPassword>
 
 const Default = Template.bind({})
 Default.args = {}
 Default.decorators = [authDecorator]
+
+const FullAuthServiceList = Template.bind({})
+FullAuthServiceList.args = {
+  authState: {
+    apiDomain: 'http://bogus.domain',
+  },
+}
+FullAuthServiceList.decorators = [authDecorator]
 
 export { Default }
 

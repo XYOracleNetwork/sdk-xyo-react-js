@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.storybook'
 import { NoneSelected } from './NoneSelected'
-
 
 const StorybookEntry = {
   argTypes: {},
@@ -14,13 +14,11 @@ const StorybookEntry = {
   title: 'Auth/NoneSelected',
 } as ComponentMeta<typeof NoneSelected>
 
-const Template: ComponentStory<WrappedAuthComponent> = () => (
-  <NoneSelected></NoneSelected>
-)
+const Template: ComponentStory<WrappedAuthComponent> = () => <NoneSelected></NoneSelected>
 
 const Default = Template.bind({})
 Default.args = {
-  authServiceList: authServiceList
+  authServiceList: authServiceList,
 }
 Default.decorators = [authDecorator]
 

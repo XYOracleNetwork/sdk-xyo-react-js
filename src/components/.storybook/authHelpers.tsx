@@ -1,10 +1,10 @@
 import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
-import { AuthThemeExtender } from '..'
-import { AuthApiLoader, AuthLoader, IAuthService, AuthServiceId } from '../../contexts'
+import { AuthThemeExtender } from '../Auth'
+import { AuthApiLoader, AuthLoader, IAuthService, AuthServiceId, AuthState } from '../../contexts'
 
 interface WrappedArgs {
-  authServiceList: IAuthService[]
+  authState: Partial<AuthState>
 }
 type WrappedAuthComponent = (props: WrappedArgs) => React.ReactElement
 
@@ -22,13 +22,13 @@ const authServiceList: readonly IAuthService[] = [
 ]
 
 const authDecorator = (Story, { args }) => {
-  const apiDomain = 'http://localhost:8080'
-  const {authServiceList} = args
+  const apiDomain = args?.authState?.apiDomain || 'http://localhost:8080'
+  const {authState} = args
 
   return (
     <FlexGrowCol marginY={2} justifyContent="flex-start" alignItems="center">
       <BrowserRouter>
-        <AuthLoader authServiceList={authServiceList}>
+        <AuthLoader authState={authState}>
           <AuthApiLoader apiDomain={apiDomain}>
             <AuthThemeExtender>
               <Story />
