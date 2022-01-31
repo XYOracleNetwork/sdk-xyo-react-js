@@ -1,4 +1,3 @@
-import { useTheme } from '@mui/material'
 import { ButtonEx } from '@xylabs/sdk-react'
 import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch, SetStateAction } from 'react'
@@ -14,8 +13,6 @@ interface ConnectWalletProps {
 }
 
 const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, authDispatch, MetaMaskService }) => {
-  const theme = useTheme()
-
   const connectWallet = async () => {
     if (!MetaMaskService.currentAccount) {
       try {

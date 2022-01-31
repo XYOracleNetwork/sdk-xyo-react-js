@@ -1,8 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook';
-import { AuthServiceWrapper } from './AuthServiceWrapper';
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-
+import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook'
+import { AuthServiceWrapper } from './AuthServiceWrapper'
 
 const StorybookEntry = {
   argTypes: {
@@ -46,7 +45,7 @@ ErrorState.args = {
 }
 ErrorState.decorators = [authDecorator]
 
-export { Default, ErrorState, FullAuthServiceList };
+export { Default, ErrorState, FullAuthServiceList }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

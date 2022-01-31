@@ -29,7 +29,7 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
       <FormControl fullWidth={true}>
         <TextField
           required
-          inputProps={{'data-testid': 'email'}}
+          inputProps={{ 'data-testid': 'email' }}
           type="email"
           disabled={authState.isLoading}
           variant="outlined"
@@ -42,7 +42,7 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
       <FormControl fullWidth={true}>
         <TextField
           required
-          inputProps={{'data-testid': 'password'}}
+          inputProps={{ 'data-testid': 'password' }}
           disabled={authState.isLoading}
           variant="outlined"
           name="password"

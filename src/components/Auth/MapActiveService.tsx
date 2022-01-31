@@ -1,9 +1,9 @@
 import { useTheme } from '@mui/material'
 import { assertEx } from '@xylabs/sdk-js'
 import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
-import { AuthState } from '../../contexts'
+import { AuthServiceId, AuthState } from '../../contexts'
 import { AuthServiceComponentMap } from './AuthServiceComponentMap'
 
 interface ActiveAuthServiceProps {
@@ -22,9 +22,13 @@ const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authS
   return (
     <FlexCol maxWidth="xs">
       <SelectedAuthService />
-      <ButtonEx marginTop={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={handleBack}>
-        Back
-      </ButtonEx>
+      {activeAuthServiceId !== AuthServiceId.None ? (
+        <ButtonEx marginTop={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={handleBack}>
+          Back
+        </ButtonEx>
+      ) : (
+        <></>
+      )}
     </FlexCol>
   )
 }

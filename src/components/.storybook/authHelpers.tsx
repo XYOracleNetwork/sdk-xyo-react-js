@@ -1,10 +1,11 @@
+import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
+import { AuthApiLoader, AuthLoader, AuthServiceId, AuthState, IAuthService } from '../../contexts'
 import { AuthThemeExtender } from '../Auth'
-import { AuthApiLoader, AuthLoader, IAuthService, AuthServiceId, AuthState } from '../../contexts'
 
 interface WrappedArgs {
-  authState: Partial<AuthState>
+  authState?: Partial<AuthState>
 }
 type WrappedAuthComponent = (props: WrappedArgs) => React.ReactElement
 
@@ -21,7 +22,7 @@ const authServiceList: readonly IAuthService[] = [
   },
 ]
 
-const authDecorator = (Story, { args }) => {
+const authDecorator: DecoratorFn = (Story, { args }) => {
   const apiDomain = args?.authState?.apiDomain || 'http://localhost:8080'
   const {authState} = args
 

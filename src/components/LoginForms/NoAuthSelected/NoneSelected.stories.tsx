@@ -20,7 +20,7 @@ const Default = Template.bind({})
 Default.args = {
   authState: {
     authServiceList: authServiceList,
-  }
+  },
 }
 Default.decorators = [authDecorator]
 
