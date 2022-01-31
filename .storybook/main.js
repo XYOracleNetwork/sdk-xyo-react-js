@@ -9,6 +9,7 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
   ],
   // Actual recommended fix from MUI - https://mui.com/guides/migration-v4/#troubleshooting
   webpackFinal: async (config) => {

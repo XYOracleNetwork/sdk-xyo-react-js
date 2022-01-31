@@ -1,4 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { within, userEvent } from '@storybook/testing-library';
+
 
 import { authDecorator, WrappedAuthComponent } from '../../.storybook'
 import { EmailPassword } from './EmailPassword'
@@ -20,15 +22,23 @@ const Default = Template.bind({})
 Default.args = {}
 Default.decorators = [authDecorator]
 
-const FullAuthServiceList = Template.bind({})
-FullAuthServiceList.args = {
-  authState: {
-    apiDomain: 'http://bogus.domain',
-  },
-}
-FullAuthServiceList.decorators = [authDecorator]
+Default.play = async ({ canvasElement }) => {
+  console.log(canvasElement)
+  // Delay required account for decorator to setup routing/context
+  setTimeout(async () => {
+    const canvas = within(canvasElement);
+  
+    await userEvent.type(canvas.getByTestId('email'), 'none@none.com', {
+      delay: 50,
+    });
+    await userEvent.type(canvas.getByTestId('password'), 'password', {
+      delay: 50,
+    });
+  
+    await userEvent.click(canvas.getByText('Login'));
+  })
+};
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry
