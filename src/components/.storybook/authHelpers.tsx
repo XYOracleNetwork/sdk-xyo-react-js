@@ -1,5 +1,6 @@
 import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
+import { AuthThemeExtender } from '..'
 import { AuthApiLoader, AuthLoader, IAuthService, AuthServiceId } from '../../contexts'
 
 interface WrappedArgs {
@@ -29,7 +30,9 @@ const authDecorator = (Story, { args }) => {
       <BrowserRouter>
         <AuthLoader authServiceList={authServiceList}>
           <AuthApiLoader apiDomain={apiDomain}>
-            <Story />
+            <AuthThemeExtender>
+              <Story />
+            </AuthThemeExtender>
           </AuthApiLoader>
         </AuthLoader>
       </BrowserRouter>
