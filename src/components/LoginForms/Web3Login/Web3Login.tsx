@@ -36,9 +36,7 @@ const Web3Login: React.FC = () => {
   return (
     <>
       <CheckForMetaMask MetaMaskService={MetaMaskService}>
-        <Typography marginY={4} variant="h3">
-          Login with Web3 Wallet
-        </Typography>
+        <Typography variant="h3">Login with Web3 Wallet</Typography>
         {MetaMaskService.currentAccount && authState.isLoggedIn ? (
           <>
             <p>Authorized: {MetaMaskService.currentAccount}</p>

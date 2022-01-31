@@ -1,4 +1,5 @@
 import { createTheme, FormControl, TextField, ThemeProvider, useTheme } from '@mui/material'
+import { ButtonEx } from '@xylabs/sdk-react'
 import { Dispatch, SetStateAction } from 'react'
 
 import { AuthState } from '../../../contexts'
@@ -13,6 +14,13 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
   const baseTheme = useTheme()
   const authFormThemeOptions = {
     components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            width: '100%',
+          },
+        },
+      },
       MuiTextField: {
         styleOverrides: {
           root: {
@@ -23,7 +31,7 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
     },
   }
 
-  const authFormTheme = createTheme(authFormThemeOptions)
+  const authFormTheme = createTheme({ ...baseTheme, ...authFormThemeOptions })
   const [credentials, setCredentials] = credentialsState
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,6 +71,9 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
             onChange={handleInputChange}
           />
         </FormControl>
+        <ButtonEx disabled={authState.isLoading} variant="contained" type="submit">
+          Login
+        </ButtonEx>
       </ThemeProvider>
     </>
   )
