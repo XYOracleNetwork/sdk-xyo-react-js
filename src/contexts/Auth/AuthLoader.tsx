@@ -1,5 +1,6 @@
 import { useReducer } from 'react'
 
+import { useAuthInterceptors } from '../../hooks'
 import { AuthContext } from './AuthContext'
 import { authReducer } from './AuthReducer'
 import { AuthState } from './AuthStateTypes'
@@ -13,6 +14,7 @@ interface AuthLoaderProps {
 const AuthLoader: React.FC<AuthLoaderProps> = ({ children, authState }) => {
   const defaultStateWithServices = { ...DefaultState, ...authState }
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
+  useAuthInterceptors(state.apiDomain, dispatch)
 
   useHydrateState(state, dispatch)
 

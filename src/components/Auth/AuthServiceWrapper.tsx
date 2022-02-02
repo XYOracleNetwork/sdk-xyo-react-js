@@ -1,7 +1,6 @@
 import { ErrorDialog } from '@xylabs/sdk-react'
 
 import { AuthActionTypes, AuthServiceId, useAuthState } from '../../contexts'
-import { useAuthInterceptors } from '../../hooks'
 import { AuthFooter } from './AuthFooter'
 import { MapActiveAuthService } from './MapActiveService'
 
@@ -12,8 +11,6 @@ const backPayload = {
 
 const AuthServiceWrapper: React.FC = () => {
   const { state: authState, dispatch: authDispatch } = useAuthState()
-
-  useAuthInterceptors(authState.apiDomain, authDispatch)
 
   const handleLogout = () => {
     authDispatch({ payload: {}, type: AuthActionTypes.Logout })

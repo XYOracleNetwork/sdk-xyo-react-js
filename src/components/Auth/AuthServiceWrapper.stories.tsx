@@ -38,8 +38,8 @@ FullAuthServiceList.decorators = [authDecorator]
 
 const ErrorState = Template.bind({})
 ErrorState.args = {
-  apiDomain: 'http://bogus.domain',
   authState: {
+    apiDomain: 'http://bogus.domain',
     authServiceList,
   },
 }

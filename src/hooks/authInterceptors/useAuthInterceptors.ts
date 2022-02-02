@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios'
 import { useEffect, useState } from 'react'
 
 import { AuthDispatch } from '../../contexts'
-import { AuthInterceptors } from './interceptorCallbacks'
+import { AuthInterceptors } from './AuthInterceptors'
 
 /**
  * A hook that intercepts specific axios requests and manages the auth token requirements
