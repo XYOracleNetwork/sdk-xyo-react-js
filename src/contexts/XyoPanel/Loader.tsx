@@ -1,7 +1,9 @@
+import { useMounted } from '@xylabs/sdk-react'
 import {
   XyoAddress,
   XyoArchivistApi,
   XyoArchivistApiConfig,
+  XyoBoundWitness,
   XyoPanel,
   XyoSystemInfoWitness,
 } from '@xyo-network/sdk-xyo-client-js'
@@ -33,13 +35,30 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
   children,
 }) => {
   const [panel, setPanel] = useState<XyoPanel>()
+  const [history, setHistory] = useState<XyoBoundWitness[]>()
+  const mounted = useMounted()
 
   useEffect(() => {
     const witnesses = [new XyoSystemInfoWitness()]
 
-    const panel = new XyoPanel({ address, archivists, witnesses })
-    setPanel(panel)
-  }, [address, archivists])
+    //touches history to trigger hook reload
+    const onHistoryAdd = () => {
+      if (mounted()) {
+        setHistory(panel?.history)
+      }
+    }
 
-  return <XyoPanelContext.Provider value={{ panel }}>{panel ? children : null}</XyoPanelContext.Provider>
+    //touches history to trigger hook reload
+    const onHistoryRemove = () => {
+      if (mounted()) {
+        setHistory(panel?.history)
+      }
+    }
+
+    const panel = new XyoPanel({ address, archivists, onHistoryAdd, onHistoryRemove, witnesses })
+    setPanel(panel)
+    setHistory(panel.history)
+  }, [address, archivists, mounted])
+
+  return <XyoPanelContext.Provider value={{ history, panel }}>{panel ? children : null}</XyoPanelContext.Provider>
 }

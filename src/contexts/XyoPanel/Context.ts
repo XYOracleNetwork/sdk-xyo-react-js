@@ -1,4 +1,9 @@
-import { XyoPanel } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness, XyoPanel } from '@xyo-network/sdk-xyo-client-js'
 import { createContext } from 'react'
 
-export const XyoPanelContext = createContext<{ panel?: XyoPanel }>({})
+export interface XyoPanelContextProps {
+  panel?: XyoPanel
+  history?: XyoBoundWitness[]
+}
+
+export const XyoPanelContext = createContext<XyoPanelContextProps>({})
