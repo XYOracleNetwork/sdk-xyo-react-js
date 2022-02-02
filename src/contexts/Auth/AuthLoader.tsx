@@ -1,7 +1,7 @@
 import { useReducer } from 'react'
 
-import { useAuthInterceptors } from '../../hooks'
 import { AuthContext } from './AuthContext'
+import { useAuthInterceptors } from './authInterceptors'
 import { authReducer } from './AuthReducer'
 import { AuthState } from './AuthStateTypes'
 import { DefaultState } from './DefaultState'

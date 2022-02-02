@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 import { useEffect, useState } from 'react'
 
-import { AuthDispatch } from '../../contexts'
+import { AuthDispatch } from '../AuthStateTypes'
 import { AuthInterceptors } from './AuthInterceptors'
 
 /**

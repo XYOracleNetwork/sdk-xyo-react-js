@@ -1,1 +1,1 @@
-export * from './authInterceptors'
+export {}

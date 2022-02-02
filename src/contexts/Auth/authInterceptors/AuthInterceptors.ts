@@ -1,7 +1,7 @@
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 import React from 'react'
 
-import { AuthAction, AuthActionTypes } from '../../contexts'
+import { AuthAction, AuthActionTypes } from '../AuthStateTypes'
 
 class AuthInterceptors {
   static instance: AuthInterceptors
