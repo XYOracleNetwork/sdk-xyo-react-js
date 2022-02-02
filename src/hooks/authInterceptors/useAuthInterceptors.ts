@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { useAuthState } from '../../contexts'
+import { AuthDispatch } from '../../contexts'
 import { AuthInterceptors } from './interceptorCallbacks'
 
 /**
@@ -9,24 +9,30 @@ import { AuthInterceptors } from './interceptorCallbacks'
  *
  * @returns {Object}
  */
-const useAuthInterceptors = (apiDomain: string) => {
-  const { dispatch: authDispatch } = useAuthState()
+const useAuthInterceptors = (apiDomain: string, authDispatch: AuthDispatch) => {
+  const [newTokenInterceptor, setNewTokenInterceptor] = useState<number | undefined>()
+  const [appendTokenInterceptor, setAppendTokenInterceptor] = useState<number | undefined>()
   const [authInterceptor] = useState<AuthInterceptors>(AuthInterceptors.get(authDispatch, apiDomain))
 
-  const newTokenInterceptor = axios.interceptors.response.use<AxiosResponse>(
-    authInterceptor.newTokenInterceptor.bind(authInterceptor),
-    authInterceptor.unauthorizedInterceptor.bind(authInterceptor)
-  )
-
-  const appendTokenInterceptor = axios.interceptors.request.use(
-    authInterceptor.appendTokenInterceptor.bind(authInterceptor)
-  )
-
-  const teardown = () => {
-    axios.interceptors.response.eject(newTokenInterceptor)
-    axios.interceptors.request.eject(appendTokenInterceptor)
-  }
-  return { teardown }
+  useEffect(() => {
+    if (newTokenInterceptor === undefined) {
+      const newTokenInt = axios.interceptors.response.use<AxiosResponse>(
+        authInterceptor.newTokenInterceptor.bind(authInterceptor),
+        authInterceptor.unauthorizedInterceptor.bind(authInterceptor)
+      )
+      setNewTokenInterceptor(newTokenInt)
+    }
+    if (appendTokenInterceptor === undefined) {
+      const appendTokenInt = axios.interceptors.request.use(
+        authInterceptor.appendTokenInterceptor.bind(authInterceptor)
+      )
+      setAppendTokenInterceptor(appendTokenInt)
+    }
+    return () => {
+      newTokenInterceptor !== undefined && axios.interceptors.response.eject(newTokenInterceptor)
+      appendTokenInterceptor !== undefined && axios.interceptors.request.eject(appendTokenInterceptor)
+    }
+  }, [appendTokenInterceptor, authInterceptor, newTokenInterceptor])
 }
 
 export { useAuthInterceptors }

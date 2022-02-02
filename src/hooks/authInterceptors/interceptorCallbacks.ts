@@ -7,8 +7,10 @@ class AuthInterceptors {
   static instance: AuthInterceptors
   private apiDomain: string
   private token = localStorage.getItem('token')
+  private authDispatch: React.Dispatch<AuthAction>
 
-  private constructor(private authDispatch: React.Dispatch<AuthAction>, apiDomain: string) {
+  private constructor(authDispatch: React.Dispatch<AuthAction>, apiDomain: string) {
+    this.authDispatch = authDispatch
     this.apiDomain = apiDomain
   }
 

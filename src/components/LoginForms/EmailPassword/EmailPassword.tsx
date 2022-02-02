@@ -23,6 +23,7 @@ const EmailPassword: React.FC = () => {
         authDispatch({ payload: { isLoading: false }, type: AuthActionTypes.UpdateLoadingState })
         navigate('/')
       } catch (err) {
+        console.error(err)
         authDispatch({ payload: { isLoading: false }, type: AuthActionTypes.UpdateLoadingState })
         authDispatch({ payload: { authError: err as AxiosError }, type: AuthActionTypes.UpdateAuthError })
       }

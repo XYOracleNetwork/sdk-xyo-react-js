@@ -7,6 +7,7 @@ enum AuthServiceId {
 }
 
 export interface AuthState {
+  apiDomain: string
   activeAuthServiceId: AuthServiceId
   readonly authServiceList: IAuthService[]
   isLoading: boolean

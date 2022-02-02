@@ -2,6 +2,7 @@ import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthApiLoader, AuthLoader, AuthServiceId, AuthState, IAuthService } from '../../contexts'
+import { DefaultState } from '../../contexts/Auth/DefaultState'
 import { AuthThemeExtender } from '../Auth'
 
 interface WrappedArgs {
@@ -24,14 +25,14 @@ const authServiceList: IAuthService[] = [
 ]
 
 const authDecorator: DecoratorFn = (Story, { args }) => {
-  const apiDomain = args?.authState?.apiDomain || 'http://localhost:8080'
   const {authState} = args
+  const mergedAuthState = {...DefaultState, ...authState}
 
   return (
     <FlexGrowCol marginY={2} justifyContent="flex-start" alignItems="center">
       <BrowserRouter>
-        <AuthLoader authState={authState}>
-          <AuthApiLoader apiDomain={apiDomain}>
+        <AuthLoader authState={mergedAuthState}>
+          <AuthApiLoader apiDomain={mergedAuthState.apiDomain}>
             <AuthThemeExtender>
               <Story />
             </AuthThemeExtender>

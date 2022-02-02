@@ -3,20 +3,13 @@ import { memo } from 'react'
 
 interface AuthFooterProps {
   handleLogout: () => void
-  isLoggedIn: boolean
 }
 
-const AuthFooterComponent: React.FC<AuthFooterProps> = ({ handleLogout, isLoggedIn }) => {
-  if (isLoggedIn) {
-    return (
-      <ButtonEx variant="outlined" onClick={handleLogout}>
-        Logout
-      </ButtonEx>
-    )
-  } else {
-    return <></>
-  }
-}
+const AuthFooterComponent: React.FC<AuthFooterProps> = ({ handleLogout }) => (
+  <ButtonEx variant="outlined" onClick={handleLogout}>
+    Logout
+  </ButtonEx>
+)
 
 const AuthFooter = memo(AuthFooterComponent)
 
