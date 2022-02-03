@@ -1,5 +1,3 @@
-import { ErrorDialog } from '@xylabs/sdk-react'
-
 import { AuthActionTypes, AuthServiceId, useAuthState } from '../../contexts'
 import { AuthFooter } from './AuthFooter'
 import { MapActiveAuthService } from './MapActiveService'
@@ -23,14 +21,6 @@ const AuthServiceWrapper: React.FC = () => {
     <>
       <MapActiveAuthService authState={authState} handleBack={handleBack} isLoading={authState.isLoading} />
       {authState.isLoggedIn && <AuthFooter handleLogout={handleLogout} />}
-      {authState.authError && (
-        <ErrorDialog
-          title="Error Logging In"
-          error={authState.authError}
-          open={!!authState.authError}
-          onAction={() => authDispatch({ payload: { authError: undefined }, type: AuthActionTypes.UpdateAuthError })}
-        />
-      )}
     </>
   )
 }

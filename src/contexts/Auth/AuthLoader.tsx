@@ -1,6 +1,7 @@
 import { useReducer } from 'react'
 
 import { AuthContext } from './AuthContext'
+import { AuthErrorDialog } from './AuthErrorDialog'
 import { useAuthInterceptors } from './authInterceptors'
 import { authReducer } from './AuthReducer'
 import { AuthState } from './AuthStateTypes'
@@ -19,7 +20,13 @@ const AuthLoader: React.FC<AuthLoaderProps> = ({ children, authState }) => {
   useHydrateState(state, dispatch)
 
   const value = { dispatch, state }
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+
+  return (
+    <>
+      <AuthErrorDialog authState={state} dispatch={dispatch} open={!!state.authError} />
+      <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+    </>
+  )
 }
 
 export { AuthLoader }
