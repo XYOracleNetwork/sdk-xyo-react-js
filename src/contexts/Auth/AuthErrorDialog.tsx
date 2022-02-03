@@ -41,9 +41,6 @@ const AuthErrorDialog: React.FC<AuthErrorDialogProps> = ({ authState, dispatch, 
         <ButtonEx onClick={handleClose} variant="text">
           Close
         </ButtonEx>
-        <ButtonEx onClick={handleClose} variant="text">
-          Login
-        </ButtonEx>
       </DialogActions>
     </Dialog>
   )
