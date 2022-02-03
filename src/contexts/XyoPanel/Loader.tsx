@@ -55,10 +55,12 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
       }
     }
 
-    const panel = new XyoPanel({ address, archivists, onHistoryAdd, onHistoryRemove, witnesses })
-    setPanel(panel)
-    setHistory(panel.history)
-  }, [address, archivists, mounted])
+    if (!panel) {
+      const panel = new XyoPanel({ address, archivists, onHistoryAdd, onHistoryRemove, witnesses })
+      setPanel(panel)
+      setHistory(panel.history)
+    }
+  }, [address, archivists, mounted, panel])
 
   return <XyoPanelContext.Provider value={{ history, panel }}>{panel ? children : null}</XyoPanelContext.Provider>
 }
