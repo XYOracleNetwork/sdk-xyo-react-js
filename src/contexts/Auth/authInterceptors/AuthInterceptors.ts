@@ -38,9 +38,7 @@ class AuthInterceptors {
     if (error.response?.status === 401) {
       this.token = ''
       localStorage.setItem('token', this.token)
-      this.authDispatch({ payload: {}, type: AuthActionTypes.Logout })
-      // using instead of useNavigate so hook isn't required to be used inside of a <Router>
-      window.location.href = '/login'
+      this.authDispatch({ payload: { authError: error }, type: AuthActionTypes.UpdateAuthError })
     }
     return Promise.reject(error)
   }
