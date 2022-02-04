@@ -7,7 +7,7 @@ const NotFound = () => {
       <FlexGrowCol>
         <Typography variant="h2">Sorry!</Typography>
         <Typography marginY={3} variant="body2">
-          Can't find anything here
+          {`Can${String.fromCharCode(39)}t find anything here`}
         </Typography>
       </FlexGrowCol>
     </>
