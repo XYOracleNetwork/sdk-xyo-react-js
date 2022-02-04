@@ -1,13 +1,11 @@
 import { Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/sdk-react'
 
-interface Props {
+export interface ValueProps {
   value?: string | number | boolean | null
 }
 
-const Value: React.FC<Props> = (props) => {
+export const Value: React.FC<ValueProps> = (props) => {
   const { value } = props
   return <FlexRow>{value !== undefined ? <Typography variant="caption">{value}</Typography> : null}</FlexRow>
 }
-
-export { Value }
