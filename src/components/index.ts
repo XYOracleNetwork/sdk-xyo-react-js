@@ -1,3 +1,7 @@
 export * from './Auth'
+export * from './Block'
 export * from './BlockTable'
 export * from './LoginForms'
+export * from './PayloadTable'
+export * from './Properties'
+export * from './XyoBoundWitnessJsonViewer'

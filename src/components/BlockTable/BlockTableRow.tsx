@@ -6,17 +6,25 @@ import { DateTime } from 'luxon'
 import { MdClear, MdDone } from 'react-icons/md'
 
 export interface BlockTableRowProps extends TableRowProps {
-  archive: string
+  archive?: string
   block?: XyoBoundWitness
+  exploreDomain?: string
 }
 
-export const BlockTableRow: React.FC<BlockTableRowProps> = ({ archive, block, ...props }) => {
+export const BlockTableRow: React.FC<BlockTableRowProps> = ({
+  exploreDomain = 'https://beta.explore.xyo.network',
+  archive = 'temp',
+  block,
+  ...props
+}) => {
   const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
   const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
   return (
     <TableRow {...props}>
       <TableCell>
-        <LinkToEx to={`/archive/${archive}/block/hash/${block?._hash}`}>{block?._hash}</LinkToEx>
+        <LinkToEx target="_blank" to={`${exploreDomain}/archive/${archive}/block/hash/${block?._hash}`}>
+          {block?._hash}
+        </LinkToEx>
       </TableCell>
       <TableCell align="center">{block?._archive}</TableCell>
       <TableCell align="center">{block?._client}</TableCell>
