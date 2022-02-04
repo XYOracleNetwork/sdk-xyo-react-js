@@ -2,7 +2,7 @@ import { ButtonEx, FlexRow } from '@xylabs/sdk-react'
 
 import { PropertyActionsProps } from './PropertyActionsProps'
 
-const PropertyActions: React.FC<PropertyActionsProps> = ({ actions, ...props }) => {
+export const PropertyActions: React.FC<PropertyActionsProps> = ({ actions, ...props }) => {
   if (actions) {
     return (
       <FlexRow {...props}>
@@ -24,5 +24,3 @@ const PropertyActions: React.FC<PropertyActionsProps> = ({ actions, ...props }) 
   }
   return null
 }
-
-export { PropertyActions }

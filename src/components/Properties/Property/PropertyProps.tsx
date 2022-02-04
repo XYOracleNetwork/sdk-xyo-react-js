@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 
 import { PropertyAction } from './PropertyAction'
 
-interface PropertyProps extends FlexBoxProps {
+export interface PropertyProps extends FlexBoxProps {
   actions?: PropertyAction[]
   maxTitleWidth?: number
   required?: boolean
@@ -11,5 +11,3 @@ interface PropertyProps extends FlexBoxProps {
   title?: string
   value?: string | number | boolean | null
 }
-
-export type { PropertyProps }

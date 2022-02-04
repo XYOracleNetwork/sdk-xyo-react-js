@@ -6,7 +6,7 @@ import { PropertyProps } from './PropertyProps'
 import { PropertyTitle } from './PropertyTitle'
 import { Value } from './Value'
 
-const Property: React.FC<PropertyProps> = (props) => {
+export const Property: React.FC<PropertyProps> = (props) => {
   const theme = useTheme()
   const { title, value, children, maxTitleWidth = 180, tip, actions, required, ...boxProps } = props
 
@@ -36,5 +36,3 @@ const Property: React.FC<PropertyProps> = (props) => {
     </FlexRow>
   )
 }
-
-export { Property }

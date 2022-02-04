@@ -1,5 +1,4 @@
-import { TableCell, TableRow, TableRowProps } from '@mui/material'
-import { LinkToEx } from '@xylabs/sdk-react'
+import { Link, TableCell, TableRow, TableRowProps } from '@mui/material'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
 import { DateTime } from 'luxon'
 import { MdClear, MdDone } from 'react-icons/md'
@@ -21,9 +20,9 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   return (
     <TableRow {...props}>
       <TableCell>
-        <LinkToEx target="_blank" to={`${exploreDomain}/archive/${archive}/payload/hash/${payload?._hash}`}>
+        <Link target="_blank" href={`${exploreDomain}/archive/${archive}/payload/hash/${payload?._hash}`}>
           {payload?._hash}
-        </LinkToEx>
+        </Link>
       </TableCell>
       <TableCell align="center">{payload?._archive}</TableCell>
       <TableCell align="center">{payload?.schema}</TableCell>
