@@ -6,9 +6,10 @@ import { BlockTableRow } from './BlockTableRow'
 export interface BlockTableProps extends TableProps {
   archive?: string
   blocks?: XyoBoundWitness[] | null
+  onRowClick?: (value: XyoBoundWitness) => void
 }
 
-export const BlockTable: React.FC<BlockTableProps> = ({ archive, blocks, ...props }) => {
+export const BlockTable: React.FC<BlockTableProps> = ({ onRowClick, archive, blocks, ...props }) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -38,7 +39,18 @@ export const BlockTable: React.FC<BlockTableProps> = ({ archive, blocks, ...prop
       </TableHead>
       <TableBody>
         {blocks?.map((block, index) => (
-          <BlockTableRow archive={archive} key={index} block={block} />
+          <BlockTableRow
+            archive={archive}
+            key={index}
+            block={block}
+            onClick={
+              onRowClick
+                ? () => {
+                    onRowClick(block)
+                  }
+                : undefined
+            }
+          />
         ))}
       </TableBody>
     </Table>
