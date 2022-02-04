@@ -21,8 +21,12 @@ const Default = Template.bind({})
 Default.args = {}
 Default.decorators = [authDecorator]
 
+const SuccessfulRequest = Template.bind({})
+SuccessfulRequest.args = {}
+SuccessfulRequest.decorators = [authDecorator]
+
 // eslint-disable-next-line require-await
-Default.play = async ({ canvasElement }) => {
+SuccessfulRequest.play = async ({ canvasElement }) => {
   // Delay accounts for testing library seeing the rendered component story?
   setTimeout(async () => {
     const canvas = within(canvasElement)
@@ -38,7 +42,28 @@ Default.play = async ({ canvasElement }) => {
   })
 }
 
-export { Default }
+const FailedRequest = Template.bind({})
+Default.args = {}
+
+// eslint-disable-next-line require-await
+FailedRequest.play = async ({ canvasElement }) => {
+  // Delay accounts for testing library seeing the rendered component story?
+  setTimeout(async () => {
+    const canvas = within(canvasElement)
+
+    await userEvent.type(canvas.getByTestId('email'), 'none@none.com', {
+      delay: 50,
+    })
+    await userEvent.type(canvas.getByTestId('password'), 'foo', {
+      delay: 50,
+    })
+
+    await userEvent.click(canvas.getByText('Login'))
+  })
+}
+FailedRequest.decorators = [authDecorator]
+
+export { Default, FailedRequest, SuccessfulRequest }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

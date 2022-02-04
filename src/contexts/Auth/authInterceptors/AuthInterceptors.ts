@@ -22,7 +22,7 @@ class AuthInterceptors {
   }
 
   public newTokenInterceptor(response: AxiosResponse) {
-    if (this.isLoginRoute(response)) {
+    if (this.isLoginRoute(response) && this.hasToken(response)) {
       const { token: tokenFromApi } = response.data
 
       localStorage.setItem('token', tokenFromApi)
@@ -35,7 +35,7 @@ class AuthInterceptors {
 
   public unauthorizedInterceptor(error: AxiosError) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
-    if (error.response?.status === 401) {
+    if (error.response?.status === 401 && this.isLoginRoute(error.response)) {
       this.token = ''
       localStorage.setItem('token', this.token)
       this.authDispatch({ payload: { authError: error }, type: AuthActionTypes.UpdateAuthError })
@@ -55,7 +55,11 @@ class AuthInterceptors {
     const loginUrls = ['/user/wallet/verify/', '/login']
     const isLoginUrl = loginUrls.some((url) => response.config.url?.endsWith(url))
 
-    return isApiUrl && isLoginUrl && response.data.token
+    return isApiUrl && isLoginUrl
+  }
+
+  private hasToken(response: AxiosRequestConfig) {
+    return !!response.data.token
   }
 
   private isApiRequestUrl(request: AxiosRequestConfig) {

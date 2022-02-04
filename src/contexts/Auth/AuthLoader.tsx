@@ -23,7 +23,7 @@ const AuthLoader: React.FC<AuthLoaderProps> = ({ children, authState }) => {
 
   return (
     <>
-      <AuthErrorDialog authState={state} dispatch={dispatch} open={!!state.authError} />
+      <AuthErrorDialog authState={state} dispatch={dispatch} />
       <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
     </>
   )
