@@ -1,14 +1,13 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
-import { BlockTableRow } from './BlockTableRow'
+import { PayloadTableRow } from './PayloadTableRow'
 
-export interface BlockTableProps extends TableProps {
-  archive?: string
-  blocks?: XyoBoundWitness[] | null
+interface Props extends TableProps {
+  payloads?: XyoPayload[] | null
 }
 
-export const BlockTable: React.FC<BlockTableProps> = ({ archive, blocks, ...props }) => {
+const PayloadTable: React.FC<Props> = ({ payloads, ...props }) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -20,7 +19,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({ archive, blocks, ...prop
             <Typography variant="caption">Archive</Typography>
           </TableCell>
           <TableCell align="center">
-            <Typography variant="caption">Client</Typography>
+            <Typography variant="caption">Schema</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography variant="caption">Date</Typography>
@@ -29,18 +28,17 @@ export const BlockTable: React.FC<BlockTableProps> = ({ archive, blocks, ...prop
             <Typography variant="caption">Time</Typography>
           </TableCell>
           <TableCell align="center">
-            <Typography variant="caption">Payloads</Typography>
-          </TableCell>
-          <TableCell align="center">
             <Typography variant="caption">Valid</Typography>
           </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
-        {blocks?.map((block, index) => (
-          <BlockTableRow archive={archive} key={index} block={block} />
+        {payloads?.map((payload) => (
+          <PayloadTableRow key={payload._hash} payload={payload} />
         ))}
       </TableBody>
     </Table>
   )
 }
+
+export { PayloadTable }
