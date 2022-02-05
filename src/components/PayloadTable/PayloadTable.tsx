@@ -3,11 +3,11 @@ import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { PayloadTableRow } from './PayloadTableRow'
 
-interface Props extends TableProps {
+export interface PayloadTableProps extends TableProps {
   payloads?: XyoPayload[] | null
 }
 
-const PayloadTable: React.FC<Props> = ({ payloads, ...props }) => {
+export const PayloadTable: React.FC<PayloadTableProps> = ({ payloads, ...props }) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -40,5 +40,3 @@ const PayloadTable: React.FC<Props> = ({ payloads, ...props }) => {
     </Table>
   )
 }
-
-export { PayloadTable }
