@@ -1,8 +1,8 @@
 import { ThemeOptions } from '@mui/material'
 
-import fontFamily, { fontFamilyHeadings } from './fontFamily'
+import { fontFamilyHeadings, fontFamilyPrimary } from './fontFamily'
 
-const themeOptions: ThemeOptions = {
+export const themeOptions: ThemeOptions = {
   components: {
     MuiButton: {
       styleOverrides: {
@@ -46,7 +46,7 @@ const themeOptions: ThemeOptions = {
       fontWeight: 500,
       textTransform: 'capitalize',
     },
-    fontFamily: fontFamily.primary,
+    fontFamily: fontFamilyPrimary,
     fontWeightBold: 700,
     fontWeightLight: 300,
     fontWeightMedium: 600,
@@ -70,7 +70,7 @@ const themeOptions: ThemeOptions = {
       fontSize: '1.5rem',
     },
     h6: {
-      fontFamily: fontFamily.primary,
+      fontFamily: fontFamilyPrimary,
       fontSize: '1.25rem',
       fontWeight: 500,
     },
@@ -83,5 +83,3 @@ const themeOptions: ThemeOptions = {
     },
   },
 }
-
-export default themeOptions

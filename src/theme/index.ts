@@ -1,2 +1,2 @@
-import themeOptions from './themeOptions'
-export { themeOptions }
+export * from './fontFamily'
+export * from './themeOptions'
