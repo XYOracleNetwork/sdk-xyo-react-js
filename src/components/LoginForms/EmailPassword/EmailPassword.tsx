@@ -39,7 +39,7 @@ const EmailPassword: React.FC = () => {
     <>
       <Typography variant="h3">Login with Email</Typography>
       <form onSubmit={handleSubmit}>
-        <BusyBox marginY={2}>
+        <BusyBox>
           <FormFields authState={authState} credentialsState={credentialsState} />
         </BusyBox>
       </form>

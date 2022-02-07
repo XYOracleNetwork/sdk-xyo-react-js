@@ -23,7 +23,7 @@ const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authS
     <FlexCol maxWidth="xs">
       <SelectedAuthService />
       {activeAuthServiceId !== AuthServiceId.None ? (
-        <ButtonEx marginTop={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={handleBack}>
+        <ButtonEx marginY={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={handleBack}>
           Back
         </ButtonEx>
       ) : (
