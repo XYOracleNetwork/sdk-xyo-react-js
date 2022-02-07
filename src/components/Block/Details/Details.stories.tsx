@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { sampleBlock } from '../.storybook'
+import { sampleBlock } from '../../.storybook'
 import { BlockDetails } from './Details'
 
 const StorybookEntry = {
