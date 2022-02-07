@@ -1,15 +1,13 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
-import { BlockTableRow } from './BlockTableRow'
+import { PayloadTableRow } from './TableRow'
 
-export interface BlockTableProps extends TableProps {
-  archive?: string
-  blocks?: XyoBoundWitness[] | null
-  onRowClick?: (value: XyoBoundWitness) => void
+export interface PayloadTableProps extends TableProps {
+  payloads?: XyoPayload[] | null
 }
 
-export const BlockTable: React.FC<BlockTableProps> = ({ onRowClick, archive, blocks, ...props }) => {
+export const PayloadTable: React.FC<PayloadTableProps> = ({ payloads, ...props }) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -21,7 +19,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({ onRowClick, archive, blo
             <Typography variant="caption">Archive</Typography>
           </TableCell>
           <TableCell align="center">
-            <Typography variant="caption">Client</Typography>
+            <Typography variant="caption">Schema</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography variant="caption">Date</Typography>
@@ -30,27 +28,13 @@ export const BlockTable: React.FC<BlockTableProps> = ({ onRowClick, archive, blo
             <Typography variant="caption">Time</Typography>
           </TableCell>
           <TableCell align="center">
-            <Typography variant="caption">Payloads</Typography>
-          </TableCell>
-          <TableCell align="center">
             <Typography variant="caption">Valid</Typography>
           </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
-        {blocks?.map((block, index) => (
-          <BlockTableRow
-            archive={archive}
-            key={index}
-            block={block}
-            onClick={
-              onRowClick
-                ? () => {
-                    onRowClick(block)
-                  }
-                : undefined
-            }
-          />
+        {payloads?.map((payload) => (
+          <PayloadTableRow key={payload._hash} payload={payload} />
         ))}
       </TableBody>
     </Table>

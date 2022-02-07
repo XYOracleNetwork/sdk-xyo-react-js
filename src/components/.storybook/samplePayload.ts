@@ -1,0 +1,1 @@
+export const samplePayload = { schema: 'test.xyo.network' }

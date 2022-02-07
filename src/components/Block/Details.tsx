@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow, FlexRow } from '@xylab
 import { XyoBoundWitness, XyoBoundWitnessWrapper, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { lazy, Suspense } from 'react'
 
-import { PayloadTable } from '../PayloadTable'
+import { PayloadTable } from '../Payload'
 import { Property } from '../Properties'
 import { XyoBoundWitnessJsonViewer } from '../XyoBoundWitnessJsonViewer'
 
