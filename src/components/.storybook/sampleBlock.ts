@@ -1,2 +1,3 @@
-import { XyoBoundWitnessBuilder } from '@xyo-network/sdk-xyo-client-js'
-export const sampleBlock = new XyoBoundWitnessBuilder().payload({ schema: 'test.xyo.network' }).build()
+import { XyoAddress, XyoBoundWitnessBuilder } from '@xyo-network/sdk-xyo-client-js'
+import { samplePayload } from './samplePayload'
+export const sampleBlock = new XyoBoundWitnessBuilder().payload(samplePayload).build()
