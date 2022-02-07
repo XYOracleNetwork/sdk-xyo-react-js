@@ -1,13 +1,15 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
-import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
-import { PayloadTableRow } from './PayloadTableRow'
+import { BlockTableRow } from './TableRow'
 
-export interface PayloadTableProps extends TableProps {
-  payloads?: XyoPayload[] | null
+export interface BlockTableProps extends TableProps {
+  archive?: string
+  blocks?: XyoBoundWitness[] | null
+  onRowClick?: (value: XyoBoundWitness) => void
 }
 
-export const PayloadTable: React.FC<PayloadTableProps> = ({ payloads, ...props }) => {
+export const BlockTable: React.FC<BlockTableProps> = ({ onRowClick, archive, blocks, ...props }) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -19,7 +21,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({ payloads, ...props }
             <Typography variant="caption">Archive</Typography>
           </TableCell>
           <TableCell align="center">
-            <Typography variant="caption">Schema</Typography>
+            <Typography variant="caption">Client</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography variant="caption">Date</Typography>
@@ -28,13 +30,27 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({ payloads, ...props }
             <Typography variant="caption">Time</Typography>
           </TableCell>
           <TableCell align="center">
+            <Typography variant="caption">Payloads</Typography>
+          </TableCell>
+          <TableCell align="center">
             <Typography variant="caption">Valid</Typography>
           </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
-        {payloads?.map((payload) => (
-          <PayloadTableRow key={payload._hash} payload={payload} />
+        {blocks?.map((block, index) => (
+          <BlockTableRow
+            archive={archive}
+            key={index}
+            block={block}
+            onClick={
+              onRowClick
+                ? () => {
+                    onRowClick(block)
+                  }
+                : undefined
+            }
+          />
         ))}
       </TableBody>
     </Table>

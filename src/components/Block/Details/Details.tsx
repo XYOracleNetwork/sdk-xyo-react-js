@@ -1,12 +1,12 @@
-import { KeyboardArrowDown as KeyboardArrowDownIcon } from '@mui/icons-material'
+import { KeyboardArrowDown } from '@mui/icons-material'
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
 import { XyoBoundWitness, XyoBoundWitnessWrapper, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { lazy, Suspense } from 'react'
 
-import { PayloadTable } from '../PayloadTable'
-import { Property } from '../Properties'
-import { XyoBoundWitnessJsonViewer } from '../XyoBoundWitnessJsonViewer'
+import { PayloadTable } from '../../Payload'
+import { Property } from '../../Properties'
+import { AllBlockDetails } from './AllDetails'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
@@ -19,7 +19,7 @@ export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, ...
   const blockWrapper = block ? new XyoBoundWitnessWrapper(block) : null
   return (
     <FlexGrowCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
-      <XyoBoundWitnessJsonViewer value={block} marginY={2} />
+      <AllBlockDetails value={block} marginY={2} />
       <Property paddingY={2} value={!!block}>
         <PayloadTable payloads={payloads ?? []} />
       </Property>
@@ -28,7 +28,7 @@ export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, ...
           <AccordionSummary>
             <FlexRow justifyContent="space-between" width="100%">
               <Typography>JSON</Typography>
-              <KeyboardArrowDownIcon />
+              <KeyboardArrowDown />
             </FlexRow>
           </AccordionSummary>
           {block ? (
@@ -47,7 +47,7 @@ export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, ...
           <AccordionSummary>
             <FlexRow justifyContent="space-between" width="100%">
               <Typography>Hash String Source</Typography>
-              <KeyboardArrowDownIcon />
+              <KeyboardArrowDown />
             </FlexRow>
           </AccordionSummary>
           {block ? (

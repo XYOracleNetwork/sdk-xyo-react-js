@@ -1,25 +1,27 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { PayloadTable } from './PayloadTable'
+import { sampleBlock } from '../.storybook'
+import { BlockTable } from './Table'
 
 const StorybookEntry = {
   argTypes: {},
-  component: PayloadTable,
+  component: BlockTable,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'PayloadTable/Table',
-} as ComponentMeta<typeof PayloadTable>
+  title: 'Block/Table',
+} as ComponentMeta<typeof BlockTable>
 
-const Template: ComponentStory<typeof PayloadTable> = (args) => <PayloadTable {...args}></PayloadTable>
+const Template: ComponentStory<typeof BlockTable> = (args) => <BlockTable {...args}></BlockTable>
 
 const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { payloads: [{ schema: 'test.xyo.network' }] }
+
+WithData.args = { blocks: [sampleBlock] }
 
 export { Default, WithData }
 
