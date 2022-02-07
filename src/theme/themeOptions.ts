@@ -25,7 +25,6 @@ export const themeOptions: ThemeOptions = {
     },
   },
   palette: {
-    mode: 'light',
     primary: {
       main: '#371589',
     },
