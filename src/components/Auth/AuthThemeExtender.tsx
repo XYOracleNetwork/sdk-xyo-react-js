@@ -1,42 +1,41 @@
-import { createTheme, ThemeOptions, ThemeProvider, useTheme } from '@mui/material'
+import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material'
 
-interface AuthThemeExtenderProps {
+export interface AuthThemeExtenderProps {
   themeOptions?: ThemeOptions
 }
 
 const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOptions }) => {
-  const baseTheme = useTheme()
   const authThemeOptions: ThemeOptions = {
     components: {
       MuiButton: {
         styleOverrides: {
-          root: {
-            paddingBottom: baseTheme.spacing(2),
-            paddingLeft: baseTheme.spacing(1),
-            paddingRight: baseTheme.spacing(1),
-            paddingTop: baseTheme.spacing(2),
+          root: ({ theme }) => ({
+            paddingBottom: theme.spacing(2),
+            paddingLeft: theme.spacing(1),
+            paddingRight: theme.spacing(1),
+            paddingTop: theme.spacing(2),
             width: '100%',
-          },
+          }),
         },
       },
       MuiTextField: {
         styleOverrides: {
-          root: {
-            marginBottom: baseTheme.spacing(2),
-          },
+          root: ({ theme }) => ({
+            marginBottom: theme.spacing(2),
+          }),
         },
       },
       MuiTypography: {
         styleOverrides: {
-          h3: {
-            marginBottom: baseTheme.spacing(4),
-            marginTop: baseTheme.spacing(4),
-          },
+          h3: ({ theme }) => ({
+            marginBottom: theme.spacing(4),
+            marginTop: theme.spacing(4),
+          }),
         },
       },
     },
   }
-  const authTheme = createTheme({ ...baseTheme, ...authThemeOptions, ...themeOptions })
+  const authTheme = createTheme({ ...themeOptions, ...authThemeOptions })
 
   return <ThemeProvider theme={authTheme}>{children}</ThemeProvider>
 }
