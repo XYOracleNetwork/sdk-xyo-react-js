@@ -4,6 +4,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { authDecorator } from '../.storybook'
 import { AuthThemeExtender } from './AuthThemeExtender'
 
+const customPrimary = '#485c76'
+const customSecondary = '#8f91c7'
+
 const StorybookEntry = {
   argTypes: {
     themeOptions: {
@@ -20,24 +23,33 @@ const StorybookEntry = {
   title: 'Auth/AuthThemeExtender',
 } as ComponentMeta<typeof AuthThemeExtender>
 
-const Template: ComponentStory<typeof AuthThemeExtender> = ({ themeOptions }) => {
-  const ChildComponent = () => {
-    const theme = useTheme()
-    console.log(theme)
-    return (
-      <>
-        <Typography variant="h3">Should have marginBottom of {theme.spacing(4)}</Typography>
-        <Typography variant="h4" color={theme.palette.primary.main}>
-          Should have a color of {theme.palette.primary.main}
-        </Typography>
-        <Typography variant="h4" color={theme.palette.secondary.main}>
-          Should have a color of {theme.palette.secondary.main}
-        </Typography>
-      </>
-    )
-  }
+const ChildComponent = () => {
+  const theme = useTheme()
+  return (
+    <>
+      <Typography variant="h3">marginBottom of {theme.spacing(4)}</Typography>
+      <Typography variant="h4" color={theme.palette.primary.main}>
+        Color: {theme.palette.primary.main}
+      </Typography>
+      <Typography variant="h4" color={theme.palette.secondary.main}>
+        Color: {theme.palette.secondary.main}
+      </Typography>
+    </>
+  )
+}
+
+const Template: ComponentStory<typeof AuthThemeExtender> = () => (
+  <AuthThemeExtender>
+    <ChildComponent />
+  </AuthThemeExtender>
+)
+
+const WithExistingThemeTemplate: ComponentStory<typeof AuthThemeExtender> = ({ themeOptions }) => {
   return (
     <AuthThemeExtender themeOptions={themeOptions}>
+      <p>Expected Primary Color: {customPrimary}</p>
+      <p>Expected Secondary Color: {customSecondary}</p>
+      <p>Expected marginBottom: 32px</p>
       <ChildComponent />
     </AuthThemeExtender>
   )
@@ -47,15 +59,15 @@ const Default = Template.bind({})
 Default.args = {}
 Default.decorators = [authDecorator]
 
-const WithExitingTheme = Template.bind({})
+const WithExitingTheme = WithExistingThemeTemplate.bind({})
 WithExitingTheme.args = {
   themeOptions: {
     palette: {
       primary: {
-        main: '#485c76',
+        main: customPrimary,
       },
       secondary: {
-        main: '#8f91c7',
+        main: customSecondary,
       },
     },
   },
