@@ -1,2 +1,2 @@
-export * from './AllDetails'
 export * from './Details'
+export * from './ValidationDetails'

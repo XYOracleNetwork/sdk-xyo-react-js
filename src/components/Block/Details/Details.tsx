@@ -4,9 +4,11 @@ import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow, FlexRow } from '@xylab
 import { XyoBoundWitness, XyoBoundWitnessWrapper, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { lazy, Suspense } from 'react'
 
-import { PayloadTable } from '../../Payload'
 import { Property } from '../../Properties'
-import { AllBlockDetails } from './AllDetails'
+import { BlockDataDetails } from './DataDetails'
+import { BlockMetaDetails } from './MetaDetails'
+import { BlockPayloads } from './Payloads'
+import { BlockValidationDetails } from './ValidationDetails'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
@@ -15,14 +17,25 @@ export interface BlockDetailsProps extends FlexBoxProps {
   payloads?: XyoPayload[]
 }
 
+const payloadsFromBlock = (block?: XyoBoundWitness) => {
+  const payloads: XyoPayload[] = []
+  if (block) {
+    for (let x = 0; x < block.payload_hashes.length; x++) {
+      payloads.push({ _hash: block.payload_hashes[x], schema: block.payload_schemas[x] })
+    }
+  }
+  return payloads
+}
+
 export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, ...props }) => {
   const blockWrapper = block ? new XyoBoundWitnessWrapper(block) : null
+
   return (
     <FlexGrowCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
-      <AllBlockDetails value={block} marginY={2} />
-      <Property paddingY={2} value={!!block}>
-        <PayloadTable payloads={payloads ?? []} />
-      </Property>
+      <BlockDataDetails value={block} />
+      <BlockMetaDetails value={block} />
+      <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} />
+      <BlockValidationDetails value={block} />
       <FlexCol margin={1} alignItems="stretch">
         <Accordion>
           <AccordionSummary>

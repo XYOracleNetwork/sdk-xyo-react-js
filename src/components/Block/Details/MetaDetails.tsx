@@ -1,4 +1,5 @@
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { Typography } from '@mui/material'
+import { FlexBoxProps, FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
 import { Property } from '../../Properties'
@@ -10,6 +11,10 @@ export interface BlockMetaDetails extends FlexBoxProps {
 export const BlockMetaDetails: React.FC<BlockMetaDetails> = ({ value, ...props }) => {
   return (
     <FlexCol alignItems="flex-start" {...props}>
+      <FlexRow margin={1} justifyContent="flex-start">
+        <Typography>Meta</Typography>
+        <QuickTipButton title="Block Meta">The meta fields added to the record by the archivist</QuickTipButton>
+      </FlexRow>
       <FlexRow flexWrap="wrap">
         <Property
           flexGrow={1}
