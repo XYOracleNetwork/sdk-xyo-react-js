@@ -5,15 +5,15 @@ import { DateTime } from 'luxon'
 import { MdClear, MdDone } from 'react-icons/md'
 
 export interface BlockTableRowProps extends TableRowProps {
-  archive?: string
   block?: XyoBoundWitness
   exploreDomain?: string
+  validate?: boolean
 }
 
 export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   exploreDomain = 'https://beta.explore.xyo.network',
-  archive = 'temp',
   block,
+  validate = false,
   ...props
 }) => {
   const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
@@ -21,7 +21,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   return (
     <TableRow {...props}>
       <TableCell>
-        <Link target="_blank" href={`${exploreDomain}/archive/${archive}/block/hash/${block?._hash}`}>
+        <Link target="_blank" href={`${exploreDomain}/archive/${block?._archive}/block/hash/${block?._hash}`}>
           {block?._hash}
         </Link>
       </TableCell>
@@ -33,13 +33,15 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
         {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|
         {compact(block?.previous_hashes ?? [])?.length}
       </TableCell>
-      <TableCell align="center">
-        {wrapper?.validator.all().length === 0 ? (
-          <MdDone fontSize={18} color="green" />
-        ) : (
-          <MdClear color="red" fontSize={18} />
-        )}
-      </TableCell>
+      {validate && (
+        <TableCell align="center">
+          {wrapper?.validator.all().length === 0 ? (
+            <MdDone fontSize={18} color="green" />
+          ) : (
+            <MdClear color="red" fontSize={18} />
+          )}
+        </TableCell>
+      )}
     </TableRow>
   )
 }

@@ -1,3 +1,3 @@
-import { XyoPayloadWrapper } from "@xyo-network/sdk-xyo-client-js";
+import { XyoPayloadBuilder } from "@xyo-network/sdk-xyo-client-js";
 
-export const samplePayload = new XyoPayloadWrapper({ schema: 'test.xyo.network' }).payload
+export const samplePayload = new XyoPayloadBuilder({ schema: 'network.xyo.temp' }).fields({test: 'hello'}).build()

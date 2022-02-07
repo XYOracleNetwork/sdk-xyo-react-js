@@ -4,15 +4,15 @@ import { DateTime } from 'luxon'
 import { MdClear, MdDone } from 'react-icons/md'
 
 export interface PayloadTableRowProps extends TableRowProps {
-  archive?: string
   payload?: XyoPayload
   exploreDomain?: string
+  validate?: boolean
 }
 
 export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   exploreDomain = 'https://beta.explore.xyo.network',
-  archive = 'temp',
   payload,
+  validate,
   ...props
 }) => {
   const timeStamp = payload?._timestamp ? DateTime.fromMillis(payload?._timestamp) : undefined
@@ -20,7 +20,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   return (
     <TableRow {...props}>
       <TableCell>
-        <Link target="_blank" href={`${exploreDomain}/archive/${archive}/payload/hash/${payload?._hash}`}>
+        <Link target="_blank" href={`${exploreDomain}/archive/${payload?._archive}/payload/hash/${payload?._hash}`}>
           {payload?._hash}
         </Link>
       </TableCell>
@@ -28,13 +28,15 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
       <TableCell align="center">{payload?.schema}</TableCell>
       <TableCell align="center">{timeStamp?.toLocaleString(DateTime.DATE_SHORT)}</TableCell>
       <TableCell align="center">{timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}</TableCell>
-      <TableCell align="center">
-        {wrapper?.validator.all().length === 0 ? (
-          <MdDone fontSize={18} color="green" />
-        ) : (
-          <MdClear color="red" fontSize={18} />
-        )}
-      </TableCell>
+      {validate && (
+        <TableCell align="center">
+          {wrapper?.validator.all().length === 0 ? (
+            <MdDone fontSize={18} color="green" />
+          ) : (
+            <MdClear color="red" fontSize={18} />
+          )}
+        </TableCell>
+      )}
     </TableRow>
   )
 }
