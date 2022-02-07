@@ -3,13 +3,12 @@ import { FlexBoxProps, FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-reac
 import { XyoBoundWitness, XyoBoundWitnessValidator } from '@xyo-network/sdk-xyo-client-js'
 
 import { Property } from '../../Properties'
-import { BlockMetaDetails } from './MetaDetails'
 
-export interface AllBlockDetailsProps extends FlexBoxProps {
+export interface BlockValidationDetailsProps extends FlexBoxProps {
   value?: XyoBoundWitness
 }
 
-export const AllBlockDetails: React.FC<AllBlockDetailsProps> = ({ value, ...props }) => {
+export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ value, ...props }) => {
   const validator = value ? new XyoBoundWitnessValidator(value) : undefined
 
   const errors = validator?.all() ?? []
@@ -17,17 +16,9 @@ export const AllBlockDetails: React.FC<AllBlockDetailsProps> = ({ value, ...prop
   return (
     <FlexCol alignItems="stretch" {...props}>
       <FlexRow margin={1} justifyContent="flex-start">
-        <Typography>Data</Typography>
-        <QuickTipButton title="Block Data">
-          The protocol fields for the block. All these fields are used to generate the hash.
-        </QuickTipButton>
+        <Typography>Validation</Typography>
+        <QuickTipButton title="Block Validation">The results from validating the block</QuickTipButton>
       </FlexRow>
-      <Property title="Block Hash" value={value?._hash ?? '<Unknown>'} tip="This is the block hash" />
-      <FlexRow margin={1} justifyContent="flex-start">
-        <Typography>Meta</Typography>
-        <QuickTipButton title="Block Meta">The meta fields added to the record by the archivist</QuickTipButton>
-      </FlexRow>
-      <BlockMetaDetails value={value} />
       <FlexRow flexWrap="wrap">
         <Property
           flexGrow={1}
