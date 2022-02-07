@@ -16,30 +16,36 @@ export const BlockMetaDetails: React.FC<BlockMetaDetails> = ({ value, ...props }
         <QuickTipButton title="Block Meta">The meta fields added to the record by the archivist</QuickTipButton>
       </FlexRow>
       <FlexRow flexWrap="wrap">
-        <Property
-          flexGrow={1}
-          title="Client"
-          value={value?._client ?? '<Unknown>'}
-          tip="This client used to create this block"
-        />
-        <Property
-          flexGrow={1}
-          title="Archive"
-          value={value?._archive ?? '<Unknown>'}
-          tip="This archive that is storing this block"
-        />
-        <Property
-          flexGrow={1}
-          title="User Agent"
-          value={value?._user_agent ?? '<Unknown>'}
-          tip="The UserAgent from the calling client"
-        />
-        <Property
-          flexGrow={1}
-          title="Source IP"
-          value={value?._source_ip ?? '<Unknown>'}
-          tip="The source ip from the calling client"
-        />
+        {value?._client && (
+          <Property flexGrow={1} title="Client" value={value?._client} tip="This client used to create this block" />
+        )}
+        {value?._archive && (
+          <Property
+            flexGrow={1}
+            title="Archive"
+            value={value?._archive}
+            tip="This archive that is storing this block"
+          />
+        )}
+        {value?._timestamp && (
+          <Property flexGrow={1} title="Timestamp" value={value?._timestamp} tip="This timestamp of the payload" />
+        )}
+        {value?._user_agent && (
+          <Property
+            flexGrow={1}
+            title="User Agent"
+            value={value?._user_agent}
+            tip="The UserAgent from the calling client"
+          />
+        )}
+        {value?._source_ip && (
+          <Property
+            flexGrow={1}
+            title="Source IP"
+            value={value?._source_ip}
+            tip="The source ip from the calling client"
+          />
+        )}
       </FlexRow>
     </FlexCol>
   )

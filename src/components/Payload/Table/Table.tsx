@@ -4,10 +4,11 @@ import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { PayloadTableRow } from './TableRow'
 
 export interface PayloadTableProps extends TableProps {
+  validate?: boolean
   payloads?: XyoPayload[] | null
 }
 
-export const PayloadTable: React.FC<PayloadTableProps> = ({ payloads, ...props }) => {
+export const PayloadTable: React.FC<PayloadTableProps> = ({ validate = false, payloads, ...props }) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -27,14 +28,16 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({ payloads, ...props }
           <TableCell align="center">
             <Typography variant="caption">Time</Typography>
           </TableCell>
-          <TableCell align="center">
-            <Typography variant="caption">Valid</Typography>
-          </TableCell>
+          {validate && (
+            <TableCell align="center">
+              <Typography variant="caption">Valid</Typography>
+            </TableCell>
+          )}
         </TableRow>
       </TableHead>
       <TableBody>
         {payloads?.map((payload) => (
-          <PayloadTableRow key={payload._hash} payload={payload} />
+          <PayloadTableRow validate={validate} key={payload._hash} payload={payload} />
         ))}
       </TableBody>
     </Table>

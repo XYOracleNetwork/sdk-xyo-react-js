@@ -1,27 +1,26 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { sampleBlock } from '../.storybook'
-import { BlockTable } from './Table'
+import { samplePayload } from '../../.storybook'
+import { PayloadTable } from './Table'
 
 const StorybookEntry = {
   argTypes: {},
-  component: BlockTable,
+  component: PayloadTable,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'Block/Table',
-} as ComponentMeta<typeof BlockTable>
+  title: 'Payload/Table',
+} as ComponentMeta<typeof PayloadTable>
 
-const Template: ComponentStory<typeof BlockTable> = (args) => <BlockTable {...args}></BlockTable>
+const Template: ComponentStory<typeof PayloadTable> = (args) => <PayloadTable {...args}></PayloadTable>
 
 const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-
-WithData.args = { blocks: [sampleBlock] }
+WithData.args = { payloads: [samplePayload] }
 
 export { Default, WithData }
 

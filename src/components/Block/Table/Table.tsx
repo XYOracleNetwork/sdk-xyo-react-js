@@ -4,12 +4,12 @@ import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 import { BlockTableRow } from './TableRow'
 
 export interface BlockTableProps extends TableProps {
-  archive?: string
+  validate?: boolean
   blocks?: XyoBoundWitness[] | null
   onRowClick?: (value: XyoBoundWitness) => void
 }
 
-export const BlockTable: React.FC<BlockTableProps> = ({ onRowClick, archive, blocks, ...props }) => {
+export const BlockTable: React.FC<BlockTableProps> = ({ validate = false, onRowClick, blocks, ...props }) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -32,15 +32,17 @@ export const BlockTable: React.FC<BlockTableProps> = ({ onRowClick, archive, blo
           <TableCell align="center">
             <Typography variant="caption">Payloads</Typography>
           </TableCell>
-          <TableCell align="center">
-            <Typography variant="caption">Valid</Typography>
-          </TableCell>
+          {validate && (
+            <TableCell align="center">
+              <Typography variant="caption">Valid</Typography>
+            </TableCell>
+          )}
         </TableRow>
       </TableHead>
       <TableBody>
         {blocks?.map((block, index) => (
           <BlockTableRow
-            archive={archive}
+            validate={validate}
             key={index}
             block={block}
             onClick={
