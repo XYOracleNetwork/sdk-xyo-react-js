@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthApiLoader, AuthLoader, AuthServiceId, AuthState, IAuthService } from '../../contexts'
 import { DefaultState } from '../../contexts/Auth/DefaultState'
 import { AuthThemeExtender } from '../Auth'
+import { themeOptions } from '../../theme'
 
 interface WrappedArgs {
   authState?: Partial<AuthState>
@@ -33,7 +34,7 @@ const authDecorator: DecoratorFn = (Story, { args }) => {
       <BrowserRouter>
         <AuthLoader authState={mergedAuthState}>
           <AuthApiLoader apiDomain={mergedAuthState.apiDomain}>
-            <AuthThemeExtender>
+            <AuthThemeExtender themeOptions={themeOptions}>
               <Story />
             </AuthThemeExtender>
           </AuthApiLoader>
