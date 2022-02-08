@@ -43,7 +43,7 @@ SuccessfulRequest.play = async ({ canvasElement }) => {
 }
 
 const FailedRequest = Template.bind({})
-Default.args = {}
+FailedRequest.args = {}
 
 // eslint-disable-next-line require-await
 FailedRequest.play = async ({ canvasElement }) => {
