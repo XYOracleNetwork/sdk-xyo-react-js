@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material'
 
-export const darkPalette: ThemeOptions = {
+export const darkTheme: ThemeOptions = {
   palette: {
     background: {
       default: '#303030',
