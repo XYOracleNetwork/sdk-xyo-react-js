@@ -2,7 +2,7 @@ import { FlexGrowRow } from '@xylabs/sdk-react'
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { ThemeProvider as Emotion10ThemeProvider } from 'emotion-theming';
 import { useDarkMode } from 'storybook-dark-mode';
-import { darkPalette, themeOptions } from '../src/theme'
+import { darkTheme, themeOptions } from '../src/theme'
 import { clone } from 'lodash';
 
 export const parameters = {
@@ -25,7 +25,7 @@ const withThemeProvider = (Story, context) => {
   const clonedTheme = clone(themeOptions)
 
   if (isDarkMode) {
-    clonedTheme.palette = darkPalette.palette   
+    clonedTheme.palette = darkTheme.palette   
   }
 
   const defaultTheme = createTheme(clonedTheme)
