@@ -26,13 +26,13 @@ export const themeOptions: ThemeOptions = {
   },
   palette: {
     primary: {
-      main: '#371589',
+      main: '#8E6EDA',
     },
     secondary: {
       main: '#ffb300',
     },
     text: {
-      primary: '#161154',
+      primary: '#51505E',
     },
   },
   shape: {
