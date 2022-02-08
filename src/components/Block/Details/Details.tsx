@@ -8,6 +8,7 @@ import { Property } from '../../Properties'
 import { BlockDataDetails } from './DataDetails'
 import { BlockMetaDetails } from './MetaDetails'
 import { BlockPayloads } from './Payloads'
+import { BlockSignatureDetails } from './SignatureDetails'
 import { BlockValidationDetails } from './ValidationDetails'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
@@ -32,8 +33,9 @@ export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, ...
 
   return (
     <FlexGrowCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
-      <BlockDataDetails value={block} />
-      <BlockMetaDetails value={block} />
+      <BlockDataDetails block={block} />
+      <BlockMetaDetails block={block} />
+      <BlockSignatureDetails block={block} />
       <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} />
       <BlockValidationDetails value={block} />
       <FlexCol margin={1} alignItems="stretch">

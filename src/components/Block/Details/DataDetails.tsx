@@ -5,10 +5,10 @@ import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 import { Property } from '../../Properties'
 
 export interface BlockDataDetailsProps extends FlexBoxProps {
-  value?: XyoBoundWitness
+  block?: XyoBoundWitness
 }
 
-export const BlockDataDetails: React.FC<BlockDataDetailsProps> = ({ value, ...props }) => {
+export const BlockDataDetails: React.FC<BlockDataDetailsProps> = ({ block, ...props }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
       <FlexRow margin={1} justifyContent="flex-start">
@@ -17,7 +17,7 @@ export const BlockDataDetails: React.FC<BlockDataDetailsProps> = ({ value, ...pr
           The protocol fields for the block. All these fields are used to generate the hash.
         </QuickTipButton>
       </FlexRow>
-      <Property title="Block Hash" value={value?._hash ?? '<Unknown>'} tip="This is the block hash" />
+      <Property title="Block Hash" value={block?._hash ?? '<Unknown>'} tip="This is the block hash" />
     </FlexCol>
   )
 }
