@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { sampleBlock } from '../../.storybook'
+import { sampleBlockWithPreviousHash } from '../../.storybook'
 import { BlockDetails } from './Details'
 
 const StorybookEntry = {
@@ -21,7 +21,7 @@ Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = { block: sampleBlock }
+WithData.args = { block: sampleBlockWithPreviousHash }
 
 export { Default, WithData }
 
