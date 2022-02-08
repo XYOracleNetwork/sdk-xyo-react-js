@@ -1,7 +1,9 @@
 import { FlexGrowRow } from '@xylabs/sdk-react'
-import { ThemeProvider, createTheme } from '@mui/material';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { ThemeProvider as Emotion10ThemeProvider } from 'emotion-theming';
-import { theme } from './theme'
+import { useDarkMode } from 'storybook-dark-mode';
+import { darkPalette, themeOptions } from '../src/theme'
+import { clone } from 'lodash';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -14,14 +16,24 @@ export const parameters = {
   },
 }
 
-const defaultTheme = createTheme(theme)
-
 const withThemeProvider = (Story, context) => {
   // Clear the auth state with each story
   localStorage.setItem('AuthState', null)
+
+  const isDarkMode = useDarkMode()
+
+  const clonedTheme = clone(themeOptions)
+
+  if (isDarkMode) {
+    clonedTheme.palette = darkPalette.palette   
+  }
+
+  const defaultTheme = createTheme(clonedTheme)
+
   return (
     <Emotion10ThemeProvider theme={defaultTheme}>
       <ThemeProvider theme={defaultTheme}>
+      <CssBaseline enableColorScheme />
       <FlexGrowRow>
         <Story {...context}/>
       </FlexGrowRow>

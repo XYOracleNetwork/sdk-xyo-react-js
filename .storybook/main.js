@@ -10,6 +10,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "storybook-dark-mode"
   ],
   // Actual recommended fix from MUI - https://mui.com/guides/migration-v4/#troubleshooting
   webpackFinal: async (config) => ({
