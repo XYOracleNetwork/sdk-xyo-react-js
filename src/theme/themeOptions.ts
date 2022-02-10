@@ -31,9 +31,6 @@ export const themeOptions: ThemeOptions = {
     secondary: {
       main: '#ffb300',
     },
-    text: {
-      primary: '#51505E',
-    },
   },
   shape: {
     borderRadius: 0,
