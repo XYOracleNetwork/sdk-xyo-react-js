@@ -1,4 +1,4 @@
-import { Typography, useTheme } from '@mui/material'
+import { createTheme, MenuItem, Select, Typography, useTheme } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { authDecorator } from '../.storybook'
@@ -25,6 +25,7 @@ const StorybookEntry = {
 
 const ChildComponent = () => {
   const theme = useTheme()
+  const value = 'test'
   return (
     <>
       <Typography variant="h3">marginBottom of {theme.spacing(4)}</Typography>
@@ -34,19 +35,30 @@ const ChildComponent = () => {
       <Typography variant="h4" color={theme.palette.secondary.main}>
         Color: {theme.palette.secondary.main}
       </Typography>
+
+      <Select variant="outlined" value={value}>
+        <MenuItem value={'test'}>Test</MenuItem>
+        <MenuItem value={'temp'}>Temp</MenuItem>
+        <MenuItem value={'coin-app'}>COIN App</MenuItem>
+      </Select>
     </>
   )
 }
 
-const Template: ComponentStory<typeof AuthThemeExtender> = () => (
-  <AuthThemeExtender>
-    <ChildComponent />
-  </AuthThemeExtender>
-)
-
-const WithExistingThemeTemplate: ComponentStory<typeof AuthThemeExtender> = ({ themeOptions }) => {
+const Template: ComponentStory<typeof AuthThemeExtender> = () => {
   return (
-    <AuthThemeExtender themeOptions={themeOptions}>
+    <AuthThemeExtender>
+      <ChildComponent />
+    </AuthThemeExtender>
+  )
+}
+
+const WithExistingThemeOptions: ComponentStory<typeof AuthThemeExtender> = ({ themeOptions }) => {
+  const theme = useTheme()
+  const updatedTheme = themeOptions ? createTheme(theme, themeOptions) : theme
+
+  return (
+    <AuthThemeExtender themeOptions={updatedTheme}>
       <p>Expected Primary Color: {customPrimary}</p>
       <p>Expected Secondary Color: {customSecondary}</p>
       <p>Expected marginBottom: 32px</p>
@@ -59,7 +71,7 @@ const Default = Template.bind({})
 Default.args = {}
 Default.decorators = [authDecorator]
 
-const WithExitingTheme = WithExistingThemeTemplate.bind({})
+const WithExitingTheme = WithExistingThemeOptions.bind({})
 WithExitingTheme.args = {
   themeOptions: {
     palette: {

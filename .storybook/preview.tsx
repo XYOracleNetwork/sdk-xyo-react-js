@@ -24,11 +24,7 @@ const withThemeProvider = (Story, context) => {
 
   const clonedTheme = clone(themeOptions)
 
-  if (isDarkMode) {
-    clonedTheme.palette = darkTheme.palette   
-  }
-
-  const defaultTheme = createTheme(clonedTheme)
+  const defaultTheme = createTheme(clonedTheme, isDarkMode ? {...darkTheme} : {})
 
   return (
     <Emotion10ThemeProvider theme={defaultTheme}>
