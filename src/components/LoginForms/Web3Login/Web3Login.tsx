@@ -15,7 +15,7 @@ const Web3Login: React.FC = () => {
 
   useAsyncEffect(
     async (mounted) => {
-      if (checkedWallet && authState.authError === undefined) {
+      if (checkedWallet && authState.authError === undefined && mounted()) {
         try {
           await MetaMaskService.challengeWallet()
           navigate('/')
@@ -24,10 +24,8 @@ const Web3Login: React.FC = () => {
           setCheckedWallet(false)
         }
       }
-      return () => {
-        if (mounted()) {
-          setCheckedWallet(false)
-        }
+      if (checkedWallet && mounted()) {
+        setCheckedWallet(false)
       }
     },
     [authDispatch, authState.authError, checkedWallet, MetaMaskService]
