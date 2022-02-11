@@ -4290,7 +4290,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.16":
+"@types/node@npm:*":
   version: 17.0.16
   resolution: "@types/node@npm:17.0.16"
   checksum: 2d452a9e0ee7ec83d447d66dd2baf4dd05ef2fbcda39b06f73d86b36d5150d86c43a733d534d77467e7782104756944d42a35ed4b64113bda341b8334ee4d01d
@@ -4301,6 +4301,13 @@ __metadata:
   version: 14.18.10
   resolution: "@types/node@npm:14.18.10"
   checksum: e722eec37be85dd7dddc4cfd26c501c66f1f2a7e0f603f57ff925348e65a5db603b06363fa27489cbecff44f0ae59812f22509923c4c45ffa5958604cc002401
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^17.0.17":
+  version: 17.0.17
+  resolution: "@types/node@npm:17.0.17"
+  checksum: 8ddba2829acdf1684fbd8fd248ec13f033efb70ecd1085677b547c40ef8e936a006b95eac3bdc28c47939c62526f3f027afeb4a930e30e4394923bbae4626476
   languageName: node
   linkType: hard
 
@@ -5118,20 +5125,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/pixel@npm:^1.3.6":
-  version: 1.3.6
-  resolution: "@xylabs/pixel@npm:1.3.6"
+"@xylabs/pixel@npm:^1.3.7":
+  version: 1.3.7
+  resolution: "@xylabs/pixel@npm:1.3.7"
   dependencies:
-    "@xylabs/sdk-js": ^2
+    "@xylabs/sdk-js": ^2.4.1
     async-mutex: ^0.3.2
-    axios: ^0
+    axios: ^0.25.0
     bowser: ^2.11.0
     js-cookie: ^3.0.1
     lodash: ^4.17.21
     md5: ^2.3.0
     randombytes: ^2.1.0
-    rollbar: ^2
-  checksum: b363c771935c28089dd9f74f9ce00e2654115979c32d1ff9f49bc8450c1b436b63a7f7fee0b42586015160040b4f2a6b9dfc1007eac68a3c7f977b90da01df48
+    rollbar: ^2.24.0
+  checksum: 8997c6e3624dae143ea1c328dc2e53cb9e4f5a2f044908bab28824315c42420b85de7d7465bf027bddc73643755cf97bfde7d77c1d761c14d462a25d97c53eec
   languageName: node
   linkType: hard
 
@@ -5151,7 +5158,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2, @xylabs/sdk-js@npm:^2.3.24, @xylabs/sdk-js@npm:^2.4.1":
+"@xylabs/sdk-js@npm:^2.3.24, @xylabs/sdk-js@npm:^2.4.1":
   version: 2.4.1
   resolution: "@xylabs/sdk-js@npm:2.4.1"
   peerDependencies:
@@ -5169,9 +5176,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.9.25":
-  version: 2.9.25
-  resolution: "@xylabs/sdk-react@npm:2.9.25"
+"@xylabs/sdk-js@npm:^2.4.2":
+  version: 2.4.2
+  resolution: "@xylabs/sdk-js@npm:2.4.2"
+  dependencies:
+    axios: ^0.25.0
+    bn.js: ^5.2.0
+    buffer: ^6.0.3
+    rollbar: ^2.24.0
+  checksum: ea74baada91286eb97d0cb90d7b4af3d61780ff06eb16c43f18e3397af5dbae4a319206d64df82217fc41141d12839288bf8d3488eedb87c830555da0b15eab6
+  languageName: node
+  linkType: hard
+
+"@xylabs/sdk-react@npm:^2.9.28":
+  version: 2.9.28
+  resolution: "@xylabs/sdk-react@npm:2.9.28"
   dependencies:
     "@types/react-helmet": ^6.1.5
     "@xylabs/sdk-js": ^2.4.1
@@ -5196,7 +5215,7 @@ __metadata:
     react: ^17
     react-dom: ^17
     react-router-dom: ^6
-  checksum: 483f6ff3b9afca7f1db0f49596c2ba0113cebcb4653706a85fe1586fdd34648a6af55003837a6ee7a6df334b722a0900d048dc4b8a09cab6aaa527c43f68ab06
+  checksum: 8cd96beaa12eab659fbbe2b63422600ee152d1255bd1e652ec28259e2f7fa12f359e73af7365533582b73fedf7dcce7d97efda988ac05cf2496ba0a8c92d1cec
   languageName: node
   linkType: hard
 
@@ -5260,12 +5279,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.7.18":
-  version: 2.7.18
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.7.18"
+"@xyo-network/sdk-xyo-client-js@npm:^2.8.2":
+  version: 2.8.2
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.8.2"
   dependencies:
     "@ethersproject/providers": ^5.5.3
-    "@xylabs/sdk-js": ^2.4.1
+    "@xylabs/sdk-js": ^2.4.2
     "@xyo-network/sdk-xyo-mongo-js": ^2.2.3
     axios: ^0.25.0
     bowser: ^2.11.0
@@ -5279,7 +5298,7 @@ __metadata:
     neo4j-driver-core: ^4.4.2
     sha.js: ^2.4.11
     ua-parser-js: ^1.0.2
-  checksum: 2e5b007722c496bea7d123878919efb62618efb38ace66da081edc8d98eb8765ddd41797e86dc14bfe18cb52b760443b3ef4b481796acfbb796f1b80e0bd7a6c
+  checksum: 3c146087f795fd6e18d73808c7e9f681d7826ede0b26140cee34a5731d692e842e68f86c8f77fa162619cc7368751b6f81895153b2f1bc62be50d29b1b06cd9d
   languageName: node
   linkType: hard
 
@@ -5320,16 +5339,16 @@ __metadata:
     "@types/bn.js": ^5.1.0
     "@types/lodash": ^4.14.178
     "@types/luxon": ^2.0.9
-    "@types/node": ^17.0.16
+    "@types/node": ^17.0.17
     "@types/react": ^17.0.39
     "@xylabs/eslint-config-react": ^2.1.2
-    "@xylabs/pixel": ^1.3.6
+    "@xylabs/pixel": ^1.3.7
     "@xylabs/rollup-config": ^1.1.7
-    "@xylabs/sdk-js": ^2.4.1
-    "@xylabs/sdk-react": ^2.9.25
+    "@xylabs/sdk-js": ^2.4.2
+    "@xylabs/sdk-react": ^2.9.28
     "@xylabs/ts-scripts": ^1.0.43
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.7.18
+    "@xyo-network/sdk-xyo-client-js": ^2.8.2
     axios: ^0.25.0
     babel-loader: ^8.2.3
     bn.js: ^5.2.0
@@ -5343,7 +5362,7 @@ __metadata:
     react-json-view: ^1.21.3
     react-router-dom: ^6.2.1
     rimraf: ^3.0.2
-    rollup: ^2.67.1
+    rollup: ^2.67.2
     storybook-dark-mode: ^1.0.8
     ts-node: ^10.5.0
     tslib: ^2.3.1
@@ -5974,7 +5993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0, axios@npm:^0.25.0":
+"axios@npm:^0.25.0":
   version: 0.25.0
   resolution: "axios@npm:0.25.0"
   dependencies:
@@ -17321,7 +17340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollbar@npm:^2":
+"rollbar@npm:^2.24.0":
   version: 2.24.0
   resolution: "rollbar@npm:2.24.0"
   dependencies:
@@ -17352,6 +17371,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 4320927ae9d42abf0a72ccdfd14303f7b6d6908ec94be953900a41bd4c0bbba3131887c3925dec65361a3e394cb572a4fa8e1f1be4db587a775068ad71d42acd
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.67.2":
+  version: 2.67.2
+  resolution: "rollup@npm:2.67.2"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 9aca5251ba4b441064183cde2394b91567259002d68086bdd3906db66d55dd148ab27e57c51eb53830d7b9b813c2d4e834b7735d65e2a869780bc639d4a20c38
   languageName: node
   linkType: hard
 
