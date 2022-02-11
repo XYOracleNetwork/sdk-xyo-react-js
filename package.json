@@ -114,7 +114,7 @@
   "scripts": {
     "build-storybook": "build-storybook",
     "lint-pkg": "npmPkgJsonLint .",
-    "deploy": "yarn version patch -i && yarn npm publish",
+    "deploy": "yarn cycle && yarn build && yarn version patch -i && yarn npm publish",
     "start": "start-storybook -p 6006",
     "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'"
   },
