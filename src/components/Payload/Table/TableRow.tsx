@@ -1,4 +1,5 @@
 import { Link, TableCell, TableRow, TableRowProps } from '@mui/material'
+import { LinkToEx } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
 import { DateTime } from 'luxon'
 import { MdClear, MdDone } from 'react-icons/md'
@@ -9,20 +10,19 @@ export interface PayloadTableRowProps extends TableRowProps {
   validate?: boolean
 }
 
-export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
-  exploreDomain = 'https://beta.explore.xyo.network',
-  payload,
-  validate,
-  ...props
-}) => {
+export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain, payload, validate, ...props }) => {
   const timeStamp = payload?._timestamp ? DateTime.fromMillis(payload?._timestamp) : undefined
   const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
   return (
     <TableRow {...props}>
       <TableCell>
-        <Link target="_blank" href={`${exploreDomain}/archive/${payload?._archive}/payload/hash/${payload?._hash}`}>
-          {payload?._hash}
-        </Link>
+        {exploreDomain ? (
+          <Link target="_blank" href={`${exploreDomain}/archive/${payload?._archive}/payload/hash/${payload?._hash}`}>
+            {payload?._hash}
+          </Link>
+        ) : (
+          <LinkToEx to={`/archive/${payload?._archive}/payload/hash/${payload?._hash}`}>{payload?._hash}</LinkToEx>
+        )}
       </TableCell>
       <TableCell align="center">{payload?._archive}</TableCell>
       <TableCell align="center">{payload?.schema}</TableCell>
