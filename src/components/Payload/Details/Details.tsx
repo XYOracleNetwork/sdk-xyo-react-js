@@ -1,5 +1,4 @@
-import { KeyboardArrowDown } from '@mui/icons-material'
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
 import { lazy, Suspense } from 'react'
