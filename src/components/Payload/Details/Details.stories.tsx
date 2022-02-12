@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { samplePayload } from '../../.storybook'
+import { samplePayload, samplePayloadFromBuilder } from '../../.storybook'
 import { PayloadDetails } from './Details'
 
 const StorybookEntry = {
@@ -19,11 +19,13 @@ const Template: ComponentStory<typeof PayloadDetails> = (args) => <PayloadDetail
 const Default = Template.bind({})
 Default.args = {}
 
-const WithData = Template.bind({})
+const WithSample = Template.bind({})
+WithSample.args = { payload: samplePayload }
 
-WithData.args = { payload: samplePayload }
+const WithBuilderSample = Template.bind({})
+WithBuilderSample.args = { payload: samplePayloadFromBuilder }
 
-export { Default, WithData }
+export { Default, WithBuilderSample, WithSample }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
