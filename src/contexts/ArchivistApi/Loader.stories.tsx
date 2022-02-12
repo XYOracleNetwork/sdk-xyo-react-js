@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useEffect, useState } from 'react'
 
@@ -28,20 +29,37 @@ const StorybookEntry = {
 const DemoArchiveFetcher = () => {
   const [myArchives, setMyArchives] = useState<string[]>([])
   const { api, currentToken } = useArchivistApi()
-  const { jwtToken } = useAuthState().state
+  const { jwtToken, isLoggedIn } = useAuthState().state
+  const [successfulCall, setSuccessfulCall] = useState(false)
+
   useEffect(() => {
-    if (jwtToken && currentToken) {
+    if (jwtToken && currentToken && isLoggedIn) {
       api
         .getArchives()
-        .then((archives) => setMyArchives(archives))
+        .then((archives) => {
+          setMyArchives(archives)
+          setSuccessfulCall(true)
+        })
         .catch((e) => console.error(e))
     }
-  }, [api, jwtToken, currentToken])
+  }, [api, jwtToken, currentToken, isLoggedIn, setSuccessfulCall])
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setMyArchives([])
+      setSuccessfulCall(false)
+    }
+  }, [isLoggedIn])
 
   return (
     <>
       <AuthServiceWrapper></AuthServiceWrapper>
       <p>My Archives</p>
+      {successfulCall && (
+        <Typography color="success.main" variant="body1">
+          Successfully made authenticated request!!
+        </Typography>
+      )}
       <ul>
         {myArchives.map((archive) => (
           <li key={archive}>{archive}</li>
