@@ -14,7 +14,9 @@ const StorybookEntry = {
   title: 'Payload/Details',
 } as ComponentMeta<typeof PayloadDetails>
 
-const Template: ComponentStory<typeof PayloadDetails> = (args) => <PayloadDetails {...args}></PayloadDetails>
+const Template: ComponentStory<typeof PayloadDetails> = (args) => (
+  <PayloadDetails flexGrow={1} {...args}></PayloadDetails>
+)
 
 const Default = Template.bind({})
 Default.args = {}
