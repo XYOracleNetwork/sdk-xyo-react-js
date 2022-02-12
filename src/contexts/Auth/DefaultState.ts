@@ -7,4 +7,5 @@ export const DefaultState: AuthState = {
   authServiceList: [],
   isLoading: false,
   isLoggedIn: false,
+  jwtToken: '',
 }

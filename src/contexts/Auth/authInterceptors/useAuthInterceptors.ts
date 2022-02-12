@@ -5,6 +5,7 @@ import { AuthDispatch } from '../AuthStateTypes'
 import { AuthInterceptors } from './AuthInterceptors'
 
 /**
+ * @deprecated
  * A hook that intercepts specific axios requests and manages the auth token requirements
  *
  * @returns {Object}

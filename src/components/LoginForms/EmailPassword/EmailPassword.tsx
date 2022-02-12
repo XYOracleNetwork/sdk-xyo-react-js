@@ -19,8 +19,9 @@ const EmailPassword: React.FC = () => {
   useAsyncEffect(async () => {
     if (credentials?.email && credentials?.password && authState.isLoading) {
       try {
-        await AuthApi.login(credentials)
+        const { data } = await AuthApi.login(credentials)
         authDispatch({ payload: { isLoading: false }, type: AuthActionTypes.UpdateLoadingState })
+        authDispatch({ payload: { jwtToken: data.token }, type: AuthActionTypes.UpdateJwtToken })
         navigate('/')
       } catch (err) {
         console.error(err)

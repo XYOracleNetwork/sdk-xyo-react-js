@@ -3,6 +3,9 @@ import React from 'react'
 
 import { AuthAction, AuthActionTypes } from '../AuthStateTypes'
 
+/**
+ * @deprecated
+ */
 class AuthInterceptors {
   static instance: AuthInterceptors
   private apiDomain: string

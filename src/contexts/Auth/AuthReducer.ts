@@ -35,8 +35,15 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       return { ...state, ...action.payload }
     }
 
+    case AuthActionTypes.UpdateJwtToken: {
+      if (!action.payload?.jwtToken === undefined) {
+        throw new Error('Missing Payload')
+      }
+      const { jwtToken } = action.payload
+      return { ...state, ...{ jwtToken } }
+    }
+
     case AuthActionTypes.Logout: {
-      localStorage.setItem('token', '')
       // Keep the existing AuthService List provided by consumers
       const { authServiceList } = state
       return { ...DefaultState, ...{ authServiceList } }

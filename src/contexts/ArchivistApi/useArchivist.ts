@@ -7,6 +7,7 @@ import { ArchivistApiContext } from './Context'
 const useArchivistApi = () => {
   const context = useContext(ArchivistApiContext)
   assertEx(context.api, 'Archivist Api not initialized')
+
   //we do the cast to make the api non-optional
   return context as { api: XyoArchivistApi }
 }
