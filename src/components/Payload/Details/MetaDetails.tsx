@@ -4,11 +4,11 @@ import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { Property } from '../../Properties'
 
-export interface PayloadMetaDetails extends FlexBoxProps {
+export interface PayloadMetaDetailsProps extends FlexBoxProps {
   value?: XyoPayload
 }
 
-export const PayloadMetaDetails: React.FC<PayloadMetaDetails> = ({ value, ...props }) => {
+export const PayloadMetaDetails: React.FC<PayloadMetaDetailsProps> = ({ value, ...props }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
       <FlexRow margin={1} justifyContent="flex-start">
