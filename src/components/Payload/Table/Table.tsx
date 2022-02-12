@@ -4,11 +4,12 @@ import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { PayloadTableRow } from './TableRow'
 
 export interface PayloadTableProps extends TableProps {
+  exploreDomain?: string
   validate?: boolean
   payloads?: XyoPayload[] | null
 }
 
-export const PayloadTable: React.FC<PayloadTableProps> = ({ validate = false, payloads, ...props }) => {
+export const PayloadTable: React.FC<PayloadTableProps> = ({ exploreDomain, validate = false, payloads, ...props }) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -37,7 +38,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({ validate = false, pa
       </TableHead>
       <TableBody>
         {payloads?.map((payload) => (
-          <PayloadTableRow validate={validate} key={payload._hash} payload={payload} />
+          <PayloadTableRow exploreDomain={exploreDomain} validate={validate} key={payload._hash} payload={payload} />
         ))}
       </TableBody>
     </Table>

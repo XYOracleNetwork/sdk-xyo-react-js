@@ -1,4 +1,5 @@
 import { Link, TableCell, TableRow, TableRowProps } from '@mui/material'
+import { LinkToEx } from '@xylabs/sdk-react'
 import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/sdk-xyo-client-js'
 import compact from 'lodash/compact'
 import { DateTime } from 'luxon'
@@ -10,20 +11,19 @@ export interface BlockTableRowProps extends TableRowProps {
   validate?: boolean
 }
 
-export const BlockTableRow: React.FC<BlockTableRowProps> = ({
-  exploreDomain = 'https://beta.explore.xyo.network',
-  block,
-  validate = false,
-  ...props
-}) => {
+export const BlockTableRow: React.FC<BlockTableRowProps> = ({ exploreDomain, block, validate = false, ...props }) => {
   const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
   const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
   return (
     <TableRow {...props}>
       <TableCell>
-        <Link target="_blank" href={`${exploreDomain}/archive/${block?._archive}/block/hash/${block?._hash}`}>
-          {block?._hash}
-        </Link>
+        {exploreDomain ? (
+          <Link target="_blank" href={`${exploreDomain}/archive/${block?._archive}/block/hash/${block?._hash}`}>
+            {block?._hash}
+          </Link>
+        ) : (
+          <LinkToEx to={`/archive/${block?._archive}/block/hash/${block?._hash}`}>{block?._hash}</LinkToEx>
+        )}
       </TableCell>
       <TableCell align="center">{block?._archive}</TableCell>
       <TableCell align="center">{block?._client}</TableCell>

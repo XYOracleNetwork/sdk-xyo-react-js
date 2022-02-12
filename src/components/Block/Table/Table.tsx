@@ -7,9 +7,16 @@ export interface BlockTableProps extends TableProps {
   validate?: boolean
   blocks?: XyoBoundWitness[] | null
   onRowClick?: (value: XyoBoundWitness) => void
+  exploreDomain?: string
 }
 
-export const BlockTable: React.FC<BlockTableProps> = ({ validate = false, onRowClick, blocks, ...props }) => {
+export const BlockTable: React.FC<BlockTableProps> = ({
+  exploreDomain,
+  validate = false,
+  onRowClick,
+  blocks,
+  ...props
+}) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -42,6 +49,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({ validate = false, onRowC
       <TableBody>
         {blocks?.map((block, index) => (
           <BlockTableRow
+            exploreDomain={exploreDomain}
             validate={validate}
             key={index}
             block={block}
