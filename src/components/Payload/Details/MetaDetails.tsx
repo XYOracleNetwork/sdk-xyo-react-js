@@ -10,12 +10,12 @@ export interface PayloadMetaDetails extends FlexBoxProps {
 
 export const PayloadMetaDetails: React.FC<PayloadMetaDetails> = ({ value, ...props }) => {
   return (
-    <FlexCol alignItems="flex-start" {...props}>
+    <FlexCol alignItems="stretch" {...props}>
       <FlexRow margin={1} justifyContent="flex-start">
         <Typography>Meta</Typography>
         <QuickTipButton title="Payload Meta">The meta fields added to the record by the archivist</QuickTipButton>
       </FlexRow>
-      <Property title="Hash" value={value?._hash ?? '<Unknown>'} tip="This is the payload hash" />
+      {value?._hash ? <Property title="Hash" value={value?._hash} tip="This is the payload hash" /> : null}
       <FlexRow flexWrap="wrap">
         {value?._client ? (
           <Property

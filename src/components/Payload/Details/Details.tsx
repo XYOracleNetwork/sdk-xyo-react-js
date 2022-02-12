@@ -1,6 +1,6 @@
 import { KeyboardArrowDown } from '@mui/icons-material'
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
 import { lazy, Suspense } from 'react'
 
@@ -23,52 +23,40 @@ export const PayloadDetails: React.FC<PayloadDetailsProps> = ({ payload, ...prop
       <PayloadDataDetails value={payload} />
       <PayloadMetaDetails value={payload} />
       <PayloadValidationDetails value={payload} />
-      <FlexCol margin={1} alignItems="stretch">
-        <Accordion>
-          <AccordionSummary>
-            <FlexRow justifyContent="space-between" width="100%">
-              <Typography>JSON</Typography>
-              <KeyboardArrowDown />
+      {payload ? (
+        <FlexCol margin={1} alignItems="stretch">
+          <FlexRow margin={1} justifyContent="flex-start">
+            <Typography>JSON</Typography>
+            <QuickTipButton title="Payload JSON">The raw JSON of the payload</QuickTipButton>
+          </FlexRow>
+          <Property paddingY={2} value={!!payload}>
+            <Suspense fallback={<FlexGrowRow />}>
+              <JsonView src={payload} collapseStringsAfterLength={32} />
+            </Suspense>
+          </Property>
+        </FlexCol>
+      ) : null}
+      {payload ? (
+        <FlexCol margin={1} alignItems="stretch">
+          <FlexRow margin={1} justifyContent="flex-start">
+            <Typography>Hash Source</Typography>
+            <QuickTipButton title="Hash Source">The actual string used to generate the hash (SHA256)</QuickTipButton>
+          </FlexRow>
+          <Property paddingY={2} value={!!payload}>
+            <FlexRow flexWrap="wrap" width="500px">
+              <Typography
+                fontFamily="monospace"
+                variant="body1"
+                flexWrap="wrap"
+                width="500px"
+                style={{ wordWrap: 'break-word' }}
+              >
+                {payloadWrapper?.sortedStringify() ?? ''}
+              </Typography>
             </FlexRow>
-          </AccordionSummary>
-          {payload ? (
-            <AccordionDetails>
-              <Property paddingY={2} value={!!payload}>
-                <Suspense fallback={<FlexGrowRow />}>
-                  <JsonView src={payload} collapseStringsAfterLength={32} />
-                </Suspense>
-              </Property>
-            </AccordionDetails>
-          ) : null}
-        </Accordion>
-      </FlexCol>
-      <FlexCol margin={1} alignItems="stretch">
-        <Accordion>
-          <AccordionSummary>
-            <FlexRow justifyContent="space-between" width="100%">
-              <Typography>Hash String Source</Typography>
-              <KeyboardArrowDown />
-            </FlexRow>
-          </AccordionSummary>
-          {payload ? (
-            <AccordionDetails>
-              <Property paddingY={2} value={!!payload}>
-                <FlexRow flexWrap="wrap" width="500px">
-                  <Typography
-                    fontFamily="monospace"
-                    variant="body1"
-                    flexWrap="wrap"
-                    width="500px"
-                    style={{ wordWrap: 'break-word' }}
-                  >
-                    {payloadWrapper?.sortedStringify() ?? ''}
-                  </Typography>
-                </FlexRow>
-              </Property>
-            </AccordionDetails>
-          ) : null}
-        </Accordion>
-      </FlexCol>
+          </Property>
+        </FlexCol>
+      ) : null}
     </FlexGrowCol>
   )
 }
