@@ -1,20 +1,18 @@
-import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
-import { lazy, Suspense } from 'react'
+import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
-import { Property } from '../../Properties'
 import { PayloadDataDetails, PayloadDataDetailsProps } from './DataDetails'
+import { PayloadHashSourceDetails } from './HashSourceDetails'
+import { PayloadJsonDetails, PayloadJsonDetailsProps } from './JsonDetails'
 import { PayloadMetaDetails, PayloadMetaDetailsProps } from './MetaDetails'
 import { PayloadValidationDetails, PayloadValidationDetailsProps } from './ValidationDetails'
-
-const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 export interface PayloadDetailsProps extends FlexBoxProps {
   payload?: XyoPayload
   payloadDataDetailsProps?: PayloadDataDetailsProps
   payloadMetaDetailsProps?: PayloadMetaDetailsProps
   payloadValidationDetailsProps?: PayloadValidationDetailsProps
+  payloadJsonDetailsProps?: PayloadJsonDetailsProps
 }
 
 export const PayloadDetails: React.FC<PayloadDetailsProps> = ({
@@ -22,49 +20,16 @@ export const PayloadDetails: React.FC<PayloadDetailsProps> = ({
   payloadDataDetailsProps,
   payloadMetaDetailsProps,
   payloadValidationDetailsProps,
+  payloadJsonDetailsProps,
   ...props
 }) => {
-  const payloadWrapper = payload ? new XyoPayloadWrapper(payload) : null
-
   return (
-    <FlexGrowCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
+    <FlexCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
       <PayloadDataDetails value={payload} {...payloadDataDetailsProps} />
       <PayloadMetaDetails value={payload} {...payloadMetaDetailsProps} />
       <PayloadValidationDetails value={payload} {...payloadValidationDetailsProps} />
-      {payload ? (
-        <FlexCol margin={1} alignItems="stretch">
-          <FlexRow margin={1} justifyContent="flex-start">
-            <Typography>JSON</Typography>
-            <QuickTipButton title="Payload JSON">The raw JSON of the payload</QuickTipButton>
-          </FlexRow>
-          <Property paddingY={2} value={!!payload}>
-            <Suspense fallback={<FlexGrowRow />}>
-              <JsonView src={payload} collapseStringsAfterLength={32} />
-            </Suspense>
-          </Property>
-        </FlexCol>
-      ) : null}
-      {payload ? (
-        <FlexCol margin={1} alignItems="stretch">
-          <FlexRow margin={1} justifyContent="flex-start">
-            <Typography>Hash Source</Typography>
-            <QuickTipButton title="Hash Source">The actual string used to generate the hash (SHA256)</QuickTipButton>
-          </FlexRow>
-          <Property paddingY={2} value={!!payload}>
-            <FlexRow flexWrap="wrap" width="500px">
-              <Typography
-                fontFamily="monospace"
-                variant="body1"
-                flexWrap="wrap"
-                width="500px"
-                style={{ wordWrap: 'break-word' }}
-              >
-                {payloadWrapper?.sortedStringify() ?? ''}
-              </Typography>
-            </FlexRow>
-          </Property>
-        </FlexCol>
-      ) : null}
-    </FlexGrowCol>
+      <PayloadJsonDetails payload={payload} {...payloadJsonDetailsProps} />
+      <PayloadHashSourceDetails payload={payload} />
+    </FlexCol>
   )
 }
