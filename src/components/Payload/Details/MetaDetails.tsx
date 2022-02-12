@@ -15,29 +15,32 @@ export const PayloadMetaDetails: React.FC<PayloadMetaDetails> = ({ value, ...pro
         <Typography>Meta</Typography>
         <QuickTipButton title="Payload Meta">The meta fields added to the record by the archivist</QuickTipButton>
       </FlexRow>
+      <Property title="Hash" value={value?._hash ?? '<Unknown>'} tip="This is the payload hash" />
       <FlexRow flexWrap="wrap">
-        <Property
-          flexGrow={1}
-          title="Client"
-          value={value?._client ?? '<Unknown>'}
-          tip="This client used to create this payload"
-        />
-        {value?._archive && (
+        {value?._client ? (
+          <Property
+            flexGrow={1}
+            title="Client"
+            value={value?._client ?? '<Unknown>'}
+            tip="This client used to create this payload"
+          />
+        ) : null}
+        {value?._archive ? (
           <Property
             flexGrow={1}
             title="Archive"
             value={value?._archive}
             tip="This archive that is storing this payload"
           />
-        )}
-        {value?._timestamp && (
+        ) : null}
+        {value?._timestamp ? (
           <Property
             flexGrow={1}
             title="Timestamp"
             value={value?._timestamp ?? '<Unknown>'}
             tip="This timestamp of the payload"
           />
-        )}
+        ) : null}
       </FlexRow>
     </FlexCol>
   )
