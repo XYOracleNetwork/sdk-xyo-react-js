@@ -17,13 +17,6 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       return { ...state, isLoading: action.payload.isLoading }
     }
 
-    case AuthActionTypes.UpdateIsLoggedIn: {
-      if (action.payload.isLoggedIn === undefined) {
-        throw new Error('isLoggedIn is not defined')
-      }
-      return { ...state, isLoggedIn: action.payload.isLoggedIn }
-    }
-
     case AuthActionTypes.UpdateAuthError: {
       return { ...state, authError: action.payload.authError }
     }
@@ -35,12 +28,19 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       return { ...state, ...action.payload }
     }
 
-    case AuthActionTypes.UpdateJwtToken: {
-      if (!action.payload?.jwtToken === undefined) {
-        throw new Error('Missing Payload')
+    case AuthActionTypes.AuthSuccessful: {
+      if (!action.payload?.jwtToken || !action.payload?.loggedInAccount) {
+        throw new Error('jwtToken or loggedInAccount missing from  payload')
       }
-      const { jwtToken } = action.payload
-      return { ...state, ...{ jwtToken } }
+      return { ...state, ...{ isLoading: false, isLoggedIn: true, ...action.payload } }
+    }
+
+    case AuthActionTypes.AuthFailure: {
+      if (!action.payload?.authError) {
+        throw new Error('authError missing from  payload')
+      }
+      const { authError } = action.payload
+      return { ...state, ...{ authError, isLoading: false, isLoggedIn: false } }
     }
 
     case AuthActionTypes.Logout: {

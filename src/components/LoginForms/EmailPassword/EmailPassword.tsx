@@ -20,13 +20,14 @@ const EmailPassword: React.FC = () => {
     if (credentials?.email && credentials?.password && authState.isLoading) {
       try {
         const { data } = await AuthApi.login(credentials)
-        authDispatch({ payload: { isLoading: false }, type: AuthActionTypes.UpdateLoadingState })
-        authDispatch({ payload: { jwtToken: data.token }, type: AuthActionTypes.UpdateJwtToken })
+        authDispatch({
+          payload: { jwtToken: data.token, loggedInAccount: credentials.email },
+          type: AuthActionTypes.AuthSuccessful,
+        })
         navigate('/')
       } catch (err) {
         console.error(err)
-        authDispatch({ payload: { isLoading: false }, type: AuthActionTypes.UpdateLoadingState })
-        authDispatch({ payload: { authError: err as AxiosError }, type: AuthActionTypes.UpdateAuthError })
+        authDispatch({ payload: { authError: err as AxiosError }, type: AuthActionTypes.AuthFailure })
       }
     }
   }, [authDispatch, authState.isLoading, credentials, navigate])
