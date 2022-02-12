@@ -14,6 +14,7 @@ import { XyoPanelContext } from './Context'
 export interface XyoPanelLoaderProps {
   address?: XyoAddress
   archivists?: XyoArchivistApi[]
+  inlinePayloads?: boolean
 }
 
 const getDefaultArchivists = () => {
@@ -30,6 +31,7 @@ const getDefaultArchivists = () => {
 }
 
 export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
+  inlinePayloads = false,
   address = XyoAddress.random(),
   archivists = getDefaultArchivists(),
   children,
@@ -45,6 +47,7 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
       const panel = new XyoPanel({
         address,
         archivists,
+        inlinePayloads,
         onHistoryAdd: () => {
           setHistory(assertEx(panel).history.map((item) => item))
         },
@@ -56,7 +59,7 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
       setPanel(panel)
       setHistory(panel.history)
     }
-  }, [address, archivists, panel])
+  }, [address, archivists, panel, inlinePayloads])
 
   return <XyoPanelContext.Provider value={{ history, panel }}>{panel ? children : null}</XyoPanelContext.Provider>
 }
