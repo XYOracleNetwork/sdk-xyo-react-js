@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { sampleBlockWithPreviousHash } from '../../../.storybook'
+import { sampleBlockWithPreviousHash } from '../../.storybook'
 import { BlockDetails } from './Details'
 
 const StorybookEntry = {

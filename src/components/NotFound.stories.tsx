@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { authServiceList } from './.storybook'
+import { authServiceList } from '../.storybook'
 import { NotFound } from './NotFound'
 
 const StorybookEntry = {
