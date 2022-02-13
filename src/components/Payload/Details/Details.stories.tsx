@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { samplePayload } from '../../../.storybook'
+import { samplePayload, samplePayloadFromBuilder } from '../../.storybook'
 import { PayloadDetails } from './Details'
 
 const StorybookEntry = {
@@ -14,16 +14,20 @@ const StorybookEntry = {
   title: 'Payload/Details',
 } as ComponentMeta<typeof PayloadDetails>
 
-const Template: ComponentStory<typeof PayloadDetails> = (args) => <PayloadDetails {...args}></PayloadDetails>
+const Template: ComponentStory<typeof PayloadDetails> = (args) => (
+  <PayloadDetails flexGrow={1} {...args}></PayloadDetails>
+)
 
 const Default = Template.bind({})
 Default.args = {}
 
-const WithData = Template.bind({})
+const WithSample = Template.bind({})
+WithSample.args = { payload: samplePayload }
 
-WithData.args = { payload: samplePayload }
+const WithBuilderSample = Template.bind({})
+WithBuilderSample.args = { payload: samplePayloadFromBuilder }
 
-export { Default, WithData }
+export { Default, WithBuilderSample, WithSample }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
