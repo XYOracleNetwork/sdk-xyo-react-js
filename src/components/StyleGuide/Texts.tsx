@@ -19,7 +19,7 @@ export const Texts = () => {
         'caption',
         'overline',
       ].map(variant => (
-        <Typography key={variant} variant={variant}>XYO Network Style Guild</Typography>
+        <Typography key={variant} variant={variant}>{variant} - XYO Network</Typography>
       ))}
     </FlexCol>
   )
