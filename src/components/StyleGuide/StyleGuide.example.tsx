@@ -4,22 +4,21 @@ import { ThemeProvider } from '@mui/styles'
 import { FlexCol } from '@xylabs/sdk-react'
 
 import { themeOptions } from '../../theme'
-import { AppBars } from './AppBars'
-import { Buttons } from './Buttons'
-import { Papers } from './Papers'
-import { Texts } from './Texts'
+import { AppBarsExample } from './AppBars.example'
+import { ButtonsExample } from './Buttons.example'
+import { PapersExample } from './Papers.example'
+import { TextsExample } from './Texts.example'
 
-export const StyleGuide: React.FC = () => {
+export const StyleGuideExample: React.FC = () => {
   const theme = createTheme(themeOptions)
-  console.log(themeOptions)
   return (
     <ThemeProvider theme={theme}>
       <FlexCol alignItems="stretch">
         <Typography variant="h5">XYO Network Style Guild</Typography>
-        <AppBars />
-        <Buttons />
-        <Papers />
-        <Texts />
+        <AppBarsExample />
+        <ButtonsExample />
+        <PapersExample />
+        <TextsExample />
       </FlexCol>
     </ThemeProvider>
   )

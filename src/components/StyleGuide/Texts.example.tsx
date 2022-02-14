@@ -1,7 +1,7 @@
-import { FlexCol } from '@xylabs/sdk-react'
 import { Typography } from '@mui/material'
+import { FlexCol } from '@xylabs/sdk-react'
 
-export const Texts = () => {
+export const TextsExample = () => {
   return (
     <FlexCol>
       {[
@@ -18,8 +18,10 @@ export const Texts = () => {
         'button',
         'caption',
         'overline',
-      ].map(variant => (
-        <Typography key={variant} variant={variant}>{variant} - XYO Network</Typography>
+      ].map((variant) => (
+        <Typography key={variant} variant={variant}>
+          {variant} - XYO Network
+        </Typography>
       ))}
     </FlexCol>
   )

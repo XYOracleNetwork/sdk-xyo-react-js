@@ -1,7 +1,7 @@
 import { Button, Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/sdk-react'
 
-export const Buttons: React.FC = ({ ...props }) => {
+export const ButtonsExample: React.FC = ({ ...props }) => {
   return (
     <FlexCol {...props} alignItems="stretch">
       <Typography variant="subtitle1">Buttons</Typography>

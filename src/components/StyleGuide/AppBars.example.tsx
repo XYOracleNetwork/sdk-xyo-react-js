@@ -2,7 +2,7 @@ import { Menu as MenuIcon } from '@mui/icons-material'
 import { Button, IconButton, Toolbar, Typography } from '@mui/material'
 import { AppBarEx, FlexCol } from '@xylabs/sdk-react'
 
-export const AppBars = () => {
+export const AppBarsExample = () => {
   const contextToolbar = (
     <Toolbar disableGutters>
       <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
