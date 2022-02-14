@@ -15,10 +15,10 @@ export const Papers: React.FC = ({ ...props }) => {
     <FlexCol {...props}>
       <Typography variant="subtitle1">Paper</Typography>
       <FlexRow alignItems="stretch">
-        {Array.from({ length: 10 }, () => undefined).map((_, index) => (
+        {Array.from({ length: 5 }, () => undefined).map((_, index) => (
           <FlexCol key={`paper-${index}`} marginRight={2}>
             <Papered key={`paper-${index}`} square elevation={index * 2}>
-              Elevation-{index * 2}
+              Elevation-{index * 3}
             </Papered>
           </FlexCol>
         ))}

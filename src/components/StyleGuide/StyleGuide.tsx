@@ -7,6 +7,7 @@ import { themeOptions } from '../../theme'
 import { AppBars } from './AppBars'
 import { Buttons } from './Buttons'
 import { Papers } from './Papers'
+import { Texts } from './Texts'
 
 export const StyleGuide: React.FC = () => {
   const theme = createTheme(themeOptions)
@@ -18,6 +19,7 @@ export const StyleGuide: React.FC = () => {
         <AppBars />
         <Buttons />
         <Papers />
+        <Texts />
       </FlexCol>
     </ThemeProvider>
   )

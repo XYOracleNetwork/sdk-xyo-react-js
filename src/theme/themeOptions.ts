@@ -11,6 +11,15 @@ export const themeOptions: ThemeOptions = {
         },
       },
     },
+    MuiCardHeader: {
+      styleOverrides: {
+        content: {
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden',
+        },
+      },
+    },
     MuiLink: {
       defaultProps: {
         underline: 'none',
@@ -34,7 +43,8 @@ export const themeOptions: ThemeOptions = {
       main: '#1f1a66',
     },
     secondary: {
-      main: '#ffb300',
+      contrastText: '#fff',
+      main: '#f2843a',
     },
   },
   shape: {
