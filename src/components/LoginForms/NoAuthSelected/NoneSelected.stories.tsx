@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.storybook'
+import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../.storybook'
 import { NoneSelected } from './NoneSelected'
 
 const StorybookEntry = {
