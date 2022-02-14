@@ -10,6 +10,11 @@ const Papered = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
 }))
 
+const PaperedSecondary = styled(Papered)(({ theme }) => ({
+  background: theme.palette.secondary.main,
+  color: 'white'
+}))
+
 export const Papers: React.FC = ({ ...props }) => {
   return (
     <FlexCol {...props}>
@@ -17,11 +22,12 @@ export const Papers: React.FC = ({ ...props }) => {
       <FlexRow alignItems="stretch">
         {Array.from({ length: 5 }, () => undefined).map((_, index) => (
           <FlexCol key={`paper-${index}`} marginRight={2}>
-            <Papered key={`paper-${index}`} square elevation={index * 2}>
+            <Papered  key={`paper-${index}`} square elevation={index * 2}>
               Elevation-{index * 3}
             </Papered>
           </FlexCol>
         ))}
+        <PaperedSecondary>Secondary Background</PaperedSecondary>
       </FlexRow>
     </FlexCol>
   )

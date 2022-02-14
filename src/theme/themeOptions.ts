@@ -44,7 +44,7 @@ export const themeOptions: ThemeOptions = {
     },
     secondary: {
       contrastText: '#fff',
-      main: '#f2843a',
+      main: '#ff722c',
     },
   },
   shape: {
