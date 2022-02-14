@@ -5,6 +5,17 @@ export const Buttons: React.FC = ({ ...props }) => {
   return (
     <FlexCol {...props} alignItems="stretch">
       <Typography variant="subtitle1">Buttons</Typography>
+      <Typography variant="subtitle2">Buttons</Typography>
+      <FlexRow alignItems="stretch" mb={2}>
+        {['primary', 'secondary'].map((color) => (
+          <>
+            <Button variant="contained" color={color}>
+              {color}
+            </Button>
+            &nbsp;
+          </>
+        ))}
+      </FlexRow>
       {['text', 'contained', 'outlined'].map((variant) => (
         <FlexCol key={`btn-${variant}`} alignItems="stretch" mb={2}>
           <Typography variant="subtitle2">

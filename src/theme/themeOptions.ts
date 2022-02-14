@@ -8,7 +8,7 @@ export const themeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: 0,
-        }
+        },
       },
     },
     MuiLink: {
@@ -25,11 +25,11 @@ export const themeOptions: ThemeOptions = {
     },
   },
   palette: {
-    mode: 'light',
     background: {
       default: '#fff',
       paper: 'rgba(255,255,255,.9)',
     },
+    mode: 'light',
     primary: {
       main: '#1f1a66',
     },

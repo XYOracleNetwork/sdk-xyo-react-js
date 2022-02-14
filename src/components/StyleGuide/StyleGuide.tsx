@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/styles'
 import { FlexCol } from '@xylabs/sdk-react'
 
 import { themeOptions } from '../../theme'
+import { AppBars } from './AppBars'
 import { Buttons } from './Buttons'
 import { Papers } from './Papers'
 
@@ -14,6 +15,7 @@ export const StyleGuide: React.FC = () => {
     <ThemeProvider theme={theme}>
       <FlexCol alignItems="stretch">
         <Typography variant="h5">XYO Network Style Guild</Typography>
+        <AppBars />
         <Buttons />
         <Papers />
       </FlexCol>
