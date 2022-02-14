@@ -1,6 +1,6 @@
-import { Box, Button, IconButton, Link, Toolbar, Typography } from '@mui/material'
-import { AppBarEx, FlexCol, FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
 import { Menu as MenuIcon } from '@mui/icons-material'
+import { Button, IconButton, Toolbar, Typography } from '@mui/material'
+import { AppBarEx, FlexCol } from '@xylabs/sdk-react'
 
 export const AppBars = () => {
   const contextToolbar = (
@@ -14,9 +14,7 @@ export const AppBars = () => {
     </Toolbar>
   )
 
-  const systemToolbar = (
-    <Button variant="contained">Get Started</Button>
-  )
+  const systemToolbar = <Button variant="contained">Get Started</Button>
 
   return (
     <FlexCol alignItems="stretch">
