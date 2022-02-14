@@ -5,7 +5,9 @@ import {
   XyoArchivistApiConfig,
   XyoBoundWitness,
   XyoPanel,
+  XyoPayload,
   XyoSystemInfoWitness,
+  XyoWitness,
 } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
@@ -15,6 +17,7 @@ export interface XyoPanelLoaderProps {
   address?: XyoAddress
   archivists?: XyoArchivistApi[]
   inlinePayloads?: boolean
+  witnesses?: XyoWitness<XyoPayload>[]
 }
 
 const getDefaultArchivists = () => {
@@ -34,6 +37,7 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
   inlinePayloads = false,
   address = XyoAddress.random(),
   archivists = getDefaultArchivists(),
+  witnesses = [new XyoSystemInfoWitness()],
   children,
 }) => {
   console.log('XyoPanelLoader')
@@ -41,8 +45,6 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
   const [history, setHistory] = useState<XyoBoundWitness[]>()
 
   useEffect(() => {
-    const witnesses = [new XyoSystemInfoWitness()]
-
     if (!panel) {
       const panel = new XyoPanel({
         address,
@@ -59,7 +61,7 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
       setPanel(panel)
       setHistory(panel.history)
     }
-  }, [address, archivists, panel, inlinePayloads])
+  }, [address, archivists, witnesses, panel, inlinePayloads])
 
   return <XyoPanelContext.Provider value={{ history, panel }}>{panel ? children : null}</XyoPanelContext.Provider>
 }
