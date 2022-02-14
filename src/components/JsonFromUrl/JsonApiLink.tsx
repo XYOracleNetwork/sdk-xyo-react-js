@@ -9,7 +9,7 @@ interface JsonApiLinkProps {
 const JsonApiLink: React.FC<JsonApiLinkProps> = ({ children, target }) => {
   const { pathname } = useLocation()
   return (
-    <LinkToEx to={`${pathname}/json`} target={target || '_blank'}>
+    <LinkToEx to={`${pathname}/json`} target={target || '_self'}>
       {children || (
         <ButtonEx marginX={2} variant="outlined">
           JSON
