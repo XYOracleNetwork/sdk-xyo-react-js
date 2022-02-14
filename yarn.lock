@@ -4302,7 +4302,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.17":
+"@types/node@npm:*":
   version: 17.0.17
   resolution: "@types/node@npm:17.0.17"
   checksum: 8ddba2829acdf1684fbd8fd248ec13f033efb70ecd1085677b547c40ef8e936a006b95eac3bdc28c47939c62526f3f027afeb4a930e30e4394923bbae4626476
@@ -4313,6 +4313,13 @@ __metadata:
   version: 14.18.10
   resolution: "@types/node@npm:14.18.10"
   checksum: e722eec37be85dd7dddc4cfd26c501c66f1f2a7e0f603f57ff925348e65a5db603b06363fa27489cbecff44f0ae59812f22509923c4c45ffa5958604cc002401
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^17.0.18":
+  version: 17.0.18
+  resolution: "@types/node@npm:17.0.18"
+  checksum: 6c4edfc2b3ba2342a9c3d56e934c5245948ab752f4dc04bd6790b9603e6ebc53bc4f5befc3662e207f7dba2ddd17ccf657f915e319ea7cdd4f77b851079d1611
   languageName: node
   linkType: hard
 
@@ -5163,7 +5170,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2.3.24, @xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2":
+"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2":
   version: 2.4.2
   resolution: "@xylabs/sdk-js@npm:2.4.2"
   dependencies:
@@ -5266,14 +5273,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.8.3":
-  version: 2.8.3
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.8.3"
+"@xyo-network/sdk-xyo-client-js@npm:^2.9.8":
+  version: 2.9.8
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.9.8"
   dependencies:
     "@ethersproject/providers": ^5.5.3
     "@xylabs/sdk-js": ^2.4.2
-    "@xyo-network/sdk-xyo-mongo-js": ^2.2.3
-    axios: ^0.25.0
+    "@xyo-network/sdk-xyo-mongo-js": ^2.2.6
+    axios: ^0.26.0
     bowser: ^2.11.0
     buffer: ^6.0.3
     elliptic: ^6.5.4
@@ -5284,19 +5291,20 @@ __metadata:
     neo4j-driver: ^4.4.2
     neo4j-driver-core: ^4.4.2
     sha.js: ^2.4.11
+    systeminformation: ^5.11.3
     ua-parser-js: ^1.0.2
-  checksum: 8996e0ae97755479ffd8ea9d09e134e770aac0ab3a6cf3e6969e7ab0c6c8e8cdc13458864a4b6c995e11a95a80711174157f0bbb4f1f3eb83e108bce25246c06
+  checksum: 4c896499c431a66c420d3e5d3b6d9dd64bfbb22ad724e70771bfbc4c97db14f9a6d3055332726bc0ae7fa36268c167bb9e82e91db7cff6d9b5b373316abf67bc
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-mongo-js@npm:^2.2.3":
-  version: 2.2.3
-  resolution: "@xyo-network/sdk-xyo-mongo-js@npm:2.2.3"
+"@xyo-network/sdk-xyo-mongo-js@npm:^2.2.6":
+  version: 2.2.6
+  resolution: "@xyo-network/sdk-xyo-mongo-js@npm:2.2.6"
   dependencies:
-    "@xylabs/sdk-js": ^2.3.24
+    "@xylabs/sdk-js": ^2.4.2
     async-mutex: ^0.3.2
-    mongodb: ^4.3.0
-  checksum: 5490fc57a53530f5486e9f0e79930d1a6fb4f654d79896e7ae71f71d86e2903499fca795156720b3abce9cc4c5cde4c9249a49cb092628518ce122a3431ffedc
+    mongodb: ^4.3.1
+  checksum: ea2a63a15b86fc8959fbd822b4c72317885d2614fed5dd03ebfc646c954657438c1f7901fcd2cb1ee22b187b94318b63e6f89defe39288f45d347c6cbf3ffb8d
   languageName: node
   linkType: hard
 
@@ -5326,7 +5334,7 @@ __metadata:
     "@types/bn.js": ^5.1.0
     "@types/lodash": ^4.14.178
     "@types/luxon": ^2.0.9
-    "@types/node": ^17.0.17
+    "@types/node": ^17.0.18
     "@types/react": ^17.0.39
     "@xylabs/eslint-config-react": ^2.1.2
     "@xylabs/pixel": ^1.3.7
@@ -5335,7 +5343,7 @@ __metadata:
     "@xylabs/sdk-react": ^2.9.29
     "@xylabs/ts-scripts": ^1.0.43
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.8.3
+    "@xyo-network/sdk-xyo-client-js": ^2.9.8
     axios: ^0.26.0
     babel-loader: ^8.2.3
     bn.js: ^5.2.0
@@ -13257,7 +13265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^4.3.0, mongodb@npm:^4.3.1":
+"mongodb@npm:^4.3.1":
   version: 4.3.1
   resolution: "mongodb@npm:4.3.1"
   dependencies:
@@ -18454,6 +18462,16 @@ __metadata:
   version: 2.0.15
   resolution: "synchronous-promise@npm:2.0.15"
   checksum: 6079a6acd37d02eb76f250dc7ce09009151744901b320a8cfbba056b015c3d7cbf4e7467458f2d27c6393634f68521b241ea9e35fd9640f8fb59342740550472
+  languageName: node
+  linkType: hard
+
+"systeminformation@npm:^5.11.3":
+  version: 5.11.3
+  resolution: "systeminformation@npm:5.11.3"
+  bin:
+    systeminformation: lib/cli.js
+  checksum: 9d27028dd43b233173519ee03a228df6d2cdbf2c8723ad54b60553092c528e1b9756cd88973d69968afa48b664e7c68a35d3cc8b5cc22af51a823f0712b54dbf
+  conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
 
