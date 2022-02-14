@@ -2,9 +2,8 @@ import { useTheme } from '@mui/material'
 import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
-import { AuthApiLoader, AuthLoader, AuthServiceId, AuthState, IAuthService } from '../../contexts'
-import { DefaultState } from '../../contexts/Auth/DefaultState'
-import { AuthThemeExtender } from '../Auth'
+import { AuthApiLoader, AuthLoader, AuthServiceId, AuthState, IAuthService, DefaultState } from '../contexts'
+import { AuthThemeExtender } from '../components'
 
 interface WrappedArgs {
   authState?: Partial<AuthState>
@@ -13,7 +12,7 @@ interface WrappedArgs {
 }
 type WrappedAuthComponent = (props: WrappedArgs) => React.ReactElement
 
-export type { WrappedAuthComponent }
+export type { WrappedAuthComponent, WrappedArgs }
 
 const authServiceList: IAuthService[] = [
   {
@@ -37,7 +36,7 @@ const authDecorator: DecoratorFn = (Story, { args }) => {
         <AuthLoader authState={mergedAuthState}>
           <AuthApiLoader apiDomain={mergedAuthState.apiDomain}>
             <AuthThemeExtender themeOptions={theme}>
-              <Story />
+              <Story {...args} />
             </AuthThemeExtender>
           </AuthApiLoader>
         </AuthLoader>

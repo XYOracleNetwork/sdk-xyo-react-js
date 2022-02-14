@@ -13,15 +13,18 @@ export interface AuthState {
   isLoading: boolean
   isLoggedIn: boolean
   authError: undefined | Error | AxiosError
+  jwtToken?: string
+  loggedInAccount?: string
 }
 
 export enum AuthActionTypes {
   UpdateActiveAuthService = 'UpdateActiveAuthService',
   UpdateLoadingState = 'UpdateLoadingState',
   RehydrateState = 'RehydrateState',
-  UpdateIsLoggedIn = 'UpdateIsLoggedIn',
   UpdateAuthError = 'UpdateAuthError',
   Logout = 'Logout',
+  AuthSuccessful = 'AuthSuccessful',
+  AuthFailure = 'AuthFailure',
 }
 
 export interface AuthAction {

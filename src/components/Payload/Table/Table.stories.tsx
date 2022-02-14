@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { samplePayload } from '../../.storybook'
+import { samplePayload } from '../../../.storybook'
 import { PayloadTable } from './Table'
 
 const StorybookEntry = {

@@ -3635,7 +3635,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/instrumenter@npm:6.4.19, @storybook/instrumenter@npm:^6.4.0 || >=6.5.0-0":
+"@storybook/instrumenter@npm:6.4.19":
   version: 6.4.19
   resolution: "@storybook/instrumenter@npm:6.4.19"
   dependencies:
@@ -3644,6 +3644,18 @@ __metadata:
     "@storybook/core-events": 6.4.19
     global: ^4.4.0
   checksum: 7cd253e4b34f12a6652e5844f96cc6f72fb2d67f0725f00c010850aed0da9801fb3794adf6e6c2513d05fb97c94fe19142ccbe11caccd774ee6f2aef3a96b85e
+  languageName: node
+  linkType: hard
+
+"@storybook/instrumenter@npm:^6.4.0 || >=6.5.0-0":
+  version: 6.4.18
+  resolution: "@storybook/instrumenter@npm:6.4.18"
+  dependencies:
+    "@storybook/addons": 6.4.19
+    "@storybook/client-logger": 6.4.19
+    "@storybook/core-events": 6.4.19
+    global: ^4.4.0
+  checksum: 8050c14953130f78291b7ca2efca7e13705a4abab3ca73def0d3b735ac9471fdaf3e971e5446cc39d7e7c265a88ba477456a0daa218263c36d6bd65a85685154
   languageName: node
   linkType: hard
 
@@ -5324,7 +5336,7 @@ __metadata:
     "@xylabs/ts-scripts": ^1.0.43
     "@xylabs/tsconfig": ^1.0.12
     "@xyo-network/sdk-xyo-client-js": ^2.8.3
-    axios: ^0.25.0
+    axios: ^0.26.0
     babel-loader: ^8.2.3
     bn.js: ^5.2.0
     copyfiles: ^2.4.1
@@ -5974,6 +5986,15 @@ __metadata:
   dependencies:
     follow-redirects: ^1.14.7
   checksum: 2a8a3787c05f2a0c9c3878f49782357e2a9f38945b93018fb0c4fd788171c43dceefbb577988628e09fea53952744d1ecebde234b561f1e703aa43e0a598a3ad
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "axios@npm:0.26.0"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: d7a8b898f4157bedeb2e06c03b16133b91b354c041205bea732ce58b7a21f373d22057b0eea0d482838145ce6ff482b359750d9bcb8dd19d45e3928e3c65c280
   languageName: node
   linkType: hard
 
@@ -9544,7 +9565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.7":
+"follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.14.8":
   version: 1.14.8
   resolution: "follow-redirects@npm:1.14.8"
   peerDependenciesMeta:

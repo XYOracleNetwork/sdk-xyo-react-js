@@ -1,7 +1,7 @@
 import { createTheme, MenuItem, Select, Typography, useTheme } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { authDecorator } from '../.storybook'
+import { authDecorator } from '../../.storybook'
 import { AuthThemeExtender } from './AuthThemeExtender'
 
 const customPrimary = '#485c76'
