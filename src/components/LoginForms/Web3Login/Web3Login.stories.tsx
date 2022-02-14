@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { authDecorator, WrappedAuthComponent } from '../../.storybook'
+import { authDecorator, WrappedAuthComponent } from '../../../.storybook'
 import { Web3Login } from './Web3Login'
 
 const StorybookEntry = {

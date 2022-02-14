@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
 
-import { authDecorator, WrappedAuthComponent } from '../../.storybook'
+import { authDecorator, WrappedAuthComponent } from '../../../.storybook'
 import { EmailPassword } from './EmailPassword'
 
 const StorybookEntry = {

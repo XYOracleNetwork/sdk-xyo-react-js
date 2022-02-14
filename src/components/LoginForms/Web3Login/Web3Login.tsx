@@ -15,19 +15,21 @@ const Web3Login: React.FC = () => {
 
   useAsyncEffect(
     async (mounted) => {
-      if (checkedWallet && authState.authError === undefined) {
+      if (checkedWallet && authState.authError === undefined && mounted()) {
         try {
-          await MetaMaskService.challengeWallet()
+          const { data } = await MetaMaskService.challengeWallet()
+          authDispatch({
+            payload: { jwtToken: data.token, loggedInAccount: MetaMaskService.currentAccount },
+            type: AuthActionTypes.AuthSuccessful,
+          })
           navigate('/')
         } catch (err) {
-          authDispatch({ payload: { authError: err as Error }, type: AuthActionTypes.UpdateAuthError })
+          authDispatch({ payload: { authError: err as Error }, type: AuthActionTypes.AuthFailure })
           setCheckedWallet(false)
         }
       }
-      return () => {
-        if (mounted()) {
-          setCheckedWallet(false)
-        }
+      if (checkedWallet && mounted()) {
+        setCheckedWallet(false)
       }
     },
     [authDispatch, authState.authError, checkedWallet, MetaMaskService]

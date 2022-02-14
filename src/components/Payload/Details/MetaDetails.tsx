@@ -4,40 +4,43 @@ import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { Property } from '../../Properties'
 
-export interface PayloadMetaDetails extends FlexBoxProps {
+export interface PayloadMetaDetailsProps extends FlexBoxProps {
   value?: XyoPayload
 }
 
-export const PayloadMetaDetails: React.FC<PayloadMetaDetails> = ({ value, ...props }) => {
+export const PayloadMetaDetails: React.FC<PayloadMetaDetailsProps> = ({ value, ...props }) => {
   return (
-    <FlexCol alignItems="flex-start" {...props}>
+    <FlexCol alignItems="stretch" {...props}>
       <FlexRow margin={1} justifyContent="flex-start">
         <Typography>Meta</Typography>
         <QuickTipButton title="Payload Meta">The meta fields added to the record by the archivist</QuickTipButton>
       </FlexRow>
+      {value?._hash ? <Property title="Hash" value={value?._hash} tip="This is the payload hash" /> : null}
       <FlexRow flexWrap="wrap">
-        <Property
-          flexGrow={1}
-          title="Client"
-          value={value?._client ?? '<Unknown>'}
-          tip="This client used to create this payload"
-        />
-        {value?._archive && (
+        {value?._client ? (
+          <Property
+            flexGrow={1}
+            title="Client"
+            value={value?._client ?? '<Unknown>'}
+            tip="This client used to create this payload"
+          />
+        ) : null}
+        {value?._archive ? (
           <Property
             flexGrow={1}
             title="Archive"
             value={value?._archive}
             tip="This archive that is storing this payload"
           />
-        )}
-        {value?._timestamp && (
+        ) : null}
+        {value?._timestamp ? (
           <Property
             flexGrow={1}
             title="Timestamp"
             value={value?._timestamp ?? '<Unknown>'}
             tip="This timestamp of the payload"
           />
-        )}
+        ) : null}
       </FlexRow>
     </FlexCol>
   )

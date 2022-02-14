@@ -5,13 +5,22 @@ import { XyoPayload, XyoPayloadValidator } from '@xyo-network/sdk-xyo-client-js'
 import { Property } from '../../Properties'
 
 export interface PayloadValidationDetailsProps extends FlexBoxProps {
+  skipBody?: boolean
+  skipMeta?: boolean
   value?: XyoPayload
 }
 
-export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ value, ...props }) => {
+export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({
+  skipMeta = false,
+  skipBody = false,
+  value,
+  ...props
+}) => {
   const validator = value ? new XyoPayloadValidator(value) : undefined
 
-  const errors = validator?.all() ?? []
+  const bodyErrors = skipBody ? [] : validator?.body.all() ?? []
+  const metaErrors = skipMeta ? [] : validator?.meta.all() ?? []
+  const errors: Error[] = [...bodyErrors, ...metaErrors]
 
   return (
     <FlexCol alignItems="stretch" {...props}>
