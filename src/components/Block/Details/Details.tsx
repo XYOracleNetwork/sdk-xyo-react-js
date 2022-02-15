@@ -22,8 +22,12 @@ export interface BlockDetailsProps extends FlexBoxProps {
 const payloadsFromBlock = (block?: XyoBoundWitness) => {
   const payloads: XyoPayload[] = []
   if (block) {
-    for (let x = 0; x < block.payload_hashes.length; x++) {
-      payloads.push({ _archive: block._archive, _hash: block.payload_hashes[x], schema: block.payload_schemas[x] })
+    for (let i = 0; i < block.payload_hashes.length; i++) {
+      if (block._payloads) {
+        payloads.push(block._payloads[i])
+      } else {
+        payloads.push({ _archive: block._archive, _hash: block.payload_hashes[i], schema: block.payload_schemas[i] })
+      }
     }
   }
   return payloads
