@@ -6,10 +6,17 @@ import { PayloadTableRow } from './TableRow'
 export interface PayloadTableProps extends TableProps {
   exploreDomain?: string
   validate?: boolean
+  onRowClick?: (value: XyoPayload) => void
   payloads?: XyoPayload[] | null
 }
 
-export const PayloadTable: React.FC<PayloadTableProps> = ({ exploreDomain, validate = false, payloads, ...props }) => {
+export const PayloadTable: React.FC<PayloadTableProps> = ({
+  exploreDomain,
+  onRowClick,
+  validate = false,
+  payloads,
+  ...props
+}) => {
   return (
     <Table {...props}>
       <TableHead>
@@ -38,7 +45,19 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({ exploreDomain, valid
       </TableHead>
       <TableBody>
         {payloads?.map((payload) => (
-          <PayloadTableRow exploreDomain={exploreDomain} validate={validate} key={payload._hash} payload={payload} />
+          <PayloadTableRow
+            onClick={
+              onRowClick
+                ? () => {
+                    onRowClick(payload)
+                  }
+                : undefined
+            }
+            exploreDomain={exploreDomain}
+            validate={validate}
+            key={payload._hash}
+            payload={payload}
+          />
         ))}
       </TableBody>
     </Table>
