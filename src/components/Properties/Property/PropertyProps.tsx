@@ -10,4 +10,5 @@ export interface PropertyProps extends FlexBoxProps {
   tip?: ReactNode
   title?: string
   value?: string | number | boolean | null
+  paddingFactor?: number
 }

@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { sampleBlockWithPreviousHash } from '../../.storybook'
+import { appThemeDecorator, sampleBlockWithPreviousHash } from '../../.storybook'
 import { Property } from './Property'
 
 const StorybookEntry = {
@@ -18,10 +18,11 @@ const Template: ComponentStory<typeof Property> = (args) => <Property {...args}>
 
 const Default = Template.bind({})
 Default.args = {}
+Default.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
-
 WithData.args = { title: 'Block Hash', value: sampleBlockWithPreviousHash._hash }
+WithData.decorators = [appThemeDecorator]
 
 export { Default, WithData }
 

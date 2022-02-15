@@ -9,7 +9,7 @@ import { Value } from './Value'
 export const Property: React.FC<PropertyProps> = (props) => {
   const theme = useTheme()
   const belowSm = useMediaQuery(theme.breakpoints.down('sm'))
-  const { title, value, children, maxTitleWidth = 180, tip, actions, required, ...boxProps } = props
+  const { title, value, children, maxTitleWidth = 180, paddingFactor = 3, tip, actions, required, ...boxProps } = props
 
   return (
     <FlexRow
@@ -22,8 +22,8 @@ export const Property: React.FC<PropertyProps> = (props) => {
     >
       <Grid container>
         {title ? (
-          <Grid display="flex" xs={12} sm="auto" item={true} minHeight={56} alignItems="start">
-            <PropertyTitle maxWidth={maxTitleWidth} tip={tip} title={title} />
+          <Grid display="flex" xs={12} sm="auto" item={true} alignItems="start">
+            <PropertyTitle maxWidth={maxTitleWidth} tip={tip} title={title} paddingFactor={paddingFactor} />
           </Grid>
         ) : null}
         <Grid
@@ -33,16 +33,15 @@ export const Property: React.FC<PropertyProps> = (props) => {
           xs={12}
           sm={'auto'}
           item={true}
-          minHeight={56}
           alignItems="center"
         >
           {value === undefined ? (
-            <FlexGrowRow>
+            <FlexGrowRow padding={paddingFactor}>
               <CircularProgress size={16} />
             </FlexGrowRow>
           ) : (
             <>
-              {children ? children : <Value value={value} />}
+              {children ? children : <Value value={value} paddingFactor={paddingFactor} />}
               <PropertyActions actions={actions} marginX={2} />
             </>
           )}

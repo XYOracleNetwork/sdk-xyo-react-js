@@ -5,18 +5,18 @@ import { ReactNode } from 'react'
 export interface PropertyTitleProps extends FlexBoxProps {
   tip?: ReactNode
   title?: string
+  paddingFactor: number
 }
 
-export const PropertyTitle: React.FC<PropertyTitleProps> = ({ tip, title, ...props }) => {
+export const PropertyTitle: React.FC<PropertyTitleProps> = ({ tip, title, paddingFactor, ...props }) => {
   const theme = useTheme()
   const aboveSm = useMediaQuery(theme.breakpoints.up('sm'))
 
   return (
     <FlexRow
-      borderRight={aboveSm ? `solid 1px ${theme.palette.divider}` : undefined}
+      borderRight={aboveSm ? `solid 1px ${theme.palette.divider}` : 'none'}
       justifyContent="flex-start"
-      paddingX={aboveSm ? 2 : 1}
-      paddingY={aboveSm ? 2 : 1}
+      padding={theme.spacing(paddingFactor, paddingFactor)}
       {...props}
     >
       <Typography noWrap variant="caption">
