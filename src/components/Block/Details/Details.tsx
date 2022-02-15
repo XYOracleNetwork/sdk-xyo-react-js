@@ -7,7 +7,7 @@ import { lazy, Suspense } from 'react'
 import { Property } from '../../Properties'
 import { BlockDataDetails } from './DataDetails'
 import { BlockMetaDetails } from './MetaDetails'
-import { BlockPayloads } from './Payloads'
+import { BlockPayloads, BlockPayloadsProps } from './Payloads'
 import { BlockSignatureDetails } from './SignatureDetails'
 import { BlockValidationDetails } from './ValidationDetails'
 
@@ -16,6 +16,7 @@ const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-jso
 export interface BlockDetailsProps extends FlexBoxProps {
   block?: XyoBoundWitness
   payloads?: XyoPayload[]
+  blockPayloadsProps?: BlockPayloadsProps
 }
 
 const payloadsFromBlock = (block?: XyoBoundWitness) => {
@@ -28,7 +29,7 @@ const payloadsFromBlock = (block?: XyoBoundWitness) => {
   return payloads
 }
 
-export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, ...props }) => {
+export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, blockPayloadsProps, ...props }) => {
   const blockWrapper = block ? new XyoBoundWitnessWrapper(block) : null
 
   return (
@@ -36,7 +37,7 @@ export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, ...
       <BlockDataDetails block={block} />
       <BlockMetaDetails block={block} />
       <BlockSignatureDetails block={block} />
-      <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} />
+      <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} {...blockPayloadsProps} />
       <BlockValidationDetails value={block} />
       <FlexCol margin={1} alignItems="stretch">
         <Accordion>
