@@ -24,7 +24,11 @@ const WithData = Template.bind({})
 WithData.args = { title: 'Block Hash', value: sampleBlockWithPreviousHash._hash }
 WithData.decorators = [appThemeDecorator]
 
-export { Default, WithData }
+const WithTip = Template.bind({})
+WithTip.args = { tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPreviousHash._hash }
+WithTip.decorators = [appThemeDecorator]
+
+export { Default, WithData, WithTip }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
