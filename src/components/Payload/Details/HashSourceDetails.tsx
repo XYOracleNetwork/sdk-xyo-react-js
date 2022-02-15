@@ -18,17 +18,9 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
         <QuickTipButton title="Hash Source">The actual string used to generate the hash (SHA256)</QuickTipButton>
       </FlexRow>
       <Property paddingY={2} value={!!payload}>
-        <FlexRow flexWrap="wrap" width="500px">
-          <Typography
-            fontFamily="monospace"
-            variant="body1"
-            flexWrap="wrap"
-            width="500px"
-            style={{ wordWrap: 'break-word' }}
-          >
-            {payloadWrapper?.sortedStringify() ?? ''}
-          </Typography>
-        </FlexRow>
+        <Typography padding={2} fontFamily="monospace" variant="body1" sx={{ overflowWrap: 'anywhere' }}>
+          {payloadWrapper?.sortedStringify() ?? ''}
+        </Typography>
       </Property>
     </FlexCol>
   )

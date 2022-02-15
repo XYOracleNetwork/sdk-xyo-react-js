@@ -1,32 +1,27 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
 
 import { sampleBlockWithPreviousHash } from '../../.storybook'
-import { BlockDetails } from './Details'
+import { Property } from './Property'
 
 const StorybookEntry = {
   argTypes: {},
-  component: BlockDetails,
+  component: Property,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'Block/Details',
-} as ComponentMeta<typeof BlockDetails>
+  title: 'Properties/Property',
+} as ComponentMeta<typeof Property>
 
-const Template: ComponentStory<typeof BlockDetails> = (args) => (
-  <BrowserRouter>
-    <BlockDetails {...args}></BlockDetails>
-  </BrowserRouter>
-)
+const Template: ComponentStory<typeof Property> = (args) => <Property {...args}></Property>
 
 const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = { block: sampleBlockWithPreviousHash }
+WithData.args = { title: 'Block Hash', value: sampleBlockWithPreviousHash._hash }
 
 export { Default, WithData }
 

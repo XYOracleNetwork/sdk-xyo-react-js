@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { samplePayload } from '../../../.storybook'
 import { PayloadTable } from './Table'
@@ -14,7 +15,11 @@ const StorybookEntry = {
   title: 'Payload/Table',
 } as ComponentMeta<typeof PayloadTable>
 
-const Template: ComponentStory<typeof PayloadTable> = (args) => <PayloadTable {...args}></PayloadTable>
+const Template: ComponentStory<typeof PayloadTable> = (args) => (
+  <BrowserRouter>
+    <PayloadTable {...args}></PayloadTable>
+  </BrowserRouter>
+)
 
 const Default = Template.bind({})
 Default.args = {}

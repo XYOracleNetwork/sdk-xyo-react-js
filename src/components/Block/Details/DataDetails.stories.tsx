@@ -2,22 +2,22 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { sampleBlockWithPreviousHash } from '../../.storybook'
-import { BlockDetails } from './Details'
+import { BlockDataDetails } from './DataDetails'
 
 const StorybookEntry = {
   argTypes: {},
-  component: BlockDetails,
+  component: BlockDataDetails,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'Block/Details',
-} as ComponentMeta<typeof BlockDetails>
+  title: 'Block/DataDetails',
+} as ComponentMeta<typeof BlockDataDetails>
 
-const Template: ComponentStory<typeof BlockDetails> = (args) => (
+const Template: ComponentStory<typeof BlockDataDetails> = (args) => (
   <BrowserRouter>
-    <BlockDetails {...args}></BlockDetails>
+    <BlockDataDetails {...args}></BlockDataDetails>
   </BrowserRouter>
 )
 

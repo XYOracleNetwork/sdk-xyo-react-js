@@ -11,7 +11,7 @@ export interface BlockDataDetailsProps extends FlexBoxProps {
 export const BlockDataDetails: React.FC<BlockDataDetailsProps> = ({ block, ...props }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <FlexRow margin={1} justifyContent="flex-start">
+      <FlexRow justifyContent="start" margin={1}>
         <Typography>Data</Typography>
         <QuickTipButton title="Block Data">
           The protocol fields for the block. All these fields are used to generate the hash.
