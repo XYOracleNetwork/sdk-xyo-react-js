@@ -1,14 +1,14 @@
 import { Typography, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/sdk-xyo-client-js'
 
-export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
-  payload?: XyoPayload
+export interface BlockHashSourceDetailsProps extends FlexBoxProps {
+  block?: XyoBoundWitness
 }
 
-export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> = ({ payload, ...props }) => {
+export const BlockHashSourceDetails: React.FC<BlockHashSourceDetailsProps> = ({ block, ...props }) => {
   const theme = useTheme()
-  const payloadWrapper = payload ? new XyoPayloadWrapper(payload) : null
+  const boundWitnessWrapper = block ? new XyoBoundWitnessWrapper(block) : null
 
   return (
     <FlexCol alignItems="stretch" {...props}>
@@ -23,7 +23,7 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
           variant="body1"
           sx={{ overflowWrap: 'break-word', wordBreak: 'break-all' }}
         >
-          {payloadWrapper?.sortedStringify() ?? ''}
+          {boundWitnessWrapper?.sortedStringify() ?? ''}
         </Typography>
       </FlexGrowCol>
     </FlexCol>

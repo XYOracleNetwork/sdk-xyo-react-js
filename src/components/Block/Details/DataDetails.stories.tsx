@@ -1,24 +1,23 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { samplePayload } from '../../../.storybook'
-import { appThemeDecorator } from '../../.storybook'
-import { PayloadTable } from './Table'
+import { appThemeDecorator, sampleBlockWithPreviousHash } from '../../.storybook'
+import { BlockDataDetails } from './DataDetails'
 
 const StorybookEntry = {
   argTypes: {},
-  component: PayloadTable,
+  component: BlockDataDetails,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'Payload/Table',
-} as ComponentMeta<typeof PayloadTable>
+  title: 'Block/DataDetails',
+} as ComponentMeta<typeof BlockDataDetails>
 
-const Template: ComponentStory<typeof PayloadTable> = (args) => (
+const Template: ComponentStory<typeof BlockDataDetails> = (args) => (
   <BrowserRouter>
-    <PayloadTable {...args}></PayloadTable>
+    <BlockDataDetails {...args}></BlockDataDetails>
   </BrowserRouter>
 )
 
@@ -27,8 +26,8 @@ Default.args = {}
 Default.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.args = { payloads: [samplePayload] }
 WithData.decorators = [appThemeDecorator]
+WithData.args = { block: sampleBlockWithPreviousHash }
 
 export { Default, WithData }
 

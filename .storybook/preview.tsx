@@ -1,4 +1,4 @@
-import { FlexGrowRow } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/sdk-react'
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { ThemeProvider as Emotion10ThemeProvider } from 'emotion-theming';
 import { useDarkMode } from 'storybook-dark-mode';
@@ -30,9 +30,9 @@ const withThemeProvider = (Story, context) => {
     <Emotion10ThemeProvider theme={defaultTheme}>
       <ThemeProvider theme={defaultTheme}>
       <CssBaseline enableColorScheme />
-      <FlexGrowRow>
+      <FlexCol alignItems="unset">
         <Story {...context}/>
-      </FlexGrowRow>
+      </FlexCol>
       </ThemeProvider>
     </Emotion10ThemeProvider>
   );
