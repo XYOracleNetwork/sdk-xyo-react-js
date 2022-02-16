@@ -9,7 +9,7 @@ import { Value } from './Value'
 export const Property: React.FC<PropertyProps> = (props) => {
   const theme = useTheme()
   const belowSm = useMediaQuery(theme.breakpoints.down('sm'))
-  const { title, value, children, maxTitleWidth = 180, paddingFactor = 3, tip, actions, required, ...boxProps } = props
+  const { title, value, children, maxTitleWidth = 180, paddingFactor = 1, tip, actions, required, ...boxProps } = props
 
   return (
     <FlexRow
