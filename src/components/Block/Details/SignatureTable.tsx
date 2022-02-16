@@ -1,6 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
+import { ScrollTableOnSm } from '../../ScrollTableOnSm'
 import { BlockSignatureTableRow } from './SignatureTableRow'
 
 export interface BlockSignatureTableProps extends TableProps {
@@ -28,30 +29,32 @@ const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitness) => {
 export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
   return (
-    <Table {...props}>
-      <TableHead>
-        <TableRow>
-          <TableCell>
-            <Typography variant="caption">Hash</Typography>
-          </TableCell>
-          <TableCell align="center">
-            <Typography variant="caption">Previous Hash</Typography>
-          </TableCell>
-          <TableCell align="center">
-            <Typography variant="caption">Signature</Typography>
-          </TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {signatureData?.map((data, index) => (
-          <BlockSignatureTableRow
-            key={index}
-            address={data.address}
-            previousHash={data.previous_hash}
-            signature={data.signature}
-          />
-        ))}
-      </TableBody>
-    </Table>
+    <ScrollTableOnSm>
+      <Table {...props}>
+        <TableHead>
+          <TableRow>
+            <TableCell>
+              <Typography variant="caption">Hash</Typography>
+            </TableCell>
+            <TableCell align="center">
+              <Typography variant="caption">Previous Hash</Typography>
+            </TableCell>
+            <TableCell align="center">
+              <Typography variant="caption">Signature</Typography>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {signatureData?.map((data, index) => (
+            <BlockSignatureTableRow
+              key={index}
+              address={data.address}
+              previousHash={data.previous_hash}
+              signature={data.signature}
+            />
+          ))}
+        </TableBody>
+      </Table>
+    </ScrollTableOnSm>
   )
 }

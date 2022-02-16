@@ -15,9 +15,9 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({
 }) => {
   return (
     <TableRow {...props}>
-      <TableCell>{address ? ellipsize(address, 2) : null}</TableCell>
-      <TableCell align="center">{previousHash ? ellipsize(previousHash, 2) : '-'}</TableCell>
-      <TableCell align="center">{signature ? ellipsize(signature, 2) : '-'}</TableCell>
+      <TableCell>{address ? ellipsize(address, 10) : null}</TableCell>
+      <TableCell align="center">{previousHash ? ellipsize(previousHash, 10) : '-'}</TableCell>
+      <TableCell align="center">{signature ? ellipsize(signature, 10) : '-'}</TableCell>
     </TableRow>
   )
 }

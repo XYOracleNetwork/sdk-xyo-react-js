@@ -17,7 +17,7 @@ export const BlockPayloads: React.FC<BlockPayloadsProps> = ({ payloads, payloadT
         <Typography>Payloads</Typography>
         <QuickTipButton title="Payloads">The hash and schema for each payload witnessed</QuickTipButton>
       </FlexRow>
-      <Property paddingY={2} value={!!payloads}>
+      <Property value={!!payloads}>
         <PayloadTable payloads={payloads} {...payloadTableProps} />
       </Property>
     </FlexCol>
