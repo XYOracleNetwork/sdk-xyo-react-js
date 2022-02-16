@@ -1,4 +1,4 @@
-import { Typography, useTheme } from '@mui/material'
+import { Typography } from '@mui/material'
 import { Variant } from '@mui/material/styles/createTypography'
 
 export interface ValueProps {

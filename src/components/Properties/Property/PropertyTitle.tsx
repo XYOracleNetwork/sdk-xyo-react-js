@@ -2,11 +2,12 @@ import { Typography, useMediaQuery, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { ReactNode } from 'react'
 
-export interface PropertyTitleProps extends FlexBoxProps {
+import { PropertyHeroProps } from './PropertyHeroProps'
+
+export interface PropertyTitleProps extends PropertyHeroProps, FlexBoxProps {
   tip?: ReactNode
   title?: string
   paddingFactor: number
-  isHero?: boolean
 }
 
 export const PropertyTitle: React.FC<PropertyTitleProps> = ({

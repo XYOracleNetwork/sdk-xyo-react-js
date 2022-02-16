@@ -38,7 +38,7 @@ export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, blo
 
   return (
     <FlexGrowCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
-      <BlockDataDetails block={block} />
+      <BlockDataDetails block={block} isHero={true} showBadge={true} />
       <BlockMetaDetails block={block} />
       <BlockSignatureDetails block={block} />
       <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} {...blockPayloadsProps} />

@@ -1,4 +1,5 @@
 import { Link, TableCell, TableRow, TableRowProps } from '@mui/material'
+import { ellipsize } from '@xylabs/sdk-js'
 import { LinkToEx } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
 import { DateTime } from 'luxon'
@@ -18,10 +19,12 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
       <TableCell>
         {exploreDomain ? (
           <Link target="_blank" href={`${exploreDomain}/archive/${payload?._archive}/payload/hash/${payload?._hash}`}>
-            {payload?._hash}
+            {ellipsize(payload?._hash || '', 4)}
           </Link>
         ) : (
-          <LinkToEx to={`/archive/${payload?._archive}/payload/hash/${payload?._hash}`}>{payload?._hash}</LinkToEx>
+          <LinkToEx to={`/archive/${payload?._archive}/payload/hash/${payload?._hash}`}>
+            {ellipsize(payload?._hash || '', 12)}
+          </LinkToEx>
         )}
       </TableCell>
       <TableCell align="center">{payload?._archive}</TableCell>
