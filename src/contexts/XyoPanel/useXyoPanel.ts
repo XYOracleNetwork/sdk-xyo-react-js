@@ -4,6 +4,6 @@ import { useContext } from 'react'
 import { XyoPanelContext } from './Context'
 
 export const useXyoPanel = () => {
-  const { panel } = useContext(XyoPanelContext)
-  return assertEx(panel, 'XyoPanel not initialized')
+  const { panel, history, busyReporting, reportingErrors } = useContext(XyoPanelContext)
+  return { busyReporting, history, panel: assertEx(panel, 'XyoPanel not initialized'), reportingErrors }
 }
