@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { samplePayload, samplePayloadFromBuilder } from '../../.storybook'
+import { appThemeDecorator, samplePayload, samplePayloadFromBuilder } from '../../.storybook'
 import { PayloadDetails } from './Details'
 
 const StorybookEntry = {
@@ -18,9 +18,11 @@ const Template: ComponentStory<typeof PayloadDetails> = (args) => <PayloadDetail
 
 const Default = Template.bind({})
 Default.args = {}
+Default.decorators = [appThemeDecorator]
 
 const WithSample = Template.bind({})
 WithSample.args = { payload: samplePayload }
+WithSample.decorators = [appThemeDecorator]
 
 const WithBuilderSample = Template.bind({})
 WithBuilderSample.args = { payload: samplePayloadFromBuilder }
