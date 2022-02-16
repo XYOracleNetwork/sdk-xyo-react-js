@@ -37,7 +37,7 @@ const AuthStatusIndicator = () => {
 
   return (
     <Box alignItems="center" display="flex" justifyContent="center">
-      {currentAccount && <Typography variant="body1">{currentAccount}</Typography>}
+      {currentAccount && <Typography variant="caption">{currentAccount}</Typography>}
       <Link onClick={handleClick}>
         <IconButton title={iconHint}>
           <FaUserCircle color={iconColor} />
