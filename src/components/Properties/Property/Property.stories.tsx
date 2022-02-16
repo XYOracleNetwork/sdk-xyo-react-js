@@ -31,6 +31,7 @@ WithTip.decorators = [appThemeDecorator]
 const WithHero = Template.bind({})
 WithHero.args = {
   isHero: true,
+  showBadge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
   value: sampleBlockWithPreviousHash._hash,

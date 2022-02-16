@@ -19,6 +19,7 @@ export const Property: React.FC<PropertyProps> = (props) => {
     tip,
     actions,
     required,
+    showBadge = false,
     ...boxProps
   } = props
 
@@ -41,16 +42,16 @@ export const Property: React.FC<PropertyProps> = (props) => {
               title={title}
               paddingFactor={paddingFactor}
             />
-            {isHero && typeof value === 'string' && (
+            {showBadge && typeof value === 'string' && (
               <Paper
-                elevation={1}
+                elevation={0}
                 sx={{
-                  border: `1px solid ${theme.palette.divider}`,
-                  borderRadius: '25px',
+                  borderBottom: `1px solid ${theme.palette.divider}`,
+                  borderLeft: `1px solid ${theme.palette.divider}`,
                   padding: theme.spacing(1),
                   position: 'absolute',
-                  right: '-20px',
-                  top: '-20px',
+                  right: 0,
+                  top: 0,
                 }}
               >
                 <Identicon size={25} value={value} />
@@ -73,7 +74,11 @@ export const Property: React.FC<PropertyProps> = (props) => {
             </FlexGrowRow>
           ) : (
             <>
-              {children ? children : <Value value={value} paddingFactor={paddingFactor} />}
+              {children ? (
+                children
+              ) : (
+                <Value value={value} paddingFactor={paddingFactor} typographyVariant={isHero ? 'h6' : undefined} />
+              )}
               <PropertyActions actions={actions} marginX={2} />
             </>
           )}

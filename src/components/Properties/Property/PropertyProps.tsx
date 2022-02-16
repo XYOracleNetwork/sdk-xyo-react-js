@@ -12,4 +12,5 @@ export interface PropertyProps extends FlexBoxProps {
   value?: string | number | boolean | null
   paddingFactor?: number
   isHero?: boolean
+  showBadge?: boolean
 }
