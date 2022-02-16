@@ -1,6 +1,7 @@
-import { CircularProgress, Grid, Paper, useMediaQuery, useTheme } from '@mui/material'
-import { FlexGrowRow, FlexRow, Identicon } from '@xylabs/sdk-react'
+import { CircularProgress, Grid, useMediaQuery, useTheme } from '@mui/material'
+import { FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
 
+import { IdenticonCorner } from './IdenticonCorner'
 import { PropertyActions } from './PropertyActions'
 import { PropertyProps } from './PropertyProps'
 import { PropertyTitle } from './PropertyTitle'
@@ -42,21 +43,7 @@ export const Property: React.FC<PropertyProps> = (props) => {
               title={title}
               paddingFactor={paddingFactor}
             />
-            {showBadge && typeof value === 'string' && (
-              <Paper
-                elevation={0}
-                sx={{
-                  borderBottom: `1px solid ${theme.palette.divider}`,
-                  borderLeft: `1px solid ${theme.palette.divider}`,
-                  padding: theme.spacing(1),
-                  position: 'absolute',
-                  right: 0,
-                  top: 0,
-                }}
-              >
-                <Identicon size={25} value={value} />
-              </Paper>
-            )}
+            {showBadge && typeof value === 'string' && <IdenticonCorner value={value} />}
           </Grid>
         ) : null}
         <Grid
