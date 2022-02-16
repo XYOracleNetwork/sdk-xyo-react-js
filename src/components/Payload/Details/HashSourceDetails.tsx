@@ -16,7 +16,7 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
         <Typography>Hash Source</Typography>
         <QuickTipButton title="Hash Source">The actual string used to generate the hash (SHA256)</QuickTipButton>
       </FlexRow>
-      <FlexGrowCol border={1} borderColor={theme.palette.divider}>
+      <FlexGrowCol border={1} borderColor={theme.palette.divider} alignItems="start">
         <Typography
           padding={2}
           fontFamily="monospace"
