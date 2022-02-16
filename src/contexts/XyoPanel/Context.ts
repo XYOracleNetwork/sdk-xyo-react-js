@@ -4,6 +4,8 @@ import { createContext } from 'react'
 export interface XyoPanelContextProps {
   panel?: XyoPanel
   history?: XyoBoundWitness[]
+  busyReporting?: boolean
+  reportingErrors?: Error[]
 }
 
 export const XyoPanelContext = createContext<XyoPanelContextProps>({})
