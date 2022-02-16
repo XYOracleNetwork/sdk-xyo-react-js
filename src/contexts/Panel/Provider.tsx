@@ -78,7 +78,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
       setPanel(panel)
       await delay(0)
     },
-    [address, archivists, witnesses, panel, inlinePayloads]
+    [address, archivists, witnesses, inlinePayloads]
   )
 
   useEffect(() => {
