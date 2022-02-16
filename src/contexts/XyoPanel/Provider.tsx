@@ -33,7 +33,7 @@ const getDefaultArchivists = () => {
   })
 }
 
-export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
+export const XyoPanelProvider: React.FC<XyoPanelLoaderProps> = ({
   inlinePayloads = false,
   address = XyoAddress.random(),
   archivists = getDefaultArchivists(),
@@ -43,6 +43,8 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
   console.log('XyoPanelLoader')
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
+  const [busyReporting, setBusyReporting] = useState(false)
+  const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   useEffect(() => {
     if (!panel) {
@@ -56,6 +58,13 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
         onHistoryRemove: () => {
           setHistory(assertEx(panel).history.map((item) => item))
         },
+        onReportEnd: (_, errors?: Error[]) => {
+          setBusyReporting(false)
+          setReportingErrors(errors)
+        },
+        onReportStart: () => {
+          setBusyReporting(true)
+        },
         witnesses,
       })
       setPanel(panel)
@@ -63,5 +72,9 @@ export const XyoPanelLoader: React.FC<XyoPanelLoaderProps> = ({
     }
   }, [address, archivists, witnesses, panel, inlinePayloads])
 
-  return <XyoPanelContext.Provider value={{ history, panel }}>{panel ? children : null}</XyoPanelContext.Provider>
+  return (
+    <XyoPanelContext.Provider value={{ busyReporting, history, panel, reportingErrors }}>
+      {panel ? children : null}
+    </XyoPanelContext.Provider>
+  )
 }
