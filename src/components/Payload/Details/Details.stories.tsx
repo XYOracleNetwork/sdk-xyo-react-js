@@ -26,6 +26,7 @@ WithSample.decorators = [appThemeDecorator]
 
 const WithBuilderSample = Template.bind({})
 WithBuilderSample.args = { payload: samplePayloadFromBuilder }
+WithBuilderSample.decorators = [appThemeDecorator]
 
 export { Default, WithBuilderSample, WithSample }
 
