@@ -11,10 +11,9 @@ interface ArchivistApiContext extends ArchivistApiState {
 }
 
 const useArchivistApi = () => {
-  const context = useContext(ArchivistApiContext)
-  assertEx(context.api, 'Archivist Api not initialized')
+  const { api, currentToken } = useContext(ArchivistApiContext)
 
-  return context as ArchivistApiContext
+  return { api: assertEx(api, 'Archivist Api not initialized'), currentToken }
 }
 
 export { useArchivistApi }

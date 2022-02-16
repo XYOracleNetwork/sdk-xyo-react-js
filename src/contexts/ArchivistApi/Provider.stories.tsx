@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.storybook'
 import { AuthServiceWrapper } from '../../components'
 import { useAuthState } from '../Auth'
-import { ArchivistApiLoader } from './Loader'
+import { ArchivistApiLoader } from './Provider'
 import { useArchivistApi } from './useArchivist'
 
 const StorybookEntry = {
