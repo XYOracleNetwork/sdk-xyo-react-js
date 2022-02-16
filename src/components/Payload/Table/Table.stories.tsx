@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { samplePayload } from '../../../.storybook'
+import { appThemeDecorator } from '../../.storybook'
 import { PayloadTable } from './Table'
 
 const StorybookEntry = {
@@ -23,9 +24,11 @@ const Template: ComponentStory<typeof PayloadTable> = (args) => (
 
 const Default = Template.bind({})
 Default.args = {}
+Default.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
 WithData.args = { payloads: [samplePayload] }
+WithData.decorators = [appThemeDecorator]
 
 export { Default, WithData }
 
