@@ -6,7 +6,7 @@ import { ArchivistApiContext } from './Context'
 export interface ArchivistApiProviderProps {
   apiDomain: string
   archive: string
-  jwtToken: string | undefined
+  jwtToken?: string
 }
 
 export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
@@ -18,7 +18,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
   const [api, setApi] = useState<XyoArchivistApi>()
 
   // allows children to know the token was set before calling the api
-  const [currentToken, setCurrentToken] = useState<string>()
+  const [currentToken, setCurrentToken] = useState<string | undefined>()
 
   useEffect(() => {
     setApi(archive ? new XyoArchivistApi({ apiDomain, archive, jwtToken }) : undefined)

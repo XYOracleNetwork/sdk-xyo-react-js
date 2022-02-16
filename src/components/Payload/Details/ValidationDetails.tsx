@@ -21,9 +21,10 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
   const bodyErrors = skipBody ? [] : validator?.body.all() ?? []
   const metaErrors = skipMeta ? [] : validator?.meta.all() ?? []
   const errors: Error[] = [...bodyErrors, ...metaErrors]
+  console.log(value)
 
   return (
-    <FlexCol alignItems="stretch" {...props}>
+    <FlexCol alignItems="start" {...props}>
       <FlexRow margin={1} justifyContent="flex-start">
         <Typography>Validation</Typography>
         <QuickTipButton title="Block Validation">The results from validating the payload</QuickTipButton>
@@ -45,6 +46,9 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
             )
           }
         />
+        {value?.schema && (
+          <Property flexGrow={1} title="Schema" value={value?.schema} tip="Schema sent with the payload"></Property>
+        )}
       </FlexRow>
     </FlexCol>
   )

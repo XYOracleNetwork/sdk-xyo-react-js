@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { sampleBlock, sampleBlockWithPreviousHash } from '../../.storybook'
+import { appThemeDecorator, sampleBlock, sampleBlockWithPreviousHash } from '../../.storybook'
 import { BlockSignatureTable } from './SignatureTable'
 
 const StorybookEntry = {
@@ -20,12 +20,15 @@ const Template: ComponentStory<typeof BlockSignatureTable> = (args) => (
 
 const Default = Template.bind({})
 Default.args = {}
+Default.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
 WithData.args = { block: sampleBlock }
+WithData.decorators = [appThemeDecorator]
 
 const WithDataAndPreviousHash = Template.bind({})
 WithDataAndPreviousHash.args = { block: sampleBlockWithPreviousHash }
+WithDataAndPreviousHash.decorators = [appThemeDecorator]
 
 export { Default, WithData, WithDataAndPreviousHash }
 

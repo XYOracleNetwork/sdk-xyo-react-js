@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { sampleBlock } from '../../.storybook'
 import { BlockTable } from './Table'
@@ -14,7 +15,11 @@ const StorybookEntry = {
   title: 'Block/Table',
 } as ComponentMeta<typeof BlockTable>
 
-const Template: ComponentStory<typeof BlockTable> = (args) => <BlockTable {...args}></BlockTable>
+const Template: ComponentStory<typeof BlockTable> = (args) => (
+  <BrowserRouter>
+    <BlockTable {...args}></BlockTable>
+  </BrowserRouter>
+)
 
 const Default = Template.bind({})
 Default.args = {}

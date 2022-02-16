@@ -10,8 +10,8 @@ export interface BlockMetaDetails extends FlexBoxProps {
 
 export const BlockMetaDetails: React.FC<BlockMetaDetails> = ({ block, ...props }) => {
   return (
-    <FlexCol alignItems="flex-start" {...props}>
-      <FlexRow margin={1} justifyContent="flex-start">
+    <FlexCol alignItems="start" {...props}>
+      <FlexRow margin={1} justifyContent="start">
         <Typography>Meta</Typography>
         <QuickTipButton title="Block Meta">The meta fields added to the record by the archivist</QuickTipButton>
       </FlexRow>

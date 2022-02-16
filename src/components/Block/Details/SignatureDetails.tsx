@@ -16,7 +16,7 @@ export const BlockSignatureDetails: React.FC<BlockSignatureDetailsProps> = ({ bl
         <Typography>Signatures</Typography>
         <QuickTipButton title="Block Data">The list of signatures for this block.</QuickTipButton>
       </FlexRow>
-      <Property paddingY={2} value={!!block}>
+      <Property value={!!block}>
         <BlockSignatureTable block={block} />
       </Property>
     </FlexCol>

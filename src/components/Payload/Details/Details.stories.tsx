@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { samplePayload, samplePayloadFromBuilder } from '../../.storybook'
+import { appThemeDecorator, samplePayload, samplePayloadFromBuilder } from '../../.storybook'
 import { PayloadDetails } from './Details'
 
 const StorybookEntry = {
@@ -14,18 +14,19 @@ const StorybookEntry = {
   title: 'Payload/Details',
 } as ComponentMeta<typeof PayloadDetails>
 
-const Template: ComponentStory<typeof PayloadDetails> = (args) => (
-  <PayloadDetails flexGrow={1} {...args}></PayloadDetails>
-)
+const Template: ComponentStory<typeof PayloadDetails> = (args) => <PayloadDetails {...args}></PayloadDetails>
 
 const Default = Template.bind({})
 Default.args = {}
+Default.decorators = [appThemeDecorator]
 
 const WithSample = Template.bind({})
 WithSample.args = { payload: samplePayload }
+WithSample.decorators = [appThemeDecorator]
 
 const WithBuilderSample = Template.bind({})
 WithBuilderSample.args = { payload: samplePayloadFromBuilder }
+WithBuilderSample.decorators = [appThemeDecorator]
 
 export { Default, WithBuilderSample, WithSample }
 
