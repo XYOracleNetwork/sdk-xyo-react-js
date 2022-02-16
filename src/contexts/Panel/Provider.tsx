@@ -1,5 +1,5 @@
-import { assertEx } from '@xylabs/sdk-js'
-import { useMounted } from '@xylabs/sdk-react'
+import { assertEx, delay } from '@xylabs/sdk-js'
+import { useAsyncEffect } from '@xylabs/sdk-react'
 import {
   XyoAddress,
   XyoArchivistApi,
@@ -46,38 +46,40 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
   const [busyReporting, setBusyReporting] = useState(false)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
-  const mounted = useMounted()
-
-  useEffect(() => {
-    const panel = new XyoPanel({
-      address,
-      archivists,
-      inlinePayloads,
-      onHistoryAdd: () => {
-        if (mounted()) {
-          setHistory(assertEx(panel).history.map((item) => item))
-        }
-      },
-      onHistoryRemove: () => {
-        if (mounted()) {
-          setHistory(assertEx(panel).history.map((item) => item))
-        }
-      },
-      onReportEnd: (_, errors?: Error[]) => {
-        if (mounted()) {
-          setBusyReporting(false)
-          setReportingErrors(errors)
-        }
-      },
-      onReportStart: () => {
-        if (mounted()) {
-          setBusyReporting(true)
-        }
-      },
-      witnesses,
-    })
-    setPanel(panel)
-  }, [address, archivists, witnesses, panel, inlinePayloads, mounted])
+  useAsyncEffect(
+    async (mounted) => {
+      const panel = new XyoPanel({
+        address,
+        archivists,
+        inlinePayloads,
+        onHistoryAdd: () => {
+          if (mounted()) {
+            setHistory(assertEx(panel).history.map((item) => item))
+          }
+        },
+        onHistoryRemove: () => {
+          if (mounted()) {
+            setHistory(assertEx(panel).history.map((item) => item))
+          }
+        },
+        onReportEnd: (_, errors?: Error[]) => {
+          if (mounted()) {
+            setBusyReporting(false)
+            setReportingErrors(errors)
+          }
+        },
+        onReportStart: () => {
+          if (mounted()) {
+            setBusyReporting(true)
+          }
+        },
+        witnesses,
+      })
+      setPanel(panel)
+      await delay(0)
+    },
+    [address, archivists, witnesses, panel, inlinePayloads]
+  )
 
   useEffect(() => {
     setHistory(panel?.history)
