@@ -1,4 +1,5 @@
 import { assertEx } from '@xylabs/sdk-js'
+import { useMounted } from '@xylabs/sdk-react'
 import {
   XyoAddress,
   XyoArchivistApi,
@@ -13,7 +14,7 @@ import { useEffect, useState } from 'react'
 
 import { XyoPanelContext } from './Context'
 
-export interface XyoPanelLoaderProps {
+export interface XyoPanelProviderProps {
   address?: XyoAddress
   archivists?: XyoArchivistApi[]
   inlinePayloads?: boolean
@@ -29,48 +30,58 @@ const getDefaultArchivists = () => {
   ]
 
   return archivistConfigs.map((config) => {
-    return XyoArchivistApi.get(config)
+    return new XyoArchivistApi(config)
   })
 }
 
-export const XyoPanelProvider: React.FC<XyoPanelLoaderProps> = ({
+export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
   inlinePayloads = false,
   address = XyoAddress.random(),
   archivists = getDefaultArchivists(),
   witnesses = [new XyoSystemInfoWitness()],
   children,
 }) => {
-  console.log('XyoPanelLoader')
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
   const [busyReporting, setBusyReporting] = useState(false)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
+  const mounted = useMounted()
+
   useEffect(() => {
-    if (!panel) {
-      const panel = new XyoPanel({
-        address,
-        archivists,
-        inlinePayloads,
-        onHistoryAdd: () => {
+    const panel = new XyoPanel({
+      address,
+      archivists,
+      inlinePayloads,
+      onHistoryAdd: () => {
+        if (mounted()) {
           setHistory(assertEx(panel).history.map((item) => item))
-        },
-        onHistoryRemove: () => {
+        }
+      },
+      onHistoryRemove: () => {
+        if (mounted()) {
           setHistory(assertEx(panel).history.map((item) => item))
-        },
-        onReportEnd: (_, errors?: Error[]) => {
+        }
+      },
+      onReportEnd: (_, errors?: Error[]) => {
+        if (mounted()) {
           setBusyReporting(false)
           setReportingErrors(errors)
-        },
-        onReportStart: () => {
+        }
+      },
+      onReportStart: () => {
+        if (mounted()) {
           setBusyReporting(true)
-        },
-        witnesses,
-      })
-      setPanel(panel)
-      setHistory(panel.history)
-    }
-  }, [address, archivists, witnesses, panel, inlinePayloads])
+        }
+      },
+      witnesses,
+    })
+    setPanel(panel)
+  }, [address, archivists, witnesses, panel, inlinePayloads, mounted])
+
+  useEffect(() => {
+    setHistory(panel?.history)
+  }, [panel])
 
   return (
     <XyoPanelContext.Provider value={{ busyReporting, history, panel, reportingErrors }}>
