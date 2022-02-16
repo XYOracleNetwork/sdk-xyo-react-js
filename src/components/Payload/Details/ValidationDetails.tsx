@@ -21,7 +21,6 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
   const bodyErrors = skipBody ? [] : validator?.body.all() ?? []
   const metaErrors = skipMeta ? [] : validator?.meta.all() ?? []
   const errors: Error[] = [...bodyErrors, ...metaErrors]
-  console.log(value)
 
   return (
     <FlexCol alignItems="start" {...props}>
