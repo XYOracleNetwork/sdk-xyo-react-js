@@ -1,4 +1,4 @@
-import { styled } from '@mui/system'
+import { styled } from '@mui/material'
 
 const StyledScrollTableOnSm = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
