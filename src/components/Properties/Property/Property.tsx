@@ -1,5 +1,5 @@
-import { CircularProgress, Grid, useMediaQuery, useTheme } from '@mui/material'
-import { FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
+import { CircularProgress, Grid, Paper, useMediaQuery, useTheme } from '@mui/material'
+import { FlexGrowRow, FlexRow, Identicon } from '@xylabs/sdk-react'
 
 import { PropertyActions } from './PropertyActions'
 import { PropertyProps } from './PropertyProps'
@@ -9,7 +9,18 @@ import { Value } from './Value'
 export const Property: React.FC<PropertyProps> = (props) => {
   const theme = useTheme()
   const belowSm = useMediaQuery(theme.breakpoints.down('sm'))
-  const { title, value, children, maxTitleWidth = 180, paddingFactor = 1, tip, actions, required, ...boxProps } = props
+  const {
+    title,
+    value,
+    children,
+    isHero = false,
+    maxTitleWidth = 180,
+    paddingFactor = 1,
+    tip,
+    actions,
+    required,
+    ...boxProps
+  } = props
 
   return (
     <FlexRow
@@ -22,8 +33,29 @@ export const Property: React.FC<PropertyProps> = (props) => {
     >
       <Grid container>
         {title ? (
-          <Grid display="flex" xs={12} sm="auto" item={true} alignItems="start">
-            <PropertyTitle maxWidth={maxTitleWidth} tip={tip} title={title} paddingFactor={paddingFactor} />
+          <Grid display="flex" xs={12} sm={isHero ? 12 : 'auto'} item={true} alignItems="start">
+            <PropertyTitle
+              isHero={isHero}
+              maxWidth={isHero ? 'auto' : maxTitleWidth}
+              tip={tip}
+              title={title}
+              paddingFactor={paddingFactor}
+            />
+            {isHero && typeof value === 'string' && (
+              <Paper
+                elevation={1}
+                sx={{
+                  border: `1px solid ${theme.palette.divider}`,
+                  borderRadius: '25px',
+                  padding: theme.spacing(1),
+                  position: 'absolute',
+                  right: '-20px',
+                  top: '-20px',
+                }}
+              >
+                <Identicon size={25} value={value} />
+              </Paper>
+            )}
           </Grid>
         ) : null}
         <Grid

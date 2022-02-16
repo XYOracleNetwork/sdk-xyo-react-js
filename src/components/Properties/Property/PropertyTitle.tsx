@@ -6,20 +6,27 @@ export interface PropertyTitleProps extends FlexBoxProps {
   tip?: ReactNode
   title?: string
   paddingFactor: number
+  isHero?: boolean
 }
 
-export const PropertyTitle: React.FC<PropertyTitleProps> = ({ tip, title, paddingFactor, ...props }) => {
+export const PropertyTitle: React.FC<PropertyTitleProps> = ({
+  isHero = false,
+  tip,
+  title,
+  paddingFactor,
+  ...props
+}) => {
   const theme = useTheme()
   const aboveSm = useMediaQuery(theme.breakpoints.up('sm'))
 
   return (
     <FlexRow
-      borderRight={aboveSm ? `solid 1px ${theme.palette.divider}` : 'none'}
+      borderRight={aboveSm && isHero === false ? `solid 1px ${theme.palette.divider}` : 'none'}
       justifyContent="flex-start"
       padding={theme.spacing(paddingFactor, paddingFactor)}
       {...props}
     >
-      <Typography noWrap variant="caption">
+      <Typography noWrap variant={isHero ? 'h2' : 'caption'} fontWeight={isHero ? 'bold' : 'regular'}>
         {title}
       </Typography>
       {tip ? <QuickTipButton title={title ?? ''}>{tip}</QuickTipButton> : null}
