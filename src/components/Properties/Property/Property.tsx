@@ -7,22 +7,22 @@ import { PropertyProps } from './PropertyProps'
 import { PropertyTitle } from './PropertyTitle'
 import { Value } from './Value'
 
-export const Property: React.FC<PropertyProps> = (props) => {
+export const Property: React.FC<PropertyProps> = ({
+  title,
+  value,
+  children,
+  hero = false,
+  maxTitleWidth = 180,
+  paddingFactor = 1,
+  tip,
+  actions,
+  required,
+  showBadge = false,
+  ...props
+}) => {
   const theme = useTheme()
   const belowSm = useMediaQuery(theme.breakpoints.down('sm'))
-  const {
-    title,
-    value,
-    children,
-    isHero = false,
-    maxTitleWidth = 180,
-    paddingFactor = 1,
-    tip,
-    actions,
-    required,
-    showBadge = false,
-    ...boxProps
-  } = props
+  const minHeight = 48
 
   return (
     <FlexRow
@@ -31,32 +31,33 @@ export const Property: React.FC<PropertyProps> = (props) => {
       border={1}
       borderColor={required && value === undefined ? theme.palette.error.main : theme.palette.divider}
       borderRadius={1}
-      {...boxProps}
+      {...props}
     >
       <Grid container>
         {title ? (
-          <Grid display="flex" xs={12} sm={isHero ? 12 : 'auto'} item={true} alignItems="start">
+          <Grid display="flex" xs={12} sm={hero ? 12 : 'auto'} item alignItems="center" justifyContent="space-between">
             <PropertyTitle
-              isHero={isHero}
-              maxWidth={isHero ? 'auto' : maxTitleWidth}
+              hero={hero}
+              maxWidth={hero ? 'auto' : maxTitleWidth}
+              minHeight={minHeight}
               tip={tip}
               title={title}
               paddingFactor={paddingFactor}
             />
+            {belowSm ? <PropertyActions actions={actions} /> : null}
             {showBadge && typeof value === 'string' && <IdenticonCorner value={value} />}
           </Grid>
         ) : null}
         <Grid
           borderTop={belowSm && title ? `1px solid ${theme.palette.divider}` : 'none'}
-          sx={{ flexGrow: '1 !important' }}
           display="flex"
           xs={12}
           sm={'auto'}
-          item={true}
+          item
           alignItems="center"
         >
           {value === undefined ? (
-            <FlexGrowRow padding={paddingFactor}>
+            <FlexGrowRow minHeight={minHeight} padding={paddingFactor}>
               <CircularProgress size={16} />
             </FlexGrowRow>
           ) : (
@@ -64,9 +65,9 @@ export const Property: React.FC<PropertyProps> = (props) => {
               {children ? (
                 children
               ) : (
-                <Value value={value} paddingFactor={paddingFactor} typographyVariant={isHero ? 'h6' : undefined} />
+                <Value value={value} paddingFactor={paddingFactor} typographyVariant={hero ? 'h6' : undefined} />
               )}
-              <PropertyActions actions={actions} marginX={2} />
+              {belowSm ? null : <PropertyActions actions={actions} />}
             </>
           )}
         </Grid>
