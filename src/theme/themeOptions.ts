@@ -34,16 +34,11 @@ export const themeOptions: ThemeOptions = {
     },
   },
   palette: {
-    background: {
-      default: '#fff',
-      paper: 'rgba(255,255,255,.9)',
-    },
     mode: 'light',
     primary: {
       main: '#1f1a66',
     },
     secondary: {
-      contrastText: '#fff',
       main: '#ff722c',
     },
   },

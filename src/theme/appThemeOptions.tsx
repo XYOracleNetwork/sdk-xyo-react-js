@@ -1,6 +1,9 @@
 import { ThemeOptions } from '@mui/material'
+import merge from 'lodash/merge'
 
-const appTheme: ThemeOptions = {
+import { themeOptions } from './themeOptions'
+
+const partialAppThemeOptions: ThemeOptions = {
   components: {
     MuiTypography: {
       styleOverrides: {
@@ -31,4 +34,4 @@ const appTheme: ThemeOptions = {
   },
 }
 
-export { appTheme }
+export const appThemeOptions = merge({}, themeOptions, partialAppThemeOptions)

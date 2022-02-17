@@ -1,9 +1,7 @@
-import { FlexCol } from '@xylabs/sdk-react'
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
-import { ThemeProvider as Emotion10ThemeProvider } from 'emotion-theming';
+import { FlexCol, InvertableThemeProvider } from '@xylabs/sdk-react'
+import { CssBaseline } from '@mui/material';
 import { useDarkMode } from 'storybook-dark-mode';
-import { darkTheme, themeOptions } from '../src/theme'
-import { clone } from 'lodash';
+import { themeOptions, partialDarkThemeOptions } from '../src/theme'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -20,21 +18,15 @@ const withThemeProvider = (Story, context) => {
   // Clear the auth state with each story
   localStorage.setItem('AuthState', null)
 
-  const isDarkMode = useDarkMode()
-
-  const clonedTheme = clone(themeOptions)
-
-  const defaultTheme = createTheme(clonedTheme, isDarkMode ? {...darkTheme} : {})
+  const darkMode = useDarkMode()
 
   return (
-    <Emotion10ThemeProvider theme={defaultTheme}>
-      <ThemeProvider theme={defaultTheme}>
+    <InvertableThemeProvider dark={darkMode} darkTheme={partialDarkThemeOptions} options={themeOptions}>
       <CssBaseline enableColorScheme />
       <FlexCol alignItems="unset">
         <Story {...context}/>
       </FlexCol>
-      </ThemeProvider>
-    </Emotion10ThemeProvider>
+    </InvertableThemeProvider>
   );
 };
 
