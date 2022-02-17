@@ -1,43 +1,23 @@
-import { Link, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
 
-const Bar: React.FC = () => {
-  return (
-    <Typography marginX={1} component="span">
-      |
-    </Typography>
-  )
-}
+import { Ampersand } from '../Ampersand'
+import { Pipe } from '../Pipe'
+import { FooterLink } from './Link'
 
-const Ampersand: React.FC = () => {
-  return (
-    <Typography marginX={1} component="span">
-      &amp;
-    </Typography>
-  )
-}
-
-const Copyright: React.FC<FlexBoxProps> = (props) => (
+export const Copyright: React.FC<FlexBoxProps> = (props) => (
   <FlexRow {...props}>
     <Typography margin={1} variant="subtitle1" textAlign="center">
       Copyright &copy;&nbsp;2022&nbsp;
-      <Link href="https://xy.company/" target="_blank">
-        XY Labs, Inc.
-      </Link>
+      <FooterLink href="https://xy.company/">XY Labs, Inc.</FooterLink>
       <Ampersand />
-      <Link href="https://xyo.network/" target="_blank">
-        XYO Foundation
-      </Link>
-      <Bar />
-      <Link href="https://xy.company/privacy/" target="_blank">
-        Privacy Policy
-      </Link>
-      <Bar />
-      <Link href="https://xy.company/terms/" target="_blank">
-        Terms of Service
-      </Link>
+      <FooterLink href="https://xyo.network/">XYO Foundation</FooterLink>
+      <Pipe />
+      <FooterLink href="https://xy.company/privacy/">Privacy Policy</FooterLink>
+      <Pipe />
+      <FooterLink href="https://xy.company/terms/">Terms of Service</FooterLink>
+      <Pipe />
+      <FooterLink href="https://xylabs.com/jobs">Careers</FooterLink>
     </Typography>
   </FlexRow>
 )
-
-export { Copyright }

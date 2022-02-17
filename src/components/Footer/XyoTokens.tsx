@@ -1,19 +1,15 @@
-import { Link, Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps } from '@xylabs/sdk-react'
 import React from 'react'
 
-const XyoTokens: React.FC<FlexBoxProps> = (props) => (
-  <FlexCol {...props}>
-    <Typography margin={1} variant="h6">
-      XYO Tokens
-    </Typography>
-    <Link margin={1} href="https://xyo.network/token/" variant="body1">
-      XYO Tokens
-    </Link>
-    <Link margin={1} href="https://xyo.network/fhr/" target="_blank" variant="body1">
-      FHR Benefits
-    </Link>
-  </FlexCol>
-)
+import { FooterLink } from './Link'
+import { FooterLinks } from './Links'
 
-export { XyoTokens }
+export const XyoTokens: React.FC<FlexBoxProps> = (props) => (
+  <FooterLinks title="XYO Tokens" {...props}>
+    <FooterLink href="https://xyo.network/token">About</FooterLink>
+    <FooterLink href="https://xyo.network/token">Exchanges</FooterLink>
+    <FooterLink href="https://xyo.network/token">Prices</FooterLink>
+    <FooterLink href="https://xyo.network/token">Wallets</FooterLink>
+    <FooterLink href="https://xyo.network/token">Contract</FooterLink>
+  </FooterLinks>
+)
