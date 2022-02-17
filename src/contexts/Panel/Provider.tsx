@@ -96,12 +96,12 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
         onWitnessReportEnd: (witness: XyoWitness, error?: Error) => {
           const witnesses = progress.witnesses ?? {}
           witnesses[witness.config.schema] = {
-            status: XyoReportStatus.Started,
+            status: error ? XyoReportStatus.Failed : XyoReportStatus.Succeeded,
             witness,
           }
           setProgress({
             archivists: progress.archivists,
-            status: error ? XyoReportStatus.Failed : XyoReportStatus.Succeeded,
+            status: progress.status,
             witnesses,
           })
         },
