@@ -5,7 +5,7 @@ import { IdenticonCorner } from './IdenticonCorner'
 import { PropertyActions } from './PropertyActions'
 import { PropertyProps } from './PropertyProps'
 import { PropertyTitle } from './PropertyTitle'
-import { Value } from './Value'
+import { PropertyValue } from './Value'
 
 export const Property: React.FC<PropertyProps> = ({
   title,
@@ -65,7 +65,11 @@ export const Property: React.FC<PropertyProps> = ({
               {children ? (
                 children
               ) : (
-                <Value value={value} paddingFactor={paddingFactor} typographyVariant={hero ? 'h6' : undefined} />
+                <PropertyValue
+                  value={value}
+                  paddingFactor={paddingFactor}
+                  typographyVariant={hero ? 'h6' : undefined}
+                />
               )}
               {belowSm ? null : <PropertyActions actions={actions} />}
             </>

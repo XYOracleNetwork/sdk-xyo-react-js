@@ -5,7 +5,7 @@ import compact from 'lodash/compact'
 import { DateTime } from 'luxon'
 import { MdClear, MdDone } from 'react-icons/md'
 
-import { Value } from '../../Properties'
+import { PropertyValue } from '../../Properties'
 
 export interface BlockTableRowProps extends TableRowProps {
   block?: XyoBoundWitness
@@ -21,7 +21,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({ exploreDomain, blo
       <TableCell>
         {exploreDomain ? (
           <Link target="_blank" href={`${exploreDomain}/archive/${block?._archive}/block/hash/${block?._hash}`}>
-            <Value value={block?._hash} />
+            <PropertyValue value={block?._hash} />
           </Link>
         ) : (
           <LinkToEx to={`/archive/${block?._archive}/block/hash/${block?._hash}`}>{block?._hash}</LinkToEx>
