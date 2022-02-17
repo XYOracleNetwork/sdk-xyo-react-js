@@ -1,38 +1,35 @@
 import { Facebook, Instagram, LinkedIn, Reddit, Telegram, Twitter, YouTube } from '@mui/icons-material'
-import { Link, Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
 
-const SocialLinks: React.FC<FlexBoxProps> = (props) => {
+import { FooterLink } from './Link'
+import { FooterLinks } from './Links'
+
+export const SocialLinks: React.FC<FlexBoxProps> = (props) => {
   return (
-    <FlexCol display="flex" flexDirection="column" padding={2} {...props}>
-      <Typography margin={1} variant="h6">
-        XYO Socials
-      </Typography>
-      <FlexRow flexWrap="wrap">
-        <Link href="https://business.facebook.com/OfficialXYO/" target="_blank" variant="body1">
+    <FooterLinks title="XYO Socials" {...props}>
+      <FlexRow flexWrap="wrap" justifyContent="flex-start">
+        <FooterLink href="https://business.facebook.com/OfficialXYO/">
           <Facebook />
-        </Link>
-        <Link href="https://twitter.com/OfficialXYO" target="_blank" variant="body1">
+        </FooterLink>
+        <FooterLink href="https://twitter.com/OfficialXYO">
           <Twitter />
-        </Link>
-        <Link href="https://www.instagram.com/officialxyo/" target="_blank" variant="body1">
+        </FooterLink>
+        <FooterLink href="https://www.instagram.com/officialxyo/">
           <Instagram />
-        </Link>
-        <Link href="https://t.me/xyonetwork" target="_blank" variant="body1">
+        </FooterLink>
+        <FooterLink href="https://t.me/xyonetwork">
           <Telegram />
-        </Link>
-        <Link href="https://www.reddit.com/r/XYONetwork/" target="_blank" variant="body1">
+        </FooterLink>
+        <FooterLink href="https://www.reddit.com/r/XYONetwork/">
           <Reddit />
-        </Link>
-        <Link href="https://www.youtube.com/channel/UCyZDqb9pgntVHJVt1pxXtsw" target="_blank" variant="body1">
+        </FooterLink>
+        <FooterLink href="https://www.youtube.com/channel/UCyZDqb9pgntVHJVt1pxXtsw">
           <YouTube />
-        </Link>
-        <Link href="https://www.linkedin.com/company/officialxyo/" target="_blank" variant="body1">
+        </FooterLink>
+        <FooterLink href="https://www.linkedin.com/company/officialxyo/">
           <LinkedIn />
-        </Link>
+        </FooterLink>
       </FlexRow>
-    </FlexCol>
+    </FooterLinks>
   )
 }
-
-export { SocialLinks }
