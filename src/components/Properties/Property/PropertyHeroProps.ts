@@ -1,5 +1,5 @@
 export interface PropertyHeroProps {
-  isHero?: boolean
+  hero?: boolean
   showBadge?: boolean
   paddingFactor?: number
 }
