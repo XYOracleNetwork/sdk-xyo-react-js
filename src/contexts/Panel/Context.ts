@@ -22,13 +22,13 @@ export interface XyoArchivistApiReportProgress {
 export interface XyoPanelReportProgress {
   witnesses?: Record<string, XyoWitnessReportProgress>
   archivists?: Record<string, XyoArchivistApiReportProgress>
-  status: XyoReportStatus
 }
 
 export interface XyoPanelContextProps {
   panel?: XyoPanel
   history?: XyoBoundWitness[]
   progress?: XyoPanelReportProgress
+  status?: XyoReportStatus
   reportingErrors?: Error[]
 }
 

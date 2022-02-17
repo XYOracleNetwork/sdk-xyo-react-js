@@ -43,7 +43,8 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
 }) => {
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
-  const [progress, setProgress] = useState<XyoPanelReportProgress>({ status: XyoReportStatus.Idle })
+  const [progress, setProgress] = useState<XyoPanelReportProgress>({})
+  const [status, setStatus] = useState(XyoReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   useAsyncEffect(
@@ -58,7 +59,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
             archivist,
             status: error ? XyoReportStatus.Failed : XyoReportStatus.Succeeded,
           }
-          setProgress({ archivists, status: XyoReportStatus.Started, witnesses: progress.witnesses })
+          setProgress({ archivists, witnesses: progress.witnesses })
         },
         onArchivistSendStart: (archivist: XyoArchivistApi) => {
           const archivists = progress.archivists ?? {}
@@ -66,7 +67,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
             archivist,
             status: XyoReportStatus.Started,
           }
-          setProgress({ archivists, status: XyoReportStatus.Started, witnesses: progress.witnesses })
+          setProgress({ archivists, witnesses: progress.witnesses })
         },
         onHistoryAdd: () => {
           if (mounted()) {
@@ -82,15 +83,16 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
           if (mounted()) {
             setProgress({
               archivists: progress.archivists,
-              status: errors ? XyoReportStatus.Failed : XyoReportStatus.Succeeded,
               witnesses: progress.witnesses,
             })
+            setStatus(errors ? XyoReportStatus.Failed : XyoReportStatus.Succeeded)
             setReportingErrors(errors)
           }
         },
         onReportStart: () => {
           if (mounted()) {
-            setProgress({ archivists: {}, status: XyoReportStatus.Started, witnesses: {} })
+            setProgress({ archivists: {}, witnesses: {} })
+            setStatus(XyoReportStatus.Started)
           }
         },
         onWitnessReportEnd: (witness: XyoWitness, error?: Error) => {
@@ -101,7 +103,6 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
           }
           setProgress({
             archivists: progress.archivists,
-            status: progress.status,
             witnesses,
           })
         },
@@ -113,7 +114,6 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
           }
           setProgress({
             archivists: progress.archivists,
-            status: XyoReportStatus.Started,
             witnesses,
           })
         },
@@ -130,7 +130,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
   }, [panel])
 
   return (
-    <XyoPanelContext.Provider value={{ history, panel, progress, reportingErrors }}>
+    <XyoPanelContext.Provider value={{ history, panel, progress, reportingErrors, status }}>
       {panel ? children : null}
     </XyoPanelContext.Provider>
   )
