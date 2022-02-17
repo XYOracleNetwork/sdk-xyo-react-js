@@ -1,13 +1,17 @@
 import { Typography } from '@mui/material'
 import { Variant } from '@mui/material/styles/createTypography'
 
-export interface ValueProps {
+export interface PropertyValueProps {
   value?: string | number | boolean | null
   paddingFactor?: number
   typographyVariant?: Variant
 }
 
-export const Value: React.FC<ValueProps> = ({ value, paddingFactor, typographyVariant = 'caption' }) => {
+export const PropertyValue: React.FC<PropertyValueProps> = ({
+  value,
+  paddingFactor,
+  typographyVariant = 'caption',
+}) => {
   const customThemeProps = {
     clamped: paddingFactor,
     title: value?.toString(),
