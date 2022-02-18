@@ -54,7 +54,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.16.0, @babel/core@npm:^7.17.2, @babel/core@npm:^7.17.4, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.16.0, @babel/core@npm:^7.17.2, @babel/core@npm:^7.7.5":
   version: 7.17.4
   resolution: "@babel/core@npm:7.17.4"
   dependencies:
@@ -74,6 +74,29 @@ __metadata:
     json5: ^2.1.2
     semver: ^6.3.0
   checksum: d367259b188fde69493fea407a1c134d6bb7a0d859cbe2c0f0d1f2464143bdee0fdfd3c8d45a2cdabdf321b95dd392cbc4f55e2d0c41a842a581d37fee4cef64
+  languageName: node
+  linkType: hard
+
+"@babel/core@npm:^7.17.5":
+  version: 7.17.5
+  resolution: "@babel/core@npm:7.17.5"
+  dependencies:
+    "@ampproject/remapping": ^2.1.0
+    "@babel/code-frame": ^7.16.7
+    "@babel/generator": ^7.17.3
+    "@babel/helper-compilation-targets": ^7.16.7
+    "@babel/helper-module-transforms": ^7.16.7
+    "@babel/helpers": ^7.17.2
+    "@babel/parser": ^7.17.3
+    "@babel/template": ^7.16.7
+    "@babel/traverse": ^7.17.3
+    "@babel/types": ^7.17.0
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.1.2
+    semver: ^6.3.0
+  checksum: c5e7dddb4feaacb91175d22a6edc8e93804242328a82b80732c6e84a0647bc0a9c9d5b05f3ce13138b8e59bf7aba4ff9f7b7446302f141f243ba51df02c318a5
   languageName: node
   linkType: hard
 
@@ -5173,9 +5196,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.9.30":
-  version: 2.9.30
-  resolution: "@xylabs/sdk-react@npm:2.9.30"
+"@xylabs/sdk-react@npm:^2.9.31":
+  version: 2.9.31
+  resolution: "@xylabs/sdk-react@npm:2.9.31"
   dependencies:
     "@types/react-helmet": ^6.1.5
     "@xylabs/sdk-js": ^2.4.2
@@ -5200,7 +5223,7 @@ __metadata:
     react: ^17
     react-dom: ^17
     react-router-dom: ^6
-  checksum: 869adfe2929a40b7ba146f5da571f777d279b304ebbdaeb0ead80fc8b53022862e59db0288eeb3c74d2fdaa3b2416bfa745a3751f553cb690d07763198a7a1ae
+  checksum: 13a75d8b82255164e04479604b13aac2ab7dfa3740dc34112f7776c561930ecca68ba83820b75c012ce4636efcdb9e6aea9a94687897b1d758332d15eda7444f
   languageName: node
   linkType: hard
 
@@ -5264,38 +5287,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.9.18":
-  version: 2.9.18
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.9.18"
+"@xyo-network/sdk-xyo-client-js@npm:^2.10.6":
+  version: 2.10.6
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.10.6"
   dependencies:
     "@ethersproject/providers": ^5.5.3
     "@xylabs/sdk-js": ^2.4.2
-    "@xyo-network/sdk-xyo-mongo-js": ^2.2.6
+    "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
     axios: ^0.26.0
+    bn.js: ^5.2.0
     bowser: ^2.11.0
     buffer: ^6.0.3
     elliptic: ^6.5.4
     is-ip: ^4.0.0
     keccak256: ^1.0.6
     lodash: ^4.17.21
-    mongodb: ^4.3.1
+    mongodb: ^4.4.0
     neo4j-driver: ^4.4.2
     neo4j-driver-core: ^4.4.2
     sha.js: ^2.4.11
     systeminformation: ^5.11.3
     ua-parser-js: ^1.0.2
-  checksum: 4b994f5418029ea91d2f3c169057cde8279682ea6d0f9af76149faa868812fbe909e72f323aba3fa334d8640e13adb3a6b1aff5f0540244d7463cfe775c54216
+  checksum: 94ef71fb53fed6d2b7770567492c3fb65e10df1f0bd8b975daee3e98988243b6d6fd6c822cd7746e5f1e3d690a2090fd62df28816de4429d3f71d3a1c6cfd326
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-mongo-js@npm:^2.2.6":
-  version: 2.2.6
-  resolution: "@xyo-network/sdk-xyo-mongo-js@npm:2.2.6"
+"@xyo-network/sdk-xyo-mongo-js@npm:^2.2.7":
+  version: 2.2.7
+  resolution: "@xyo-network/sdk-xyo-mongo-js@npm:2.2.7"
   dependencies:
     "@xylabs/sdk-js": ^2.4.2
     async-mutex: ^0.3.2
-    mongodb: ^4.3.1
-  checksum: ea2a63a15b86fc8959fbd822b4c72317885d2614fed5dd03ebfc646c954657438c1f7901fcd2cb1ee22b187b94318b63e6f89defe39288f45d347c6cbf3ffb8d
+    mongodb: ^4.4.0
+  checksum: fc445735799efdf0a06f2a69af5eeb295e347070150565cb950f3734117eccc39e1167657e6fd370f67d1bc258eb96b7804386750aad63ad54bffe0c0b60d12f
   languageName: node
   linkType: hard
 
@@ -5303,7 +5327,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/sdk-xyo-react@workspace:."
   dependencies:
-    "@babel/core": ^7.17.4
+    "@babel/core": ^7.17.5
     "@emotion/react": ^11.7.1
     "@emotion/styled": ^11.6.0
     "@ethersproject/abstract-signer": ^5.5.0
@@ -5333,10 +5357,10 @@ __metadata:
     "@xylabs/pixel": ^1.3.7
     "@xylabs/rollup-config": ^1.1.7
     "@xylabs/sdk-js": ^2.4.2
-    "@xylabs/sdk-react": ^2.9.30
+    "@xylabs/sdk-react": ^2.9.31
     "@xylabs/ts-scripts": ^1.0.43
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.9.18
+    "@xyo-network/sdk-xyo-client-js": ^2.10.6
     axios: ^0.26.0
     babel-loader: ^8.2.3
     bn.js: ^5.2.0
@@ -5351,12 +5375,12 @@ __metadata:
     react-lines-ellipsis: ^0.15.0
     react-router-dom: ^6.2.1
     rimraf: ^3.0.2
-    rollup: ^2.67.2
-    storybook-dark-mode: ^1.0.8
+    rollup: ^2.67.3
+    storybook-dark-mode: ^1.0.9
     ts-node: ^10.5.0
     tslib: ^2.3.1
     typescript: ^4.5.5
-    webpack: ^5.69.0
+    webpack: ^5.69.1
   peerDependencies:
     "@emotion/react": ^11
     "@emotion/styled": ^11
@@ -8320,7 +8344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.9.0":
+"enhanced-resolve@npm:^5.8.3":
   version: 5.9.0
   resolution: "enhanced-resolve@npm:5.9.0"
   dependencies:
@@ -13260,9 +13284,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "mongodb@npm:4.3.1"
+"mongodb@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "mongodb@npm:4.4.0"
   dependencies:
     bson: ^4.6.1
     denque: ^2.0.1
@@ -13272,7 +13296,7 @@ __metadata:
   dependenciesMeta:
     saslprep:
       optional: true
-  checksum: 5684b5481bfbf73e4628b8bad7018cd4436fdb23b9548fb38dece3e079b1716fe870d41070a505d13ae4d86c107315afaf34891ba2b64925eb4fa4cd5bb70300
+  checksum: e485927d1def94f28564bdcb98d82144914bf23854e8bd15437fcef0d9a36f36997f7e97e0aad730ebf299c6a919430669198e02b5e2f4410f74a4002409b182
   languageName: node
   linkType: hard
 
@@ -17369,7 +17393,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.67.1, rollup@npm:^2.67.2":
+"rollup@npm:^2.67.1":
   version: 2.67.2
   resolution: "rollup@npm:2.67.2"
   dependencies:
@@ -17380,6 +17404,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 9aca5251ba4b441064183cde2394b91567259002d68086bdd3906db66d55dd148ab27e57c51eb53830d7b9b813c2d4e834b7735d65e2a869780bc639d4a20c38
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.67.3":
+  version: 2.67.3
+  resolution: "rollup@npm:2.67.3"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: c4013a2ceef6918375fd07a6548e05d0f3df1db9f0a0281aebe6e993a45c0e667c5a06f53b55c0ffaf72f72266c1879bc181b13199aace97d93f0fc47691d4a9
   languageName: node
   linkType: hard
 
@@ -18137,9 +18175,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-dark-mode@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "storybook-dark-mode@npm:1.0.8"
+"storybook-dark-mode@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "storybook-dark-mode@npm:1.0.9"
   dependencies:
     fast-deep-equal: ^3.0.0
     memoizerific: ^1.11.3
@@ -18149,7 +18187,7 @@ __metadata:
     "@storybook/components": ^6.0.0
     "@storybook/core-events": ^6.0.0
     "@storybook/theming": ^6.0.0
-  checksum: 76089b72471df9bfb0433a02780620d96228280280c94911bad5556044e86d82fd6665c64e8d095b6043d2bde83e9373bf731e4b378f39303a5463e3ba7963fe
+  checksum: e73d2cff9bbdd83f574142ad44446938d543efe5dbecac17e2d90e8b3a3a7c3841ac72d382bbe73d2e2c6059d85b488570d21db3a2356bae235aa95f74b65e91
   languageName: node
   linkType: hard
 
@@ -20009,9 +20047,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.69.0":
-  version: 5.69.0
-  resolution: "webpack@npm:5.69.0"
+"webpack@npm:^5.69.1":
+  version: 5.69.1
+  resolution: "webpack@npm:5.69.1"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^0.0.51
@@ -20022,7 +20060,7 @@ __metadata:
     acorn-import-assertions: ^1.7.6
     browserslist: ^4.14.5
     chrome-trace-event: ^1.0.2
-    enhanced-resolve: ^5.9.0
+    enhanced-resolve: ^5.8.3
     es-module-lexer: ^0.9.0
     eslint-scope: 5.1.1
     events: ^3.2.0
@@ -20042,7 +20080,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 0b0fc2ffcb926fc7506ec56901ae9a69f1ae969a6afc63395a3ed56f938d385c1d16d1dea39fd56dbb9362189c05da49174219904e5a337040aed5a46080e926
+  checksum: 490a6e9e4cd9d0ed3b6c7ca08015da2628919fda8fcf9c36f0f6c0e3ad71eaaaf4b0d12753109f22a4faf79fe9a9063552d9708e0ee2352cf8568433b8e296a7
   languageName: node
   linkType: hard
 
