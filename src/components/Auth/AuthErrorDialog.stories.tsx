@@ -1,27 +1,32 @@
 import { Button } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { AxiosError } from 'axios'
-import { useState } from 'react'
 
-import { AuthAction, AuthDispatch, AuthState } from '../AuthStateTypes'
+import { authDecorator, authServiceList, WrappedArgs } from '../../.storybook'
+import { AuthActionTypes, useAuthState } from '../../contexts'
 import { AuthErrorDialog } from './AuthErrorDialog'
+import { ReAuthDialog } from './ReAuthDialog'
 
 const StorybookEntry = {
-  argTypes: {},
+  argTypes: {
+    authState: {
+      defaultValue: {
+        authServiceList,
+      },
+    },
+  },
   component: AuthErrorDialog,
+  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
     },
   },
   title: 'Auth/AuthErrorDialog',
-} as ComponentMeta<typeof AuthErrorDialog>
+} as ComponentMeta<typeof AuthErrorDialog & WrappedArgs>
 
-const Template: ComponentStory<typeof AuthErrorDialog> = () => {
-  const [state, dispatch] = useState<Partial<AuthState>>({})
-  const handleDispatch = (action: AuthAction) => {
-    dispatch({ authError: action.payload.authError })
-  }
+const Template: ComponentStory<typeof AuthErrorDialog & WrappedArgs> = () => {
+  const { dispatch } = useAuthState()
   const fakeAxiosError = {
     config: {
       url: 'http://localhost:8081',
@@ -46,13 +51,20 @@ const Template: ComponentStory<typeof AuthErrorDialog> = () => {
 
   return (
     <>
-      <Button variant="contained" onClick={() => dispatch({ authError: fakeAxiosError })}>
+      <Button
+        variant="contained"
+        onClick={() => dispatch({ payload: { authError: fakeAxiosError }, type: AuthActionTypes.UpdateAuthError })}
+      >
         Trigger API Error - 401
       </Button>
-      <Button variant="contained" onClick={() => dispatch({ authError: fake403AxiosError })}>
+      <Button
+        variant="contained"
+        onClick={() => dispatch({ payload: { authError: fake403AxiosError }, type: AuthActionTypes.UpdateAuthError })}
+      >
         Trigger API Error - 403
       </Button>
-      <AuthErrorDialog authState={state as AuthState} dispatch={handleDispatch as AuthDispatch}></AuthErrorDialog>
+      <AuthErrorDialog />
+      <ReAuthDialog />
     </>
   )
 }

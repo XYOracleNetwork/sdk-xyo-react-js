@@ -29,8 +29,7 @@ class AuthErrorHelpers {
 
     if (isAxiosError(error) && error.response?.status === 403) {
       return {
-        dialogMessage:
-          'Unfortunately, you do not have access to this content.  Please verify your credentials and try to log in again.',
+        dialogMessage: 'Unfortunately, you do not have access to this content.',
         error,
         reAuthenticate: true,
       }

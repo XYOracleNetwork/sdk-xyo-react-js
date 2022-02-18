@@ -2,15 +2,10 @@ import { Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@
 import { ButtonEx, FlexRow } from '@xylabs/sdk-react'
 import { useEffect, useState } from 'react'
 
-import { AuthActionTypes, AuthDispatch, AuthState } from '../AuthStateTypes'
-import { AuthErrorHelpers, FormattedAuthError, MetaMaskError } from './AuthErrorHelper'
+import { AuthActionTypes, AuthErrorHelpers, FormattedAuthError, MetaMaskError, useAuthState } from '../../contexts'
 
-export interface AuthErrorDialogProps {
-  authState: AuthState
-  dispatch: AuthDispatch
-}
-
-const AuthErrorDialog: React.FC<AuthErrorDialogProps> = ({ authState, dispatch }) => {
+const AuthErrorDialog: React.FC = () => {
+  const { state: authState, dispatch: authDispatch } = useAuthState()
   // dialogError decouples the trigger of the modal (authError) from what error message is displayed
   const [dialogError, setDiaLogError] = useState<FormattedAuthError>()
   const { authError } = authState
@@ -26,10 +21,14 @@ const AuthErrorDialog: React.FC<AuthErrorDialogProps> = ({ authState, dispatch }
       const error = AuthErrorHelpers.handleAuthError(authError)
       setDiaLogError(error)
     }
-  }, [authError, dispatch])
+  }, [authError, authDispatch])
 
   const handleClose = () => {
-    dispatch({ payload: { authError: undefined }, type: AuthActionTypes.UpdateAuthError })
+    authDispatch({ payload: { authError: undefined }, type: AuthActionTypes.UpdateAuthError })
+  }
+
+  const handleReAuth = () => {
+    authDispatch({ payload: { reAuthenticate: true }, type: AuthActionTypes.UpdateReAuthenticate })
   }
 
   return (
@@ -54,7 +53,11 @@ const AuthErrorDialog: React.FC<AuthErrorDialogProps> = ({ authState, dispatch }
           <ButtonEx onClick={handleClose} variant="text">
             Close
           </ButtonEx>
-          {dialogError?.reAuthenticate && <ButtonEx variant="text">Login</ButtonEx>}
+          {dialogError?.reAuthenticate && (
+            <ButtonEx onClick={handleReAuth} variant="text">
+              Login
+            </ButtonEx>
+          )}
         </DialogActions>
       </Dialog>
     </>

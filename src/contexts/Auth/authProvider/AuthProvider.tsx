@@ -5,7 +5,6 @@ import { authReducer } from '../AuthReducer'
 import { AuthState } from '../AuthStateTypes'
 import { DefaultState } from '../DefaultState'
 import { useHydrateState } from '../useHydrateState'
-import { AuthErrorDialog } from './AuthErrorDialog'
 import { useAuthInterceptors } from './authInterceptors'
 
 interface AuthProviderProps {
@@ -23,11 +22,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children, authState }) => {
 
   return (
     <>
-      <AuthErrorDialog authState={state} dispatch={dispatch} />
-      <AuthContext.Provider value={value}>
-        {/* { TODO - add login modal } */}
-        {children}
-      </AuthContext.Provider>
+      <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
     </>
   )
 }

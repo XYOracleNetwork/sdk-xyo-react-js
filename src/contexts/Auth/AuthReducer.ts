@@ -32,7 +32,8 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       if (!action.payload?.jwtToken || !action.payload?.loggedInAccount) {
         throw new Error('jwtToken or loggedInAccount missing from  payload')
       }
-      return { ...state, ...{ isLoading: false, isLoggedIn: true, ...action.payload } }
+      const authCompleteState = { isLoading: false, isLoggedIn: true, reAuthenticate: false }
+      return { ...state, ...{ ...authCompleteState, ...action.payload } }
     }
 
     case AuthActionTypes.AuthFailure: {
@@ -47,6 +48,20 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       // Keep the existing AuthService List provided by consumers
       const { authServiceList } = state
       return { ...DefaultState, ...{ authServiceList } }
+    }
+
+    case AuthActionTypes.UpdateReAuthenticate: {
+      if (!action.payload?.reAuthenticate === undefined) {
+        throw new Error('reAuthenticate missing from payload')
+      }
+      const { reAuthenticate } = action.payload
+
+      if (reAuthenticate) {
+        const { authServiceList } = state
+        return { ...DefaultState, ...{ authError: undefined, authServiceList, reAuthenticate } }
+      } else {
+        return { ...state, ...{ reAuthenticate } }
+      }
     }
 
     default: {
