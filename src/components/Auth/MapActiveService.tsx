@@ -16,14 +16,16 @@ const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authS
   const theme = useTheme()
   const { activeAuthServiceId } = authState
   const [MySelectedAuthService, setMySelectedAuthService] = useState<React.FC>()
+  const [myActiveAuthServiceId, setMyActiveAuthServiceId] = useState<string>()
 
   useEffect(() => {
-    if (activeAuthServiceId) {
+    if (activeAuthServiceId !== myActiveAuthServiceId) {
       const component = AuthServiceComponentMap[activeAuthServiceId]
       assertEx(component, `No Mapping for AuthServiceId ${activeAuthServiceId}`)
       setMySelectedAuthService(() => component)
+      setMyActiveAuthServiceId(activeAuthServiceId)
     }
-  }, [activeAuthServiceId])
+  }, [activeAuthServiceId, myActiveAuthServiceId])
 
   return (
     <FlexCol maxWidth="xs">
