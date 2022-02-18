@@ -1,4 +1,4 @@
 export { useAuthState } from './AuthContext'
-export { AuthLoader } from './AuthLoader'
+export * from './authProvider'
 export * from './AuthStateTypes'
 export * from './DefaultState'

@@ -15,6 +15,7 @@ export interface AuthState {
   authError: undefined | Error | AxiosError
   jwtToken?: string
   loggedInAccount?: string
+  reAuthenticate?: boolean
 }
 
 export enum AuthActionTypes {
@@ -25,6 +26,7 @@ export enum AuthActionTypes {
   Logout = 'Logout',
   AuthSuccessful = 'AuthSuccessful',
   AuthFailure = 'AuthFailure',
+  UpdateReAuthenticate = 'UpdateReAuthenticate',
 }
 
 export interface AuthAction {
