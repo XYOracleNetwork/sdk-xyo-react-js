@@ -57,8 +57,9 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       const { reAuthenticate } = action.payload
 
       if (reAuthenticate) {
+        // mimic a logout when re-authenticating
         const { authServiceList } = state
-        return { ...DefaultState, ...{ authError: undefined, authServiceList, reAuthenticate } }
+        return { ...DefaultState, ...{ authServiceList, reAuthenticate } }
       } else {
         return { ...state, ...{ reAuthenticate } }
       }
