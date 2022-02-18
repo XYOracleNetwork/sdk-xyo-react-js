@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material'
 import { assertEx } from '@xylabs/sdk-js'
 import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
-import { memo } from 'react'
+import { memo, useMemo } from 'react'
 
 import { AuthServiceId, AuthState } from '../../contexts'
 import { AuthServiceComponentMap } from './AuthServiceComponentMap'
@@ -15,8 +15,7 @@ interface ActiveAuthServiceProps {
 const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authState, handleBack, isLoading }) => {
   const theme = useTheme()
   const { activeAuthServiceId } = authState
-  const SelectedAuthService = AuthServiceComponentMap[activeAuthServiceId]
-
+  const SelectedAuthService = useMemo(() => AuthServiceComponentMap[activeAuthServiceId], [activeAuthServiceId])
   assertEx(SelectedAuthService, `No Mapping for AuthServiceId ${activeAuthServiceId}`)
 
   return (
