@@ -7,6 +7,7 @@ import { BlockDetails } from './Details'
 const StorybookEntry = {
   argTypes: {},
   component: BlockDetails,
+  decorators: [appThemeDecorator],
   parameters: {
     docs: {
       page: null,
@@ -23,11 +24,9 @@ const Template: ComponentStory<typeof BlockDetails> = (args) => (
 
 const Default = Template.bind({})
 Default.args = {}
-Default.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
 WithData.args = { block: sampleBlockWithPreviousHash }
-WithData.decorators = [appThemeDecorator]
 
 export { Default, WithData }
 

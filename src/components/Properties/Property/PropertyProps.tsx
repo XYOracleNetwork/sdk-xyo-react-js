@@ -1,3 +1,4 @@
+import { FlexboxProps } from '@mui/system'
 import { FlexBoxProps } from '@xylabs/sdk-react'
 import { ReactNode } from 'react'
 
@@ -13,4 +14,5 @@ export interface PropertyProps extends FlexBoxProps {
   paddingFactor?: number
   hero?: boolean
   showBadge?: boolean
+  gridContainerFlexProps?: FlexboxProps
 }

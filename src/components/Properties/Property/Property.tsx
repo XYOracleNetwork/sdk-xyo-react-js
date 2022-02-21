@@ -18,6 +18,7 @@ export const Property: React.FC<PropertyProps> = ({
   actions,
   required,
   showBadge = false,
+  gridContainerFlexProps,
   ...props
 }) => {
   const theme = useTheme()
@@ -33,7 +34,7 @@ export const Property: React.FC<PropertyProps> = ({
       borderRadius={1}
       {...props}
     >
-      <Grid container>
+      <Grid container {...gridContainerFlexProps}>
         {title ? (
           <Grid display="flex" xs={12} sm={hero ? 12 : 'auto'} item alignItems="center" justifyContent="space-between">
             <PropertyTitle
