@@ -1624,7 +1624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin@npm:^11.3.0":
+"@emotion/babel-plugin@npm:^11.7.1":
   version: 11.7.2
   resolution: "@emotion/babel-plugin@npm:11.7.2"
   dependencies:
@@ -1714,12 +1714,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "@emotion/is-prop-valid@npm:1.1.1"
+"@emotion/is-prop-valid@npm:^1.1.1, @emotion/is-prop-valid@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@emotion/is-prop-valid@npm:1.1.2"
   dependencies:
     "@emotion/memoize": ^0.7.4
-  checksum: 5816696dae6ac79537a31fe95256e0c1f55651507204676dd9903542b102f727c16a68924e6634a89b0972f0d15b0803bb9d4e14bd0fb8a49da8a2e3956e6639
+  checksum: 58b1f2d429a589f8f5bc2c33a8732cbb7bbcb17131a103511ef9a94ac754d7eeb53d627f947da480cd977f9d419fd92e244991680292f3287204159652745707
   languageName: node
   linkType: hard
 
@@ -1737,15 +1737,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.7.1":
-  version: 11.7.1
-  resolution: "@emotion/react@npm:11.7.1"
+"@emotion/react@npm:^11.8.1":
+  version: 11.8.1
+  resolution: "@emotion/react@npm:11.8.1"
   dependencies:
     "@babel/runtime": ^7.13.10
+    "@emotion/babel-plugin": ^11.7.1
     "@emotion/cache": ^11.7.1
     "@emotion/serialize": ^1.0.2
     "@emotion/sheet": ^1.1.0
-    "@emotion/utils": ^1.0.0
+    "@emotion/utils": ^1.1.0
     "@emotion/weak-memoize": ^0.2.5
     hoist-non-react-statics: ^3.3.1
   peerDependencies:
@@ -1756,7 +1757,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 3392aa71f9c68c16022947959f7f842174e6b075b3baf58e185462411cd9b5a87557109a9225b1abaa2d7200a08b7cb9d7f21aa035f0d36b2c89e19b2a124e02
+  checksum: a767c6d7ca9e45dc3c1e873cfa51952db24e0d279944403ceb06be82d15859354e128becf6f7d0f8ff2b5f3460e3c165cd2b16ab1a2446e8e15e134a69e6ea3a
   languageName: node
   linkType: hard
 
@@ -1828,15 +1829,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.6.0":
-  version: 11.6.0
-  resolution: "@emotion/styled@npm:11.6.0"
+"@emotion/styled@npm:^11.8.1":
+  version: 11.8.1
+  resolution: "@emotion/styled@npm:11.8.1"
   dependencies:
     "@babel/runtime": ^7.13.10
-    "@emotion/babel-plugin": ^11.3.0
-    "@emotion/is-prop-valid": ^1.1.1
+    "@emotion/babel-plugin": ^11.7.1
+    "@emotion/is-prop-valid": ^1.1.2
     "@emotion/serialize": ^1.0.2
-    "@emotion/utils": ^1.0.0
+    "@emotion/utils": ^1.1.0
   peerDependencies:
     "@babel/core": ^7.0.0
     "@emotion/react": ^11.0.0-rc.0
@@ -1846,7 +1847,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 612bbf114a4ca49e5b3ec4554bea1cd5aad9eeb2371babc3e6b79eab5020bd0300b9904108b621837fe715e221ba09dd131dc29918c1fd966e082d8e74fca833
+  checksum: 67150fa788785c34e285b90acecc91fe7a63babceaefbeffd053bed0fa31f72a05bfeeb9d15620766e543e007b9ccac2e836812eec2e791f962ec4e52731ae4c
   languageName: node
   linkType: hard
 
@@ -1871,10 +1872,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/utils@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@emotion/utils@npm:1.0.0"
-  checksum: 3ce8048441a915447d9ef51eb6d1d4cbcce8c8d1647bc7a23333ce2fb2249e74cf9471670d6f49a716e93ff633c9e7a6633517698e17391aebfc40c9d0cabcc0
+"@emotion/utils@npm:^1.0.0, @emotion/utils@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@emotion/utils@npm:1.1.0"
+  checksum: d3b681ca3a23b07033ac6c6937e71010a5549ac8ccec325eb6c91a7e48d9a73db83fa5dadc58be981bb125d7c00fedca868ea4362b1da9e02866615f96be4df1
   languageName: node
   linkType: hard
 
@@ -2375,13 +2376,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.4.2":
-  version: 5.4.2
-  resolution: "@mui/material@npm:5.4.2"
+"@mui/material@npm:^5.4.3":
+  version: 5.4.3
+  resolution: "@mui/material@npm:5.4.3"
   dependencies:
     "@babel/runtime": ^7.17.0
     "@mui/base": 5.0.0-alpha.69
-    "@mui/system": ^5.4.2
+    "@mui/system": ^5.4.3
     "@mui/types": ^7.1.2
     "@mui/utils": ^5.4.2
     "@types/react-transition-group": ^4.4.4
@@ -2404,7 +2405,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 2239df173501c513154f7f6be17a708434c955465cff277587e33a1894a461ffd1fa9ba67ff96e6fb5e15eb135e432100da61017b6a1766d10fc2a4bd84b0e27
+  checksum: 128a850b1f514d28d72470ed50023df7d93bac83f268fdb472c15dfaf226c93c50da063ff92e1525b77e49661e87c8721a28db791fb90d94038089c6fed95ce3
   languageName: node
   linkType: hard
 
@@ -2476,9 +2477,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/system@npm:^5.4.2":
-  version: 5.4.2
-  resolution: "@mui/system@npm:5.4.2"
+"@mui/system@npm:^5.4.3":
+  version: 5.4.3
+  resolution: "@mui/system@npm:5.4.3"
   dependencies:
     "@babel/runtime": ^7.17.0
     "@mui/private-theming": ^5.4.2
@@ -2500,7 +2501,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: cc87b93b9c51ac02fb1d5c0b6d76903c244d15190d0c1b820203bbcc3acd829c2c1a1888c5c38e81e72a2b52870a24ab43b42e8ef8479b388437d00dedac0b0f
+  checksum: fe4776f113f787c3d4fa83ed06899738bf19e866b694a1c8b9459fb24ceede4102a73d6ef9c42d77550952dc0bd14b501157120359510c94da871c0553fb844c
   languageName: node
   linkType: hard
 
@@ -4291,10 +4292,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.18":
-  version: 17.0.18
-  resolution: "@types/node@npm:17.0.18"
-  checksum: 6c4edfc2b3ba2342a9c3d56e934c5245948ab752f4dc04bd6790b9603e6ebc53bc4f5befc3662e207f7dba2ddd17ccf657f915e319ea7cdd4f77b851079d1611
+"@types/node@npm:*, @types/node@npm:^17.0.19":
+  version: 17.0.19
+  resolution: "@types/node@npm:17.0.19"
+  checksum: 6bbd35bfc23dd50d1aefd4ae49c31f7fd632be209dba67c0322bb4fe8b555f4bb6e894018963146ad7758ae596857d5cbecc2d46ddf90a54f6a4424811cf4351
   languageName: node
   linkType: hard
 
@@ -5237,9 +5238,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.9.31":
-  version: 2.9.31
-  resolution: "@xylabs/sdk-react@npm:2.9.31"
+"@xylabs/sdk-react@npm:^2.9.32":
+  version: 2.9.32
+  resolution: "@xylabs/sdk-react@npm:2.9.32"
   dependencies:
     "@types/react-helmet": ^6.1.5
     "@xylabs/sdk-js": ^2.4.2
@@ -5264,7 +5265,7 @@ __metadata:
     react: ^17
     react-dom: ^17
     react-router-dom: ^6
-  checksum: 13a75d8b82255164e04479604b13aac2ab7dfa3740dc34112f7776c561930ecca68ba83820b75c012ce4636efcdb9e6aea9a94687897b1d758332d15eda7444f
+  checksum: a6386cb1f3acc567fc9a8dd09ae9941dd793e827eac8bb2106aed4741aeea420ada088e25713dcab5cc77ad8792a21c919df86fd956f4f0f7f3a56a181a63a7d
   languageName: node
   linkType: hard
 
@@ -5336,9 +5337,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.10.10":
-  version: 2.10.10
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.10.10"
+"@xyo-network/sdk-xyo-client-js@npm:^2.10.15":
+  version: 2.10.15
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.10.15"
   dependencies:
     "@ethersproject/providers": ^5.5.3
     "@xylabs/sdk-js": ^2.4.2
@@ -5355,10 +5356,10 @@ __metadata:
     neo4j-driver: ^4.4.2
     neo4j-driver-core: ^4.4.2
     sha.js: ^2.4.11
-    systeminformation: ^5.11.3
+    systeminformation: ^5.11.4
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 9d51abf9d54e90d09ec7d0ee48dcd7aa33231426a8fee45a28f6d022b04543d435daa28b6c01757e3f48d17e79e134a54c1f7fc6f8add4bcff772d0cf998f997
+  checksum: 2c1f393b9ca3c79884c121987d6bb4483a144543ba87e0efd8eda5bd456c23845f47dbf83117ee0479a668a810ae3b3ff4adbfeefee4576572f8753cc47511b0
   languageName: node
   linkType: hard
 
@@ -5378,12 +5379,12 @@ __metadata:
   resolution: "@xyo-network/sdk-xyo-react@workspace:."
   dependencies:
     "@babel/core": ^7.17.5
-    "@emotion/react": ^11.7.1
-    "@emotion/styled": ^11.6.0
+    "@emotion/react": ^11.8.1
+    "@emotion/styled": ^11.8.1
     "@ethersproject/abstract-signer": ^5.5.0
     "@ethersproject/providers": ^5.5.3
     "@mui/icons-material": ^5.4.2
-    "@mui/material": ^5.4.2
+    "@mui/material": ^5.4.3
     "@mui/styles": ^5.4.2
     "@storybook/addon-actions": ^6.4.19
     "@storybook/addon-docs": ^6.4.19
@@ -5400,17 +5401,17 @@ __metadata:
     "@types/lodash": ^4.14.178
     "@types/luxon": ^2.0.9
     "@types/md5": ^2.3.2
-    "@types/node": ^17.0.18
+    "@types/node": ^17.0.19
     "@types/react": ^17.0.39
     "@types/react-lines-ellipsis": ^0.15.1
     "@xylabs/eslint-config-react": ^2.1.2
     "@xylabs/pixel": ^1.3.7
     "@xylabs/rollup-config": ^1.1.7
     "@xylabs/sdk-js": ^2.4.2
-    "@xylabs/sdk-react": ^2.9.31
+    "@xylabs/sdk-react": ^2.9.32
     "@xylabs/ts-scripts": ^1.0.44
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.10.10
+    "@xyo-network/sdk-xyo-client-js": ^2.10.15
     axios: ^0.26.0
     babel-loader: ^8.2.3
     bn.js: ^5.2.0
@@ -18617,12 +18618,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.11.3":
-  version: 5.11.3
-  resolution: "systeminformation@npm:5.11.3"
+"systeminformation@npm:^5.11.4":
+  version: 5.11.4
+  resolution: "systeminformation@npm:5.11.4"
   bin:
     systeminformation: lib/cli.js
-  checksum: 9d27028dd43b233173519ee03a228df6d2cdbf2c8723ad54b60553092c528e1b9756cd88973d69968afa48b664e7c68a35d3cc8b5cc22af51a823f0712b54dbf
+  checksum: fcb71b933c6d77072f2ad86b7688f0fa6feb975829eeddd1fc877e0e99dff0ff50cc11c978b97b1662c9d935a3b19c6e01a110d7e6481d7232fd6e2c23fcf10c
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
