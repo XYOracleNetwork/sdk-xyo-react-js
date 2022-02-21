@@ -1,15 +1,18 @@
-import { createTheme, useTheme, ThemeProvider } from '@mui/material'
-import { DecoratorFn } from '@storybook/react'
-import { appTheme } from '../../theme'
+import { DecoratorFn } from '@storybook/react';
+import { InvertableThemeProvider } from '@xylabs/sdk-react';
+import merge from 'lodash/merge';
+import { useDarkMode } from 'storybook-dark-mode';
+import { appThemeOptions, partialDarkThemeOptions, themeOptions } from '../../theme';
 
 const appThemeDecorator: DecoratorFn = (Story, { args }) => {
-  const currentTheme = useTheme()
-  const theme = createTheme(currentTheme, appTheme)
+  const darkMode = useDarkMode()
+  const mergedThemeOptions = merge(themeOptions, appThemeOptions)
   return (
-    <ThemeProvider theme={theme}>
+    <InvertableThemeProvider dark={darkMode} options={mergedThemeOptions} darkOptions={partialDarkThemeOptions}>
       <Story {...args } />
-    </ThemeProvider>
+    </InvertableThemeProvider>
   )
 }
 
-export { appThemeDecorator }
+export { appThemeDecorator };
+

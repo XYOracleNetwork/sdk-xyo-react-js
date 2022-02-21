@@ -1,5 +1,6 @@
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/sdk-react'
 import { XyoBoundWitness, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import uniqWith from 'lodash/uniqWith'
 
 import { BlockDataDetails } from './DataDetails'
 import { BlockHashSourceDetails } from './HashSourceDetails'
@@ -26,7 +27,7 @@ const payloadsFromBlock = (block?: XyoBoundWitness) => {
       }
     }
   }
-  return payloads
+  return uniqWith(payloads, (a, b) => a._hash === b._hash)
 }
 
 export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, blockPayloadsProps, ...props }) => {
