@@ -1,40 +1,48 @@
 import { Typography } from '@mui/material'
 import { BusyBox, useAsyncEffect } from '@xylabs/sdk-react'
-import { AxiosError } from 'axios'
-import { FormEvent, useState } from 'react'
+import { FormEvent, memo, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthActionTypes, useAuthApi, useAuthState } from '../../../contexts'
+import { AuthActionTypes, useAuthApi } from '../../../contexts'
+import { LoginForm } from '../LoginForm'
 import { FormFields } from './FormFields'
 import { LoginCredentials } from './LoginCredentials'
 
-const EmailPassword: React.FC = () => {
+const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   const navigate = useNavigate()
-  const { state: authState, dispatch: authDispatch } = useAuthState()
   const credentialsState = useState<LoginCredentials>({ email: '', password: '' })
   const [credentials] = credentialsState
+  const [isLoading, setIsLoading] = useState(false)
+  const [token, setToken] = useState('')
 
   const { AuthApi } = useAuthApi()
 
+  useEffect(() => {
+    if (!isLoading && token) {
+      dispatch({
+        payload: { jwtToken: token, loggedInAccount: credentials.email },
+        type: AuthActionTypes.AuthSuccessful,
+      })
+      navigate('/')
+    }
+  }, [isLoading, token, dispatch, credentials.email, navigate])
+
   useAsyncEffect(async () => {
-    if (credentials?.email && credentials?.password && authState.isLoading) {
+    if (isLoading) {
       try {
         const { data } = await AuthApi.login(credentials)
-        authDispatch({
-          payload: { jwtToken: data.token, loggedInAccount: credentials.email },
-          type: AuthActionTypes.AuthSuccessful,
-        })
-        navigate('/')
+        setToken(data.token)
+        setIsLoading(false)
       } catch (err) {
         console.error(err)
-        authDispatch({ payload: { authError: err as AxiosError }, type: AuthActionTypes.AuthFailure })
+        setIsLoading(false)
       }
     }
-  }, [authDispatch, authState.isLoading, credentials, navigate])
+  }, [dispatch, isLoading, credentials, AuthApi])
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    authDispatch({ payload: { isLoading: true }, type: AuthActionTypes.UpdateLoadingState })
+    setIsLoading(true)
   }
 
   return (
@@ -42,11 +50,13 @@ const EmailPassword: React.FC = () => {
       <Typography variant="h3">Login with Email</Typography>
       <form onSubmit={handleSubmit}>
         <BusyBox>
-          <FormFields authState={authState} credentialsState={credentialsState} />
+          <FormFields isLoading={isLoading} credentialsState={credentialsState} />
         </BusyBox>
       </form>
     </>
   )
 }
+
+const EmailPassword = memo(EmailPasswordComponent)
 
 export { EmailPassword }

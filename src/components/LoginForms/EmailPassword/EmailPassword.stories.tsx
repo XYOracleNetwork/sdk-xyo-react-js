@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
 
 import { authDecorator, WrappedAuthComponent } from '../../../.storybook'
+import { useAuthState } from '../../../contexts'
 import { EmailPassword } from './EmailPassword'
 
 const StorybookEntry = {
@@ -15,7 +16,10 @@ const StorybookEntry = {
   title: 'Auth/EmailPassword',
 } as ComponentMeta<typeof EmailPassword>
 
-const Template: ComponentStory<WrappedAuthComponent> = () => <EmailPassword></EmailPassword>
+const Template: ComponentStory<WrappedAuthComponent> = () => {
+  const { dispatch, state } = useAuthState()
+  return <EmailPassword dispatch={dispatch} loggedInAccount={state.loggedInAccount}></EmailPassword>
+}
 
 const Default = Template.bind({})
 Default.args = {}

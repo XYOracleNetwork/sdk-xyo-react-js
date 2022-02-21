@@ -1,16 +1,15 @@
 import { FormControl, TextField } from '@mui/material'
 import { ButtonEx } from '@xylabs/sdk-react'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, memo, SetStateAction } from 'react'
 
-import { AuthState } from '../../../contexts'
 import { LoginCredentials } from './LoginCredentials'
 
 interface FormFieldsProps<S> {
-  authState: AuthState
+  isLoading: boolean
   credentialsState: [S, Dispatch<SetStateAction<S>>]
 }
 
-const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, credentialsState }) => {
+const FormFieldsComponent: React.FC<FormFieldsProps<LoginCredentials>> = ({ isLoading, credentialsState }) => {
   const [credentials, setCredentials] = credentialsState
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +30,8 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
           required
           inputProps={{ 'data-testid': 'email' }}
           type="email"
-          disabled={authState.isLoading}
+          disabled={isLoading}
+          value={credentials.email}
           variant="outlined"
           autoFocus={true}
           name="email"
@@ -43,7 +43,8 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
         <TextField
           required
           inputProps={{ 'data-testid': 'password' }}
-          disabled={authState.isLoading}
+          disabled={isLoading}
+          value={credentials.password}
           variant="outlined"
           name="password"
           type="password"
@@ -51,11 +52,13 @@ const FormFields: React.FC<FormFieldsProps<LoginCredentials>> = ({ authState, cr
           onChange={handleInputChange}
         />
       </FormControl>
-      <ButtonEx disabled={authState.isLoading} variant="contained" type="submit">
+      <ButtonEx disabled={isLoading} variant="contained" type="submit">
         Login
       </ButtonEx>
     </>
   )
 }
+
+const FormFields = memo(FormFieldsComponent)
 
 export { FormFields }

@@ -1,9 +1,10 @@
 import { ButtonGroup, Typography } from '@mui/material'
 
 import { IAuthService, useAuthState } from '../../../contexts'
+import { LoginForm } from '../LoginForm'
 import { AuthService } from './AuthService'
 
-const NoneSelected: React.FC = () => {
+const NoneSelected: React.FC<LoginForm> = () => {
   const { state: authState } = useAuthState()
   const { isLoggedIn, authServiceList } = authState
 

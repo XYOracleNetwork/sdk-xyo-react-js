@@ -10,9 +10,15 @@ interface ConnectWalletProps {
   setCheckedWallet: Dispatch<SetStateAction<boolean>>
   authDispatch: Dispatch<AuthAction>
   MetaMaskService: XyoMetaMaskConnector
+  isLoading: boolean
 }
 
-const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, authDispatch, MetaMaskService }) => {
+const ConnectWallet: React.FC<ConnectWalletProps> = ({
+  setCheckedWallet,
+  authDispatch,
+  MetaMaskService,
+  isLoading,
+}) => {
   const connectWallet = async () => {
     if (!MetaMaskService.currentAccount) {
       try {
@@ -27,7 +33,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, authDis
   }
 
   return (
-    <ButtonEx size="large" variant="outlined" onClick={connectWallet}>
+    <ButtonEx size="large" variant="outlined" onClick={connectWallet} disabled={isLoading}>
       <Web3ProviderIcon>
         <MetaMaskSVG />
       </Web3ProviderIcon>

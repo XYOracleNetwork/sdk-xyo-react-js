@@ -1,7 +1,9 @@
-import { AuthServiceId } from '../../contexts'
-import { EmailPassword, NoneSelected, Web3Login } from '../LoginForms'
+import React from 'react'
 
-const AuthServiceComponentMap: { [key in AuthServiceId]: React.FC } = {
+import { AuthServiceId } from '../../contexts'
+import { EmailPassword, LoginForm, NoneSelected, Web3Login } from '../LoginForms'
+
+const AuthServiceComponentMap: { [key in AuthServiceId]: React.FC<LoginForm> } = {
   [AuthServiceId.EmailPassword]: EmailPassword,
   [AuthServiceId.Web3Wallet]: Web3Login,
   [AuthServiceId.None]: NoneSelected,

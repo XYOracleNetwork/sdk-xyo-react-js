@@ -19,7 +19,7 @@ const AuthServiceWrapper: React.FC = () => {
 
   return (
     <>
-      <MapActiveAuthService authState={authState} handleBack={handleBack} isLoading={authState.isLoading} />
+      <MapActiveAuthService authState={authState} dispatch={authDispatch} handleBack={handleBack} />
       {authState.isLoggedIn && <AuthFooter handleLogout={handleLogout} />}
     </>
   )
