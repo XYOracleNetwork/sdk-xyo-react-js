@@ -14,7 +14,7 @@ const StorybookEntry = {
     },
   },
   title: 'Auth/AuthServiceWrapper',
-} as ComponentMeta<typeof AuthServiceWrapper>
+} as ComponentMeta<WrappedAuthComponent>
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
   return <AuthServiceWrapper></AuthServiceWrapper>

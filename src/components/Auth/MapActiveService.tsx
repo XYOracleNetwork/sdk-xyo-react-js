@@ -1,21 +1,22 @@
 import { useTheme } from '@mui/material'
 import { assertEx } from '@xylabs/sdk-js'
-import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
+import { ButtonEx, FlexGrowCol } from '@xylabs/sdk-react'
 import React, { memo, useEffect, useState } from 'react'
 
-import { AuthServiceId, AuthState } from '../../contexts'
+import { AuthDispatch, AuthServiceId, AuthState } from '../../contexts'
+import { LoginForm } from '../LoginForms'
 import { AuthServiceComponentMap } from './AuthServiceComponentMap'
 
 interface ActiveAuthServiceProps {
   authState: AuthState
-  isLoading: boolean
+  dispatch: AuthDispatch
   handleBack: () => void
 }
 
-const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authState, handleBack, isLoading }) => {
+const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ dispatch, authState, handleBack }) => {
   const theme = useTheme()
-  const { activeAuthServiceId } = authState
-  const [MySelectedAuthService, setMySelectedAuthService] = useState<React.FC>()
+  const { activeAuthServiceId, isLoading, loggedInAccount, authServiceList } = authState
+  const [MySelectedAuthService, setMySelectedAuthService] = useState<React.FC | React.FC<LoginForm>>()
   const [myActiveAuthServiceId, setMyActiveAuthServiceId] = useState<string>()
 
   useEffect(() => {
@@ -28,8 +29,14 @@ const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authS
   }, [activeAuthServiceId, myActiveAuthServiceId])
 
   return (
-    <FlexCol maxWidth="xs">
-      {MySelectedAuthService ? <MySelectedAuthService /> : null}
+    <FlexGrowCol maxWidth={theme.breakpoints.values.sm}>
+      {MySelectedAuthService ? (
+        <MySelectedAuthService
+          loggedInAccount={loggedInAccount}
+          dispatch={dispatch}
+          authServiceList={authServiceList}
+        />
+      ) : null}
       {activeAuthServiceId !== AuthServiceId.None ? (
         <ButtonEx marginY={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={handleBack}>
           Back
@@ -37,7 +44,7 @@ const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ authS
       ) : (
         <></>
       )}
-    </FlexCol>
+    </FlexGrowCol>
   )
 }
 

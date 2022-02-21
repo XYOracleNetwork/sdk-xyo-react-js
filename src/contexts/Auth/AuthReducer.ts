@@ -1,4 +1,4 @@
-import { AuthAction, AuthActionTypes, AuthState } from './AuthStateTypes'
+import { AuthAction, AuthActionTypes, AuthServiceId, AuthState } from './AuthStateTypes'
 import { DefaultState } from './DefaultState'
 
 const authReducer = (state: AuthState, action: AuthAction) => {
@@ -32,7 +32,12 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       if (!action.payload?.jwtToken || !action.payload?.loggedInAccount) {
         throw new Error('jwtToken or loggedInAccount missing from  payload')
       }
-      const authCompleteState = { isLoading: false, isLoggedIn: true, reAuthenticate: false }
+      const authCompleteState: Partial<AuthState> = {
+        activeAuthServiceId: AuthServiceId.None,
+        isLoading: false,
+        isLoggedIn: true,
+        reAuthenticate: false,
+      }
       return { ...state, ...{ ...authCompleteState, ...action.payload } }
     }
 
