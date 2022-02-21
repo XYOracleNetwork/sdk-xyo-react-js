@@ -47,11 +47,6 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
   const [status, setStatus] = useState(XyoReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
-  assertEx(witnesses.length > 0, 'At least one witness is required')
-  witnesses.map((witenss) => {
-    assertEx(witenss, 'Null/undefined witnesses are not allowed')
-  })
-
   useAsyncEffect(
     async (mounted) => {
       const panel = new XyoPanel({
@@ -122,7 +117,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
             witnesses,
           })
         },
-        witnesses,
+        witnesses: witnesses.filter((witness) => !!witness),
       })
       setPanel(panel)
       await delay(0)
