@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material'
 import { assertEx } from '@xylabs/sdk-js'
-import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
+import { ButtonEx, FlexGrowCol } from '@xylabs/sdk-react'
 import React, { memo, useEffect, useState } from 'react'
 
 import { AuthDispatch, AuthServiceId, AuthState } from '../../contexts'
@@ -15,7 +15,7 @@ interface ActiveAuthServiceProps {
 
 const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ dispatch, authState, handleBack }) => {
   const theme = useTheme()
-  const { activeAuthServiceId, isLoading, loggedInAccount } = authState
+  const { activeAuthServiceId, isLoading, loggedInAccount, authServiceList } = authState
   const [MySelectedAuthService, setMySelectedAuthService] = useState<React.FC | React.FC<LoginForm>>()
   const [myActiveAuthServiceId, setMyActiveAuthServiceId] = useState<string>()
 
@@ -29,8 +29,14 @@ const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ dispa
   }, [activeAuthServiceId, myActiveAuthServiceId])
 
   return (
-    <FlexCol maxWidth="xs">
-      {MySelectedAuthService ? <MySelectedAuthService loggedInAccount={loggedInAccount} dispatch={dispatch} /> : null}
+    <FlexGrowCol maxWidth={theme.breakpoints.values.sm}>
+      {MySelectedAuthService ? (
+        <MySelectedAuthService
+          loggedInAccount={loggedInAccount}
+          dispatch={dispatch}
+          authServiceList={authServiceList}
+        />
+      ) : null}
       {activeAuthServiceId !== AuthServiceId.None ? (
         <ButtonEx marginY={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={handleBack}>
           Back
@@ -38,7 +44,7 @@ const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ dispa
       ) : (
         <></>
       )}
-    </FlexCol>
+    </FlexGrowCol>
   )
 }
 

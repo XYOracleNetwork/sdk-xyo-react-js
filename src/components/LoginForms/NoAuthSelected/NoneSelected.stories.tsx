@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../.storybook'
+import { useAuthState } from '../../../contexts'
 import { NoneSelected } from './NoneSelected'
 
 const StorybookEntry = {
@@ -14,7 +15,12 @@ const StorybookEntry = {
   title: 'Auth/NoneSelected',
 } as ComponentMeta<typeof NoneSelected>
 
-const Template: ComponentStory<WrappedAuthComponent> = () => <NoneSelected></NoneSelected>
+const Template: ComponentStory<WrappedAuthComponent> = () => {
+  const { state, dispatch } = useAuthState()
+  return (
+    <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
+  )
+}
 
 const Default = Template.bind({})
 Default.args = {
@@ -24,7 +30,16 @@ Default.args = {
 }
 Default.decorators = [authDecorator]
 
-export { Default }
+const LoggedIn = Template.bind({})
+LoggedIn.args = {
+  authState: {
+    authServiceList,
+    loggedInAccount: 'none@none.com',
+  },
+}
+LoggedIn.decorators = [authDecorator]
+
+export { Default, LoggedIn }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -4,6 +4,7 @@ import { FormEvent, memo, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { AuthActionTypes, useAuthApi } from '../../../contexts'
+import { Property } from '../../Properties'
 import { LoginForm } from '../LoginForm'
 import { FormFields } from './FormFields'
 import { LoginCredentials } from './LoginCredentials'
@@ -47,12 +48,18 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
 
   return (
     <>
-      <Typography variant="h3">Login with Email</Typography>
-      <form onSubmit={handleSubmit}>
-        <BusyBox>
-          <FormFields isLoading={isLoading} credentialsState={credentialsState} />
-        </BusyBox>
-      </form>
+      {loggedInAccount ? (
+        <Property title="Logged in Account" value={loggedInAccount}></Property>
+      ) : (
+        <>
+          <Typography variant="h3">Login with Email</Typography>
+          <form onSubmit={handleSubmit}>
+            <BusyBox>
+              <FormFields isLoading={isLoading} credentialsState={credentialsState} />
+            </BusyBox>
+          </form>
+        </>
+      )}
     </>
   )
 }
