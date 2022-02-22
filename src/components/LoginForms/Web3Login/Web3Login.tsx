@@ -8,11 +8,7 @@ import { AuthActionTypes, useAuthApi } from '../../../contexts'
 import { LoginForm } from '../LoginForm'
 import { CheckForMetaMask } from './CheckForMetaMask'
 import { ConnectWallet } from './ConnectWallet'
-
-export interface MetaMaskError {
-  code: number
-  message: string
-}
+import { MetaMaskError } from './MetaMaskError'
 
 const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   const navigate = useNavigate()

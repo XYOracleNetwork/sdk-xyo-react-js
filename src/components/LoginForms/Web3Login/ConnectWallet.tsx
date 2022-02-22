@@ -2,8 +2,8 @@ import { ButtonEx } from '@xylabs/sdk-react'
 import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch, SetStateAction } from 'react'
 
+import { MetaMaskError } from './MetaMaskError'
 import { MetaMaskSVG } from './MetaMaskSVG'
-import { MetaMaskError } from './Web3Login'
 import { Web3ProviderIcon } from './Web3ProviderIcon'
 
 interface ConnectWalletProps {
