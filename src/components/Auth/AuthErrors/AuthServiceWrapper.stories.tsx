@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import axios from 'axios'
 
 import { authDecorator, authServiceList } from '../../../.storybook'
+import { AuthServiceWrapper } from '../AuthServiceWrapper'
 import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 
 const StorybookEntry = {
@@ -45,7 +46,9 @@ const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
       <Button variant="contained" onClick={() => create401()}>
         Trigger API Error - 401
       </Button>
-      <AuthErrorsWrapper {...props} />
+      <AuthErrorsWrapper {...props}>
+        <AuthServiceWrapper />
+      </AuthErrorsWrapper>
     </>
   )
 }

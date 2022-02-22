@@ -8,7 +8,7 @@ export interface AuthErrorsWrapperProps {
   apiDomain: string
 }
 
-const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain }) => {
+const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain, children }) => {
   const theme = useTheme()
   const reAuthState = useState(false)
   const [reAuth, setReAuth] = reAuthState
@@ -22,6 +22,7 @@ const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain }) => {
 
   return (
     <AuthThemeExtender themeOptions={theme}>
+      {children}
       <AuthErrorDialog apiDomain={apiDomain} setReAuth={setReAuth} />
     </AuthThemeExtender>
   )
