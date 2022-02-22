@@ -2,7 +2,6 @@ import { Typography } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import { AuthActionTypes, useAuthApi } from '../../../contexts'
 import { LoginForm } from '../LoginForm'
@@ -11,7 +10,6 @@ import { ConnectWallet } from './ConnectWallet'
 import { MetaMaskError } from './MetaMaskError'
 
 const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
-  const navigate = useNavigate()
   const [checkedWallet, setCheckedWallet] = useState(false)
   const { MetaMaskService } = useAuthApi()
   const [isLoading, setIsLoading] = useState(false)
@@ -25,9 +23,8 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
         payload: { jwtToken: token, loggedInAccount: MetaMaskService.currentAccount },
         type: AuthActionTypes.AuthSuccessful,
       })
-      navigate('/')
     }
-  }, [isLoading, token, dispatch, navigate, MetaMaskService.currentAccount])
+  }, [isLoading, token, dispatch, MetaMaskService.currentAccount])
 
   useEffect(() => {
     if (checkedWallet) {

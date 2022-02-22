@@ -1,7 +1,6 @@
 import { Typography } from '@mui/material'
 import { BusyBox, useAsyncEffect } from '@xylabs/sdk-react'
 import { FormEvent, memo, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import { AuthActionTypes, useAuthApi } from '../../../contexts'
 import { Property } from '../../Properties'
@@ -10,7 +9,6 @@ import { FormFields } from './FormFields'
 import { LoginCredentials } from './LoginCredentials'
 
 const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
-  const navigate = useNavigate()
   const credentialsState = useState<LoginCredentials>({ email: '', password: '' })
   const [credentials] = credentialsState
   const [isLoading, setIsLoading] = useState(false)
@@ -24,9 +22,8 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
         payload: { jwtToken: token, loggedInAccount: credentials.email },
         type: AuthActionTypes.AuthSuccessful,
       })
-      navigate('/')
     }
-  }, [isLoading, token, dispatch, credentials.email, navigate])
+  }, [isLoading, token, dispatch, credentials.email])
 
   useAsyncEffect(async () => {
     if (isLoading) {
