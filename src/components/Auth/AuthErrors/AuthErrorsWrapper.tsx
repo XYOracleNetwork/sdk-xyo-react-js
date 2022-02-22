@@ -15,7 +15,7 @@ const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain }) => {
 
   useEffect(() => {
     if (reAuth) {
-      const loginWithReturnUrl = `/login?return-path=${window.location.pathname}`
+      const loginWithReturnUrl = `/login?return-path=${encodeURIComponent(window.location.pathname)}`
       window.location.pathname = loginWithReturnUrl
     }
   }, [reAuth])
