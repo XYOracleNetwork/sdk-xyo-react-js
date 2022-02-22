@@ -1,20 +1,21 @@
 import { AxiosError, AxiosRequestConfig } from 'axios'
+import { Dispatch } from 'react'
 
-import { AuthAction, AuthActionTypes } from '../../AuthStateTypes'
+import { AuthError } from './AuthErrorHelper'
 
 class AuthInterceptors {
   static instance: AuthInterceptors
   private apiDomain: string
-  private authDispatch: React.Dispatch<AuthAction>
+  private setAuthError: Dispatch<React.SetStateAction<AuthError | undefined>>
 
-  private constructor(authDispatch: React.Dispatch<AuthAction>, apiDomain: string) {
-    this.authDispatch = authDispatch
+  private constructor(setAuthError: Dispatch<React.SetStateAction<AuthError | undefined>>, apiDomain: string) {
+    this.setAuthError = setAuthError
     this.apiDomain = apiDomain
   }
 
-  public static get(authDispatch: React.Dispatch<AuthAction>, apiDomain: string) {
+  public static get(setAuthError: Dispatch<React.SetStateAction<AuthError | undefined>>, apiDomain: string) {
     if (!AuthInterceptors.instance) {
-      AuthInterceptors.instance = new AuthInterceptors(authDispatch, apiDomain)
+      AuthInterceptors.instance = new AuthInterceptors(setAuthError, apiDomain)
     }
     return AuthInterceptors.instance
   }
@@ -23,7 +24,8 @@ class AuthInterceptors {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     const authorizationErrorCodes = [401, 403]
     if (authorizationErrorCodes.includes(error.request?.status) && this.isApiRequestUrl(error.config)) {
-      this.authDispatch({ payload: { authError: error }, type: AuthActionTypes.UpdateAuthError })
+      // this.authDispatch({ payload: { authError: error }, type: AuthActionTypes.UpdateAuthError })
+      this.setAuthError(error)
     }
     return Promise.reject(error)
   }

@@ -20,13 +20,10 @@ export interface AuthState {
 
 export enum AuthActionTypes {
   UpdateActiveAuthService = 'UpdateActiveAuthService',
-  UpdateLoadingState = 'UpdateLoadingState',
   RehydrateState = 'RehydrateState',
-  UpdateAuthError = 'UpdateAuthError',
   Logout = 'Logout',
   AuthSuccessful = 'AuthSuccessful',
   AuthFailure = 'AuthFailure',
-  UpdateReAuthenticate = 'UpdateReAuthenticate',
 }
 
 export interface AuthAction {

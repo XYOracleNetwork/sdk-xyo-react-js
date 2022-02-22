@@ -1,15 +1,21 @@
 import { Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material'
 import { ButtonEx, FlexRow } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
-import { AuthActionTypes, AuthErrorHelpers, FormattedAuthError, MetaMaskError, useAuthState } from '../../contexts'
+import { AuthError, AuthErrorHelpers, FormattedAuthError, MetaMaskError, useAuthInterceptors } from './authInterceptors'
 
-const AuthErrorDialog: React.FC = () => {
-  const { state: authState, dispatch: authDispatch } = useAuthState()
+export interface AuthErrorDialogProps {
+  apiDomain: string
+  setReAuth: Dispatch<SetStateAction<boolean>>
+}
+
+const AuthErrorDialog: React.FC<AuthErrorDialogProps> = ({ apiDomain, setReAuth }) => {
   // dialogError decouples the trigger of the modal (authError) from what error message is displayed
   const [dialogError, setDiaLogError] = useState<FormattedAuthError>()
-  const { authError } = authState
+  const [authError, setAuthError] = useState<AuthError>()
+
+  useAuthInterceptors(apiDomain, setAuthError)
 
   useEffect(() => {
     let mounted = true
@@ -28,14 +34,15 @@ const AuthErrorDialog: React.FC = () => {
     return () => {
       mounted = false
     }
-  }, [authError, authDispatch])
+  }, [authError])
 
   const handleClose = () => {
-    authDispatch({ payload: { authError: undefined }, type: AuthActionTypes.UpdateAuthError })
+    setAuthError(undefined)
   }
 
   const handleReAuth = () => {
-    authDispatch({ payload: { reAuthenticate: true }, type: AuthActionTypes.UpdateReAuthenticate })
+    setReAuth(true)
+    setAuthError(undefined)
   }
 
   return (

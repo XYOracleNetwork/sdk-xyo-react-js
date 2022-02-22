@@ -10,17 +10,6 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       return { ...state, activeAuthServiceId: action.payload.activeAuthServiceId }
     }
 
-    case AuthActionTypes.UpdateLoadingState: {
-      if (action.payload.isLoading === undefined) {
-        throw new Error('isLoading is not defined')
-      }
-      return { ...state, isLoading: action.payload.isLoading }
-    }
-
-    case AuthActionTypes.UpdateAuthError: {
-      return { ...state, authError: action.payload.authError }
-    }
-
     case AuthActionTypes.RehydrateState: {
       if (!action.payload) {
         throw new Error('Missing Payload')
@@ -55,20 +44,20 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       return { ...DefaultState, ...{ authServiceList } }
     }
 
-    case AuthActionTypes.UpdateReAuthenticate: {
-      if (!action.payload?.reAuthenticate === undefined) {
-        throw new Error('reAuthenticate missing from payload')
-      }
-      const { reAuthenticate } = action.payload
+    // case AuthActionTypes.UpdateReAuthenticate: {
+    //   if (!action.payload?.reAuthenticate === undefined) {
+    //     throw new Error('reAuthenticate missing from payload')
+    //   }
+    //   const { reAuthenticate } = action.payload
 
-      if (reAuthenticate) {
-        // mimic a logout when re-authenticating
-        const { authServiceList } = state
-        return { ...DefaultState, ...{ authServiceList, reAuthenticate } }
-      } else {
-        return { ...state, ...{ reAuthenticate } }
-      }
-    }
+    //   if (reAuthenticate) {
+    //     // mimic a logout when re-authenticating
+    //     const { authServiceList } = state
+    //     return { ...DefaultState, ...{ authServiceList, reAuthenticate } }
+    //   } else {
+    //     return { ...state, ...{ reAuthenticate } }
+    //   }
+    // }
 
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
