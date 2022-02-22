@@ -42,7 +42,6 @@ const AuthErrorDialog: React.FC<AuthErrorDialogProps> = ({ apiDomain, setReAuth 
 
   const handleReAuth = () => {
     setReAuth(true)
-    setAuthError(undefined)
   }
 
   return (

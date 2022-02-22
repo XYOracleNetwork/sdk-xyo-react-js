@@ -1,9 +1,8 @@
 import { useTheme } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { AuthThemeExtender } from '../AuthThemeExtender'
 import { AuthErrorDialog } from './AuthErrorDialog'
-import { ReAuthDialog } from './ReAuthDialog'
 
 export interface AuthErrorsWrapperProps {
   apiDomain: string
@@ -12,12 +11,18 @@ export interface AuthErrorsWrapperProps {
 const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain }) => {
   const theme = useTheme()
   const reAuthState = useState(false)
-  const [, setReAuth] = reAuthState
+  const [reAuth, setReAuth] = reAuthState
+
+  useEffect(() => {
+    if (reAuth) {
+      const loginWithReturnUrl = `/login?return-path=${window.location.pathname}`
+      window.location.pathname = loginWithReturnUrl
+    }
+  }, [reAuth])
 
   return (
     <AuthThemeExtender themeOptions={theme}>
       <AuthErrorDialog apiDomain={apiDomain} setReAuth={setReAuth} />
-      <ReAuthDialog reAuthState={reAuthState} />
     </AuthThemeExtender>
   )
 }
