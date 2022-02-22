@@ -5,8 +5,14 @@ import { useEffect, useState } from 'react'
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.storybook'
 import { AuthServiceWrapper } from '../../components'
 import { useAuthState } from '../Auth'
-import { ArchivistApiLoader } from './Provider'
+import { ArchivistApiProvider } from './Provider'
 import { useArchivistApi } from './useArchivist'
+
+interface ArchiveResponse {
+  accessControl: boolean
+  archive: string
+  user: string
+}
 
 const StorybookEntry = {
   argTypes: {
@@ -17,17 +23,17 @@ const StorybookEntry = {
       default: authServiceList,
     },
   },
-  component: ArchivistApiLoader,
+  component: ArchivistApiProvider,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'Archivist/ArchivistApiLoader',
+  title: 'Archivist/ArchivistApiProvider',
 } as ComponentMeta<WrappedAuthComponent>
 
 const DemoArchiveFetcher = () => {
-  const [myArchives, setMyArchives] = useState<string[]>([])
+  const [myArchives, setMyArchives] = useState<ArchiveResponse[]>([])
   const { api, currentToken } = useArchivistApi()
   const { jwtToken, isLoggedIn } = useAuthState().state
   const [successfulCall, setSuccessfulCall] = useState(false)
@@ -61,8 +67,8 @@ const DemoArchiveFetcher = () => {
         </Typography>
       )}
       <ul>
-        {myArchives.map((archive) => (
-          <li key={archive}>{archive}</li>
+        {myArchives.map((archive, index) => (
+          <li key={index}>{archive.archive}</li>
         ))}
       </ul>
     </>
@@ -72,9 +78,9 @@ const DemoArchiveFetcher = () => {
 const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { jwtToken } = useAuthState().state
   return (
-    <ArchivistApiLoader apiDomain="http://localhost:8081" jwtToken={jwtToken} archive="test">
+    <ArchivistApiProvider apiDomain="http://localhost:8081" jwtToken={jwtToken} archive="test">
       <DemoArchiveFetcher />
-    </ArchivistApiLoader>
+    </ArchivistApiProvider>
   )
 }
 

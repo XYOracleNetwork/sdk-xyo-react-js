@@ -1,17 +1,21 @@
 import { Dialog, DialogActions, DialogContent } from '@mui/material'
 import { ButtonEx } from '@xylabs/sdk-react'
+import { Dispatch, SetStateAction } from 'react'
 
-import { AuthActionTypes, useAuthState } from '../../contexts'
-import { AuthServiceWrapper } from './AuthServiceWrapper'
+import { AuthServiceWrapper } from '../AuthServiceWrapper'
 
-const ReAuthDialog = () => {
-  const { state: authState, dispatch: authDispatch } = useAuthState()
+interface ReAuthDialogProps {
+  reAuthState: [boolean, Dispatch<SetStateAction<boolean>>]
+}
+const ReAuthDialog: React.FC<ReAuthDialogProps> = ({ reAuthState }) => {
+  const [reAuth, setReAuth] = reAuthState
 
   const handleClose = () => {
-    authDispatch({ payload: { reAuthenticate: false }, type: AuthActionTypes.UpdateReAuthenticate })
+    setReAuth(false)
   }
+
   return (
-    <Dialog open={!!authState.reAuthenticate}>
+    <Dialog open={reAuth}>
       <DialogContent>
         <AuthServiceWrapper />
       </DialogContent>

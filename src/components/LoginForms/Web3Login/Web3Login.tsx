@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/sdk-react'
+import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -8,12 +9,19 @@ import { LoginForm } from '../LoginForm'
 import { CheckForMetaMask } from './CheckForMetaMask'
 import { ConnectWallet } from './ConnectWallet'
 
+export interface MetaMaskError {
+  code: number
+  message: string
+}
+
 const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   const navigate = useNavigate()
   const [checkedWallet, setCheckedWallet] = useState(false)
   const { MetaMaskService } = useAuthApi()
   const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState('')
+  const [metaMaskError, setMetaMaskError] = useState<MetaMaskError>()
+  const [axiosError, setAxiosError] = useState<AxiosError>()
 
   useEffect(() => {
     if (!isLoading && token) {
@@ -39,9 +47,9 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
           setToken(data.token)
           setIsLoading(false)
         } catch (err) {
-          dispatch({ payload: { authError: err as Error }, type: AuthActionTypes.UpdateAuthError })
           setCheckedWallet(false)
           setIsLoading(false)
+          setAxiosError(err as AxiosError)
         }
       }
       if (checkedWallet && token && mounted()) {
@@ -61,12 +69,24 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
             <p>Disconnect your account from your wallet to logout</p>
           </>
         ) : (
-          <ConnectWallet
-            isLoading={isLoading}
-            authDispatch={dispatch}
-            setCheckedWallet={setCheckedWallet}
-            MetaMaskService={MetaMaskService}
-          />
+          <>
+            <ConnectWallet
+              isLoading={isLoading}
+              setCheckedWallet={setCheckedWallet}
+              MetaMaskService={MetaMaskService}
+              setMetaMaskError={setMetaMaskError}
+            />
+            {metaMaskError && (
+              <Typography variant="body1" mt={2} color="error">
+                Error Connecting to MetaMask: {metaMaskError.message}
+              </Typography>
+            )}
+            {axiosError && (
+              <Typography variant="body1" mt={2} color="error">
+                Error making confirming wallet access: {axiosError.message}
+              </Typography>
+            )}
+          </>
         )}
       </CheckForMetaMask>
     </>

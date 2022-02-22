@@ -1,11 +1,6 @@
 import { AxiosError } from 'axios'
 
-type AuthError = Error | MetaMaskError | AxiosError
-
-interface MetaMaskError {
-  code: number
-  message: string
-}
+type AuthError = Error | AxiosError
 
 interface FormattedAuthError {
   reAuthenticate: boolean
@@ -21,7 +16,7 @@ class AuthErrorHelpers {
   public static handleAuthError = (error: AuthError): FormattedAuthError => {
     if (isAxiosError(error) && error.response?.status === 401) {
       return {
-        dialogMessage: 'Invalid credentials.  Please verify them and try to log in again.',
+        dialogMessage: 'Your session may have expired.  Please verify your credentials and try to log in again.',
         error,
         reAuthenticate: true,
       }
@@ -43,4 +38,4 @@ class AuthErrorHelpers {
 }
 
 export { AuthErrorHelpers }
-export type { FormattedAuthError, MetaMaskError }
+export type { AuthError, FormattedAuthError }

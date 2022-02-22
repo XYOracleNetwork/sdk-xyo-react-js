@@ -1,12 +1,15 @@
 import axios, { AxiosResponse } from 'axios'
-import { useEffect, useState } from 'react'
+import { Dispatch, useEffect, useState } from 'react'
 
-import { AuthDispatch } from '../../AuthStateTypes'
+import { AuthError } from './AuthErrorHelper'
 import { AuthInterceptors } from './AuthInterceptors'
 
-const useAuthInterceptors = (apiDomain: string, authDispatch: AuthDispatch) => {
+const useAuthInterceptors = (
+  apiDomain: string,
+  setAuthError: Dispatch<React.SetStateAction<AuthError | undefined>>
+) => {
   const [unauthorizedInterceptor, setNewUnauthorizedInterceptor] = useState<number | undefined>()
-  const [authInterceptor] = useState<AuthInterceptors>(AuthInterceptors.get(authDispatch, apiDomain))
+  const [authInterceptor] = useState<AuthInterceptors>(AuthInterceptors.get(setAuthError, apiDomain))
 
   useEffect(() => {
     if (unauthorizedInterceptor === undefined) {

@@ -2,22 +2,22 @@ import { ButtonEx } from '@xylabs/sdk-react'
 import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch, SetStateAction } from 'react'
 
-import { AuthAction, AuthActionTypes } from '../../../contexts'
 import { MetaMaskSVG } from './MetaMaskSVG'
+import { MetaMaskError } from './Web3Login'
 import { Web3ProviderIcon } from './Web3ProviderIcon'
 
 interface ConnectWalletProps {
   setCheckedWallet: Dispatch<SetStateAction<boolean>>
-  authDispatch: Dispatch<AuthAction>
   MetaMaskService: XyoMetaMaskConnector
   isLoading: boolean
+  setMetaMaskError: Dispatch<SetStateAction<MetaMaskError | undefined>>
 }
 
 const ConnectWallet: React.FC<ConnectWalletProps> = ({
   setCheckedWallet,
-  authDispatch,
   MetaMaskService,
   isLoading,
+  setMetaMaskError,
 }) => {
   const connectWallet = async () => {
     if (!MetaMaskService.currentAccount) {
@@ -25,7 +25,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({
         await MetaMaskService.connectWallet()
         setCheckedWallet(true)
       } catch (err) {
-        authDispatch({ payload: { authError: err as Error }, type: AuthActionTypes.UpdateAuthError })
+        setMetaMaskError(err as MetaMaskError)
       }
     } else {
       setCheckedWallet(true)
