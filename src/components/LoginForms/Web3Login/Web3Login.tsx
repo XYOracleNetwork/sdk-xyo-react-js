@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { AuthActionTypes, useAuthApi } from '../../../contexts'
-import { HandleReturnPath } from '../HandleReturnPath'
+import { HandleReturnUrl } from '../HandleReturnUrl'
 import { LoginForm } from '../LoginForm'
 import { CheckForMetaMask } from './CheckForMetaMask'
 import { ConnectWallet } from './ConnectWallet'
@@ -26,7 +26,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
         payload: { jwtToken: token, loggedInAccount: MetaMaskService.currentAccount },
         type: AuthActionTypes.AuthSuccessful,
       })
-      navigate(HandleReturnPath())
+      HandleReturnUrl(navigate)
     }
   }, [isLoading, token, dispatch, navigate, MetaMaskService.currentAccount])
 

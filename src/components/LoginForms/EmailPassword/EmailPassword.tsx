@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { AuthActionTypes, useAuthApi } from '../../../contexts'
 import { Property } from '../../Properties'
-import { HandleReturnPath } from '../HandleReturnPath'
+import { HandleReturnUrl } from '../HandleReturnUrl'
 import { LoginForm } from '../LoginForm'
 import { FormFields } from './FormFields'
 import { LoginCredentials } from './LoginCredentials'
@@ -25,7 +25,7 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
         payload: { jwtToken: token, loggedInAccount: credentials.email },
         type: AuthActionTypes.AuthSuccessful,
       })
-      navigate(HandleReturnPath())
+      HandleReturnUrl(navigate)
     }
   }, [isLoading, token, dispatch, credentials.email, navigate])
 
