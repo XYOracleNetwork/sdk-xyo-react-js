@@ -24,7 +24,6 @@ class AuthInterceptors {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     const authorizationErrorCodes = [401, 403]
     if (authorizationErrorCodes.includes(error.request?.status) && this.isApiRequestUrl(error.config)) {
-      // this.authDispatch({ payload: { authError: error }, type: AuthActionTypes.UpdateAuthError })
       this.setAuthError(error)
     }
     return Promise.reject(error)

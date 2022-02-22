@@ -3,7 +3,7 @@ import { ButtonEx, FlexRow } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
-import { AuthError, AuthErrorHelpers, FormattedAuthError, MetaMaskError, useAuthInterceptors } from './authInterceptors'
+import { AuthError, AuthErrorHelpers, FormattedAuthError, useAuthInterceptors } from './authInterceptors'
 
 export interface AuthErrorDialogProps {
   apiDomain: string
@@ -59,7 +59,7 @@ const AuthErrorDialog: React.FC<AuthErrorDialogProps> = ({ apiDomain, setReAuth 
           </FlexRow>
           <FlexRow>
             <Typography color="error" variant="body1">
-              {`${dialogError?.error.message} [${(dialogError?.error as MetaMaskError)?.code ?? 'Request Failure'}]`}
+              {`${dialogError?.error.message}`}
             </Typography>
           </FlexRow>
         </DialogContent>

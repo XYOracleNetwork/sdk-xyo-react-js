@@ -44,21 +44,6 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       return { ...DefaultState, ...{ authServiceList } }
     }
 
-    // case AuthActionTypes.UpdateReAuthenticate: {
-    //   if (!action.payload?.reAuthenticate === undefined) {
-    //     throw new Error('reAuthenticate missing from payload')
-    //   }
-    //   const { reAuthenticate } = action.payload
-
-    //   if (reAuthenticate) {
-    //     // mimic a logout when re-authenticating
-    //     const { authServiceList } = state
-    //     return { ...DefaultState, ...{ authServiceList, reAuthenticate } }
-    //   } else {
-    //     return { ...state, ...{ reAuthenticate } }
-    //   }
-    // }
-
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }
