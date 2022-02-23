@@ -1,17 +1,16 @@
 import { Typography } from '@mui/material'
 import { BusyBox, useAsyncEffect } from '@xylabs/sdk-react'
 import { FormEvent, memo, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import { AuthActionTypes, useAuthApi } from '../../../contexts'
 import { Property } from '../../Properties'
-import { HandleReturnUrl } from '../HandleReturnUrl'
 import { LoginForm } from '../LoginForm'
+import { useHandleReturnUrl } from '../useHandleReturnUrl'
 import { FormFields } from './FormFields'
 import { LoginCredentials } from './LoginCredentials'
 
 const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
-  const navigate = useNavigate()
+  const { handleReturnUrl } = useHandleReturnUrl()
   const credentialsState = useState<LoginCredentials>({ email: '', password: '' })
   const [credentials] = credentialsState
   const [isLoading, setIsLoading] = useState(false)
@@ -25,9 +24,9 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
         payload: { jwtToken: token, loggedInAccount: credentials.email },
         type: AuthActionTypes.AuthSuccessful,
       })
-      HandleReturnUrl(navigate)
+      handleReturnUrl()
     }
-  }, [isLoading, token, dispatch, credentials.email, navigate])
+  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl])
 
   useAsyncEffect(async () => {
     if (isLoading) {

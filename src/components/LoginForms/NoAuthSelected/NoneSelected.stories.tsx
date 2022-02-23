@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useLocation } from 'react-router-dom'
 
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../.storybook'
 import { useAuthState } from '../../../contexts'
@@ -7,6 +8,7 @@ import { NoneSelected } from './NoneSelected'
 const StorybookEntry = {
   argTypes: {},
   component: NoneSelected,
+  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
@@ -17,6 +19,17 @@ const StorybookEntry = {
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
+
+  return (
+    <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
+  )
+}
+
+const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
+  const { state, dispatch } = useAuthState()
+  const location = useLocation()
+  location.state = { message: 'Please login to view this page' }
+
   return (
     <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
   )
@@ -28,7 +41,6 @@ Default.args = {
     authServiceList,
   },
 }
-Default.decorators = [authDecorator]
 
 const LoggedIn = Template.bind({})
 LoggedIn.args = {
@@ -37,9 +49,15 @@ LoggedIn.args = {
     loggedInAccount: 'none@none.com',
   },
 }
-LoggedIn.decorators = [authDecorator]
 
-export { Default, LoggedIn }
+const WithRouterState = TemplateWithRouterState.bind({})
+WithRouterState.args = {
+  authState: {
+    authServiceList,
+  },
+}
+
+export { Default, LoggedIn, WithRouterState }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

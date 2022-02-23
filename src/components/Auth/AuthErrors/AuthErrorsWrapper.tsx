@@ -15,6 +15,8 @@ const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain, childr
 
   useEffect(() => {
     if (reAuth) {
+      // Relying on window and localStorage so router is not a dependency and
+      // avoids nesting within a context to cause rerenders and multiple interceptors
       localStorage.setItem('returnUrl', window.location.pathname)
       window.location.pathname = '/login'
     }
