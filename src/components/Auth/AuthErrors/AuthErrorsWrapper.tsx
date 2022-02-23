@@ -1,15 +1,17 @@
-import { useTheme } from '@mui/material'
+import { ThemeOptions } from '@mui/material'
 import { useEffect, useState } from 'react'
 
+import { appThemeOptions } from '../../../theme'
 import { AuthThemeExtender } from '../AuthThemeExtender'
 import { AuthErrorDialog } from './AuthErrorDialog'
 
 export interface AuthErrorsWrapperProps {
   apiDomain: string
+  themeOptions: ThemeOptions
+  dark: boolean
 }
 
-const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain, children }) => {
-  const theme = useTheme()
+const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain, children, themeOptions, dark }) => {
   const reAuthState = useState(false)
   const [reAuth, setReAuth] = reAuthState
 
@@ -23,7 +25,7 @@ const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain, childr
   }, [reAuth])
 
   return (
-    <AuthThemeExtender themeOptions={theme}>
+    <AuthThemeExtender dark={dark} themeOptions={themeOptions || appThemeOptions}>
       {children}
       <AuthErrorDialog apiDomain={apiDomain} setReAuth={setReAuth} />
     </AuthThemeExtender>
