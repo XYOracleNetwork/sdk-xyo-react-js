@@ -1,10 +1,15 @@
-import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material'
+import { ThemeOptions } from '@mui/material'
+import { InvertableThemeProvider } from '@xylabs/sdk-react'
+import merge from 'lodash/merge'
+
+import { appThemeOptions } from '../../theme'
 
 export interface AuthThemeExtenderProps {
   themeOptions?: ThemeOptions
+  dark: boolean
 }
 
-const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOptions }) => {
+const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOptions, dark }) => {
   const authThemeOptions: ThemeOptions = {
     components: {
       MuiButton: {
@@ -35,9 +40,14 @@ const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOp
       },
     },
   }
-  const authTheme = createTheme({ ...themeOptions, ...authThemeOptions })
 
-  return <ThemeProvider theme={authTheme}>{children}</ThemeProvider>
+  const mergedOptions = merge(themeOptions, appThemeOptions, authThemeOptions)
+
+  return (
+    <InvertableThemeProvider options={mergedOptions} dark={dark}>
+      {children}
+    </InvertableThemeProvider>
+  )
 }
 
 export { AuthThemeExtender }
