@@ -9,9 +9,16 @@ export interface PayloadTableRowProps extends TableRowProps {
   payload?: XyoPayload
   exploreDomain?: string
   validate?: boolean
+  showClient?: boolean
 }
 
-export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain, payload, validate, ...props }) => {
+export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
+  exploreDomain,
+  showClient = false,
+  payload,
+  validate,
+  ...props
+}) => {
   const timeStamp = payload?._timestamp ? DateTime.fromMillis(payload?._timestamp) : undefined
   const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
   return (
@@ -28,6 +35,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
         )}
       </TableCell>
       <TableCell align="center">{payload?._archive}</TableCell>
+      {showClient ? <TableCell align="center">{payload?._client}</TableCell> : null}
       <TableCell align="center">{payload?.schema}</TableCell>
       <TableCell align="center">{timeStamp?.toLocaleString(DateTime.DATE_SHORT)}</TableCell>
       <TableCell align="center">{timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}</TableCell>

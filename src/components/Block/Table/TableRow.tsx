@@ -11,9 +11,16 @@ export interface BlockTableRowProps extends TableRowProps {
   block?: XyoBoundWitness
   exploreDomain?: string
   validate?: boolean
+  showClient?: boolean
 }
 
-export const BlockTableRow: React.FC<BlockTableRowProps> = ({ exploreDomain, block, validate = false, ...props }) => {
+export const BlockTableRow: React.FC<BlockTableRowProps> = ({
+  exploreDomain,
+  showClient = false,
+  block,
+  validate = false,
+  ...props
+}) => {
   const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
   const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
   return (
@@ -28,7 +35,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({ exploreDomain, blo
         )}
       </TableCell>
       <TableCell align="center">{block?._archive}</TableCell>
-      <TableCell align="center">{block?._client}</TableCell>
+      {showClient ? <TableCell align="center">{block?._client}</TableCell> : null}
       <TableCell align="center">{timeStamp?.toLocaleString(DateTime.DATE_SHORT)}</TableCell>
       <TableCell align="center">{timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}</TableCell>
       <TableCell align="center">
