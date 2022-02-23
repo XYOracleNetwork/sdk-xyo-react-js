@@ -8,6 +8,7 @@ export interface BlockTableProps extends TableProps {
   blocks?: XyoBoundWitness[] | null
   onRowClick?: (value: XyoBoundWitness) => void
   exploreDomain?: string
+  showClient?: boolean
 }
 
 export const BlockTable: React.FC<BlockTableProps> = ({
@@ -15,6 +16,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
   validate = false,
   onRowClick,
   blocks,
+  showClient = false,
   ...props
 }) => {
   return (
@@ -27,9 +29,11 @@ export const BlockTable: React.FC<BlockTableProps> = ({
           <TableCell align="center">
             <Typography variant="caption">Archive</Typography>
           </TableCell>
-          <TableCell align="center">
-            <Typography variant="caption">Client</Typography>
-          </TableCell>
+          {showClient ? (
+            <TableCell align="center">
+              <Typography variant="caption">Client</Typography>
+            </TableCell>
+          ) : null}
           <TableCell align="center">
             <Typography variant="caption">Date</Typography>
           </TableCell>

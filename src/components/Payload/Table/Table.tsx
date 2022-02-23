@@ -9,12 +9,14 @@ export interface PayloadTableProps extends TableProps {
   validate?: boolean
   onRowClick?: (value: XyoPayload) => void
   payloads?: XyoPayload[] | null
+  showClient?: boolean
 }
 
 export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
   onRowClick,
   validate = false,
+  showClient = false,
   payloads,
   ...props
 }) => {
@@ -29,6 +31,11 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
             <TableCell align="center">
               <Typography variant="caption">Archive</Typography>
             </TableCell>
+            {showClient ? (
+              <TableCell align="center">
+                <Typography variant="caption">Client</Typography>
+              </TableCell>
+            ) : null}
             <TableCell align="center">
               <Typography variant="caption">Schema</Typography>
             </TableCell>
@@ -55,6 +62,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
                     }
                   : undefined
               }
+              showClient={showClient}
               exploreDomain={exploreDomain}
               validate={validate}
               key={payload._hash}
