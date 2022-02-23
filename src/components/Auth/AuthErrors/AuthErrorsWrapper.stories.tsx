@@ -1,7 +1,6 @@
 import { Button } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import axios from 'axios'
-import { useDarkMode } from 'storybook-dark-mode'
 
 import { authDecorator, authServiceList } from '../../../.storybook'
 import { AuthServiceWrapper } from '../AuthServiceWrapper'
@@ -29,8 +28,6 @@ const StorybookEntry = {
 } as ComponentMeta<typeof AuthErrorsWrapper>
 
 const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
-  const dark = useDarkMode()
-  props.dark = dark
   const create403 = () => {
     const request = axios.get('http://localhost:8081/archive/foo123890/block/recent/20')
     request.then().catch((error) => console.error(error))

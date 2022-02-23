@@ -6,10 +6,9 @@ import { appThemeOptions } from '../../theme'
 
 export interface AuthThemeExtenderProps {
   themeOptions?: ThemeOptions
-  dark: boolean
 }
 
-const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOptions, dark }) => {
+const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOptions }) => {
   const authThemeOptions: ThemeOptions = {
     components: {
       MuiButton: {
@@ -43,11 +42,7 @@ const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOp
 
   const mergedOptions = merge(themeOptions, appThemeOptions, authThemeOptions)
 
-  return (
-    <InvertableThemeProvider options={mergedOptions} dark={dark}>
-      {children}
-    </InvertableThemeProvider>
-  )
+  return <InvertableThemeProvider options={mergedOptions}>{children}</InvertableThemeProvider>
 }
 
 export { AuthThemeExtender }

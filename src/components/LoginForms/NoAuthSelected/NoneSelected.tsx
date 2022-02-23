@@ -31,7 +31,7 @@ const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount, authServiceList })
             </Typography>
           )}
           <ButtonGroup
-            onClick={() => setAuthWarning()}
+            onClick={() => setAuthWarning(undefined)}
             orientation="vertical"
             aria-label="vertical outlined button group"
             fullWidth={true}
