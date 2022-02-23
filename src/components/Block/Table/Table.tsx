@@ -57,6 +57,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
             validate={validate}
             key={index}
             block={block}
+            showClient={showClient}
             onClick={
               onRowClick
                 ? () => {
