@@ -24,7 +24,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Auth/AuthErrorDialog',
+  title: 'Auth/AuthErrorsWrapper',
 } as ComponentMeta<typeof AuthErrorsWrapper>
 
 const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
