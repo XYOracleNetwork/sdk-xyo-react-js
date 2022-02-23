@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import { themeOptions } from '../../../theme'
-import { AuthThemeExtender } from '../AuthThemeExtender'
 import { AuthErrorDialog } from './AuthErrorDialog'
 
 export interface AuthErrorsWrapperProps {
@@ -22,10 +20,9 @@ const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain, childr
   }, [reAuth])
 
   return (
-    <AuthThemeExtender themeOptions={themeOptions}>
+    <AuthErrorDialog apiDomain={apiDomain} setReAuth={setReAuth}>
       {children}
-      <AuthErrorDialog apiDomain={apiDomain} setReAuth={setReAuth} />
-    </AuthThemeExtender>
+    </AuthErrorDialog>
   )
 }
 

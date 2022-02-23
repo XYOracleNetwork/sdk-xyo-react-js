@@ -1,8 +1,4 @@
-import { ThemeOptions } from '@mui/material'
-import { InvertableThemeProvider } from '@xylabs/sdk-react'
-import merge from 'lodash/merge'
-
-import { appThemeOptions } from '../../theme'
+import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material'
 
 export interface AuthThemeExtenderProps {
   themeOptions?: ThemeOptions
@@ -39,10 +35,9 @@ const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOp
       },
     },
   }
+  const authTheme = createTheme({ ...themeOptions, ...authThemeOptions })
 
-  const mergedOptions = merge(themeOptions, appThemeOptions, authThemeOptions)
-
-  return <InvertableThemeProvider options={mergedOptions}>{children}</InvertableThemeProvider>
+  return <ThemeProvider theme={authTheme}>{children}</ThemeProvider>
 }
 
 export { AuthThemeExtender }
