@@ -17,6 +17,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
   onRowClick,
   blocks,
   showClient = false,
+  children,
   ...props
 }) => {
   return (
@@ -67,6 +68,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
             }
           />
         ))}
+        {children}
       </TableBody>
     </Table>
   )

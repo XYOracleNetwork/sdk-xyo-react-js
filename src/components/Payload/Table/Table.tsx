@@ -18,6 +18,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   validate = false,
   showClient = false,
   payloads,
+  children,
   ...props
 }) => {
   return (
@@ -69,6 +70,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
               payload={payload}
             />
           ))}
+          {children}
         </TableBody>
       </Table>
     </ScrollTableOnSm>
