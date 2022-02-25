@@ -1,0 +1,29 @@
+import BubbleChartRoundedIcon from '@mui/icons-material/BubbleChartRounded'
+import CloudRoundedIcon from '@mui/icons-material/CloudRounded'
+import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded'
+import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded'
+import { SvgIconProps } from '@mui/material'
+import { ReactElement } from 'react'
+
+export type NetworkComponentSlug = 'sentinel' | 'bridge' | 'archivist' | 'diviner'
+
+export interface NetworkComponentDetails {
+  name: string
+  slug: NetworkComponentSlug
+  icon: (props?: SvgIconProps) => ReactElement
+}
+
+export const networkComponents: NetworkComponentDetails[] = [
+  { icon: (props) => <BubbleChartRoundedIcon {...props} />, name: 'Sentinel', slug: 'sentinel' },
+  { icon: (props) => <CloudRoundedIcon {...props} />, name: 'Bridge', slug: 'bridge' },
+  { icon: (props) => <GridViewRoundedIcon {...props} />, name: 'Archivist', slug: 'archivist' },
+  { icon: (props) => <VisibilityRoundedIcon {...props} />, name: 'Diviner', slug: 'diviner' },
+]
+
+export const findNetworkComponentIndex = (slug: string) => {
+  return networkComponents.findIndex((info) => info.slug === slug)
+}
+
+export const findNetworkComponent = (slug: string) => {
+  return networkComponents.find((info) => info.slug === slug)
+}
