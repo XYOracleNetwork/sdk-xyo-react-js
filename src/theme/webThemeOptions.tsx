@@ -5,18 +5,6 @@ import { fontFamilyPrimary } from './fontFamily'
 import { themeOptions } from './themeOptions'
 
 const partialWebThemeOptions: ThemeOptions = {
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 4,
-        },
-      },
-    },
-  },
-  shape: {
-    borderRadius: 4,
-  },
   typography: {
     fontFamily: fontFamilyPrimary,
     h1: {

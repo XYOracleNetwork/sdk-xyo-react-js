@@ -4,13 +4,6 @@ import { fontFamilyHeadings, fontFamilyPrimary } from './fontFamily'
 
 export const themeOptions: ThemeOptions = {
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 0,
-        },
-      },
-    },
     MuiCardHeader: {
       styleOverrides: {
         content: {
@@ -43,7 +36,7 @@ export const themeOptions: ThemeOptions = {
     },
   },
   shape: {
-    borderRadius: 0,
+    borderRadius: 4,
   },
   spacing: 12,
   typography: {
