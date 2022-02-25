@@ -4,6 +4,8 @@ import merge from 'lodash/merge'
 import { fontFamilyPrimary } from './fontFamily'
 import { themeOptions } from './themeOptions'
 
+const lowerFontWeight = 700
+
 const partialWebThemeOptions: ThemeOptions = {
   typography: {
     fontFamily: fontFamilyPrimary,
@@ -15,6 +17,15 @@ const partialWebThemeOptions: ThemeOptions = {
     },
     h3: {
       fontFamily: fontFamilyPrimary,
+    },
+    h4: {
+      fontWeight: lowerFontWeight,
+    },
+    h5: {
+      fontWeight: lowerFontWeight,
+    },
+    h6: {
+      fontWeight: lowerFontWeight,
     },
   },
 }
