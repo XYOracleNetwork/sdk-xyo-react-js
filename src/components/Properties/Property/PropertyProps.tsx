@@ -14,5 +14,6 @@ export interface PropertyProps extends FlexBoxProps {
   paddingFactor?: number
   hero?: boolean
   showBadge?: boolean
+  stackBreak?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   gridContainerFlexProps?: FlexboxProps
 }

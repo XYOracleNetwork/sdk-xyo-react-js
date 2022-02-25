@@ -5,7 +5,7 @@ import { PropertyActionsProps } from './PropertyActionsProps'
 export const PropertyActions: React.FC<PropertyActionsProps> = ({ actions, ...props }) => {
   if (actions) {
     return (
-      <FlexRow {...props}>
+      <FlexRow width="100%" {...props}>
         {actions.length > 0 ? (
           <FlexRow>
             {actions.map((action, index) => {
