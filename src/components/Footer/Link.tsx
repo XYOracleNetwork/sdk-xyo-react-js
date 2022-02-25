@@ -1,6 +1,6 @@
 import { Link, LinkProps } from '@mui/material'
 import { assertEx } from '@xylabs/sdk-js'
-import { LinkToEx } from '@xylabs/sdk-react'
+import { LinkEx } from '@xylabs/sdk-react'
 
 /**
  * @description
@@ -29,7 +29,7 @@ export const FooterLink: React.FC<LinkProps> = ({ target, href, margin = 0.5, va
   const convertedUrl = convertToBetaIfNeeded(url)
   if (document.location.hostname === convertedUrl.hostname) {
     const to = url.search.length > 0 ? `${convertedUrl.pathname}${convertedUrl.search}` : url.pathname
-    return <LinkToEx margin={margin} to={to} target={target} variant={variant} {...props} />
+    return <LinkEx margin={margin} to={to} target={target} variant={variant} {...props} />
   } else {
     return <Link margin={margin} href={href} target={target ?? '_blank'} variant={variant} {...props} />
   }
