@@ -16,13 +16,14 @@ export const Property: React.FC<PropertyProps> = ({
   paddingFactor = 1,
   tip,
   actions,
+  stackBreak = 'md',
   required,
   showBadge = false,
   gridContainerFlexProps,
   ...props
 }) => {
   const theme = useTheme()
-  const belowSm = useMediaQuery(theme.breakpoints.down('sm'))
+  const belowStackBreak = useMediaQuery(theme.breakpoints.down(stackBreak))
   const minHeight = 48
 
   return (
@@ -34,9 +35,21 @@ export const Property: React.FC<PropertyProps> = ({
       borderRadius={1}
       {...props}
     >
-      <Grid container {...gridContainerFlexProps}>
+      <Grid
+        container
+        flexWrap={belowStackBreak ? 'wrap' : 'nowrap'}
+        justifyContent="space-between"
+        {...gridContainerFlexProps}
+      >
         {title ? (
-          <Grid display="flex" xs={12} sm={hero ? 12 : 'auto'} item alignItems="center" justifyContent="space-between">
+          <Grid
+            display="flex"
+            xs={12}
+            {...{ [stackBreak]: hero ? 12 : 'auto' }}
+            item
+            alignItems="center"
+            justifyContent="space-between"
+          >
             <PropertyTitle
               hero={hero}
               maxWidth={hero ? 'auto' : maxTitleWidth}
@@ -45,15 +58,17 @@ export const Property: React.FC<PropertyProps> = ({
               title={title}
               paddingFactor={paddingFactor}
             />
-            {belowSm ? <PropertyActions actions={actions} /> : null}
+            {belowStackBreak ? (
+              <PropertyActions marginRight={showBadge ? 3 : 0} justifyContent="flex-end" actions={actions} />
+            ) : null}
             {showBadge && typeof value === 'string' && <IdenticonCorner value={value} />}
           </Grid>
         ) : null}
         <Grid
-          borderTop={belowSm && title ? `1px solid ${theme.palette.divider}` : 'none'}
+          borderTop={belowStackBreak && title ? `1px solid ${theme.palette.divider}` : 'none'}
           display="flex"
           xs={12}
-          sm={'auto'}
+          {...{ [stackBreak]: 'auto' }}
           item
           alignItems="center"
         >
@@ -72,10 +87,14 @@ export const Property: React.FC<PropertyProps> = ({
                   typographyVariant={hero ? 'h6' : undefined}
                 />
               )}
-              {belowSm ? null : <PropertyActions actions={actions} />}
             </>
           )}
         </Grid>
+        {belowStackBreak ? null : (
+          <Grid display="flex" xs="auto" item marginRight={showBadge ? 4 : 0}>
+            <PropertyActions actions={actions} />
+          </Grid>
+        )}
       </Grid>
     </FlexRow>
   )
