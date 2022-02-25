@@ -1,5 +1,5 @@
 import { Link, TableCell, TableRow, TableRowProps } from '@mui/material'
-import { LinkToEx } from '@xylabs/sdk-react'
+import { LinkEx } from '@xylabs/sdk-react'
 import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/sdk-xyo-client-js'
 import compact from 'lodash/compact'
 import { DateTime } from 'luxon'
@@ -31,7 +31,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
             <PropertyValue value={block?._hash} />
           </Link>
         ) : (
-          <LinkToEx to={`/archive/${block?._archive}/block/hash/${block?._hash}`}>{block?._hash}</LinkToEx>
+          <LinkEx to={`/archive/${block?._archive}/block/hash/${block?._hash}`}>{block?._hash}</LinkEx>
         )}
       </TableCell>
       <TableCell align="center">{block?._archive}</TableCell>
