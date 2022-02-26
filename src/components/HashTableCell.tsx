@@ -1,4 +1,4 @@
-import { Link, TableCell, TableCellProps, useTheme } from '@mui/material'
+import { Link, TableCell, TableCellProps, Typography, useTheme } from '@mui/material'
 import { LinkEx } from '@xylabs/sdk-react'
 import { useEffect, useRef, useState } from 'react'
 
@@ -51,10 +51,12 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({ hash, archive, dat
     const getChildWidths = (row: HTMLElement) => {
       let width = 0
       let padding = 0
-      for (let i = 1; i < (row?.childElementCount ?? 0); i++) {
+      for (let i = 0; i < (row?.childElementCount ?? 0); i++) {
         const item = row?.children.item(i)
         if (item) {
-          width += item?.clientWidth ?? 0
+          if (i > 0) {
+            width += item?.clientWidth ?? 0
+          }
           padding += parseInt(
             window.getComputedStyle(item, null)?.getPropertyValue('padding-left').replaceAll('px', '') ?? 0
           )
@@ -90,31 +92,36 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({ hash, archive, dat
     <TableCell {...props}>
       <div ref={hashDivRef}>
         {exploreDomain ? (
-          <Link
-            style={{
-              display: 'block',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-              width: hashCellWidth,
-            }}
-            target="_blank"
-            href={`${exploreDomain}/archive/${archive}/${dataType}/hash/${hash}`}
-          >
-            {hash}
+          <Link target="_blank" href={`${exploreDomain}/archive/${archive}/${dataType}/hash/${hash}`}>
+            <Typography
+              style={{
+                display: 'block',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                width: hashCellWidth,
+              }}
+              variant="body2"
+              fontFamily="monospace"
+            >
+              {hash}
+            </Typography>
           </Link>
         ) : (
-          <LinkEx
-            style={{
-              display: 'block',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-              width: hashCellWidth,
-            }}
-            to={`/archive/${archive}/${dataType}/hash/${hash}`}
-          >
-            {hash}
+          <LinkEx to={`/archive/${archive}/${dataType}/hash/${hash}`}>
+            <Typography
+              variant="body2"
+              fontFamily="monospace"
+              style={{
+                display: 'block',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                width: hashCellWidth,
+              }}
+            >
+              {hash}
+            </Typography>
           </LinkEx>
         )}
       </div>

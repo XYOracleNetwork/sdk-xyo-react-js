@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { appThemeDecorator, sampleBlockWithPreviousHash } from '../../.storybook'
+import { appThemeDecorator, sampleBlockWithPayloads } from '../../.storybook'
 import { BlockDataDetails } from './DataDetails'
 
 const StorybookEntry = {
@@ -27,7 +27,7 @@ Default.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
 WithData.decorators = [appThemeDecorator]
-WithData.args = { block: sampleBlockWithPreviousHash }
+WithData.args = { block: sampleBlockWithPayloads }
 
 export { Default, WithData }
 
