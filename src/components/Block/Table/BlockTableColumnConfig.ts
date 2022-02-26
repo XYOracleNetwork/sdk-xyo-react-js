@@ -21,8 +21,8 @@ export const blockColumnNames: Record<BlockTableColumnSlug, string> = {
 export const blockTableColumnConfigDefaults = (): BlockTableColumnConfig => {
   const xs: BlockTableColumnSlug[] = ['hash']
   const sm: BlockTableColumnSlug[] = ['hash', 'time', 'valid']
-  const md: BlockTableColumnSlug[] = ['hash', 'archive', 'time', 'payloads', 'valid']
-  const lg: BlockTableColumnSlug[] = ['hash', 'archive', 'client', 'date', 'time', 'payloads', 'valid']
-  const xl: BlockTableColumnSlug[] = ['hash', 'archive', 'client', 'date', 'time', 'payloads', 'valid']
+  const md: BlockTableColumnSlug[] = ['hash', 'payloads', 'archive', 'time', 'valid']
+  const lg: BlockTableColumnSlug[] = ['hash', 'payloads', 'archive', 'date', 'time', 'valid']
+  const xl: BlockTableColumnSlug[] = ['hash', 'payloads', 'archive', 'client', 'date', 'time', 'valid']
   return { lg, md, sm, xl, xs }
 }

@@ -26,7 +26,7 @@ Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = { blocks: [sampleBlock] }
+WithData.args = { blocks: [sampleBlock, sampleBlock] }
 
 export { Default, WithData }
 
