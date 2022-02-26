@@ -6,7 +6,6 @@ export const DefaultState: AuthState = {
   authError: undefined,
   authServiceList: [],
   isLoading: false,
-  isLoggedIn: false,
   jwtToken: '',
   loggedInAccount: '',
   reAuthenticate: false,

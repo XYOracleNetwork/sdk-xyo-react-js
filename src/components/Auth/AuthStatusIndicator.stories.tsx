@@ -25,7 +25,6 @@ const Default = Template.bind({})
 Default.args = {
   authState: {
     authServiceList: [],
-    isLoggedIn: false,
   },
 }
 Default.decorators = [authDecorator]
@@ -34,7 +33,6 @@ const LoggedInWeb3 = Template.bind({})
 LoggedInWeb3.args = {
   authState: {
     authServiceList: [],
-    isLoggedIn: true,
     loggedInAccount: '0x71C7656EC7ab88b098defB751B7401B5f6d8976F',
   },
 }
@@ -44,7 +42,6 @@ const LoggedInWeb2 = Template.bind({})
 LoggedInWeb2.args = {
   authState: {
     authServiceList: [],
-    isLoggedIn: true,
     loggedInAccount: 'test1234@somedomain.com',
   },
 }
