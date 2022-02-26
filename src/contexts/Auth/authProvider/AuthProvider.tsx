@@ -14,7 +14,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children, authState }) => {
   const defaultStateWithServices = { ...DefaultState, ...authState }
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 
-  useHydrateState(state, dispatch)
+  useHydrateState(state, dispatch, ['jwtToken', 'loggedInAccount'])
 
   const value = { dispatch, state }
 
