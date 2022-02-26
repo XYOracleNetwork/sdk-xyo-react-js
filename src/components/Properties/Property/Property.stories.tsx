@@ -28,6 +28,10 @@ const WithData = Template.bind({})
 WithData.args = { title: 'Block Hash', value: sampleBlockWithPayloads._hash }
 WithData.decorators = [appThemeDecorator]
 
+const WithDataAndBadge = Template.bind({})
+WithDataAndBadge.args = { badge: true, title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataAndBadge.decorators = [appThemeDecorator]
+
 const WithTip = Template.bind({})
 WithTip.args = {
   tip: 'This is the block hash',
@@ -35,6 +39,15 @@ WithTip.args = {
   value: sampleBlockWithPayloads._hash,
 }
 WithTip.decorators = [appThemeDecorator]
+
+const WithTipAndBadge = Template.bind({})
+WithTipAndBadge.args = {
+  badge: true,
+  tip: 'This is the block hash',
+  title: 'Block Hash',
+  value: sampleBlockWithPayloads._hash,
+}
+WithTipAndBadge.decorators = [appThemeDecorator]
 
 const WithActions = Template.bind({})
 WithActions.args = {
@@ -47,8 +60,8 @@ WithActions.decorators = [appThemeDecorator]
 
 const WithHero = Template.bind({})
 WithHero.args = {
+  badge: true,
   hero: true,
-  showBadge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
   value: sampleBlockWithPayloads._hash,
@@ -58,15 +71,25 @@ WithHero.decorators = [appThemeDecorator]
 const WithHeroAndActions = Template.bind({})
 WithHeroAndActions.args = {
   actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
+  badge: true,
   hero: true,
-  showBadge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
   value: sampleBlockWithPayloads._hash,
 }
 WithHeroAndActions.decorators = [appThemeDecorator]
 
-export { Default, WithActions, WithData, WithHero, WithHeroAndActions, WithTip, WithUndefinedData }
+export {
+  Default,
+  WithActions,
+  WithData,
+  WithDataAndBadge,
+  WithHero,
+  WithHeroAndActions,
+  WithTip,
+  WithTipAndBadge,
+  WithUndefinedData,
+}
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -18,7 +18,7 @@ export const IdenticonCorner: React.FC<IdenticonCornerProps> = ({ value, ...prop
   const calculatedHeight = parentHeight ?? 0
 
   return (
-    <FlexRow alignItems="flex-start" height="60%" position="absolute" right={0} top={0}>
+    <FlexRow alignItems="flex-start" maxHeight={48} height="100%" position="absolute" right={1} top={1}>
       <FlexRow
         background
         height={calculatedHeight}

@@ -18,7 +18,7 @@ export const Property: React.FC<PropertyProps> = ({
   actions,
   stackBreak = 'md',
   required,
-  showBadge = false,
+  badge = false,
   gridContainerFlexProps,
   ...props
 }) => {
@@ -59,9 +59,9 @@ export const Property: React.FC<PropertyProps> = ({
               paddingFactor={paddingFactor}
             />
             {belowStackBreak ? (
-              <PropertyActions marginRight={showBadge ? 3 : 0} justifyContent="flex-end" actions={actions} />
+              <PropertyActions marginRight={badge ? 3 : 0} justifyContent="flex-end" actions={actions} />
             ) : null}
-            {showBadge && typeof value === 'string' && <IdenticonCorner value={value} />}
+            {badge && typeof value === 'string' && <IdenticonCorner value={value} />}
           </Grid>
         ) : null}
         <Grid
@@ -91,7 +91,7 @@ export const Property: React.FC<PropertyProps> = ({
           )}
         </Grid>
         {belowStackBreak ? null : (
-          <Grid display="flex" xs="auto" item marginRight={showBadge ? 4 : 0}>
+          <Grid display="flex" xs="auto" item marginRight={badge ? 4 : 0}>
             <PropertyActions actions={actions} />
           </Grid>
         )}
