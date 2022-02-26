@@ -6,7 +6,7 @@ import { DateTime } from 'luxon'
 import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
 
-import { HashTableCell } from '../../HashTableCell'
+import { HashTableCell } from '../../TableCell'
 import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 
 export interface BlockTableRowProps extends TableRowProps {
@@ -50,7 +50,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
     hash: (
       <HashTableCell
         key="hash"
-        hash={block?._hash}
+        value={block?._hash}
         archive={block?._archive}
         dataType="block"
         exploreDomain={exploreDomain}

@@ -1,6 +1,8 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { ellipsize } from '@xylabs/sdk-js'
 
+import { AddressTableCell } from '../../TableCell'
+
 export interface BlockSignatureTableRowProps extends TableRowProps {
   address?: string
   previousHash?: string | null
@@ -15,19 +17,15 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({
 }) => {
   return (
     <TableRow {...props}>
-      <TableCell>
+      <AddressTableCell value={address} />
+      <TableCell sx={{ display: { lg: 'table-cell', xs: 'none' } }} align="center">
         <Typography variant="body2" fontFamily="monospace">
-          {address ? ellipsize(address, 10) : null}
+          {previousHash ? ellipsize(previousHash, 8) : '-'}
         </Typography>
       </TableCell>
-      <TableCell align="center">
+      <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center">
         <Typography variant="body2" fontFamily="monospace">
-          {previousHash ? ellipsize(previousHash, 10) : '-'}
-        </Typography>
-      </TableCell>
-      <TableCell align="center">
-        <Typography variant="body2" fontFamily="monospace">
-          {signature ? ellipsize(signature, 10) : '-'}
+          {signature ? ellipsize(signature, 8) : '-'}
         </Typography>
       </TableCell>
     </TableRow>

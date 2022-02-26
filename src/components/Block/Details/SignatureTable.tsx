@@ -33,14 +33,20 @@ export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block,
       <Table {...props}>
         <TableHead>
           <TableRow>
-            <TableCell>
-              <Typography variant="caption">Hash</Typography>
+            <TableCell align="left">
+              <Typography variant="caption">
+                <strong>Address</strong>
+              </Typography>
             </TableCell>
-            <TableCell align="center">
-              <Typography variant="caption">Previous Hash</Typography>
+            <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center" width="10px">
+              <Typography variant="caption">
+                <strong>Previous</strong>
+              </Typography>
             </TableCell>
-            <TableCell align="center">
-              <Typography variant="caption">Signature</Typography>
+            <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center" width="10px">
+              <Typography variant="caption">
+                <strong>Signature</strong>
+              </Typography>
             </TableCell>
           </TableRow>
         </TableHead>

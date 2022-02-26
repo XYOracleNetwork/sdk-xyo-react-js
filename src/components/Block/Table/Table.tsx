@@ -29,7 +29,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
             return (
               <TableCell key={index} width={index > 0 ? '10px' : undefined} align={index === 0 ? 'left' : 'center'}>
                 <Typography variant="caption" noWrap>
-                  {blockColumnNames[column]}
+                  <strong>{blockColumnNames[column]}</strong>
                 </Typography>
               </TableCell>
             )
