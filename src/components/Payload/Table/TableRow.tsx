@@ -5,7 +5,7 @@ import { DateTime } from 'luxon'
 import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
 
-import { HashTableCell } from '../../HashTableCell'
+import { HashTableCell } from '../../TableCell'
 import {
   PayloadTableColumnConfig,
   payloadTableColumnConfigDefaults,
@@ -53,7 +53,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     hash: (
       <HashTableCell
         key="hash"
-        hash={payload?._hash}
+        value={payload?._hash}
         archive={payload?._archive}
         dataType="payload"
         exploreDomain={exploreDomain}

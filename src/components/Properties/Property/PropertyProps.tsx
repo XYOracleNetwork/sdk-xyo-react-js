@@ -13,7 +13,7 @@ export interface PropertyProps extends FlexBoxProps {
   value?: string | number | boolean | null
   paddingFactor?: number
   hero?: boolean
-  showBadge?: boolean
+  badge?: boolean
   stackBreak?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   gridContainerFlexProps?: FlexboxProps
 }

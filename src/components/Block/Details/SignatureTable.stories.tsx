@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { appThemeDecorator, sampleBlock, sampleBlockWithPayloads } from '../../.storybook'
 import { BlockSignatureTable } from './SignatureTable'
@@ -15,7 +16,9 @@ const StorybookEntry = {
 } as ComponentMeta<typeof BlockSignatureTable>
 
 const Template: ComponentStory<typeof BlockSignatureTable> = (args) => (
-  <BlockSignatureTable {...args}></BlockSignatureTable>
+  <BrowserRouter>
+    <BlockSignatureTable {...args}></BlockSignatureTable>
+  </BrowserRouter>
 )
 
 const Default = Template.bind({})

@@ -35,7 +35,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
               return (
                 <TableCell key={index} width={index > 0 ? '10px' : undefined} align={index === 0 ? 'left' : 'center'}>
                   <Typography variant="caption" noWrap>
-                    {payloadColumnNames[column]}
+                    <strong>{payloadColumnNames[column]}</strong>
                   </Typography>
                 </TableCell>
               )
