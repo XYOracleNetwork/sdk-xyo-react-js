@@ -1,64 +1,48 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { useBreakpoint } from '@xylabs/sdk-react'
 import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
+import { blockColumnNames, BlockTableColumnConfig, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
 import { BlockTableRow } from './TableRow'
 
 export interface BlockTableProps extends TableProps {
-  validate?: boolean
   blocks?: XyoBoundWitness[] | null
   onRowClick?: (value: XyoBoundWitness) => void
   exploreDomain?: string
-  showClient?: boolean
+  columns?: BlockTableColumnConfig
 }
 
 export const BlockTable: React.FC<BlockTableProps> = ({
   exploreDomain,
-  validate = false,
   onRowClick,
   blocks,
-  showClient = false,
+  columns = blockTableColumnConfigDefaults(),
   children,
   ...props
 }) => {
-  return (
-    <Table {...props}>
+  const breakPoint = useBreakpoint()
+  return breakPoint ? (
+    <Table style={{ overflow: 'hidden' }} {...props}>
       <TableHead>
         <TableRow>
-          <TableCell>
-            <Typography variant="caption">Hash</Typography>
-          </TableCell>
-          <TableCell align="center">
-            <Typography variant="caption">Archive</Typography>
-          </TableCell>
-          {showClient ? (
-            <TableCell align="center">
-              <Typography variant="caption">Client</Typography>
-            </TableCell>
-          ) : null}
-          <TableCell align="center">
-            <Typography variant="caption">Date</Typography>
-          </TableCell>
-          <TableCell align="center">
-            <Typography variant="caption">Time</Typography>
-          </TableCell>
-          <TableCell align="center">
-            <Typography variant="caption">Payloads</Typography>
-          </TableCell>
-          {validate && (
-            <TableCell align="center">
-              <Typography variant="caption">Valid</Typography>
-            </TableCell>
-          )}
+          {columns[breakPoint]?.map((column, index) => {
+            return (
+              <TableCell key={index} width={index > 0 ? '10px' : undefined} align={index === 0 ? 'left' : 'center'}>
+                <Typography variant="caption" noWrap>
+                  {blockColumnNames[column]}
+                </Typography>
+              </TableCell>
+            )
+          })}
         </TableRow>
       </TableHead>
       <TableBody>
         {blocks?.map((block, index) => (
           <BlockTableRow
             exploreDomain={exploreDomain}
-            validate={validate}
             key={index}
             block={block}
-            showClient={showClient}
+            columns={columns}
             onClick={
               onRowClick
                 ? () => {
@@ -71,5 +55,5 @@ export const BlockTable: React.FC<BlockTableProps> = ({
         {children}
       </TableBody>
     </Table>
-  )
+  ) : null
 }
