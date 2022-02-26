@@ -9,16 +9,16 @@ export interface HashTableCellProps extends TableCellProps {
   exploreDomain?: string
 }
 
-const getSmallestParantWidth = (element: HTMLElement) => {
-  let currentElement: HTMLElement | null = element
-  let width = currentElement.clientWidth
-  let maxDepth = 5
-  while (currentElement && maxDepth > 0) {
+const getSmallestParantWidth = (element: HTMLElement, maxDepth = 4) => {
+  let currentElement: HTMLElement | null = element?.parentElement
+  let width = currentElement?.clientWidth ?? 1024
+  let maxDepthCounter = maxDepth
+  while (currentElement && maxDepthCounter > 0) {
     if (width > currentElement.getBoundingClientRect()?.['width']) {
       width = currentElement.getBoundingClientRect()?.['width']
     }
     currentElement = currentElement.parentElement
-    maxDepth--
+    maxDepthCounter--
   }
   return width
 }
@@ -29,9 +29,6 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({ hash, archive, dat
 
   const theme = useTheme()
   const spacing = parseInt(theme.spacing(2).substring(-2))
-
-  console.log(`Width: ${hashCellWidth}`)
-  console.log(`spacing: ${spacing}`)
 
   useEffect(() => {
     const cell = hashDivRef.current?.parentElement
@@ -53,11 +50,21 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({ hash, archive, dat
 
     const getChildWidths = (row: HTMLElement) => {
       let width = 0
+      let padding = 0
       for (let i = 1; i < (row?.childElementCount ?? 0); i++) {
-        width += row?.children.item(i)?.clientWidth ?? 0
+        const item = row?.children.item(i)
+        if (item) {
+          width += item?.clientWidth ?? 0
+          padding += parseInt(
+            window.getComputedStyle(item, null)?.getPropertyValue('padding-left').replaceAll('px', '') ?? 0
+          )
+          padding += parseInt(
+            window.getComputedStyle(item, null)?.getPropertyValue('padding-right').replaceAll('px', '') ?? 0
+          )
+        }
       }
-      console.log(`getChildWidths: ${width}`)
-      return width
+
+      return width + padding
     }
 
     if (tableParent && row && cell) {
