@@ -1,14 +1,20 @@
 import { Menu as MenuIcon } from '@mui/icons-material'
-import { IconButton, MenuItem, MenuItemProps } from '@mui/material'
+import { IconButton, MenuItem } from '@mui/material'
 import { FlexBoxProps, FlexRow, MenuEx } from '@xylabs/sdk-react'
-import { ReactElement, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { To, useNavigate } from 'react-router-dom'
 
 import { useAppSettings } from '../../../contexts'
 
+export interface SiteMenuItem {
+  name: string
+  to?: To
+  href?: string
+}
+
 export interface SiteMenuProps extends FlexBoxProps {
   hideSettingsMenuItem?: boolean
-  menuItems?: ReactElement<MenuItemProps>[]
+  menuItems?: SiteMenuItem[]
 }
 
 export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuItems, ...props }) => {
@@ -37,7 +43,24 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuIt
         open={open}
         onClose={handleMenuClose}
       >
-        {menuItems}
+        {menuItems?.map(({ name, to, href }) => {
+          return (
+            <MenuItem
+              key={name}
+              onClick={() => {
+                if (to) {
+                  navigate('/settings')
+                } else if (href) {
+                  window.open(href)
+                }
+                handleMenuClose()
+              }}
+              disableRipple
+            >
+              {name}
+            </MenuItem>
+          )
+        })}
         {hideSettingsMenuItem ? null : (
           <MenuItem
             onClick={() => {
