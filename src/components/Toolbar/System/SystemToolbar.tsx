@@ -9,10 +9,16 @@ export interface SystemToolbarProps extends ToolbarProps {
   siteMenuProps?: SiteMenuProps
 }
 
-export const SystemToolbar: React.FC<SystemToolbarProps> = ({ networkSelectProps, siteMenuProps, ...props }) => {
+export const SystemToolbar: React.FC<SystemToolbarProps> = ({
+  children,
+  networkSelectProps,
+  siteMenuProps,
+  ...props
+}) => {
   return (
     <Toolbar {...props}>
       <NetworkSelectEx {...networkSelectProps} />
+      {children}
       <SiteMenu {...siteMenuProps} />
     </Toolbar>
   )
