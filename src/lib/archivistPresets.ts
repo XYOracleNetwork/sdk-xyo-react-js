@@ -1,0 +1,38 @@
+export interface XyoArchivistPreset {
+  slug: string
+  name: string
+  urls: {
+    api: string
+    web: string
+    apiDocs?: string
+  }
+}
+
+export const findArchivistPreset = (slug: string) => {
+  return (
+    archivistPresets.find((item) => {
+      return item.slug === slug
+    }) ?? archivistPresets[0]
+  )
+}
+
+export const archivistPresets: XyoArchivistPreset[] = [
+  {
+    name: 'XYO Shared Archivist (kerplunk)',
+    slug: 'beta-archivist-xyo-network',
+    urls: {
+      api: 'https://beta.api.archivist.xyo.network',
+      apiDocs: 'https://beta.archivist.xyo.network/api',
+      web: 'https://beta.archivist.xyo.network',
+    },
+  },
+  {
+    name: 'XYO Shared Archivist (main)',
+    slug: 'archivist-xyo-network',
+    urls: {
+      api: 'https://api.archivist.xyo.network',
+      apiDocs: 'https://archivist.xyo.network/api',
+      web: 'https://archivist.xyo.network',
+    },
+  },
+]

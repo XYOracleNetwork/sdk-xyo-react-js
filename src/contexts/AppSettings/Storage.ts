@@ -1,0 +1,33 @@
+import { appSettingDefault } from './appSettingDefault'
+import { AppSettingSlug } from './Slug'
+import { AppSettingsStorageBase } from './StorageBase'
+
+export class AppSettingsStorage extends AppSettingsStorageBase {
+  constructor(prefix = 'XyoAppSettings', defaults = appSettingDefault()) {
+    super(prefix, defaults)
+  }
+
+  get darkMode() {
+    return this.getBoolean(AppSettingSlug.DarkMode)
+  }
+
+  set darkMode(value: boolean) {
+    this.setBoolean(AppSettingSlug.DarkMode, value)
+  }
+
+  get developerMode() {
+    return this.getBoolean(AppSettingSlug.Developer)
+  }
+
+  set developerMode(value: boolean) {
+    this.setBoolean(AppSettingSlug.Developer, value)
+  }
+
+  get network() {
+    return this.getString(AppSettingSlug.Network)
+  }
+
+  set network(value: string) {
+    this.setString(AppSettingSlug.Network, value)
+  }
+}

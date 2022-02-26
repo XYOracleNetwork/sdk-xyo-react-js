@@ -1,11 +1,11 @@
 import { assertEx } from '@xylabs/sdk-js'
 
-import { assertDefinedEx } from './assertDefinedEx'
+import { assertDefinedEx } from '../../assertDefinedEx'
 
-export class AppSettings {
+export class AppSettingsStorageBase {
   private prefix: string
   private defaults: Record<string, unknown>
-  constructor(prefix: string, defaults?: Record<string, unknown>) {
+  constructor(prefix = 'AppSettings', defaults?: Record<string, unknown>) {
     this.prefix = prefix
     this.defaults = defaults ?? {}
   }
