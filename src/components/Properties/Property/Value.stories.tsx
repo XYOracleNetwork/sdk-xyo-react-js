@@ -1,27 +1,27 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { sampleBlockWithPreviousHash } from '../../.storybook'
-import { Value } from './Value'
+import { sampleBlockWithPayloads } from '../../.storybook'
+import { PropertyValue } from './Value'
 
 const StorybookEntry = {
   argTypes: {},
-  component: Value,
+  component: PropertyValue,
   parameters: {
     docs: {
       page: null,
     },
   },
   title: 'Properties/Value',
-} as ComponentMeta<typeof Value>
+} as ComponentMeta<typeof PropertyValue>
 
-const Template: ComponentStory<typeof Value> = (args) => <Value {...args}></Value>
+const Template: ComponentStory<typeof PropertyValue> = (args) => <PropertyValue {...args}></PropertyValue>
 
 const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = { value: sampleBlockWithPreviousHash._hash }
+WithData.args = { value: sampleBlockWithPayloads._hash }
 
 export { Default, WithData }
 
