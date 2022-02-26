@@ -1,56 +1,45 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { useBreakpoint } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { ScrollTableOnSm } from '../../ScrollTableOnSm'
+import {
+  payloadColumnNames,
+  PayloadTableColumnConfig,
+  payloadTableColumnConfigDefaults,
+} from './PayloadTableColumnConfig'
 import { PayloadTableRow } from './TableRow'
 
 export interface PayloadTableProps extends TableProps {
   exploreDomain?: string
-  validate?: boolean
   onRowClick?: (value: XyoPayload) => void
   payloads?: XyoPayload[] | null
-  showClient?: boolean
+  columns?: PayloadTableColumnConfig
 }
 
 export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
   onRowClick,
-  validate = false,
-  showClient = false,
   payloads,
   children,
+  columns = payloadTableColumnConfigDefaults(),
   ...props
 }) => {
-  return (
+  const breakPoint = useBreakpoint()
+  return breakPoint ? (
     <ScrollTableOnSm>
       <Table {...props}>
         <TableHead>
           <TableRow>
-            <TableCell>
-              <Typography variant="caption">Hash</Typography>
-            </TableCell>
-            <TableCell align="center">
-              <Typography variant="caption">Archive</Typography>
-            </TableCell>
-            {showClient ? (
-              <TableCell align="center">
-                <Typography variant="caption">Client</Typography>
-              </TableCell>
-            ) : null}
-            <TableCell align="center">
-              <Typography variant="caption">Schema</Typography>
-            </TableCell>
-            <TableCell align="center">
-              <Typography variant="caption">Date</Typography>
-            </TableCell>
-            <TableCell align="center">
-              <Typography variant="caption">Time</Typography>
-            </TableCell>
-            {validate && (
-              <TableCell align="center">
-                <Typography variant="caption">Valid</Typography>
-              </TableCell>
-            )}
+            {columns[breakPoint]?.map((column, index) => {
+              return (
+                <TableCell key={index} width={index > 0 ? '10px' : undefined} align={index === 0 ? 'left' : 'center'}>
+                  <Typography variant="caption" noWrap>
+                    {payloadColumnNames[column]}
+                  </Typography>
+                </TableCell>
+              )
+            })}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -63,9 +52,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
                     }
                   : undefined
               }
-              showClient={showClient}
               exploreDomain={exploreDomain}
-              validate={validate}
               key={payload._hash}
               payload={payload}
             />
@@ -74,5 +61,5 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
         </TableBody>
       </Table>
     </ScrollTableOnSm>
-  )
+  ) : null
 }
