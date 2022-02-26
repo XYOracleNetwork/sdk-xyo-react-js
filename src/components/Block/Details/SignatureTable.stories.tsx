@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { appThemeDecorator, sampleBlock, sampleBlockWithPreviousHash } from '../../.storybook'
+import { appThemeDecorator, sampleBlock, sampleBlockWithPayloads } from '../../.storybook'
 import { BlockSignatureTable } from './SignatureTable'
 
 const StorybookEntry = {
@@ -26,11 +26,11 @@ const WithData = Template.bind({})
 WithData.args = { block: sampleBlock }
 WithData.decorators = [appThemeDecorator]
 
-const WithDataAndPreviousHash = Template.bind({})
-WithDataAndPreviousHash.args = { block: sampleBlockWithPreviousHash }
-WithDataAndPreviousHash.decorators = [appThemeDecorator]
+const WithDataAndPayloads = Template.bind({})
+WithDataAndPayloads.args = { block: sampleBlockWithPayloads }
+WithDataAndPayloads.decorators = [appThemeDecorator]
 
-export { Default, WithData, WithDataAndPreviousHash }
+export { Default, WithData, WithDataAndPayloads }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -31,21 +31,21 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const tableCells: Record<PayloadTableColumnSlug, ReactElement> = {
     archive: (
       <TableCell key="archive" align="center">
-        <Typography variant="body2" noWrap>
+        <Typography fontFamily="monospace" variant="body2" noWrap>
           {payload?._archive}
         </Typography>
       </TableCell>
     ),
     client: (
       <TableCell key="client" align="center">
-        <Typography variant="body2" noWrap>
+        <Typography fontFamily="monospace" variant="body2" noWrap>
           {payload?._client}
         </Typography>
       </TableCell>
     ),
     date: (
       <TableCell key="date" align="center">
-        <Typography variant="body2" noWrap>
+        <Typography fontFamily="monospace" variant="body2" noWrap>
           {timeStamp?.toLocaleString(DateTime.DATE_SHORT)}
         </Typography>
       </TableCell>
@@ -61,21 +61,21 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     ),
     schema: (
       <TableCell key="payloads" align="center">
-        <Typography variant="body2" noWrap>
+        <Typography fontFamily="monospace" variant="body2" noWrap>
           {payload?.schema}
         </Typography>
       </TableCell>
     ),
     time: (
       <TableCell key="time" align="center">
-        <Typography variant="body2" noWrap>
+        <Typography fontFamily="monospace" variant="body2" noWrap>
           {timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}
         </Typography>
       </TableCell>
     ),
     valid: (
       <TableCell key="valid" align="center">
-        <Typography variant="body2" noWrap>
+        <Typography fontFamily="monospace" variant="body2" noWrap>
           {wrapper?.validator.all().length === 0 ? (
             <MdDone fontSize={18} color="green" />
           ) : (

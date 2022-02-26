@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { appThemeDecorator, sampleBlockWithPreviousHash } from '../../.storybook'
+import { appThemeDecorator, sampleBlockWithPayloads } from '../../.storybook'
 import { Property } from './Property'
 
 const StorybookEntry = {
@@ -25,14 +25,14 @@ WithUndefinedData.args = { title: 'Block Hash' }
 WithUndefinedData.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.args = { title: 'Block Hash', value: sampleBlockWithPreviousHash._hash }
+WithData.args = { title: 'Block Hash', value: sampleBlockWithPayloads._hash }
 WithData.decorators = [appThemeDecorator]
 
 const WithTip = Template.bind({})
 WithTip.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPreviousHash._hash,
+  value: sampleBlockWithPayloads._hash,
 }
 WithTip.decorators = [appThemeDecorator]
 
@@ -41,7 +41,7 @@ WithActions.args = {
   actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPreviousHash._hash,
+  value: sampleBlockWithPayloads._hash,
 }
 WithActions.decorators = [appThemeDecorator]
 
@@ -51,7 +51,7 @@ WithHero.args = {
   showBadge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPreviousHash._hash,
+  value: sampleBlockWithPayloads._hash,
 }
 WithHero.decorators = [appThemeDecorator]
 
@@ -62,7 +62,7 @@ WithHeroAndActions.args = {
   showBadge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPreviousHash._hash,
+  value: sampleBlockWithPayloads._hash,
 }
 WithHeroAndActions.decorators = [appThemeDecorator]
 
