@@ -24,7 +24,6 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       const authCompleteState: Partial<AuthState> = {
         activeAuthServiceId: AuthServiceId.None,
         isLoading: false,
-        isLoggedIn: true,
         reAuthenticate: false,
       }
       return { ...state, ...{ ...authCompleteState, ...action.payload } }
@@ -35,7 +34,7 @@ const authReducer = (state: AuthState, action: AuthAction) => {
         throw new Error('authError missing from  payload')
       }
       const { authError } = action.payload
-      return { ...state, ...{ authError, isLoading: false, isLoggedIn: false } }
+      return { ...state, ...{ authError, isLoading: false } }
     }
 
     case AuthActionTypes.Logout: {

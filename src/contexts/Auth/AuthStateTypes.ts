@@ -11,6 +11,7 @@ export interface AuthState {
   activeAuthServiceId: AuthServiceId
   readonly authServiceList: IAuthService[]
   isLoading: boolean
+  /* deprecated */
   isLoggedIn: boolean
   authError: undefined | Error | AxiosError
   jwtToken?: string

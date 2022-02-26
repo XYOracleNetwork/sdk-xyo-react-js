@@ -25,7 +25,7 @@ const AuthServiceWrapper: React.FC = () => {
     <>
       <MapActiveAuthService authState={authState} dispatch={authDispatch} handleBack={handleBack} />
       <FlexGrowCol width="100%" maxWidth={theme.breakpoints.values.sm}>
-        {authState.isLoggedIn && <AuthFooter handleLogout={handleLogout} />}
+        {authState.loggedInAccount && <AuthFooter handleLogout={handleLogout} />}
       </FlexGrowCol>
     </>
   )

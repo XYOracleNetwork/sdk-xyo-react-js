@@ -35,11 +35,11 @@ const StorybookEntry = {
 const DemoArchiveFetcher = () => {
   const [myArchives, setMyArchives] = useState<ArchiveResponse[]>([])
   const { api, currentToken } = useArchivistApi()
-  const { jwtToken, isLoggedIn } = useAuthState().state
+  const { jwtToken, loggedInAccount } = useAuthState().state
   const [successfulCall, setSuccessfulCall] = useState(false)
 
   useEffect(() => {
-    if (jwtToken && currentToken && isLoggedIn) {
+    if (jwtToken && currentToken && loggedInAccount) {
       api
         .getArchives()
         .then((archives) => {
@@ -48,14 +48,14 @@ const DemoArchiveFetcher = () => {
         })
         .catch((e) => console.error(e))
     }
-  }, [api, jwtToken, currentToken, isLoggedIn, setSuccessfulCall])
+  }, [api, jwtToken, currentToken, loggedInAccount, setSuccessfulCall])
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (!loggedInAccount) {
       setMyArchives([])
       setSuccessfulCall(false)
     }
-  }, [isLoggedIn])
+  }, [loggedInAccount])
 
   return (
     <>

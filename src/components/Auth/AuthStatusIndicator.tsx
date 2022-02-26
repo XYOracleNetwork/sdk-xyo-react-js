@@ -18,19 +18,19 @@ const AuthStatusIndicator = () => {
   const [currentAccount, setCurrentAccount] = useState<string>()
   const { state: authState } = useAuthState()
   const navigate = useNavigate()
-  const iconHint = authState?.isLoggedIn ? `Signed In as ${authState.loggedInAccount}` : 'Signed Out'
-  const iconColor = authState?.isLoggedIn ? colors.lightBlue[50] : colors.grey[500]
+  const iconHint = authState?.loggedInAccount ? `Signed In as ${authState.loggedInAccount}` : 'Signed Out'
+  const iconColor = authState?.loggedInAccount ? colors.lightBlue[50] : colors.grey[500]
 
   useEffect(() => {
-    if (authState.isLoggedIn && authState.loggedInAccount) {
+    if (authState.loggedInAccount) {
       setCurrentAccount(formatAccount(authState.loggedInAccount))
     } else {
       setCurrentAccount(undefined)
     }
-  }, [authState.isLoggedIn, authState.loggedInAccount])
+  }, [authState.loggedInAccount])
 
   const handleClick = () => {
-    if (!authState.isLoggedIn) {
+    if (!authState.loggedInAccount) {
       navigate('/login')
     }
   }
