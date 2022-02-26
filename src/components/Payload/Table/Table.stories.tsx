@@ -27,7 +27,7 @@ Default.args = {}
 Default.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.args = { payloads: [samplePayload] }
+WithData.args = { payloads: [samplePayload, samplePayload] }
 WithData.decorators = [appThemeDecorator]
 
 export { Default, WithData }

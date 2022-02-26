@@ -67,14 +67,21 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({ hash, archive, dat
       return width + padding
     }
 
+    const onResize = () => {
+      if (cell) {
+        checkWidth(cell)
+      }
+    }
+
     if (tableParent && row && cell) {
       const smallestParentWidth = getSmallestParantWidth(row)
       if (smallestParentWidth) {
         checkWidth(cell)
-        window.onresize = () => {
-          checkWidth(cell)
-        }
+        window.addEventListener('resize', onResize)
       }
+    }
+    return () => {
+      window.removeEventListener('resize', onResize)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hashDivRef, spacing])
