@@ -1,4 +1,5 @@
 export * from './Ampersand'
+export * from './AppBar'
 export * from './Auth'
 export * from './Block'
 export * from './Footer'
