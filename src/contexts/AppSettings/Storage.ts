@@ -1,3 +1,4 @@
+import { XyoNetworkPreset } from '../../lib'
 import { appSettingDefault } from './appSettingDefault'
 import { AppSettingSlug } from './Slug'
 import { AppSettingsStorageBase } from './StorageBase'
@@ -24,11 +25,11 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
   }
 
   get network() {
-    return this.getString(AppSettingSlug.Network)
+    return this.getObject(AppSettingSlug.Network)
   }
 
-  set network(value: string) {
-    this.setString(AppSettingSlug.Network, value)
+  set network(value: XyoNetworkPreset) {
+    this.setObject(AppSettingSlug.Network, value)
   }
 
   get archive() {

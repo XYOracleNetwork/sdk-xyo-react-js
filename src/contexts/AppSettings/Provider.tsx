@@ -1,6 +1,6 @@
 import React, { ProviderProps, useState } from 'react'
 
-import { findNetworkPreset, XyoNetworkPreset } from '../../lib'
+import { XyoNetworkPreset } from '../../lib'
 import { AppSettingsContext, AppSettingsContextProps } from './Context'
 import { AppSettingsStorage } from './Storage'
 
@@ -17,7 +17,7 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({
 }) => {
   const [developerMode, setDeveloperMode] = useState(storage.developerMode)
   const [darkMode, setDarkMode] = useState(storage.darkMode)
-  const [network, setNetwork] = useState(findNetworkPreset(storage.network))
+  const [network, setNetwork] = useState(storage.network)
   const [archive, setArchive] = useState(storage.archive)
 
   const enableDeveloperMode = (value: boolean) => {
@@ -31,10 +31,12 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({
   }
 
   const changeNetwork = (value: XyoNetworkPreset) => {
+    storage.network = value
     setNetwork(value)
   }
 
   const changeArchive = (value: string) => {
+    storage.archive = value
     setArchive(value)
   }
 
