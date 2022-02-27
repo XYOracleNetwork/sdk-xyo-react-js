@@ -23,15 +23,15 @@ export const AuthStatusIndicator: React.FC<FlexBoxProps> = ({ onClick, ...props 
   const iconColor = authState?.loggedInAccount ? colors.lightBlue[50] : colors.grey[500]
 
   useEffect(() => {
-    if (authState.loggedInAccount) {
-      setCurrentAccount(formatAccount(authState.loggedInAccount))
+    if (authState?.loggedInAccount) {
+      setCurrentAccount(formatAccount(authState?.loggedInAccount))
     } else {
       setCurrentAccount(undefined)
     }
-  }, [authState.loggedInAccount])
+  }, [authState?.loggedInAccount])
 
   const handleClick = () => {
-    if (!authState.loggedInAccount) {
+    if (!authState?.loggedInAccount) {
       navigate('/login')
     }
   }
