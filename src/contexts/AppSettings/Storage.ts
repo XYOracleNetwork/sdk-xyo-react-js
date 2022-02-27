@@ -32,7 +32,7 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
   }
 
   get archive() {
-    return this.getString(AppSettingSlug.Network)
+    return this.getString(AppSettingSlug.Archive)
   }
 
   set archive(value: string) {
