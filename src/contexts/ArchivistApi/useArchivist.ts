@@ -1,4 +1,3 @@
-import { assertEx } from '@xylabs/sdk-js'
 import { XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
 import { useContext } from 'react'
 
@@ -13,7 +12,7 @@ interface ArchivistApiContext extends ArchivistApiState {
 const useArchivistApi = () => {
   const { api, currentToken } = useContext(ArchivistApiContext)
 
-  return { api: assertEx(api, 'Archivist Api not initialized'), currentToken }
+  return { api, currentToken }
 }
 
 export { useArchivistApi }
