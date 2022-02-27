@@ -15,20 +15,20 @@ const AuthServiceWrapper: React.FC = () => {
   const theme = useTheme()
 
   const handleLogout = () => {
-    authDispatch({ payload: {}, type: AuthActionTypes.Logout })
-    authDispatch(backPayload)
+    authDispatch?.({ payload: {}, type: AuthActionTypes.Logout })
+    authDispatch?.(backPayload)
   }
 
-  const handleBack = () => authDispatch(backPayload)
+  const handleBack = () => authDispatch?.(backPayload)
 
-  return (
+  return authState && authDispatch ? (
     <>
       <MapActiveAuthService authState={authState} dispatch={authDispatch} handleBack={handleBack} />
       <FlexGrowCol width="100%" maxWidth={theme.breakpoints.values.sm}>
-        {authState.loggedInAccount && <AuthFooter handleLogout={handleLogout} />}
+        {authState?.loggedInAccount && <AuthFooter handleLogout={handleLogout} />}
       </FlexGrowCol>
     </>
-  )
+  ) : null
 }
 
 export { AuthServiceWrapper }

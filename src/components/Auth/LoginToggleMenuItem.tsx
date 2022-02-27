@@ -33,7 +33,7 @@ const LoginToggleMenuItem: React.FC<LoginToggleMenuItemProps> = ({
 
   const LogoutMenuItem: React.FC = () => {
     const handleLogout = () => {
-      authDispatch({ payload: {}, type: AuthActionTypes.Logout })
+      authDispatch?.({ payload: {}, type: AuthActionTypes.Logout })
     }
     return (
       <MenuItem
@@ -54,7 +54,7 @@ const LoginToggleMenuItem: React.FC<LoginToggleMenuItemProps> = ({
       return <></>
     }
 
-    if (authState.loggedInAccount) {
+    if (authState?.loggedInAccount) {
       return <LogoutMenuItem />
     } else {
       return <LoginMenuItem />

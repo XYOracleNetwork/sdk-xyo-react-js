@@ -33,7 +33,10 @@ export interface AuthAction {
 }
 
 export type AuthDispatch = (action: AuthAction) => void
-export type AuthContextType = { state: AuthState; dispatch: AuthDispatch } | undefined
+export interface AuthContextType {
+  state?: AuthState
+  dispatch?: AuthDispatch
+}
 
 export interface AuthServiceComponentProps {
   authState?: AuthState
