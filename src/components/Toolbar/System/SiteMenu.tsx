@@ -52,7 +52,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuIt
                 if (onClick) {
                   onClick()
                 } else if (to) {
-                  navigate('/settings')
+                  navigate(to)
                 } else if (href) {
                   window.open(href)
                 }
