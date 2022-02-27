@@ -10,6 +10,7 @@ export interface SiteMenuItem {
   name: string
   to?: To
   href?: string
+  onClick?: () => void
 }
 
 export interface SiteMenuProps extends FlexBoxProps {
@@ -43,12 +44,14 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuIt
         open={open}
         onClose={handleMenuClose}
       >
-        {menuItems?.map(({ name, to, href }) => {
+        {menuItems?.map(({ name, to, href, onClick }) => {
           return (
             <MenuItem
               key={name}
               onClick={() => {
-                if (to) {
+                if (onClick) {
+                  onClick()
+                } else if (to) {
                   navigate('/settings')
                 } else if (href) {
                   window.open(href)
