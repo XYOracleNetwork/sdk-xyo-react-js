@@ -15,19 +15,19 @@ export const ContextToolbar: React.FC<ContextToolbarProps> = ({ to = '/', versio
     <Toolbar {...props}>
       <LinkEx to={to}>
         <FlexRow>
-          <XyoLogo height="40" width="auto" />
+          <XyoLogo height="40" width="43" />
           {version ? (
             <Typography
               position="absolute"
               borderRadius={1}
               right={0}
-              color={theme.palette.getContrastText(theme.palette.primary.light)}
+              color={theme.palette.getContrastText(theme.palette.primary.main)}
               bottom={0}
-              bgcolor={theme.palette.primary.light}
+              bgcolor={theme.palette.primary.main}
               paddingX="2px"
               lineHeight={1}
               variant="caption"
-              border={`1px ${theme.palette.getContrastText(theme.palette.primary.light)} solid`}
+              border={`1px ${theme.palette.getContrastText(theme.palette.primary.main)} solid`}
             >
               2.0
             </Typography>
