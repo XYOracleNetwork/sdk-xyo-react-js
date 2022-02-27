@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { AppSettingsProvider, ArchivistApiProvider, useAppSettings } from '../../..'
+import { AppSettingsProvider, ArchivistApiProvider, useAppSettings } from '../../../contexts'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 
 const StorybookEntry = {
