@@ -1,12 +1,13 @@
 import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps, useAsyncEffect } from '@xylabs/sdk-react'
+import uniq from 'lodash/uniq'
 import { useState } from 'react'
 
 import { useAppSettings, useArchivistApi, useAuthState } from '../../../contexts'
 
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
   const { changeArchive, archive, darkMode } = useAppSettings()
-  const [archives, setArchives] = useState<string[]>([])
+  const [archives, setArchives] = useState<string[]>(['temp'])
 
   console.log(`archive: ${archive}`)
 
@@ -17,7 +18,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
     async (mounted) => {
       const myArchives = state?.loggedInAccount ? (await api?.getArchives()) ?? [] : []
       if (mounted()) {
-        setArchives([...myArchives.map((value) => value.archive), 'temp'])
+        setArchives(uniq([...myArchives.map((value) => value.archive), 'temp']))
       }
     },
     [api]
