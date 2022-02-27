@@ -1,21 +1,12 @@
-import { ButtonEx, LinkEx } from '@xylabs/sdk-react'
-import { HTMLAttributeAnchorTarget } from 'react'
-import { useLocation } from 'react-router-dom'
+import { ButtonEx } from '@xylabs/sdk-react'
+import { useSearchParams } from 'react-router-dom'
 
-interface JsonApiLinkProps {
-  target?: HTMLAttributeAnchorTarget
-}
-
-const JsonApiLink: React.FC<JsonApiLinkProps> = ({ children, target }) => {
-  const { pathname } = useLocation()
+const JsonApiLink = () => {
+  const [, setSearchParams] = useSearchParams()
   return (
-    <LinkEx to={`${pathname}/json`} target={target || '_self'}>
-      {children || (
-        <ButtonEx marginX={2} variant="outlined">
-          JSON
-        </ButtonEx>
-      )}
-    </LinkEx>
+    <ButtonEx marginX={2} variant="outlined" onClick={() => setSearchParams({ json: 'true' })}>
+      JSON
+    </ButtonEx>
   )
 }
 
