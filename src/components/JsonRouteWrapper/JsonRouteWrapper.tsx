@@ -1,7 +1,7 @@
-import { ButtonEx, ErrorDialog, FlexCol, useAsyncEffect } from '@xylabs/sdk-react'
+import { ButtonEx, ErrorDialog, FlexCol, FlexRow, useAsyncEffect } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { lazy, Suspense, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
@@ -12,8 +12,7 @@ export interface JsonFromPromiseProps {
 const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({ callback, children, ...JsonViewProps }) => {
   const [apiResponse, setApiResponse] = useState<object>()
   const [apiError, setApiError] = useState<AxiosError>()
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const active = searchParams.get('json') === 'true'
 
   useAsyncEffect(async () => {
@@ -31,9 +30,11 @@ const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({ callback, children, 
         <Suspense fallback={<FlexCol />}>
           {apiResponse && <JsonView src={apiResponse} collapseStringsAfterLength={64} {...JsonViewProps} />}
         </Suspense>
-        <ButtonEx marginY={3} variant="outlined" onClick={() => navigate('..')}>
-          Back
-        </ButtonEx>
+        <FlexRow marginY={3}>
+          <ButtonEx flexDirection="row" variant="outlined" onClick={() => setSearchParams({ json: '' })}>
+            Back
+          </ButtonEx>
+        </FlexRow>
         <ErrorDialog
           title="Error Fetching JSON"
           error={apiError}
