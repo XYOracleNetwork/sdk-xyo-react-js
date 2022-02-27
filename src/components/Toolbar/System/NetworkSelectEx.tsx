@@ -4,7 +4,7 @@ import { SelectEx, SelectExProps } from '@xylabs/sdk-react'
 import { useAppSettings } from '../../../contexts'
 import { findNetworkPreset, networkPresets } from '../../../lib'
 
-export const NetworkSelectEx: React.FC<SelectExProps<string>> = (props) => {
+export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
   const { changeNetwork, network, darkMode } = useAppSettings()
   return (
     <SelectEx
@@ -13,7 +13,10 @@ export const NetworkSelectEx: React.FC<SelectExProps<string>> = (props) => {
       variant="outlined"
       size="small"
       value={network?.slug}
-      onChange={(event) => changeNetwork?.(findNetworkPreset(event.target.value))}
+      onChange={(event, child) => {
+        onChange?.(event, child)
+        changeNetwork?.(findNetworkPreset(event.target.value))
+      }}
       {...props}
     >
       {networkPresets.map((network) => {

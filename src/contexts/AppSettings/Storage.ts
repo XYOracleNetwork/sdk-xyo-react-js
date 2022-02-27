@@ -30,4 +30,12 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
   set network(value: string) {
     this.setString(AppSettingSlug.Network, value)
   }
+
+  get archive() {
+    return this.getString(AppSettingSlug.Network)
+  }
+
+  set archive(value: string) {
+    this.setString(AppSettingSlug.Archive, value)
+  }
 }
