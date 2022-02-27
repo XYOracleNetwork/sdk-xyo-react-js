@@ -1,5 +1,5 @@
-import { Toolbar, ToolbarProps } from '@mui/material'
-import { SelectExProps } from '@xylabs/sdk-react'
+import { FormControl, Toolbar, ToolbarProps } from '@mui/material'
+import { FlexRow, SelectExProps } from '@xylabs/sdk-react'
 
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 import { NetworkSelectEx } from './NetworkSelectEx'
@@ -20,8 +20,12 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
 }) => {
   return (
     <Toolbar {...props}>
-      <NetworkSelectEx {...networkSelectProps} />
-      <ArchiveSelectEx {...archiveSelectProps} />
+      <FlexRow marginX={0.5}>
+        <NetworkSelectEx {...networkSelectProps} />
+      </FlexRow>
+      <FlexRow marginX={0.5}>
+        <ArchiveSelectEx {...archiveSelectProps} />
+      </FlexRow>
       {children}
       <SiteMenu {...siteMenuProps} />
     </Toolbar>

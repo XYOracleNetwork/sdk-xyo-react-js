@@ -12,7 +12,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
 
   useAsyncEffect(
     async (mounted) => {
-      const myArchives = await api?.getArchives()
+      const myArchives = (await api?.getArchives()) ?? []
       if (mounted()) {
         setArchives([...myArchives.map((value) => value.archive), 'temp'])
       }
