@@ -38,7 +38,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuIt
           setMenuElement(ref.current)
         }}
       >
-        <div style={{ alignItems: 'center', display: 'flex' }} ref={ref}>
+        <div style={{ alignItems: 'center', cursor: 'pointer', display: 'flex' }} ref={ref}>
           <MenuIcon fontSize="large" />
         </div>
       </LinkEx>
