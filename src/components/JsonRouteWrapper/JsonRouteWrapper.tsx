@@ -7,9 +7,15 @@ const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-jso
 
 export interface JsonFromPromiseProps {
   callback: () => Promise<object>
+  showBackButton?: boolean
 }
 
-const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({ callback, children, ...JsonViewProps }) => {
+const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
+  callback,
+  children,
+  showBackButton = true,
+  ...JsonViewProps
+}) => {
   const [apiResponse, setApiResponse] = useState<object>()
   const [apiError, setApiError] = useState<AxiosError>()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -30,11 +36,13 @@ const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({ callback, children, 
         <Suspense fallback={<FlexCol />}>
           {apiResponse && <JsonView src={apiResponse} collapseStringsAfterLength={64} {...JsonViewProps} />}
         </Suspense>
-        <FlexRow marginY={3}>
-          <ButtonEx flexDirection="row" variant="outlined" onClick={() => setSearchParams({ json: '' })}>
-            Back
-          </ButtonEx>
-        </FlexRow>
+        {showBackButton && (
+          <FlexRow marginY={3}>
+            <ButtonEx flexDirection="row" variant="outlined" onClick={() => setSearchParams({ json: '' })}>
+              Back
+            </ButtonEx>
+          </FlexRow>
+        )}
         <ErrorDialog
           title="Error Fetching JSON"
           error={apiError}

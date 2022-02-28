@@ -20,7 +20,7 @@ export interface JsonFromUrlProps {
   theme?: ThemeKeys | ThemeObject
 }
 
-/* deprecated */
+/* deprecated - Move to JsonRouteWrapper Component */
 const JsonFromUrl: React.FC<JsonFromUrlProps> = ({ pathname, apiDomain, ...JsonViewProps }) => {
   const location = useLocation()
   const path = pathname ? pathname : location.pathname

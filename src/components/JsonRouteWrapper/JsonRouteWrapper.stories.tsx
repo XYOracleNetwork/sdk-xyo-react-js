@@ -49,7 +49,13 @@ Default.args = {
   callback: () => new XyoArchivistApi({ apiDomain: 'http://localhost:8081', archive: 'temp' }).getBoundWitnessStats(),
 }
 
-export { Default }
+const HideBackButton = Template.bind({})
+HideBackButton.args = {
+  callback: () => new XyoArchivistApi({ apiDomain: 'http://localhost:8081', archive: 'temp' }).getBoundWitnessStats(),
+  showBackButton: false,
+}
+
+export { Default, HideBackButton }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
