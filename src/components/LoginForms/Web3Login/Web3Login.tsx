@@ -73,13 +73,18 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
               setMetaMaskError={setMetaMaskError}
             />
             {metaMaskError && (
-              <Typography variant="body1" mt={2} color="error">
-                Error Connecting to MetaMask: {metaMaskError.message}
-              </Typography>
+              <>
+                <Typography variant="body1" mt={2} color="error">
+                  Error Connecting to MetaMask:
+                </Typography>
+                <Typography variant="body1" mt={2} color="error">
+                  {metaMaskError.message}
+                </Typography>
+              </>
             )}
             {axiosError && (
               <Typography variant="body1" mt={2} color="error">
-                Error making confirming wallet access: {axiosError.message}
+                Error making request to confirm wallet access: {axiosError.message}
               </Typography>
             )}
           </>
