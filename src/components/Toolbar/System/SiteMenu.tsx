@@ -1,6 +1,6 @@
 import { Menu as MenuIcon } from '@mui/icons-material'
 import { MenuItem } from '@mui/material'
-import { ButtonEx, FlexBoxProps, FlexRow, LinkEx, MenuEx } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexRow, LinkEx, MenuEx } from '@xylabs/sdk-react'
 import { useRef, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
