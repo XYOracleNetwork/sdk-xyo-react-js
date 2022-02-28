@@ -1,4 +1,4 @@
-import { AppBar, AppBarProps, Container, ToolbarProps } from '@mui/material'
+import { AppBar, AppBarProps, Container, Toolbar, ToolbarProps, useMediaQuery, useTheme } from '@mui/material'
 import { FlexGrowRow, FlexRow, InvertableThemeProvider } from '@xylabs/sdk-react'
 import React, { ReactElement } from 'react'
 
@@ -15,15 +15,18 @@ export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({
   children,
   ...props
 }) => {
+  const { breakpoints } = useTheme()
+  const belowSm = useMediaQuery(breakpoints.down('sm'))
   return (
     <AppBar color="primary" position="sticky" enableColorOnDark {...props}>
       <InvertableThemeProvider dark>
         <Container maxWidth="xl" disableGutters>
-          <FlexRow flexWrap="wrap" justifyContent="flex-start">
+          <FlexRow flexWrap="nowrap" justifyContent="flex-start">
             {contextToolbar ?? <ContextToolbar version />}
-            <FlexGrowRow>{children}</FlexGrowRow>
+            <FlexGrowRow>{belowSm ? null : children}</FlexGrowRow>
             {systemToolbar ?? <SystemToolbar />}
           </FlexRow>
+          {belowSm ? <Toolbar>{children}</Toolbar> : null}
         </Container>
       </InvertableThemeProvider>
     </AppBar>

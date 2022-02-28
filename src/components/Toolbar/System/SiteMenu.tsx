@@ -1,7 +1,7 @@
 import { Menu as MenuIcon } from '@mui/icons-material'
-import { IconButton, MenuItem } from '@mui/material'
-import { FlexBoxProps, FlexRow, MenuEx } from '@xylabs/sdk-react'
-import { useState } from 'react'
+import { MenuItem } from '@mui/material'
+import { ButtonEx, FlexBoxProps, FlexRow, LinkEx, MenuEx } from '@xylabs/sdk-react'
+import { useRef, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
 import { useAppSettings } from '../../../contexts'
@@ -27,16 +27,21 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuIt
   const handleMenuClose = () => {
     setMenuElement(null)
   }
+
+  const ref = useRef(null)
+
   return (
-    <FlexRow {...props}>
-      <IconButton
-        size="large"
-        onClick={(event) => {
-          setMenuElement(event.currentTarget)
+    <FlexRow alignItems="stretch" {...props}>
+      <LinkEx
+        color="inherit"
+        onClick={() => {
+          setMenuElement(ref.current)
         }}
       >
-        <MenuIcon fontSize="large" />
-      </IconButton>
+        <div style={{ alignItems: 'center', display: 'flex' }} ref={ref}>
+          <MenuIcon fontSize="large" />
+        </div>
+      </LinkEx>
       <MenuEx
         colorize="primary"
         mode={darkMode ? 'dark' : 'light'}

@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -23,7 +24,10 @@ const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const WithChildren = Template.bind({})
+WithChildren.args = { children: <TextField fullWidth size="small" /> }
+
+export { Default, WithChildren }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
