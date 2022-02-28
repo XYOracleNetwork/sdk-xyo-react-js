@@ -26,7 +26,7 @@ export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({
             <FlexGrowRow>{belowSm ? null : children}</FlexGrowRow>
             {systemToolbar ?? <SystemToolbar />}
           </FlexRow>
-          {belowSm ? <Toolbar>{children}</Toolbar> : null}
+          {belowSm && children ? <Toolbar>{children}</Toolbar> : null}
         </Container>
       </InvertableThemeProvider>
     </AppBar>
