@@ -16,7 +16,8 @@ class AuthErrorHelpers {
   public static handleAuthError = (error: AuthError): FormattedAuthError => {
     if (isAxiosError(error) && error.response?.status === 401) {
       return {
-        dialogMessage: 'Your session may have expired.  Please verify your credentials and try to log in again.',
+        dialogMessage:
+          'Invalid Credentials or session expired.  Please verify your credentials and try to log in again.',
         error,
         reAuthenticate: true,
       }

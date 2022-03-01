@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material'
 import { useEffect, useState } from 'react'
 
 import { AuthThemeExtender } from '../AuthThemeExtender'
-import { AuthErrorDialog } from './AuthErrorDialog'
+import { AuthErrorSnackbar } from './AuthErrorSnackBar'
 
 export interface AuthErrorsWrapperProps {
   apiDomain: string
@@ -25,7 +25,7 @@ const AuthErrorsWrapper: React.FC<AuthErrorsWrapperProps> = ({ apiDomain, childr
   return (
     <AuthThemeExtender themeOptions={theme}>
       {children}
-      <AuthErrorDialog apiDomain={apiDomain} setReAuth={setReAuth} />
+      <AuthErrorSnackbar apiDomain={apiDomain} setReAuth={setReAuth} />
     </AuthThemeExtender>
   )
 }
