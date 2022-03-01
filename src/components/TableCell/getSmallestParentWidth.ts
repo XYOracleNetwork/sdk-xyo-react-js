@@ -1,4 +1,4 @@
-export const getSmallestParantWidth = (element: HTMLElement, maxDepth = 4) => {
+export const getSmallestParentWidth = (element: HTMLElement, maxDepth = 4) => {
   let currentElement: HTMLElement | null = element?.parentElement
   let width = currentElement?.clientWidth ?? 1024
   let maxDepthCounter = maxDepth
