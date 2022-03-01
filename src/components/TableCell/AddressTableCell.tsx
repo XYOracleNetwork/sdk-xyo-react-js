@@ -6,12 +6,8 @@ export interface AddressTableCellProps extends EllipsisTableCellProps {
 }
 
 export const AddressTableCell: React.FC<AddressTableCellProps> = ({ value, archive, exploreDomain, ...props }) => {
-  return (
-    <EllipsisTableCell
-      value={value}
-      href={exploreDomain ? `${exploreDomain}/archive/${archive}/address/${value}` : undefined}
-      to={exploreDomain ? undefined : `/archive/${archive}/address/${value}`}
-      {...props}
-    />
-  )
+  const href = exploreDomain && archive ? `${exploreDomain}/archive/${archive}/address/${value}` : undefined
+  const to = exploreDomain === undefined && archive ? `/archive/${archive}/address/${value}` : undefined
+
+  return <EllipsisTableCell value={value} href={href} to={to} {...props} />
 }

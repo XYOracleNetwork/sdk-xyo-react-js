@@ -5,12 +5,33 @@ import { To } from 'react-router-dom'
 
 import { findParent } from './findParent'
 import { getRemainingRowWidth } from './getRemainingRowWidth'
-import { getSmallestParantWidth } from './getSmallestParantWidth'
+import { getSmallestParentWidth } from './getSmallestParentWidth'
+
+interface TableCellValueProps {
+  value: string | undefined
+  hashCellWidth: number | undefined
+}
+
+const TableCellValue: React.FC<TableCellValueProps> = ({ value, hashCellWidth }) => (
+  <Typography
+    variant="body2"
+    fontFamily="monospace"
+    style={{
+      display: 'block',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+      width: hashCellWidth,
+    }}
+  >
+    {value}
+  </Typography>
+)
 
 export interface EllipsisTableCellProps extends TableCellProps {
   value?: string
-  to?: To
-  href?: string
+  to?: To | undefined
+  href?: string | undefined
 }
 
 export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to, href, ...props }) => {
@@ -26,7 +47,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
     const row = findParent('tr', currentElement)
 
     const checkWidth = (cell: HTMLElement) => {
-      const smallestParentWidth = getSmallestParantWidth(cell)
+      const smallestParentWidth = getSmallestParentWidth(cell)
       if (smallestParentWidth && row) {
         const remainderWidth = smallestParentWidth - getRemainingRowWidth(row) - spacing
         if (cell.clientWidth > remainderWidth) {
@@ -58,21 +79,11 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
       <div ref={hashDivRef}>
         {href || to ? (
           <LinkEx to={to} href={href}>
-            <Typography
-              variant="body2"
-              fontFamily="monospace"
-              style={{
-                display: 'block',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                width: hashCellWidth,
-              }}
-            >
-              {value}
-            </Typography>
+            <TableCellValue hashCellWidth={hashCellWidth} value={value} />
           </LinkEx>
-        ) : null}
+        ) : (
+          <TableCellValue hashCellWidth={hashCellWidth} value={value} />
+        )}
       </div>
     </TableCell>
   )
