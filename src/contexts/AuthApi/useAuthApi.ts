@@ -14,4 +14,5 @@ const useAuthApi = () => {
   return context as { AuthApi: XyoAuthApi; MetaMaskService: XyoMetaMaskConnector }
 }
 
+// eslint-disable-next-line deprecation/deprecation
 export { useAuthApi }

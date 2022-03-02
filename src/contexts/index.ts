@@ -1,7 +1,6 @@
 export * from './AppSettings'
 export * from './ArchivistApi'
 export * from './Auth'
-export * from './AuthApi'
 export * from './Panel'
 export * from './Pixel'
 export * from './WalletService'
