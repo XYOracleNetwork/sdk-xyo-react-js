@@ -4,6 +4,9 @@ import { useContext } from 'react'
 
 import { AuthApiContext } from './Context'
 
+/**
+ * @deprecated Auth is now in the archivist context
+ */
 const useAuthApi = () => {
   const context = useContext(AuthApiContext)
   assertEx(context.AuthApi, 'Auth Api not initialized')
