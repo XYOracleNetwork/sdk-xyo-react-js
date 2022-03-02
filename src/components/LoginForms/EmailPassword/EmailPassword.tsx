@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import { BusyBox, useAsyncEffect } from '@xylabs/sdk-react'
 import { FormEvent, memo, useEffect, useState } from 'react'
 
-import { AuthActionTypes, useAuthApi } from '../../../contexts'
+import { AuthActionTypes, useArchivistApi } from '../../../contexts'
 import { Property } from '../../Properties'
 import { LoginForm } from '../LoginForm'
 import { useHandleReturnUrl } from '../useHandleReturnUrl'
@@ -16,7 +16,7 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
   const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState('')
 
-  const { AuthApi } = useAuthApi()
+  const { authApi } = useArchivistApi()
 
   useEffect(() => {
     if (!isLoading && token) {
@@ -29,9 +29,9 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
   }, [isLoading, token, dispatch, credentials.email, handleReturnUrl])
 
   useAsyncEffect(async () => {
-    if (isLoading) {
+    if (isLoading && authApi) {
       try {
-        const { data } = await AuthApi.login(credentials)
+        const { data } = await authApi.login(credentials)
         setToken(data.token)
         setIsLoading(false)
       } catch (err) {
@@ -39,7 +39,7 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
         setIsLoading(false)
       }
     }
-  }, [dispatch, isLoading, credentials, AuthApi])
+  }, [dispatch, isLoading, credentials, authApi])
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
