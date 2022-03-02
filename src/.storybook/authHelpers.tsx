@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material'
 import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
-import { AuthApiLoader, AuthProvider, AuthServiceId, AuthState, IAuthService, DefaultState } from '../contexts'
+import { ArchivistApiProvider, AuthProvider, AuthServiceId, AuthState, IAuthService, DefaultState } from '../contexts'
 import { AuthThemeExtender } from '../components'
 
 interface WrappedArgs {
@@ -34,11 +34,11 @@ const authDecorator: DecoratorFn = (Story, { args }) => {
     <FlexGrowCol marginY={2} justifyContent="flex-start" alignItems="center">
       <BrowserRouter>
         <AuthProvider authState={mergedAuthState}>
-          <AuthApiLoader apiDomain={mergedAuthState.apiDomain}>
+          <ArchivistApiProvider archive='temp' apiDomain={mergedAuthState.apiDomain}>
             <AuthThemeExtender themeOptions={theme}>
               <Story {...args} />
             </AuthThemeExtender>
-          </AuthApiLoader>
+          </ArchivistApiProvider>
         </AuthProvider>
       </BrowserRouter>
     </FlexGrowCol>

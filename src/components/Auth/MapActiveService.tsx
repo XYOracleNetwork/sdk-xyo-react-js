@@ -3,7 +3,7 @@ import { assertEx } from '@xylabs/sdk-js'
 import { ButtonEx, FlexGrowCol } from '@xylabs/sdk-react'
 import React, { memo, useEffect, useState } from 'react'
 
-import { AuthDispatch, AuthServiceId, AuthState } from '../../contexts'
+import { AuthDispatch, AuthServiceId, AuthState, WalletServiceProvider } from '../../contexts'
 import { LoginForm } from '../LoginForms'
 import { AuthServiceComponentMap } from './AuthServiceComponentMap'
 
@@ -31,11 +31,13 @@ const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ dispa
   return (
     <FlexGrowCol maxWidth={theme.breakpoints.values.sm}>
       {MySelectedAuthService ? (
-        <MySelectedAuthService
-          loggedInAccount={loggedInAccount}
-          dispatch={dispatch}
-          authServiceList={authServiceList}
-        />
+        <WalletServiceProvider>
+          <MySelectedAuthService
+            loggedInAccount={loggedInAccount}
+            dispatch={dispatch}
+            authServiceList={authServiceList}
+          />
+        </WalletServiceProvider>
       ) : null}
       {activeAuthServiceId !== AuthServiceId.None ? (
         <ButtonEx marginY={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={handleBack}>

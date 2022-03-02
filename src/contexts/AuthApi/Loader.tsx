@@ -7,6 +7,9 @@ interface AuthApiLoaderProps {
   apiDomain: string
 }
 
+/**
+ * @deprecated Auth is now in the archivist context
+ */
 export const AuthApiLoader: React.FC<AuthApiLoaderProps> = ({ children, apiDomain }) => {
   const [AuthApi, setAuthApi] = useState<XyoAuthApi>()
   const [MetaMaskService, setMetaMaskService] = useState<XyoMetaMaskConnector>()

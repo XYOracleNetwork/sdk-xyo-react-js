@@ -1,19 +1,20 @@
-import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
+import { XyoMetaMaskConnector } from '../../../wallets'
+
 interface CheckForMetaMaskProps {
-  MetaMaskService: XyoMetaMaskConnector
+  metaMaskWallet: XyoMetaMaskConnector
 }
 
-const CheckForMetaMask: React.FC<CheckForMetaMaskProps> = ({ children, MetaMaskService }) => {
+const CheckForMetaMask: React.FC<CheckForMetaMaskProps> = ({ children, metaMaskWallet }) => {
   const [missingMetaMask, setMissingMetaMask] = useState(false)
 
   useEffect(() => {
-    if (!MetaMaskService.isMetaMaskInstalled()) {
+    if (!metaMaskWallet.isMetaMaskInstalled()) {
       setMissingMetaMask(true)
     } else {
-      if (!MetaMaskService.currentAccount) {
-        MetaMaskService.isWalletIsConnected()
+      if (!metaMaskWallet.currentAccount) {
+        metaMaskWallet.isWalletIsConnected()
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

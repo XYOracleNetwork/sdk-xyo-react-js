@@ -1,28 +1,28 @@
 import { ButtonEx } from '@xylabs/sdk-react'
-import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch, SetStateAction } from 'react'
 
+import { XyoMetaMaskConnector } from '../../../wallets'
 import { MetaMaskError } from './MetaMaskError'
 import { MetaMaskSVG } from './MetaMaskSVG'
 import { Web3ProviderIcon } from './Web3ProviderIcon'
 
 interface ConnectWalletProps {
   setCheckedWallet: Dispatch<SetStateAction<boolean>>
-  MetaMaskService: XyoMetaMaskConnector
+  metaMaskWallet: XyoMetaMaskConnector
   isLoading: boolean
   setMetaMaskError: Dispatch<SetStateAction<MetaMaskError | undefined>>
 }
 
 const ConnectWallet: React.FC<ConnectWalletProps> = ({
   setCheckedWallet,
-  MetaMaskService,
+  metaMaskWallet,
   isLoading,
   setMetaMaskError,
 }) => {
   const connectWallet = async () => {
-    if (!MetaMaskService.currentAccount) {
+    if (!metaMaskWallet.currentAccount) {
       try {
-        await MetaMaskService.connectWallet()
+        await metaMaskWallet.connectWallet()
         setCheckedWallet(true)
       } catch (err) {
         setMetaMaskError(err as MetaMaskError)
