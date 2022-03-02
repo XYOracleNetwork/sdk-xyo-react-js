@@ -3,7 +3,7 @@ import { useAsyncEffect } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 
-import { AuthActionTypes, useAuthApi } from '../../../contexts'
+import { AuthActionTypes, useArchivistApi, useWalletService } from '../../../contexts'
 import { LoginForm } from '../LoginForm'
 import { useHandleReturnUrl } from '../useHandleReturnUrl'
 import { CheckForMetaMask } from './CheckForMetaMask'
@@ -13,7 +13,8 @@ import { MetaMaskError } from './MetaMaskError'
 const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   const { handleReturnUrl } = useHandleReturnUrl()
   const [checkedWallet, setCheckedWallet] = useState(false)
-  const { MetaMaskService } = useAuthApi()
+  const { authApi } = useArchivistApi()
+  const { metaMaskWallet } = useWalletService()
   const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState('')
   const [metaMaskError, setMetaMaskError] = useState<MetaMaskError>()
@@ -22,12 +23,12 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   useEffect(() => {
     if (!isLoading && token) {
       dispatch({
-        payload: { jwtToken: token, loggedInAccount: MetaMaskService.currentAccount },
+        payload: { jwtToken: token, loggedInAccount: metaMaskWallet.currentAccount },
         type: AuthActionTypes.AuthSuccessful,
       })
       handleReturnUrl()
     }
-  }, [isLoading, token, dispatch, MetaMaskService.currentAccount, handleReturnUrl])
+  }, [isLoading, token, dispatch, metaMaskWallet.currentAccount, handleReturnUrl])
 
   useEffect(() => {
     if (checkedWallet) {
@@ -37,10 +38,16 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
 
   useAsyncEffect(
     async (mounted) => {
-      if (checkedWallet && isLoading) {
+      if (checkedWallet && isLoading && authApi) {
         try {
-          const { data } = await MetaMaskService.challengeWallet()
-          setToken(data.token)
+          const { data } = await authApi.walletChallenge(metaMaskWallet.currentAccount)
+          const { state: message } = data
+
+          const signature = await metaMaskWallet.signMessage(message)
+
+          const { data: verifyData } = await authApi.walletVerify(metaMaskWallet.currentAccount, message, signature)
+
+          setToken(verifyData.token)
           setIsLoading(false)
         } catch (err) {
           setCheckedWallet(false)
@@ -52,16 +59,16 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
         setCheckedWallet(false)
       }
     },
-    [dispatch, checkedWallet, MetaMaskService, isLoading]
+    [dispatch, checkedWallet, metaMaskWallet.currentAccount, isLoading]
   )
 
   return (
     <>
-      <CheckForMetaMask MetaMaskService={MetaMaskService}>
+      <CheckForMetaMask metaMaskWallet={metaMaskWallet}>
         <Typography variant="h3">Login with Web3 Wallet</Typography>
-        {MetaMaskService.currentAccount && loggedInAccount ? (
+        {metaMaskWallet.currentAccount && loggedInAccount ? (
           <>
-            <p>Authorized: {MetaMaskService.currentAccount}</p>
+            <p>Authorized: {metaMaskWallet.currentAccount}</p>
             <p>Disconnect your account from your wallet to logout</p>
           </>
         ) : (
@@ -69,7 +76,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
             <ConnectWallet
               isLoading={isLoading}
               setCheckedWallet={setCheckedWallet}
-              MetaMaskService={MetaMaskService}
+              metaMaskWallet={metaMaskWallet}
               setMetaMaskError={setMetaMaskError}
             />
             {metaMaskError && (
