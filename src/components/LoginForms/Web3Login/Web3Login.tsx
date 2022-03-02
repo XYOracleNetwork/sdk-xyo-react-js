@@ -40,11 +40,14 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
     async (mounted) => {
       if (checkedWallet && isLoading && authApi) {
         try {
+          // Get the message to sign from the server
           const { data } = await authApi.walletChallenge(metaMaskWallet.currentAccount)
           const { state: message } = data
 
+          // Sign it with metamask
           const signature = await metaMaskWallet.signMessage(message)
 
+          // Send to server for verification
           const { data: verifyData } = await authApi.walletVerify(metaMaskWallet.currentAccount, message, signature)
 
           setToken(verifyData.token)
