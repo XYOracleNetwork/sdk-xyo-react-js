@@ -8,10 +8,10 @@ export const getRemainingRowWidth = (row: HTMLElement, forCell = 0) => {
         width += item?.clientWidth ?? 0
       }
       padding += parseInt(
-        window.getComputedStyle(item, null)?.getPropertyValue('padding-left').replaceAll('px', '') ?? 0
+        window.getComputedStyle(item, null)?.getPropertyValue('padding-left')?.replaceAll('px', '') ?? 0
       )
       padding += parseInt(
-        window.getComputedStyle(item, null)?.getPropertyValue('padding-right').replaceAll('px', '') ?? 0
+        window.getComputedStyle(item, null)?.getPropertyValue('padding-right')?.replaceAll('px', '') ?? 0
       )
     }
   }
