@@ -2,11 +2,15 @@ import { Web3Provider } from '@ethersproject/providers'
 
 class XyoMetaMaskConnector {
   private ethereum = window.ethereum
-  private provider: Web3Provider
+  private provider: Web3Provider | undefined
   private account = ''
 
   constructor(provider?: Web3Provider) {
-    this.provider = provider || new Web3Provider(this.ethereum)
+    if (provider) {
+      this.provider = provider
+    } else if (this.ethereum) {
+      this.provider = new Web3Provider(this.ethereum)
+    }
   }
 
   get currentAccount() {
@@ -26,6 +30,11 @@ class XyoMetaMaskConnector {
   }
 
   async connectWallet() {
+    if (!this.provider) {
+      this.logProviderMissing()
+      return
+    }
+
     const accounts = await this.provider.send('eth_requestAccounts', [])
     // We could have multiple accounts. Check for one.
     if (accounts.length !== 0) {
@@ -37,10 +46,21 @@ class XyoMetaMaskConnector {
   }
 
   async signMessage(message: string) {
+    if (!this.provider) {
+      this.logProviderMissing()
+      return
+    }
+
     const signer = this.provider.getSigner()
     await signer.getAddress()
     const signature = await signer.signMessage(message)
     return signature
+  }
+
+  private logProviderMissing() {
+    console.warn(
+      'Cannot call this method because there is no web3 provider connected.  Please confirm that metamask is installed'
+    )
   }
 }
 
