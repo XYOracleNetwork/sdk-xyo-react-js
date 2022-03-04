@@ -48,7 +48,11 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
           const signature = await metaMaskWallet.signMessage(message)
 
           // Send to server for verification
-          const { data: verifyData } = await authApi.walletVerify(metaMaskWallet.currentAccount, message, signature)
+          const { data: verifyData } = await authApi.walletVerify(
+            metaMaskWallet.currentAccount,
+            message,
+            signature as string
+          )
 
           setToken(verifyData.token)
           setIsLoading(false)
