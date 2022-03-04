@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { AxiosError } from 'axios'
 import { BrowserRouter } from 'react-router-dom'
 
-import { authServiceList, WrappedAuthComponent } from '../../.storybook'
+import { authServiceList } from '../../.storybook'
 import { AuthProvider, DefaultState } from '../../contexts'
 import { AxiosErrorHandler } from './AxiosErrorHandler'
 
