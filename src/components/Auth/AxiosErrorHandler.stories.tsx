@@ -2,6 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { AxiosError } from 'axios'
 import { BrowserRouter } from 'react-router-dom'
 
+import { authServiceList, WrappedAuthComponent } from '../../.storybook'
+import { AuthProvider, DefaultState } from '../../contexts'
 import { AxiosErrorHandler } from './AxiosErrorHandler'
 
 const StorybookEntry = {
@@ -17,11 +19,13 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof AxiosErrorHandler> = (args) => {
   return (
-    <BrowserRouter>
-      <AxiosErrorHandler {...args}>
-        <p>I should only be visible when there is no error</p>
-      </AxiosErrorHandler>
-    </BrowserRouter>
+    <AuthProvider authState={{ ...DefaultState, ...{ authServiceList, loggedInAccount: 'none@none.com' } }}>
+      <BrowserRouter>
+        <AxiosErrorHandler {...args}>
+          <p>I should only be visible when there is no error</p>
+        </AxiosErrorHandler>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
@@ -29,7 +33,7 @@ const fakeAxios403Error = {
   message: 'Request failed with a 403 Forbidden',
   response: {
     status: 403,
-    statusText: '403 Forbidden',
+    statusText: 'Forbidden',
   },
 } as unknown as AxiosError
 
@@ -39,10 +43,10 @@ const fakeAxios401Error = {
       Authorization: 'Bearer someToken',
     },
   },
-  message: 'Request failed with a 401 Forbidden',
+  message: 'Request failed with a 401 Unauthorized',
   response: {
     status: 401,
-    statusText: '401 Forbidden',
+    statusText: 'Unauthorized',
   },
 } as unknown as AxiosError
 
