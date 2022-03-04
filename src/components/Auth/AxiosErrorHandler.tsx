@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { ButtonEx, FlexRow, LinkEx } from '@xylabs/sdk-react'
+import { ButtonEx, FlexCol, FlexRow, LinkEx } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -55,14 +55,14 @@ const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
   }
 }
 
-interface AxiosErrorHandlerProps {
+export interface AxiosErrorHandlerProps {
   apiError: AxiosError | undefined
 }
 
-const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, children }) => {
+const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, children, ...props }) => {
   if (apiError) {
     return (
-      <>
+      <FlexCol alignItems="start" {...props}>
         <Typography variant="h5" color="error" my={1}>
           Error Making Request
         </Typography>
@@ -70,7 +70,7 @@ const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, childre
         <FlexRow my={2} justifyContent="start">
           <ReAuth apiError={apiError} />
         </FlexRow>
-      </>
+      </FlexCol>
     )
   } else {
     return <>{children}</>
