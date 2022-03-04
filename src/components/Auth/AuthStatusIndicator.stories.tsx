@@ -9,6 +9,7 @@ const StorybookEntry = {
     authServiceList: [],
   },
   component: AuthServiceWrapper,
+  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
@@ -27,7 +28,6 @@ Default.args = {
     authServiceList: [],
   },
 }
-Default.decorators = [authDecorator]
 
 const LoggedInWeb3 = Template.bind({})
 LoggedInWeb3.args = {
@@ -36,7 +36,6 @@ LoggedInWeb3.args = {
     loggedInAccount: '0x71C7656EC7ab88b098defB751B7401B5f6d8976F',
   },
 }
-LoggedInWeb3.decorators = [authDecorator]
 
 const LoggedInWeb2 = Template.bind({})
 LoggedInWeb2.args = {
@@ -45,9 +44,16 @@ LoggedInWeb2.args = {
     loggedInAccount: 'test1234@somedomain.com',
   },
 }
-LoggedInWeb2.decorators = [authDecorator]
 
-export { Default, LoggedInWeb2, LoggedInWeb3 }
+const NeedsReAuth = Template.bind({})
+NeedsReAuth.args = {
+  authState: {
+    authServiceList: [],
+    reAuthenticate: true,
+  },
+}
+
+export { Default, LoggedInWeb2, LoggedInWeb3, NeedsReAuth }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
