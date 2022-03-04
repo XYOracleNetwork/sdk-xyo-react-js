@@ -1,10 +1,12 @@
 import { Typography } from '@mui/material'
-import { ButtonEx, FlexCol, FlexRow, LinkEx } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 import { AuthActionTypes, useAuthState } from '../../contexts'
+import { appThemeOptions } from '../../theme'
+import { AuthServiceWrapper } from './AuthServiceWrapper'
+import { AuthThemeExtender } from './AuthThemeExtender'
 
 const Status: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
   if (apiError?.response?.status) {
@@ -24,31 +26,20 @@ const Status: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
 }
 
 const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
-  const navigate = useNavigate()
-  const [reAuth, setReAuth] = useState(false)
-  const { dispatch: authDispatch } = useAuthState()
-
-  const handleReAuth = () => {
-    navigate('/login', {
-      state: {
-        from: { pathname: window.location.pathname },
-        message: `Login to return to '${window.location.pathname}'`,
-      },
-    })
-    authDispatch?.({ payload: {}, type: AuthActionTypes.Logout })
-  }
+  const reAuth = apiError?.response?.status === 401 && !!apiError.config.headers?.['Authorization']
+  const { state: authState, dispatch: authDispatch } = useAuthState()
 
   useEffect(() => {
-    if (apiError?.response?.status === 401 && !!apiError.config.headers?.['Authorization']) {
-      setReAuth(true)
+    if (authState?.loggedInAccount) {
+      authDispatch?.({ payload: {}, type: AuthActionTypes.Logout })
     }
-  }, [apiError])
+  }, [authDispatch, authState?.loggedInAccount])
 
   if (reAuth) {
     return (
-      <LinkEx onClick={() => handleReAuth()}>
-        <ButtonEx variant="outlined">Re-Login</ButtonEx>
-      </LinkEx>
+      <AuthThemeExtender themeOptions={appThemeOptions}>
+        <AuthServiceWrapper />
+      </AuthThemeExtender>
     )
   } else {
     return <></>
@@ -57,9 +48,10 @@ const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
 
 export interface AxiosErrorHandlerProps {
   apiError: AxiosError | undefined
+  loginForm?: boolean
 }
 
-const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, children, ...props }) => {
+const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginForm = true, children, ...props }) => {
   if (apiError) {
     return (
       <FlexCol alignItems="start" {...props}>
@@ -67,9 +59,11 @@ const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, childre
           Error Making Request
         </Typography>
         <Status apiError={apiError} />
-        <FlexRow my={2} justifyContent="start">
-          <ReAuth apiError={apiError} />
-        </FlexRow>
+        {loginForm && (
+          <FlexCol my={2} width="100%">
+            <ReAuth apiError={apiError} />
+          </FlexCol>
+        )}
       </FlexCol>
     )
   } else {
