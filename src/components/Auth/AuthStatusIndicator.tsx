@@ -1,11 +1,12 @@
+import { Error } from '@mui/icons-material'
 import { ButtonBase, colors } from '@mui/material'
 import { ellipsize, EthAddress } from '@xylabs/sdk-js'
 import { FlexBoxProps, FlexRow, Identicon } from '@xylabs/sdk-react'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { FaUserCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
-import { useAuthState } from '../../contexts'
+import { AuthState, useAuthState } from '../../contexts'
 
 const formatAccount = (account: string) => {
   if (account.startsWith('0x')) {
@@ -15,12 +16,41 @@ const formatAccount = (account: string) => {
   }
 }
 
+const formatIconHint = (
+  authState: AuthState | undefined,
+  setIconHint: Dispatch<SetStateAction<string | undefined>>
+) => {
+  if (authState) {
+    // logged in and reAuth is false
+    if (authState.loggedInAccount && !authState.reAuthenticate) {
+      setIconHint(`Signed In as ${authState.loggedInAccount}`)
+    }
+    // not logged in and reAuth is true
+    if (!authState.loggedInAccount && authState.reAuthenticate) {
+      setIconHint('Please login again')
+    }
+    // not logged in and reAuth is false
+    if (!authState.loggedInAccount && !authState.reAuthenticate) {
+      setIconHint('Signed Out')
+    }
+  } else {
+    // if authState isn't present, assume signed out
+    setIconHint('Signed Out')
+  }
+}
+
 export const AuthStatusIndicator: React.FC<FlexBoxProps> = ({ onClick, ...props }) => {
-  const [currentAccount, setCurrentAccount] = useState<string>()
   const { state: authState } = useAuthState()
+  const [currentAccount, setCurrentAccount] = useState<string>()
+  const [iconHint, setIconHint] = useState<string>()
+  const [showReAuthBadge, setReAuthBadge] = useState(authState?.reAuthenticate)
   const navigate = useNavigate()
-  const iconHint = authState?.loggedInAccount ? `Signed In as ${authState.loggedInAccount}` : 'Signed Out'
+
   const iconColor = authState?.loggedInAccount ? colors.lightBlue[50] : colors.grey[500]
+
+  useEffect(() => {
+    formatIconHint(authState, setIconHint)
+  }, [authState, authState?.loggedInAccount, authState?.reAuthenticate])
 
   useEffect(() => {
     if (authState?.loggedInAccount) {
@@ -30,12 +60,15 @@ export const AuthStatusIndicator: React.FC<FlexBoxProps> = ({ onClick, ...props 
     }
   }, [authState?.loggedInAccount])
 
+  useEffect(() => {
+    setReAuthBadge(authState?.reAuthenticate)
+  }, [authState?.reAuthenticate])
+
   const handleClick = () => {
     if (!authState?.loggedInAccount) {
       navigate('/login')
     }
   }
-
   return (
     <ButtonBase style={{ borderRadius: '50%' }} title={iconHint}>
       <FlexRow
@@ -47,7 +80,16 @@ export const AuthStatusIndicator: React.FC<FlexBoxProps> = ({ onClick, ...props 
         onClick={onClick ?? handleClick}
         {...props}
       >
-        {currentAccount ? <Identicon size={16} value={currentAccount} /> : <FaUserCircle size={28} color={iconColor} />}
+        <FlexRow>
+          {currentAccount ? (
+            <Identicon size={16} value={currentAccount} />
+          ) : (
+            <>
+              <FaUserCircle size={28} color={iconColor} />
+              {showReAuthBadge && <Error color="warning" sx={{ position: 'absolute', right: '-13px', top: '-10px' }} />}
+            </>
+          )}
+        </FlexRow>
       </FlexRow>
     </ButtonBase>
   )
