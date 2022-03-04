@@ -20,9 +20,17 @@ const StorybookEntry = {
 const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
 
-  return (
-    <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
-  )
+  if (state && dispatch) {
+    return (
+      <NoneSelected
+        dispatch={dispatch}
+        loggedInAccount={state.loggedInAccount}
+        authServiceList={state.authServiceList}
+      />
+    )
+  } else {
+    return <></>
+  }
 }
 
 const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
@@ -30,9 +38,17 @@ const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
   const location = useLocation()
   location.state = { message: 'Please login to view this page' }
 
-  return (
-    <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
-  )
+  if (state && dispatch) {
+    return (
+      <NoneSelected
+        dispatch={dispatch}
+        loggedInAccount={state.loggedInAccount}
+        authServiceList={state.authServiceList}
+      />
+    )
+  } else {
+    return <></>
+  }
 }
 
 const Default = Template.bind({})
