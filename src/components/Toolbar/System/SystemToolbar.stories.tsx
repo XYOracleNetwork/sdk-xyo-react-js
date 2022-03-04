@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { AuthProvider } from '../../../contexts'
+import { WrappedAuthComponent } from '../../../.storybook'
+import { AuthProvider, AuthState } from '../../../contexts'
 import { SystemToolbar } from './SystemToolbar'
 
 const StorybookEntry = {
@@ -21,10 +22,10 @@ const Template: ComponentStory<typeof SystemToolbar> = (args) => (
   </BrowserRouter>
 )
 
-const TemplateWithAuthContext: ComponentStory<typeof SystemToolbar> = (args) => (
-  <AuthProvider authState={{ loggedInAccount: '0x923487924385724935' }}>
+const TemplateWithAuthContext: ComponentStory<WrappedAuthComponent> = ({ authState }) => (
+  <AuthProvider authState={authState as AuthState}>
     <BrowserRouter>
-      <SystemToolbar {...args}></SystemToolbar>
+      <SystemToolbar></SystemToolbar>
     </BrowserRouter>
   </AuthProvider>
 )
@@ -33,9 +34,20 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithLoggedInAccount = TemplateWithAuthContext.bind({})
-WithLoggedInAccount.args = {}
+WithLoggedInAccount.args = {
+  authState: {
+    loggedInAccount: 'none@none.com',
+  },
+}
 
-export { Default, WithLoggedInAccount }
+const NeedsReAuth = TemplateWithAuthContext.bind({})
+NeedsReAuth.args = {
+  authState: {
+    reAuthenticate: true,
+  },
+}
+
+export { Default, NeedsReAuth, WithLoggedInAccount }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

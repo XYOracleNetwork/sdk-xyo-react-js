@@ -19,11 +19,27 @@ const formatAccount = (account: string) => {
 export const AuthStatusIndicator: React.FC<FlexBoxProps> = ({ onClick, ...props }) => {
   const { state: authState } = useAuthState()
   const [currentAccount, setCurrentAccount] = useState<string>()
+  const [iconHint, setIconHint] = useState<string>()
   const [showReAuthBadge, setReAuthBadge] = useState(authState?.reAuthenticate)
   const navigate = useNavigate()
 
-  const iconHint = authState?.loggedInAccount ? `Signed In as ${authState.loggedInAccount}` : 'Signed Out'
   const iconColor = authState?.loggedInAccount ? colors.lightBlue[50] : colors.grey[500]
+
+  useEffect(() => {
+    if (authState) {
+      if (authState.loggedInAccount && !authState.reAuthenticate) {
+        setIconHint(`Signed In as ${authState.loggedInAccount}`)
+      }
+      if (!authState.loggedInAccount && authState.reAuthenticate) {
+        setIconHint('Please login again')
+      }
+      if (!authState.loggedInAccount && !authState.reAuthenticate) {
+        setIconHint('Signed Out')
+      }
+    } else {
+      setIconHint('Signed Out')
+    }
+  }, [authState, authState?.loggedInAccount, authState?.reAuthenticate])
 
   useEffect(() => {
     if (authState?.loggedInAccount) {
