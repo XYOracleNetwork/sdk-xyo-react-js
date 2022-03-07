@@ -9,8 +9,6 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
   const { changeArchive, archive, darkMode } = useAppSettings()
   const [archives, setArchives] = useState<string[]>(['temp'])
 
-  console.log(`archive: ${archive}`)
-
   const { state } = useAuthState()
   const { api } = useArchivistApi()
 
