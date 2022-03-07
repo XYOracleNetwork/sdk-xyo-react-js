@@ -1,7 +1,7 @@
-import { Alert, AlertTitle, SxProps, useTheme } from '@mui/material'
+import { Alert, AlertTitle, SxProps, Typography, useTheme } from '@mui/material'
 import { AxiosError } from 'axios'
 
-import { ApiCall } from './ApiLoggerTypes'
+import { ApiCall } from '../../../contexts'
 
 const isAxiosError = (call: unknown): call is AxiosError => (call as AxiosError).isAxiosError
 
@@ -18,7 +18,15 @@ const ApiLogEntry: React.FC<ApiLogEntryProps> = ({ call, alertStyles }) => {
         <AlertTitle>
           {call.config.method?.toUpperCase()} {call.response?.status} - {call.config.url}
         </AlertTitle>
-        Error: {call.message}
+        <Typography variant="caption" mr={0.5} fontWeight="bold">
+          Error:
+        </Typography>
+        <Typography variant="caption">{call.message}</Typography>
+        <br />
+        <Typography variant="caption" mr={0.5} fontWeight="bold">
+          Logged:
+        </Typography>
+        <Typography variant="caption">{call.logged}</Typography>
       </Alert>
     )
   } else {

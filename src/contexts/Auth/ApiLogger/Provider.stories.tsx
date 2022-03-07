@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoAuthApi } from '@xyo-network/sdk-xyo-client-js'
-import { AxiosError } from 'axios'
 import { useState } from 'react'
 
-import { ApiLogEntry } from './ApiLogEntry'
+import { ApiLogs } from '../../../components'
 import { ApiErrorsProvider } from './Provider'
+import { useApiCaller } from './useApiCaller'
 import { useApiLogger } from './useApiLogger'
 
 const ContextDecorator: DecoratorFn = (Story, { args }) => (
@@ -33,6 +33,7 @@ const StorybookEntry = {
 const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
   const { calls, setApiCalls } = useApiLogger()
   const [errorRefresh, setErrorRefresh] = useState(0)
+  const { invoke } = useApiCaller()
 
   const AuthApi = XyoAuthApi.get({
     apiDomain: 'http://localhost:8081',
@@ -41,15 +42,15 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
   useAsyncEffect(async () => {
     if (errorRefresh > 0) {
       try {
-        await AuthApi.login({
-          email: 'none@none.com',
-          password: 'notarealpassword',
+        await invoke({
+          call: () =>
+            AuthApi.login({
+              email: 'none@none.com',
+              password: 'notarealpassword',
+            }),
         })
       } catch (error) {
-        setApiCalls((prev) => {
-          prev.unshift(error as AxiosError)
-          return [...prev]
-        })
+        console.error(error)
       }
     }
   }, [errorRefresh, setApiCalls])
@@ -59,13 +60,7 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
       <ButtonEx marginY={2} variant="contained" onClick={() => setErrorRefresh(errorRefresh + 1)}>
         Fire off Error
       </ButtonEx>
-      {calls.length > 0 && (
-        <ul>
-          {calls.map((call, index) => (
-            <ApiLogEntry key={index} call={call} />
-          ))}
-        </ul>
-      )}
+      <ApiLogs calls={calls} />
     </>
   )
 }
