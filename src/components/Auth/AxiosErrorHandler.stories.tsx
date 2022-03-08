@@ -1,10 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/sdk-react'
+import { ArchiveResponse } from '@xyo-network/sdk-xyo-client-js'
 import { AxiosError } from 'axios'
 import { useState } from 'react'
 
 import { authDecorator, authServiceList } from '../../.storybook'
 import { useArchivistApi } from '../../contexts'
+import { AuthStatusIndicator } from './AuthStatusIndicator'
 import { AxiosErrorHandler } from './AxiosErrorHandler'
 
 const StorybookEntry = {
@@ -27,13 +29,15 @@ const StorybookEntry = {
   title: 'Auth/AxiosErrorHandler',
 } as ComponentMeta<typeof AxiosErrorHandler>
 
-const Template: ComponentStory<typeof AxiosErrorHandler> = () => {
+const TemplateStats: ComponentStory<typeof AxiosErrorHandler> = () => {
   const [apiError, setApiError] = useState<AxiosError>()
+  const [stats, setStats] = useState<{ count: number }>()
   const { api } = useArchivistApi()
 
   useAsyncEffect(async () => {
     try {
-      await api?.getBoundWitnessStats()
+      const response = await api?.getBoundWitnessStats()
+      setStats(response)
       setApiError(undefined)
     } catch (error) {
       setApiError(error as AxiosError)
@@ -42,16 +46,45 @@ const Template: ComponentStory<typeof AxiosErrorHandler> = () => {
 
   return (
     <>
+      <AuthStatusIndicator />
       <AxiosErrorHandler apiError={apiError}>
-        <p>I should only be visible when there is no error</p>
+        <p>Stats: {stats?.count}</p>
       </AxiosErrorHandler>
     </>
   )
 }
 
-const Default = Template.bind({})
+const TemplateArchives: ComponentStory<typeof AxiosErrorHandler> = () => {
+  const [apiError, setApiError] = useState<AxiosError>()
+  const [archives, setArchives] = useState<ArchiveResponse[]>([])
+  const { api } = useArchivistApi()
 
-export { Default }
+  useAsyncEffect(async () => {
+    try {
+      if (api) {
+        const response = await api.getArchives()
+        setArchives(response)
+        setApiError(undefined)
+      }
+    } catch (error) {
+      setApiError(error as AxiosError)
+    }
+  }, [api])
+
+  return (
+    <>
+      <AxiosErrorHandler apiError={apiError}>
+        <AuthStatusIndicator />
+        <ul>{archives.length > 0 && archives.map((archive, index) => <li key={index}>{archive.archive}</li>)}</ul>
+      </AxiosErrorHandler>
+    </>
+  )
+}
+
+const AuthRequired = TemplateStats.bind({})
+const NoAuthFallback = TemplateArchives.bind({})
+
+export { AuthRequired, NoAuthFallback }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

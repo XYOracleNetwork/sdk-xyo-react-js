@@ -17,12 +17,12 @@ const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
   useEffect(() => {
     // logout when invalid request and their was a loggedInAccount
     if (authState?.loggedInAccount && invalidRequest) {
-      authDispatch?.({ payload: {}, type: AuthActionTypes.Logout })
+      authDispatch?.({ payload: { reAuthenticate: true }, type: AuthActionTypes.Logout })
     }
   }, [authDispatch, authState?.loggedInAccount, invalidRequest])
 
   // invalid request = apiError from bad badToken
-  // reAuthenticate = apiError even without a loggedInAccount (i.e. retry attempt)
+  // no loggedInAccount = apiError even without a loggedInAccount (i.e. retry attempt)
   if (invalidRequest || !authState?.loggedInAccount) {
     return (
       <AuthThemeExtender themeOptions={appThemeOptions}>
