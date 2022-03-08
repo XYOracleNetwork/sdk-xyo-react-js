@@ -38,6 +38,8 @@ const Template: ComponentStory<typeof AxiosErrorHandler> = () => {
         })
       } catch (error) {
         setApiError(error as AxiosError)
+
+        // increment to trigger a second call automatically
         setErrorRefresh(errorRefresh + 1)
       }
     } else if (errorRefresh > 1) {
