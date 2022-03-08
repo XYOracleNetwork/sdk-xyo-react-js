@@ -30,6 +30,11 @@ const Template: ComponentStory<typeof AxiosErrorHandler> = (args) => {
 }
 
 const fakeAxios403Error = {
+  config: {
+    method: 'get',
+    url: 'http://someapi.domain',
+  },
+  isAxiosError: true,
   message: 'Request failed with a 403 Forbidden',
   response: {
     status: 403,
@@ -42,7 +47,10 @@ const fakeAxios401Error = {
     headers: {
       Authorization: 'Bearer someToken',
     },
+    method: 'post',
+    url: 'http://someapi.domain',
   },
+  isAxiosError: true,
   message: 'Request failed with a 401 Unauthorized',
   response: {
     status: 401,

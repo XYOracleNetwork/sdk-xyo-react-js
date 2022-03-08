@@ -3,27 +3,11 @@ import { FlexCol } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { useEffect } from 'react'
 
-import { AuthActionTypes, useAuthState } from '../../contexts'
+import { AuthActionTypes, AxiosLoggedError, useAuthState } from '../../contexts'
 import { appThemeOptions } from '../../theme'
+import { ApiLogEntry } from './AuthLogs'
 import { AuthServiceWrapper } from './AuthServiceWrapper'
 import { AuthThemeExtender } from './AuthThemeExtender'
-
-const Status: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
-  if (apiError?.response?.status) {
-    return (
-      <>
-        <Typography variant="body1" color="error">
-          Status: {apiError?.response?.status} {apiError?.response.statusText}
-        </Typography>
-        <Typography variant="body1" color="error">
-          Message: {apiError?.message}
-        </Typography>
-      </>
-    )
-  } else {
-    return <></>
-  }
-}
 
 const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
   const reAuth = apiError?.response?.status === 401 && !!apiError.config.headers?.['Authorization']
@@ -53,12 +37,15 @@ export interface AxiosErrorHandlerProps {
 
 const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginForm = true, children, ...props }) => {
   if (apiError) {
+    const loggedError = apiError as AxiosLoggedError
+    loggedError.logged = loggedError.logged = new Date().toISOString()
+
     return (
       <FlexCol alignItems="start" {...props}>
         <Typography variant="h5" color="error" my={1}>
           Error Making Request
         </Typography>
-        <Status apiError={apiError} />
+        <ApiLogEntry call={loggedError} />
         {loginForm && (
           <FlexCol my={2} width="100%">
             <ReAuth apiError={apiError} />
