@@ -1,5 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
+import { XyoAuthApi } from '@xyo-network/sdk-xyo-client-js'
 import { AxiosError } from 'axios'
+import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { authServiceList } from '../../.storybook'
@@ -17,11 +20,51 @@ const StorybookEntry = {
   title: 'Auth/AxiosErrorHandler',
 } as ComponentMeta<typeof AxiosErrorHandler>
 
-const Template: ComponentStory<typeof AxiosErrorHandler> = (args) => {
+const Template: ComponentStory<typeof AxiosErrorHandler> = () => {
+  const [errorRefresh, setErrorRefresh] = useState(0)
+  const [apiError, setApiError] = useState<AxiosError>()
+
+  const AuthApi = XyoAuthApi.get({
+    apiDomain: 'http://localhost:8081',
+    jwtToken: 'badToken',
+  })
+
+  useAsyncEffect(async () => {
+    if (errorRefresh === 1) {
+      try {
+        await AuthApi.login({
+          email: 'none@none.com',
+          password: 'notarealpassword',
+        })
+      } catch (error) {
+        setApiError(error as AxiosError)
+        setErrorRefresh(errorRefresh + 1)
+      }
+    } else if (errorRefresh > 1) {
+      try {
+        // Simulate Logout with no jwtToken Passed
+        const AuthApiNoToken = XyoAuthApi.get({
+          apiDomain: 'http://localhost:8081',
+        })
+        await AuthApiNoToken.login({
+          email: 'none@none.com',
+          password: 'notarealpassword',
+        })
+      } catch (error) {
+        setApiError(error as AxiosError)
+      }
+    }
+  }, [errorRefresh])
+
   return (
-    <AuthProvider authState={{ ...DefaultState, ...{ authServiceList, loggedInAccount: 'none@none.com' } }}>
+    <AuthProvider
+      authState={{ ...DefaultState, ...{ authServiceList, jwtToken: 'badToken', loggedInAccount: 'none@none.com' } }}
+    >
       <BrowserRouter>
-        <AxiosErrorHandler {...args}>
+        <ButtonEx variant="contained" onClick={() => setErrorRefresh(errorRefresh + 1)}>
+          Fire off 401
+        </ButtonEx>
+        <AxiosErrorHandler apiError={apiError}>
           <p>I should only be visible when there is no error</p>
         </AxiosErrorHandler>
       </BrowserRouter>
@@ -29,50 +72,9 @@ const Template: ComponentStory<typeof AxiosErrorHandler> = (args) => {
   )
 }
 
-const fakeAxios403Error = {
-  config: {
-    method: 'get',
-    url: 'http://someapi.domain',
-  },
-  isAxiosError: true,
-  message: 'Request failed with a 403 Forbidden',
-  response: {
-    status: 403,
-    statusText: 'Forbidden',
-  },
-} as unknown as AxiosError
-
-const fakeAxios401Error = {
-  config: {
-    headers: {
-      Authorization: 'Bearer someToken',
-    },
-    method: 'post',
-    url: 'http://someapi.domain',
-  },
-  isAxiosError: true,
-  message: 'Request failed with a 401 Unauthorized',
-  response: {
-    status: 401,
-    statusText: 'Unauthorized',
-  },
-} as unknown as AxiosError
-
 const Default = Template.bind({})
-Default.args = {
-  apiError: fakeAxios403Error,
-}
 
-const With401 = Template.bind({})
-With401.args = {
-  apiError: fakeAxios401Error,
-}
-const WithNoError = Template.bind({})
-WithNoError.args = {
-  apiError: undefined,
-}
-
-export { Default, With401, WithNoError }
+export { Default }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

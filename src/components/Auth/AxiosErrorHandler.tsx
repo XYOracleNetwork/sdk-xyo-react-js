@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { AuthActionTypes, AxiosLoggedError, useAuthState } from '../../contexts'
 import { appThemeOptions } from '../../theme'
@@ -10,16 +10,21 @@ import { AuthServiceWrapper } from './AuthServiceWrapper'
 import { AuthThemeExtender } from './AuthThemeExtender'
 
 const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
+  const retry = useRef(false)
   const reAuth = apiError?.response?.status === 401 && !!apiError.config.headers?.['Authorization']
   const { state: authState, dispatch: authDispatch } = useAuthState()
 
   useEffect(() => {
     if (authState?.loggedInAccount) {
       authDispatch?.({ payload: {}, type: AuthActionTypes.Logout })
+      retry.current = true
     }
   }, [authDispatch, authState?.loggedInAccount])
 
-  if (reAuth) {
+  // retry is an indication that there was already a logout dispatched
+  // so the Authorization header won't be there from the second call but
+  // the login flow should still show
+  if (reAuth || retry) {
     return (
       <AuthThemeExtender themeOptions={appThemeOptions}>
         <AuthServiceWrapper />
