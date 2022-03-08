@@ -50,7 +50,7 @@ const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginFo
           Error Making Request
         </Typography>
         <ApiLogEntry call={loggedError} />
-        {loginForm && (
+        {loginForm && apiError.response?.status === 401 && (
           <FlexCol my={2} width="100%">
             <ReAuth apiError={apiError} />
           </FlexCol>
