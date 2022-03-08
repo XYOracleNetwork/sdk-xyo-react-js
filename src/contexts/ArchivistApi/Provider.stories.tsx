@@ -35,27 +35,28 @@ const StorybookEntry = {
 const DemoArchiveFetcher = () => {
   const [myArchives, setMyArchives] = useState<ArchiveResponse[]>([])
   const { api, currentToken } = useArchivistApi()
-  const { jwtToken, loggedInAccount } = useAuthState().state
+  const { state } = useAuthState()
   const [successfulCall, setSuccessfulCall] = useState(false)
 
   useEffect(() => {
-    if (jwtToken && currentToken && loggedInAccount) {
-      api
-        .getArchives()
-        .then((archives) => {
-          setMyArchives(archives)
-          setSuccessfulCall(true)
-        })
-        .catch((e) => console.error(e))
+    if (state?.jwtToken && currentToken && state?.loggedInAccount) {
+      api &&
+        api
+          .getArchives()
+          .then((archives) => {
+            setMyArchives(archives)
+            setSuccessfulCall(true)
+          })
+          .catch((e) => console.error(e))
     }
-  }, [api, jwtToken, currentToken, loggedInAccount, setSuccessfulCall])
+  }, [api, state?.jwtToken, currentToken, state?.loggedInAccount, setSuccessfulCall])
 
   useEffect(() => {
-    if (!loggedInAccount) {
+    if (!state?.loggedInAccount) {
       setMyArchives([])
       setSuccessfulCall(false)
     }
-  }, [loggedInAccount])
+  }, [state?.loggedInAccount])
 
   return (
     <>
@@ -76,7 +77,8 @@ const DemoArchiveFetcher = () => {
 }
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
-  const { jwtToken } = useAuthState().state
+  const { state } = useAuthState()
+  const jwtToken = state?.jwtToken
   return (
     <ArchivistApiProvider apiDomain="http://localhost:8081" jwtToken={jwtToken} archive="test">
       <DemoArchiveFetcher />
