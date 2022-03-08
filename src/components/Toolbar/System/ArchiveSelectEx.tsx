@@ -8,18 +8,23 @@ import { useAppSettings, useArchivistApi } from '../../../contexts'
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
   const { changeArchive, archive, darkMode } = useAppSettings()
   const [archives, setArchives] = useState<string[]>()
+  const [, setApiError] = useState<AxiosError>()
 
   const { api } = useArchivistApi()
 
   useAsyncEffect(
     async (mounted) => {
       if (api) {
-        const loadedArchives = (await api.getArchives()).map((response) => response.archive)
-        if (mounted()) {
-          if (archive && !loadedArchives.find((item) => item === archive)) {
-            loadedArchives.push(archive)
+        try {
+          const loadedArchives = (await api.getArchives()).map((response) => response.archive)
+          if (mounted()) {
+            if (archive && !loadedArchives.find((item) => item === archive)) {
+              loadedArchives.push(archive)
+            }
+            setArchives(loadedArchives)
           }
-          setArchives(loadedArchives)
+        } catch (e) {
+          setApiError(e as AxiosError)
         }
       }
     },
