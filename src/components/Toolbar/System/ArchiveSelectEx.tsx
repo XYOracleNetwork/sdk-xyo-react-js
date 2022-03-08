@@ -1,5 +1,6 @@
 import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps, useAsyncEffect } from '@xylabs/sdk-react'
+import { AxiosError } from 'axios'
 import { useState } from 'react'
 
 import { useAppSettings, useArchivistApi } from '../../../contexts'
