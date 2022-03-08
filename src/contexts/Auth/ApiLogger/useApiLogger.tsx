@@ -1,11 +1,10 @@
-import { AxiosError, AxiosResponse } from 'axios'
 import { Dispatch, SetStateAction, useContext } from 'react'
 
-import { ApiLoggerState } from './ApiLoggerTypes'
+import { ApiCall, ApiLoggerState } from './ApiLoggerTypes'
 import { ApiLoggerContext } from './Context'
 
 interface ApiLoggerContextFixed extends ApiLoggerState {
-  setApiCalls: Dispatch<SetStateAction<(AxiosResponse | AxiosError)[]>>
+  setApiCalls: Dispatch<SetStateAction<ApiCall[]>>
 }
 
 const useApiLogger = () => {
