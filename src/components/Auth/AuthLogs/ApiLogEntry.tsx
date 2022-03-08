@@ -32,9 +32,11 @@ const ApiLogEntry: React.FC<ApiLogEntryProps> = ({ call, alertStyles }) => {
   } else {
     return (
       <Alert sx={styles} severity="error">
-        <AlertTitle>
-          {call.config.method?.toUpperCase()} {call.status} - {call.config.url}
-        </AlertTitle>
+        {call && (
+          <AlertTitle>
+            {call.config.method?.toUpperCase()} {call.status} - {call.config.url}
+          </AlertTitle>
+        )}
       </Alert>
     )
   }
