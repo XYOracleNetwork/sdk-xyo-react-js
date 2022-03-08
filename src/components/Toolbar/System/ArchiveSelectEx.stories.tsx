@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof ArchiveSelectEx> = (args) => {
   const TemplateWithSettings: React.FC = () => {
     const { archive } = useAppSettings()
     return (
-      <ArchivistApiProvider apiDomain="https://beta.api.xyo.network" archive={archive ?? ''}>
+      <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network" archive={archive ?? 'temp'}>
         <BrowserRouter>
           <ArchiveSelectEx {...args}></ArchiveSelectEx>
         </BrowserRouter>
