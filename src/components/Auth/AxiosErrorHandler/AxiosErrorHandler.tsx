@@ -1,17 +1,10 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/sdk-react'
-import { AxiosError } from 'axios'
 
 import { AxiosLoggedError } from '../../../contexts'
 import { ApiLogEntry } from '../AuthLogs'
+import { AxiosErrorHandlerProps } from './AxiosErrorHandlerProps'
 import { ReAuth } from './ReAuth'
-
-export interface AxiosErrorHandlerProps {
-  apiError: AxiosError | undefined
-  customError?: JSX.Element
-  displayError?: boolean
-  loginForm?: boolean
-}
 
 const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({
   apiError,

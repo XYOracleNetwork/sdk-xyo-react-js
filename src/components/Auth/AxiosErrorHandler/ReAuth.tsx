@@ -4,7 +4,7 @@ import { AuthActionTypes, useAuthState } from '../../../contexts'
 import { appThemeOptions } from '../../../theme'
 import { AuthServiceWrapper } from '../AuthServiceWrapper'
 import { AuthThemeExtender } from '../AuthThemeExtender'
-import { AxiosErrorHandlerProps } from './AxiosErrorHandler'
+import { AxiosErrorHandlerProps } from './AxiosErrorHandlerProps'
 
 const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginForm = true }) => {
   const { state: authState, dispatch: authDispatch } = useAuthState()
