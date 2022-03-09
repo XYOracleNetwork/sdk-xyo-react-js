@@ -9,7 +9,7 @@ import { ApiLogEntry } from './AuthLogs'
 import { AuthServiceWrapper } from './AuthServiceWrapper'
 import { AuthThemeExtender } from './AuthThemeExtender'
 
-const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
+const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginForm = true }) => {
   const { state: authState, dispatch: authDispatch } = useAuthState()
 
   const invalidRequest = apiError?.response?.status === 401 && !!apiError.config.headers?.['Authorization']
@@ -23,7 +23,7 @@ const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
 
   // invalid request = apiError from bad badToken
   // no loggedInAccount = apiError even without a loggedInAccount (i.e. retry attempt)
-  if (invalidRequest || !authState?.loggedInAccount) {
+  if ((invalidRequest || !authState?.loggedInAccount) && loginForm) {
     return (
       <AuthThemeExtender themeOptions={appThemeOptions}>
         <AuthServiceWrapper />
@@ -37,25 +37,36 @@ const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError }) => {
 export interface AxiosErrorHandlerProps {
   apiError: AxiosError | undefined
   loginForm?: boolean
+  displayError?: boolean
 }
 
-const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginForm = true, children, ...props }) => {
+const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({
+  apiError,
+  loginForm = true,
+  displayError = true,
+  children,
+  ...props
+}) => {
   if (apiError) {
     const loggedError = apiError as AxiosLoggedError
     loggedError.logged = loggedError.logged = new Date().toISOString()
 
     return (
-      <FlexCol alignItems="start" {...props}>
-        <Typography variant="h5" color="error" my={1}>
-          Error Making Request
-        </Typography>
-        <ApiLogEntry call={loggedError} />
-        {loginForm && apiError.response?.status === 401 && (
-          <FlexCol my={2} width="100%">
-            <ReAuth apiError={apiError} />
+      <>
+        {displayError && (
+          <FlexCol alignItems="start" {...props}>
+            <Typography variant="h5" color="error" my={1}>
+              Error Making Request
+            </Typography>
+            <ApiLogEntry call={loggedError} />
           </FlexCol>
         )}
-      </FlexCol>
+        {apiError.response?.status === 401 && (
+          <FlexCol my={2} width="100%">
+            <ReAuth apiError={apiError} loginForm={loginForm} />
+          </FlexCol>
+        )}
+      </>
     )
   } else {
     return <>{children}</>

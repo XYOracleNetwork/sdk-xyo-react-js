@@ -1,12 +1,22 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
+import { SelectExProps } from '@xylabs/sdk-react'
 
-import { AppSettingsProvider, ArchivistApiProvider, useAppSettings } from '../../../contexts'
+import { authDecorator, authServiceList, WrappedArgs } from '../../../.storybook'
+import { AppSettingsProvider } from '../../../contexts'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 
 const StorybookEntry = {
-  argTypes: {},
+  argTypes: {
+    authState: {
+      defaultValue: {
+        authServiceList,
+        jwtToken: 'badToken',
+        loggedInAccount: 'none@none.com',
+      },
+    },
+  },
   component: ArchiveSelectEx,
+  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
@@ -16,20 +26,12 @@ const StorybookEntry = {
 } as ComponentMeta<typeof ArchiveSelectEx>
 
 const Template: ComponentStory<typeof ArchiveSelectEx> = (args) => {
-  const TemplateWithSettings: React.FC = () => {
-    const { archive } = useAppSettings()
-    return (
-      <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network" archive={archive ?? 'temp'}>
-        <BrowserRouter>
-          <ArchiveSelectEx {...args}></ArchiveSelectEx>
-        </BrowserRouter>
-      </ArchivistApiProvider>
-    )
-  }
-
+  const combinedArgs = args as WrappedArgs & SelectExProps<string>
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { authState, ...props } = combinedArgs
   return (
     <AppSettingsProvider value={{}}>
-      <TemplateWithSettings />
+      <ArchiveSelectEx {...props}></ArchiveSelectEx>
     </AppSettingsProvider>
   )
 }
