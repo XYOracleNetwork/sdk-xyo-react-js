@@ -46,12 +46,12 @@ const Template: ComponentStory<typeof JsonRouteWrapper> = (props) => {
 
 const Default = Template.bind({})
 Default.args = {
-  callback: () => new XyoArchivistApi({ apiDomain: 'http://localhost:8081', archive: 'temp' }).getBoundWitnessStats(),
+  callback: () => new XyoArchivistApi({ apiDomain: 'http://localhost:8081', archive: 'temp' }).archive.block.getStats(),
 }
 
 const HideBackButton = Template.bind({})
 HideBackButton.args = {
-  callback: () => new XyoArchivistApi({ apiDomain: 'http://localhost:8081', archive: 'temp' }).getBoundWitnessStats(),
+  callback: () => new XyoArchivistApi({ apiDomain: 'http://localhost:8081', archive: 'temp' }).archive.block.getStats(),
   showBackButton: false,
 }
 
