@@ -1,5 +1,7 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/sdk-react'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import { AxiosLoggedError } from '../../../contexts'
 import { ApiLogEntry } from '../AuthLogs'
@@ -14,6 +16,16 @@ const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({
   children,
   ...props
 }) => {
+  const location = useLocation()
+  useEffect(() => {
+    // ensure we end up at the same place we are now after logging in
+    location.state = {
+      from: {
+        pathname: window.location.pathname,
+      },
+    }
+  }, [location])
+
   if (apiError) {
     const loggedError = apiError as AxiosLoggedError
     loggedError.logged = loggedError.logged = new Date().toISOString()
