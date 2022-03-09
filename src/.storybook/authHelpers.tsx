@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material'
 import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
-import { ArchivistApiProvider, AuthProvider, AuthServiceId, AuthState, IAuthService, DefaultState } from '../contexts'
+import { ArchivistApiProvider, AuthProvider, AuthServiceId, AuthState, IAuthService, DefaultState, useAuthState } from '../contexts'
 import { AuthThemeExtender } from '../components'
 
 interface WrappedArgs {
@@ -25,20 +25,32 @@ const authServiceList: IAuthService[] = [
   },
 ]
 
+const WithArchivistApi: React.FC = ({ children }) => {
+  const { state } = useAuthState()
+  const theme = useTheme()
+
+  if (state) {
+    return (
+      <ArchivistApiProvider archive='temp' apiDomain={state.apiDomain} jwtToken={state.jwtToken}>
+        <AuthThemeExtender themeOptions={theme}>
+          {children}
+        </AuthThemeExtender>
+      </ArchivistApiProvider>
+    )
+  } else {
+    return <></>
+  }
+}
+
 const authDecorator: DecoratorFn = (Story, { args }) => {
   const {authState} = args
   const mergedAuthState = {...DefaultState, ...authState}
-  const theme = useTheme()
 
   return (
     <FlexGrowCol marginY={2} justifyContent="flex-start" alignItems="center">
       <BrowserRouter>
         <AuthProvider authState={mergedAuthState}>
-          <ArchivistApiProvider archive='temp' apiDomain={mergedAuthState.apiDomain}>
-            <AuthThemeExtender themeOptions={theme}>
-              <Story {...args} />
-            </AuthThemeExtender>
-          </ArchivistApiProvider>
+          <WithArchivistApi><Story {...args} /></WithArchivistApi>
         </AuthProvider>
       </BrowserRouter>
     </FlexGrowCol>
