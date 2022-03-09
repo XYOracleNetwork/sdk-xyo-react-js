@@ -1,3 +1,4 @@
+import { Error } from '@mui/icons-material'
 import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps, useAsyncEffect } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
@@ -34,7 +35,12 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
   )
 
   return (
-    <AxiosErrorHandler apiError={apiError} loginForm={false} displayError={false}>
+    <AxiosErrorHandler
+      apiError={apiError}
+      loginForm={false}
+      displayError={false}
+      customError={<Error color="warning" />}
+    >
       {archives ? (
         <SelectEx
           colorize="primary"
