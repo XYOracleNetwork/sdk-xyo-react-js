@@ -18,7 +18,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
     async (mounted) => {
       if (api) {
         try {
-          const loadedArchives = (await api.getArchives()).map((response) => response.archive)
+          const loadedArchives = (await api.archive.get()).map((response) => response.archive)
           if (mounted()) {
             if (archive && !loadedArchives.find((item) => item === archive)) {
               loadedArchives.push(archive)

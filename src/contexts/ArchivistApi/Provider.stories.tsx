@@ -41,8 +41,8 @@ const DemoArchiveFetcher = () => {
   useEffect(() => {
     if (state?.jwtToken && currentToken && state?.loggedInAccount) {
       api &&
-        api
-          .getArchives()
+        api.archive
+          .get()
           .then((archives) => {
             setMyArchives(archives)
             setSuccessfulCall(true)

@@ -36,7 +36,7 @@ const TemplateStats: ComponentStory<typeof AxiosErrorHandler> = () => {
 
   useAsyncEffect(async () => {
     try {
-      const response = await api?.getBoundWitnessStats()
+      const response = await api?.archive.block.getStats()
       setStats(response)
       setApiError(undefined)
     } catch (error) {
@@ -62,7 +62,7 @@ const TemplateArchives: ComponentStory<typeof AxiosErrorHandler> = () => {
   useAsyncEffect(async () => {
     try {
       if (api) {
-        const response = await api.getArchives()
+        const response = await api.archive.get()
         setArchives(response)
         setApiError(undefined)
       }
