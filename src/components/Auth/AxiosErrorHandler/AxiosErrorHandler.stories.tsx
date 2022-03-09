@@ -4,9 +4,9 @@ import { ArchiveResponse } from '@xyo-network/sdk-xyo-client-js'
 import axios, { AxiosError } from 'axios'
 import { useState } from 'react'
 
-import { authDecorator, authServiceList } from '../../.storybook'
-import { useArchivistApi } from '../../contexts'
-import { AuthStatusIndicator } from './AuthStatusIndicator'
+import { authDecorator, authServiceList } from '../../../.storybook'
+import { useArchivistApi } from '../../../contexts'
+import { AuthStatusIndicator } from '../AuthStatusIndicator'
 import { AxiosErrorHandler } from './AxiosErrorHandler'
 
 const StorybookEntry = {
@@ -101,10 +101,10 @@ const Template500: ComponentStory<typeof AxiosErrorHandler> = () => {
 }
 
 const AuthRequired = TemplateStats.bind({})
-const NoAuthFallback = TemplateArchives.bind({})
+const UnAuthedFallback = TemplateArchives.bind({})
 const Server500 = Template500.bind({})
 
-export { AuthRequired, NoAuthFallback, Server500 }
+export { AuthRequired, Server500, UnAuthedFallback }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
