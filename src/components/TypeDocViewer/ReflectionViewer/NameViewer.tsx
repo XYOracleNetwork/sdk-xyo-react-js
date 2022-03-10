@@ -1,0 +1,46 @@
+import { Chip, Stack, Typography, TypographyVariant } from '@mui/material'
+import { FlexBoxProps, FlexRow, isLocalhost } from '@xylabs/sdk-react'
+
+import { JsonViewerButton } from '../JsonViewerButton'
+import { SomeReflection } from '../SomeReflection'
+import { trimFlagLabel } from '../trimFlagLabel'
+import { ReflectionViewerProps } from './ReflectionViewerProps'
+import { SomeTypeViewer } from './SomeTypeViewer'
+
+export interface NameViewerProps extends FlexBoxProps {
+  reflection: SomeReflection
+  variant?: TypographyVariant
+  reflectionViewer: React.FC<ReflectionViewerProps>
+}
+
+export const NameViewer: React.FC<NameViewerProps> = ({ reflectionViewer, variant, reflection, ...props }) => {
+  return (
+    <FlexRow justifyContent="flex-start" {...props}>
+      <FlexRow marginRight={1}>
+        <Typography variant={variant} noWrap>
+          {reflection.name}
+          {reflection.type ? <>:&nbsp;</> : null}
+        </Typography>
+        <SomeTypeViewer reflection={reflection} reflectionViewer={reflectionViewer} />
+      </FlexRow>
+      <Stack direction="row" spacing={1}>
+        <Chip size="small" label={reflection.kindString} />
+        {reflection.flags
+          ? Object.entries(reflection.flags).map(([flag, value]) => {
+              return value ? <Chip size="small" key={flag} label={trimFlagLabel(flag)} variant="outlined" /> : null
+            })
+          : null}
+      </Stack>
+      {isLocalhost && (
+        <JsonViewerButton
+          jsonViewProps={{ collapsed: 1 }}
+          size="small"
+          variant="contained"
+          padding={0}
+          marginX={1}
+          src={reflection}
+        />
+      )}
+    </FlexRow>
+  )
+}
