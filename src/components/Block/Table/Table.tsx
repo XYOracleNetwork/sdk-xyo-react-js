@@ -40,7 +40,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
         {blocks?.map((block, index) => (
           <BlockTableRow
             exploreDomain={exploreDomain}
-            key={index}
+            key={`${block._hash}-${block._timestamp}-${index}`}
             block={block}
             columns={columns}
             onClick={
