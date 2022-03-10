@@ -53,7 +53,7 @@ export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block,
         <TableBody>
           {signatureData?.map((data, index) => (
             <BlockSignatureTableRow
-              key={index}
+              key={`${data.signature}-${data.previous_hash}-${index}`}
               address={data.address}
               previousHash={data.previous_hash}
               signature={data.signature}

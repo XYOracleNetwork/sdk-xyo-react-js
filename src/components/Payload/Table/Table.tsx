@@ -43,7 +43,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {payloads?.map((payload) => (
+          {payloads?.map((payload, index) => (
             <PayloadTableRow
               onClick={
                 onRowClick
@@ -53,7 +53,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
                   : undefined
               }
               exploreDomain={exploreDomain}
-              key={payload._hash}
+              key={`${payload._hash}-${payload._timestamp}-${index}`}
               payload={payload}
             />
           ))}
