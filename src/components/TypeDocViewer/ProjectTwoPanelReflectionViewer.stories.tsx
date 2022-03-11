@@ -17,11 +17,10 @@ const StorybookEntry = {
   title: 'ProjectTwoPanelReflectionViewer',
 } as ComponentMeta<typeof ProjectTwoPanelReflectionViewer>
 
-const Template: ComponentStory<typeof ProjectTwoPanelReflectionViewer> = () => {
-  const project = clientDocs as unknown as ProjectReflection
+const Template: ComponentStory<typeof ProjectTwoPanelReflectionViewer> = ({ reflection, ...props }) => {
   return (
     <BrowserRouter>
-      <ProjectTwoPanelReflectionViewer height="90vh" reflection={project} />
+      <ProjectTwoPanelReflectionViewer height="90vh" reflection={reflection} {...props} />
     </BrowserRouter>
   )
 }
@@ -29,7 +28,12 @@ const Template: ComponentStory<typeof ProjectTwoPanelReflectionViewer> = () => {
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const Client = Template.bind({})
+Client.args = {
+  reflection: clientDocs as unknown as ProjectReflection,
+}
+
+export { Client, Default }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

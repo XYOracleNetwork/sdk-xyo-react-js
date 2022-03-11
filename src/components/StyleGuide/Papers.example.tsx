@@ -1,5 +1,4 @@
-import { Paper, Typography } from '@mui/material'
-import { styled } from '@mui/styles'
+import { Paper, styled, Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/sdk-react'
 
 const Papered = styled(Paper)(({ theme }) => ({

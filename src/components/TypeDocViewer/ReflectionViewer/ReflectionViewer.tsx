@@ -27,6 +27,7 @@ export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({
   ...props
 }) => {
   const someReflection = reflection as SomeReflection
+
   return hide(reflection?.flags, hiddenFlags) ? null : (
     <FlexCol title="ReflectionViewer" alignItems="stretch" {...props}>
       {nameViewer === undefined ? (
