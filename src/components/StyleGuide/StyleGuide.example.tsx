@@ -1,6 +1,4 @@
-import { Typography } from '@mui/material'
-import { createTheme } from '@mui/material/styles'
-import { ThemeProvider } from '@mui/styles'
+import { createTheme, ThemeProvider, Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/sdk-react'
 
 import { themeOptions } from '../../theme'
