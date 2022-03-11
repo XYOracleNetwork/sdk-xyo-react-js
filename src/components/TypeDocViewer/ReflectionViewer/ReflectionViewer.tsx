@@ -27,7 +27,6 @@ export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({
   ...props
 }) => {
   const someReflection = reflection as SomeReflection
-  if (hiddenFlags === undefined) console.log(`HF-Undefiend: ${JSON.stringify(reflection.kindString, null, 2)}`)
   return hide(reflection?.flags, hiddenFlags) ? null : (
     <FlexCol title="ReflectionViewer" alignItems="stretch" {...props}>
       {nameViewer === undefined ? (
