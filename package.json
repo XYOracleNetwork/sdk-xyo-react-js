@@ -134,6 +134,7 @@
     "deploy": "yarn cycle && yarn version patch -i && yarn build && yarn npm publish",
     "start": "start-storybook -p 6006",
     "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'",
+    "build": "yarn xylabs-build && yarn gen:docs",
     "gen:docs": "typedoc ./src/index.ts --json ./dist/docs.json --tsconfig ./tsconfig.build.json"
   },
   "sideEffects": false,
