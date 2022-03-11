@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios'
 import { Dispatch, SetStateAction } from 'react'
 
-interface AxiosLoggedResponse extends AxiosResponse {
+export interface AxiosLoggedResponse extends AxiosResponse {
   logged: string
 }
 

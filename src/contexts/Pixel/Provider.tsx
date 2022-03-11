@@ -1,13 +1,12 @@
 import { XyPixel } from '@xylabs/pixel'
-import React, { PropsWithChildren } from 'react'
 
 import { PixelContext } from './Context'
 
-interface Props {
+export interface PixelProviderProps {
   id: string
 }
 
-export const PixelProvider: React.FC<PropsWithChildren<Props>> = (props) => {
+export const PixelProvider: React.FC<PixelProviderProps> = (props) => {
   const { children, id } = props
   XyPixel.init(id)
 

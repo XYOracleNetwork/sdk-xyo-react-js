@@ -6,11 +6,11 @@ import { AuthState } from '../AuthStateTypes'
 import { DefaultState } from '../DefaultState'
 import { useHydrateState } from '../useHydrateState'
 
-interface AuthProviderProps {
+export interface AuthProviderProps {
   authState: Partial<AuthState>
 }
 
-const AuthProvider: React.FC<AuthProviderProps> = ({ children, authState }) => {
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children, authState }) => {
   const defaultStateWithServices = { ...DefaultState, ...authState }
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 
@@ -24,5 +24,3 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children, authState }) => {
     </>
   )
 }
-
-export { AuthProvider }

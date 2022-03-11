@@ -70,6 +70,7 @@
     "webpack": "^5.70.0"
   },
   "esm5": "dist/esm5/index.js",
+  "docs": "dist/docs.json",
   "exports": {
     ".": {
       "esm5": "./dist/esm5/index.js",
@@ -78,6 +79,9 @@
         "require": "./dist/node/index.js"
       },
       "default": "./dist/index.js"
+    },
+    "./dist/docs.json": {
+      "default": "./dist/docs.json"
     },
     "./package.json": "./package.json"
   },
@@ -129,7 +133,8 @@
     "lint-pkg": "npmPkgJsonLint .",
     "deploy": "yarn cycle && yarn version patch -i && yarn build && yarn npm publish",
     "start": "start-storybook -p 6006",
-    "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'"
+    "test": "env TS_NODE_PROJECT=\"tsconfig.test.json\" mocha -r ts-node/register 'src/**/*.spec.ts'",
+    "gen:docs": "typedoc ./src/index.ts --json ./dist/docs.json --tsconfig ./tsconfig.build.json"
   },
   "sideEffects": false,
   "types": "dist/index.d.ts",
