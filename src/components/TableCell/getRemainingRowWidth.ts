@@ -1,3 +1,11 @@
+const getPadding = (item: Element) => {
+  const computedStyles = window.getComputedStyle(item, null)
+  return (
+    parseInt(computedStyles?.getPropertyValue('padding-left')?.replaceAll('px', '') ?? 0) +
+    parseInt(computedStyles?.getPropertyValue('padding-right')?.replaceAll('px', '') ?? 0)
+  )
+}
+
 export const getRemainingRowWidth = (row: HTMLElement, forCell = 0) => {
   let width = 0
   let padding = 0
@@ -7,12 +15,7 @@ export const getRemainingRowWidth = (row: HTMLElement, forCell = 0) => {
       if (i !== forCell) {
         width += item?.clientWidth ?? 0
       }
-      padding += parseInt(
-        window.getComputedStyle(item, null)?.getPropertyValue('padding-left')?.replaceAll('px', '') ?? 0
-      )
-      padding += parseInt(
-        window.getComputedStyle(item, null)?.getPropertyValue('padding-right')?.replaceAll('px', '') ?? 0
-      )
+      padding += getPadding(item)
     }
   }
 
