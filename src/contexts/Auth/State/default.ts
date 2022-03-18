@@ -1,6 +1,7 @@
-import { AuthServiceId, AuthState } from './AuthStateTypes'
+import { AuthServiceId } from './Service'
+import { AuthState } from './State'
 
-export const DefaultState: AuthState = {
+export const defaultState: AuthState = {
   activeAuthServiceId: AuthServiceId.None,
   apiDomain: 'http://localhost:8081',
   authError: undefined,

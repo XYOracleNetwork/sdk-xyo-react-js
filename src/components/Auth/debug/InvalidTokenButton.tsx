@@ -1,6 +1,6 @@
 import { ButtonEx, ButtonExProps } from '@xylabs/sdk-react'
 
-import { AuthActionTypes, useAuthState } from '../../../contexts'
+import { AuthActionType, useAuthState } from '../../../contexts'
 
 function generateToken(length: number) {
   const a = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
@@ -23,7 +23,7 @@ const InvalidTokenButton: React.FC<ButtonExProps> = ({ children, ...props }) => 
         onClick={() =>
           dispatch({
             payload: { jwtToken: generateToken(100), loggedInAccount: state.loggedInAccount },
-            type: AuthActionTypes.AuthSuccessful,
+            type: AuthActionType.AuthSuccessful,
           })
         }
         {...props}

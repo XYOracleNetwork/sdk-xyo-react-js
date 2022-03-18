@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import { BusyBox, useAsyncEffect } from '@xylabs/sdk-react'
 import { FormEvent, memo, useEffect, useState } from 'react'
 
-import { AuthActionTypes, useArchivistApi } from '../../../contexts'
+import { AuthActionType, useArchivistApi } from '../../../contexts'
 import { Property } from '../../Properties'
 import { LoginForm } from '../LoginForm'
 import { useHandleReturnUrl } from '../useHandleReturnUrl'
@@ -22,7 +22,7 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
     if (!isLoading && token) {
       dispatch({
         payload: { jwtToken: token, loggedInAccount: credentials.email },
-        type: AuthActionTypes.AuthSuccessful,
+        type: AuthActionType.AuthSuccessful,
       })
       handleReturnUrl()
     }

@@ -1,7 +1,7 @@
 import { MenuItem } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
-import { AuthActionTypes, useAuthState } from '../../contexts'
+import { AuthActionType, useAuthState } from '../../contexts'
 
 export interface LoginToggleMenuItemProps {
   handleClose?: () => void
@@ -33,7 +33,7 @@ const LoginToggleMenuItem: React.FC<LoginToggleMenuItemProps> = ({
 
   const LogoutMenuItem: React.FC = () => {
     const handleLogout = () => {
-      authDispatch?.({ payload: {}, type: AuthActionTypes.Logout })
+      authDispatch?.({ payload: {}, type: AuthActionType.Logout })
     }
     return (
       <MenuItem

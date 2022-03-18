@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 
-import { AuthContext } from './AuthContext'
-import { AuthContextType } from './AuthStateTypes'
+import { AuthContext } from '../Context'
+import { AuthContextProps } from '../State'
 
-export const useAuthState = (): AuthContextType => {
+export const useAuthState = (): AuthContextProps => {
   const context = useContext(AuthContext)
   if (context === undefined) {
     console.warn('useAuthState used outside a AuthContextProvider')

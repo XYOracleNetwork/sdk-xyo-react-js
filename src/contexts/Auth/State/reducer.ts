@@ -1,23 +1,25 @@
-import { AuthAction, AuthActionTypes, AuthServiceId, AuthState } from './AuthStateTypes'
-import { DefaultState } from './DefaultState'
+import { AuthAction, AuthActionType } from '../Action'
+import { defaultState } from './default'
+import { AuthServiceId } from './Service'
+import { AuthState } from './State'
 
 const authReducer = (state: AuthState, action: AuthAction) => {
   switch (action.type) {
-    case AuthActionTypes.UpdateActiveAuthService: {
+    case AuthActionType.UpdateActiveAuthService: {
       if (!action.payload.activeAuthServiceId) {
         throw new Error('Missing AuthServiceId')
       }
       return { ...state, activeAuthServiceId: action.payload.activeAuthServiceId }
     }
 
-    case AuthActionTypes.RehydrateState: {
+    case AuthActionType.RehydrateState: {
       if (!action.payload) {
         throw new Error('Missing Payload')
       }
       return { ...state, ...action.payload }
     }
 
-    case AuthActionTypes.AuthSuccessful: {
+    case AuthActionType.AuthSuccessful: {
       if (!action.payload?.jwtToken || !action.payload?.loggedInAccount) {
         throw new Error('jwtToken or loggedInAccount missing from  payload')
       }
@@ -29,7 +31,7 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       return { ...state, ...{ ...authCompleteState, ...action.payload } }
     }
 
-    case AuthActionTypes.AuthFailure: {
+    case AuthActionType.AuthFailure: {
       if (!action.payload?.authError) {
         throw new Error('authError missing from  payload')
       }
@@ -37,10 +39,10 @@ const authReducer = (state: AuthState, action: AuthAction) => {
       return { ...state, ...{ authError, isLoading: false } }
     }
 
-    case AuthActionTypes.Logout: {
+    case AuthActionType.Logout: {
       // Keep the existing AuthService List provided by consumers
       const { authServiceList } = state
-      return { ...DefaultState, ...{ authServiceList }, ...{ reAuthenticate: action.payload.reAuthenticate } }
+      return { ...defaultState, ...{ authServiceList }, ...{ reAuthenticate: action.payload.reAuthenticate } }
     }
 
     default: {
