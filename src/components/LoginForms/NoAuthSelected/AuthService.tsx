@@ -1,21 +1,19 @@
-import { ButtonEx } from '@xylabs/sdk-react'
+import { ButtonEx, ButtonExProps } from '@xylabs/sdk-react'
 
-import { AuthActionTypes, IAuthService, useAuthState } from '../../../contexts'
+import { AuthActionTypes, AuthService, useAuthState } from '../../../contexts'
 
-interface AuthServiceProps {
-  service: IAuthService
+export interface AuthServiceButtonProps extends ButtonExProps {
+  service: AuthService
 }
 
-const AuthService: React.FC<AuthServiceProps> = ({ service }) => {
+export const AuthServiceButton: React.FC<AuthServiceButtonProps> = ({ service, ...props }) => {
   const { id, title } = service
   const { dispatch } = useAuthState()
   const payload = { payload: { activeAuthServiceId: id }, type: AuthActionTypes.UpdateActiveAuthService }
 
   return (
-    <ButtonEx onClick={() => dispatch?.(payload)} key={id} variant="outlined">
+    <ButtonEx onClick={() => dispatch?.(payload)} key={id} variant="outlined" {...props}>
       {title}
     </ButtonEx>
   )
 }
-
-export { AuthService }

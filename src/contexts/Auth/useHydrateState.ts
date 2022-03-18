@@ -5,38 +5,46 @@ import { AuthAction, AuthActionTypes, AuthState } from './AuthStateTypes'
 type AuthStateKeys = keyof AuthState
 type SaveableAuthStateProps = Extract<AuthStateKeys, 'jwtToken' | 'loggedInAccount'>
 
-const useHydrateState = (
+const localStorageName = 'AuthState'
+
+const loadAuthStateFromLocalStorage = () => {
+  const savedState = localStorage.getItem(localStorageName)
+  if (savedState) {
+    try {
+      return JSON.parse(savedState) as AuthState
+    } catch (ex) {
+      localStorage.removeItem(localStorageName)
+      console.error(`error parsing auth state from localStorage [${ex}]`)
+    }
+  }
+  return null
+}
+
+const saveAuthStateToLocalStorage = (state: AuthState, keysToSave: SaveableAuthStateProps[]) => {
+  const saveableValues = keysToSave.reduce((previous, key) => {
+    previous[key] = state[key]
+    return previous
+  }, {} as AuthState)
+
+  localStorage.setItem('AuthState', JSON.stringify(saveableValues))
+}
+
+export const useHydrateState = (
   state: AuthState,
   dispatch: React.Dispatch<AuthAction>,
   keysToSave: SaveableAuthStateProps[]
 ) => {
-  const [isFirstRun, setIsFirstRun] = useState<boolean>(true)
+  const [isFirstRun, setIsFirstRun] = useState(true)
 
   useEffect(() => {
-    const savedState = localStorage.getItem('AuthState') as string
-    try {
-      const authState = JSON.parse(savedState)
+    if (isFirstRun) {
+      const authState = loadAuthStateFromLocalStorage()
       if (authState !== null) {
         dispatch({ payload: authState, type: AuthActionTypes.RehydrateState })
       }
-      localStorage.removeItem('AuthState')
       setIsFirstRun(false)
-    } catch (e) {
-      console.error('error parsing saved state from localStorage')
+    } else {
+      saveAuthStateToLocalStorage(state, keysToSave)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  useEffect(() => {
-    if (!isFirstRun) {
-      const saveableValues = keysToSave.reduce((previous, key) => {
-        previous[key] = state[key]
-        return previous
-      }, {} as AuthState)
-
-      localStorage.setItem('AuthState', JSON.stringify(saveableValues))
-    }
-  }, [state, isFirstRun, keysToSave])
+  }, [dispatch, isFirstRun, state, keysToSave])
 }
-
-export { useHydrateState }

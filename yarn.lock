@@ -2105,7 +2105,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/providers@npm:^5.6.0, @ethersproject/providers@npm:^5.6.1":
+"@ethersproject/providers@npm:^5.6.1":
   version: 5.6.1
   resolution: "@ethersproject/providers@npm:5.6.1"
   dependencies:
@@ -4341,10 +4341,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "@types/luxon@npm:2.3.0"
-  checksum: 163cadf3f2b6e0e6e73c5803916229a0ce1c08197caf77b7315c71df7c1ed24d213db4bcb7e04d58b9e081099eab5eedc7f3666131bf284f65b40187f3302892
+"@types/luxon@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "@types/luxon@npm:2.3.1"
+  checksum: e75928929aaf4e8796dcbdccd23a2dda029f637db01f5b06c7a72033ae106966df716e179ee41711280d782bd851228810643bce9bffc4ff62ae906e94ee1df2
   languageName: node
   linkType: hard
 
@@ -5440,11 +5440,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.13.7":
-  version: 2.13.7
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.13.7"
+"@xyo-network/sdk-xyo-client-js@npm:^2.13.13":
+  version: 2.13.13
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.13.13"
   dependencies:
-    "@ethersproject/providers": ^5.6.0
+    "@ethersproject/providers": ^5.6.1
     "@xylabs/sdk-js": ^2.4.2
     "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
     axios: ^0.26.1
@@ -5454,15 +5454,15 @@ __metadata:
     elliptic: ^6.5.4
     keccak256: ^1.0.6
     lodash-es: ^4.17.21
-    lru-cache: ^7.5.1
+    lru-cache: ^7.6.0
     mongodb: ^4.4.1
-    neo4j-driver: ^4.4.3
-    neo4j-driver-core: ^4.4.3
+    neo4j-driver: ^4.4.4
+    neo4j-driver-core: ^4.4.4
     sha.js: ^2.4.11
     systeminformation: ^5.11.8
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 072c9f401e57c7ecf6691ec3595b9757dfc3e6c66de73046d86286a12cff4032aa7500e3db5c98edffcdbc3cd4c97b1c5a5e79b75d90936bd754544bcf1a1c4e
+  checksum: 203e324d203caabb6970cccc84bde7d987366b5b0ec40bdcef2ec2c35c5b4d0d1590ca8587cc753b537f01bcf6ba616f98933187d437a70c164585aeb2d689a2
   languageName: node
   linkType: hard
 
@@ -5503,7 +5503,7 @@ __metadata:
     "@storybook/theming": ^6.4.19
     "@types/bn.js": ^5.1.0
     "@types/lodash": ^4.14.180
-    "@types/luxon": ^2.3.0
+    "@types/luxon": ^2.3.1
     "@types/md5": ^2.3.2
     "@types/node": ^17.0.21
     "@types/react": ^17.0.40
@@ -5515,7 +5515,7 @@ __metadata:
     "@xylabs/sdk-react": ^2.10.2
     "@xylabs/ts-scripts": ^1.0.48
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.13.7
+    "@xyo-network/sdk-xyo-client-js": ^2.13.13
     axios: ^0.26.1
     babel-loader: ^8.2.3
     bn.js: ^5.2.0
@@ -12471,10 +12471,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^7.3.1, lru-cache@npm:^7.4.1, lru-cache@npm:^7.5.1":
-  version: 7.5.1
-  resolution: "lru-cache@npm:7.5.1"
-  checksum: f6980281c6ae4e58254d68b2d7878d7abb21c366a7ee527687f4a27bcbf7576f923517285d2fbd4b6a45b5eebdc66b4c565b55a8b49d5dc1babd65a912c26367
+"lru-cache@npm:^7.3.1, lru-cache@npm:^7.4.1, lru-cache@npm:^7.6.0":
+  version: 7.7.1
+  resolution: "lru-cache@npm:7.7.1"
+  checksum: f362c5a2cfa8ad6fe557ec43dc1b7a9695cce84a5652a43ff813609f782f5da576631e7dfad41878bf19a7a69438f38375178635ee80de269aa314280ca2f59e
   languageName: node
   linkType: hard
 
@@ -13650,33 +13650,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"neo4j-driver-bolt-connection@npm:^4.4.3":
-  version: 4.4.3
-  resolution: "neo4j-driver-bolt-connection@npm:4.4.3"
+"neo4j-driver-bolt-connection@npm:^4.4.4":
+  version: 4.4.4
+  resolution: "neo4j-driver-bolt-connection@npm:4.4.4"
   dependencies:
     buffer: ^6.0.3
-    neo4j-driver-core: ^4.4.3
+    neo4j-driver-core: ^4.4.4
     string_decoder: ^1.3.0
-  checksum: 6ef6e15d796d00b2d1f1ba68d429b6908b58c8e81a259bf74f39283bd753954e38327dd6550596e9f38f25776f366b4baeb0b903377c48776f5a346322d61213
+  checksum: 218cb67282f53343b44c0d79c68570a380495be6a7b7f713179ee4726155eaa2458bb7b832fd061792b368005c8cd0144e53cdf74a76df6a332435141086e8f3
   languageName: node
   linkType: hard
 
-"neo4j-driver-core@npm:^4.4.3":
-  version: 4.4.3
-  resolution: "neo4j-driver-core@npm:4.4.3"
-  checksum: 954cc3f94a8662c90f6025e60955b60cd5ed1840897568394893ec80ed9fd8e7ecc6cf30a7cb39dfa3c61c60589ccad486897d5fdd1716da08e69dafb4df8e5b
+"neo4j-driver-core@npm:^4.4.4":
+  version: 4.4.4
+  resolution: "neo4j-driver-core@npm:4.4.4"
+  checksum: 9db41ecd830d810918ea73c2065a046388a18997551d1a1087a57bff038f05e49cd8205bbd74e4feaf62d18fbc86a44ad72c7f0bf8ed106b179bf53b59c2f07f
   languageName: node
   linkType: hard
 
-"neo4j-driver@npm:^4.4.3":
-  version: 4.4.3
-  resolution: "neo4j-driver@npm:4.4.3"
+"neo4j-driver@npm:^4.4.4":
+  version: 4.4.4
+  resolution: "neo4j-driver@npm:4.4.4"
   dependencies:
     "@babel/runtime": ^7.5.5
-    neo4j-driver-bolt-connection: ^4.4.3
-    neo4j-driver-core: ^4.4.3
+    neo4j-driver-bolt-connection: ^4.4.4
+    neo4j-driver-core: ^4.4.4
     rxjs: ^6.6.3
-  checksum: 933167fe0726fefec58ebf92542779cba93f7d46755a41f854e5e581c2cdcf32373437f6c10910d2082e2b75380915e21661dcf99de03b814c6dbc4157cd5b61
+  checksum: 11b7607feb5434c6941d05652f00646ba06c87841e8a5d090d51ac491a5904f3e4dcad49cf0e6057e17dc509a5785468a18d3f57f0e7ec95e8a34fa77a10c424
   languageName: node
   linkType: hard
 

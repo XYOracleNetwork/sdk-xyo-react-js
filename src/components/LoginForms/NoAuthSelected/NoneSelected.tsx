@@ -2,11 +2,11 @@ import { ButtonGroup, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { IAuthService } from '../../../contexts'
+import { AuthService } from '../../../contexts'
 import { LoginForm } from '../LoginForm'
-import { AuthService } from './AuthService'
+import { AuthServiceButton } from './AuthService'
 
-const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount, authServiceList }) => {
+export const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount, authServiceList }) => {
   const location = useLocation()
   const [authWarning, setAuthWarning] = useState<string | undefined>()
 
@@ -37,8 +37,8 @@ const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount, authServiceList })
             fullWidth={true}
           >
             {authServiceList &&
-              authServiceList.map((service: IAuthService) => {
-                return <AuthService key={service.id} service={service} />
+              authServiceList.map((service: AuthService) => {
+                return <AuthServiceButton key={service.id} service={service} />
               })}
           </ButtonGroup>
         </>
@@ -46,5 +46,3 @@ const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount, authServiceList })
     </>
   )
 }
-
-export { NoneSelected }
