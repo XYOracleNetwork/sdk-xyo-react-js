@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 
-import { AuthAction, AuthActionTypes, AuthState } from './AuthStateTypes'
+import { AuthAction, AuthActionType } from '../Action'
+import { AuthState } from '../State'
 
-type AuthStateKeys = keyof AuthState
-type SaveableAuthStateProps = Extract<AuthStateKeys, 'jwtToken' | 'loggedInAccount'>
+export type SaveableAuthStateProps = Extract<keyof AuthState, 'jwtToken' | 'loggedInAccount'>
 
-const localStorageName = 'AuthState'
+const LOCAL_STORAGE_NAME = 'AuthState'
 
 const loadAuthStateFromLocalStorage = () => {
-  const savedState = localStorage.getItem(localStorageName)
+  const savedState = localStorage.getItem(LOCAL_STORAGE_NAME)
   if (savedState) {
     try {
       return JSON.parse(savedState) as AuthState
     } catch (ex) {
-      localStorage.removeItem(localStorageName)
+      localStorage.removeItem(LOCAL_STORAGE_NAME)
       console.error(`error parsing auth state from localStorage [${ex}]`)
     }
   }
@@ -26,7 +26,7 @@ const saveAuthStateToLocalStorage = (state: AuthState, keysToSave: SaveableAuthS
     return previous
   }, {} as AuthState)
 
-  localStorage.setItem('AuthState', JSON.stringify(saveableValues))
+  localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(saveableValues))
 }
 
 export const useHydrateState = (
@@ -40,7 +40,7 @@ export const useHydrateState = (
     if (isFirstRun) {
       const authState = loadAuthStateFromLocalStorage()
       if (authState !== null) {
-        dispatch({ payload: authState, type: AuthActionTypes.RehydrateState })
+        dispatch({ payload: authState, type: AuthActionType.RehydrateState })
       }
       setIsFirstRun(false)
     } else {

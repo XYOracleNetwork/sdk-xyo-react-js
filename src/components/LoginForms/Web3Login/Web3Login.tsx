@@ -3,7 +3,7 @@ import { useAsyncEffect } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 
-import { AuthActionTypes, useArchivistApi, useWalletService } from '../../../contexts'
+import { AuthActionType, useArchivistApi, useWalletService } from '../../../contexts'
 import { LoginForm } from '../LoginForm'
 import { useHandleReturnUrl } from '../useHandleReturnUrl'
 import { CheckForMetaMask } from './CheckForMetaMask'
@@ -24,7 +24,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
     if (!isLoading && token) {
       dispatch({
         payload: { jwtToken: token, loggedInAccount: metaMaskWallet.currentAccount },
-        type: AuthActionTypes.AuthSuccessful,
+        type: AuthActionType.AuthSuccessful,
       })
       handleReturnUrl()
     }

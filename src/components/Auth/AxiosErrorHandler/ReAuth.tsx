@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { AuthActionTypes, useAuthState } from '../../../contexts'
+import { AuthActionType, useAuthState } from '../../../contexts'
 import { appThemeOptions } from '../../../theme'
 import { AuthServiceWrapper } from '../AuthServiceWrapper'
 import { AuthThemeExtender } from '../AuthThemeExtender'
@@ -14,7 +14,7 @@ const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginForm = true }
   useEffect(() => {
     // logout when invalid request and their was a loggedInAccount
     if (authState?.loggedInAccount && invalidRequest) {
-      authDispatch?.({ payload: { reAuthenticate: true }, type: AuthActionTypes.Logout })
+      authDispatch?.({ payload: { reAuthenticate: true }, type: AuthActionType.Logout })
     }
   }, [authDispatch, authState?.loggedInAccount, invalidRequest])
 

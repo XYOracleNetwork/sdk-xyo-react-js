@@ -1,13 +1,13 @@
 import { useTheme } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/sdk-react'
 
-import { AuthActionTypes, AuthServiceId, useAuthState } from '../../contexts'
+import { AuthActionType, AuthServiceId, useAuthState } from '../../contexts'
 import { AuthFooter } from './AuthFooter'
 import { MapActiveAuthService } from './MapActiveService'
 
 const backPayload = {
   payload: { activeAuthServiceId: AuthServiceId.None },
-  type: AuthActionTypes.UpdateActiveAuthService,
+  type: AuthActionType.UpdateActiveAuthService,
 }
 
 const AuthServiceWrapper: React.FC = () => {
@@ -15,7 +15,7 @@ const AuthServiceWrapper: React.FC = () => {
   const theme = useTheme()
 
   const handleLogout = () => {
-    authDispatch?.({ payload: {}, type: AuthActionTypes.Logout })
+    authDispatch?.({ payload: {}, type: AuthActionType.Logout })
     authDispatch?.(backPayload)
   }
 

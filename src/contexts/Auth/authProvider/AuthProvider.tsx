@@ -1,26 +1,20 @@
 import { useReducer } from 'react'
 
-import { AuthContext } from '../AuthContext'
-import { authReducer } from '../AuthReducer'
-import { AuthState } from '../AuthStateTypes'
-import { DefaultState } from '../DefaultState'
-import { useHydrateState } from '../useHydrateState'
+import { AuthContext } from '../Context'
+import { useHydrateState } from '../hooks'
+import { authReducer, AuthState, defaultState } from '../State'
 
 export interface AuthProviderProps {
   authState: Partial<AuthState>
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children, authState }) => {
-  const defaultStateWithServices = { ...DefaultState, ...authState }
+  const defaultStateWithServices = { ...defaultState, ...authState }
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 
   useHydrateState(state, dispatch, ['jwtToken', 'loggedInAccount'])
 
   const value = { dispatch, state }
 
-  return (
-    <>
-      <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
-    </>
-  )
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
