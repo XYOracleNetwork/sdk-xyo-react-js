@@ -19,13 +19,17 @@ export interface BlockDetailsProps extends FlexBoxProps {
 const payloadsFromBlock = (block?: XyoBoundWitness) => {
   const payloads: XyoPayload[] = []
   if (block) {
-    for (let i = 0; i < block.payload_hashes.length; i++) {
-      if (block._payloads) {
-        payloads.push(block._payloads[i])
-      } else {
-        payloads.push({ _archive: block._archive, _hash: block.payload_hashes[i], schema: block.payload_schemas[i] })
-      }
-    }
+    block.payload_hashes.forEach((_, index) => {
+      payloads.push(
+        block._payloads
+          ? block._payloads[index]
+          : {
+              _archive: block._archive,
+              _hash: block.payload_hashes[index],
+              schema: block.payload_schemas[index],
+            }
+      )
+    })
   }
   return uniqWith(payloads, (a, b) => a._hash === b._hash)
 }

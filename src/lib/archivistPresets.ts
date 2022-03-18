@@ -35,4 +35,13 @@ export const archivistPresets: XyoArchivistPreset[] = [
       web: 'https://archivist.xyo.network',
     },
   },
+  {
+    name: 'XYO Shared Archivist (local)',
+    slug: 'local-archivist-xyo-network',
+    urls: {
+      api: 'http://localhost:8081',
+      apiDocs: 'http://localhost:8081/api',
+      web: 'http://localhost:8082',
+    },
+  },
 ]

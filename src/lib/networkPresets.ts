@@ -29,4 +29,10 @@ export const networkPresets: XyoNetworkPreset[] = [
     name: 'Main',
     slug: 'xyo-main',
   },
+  {
+    archivists: [findArchivistPreset('local-archivist-xyo-network')],
+    diviners: [findDivinerPreset('explore-xyo-network')],
+    name: 'Local',
+    slug: 'xyo-local',
+  },
 ]

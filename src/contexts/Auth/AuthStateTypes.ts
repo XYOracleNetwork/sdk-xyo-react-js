@@ -1,17 +1,25 @@
 import { AxiosError } from 'axios'
 
-enum AuthServiceId {
+export enum AuthServiceId {
   EmailPassword = 'EmailPassword',
   Web3Wallet = 'Web3Wallet',
   None = 'None',
 }
 
+export interface AuthService {
+  id: AuthServiceId
+  title: string
+}
+
+/** @deprecated use AuthService instead */
+export type IAuthService = AuthService
+
 export interface AuthState {
   apiDomain: string
   activeAuthServiceId: AuthServiceId
-  readonly authServiceList: IAuthService[]
+  readonly authServiceList: AuthService[]
   isLoading: boolean
-  /* deprecated */
+  /** @deprecated use loggedInAccount instead */
   isLoggedIn?: boolean
   authError: undefined | Error | AxiosError
   jwtToken?: string
@@ -41,10 +49,3 @@ export interface AuthContextType {
 export interface AuthServiceComponentProps {
   authState?: AuthState
 }
-
-export interface IAuthService {
-  id: AuthServiceId
-  title: string
-}
-
-export { AuthServiceId }
