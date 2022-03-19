@@ -23,7 +23,10 @@ const Template: ComponentStory<typeof Footer> = (args) => (
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const DynamicHeight = Template.bind({})
+DynamicHeight.args = { dynamicHeight: true }
+
+export { Default, DynamicHeight }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { authDecorator, WrappedAuthComponent } from '../../.storybook'
 import { AuthServiceWrapper } from './AuthServiceWrapper'
-import { AuthStatusIndicator } from './AuthStatusIndicator'
+import { AuthStatusIconButton } from './AuthStatusIconButton'
 
 const StorybookEntry = {
   argTypes: {
@@ -15,11 +15,11 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Auth/AuthStatusIndicator',
+  title: 'Auth/AuthStatusIconButton',
 } as ComponentMeta<WrappedAuthComponent>
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
-  return <AuthStatusIndicator></AuthStatusIndicator>
+  return <AuthStatusIconButton />
 }
 
 const Default = Template.bind({})

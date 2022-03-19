@@ -1,7 +1,7 @@
 import { Error } from '@mui/icons-material'
-import { ButtonBase, colors } from '@mui/material'
+import { colors, IconButton, IconButtonProps } from '@mui/material'
 import { ellipsize, EthAddress } from '@xylabs/sdk-js'
-import { FlexBoxProps, FlexRow, Identicon } from '@xylabs/sdk-react'
+import { FlexRow, Identicon } from '@xylabs/sdk-react'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { FaUserCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
@@ -39,7 +39,7 @@ const formatIconHint = (
   }
 }
 
-export const AuthStatusIndicator: React.FC<FlexBoxProps> = ({ onClick, ...props }) => {
+export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...props }) => {
   const { state: authState } = useAuthState()
   const [currentAccount, setCurrentAccount] = useState<string>()
   const [iconHint, setIconHint] = useState<string>()
@@ -70,15 +70,13 @@ export const AuthStatusIndicator: React.FC<FlexBoxProps> = ({ onClick, ...props 
     }
   }
   return (
-    <ButtonBase style={{ borderRadius: '50%' }} title={iconHint}>
+    <IconButton size="small" title={iconHint} onClick={onClick ?? handleClick} {...props}>
       <FlexRow
         bgcolor={currentAccount ? iconColor : undefined}
         height={32}
         width={32}
         borderRadius="50%"
         border={`4px solid ${iconColor}`}
-        onClick={onClick ?? handleClick}
-        {...props}
       >
         <FlexRow>
           {currentAccount ? (
@@ -91,6 +89,6 @@ export const AuthStatusIndicator: React.FC<FlexBoxProps> = ({ onClick, ...props 
           )}
         </FlexRow>
       </FlexRow>
-    </ButtonBase>
+    </IconButton>
   )
 }
