@@ -1,7 +1,7 @@
 import { Toolbar, ToolbarProps } from '@mui/material'
 import { FlexRow, SelectExProps } from '@xylabs/sdk-react'
 
-import { AuthStatusIndicator } from '../../Auth'
+import { AuthStatusIconButton } from '../../Auth'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 import { NetworkSelectEx } from './NetworkSelectEx'
 import { SiteMenu, SiteMenuProps } from './SiteMenu'
@@ -28,7 +28,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
         <ArchiveSelectEx {...archiveSelectProps} />
       </FlexRow>
       {children}
-      <AuthStatusIndicator {...{ mx: 1 }} />
+      <AuthStatusIconButton />
       <SiteMenu {...siteMenuProps} />
     </Toolbar>
   )

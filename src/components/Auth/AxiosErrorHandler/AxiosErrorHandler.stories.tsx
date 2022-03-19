@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 import { authDecorator, authServiceList } from '../../../.storybook'
 import { useArchivistApi } from '../../../contexts'
-import { AuthStatusIndicator } from '../AuthStatusIndicator'
+import { AuthStatusIndicator } from '../AuthStatusIconButton'
 import { AxiosErrorHandler } from './AxiosErrorHandler'
 
 const StorybookEntry = {
