@@ -20,8 +20,8 @@ export interface JsonFromUrlProps {
   theme?: ThemeKeys | ThemeObject
 }
 
-/* deprecated - Move to JsonRouteWrapper Component */
-const JsonFromUrl: React.FC<JsonFromUrlProps> = ({ pathname, apiDomain, ...JsonViewProps }) => {
+/**  @deprecated - Move to JsonRouteWrapper Component */
+export const JsonFromUrl: React.FC<JsonFromUrlProps> = ({ pathname, apiDomain, ...JsonViewProps }) => {
   const location = useLocation()
   const path = pathname ? pathname : location.pathname
   const [apiResponse, setApiResponse] = useState<AxiosResponse>()
@@ -54,5 +54,3 @@ const JsonFromUrl: React.FC<JsonFromUrlProps> = ({ pathname, apiDomain, ...JsonV
     </>
   )
 }
-
-export { JsonFromUrl }
