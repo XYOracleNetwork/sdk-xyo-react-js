@@ -1,4 +1,4 @@
-import { AuthDispatch } from '../Dispatch'
+import { AuthDispatch } from './Dispatch'
 import { AuthState } from './State'
 
 export interface AuthContextProps {
