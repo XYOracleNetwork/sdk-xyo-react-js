@@ -1,3 +1,3 @@
-import { AuthAction } from './State/Action'
+import { AuthAction } from './State'
 
 export type AuthDispatch = (action: AuthAction) => void
