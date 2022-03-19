@@ -1,3 +1,4 @@
+export * from './Action'
 export * from './AuthContextProps'
 export * from './default'
 export * from './reducer'

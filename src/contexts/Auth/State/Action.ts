@@ -1,4 +1,4 @@
-import { AuthActionType } from './ActionType'
+import { AuthActionType } from '../ActionType'
 import { AuthState } from './State'
 
 export interface AuthAction {
