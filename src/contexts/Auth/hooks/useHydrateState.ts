@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import { AuthAction, AuthActionType } from '../Action'
-import { AuthState } from '../State'
+import { AuthActionType } from '../ActionType'
+import { AuthAction, AuthState } from '../State'
 
 export type SaveableAuthStateProps = Extract<keyof AuthState, 'jwtToken' | 'loggedInAccount'>
 

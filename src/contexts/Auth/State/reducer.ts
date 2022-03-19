@@ -1,4 +1,5 @@
-import { AuthAction, AuthActionType } from '../Action'
+import { AuthActionType } from '../ActionType'
+import { AuthAction } from './Action'
 import { defaultState } from './default'
 import { AuthServiceId } from './Service'
 import { AuthState } from './State'
