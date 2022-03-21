@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 
-import { XyoArchiveContext } from './Context'
+import { ArchiveContext } from './Context'
 
 export const useArchive = () => {
-  return { ...useContext(XyoArchiveContext) }
+  return { ...useContext(ArchiveContext) }
 }
