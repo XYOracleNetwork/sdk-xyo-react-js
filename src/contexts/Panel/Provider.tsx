@@ -12,6 +12,7 @@ import {
 } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
+import { useArchive } from '../Archive'
 import { XyoPanelContext, XyoPanelReportProgress, XyoReportStatus } from './Context'
 
 export interface XyoPanelProviderProps {
@@ -20,6 +21,7 @@ export interface XyoPanelProviderProps {
   inlinePayloads?: boolean
   witnesses?: XyoWitness<XyoPayload>[]
   required?: boolean
+  archive?: string
 }
 
 const getDefaultArchivists = () => {
@@ -40,8 +42,10 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
   address = XyoAddress.random(),
   archivists = getDefaultArchivists(),
   witnesses = [new XyoSystemInfoWitness()],
+  archive,
   children,
 }) => {
+  const { archive: contextArchive } = useArchive()
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
   const [progress, setProgress] = useState<XyoPanelReportProgress>({})
@@ -52,6 +56,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
     async (mounted) => {
       const panel = new XyoPanel({
         address,
+        archive: archive ?? contextArchive,
         archivists,
         inlinePayloads,
         onArchivistSendEnd: (archivist: XyoArchivistApi, error?: Error) => {
