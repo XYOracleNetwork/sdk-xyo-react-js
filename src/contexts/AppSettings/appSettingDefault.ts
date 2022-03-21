@@ -7,6 +7,5 @@ export const appSettingDefault = (): Record<string, unknown> => {
     [AppSettingSlug.DarkMode]: false,
     [AppSettingSlug.Developer]: false,
     [AppSettingSlug.Network]: defaultNetwork,
-    [AppSettingSlug.Archive]: 'temp',
   }
 }

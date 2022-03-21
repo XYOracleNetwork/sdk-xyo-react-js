@@ -54,17 +54,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.16.0, @babel/core@npm:^7.17.5, @babel/core@npm:^7.17.7, @babel/core@npm:^7.7.5":
-  version: 7.17.7
-  resolution: "@babel/core@npm:7.17.7"
+"@babel/core@npm:^7, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.16.0, @babel/core@npm:^7.17.5, @babel/core@npm:^7.17.8, @babel/core@npm:^7.7.5":
+  version: 7.17.8
+  resolution: "@babel/core@npm:7.17.8"
   dependencies:
     "@ampproject/remapping": ^2.1.0
     "@babel/code-frame": ^7.16.7
     "@babel/generator": ^7.17.7
     "@babel/helper-compilation-targets": ^7.17.7
     "@babel/helper-module-transforms": ^7.17.7
-    "@babel/helpers": ^7.17.7
-    "@babel/parser": ^7.17.7
+    "@babel/helpers": ^7.17.8
+    "@babel/parser": ^7.17.8
     "@babel/template": ^7.16.7
     "@babel/traverse": ^7.17.3
     "@babel/types": ^7.17.0
@@ -73,7 +73,7 @@ __metadata:
     gensync: ^1.0.0-beta.2
     json5: ^2.1.2
     semver: ^6.3.0
-  checksum: 467838313f8c84037d08d051238005c48f6b3da6fbaed38cd2dac5fcbe3706df2857365b8a9291402b3b888c24edb9707dc6c93f0127fecc7fe49b700c35c057
+  checksum: 0e686b1be444d25494424065238931f2b3df908bf072b72bab973acfd6d27a481fc280c9cd8a3c6fe2c46beee50e0d2307468d8b15b64dc4036f025e75f6609d
   languageName: node
   linkType: hard
 
@@ -381,14 +381,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.12.5, @babel/helpers@npm:^7.17.7":
-  version: 7.17.7
-  resolution: "@babel/helpers@npm:7.17.7"
+"@babel/helpers@npm:^7.12.5, @babel/helpers@npm:^7.17.8":
+  version: 7.17.8
+  resolution: "@babel/helpers@npm:7.17.8"
   dependencies:
     "@babel/template": ^7.16.7
     "@babel/traverse": ^7.17.3
     "@babel/types": ^7.17.0
-  checksum: fdc93714b3eb3b7a179a5133c3d7008f36785af469bb091a2f056f1a893aeedc8654e87c5e04a5cdecb6587e6177839a4b887b832be289689ffe277d08dfd4a7
+  checksum: 463dad58119fefebf2d0201bfa53ec9607aa00356908895640fc07589747fb3c2e0dfee4019f3e8c9781e57c9aa5dff4c72ec8d1b031c4ed8349f90b6aefe99d
   languageName: node
   linkType: hard
 
@@ -412,12 +412,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.12.11, @babel/parser@npm:^7.12.7, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.4, @babel/parser@npm:^7.16.7, @babel/parser@npm:^7.17.3, @babel/parser@npm:^7.17.7":
-  version: 7.17.7
-  resolution: "@babel/parser@npm:7.17.7"
+"@babel/parser@npm:^7.12.11, @babel/parser@npm:^7.12.7, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.4, @babel/parser@npm:^7.16.7, @babel/parser@npm:^7.17.3, @babel/parser@npm:^7.17.8":
+  version: 7.17.8
+  resolution: "@babel/parser@npm:7.17.8"
   bin:
     parser: ./bin/babel-parser.js
-  checksum: d2612c2597838a605bcbe921fd2c7381b3ab75603c7907020df037c22a3d27f0507285da74553cd75f403300ca76642323ca2e72ba55cc4222d4a20b87505b0c
+  checksum: 1771808491982cc47baa888a997aef6b58308e3844c8c00f730f8fd97defe57d32cdbf46075cd49aaee310fa31f3d2c80a0d41b41a4ee0ff336ee09e2ff6c222
   languageName: node
   linkType: hard
 
@@ -2400,14 +2400,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/base@npm:5.0.0-alpha.72":
-  version: 5.0.0-alpha.72
-  resolution: "@mui/base@npm:5.0.0-alpha.72"
+"@mui/base@npm:5.0.0-alpha.73":
+  version: 5.0.0-alpha.73
+  resolution: "@mui/base@npm:5.0.0-alpha.73"
   dependencies:
     "@babel/runtime": ^7.17.2
     "@emotion/is-prop-valid": ^1.1.2
     "@mui/utils": ^5.4.4
-    "@popperjs/core": ^2.11.3
+    "@popperjs/core": ^2.11.4
     clsx: ^1.1.1
     prop-types: ^15.7.2
     react-is: ^17.0.2
@@ -2418,7 +2418,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: d0ad96580ac6d6108279c3cd6d528f81b580037b043f01c7ac975a176443f81e64f70ea2936cabc9f44c62068eaca918c74120a5737587efdf2b0579a5f91292
+  checksum: fd43564436997bbcbdd34bdce00e468fb4e037830909f3ca6c2ba230e462aef540a274d345efa89379f1df7b3dd22620b92f537da66f011d61ea1b600193c9d0
   languageName: node
   linkType: hard
 
@@ -2438,17 +2438,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/lab@npm:^5.0.0-alpha.73":
-  version: 5.0.0-alpha.73
-  resolution: "@mui/lab@npm:5.0.0-alpha.73"
+"@mui/lab@npm:^5.0.0-alpha.74":
+  version: 5.0.0-alpha.74
+  resolution: "@mui/lab@npm:5.0.0-alpha.74"
   dependencies:
     "@babel/runtime": ^7.17.2
     "@date-io/date-fns": ^2.13.1
     "@date-io/dayjs": ^2.13.1
     "@date-io/luxon": ^2.13.1
     "@date-io/moment": ^2.13.1
-    "@mui/base": 5.0.0-alpha.72
-    "@mui/system": ^5.5.1
+    "@mui/base": 5.0.0-alpha.73
+    "@mui/system": ^5.5.2
     "@mui/utils": ^5.4.4
     clsx: ^1.1.1
     prop-types: ^15.7.2
@@ -2475,17 +2475,17 @@ __metadata:
       optional: true
     moment:
       optional: true
-  checksum: fd0d505b3719e1079ffddb3885cb1c99f2f73191433b1eca099c07c162a00b83d507f201058798bfa3721584176a312b325060ae151821bb22ee346ffe6fbc0a
+  checksum: 1c554cc516fb8c0039625f1f7dbf442a62d8d2e0ade06c5b073ef210c7e42df460f16ffd3bb26b39071e6e7558ae392a92942a5e9a0037196ed4ad1a15903025
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.5.1":
-  version: 5.5.1
-  resolution: "@mui/material@npm:5.5.1"
+"@mui/material@npm:^5.5.2":
+  version: 5.5.2
+  resolution: "@mui/material@npm:5.5.2"
   dependencies:
     "@babel/runtime": ^7.17.2
-    "@mui/base": 5.0.0-alpha.72
-    "@mui/system": ^5.5.1
+    "@mui/base": 5.0.0-alpha.73
+    "@mui/system": ^5.5.2
     "@mui/types": ^7.1.3
     "@mui/utils": ^5.4.4
     "@types/react-transition-group": ^4.4.4
@@ -2508,7 +2508,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: bd05f9a40765e3d3bcf8c2ea0d89d6ac08a70c73d808424556cae76456335270419afbf6e4acab6615ea7d572b0271ce7a6a7ccbd140f9734cb371510566c8d6
+  checksum: b5e5be6993a6523e705947862361bb9b25db163c872189379e65d68ec49ded995ba514b343899ca05d45c3629829afa84405c862b3e3467c0394b66bb2052382
   languageName: node
   linkType: hard
 
@@ -2529,9 +2529,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/styled-engine@npm:^5.4.4":
-  version: 5.4.4
-  resolution: "@mui/styled-engine@npm:5.4.4"
+"@mui/styled-engine@npm:^5.5.2":
+  version: 5.5.2
+  resolution: "@mui/styled-engine@npm:5.5.2"
   dependencies:
     "@babel/runtime": ^7.17.2
     "@emotion/cache": ^11.7.1
@@ -2545,7 +2545,7 @@ __metadata:
       optional: true
     "@emotion/styled":
       optional: true
-  checksum: bdbc35a760fc6873bb5c0953a4448c26e66942b104cf370a1c39b582c3aa2c39b1543c971c2c660cbd508ec89a27d9e326d7c56fe78fad58571bab0f6a340ab0
+  checksum: 450bc9f16929e003f48aa2864b034fb24bc9804e67624bcd2b8a9e7cd8e8d4335250e2bd8383a43e4b18a3c6dea80390f2c656bfc6a25f405f6277b33f184cc5
   languageName: node
   linkType: hard
 
@@ -2580,13 +2580,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/system@npm:^5.5.1":
-  version: 5.5.1
-  resolution: "@mui/system@npm:5.5.1"
+"@mui/system@npm:^5.5.2":
+  version: 5.5.2
+  resolution: "@mui/system@npm:5.5.2"
   dependencies:
     "@babel/runtime": ^7.17.2
     "@mui/private-theming": ^5.4.4
-    "@mui/styled-engine": ^5.4.4
+    "@mui/styled-engine": ^5.5.2
     "@mui/types": ^7.1.3
     "@mui/utils": ^5.4.4
     clsx: ^1.1.1
@@ -2604,7 +2604,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: c0217c65a7de8716be494b1b1286885f81b2848ddf6f24750cf5cb36aec95516655a41d141e475331b2f514f8e114284014bb2904406d79beb953b685462fd98
+  checksum: 13f0f0350b0dba7b91215993b939e7250fbf4baf5ccf0e778ef7b620663d30fd2f68c71aca93ea4c650275d096bc03929d2e27295a38063bc8c6a35d8cd4fcde
   languageName: node
   linkType: hard
 
@@ -2785,7 +2785,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.11.3, @popperjs/core@npm:^2.5.4, @popperjs/core@npm:^2.6.0":
+"@popperjs/core@npm:^2.11.4, @popperjs/core@npm:^2.5.4, @popperjs/core@npm:^2.6.0":
   version: 2.11.4
   resolution: "@popperjs/core@npm:2.11.4"
   checksum: 36168d274aa164368a50aef2e7b2f858e1b9145d9250af9dc1315ff719d874a367177760f8285efb75c8cf48267194a50e7dc9cdb41bf0b1958c38805c13564c
@@ -2815,15 +2815,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-replace@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@rollup/plugin-replace@npm:3.1.0"
+"@rollup/plugin-replace@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@rollup/plugin-replace@npm:4.0.0"
   dependencies:
     "@rollup/pluginutils": ^3.1.0
     magic-string: ^0.25.7
   peerDependencies:
     rollup: ^1.20.0 || ^2.0.0
-  checksum: 9f833d40f7ebd6bb32b1c7a118fedd27a6d63e591018543740c78d3bc6fe67efa7048c6457bcadf8f982385b78e33ff8e38a67ddd4d11c15d9c81898a0757c13
+  checksum: b61701e612661a46da06ca88f390c3839b586708abc0329a476411b90aa8ac59fe94437ede4c3fe53fea268b3054ea9d7d4ee851d7bd0cb7a5f06906002067cb
   languageName: node
   linkType: hard
 
@@ -4395,10 +4395,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.21":
-  version: 17.0.21
-  resolution: "@types/node@npm:17.0.21"
-  checksum: 89dcd2fe82f21d3634266f8384e9c865cf8af49685639fbdbd799bdd1040480fb1e8eeda2d3b9fce41edbe704d2a4be9f427118c4ae872e8d9bb7cbeb3c41a94
+"@types/node@npm:*, @types/node@npm:^17.0.22":
+  version: 17.0.22
+  resolution: "@types/node@npm:17.0.22"
+  checksum: 72d1fc8bdc37f0c18b1160e7207b52fb569d0e2b459ac9a4cbd3ca40e478ffe1455efc2c6a253c81e0a7a7c7a899716535d9970cd9521f87d6050b7de04b9ba3
   languageName: node
   linkType: hard
 
@@ -4511,14 +4511,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17.0.40":
-  version: 17.0.40
-  resolution: "@types/react@npm:17.0.40"
+"@types/react@npm:*, @types/react@npm:^17.0.41":
+  version: 17.0.41
+  resolution: "@types/react@npm:17.0.41"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 24d1b210b5bf3c7d49f9a7fe5490db02e005a1d989045a2d67528347557dd0bcb0d7bcf96088152697e97521ac4c9506d1357ee48a2b7d4e701c70d838dc7284
+  checksum: 1b086ec0ea5d666f05e19e0724e41278d27a2ca29a2cd71b9d9ab3fe27dba233806eb728d744e092c9fe9637ac738d8c5a05983cde84d215342949b47ecba2ef
   languageName: node
   linkType: hard
 
@@ -5313,19 +5313,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/rollup-config@npm:^1.1.9":
-  version: 1.1.9
-  resolution: "@xylabs/rollup-config@npm:1.1.9"
+"@xylabs/rollup-config@npm:^1.1.10":
+  version: 1.1.10
+  resolution: "@xylabs/rollup-config@npm:1.1.10"
   dependencies:
     "@rollup/plugin-image": ^2.1.1
     "@rollup/plugin-json": ^4.1.0
-    "@rollup/plugin-replace": ^3.1.0
+    "@rollup/plugin-replace": ^4.0.0
     "@rollup/plugin-strip": ^2.1.0
     "@rollup/plugin-typescript": ^8.3.1
-    rollup: ^2.70.0
+    rollup: ^2.70.1
     tslib: ^2.3.1
     typescript: ^4.6.2
-  checksum: 0da3ce85bbbca996974784fc52c3b757064422d3ee52786bebd2cb659db893c6666ade688731a7131a409d1a65117fcf4314d41a9c8c14c431ddad9067604659
+  checksum: edec7e8e832c022af6e063a7eaa86ea7bf318e485776d92d7dab37a5f80a58b556ecb748e8c712405b49933960380794fae206f94c58af826dfde8b79c28a408
   languageName: node
   linkType: hard
 
@@ -5440,9 +5440,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.13.13":
-  version: 2.13.13
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.13.13"
+"@xyo-network/sdk-xyo-client-js@npm:^2.14.11":
+  version: 2.14.11
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.14.11"
   dependencies:
     "@ethersproject/providers": ^5.6.1
     "@xylabs/sdk-js": ^2.4.2
@@ -5453,16 +5453,16 @@ __metadata:
     buffer: ^6.0.3
     elliptic: ^6.5.4
     keccak256: ^1.0.6
-    lodash-es: ^4.17.21
-    lru-cache: ^7.6.0
+    lodash: ^4.17.21
+    lru-cache: ^7.7.1
     mongodb: ^4.4.1
     neo4j-driver: ^4.4.4
     neo4j-driver-core: ^4.4.4
     sha.js: ^2.4.11
-    systeminformation: ^5.11.8
+    systeminformation: ^5.11.9
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 203e324d203caabb6970cccc84bde7d987366b5b0ec40bdcef2ec2c35c5b4d0d1590ca8587cc753b537f01bcf6ba616f98933187d437a70c164585aeb2d689a2
+  checksum: a29788576be82b0b7066b9aecde8bf6138cf186efbb12bd1094a8ad6344af3a393b84e8e538679afb8ec5d108bf7062ea12b1e3d46132cfb3f4bb35974dc8b43
   languageName: node
   linkType: hard
 
@@ -5481,14 +5481,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/sdk-xyo-react@workspace:."
   dependencies:
-    "@babel/core": ^7.17.7
+    "@babel/core": ^7.17.8
     "@emotion/react": ^11.8.2
     "@emotion/styled": ^11.8.1
     "@ethersproject/abstract-signer": ^5.6.0
     "@ethersproject/providers": ^5.6.1
     "@mui/icons-material": ^5.5.1
-    "@mui/lab": ^5.0.0-alpha.73
-    "@mui/material": ^5.5.1
+    "@mui/lab": ^5.0.0-alpha.74
+    "@mui/material": ^5.5.2
     "@mui/styles": ^5.5.1
     "@storybook/addon-actions": ^6.4.19
     "@storybook/addon-docs": ^6.4.19
@@ -5505,17 +5505,17 @@ __metadata:
     "@types/lodash": ^4.14.180
     "@types/luxon": ^2.3.1
     "@types/md5": ^2.3.2
-    "@types/node": ^17.0.21
-    "@types/react": ^17.0.40
+    "@types/node": ^17.0.22
+    "@types/react": ^17.0.41
     "@types/react-lines-ellipsis": ^0.15.1
     "@xylabs/eslint-config-react": ^2.1.2
     "@xylabs/pixel": ^1.3.7
-    "@xylabs/rollup-config": ^1.1.9
+    "@xylabs/rollup-config": ^1.1.10
     "@xylabs/sdk-js": ^2.4.2
     "@xylabs/sdk-react": ^2.10.2
     "@xylabs/ts-scripts": ^1.0.48
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.13.13
+    "@xyo-network/sdk-xyo-client-js": ^2.14.11
     axios: ^0.26.1
     babel-loader: ^8.2.3
     bn.js: ^5.2.0
@@ -12336,13 +12336,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:^4.17.21":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
-  languageName: node
-  linkType: hard
-
 "lodash.curry@npm:^4.0.1":
   version: 4.1.1
   resolution: "lodash.curry@npm:4.1.1"
@@ -12471,7 +12464,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^7.3.1, lru-cache@npm:^7.4.1, lru-cache@npm:^7.6.0":
+"lru-cache@npm:^7.3.1, lru-cache@npm:^7.4.1, lru-cache@npm:^7.7.1":
   version: 7.7.1
   resolution: "lru-cache@npm:7.7.1"
   checksum: f362c5a2cfa8ad6fe557ec43dc1b7a9695cce84a5652a43ff813609f782f5da576631e7dfad41878bf19a7a69438f38375178635ee80de269aa314280ca2f59e
@@ -17681,7 +17674,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.70.0, rollup@npm:^2.70.1":
+"rollup@npm:^2.70.1":
   version: 2.70.1
   resolution: "rollup@npm:2.70.1"
   dependencies:
@@ -18793,12 +18786,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.11.8":
-  version: 5.11.8
-  resolution: "systeminformation@npm:5.11.8"
+"systeminformation@npm:^5.11.9":
+  version: 5.11.9
+  resolution: "systeminformation@npm:5.11.9"
   bin:
     systeminformation: lib/cli.js
-  checksum: f8bd66a07a60c814ed30d0c311af434d88510da714880e62c9c826fbcf36ef322ae2a0993d4a67446426670fa0ec2cbc2dc87224902373fa7ba958c3b80162b0
+  checksum: 826330e96c0f21512e1bf606c591649be7757ab0280d004fc10e6bd678a1dc3cbec1585c6bb052271c3b61d8954a32fa3d5ace4b90f598797f21019fe664a84d
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard

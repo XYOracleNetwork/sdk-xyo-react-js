@@ -31,12 +31,4 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
   set network(value: XyoNetworkPreset) {
     this.setObject(AppSettingSlug.Network, value)
   }
-
-  get archive() {
-    return this.getString(AppSettingSlug.Archive)
-  }
-
-  set archive(value: string) {
-    this.setString(AppSettingSlug.Archive, value)
-  }
 }
