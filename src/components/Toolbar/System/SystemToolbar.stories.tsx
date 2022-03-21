@@ -18,14 +18,14 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof SystemToolbar> = (args) => (
   <BrowserRouter>
-    <SystemToolbar {...args}></SystemToolbar>
+    <SystemToolbar {...args} />
   </BrowserRouter>
 )
 
 const TemplateWithAuthContext: ComponentStory<WrappedAuthComponent> = ({ authState }) => (
   <AuthProvider authState={authState as AuthState}>
     <BrowserRouter>
-      <SystemToolbar></SystemToolbar>
+      <SystemToolbar />
     </BrowserRouter>
   </AuthProvider>
 )

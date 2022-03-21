@@ -18,7 +18,6 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({
   const [developerMode, setDeveloperMode] = useState(storage.developerMode)
   const [darkMode, setDarkMode] = useState(storage.darkMode)
   const [network, setNetwork] = useState(storage.network)
-  const [archive, setArchive] = useState(storage.archive)
 
   const enableDeveloperMode = (value: boolean) => {
     storage.developerMode = value
@@ -35,16 +34,9 @@ export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({
     setNetwork(value)
   }
 
-  const changeArchive = (value: string) => {
-    storage.archive = value
-    setArchive(value)
-  }
-
   return (
     <AppSettingsContext.Provider
       value={{
-        archive,
-        changeArchive,
         changeNetwork,
         darkMode,
         developerMode,

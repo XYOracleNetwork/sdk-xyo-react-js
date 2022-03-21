@@ -25,7 +25,6 @@ const getDefaultArchivists = () => {
   const archivistConfigs: XyoArchivistApiConfig[] = [
     {
       apiDomain: process.env.API_DOMAIN || 'https://api.archivist.xyo.network',
-      archive: 'temp',
     },
   ]
 

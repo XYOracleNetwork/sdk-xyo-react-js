@@ -1,4 +1,5 @@
 export * from './AppSettings'
+export * from './Archive'
 export * from './ArchivistApi'
 export * from './Auth'
 export * from './Panel'

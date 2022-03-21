@@ -4,31 +4,30 @@ import { SelectEx, SelectExProps, useAsyncEffect } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { useState } from 'react'
 
-import { useAppSettings, useArchivistApi } from '../../../contexts'
+import { useAppSettings, useArchive, useArchivistApi } from '../../../contexts'
 import { AxiosErrorHandler } from '../../Auth'
 
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
-  const { changeArchive, archive, darkMode } = useAppSettings()
+  const { darkMode } = useAppSettings()
   const [archives, setArchives] = useState<string[]>()
   const [apiError, setApiError] = useState<AxiosError>()
+  const { archive = 'temp', setArchive } = useArchive()
 
   const { api } = useArchivistApi()
 
   useAsyncEffect(
     async (mounted) => {
-      if (api) {
-        try {
-          const loadedArchives = (await api.archive.get()).map((response) => response.archive)
-          if (mounted()) {
-            if (archive && !loadedArchives.find((item) => item === archive)) {
-              loadedArchives.push(archive)
-            }
-            setArchives(loadedArchives)
-            setApiError(undefined)
+      try {
+        const loadedArchives = (await api?.archives.get())?.map((response) => response.archive) ?? ['temp']
+        if (mounted()) {
+          if (archive && !loadedArchives.find((item) => item === archive)) {
+            loadedArchives.push(archive)
           }
-        } catch (e) {
-          setApiError(e as AxiosError)
+          setArchives(loadedArchives)
+          setApiError(undefined)
         }
+      } catch (e) {
+        setApiError(e as AxiosError)
       }
     },
     [api]
@@ -49,7 +48,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
           size="small"
           value={archive}
           onChange={(event, child) => {
-            changeArchive?.(event.target.value)
+            setArchive?.(event.target.value)
             onChange?.(event, child)
           }}
           {...props}
