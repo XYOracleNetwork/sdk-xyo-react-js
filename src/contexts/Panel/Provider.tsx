@@ -19,6 +19,7 @@ export interface XyoPanelProviderProps {
   archivists?: XyoArchivistApi[]
   inlinePayloads?: boolean
   witnesses?: XyoWitness<XyoPayload>[]
+  required?: boolean
 }
 
 const getDefaultArchivists = () => {
@@ -35,6 +36,7 @@ const getDefaultArchivists = () => {
 
 export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
   inlinePayloads = false,
+  required = false,
   address = XyoAddress.random(),
   archivists = getDefaultArchivists(),
   witnesses = [new XyoSystemInfoWitness()],
@@ -130,7 +132,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
 
   return (
     <XyoPanelContext.Provider value={{ history, panel, progress, reportingErrors, status }}>
-      {panel ? children : null}
+      {panel ? children : required ? null : children}
     </XyoPanelContext.Provider>
   )
 }

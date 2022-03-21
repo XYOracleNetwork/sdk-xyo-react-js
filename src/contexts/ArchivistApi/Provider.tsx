@@ -6,9 +6,15 @@ import { ArchivistApiContext } from './Context'
 export interface ArchivistApiProviderProps {
   apiDomain: string
   jwtToken?: string
+  required?: boolean
 }
 
-export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({ apiDomain, children, jwtToken }) => {
+export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
+  required = false,
+  apiDomain,
+  children,
+  jwtToken,
+}) => {
   const [api, setApi] = useState<XyoArchivistApi>()
   const [authApi, setAuthApi] = useState<XyoAuthApi>()
 
@@ -27,7 +33,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({ apiD
 
   return (
     <ArchivistApiContext.Provider value={{ api, authApi, currentToken }}>
-      {api && authApi ? children : null}
+      {api && authApi ? children : required ? null : children}
     </ArchivistApiContext.Provider>
   )
 }
