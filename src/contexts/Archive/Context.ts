@@ -1,8 +1,8 @@
 import { createContext } from 'react'
 
-export interface XyoArchiveContextProps {
+export interface ArchiveContextProps {
   archive?: string
   setArchive?: (archive: string) => void
 }
 
-export const XyoArchiveContext = createContext<XyoArchiveContextProps>({})
+export const ArchiveContext = createContext<ArchiveContextProps>({})
