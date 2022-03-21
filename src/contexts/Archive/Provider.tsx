@@ -6,7 +6,7 @@ export interface ArchiveProviderProps {
   defaultArchive?: string
 }
 
-export const ArchiveProvider: React.FC<ArchiveProviderProps> = ({ children, defaultArchive = 'temp', ...props }) => {
+export const ArchiveProvider: React.FC<ArchiveProviderProps> = ({ children, defaultArchive = 'temp' }) => {
   const [archive, setArchive] = useState(defaultArchive)
-  return <ArchiveContext.Provider value={{ archive, setArchive, ...props }}>{children}</ArchiveContext.Provider>
+  return <ArchiveContext.Provider value={{ archive, setArchive }}>{children}</ArchiveContext.Provider>
 }
