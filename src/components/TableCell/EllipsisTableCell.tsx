@@ -78,7 +78,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
     <TableCell {...props}>
       <div ref={hashDivRef}>
         {href || to ? (
-          <LinkEx to={to} href={href}>
+          <LinkEx to={to} href={href} target={href ? '_blank' : undefined}>
             <TableCellValue hashCellWidth={hashCellWidth} value={value} />
           </LinkEx>
         ) : (
