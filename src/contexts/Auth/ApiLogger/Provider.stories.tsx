@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoAuthApi } from '@xyo-network/sdk-xyo-client-js'
+import { XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
 import { ApiLogs } from '../../../components'
@@ -35,9 +35,9 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
   const [errorRefresh, setErrorRefresh] = useState(0)
   const { invoke } = useApiCaller()
 
-  const AuthApi = XyoAuthApi.get({
+  const authApi = new XyoArchivistApi({
     apiDomain: 'http://localhost:8081',
-  })
+  }).user
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
@@ -45,7 +45,7 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
       try {
         await invoke({
           call: () =>
-            AuthApi.login({
+            authApi.login({
               email: 'none@none.com',
               password: 'notarealpassword',
             }),
@@ -54,7 +54,7 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
         console.error(error)
       }
     }
-  }, [errorRefresh, setApiCalls, AuthApi, invoke])
+  }, [errorRefresh, setApiCalls, invoke, authApi])
 
   return (
     <>

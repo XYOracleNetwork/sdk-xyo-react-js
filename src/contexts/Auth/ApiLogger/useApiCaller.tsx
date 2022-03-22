@@ -2,7 +2,7 @@ import { AxiosLoggedError } from './ApiLoggerTypes'
 import { useApiLogger } from './useApiLogger'
 
 export interface InvokeApiConfig {
-  call: () => Promise<object>
+  call: () => Promise<unknown>
   // Future
   // showMeta: true
   // flattenData: true
