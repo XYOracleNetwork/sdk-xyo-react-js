@@ -65,7 +65,7 @@ export const Property: React.FC<PropertyProps> = ({
             {badge && typeof value === 'string' && <IdenticonCorner value={value} />}
           </Grid>
         ) : null}
-        <FlexGrowRow />
+        {children ? null : <FlexGrowRow />}
         <Grid
           borderTop={belowStackBreak && title ? `1px solid ${theme.palette.divider}` : 'none'}
           display="flex"

@@ -21,7 +21,7 @@ export const BlockJsonDetails: React.FC<BlockJsonDetailsProps> = ({ block = {}, 
         <Typography>JSON</Typography>
         <QuickTipButton title="BoundWitness JSON">The raw JSON of the Bound Witness</QuickTipButton>
       </FlexRow>
-      <Property paddingY={2} value={!!block}>
+      <Property padding={1} value={!!block}>
         <Suspense fallback={<FlexGrowRow />}>
           <JsonView src={block} collapseStringsAfterLength={belowSm ? 24 : 32} />
         </Suspense>
