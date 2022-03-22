@@ -27,6 +27,7 @@ export const JsonFromUrl: React.FC<JsonFromUrlProps> = ({ pathname, apiDomain, .
   const [apiResponse, setApiResponse] = useState<AxiosResponse>()
   const [apiError, setApiError] = useState<AxiosError>()
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
     const apiPath = sanitizeUrlForApi(path)
     const url = `${apiDomain}${apiPath}`
@@ -37,7 +38,7 @@ export const JsonFromUrl: React.FC<JsonFromUrlProps> = ({ pathname, apiDomain, .
     } catch (err) {
       setApiError(err as AxiosError)
     }
-  }, [])
+  }, [apiDomain, path])
 
   return (
     <>

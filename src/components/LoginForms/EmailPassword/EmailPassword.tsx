@@ -28,6 +28,7 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
     }
   }, [isLoading, token, dispatch, credentials.email, handleReturnUrl])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
     if (isLoading && authApi) {
       try {

@@ -37,6 +37,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   }, [checkedWallet])
 
   useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (checkedWallet && isLoading && authApi) {
         try {
@@ -66,7 +67,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
         setCheckedWallet(false)
       }
     },
-    [dispatch, checkedWallet, metaMaskWallet.currentAccount, isLoading]
+    [dispatch, checkedWallet, metaMaskWallet, isLoading, authApi, token]
   )
 
   return (

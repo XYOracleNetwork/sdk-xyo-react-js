@@ -53,6 +53,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const panel = new XyoPanel({
         address,
@@ -65,7 +66,9 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
             archivist,
             status: error ? XyoReportStatus.Failed : XyoReportStatus.Succeeded,
           }
-          setProgress({ archivists, witnesses: progress.witnesses })
+          if (mounted()) {
+            setProgress({ archivists, witnesses: progress.witnesses })
+          }
         },
         onArchivistSendStart: (archivist: XyoArchivistApi) => {
           const archivists = progress.archivists ?? {}
@@ -73,7 +76,9 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
             archivist,
             status: XyoReportStatus.Started,
           }
-          setProgress({ archivists, witnesses: progress.witnesses })
+          if (mounted()) {
+            setProgress({ archivists, witnesses: progress.witnesses })
+          }
         },
         onHistoryAdd: () => {
           if (mounted()) {
@@ -107,10 +112,12 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
             status: error ? XyoReportStatus.Failed : XyoReportStatus.Succeeded,
             witness,
           }
-          setProgress({
-            archivists: progress.archivists,
-            witnesses,
-          })
+          if (mounted()) {
+            setProgress({
+              archivists: progress.archivists,
+              witnesses,
+            })
+          }
         },
         onWitnessReportStart: (witness: XyoWitness) => {
           const witnesses = progress.witnesses ?? {}
@@ -118,17 +125,20 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
             status: XyoReportStatus.Started,
             witness,
           }
-          setProgress({
-            archivists: progress.archivists,
-            witnesses,
-          })
+          if (mounted()) {
+            setProgress({
+              archivists: progress.archivists,
+              witnesses,
+            })
+          }
         },
         witnesses: witnesses.filter((witness) => !!witness),
       })
       setPanel(panel)
       await delay(0)
     },
-    [address, archivists, witnesses, inlinePayloads]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [address, archivists, witnesses, inlinePayloads, archive, contextArchive]
   )
 
   useEffect(() => {

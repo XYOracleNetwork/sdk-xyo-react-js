@@ -39,6 +39,7 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
     apiDomain: 'http://localhost:8081',
   })
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
     if (errorRefresh > 0) {
       try {
@@ -53,7 +54,7 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
         console.error(error)
       }
     }
-  }, [errorRefresh, setApiCalls])
+  }, [errorRefresh, setApiCalls, AuthApi, invoke])
 
   return (
     <>
