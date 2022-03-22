@@ -5,8 +5,8 @@ import axios, { AxiosError } from 'axios'
 import { useState } from 'react'
 
 import { authDecorator, authServiceList } from '../../../.storybook'
-import { useArchivistApi } from '../../../contexts'
-import { AuthStatusIndicator } from '../AuthStatusIconButton'
+import { useArchive, useArchivistApi } from '../../../contexts'
+import { AuthStatusIconButton } from '../AuthStatusIconButton'
 import { AxiosErrorHandler } from './AxiosErrorHandler'
 
 const StorybookEntry = {
@@ -33,20 +33,22 @@ const TemplateStats: ComponentStory<typeof AxiosErrorHandler> = () => {
   const [apiError, setApiError] = useState<AxiosError>()
   const [stats, setStats] = useState<{ count: number }>()
   const { api } = useArchivistApi()
+  const { archive } = useArchive()
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
     try {
-      const response = await api?.archive.block.getStats()
+      const response = await api?.archives.select(archive).block.getStats()
       setStats(response)
       setApiError(undefined)
     } catch (error) {
       setApiError(error as AxiosError)
     }
-  }, [api])
+  }, [api, archive])
 
   return (
     <>
-      <AuthStatusIndicator />
+      <AuthStatusIconButton />
       <AxiosErrorHandler apiError={apiError}>
         <p>Stats: {stats?.count}</p>
       </AxiosErrorHandler>
@@ -59,10 +61,11 @@ const TemplateArchives: ComponentStory<typeof AxiosErrorHandler> = () => {
   const [archives, setArchives] = useState<ArchiveResponse[]>([])
   const { api } = useArchivistApi()
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
     try {
       if (api) {
-        const response = await api.archive.get()
+        const response = (await api.archives.get()) ?? []
         setArchives(response)
         setApiError(undefined)
       }
@@ -74,7 +77,7 @@ const TemplateArchives: ComponentStory<typeof AxiosErrorHandler> = () => {
   return (
     <>
       <AxiosErrorHandler apiError={apiError}>
-        <AuthStatusIndicator />
+        <AuthStatusIconButton />
         <ul>{archives.length > 0 && archives.map((archive, index) => <li key={index}>{archive.archive}</li>)}</ul>
       </AxiosErrorHandler>
     </>
@@ -84,6 +87,7 @@ const TemplateArchives: ComponentStory<typeof AxiosErrorHandler> = () => {
 const Template500: ComponentStory<typeof AxiosErrorHandler> = () => {
   const [apiError, setApiError] = useState<AxiosError>()
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
     try {
       await axios.get('http://httpstat.us/500')

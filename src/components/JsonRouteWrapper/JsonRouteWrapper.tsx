@@ -21,6 +21,7 @@ const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
   const [searchParams, setSearchParams] = useSearchParams()
   const active = searchParams.get('json') === 'true'
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
     try {
       const response = await callback()
@@ -28,7 +29,7 @@ const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
     } catch (err) {
       setApiError(err as AxiosError)
     }
-  }, [])
+  }, [callback])
 
   if (active) {
     return (

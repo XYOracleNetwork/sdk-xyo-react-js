@@ -16,6 +16,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
   const { api } = useArchivistApi()
 
   useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
         const loadedArchives = (await api?.archives.get())?.map((response) => response.archive) ?? ['temp']
@@ -30,7 +31,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
         setApiError(e as AxiosError)
       }
     },
-    [api]
+    [api, archive]
   )
 
   return (
