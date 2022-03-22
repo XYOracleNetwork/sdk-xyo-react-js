@@ -2,8 +2,8 @@ import { assertEx, delay } from '@xylabs/sdk-js'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import {
   XyoAddress,
+  XyoApiConfig,
   XyoArchivistApi,
-  XyoArchivistApiConfig,
   XyoBoundWitness,
   XyoPanel,
   XyoPayload,
@@ -25,7 +25,7 @@ export interface XyoPanelProviderProps {
 }
 
 const getDefaultArchivists = () => {
-  const archivistConfigs: XyoArchivistApiConfig[] = [
+  const archivistConfigs: XyoApiConfig[] = [
     {
       apiDomain: process.env.API_DOMAIN || 'https://api.archivist.xyo.network',
     },

@@ -5,18 +5,24 @@ import { AuthApiContext } from './Context'
 
 interface AuthApiLoaderProps {
   apiDomain: string
+  root: string
   required?: boolean
 }
 
 /**
  * @deprecated Auth is now in the archivist context
  */
-export const AuthApiLoader: React.FC<AuthApiLoaderProps> = ({ required = false, children, apiDomain }) => {
+export const AuthApiLoader: React.FC<AuthApiLoaderProps> = ({
+  required = false,
+  children,
+  apiDomain,
+  root = 'user/',
+}) => {
   const [AuthApi, setAuthApi] = useState<XyoAuthApi>()
   const [MetaMaskService, setMetaMaskService] = useState<XyoMetaMaskConnector>()
 
   useEffect(() => {
-    setAuthApi(XyoAuthApi.get({ apiDomain }))
+    setAuthApi(new XyoAuthApi({ apiDomain, root }))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

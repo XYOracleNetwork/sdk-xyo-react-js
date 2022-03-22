@@ -16,7 +16,7 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
   const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState('')
 
-  const { authApi } = useArchivistApi()
+  const { api } = useArchivistApi()
 
   useEffect(() => {
     if (!isLoading && token) {
@@ -30,17 +30,17 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
-    if (isLoading && authApi) {
+    if (isLoading && api) {
       try {
-        const { data } = await authApi.login(credentials)
-        setToken(data.token)
+        const { token } = await api.user.login(credentials)
+        setToken(token)
         setIsLoading(false)
       } catch (err) {
         console.error(err)
         setIsLoading(false)
       }
     }
-  }, [dispatch, isLoading, credentials, authApi])
+  }, [dispatch, isLoading, credentials, api])
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
