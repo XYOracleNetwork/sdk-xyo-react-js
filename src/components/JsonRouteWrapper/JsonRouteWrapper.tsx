@@ -1,20 +1,25 @@
-import { ButtonEx, ErrorDialog, FlexCol, FlexRow, useAsyncEffect } from '@xylabs/sdk-react'
+import { ButtonEx, ErrorDialog, FlexBoxProps, FlexCol, FlexRow, useAsyncEffect } from '@xylabs/sdk-react'
 import { AxiosError } from 'axios'
 import { lazy, Suspense, useState } from 'react'
+import { ReactJsonViewProps } from 'react-json-view'
 import { useSearchParams } from 'react-router-dom'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
-export interface JsonFromPromiseProps {
+export interface JsonFromPromiseProps extends FlexBoxProps {
   callback: () => Promise<object>
-  showBackButton?: boolean
+  noBackButton?: boolean
+  noJsonButton?: boolean
+  jsonViewProps?: ReactJsonViewProps
 }
 
-const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
+export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
   callback,
   children,
-  showBackButton = true,
-  ...JsonViewProps
+  noBackButton = false,
+  noJsonButton = false,
+  jsonViewProps,
+  ...props
 }) => {
   const [apiResponse, setApiResponse] = useState<object>()
   const [apiError, setApiError] = useState<AxiosError>()
@@ -31,30 +36,39 @@ const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
     }
   }, [callback])
 
-  if (active) {
-    return (
-      <>
-        <Suspense fallback={<FlexCol />}>
-          {apiResponse && <JsonView src={apiResponse} collapseStringsAfterLength={64} {...JsonViewProps} />}
-        </Suspense>
-        {showBackButton && (
-          <FlexRow marginY={3}>
-            <ButtonEx flexDirection="row" variant="outlined" onClick={() => setSearchParams({ json: '' })}>
-              Back
-            </ButtonEx>
-          </FlexRow>
-        )}
-        <ErrorDialog
-          title="Error Fetching JSON"
-          error={apiError}
-          open={!!apiError}
-          onAction={() => setApiError(undefined)}
-        />
-      </>
-    )
-  } else {
-    return <>{children}</>
-  }
+  return (
+    <FlexCol {...props}>
+      {active ? (
+        <>
+          <Suspense fallback={null}>
+            {apiResponse && <JsonView src={apiResponse} collapseStringsAfterLength={64} {...jsonViewProps} />}
+          </Suspense>
+          {!noBackButton && (
+            <FlexRow marginY={3}>
+              <ButtonEx flexDirection="row" variant="outlined" onClick={() => setSearchParams({ json: '' })}>
+                Back
+              </ButtonEx>
+            </FlexRow>
+          )}
+          <ErrorDialog
+            title="Error Fetching JSON"
+            error={apiError}
+            open={!!apiError}
+            onAction={() => setApiError(undefined)}
+          />
+        </>
+      ) : (
+        <>
+          {children}
+          {!noJsonButton && (
+            <FlexRow marginY={3}>
+              <ButtonEx flexDirection="row" variant="outlined" onClick={() => setSearchParams({ json: 'true' })}>
+                JSON
+              </ButtonEx>
+            </FlexRow>
+          )}
+        </>
+      )}
+    </FlexCol>
+  )
 }
-
-export { JsonRouteWrapper }
