@@ -4,6 +4,8 @@ import { lazy, Suspense, useState } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'
 import { useSearchParams } from 'react-router-dom'
 
+import { JsonApiButton } from './JsonApiButton'
+
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 export interface JsonFromPromiseProps extends FlexBoxProps {
@@ -60,13 +62,7 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
       ) : (
         <>
           {children}
-          {!noJsonButton && (
-            <FlexRow marginY={3}>
-              <ButtonEx flexDirection="row" variant="outlined" onClick={() => setSearchParams({ json: 'true' })}>
-                JSON
-              </ButtonEx>
-            </FlexRow>
-          )}
+          {!noJsonButton && <JsonApiButton marginTop={2} />}
         </>
       )}
     </FlexCol>

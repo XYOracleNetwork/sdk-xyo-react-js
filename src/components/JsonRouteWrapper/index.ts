@@ -1,3 +1,3 @@
-export * from './JsonApiLink'
+export * from './JsonApiButton'
 export * from './JsonFromUrl'
 export * from './JsonRouteWrapper'
