@@ -14,7 +14,7 @@ const JsonDecorator: DecoratorFn = (Story) => (
 const StorybookEntry = {
   argTypes: {
     apiDomain: {
-      defaultValue: 'http://localhost:8081',
+      defaultValue: 'https://beta.api.archivist.xyo.network',
     },
   },
   component: JsonRouteWrapper,
@@ -46,13 +46,21 @@ const Template: ComponentStory<typeof JsonRouteWrapper> = (props) => {
 
 const Default = Template.bind({})
 Default.args = {
-  callback: () => new XyoArchivistApi({ apiDomain: 'http://localhost:8081', archive: 'temp' }).archive.block.getStats(),
+  callback: () =>
+    new XyoArchivistApi({ apiDomain: 'https://beta.api.archivist.xyo.network' }).archives
+      .select('temp')
+      .block.getStats(),
 }
 
 const HideBackButton = Template.bind({})
 HideBackButton.args = {
-  callback: () => new XyoArchivistApi({ apiDomain: 'http://localhost:8081', archive: 'temp' }).archive.block.getStats(),
-  showBackButton: false,
+  callback: () =>
+    new XyoArchivistApi({
+      apiDomain: 'https://beta.api.archivist.xyo.network',
+    }).archives
+      .select('temp')
+      .block.getStats(),
+  noBackButton: true,
 }
 
 export { Default, HideBackButton }

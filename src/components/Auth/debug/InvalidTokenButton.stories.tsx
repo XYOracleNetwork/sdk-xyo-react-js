@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 
 import { WrappedAuthComponent } from '../../../.storybook'
-import { AuthProvider, DefaultState, useAuthState } from '../../../contexts'
+import { AuthProvider, defaultState, useAuthState } from '../../../contexts'
 import { InvalidTokenButton } from './InvalidTokenButton'
 
 const AuthWrap: DecoratorFn = (Story, { args }) => (
-  <AuthProvider authState={{ ...DefaultState, ...{ loggedInAccount: 'none@none.com' } }}>
+  <AuthProvider authState={{ ...defaultState, ...{ loggedInAccount: 'none@none.com' } }}>
     <Story {...args} />
   </AuthProvider>
 )

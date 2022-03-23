@@ -4395,10 +4395,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.22":
-  version: 17.0.22
-  resolution: "@types/node@npm:17.0.22"
-  checksum: 72d1fc8bdc37f0c18b1160e7207b52fb569d0e2b459ac9a4cbd3ca40e478ffe1455efc2c6a253c81e0a7a7c7a899716535d9970cd9521f87d6050b7de04b9ba3
+"@types/node@npm:*, @types/node@npm:^17.0.23":
+  version: 17.0.23
+  resolution: "@types/node@npm:17.0.23"
+  checksum: a3517554737cbb042e76c30d0e5482192ac4d9bea0eeb086e2622d9cabf460a0eb52a696b99fcd18e7fcc93c96db6cc7ae507f6608f256ef0b5c1d8c87a5a470
   languageName: node
   linkType: hard
 
@@ -4465,15 +4465,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-helmet@npm:^6.1.5":
-  version: 6.1.5
-  resolution: "@types/react-helmet@npm:6.1.5"
-  dependencies:
-    "@types/react": "*"
-  checksum: d059cc084d3b3071cce3421bb1170dd42819cf39b81afe60d4fbd66c5ef9ffeaadf1802df80efd9553258f621678f69ceb5a21d73df0d8539d40ae9a0f995485
-  languageName: node
-  linkType: hard
-
 "@types/react-is@npm:^16.7.1 || ^17.0.0":
   version: 17.0.3
   resolution: "@types/react-is@npm:17.0.3"
@@ -4511,14 +4502,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17.0.41":
-  version: 17.0.41
-  resolution: "@types/react@npm:17.0.41"
+"@types/react@npm:*, @types/react@npm:^17.0.42":
+  version: 17.0.42
+  resolution: "@types/react@npm:17.0.42"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 1b086ec0ea5d666f05e19e0724e41278d27a2ca29a2cd71b9d9ab3fe27dba233806eb728d744e092c9fe9637ac738d8c5a05983cde84d215342949b47ecba2ef
+  checksum: 9a84374da1173901b5eba6b2dda9e70220842c8e70274628e5c93684fca59786b7f6215c93f492e34f8834983de096b2544f280c60da9b8fd4c3f20ffe7cc51e
   languageName: node
   linkType: hard
 
@@ -5329,46 +5320,43 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "@xylabs/sdk-js@npm:2.4.2"
+"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "@xylabs/sdk-js@npm:2.4.3"
   dependencies:
-    axios: ^0.25.0
+    axios: ^0.26.1
     bn.js: ^5.2.0
     buffer: ^6.0.3
-    rollbar: ^2.24.0
-  checksum: ea74baada91286eb97d0cb90d7b4af3d61780ff06eb16c43f18e3397af5dbae4a319206d64df82217fc41141d12839288bf8d3488eedb87c830555da0b15eab6
+    rollbar: ^2.24.1
+  checksum: 6ba4a3f90c28c7e0515b073a31837c5feffb378e3135d22acb732e83b27035fbedad50109fcd5d074116b8db6b169af7b5f626cfe75ea302dc23c1123ce8b054
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.10.2":
-  version: 2.10.2
-  resolution: "@xylabs/sdk-react@npm:2.10.2"
+"@xylabs/sdk-react@npm:^2.10.3":
+  version: 2.10.3
+  resolution: "@xylabs/sdk-react@npm:2.10.3"
   dependencies:
-    "@types/react-helmet": ^6.1.5
-    "@xylabs/sdk-js": ^2.4.2
-    axios: ^0.26.0
+    "@emotion/react": ^11.8.2
+    "@emotion/styled": ^11.8.1
+    "@ethersproject/abstract-signer": ^5.6.0
+    "@ethersproject/providers": ^5.6.1
+    "@mui/icons-material": ^5.5.1
+    "@mui/material": ^5.5.2
+    "@mui/styles": ^5.5.1
+    "@xylabs/pixel": ^1.3.7
+    "@xylabs/sdk-js": ^2.4.3
+    axios: ^0.26.1
     bn.js: ^5.2.0
     lodash: ^4.17.21
     md5: ^2.3.0
     numeral: ^2.0.6
     query-string: ^7.1.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
     react-helmet: ^6.1.0
     react-icons: ^4.3.1
-  peerDependencies:
-    "@emotion/react": ^11
-    "@emotion/styled": ^11
-    "@ethersproject/abstract-signer": ^5
-    "@ethersproject/providers": ^5
-    "@mui/icons-material": ^5
-    "@mui/material": ^5
-    "@mui/styles": ^5
-    "@xylabs/pixel": ^1
-    "@xylabs/sdk-js": ^2
-    react: ^17
-    react-dom: ^17
-    react-router-dom: ^6
-  checksum: 5c4138f45d1075bb33dd1d5f85658ddfa812c18cbbe28b8429ed311aa5fe8ad0ef80d1f87a626aa8e2c97e0470ff99568f89f5f7912a6c316f99f44d0645d7ad
+    react-router-dom: ^6.2.2
+  checksum: 6255a6d4d720f41dd2dea1a76a62d2b21b111c5390b642014bc5b7c3bbf1ce3e34454dbfdd1af2bb946652d10b93a67f5641f8990100a77a4f90fbe3b7cd3273
   languageName: node
   linkType: hard
 
@@ -5440,9 +5428,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.14.19":
-  version: 2.14.19
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.14.19"
+"@xyo-network/sdk-xyo-client-js@npm:^2.14.21":
+  version: 2.14.21
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.14.21"
   dependencies:
     "@ethersproject/providers": ^5.6.1
     "@xylabs/sdk-js": ^2.4.2
@@ -5463,7 +5451,7 @@ __metadata:
     systeminformation: ^5.11.9
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 86afcc4ea21d71f96a3f27fc6f7ac15f1652a1c76be100b17f9ee9a5600c30348f082af7cc6086061b8845a3ed1d5e1570ab727ee9d1ac9c9339c8ac12bc9b2c
+  checksum: 7e0974870c7a107dd95facb0d6179b3867cdfc99dbb0539606eba0ab7df3d74ae8df3b70e7d767df9dc15e552e979d07df5fd589147f0225915e6072c91cc4e8
   languageName: node
   linkType: hard
 
@@ -5506,17 +5494,17 @@ __metadata:
     "@types/lodash": ^4.14.180
     "@types/luxon": ^2.3.1
     "@types/md5": ^2.3.2
-    "@types/node": ^17.0.22
-    "@types/react": ^17.0.41
+    "@types/node": ^17.0.23
+    "@types/react": ^17.0.42
     "@types/react-lines-ellipsis": ^0.15.1
     "@xylabs/eslint-config-react": ^2.1.3
     "@xylabs/pixel": ^1.3.7
     "@xylabs/rollup-config": ^1.1.10
-    "@xylabs/sdk-js": ^2.4.2
-    "@xylabs/sdk-react": ^2.10.2
+    "@xylabs/sdk-js": ^2.4.3
+    "@xylabs/sdk-react": ^2.10.3
     "@xylabs/ts-scripts": ^1.0.48
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.14.19
+    "@xyo-network/sdk-xyo-client-js": ^2.14.21
     axios: ^0.26.1
     babel-loader: ^8.2.4
     bn.js: ^5.2.0
@@ -6178,7 +6166,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.26.0, axios@npm:^0.26.1":
+"axios@npm:^0.26.1":
   version: 0.26.1
   resolution: "axios@npm:0.26.1"
   dependencies:
@@ -17662,9 +17650,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollbar@npm:^2.24.0":
-  version: 2.24.0
-  resolution: "rollbar@npm:2.24.0"
+"rollbar@npm:^2.24.0, rollbar@npm:^2.24.1":
+  version: 2.24.1
+  resolution: "rollbar@npm:2.24.1"
   dependencies:
     async: ~1.2.1
     console-polyfill: 0.3.0
@@ -17678,7 +17666,7 @@ __metadata:
   dependenciesMeta:
     decache:
       optional: true
-  checksum: 81af2a10f4e601a483dde58a35194eab09ddc70f764e2768933fa70f07b10f323458fb7c4227f2949b8d5c261e7528daf506c34b94fe614b98e659cb3b6ee95b
+  checksum: 1c960baa4f6e11f5fbc3fbba22c112ce494887a3a68e3d1d945d9215d7a8ee36c62199c139050275e3e6177b2fe2b3bd9cf9c14bb656ec7865882167cd3b8018
   languageName: node
   linkType: hard
 
