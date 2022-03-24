@@ -129,7 +129,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook ./src",
     "lint-pkg": "npmPkgJsonLint .",
     "deploy": "yarn build-storybook && yarn deploy3",
     "start": "start-storybook -p 6006",

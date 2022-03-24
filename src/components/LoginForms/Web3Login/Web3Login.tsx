@@ -39,7 +39,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (checkedWallet && isLoading && api) {
+      if (checkedWallet && isLoading && api && !token) {
         try {
           // Get the message to sign from the server
           const { state: message } = await api.user.walletChallenge(metaMaskWallet.currentAccount)

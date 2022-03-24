@@ -26,7 +26,7 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
   const [apiResponse, setApiResponse] = useState<object>()
   const [apiError, setApiError] = useState<AxiosError>()
   const [searchParams, setSearchParams] = useSearchParams()
-  const active = searchParams.get('json') === 'true'
+  const active = !!searchParams.get('json')
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
@@ -47,7 +47,14 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
           </Suspense>
           {!noBackButton && (
             <FlexRow marginY={3}>
-              <ButtonEx flexDirection="row" variant="outlined" onClick={() => setSearchParams({ json: '' })}>
+              <ButtonEx
+                flexDirection="row"
+                variant="outlined"
+                onClick={() => {
+                  searchParams.delete('json')
+                  setSearchParams(searchParams)
+                }}
+              >
                 Back
               </ButtonEx>
             </FlexRow>

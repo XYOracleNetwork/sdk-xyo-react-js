@@ -34,7 +34,10 @@ const Template: ComponentStory<typeof JsonRouteWrapper> = (props) => {
     <FlexCol>
       <ButtonEx
         marginY={3}
-        onClick={() => setSearchParams({ json: activeJson === 'true' ? '' : 'true' })}
+        onClick={() => {
+          activeJson === 'true' ? searchParams.delete('json') : searchParams.set('json', 'true')
+          setSearchParams(searchParams)
+        }}
         variant="outlined"
       >
         Toggle JSON Page

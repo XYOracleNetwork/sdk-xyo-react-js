@@ -31,7 +31,7 @@ const WithArchivistApi: React.FC = ({ children }) => {
 
   if (state) {
     return (
-      <ArchivistApiProvider apiDomain={state.apiDomain} jwtToken={state.jwtToken}>
+      <ArchivistApiProvider apiDomain={state.apiDomain} jwtToken={state.jwtToken} required>
         <AuthThemeExtender themeOptions={theme}>
           {children}
         </AuthThemeExtender>
