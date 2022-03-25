@@ -104,7 +104,9 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
   )
 
   return (
-    <ArchivistApiContext.Provider value={{ api, currentToken }}>
+    <ArchivistApiContext.Provider
+      value={{ api, currentToken, errorHistory, failureHistory, responseHistory, successHistory }}
+    >
       {api ? children : required ? null : children}
     </ArchivistApiContext.Provider>
   )
