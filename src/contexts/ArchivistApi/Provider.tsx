@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { delay } from '@xylabs/sdk-js'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
@@ -43,7 +44,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
         if (responseHistoryMaxDepth) {
           logWithMax(responseHistory, response, responseHistoryMaxDepth)
           if (mounted()) {
-            setResponseHistory(responseHistory)
+            setResponseHistory([...responseHistory])
           }
         }
       }
@@ -59,7 +60,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
         if (failureHistoryMaxDepth) {
           logWithMax(failureHistory, response, failureHistoryMaxDepth)
           if (mounted()) {
-            setFailureHistory(failureHistory)
+            setFailureHistory([...failureHistory])
           }
         }
 
@@ -70,7 +71,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
         if (successHistoryMaxDepth) {
           logWithMax(successHistory, response, successHistoryMaxDepth)
           if (mounted()) {
-            setSuccessHistory(successHistory)
+            setSuccessHistory([...successHistory])
           }
         }
 
@@ -81,7 +82,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
         if (errorHistoryMaxDepth) {
           logWithMax(errorHistory, error, errorHistoryMaxDepth)
           if (mounted()) {
-            setErrorHistory(errorHistory)
+            setErrorHistory([...errorHistory])
           }
         }
       }
@@ -98,7 +99,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
       setCurrentToken(jwtToken)
       await delay(0)
     },
-    //intentionally excluding failureHistory & failureLogMaxDepth
+    //intentionally excluding history items
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [apiDomain, jwtToken]
   )

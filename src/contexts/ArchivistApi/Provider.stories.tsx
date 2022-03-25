@@ -1,5 +1,7 @@
 import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useAsyncEffect } from '@xylabs/sdk-react'
+import { XyoArchive } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.storybook'
@@ -8,16 +10,10 @@ import { useAuthState } from '../Auth'
 import { ArchivistApiProvider } from './Provider'
 import { useArchivistApi } from './useArchivist'
 
-interface ArchiveResponse {
-  accessControl: boolean
-  archive: string
-  user: string
-}
-
 const StorybookEntry = {
   argTypes: {
     apiDomain: {
-      default: 'http://localhost:8081',
+      default: 'https://beta.api.archivist.xyo.network',
     },
     authServiceList: {
       default: authServiceList,
@@ -33,23 +29,24 @@ const StorybookEntry = {
 } as ComponentMeta<WrappedAuthComponent>
 
 const DemoArchiveFetcher = () => {
-  const [myArchives, setMyArchives] = useState<ArchiveResponse[]>([])
-  const { api, currentToken } = useArchivistApi()
+  const [myArchives, setMyArchives] = useState<XyoArchive[]>([])
+  const { api, currentToken, responseHistory } = useArchivistApi()
   const { state } = useAuthState()
   const [successfulCall, setSuccessfulCall] = useState(false)
 
-  useEffect(() => {
-    if (state?.jwtToken && currentToken && state?.loggedInAccount) {
-      api &&
-        api.archive
-          .get()
-          .then((archives) => {
-            setMyArchives(archives)
-            setSuccessfulCall(true)
-          })
-          .catch((e) => console.error(e))
-    }
-  }, [api, state?.jwtToken, currentToken, state?.loggedInAccount, setSuccessfulCall])
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      if (state?.jwtToken && currentToken && state?.loggedInAccount) {
+        const archives = await api?.archives?.get()
+        if (archives && mounted()) {
+          setMyArchives(archives)
+          setSuccessfulCall(true)
+        }
+      }
+    },
+    [api, state?.jwtToken, currentToken, state?.loggedInAccount, setSuccessfulCall]
+  )
 
   useEffect(() => {
     if (!state?.loggedInAccount) {
@@ -72,6 +69,12 @@ const DemoArchiveFetcher = () => {
           <li key={index}>{archive.archive}</li>
         ))}
       </ul>
+      <Typography variant="h6">Responses</Typography>
+      {responseHistory?.map((response, index) => (
+        <Typography key={index} variant="body1">
+          {response.status}
+        </Typography>
+      ))}
     </>
   )
 }
@@ -80,7 +83,14 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state } = useAuthState()
   const jwtToken = state?.jwtToken
   return (
-    <ArchivistApiProvider apiDomain="http://localhost:8081" jwtToken={jwtToken} archive="test">
+    <ArchivistApiProvider
+      errorHistoryMaxDepth={10}
+      successHistoryMaxDepth={10}
+      failureHistoryMaxDepth={10}
+      responseHistoryMaxDepth={10}
+      apiDomain="https://beta.api.archivist.xyo.network"
+      jwtToken={jwtToken}
+    >
       <DemoArchiveFetcher />
     </ArchivistApiProvider>
   )
