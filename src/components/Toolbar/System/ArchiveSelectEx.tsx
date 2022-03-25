@@ -5,7 +5,7 @@ import { AxiosError } from 'axios'
 import { useState } from 'react'
 
 import { useAppSettings, useArchive, useArchivistApi } from '../../../contexts'
-import { AxiosErrorHandler } from '../../Auth'
+import { XyoApiErrorRender } from '../../Auth'
 
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
   const { darkMode } = useAppSettings()
@@ -35,12 +35,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
   )
 
   return (
-    <AxiosErrorHandler
-      apiError={apiError}
-      loginForm={false}
-      displayError={false}
-      customError={<Error color="warning" />}
-    >
+    <XyoApiErrorRender apiError={apiError} noReAuth noErrorDisplay customError={<Error color="warning" />}>
       {archives ? (
         <SelectEx
           colorize="primary"
@@ -63,6 +58,6 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
           })}
         </SelectEx>
       ) : null}
-    </AxiosErrorHandler>
+    </XyoApiErrorRender>
   )
 }
