@@ -1,12 +1,13 @@
+import { FlexCol } from '@xylabs/sdk-react'
 import { useEffect } from 'react'
 
 import { AuthActionType, useAuthState } from '../../../contexts'
 import { appThemeOptions } from '../../../theme'
 import { AuthServiceWrapper } from '../AuthServiceWrapper'
 import { AuthThemeExtender } from '../AuthThemeExtender'
-import { AxiosErrorHandlerProps } from './AxiosErrorHandlerProps'
+import { AxiosErrorRenderProps } from './Props'
 
-const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginForm = true }) => {
+const ReAuth: React.FC<AxiosErrorRenderProps> = ({ apiError, ...props }) => {
   const { state: authState, dispatch: authDispatch } = useAuthState()
 
   const invalidRequest = apiError?.response?.status === 401 && !!apiError.config.headers?.['Authorization']
@@ -20,14 +21,16 @@ const ReAuth: React.FC<AxiosErrorHandlerProps> = ({ apiError, loginForm = true }
 
   // invalid request = apiError from bad badToken
   // no loggedInAccount = apiError even without a loggedInAccount (i.e. retry attempt)
-  if ((invalidRequest || !authState?.loggedInAccount) && loginForm) {
+  if (invalidRequest || !authState?.loggedInAccount) {
     return (
-      <AuthThemeExtender themeOptions={appThemeOptions}>
-        <AuthServiceWrapper />
-      </AuthThemeExtender>
+      <FlexCol {...props}>
+        <AuthThemeExtender themeOptions={appThemeOptions}>
+          <AuthServiceWrapper />
+        </AuthThemeExtender>
+      </FlexCol>
     )
   } else {
-    return <></>
+    return null
   }
 }
 

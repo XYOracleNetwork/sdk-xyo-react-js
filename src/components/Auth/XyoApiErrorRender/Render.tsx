@@ -5,14 +5,15 @@ import { useLocation } from 'react-router-dom'
 
 import { AxiosLoggedError } from '../../../contexts'
 import { ApiLogEntry } from '../AuthLogs'
-import { AxiosErrorHandlerProps } from './AxiosErrorHandlerProps'
+import { AxiosErrorRenderProps } from './Props'
 import { ReAuth } from './ReAuth'
 
-const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({
+export const XyoApiErrorRender: React.FC<AxiosErrorRenderProps> = ({
   apiError,
-  loginForm = true,
-  displayError = true,
-  customError = <></>,
+  apiFailure,
+  noErrorDisplay = false,
+  noReAuth = false,
+  customError = null,
   children,
   ...props
 }) => {
@@ -31,27 +32,38 @@ const AxiosErrorHandler: React.FC<AxiosErrorHandlerProps> = ({
     loggedError.logged = loggedError.logged = new Date().toISOString()
 
     return (
-      <>
-        {displayError ? (
+      <FlexCol alignItems="stretch" {...props}>
+        {noErrorDisplay ? (
+          { customError }
+        ) : (
           <FlexCol alignItems="start" {...props}>
             <Typography variant="h5" color="error" my={1}>
               Error Making Request
             </Typography>
             <ApiLogEntry call={loggedError} />
           </FlexCol>
-        ) : (
-          <>{customError}</>
         )}
-        {apiError.response?.status === 401 && (
-          <FlexCol my={2} width="100%">
-            <ReAuth apiError={apiError} loginForm={loginForm} />
+      </FlexCol>
+    )
+  } else if (apiFailure) {
+    return (
+      <FlexCol alignItems="stretch" {...props}>
+        {noErrorDisplay ? (
+          { customError }
+        ) : (
+          <FlexCol alignItems="start" {...props}>
+            {apiFailure?.status === 401 && !noReAuth && <ReAuth apiError={apiError} />}
           </FlexCol>
         )}
-      </>
+      </FlexCol>
     )
   } else {
-    return <>{children}</>
+    return (
+      <FlexCol alignItems="stretch" {...props}>
+        {children}
+      </FlexCol>
+    )
   }
 }
-
-export { AxiosErrorHandler }
+/** @deprecated use XyoApiErrorRender instead */
+export const AxiosErrorHandler = XyoApiErrorRender
