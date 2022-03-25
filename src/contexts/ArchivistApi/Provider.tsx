@@ -10,10 +10,10 @@ export interface ArchivistApiProviderProps {
   apiDomain: string
   jwtToken?: string
   required?: boolean
-  successLogMaxDepth?: number
-  responseLogMaxDepth?: number
-  failureLogMaxDepth?: number
-  errorLogMaxDepth?: number
+  successHistoryMaxDepth?: number
+  responseHistoryMaxDepth?: number
+  failureHistoryMaxDepth?: number
+  errorHistoryMaxDepth?: number
 }
 
 export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
@@ -21,10 +21,10 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
   apiDomain,
   children,
   jwtToken,
-  successLogMaxDepth = 0,
-  responseLogMaxDepth = 0,
-  failureLogMaxDepth = 0,
-  errorLogMaxDepth = 0,
+  successHistoryMaxDepth = 0,
+  responseHistoryMaxDepth = 0,
+  failureHistoryMaxDepth = 0,
+  errorHistoryMaxDepth = 0,
 }) => {
   const [api, setApi] = useState<XyoArchivistApi>()
 
@@ -40,8 +40,8 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const logResponse = (response: XyoApiResponse) => {
-        if (responseLogMaxDepth) {
-          logWithMax(responseHistory, response, responseLogMaxDepth)
+        if (responseHistoryMaxDepth) {
+          logWithMax(responseHistory, response, responseHistoryMaxDepth)
           if (mounted()) {
             setResponseHistory(responseHistory)
           }
@@ -56,8 +56,8 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
           }
         }
 
-        if (failureLogMaxDepth) {
-          logWithMax(failureHistory, response, failureLogMaxDepth)
+        if (failureHistoryMaxDepth) {
+          logWithMax(failureHistory, response, failureHistoryMaxDepth)
           if (mounted()) {
             setFailureHistory(failureHistory)
           }
@@ -67,8 +67,8 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
       }
 
       const onSuccess = (response: XyoApiResponse) => {
-        if (successLogMaxDepth) {
-          logWithMax(successHistory, response, successLogMaxDepth)
+        if (successHistoryMaxDepth) {
+          logWithMax(successHistory, response, successHistoryMaxDepth)
           if (mounted()) {
             setSuccessHistory(successHistory)
           }
@@ -78,8 +78,8 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
       }
 
       const onError = (error: XyoApiError) => {
-        if (errorLogMaxDepth) {
-          logWithMax(errorHistory, error, errorLogMaxDepth)
+        if (errorHistoryMaxDepth) {
+          logWithMax(errorHistory, error, errorHistoryMaxDepth)
           if (mounted()) {
             setErrorHistory(errorHistory)
           }
