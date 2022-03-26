@@ -28,10 +28,10 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
 }) => {
   const [api, setApi] = useState<XyoArchivistApi>()
 
-  const [successHistory, setSuccessHistory] = useState<XyoApiResponse[]>([])
-  const [responseHistory, setResponseHistory] = useState<XyoApiResponse[]>([])
-  const [failureHistory, setFailureHistory] = useState<XyoApiResponse[]>([])
-  const [errorHistory, setErrorHistory] = useState<XyoApiError[]>([])
+  const [successHistory] = useState<XyoApiResponse[]>([])
+  const [responseHistory] = useState<XyoApiResponse[]>([])
+  const [failureHistory] = useState<XyoApiResponse[]>([])
+  const [errorHistory] = useState<XyoApiError[]>([])
 
   // allows children to know the token was set before calling the api
   const [currentToken, setCurrentToken] = useState<string | undefined>(jwtToken)
@@ -42,9 +42,6 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
       const logResponse = (response: XyoApiResponse) => {
         if (responseHistoryMaxDepth) {
           logWithMax(responseHistory, response, responseHistoryMaxDepth)
-          if (mounted()) {
-            setResponseHistory([...responseHistory])
-          }
         }
       }
 
@@ -58,9 +55,6 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
 
         if (failureHistoryMaxDepth) {
           logWithMax(failureHistory, response, failureHistoryMaxDepth)
-          if (mounted()) {
-            setFailureHistory([...failureHistory])
-          }
         }
 
         logResponse(response)
@@ -69,9 +63,6 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
       const onSuccess = (response: XyoApiResponse) => {
         if (successHistoryMaxDepth) {
           logWithMax(successHistory, response, successHistoryMaxDepth)
-          if (mounted()) {
-            setSuccessHistory([...successHistory])
-          }
         }
 
         logResponse(response)
@@ -80,9 +71,6 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
       const onError = (error: XyoApiError) => {
         if (errorHistoryMaxDepth) {
           logWithMax(errorHistory, error, errorHistoryMaxDepth)
-          if (mounted()) {
-            setErrorHistory([...errorHistory])
-          }
         }
       }
 
