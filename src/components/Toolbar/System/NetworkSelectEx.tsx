@@ -5,7 +5,6 @@ import { useAppSettings } from '../../../contexts'
 import { findNetworkPreset, networkPresets } from '../../../lib'
 
 export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
-  console.log('NetworkSelectEx')
   const { changeNetwork, network, darkMode } = useAppSettings()
   return (
     <SelectEx
@@ -15,8 +14,10 @@ export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
       size="small"
       value={network?.slug}
       onChange={(event, child) => {
-        onChange?.(event, child)
-        changeNetwork?.(findNetworkPreset(event.target.value))
+        if (event.target.value !== network?.slug) {
+          onChange?.(event, child)
+          changeNetwork?.(findNetworkPreset(event.target.value))
+        }
       }}
       {...props}
     >
