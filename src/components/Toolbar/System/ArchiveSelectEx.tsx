@@ -5,6 +5,7 @@ import { useAppSettings, useArchive } from '../../../contexts'
 import { useArchives } from '../../../hooks'
 
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
+  console.log('ArchiveSelectEx')
   const { darkMode } = useAppSettings()
   const archives = useArchives()
   const { archive = 'temp', setArchive } = useArchive()
