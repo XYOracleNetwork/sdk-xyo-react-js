@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material'
 import { delay } from '@xylabs/sdk-js'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
