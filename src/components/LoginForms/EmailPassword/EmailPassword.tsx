@@ -32,8 +32,9 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
   useAsyncEffect(async () => {
     if (isLoading && api) {
       try {
-        const { token } = await api.user.login(credentials)
-        setToken(token)
+        const test = await api.user.login(credentials)
+        console.log(test)
+        setToken(test.token)
         setIsLoading(false)
       } catch (err) {
         console.error(err)
