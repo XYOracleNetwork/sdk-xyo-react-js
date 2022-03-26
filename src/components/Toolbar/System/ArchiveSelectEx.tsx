@@ -5,7 +5,6 @@ import { useAppSettings, useArchive } from '../../../contexts'
 import { useArchives } from '../../../hooks'
 
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
-  console.log('ArchiveSelectEx')
   const { darkMode } = useAppSettings()
   const archives = useArchives()
   const { archive = 'temp', setArchive } = useArchive()
@@ -18,8 +17,10 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
       size="small"
       value={archive}
       onChange={(event, child) => {
-        setArchive?.(event.target.value)
-        onChange?.(event, child)
+        if (event.target.value !== archive) {
+          setArchive?.(event.target.value)
+          onChange?.(event, child)
+        }
       }}
       {...props}
     >

@@ -15,7 +15,6 @@ export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({
   children,
   ...props
 }) => {
-  console.log('ApplicationAppBar')
   const { breakpoints } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
   return (

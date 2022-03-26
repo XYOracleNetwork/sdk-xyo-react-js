@@ -19,7 +19,6 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   siteMenuProps,
   ...props
 }) => {
-  console.log('SystemToolbar')
   return (
     <Toolbar {...props}>
       <FlexRow marginX={0.5}>
