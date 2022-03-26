@@ -1,5 +1,8 @@
-import { Button, Typography } from '@mui/material'
+import { Button, ButtonTypeMap, Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/sdk-react'
+
+const colors = ['primary', 'secondary'] as ButtonTypeMap['props']['color'][]
+const variants = ['text', 'contained', 'outlined'] as ButtonTypeMap['props']['variant'][]
 
 export const ButtonsExample: React.FC = ({ ...props }) => {
   return (
@@ -7,7 +10,7 @@ export const ButtonsExample: React.FC = ({ ...props }) => {
       <Typography variant="subtitle1">Buttons</Typography>
       <Typography variant="subtitle2">Buttons</Typography>
       <FlexRow alignItems="stretch" mb={2}>
-        {['primary', 'secondary'].map((color) => (
+        {colors.map((color) => (
           <>
             <Button variant="contained" color={color}>
               {color}
@@ -16,7 +19,7 @@ export const ButtonsExample: React.FC = ({ ...props }) => {
           </>
         ))}
       </FlexRow>
-      {['text', 'contained', 'outlined'].map((variant) => (
+      {variants.map((variant) => (
         <FlexCol key={`btn-${variant}`} alignItems="stretch" mb={2}>
           <Typography variant="subtitle2">
             <span style={{ textTransform: 'capitalize' }}>{variant}</span> Buttons

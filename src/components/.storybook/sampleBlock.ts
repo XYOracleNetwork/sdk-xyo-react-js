@@ -18,6 +18,7 @@ export const sampleBlock = {
   ],
   payload_schemas: ['network.xyo.id', 'network.xyo.location', 'network.xyo.system.info.browser'],
   previous_hashes: ['e8924ffda579a0410cd7927e12a06b2f8120e509d7817f945cb1f5b4fc82f329'],
+  schema: 'network.xyo.boundwitness',
 }
 
 export const sampleBlockWithPayloads: XyoBoundWitness = {
