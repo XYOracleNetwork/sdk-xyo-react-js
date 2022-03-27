@@ -28,15 +28,22 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
   const [searchParams, setSearchParams] = useSearchParams()
   const active = !!searchParams.get('json')
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useAsyncEffect(async () => {
-    try {
-      const response = await callback()
-      setApiResponse(response)
-    } catch (err) {
-      setApiError(err as AxiosError)
-    }
-  }, [callback])
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      try {
+        const response = await callback()
+        if (mounted()) {
+          setApiResponse(response)
+        }
+      } catch (err) {
+        if (mounted()) {
+          setApiError(err as AxiosError)
+        }
+      }
+    },
+    [callback]
+  )
 
   return (
     <FlexCol {...props}>
