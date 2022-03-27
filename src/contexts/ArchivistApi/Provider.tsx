@@ -14,6 +14,7 @@ export interface ArchivistApiProviderProps {
   responseHistoryMaxDepth?: number
   failureHistoryMaxDepth?: number
   errorHistoryMaxDepth?: number
+  onUnauthorized?: (response: XyoApiResponse) => void
 }
 
 export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
@@ -25,6 +26,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
   responseHistoryMaxDepth = 0,
   failureHistoryMaxDepth = 0,
   errorHistoryMaxDepth = 0,
+  onUnauthorized,
 }) => {
   const [api, setApi] = useState<XyoArchivistApi>()
 
@@ -40,38 +42,27 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const logResponse = (response: XyoApiResponse) => {
-        if (responseHistoryMaxDepth) {
-          logWithMax(responseHistory, response, responseHistoryMaxDepth)
-        }
+        logWithMax(responseHistory, response, responseHistoryMaxDepth)
       }
 
       const onFailure = (response: XyoApiResponse) => {
-        //on a 401, we clear the token since it is bad
         if (response.status === 401) {
           if (mounted()) {
-            setCurrentToken(undefined)
+            onUnauthorized?.(response)
           }
         }
 
-        if (failureHistoryMaxDepth) {
-          logWithMax(failureHistory, response, failureHistoryMaxDepth)
-        }
-
+        logWithMax(failureHistory, response, failureHistoryMaxDepth)
         logResponse(response)
       }
 
       const onSuccess = (response: XyoApiResponse) => {
-        if (successHistoryMaxDepth) {
-          logWithMax(successHistory, response, successHistoryMaxDepth)
-        }
-
+        logWithMax(successHistory, response, successHistoryMaxDepth)
         logResponse(response)
       }
 
       const onError = (error: XyoApiError) => {
-        if (errorHistoryMaxDepth) {
-          logWithMax(errorHistory, error, errorHistoryMaxDepth)
-        }
+        logWithMax(errorHistory, error, errorHistoryMaxDepth)
       }
 
       setApi(
