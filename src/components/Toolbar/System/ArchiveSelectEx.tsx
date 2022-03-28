@@ -1,8 +1,7 @@
 import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/sdk-react'
 
-import { useAppSettings, useArchive } from '../../../contexts'
-import { useArchives } from '../../../hooks'
+import { useAppSettings, useArchive, useArchives } from '../../../contexts'
 
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
   const { darkMode } = useAppSettings()
