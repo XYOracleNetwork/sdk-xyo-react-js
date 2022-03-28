@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-import { ArchivistApiState } from './ArchivistApiTypes'
+import { ArchivistApiState } from './ArchivistApiState'
 
 const ArchivistApiContext = createContext<ArchivistApiState>({})
 
