@@ -14,6 +14,7 @@ export const PixelProvider: React.FC<PixelProviderProps> = (props) => {
     <PixelContext.Provider
       value={{
         pixel: XyPixel.instance,
+        provided: true,
       }}
     >
       {children}

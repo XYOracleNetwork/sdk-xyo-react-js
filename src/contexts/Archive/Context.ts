@@ -1,8 +1,4 @@
-import { createContext } from 'react'
+import { createContextEx } from '../ContextEx'
+import { ArchiveContextState } from './State'
 
-export interface ArchiveContextProps {
-  archive?: string
-  setArchive?: (archive: string) => void
-}
-
-export const ArchiveContext = createContext<ArchiveContextProps>({})
+export const ArchiveContext = createContextEx<ArchiveContextState>()

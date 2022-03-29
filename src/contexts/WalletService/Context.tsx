@@ -1,8 +1,4 @@
-import { createContext } from 'react'
+import { createContextEx } from '../ContextEx'
+import { WalletServiceState } from './State'
 
-import { XyoMetaMaskConnector } from '../../wallets'
-import { WalletServiceState } from './WalletServiceTypes'
-
-const WalletServiceContext = createContext<WalletServiceState>({ metaMaskWallet: new XyoMetaMaskConnector() })
-
-export { WalletServiceContext }
+export const WalletServiceContext = createContextEx<WalletServiceState>()

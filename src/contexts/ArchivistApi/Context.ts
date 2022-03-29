@@ -1,7 +1,6 @@
-import { createContext } from 'react'
+import { createContextEx } from '../ContextEx'
+import { ArchivistApiState } from './State'
 
-import { ArchivistApiState } from './ArchivistApiState'
-
-const ArchivistApiContext = createContext<ArchivistApiState>({})
+const ArchivistApiContext = createContextEx<ArchivistApiState>()
 
 export { ArchivistApiContext }

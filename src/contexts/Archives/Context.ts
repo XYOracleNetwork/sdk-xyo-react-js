@@ -1,7 +1,4 @@
-import { createContext } from 'react'
+import { createContextEx } from '../ContextEx'
+import { ArchivesContextState } from './State'
 
-export interface ArchivesContextProps {
-  archives?: string[]
-}
-
-export const ArchivesContext = createContext<ArchivesContextProps>({})
+export const ArchivesContext = createContextEx<ArchivesContextState>()

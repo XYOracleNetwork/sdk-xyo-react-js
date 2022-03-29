@@ -13,7 +13,8 @@ import {
 import { useEffect, useState } from 'react'
 
 import { useArchive } from '../Archive'
-import { XyoPanelContext, XyoPanelReportProgress, XyoReportStatus } from './Context'
+import { XyoPanelContext } from './Context'
+import { XyoPanelReportProgress, XyoReportStatus } from './State'
 
 export interface XyoPanelProviderProps {
   address?: XyoAddress
@@ -146,7 +147,7 @@ export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
   }, [panel])
 
   return (
-    <XyoPanelContext.Provider value={{ history, panel, progress, reportingErrors, status }}>
+    <XyoPanelContext.Provider value={{ history, panel, progress, provided: true, reportingErrors, status }}>
       {panel ? children : required ? null : children}
     </XyoPanelContext.Provider>
   )
