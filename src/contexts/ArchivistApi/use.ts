@@ -1,6 +1,6 @@
 import { useContextEx } from '../ContextEx'
 import { ArchivistApiContext } from './Context'
 
-export const useArchivistApi = () => {
-  return useContextEx(ArchivistApiContext, 'ArchivistApi')
+export const useArchivistApi = (required = true) => {
+  return useContextEx(ArchivistApiContext, 'ArchivistApi', required)
 }
