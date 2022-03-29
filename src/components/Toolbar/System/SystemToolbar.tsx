@@ -21,11 +21,11 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
 }) => {
   return (
     <Toolbar {...props}>
-      <FlexRow marginX={0.5}>
-        <NetworkSelectEx {...networkSelectProps} />
+      <FlexRow marginX={0.5} width={120}>
+        <NetworkSelectEx fullWidth {...networkSelectProps} />
       </FlexRow>
-      <FlexRow marginX={0.5}>
-        <ArchiveSelectEx {...archiveSelectProps} />
+      <FlexRow marginX={0.5} width={120}>
+        <ArchiveSelectEx fullWidth {...archiveSelectProps} />
       </FlexRow>
       {children}
       <AuthStatusIconButton />
