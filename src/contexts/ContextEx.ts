@@ -10,9 +10,9 @@ export const unprovidedContext: ContextExState = {
 
 export const createContextEx = <T>() => createContext<T & ContextExState>(unprovidedContext as T & ContextExState)
 
-export const useContextEx = <T extends ContextExState>(context: Context<T>, contextName: string) => {
+export const useContextEx = <T extends ContextExState>(context: Context<T>, contextName: string, required = true) => {
   const { provided, ...props } = useContext(context)
-  if (!provided) {
+  if (!provided && required) {
     throw Error(`use${contextName} can not be used outside of a ${contextName}`)
   }
   return props
