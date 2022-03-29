@@ -8,13 +8,19 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
   const { archives } = useArchives()
   const { archive, setArchive } = useArchive()
 
+  const archivesList = [...(archives ?? [])]
+
+  if (archive && !archives?.find((value) => value === archive)) {
+    archivesList.push(archive)
+  }
+
   return (
     <SelectEx
       colorize="primary"
       mode={darkMode ? 'dark' : 'light'}
       variant="outlined"
       size="small"
-      value={archive ?? 'temp'}
+      value={archive}
       onChange={(event, child) => {
         if (event.target.value !== archive) {
           setArchive?.(event.target.value)
@@ -23,7 +29,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
       }}
       {...props}
     >
-      {(archives ?? ['temp']).map((archive) => {
+      {archivesList.map((archive) => {
         return (
           <MenuItem key={archive} value={archive}>
             {archive}

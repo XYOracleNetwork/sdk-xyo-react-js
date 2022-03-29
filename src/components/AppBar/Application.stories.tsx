@@ -2,6 +2,7 @@ import { TextField } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
+import { ArchiveProvider, ArchivesProvider, ArchivistApiProvider } from '../../contexts'
 import { ApplicationAppBar } from './Application'
 
 const StorybookEntry = {
@@ -16,9 +17,15 @@ const StorybookEntry = {
 } as ComponentMeta<typeof ApplicationAppBar>
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
-  <BrowserRouter>
-    <ApplicationAppBar {...args}></ApplicationAppBar>
-  </BrowserRouter>
+  <ArchiveProvider>
+    <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+      <ArchivesProvider>
+        <BrowserRouter>
+          <ApplicationAppBar {...args}></ApplicationAppBar>
+        </BrowserRouter>
+      </ArchivesProvider>
+    </ArchivistApiProvider>
+  </ArchiveProvider>
 )
 
 const Default = Template.bind({})
