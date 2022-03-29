@@ -1,3 +1,4 @@
+export * from './Context'
 export * from './Provider'
-export * from './useWalletService'
-export * from './WalletServiceTypes'
+export * from './State'
+export * from './use'

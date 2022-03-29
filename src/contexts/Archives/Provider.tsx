@@ -4,12 +4,8 @@ import { useState } from 'react'
 import { useArchivistApi } from '../ArchivistApi'
 import { ArchivesContext } from './Context'
 
-export interface ArchivesProviderProps {
-  defaultArchives?: string[]
-}
-
-export const ArchivesProvider: React.FC<ArchivesProviderProps> = ({ children, defaultArchives = ['temp'] }) => {
-  const [archives, setArchives] = useState(defaultArchives)
+export const ArchivesProvider: React.FC = ({ children }) => {
+  const [archives, setArchives] = useState<string[]>()
 
   const { api } = useArchivistApi()
   useAsyncEffect(
@@ -23,5 +19,7 @@ export const ArchivesProvider: React.FC<ArchivesProviderProps> = ({ children, de
     [api]
   )
 
-  return <ArchivesContext.Provider value={{ archives }}>{children}</ArchivesContext.Provider>
+  return (
+    <ArchivesContext.Provider value={{ archives, provided: true, setArchives }}>{children}</ArchivesContext.Provider>
+  )
 }

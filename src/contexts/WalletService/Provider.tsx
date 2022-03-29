@@ -1,6 +1,6 @@
 import { WalletServiceContext } from './Context'
-import { WalletServiceDefaultState } from './DefaultState'
+import { defaultState } from './defaultState'
 
 export const WalletServiceProvider: React.FC = ({ children }) => {
-  return <WalletServiceContext.Provider value={WalletServiceDefaultState}>{children}</WalletServiceContext.Provider>
+  return <WalletServiceContext.Provider value={defaultState}>{children}</WalletServiceContext.Provider>
 }

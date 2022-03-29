@@ -1,8 +1,4 @@
-import { XyPixel } from '@xylabs/pixel'
-import { createContext } from 'react'
+import { createContextEx } from '../ContextEx'
+import { PixelContextState } from './State'
 
-interface ContextProps {
-  pixel?: XyPixel
-}
-
-export const PixelContext = createContext<ContextProps>({})
+export const PixelContext = createContextEx<PixelContextState>()

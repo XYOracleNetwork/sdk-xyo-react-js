@@ -8,7 +8,7 @@ import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.sto
 import { AuthServiceWrapper } from '../../components'
 import { useAuthState } from '../Auth'
 import { ArchivistApiProvider } from './Provider'
-import { useArchivistApi } from './useArchivist'
+import { useArchivistApi } from './use'
 
 const StorybookEntry = {
   argTypes: {
