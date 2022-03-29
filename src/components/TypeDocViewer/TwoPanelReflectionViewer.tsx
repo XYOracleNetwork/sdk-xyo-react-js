@@ -1,6 +1,6 @@
 import { Search } from '@mui/icons-material'
 import { TextField, useTheme } from '@mui/material'
-import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow } from '@xylabs/sdk-react'
 import { useMemo, useState } from 'react'
 
 import { createLookup } from './createLookup'
@@ -20,9 +20,27 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
     setSearchTerm(e.target.value)
   }
 
-  return (
-    <FlexRow alignItems="stretch" justifyContent="start" sx={{ overflowY: 'scroll' }} {...props}>
-      <FlexCol minWidth={320} alignItems="stretch" justifyContent="flex-start" overflow="hidden">
+  const reflectionGroups = useMemo(() => {
+    return reflection.groups?.map((group) => {
+      return (
+        <ReflectionGroupViewer
+          autoscroll
+          variant="h6"
+          lookup={lookup}
+          renderer={itemRenderer}
+          key={group.kind}
+          group={group}
+          reflection={reflection}
+          alignItems="stretch"
+          hiddenFlags={hiddenFlags}
+        />
+      )
+    })
+  }, [itemRenderer, lookup, reflection, hiddenFlags])
+
+  const NavigationCol: React.FC<FlexBoxProps> = (props) => {
+    return (
+      <FlexCol {...props}>
         <TextField
           fullWidth
           InputProps={{
@@ -49,7 +67,12 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
           />
         </FlexGrowCol>
       </FlexCol>
-      <FlexGrowCol marginLeft={1} alignItems="stretch" justifyContent="flex-start" overflow="hidden">
+    )
+  }
+
+  const DetailsCol: React.FC<FlexBoxProps> = (props) => {
+    return (
+      <FlexGrowCol {...props}>
         <FlexGrowCol alignItems="stretch">
           <FlexCol
             alignItems="stretch"
@@ -64,26 +87,17 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
             padding={1}
             border={`1px solid ${theme.palette.grey['300']}`}
           >
-            {useMemo(() => {
-              return reflection.groups?.map((group) => {
-                return (
-                  <ReflectionGroupViewer
-                    autoscroll
-                    variant="h6"
-                    lookup={lookup}
-                    renderer={itemRenderer}
-                    key={group.kind}
-                    group={group}
-                    reflection={reflection}
-                    alignItems="stretch"
-                    hiddenFlags={hiddenFlags}
-                  />
-                )
-              })
-            }, [itemRenderer, lookup, reflection, hiddenFlags])}
+            {reflectionGroups}
           </FlexCol>
         </FlexGrowCol>
       </FlexGrowCol>
+    )
+  }
+
+  return (
+    <FlexRow alignItems="stretch" justifyContent="start" sx={{ overflowY: 'scroll' }} {...props}>
+      <NavigationCol minWidth={320} alignItems="stretch" justifyContent="flex-start" overflow="hidden" />
+      <DetailsCol marginLeft={1} alignItems="stretch" justifyContent="flex-start" overflow="hidden" />
     </FlexRow>
   )
 }

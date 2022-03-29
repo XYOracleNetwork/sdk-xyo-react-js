@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { AxiosError } from 'axios'
+import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
 import { AuthActionType, useArchivistApi, useWalletService } from '../../../contexts'
@@ -18,7 +18,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState('')
   const [metaMaskError, setMetaMaskError] = useState<MetaMaskError>()
-  const [axiosError, setAxiosError] = useState<AxiosError>()
+  const [xyoApiError, setXyoApiError] = useState<XyoApiError>()
 
   useEffect(() => {
     if (!isLoading && token) {
@@ -55,7 +55,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
         } catch (err) {
           setCheckedWallet(false)
           setIsLoading(false)
-          setAxiosError(err as AxiosError)
+          setXyoApiError(err as XyoApiError)
         }
       }
       if (checkedWallet && token && mounted()) {
@@ -66,41 +66,39 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   )
 
   return (
-    <>
-      <CheckForMetaMask metaMaskWallet={metaMaskWallet}>
-        <Typography variant="h3">Login with Web3 Wallet</Typography>
-        {metaMaskWallet.currentAccount && loggedInAccount ? (
-          <>
-            <p>Authorized: {metaMaskWallet.currentAccount}</p>
-            <p>Disconnect your account from your wallet to logout</p>
-          </>
-        ) : (
-          <>
-            <ConnectWallet
-              isLoading={isLoading}
-              setCheckedWallet={setCheckedWallet}
-              metaMaskWallet={metaMaskWallet}
-              setMetaMaskError={setMetaMaskError}
-            />
-            {metaMaskError && (
-              <>
-                <Typography variant="body1" mt={2} color="error">
-                  Error Connecting to MetaMask:
-                </Typography>
-                <Typography variant="body1" mt={2} color="error">
-                  {metaMaskError.message}
-                </Typography>
-              </>
-            )}
-            {axiosError && (
+    <CheckForMetaMask metaMaskWallet={metaMaskWallet}>
+      <Typography variant="h3">Login with Web3 Wallet</Typography>
+      {metaMaskWallet.currentAccount && loggedInAccount ? (
+        <>
+          <p>Authorized: {metaMaskWallet.currentAccount}</p>
+          <p>Disconnect your account from your wallet to logout</p>
+        </>
+      ) : (
+        <>
+          <ConnectWallet
+            isLoading={isLoading}
+            setCheckedWallet={setCheckedWallet}
+            metaMaskWallet={metaMaskWallet}
+            setMetaMaskError={setMetaMaskError}
+          />
+          {metaMaskError && (
+            <>
               <Typography variant="body1" mt={2} color="error">
-                Error making request to confirm wallet access: {axiosError.message}
+                Error Connecting to MetaMask:
               </Typography>
-            )}
-          </>
-        )}
-      </CheckForMetaMask>
-    </>
+              <Typography variant="body1" mt={2} color="error">
+                {metaMaskError.message}
+              </Typography>
+            </>
+          )}
+          {xyoApiError && (
+            <Typography variant="body1" mt={2} color="error">
+              Error making request to confirm wallet access: {xyoApiError.message}
+            </Typography>
+          )}
+        </>
+      )}
+    </CheckForMetaMask>
   )
 }
 

@@ -25,63 +25,78 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
   const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
+
+  const archive = (
+    <TableCell key="archive" align="center">
+      <Typography fontFamily="monospace" variant="body2" noWrap>
+        {block?._archive}
+      </Typography>
+    </TableCell>
+  )
+
+  const client = (
+    <TableCell key="client" align="center">
+      <Typography fontFamily="monospace" variant="body2" noWrap>
+        {block?._client}
+      </Typography>
+    </TableCell>
+  )
+
+  const date = (
+    <TableCell key="date" align="center">
+      <Typography fontFamily="monospace" variant="body2" noWrap>
+        {timeStamp?.toLocaleString(DateTime.DATE_SHORT)}
+      </Typography>
+    </TableCell>
+  )
+
+  const hash = (
+    <HashTableCell
+      key="hash"
+      value={block?._hash}
+      archive={block?._archive}
+      dataType="block"
+      exploreDomain={exploreDomain}
+    />
+  )
+
+  const payloads = (
+    <TableCell key="payloads" align="center">
+      <Typography fontFamily="monospace" variant="body2" noWrap>
+        {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|
+        {compact(block?.previous_hashes ?? [])?.length}
+      </Typography>
+    </TableCell>
+  )
+
+  const time = (
+    <TableCell key="time" align="center">
+      <Typography fontFamily="monospace" variant="body2" noWrap>
+        {timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}
+      </Typography>
+    </TableCell>
+  )
+
+  const valid = (
+    <TableCell key="valid" align="center">
+      <Typography fontFamily="monospace" variant="body2" noWrap>
+        {wrapper?.validator.all().length === 0 ? (
+          <MdDone fontSize={18} color="green" />
+        ) : (
+          <MdClear color="red" fontSize={18} />
+        )}
+      </Typography>
+    </TableCell>
+  )
+
   const tableCells: Record<BlockTableColumnSlug, ReactElement> = {
-    archive: (
-      <TableCell key="archive" align="center">
-        <Typography fontFamily="monospace" variant="body2" noWrap>
-          {block?._archive}
-        </Typography>
-      </TableCell>
-    ),
-    client: (
-      <TableCell key="client" align="center">
-        <Typography fontFamily="monospace" variant="body2" noWrap>
-          {block?._client}
-        </Typography>
-      </TableCell>
-    ),
-    date: (
-      <TableCell key="date" align="center">
-        <Typography fontFamily="monospace" variant="body2" noWrap>
-          {timeStamp?.toLocaleString(DateTime.DATE_SHORT)}
-        </Typography>
-      </TableCell>
-    ),
-    hash: (
-      <HashTableCell
-        key="hash"
-        value={block?._hash}
-        archive={block?._archive}
-        dataType="block"
-        exploreDomain={exploreDomain}
-      />
-    ),
-    payloads: (
-      <TableCell key="payloads" align="center">
-        <Typography fontFamily="monospace" variant="body2" noWrap>
-          {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|
-          {compact(block?.previous_hashes ?? [])?.length}
-        </Typography>
-      </TableCell>
-    ),
-    time: (
-      <TableCell key="time" align="center">
-        <Typography fontFamily="monospace" variant="body2" noWrap>
-          {timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}
-        </Typography>
-      </TableCell>
-    ),
-    valid: (
-      <TableCell key="valid" align="center">
-        <Typography fontFamily="monospace" variant="body2" noWrap>
-          {wrapper?.validator.all().length === 0 ? (
-            <MdDone fontSize={18} color="green" />
-          ) : (
-            <MdClear color="red" fontSize={18} />
-          )}
-        </Typography>
-      </TableCell>
-    ),
+    archive,
+    client,
+    date,
+    hash,
+    payloads,
+    time,
+    valid,
   }
 
   return breakPoint ? (
