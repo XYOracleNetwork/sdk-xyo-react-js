@@ -2,8 +2,14 @@ import { useState } from 'react'
 
 import { ArchiveContext } from './Context'
 
-export const ArchiveProvider: React.FC = ({ children }) => {
+export interface ArchiveProviderProps {
+  defaultArchive?: string
+}
+
+export const ArchiveProvider: React.FC<ArchiveProviderProps> = ({ defaultArchive, ...props }) => {
   const [archive, setArchive] = useState<string>()
 
-  return <ArchiveContext.Provider value={{ archive, provided: true, setArchive }}>{children}</ArchiveContext.Provider>
+  return (
+    <ArchiveContext.Provider value={{ archive: archive ?? defaultArchive, provided: true, setArchive }} {...props} />
+  )
 }
