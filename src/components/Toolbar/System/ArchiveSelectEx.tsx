@@ -8,9 +8,9 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
   const { archives } = useArchives()
   const { archive, setArchive } = useArchive()
 
-  const archivesList = [...(archives ?? [])]
+  const archivesList = [...(archives?.map((archive) => archive.archive) ?? [])]
 
-  if (archive && !archives?.find((value) => value === archive)) {
+  if (archive && !archives?.find((value) => value.archive === archive)) {
     archivesList.push(archive)
   }
 
