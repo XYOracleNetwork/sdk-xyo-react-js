@@ -7,8 +7,9 @@ import { buildIntersectionString } from './buildIntersectionString'
 import { buildReferenceString } from './buildReferenceString'
 import { buildRelfectionString } from './buildReflectionString'
 import { buildUnionString } from './buildUnionString'
+import { TypeBuilder } from './TypeBuilder'
 
-export const buildTypeString = (
+export const buildTypeString: TypeBuilder = (
   type: SomeType | Type,
   reflectionViewer: React.FC<ReflectionViewerProps>
 ): ReactNode => {
@@ -20,22 +21,22 @@ export const buildTypeString = (
       parts.push(someType.name)
       break
     case 'intersection': {
-      buildIntersectionString(parts, someType, reflectionViewer)
+      parts.push(...buildIntersectionString(someType, reflectionViewer, buildTypeString))
       break
     }
     case 'literal':
       parts.push(JSON.stringify(someType.value))
       break
     case 'array': {
-      buildArrayString(parts, someType, reflectionViewer)
+      parts.push(...buildArrayString(someType, reflectionViewer, buildTypeString))
       break
     }
     case 'reference': {
-      buildReferenceString(parts, someType, reflectionViewer)
+      parts.push(...buildReferenceString(someType, reflectionViewer, buildTypeString))
       break
     }
     case 'union': {
-      buildUnionString(parts, someType, reflectionViewer)
+      parts.push(...buildUnionString(someType, reflectionViewer, buildTypeString))
       break
     }
     case 'reflection': {

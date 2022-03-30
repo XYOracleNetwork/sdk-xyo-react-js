@@ -1,16 +1,18 @@
 import { ArrayType } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps'
-import { buildTypeString } from './buildTypeString'
+import { TypeBuilder } from './TypeBuilder'
 
 export const buildArrayString = (
-  parts: string[],
   typeObj: ArrayType,
-  reflectionViewer: React.FC<ReflectionViewerProps>
+  reflectionViewer: React.FC<ReflectionViewerProps>,
+  typeBuilder: TypeBuilder
 ) => {
-  const typeString = buildTypeString(typeObj.elementType, reflectionViewer)
+  const parts: string[] = []
+  const typeString = typeBuilder(typeObj.elementType, reflectionViewer)
   if (typeof typeString === 'string') {
     parts.push(typeString)
   }
   parts.push('[]')
+  return parts
 }
