@@ -1,23 +1,25 @@
 import { ReferenceType } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps'
-import { buildTypeString } from './buildTypeString'
+import { TypeBuilder } from './TypeBuilder'
 
 export const buildReferenceString = (
-  parts: string[],
   typeObj: ReferenceType,
-  reflectionViewer: React.FC<ReflectionViewerProps>
+  reflectionViewer: React.FC<ReflectionViewerProps>,
+  typeBuilder: TypeBuilder
 ) => {
+  const parts: string[] = []
   parts.push(typeObj.name)
   if (typeObj.typeArguments) {
     parts.push('<')
     parts.push(
       typeObj.typeArguments
         .map((arg) => {
-          return buildTypeString(arg, reflectionViewer)
+          return typeBuilder(arg, reflectionViewer)
         })
         .join(', ')
     )
     parts.push('>')
   }
+  return parts
 }

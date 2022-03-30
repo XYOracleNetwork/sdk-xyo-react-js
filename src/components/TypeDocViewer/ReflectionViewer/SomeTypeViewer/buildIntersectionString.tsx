@@ -1,20 +1,22 @@
 import { IntersectionType } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps'
-import { buildTypeString } from './buildTypeString'
+import { TypeBuilder } from './TypeBuilder'
 
 export const buildIntersectionString = (
-  parts: string[],
   typeObj: IntersectionType,
-  reflectionViewer: React.FC<ReflectionViewerProps>
+  reflectionViewer: React.FC<ReflectionViewerProps>,
+  typeBuilder: TypeBuilder
 ) => {
+  const parts: string[] = []
   if (typeObj.types) {
     parts.push(
       typeObj.types
         .map((arg) => {
-          return buildTypeString(arg, reflectionViewer)
+          return typeBuilder(arg, reflectionViewer)
         })
         .join(' & ')
     )
   }
+  return parts
 }
