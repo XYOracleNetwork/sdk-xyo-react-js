@@ -1,17 +1,18 @@
 import { useAsyncEffect } from '@xylabs/sdk-react'
+import { XyoArchive } from '@xyo-network/sdk-xyo-client-js'
 import { useCallback, useState } from 'react'
 
 import { useArchivistApi } from '../ArchivistApi'
 import { ArchivesContext } from './Context'
 
 export const ArchivesProvider: React.FC = ({ children }) => {
-  const [archives, setArchives] = useState<string[]>()
+  const [archives, setArchives] = useState<XyoArchive[]>()
 
   const { api } = useArchivistApi()
 
   const refresh = useCallback(
     async (mounted = () => true) => {
-      const loadedArchives = (await api?.archives.get())?.map((response) => response.archive) ?? ['temp']
+      const loadedArchives = (await api?.archives.get())?.map((response) => response) ?? [{ archive: 'temp' }]
       if (mounted()) {
         setArchives(loadedArchives)
       }
