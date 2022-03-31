@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material'
+import { assertEx } from '@xylabs/sdk-js'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
@@ -42,15 +43,19 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
       if (checkedWallet && isLoading && api && !token) {
         try {
           // Get the message to sign from the server
-          const { state: message } = await api.user.walletChallenge(metaMaskWallet.currentAccount)
+          const { state: message } = assertEx((await api.wallet(metaMaskWallet.currentAccount).challenge.post())?.pop())
 
           // Sign it with metamask
-          const signature = await metaMaskWallet.signMessage(message)
+          const signature = assertEx(await metaMaskWallet.signMessage(assertEx(message)))
 
           // Send to server for verification
-          const { token } = await api.user.walletVerify(metaMaskWallet.currentAccount, message, signature as string)
+          const { token } = assertEx(
+            (
+              await api.wallet(metaMaskWallet.currentAccount).verify.post([{ message: message as string, signature }])
+            )?.pop()
+          )
 
-          setToken(token)
+          setToken(assertEx(token))
           setIsLoading(false)
         } catch (err) {
           setCheckedWallet(false)
