@@ -35,7 +35,7 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
   const [errorRefresh, setErrorRefresh] = useState(0)
   const { invoke } = useApiCaller()
 
-  const authApi = new XyoArchivistApi({
+  const userApi = new XyoArchivistApi({
     apiDomain: 'http://localhost:8081',
   }).user
 
@@ -45,16 +45,18 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
       try {
         await invoke({
           call: () =>
-            authApi.login({
-              email: 'none@none.com',
-              password: 'notarealpassword',
-            }),
+            userApi.login.post([
+              {
+                email: 'none@none.com',
+                password: 'notarealpassword',
+              },
+            ]),
         })
       } catch (error) {
         console.error(error)
       }
     }
-  }, [errorRefresh, setApiCalls, invoke, authApi])
+  }, [errorRefresh, setApiCalls, invoke, userApi])
 
   return (
     <>

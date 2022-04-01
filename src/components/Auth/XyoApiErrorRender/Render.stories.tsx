@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoApiError, XyoArchive } from '@xyo-network/sdk-xyo-client-js'
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 import { useState } from 'react'
 
 import { authDecorator, authServiceList } from '../../../.storybook'
@@ -40,11 +40,11 @@ const TemplateStats: ComponentStory<typeof XyoApiErrorRender> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       try {
-        const response = await api?.archive(archive).block.stats.get()
+        const response = (await api?.archive(archive).block.stats.get())?.pop()
         setStats(response)
         setApiError(undefined)
       } catch (error) {
-        setApiError(error as AxiosError)
+        setApiError(error as XyoApiError)
       }
     },
     [api, archive]
@@ -61,7 +61,7 @@ const TemplateStats: ComponentStory<typeof XyoApiErrorRender> = () => {
 }
 
 const TemplateArchives: ComponentStory<typeof XyoApiErrorRender> = () => {
-  const [apiError, setApiError] = useState<AxiosError>()
+  const [apiError, setApiError] = useState<XyoApiError>()
   const [archives, setArchives] = useState<XyoArchive[]>([])
   const { api } = useArchivistApi()
 
@@ -74,7 +74,7 @@ const TemplateArchives: ComponentStory<typeof XyoApiErrorRender> = () => {
         setApiError(undefined)
       }
     } catch (error) {
-      setApiError(error as AxiosError)
+      setApiError(error as XyoApiError)
     }
   }, [api])
 
@@ -89,7 +89,7 @@ const TemplateArchives: ComponentStory<typeof XyoApiErrorRender> = () => {
 }
 
 const Template404: ComponentStory<typeof XyoApiErrorRender> = () => {
-  const [apiError, setApiError] = useState<AxiosError>()
+  const [apiError, setApiError] = useState<XyoApiError>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -98,7 +98,7 @@ const Template404: ComponentStory<typeof XyoApiErrorRender> = () => {
         await axios.get('http://httpstat.us/500')
         setApiError(undefined)
       } catch (error) {
-        setApiError(error as AxiosError)
+        setApiError(error as XyoApiError)
       }
     },
     []

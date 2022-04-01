@@ -9,7 +9,7 @@ import { JsonApiButton } from './JsonApiButton'
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 export interface JsonFromPromiseProps extends FlexBoxProps {
-  callback: () => Promise<object>
+  callback: () => Promise<object | undefined>
   noBackButton?: boolean
   noJsonButton?: boolean
   jsonViewProps?: ReactJsonViewProps
