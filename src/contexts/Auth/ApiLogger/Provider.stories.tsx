@@ -45,12 +45,10 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
       try {
         await invoke({
           call: () =>
-            userApi.login.post([
-              {
-                email: 'none@none.com',
-                password: 'notarealpassword',
-              },
-            ]),
+            userApi.login.post({
+              email: 'none@none.com',
+              password: 'notarealpassword',
+            }),
         })
       } catch (error) {
         console.error(error)
