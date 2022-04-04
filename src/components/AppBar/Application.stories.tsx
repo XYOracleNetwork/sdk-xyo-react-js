@@ -17,15 +17,15 @@ const StorybookEntry = {
 } as ComponentMeta<typeof ApplicationAppBar>
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
-  <ArchiveProvider>
-    <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-      <ArchivesProvider>
-        <BrowserRouter>
+  <BrowserRouter>
+    <ArchiveProvider>
+      <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+        <ArchivesProvider>
           <ApplicationAppBar {...args}></ApplicationAppBar>
-        </BrowserRouter>
-      </ArchivesProvider>
-    </ArchivistApiProvider>
-  </ArchiveProvider>
+        </ArchivesProvider>
+      </ArchivistApiProvider>
+    </ArchiveProvider>
+  </BrowserRouter>
 )
 
 const Default = Template.bind({})

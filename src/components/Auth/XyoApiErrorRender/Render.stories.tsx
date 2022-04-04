@@ -40,7 +40,7 @@ const TemplateStats: ComponentStory<typeof XyoApiErrorRender> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       try {
-        const response = (await api?.archive(archive).block.stats.get())?.pop()
+        const response = await api?.archive(archive).block.stats.get()
         setStats(response)
         setApiError(undefined)
       } catch (error) {
