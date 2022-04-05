@@ -1,3 +1,3 @@
-const { metaServer } = require("./dist/node")
+const { metaServer } = require("../dist/node")
 
 metaServer(8083)
