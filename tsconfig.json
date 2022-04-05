@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["jest", "node", "@types/jest", "jest-sorted"]
   },
   "exclude": [".yarn/**/*", "dist", "node_modules"],
   "extends": "@xylabs/tsconfig"
