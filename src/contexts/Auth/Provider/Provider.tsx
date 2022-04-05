@@ -9,7 +9,7 @@ export interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children, authState }) => {
-  const defaultStateWithServices = { ...defaultState, ...authState }
+  const defaultStateWithServices = { ...defaultState(), ...authState }
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 
   useHydrateState(state, dispatch, ['jwtToken', 'loggedInAccount'])
