@@ -1,5 +1,5 @@
 import { Chip, Stack, Typography, TypographyVariant } from '@mui/material'
-import { FlexBoxProps, FlexRow, isLocalhost } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
 
 import { JsonViewerButton } from '../JsonViewerButton'
 import { SomeReflection } from '../SomeReflection'
@@ -31,7 +31,7 @@ export const NameViewer: React.FC<NameViewerProps> = ({ reflectionViewer, varian
             })
           : null}
       </Stack>
-      {isLocalhost && (
+      {document && document?.location.hostname === 'localhost' && (
         <JsonViewerButton
           jsonViewProps={{ collapsed: 1 }}
           size="small"
