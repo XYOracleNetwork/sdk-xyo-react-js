@@ -106,7 +106,7 @@
         "import": "./dist/node-esm/index.js",
         "require": "./dist/node/index.js"
       },
-      "default": "./dist/index.js"
+      "default": "./dist/browserIndex.js"
     },
     "./dist/docs.json": {
       "default": "./dist/docs.json"
@@ -122,7 +122,7 @@
   ],
   "license": "LGPL-3.0",
   "main": "dist/node/index.js",
-  "module": "dist/index.js",
+  "module": "dist/browserIndex.js",
   "name": "@xyo-network/sdk-xyo-react",
   "peerDependencies": {
     "typedoc": "^0.22.13"
