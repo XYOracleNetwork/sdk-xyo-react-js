@@ -9,10 +9,11 @@ const server = (port = 80) => {
   app.set('etag', false)
 
   const dirName = './build'
+  let config = {}
 
-  const config = JSON.parse(fs.readFileSync(path.join(dirName, 'meta.json')).toString() ?? '{}')
-
-  if (Object.keys(config).length === 0) {
+  try {
+    config = JSON.parse(fs.readFileSync(path.join(dirName, 'meta.json')).toString() ?? '{}')
+  } catch (ex) {
     console.warn('No config found!  Please creare a config at meta.json file in your ./build folder')
   }
 
@@ -21,7 +22,6 @@ const server = (port = 80) => {
     if (config && path.extname(adjustedPath) === '.html') {
       const html = fs.readFileSync(path.join(dirName, 'index.html')).toString()
       const updatedHtml = await setHtmlMetaData(`${req.protocol}://${req.headers.host}${req.url}`, html, config)
-      console.log(`html length [${html.length}, ${updatedHtml.length}]`)
       res.send(updatedHtml)
     } else {
       const data = fs.readFileSync(path.join(dirName, adjustedPath))
