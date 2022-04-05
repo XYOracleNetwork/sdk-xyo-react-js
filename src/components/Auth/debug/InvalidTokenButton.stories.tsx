@@ -5,7 +5,7 @@ import { AuthProvider, defaultState, useAuthState } from '../../../contexts'
 import { InvalidTokenButton } from './InvalidTokenButton'
 
 const AuthWrap: DecoratorFn = (Story, { args }) => (
-  <AuthProvider authState={{ ...defaultState, ...{ loggedInAccount: 'none@none.com' } }}>
+  <AuthProvider authState={{ ...defaultState(), ...{ loggedInAccount: 'none@none.com' } }}>
     <Story {...args} />
   </AuthProvider>
 )

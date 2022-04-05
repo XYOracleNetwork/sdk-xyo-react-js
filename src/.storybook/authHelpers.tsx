@@ -44,7 +44,7 @@ const WithArchivistApi: React.FC = ({ children }) => {
 
 const authDecorator: DecoratorFn = (Story, { args }) => {
   const {authState} = args
-  const mergedAuthState = {...defaultState, ...authState}
+  const mergedAuthState = {...defaultState(), ...authState}
 
   return (
     <FlexGrowCol marginY={2} justifyContent="flex-start" alignItems="center">
