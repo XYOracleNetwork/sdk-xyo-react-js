@@ -8,7 +8,7 @@ import { findNetworkConfig } from '../../lib'
 
 export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
   const { darkMode } = useAppSettings()
-  const { network, setNetwork, networks } = useNetwork()
+  const { network, setNetwork, networks } = useNetwork(true)
   return (
     <SelectEx
       colorize="primary"

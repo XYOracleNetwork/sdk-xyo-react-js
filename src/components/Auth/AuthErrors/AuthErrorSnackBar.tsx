@@ -1,20 +1,18 @@
 import { Alert, Snackbar, SnackbarProps } from '@mui/material'
 import { ButtonEx } from '@xylabs/sdk-react'
-import { AxiosError } from 'axios'
+import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
-import { AuthError, AuthErrorHelpers, FormattedAuthError, useAuthInterceptors } from './authInterceptors'
+import { AuthError, AuthErrorHelpers, FormattedAuthError } from './authInterceptors'
 
 interface AuthErrorSnackBarProps extends SnackbarProps {
   apiDomain: string
   setReAuth: Dispatch<SetStateAction<boolean>>
 }
 
-const AuthErrorSnackbar: React.FC<AuthErrorSnackBarProps> = ({ apiDomain, setReAuth, ...snackBarProps }) => {
+const AuthErrorSnackbar: React.FC<AuthErrorSnackBarProps> = ({ setReAuth, ...snackBarProps }) => {
   const [snackBarError, setSnackBarError] = useState<FormattedAuthError>()
   const [authError, setAuthError] = useState<AuthError>()
-
-  useAuthInterceptors(apiDomain, setAuthError)
 
   useEffect(() => {
     let mounted = true
@@ -27,7 +25,7 @@ const AuthErrorSnackbar: React.FC<AuthErrorSnackBarProps> = ({ apiDomain, setReA
         }
       }, 500)
     } else {
-      const error = AuthErrorHelpers.handleAuthError(authError as AxiosError)
+      const error = AuthErrorHelpers.handleAuthError(authError as XyoApiError)
       setSnackBarError(error)
     }
     return () => {
