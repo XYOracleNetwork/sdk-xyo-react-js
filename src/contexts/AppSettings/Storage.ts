@@ -23,12 +23,4 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
   set developerMode(value: boolean) {
     this.setBoolean(AppSettingSlug.Developer, value)
   }
-
-  get network() {
-    return this.getObject(AppSettingSlug.Network)
-  }
-
-  set network(value: XyoNetworkPreset) {
-    this.setObject(AppSettingSlug.Network, value)
-  }
 }

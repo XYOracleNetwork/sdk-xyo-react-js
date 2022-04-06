@@ -1,11 +1,12 @@
 import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/sdk-react'
 
-import { useAppSettings } from '../../../contexts'
+import { useAppSettings, useNetwork } from '../../../contexts'
 import { findNetworkPreset, networkPresets } from '../../../lib'
 
 export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
-  const { changeNetwork, network, darkMode } = useAppSettings()
+  const { darkMode } = useAppSettings()
+  const { network, setNetwork } = useNetwork()
   return (
     <SelectEx
       colorize="primary"
@@ -16,7 +17,7 @@ export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
       onChange={(event, child) => {
         if (event.target.value !== network?.slug) {
           onChange?.(event, child)
-          changeNetwork?.(findNetworkPreset(event.target.value))
+          setNetwork?.(findNetworkPreset(event.target.value))
         }
       }}
       {...props}
