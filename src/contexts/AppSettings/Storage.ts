@@ -1,4 +1,3 @@
-import { XyoNetworkPreset } from '../../lib'
 import { appSettingDefault } from './appSettingDefault'
 import { AppSettingSlug } from './Slug'
 import { AppSettingsStorageBase } from './StorageBase'
