@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
 
-import { authDecorator, authServiceList, WrappedArgs } from '../../../.storybook'
-import { NetworkProvider } from '../../../contexts'
+import { authDecorator, authServiceList, WrappedArgs } from '../../../../.storybook'
+import { NetworkMemoryProvider } from '../../Context'
 import { NetworkSelectEx } from './NetworkSelectEx'
 
 const StorybookEntry = {
@@ -22,7 +22,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'NetworkSelectEx',
+  title: 'network/NetworkSelectEx',
 } as ComponentMeta<typeof NetworkSelectEx>
 
 const Template: ComponentStory<typeof NetworkSelectEx> = (args) => {
@@ -30,9 +30,9 @@ const Template: ComponentStory<typeof NetworkSelectEx> = (args) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { authState, ...props } = combinedArgs
   return (
-    <NetworkProvider>
+    <NetworkMemoryProvider>
       <NetworkSelectEx {...props}></NetworkSelectEx>
-    </NetworkProvider>
+    </NetworkMemoryProvider>
   )
 }
 

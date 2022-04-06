@@ -1,9 +1,9 @@
 import { Toolbar, ToolbarProps } from '@mui/material'
 import { FlexRow, SelectExProps } from '@xylabs/sdk-react'
 
+import { NetworkSelectEx } from '../../../modules'
 import { AuthStatusIconButton } from '../../Auth'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
-import { NetworkSelectEx } from './NetworkSelectEx'
 import { SiteMenu, SiteMenuProps } from './SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
