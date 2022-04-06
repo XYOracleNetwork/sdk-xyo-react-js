@@ -2,8 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
 
 import { authDecorator, authServiceList, WrappedArgs } from '../../../.storybook'
-import { ArchiveProvider } from '../../../contexts'
-import { ArchiveSelectEx } from './ArchiveSelectEx'
+import { NetworkProvider } from '../../../contexts'
+import { NetworkSelectEx } from './NetworkSelectEx'
 
 const StorybookEntry = {
   argTypes: {
@@ -15,24 +15,24 @@ const StorybookEntry = {
       },
     },
   },
-  component: ArchiveSelectEx,
+  component: NetworkSelectEx,
   decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'ArchiveSelectEx',
-} as ComponentMeta<typeof ArchiveSelectEx>
+  title: 'NetworkSelectEx',
+} as ComponentMeta<typeof NetworkSelectEx>
 
-const Template: ComponentStory<typeof ArchiveSelectEx> = (args) => {
+const Template: ComponentStory<typeof NetworkSelectEx> = (args) => {
   const combinedArgs = args as WrappedArgs & SelectExProps<string>
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { authState, ...props } = combinedArgs
   return (
-    <ArchiveProvider>
-      <ArchiveSelectEx {...props}></ArchiveSelectEx>
-    </ArchiveProvider>
+    <NetworkProvider>
+      <NetworkSelectEx {...props}></NetworkSelectEx>
+    </NetworkProvider>
   )
 }
 
