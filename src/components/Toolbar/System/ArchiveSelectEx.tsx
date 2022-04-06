@@ -20,7 +20,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
       mode={darkMode ? 'dark' : 'light'}
       variant="outlined"
       size="small"
-      value={archive}
+      value={archive ?? ''}
       onChange={(event, child) => {
         if (event.target.value !== archive) {
           setArchive?.(event.target.value)
