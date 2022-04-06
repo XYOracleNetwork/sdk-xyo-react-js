@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
 
 import { authDecorator, authServiceList, WrappedArgs } from '../../../.storybook'
-import { ArchiveProvider } from '../../../contexts'
+import { ArchiveProvider, ArchivesProvider, ArchivistApiProvider } from '../../../contexts'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 
 const StorybookEntry = {
@@ -30,9 +30,13 @@ const Template: ComponentStory<typeof ArchiveSelectEx> = (args) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { authState, ...props } = combinedArgs
   return (
-    <ArchiveProvider>
-      <ArchiveSelectEx {...props}></ArchiveSelectEx>
-    </ArchiveProvider>
+    <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+      <ArchivesProvider>
+        <ArchiveProvider>
+          <ArchiveSelectEx {...props}></ArchiveSelectEx>
+        </ArchiveProvider>
+      </ArchivesProvider>
+    </ArchivistApiProvider>
   )
 }
 

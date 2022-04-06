@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { ArchiveProvider, ArchivesProvider, ArchivistApiProvider } from '../../contexts'
+import { NetworkMemoryProvider } from '../../modules'
 import { ApplicationAppBar } from './Application'
 
 const StorybookEntry = {
@@ -18,13 +19,15 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
   <BrowserRouter>
-    <ArchiveProvider>
-      <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-        <ArchivesProvider>
-          <ApplicationAppBar {...args}></ApplicationAppBar>
-        </ArchivesProvider>
-      </ArchivistApiProvider>
-    </ArchiveProvider>
+    <NetworkMemoryProvider>
+      <ArchiveProvider>
+        <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+          <ArchivesProvider>
+            <ApplicationAppBar {...args}></ApplicationAppBar>
+          </ArchivesProvider>
+        </ArchivistApiProvider>
+      </ArchiveProvider>
+    </NetworkMemoryProvider>
   </BrowserRouter>
 )
 
