@@ -1,4 +1,4 @@
-import { useContextEx } from '../ContextEx'
+import { useContextEx } from '../../modules'
 import { PixelContext } from './Context'
 
 export const usePixel = (required = true) => {

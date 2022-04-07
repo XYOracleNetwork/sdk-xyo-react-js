@@ -12,7 +12,7 @@ import {
 } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
-import { useArchive } from '../Archive'
+import { useArchive } from '../../modules'
 import { XyoPanelContext } from './Context'
 import { XyoPanelReportProgress, XyoReportStatus } from './State'
 

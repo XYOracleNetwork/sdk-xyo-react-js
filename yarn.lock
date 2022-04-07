@@ -4969,14 +4969,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17.0.43":
-  version: 17.0.43
-  resolution: "@types/react@npm:17.0.43"
+"@types/react@npm:*":
+  version: 18.0.0
+  resolution: "@types/react@npm:18.0.0"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 981b0993f5b3ea9d3488b8cc883201e8ae47ba7732929f788f450a79fd72829e658080d5084e67caa008e58d989b0abc1d5f36ff0a1cda09315ea3a3c0c9dc11
+  checksum: 8a9769e2cabe335c86179881577e6ca32f3a6abdd5adbe2d498e48b78d532130da828a53ef25f21915179da454654b811292e0a8191c8a81af3bf4b05f5673bd
   languageName: node
   linkType: hard
 
@@ -5928,9 +5928,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.16.2":
-  version: 2.16.2
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.16.2"
+"@xyo-network/sdk-xyo-client-js@npm:^2.16.3":
+  version: 2.16.3
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.16.3"
   dependencies:
     "@ethersproject/providers": ^5.6.2
     "@xylabs/sdk-js": ^2.4.3
@@ -5942,7 +5942,7 @@ __metadata:
     elliptic: ^6.5.4
     keccak256: ^1.0.6
     lodash: ^4.17.21
-    lru-cache: ^7.7.3
+    lru-cache: ^7.8.0
     mongodb: ^4.5.0
     neo4j-driver: ^4.4.5
     neo4j-driver-core: ^4.4.5
@@ -5951,7 +5951,7 @@ __metadata:
     systeminformation: ^5.11.9
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: f854641448201cbc7305a797572974d03334fa2fdf37722cb2bc3563a9d13c4466461eba55c6e7f30a3e7d594fe3b9b59037b432168fc64f789c0bcf3a838207
+  checksum: e2b6d06a812d3976db8b2b0e9afc14ab102fbffb9e4bea0b6bd5178c691d922d780d62130c68f1fa73721404f35004b9aa4a31372d6688d368b78d3023769f1b
   languageName: node
   linkType: hard
 
@@ -6009,7 +6009,6 @@ __metadata:
     "@types/luxon": ^2.3.1
     "@types/md5": ^2.3.2
     "@types/node": ^17.0.23
-    "@types/react": ^17.0.43
     "@types/react-lines-ellipsis": ^0.15.1
     "@xylabs/eslint-config-react": ^2.1.3
     "@xylabs/pixel": ^1.3.7
@@ -6018,7 +6017,7 @@ __metadata:
     "@xylabs/sdk-react": ^2.10.6
     "@xylabs/ts-scripts": ^1.0.52
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.16.2
+    "@xyo-network/sdk-xyo-client-js": ^2.16.3
     "@xyo-network/sdk-xyo-js": ^2.5.6
     axios: ^0.26.1
     babel-loader: ^8.2.4
@@ -6047,6 +6046,8 @@ __metadata:
     typescript: ^4.6.3
     webpack: ^5.72.0
   peerDependencies:
+    react: ^17
+    react-dom: ^17
     typedoc: ^0.22.13
   peerDependenciesMeta:
     typedoc:
@@ -13898,10 +13899,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^7.3.1, lru-cache@npm:^7.4.1, lru-cache@npm:^7.7.3":
-  version: 7.7.3
-  resolution: "lru-cache@npm:7.7.3"
-  checksum: 1789743a68a8db052564a9dd020f04ba0712327a43e08babc94f05e1c56ef75a03514cf4acab75ae90e3d5d16ae02c7bf0f34754968dc5b8c2c3bc2d92c21745
+"lru-cache@npm:^7.3.1, lru-cache@npm:^7.4.1, lru-cache@npm:^7.8.0":
+  version: 7.8.0
+  resolution: "lru-cache@npm:7.8.0"
+  checksum: 7cc046276b668e7b59c10f7f25049d89315cd22fb5205c0eb476583ba29b8542955189452dc8655a771e1a91f6056ddcb29daf4ac35197f77b3ce9a0041d54c9
   languageName: node
   linkType: hard
 

@@ -1,2 +1,2 @@
 export * from './authHelpers'
-export * from '../components/.storybook/samplePayload'
+export * from '../components/.storybook'

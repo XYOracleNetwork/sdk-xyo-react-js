@@ -1,4 +1,4 @@
-import { useContextEx } from '../ContextEx'
+import { useContextEx } from '../../modules'
 import { XyoPanelContext } from './Context'
 
 export const useXyoPanel = () => {

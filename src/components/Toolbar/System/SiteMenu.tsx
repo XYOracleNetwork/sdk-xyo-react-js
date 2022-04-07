@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexRow, LinkEx, MenuEx } from '@xylabs/sdk-react'
 import { useRef, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
-import { useAppSettings } from '../../../contexts'
+import { useAppSettings } from '../../../modules'
 
 export interface SiteMenuItem {
   name: string

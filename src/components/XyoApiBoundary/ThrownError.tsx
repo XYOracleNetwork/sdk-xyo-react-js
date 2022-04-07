@@ -1,7 +1,7 @@
 import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { Component, ErrorInfo, ReactNode } from 'react'
 
-import { XyoApiErrorRender } from '../Auth'
+import { XyoApiErrorRender } from '../../modules'
 
 export interface XyoApiErrorBoundaryProps {
   rethrow?: boolean

@@ -1,6 +1,6 @@
 import { XyPixel } from '@xylabs/pixel'
 
-import { ContextExState } from '../ContextEx'
+import { ContextExState } from '../../modules'
 
 export interface PixelContextState extends ContextExState {
   pixel?: XyPixel

@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
 
 import { authDecorator, authServiceList, WrappedArgs } from '../../../../.storybook'
-import { NetworkMemoryProvider } from '../../Context'
+import { NetworkMemoryProvider } from '../../contexts'
 import { NetworkSelectEx } from './NetworkSelectEx'
 
 const StorybookEntry = {

@@ -2,8 +2,7 @@ import { assertEx } from '@xylabs/sdk-js'
 import { XyoApiError, XyoApiResponse } from '@xyo-network/sdk-xyo-client-js'
 import { ReactNode, useState } from 'react'
 
-import { ArchivistApiProvider, useArchivistApi } from '../../contexts'
-import { XyoApiErrorRender } from '../Auth'
+import { ArchivistApiProvider, useArchivistApi, XyoApiErrorRender } from '../../modules'
 import { XyoApiThrownErrorBoundary } from './ThrownError'
 
 export interface XyoApiUnauthorizedBoundaryProps {
