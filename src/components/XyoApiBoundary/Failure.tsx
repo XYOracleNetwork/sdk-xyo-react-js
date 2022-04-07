@@ -17,7 +17,7 @@ export const XyoApiFailureBoundary: React.FC<XyoApiUnauthorizedBoundaryProps> = 
 
   return apiFailure ? (
     <XyoApiErrorRender apiFailure={apiFailure} apiError={apiError} />
-  ) : (
+  ) : api ? (
     <ArchivistApiProvider
       apiDomain={assertEx(api?.config.apiDomain)}
       onFailure={(response) => setApiFailure(response)}
@@ -26,5 +26,7 @@ export const XyoApiFailureBoundary: React.FC<XyoApiUnauthorizedBoundaryProps> = 
     >
       <XyoApiThrownErrorBoundary>{children}</XyoApiThrownErrorBoundary>
     </ArchivistApiProvider>
+  ) : (
+    <>{children}</>
   )
 }
