@@ -30,7 +30,7 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
   const [failureHistory] = useState<XyoApiResponse[]>([])
   const [errorHistory] = useState<XyoApiError[]>([])
 
-  const { dispatch: setAuthState } = useAuthState()
+  const { state: authState, dispatch: setAuthState } = useAuthState()
 
   //we are doing this with config since we want a value compare and not a ref compare
   useEffect(() => {
@@ -48,14 +48,15 @@ export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
 
   const onFailure = useCallback(
     (response: XyoApiResponse) => {
-      if (response.status === 401) {
+      //if 401 and we think we are authenticated, logout
+      if (response.status === 401 && authState?.loggedInAccount) {
         setAuthState?.({ payload: {}, type: AuthActionType.Logout })
       }
 
       logWithMax(failureHistory, response, failureHistoryMaxDepth)
       logResponse(response)
     },
-    [logResponse, failureHistory, failureHistoryMaxDepth, setAuthState]
+    [logResponse, failureHistory, failureHistoryMaxDepth, setAuthState, authState]
   )
 
   const onSuccess = useCallback(
