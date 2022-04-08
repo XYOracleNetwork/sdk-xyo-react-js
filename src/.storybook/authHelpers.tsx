@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material'
 import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
-import { ArchivistApiProvider, AuthProvider, AuthServiceId, AuthState, AuthService, defaultState, useAuthState } from '../contexts'
+import { ArchivistApiProvider, AuthProvider, AuthServiceId, AuthState, AuthService, defaultState, useAuthState } from '../modules/general/contexts'
 import { AuthThemeExtender } from '../components'
 
 interface WrappedArgs {
