@@ -1,4 +1,4 @@
-import { XyoArchivistPreset, XyoDivinerPreset } from '../../../../lib'
+import { XyoArchivistPreset, XyoDivinerPreset } from '../../../general'
 
 export interface XyoNetworkConfig {
   slug: string

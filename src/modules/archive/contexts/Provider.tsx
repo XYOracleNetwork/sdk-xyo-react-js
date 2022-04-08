@@ -1,3 +1,4 @@
+import { WithChildren } from '@xylabs/sdk-react'
 import { useState } from 'react'
 
 import { ArchiveContext } from './Context'
@@ -6,7 +7,7 @@ export interface ArchiveProviderProps {
   defaultArchive?: string
 }
 
-export const ArchiveProvider: React.FC<ArchiveProviderProps> = ({ defaultArchive, ...props }) => {
+export const ArchiveProvider: React.FC<WithChildren<ArchiveProviderProps>> = ({ defaultArchive, ...props }) => {
   const [archive, setArchive] = useState<string>()
 
   return (

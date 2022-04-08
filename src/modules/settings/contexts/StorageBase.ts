@@ -1,6 +1,6 @@
 import { assertEx } from '@xylabs/sdk-js'
 
-import { assertDefinedEx } from '../../../assertDefinedEx'
+import { assertDefinedEx } from '../../general'
 
 export class AppSettingsStorageBase {
   private prefix: string

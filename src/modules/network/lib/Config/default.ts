@@ -1,4 +1,4 @@
-import { findArchivistPreset, findDivinerPreset } from '../../../../lib'
+import { findArchivistPreset, findDivinerPreset } from '../../../general'
 import { XyoNetworkConfig } from './XyoNetworkConfig'
 
 export const defaultNetworkConfigs: XyoNetworkConfig[] = [

@@ -2,7 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
 
 import { authDecorator, authServiceList, WrappedArgs } from '../../../.storybook'
-import { ArchivesProvider, ArchivistApiProvider } from '../../../contexts'
+import { ArchivesProvider } from '../../archives'
+import { ArchivistApiProvider } from '../../archivist-api'
 import { ArchiveProvider } from '../contexts'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 

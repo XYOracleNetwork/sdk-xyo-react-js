@@ -5,8 +5,8 @@ import { XyoArchive } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../.storybook'
-import { AuthServiceWrapper } from '../../../components'
-import { useAuthState } from '../../../contexts'
+import { useAuthState } from '../../auth'
+import { AuthServiceWrapper } from '../../auth-service'
 import { ArchivistApiProvider } from './Provider'
 import { useArchivistApi } from './use'
 

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { authDecorator, WrappedAuthComponent } from '../../../.storybook'
-import { AuthServiceWrapper } from '../../auth-service-wrapper'
+import { AuthServiceWrapper } from '../../auth-service'
 import { AuthStatusIconButton } from './AuthStatusIconButton'
 
 const StorybookEntry = {
