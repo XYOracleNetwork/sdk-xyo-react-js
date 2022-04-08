@@ -61,7 +61,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   )
 }
 
-export const NetworkRouteProvider: React.FC<NetworkProviderProps> = ({ defaultNetwork, ...props }) => {
+export const NetworkRouteProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetwork, ...props }) => {
   return (
     <NetworkMemoryProvider defaultNetwork={defaultNetwork}>
       <NetworkRouteProviderInner {...props} />
