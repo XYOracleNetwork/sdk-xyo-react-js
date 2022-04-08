@@ -4,7 +4,7 @@ import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { lazy, Suspense } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'
 
-import { Property } from '../../Properties'
+import { Property } from '../../../modules'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 

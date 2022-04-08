@@ -1,11 +1,11 @@
-import { useAsyncEffect } from '@xylabs/sdk-react'
+import { useAsyncEffect, WithChildren } from '@xylabs/sdk-react'
 import { XyoArchive } from '@xyo-network/sdk-xyo-client-js'
 import { useCallback, useState } from 'react'
 
 import { useArchivistApi } from '../../archivist-api'
 import { ArchivesContext } from './Context'
 
-export const ArchivesProvider: React.FC = ({ children }) => {
+export const ArchivesProvider: React.FC<WithChildren> = ({ children }) => {
   const [archives, setArchives] = useState<XyoArchive[]>()
 
   const { api } = useArchivistApi()

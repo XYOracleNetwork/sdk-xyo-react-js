@@ -1,3 +1,4 @@
+import { WithChildren } from '@xylabs/sdk-react'
 import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -13,7 +14,7 @@ export interface ArchivistApiProviderProps extends XyoApiConfig {
   errorHistoryMaxDepth?: number
 }
 
-export const ArchivistApiProvider: React.FC<ArchivistApiProviderProps> = ({
+export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderProps>> = ({
   required = false,
   successHistoryMaxDepth = 0,
   responseHistoryMaxDepth = 0,

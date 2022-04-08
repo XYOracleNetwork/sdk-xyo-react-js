@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import axios from 'axios'
 
 import { authDecorator, authServiceList } from '../../../../.storybook'
-import { AuthServiceWrapper } from '../AuthServiceWrapper'
+import { AuthServiceWrapper } from '../../../auth-service-wrapper'
 import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 
 const StorybookEntry = {

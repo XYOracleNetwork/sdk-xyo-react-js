@@ -3,7 +3,7 @@ import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xy
 import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 import { lazy, Suspense } from 'react'
 
-import { Property } from '../../Properties'
+import { Property } from '../../../modules'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 

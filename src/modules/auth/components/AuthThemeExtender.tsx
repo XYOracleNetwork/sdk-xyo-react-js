@@ -1,10 +1,11 @@
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material'
+import { WithChildren } from '@xylabs/sdk-react'
 
 export interface AuthThemeExtenderProps {
   themeOptions?: ThemeOptions
 }
 
-const AuthThemeExtender: React.FC<AuthThemeExtenderProps> = ({ children, themeOptions }) => {
+const AuthThemeExtender: React.FC<WithChildren<AuthThemeExtenderProps>> = ({ children, themeOptions }) => {
   const authThemeOptions: ThemeOptions = {
     components: {
       MuiButton: {

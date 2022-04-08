@@ -6,5 +6,5 @@ import { ContextExState } from '../../context-ex'
 export interface ArchivesContextState extends ContextExState {
   archives?: XyoArchive[]
   setArchives?: Dispatch<XyoArchive[]>
-  refresh?: (mounted?: () => boolean) => void
+  refresh?: (mounted: () => boolean) => Promise<void>
 }

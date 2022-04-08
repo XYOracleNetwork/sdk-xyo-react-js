@@ -1,4 +1,5 @@
-import { ReactNode, useReducer } from 'react'
+import { WithChildren } from '@xylabs/sdk-react'
+import { useReducer } from 'react'
 
 import { AuthContext } from '../Context'
 import { useHydrateState } from '../hooks'
@@ -6,10 +7,9 @@ import { authReducer, AuthState, defaultState } from '../State'
 
 export interface AuthProviderProps {
   authState: Partial<AuthState>
-  children?: ReactNode
 }
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children, authState }) => {
+export const AuthProvider: React.FC<WithChildren<AuthProviderProps>> = ({ children, authState }) => {
   const defaultStateWithServices = { ...defaultState(), ...authState }
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 

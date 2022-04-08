@@ -3,7 +3,7 @@ import { ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
-import { ApiLogs } from '../../../../components'
+import { ApiLogs } from '../../components'
 import { ApiErrorsProvider } from './Provider'
 import { useApiCaller } from './useApiCaller'
 import { useApiLogger } from './useApiLogger'

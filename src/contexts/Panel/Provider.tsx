@@ -1,5 +1,5 @@
 import { assertEx, delay } from '@xylabs/sdk-js'
-import { useAsyncEffect } from '@xylabs/sdk-react'
+import { useAsyncEffect, WithChildren } from '@xylabs/sdk-react'
 import {
   XyoAddress,
   XyoApiConfig,
@@ -37,7 +37,7 @@ const getDefaultArchivists = () => {
   })
 }
 
-export const XyoPanelProvider: React.FC<XyoPanelProviderProps> = ({
+export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = ({
   inlinePayloads = false,
   required = false,
   address = XyoAddress.random(),

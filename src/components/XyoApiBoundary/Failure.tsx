@@ -1,15 +1,12 @@
 import { assertEx } from '@xylabs/sdk-js'
+import { WithChildren } from '@xylabs/sdk-react'
 import { XyoApiError, XyoApiResponse } from '@xyo-network/sdk-xyo-client-js'
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 
 import { ArchivistApiProvider, useArchivistApi, XyoApiErrorRender } from '../../modules'
 import { XyoApiThrownErrorBoundary } from './ThrownError'
 
-export interface XyoApiUnauthorizedBoundaryProps {
-  children: ReactNode
-}
-
-export const XyoApiFailureBoundary: React.FC<XyoApiUnauthorizedBoundaryProps> = ({ children }) => {
+export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
   const { api } = useArchivistApi()
   const [apiFailure, setApiFailure] = useState<XyoApiResponse>()
   const [apiError, setApiError] = useState<XyoApiError>()

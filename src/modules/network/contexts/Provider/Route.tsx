@@ -1,4 +1,5 @@
-import { ReactNode, useCallback, useEffect } from 'react'
+import { WithChildren } from '@xylabs/sdk-react'
+import { useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { defaultNetworkConfigs, findNetworkConfig, XyoNetworkConfig } from '../../lib'
@@ -7,7 +8,7 @@ import { useNetwork } from '../use'
 import { NetworkMemoryProvider } from './Memory'
 import { NetworkProviderProps } from './Props'
 
-const NetworkRouteProviderInner: React.FC<{ children?: ReactNode }> = ({ children }) => {
+const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const { network, setNetwork } = useNetwork()
 
   const [params, setParams] = useSearchParams()

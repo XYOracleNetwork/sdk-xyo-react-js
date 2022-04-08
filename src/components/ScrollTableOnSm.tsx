@@ -1,4 +1,5 @@
 import { styled } from '@mui/material'
+import { WithChildren } from '@xylabs/sdk-react'
 
 const StyledScrollTableOnSm = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -8,6 +9,8 @@ const StyledScrollTableOnSm = styled('div')(({ theme }) => ({
   flexGrow: 1,
 }))
 
-const ScrollTableOnSm: React.FC = ({ children }) => <StyledScrollTableOnSm>{children}</StyledScrollTableOnSm>
+const ScrollTableOnSm: React.FC<WithChildren> = ({ children }) => (
+  <StyledScrollTableOnSm>{children}</StyledScrollTableOnSm>
+)
 
 export { ScrollTableOnSm }

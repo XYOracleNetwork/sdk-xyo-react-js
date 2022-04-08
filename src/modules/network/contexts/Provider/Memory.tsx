@@ -1,10 +1,11 @@
+import { WithChildren } from '@xylabs/sdk-react'
 import { useState } from 'react'
 
 import { defaultNetworkConfigs } from '../../lib'
 import { NetworkContext } from '../Context'
 import { NetworkProviderProps } from './Props'
 
-export const NetworkMemoryProvider: React.FC<NetworkProviderProps> = ({ defaultNetwork, ...props }) => {
+export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetwork, ...props }) => {
   const [network, setNetwork] = useState(defaultNetwork ?? defaultNetworkConfigs[0])
 
   return (

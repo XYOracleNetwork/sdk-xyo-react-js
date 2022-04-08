@@ -1,7 +1,7 @@
 import { ButtonEx } from '@xylabs/sdk-react'
 import { memo } from 'react'
 
-interface AuthFooterProps {
+export interface AuthFooterProps {
   handleLogout: () => void
 }
 
@@ -11,6 +11,4 @@ const AuthFooterComponent: React.FC<AuthFooterProps> = ({ handleLogout }) => (
   </ButtonEx>
 )
 
-const AuthFooter = memo(AuthFooterComponent)
-
-export { AuthFooter }
+export const AuthFooter = memo(AuthFooterComponent)

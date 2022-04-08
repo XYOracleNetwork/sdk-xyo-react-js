@@ -1,15 +1,21 @@
-import { AxiosError, AxiosResponse } from 'axios'
+import { XyoApiError, XyoApiResponse } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch, SetStateAction } from 'react'
 
-export interface AxiosLoggedResponse extends AxiosResponse {
+export interface XyoApiLoggedResponse extends XyoApiResponse {
   logged: string
 }
 
-export interface AxiosLoggedError extends AxiosError {
+/** @deprectated use XyoApiLoggedResponse instead */
+export type AxiosLoggedResponse = XyoApiLoggedResponse
+
+export interface XypApiLoggedError extends XyoApiError {
   logged: string
 }
 
-export type ApiCall = AxiosLoggedError | AxiosLoggedResponse
+/** @deprectated use XypApiLoggedError instead */
+export type AxiosLoggedError = XypApiLoggedError
+
+export type ApiCall = XypApiLoggedError | XyoApiLoggedResponse
 
 export interface ApiLoggerState {
   calls: ApiCall[]

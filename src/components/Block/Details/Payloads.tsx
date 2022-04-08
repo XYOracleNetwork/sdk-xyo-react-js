@@ -2,8 +2,8 @@ import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
+import { Property } from '../../../modules'
 import { PayloadTable, PayloadTableProps } from '../../Payload'
-import { Property } from '../../Properties'
 
 export interface BlockPayloadsProps extends FlexBoxProps {
   payloads?: XyoPayload[]
