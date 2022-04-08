@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { Component, ErrorInfo, ReactNode } from 'react'
 
@@ -10,19 +11,21 @@ export interface XyoApiErrorBoundaryProps {
 
 export interface XyoApiErrorBoundaryState {
   xyoApiError?: XyoApiError
+  error?: Error
 }
 
 export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProps, XyoApiErrorBoundaryState> {
   public state: XyoApiErrorBoundaryState = {
+    error: undefined,
     xyoApiError: undefined,
   }
 
   public static getDerivedStateFromError(error: Error): XyoApiErrorBoundaryState {
     const xyoApiError = error as XyoApiError
-    if (xyoApiError.isAxiosError) {
+    if (xyoApiError.isXyoError) {
       return { xyoApiError }
     } else {
-      return {}
+      return { error }
     }
   }
 
@@ -35,15 +38,19 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
         throw error
       }
     } else {
-      throw error
+      if (rethrow) {
+        throw error
+      }
     }
   }
 
   public render() {
-    const { xyoApiError } = this.state
+    const { xyoApiError, error } = this.state
     const { children } = this.props
     if (xyoApiError) {
       return <XyoApiErrorRender apiError={xyoApiError} />
+    } else if (error) {
+      return <Typography>Oops. An error occured!</Typography>
     }
 
     return children
