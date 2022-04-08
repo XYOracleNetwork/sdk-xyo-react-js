@@ -2,8 +2,8 @@ import { MenuItem } from '@mui/material'
 import { assertEx } from '@xylabs/sdk-js'
 import { SelectEx, SelectExProps } from '@xylabs/sdk-react'
 
-import { useAppSettings } from '../../../../contexts'
-import { useNetwork } from '../../Context'
+import { useAppSettings } from '../../../settings'
+import { useNetwork } from '../../contexts'
 import { findNetworkConfig } from '../../lib'
 
 export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
