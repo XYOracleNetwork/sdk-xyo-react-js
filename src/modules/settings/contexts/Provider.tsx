@@ -1,3 +1,4 @@
+import { WithChildren } from '@xylabs/sdk-react'
 import React, { ProviderProps, useState } from 'react'
 
 import { AppSettingsContext, AppSettingsContextProps } from './Context'
@@ -8,7 +9,7 @@ export interface AppSettingsProviderProps<T extends AppSettingsContextProps = Ap
   storage?: AppSettingsStorage
 }
 
-export const AppSettingsProvider: React.FC<AppSettingsProviderProps> = ({
+export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps>> = ({
   storage = new AppSettingsStorage(),
   value,
   children,
