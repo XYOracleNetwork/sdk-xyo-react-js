@@ -1,3 +1,5 @@
+import { ExplorerMapHashes } from './ExplorerMapHashes'
+
 export interface XyoArchivistPreset {
   slug: string
   name: string
@@ -5,6 +7,10 @@ export interface XyoArchivistPreset {
     api: string
     web: string
     apiDocs?: string
+  }
+  explorerMapHashes?: {
+    staticAnswerHash: string
+    animatedAnswerHashes: string[]
   }
 }
 
@@ -18,6 +24,7 @@ export const findArchivistPreset = (slug: string) => {
 
 export const archivistPresets: XyoArchivistPreset[] = [
   {
+    explorerMapHashes: ExplorerMapHashes,
     name: 'XYO Shared Archivist (kerplunk)',
     slug: 'beta-archivist-xyo-network',
     urls: {
@@ -27,6 +34,7 @@ export const archivistPresets: XyoArchivistPreset[] = [
     },
   },
   {
+    explorerMapHashes: ExplorerMapHashes,
     name: 'XYO Shared Archivist (main)',
     slug: 'archivist-xyo-network',
     urls: {
