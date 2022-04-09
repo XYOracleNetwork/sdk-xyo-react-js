@@ -1,7 +1,8 @@
 import { FlexCol, InvertableThemeProvider } from '@xylabs/sdk-react'
 import { CssBaseline } from '@mui/material';
 import { useDarkMode } from 'storybook-dark-mode';
-import { themeOptions, partialDarkThemeOptions } from '../src/theme'
+import {partialDarkThemeOptions, themeOptions} from '../src/modules/theme'
+
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

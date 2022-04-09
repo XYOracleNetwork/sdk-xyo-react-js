@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { appThemeDecorator, sampleBlockWithPayloads } from '../../.storybook'
+import { appThemeDecorator, sampleBlockWithPayloads } from '../../../../.storybook'
 import { BlockDataDetails } from './DataDetails'
 
 const StorybookEntry = {

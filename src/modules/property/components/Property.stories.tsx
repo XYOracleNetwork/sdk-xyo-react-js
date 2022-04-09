@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { appThemeDecorator, sampleBlockWithPayloads } from '../../../.storybook'
+import { appThemeDecorator, sampleBlockWithPayloads } from '../../.storybook'
 import { Property } from './Property'
 
 const StorybookEntry = {
