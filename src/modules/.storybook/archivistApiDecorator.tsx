@@ -1,5 +1,5 @@
 import { DecoratorFn } from '@storybook/react'
-import { ArchivistApiProvider } from '../../../archivist-api'
+import { ArchivistApiProvider } from '../archivist-api'
 
 const archivistApiDecorator: DecoratorFn = (Story, { args }) => {
   return (
