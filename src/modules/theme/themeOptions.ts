@@ -1,6 +1,8 @@
 import { ThemeOptions } from '@mui/material'
+import merge from 'lodash/merge'
 
-import { fontFamilyHeadings, fontFamilyPrimary } from './fontFamily'
+import { fontFamilyPrimary } from './fontFamily'
+import { partialLightThemeOptions } from './partialLightThemeOptions'
 
 export const components: ThemeOptions['components'] = {
   MuiCardHeader: {
@@ -26,15 +28,7 @@ export const components: ThemeOptions['components'] = {
   },
 }
 
-export const palette: ThemeOptions['palette'] = {
-  mode: 'light',
-  primary: {
-    main: '#1f1a66',
-  },
-  secondary: {
-    main: '#ff722c',
-  },
-}
+const lowerFontWeight = 700
 
 export const typography: ThemeOptions['typography'] = {
   button: {
@@ -48,27 +42,22 @@ export const typography: ThemeOptions['typography'] = {
   fontWeightMedium: 600,
   fontWeightRegular: 400,
   h1: {
-    fontFamily: fontFamilyHeadings,
-    fontSize: '4rem',
+    fontFamily: fontFamilyPrimary,
   },
   h2: {
-    fontFamily: fontFamilyHeadings,
-    fontSize: '2.4rem',
+    fontFamily: fontFamilyPrimary,
   },
   h3: {
-    fontFamily: fontFamilyHeadings,
-    fontSize: '2.24rem',
+    fontFamily: fontFamilyPrimary,
   },
   h4: {
-    fontSize: '2rem',
+    fontWeight: lowerFontWeight,
   },
   h5: {
-    fontSize: '1.5rem',
+    fontWeight: lowerFontWeight,
   },
   h6: {
-    fontFamily: fontFamilyPrimary,
-    fontSize: '1.25rem',
-    fontWeight: 500,
+    fontWeight: lowerFontWeight,
   },
   subtitle1: {
     opacity: '50%',
@@ -79,12 +68,13 @@ export const typography: ThemeOptions['typography'] = {
   },
 }
 
-export const themeOptions: ThemeOptions = {
+export const baseThemeOptions: ThemeOptions = {
   components,
-  palette,
   shape: {
     borderRadius: 4,
   },
   spacing: 12,
   typography,
 }
+
+export const themeOptions = merge({}, baseThemeOptions, partialLightThemeOptions)
