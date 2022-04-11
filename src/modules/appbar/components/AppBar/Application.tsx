@@ -1,6 +1,5 @@
 import { AppBar, AppBarProps, Container, Toolbar, ToolbarProps, useMediaQuery, useTheme } from '@mui/material'
 import { FlexGrowRow, FlexRow, InvertableThemeProvider } from '@xylabs/sdk-react'
-import merge from 'lodash/merge'
 import React, { ReactElement } from 'react'
 
 import { ContextToolbar, SystemToolbar } from '../Toolbar'
