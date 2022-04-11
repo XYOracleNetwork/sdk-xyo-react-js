@@ -4,13 +4,12 @@ import axios from 'axios'
 
 import { authDecorator, authServiceList } from '../../../../.storybook'
 import { AuthServiceWrapper } from '../../../auth-service'
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 
 const StorybookEntry = {
   argTypes: {
-    apiDomain: {
-      defaultValue: 'http://localhost:8081',
-    },
     authState: {
       defaultValue: {
         authServiceList,
@@ -25,6 +24,7 @@ const StorybookEntry = {
     },
   },
   title: 'Auth/AuthErrorsWrapper',
+  /* eslint-disable deprecation/deprecation */
 } as ComponentMeta<typeof AuthErrorsWrapper>
 
 const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
