@@ -7,7 +7,7 @@ export const partialLightThemeOptions: ThemeOptions = {
       main: '#1f1a66',
     },
     secondary: {
-      main: '#ff722c',
+      main: '#0f68c9',
     },
   },
 }
