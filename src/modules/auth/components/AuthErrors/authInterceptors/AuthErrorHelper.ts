@@ -12,6 +12,7 @@ const isXyoError = (error: AuthError): error is XyoApiError => {
   return (error as XyoApiError)?.isXyoError
 }
 
+/** @deprecated use XyoApiErrorRender to handle api errors from the sdk  */
 class AuthErrorHelpers {
   public static handleAuthError = (error: AuthError): FormattedAuthError => {
     if (isXyoError(error) && error.response?.status === 401) {
@@ -37,6 +38,6 @@ class AuthErrorHelpers {
     }
   }
 }
-
+/* eslint-disable deprecation/deprecation */
 export { AuthErrorHelpers }
 export type { AuthError, FormattedAuthError }

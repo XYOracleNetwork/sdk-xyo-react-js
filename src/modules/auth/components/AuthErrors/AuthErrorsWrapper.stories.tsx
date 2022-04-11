@@ -3,8 +3,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import axios from 'axios'
 
 import { authDecorator, authServiceList } from '../../../../.storybook'
-import { useArchivistApi } from '../../../archivist-api'
 import { AuthServiceWrapper } from '../../../auth-service'
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 
 const StorybookEntry = {
@@ -23,6 +24,7 @@ const StorybookEntry = {
     },
   },
   title: 'Auth/AuthErrorsWrapper',
+  /* eslint-disable deprecation/deprecation */
 } as ComponentMeta<typeof AuthErrorsWrapper>
 
 const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
