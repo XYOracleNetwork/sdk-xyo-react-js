@@ -3,16 +3,18 @@ import { WithChildren } from '@xylabs/sdk-react'
 import { useEffect, useState } from 'react'
 
 import { AuthThemeExtender } from '../AuthThemeExtender'
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { AuthErrorSnackbar } from './AuthErrorSnackBar'
 
 export interface AuthErrorsWrapperProps {
   apiDomain: string
 }
 
-export const AuthErrorsWrapper: React.FC<WithChildren<AuthErrorsWrapperProps>> = ({ apiDomain, children }) => {
+/** @deprecated use XyoApiErrorRender to handle api errors from the sdk  */
+export const AuthErrorsWrapper: React.FC<WithChildren<AuthErrorsWrapperProps>> = ({ children }) => {
   const theme = useTheme()
-  const reAuthState = useState(false)
-  const [reAuth, setReAuth] = reAuthState
+  const [reAuth, setReAuth] = useState(false)
 
   useEffect(() => {
     if (reAuth) {
@@ -26,7 +28,7 @@ export const AuthErrorsWrapper: React.FC<WithChildren<AuthErrorsWrapperProps>> =
   return (
     <AuthThemeExtender themeOptions={theme}>
       {children}
-      <AuthErrorSnackbar apiDomain={apiDomain} setReAuth={setReAuth} />
+      <AuthErrorSnackbar setReAuth={setReAuth} />
     </AuthThemeExtender>
   )
 }

@@ -6,10 +6,10 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { AuthError, AuthErrorHelpers, FormattedAuthError } from './authInterceptors'
 
 interface AuthErrorSnackBarProps extends SnackbarProps {
-  apiDomain: string
   setReAuth: Dispatch<SetStateAction<boolean>>
 }
 
+/** @deprecated use XyoApiErrorRender to handle api errors from the sdk  */
 const AuthErrorSnackbar: React.FC<AuthErrorSnackBarProps> = ({ setReAuth, ...snackBarProps }) => {
   const [snackBarError, setSnackBarError] = useState<FormattedAuthError>()
   const [authError, setAuthError] = useState<AuthError>()
@@ -25,6 +25,7 @@ const AuthErrorSnackbar: React.FC<AuthErrorSnackBarProps> = ({ setReAuth, ...sna
         }
       }, 500)
     } else {
+      /* eslint-disable deprecation/deprecation */
       const error = AuthErrorHelpers.handleAuthError(authError as XyoApiError)
       setSnackBarError(error)
     }
@@ -69,5 +70,5 @@ const AuthErrorSnackbar: React.FC<AuthErrorSnackBarProps> = ({ setReAuth, ...sna
     </Snackbar>
   )
 }
-
+/* eslint-disable deprecation/deprecation */
 export { AuthErrorSnackbar }

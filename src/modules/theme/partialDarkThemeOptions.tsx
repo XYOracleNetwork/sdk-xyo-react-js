@@ -4,10 +4,10 @@ export const partialDarkThemeOptions: ThemeOptions = {
   palette: {
     mode: 'dark',
     primary: {
-      main: '#4e4994',
+      main: '#7461ea',
     },
     secondary: {
-      main: '#ffb300',
+      main: '#5898dd',
     },
   },
 }
