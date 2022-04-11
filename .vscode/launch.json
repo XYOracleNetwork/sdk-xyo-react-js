@@ -7,14 +7,19 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug Meta Server",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "name": "Debug",
       "program": "${workspaceFolder}/bin/start-meta.js",
-      "outFiles": [
-        "${workspaceFolder}/**/*.js"
-      ]
-    }
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "runtimeArgs": [
+        "--experimental-specifier-resolution=node",
+        "--loader=ts-node/esm"
+      ],
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/src/**",
+        "!**/node_modules/**"
+      ],
+      "pauseForSourceMap": true,
+    },
   ]
 }
