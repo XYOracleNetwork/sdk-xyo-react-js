@@ -6,7 +6,7 @@ export const XyoLogo: React.FC<React.DetailedHTMLProps<React.ImgHTMLAttributes<H
   const theme = useTheme()
   const logoUrl =
     theme.palette.mode === 'dark'
-      ? 'https://cdn.xy.company/img/brand/XYO/XYO_icon_white.png'
-      : 'https://cdn.xy.company/img/brand/XYO/XYO_icon_black.png'
+      ? 'https://cdn.xy.company/img/brand/XYO/XYO_icon_white.svg'
+      : 'https://cdn.xy.company/img/brand/XYO/XYO_icon_white.svg'
   return <img src={logoUrl} {...props} />
 }
