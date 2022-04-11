@@ -3,6 +3,7 @@ import { AxiosError } from 'axios'
 import { AuthService, AuthServiceId } from './Service'
 
 export interface AuthState {
+  /** @deprecated now controlled by archivist api instead */
   apiDomain: string
   activeAuthServiceId: AuthServiceId
   readonly authServiceList: AuthService[]

@@ -6,7 +6,6 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { AuthError, AuthErrorHelpers, FormattedAuthError } from './authInterceptors'
 
 interface AuthErrorSnackBarProps extends SnackbarProps {
-  apiDomain: string
   setReAuth: Dispatch<SetStateAction<boolean>>
 }
 
