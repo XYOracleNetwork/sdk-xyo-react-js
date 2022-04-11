@@ -14,7 +14,7 @@ const server = (port = 80) => {
   try {
     config = JSON.parse(fs.readFileSync(path.join(dirName, 'meta.json')).toString() ?? '{}')
   } catch (ex) {
-    console.warn('No config found!  Please creare a config at meta.json file in your ./build folder')
+    console.warn('No config found!  Please create a config at meta.json file in your ./build folder')
   }
 
   app.get('*', async (req, res) => {
