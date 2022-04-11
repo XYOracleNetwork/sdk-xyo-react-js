@@ -1,6 +1,7 @@
 import express from 'express'
-import fs from 'fs'
-import path from 'path'
+import { readFileSync } from 'fs'
+import { readFile } from 'fs/promises'
+import { extname, join } from 'path'
 
 import { setHtmlMetaData } from '../setHtmlMetaData'
 
@@ -12,20 +13,19 @@ const server = (port = 80) => {
   let config = {}
 
   try {
-    config = JSON.parse(fs.readFileSync(path.join(dirName, 'meta.json')).toString() ?? '{}')
+    config = JSON.parse(readFileSync(join(dirName, 'meta.json'), { encoding: 'utf-8' }) ?? '{}')
   } catch (ex) {
     console.warn('No config found!  Please create a config at meta.json file in your ./build folder')
   }
 
   app.get('*', async (req, res) => {
-    const adjustedPath = path.extname(req.path).length > 0 ? path.join(req.path) : path.join(req.path, 'index.html')
-    if (config && path.extname(adjustedPath) === '.html') {
-      const html = fs.readFileSync(path.join(dirName, 'index.html')).toString()
+    const adjustedPath = extname(req.path).length > 0 ? join(req.path) : join(req.path, 'index.html')
+    if (config && extname(adjustedPath) === '.html') {
+      const html = await readFile(join(dirName, 'index.html'), { encoding: 'utf-8' })
       const updatedHtml = await setHtmlMetaData(`${req.protocol}://${req.headers.host}${req.url}`, html, config)
       res.send(updatedHtml)
     } else {
-      const data = fs.readFileSync(path.join(dirName, adjustedPath))
-      res.send(data)
+      res.send(await readFile(join(dirName, adjustedPath)))
     }
   })
 
