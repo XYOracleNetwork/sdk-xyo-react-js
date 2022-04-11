@@ -4,6 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
 
+import { DeprecateStory } from '../../../../.storybook'
 import { JsonFromUrl } from './JsonFromUrl'
 
 const StorybookEntry = {
@@ -23,11 +24,14 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof JsonFromUrl> = (props) => {
   return (
-    <BrowserRouter>
-      <FlexCol>
-        <JsonFromUrl {...props}></JsonFromUrl>
-      </FlexCol>
-    </BrowserRouter>
+    <>
+      <DeprecateStory />
+      <BrowserRouter>
+        <FlexCol>
+          <JsonFromUrl {...props}></JsonFromUrl>
+        </FlexCol>
+      </BrowserRouter>
+    </>
   )
 }
 
