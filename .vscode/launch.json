@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug",
+      "program": "${workspaceFolder}/bin/start-meta.js",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "runtimeArgs": [
+        "--experimental-specifier-resolution=node",
+        "--loader=ts-node/esm"
+      ],
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/src/**",
+        "!**/node_modules/**"
+      ],
+      "pauseForSourceMap": true,
+    },
+  ]
+}
