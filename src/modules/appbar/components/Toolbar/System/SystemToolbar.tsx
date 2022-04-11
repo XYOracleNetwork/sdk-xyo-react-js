@@ -4,12 +4,16 @@ import { FlexRow, SelectExProps } from '@xylabs/sdk-react'
 import { ArchiveSelectEx } from '../../../../archive'
 import { AuthStatusIconButton } from '../../../../auth'
 import { NetworkSelectEx } from '../../../../network'
+import { DarkModeIconButton } from '../../../../settings'
 import { SiteMenu, SiteMenuProps } from './SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
   networkSelectProps?: SelectExProps<string>
   archiveSelectProps?: SelectExProps<string>
   siteMenuProps?: SiteMenuProps
+  darkModeButton?: boolean
+  authButton?: boolean
+  noMenu?: boolean
 }
 
 export const SystemToolbar: React.FC<SystemToolbarProps> = ({
@@ -17,6 +21,9 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   networkSelectProps,
   archiveSelectProps,
   siteMenuProps,
+  darkModeButton = false,
+  authButton = false,
+  noMenu = false,
   ...props
 }) => {
   return (
@@ -28,8 +35,9 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
         <ArchiveSelectEx fullWidth {...archiveSelectProps} />
       </FlexRow>
       {children}
-      <AuthStatusIconButton />
-      <SiteMenu {...siteMenuProps} />
+      {authButton ? <AuthStatusIconButton /> : null}
+      {darkModeButton ? <DarkModeIconButton /> : null}
+      {noMenu ? null : <SiteMenu {...siteMenuProps} />}
     </Toolbar>
   )
 }
