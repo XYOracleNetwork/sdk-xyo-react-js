@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import axios from 'axios'
 
-import { authDecorator, authServiceList } from '../../../../.storybook'
+import { authDecorator, authServiceList, DeprecateStory } from '../../../../.storybook'
 import { AuthServiceWrapper } from '../../../auth-service'
 /* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-deprecated */
@@ -40,6 +40,7 @@ const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
 
   return (
     <>
+      <DeprecateStory />
       <Button sx={{ marginBottom: '24px' }} variant="contained" onClick={() => create403()}>
         Trigger API Error - 403
       </Button>
