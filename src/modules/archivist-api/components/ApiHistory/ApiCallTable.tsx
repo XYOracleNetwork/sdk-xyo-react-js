@@ -12,7 +12,7 @@ const ApiCallTable: React.FC<WithChildren<FlexBoxProps>> = ({ children, ...props
               <Typography variant="caption">HTTP Method</Typography>
             </TableCell>
             <TableCell>
-              <Typography variant="caption">Status Code and Message</Typography>
+              <Typography variant="caption">Status</Typography>
             </TableCell>
             <TableCell>
               <Typography variant="caption">URL</Typography>
