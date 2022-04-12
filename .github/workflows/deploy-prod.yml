@@ -55,10 +55,10 @@ jobs:
           environment-variables: |
             AWS_ENV_SECRET_ARN=${{ secrets.AWS_ENV_SECRET_ARN }}
 
-      - name: Deploy Amazon ECS task definition
-        uses: aws-actions/amazon-ecs-deploy-task-definition@de0132cf8cdedb79975c6d42b77eb7ea193cf28e
-        with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ${{ secrets.ECS_SERVICE }}
-          cluster: ${{ secrets.ECS_CLUSTER }}
-          wait-for-service-stability: true
+      # - name: Deploy Amazon ECS task definition
+      #   uses: aws-actions/amazon-ecs-deploy-task-definition@de0132cf8cdedb79975c6d42b77eb7ea193cf28e
+      #   with:
+      #     task-definition: ${{ steps.task-def.outputs.task-definition }}
+      #     service: ${{ secrets.ECS_SERVICE }}
+      #     cluster: ${{ secrets.ECS_CLUSTER }}
+      #     wait-for-service-stability: true
