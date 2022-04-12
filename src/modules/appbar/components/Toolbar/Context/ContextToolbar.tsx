@@ -21,9 +21,9 @@ export const ContextToolbar: React.FC<ContextToolbarProps> = ({ to = '/', versio
               position="absolute"
               borderRadius={1}
               right={0}
-              color={theme.palette.getContrastText(theme.palette.primary.main)}
+              color={theme.palette.getContrastText(theme.palette.text.primary)}
               bottom={0}
-              bgcolor={theme.palette.primary.main}
+              bgcolor={theme.palette.text.primary}
               paddingX="2px"
               lineHeight={1}
               variant="caption"
