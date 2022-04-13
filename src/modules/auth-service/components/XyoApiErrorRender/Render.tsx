@@ -3,7 +3,8 @@ import { FlexCol } from '@xylabs/sdk-react'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { ApiLogEntry, AxiosLoggedError } from '../../../auth'
+import { AxiosLoggedError } from '../../../auth'
+import { ApiErrorAlert } from './ApiErrorAlert'
 import { XyoApiErrorRenderProps } from './Props'
 import { ReAuth } from './ReAuth'
 
@@ -39,7 +40,7 @@ export const XyoApiErrorRender: React.FC<XyoApiErrorRenderProps> = ({
             <Typography variant="h5" color="error" my={1}>
               Error Making Request
             </Typography>
-            <ApiLogEntry call={loggedError} />
+            <ApiErrorAlert call={loggedError} />
           </FlexCol>
         )}
       </FlexCol>
