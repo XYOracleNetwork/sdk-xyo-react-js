@@ -33,7 +33,7 @@ jobs:
         uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7
         with:
           # ecr: true
-          registry: public.ecr.aws
+          registry: ${{ env.ECR_REGISTRY }}
           # username: ${{ secrets.AWS_ECS_DEPLOY_ACCESS_KEY_SELECT }}
           # password: ${{ secrets.AWS_ECS_DEPLOY_SECRET_KEY_SELECT }}
         env:
