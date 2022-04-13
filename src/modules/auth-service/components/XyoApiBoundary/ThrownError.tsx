@@ -1,12 +1,14 @@
-import { Typography } from '@mui/material'
+import { Alert } from '@mui/material'
 import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { Component, ErrorInfo, ReactNode } from 'react'
+import Rollbar from 'rollbar'
 
 import { XyoApiErrorRender } from '../XyoApiErrorRender'
 
 export interface XyoApiErrorBoundaryProps {
   rethrow?: boolean
   children: ReactNode
+  rollbar?: Rollbar
 }
 
 export interface XyoApiErrorBoundaryState {
@@ -30,8 +32,11 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    const { rethrow } = this.props
+    const { rethrow, rollbar } = this.props
     const xyoApiError = error as XyoApiError
+
+    rollbar?.error(error)
+
     if (xyoApiError.isXyoError) {
       console.error('XyoApiError:', xyoApiError, errorInfo)
       if (rethrow) {
@@ -50,7 +55,7 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
     if (xyoApiError) {
       return <XyoApiErrorRender apiError={xyoApiError} />
     } else if (error) {
-      return <Typography>Oops. An error occured!</Typography>
+      return <Alert title="Oops. An error occurred!">Please refresh your browser.</Alert>
     }
 
     return children
