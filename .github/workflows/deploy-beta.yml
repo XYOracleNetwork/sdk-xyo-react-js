@@ -32,17 +32,13 @@ jobs:
         id: login-ecr
         uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7
         with:
-          # ecr: true
           registry: ${{ env.ECR_REGISTRY }}
-          # username: ${{ secrets.AWS_ECS_DEPLOY_ACCESS_KEY_SELECT }}
-          # password: ${{ secrets.AWS_ECS_DEPLOY_SECRET_KEY_SELECT }}
         env:
           AWS_REGION: ${{ env.AWS_REGION }}
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Build a docker container and
@@ -62,10 +58,10 @@ jobs:
           environment-variables: |
             AWS_ENV_SECRET_ARN=${{ secrets.AWS_ENV_SECRET_ARN }}
 
-      # - name: Deploy Amazon ECS task definition
-      #   uses: aws-actions/amazon-ecs-deploy-task-definition@de0132cf8cdedb79975c6d42b77eb7ea193cf28e
-      #   with:
-      #     task-definition: ${{ steps.task-def.outputs.task-definition }}
-      #     service: ${{ secrets.ECS_SERVICE }}
-      #     cluster: ${{ secrets.ECS_CLUSTER }}
-      #     wait-for-service-stability: true
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@de0132cf8cdedb79975c6d42b77eb7ea193cf28e
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: ${{ secrets.ECS_SERVICE }}
+          cluster: ${{ secrets.ECS_CLUSTER }}
+          wait-for-service-stability: true
