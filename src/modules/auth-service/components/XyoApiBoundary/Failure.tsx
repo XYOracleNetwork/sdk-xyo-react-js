@@ -23,7 +23,7 @@ export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
       onError={(error) => setApiError(error)}
       reportableParent={api}
     >
-      <XyoApiThrownErrorBoundary rollBar={rollbar}>{children}</XyoApiThrownErrorBoundary>
+      <XyoApiThrownErrorBoundary rollbar={rollbar}>{children}</XyoApiThrownErrorBoundary>
     </ArchivistApiProvider>
   ) : (
     <>{children}</>

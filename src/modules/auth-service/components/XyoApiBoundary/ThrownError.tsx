@@ -8,7 +8,7 @@ import { XyoApiErrorRender } from '../XyoApiErrorRender'
 export interface XyoApiErrorBoundaryProps {
   rethrow?: boolean
   children: ReactNode
-  rollBar?: Rollbar
+  rollbar?: Rollbar
 }
 
 export interface XyoApiErrorBoundaryState {
@@ -32,9 +32,11 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    const { rethrow, rollBar } = this.props
+    const { rethrow, rollbar } = this.props
     const xyoApiError = error as XyoApiError
-    rollBar?.error(error)
+
+    rollbar?.error(error)
+
     if (xyoApiError.isXyoError) {
       console.error('XyoApiError:', xyoApiError, errorInfo)
       if (rethrow) {
