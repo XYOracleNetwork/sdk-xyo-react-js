@@ -9,6 +9,7 @@ on:
 env:
   AWS_REGION: us-east-1
   CONTAINER_NAME: api-xyo-html-meta
+  ECR_REGISTRY: public.ecr.aws
 
 jobs:
   deploy:
@@ -31,16 +32,17 @@ jobs:
         id: login-ecr
         uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7
         with:
+          # ecr: true
           registry: public.ecr.aws
-          username: ${{ secrets.AWS_ECS_DEPLOY_ACCESS_KEY_SELECT }}
-          password: ${{ secrets.AWS_ECS_DEPLOY_SECRET_KEY_SELECT }}
+          # username: ${{ secrets.AWS_ECS_DEPLOY_ACCESS_KEY_SELECT }}
+          # password: ${{ secrets.AWS_ECS_DEPLOY_SECRET_KEY_SELECT }}
         env:
           AWS_REGION: ${{ env.AWS_REGION }}
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Build a docker container and
