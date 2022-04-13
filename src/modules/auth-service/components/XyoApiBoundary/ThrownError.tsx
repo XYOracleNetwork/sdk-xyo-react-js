@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Alert } from '@mui/material'
 import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { Component, ErrorInfo, ReactNode } from 'react'
 
@@ -50,7 +50,7 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
     if (xyoApiError) {
       return <XyoApiErrorRender apiError={xyoApiError} />
     } else if (error) {
-      return <Typography>Oops. An error occured!</Typography>
+      return <Alert title="Oops. An error occurred!">Please refresh your browser.</Alert>
     }
 
     return children
