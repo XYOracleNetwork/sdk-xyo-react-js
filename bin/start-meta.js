@@ -1,3 +1,4 @@
 const { metaServer } = require("../dist/node")
 
-metaServer(80)
+const port = process.env.PORT ? parseInt(process.env.PORT) : 8083 
+metaServer(port)
