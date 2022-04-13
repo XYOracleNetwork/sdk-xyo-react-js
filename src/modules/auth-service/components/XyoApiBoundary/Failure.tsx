@@ -4,11 +4,13 @@ import { XyoApiError, XyoApiResponse } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
 import { ArchivistApiProvider, useArchivistApi } from '../../../archivist-api'
+import { useRollbar } from '../../../rollbar'
 import { XyoApiErrorRender } from '../XyoApiErrorRender'
 import { XyoApiThrownErrorBoundary } from './ThrownError'
 
 export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
   const { api } = useArchivistApi()
+  const { rollbar } = useRollbar()
   const [apiFailure, setApiFailure] = useState<XyoApiResponse>()
   const [apiError, setApiError] = useState<XyoApiError>()
 
@@ -21,7 +23,7 @@ export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
       onError={(error) => setApiError(error)}
       reportableParent={api}
     >
-      <XyoApiThrownErrorBoundary>{children}</XyoApiThrownErrorBoundary>
+      <XyoApiThrownErrorBoundary rollBar={rollbar}>{children}</XyoApiThrownErrorBoundary>
     </ArchivistApiProvider>
   ) : (
     <>{children}</>
