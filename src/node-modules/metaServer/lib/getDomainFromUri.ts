@@ -1,4 +1,5 @@
+import { URL } from 'url'
 export const getDomainFromUri = (uri: string) => {
-  // TODO: Parse domain from real URI
-  return 'https://beta.api.archivist.xyo.network'
+  const parsed = new URL(uri)
+  return `${parsed.protocol}//${parsed.host}`
 }
