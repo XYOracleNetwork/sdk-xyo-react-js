@@ -1,10 +1,10 @@
-export const getHashFromUri = (uri: string) => {
-  const uriParts = uri.split('/')
-  let partFound: string | undefined = undefined
+export const getHashFromUri = (uri: string): string | undefined => {
+  const uriParts = uri.split('/').map((p) => p.split('?')[0])
+  let hash: string | undefined = undefined
   uriParts.forEach((part) => {
     if (part.length === 64) {
-      partFound = part
+      hash = part
     }
   })
-  return partFound
+  return hash
 }
