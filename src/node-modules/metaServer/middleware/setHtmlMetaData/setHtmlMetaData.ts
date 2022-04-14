@@ -6,7 +6,7 @@ import { readFile } from 'fs/promises'
 import cloneDeep from 'lodash/cloneDeep'
 import { extname, join } from 'path'
 
-import { getArchiveFromUri, getDomainFromUri, getHashFromUri } from '../../lib'
+import { getAdjustedPath, getArchiveFromUri, getDomainFromUri, getHashFromUri } from '../../lib'
 import { MountPathAndMiddleware } from '../../types'
 
 // TODO: Pass in
@@ -46,15 +46,16 @@ export const setHtmlMetaData = async (path: string, html: string, config: Meta) 
   return metaBuilder(html, meta)
 }
 
-const handler = asyncHandler(async (req, res) => {
-  const adjustedPath = extname(req.path).length > 0 ? join(req.path) : join(req.path, 'index.html')
+const handler = asyncHandler(async (req, res, next) => {
+  const adjustedPath = getAdjustedPath(req)
   if (config && extname(adjustedPath) === '.html') {
     const html = await readFile(join(dirName, 'index.html'), { encoding: 'utf-8' })
     const updatedHtml = await setHtmlMetaData(`${req.protocol}://${req.headers.host}${req.url}`, html, config)
     res.send(updatedHtml)
   } else {
     res.send(await readFile(join(dirName, adjustedPath)))
+    next()
   }
 })
 
-export const middleware: MountPathAndMiddleware = ['get', ['*', handler]]
+export const setMetadataForArchivistBlock: MountPathAndMiddleware = ['get', ['*', handler]]
