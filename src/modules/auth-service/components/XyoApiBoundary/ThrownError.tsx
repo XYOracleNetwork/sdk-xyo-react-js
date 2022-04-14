@@ -55,7 +55,11 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
     if (xyoApiError) {
       return <XyoApiErrorRender apiError={xyoApiError} />
     } else if (error) {
-      return <Alert title="Oops. An error occurred!">Please refresh your browser.</Alert>
+      return (
+        <Alert severity="error" title="Oops. An error occurred!">
+          Please refresh your browser.
+        </Alert>
+      )
     }
 
     return children
