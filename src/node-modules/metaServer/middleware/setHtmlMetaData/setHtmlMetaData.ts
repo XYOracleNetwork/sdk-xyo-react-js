@@ -1,6 +1,24 @@
+import { asyncHandler } from '@xylabs/sdk-api-express-ecs'
 import { XyoArchivistApi, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
 import { Meta, metaBuilder } from '@xyo-network/sdk-xyo-js'
+import { readFileSync } from 'fs'
+import { readFile } from 'fs/promises'
 import cloneDeep from 'lodash/cloneDeep'
+import { extname, join } from 'path'
+
+import { MountPathAndMiddleware } from '../../types'
+
+// TODO: Pass in
+const dirName = './build'
+// TODO: Pass in
+let config = {}
+
+// TODO: Do via initialization method
+try {
+  config = JSON.parse(readFileSync(join(dirName, 'meta.json'), { encoding: 'utf-8' }) ?? '{}')
+} catch (ex) {
+  console.warn('No config found!  Please create a config at meta.json file in your ./build folder')
+}
 
 const hashFromUri = (uri: string) => {
   const uriParts = uri.split('/')
@@ -13,6 +31,7 @@ const hashFromUri = (uri: string) => {
   return partFound
 }
 
+// TODO: Break out to package private file
 export const setHtmlMetaData = async (path: string, html: string, config: Meta) => {
   const hash = hashFromUri(path)
 
@@ -20,6 +39,7 @@ export const setHtmlMetaData = async (path: string, html: string, config: Meta) 
   meta.og = { ...meta.og, url: path }
 
   if (hash) {
+    // TODO: Pull domain from URI via helper
     const api = new XyoArchivistApi({ apiDomain: 'https://beta.api.archivist.xyo.network' })
     const blocks = await api.archive('temp').payload.hash(hash).get()
 
@@ -35,3 +55,16 @@ export const setHtmlMetaData = async (path: string, html: string, config: Meta) 
 
   return metaBuilder(html, meta)
 }
+
+const handler = asyncHandler(async (req, res) => {
+  const adjustedPath = extname(req.path).length > 0 ? join(req.path) : join(req.path, 'index.html')
+  if (config && extname(adjustedPath) === '.html') {
+    const html = await readFile(join(dirName, 'index.html'), { encoding: 'utf-8' })
+    const updatedHtml = await setHtmlMetaData(`${req.protocol}://${req.headers.host}${req.url}`, html, config)
+    res.send(updatedHtml)
+  } else {
+    res.send(await readFile(join(dirName, adjustedPath)))
+  }
+})
+
+export const middleware: MountPathAndMiddleware = ['get', ['*', handler]]
