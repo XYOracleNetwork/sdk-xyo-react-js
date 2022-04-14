@@ -1,1 +1,1 @@
-export * from './setHtmlMetaData'
+export * from './setMetadataForArchivistBlock'
