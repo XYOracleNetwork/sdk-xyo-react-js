@@ -4,7 +4,7 @@ import { XyoApiError, XyoApiResponse } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
 import { ArchivistApiProvider, useArchivistApi } from '../../../archivist-api'
-import { useRollbar } from '../../../rollbar'
+import { useRollbar } from '../../../error-reporter'
 import { XyoApiErrorRender } from '../XyoApiErrorRender'
 import { XyoApiThrownErrorBoundary } from './ThrownError'
 

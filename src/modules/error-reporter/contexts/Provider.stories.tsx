@@ -2,19 +2,19 @@ import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import Rollbar from 'rollbar'
 
-import { RollbarProvider } from './Provider'
+import { ErrorReporterProvider } from './Provider'
 import { useRollbar } from './useRollbar'
 
 const StorybookEntry = {
   argTypes: {},
-  component: RollbarProvider,
+  component: ErrorReporterProvider,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'Rollbar/RollbarProvider',
-} as ComponentMeta<typeof RollbarProvider>
+  title: 'ErrorReporter/ErrorReporterProvider',
+} as ComponentMeta<typeof ErrorReporterProvider>
 
 const RollbarComponent = () => {
   const { rollbar } = useRollbar()
@@ -27,12 +27,12 @@ const RollbarComponent = () => {
   )
 }
 
-const Template: ComponentStory<typeof RollbarProvider> = () => {
+const Template: ComponentStory<typeof ErrorReporterProvider> = () => {
   const rollbar = new Rollbar()
   return (
-    <RollbarProvider instance={rollbar}>
+    <ErrorReporterProvider rollbar={rollbar}>
       <RollbarComponent />
-    </RollbarProvider>
+    </ErrorReporterProvider>
   )
 }
 

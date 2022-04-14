@@ -1,5 +1,5 @@
 import Rollbar from 'rollbar'
 
-export interface RollbarContextState {
+export interface ErrorReporterContextState {
   rollbar?: Rollbar
 }
