@@ -6,6 +6,7 @@ import { readFile } from 'fs/promises'
 import cloneDeep from 'lodash/cloneDeep'
 import { extname, join } from 'path'
 
+import { getArchiveFromUri, getDomainFromUri, getHashFromUri } from '../../lib'
 import { MountPathAndMiddleware } from '../../types'
 
 // TODO: Pass in
@@ -20,29 +21,18 @@ try {
   console.warn('No config found!  Please create a config at meta.json file in your ./build folder')
 }
 
-const hashFromUri = (uri: string) => {
-  const uriParts = uri.split('/')
-  let partFound: string | undefined = undefined
-  uriParts.forEach((part) => {
-    if (part.length === 64) {
-      partFound = part
-    }
-  })
-  return partFound
-}
-
 // TODO: Break out to package private file
 export const setHtmlMetaData = async (path: string, html: string, config: Meta) => {
-  const hash = hashFromUri(path)
+  const hash = getHashFromUri(path)
+  const apiDomain = getDomainFromUri(path)
+  const archive = getArchiveFromUri(path)
 
   const meta = cloneDeep(config)
   meta.og = { ...meta.og, url: path }
 
-  if (hash) {
-    // TODO: Pull domain from URI via helper
-    const api = new XyoArchivistApi({ apiDomain: 'https://beta.api.archivist.xyo.network' })
-    const blocks = await api.archive('temp').payload.hash(hash).get()
-
+  if (hash && apiDomain && archive) {
+    const api = new XyoArchivistApi({ apiDomain })
+    const blocks = await api.archive(archive).payload.hash(hash).get()
     if (blocks && blocks.length > 0) {
       const wrapper = new XyoPayloadWrapper(blocks[0])
       const hash = wrapper.sortedHash()
