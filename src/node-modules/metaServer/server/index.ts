@@ -4,7 +4,7 @@ import { readFileSync } from 'fs'
 import { readFile } from 'fs/promises'
 import { extname, join } from 'path'
 
-import { setHtmlMetaData } from '../setHtmlMetaData'
+import { setHtmlMetaData } from '../middleware'
 
 const server = (port = 80) => {
   const app = express()
