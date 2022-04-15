@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { ArchivistApiProvider, useArchivistApi } from '../../../archivist-api'
 import { useRollbar } from '../../../error-reporter'
 import { XyoApiErrorRender } from '../XyoApiErrorRender'
-import { XyoApiThrownErrorBoundary } from './ThrownError'
+import { XyoApiThrownErrorBoundary } from './ThrownErrorBoundary'
 
 export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
   const { api, currentToken } = useArchivistApi()

@@ -1,4 +1,5 @@
 import { Alert, AlertTitle } from '@mui/material'
+import { BasePage } from '@xylabs/sdk-react'
 import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { Component, ErrorInfo, ReactNode } from 'react'
 import Rollbar from 'rollbar'
@@ -51,15 +52,17 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
 
   public render() {
     const { xyoApiError, error } = this.state
-    const { children } = this.props
+    const { children, ...basePageProps } = this.props
     if (xyoApiError) {
       return <XyoApiErrorRender apiError={xyoApiError} />
     } else if (error) {
       return (
-        <Alert severity="error">
-          <AlertTitle>Oops. An error occurred!</AlertTitle>
-          Please refresh your browser.
-        </Alert>
+        <BasePage {...basePageProps}>
+          <Alert severity="error">
+            <AlertTitle>Oops. An error occurred!</AlertTitle>
+            Please refresh your browser.
+          </Alert>
+        </BasePage>
       )
     }
 
