@@ -9,7 +9,7 @@ import { XyoApiErrorRender } from '../XyoApiErrorRender'
 import { XyoApiThrownErrorBoundary } from './ThrownError'
 
 export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
-  const { api } = useArchivistApi()
+  const { api, currentToken } = useArchivistApi()
   const { rollbar } = useRollbar()
   const [apiFailure, setApiFailure] = useState<XyoApiResponse>()
   const [apiError, setApiError] = useState<XyoApiError>()
@@ -21,6 +21,7 @@ export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
       apiDomain={assertEx(api?.config.apiDomain)}
       onFailure={(response) => setApiFailure(response)}
       onError={(error) => setApiError(error)}
+      jwtToken={currentToken}
       reportableParent={api}
     >
       <XyoApiThrownErrorBoundary rollbar={rollbar}>{children}</XyoApiThrownErrorBoundary>
