@@ -6,7 +6,11 @@ import { useAppSettings } from '../../../settings'
 import { useNetwork } from '../../contexts'
 import { findNetworkConfig } from '../../lib'
 
-export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
+export interface NetworkSelectExProps extends SelectExProps<string> {
+  responsive?: boolean
+}
+
+export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, responsive = true, ...props }) => {
   const { darkMode } = useAppSettings()
   const { network, setNetwork, networks } = useNetwork(true)
   const xs = useBreakpoint() === 'xs'
@@ -28,7 +32,7 @@ export const NetworkSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
       {networks.map((network) => {
         return (
           <MenuItem key={network.slug} value={network.slug}>
-            {xs ? network.name[0].toUpperCase() : network.name}
+            {responsive && xs ? network.name[0].toUpperCase() : network.name}
           </MenuItem>
         )
       })}
