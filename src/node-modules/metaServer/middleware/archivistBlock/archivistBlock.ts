@@ -31,4 +31,4 @@ const handler = asyncHandler(async (req, res, next) => {
   }
 })
 
-export const setMetadataForArchivistBlock: MountPathAndMiddleware = ['get', ['*', handler]]
+export const archivistBlock: MountPathAndMiddleware = ['get', ['*', handler]]

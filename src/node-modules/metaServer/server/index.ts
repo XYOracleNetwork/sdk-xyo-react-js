@@ -1,15 +1,15 @@
 import express from 'express'
 
-import { setMetadataForArchivistBlock } from '../middleware'
+import { archivistBlock } from '../middleware'
 import { MountPathAndMiddleware } from '../types'
 
 export const getApp = () => {
   const app = express()
   app.set('etag', false)
-  const requestHandlers: MountPathAndMiddleware[] = [setMetadataForArchivistBlock]
+  const knownRequestTypeHandlers: MountPathAndMiddleware[] = [archivistBlock]
   // TODO: Add default pass through handler last here
   // requestHandlers.push(defaultHandler)
-  for (const handler of requestHandlers) {
+  for (const handler of knownRequestTypeHandlers) {
     app[handler[0]](...handler[1])
   }
   return app
