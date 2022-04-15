@@ -26,9 +26,11 @@ const handler = asyncHandler(async (req, res, next) => {
     const updatedHtml = await setHtmlMetaData(`${req.protocol}://${req.headers.host}${req.url}`, html, config)
     res.send(updatedHtml)
   } else {
-    res.send(await readFile(join(dirName, adjustedPath)))
     next()
   }
 })
 
+/**
+ * Middleware for augmenting HTML metadata for Archivist Blocks
+ */
 export const archivistBlock: MountPathAndMiddleware = ['get', ['*', handler]]
