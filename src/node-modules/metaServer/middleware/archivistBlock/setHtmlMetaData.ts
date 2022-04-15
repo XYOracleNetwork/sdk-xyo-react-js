@@ -2,17 +2,24 @@ import { XyoArchivistApi, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-
 import { Meta, metaBuilder } from '@xyo-network/sdk-xyo-js'
 import cloneDeep from 'lodash/cloneDeep'
 
-import { getArchiveFromUri, getDomainFromUri, getHashFromUri, isArchivistDomain } from '../../lib'
+import {
+  getArchiveFromUri,
+  getArchivistDomainFromExploreUri,
+  getDomainFromUri,
+  getHashFromUri,
+  isExploreDomain,
+} from '../../lib'
 
 export const setHtmlMetaData = async (path: string, html: string, config: Meta) => {
   const hash = getHashFromUri(path)
-  const apiDomain = getDomainFromUri(path)
+  const domain = getDomainFromUri(path)
+  const apiDomain = getArchivistDomainFromExploreUri(path)
   const archive = getArchiveFromUri(path)
 
   const meta = cloneDeep(config)
   meta.og = { ...meta.og, url: path }
 
-  if (hash && isArchivistDomain(apiDomain) && archive) {
+  if (hash && isExploreDomain(domain) && apiDomain && archive) {
     const api = new XyoArchivistApi({ apiDomain })
     const blocks = await api.archive(archive).payload.hash(hash).get()
     if (blocks && blocks.length > 0) {
