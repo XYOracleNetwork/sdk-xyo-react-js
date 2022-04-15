@@ -1,5 +1,5 @@
 import { assertEx } from '@xylabs/sdk-js'
-import { WithChildren } from '@xylabs/sdk-react'
+import { BasePageProps, WithChildren } from '@xylabs/sdk-react'
 import { XyoApiError, XyoApiResponse } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
@@ -8,7 +8,14 @@ import { useRollbar } from '../../../error-reporter'
 import { XyoApiErrorRender } from '../XyoApiErrorRender'
 import { XyoApiThrownErrorBoundary } from './ThrownErrorBoundary'
 
-export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
+export interface XyoApiFailureBoundaryProps {
+  basePageProps: BasePageProps
+}
+
+export const XyoApiFailureBoundary: React.FC<WithChildren<XyoApiFailureBoundaryProps>> = ({
+  basePageProps,
+  children,
+}) => {
   const { api, currentToken } = useArchivistApi()
   const { rollbar } = useRollbar()
   const [apiFailure, setApiFailure] = useState<XyoApiResponse>()
@@ -24,7 +31,9 @@ export const XyoApiFailureBoundary: React.FC<WithChildren> = ({ children }) => {
       jwtToken={currentToken}
       reportableParent={api}
     >
-      <XyoApiThrownErrorBoundary rollbar={rollbar}>{children}</XyoApiThrownErrorBoundary>
+      <XyoApiThrownErrorBoundary basePageProps={basePageProps} rollbar={rollbar}>
+        {children}
+      </XyoApiThrownErrorBoundary>
     </ArchivistApiProvider>
   ) : (
     <>{children}</>
