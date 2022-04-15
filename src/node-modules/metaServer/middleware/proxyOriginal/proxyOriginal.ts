@@ -8,7 +8,7 @@ import { MountPathAndMiddleware } from '../../types'
 // TODO: Pass in
 const dirName = './build'
 
-const handler = asyncHandler(async (req, res, next) => {
+const handler = asyncHandler(async (req, res) => {
   const adjustedPath = getAdjustedPath(req)
   res.send(await readFile(join(dirName, adjustedPath)))
 })
