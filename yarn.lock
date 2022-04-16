@@ -2854,7 +2854,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/providers@npm:^5.6.2, @ethersproject/providers@npm:^5.6.4":
+"@ethersproject/providers@npm:^5.6.4":
   version: 5.6.4
   resolution: "@ethersproject/providers@npm:5.6.4"
   dependencies:
@@ -3430,7 +3430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^5.6.0, @mui/icons-material@npm:^5.6.1":
+"@mui/icons-material@npm:^5.6.1":
   version: 5.6.1
   resolution: "@mui/icons-material@npm:5.6.1"
   dependencies:
@@ -3484,7 +3484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.6.0, @mui/material@npm:^5.6.1":
+"@mui/material@npm:^5.6.1":
   version: 5.6.1
   resolution: "@mui/material@npm:5.6.1"
   dependencies:
@@ -3554,7 +3554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/styles@npm:^5.6.0, @mui/styles@npm:^5.6.1":
+"@mui/styles@npm:^5.6.1":
   version: 5.6.1
   resolution: "@mui/styles@npm:5.6.1"
   dependencies:
@@ -5614,7 +5614,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.24":
+"@types/node@npm:*":
   version: 17.0.24
   resolution: "@types/node@npm:17.0.24"
   checksum: 9e7c4f863601b2430b4c2429a89935f22eba692956f5013c90a4c7fb0e1401ed8add8c4307453c5d6b8b985384500f8c3f644427ab88632640cc396159af479a
@@ -6605,17 +6605,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.11.5":
-  version: 2.11.5
-  resolution: "@xylabs/sdk-react@npm:2.11.5"
+"@xylabs/sdk-react@npm:^2.11.7":
+  version: 2.11.7
+  resolution: "@xylabs/sdk-react@npm:2.11.7"
   dependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
     "@ethersproject/abstract-signer": ^5.6.0
-    "@ethersproject/providers": ^5.6.2
-    "@mui/icons-material": ^5.6.0
-    "@mui/material": ^5.6.0
-    "@mui/styles": ^5.6.0
+    "@ethersproject/providers": ^5.6.4
+    "@mui/icons-material": ^5.6.1
+    "@mui/material": ^5.6.1
+    "@mui/styles": ^5.6.1
     "@xylabs/pixel": ^1.3.7
     "@xylabs/sdk-js": ^2.4.5
     axios: ^0.26.1
@@ -6627,9 +6627,9 @@ __metadata:
     react-icons: ^4.3.1
     react-router-dom: ^6.3.0
   peerDependencies:
-    react: ^17
-    react-dom: ^17
-  checksum: 6ebd50bdacb9d590a7f85299c0813a10226308ff3af01eaf2a2eb8c1e647c3abc92586e9ebcf3b90f540b18faf170d0b861cdb7d82c440f4c2badae1061a9552
+    react: "*"
+    react-dom: "*"
+  checksum: 6ff312b8b11668aebaa8fbdeafe71fda416d5c803af9eadb5fd3e4ec686d35c0c85216405d955858a7c9e57c423485e97071a8f4975f55b686fb6404066e73be
   languageName: node
   linkType: hard
 
@@ -6697,12 +6697,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/tsconfig@npm:^1.0.12":
-  version: 1.0.12
-  resolution: "@xylabs/tsconfig@npm:1.0.12"
+"@xylabs/tsconfig@npm:^1.0.13":
+  version: 1.0.13
+  resolution: "@xylabs/tsconfig@npm:1.0.13"
   dependencies:
     tslib: ^2.3.1
-  checksum: a9e78d506927d7aaa270f32b9820f7853c89ac441d94b9213bf9ee02a6df07774b5aac4da96bb552bb4e6a0ffd4916827a80232662045e0463892b1b81006757
+  checksum: 7d6841afd7e7bcab907b71be8bcf1e4c87670e38b23bc5a91036f336c7a327a42bce67f3d6dc95dc0a08addd9bc59c2d0fab8ed6962f9927c9f9eec0ebf168e6
   languageName: node
   linkType: hard
 
@@ -6787,16 +6787,15 @@ __metadata:
     "@types/lodash": ^4.14.181
     "@types/luxon": ^2.3.1
     "@types/md5": ^2.3.2
-    "@types/node": ^17.0.24
     "@types/react-lines-ellipsis": ^0.15.1
     "@xylabs/eslint-config-react": ^2.1.4
     "@xylabs/pixel": ^1.3.7
     "@xylabs/rollup-config": ^1.1.15
     "@xylabs/sdk-api-express-ecs": ^1.1.3
     "@xylabs/sdk-js": ^2.4.5
-    "@xylabs/sdk-react": ^2.11.5
+    "@xylabs/sdk-react": ^2.11.7
     "@xylabs/ts-scripts": ^1.0.53
-    "@xylabs/tsconfig": ^1.0.12
+    "@xylabs/tsconfig": ^1.0.13
     "@xyo-network/sdk-xyo-client-js": ^2.18.1
     "@xyo-network/sdk-xyo-js": ^2.5.6
     axios: ^0.26.1
