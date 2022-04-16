@@ -1,2 +1,2 @@
 export * from './Failure'
-export * from './ThrownError'
+export * from './ThrownErrorBoundary'

@@ -1,6 +1,8 @@
 import { Alert, AlertTitle } from '@mui/material'
+import { BasePage, BasePageProps } from '@xylabs/sdk-react'
 import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { Component, ErrorInfo, ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import Rollbar from 'rollbar'
 
 import { XyoApiErrorRender } from '../XyoApiErrorRender'
@@ -9,6 +11,7 @@ export interface XyoApiErrorBoundaryProps {
   rethrow?: boolean
   children: ReactNode
   rollbar?: Rollbar
+  basePageProps: BasePageProps
 }
 
 export interface XyoApiErrorBoundaryState {
@@ -51,15 +54,17 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
 
   public render() {
     const { xyoApiError, error } = this.state
-    const { children } = this.props
+    const { children, basePageProps } = this.props
     if (xyoApiError) {
       return <XyoApiErrorRender apiError={xyoApiError} />
     } else if (error) {
       return (
-        <Alert severity="error">
-          <AlertTitle>Oops. An error occurred!</AlertTitle>
-          Please refresh your browser.
-        </Alert>
+        <BasePage {...basePageProps}>
+          <Alert severity="error">
+            <AlertTitle>Oops. An error occurred!</AlertTitle>
+            Try to go <Link to="/">Home</Link> or refresh your browser.
+          </Alert>
+        </BasePage>
       )
     }
 
