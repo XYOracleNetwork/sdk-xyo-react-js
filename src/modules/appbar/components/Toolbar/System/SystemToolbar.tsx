@@ -10,6 +10,8 @@ import { SiteMenu, SiteMenuProps } from './SiteMenu'
 export interface SystemToolbarProps extends ToolbarProps {
   networkSelectProps?: NetworkSelectExProps
   archiveSelectProps?: SelectExProps<string>
+  hideNetworkSelect?: boolean
+  hideArchiveSelect?: boolean
   siteMenuProps?: SiteMenuProps
   darkModeButton?: boolean
   authButton?: boolean
@@ -20,6 +22,8 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   children,
   networkSelectProps,
   archiveSelectProps,
+  hideNetworkSelect,
+  hideArchiveSelect,
   siteMenuProps,
   darkModeButton = false,
   authButton = false,
@@ -28,12 +32,16 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
 }) => {
   return (
     <Toolbar {...props}>
-      <FlexRow marginX={0.5} maxWidth={120}>
-        <NetworkSelectEx fullWidth {...networkSelectProps} />
-      </FlexRow>
-      <FlexRow marginX={0.5} maxWidth={120}>
-        <ArchiveSelectEx fullWidth {...archiveSelectProps} />
-      </FlexRow>
+      {hideNetworkSelect ? null : (
+        <FlexRow marginX={0.5} maxWidth={120}>
+          <NetworkSelectEx fullWidth {...networkSelectProps} />
+        </FlexRow>
+      )}
+      {hideArchiveSelect ? null : (
+        <FlexRow marginX={0.5} maxWidth={120}>
+          <ArchiveSelectEx fullWidth {...archiveSelectProps} />
+        </FlexRow>
+      )}
       {children}
       {authButton ? <AuthStatusIconButton /> : null}
       {darkModeButton ? <DarkModeIconButton /> : null}
