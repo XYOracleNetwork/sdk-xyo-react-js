@@ -6706,9 +6706,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.17.1":
-  version: 2.17.1
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.17.1"
+"@xyo-network/sdk-xyo-client-js@npm:^2.18.1":
+  version: 2.18.1
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.18.1"
   dependencies:
     "@ethersproject/providers": ^5.6.4
     "@xylabs/sdk-js": ^2.4.5
@@ -6725,11 +6725,12 @@ __metadata:
     neo4j-driver: ^4.4.5
     neo4j-driver-core: ^4.4.5
     pako: ^2.0.4
+    randombytes: ^2.1.0
     sha.js: ^2.4.11
     systeminformation: ^5.11.9
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 071f4281ac9e6d07a013e4eddb345282e602e3ee5e24a799279f1f30a859c702dfefb946f6346d0c69025f6ca6940089c93b3c48a4b27f44220fb2c4702a2ebf
+  checksum: 8b786b404fedb35095db304febf02a96ed75bc8a4ecc452722543f4dca6c0466feb3f5f887b895dd0c391cf8a0f7ea8cb06e75ab8dcd2bc06ab24c2fbb0f0bd2
   languageName: node
   linkType: hard
 
@@ -6796,7 +6797,7 @@ __metadata:
     "@xylabs/sdk-react": ^2.11.5
     "@xylabs/ts-scripts": ^1.0.53
     "@xylabs/tsconfig": ^1.0.12
-    "@xyo-network/sdk-xyo-client-js": ^2.17.1
+    "@xyo-network/sdk-xyo-client-js": ^2.18.1
     "@xyo-network/sdk-xyo-js": ^2.5.6
     axios: ^0.26.1
     babel-loader: ^8.2.4
@@ -6816,8 +6817,8 @@ __metadata:
     react-lines-ellipsis: ^0.15.0
     react-router-dom: ^6.3.0
     rimraf: ^3.0.2
-    rollbar: ^2.24.1
-    rollup: ^2.70.1
+    rollbar: ^2.25.0
+    rollup: ^2.70.2
     storybook-dark-mode: ^1.0.9
     ts-jest: ^27.1.4
     ts-node: ^10.7.0
@@ -7406,10 +7407,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:~1.2.1":
-  version: 1.2.1
-  resolution: "async@npm:1.2.1"
-  checksum: dd2d00bede64574660ba114d6431b587d3fbb7760c147f97993ec5232be991cf39126a78beb2dfc9c29607312163c3523fedd797c90bcbf312ae1f70926f182c
+"async@npm:~3.2.3":
+  version: 3.2.3
+  resolution: "async@npm:3.2.3"
+  checksum: c4bee57ab2249af3dc83ca3ef9acfa8e822c0d5e5aa41bae3eaf7f673648343cd64ecd7d26091ffd357f3f044428b17b5f00098494b6cf8b6b3e9681f0636ca1
   languageName: node
   linkType: hard
 
@@ -20093,11 +20094,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollbar@npm:^2.24.0, rollbar@npm:^2.24.1":
-  version: 2.24.1
-  resolution: "rollbar@npm:2.24.1"
+"rollbar@npm:^2.24.0, rollbar@npm:^2.24.1, rollbar@npm:^2.25.0":
+  version: 2.25.0
+  resolution: "rollbar@npm:2.25.0"
   dependencies:
-    async: ~1.2.1
+    async: ~3.2.3
     console-polyfill: 0.3.0
     decache: ^3.0.5
     error-stack-parser: ^2.0.4
@@ -20105,17 +20106,16 @@ __metadata:
     lru-cache: ~2.2.1
     request-ip: ~2.0.1
     source-map: ^0.5.7
-    uuid: 3.0.x
   dependenciesMeta:
     decache:
       optional: true
-  checksum: 1c960baa4f6e11f5fbc3fbba22c112ce494887a3a68e3d1d945d9215d7a8ee36c62199c139050275e3e6177b2fe2b3bd9cf9c14bb656ec7865882167cd3b8018
+  checksum: 2d2a6724d864ce17f61c23a89d8f8bf7424e49b0b82e89536843d967806ae3c30c5fc1ac42b0bca5c75595b431d057230a8c73143e6136ab813571a8cbff3913
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.70.1":
-  version: 2.70.1
-  resolution: "rollup@npm:2.70.1"
+"rollup@npm:^2.70.1, rollup@npm:^2.70.2":
+  version: 2.70.2
+  resolution: "rollup@npm:2.70.2"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -20123,7 +20123,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 06c62933e6e81a1c8c684d7d576e507081aabdb63cc0c91bca86b7348b66df03b77827068e4990b8b6c738bd3ef66dcc8c7ed7e0ea40b736068e7618f693133e
+  checksum: eb04eb9b87b30517308cb41018d57a23976f42b269c3229e4124746d3136a77aa16ba8b891a3fa571931dd72419eea40642a334835fe4f33161fea30d0b803f7
   languageName: node
   linkType: hard
 
@@ -22617,15 +22617,6 @@ __metadata:
   version: 3.1.0
   resolution: "uuid-browser@npm:3.1.0"
   checksum: 951ec47593865c7cc746df671f7b0f0ff48fcab583fcdaeab6c517a5222af0f5e144a6fcea5fa9620a5b3be047e2f9412a80267ea5c45050e07d51774197d49e
-  languageName: node
-  linkType: hard
-
-"uuid@npm:3.0.x":
-  version: 3.0.1
-  resolution: "uuid@npm:3.0.1"
-  bin:
-    uuid: ./bin/uuid
-  checksum: 3e18e3bf6fcf92f379c55a816c0d4b2e85c1a15bd67a5c9798a40bac91810673d0e6209a4cc3c334966ec105e861953da49e8cd4e7db05a45c03f6b6a3b6a64b
   languageName: node
   linkType: hard
 
