@@ -13,7 +13,7 @@ export interface NetworkSelectExProps extends SelectExProps<string> {
 export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, responsive = true, ...props }) => {
   const { darkMode } = useAppSettings()
   const { network, setNetwork, networks } = useNetwork(true)
-  const xs = useBreakpoint() === 'xs'
+  const sm = useBreakpoint() === 'sm'
   return (
     <SelectEx
       colorize="primary"
@@ -32,7 +32,7 @@ export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, resp
       {networks.map((network) => {
         return (
           <MenuItem key={network.slug} value={network.slug}>
-            {responsive && xs ? network.name[0].toUpperCase() : network.name}
+            {responsive && sm ? network.name[0].toUpperCase() : network.name}
           </MenuItem>
         )
       })}
