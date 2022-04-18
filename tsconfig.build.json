@@ -1,11 +1,5 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "outDir": "./dist",
-    "sourceMap": true
-  },
   "exclude": ["**/*.spec.*", "**/*.stories.*", ".storybook", "**/*.example.*"],
-  "extends": "@xylabs/tsconfig",
+  "extends": "./tsconfig.json",
   "include": ["src"]
 }
