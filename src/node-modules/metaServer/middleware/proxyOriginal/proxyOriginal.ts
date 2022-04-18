@@ -1,9 +1,13 @@
-import serveStatic from 'serve-static'
+import serveStatic, { ServeStaticOptions } from 'serve-static'
 
 import { ApplicationMiddlewareOptions, MountPathAndMiddleware } from '../../types'
 
+const options: ServeStaticOptions = {
+  fallthrough: false,
+}
+
 const getHandler = (baseDir: string) => {
-  return serveStatic(baseDir, {})
+  return serveStatic(baseDir, options)
 
   // return asyncHandler(async (req, res) => {
   //   const adjustedPath = getAdjustedPath(req)
