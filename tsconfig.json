@@ -2,6 +2,8 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "jsx": "react-jsx",
+    "outDir": "./dist",
+    "sourceMap": true,
     "typeRoots": ["./node_modules/@types"],
     "types": ["jest", "@types/jest", "jest-sorted"]
   },
