@@ -38,6 +38,9 @@ const getHandler = (baseDir: string) => {
   })
 }
 
+// NOTE: Since we're really doing a form of templating in that we're replacing response values dynamically,
+// it might be more advantageous to register not as conditional middleware, but as a templating engine. That
+// may be more idiomatically Express and expressive when using methods like `res.render`
 /**
  * Middleware for augmenting HTML metadata for Archivist Blocks
  */
