@@ -17,7 +17,7 @@ export const getServer = (baseDir = defaultBaseDir): SuperTest<Test> => {
   return agent(getApp(baseDir))
 }
 
-export const getAgent = (baseDir = defaultBaseDir, port?: number): [Server, SuperTest<Test>] => {
+export const getServerOnPort = (port: number, baseDir = defaultBaseDir): [Server, SuperTest<Test>] => {
   const activeServer = server(port, baseDir)
   return [activeServer, agent(activeServer)]
 }

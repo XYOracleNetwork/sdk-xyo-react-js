@@ -4,7 +4,7 @@ import { Server } from 'http'
 import { join } from 'path'
 import { SuperTest, Test } from 'supertest'
 
-import { getAgent } from '../../test'
+import { getServerOnPort } from '../../test'
 
 const payloadUri =
   '/archive/temp/payload/hash/2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99?network=kerplunk'
@@ -16,15 +16,13 @@ describe('archivistBlock', () => {
   let agent: SuperTest<Test>
   beforeAll(() => {
     jest.spyOn(console, 'log').mockImplementation(() => {
-      // Disable console log from real server starting up for these tests
+      // Disable `console.log` from real server starting up for these tests
     })
     const baseDir = __dirname
-    const [serverA, agentA] = getAgent(baseDir, testServerPort)
-    server = serverA
-    agent = agentA
+    ;[server, agent] = getServerOnPort(testServerPort, baseDir)
   })
-  afterAll(async () => {
-    await server.close()
+  afterAll((done) => {
+    server.close(done)
   })
   it('Serves up the original content unmodified', async () => {
     // Get this file via server
