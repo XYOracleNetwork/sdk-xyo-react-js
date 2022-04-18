@@ -3,7 +3,7 @@ import { readFile } from 'fs/promises'
 import { join } from 'path'
 
 import { getAdjustedPath } from '../../lib'
-import { MountPathAndMiddleware } from '../../types'
+import { ApplicationMiddlewareOptions, MountPathAndMiddleware } from '../../types'
 
 const getHandler = (baseDir: string) => {
   return asyncHandler(async (req, res) => {
@@ -15,11 +15,7 @@ const getHandler = (baseDir: string) => {
 /**
  * Middleware to proxy the original response without any modification
  */
-export interface BaseOpts {
-  baseDir: string
-}
-
-export const configureProxyOriginal = <T extends BaseOpts>(opts: T): MountPathAndMiddleware => [
+export const configureProxyOriginal = <T extends ApplicationMiddlewareOptions>(opts: T): MountPathAndMiddleware => [
   'get',
   ['*', getHandler(opts.baseDir)],
 ]
