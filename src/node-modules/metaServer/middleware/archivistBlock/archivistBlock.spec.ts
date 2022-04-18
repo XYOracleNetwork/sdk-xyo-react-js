@@ -1,4 +1,6 @@
+import { readFile } from 'fs/promises'
 import { Server } from 'http'
+import { join } from 'path'
 import { SuperTest, Test } from 'supertest'
 
 import { getAgent } from '../../test'
@@ -24,10 +26,23 @@ describe('archivistBlock', () => {
     // Get this file via server
     const response = await agent.get(payloadUri).expect(200)
     expect(response).toBeTruthy()
+
+    // Validate HTML headers
+    const headers = response.headers
+    expect(headers).toBeTruthy()
+    expect(headers['content-type']).toBeTruthy()
+    expect(headers['content-type']).toBe('text/html; charset=utf-8')
+
+    expect(headers['content-length']).toBeTruthy()
+    // Read file in original HTML file
+    const originalFile = await readFile(join(__dirname, 'index.html'))
+    // HTTP Content-Length header should reflect that modified file is
+    // bigger than original after modification
+    expect(headers['content-length']).toBeGreaterThan(originalFile.byteLength)
+
+    // Validate HTML document
     const actual = response.text
     expect(actual).toBeTruthy()
-
-    // Compare served up version with actual for equality
     expect(actual).toMatchInlineSnapshot(`
       "<!DOCTYPE html><html lang=\\"en\\"><head>
         <meta charset=\\"utf-8\\">
