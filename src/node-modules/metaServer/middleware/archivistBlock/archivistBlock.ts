@@ -8,7 +8,7 @@ import { MountPathAndMiddleware } from '../../types'
 import { setHtmlMetaData } from './setHtmlMetaData'
 
 // TODO: Pass in
-const dirName = './build'
+const dirName = './dist'
 // TODO: Pass in
 let config = {}
 

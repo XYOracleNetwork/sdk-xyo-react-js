@@ -5,15 +5,21 @@ import { join } from 'path'
 import { getAdjustedPath } from '../../lib'
 import { MountPathAndMiddleware } from '../../types'
 
-// TODO: Pass in
-const dirName = './build'
-
-const handler = asyncHandler(async (req, res) => {
-  const adjustedPath = getAdjustedPath(req)
-  res.send(await readFile(join(dirName, adjustedPath)))
-})
+const getHandler = (baseDir: string) => {
+  return asyncHandler(async (req, res) => {
+    const adjustedPath = getAdjustedPath(req)
+    res.send(await readFile(join(baseDir, adjustedPath)))
+  })
+}
 
 /**
  * Middleware to proxy the original response without any modification
  */
-export const proxyOriginal: MountPathAndMiddleware = ['get', ['*', handler]]
+export interface BaseOpts {
+  baseDir: string
+}
+
+export const configureProxyOriginal = <T extends BaseOpts>(opts: T): MountPathAndMiddleware => [
+  'get',
+  ['*', getHandler(opts.baseDir)],
+]

@@ -1,3 +1,4 @@
+import { join } from 'path'
 import { agent, SuperTest, Test } from 'supertest'
 
 import { getApp } from '../server'
@@ -9,6 +10,8 @@ test.skip('Must have APP_PORT ENV VAR defined', () => {
   expect(process.env.APP_PORT).toBeTruthy()
 })
 
-export const getServer = (): SuperTest<Test> => {
-  return agent(getApp())
+const defaultBaseDir = join(__filename.split('src')[0], 'src')
+
+export const getServer = (baseDir = defaultBaseDir): SuperTest<Test> => {
+  return agent(getApp(baseDir))
 }

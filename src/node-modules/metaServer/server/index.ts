@@ -1,23 +1,23 @@
 import express from 'express'
 
-import { archivistBlock, proxyOriginal } from '../middleware'
+import { archivistBlock, configureProxyOriginal } from '../middleware'
 import { MountPathAndMiddleware } from '../types'
 
-export const getApp = () => {
+export const getApp = (directory = './build') => {
   const app = express()
   app.set('etag', false)
   const knownRequestTypeHandlers: MountPathAndMiddleware[] = [archivistBlock]
   // Add catch-all pass-through handler last to ensure
   // all unknown/unsupported requests are simply proxied
-  knownRequestTypeHandlers.push(proxyOriginal)
+  knownRequestTypeHandlers.push(configureProxyOriginal({ baseDir: directory }))
   for (const handler of knownRequestTypeHandlers) {
     app[handler[0]](...handler[1])
   }
   return app
 }
 
-export const server = (port = 80) => {
-  const app = getApp()
+export const server = (port = 80, directory = './build') => {
+  const app = getApp(directory)
   const server = app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`)
   })
