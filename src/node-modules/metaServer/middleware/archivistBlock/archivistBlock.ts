@@ -23,6 +23,7 @@ const getHandler = (baseDir: string) => {
   return asyncHandler(async (req, res, next) => {
     const adjustedPath = getAdjustedPath(req)
     if (defaultHtmlMeta && extname(adjustedPath) === '.html') {
+      // TODO: Check if file exists
       const html = await readFile(join(baseDir, 'index.html'), { encoding: 'utf-8' })
       const updatedHtml = await setHtmlMetaData(
         `${req.protocol}://${req.headers.host}${req.url}`,
@@ -30,6 +31,7 @@ const getHandler = (baseDir: string) => {
         defaultHtmlMeta
       )
       res.send(updatedHtml)
+      next()
     } else {
       next()
     }

@@ -1,7 +1,8 @@
+import { Server } from 'http'
 import { join } from 'path'
 import { agent, SuperTest, Test } from 'supertest'
 
-import { getApp } from '../server'
+import { getApp, server } from '../server'
 
 test('Spec files require tests', () => {
   expect(true).toBeTruthy()
@@ -14,4 +15,9 @@ const defaultBaseDir = join(__filename.split('src')[0], 'src')
 
 export const getServer = (baseDir = defaultBaseDir): SuperTest<Test> => {
   return agent(getApp(baseDir))
+}
+
+export const getAgent = (baseDir = defaultBaseDir, port?: number): [Server, SuperTest<Test>] => {
+  const activeServer = server(port, baseDir)
+  return [activeServer, agent(activeServer)]
 }

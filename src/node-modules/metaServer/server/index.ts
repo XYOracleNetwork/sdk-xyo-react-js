@@ -23,4 +23,5 @@ export const server = (port = 80, directory = './build') => {
     console.log(`Server listening at http://localhost:${port}`)
   })
   server.setTimeout(3000)
+  return server
 }

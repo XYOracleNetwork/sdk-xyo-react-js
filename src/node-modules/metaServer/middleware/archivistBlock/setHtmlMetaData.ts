@@ -10,6 +10,14 @@ import {
   isExploreDomain,
 } from '../../lib'
 
+const isLocalhost = (domain: string) => {
+  return domain.startsWith('http://localhost') || domain.startsWith('http://127.0.0.1')
+}
+
+const isValidDomain = (domain: string) => {
+  return isExploreDomain(domain) || isLocalhost(domain)
+}
+
 export const setHtmlMetaData = async (path: string, html: string, config: Meta) => {
   const hash = getHashFromUri(path)
   const domain = getDomainFromUri(path)
@@ -19,8 +27,9 @@ export const setHtmlMetaData = async (path: string, html: string, config: Meta) 
   const meta = cloneDeep(config)
   meta.og = { ...meta.og, url: path }
 
-  if (hash && isExploreDomain(domain) && apiDomain && archive) {
+  if (hash && isValidDomain(domain) && apiDomain && archive) {
     const api = new XyoArchivistApi({ apiDomain })
+    // TODO: We're only getting payloads, handle bound witnesses
     const blocks = await api.archive(archive).payload.hash(hash).get()
     if (blocks && blocks.length > 0) {
       const wrapper = new XyoPayloadWrapper(blocks[0])
