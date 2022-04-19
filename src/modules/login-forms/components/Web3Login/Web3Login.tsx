@@ -51,9 +51,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
           const signature = assertEx(await metaMaskWallet.signMessage(assertEx(message)))
 
           // Send to server for verification
-          const { token } = assertEx(
-            await api.wallet(metaMaskWallet.currentAccount).verify.post({ message: message as string, signature })
-          )
+          const { token } = assertEx(await api.wallet(metaMaskWallet.currentAccount).verify.post({ message: message as string, signature }))
 
           setToken(assertEx(token))
           setIsLoading(false)
@@ -80,12 +78,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
         </>
       ) : (
         <>
-          <ConnectWallet
-            isLoading={isLoading}
-            setCheckedWallet={setCheckedWallet}
-            metaMaskWallet={metaMaskWallet}
-            setMetaMaskError={setMetaMaskError}
-          />
+          <ConnectWallet isLoading={isLoading} setCheckedWallet={setCheckedWallet} metaMaskWallet={metaMaskWallet} setMetaMaskError={setMetaMaskError} />
           {metaMaskError && (
             <>
               <Typography variant="body1" mt={2} color="error">

@@ -18,7 +18,4 @@ const getHandler = (baseDir: string) => {
 /**
  * Middleware to proxy the original response without any modification
  */
-export const configureProxyOriginal = <T extends ApplicationMiddlewareOptions>(opts: T): MountPathAndMiddleware => [
-  'get',
-  ['*', getHandler(opts.baseDir)],
-]
+export const configureProxyOriginal = <T extends ApplicationMiddlewareOptions>(opts: T): MountPathAndMiddleware => ['get', ['*', getHandler(opts.baseDir)]]

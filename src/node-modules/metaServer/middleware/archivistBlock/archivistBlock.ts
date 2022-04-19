@@ -25,11 +25,7 @@ const getHandler = (baseDir: string) => {
     if (defaultHtmlMeta && extname(adjustedPath) === '.html') {
       // TODO: Check if file exists
       const html = await readFile(join(baseDir, 'index.html'), { encoding: 'utf-8' })
-      const updatedHtml = await setHtmlMetaData(
-        `${req.protocol}://${req.headers.host}${req.url}`,
-        html,
-        defaultHtmlMeta
-      )
+      const updatedHtml = await setHtmlMetaData(`${req.protocol}://${req.headers.host}${req.url}`, html, defaultHtmlMeta)
       res.send(updatedHtml)
       next()
     } else {
@@ -44,7 +40,4 @@ const getHandler = (baseDir: string) => {
 /**
  * Middleware for augmenting HTML metadata for Archivist Blocks
  */
-export const configureArchivistBlock = <T extends ApplicationMiddlewareOptions>(opts: T): MountPathAndMiddleware => [
-  'get',
-  ['*', getHandler(opts.baseDir)],
-]
+export const configureArchivistBlock = <T extends ApplicationMiddlewareOptions>(opts: T): MountPathAndMiddleware => ['get', ['*', getHandler(opts.baseDir)]]

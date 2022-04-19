@@ -43,15 +43,8 @@ export const JsonFromUrl: React.FC<JsonFromUrlProps> = ({ pathname, apiDomain, .
   return (
     <>
       <p>Resource - {sanitizeUrlForApi(path)}</p>
-      <Suspense fallback={<FlexCol />}>
-        {apiResponse && <JsonView src={apiResponse} collapseStringsAfterLength={64} {...JsonViewProps} />}
-      </Suspense>
-      <ErrorDialog
-        title="Error Fetching JSON"
-        error={apiError}
-        open={!!apiError}
-        onAction={() => setApiError(undefined)}
-      />
+      <Suspense fallback={<FlexCol />}>{apiResponse && <JsonView src={apiResponse} collapseStringsAfterLength={64} {...JsonViewProps} />}</Suspense>
+      <ErrorDialog title="Error Fetching JSON" error={apiError} open={!!apiError} onAction={() => setApiError(undefined)} />
     </>
   )
 }

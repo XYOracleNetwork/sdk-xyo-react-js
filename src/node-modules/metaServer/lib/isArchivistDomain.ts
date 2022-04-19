@@ -1,8 +1,5 @@
 // TODO: Grab/extend from ENV VAR to support additional dynamic domains
-export type ArchivistDomain =
-  | 'https://beta.api.archivist.xyo.network'
-  | 'https://api.archivist.xyo.network'
-  | 'http://localhost:8080'
+export type ArchivistDomain = 'https://beta.api.archivist.xyo.network' | 'https://api.archivist.xyo.network' | 'http://localhost:8080'
 
 export const archivistDomains: Record<ArchivistDomain, true> = {
   'http://localhost:8080': true,

@@ -16,10 +16,7 @@ const formatAccount = (account: string) => {
   }
 }
 
-const formatIconHint = (
-  authState: AuthState | undefined,
-  setIconHint: Dispatch<SetStateAction<string | undefined>>
-) => {
+const formatIconHint = (authState: AuthState | undefined, setIconHint: Dispatch<SetStateAction<string | undefined>>) => {
   if (authState) {
     // logged in and reAuth is false
     if (authState.loggedInAccount && !authState.reAuthenticate) {
@@ -71,13 +68,7 @@ export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...pr
   }
   return (
     <IconButton size="small" title={iconHint} onClick={onClick ?? handleClick} {...props}>
-      <FlexRow
-        bgcolor={currentAccount ? iconColor : undefined}
-        height={32}
-        width={32}
-        borderRadius="50%"
-        border={`4px solid ${iconColor}`}
-      >
+      <FlexRow bgcolor={currentAccount ? iconColor : undefined} height={32} width={32} borderRadius="50%" border={`4px solid ${iconColor}`}>
         <FlexRow>
           {currentAccount ? (
             <Identicon size={16} value={currentAccount} />

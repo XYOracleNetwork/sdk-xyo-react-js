@@ -79,17 +79,7 @@ WithHeroAndActions.args = {
 }
 WithHeroAndActions.decorators = [appThemeDecorator]
 
-export {
-  Default,
-  WithActions,
-  WithData,
-  WithDataAndBadge,
-  WithHero,
-  WithHeroAndActions,
-  WithTip,
-  WithTipAndBadge,
-  WithUndefinedData,
-}
+export { Default, WithActions, WithData, WithDataAndBadge, WithHero, WithHeroAndActions, WithTip, WithTipAndBadge, WithUndefinedData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

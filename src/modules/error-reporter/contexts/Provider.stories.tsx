@@ -20,11 +20,7 @@ const RollbarComponent = () => {
   const { rollbar } = useRollbar()
   const rollbarFound = typeof rollbar?.error === 'function'
 
-  return (
-    <Typography color={rollbarFound ? 'green' : 'red'}>
-      Rollbar instance {rollbarFound ? '' : 'NOT'} found from context!
-    </Typography>
-  )
+  return <Typography color={rollbarFound ? 'green' : 'red'}>Rollbar instance {rollbarFound ? '' : 'NOT'} found from context!</Typography>
 }
 
 const Template: ComponentStory<typeof ErrorReporterProvider> = () => {

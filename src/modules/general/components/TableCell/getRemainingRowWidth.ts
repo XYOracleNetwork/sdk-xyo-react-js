@@ -1,8 +1,7 @@
 const getPadding = (item: Element) => {
   const computedStyles = window.getComputedStyle(item, null)
   return (
-    parseInt(computedStyles?.getPropertyValue('padding-left')?.replaceAll('px', '') ?? 0) +
-    parseInt(computedStyles?.getPropertyValue('padding-right')?.replaceAll('px', '') ?? 0)
+    parseInt(computedStyles?.getPropertyValue('padding-left')?.replaceAll('px', '') ?? 0) + parseInt(computedStyles?.getPropertyValue('padding-right')?.replaceAll('px', '') ?? 0)
   )
 }
 

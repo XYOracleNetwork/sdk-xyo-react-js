@@ -15,12 +15,7 @@ export interface ReflectionTreeViewerProps<T extends Reflection = ContainerRefle
   searchTerm?: string
 }
 
-export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({
-  lookup,
-  reflection,
-  searchTerm,
-  ...props
-}) => {
+export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({ lookup, reflection, searchTerm, ...props }) => {
   const navigate = useNavigate()
   return (
     <FlexCol alignItems="stretch" {...props}>
@@ -42,16 +37,11 @@ export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({
         defaultExpanded={reflection.groups ? [reflection.groups[0].title] : []}
       >
         {reflection.groups?.map((group, index) => (
-          <TreeItem
-            key={`primary-${index}`}
-            nodeId={group.title}
-            label={<Typography variant="h6">{group.title}</Typography>}
-          >
+          <TreeItem key={`primary-${index}`} nodeId={group.title} label={<Typography variant="h6">{group.title}</Typography>}>
             {group.children.map((child, jndex) => {
               const searchTermTrimmed = searchTerm?.trim().toLowerCase()
               const childReflection = typeof child === 'number' ? lookup?.[child as number] : child
-              return childReflection &&
-                (!searchTermTrimmed || childReflection.name.toLowerCase().indexOf(searchTermTrimmed) !== -1) ? (
+              return childReflection && (!searchTermTrimmed || childReflection.name.toLowerCase().indexOf(searchTermTrimmed) !== -1) ? (
                 <TreeItem
                   key={`secondary-${index}- ${jndex}`}
                   nodeId={`declaration-${childReflection?.id}`}

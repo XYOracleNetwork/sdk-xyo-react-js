@@ -8,15 +8,7 @@ import { ApiErrorAlert } from './ApiErrorAlert'
 import { XyoApiErrorRenderProps } from './Props'
 import { ReAuth } from './ReAuth'
 
-export const XyoApiErrorRender: React.FC<XyoApiErrorRenderProps> = ({
-  apiError,
-  apiFailure,
-  noErrorDisplay = false,
-  noReAuth = false,
-  customError = null,
-  children,
-  ...props
-}) => {
+export const XyoApiErrorRender: React.FC<XyoApiErrorRenderProps> = ({ apiError, apiFailure, noErrorDisplay = false, noReAuth = false, customError = null, children, ...props }) => {
   const location = useLocation()
   useEffect(() => {
     // ensure we end up at the same place we are now after logging in

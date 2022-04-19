@@ -2,13 +2,7 @@ import { XyoArchivistApi, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-
 import { Meta, metaBuilder } from '@xyo-network/sdk-xyo-js'
 import cloneDeep from 'lodash/cloneDeep'
 
-import {
-  getArchiveFromUri,
-  getArchivistDomainFromExploreUri,
-  getDomainFromUri,
-  getHashFromUri,
-  isExploreDomain,
-} from '../../lib'
+import { getArchiveFromUri, getArchivistDomainFromExploreUri, getDomainFromUri, getHashFromUri, isExploreDomain } from '../../lib'
 
 const isLocalhost = (domain: string) => {
   return domain.startsWith('http://localhost') || domain.startsWith('http://127.0.0.1')

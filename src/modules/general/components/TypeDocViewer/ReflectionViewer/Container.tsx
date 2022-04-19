@@ -5,19 +5,12 @@ import { ReflectionGroupViewer } from './ReflectionGroupViewer'
 import { ReflectionViewer } from './ReflectionViewer'
 import { ReflectionViewerProps } from './ReflectionViewerProps'
 
-export interface ContainerReflectionViewerProps<T extends ContainerReflection = ContainerReflection>
-  extends ReflectionViewerProps<T> {
+export interface ContainerReflectionViewerProps<T extends ContainerReflection = ContainerReflection> extends ReflectionViewerProps<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   itemRenderer?: React.FC<ReflectionViewerProps<any>>
 }
 
-export const ContainerReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({
-  children,
-  reflection,
-  hiddenFlags,
-  itemRenderer = ReflectionViewer,
-  ...props
-}) => {
+export const ContainerReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({ children, reflection, hiddenFlags, itemRenderer = ReflectionViewer, ...props }) => {
   const lookup = createLookup(reflection)
 
   return (

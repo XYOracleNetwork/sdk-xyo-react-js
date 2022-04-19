@@ -13,12 +13,7 @@ interface ConnectWalletProps {
   setMetaMaskError: Dispatch<SetStateAction<MetaMaskError | undefined>>
 }
 
-const ConnectWallet: React.FC<ConnectWalletProps> = ({
-  setCheckedWallet,
-  metaMaskWallet,
-  isLoading,
-  setMetaMaskError,
-}) => {
+const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, metaMaskWallet, isLoading, setMetaMaskError }) => {
   const connectWallet = async () => {
     if (!metaMaskWallet.currentAccount) {
       try {

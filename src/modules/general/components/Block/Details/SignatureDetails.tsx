@@ -10,11 +10,7 @@ export interface BlockSignatureDetailsProps extends FlexBoxProps {
   gridContainerFlexProps?: FlexBoxProps
 }
 
-export const BlockSignatureDetails: React.FC<BlockSignatureDetailsProps> = ({
-  block,
-  gridContainerFlexProps = { flexDirection: 'column', flexGrow: '1' },
-  ...props
-}) => {
+export const BlockSignatureDetails: React.FC<BlockSignatureDetailsProps> = ({ block, gridContainerFlexProps = { flexDirection: 'column', flexGrow: '1' }, ...props }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
       <FlexRow margin={1} justifyContent="flex-start">
