@@ -7,12 +7,14 @@ import { ContextToolbar, SystemToolbar } from '../Toolbar'
 export interface ApplicationAppBarProps extends AppBarProps {
   contextToolbar?: ReactElement<ToolbarProps>
   systemToolbar?: ReactElement<ToolbarProps>
+  responsive?: boolean
 }
 
 export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({
   systemToolbar,
   contextToolbar,
   children,
+  responsive = true,
   ...props
 }) => {
   const { breakpoints } = useTheme()
@@ -39,10 +41,10 @@ export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({
         <Container maxWidth="xl" disableGutters>
           <FlexRow flexWrap="nowrap" justifyContent="flex-start">
             {contextToolbar ?? <ContextToolbar version />}
-            <FlexGrowRow>{belowSm ? null : children}</FlexGrowRow>
+            <FlexGrowRow>{belowSm && responsive ? null : children}</FlexGrowRow>
             {systemToolbar ?? <SystemToolbar />}
           </FlexRow>
-          {belowSm && children ? <Toolbar>{children}</Toolbar> : null}
+          {belowSm && children && responsive ? <Toolbar>{children}</Toolbar> : null}
         </Container>
       </InvertableThemeProvider>
     </AppBar>

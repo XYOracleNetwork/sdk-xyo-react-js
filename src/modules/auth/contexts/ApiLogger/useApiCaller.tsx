@@ -1,6 +1,8 @@
+/* eslint-disable deprecation/deprecation */
 import { AxiosLoggedError } from './ApiLoggerTypes'
 import { useApiLogger } from './useApiLogger'
 
+/** @deprecated use archivist-api to handle api call logging */
 export interface InvokeApiConfig {
   call: () => Promise<unknown>
   // Future
@@ -8,6 +10,7 @@ export interface InvokeApiConfig {
   // flattenData: true
 }
 
+/** @deprecated use archivist-api to handle api call logging */
 const useApiCaller = () => {
   const { setApiCalls } = useApiLogger()
 

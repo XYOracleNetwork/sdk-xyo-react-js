@@ -1,9 +1,11 @@
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
-import { ApiLogs } from '../../components'
+import { DeprecateStory } from '../../../../.storybook'
 import { ApiErrorsProvider } from './Provider'
 import { useApiCaller } from './useApiCaller'
 import { useApiLogger } from './useApiLogger'
@@ -31,7 +33,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof ApiErrorsProvider>
 
 const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
-  const { calls, setApiCalls } = useApiLogger()
+  const { setApiCalls } = useApiLogger()
   const [errorRefresh, setErrorRefresh] = useState(0)
   const { invoke } = useApiCaller()
 
@@ -58,10 +60,10 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
 
   return (
     <>
+      <DeprecateStory />
       <ButtonEx marginY={2} variant="contained" onClick={() => setErrorRefresh(errorRefresh + 1)}>
         Fire off Error
       </ButtonEx>
-      <ApiLogs calls={calls} />
     </>
   )
 }

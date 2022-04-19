@@ -1,13 +1,13 @@
 import { assertEx, delay } from '@xylabs/sdk-js'
 import { useAsyncEffect, WithChildren } from '@xylabs/sdk-react'
 import {
-  XyoAddress,
   XyoApiConfig,
   XyoArchivistApi,
   XyoBoundWitness,
   XyoPanel,
   XyoPayload,
   XyoSystemInfoWitness,
+  XyoWallet,
   XyoWitness,
 } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
@@ -17,7 +17,7 @@ import { XyoPanelContext } from './Context'
 import { XyoPanelReportProgress, XyoReportStatus } from './State'
 
 export interface XyoPanelProviderProps {
-  address?: XyoAddress
+  wallet?: XyoWallet
   archivists?: XyoArchivistApi[]
   inlinePayloads?: boolean
   witnesses?: XyoWitness<XyoPayload>[]
@@ -40,7 +40,7 @@ const getDefaultArchivists = () => {
 export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = ({
   inlinePayloads = false,
   required = false,
-  address = XyoAddress.random(),
+  wallet = XyoWallet.random(),
   archivists = getDefaultArchivists(),
   witnesses = [new XyoSystemInfoWitness()],
   archive,
@@ -57,7 +57,6 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const panel = new XyoPanel({
-        address,
         archive: archive ?? contextArchive,
         archivists,
         inlinePayloads,
@@ -133,13 +132,14 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
             })
           }
         },
+        wallet,
         witnesses: witnesses.filter((witness) => !!witness),
       })
       setPanel(panel)
       await delay(0)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [address, archivists, witnesses, inlinePayloads, archive, contextArchive]
+    [wallet, archivists, witnesses, inlinePayloads, archive, contextArchive]
   )
 
   useEffect(() => {
