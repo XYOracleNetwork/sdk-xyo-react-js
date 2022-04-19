@@ -21,13 +21,7 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
 
   if (state && dispatch) {
-    return (
-      <NoneSelected
-        dispatch={dispatch}
-        loggedInAccount={state.loggedInAccount}
-        authServiceList={state.authServiceList}
-      />
-    )
+    return <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
   } else {
     return <></>
   }
@@ -39,13 +33,7 @@ const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
   location.state = { message: 'Please login to view this page' }
 
   if (state && dispatch) {
-    return (
-      <NoneSelected
-        dispatch={dispatch}
-        loggedInAccount={state.loggedInAccount}
-        authServiceList={state.authServiceList}
-      />
-    )
+    return <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
   } else {
     return <></>
   }

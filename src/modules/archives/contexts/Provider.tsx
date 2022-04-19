@@ -28,9 +28,5 @@ export const ArchivesProvider: React.FC<WithChildren> = ({ children }) => {
     [refresh]
   )
 
-  return (
-    <ArchivesContext.Provider value={{ archives, provided: true, refresh, setArchives }}>
-      {children}
-    </ArchivesContext.Provider>
-  )
+  return <ArchivesContext.Provider value={{ archives, provided: true, refresh, setArchives }}>{children}</ArchivesContext.Provider>
 }

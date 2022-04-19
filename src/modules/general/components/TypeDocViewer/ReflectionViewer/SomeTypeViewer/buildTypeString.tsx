@@ -9,10 +9,7 @@ import { buildRelfectionString } from './buildReflectionString'
 import { buildUnionString } from './buildUnionString'
 import { TypeBuilder } from './TypeBuilder'
 
-export const buildTypeString: TypeBuilder = (
-  type: SomeType | Type,
-  reflectionViewer: React.FC<ReflectionViewerProps>
-): ReactNode => {
+export const buildTypeString: TypeBuilder = (type: SomeType | Type, reflectionViewer: React.FC<ReflectionViewerProps>): ReactNode => {
   const someType = type as SomeType
   const parts: string[] = []
 

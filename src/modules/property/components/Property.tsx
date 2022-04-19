@@ -28,25 +28,9 @@ export const Property: React.FC<PropertyProps> = ({
 
   const TitleGridItem: React.FC = () => {
     return title ? (
-      <Grid
-        display="flex"
-        xs={12}
-        {...{ [stackBreak]: hero ? 12 : 'auto' }}
-        item
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <PropertyTitle
-          hero={hero}
-          maxWidth={hero ? 'auto' : maxTitleWidth}
-          minHeight={minHeight}
-          tip={tip}
-          title={title}
-          paddingFactor={paddingFactor}
-        />
-        {belowStackBreak ? (
-          <PropertyActions marginRight={badge ? 3 : 0} justifyContent="flex-end" actions={actions} />
-        ) : null}
+      <Grid display="flex" xs={12} {...{ [stackBreak]: hero ? 12 : 'auto' }} item alignItems="center" justifyContent="space-between">
+        <PropertyTitle hero={hero} maxWidth={hero ? 'auto' : maxTitleWidth} minHeight={minHeight} tip={tip} title={title} paddingFactor={paddingFactor} />
+        {belowStackBreak ? <PropertyActions marginRight={badge ? 3 : 0} justifyContent="flex-end" actions={actions} /> : null}
         {badge && typeof value === 'string' && <IdenticonCorner value={value} />}
       </Grid>
     ) : null
@@ -54,26 +38,13 @@ export const Property: React.FC<PropertyProps> = ({
 
   const ChildrenGridItem: React.FC = () => {
     return (
-      <Grid
-        borderTop={belowStackBreak && title ? `1px solid ${theme.palette.divider}` : 'none'}
-        display="flex"
-        xs={12}
-        {...{ [stackBreak]: 'auto' }}
-        item
-        alignItems="center"
-      >
+      <Grid borderTop={belowStackBreak && title ? `1px solid ${theme.palette.divider}` : 'none'} display="flex" xs={12} {...{ [stackBreak]: 'auto' }} item alignItems="center">
         {value === undefined ? (
           <FlexGrowRow minHeight={minHeight} padding={paddingFactor}>
             <CircularProgress size={16} />
           </FlexGrowRow>
         ) : (
-          <>
-            {children ? (
-              children
-            ) : (
-              <PropertyValue value={value} paddingFactor={paddingFactor} typographyVariant={hero ? 'h6' : undefined} />
-            )}
-          </>
+          <>{children ? children : <PropertyValue value={value} paddingFactor={paddingFactor} typographyVariant={hero ? 'h6' : undefined} />}</>
         )}
       </Grid>
     )
@@ -88,13 +59,7 @@ export const Property: React.FC<PropertyProps> = ({
       borderRadius={1}
       {...props}
     >
-      <Grid
-        container
-        flexWrap={belowStackBreak ? 'wrap' : 'nowrap'}
-        justifyContent="space-between"
-        overflow="hidden"
-        {...gridContainerFlexProps}
-      >
+      <Grid container flexWrap={belowStackBreak ? 'wrap' : 'nowrap'} justifyContent="space-between" overflow="hidden" {...gridContainerFlexProps}>
         <TitleGridItem />
         {children ? null : <FlexGrowRow />}
         <ChildrenGridItem />

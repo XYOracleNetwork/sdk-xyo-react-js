@@ -10,13 +10,7 @@ export interface BlockSignatureTableRowProps extends TableRowProps {
   signature?: string
 }
 
-export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({
-  address,
-  previousHash,
-  signature,
-  archive,
-  ...props
-}) => {
+export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ address, previousHash, signature, archive, ...props }) => {
   return (
     <TableRow {...props}>
       <AddressTableCell archive={archive} value={address} />

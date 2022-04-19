@@ -42,13 +42,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuIt
           <MenuIcon fontSize="large" />
         </div>
       </LinkEx>
-      <MenuEx
-        colorize="primary"
-        mode={darkMode ? 'dark' : 'light'}
-        anchorEl={menuElement}
-        open={open}
-        onClose={handleMenuClose}
-      >
+      <MenuEx colorize="primary" mode={darkMode ? 'dark' : 'light'} anchorEl={menuElement} open={open} onClose={handleMenuClose}>
         {menuItems?.map(({ name, to, href, onClick }) => {
           return (
             <MenuItem

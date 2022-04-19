@@ -52,13 +52,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
     }
   }, [routeNetwork, network, setNetworkParam, setNetwork])
 
-  return (
-    <NetworkContext.Provider
-      value={{ network, networks: defaultNetworkConfigs, provided: true, setNetwork: setNetworkLocal }}
-    >
-      {children}
-    </NetworkContext.Provider>
-  )
+  return <NetworkContext.Provider value={{ network, networks: defaultNetworkConfigs, provided: true, setNetwork: setNetworkLocal }}>{children}</NetworkContext.Provider>
 }
 
 export const NetworkRouteProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetwork, ...props }) => {

@@ -17,8 +17,7 @@ class AuthErrorHelpers {
   public static handleAuthError = (error: AuthError): FormattedAuthError => {
     if (isXyoError(error) && error.response?.status === 401) {
       return {
-        dialogMessage:
-          'Invalid Credentials or session expired.  Please verify your credentials and try to log in again.',
+        dialogMessage: 'Invalid Credentials or session expired.  Please verify your credentials and try to log in again.',
         error,
         reAuthenticate: true,
       }

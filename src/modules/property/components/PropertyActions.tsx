@@ -10,14 +10,7 @@ export const PropertyActions: React.FC<PropertyActionsProps> = ({ actions, ...pr
           <FlexRow>
             {actions.map((action, index) => {
               return (
-                <ButtonEx
-                  key={index}
-                  marginRight={1}
-                  size="small"
-                  disabled={action.disabled}
-                  onClick={action.onClick}
-                  variant="contained"
-                >
+                <ButtonEx key={index} marginRight={1} size="small" disabled={action.disabled} onClick={action.onClick} variant="contained">
                   {action.name}
                 </ButtonEx>
               )

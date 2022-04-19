@@ -4,17 +4,11 @@ import React, { ProviderProps, useState } from 'react'
 import { AppSettingsContext, AppSettingsContextProps } from './Context'
 import { AppSettingsStorage } from './Storage'
 
-export interface AppSettingsProviderProps<T extends AppSettingsContextProps = AppSettingsContextProps>
-  extends ProviderProps<T> {
+export interface AppSettingsProviderProps<T extends AppSettingsContextProps = AppSettingsContextProps> extends ProviderProps<T> {
   storage?: AppSettingsStorage
 }
 
-export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps>> = ({
-  storage = new AppSettingsStorage(),
-  value,
-  children,
-  ...props
-}) => {
+export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps>> = ({ storage = new AppSettingsStorage(), value, children, ...props }) => {
   const [developerMode, setDeveloperMode] = useState(storage.developerMode)
   const [darkMode, setDarkMode] = useState(storage.darkMode)
 

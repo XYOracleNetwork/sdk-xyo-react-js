@@ -49,8 +49,7 @@ const Template: ComponentStory<typeof JsonRouteWrapper> = (props) => {
 
 const Default = Template.bind({})
 Default.args = {
-  callback: () =>
-    new XyoArchivistApi({ apiDomain: 'https://beta.api.archivist.xyo.network' }).archive('temp').block.stats.get(),
+  callback: () => new XyoArchivistApi({ apiDomain: 'https://beta.api.archivist.xyo.network' }).archive('temp').block.stats.get(),
 }
 
 const HideBackButton = Template.bind({})
