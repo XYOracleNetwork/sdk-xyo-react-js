@@ -4,7 +4,7 @@ FROM node:16 AS builder
 WORKDIR /app
 COPY . .
 RUN yarn install
-RUN yarn compile
+RUN yarn build
 
 # Just install the production dependencies here
 FROM node:16 AS dependencies
@@ -19,9 +19,17 @@ FROM node:16-alpine
 EXPOSE 80
 ENV PORT="80"
 WORKDIR /app
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/yarn.lock ./yarn.lock
-COPY --from=builder /app/dist/node ./dist/node
-COPY --from=builder /app/bin ./bin
+
+# Copy over the compiled static app
+ARG BUILD_OUTPUT_DIR=build
+COPY --from=builder /app/${BUILD_OUTPUT_DIR} ./build
+
+# Copy over the meta-server to run the app
 COPY --from=dependencies /app/node_modules ./node_modules
-CMD ["yarn", "start-meta"]
+COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/dist/node ./dist/node
+COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.js ./bin/start-meta.js
+
+WORKDIR /app/bin
+
+# Start the meta-server pointed to the static app
+CMD ["node", "./start-meta.js"]
