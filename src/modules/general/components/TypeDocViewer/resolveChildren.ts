@@ -5,10 +5,7 @@ import { SomeReflection } from './SomeReflection'
 
 type ReflectionWithChildren = { children: Reflection[] }
 
-export const resolveChildren = <T extends SomeReflection>(
-  reflection: ReflectionWithChildren,
-  lookup: ReflectionLookup = {}
-): T[] => {
+export const resolveChildren = <T extends SomeReflection>(reflection: ReflectionWithChildren, lookup: ReflectionLookup = {}): T[] => {
   return (reflection.children?.map((child) => {
     switch (typeof child) {
       case 'object':

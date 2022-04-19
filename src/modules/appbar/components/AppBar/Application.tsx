@@ -10,13 +10,7 @@ export interface ApplicationAppBarProps extends AppBarProps {
   responsive?: boolean
 }
 
-export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({
-  systemToolbar,
-  contextToolbar,
-  children,
-  responsive = true,
-  ...props
-}) => {
+export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({ systemToolbar, contextToolbar, children, responsive = true, ...props }) => {
   const { breakpoints } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
   const theme = useTheme()

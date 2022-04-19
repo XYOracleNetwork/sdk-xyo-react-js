@@ -15,14 +15,7 @@ export interface JsonFromPromiseProps extends FlexBoxProps {
   jsonViewProps?: ReactJsonViewProps
 }
 
-export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
-  callback,
-  children,
-  noBackButton = false,
-  noJsonButton = false,
-  jsonViewProps,
-  ...props
-}) => {
+export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({ callback, children, noBackButton = false, noJsonButton = false, jsonViewProps, ...props }) => {
   const [apiResponse, setApiResponse] = useState<object>()
   const [apiError, setApiError] = useState<AxiosError>()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -49,9 +42,7 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
     <FlexCol {...props}>
       {active ? (
         <>
-          <Suspense fallback={null}>
-            {apiResponse && <JsonView src={apiResponse} collapseStringsAfterLength={64} {...jsonViewProps} />}
-          </Suspense>
+          <Suspense fallback={null}>{apiResponse && <JsonView src={apiResponse} collapseStringsAfterLength={64} {...jsonViewProps} />}</Suspense>
           {!noBackButton && (
             <FlexRow marginY={3}>
               <ButtonEx
@@ -66,12 +57,7 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
               </ButtonEx>
             </FlexRow>
           )}
-          <ErrorDialog
-            title="Error Fetching JSON"
-            error={apiError}
-            open={!!apiError}
-            onAction={() => setApiError(undefined)}
-          />
+          <ErrorDialog title="Error Fetching JSON" error={apiError} open={!!apiError} onAction={() => setApiError(undefined)} />
         </>
       ) : (
         <>

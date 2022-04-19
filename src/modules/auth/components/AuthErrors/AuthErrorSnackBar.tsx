@@ -43,13 +43,7 @@ const AuthErrorSnackbar: React.FC<AuthErrorSnackBarProps> = ({ setReAuth, ...sna
   }
 
   return (
-    <Snackbar
-      anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-      open={!!authError}
-      onClose={handleClose}
-      key="auth-error-snackbar"
-      {...snackBarProps}
-    >
+    <Snackbar anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }} open={!!authError} onClose={handleClose} key="auth-error-snackbar" {...snackBarProps}>
       <Alert
         severity="error"
         action={

@@ -30,12 +30,7 @@ export const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount, authService
               {authWarning}
             </Typography>
           )}
-          <ButtonGroup
-            onClick={() => setAuthWarning(undefined)}
-            orientation="vertical"
-            aria-label="vertical outlined button group"
-            fullWidth={true}
-          >
+          <ButtonGroup onClick={() => setAuthWarning(undefined)} orientation="vertical" aria-label="vertical outlined button group" fullWidth={true}>
             {authServiceList &&
               authServiceList.map((service: AuthService) => {
                 return <AuthServiceButton key={service.id} service={service} />

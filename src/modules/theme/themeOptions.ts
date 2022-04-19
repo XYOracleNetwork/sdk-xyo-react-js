@@ -43,20 +43,26 @@ export const typography: ThemeOptions['typography'] = {
   fontWeightRegular: 400,
   h1: {
     fontFamily: fontFamilyPrimary,
+    fontSize: '4rem',
   },
   h2: {
     fontFamily: fontFamilyPrimary,
+    fontSize: '2.4rem',
   },
   h3: {
     fontFamily: fontFamilyPrimary,
+    fontSize: '2.24rem',
   },
   h4: {
+    fontSize: '2rem',
     fontWeight: lowerFontWeight,
   },
   h5: {
+    fontSize: '1.5rem',
     fontWeight: lowerFontWeight,
   },
   h6: {
+    fontSize: '1.25rem',
     fontWeight: lowerFontWeight,
   },
   subtitle1: {

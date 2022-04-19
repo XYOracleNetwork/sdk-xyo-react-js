@@ -10,12 +10,7 @@ export interface PayloadValidationDetailsProps extends FlexBoxProps {
   value?: XyoPayload
 }
 
-export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({
-  skipMeta = false,
-  skipBody = false,
-  value,
-  ...props
-}) => {
+export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ skipMeta = false, skipBody = false, value, ...props }) => {
   const validator = value ? new XyoPayloadValidator(value) : undefined
 
   const bodyErrors = skipBody ? [] : validator?.body.all() ?? []
@@ -45,9 +40,7 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
             )
           }
         />
-        {value?.schema && (
-          <Property flexGrow={1} title="Schema" value={value?.schema} tip="Schema sent with the payload"></Property>
-        )}
+        {value?.schema && <Property flexGrow={1} title="Schema" value={value?.schema} tip="Schema sent with the payload"></Property>}
       </FlexRow>
     </FlexCol>
   )

@@ -10,12 +10,7 @@ export interface SomeTypeViewerProps extends TypographyProps {
   reflectionViewer: React.FC<ReflectionViewerProps>
 }
 
-export const SomeTypeViewer: React.FC<SomeTypeViewerProps> = ({
-  reflectionViewer,
-  opacity = 0.5,
-  reflection,
-  ...props
-}) => {
+export const SomeTypeViewer: React.FC<SomeTypeViewerProps> = ({ reflectionViewer, opacity = 0.5, reflection, ...props }) => {
   const typeReactNode = reflection.type ? buildTypeString(reflection.type, reflectionViewer) : ''
   if (typeof typeReactNode === 'string') {
     return (

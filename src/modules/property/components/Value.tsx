@@ -7,12 +7,7 @@ export interface PropertyValueProps extends TypographyProps {
   typographyVariant?: Variant
 }
 
-export const PropertyValue: React.FC<PropertyValueProps> = ({
-  value,
-  paddingFactor,
-  typographyVariant = 'caption',
-  ...props
-}) => {
+export const PropertyValue: React.FC<PropertyValueProps> = ({ value, paddingFactor, typographyVariant = 'caption', ...props }) => {
   const customThemeProps = {
     clamped: paddingFactor,
     title: value?.toString(),
