@@ -1,7 +1,10 @@
-const { argv } = require('yargs')
+const yargs = require('yargs')
 
 const getFlags = () => {
-  const { _, $0, ...flags } = argv
+  const { _, $0, ...flags } = yargs.parserConfiguration({
+    "camel-case-expansion": false,
+  }).argv
+  console.log(flags)
   return flags
 }
 
