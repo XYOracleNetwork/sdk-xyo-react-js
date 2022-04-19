@@ -22,7 +22,7 @@ WORKDIR /app
 
 # Copy over the compiled static app
 ARG BUILD_OUTPUT_DIR=build
-COPY --from=builder /app/${BUILD_OUTPUT_DIR} ./build
+COPY --from=builder /app/${BUILD_OUTPUT_DIR} ./bin/build
 
 # Copy over the meta-server to run the app
 COPY --from=dependencies /app/node_modules ./node_modules
@@ -32,4 +32,4 @@ COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-
 WORKDIR /app/bin
 
 # Start the meta-server pointed to the static app
-CMD ["node", "./start-meta.js"]
+CMD ["node", "start-meta.js"]
