@@ -1,6 +1,6 @@
 import express, { Express } from 'express'
 
-import { configureArchivistBlock, configureProxyOriginal } from '../middleware'
+import { configureArchivistBlock, configureProxyOriginal } from '../contentHandlers'
 import { ApplicationMiddlewareOptions, MountPathAndMiddleware } from '../types'
 
 export const getApp = (directory = './build'): Express => {
