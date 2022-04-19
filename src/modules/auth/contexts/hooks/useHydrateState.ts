@@ -29,11 +29,7 @@ const saveAuthStateToLocalStorage = (state: AuthState, keysToSave: SaveableAuthS
   localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(saveableValues))
 }
 
-export const useHydrateState = (
-  state: AuthState,
-  dispatch: React.Dispatch<AuthAction>,
-  keysToSave: SaveableAuthStateProps[]
-) => {
+export const useHydrateState = (state: AuthState, dispatch: React.Dispatch<AuthAction>, keysToSave: SaveableAuthStateProps[]) => {
   const [isFirstRun, setIsFirstRun] = useState(true)
 
   useEffect(() => {

@@ -9,11 +9,7 @@ export interface LoginToggleMenuItemProps {
   navigateRoute?: string
 }
 
-const LoginToggleMenuItem: React.FC<LoginToggleMenuItemProps> = ({
-  handleClose,
-  enableLogin = true,
-  navigateRoute = '/',
-}) => {
+const LoginToggleMenuItem: React.FC<LoginToggleMenuItemProps> = ({ handleClose, enableLogin = true, navigateRoute = '/' }) => {
   const navigate = useNavigate()
   const { state: authState, dispatch: authDispatch } = useAuthState()
 

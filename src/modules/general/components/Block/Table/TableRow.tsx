@@ -15,12 +15,7 @@ export interface BlockTableRowProps extends TableRowProps {
   columns?: BlockTableColumnConfig
 }
 
-export const BlockTableRow: React.FC<BlockTableRowProps> = ({
-  exploreDomain,
-  block,
-  columns = blockTableColumnConfigDefaults(),
-  ...props
-}) => {
+export const BlockTableRow: React.FC<BlockTableRowProps> = ({ exploreDomain, block, columns = blockTableColumnConfigDefaults(), ...props }) => {
   const breakPoint = useBreakpoint()
 
   const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
@@ -50,21 +45,12 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
     </TableCell>
   )
 
-  const hash = (
-    <HashTableCell
-      key="hash"
-      value={block?._hash}
-      archive={block?._archive}
-      dataType="block"
-      exploreDomain={exploreDomain}
-    />
-  )
+  const hash = <HashTableCell key="hash" value={block?._hash} archive={block?._archive} dataType="block" exploreDomain={exploreDomain} />
 
   const payloads = (
     <TableCell key="payloads" align="center">
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|
-        {compact(block?.previous_hashes ?? [])?.length}
+        {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|{compact(block?.previous_hashes ?? [])?.length}
       </Typography>
     </TableCell>
   )
@@ -80,11 +66,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   const valid = (
     <TableCell key="valid" align="center">
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {wrapper?.validator.all().length === 0 ? (
-          <MdDone fontSize={18} color="green" />
-        ) : (
-          <MdClear color="red" fontSize={18} />
-        )}
+        {wrapper?.validator.all().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
       </Typography>
     </TableCell>
   )

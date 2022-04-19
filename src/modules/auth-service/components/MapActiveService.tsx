@@ -14,11 +14,7 @@ export interface ActiveAuthServiceProps {
   handleBack: () => void
 }
 
-export const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({
-  dispatch,
-  authState,
-  handleBack,
-}) => {
+export const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = ({ dispatch, authState, handleBack }) => {
   const theme = useTheme()
   const { activeAuthServiceId, isLoading, loggedInAccount, authServiceList } = authState
   const [MySelectedAuthService, setMySelectedAuthService] = useState<React.FC | React.FC<LoginForm>>()
@@ -37,11 +33,7 @@ export const MapActiveAuthServiceComponent: React.FC<ActiveAuthServiceProps> = (
     <FlexGrowCol maxWidth={theme.breakpoints.values.sm}>
       {MySelectedAuthService ? (
         <WalletServiceProvider>
-          <MySelectedAuthService
-            loggedInAccount={loggedInAccount}
-            dispatch={dispatch}
-            authServiceList={authServiceList}
-          />
+          <MySelectedAuthService loggedInAccount={loggedInAccount} dispatch={dispatch} authServiceList={authServiceList} />
         </WalletServiceProvider>
       ) : null}
       {activeAuthServiceId !== AuthServiceId.None ? (

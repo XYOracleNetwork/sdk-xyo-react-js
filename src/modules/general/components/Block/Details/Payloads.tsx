@@ -11,12 +11,7 @@ export interface BlockPayloadsProps extends FlexBoxProps {
   gridContainerFlexProps?: FlexBoxProps
 }
 
-export const BlockPayloads: React.FC<BlockPayloadsProps> = ({
-  payloads,
-  payloadTableProps,
-  gridContainerFlexProps = { flexDirection: 'column', flexGrow: '1' },
-  ...props
-}) => {
+export const BlockPayloads: React.FC<BlockPayloadsProps> = ({ payloads, payloadTableProps, gridContainerFlexProps = { flexDirection: 'column', flexGrow: '1' }, ...props }) => {
   return (
     <FlexCol justifyContent="flex-start" alignItems="stretch" {...props}>
       <FlexRow margin={1} justifyContent="flex-start">

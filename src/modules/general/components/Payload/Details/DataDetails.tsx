@@ -13,12 +13,7 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ value, .
   const propertyHeroProps = usePropertyHeroProps(props)
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <Property
-        title="Payload Hash"
-        value={wrapper?.sortedHash() ?? '<Unknown>'}
-        tip="This is the payload hash"
-        {...propertyHeroProps}
-      />
+      <Property title="Payload Hash" value={wrapper?.sortedHash() ?? '<Unknown>'} tip="This is the payload hash" {...propertyHeroProps} />
     </FlexCol>
   )
 }

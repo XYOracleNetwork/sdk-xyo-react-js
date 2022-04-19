@@ -6,8 +6,7 @@ import { SuperTest, Test } from 'supertest'
 
 import { getServerOnPort } from '../../test'
 
-const payloadUri =
-  '/archive/temp/payload/hash/2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99?network=kerplunk'
+const payloadUri = '/archive/temp/payload/hash/2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99?network=kerplunk'
 
 const testServerPort = 12345
 

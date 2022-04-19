@@ -8,12 +8,7 @@ import { NetworkProviderProps } from './Props'
 export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetwork, ...props }) => {
   const [network, setNetwork] = useState(defaultNetwork ?? defaultNetworkConfigs[0])
 
-  return (
-    <NetworkContext.Provider
-      value={{ network: network, networks: defaultNetworkConfigs, provided: true, setNetwork }}
-      {...props}
-    />
-  )
+  return <NetworkContext.Provider value={{ network: network, networks: defaultNetworkConfigs, provided: true, setNetwork }} {...props} />
 }
 
 /** @deprecated use NetworkMemoryProvider instead */

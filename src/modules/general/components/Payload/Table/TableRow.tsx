@@ -6,11 +6,7 @@ import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
 
 import { HashTableCell } from '../../TableCell'
-import {
-  PayloadTableColumnConfig,
-  payloadTableColumnConfigDefaults,
-  PayloadTableColumnSlug,
-} from './PayloadTableColumnConfig'
+import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig'
 
 export interface PayloadTableRowProps extends TableRowProps {
   payload?: XyoPayload
@@ -18,12 +14,7 @@ export interface PayloadTableRowProps extends TableRowProps {
   columns?: PayloadTableColumnConfig
 }
 
-export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
-  exploreDomain,
-  payload,
-  columns = payloadTableColumnConfigDefaults(),
-  ...props
-}) => {
+export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain, payload, columns = payloadTableColumnConfigDefaults(), ...props }) => {
   const breakPoint = useBreakpoint()
   const timeStamp = payload?._timestamp ? DateTime.fromMillis(payload?._timestamp) : undefined
   const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
@@ -52,15 +43,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     </TableCell>
   )
 
-  const hash = (
-    <HashTableCell
-      key="hash"
-      value={payload?._hash}
-      archive={payload?._archive}
-      dataType="payload"
-      exploreDomain={exploreDomain}
-    />
-  )
+  const hash = <HashTableCell key="hash" value={payload?._hash} archive={payload?._archive} dataType="payload" exploreDomain={exploreDomain} />
 
   const schema = (
     <TableCell key="payloads" align="center">
@@ -81,11 +64,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const valid = (
     <TableCell key="valid" align="center">
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {wrapper?.validator.all().length === 0 ? (
-          <MdDone fontSize={18} color="green" />
-        ) : (
-          <MdClear color="red" fontSize={18} />
-        )}
+        {wrapper?.validator.all().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
       </Typography>
     </TableCell>
   )

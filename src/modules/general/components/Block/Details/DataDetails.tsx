@@ -11,12 +11,7 @@ export const BlockDataDetails: React.FC<BlockDataDetailsProps> = ({ block, ...pr
   const propertyHeroProps = usePropertyHeroProps(props)
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <Property
-        title="Block Hash"
-        value={block?._hash ?? '<Unknown>'}
-        tip="This is the block hash"
-        {...propertyHeroProps}
-      />
+      <Property title="Block Hash" value={block?._hash ?? '<Unknown>'} tip="This is the block hash" {...propertyHeroProps} />
     </FlexCol>
   )
 }

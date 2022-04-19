@@ -9,8 +9,6 @@ const StyledScrollTableOnSm = styled('div')(({ theme }) => ({
   flexGrow: 1,
 }))
 
-const ScrollTableOnSm: React.FC<WithChildren> = ({ children }) => (
-  <StyledScrollTableOnSm>{children}</StyledScrollTableOnSm>
-)
+const ScrollTableOnSm: React.FC<WithChildren> = ({ children }) => <StyledScrollTableOnSm>{children}</StyledScrollTableOnSm>
 
 export { ScrollTableOnSm }

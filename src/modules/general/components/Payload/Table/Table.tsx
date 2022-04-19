@@ -3,11 +3,7 @@ import { useBreakpoint } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { ScrollTableOnSm } from '../../ScrollTableOnSm'
-import {
-  payloadColumnNames,
-  PayloadTableColumnConfig,
-  payloadTableColumnConfigDefaults,
-} from './PayloadTableColumnConfig'
+import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { PayloadTableRow } from './TableRow'
 
 export interface PayloadTableProps extends TableProps {
@@ -17,14 +13,7 @@ export interface PayloadTableProps extends TableProps {
   columns?: PayloadTableColumnConfig
 }
 
-export const PayloadTable: React.FC<PayloadTableProps> = ({
-  exploreDomain,
-  onRowClick,
-  payloads,
-  children,
-  columns = payloadTableColumnConfigDefaults(),
-  ...props
-}) => {
+export const PayloadTable: React.FC<PayloadTableProps> = ({ exploreDomain, onRowClick, payloads, children, columns = payloadTableColumnConfigDefaults(), ...props }) => {
   const breakPoint = useBreakpoint()
   return breakPoint ? (
     <ScrollTableOnSm>

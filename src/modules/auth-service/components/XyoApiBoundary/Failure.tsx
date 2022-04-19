@@ -12,10 +12,7 @@ export interface XyoApiFailureBoundaryProps {
   basePageProps: BasePageProps
 }
 
-export const XyoApiFailureBoundary: React.FC<WithChildren<XyoApiFailureBoundaryProps>> = ({
-  basePageProps,
-  children,
-}) => {
+export const XyoApiFailureBoundary: React.FC<WithChildren<XyoApiFailureBoundaryProps>> = ({ basePageProps, children }) => {
   const { api, currentToken } = useArchivistApi()
   const { rollbar } = useRollbar()
   const [apiFailure, setApiFailure] = useState<XyoApiResponse>()
