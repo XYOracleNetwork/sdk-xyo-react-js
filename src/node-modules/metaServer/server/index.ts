@@ -1,11 +1,11 @@
-import express from 'express'
+import express, { Express } from 'express'
 
 import { configureArchivistBlock, configureProxyOriginal } from '../middleware'
 import { ApplicationMiddlewareOptions, MountPathAndMiddleware } from '../types'
 
-export const getApp = (directory = './build') => {
+export const getApp = (directory = './build'): Express => {
   const app = express()
-  app.set('etag', false)
+
   const opts: ApplicationMiddlewareOptions = { baseDir: directory }
   const knownRequestTypeHandlers: MountPathAndMiddleware[] = [configureArchivistBlock(opts)]
   // Add catch-all pass-through handler last to ensure
