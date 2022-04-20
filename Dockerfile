@@ -16,7 +16,6 @@ RUN yarn install --production --immutable
 # Copy over the compiled output and production dependencies
 # into a slimmer container
 FROM node:16-alpine
-EXPOSE 80
 ENV PORT="80"
 WORKDIR /app
 
