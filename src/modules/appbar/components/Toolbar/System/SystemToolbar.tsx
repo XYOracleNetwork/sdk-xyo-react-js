@@ -1,4 +1,4 @@
-import { Toolbar, ToolbarProps, useTheme } from '@mui/material'
+import { Toolbar, ToolbarProps } from '@mui/material'
 import { FlexRow, SelectExProps } from '@xylabs/sdk-react'
 
 import { ArchiveSelectEx } from '../../../../archive'
