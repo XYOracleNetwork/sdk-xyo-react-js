@@ -2,7 +2,6 @@ import { MenuItem } from '@mui/material'
 import { assertEx } from '@xylabs/sdk-js'
 import { SelectEx, SelectExProps, useBreakpoint } from '@xylabs/sdk-react'
 
-import { useAppSettings } from '../../../settings'
 import { useNetwork } from '../../contexts'
 import { findNetworkConfig } from '../../lib'
 
@@ -11,13 +10,10 @@ export interface NetworkSelectExProps extends SelectExProps<string> {
 }
 
 export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, responsive = true, ...props }) => {
-  const { darkMode } = useAppSettings()
   const { network, setNetwork, networks } = useNetwork(true)
   const sm = useBreakpoint() === 'sm'
   return (
     <SelectEx
-      colorize="primary"
-      mode={darkMode ? 'dark' : 'light'}
       variant="outlined"
       size="small"
       value={network?.slug ?? ''}
