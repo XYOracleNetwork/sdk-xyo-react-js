@@ -4,8 +4,14 @@ const getFlags = () => {
   const { _, $0, ...flags } = yargs.parserConfiguration({
     "camel-case-expansion": false,
   }).argv
-  console.log(flags)
   return flags
+}
+
+const getFlagFromProperty = (name, value) => {
+  const dash = name.length === 1 ? '-' : '--'
+  return Array.isArray(value) ?
+    value.map(v => { return getFlagFromProperty(name, v) }).join(' ') :
+    `${dash}${name} ${value}`
 }
 
 const getFlagsString = () => {
@@ -13,7 +19,7 @@ const getFlagsString = () => {
   const resp = Object
     .keys(flags)
     .map(k => { return { flag: k, value: flags[k] } })
-    .map(curr => { return (curr.flag.length === 1 ? '-' : '--') + `${curr.flag} ${curr.value}` })
+    .map(curr => { return getFlagFromProperty(curr.flag, curr.value) })
     .join(' ')
   return resp
 }
