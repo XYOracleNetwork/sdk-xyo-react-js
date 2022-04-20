@@ -6,6 +6,7 @@ import { ArchiveProvider } from '../../../archive'
 import { ArchivesProvider } from '../../../archives'
 import { ArchivistApiProvider } from '../../../archivist-api'
 import { NetworkMemoryProvider } from '../../../network'
+import { SystemToolbar } from '../Toolbar'
 import { ApplicationAppBar } from './Application'
 
 const StorybookEntry = {
@@ -37,7 +38,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithChildren = Template.bind({})
-WithChildren.args = { children: <TextField fullWidth size="small" /> }
+WithChildren.args = { children: <TextField fullWidth size="small" />, systemToolbar: <SystemToolbar darkModeButton authButton /> }
 
 export { Default, WithChildren }
 

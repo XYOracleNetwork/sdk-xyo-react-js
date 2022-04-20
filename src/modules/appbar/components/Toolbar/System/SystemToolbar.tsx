@@ -1,4 +1,4 @@
-import { Toolbar, ToolbarProps } from '@mui/material'
+import { Toolbar, ToolbarProps, useTheme } from '@mui/material'
 import { FlexRow, SelectExProps } from '@xylabs/sdk-react'
 
 import { ArchiveSelectEx } from '../../../../archive'
@@ -33,18 +33,18 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   return (
     <Toolbar {...props}>
       {hideNetworkSelect ? null : (
-        <FlexRow marginX={0.5} maxWidth={120}>
+        <FlexRow paper marginX={0.5} maxWidth={120}>
           <NetworkSelectEx fullWidth {...networkSelectProps} />
         </FlexRow>
       )}
       {hideArchiveSelect ? null : (
-        <FlexRow marginX={0.5} maxWidth={120}>
+        <FlexRow paper marginX={0.5} maxWidth={120}>
           <ArchiveSelectEx fullWidth {...archiveSelectProps} />
         </FlexRow>
       )}
       {children}
       {authButton ? <AuthStatusIconButton /> : null}
-      {darkModeButton ? <DarkModeIconButton /> : null}
+      {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
       {noMenu ? null : <SiteMenu {...siteMenuProps} />}
     </Toolbar>
   )

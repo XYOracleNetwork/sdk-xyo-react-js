@@ -5,13 +5,14 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/.DS_Store": true,
-    "**/node_modules": false,
+    "**/node_modules": true,
     "**/build": true,
-    "**/dist": false,
+    "**/dist": true,
     "**/.webpack": true,
     "**/.serverless": true,
     "**/.rollup.cache": true,
-    "**/.yarn": true
+    "**/.yarn": true,
+    "**/storybook-static": true
   },
   "editor.formatOnSave": true,
   "editor.quickSuggestions": true,
