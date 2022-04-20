@@ -1,6 +1,6 @@
 import { Menu as MenuIcon } from '@mui/icons-material'
-import { MenuItem } from '@mui/material'
-import { FlexBoxProps, FlexRow, LinkEx, MenuEx } from '@xylabs/sdk-react'
+import { Menu, MenuItem } from '@mui/material'
+import { FlexBoxProps, FlexRow, LinkEx } from '@xylabs/sdk-react'
 import { useRef, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
@@ -21,7 +21,6 @@ export interface SiteMenuProps extends FlexBoxProps {
 export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuItems, ...props }) => {
   const [menuElement, setMenuElement] = useState<HTMLButtonElement | null>(null)
   const open = Boolean(menuElement)
-  const { darkMode } = useAppSettings()
   const navigate = useNavigate()
 
   const handleMenuClose = () => {
@@ -42,7 +41,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuIt
           <MenuIcon fontSize="large" />
         </div>
       </LinkEx>
-      <MenuEx colorize="primary" mode={darkMode ? 'dark' : 'light'} anchorEl={menuElement} open={open} onClose={handleMenuClose}>
+      <Menu anchorEl={menuElement} open={open} onClose={handleMenuClose}>
         {menuItems?.map(({ name, to, href, onClick }) => {
           return (
             <MenuItem
@@ -74,7 +73,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuIt
             Settings
           </MenuItem>
         )}
-      </MenuEx>
+      </Menu>
     </FlexRow>
   )
 }

@@ -2,11 +2,9 @@ import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/sdk-react'
 
 import { useArchives } from '../../archives'
-import { useAppSettings } from '../../settings'
 import { useArchive } from '../contexts'
 
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
-  const { darkMode } = useAppSettings()
   const { archives } = useArchives()
   const { archive, setArchive } = useArchive()
 
@@ -18,8 +16,6 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
 
   return (
     <SelectEx
-      colorize="primary"
-      mode={darkMode ? 'dark' : 'light'}
       variant="outlined"
       size="small"
       value={archive ?? ''}
