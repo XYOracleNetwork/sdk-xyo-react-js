@@ -29,7 +29,15 @@ const WithData = Template.bind({})
 WithData.args = { payloads: [samplePayload, samplePayload] }
 WithData.decorators = [appThemeDecorator]
 
-export { Default, WithData }
+const WithError = Template.bind({})
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { _hash, ...badPayload } = samplePayload
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+WithError.args = { payloads: [samplePayload, badPayload] }
+
+export { Default, WithData, WithError }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

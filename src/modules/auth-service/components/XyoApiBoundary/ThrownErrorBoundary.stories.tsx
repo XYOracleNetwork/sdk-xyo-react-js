@@ -10,7 +10,39 @@ import { Footer } from '../../../general'
 import { NetworkMemoryProvider } from '../../../network'
 import { XyoApiThrownErrorBoundary } from './ThrownErrorBoundary'
 
+const basePageProps: BasePageProps = {
+  appBar: (
+    <ApplicationAppBar
+      systemToolbar={
+        <SystemToolbar
+          style={{ paddingLeft: 8, paddingRight: 8 }}
+          disableGutters
+          archiveSelectProps={{
+            sx: { display: 'none' },
+          }}
+          sx={{ flexWrap: 'wrap-reverse', justifyContent: 'end' }}
+          darkModeButton
+          authButton
+        />
+      }
+    >
+      <TextField fullWidth size="small" />
+    </ApplicationAppBar>
+  ),
+  appFooter: (
+    <FlexCol alignItems="stretch">
+      <Paper elevation={8}>
+        <Footer width="100%" />
+      </Paper>
+    </FlexCol>
+  ),
+  title: 'Page Title',
+}
+
 const StorybookEntry: Meta = {
+  args: {
+    basePageProps,
+  },
   component: XyoApiThrownErrorBoundary,
   parameters: {
     docs: {
@@ -20,50 +52,13 @@ const StorybookEntry: Meta = {
   title: 'ThrownErrorBoundary',
 }
 
-const Template: ComponentStory<typeof XyoApiThrownErrorBoundary> = () => {
-  const dynamicFooterHeight = true
-  const title = 'Page Title'
-
-  const basePageProps: BasePageProps = {
-    appBar: (
-      <ApplicationAppBar
-        systemToolbar={
-          <SystemToolbar
-            style={{ paddingLeft: 8, paddingRight: 8 }}
-            disableGutters
-            archiveSelectProps={{
-              sx: { display: 'none' },
-            }}
-            sx={{ flexWrap: 'wrap-reverse', justifyContent: 'end' }}
-            darkModeButton
-            authButton
-          />
-        }
-      >
-        <TextField fullWidth size="small" />
-      </ApplicationAppBar>
-    ),
-    appFooter: dynamicFooterHeight ? (
-      <FlexCol position="fixed" bottom={0} left={0} right={0} alignItems="stretch">
-        <Paper elevation={8}>
-          <Footer dynamicHeight width="100%" />
-        </Paper>
-      </FlexCol>
-    ) : (
-      <FlexCol alignItems="stretch">
-        <Paper elevation={8}>
-          <Footer width="100%" />
-        </Paper>
-      </FlexCol>
-    ),
-    title,
-  }
+const Template: ComponentStory<typeof XyoApiThrownErrorBoundary> = ({ basePageProps, errorComponent }) => {
   return (
     <BrowserRouter>
       <NetworkMemoryProvider>
         <ArchivistApiProvider apiDomain="http://localhost:8080">
           <ArchivesProvider>
-            <XyoApiThrownErrorBoundary basePageProps={basePageProps}>
+            <XyoApiThrownErrorBoundary basePageProps={basePageProps} errorComponent={errorComponent}>
               <Alert severity="info">Use React Dev Tools to trigger and error within the boundary</Alert>
             </XyoApiThrownErrorBoundary>
           </ArchivesProvider>
@@ -76,7 +71,12 @@ const Template: ComponentStory<typeof XyoApiThrownErrorBoundary> = () => {
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const CustomErrorComponent = Template.bind({})
+CustomErrorComponent.args = {
+  errorComponent: (e) => <Alert severity="error">Using Custom Error Component with error: {e.message}</Alert>,
+}
+
+export { CustomErrorComponent, Default }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

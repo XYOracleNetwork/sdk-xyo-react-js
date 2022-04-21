@@ -25,10 +25,17 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-
 WithData.args = { blocks: [sampleBlock, sampleBlock] }
 
-export { Default, WithData }
+const WithError = Template.bind({})
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { _hash, ...badBlock } = sampleBlock
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+WithError.args = { blocks: [sampleBlock, badBlock] }
+
+export { Default, WithData, WithError }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

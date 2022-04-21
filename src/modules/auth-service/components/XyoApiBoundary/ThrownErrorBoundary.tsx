@@ -7,11 +7,23 @@ import Rollbar from 'rollbar'
 
 import { XyoApiErrorRender } from '../XyoApiErrorRender'
 
+const DefaultErrorPage: React.FC<{ basePageProps: XyoApiErrorBoundaryProps['basePageProps'] }> = ({ basePageProps }) => {
+  return (
+    <BasePage {...basePageProps}>
+      <Alert severity="error">
+        <AlertTitle>Oops. An error occurred!</AlertTitle>
+        Try to go <Link to="/">Home</Link> or refresh your browser.
+      </Alert>
+    </BasePage>
+  )
+}
+
 export interface XyoApiErrorBoundaryProps {
   rethrow?: boolean
   children: ReactNode
   rollbar?: Rollbar
-  basePageProps: BasePageProps
+  basePageProps?: BasePageProps
+  errorComponent?: (e: Error) => ReactNode
 }
 
 export interface XyoApiErrorBoundaryState {
@@ -54,18 +66,11 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
 
   public render() {
     const { xyoApiError, error } = this.state
-    const { children, basePageProps } = this.props
+    const { children, basePageProps, errorComponent } = this.props
     if (xyoApiError) {
       return <XyoApiErrorRender apiError={xyoApiError} />
     } else if (error) {
-      return (
-        <BasePage {...basePageProps}>
-          <Alert severity="error">
-            <AlertTitle>Oops. An error occurred!</AlertTitle>
-            Try to go <Link to="/">Home</Link> or refresh your browser.
-          </Alert>
-        </BasePage>
-      )
+      return <>{errorComponent ? errorComponent(error) : <DefaultErrorPage basePageProps={basePageProps} />}</>
     }
 
     return children
