@@ -1,16 +1,9 @@
-import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
-import { blockColumnNames, BlockTableColumnConfig, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
-import { BlockTableRow } from './TableRow'
-
-export interface BlockTableProps extends TableProps {
-  blocks?: XyoBoundWitness[] | null
-  onRowClick?: (value: XyoBoundWitness) => void
-  exploreDomain?: string
-  columns?: BlockTableColumnConfig
-}
+import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
+import { BlockTableProps } from './BlockTableProps'
+import { BlockTableRowWithErrorBoundary } from './TableRowWithErrorBoundary'
 
 export const BlockTable: React.FC<BlockTableProps> = ({ exploreDomain, onRowClick, blocks, columns = blockTableColumnConfigDefaults(), children, ...props }) => {
   const breakPoint = useBreakpoint()
@@ -31,18 +24,13 @@ export const BlockTable: React.FC<BlockTableProps> = ({ exploreDomain, onRowClic
       </TableHead>
       <TableBody>
         {blocks?.map((block, index) => (
-          <BlockTableRow
-            exploreDomain={exploreDomain}
+          <BlockTableRowWithErrorBoundary
             key={`${block._hash}-${block._timestamp}-${index}`}
             block={block}
+            index={index}
+            exploreDomain={exploreDomain}
+            onRowClick={onRowClick}
             columns={columns}
-            onClick={
-              onRowClick
-                ? () => {
-                    onRowClick(block)
-                  }
-                : undefined
-            }
           />
         ))}
         {children}
