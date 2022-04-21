@@ -1,3 +1,4 @@
+import { Toolbar } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { authDecorator, WrappedAuthComponent } from '../../../.storybook'
@@ -19,7 +20,11 @@ const StorybookEntry = {
 } as ComponentMeta<WrappedAuthComponent>
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
-  return <AuthStatusIconButton />
+  return (
+    <Toolbar>
+      <AuthStatusIconButton />
+    </Toolbar>
+  )
 }
 
 const Default = Template.bind({})

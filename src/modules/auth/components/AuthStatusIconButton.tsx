@@ -1,9 +1,9 @@
 import { Error } from '@mui/icons-material'
-import { colors, IconButton, IconButtonProps } from '@mui/material'
+import PersonIcon from '@mui/icons-material/Person'
+import { IconButton, IconButtonProps, useTheme } from '@mui/material'
 import { ellipsize, EthAddress } from '@xylabs/sdk-js'
 import { FlexRow, Identicon } from '@xylabs/sdk-react'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
-import { FaUserCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
 import { AuthState, useAuthState } from '../contexts'
@@ -42,8 +42,7 @@ export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...pr
   const [iconHint, setIconHint] = useState<string>()
   const [showReAuthBadge, setReAuthBadge] = useState(authState?.reAuthenticate)
   const navigate = useNavigate()
-
-  const iconColor = authState?.loggedInAccount ? colors.lightBlue[50] : colors.grey[500]
+  const theme = useTheme()
 
   useEffect(() => {
     formatIconHint(authState, setIconHint)
@@ -67,19 +66,15 @@ export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...pr
     }
   }
   return (
-    <IconButton size="small" title={iconHint} onClick={onClick ?? handleClick} {...props}>
-      <FlexRow bgcolor={currentAccount ? iconColor : undefined} height={32} width={32} borderRadius="50%" border={`4px solid ${iconColor}`}>
+    <IconButton title={iconHint} onClick={onClick ?? handleClick} {...props}>
+      {currentAccount ? (
+        <Identicon borderRadius="50%" padding={0.8} bgcolor={theme.palette.action.active} size={16} value={currentAccount} />
+      ) : (
         <FlexRow>
-          {currentAccount ? (
-            <Identicon size={16} value={currentAccount} />
-          ) : (
-            <>
-              <FaUserCircle size={28} color={iconColor} />
-              {showReAuthBadge && <Error color="warning" sx={{ position: 'absolute', right: '-13px', top: '-10px' }} />}
-            </>
-          )}
+          <PersonIcon />
+          {showReAuthBadge && <Error color="warning" sx={{ position: 'absolute', right: '-13px', top: '-10px' }} />}
         </FlexRow>
-      </FlexRow>
+      )}
     </IconButton>
   )
 }
