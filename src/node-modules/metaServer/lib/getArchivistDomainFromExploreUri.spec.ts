@@ -1,4 +1,4 @@
-import { getArchivistDomainFromExploreUri } from './getArchivistDomainFromExploreUri'
+import { getArchivistDomainFromExploreUri, networkToArchivistUri } from './getArchivistDomainFromExploreUri'
 
 const validUris = [
   'https://explore.xyo.network/?network=main',
@@ -23,7 +23,7 @@ describe('getArchivistDomainFromExploreUri', () => {
   it.each(validUris)('gets archivist domain from explorer URI', (uri) => {
     expect(getArchivistDomainFromExploreUri(uri)).toBeDefined()
   })
-  it.each(invalidUris)('returns undefined if archivist domain not inferrable from explorer URI', (uri) => {
-    expect(getArchivistDomainFromExploreUri(uri)).toBeUndefined()
+  it.each(invalidUris)('returns production domain if archivist not inferrable from explorer URI', (uri) => {
+    expect(getArchivistDomainFromExploreUri(uri)).toBe(networkToArchivistUri['main'])
   })
 })
