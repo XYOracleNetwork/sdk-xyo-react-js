@@ -61,7 +61,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
     </TableCell>
   )
 
-  const isValid = wrapper ? new XyoPayloadWrapperValidator(wrapper).all().length : undefined
+  const isValid = wrapper ? new XyoPayloadWrapperValidator(wrapper).all().length === 0 : undefined
 
   const valid = (
     <TableCell key="valid" align="center">
