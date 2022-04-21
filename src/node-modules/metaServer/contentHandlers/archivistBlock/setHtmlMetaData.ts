@@ -2,26 +2,17 @@ import { XyoArchivistApi, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-
 import { Meta, metaBuilder } from '@xyo-network/sdk-xyo-js'
 import cloneDeep from 'lodash/cloneDeep'
 
-import { getArchiveFromUri, getArchivistDomainFromExploreUri, getDomainFromUri, getHashFromUri, isExploreDomain } from '../../lib'
-
-const isLocalhost = (domain: string) => {
-  return domain.startsWith('http://localhost') || domain.startsWith('http://127.0.0.1')
-}
-
-const isValidDomain = (domain: string) => {
-  return isExploreDomain(domain) || isLocalhost(domain)
-}
+import { getArchiveFromUri, getArchivistDomainFromExploreUri, getHashFromUri } from '../../lib'
 
 export const setHtmlMetaData = async (path: string, html: string, config: Meta) => {
   const hash = getHashFromUri(path)
-  const domain = getDomainFromUri(path)
   const apiDomain = getArchivistDomainFromExploreUri(path)
   const archive = getArchiveFromUri(path)
 
   const meta = cloneDeep(config)
   meta.og = { ...meta.og, url: path }
 
-  if (hash && isValidDomain(domain) && apiDomain && archive) {
+  if (hash && apiDomain && archive) {
     const api = new XyoArchivistApi({ apiDomain })
     // TODO: We're only getting payloads, handle bound witnesses
     const blocks = await api.archive(archive).payload.hash(hash).get()
