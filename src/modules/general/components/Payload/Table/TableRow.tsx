@@ -1,6 +1,6 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/sdk-xyo-client-js'
 import { DateTime } from 'luxon'
 import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
@@ -61,10 +61,12 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
     </TableCell>
   )
 
+  const isValid = wrapper ? new XyoPayloadWrapperValidator(wrapper).all().length : undefined
+
   const valid = (
     <TableCell key="valid" align="center">
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {wrapper?.validator.all().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
+        {isValid === undefined ? <MdDone fontSize={18} color="yellow" /> : isValid ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
       </Typography>
     </TableCell>
   )
