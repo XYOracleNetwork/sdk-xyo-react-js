@@ -18,7 +18,7 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
           key={`${block._hash}-${block._timestamp}-${index}`}
           errorComponent={(e: Error) => (
             <Alert severity="error">
-              Error Loading Block Details: <Typography fontWeight="bold">{e.message}</Typography>
+              Error Loading Block: <Typography fontWeight="bold">{e.message}</Typography>
             </Alert>
           )}
         >
