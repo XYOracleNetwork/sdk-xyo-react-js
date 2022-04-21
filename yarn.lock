@@ -6735,13 +6735,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.18.1":
-  version: 2.18.1
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.18.1"
+"@xyo-network/sdk-xyo-client-js@npm:^2.18.3":
+  version: 2.18.3
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.18.3"
   dependencies:
     "@ethersproject/providers": ^5.6.4
     "@xylabs/sdk-js": ^2.4.5
     "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
+    ajv: ^8.11.0
     axios: ^0.26.1
     bn.js: ^5.2.0
     bowser: ^2.11.0
@@ -6756,10 +6757,10 @@ __metadata:
     pako: ^2.0.4
     randombytes: ^2.1.0
     sha.js: ^2.4.11
-    systeminformation: ^5.11.9
+    systeminformation: ^5.11.12
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 8b786b404fedb35095db304febf02a96ed75bc8a4ecc452722543f4dca6c0466feb3f5f887b895dd0c391cf8a0f7ea8cb06e75ab8dcd2bc06ab24c2fbb0f0bd2
+  checksum: 01e056515114e9d8342fcf8a64b668240a84746ae2a59e9cd4481601b605d52920fb77e0c03334a9068d1b400d8b5cbe6b639e7c779c29549c3bc7c2d0f8e7de
   languageName: node
   linkType: hard
 
@@ -6827,7 +6828,7 @@ __metadata:
     "@xylabs/sdk-react": ^2.11.11
     "@xylabs/ts-scripts": ^1.0.53
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/sdk-xyo-client-js": ^2.18.1
+    "@xyo-network/sdk-xyo-client-js": ^2.18.3
     "@xyo-network/sdk-xyo-js": ^2.5.6
     axios: ^0.26.1
     babel-loader: ^8.2.5
@@ -7054,6 +7055,18 @@ __metadata:
     json-schema-traverse: ^0.4.1
     uri-js: ^4.2.2
   checksum: 874972efe5c4202ab0a68379481fbd3d1b5d0a7bd6d3cc21d40d3536ebff3352a2a1fabb632d4fd2cc7fe4cbdcd5ed6782084c9bbf7f32a1536d18f9da5007d4
+  languageName: node
+  linkType: hard
+
+"ajv@npm:^8.11.0":
+  version: 8.11.0
+  resolution: "ajv@npm:8.11.0"
+  dependencies:
+    fast-deep-equal: ^3.1.1
+    json-schema-traverse: ^1.0.0
+    require-from-string: ^2.0.2
+    uri-js: ^4.2.2
+  checksum: 5e0ff226806763be73e93dd7805b634f6f5921e3e90ca04acdf8db81eed9d8d3f0d4c5f1213047f45ebbf8047ffe0c840fa1ef2ec42c3a644899f69aa72b5bef
   languageName: node
   linkType: hard
 
@@ -14296,6 +14309,13 @@ __metadata:
   version: 0.4.1
   resolution: "json-schema-traverse@npm:0.4.1"
   checksum: 7486074d3ba247769fda17d5181b345c9fb7d12e0da98b22d1d71a5db9698d8b4bd900a3ec1a4ffdd60846fc2556274a5c894d0c48795f14cb03aeae7b55260b
+  languageName: node
+  linkType: hard
+
+"json-schema-traverse@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "json-schema-traverse@npm:1.0.0"
+  checksum: 02f2f466cdb0362558b2f1fd5e15cce82ef55d60cd7f8fa828cf35ba74330f8d767fcae5c5c2adb7851fa811766c694b9405810879bc4e1ddd78a7c0e03658ad
   languageName: node
   linkType: hard
 
@@ -21554,12 +21574,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.11.9":
-  version: 5.11.9
-  resolution: "systeminformation@npm:5.11.9"
+"systeminformation@npm:^5.11.12":
+  version: 5.11.12
+  resolution: "systeminformation@npm:5.11.12"
   bin:
     systeminformation: lib/cli.js
-  checksum: 826330e96c0f21512e1bf606c591649be7757ab0280d004fc10e6bd678a1dc3cbec1585c6bb052271c3b61d8954a32fa3d5ace4b90f598797f21019fe664a84d
+  checksum: 7e88b1350f1d82a3fd905ec5a101753a7cc601d799a35b7a7d5c20c9c28969165995db6a4644c51c3febe19587c1d7a1a454253db4897902b6d35f001b5b2b3c
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
