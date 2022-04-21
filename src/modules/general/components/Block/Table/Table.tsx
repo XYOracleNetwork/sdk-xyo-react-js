@@ -1,17 +1,9 @@
-import { Alert, Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
-import { XyoApiThrownErrorBoundary } from '../../../../auth-service'
-import { blockColumnNames, BlockTableColumnConfig, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
-import { BlockTableRow } from './TableRow'
-
-export interface BlockTableProps extends TableProps {
-  blocks?: XyoBoundWitness[] | null
-  onRowClick?: (value: XyoBoundWitness) => void
-  exploreDomain?: string
-  columns?: BlockTableColumnConfig
-}
+import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
+import { BlockTableProps } from './BlockTableProps'
+import { BlockTableRowWithErrorBoundary } from './TableRowWithErrorBoundary'
 
 export const BlockTable: React.FC<BlockTableProps> = ({ exploreDomain, onRowClick, blocks, columns = blockTableColumnConfigDefaults(), children, ...props }) => {
   const breakPoint = useBreakpoint()
@@ -32,23 +24,14 @@ export const BlockTable: React.FC<BlockTableProps> = ({ exploreDomain, onRowClic
       </TableHead>
       <TableBody>
         {blocks?.map((block, index) => (
-          <XyoApiThrownErrorBoundary
+          <BlockTableRowWithErrorBoundary
             key={`${block._hash}-${block._timestamp}-${index}`}
-            errorComponent={<Alert severity="error">Error Loading Block Details: {JSON.stringify(block)}</Alert>}
-          >
-            <BlockTableRow
-              exploreDomain={exploreDomain}
-              block={block}
-              columns={columns}
-              onClick={
-                onRowClick
-                  ? () => {
-                      onRowClick(block)
-                    }
-                  : undefined
-              }
-            />
-          </XyoApiThrownErrorBoundary>
+            block={block}
+            index={index}
+            exploreDomain={exploreDomain}
+            onRowClick={onRowClick}
+            columns={columns}
+          />
         ))}
         {children}
       </TableBody>
