@@ -1,4 +1,4 @@
-import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
+import { Alert, TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
 import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/sdk-xyo-client-js'
 import compact from 'lodash/compact'
@@ -6,6 +6,7 @@ import { DateTime } from 'luxon'
 import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
 
+import { XyoApiThrownErrorBoundary } from '../../../../auth-service'
 import { HashTableCell } from '../../TableCell'
 import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 

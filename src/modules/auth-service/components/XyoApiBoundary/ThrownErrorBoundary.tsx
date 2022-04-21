@@ -22,7 +22,7 @@ export interface XyoApiErrorBoundaryProps {
   rethrow?: boolean
   children: ReactNode
   rollbar?: Rollbar
-  basePageProps: BasePageProps
+  basePageProps?: BasePageProps
   errorComponent?: ReactNode
 }
 

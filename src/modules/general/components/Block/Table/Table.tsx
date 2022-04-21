@@ -1,7 +1,8 @@
-import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { Alert, Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
 import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
+import { XyoApiThrownErrorBoundary } from '../../../../auth-service'
 import { blockColumnNames, BlockTableColumnConfig, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
 import { BlockTableRow } from './TableRow'
 
@@ -31,19 +32,23 @@ export const BlockTable: React.FC<BlockTableProps> = ({ exploreDomain, onRowClic
       </TableHead>
       <TableBody>
         {blocks?.map((block, index) => (
-          <BlockTableRow
-            exploreDomain={exploreDomain}
+          <XyoApiThrownErrorBoundary
             key={`${block._hash}-${block._timestamp}-${index}`}
-            block={block}
-            columns={columns}
-            onClick={
-              onRowClick
-                ? () => {
-                    onRowClick(block)
-                  }
-                : undefined
-            }
-          />
+            errorComponent={<Alert severity="error">Error Loading Block Details: {JSON.stringify(block)}</Alert>}
+          >
+            <BlockTableRow
+              exploreDomain={exploreDomain}
+              block={block}
+              columns={columns}
+              onClick={
+                onRowClick
+                  ? () => {
+                      onRowClick(block)
+                    }
+                  : undefined
+              }
+            />
+          </XyoApiThrownErrorBoundary>
         ))}
         {children}
       </TableBody>
