@@ -4,17 +4,17 @@ import { URL } from 'url'
 export type Network = 'main' | 'kerplunk' | 'local'
 export const networkToArchivistUri: Record<Network, string> = {
   kerplunk: 'https://beta.api.archivist.xyo.network',
-  local: 'https://api.archivist.xyo.network',
-  main: 'http://localhost:8080',
+  local: 'http://localhost:8080',
+  main: 'https://api.archivist.xyo.network',
 }
 
 export const getArchivistDomainFromExploreUri = (uri: string): string | undefined => {
   try {
     const parsed = new URL(uri)
     const queryParams = parse(parsed.search.substring(1))
-    const network = queryParams?.network
-    return networkToArchivistUri[network as Network]
+    const network: Network = queryParams?.network || 'main'
+    return networkToArchivistUri[network] || networkToArchivistUri['main']
   } catch (error) {
-    return undefined
+    return networkToArchivistUri['main']
   }
 }
