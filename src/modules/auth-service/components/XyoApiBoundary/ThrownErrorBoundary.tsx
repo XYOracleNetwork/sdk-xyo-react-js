@@ -23,7 +23,7 @@ export interface XyoApiErrorBoundaryProps {
   children: ReactNode
   rollbar?: Rollbar
   basePageProps?: BasePageProps
-  errorComponent?: ReactNode
+  errorComponent?: (e: Error) => ReactNode
 }
 
 export interface XyoApiErrorBoundaryState {
@@ -70,7 +70,7 @@ export class XyoApiThrownErrorBoundary extends Component<XyoApiErrorBoundaryProp
     if (xyoApiError) {
       return <XyoApiErrorRender apiError={xyoApiError} />
     } else if (error) {
-      return <>{errorComponent ? errorComponent : <DefaultErrorPage basePageProps={basePageProps} />}</>
+      return <>{errorComponent ? errorComponent(error) : <DefaultErrorPage basePageProps={basePageProps} />}</>
     }
 
     return children

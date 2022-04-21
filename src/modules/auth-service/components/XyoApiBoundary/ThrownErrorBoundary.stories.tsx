@@ -10,9 +10,6 @@ import { Footer } from '../../../general'
 import { NetworkMemoryProvider } from '../../../network'
 import { XyoApiThrownErrorBoundary } from './ThrownErrorBoundary'
 
-const dynamicFooterHeight = true
-const title = 'Page Title'
-
 const basePageProps: BasePageProps = {
   appBar: (
     <ApplicationAppBar
@@ -32,20 +29,14 @@ const basePageProps: BasePageProps = {
       <TextField fullWidth size="small" />
     </ApplicationAppBar>
   ),
-  appFooter: dynamicFooterHeight ? (
-    <FlexCol position="fixed" bottom={0} left={0} right={0} alignItems="stretch">
-      <Paper elevation={8}>
-        <Footer dynamicHeight width="100%" />
-      </Paper>
-    </FlexCol>
-  ) : (
+  appFooter: (
     <FlexCol alignItems="stretch">
       <Paper elevation={8}>
         <Footer width="100%" />
       </Paper>
     </FlexCol>
   ),
-  title,
+  title: 'Page Title',
 }
 
 const StorybookEntry: Meta = {
@@ -82,7 +73,7 @@ Default.args = {}
 
 const CustomErrorComponent = Template.bind({})
 CustomErrorComponent.args = {
-  errorComponent: <Alert severity="error">Using Custom Error Component</Alert>,
+  errorComponent: (e) => <Alert severity="error">Using Custom Error Component with error: {e.message}</Alert>,
 }
 
 export { CustomErrorComponent, Default }

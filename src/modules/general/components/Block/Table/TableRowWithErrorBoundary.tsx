@@ -1,4 +1,4 @@
-import { Alert } from '@mui/material'
+import { Alert, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
 import { XyoApiThrownErrorBoundary } from '../../../../auth-service'
@@ -16,7 +16,11 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
       {block ? (
         <XyoApiThrownErrorBoundary
           key={`${block._hash}-${block._timestamp}-${index}`}
-          errorComponent={<Alert severity="error">Error Loading Block Details: {JSON.stringify(block)}</Alert>}
+          errorComponent={(e: Error) => (
+            <Alert severity="error">
+              Error Loading Block Details: <Typography fontWeight="bold">{e.message}</Typography>
+            </Alert>
+          )}
         >
           <BlockTableRow
             exploreDomain={exploreDomain}
