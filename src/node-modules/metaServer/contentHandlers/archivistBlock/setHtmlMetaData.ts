@@ -4,7 +4,7 @@ import cloneDeep from 'lodash/cloneDeep'
 
 import { getArchiveFromUri, getArchivistDomainFromExploreUri, getHashFromUri } from '../../lib'
 
-export const setHtmlMetaData = async (path: string, html: string, config: Meta) => {
+export const setHtmlMetaData = async (path: string, html: string, config: Meta): Promise<string> => {
   const hash = getHashFromUri(path)
   const apiDomain = getArchivistDomainFromExploreUri(path)
   const archive = getArchiveFromUri(path)
@@ -15,16 +15,19 @@ export const setHtmlMetaData = async (path: string, html: string, config: Meta) 
   if (hash && apiDomain && archive) {
     const api = new XyoArchivistApi({ apiDomain })
     // TODO: We're only getting payloads, handle bound witnesses
-    const blocks = await api.archive(archive).payload.hash(hash).get()
-    if (blocks && blocks.length > 0) {
-      const wrapper = new XyoPayloadWrapper(blocks[0])
-      const hash = wrapper.sortedHash()
-      meta.title = `XYO 2.0: Block | ${hash}`
-      meta.description = `A XYO 2.0 ${wrapper.body.schema} block with the hash "${hash}".`
-      meta.og = { ...meta.og, title: meta.title } as typeof meta.og
-      meta.twitter = { ...meta.twitter, title: meta.title }
+    try {
+      const blocks = await api.archive(archive).payload.hash(hash).get()
+      if (blocks && blocks.length > 0) {
+        const wrapper = new XyoPayloadWrapper(blocks[0])
+        const hash = wrapper.sortedHash()
+        meta.title = `XYO 2.0: Block | ${hash}`
+        meta.description = `A XYO 2.0 ${wrapper.body.schema} block with the hash "${hash}".`
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
-
+  meta.og = { ...meta.og, title: meta.title } as typeof meta.og
+  meta.twitter = { ...meta.twitter, title: meta.title }
   return metaBuilder(html, meta)
 }
