@@ -1,7 +1,8 @@
-import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { Alert, Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
+import { XyoApiThrownErrorBoundary } from '../../../../auth-service'
 import { ScrollTableOnSm } from '../../ScrollTableOnSm'
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { PayloadTableRow } from './TableRow'
@@ -33,18 +34,26 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({ exploreDomain, onRow
         </TableHead>
         <TableBody>
           {payloads?.map((payload, index) => (
-            <PayloadTableRow
-              onClick={
-                onRowClick
-                  ? () => {
-                      onRowClick(payload)
-                    }
-                  : undefined
-              }
-              exploreDomain={exploreDomain}
+            <XyoApiThrownErrorBoundary
               key={`${payload._hash}-${payload._timestamp}-${index}`}
-              payload={payload}
-            />
+              errorComponent={(e) => (
+                <Alert severity="error">
+                  Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>
+                </Alert>
+              )}
+            >
+              <PayloadTableRow
+                onClick={
+                  onRowClick
+                    ? () => {
+                        onRowClick(payload)
+                      }
+                    : undefined
+                }
+                exploreDomain={exploreDomain}
+                payload={payload}
+              />
+            </XyoApiThrownErrorBoundary>
           ))}
           {children}
         </TableBody>
