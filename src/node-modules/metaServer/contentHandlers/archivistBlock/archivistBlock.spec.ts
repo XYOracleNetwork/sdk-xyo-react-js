@@ -50,7 +50,7 @@ describe('archivistBlock', () => {
       "<!DOCTYPE html><html lang=\\"en\\"><head>
         <meta charset=\\"utf-8\\">
         <title>XYO 2.0: Block | 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99</title>
-      <meta property=\\"og:url\\" content=\\"http://127.0.0.1:${testServerPort}/archive/temp/payload/hash/2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99?network=kerplunk\\"><meta property=\\"og:title\\" content=\\"XYO 2.0: Block | 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99\\"><meta property=\\"twitter:title\\" content=\\"XYO 2.0: Block | 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99\\"><meta property=\\"description\\" content=\\"A XYO 2.0 network.xyo.location block with the hash \\" 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99\\".\\"=\\"\\"><meta property=\\"title\\" content=\\"XYO 2.0: Block | 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99\\"></head>
+      <meta property=\\"og:title\\" content=\\"XYO 2.0: Block | 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99\\"><meta property=\\"og:url\\" content=\\"http://127.0.0.1:12345/archive/temp/payload/hash/2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99?network=kerplunk\\"><meta property=\\"twitter:title\\" content=\\"XYO 2.0: Block | 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99\\"><meta property=\\"description\\" content=\\"A XYO 2.0 network.xyo.location block with the hash \\" 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99\\".\\"=\\"\\"><meta property=\\"title\\" content=\\"XYO 2.0: Block | 2096d4e1a3c0bf1ead5e7b2144bf98e39d0679c343d79c896a0d836479475e99\\"></head>
 
       <body>
         <pre>Test</pre>
