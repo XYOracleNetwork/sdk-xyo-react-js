@@ -2,8 +2,12 @@ import serveStatic, { ServeStaticOptions } from 'serve-static'
 
 import { ApplicationMiddlewareOptions, MountPathAndMiddleware } from '../../types'
 
+const tenMinutesInMs = 600000
 const options: ServeStaticOptions = {
+  cacheControl: true,
+  // etag: true,
   fallthrough: false,
+  maxAge: tenMinutesInMs,
 }
 
 const getHandler = (baseDir: string) => {

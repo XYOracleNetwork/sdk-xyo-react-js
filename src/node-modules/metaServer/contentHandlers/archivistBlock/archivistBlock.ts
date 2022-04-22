@@ -1,4 +1,5 @@
 import { asyncHandler } from '@xylabs/sdk-api-express-ecs'
+import { Meta } from '@xyo-network/sdk-xyo-js'
 // import { readFileSync } from 'fs'
 import { readFile } from 'fs/promises'
 import { extname, join } from 'path'
@@ -7,9 +8,15 @@ import { getAdjustedPath } from '../../lib'
 import { ApplicationMiddlewareOptions, MountPathAndMiddleware } from '../../types'
 import { setHtmlMetaData } from './setHtmlMetaData'
 
-const getHandler = (baseDir: string) => {
-  const defaultHtmlMeta = {}
+// TODO: Pass in via config file or ENV VARs
+const defaultHtmlMeta: Meta = {
+  description: "Own your piece of XYO's Decentralized Digital World!",
+  og: {},
+  title: 'XYO 2.0',
+  twitter: {},
+}
 
+const getHandler = (baseDir: string) => {
   // TODO: statFileSync, if file containing standard HTML meta
   // exists use it otherwise use defaults here
   /*
