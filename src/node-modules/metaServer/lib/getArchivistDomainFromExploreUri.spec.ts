@@ -1,15 +1,22 @@
 import { getArchivistDomainFromExploreUri, networkToArchivistUri } from './getArchivistDomainFromExploreUri'
 
-const validUris = [
+const prodUrls = [
   'https://explore.xyo.network/?network=main',
-  'https://explore.xyo.network/?network=kerplunk',
-  'https://explore.xyo.network/?network=local',
   'https://beta.explore.xyo.network/?network=main',
-  'https://beta.explore.xyo.network/?network=kerplunk',
-  'https://beta.explore.xyo.network/?network=local',
   'http://locahost:3000/?network=main',
+  'http://aws-alb-123456789.us-east-1.elb.amazonaws.com:80/archive/temp/payload/hash/eef3ce837b279bdea1688ef7cd2e0606c388984d7ae950702b276e466528b789?network=main',
+]
+const betaUrls = [
+  'https://explore.xyo.network/?network=kerplunk',
+  'https://beta.explore.xyo.network/?network=kerplunk',
   'http://locahost:3000/?network=kerplunk',
+  'http://aws-alb-123456789.us-east-1.elb.amazonaws.com:80/archive/temp/payload/hash/eef3ce837b279bdea1688ef7cd2e0606c388984d7ae950702b276e466528b789?network=kerplunk',
+]
+const localhostUrls = [
+  'https://explore.xyo.network/?network=local',
+  'https://beta.explore.xyo.network/?network=local',
   'http://locahost:3000/?network=local',
+  'http://aws-alb-123456789.us-east-1.elb.amazonaws.com:80/archive/temp/payload/hash/eef3ce837b279bdea1688ef7cd2e0606c388984d7ae950702b276e466528b789?network=local',
 ]
 const invalidUris = [
   'https://www.google.com/search/foo',
@@ -20,8 +27,14 @@ const invalidUris = [
 ]
 
 describe('getArchivistDomainFromExploreUri', () => {
-  it.each(validUris)('gets archivist domain from explorer URI', (uri) => {
-    expect(getArchivistDomainFromExploreUri(uri)).toBeDefined()
+  it.each(prodUrls)('gets production domain from explorer URI', (uri) => {
+    expect(getArchivistDomainFromExploreUri(uri)).toBe(networkToArchivistUri['main'])
+  })
+  it.each(betaUrls)('gets beta domain from explorer URI', (uri) => {
+    expect(getArchivistDomainFromExploreUri(uri)).toBe(networkToArchivistUri['kerplunk'])
+  })
+  it.each(localhostUrls)('gets localhost domain from explorer URI', (uri) => {
+    expect(getArchivistDomainFromExploreUri(uri)).toBe(networkToArchivistUri['local'])
   })
   it.each(invalidUris)('returns production domain if archivist not inferrable from explorer URI', (uri) => {
     expect(getArchivistDomainFromExploreUri(uri)).toBe(networkToArchivistUri['main'])
