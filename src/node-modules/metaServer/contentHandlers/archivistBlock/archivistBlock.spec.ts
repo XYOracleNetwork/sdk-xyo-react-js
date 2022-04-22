@@ -23,7 +23,7 @@ describe('archivistBlock', () => {
   afterAll((done) => {
     server.close(done)
   })
-  it('Serves up the original content unmodified', async () => {
+  it('Modifies the head with block information', async () => {
     // Get this file via server
     const response = await agent.get(payloadUri).expect(200)
     expect(response).toBeTruthy()
