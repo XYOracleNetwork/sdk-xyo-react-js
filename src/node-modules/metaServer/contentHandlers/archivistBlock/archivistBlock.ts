@@ -34,7 +34,6 @@ const getHandler = (baseDir: string) => {
       const html = await readFile(join(baseDir, 'index.html'), { encoding: 'utf-8' })
       const updatedHtml = await setHtmlMetaData(`${req.protocol}://${req.headers.host}${req.url}`, html, defaultHtmlMeta)
       res.send(updatedHtml)
-      next()
     } else {
       next()
     }
