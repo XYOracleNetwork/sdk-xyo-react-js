@@ -8,14 +8,23 @@ export interface PayloadValidationDetailsProps extends FlexBoxProps {
   skipBody?: boolean
   skipMeta?: boolean
   value?: XyoPayload
+  nodeWebSiteUrl?: string
 }
 
-export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ skipMeta = false, skipBody = false, value, ...props }) => {
+export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ nodeWebSiteUrl, skipMeta = false, skipBody = false, value, ...props }) => {
   const validator = value ? new XyoPayloadValidator(value) : undefined
 
   const bodyErrors = skipBody ? [] : validator?.body.all() ?? []
   const metaErrors = skipMeta ? [] : validator?.meta.all() ?? []
   const errors: Error[] = [...bodyErrors, ...metaErrors]
+
+  const navigateToNodeUrl = (nodeWebSiteUrl: string) => {
+    const a = document.createElement('a')
+    a.target = '_blank'
+    a.rel = 'noopener, noreferrer'
+    a.href = nodeWebSiteUrl
+    a.click()
+  }
 
   return (
     <FlexCol alignItems="start" {...props}>
@@ -40,7 +49,15 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
             )
           }
         />
-        {value?.schema && <Property flexGrow={1} title="Schema" value={value?.schema} tip="Schema sent with the payload"></Property>}
+        {value?.schema && (
+          <Property
+            flexGrow={1}
+            title="Schema"
+            value={value?.schema}
+            tip="Schema sent with the payload"
+            actions={nodeWebSiteUrl ? [{ name: 'Edit', onClick: () => navigateToNodeUrl(nodeWebSiteUrl) }] : []}
+          ></Property>
+        )}
       </FlexRow>
     </FlexCol>
   )
