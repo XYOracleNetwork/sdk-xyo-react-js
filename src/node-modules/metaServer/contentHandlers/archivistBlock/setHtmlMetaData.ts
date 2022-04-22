@@ -20,7 +20,7 @@ export const setHtmlMetaData = async (path: string, html: string, config: Meta):
         const wrapper = new XyoPayloadWrapper(blocks[0])
         const hash = wrapper.sortedHash()
         meta.title = `XYO 2.0: Block | ${hash}`
-        meta.description = `A XYO 2.0 ${wrapper.body.schema} block with the hash "${hash}".`
+        meta.description = `A XYO 2.0 ${wrapper.body.schema} block with the hash ${hash}.`
       }
     } catch (error) {
       console.log(error)
