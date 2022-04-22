@@ -43,7 +43,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
         </FlexRow>
       )}
       {children}
-      {authButton ? <AuthStatusIconButton /> : null}
+      {authButton ? <AuthStatusIconButton color="inherit" /> : null}
       {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
       {noMenu ? null : <SiteMenu {...siteMenuProps} />}
     </Toolbar>
