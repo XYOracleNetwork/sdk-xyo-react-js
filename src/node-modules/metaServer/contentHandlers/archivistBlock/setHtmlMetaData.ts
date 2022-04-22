@@ -10,7 +10,6 @@ export const setHtmlMetaData = async (path: string, html: string, config: Meta):
   const archive = getArchiveFromUri(path)
 
   const meta = cloneDeep(config)
-  meta.og = { ...meta.og, url: path }
 
   if (hash && apiDomain && archive) {
     const api = new XyoArchivistApi({ apiDomain })
@@ -27,7 +26,8 @@ export const setHtmlMetaData = async (path: string, html: string, config: Meta):
       console.log(error)
     }
   }
-  meta.og = { ...meta.og, title: meta.title } as typeof meta.og
+
+  meta.og = { ...meta.og, title: meta.title, url: path } as typeof meta.og
   meta.twitter = { ...meta.twitter, title: meta.title }
   return metaBuilder(html, meta)
 }
