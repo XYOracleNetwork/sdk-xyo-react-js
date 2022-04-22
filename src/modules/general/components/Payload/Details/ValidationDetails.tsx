@@ -19,11 +19,10 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
   const errors: Error[] = [...bodyErrors, ...metaErrors]
 
   const navigateToNodeUrl = (nodeWebSiteUrl: string) => {
-    const a = document.createElement('a')
-    a.target = '_blank'
-    a.rel = 'noopener, noreferrer'
-    a.href = nodeWebSiteUrl
-    a.click()
+    const newWindow = window.open(nodeWebSiteUrl, '_blank', 'noopener,noreferrer')
+    if (newWindow) {
+      newWindow.opener = null
+    }
   }
 
   return (
