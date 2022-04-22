@@ -2697,9 +2697,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@eslint/eslintrc@npm:1.2.1"
+"@eslint/eslintrc@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@eslint/eslintrc@npm:1.2.2"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
@@ -2710,7 +2710,7 @@ __metadata:
     js-yaml: ^4.1.0
     minimatch: ^3.0.4
     strip-json-comments: ^3.1.1
-  checksum: 1f797b9f94d71b965992cf6c44e3bcb574643014fd1e3d4862d25056bd5568f59c488461a7e9a1c1758ca7f0def5d3cb69c3d8b38581bcf4a53af74371243797
+  checksum: d891036bbffb0efec1462aa4a603ed6e349d546b1632dde7d474ddd15c2a8b6895671b25293f1d3ba10ff629c24a3649ad049373fe695a0e44b612537088563c
   languageName: node
   linkType: hard
 
@@ -6622,21 +6622,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.4.5":
-  version: 2.4.5
-  resolution: "@xylabs/sdk-js@npm:2.4.5"
+"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.11, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.4.8":
+  version: 2.4.11
+  resolution: "@xylabs/sdk-js@npm:2.4.11"
   dependencies:
     axios: ^0.26.1
     bn.js: ^5.2.0
     buffer: ^6.0.3
-    rollbar: ^2.24.1
-  checksum: a6ac5ecfc5285e4c059072e902538ed27fe607cf8c87715624859faf9bd964e7eff7cd6d74ce219dc3be8def8a7619d892bc4f0333162b674944687abf3d54b4
+    rollbar: ^2.25.0
+  checksum: d1bd9075c98d4c10641de40d1a611744ff538b781e85ae7a77e182a1854f1384ecc4241434839082fdaa6eb429c541634f250c26d951c07c477abdd223657f1d
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.11.11":
-  version: 2.11.11
-  resolution: "@xylabs/sdk-react@npm:2.11.11"
+"@xylabs/sdk-react@npm:^2.11.13":
+  version: 2.11.13
+  resolution: "@xylabs/sdk-react@npm:2.11.13"
   dependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
@@ -6646,7 +6646,7 @@ __metadata:
     "@mui/material": ^5.6.2
     "@mui/styles": ^5.6.2
     "@xylabs/pixel": ^1.3.7
-    "@xylabs/sdk-js": ^2.4.5
+    "@xylabs/sdk-js": ^2.4.8
     axios: ^0.26.1
     lodash: ^4.17.21
     md5: ^2.3.0
@@ -6658,7 +6658,7 @@ __metadata:
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 1f6fff114f1ce32700a38f14dbe4fefd065460fd89250ec648875f4ae3668ba2b5da410718dfd963ee34cdb0003c87609ce97ceb25b2aa3b1dee2a00ed1ddaf2
+  checksum: 35bbe2e945885a73eb9fb1c40e91735a42d5d08fc875e9b8118ce67745c86826e07ebf7ba99cba0ee49ca35c7d6fbb19467a2be3588eafcad05f8558160403ea
   languageName: node
   linkType: hard
 
@@ -6735,18 +6735,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.18.4":
-  version: 2.18.4
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.18.4"
+"@xyo-network/sdk-xyo-client-js@npm:^2.19.4":
+  version: 2.19.4
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.19.4"
   dependencies:
     "@ethersproject/providers": ^5.6.4
-    "@xylabs/sdk-js": ^2.4.5
+    "@xylabs/sdk-js": ^2.4.11
     "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
     ajv: ^8.11.0
     axios: ^0.26.1
     bn.js: ^5.2.0
     bowser: ^2.11.0
-    buffer: ^6.0.3
     elliptic: ^6.5.4
     keccak256: ^1.0.6
     lodash: ^4.17.21
@@ -6757,10 +6756,10 @@ __metadata:
     pako: ^2.0.4
     randombytes: ^2.1.0
     sha.js: ^2.4.11
-    systeminformation: ^5.11.12
+    systeminformation: ^5.11.14
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 790ffe5306f4c0f55c18cf9fca5b6051cda18eea6e9ac685f2009d0001aca7876f57d59796c38d04e1f5f4772e75d3d1822d69b3344fc7e2f29c1829a3bd84b5
+  checksum: bf911570404d4f3a60d1e5e82a799ce8d8852a8a76e1a92dd79d420194735040a6e8ebffa97d531add5747199dfb6aa84036b1e5a0612823d4d4c3acc3825f5b
   languageName: node
   linkType: hard
 
@@ -6824,17 +6823,17 @@ __metadata:
     "@xylabs/pixel": ^1.3.7
     "@xylabs/rollup-config": ^1.1.15
     "@xylabs/sdk-api-express-ecs": ^1.1.4
-    "@xylabs/sdk-js": ^2.4.5
-    "@xylabs/sdk-react": ^2.11.11
+    "@xylabs/sdk-js": ^2.4.11
+    "@xylabs/sdk-react": ^2.11.13
     "@xylabs/ts-scripts": ^1.0.53
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/sdk-xyo-client-js": ^2.18.4
+    "@xyo-network/sdk-xyo-client-js": ^2.19.4
     "@xyo-network/sdk-xyo-js": ^2.5.6
     axios: ^0.26.1
     babel-loader: ^8.2.5
     bn.js: ^5.2.0
     copyfiles: ^2.4.1
-    eslint: ^8.13.0
+    eslint: ^8.14.0
     express: ^4.17.3
     jest: ^27.5.1
     jest-sorted: ^1.0.14
@@ -10783,11 +10782,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.12.0, eslint@npm:^8.13.0":
-  version: 8.13.0
-  resolution: "eslint@npm:8.13.0"
+"eslint@npm:^8.12.0, eslint@npm:^8.13.0, eslint@npm:^8.14.0":
+  version: 8.14.0
+  resolution: "eslint@npm:8.14.0"
   dependencies:
-    "@eslint/eslintrc": ^1.2.1
+    "@eslint/eslintrc": ^1.2.2
     "@humanwhocodes/config-array": ^0.9.2
     ajv: ^6.10.0
     chalk: ^4.0.0
@@ -10824,7 +10823,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: bc7d2fc9a046d42cb2c8987573ecaf534c1fae14747c4695e32388e179c5f21b83eefdb3e4f35924bf76152e226d7cc9dfb21f12348baf12c803109005b17439
+  checksum: 87d2e3e5eb93216d4ab36006e7b8c0bfad02f40b0a0f193f1d42754512cd3a9d8244152f1c69df5db2e135b3c4f1c10d0ed2f0881fe8a8c01af55465968174c1
   languageName: node
   linkType: hard
 
@@ -20291,7 +20290,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollbar@npm:^2.24.0, rollbar@npm:^2.24.1, rollbar@npm:^2.25.0":
+"rollbar@npm:^2.24.0, rollbar@npm:^2.25.0":
   version: 2.25.0
   resolution: "rollbar@npm:2.25.0"
   dependencies:
@@ -21574,12 +21573,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.11.12":
-  version: 5.11.12
-  resolution: "systeminformation@npm:5.11.12"
+"systeminformation@npm:^5.11.14":
+  version: 5.11.14
+  resolution: "systeminformation@npm:5.11.14"
   bin:
     systeminformation: lib/cli.js
-  checksum: 7e88b1350f1d82a3fd905ec5a101753a7cc601d799a35b7a7d5c20c9c28969165995db6a4644c51c3febe19587c1d7a1a454253db4897902b6d35f001b5b2b3c
+  checksum: 4e40f71da55899df2722288bd4b44562c22d9427e08591bb39e285303a4cce98b32ef0ccd1570a0264dca7863786fdf8cb71f75da85f77594361b8b7108898c9
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
