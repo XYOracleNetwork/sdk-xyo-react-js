@@ -12,9 +12,10 @@ export interface PayloadTableRowProps extends TableRowProps {
   payload?: XyoPayload
   exploreDomain?: string
   columns?: PayloadTableColumnConfig
+  network?: string
 }
 
-export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain, payload, columns = payloadTableColumnConfigDefaults(), ...props }) => {
+export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain, network, payload, columns = payloadTableColumnConfigDefaults(), ...props }) => {
   const breakPoint = useBreakpoint()
   const timeStamp = payload?._timestamp ? DateTime.fromMillis(payload?._timestamp) : undefined
   const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
@@ -43,7 +44,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
     </TableCell>
   )
 
-  const hash = <HashTableCell key="hash" value={payload?._hash} archive={payload?._archive} dataType="payload" exploreDomain={exploreDomain} />
+  const hash = <HashTableCell key="hash" value={payload?._hash} archive={payload?._archive} dataType="payload" exploreDomain={exploreDomain} network={network} />
 
   const schema = (
     <TableCell key="payloads" align="center">
