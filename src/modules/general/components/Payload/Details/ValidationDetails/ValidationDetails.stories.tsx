@@ -1,7 +1,8 @@
 import { ComponentStory, Meta } from '@storybook/react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { appThemeDecorator, samplePayload } from '../../../../.storybook'
-import { PayloadDetails } from './Details'
+import { appThemeDecorator, samplePayload } from '../../../../../.storybook'
+import { PayloadDetails } from '../Details'
 import { PayloadValidationDetails } from './ValidationDetails'
 
 const StorybookEntry: Meta = {
@@ -22,7 +23,14 @@ const StorybookEntry: Meta = {
   title: 'Payload/ValidationDetails',
 }
 
-const Template: ComponentStory<typeof PayloadValidationDetails> = (args) => <PayloadValidationDetails {...args}></PayloadValidationDetails>
+const Template: ComponentStory<typeof PayloadValidationDetails> = (args) => (
+  <BrowserRouter>
+    <Routes>
+      <Route element={<h1>navigated to huri</h1>} path="/:hash/schema" />
+    </Routes>
+    <PayloadValidationDetails {...args}></PayloadValidationDetails>
+  </BrowserRouter>
+)
 
 const Default = Template.bind({})
 Default.args = { skipBody: true, skipMeta: true }

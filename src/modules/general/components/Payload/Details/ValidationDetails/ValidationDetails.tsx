@@ -1,15 +1,10 @@
 import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
-import { XyoPayload, XyoPayloadValidator } from '@xyo-network/sdk-xyo-client-js'
+import { FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
+import { XyoPayloadValidator } from '@xyo-network/sdk-xyo-client-js'
 
-import { Property } from '../../../../property'
-
-export interface PayloadValidationDetailsProps extends FlexBoxProps {
-  skipBody?: boolean
-  skipMeta?: boolean
-  value?: XyoPayload
-  nodeWebSiteUrl?: string
-}
+import { Property } from '../../../../../property'
+import { SchemaProperty } from './SchemaProperty'
+import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
 export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ nodeWebSiteUrl, skipMeta = false, skipBody = false, value, ...props }) => {
   const validator = value ? new XyoPayloadValidator(value) : undefined
@@ -17,13 +12,6 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
   const bodyErrors = skipBody ? [] : validator?.body.all() ?? []
   const metaErrors = skipMeta ? [] : validator?.meta.all() ?? []
   const errors: Error[] = [...bodyErrors, ...metaErrors]
-
-  const navigateToNodeUrl = (nodeWebSiteUrl: string) => {
-    const newWindow = window.open(nodeWebSiteUrl, '_blank', 'noopener,noreferrer')
-    if (newWindow) {
-      newWindow.opener = null
-    }
-  }
 
   return (
     <FlexCol alignItems="start" {...props}>
@@ -48,15 +36,7 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
             )
           }
         />
-        {value?.schema && (
-          <Property
-            flexGrow={1}
-            title="Schema"
-            value={value?.schema}
-            tip="Schema sent with the payload"
-            actions={nodeWebSiteUrl ? [{ name: 'Edit', onClick: () => navigateToNodeUrl(nodeWebSiteUrl) }] : []}
-          ></Property>
-        )}
+        {value?.schema && <SchemaProperty value={value} nodeWebSiteUrl={nodeWebSiteUrl} />}
       </FlexRow>
     </FlexCol>
   )
