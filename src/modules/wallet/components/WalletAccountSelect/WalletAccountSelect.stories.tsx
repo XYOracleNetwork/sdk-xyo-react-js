@@ -10,7 +10,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'wallet/WalletSelect',
+  title: 'wallet/WalletAccountSelect',
 } as ComponentMeta<typeof WalletAccountSelect>
 
 const Template: ComponentStory<typeof WalletAccountSelect> = (args) => {
