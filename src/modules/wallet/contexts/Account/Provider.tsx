@@ -9,7 +9,7 @@ export interface AccountProviderProps {
 }
 
 export const AccountProvider: React.FC<WithChildren<AccountProviderProps>> = ({ defaultAccount, ...props }) => {
-  const [account, setAccount] = useState<XyoAccount>()
+  const [account, setAccount] = useState<XyoAccount | undefined>(defaultAccount)
 
-  return <AccountContext.Provider value={{ account: account ?? defaultAccount, provided: true, setAccount }} {...props} />
+  return <AccountContext.Provider value={{ account: account, provided: true, setAccount }} {...props} />
 }
