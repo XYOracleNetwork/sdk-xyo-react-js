@@ -31,4 +31,4 @@ COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-
 WORKDIR /app/bin
 
 # Start the meta-server pointed to the static app
-CMD ["node", "start-meta.js"]
+CMD ["node", "start-meta.mjs"]
