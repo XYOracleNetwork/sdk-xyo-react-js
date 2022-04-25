@@ -6,7 +6,7 @@ import { Property } from '../../../../property'
 import { SchemaProperty } from './SchemaProperty'
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
-export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ nodeWebSiteUrl, skipMeta = false, skipBody = false, value, ...props }) => {
+export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ nodeWebSiteUrl, viewSchemaUrl, skipMeta = false, skipBody = false, value, ...props }) => {
   const validator = value ? new XyoPayloadValidator(value) : undefined
 
   const bodyErrors = skipBody ? [] : validator?.body.all() ?? []
@@ -36,7 +36,7 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
             )
           }
         />
-        {value?.schema && <SchemaProperty value={value} nodeWebSiteUrl={nodeWebSiteUrl} />}
+        {value?.schema && <SchemaProperty value={value} nodeWebSiteUrl={nodeWebSiteUrl} viewSchemaUrl={viewSchemaUrl} />}
       </FlexRow>
     </FlexCol>
   )
