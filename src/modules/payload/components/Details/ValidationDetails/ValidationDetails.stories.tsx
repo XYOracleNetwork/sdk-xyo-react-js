@@ -1,7 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { appThemeDecorator, samplePayload } from '../../../../../.storybook'
+import { appThemeDecorator, samplePayload } from '../../../../.storybook'
 import { PayloadDetails } from '../Details'
 import { PayloadValidationDetails } from './ValidationDetails'
 

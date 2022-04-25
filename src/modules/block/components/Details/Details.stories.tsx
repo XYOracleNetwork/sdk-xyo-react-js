@@ -1,32 +1,31 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { appThemeDecorator, sampleBlockWithPayloads } from '../../../../.storybook'
-import { BlockDataDetails } from './DataDetails'
+import { appThemeDecorator, sampleBlockWithPayloads } from '../../../.storybook'
+import { BlockDetails } from './Details'
 
 const StorybookEntry = {
   argTypes: {},
-  component: BlockDataDetails,
+  component: BlockDetails,
+  decorators: [appThemeDecorator],
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'Block/DataDetails',
-} as ComponentMeta<typeof BlockDataDetails>
+  title: 'Block/Details',
+} as ComponentMeta<typeof BlockDetails>
 
-const Template: ComponentStory<typeof BlockDataDetails> = (args) => (
+const Template: ComponentStory<typeof BlockDetails> = (args) => (
   <BrowserRouter>
-    <BlockDataDetails {...args}></BlockDataDetails>
+    <BlockDetails {...args}></BlockDetails>
   </BrowserRouter>
 )
 
 const Default = Template.bind({})
 Default.args = {}
-Default.decorators = [appThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.decorators = [appThemeDecorator]
 WithData.args = { block: sampleBlockWithPayloads }
 
 export { Default, WithData }
