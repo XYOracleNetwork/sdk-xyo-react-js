@@ -10,7 +10,7 @@ export interface WalletProviderProps {
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ defaultWallet, defaultActiveAccountIndex = 0, ...props }) => {
-  const [wallet, setWallet] = useState<XyoWalletBase>()
+  const [wallet, setWallet] = useState<XyoWalletBase | undefined>(defaultWallet)
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
   const [activeAccount, setActiveAccount] = useState<XyoAccount>()
 
