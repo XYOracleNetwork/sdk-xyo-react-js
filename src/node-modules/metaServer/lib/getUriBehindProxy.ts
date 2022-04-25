@@ -13,7 +13,7 @@ import { isLocalhost } from './isLocalhost'
  * @returns
  */
 export const getUriBehindProxy = (req: Request) => {
-  const host = req.headers.host || '127.0.0.1'
+  const host = process.env.PUBLIC_ORIGIN || req.headers.host || '127.0.0.1'
   const parsedHost = isLocalhost(host) ? host : host?.split(':')?.[0]
   const scheme = isLocalhost(host) ? 'http' : 'https'
   const url = req.url
