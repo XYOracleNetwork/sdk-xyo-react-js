@@ -5,7 +5,7 @@ const ipv6Localhost = '[::1]'
 const ipv4LocalhostRegex = /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}/
 
 const isStringLocalhost = (hostname: string): boolean => {
-  if (hostname.startsWith(localhost) || hostname.match(ipv4LocalhostRegex) || hostname.startsWith(ipv6Localhost)) return true
+  if (hostname.match(ipv4LocalhostRegex) || hostname.startsWith(localhost) || hostname.startsWith(ipv6Localhost)) return true
   return false
 }
 
