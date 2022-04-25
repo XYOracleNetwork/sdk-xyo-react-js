@@ -1,4 +1,4 @@
-import { XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
+import { XyoAccount, XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch } from 'react'
 
 import { ContextExState } from '../../../context-ex'
@@ -6,6 +6,7 @@ import { ContextExState } from '../../../context-ex'
 export interface WalletContextState extends ContextExState {
   wallet?: XyoWalletBase
   setWallet?: Dispatch<XyoWalletBase>
-  activeAccount?: number
-  setActiveAccount?: Dispatch<number>
+  activeAccountIndex?: number
+  activeAccount?: XyoAccount
+  setActiveAccountIndex?: Dispatch<number>
 }
