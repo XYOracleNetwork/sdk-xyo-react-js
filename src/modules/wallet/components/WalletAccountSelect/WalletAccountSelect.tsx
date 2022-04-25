@@ -18,12 +18,12 @@ const arrayRange = (length: number, start = 0) => {
 }
 
 export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ wallet: walletProp, icons, iconOnly, phrase, ...props }) => {
-  const { wallet = walletProp ?? (phrase ? new XyoWebWallet(phrase) : undefined), activeAccount, setActiveAccount } = useWallet()
+  const { wallet = walletProp ?? (phrase ? new XyoWebWallet(phrase) : undefined), activeAccount, setActiveAccountIndex } = useWallet()
   const [selected, setSelected] = useState(`${activeAccount}` ?? '')
 
   useEffect(() => {
-    setActiveAccount?.(parseInt(selected))
-  }, [selected, setActiveAccount])
+    setActiveAccountIndex?.(parseInt(selected))
+  }, [selected, setActiveAccountIndex])
 
   return (
     <Select
