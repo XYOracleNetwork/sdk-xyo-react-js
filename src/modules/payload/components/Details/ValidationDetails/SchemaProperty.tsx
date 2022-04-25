@@ -19,7 +19,7 @@ const SchemaProperty: React.FC<PayloadValidationDetailsProps> = ({ value, nodeWe
 
     const actions = [{ name: 'View', onClick: () => navigate(schemaUrl) }]
     if (nodeWebSiteUrl) {
-      actions.push({ name: 'Edit', onClick: () => navigateToNodeUrl(nodeWebSiteUrl) })
+      actions.push({ name: 'Clone', onClick: () => navigateToNodeUrl(nodeWebSiteUrl) })
     }
     return actions
   }, [navigate, nodeWebSiteUrl, value?._hash, viewSchemaUrl])
