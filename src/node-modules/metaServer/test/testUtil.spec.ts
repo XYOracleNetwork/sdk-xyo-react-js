@@ -7,9 +7,6 @@ import { getApp, server } from '../server'
 test('Spec files require tests', () => {
   expect(true).toBeTruthy()
 })
-test.skip('Must have APP_PORT ENV VAR defined', () => {
-  expect(process.env.APP_PORT).toBeTruthy()
-})
 
 const defaultBaseDir = join(__dirname, 'staticFileServeDir')
 
