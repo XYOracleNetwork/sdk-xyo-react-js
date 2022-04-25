@@ -1,7 +1,7 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { ellipsize } from '@xylabs/sdk-js'
 
-import { AddressTableCell } from '../../TableCell'
+import { AddressTableCell } from '../../../general'
 
 export interface BlockSignatureTableRowProps extends TableRowProps {
   address?: string

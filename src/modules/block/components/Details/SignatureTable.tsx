@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
-import { ScrollTableOnSm } from '../../ScrollTableOnSm'
+import { ScrollTableOnSm } from '../../../general'
 import { BlockSignatureTableRow } from './SignatureTableRow'
 
 export interface BlockSignatureTableProps extends TableProps {

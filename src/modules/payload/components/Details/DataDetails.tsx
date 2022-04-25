@@ -1,7 +1,7 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
 
-import { Property, PropertyHeroProps, usePropertyHeroProps } from '../../../../property'
+import { Property, PropertyHeroProps, usePropertyHeroProps } from '../../../property'
 
 export interface PayloadDataDetailsProps extends PropertyHeroProps, FlexBoxProps {
   value?: XyoPayload

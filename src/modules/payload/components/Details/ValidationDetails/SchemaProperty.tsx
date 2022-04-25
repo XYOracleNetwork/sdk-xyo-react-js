@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Property } from '../../../../../property'
+import { Property } from '../../../../property'
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
 const SchemaProperty: React.FC<PayloadValidationDetailsProps> = ({ value, nodeWebSiteUrl, viewSchemaUrl }) => {
