@@ -10,7 +10,6 @@ const StorybookEntry: Meta = {
   args: {
     value: {
       schema: 'network.xyo.schema',
-      valid: true,
     },
   },
   component: PayloadDetails,
@@ -35,6 +34,9 @@ const Template: ComponentStory<typeof PayloadValidationDetails> = (args) => (
 const Default = Template.bind({})
 Default.args = { skipBody: true, skipMeta: true }
 
+const WithActions = Template.bind({})
+WithActions.args = { nodeWebSiteUrl: 'http://google.com', viewSchemaUrl: '/someHash/schema' }
+
 const WithErrorsInToolTip = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -53,7 +55,7 @@ SkipMeta.args = { skipMeta: true, value: { _hash: null, schema: 'network.xyo.sch
 const EditMode = Template.bind({})
 EditMode.args = { nodeWebSiteUrl: 'https://beta.node.xyo.network/witness/network.xyo.schema/observe?network=kerplunk&hash=123456', value: samplePayload }
 
-export { Default, EditMode, SkipBody, SkipMeta, WithErrorsInToolTip }
+export { Default, EditMode, SkipBody, SkipMeta, WithActions, WithErrorsInToolTip }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

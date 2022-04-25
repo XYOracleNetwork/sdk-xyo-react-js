@@ -15,14 +15,16 @@ const SchemaProperty: React.FC<PayloadValidationDetailsProps> = ({ value, nodeWe
   }
 
   const propertyActions = useCallback(() => {
-    const schemaUrl = viewSchemaUrl ?? `/${value?._hash}/schema`
+    const actions = []
 
-    const actions = [{ name: 'View', onClick: () => navigate(schemaUrl) }]
+    if (viewSchemaUrl) {
+      actions.push({ name: 'View', onClick: () => navigate(viewSchemaUrl) })
+    }
     if (nodeWebSiteUrl) {
       actions.push({ name: 'Clone', onClick: () => navigateToNodeUrl(nodeWebSiteUrl) })
     }
     return actions
-  }, [navigate, nodeWebSiteUrl, value?._hash, viewSchemaUrl])
+  }, [navigate, nodeWebSiteUrl, viewSchemaUrl])
 
   return <Property flexGrow={1} title="Schema" value={value?.schema} tip="Schema sent with the payload" actions={propertyActions()} />
 }
