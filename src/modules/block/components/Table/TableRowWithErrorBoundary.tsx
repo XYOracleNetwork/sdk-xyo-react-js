@@ -1,7 +1,7 @@
 import { Alert, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
 
-import { XyoApiThrownErrorBoundary } from '../../../../auth-service'
+import { XyoApiThrownErrorBoundary } from '../../../auth-service'
 import { BlockTableRow, BlockTableRowProps } from './TableRow'
 
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {

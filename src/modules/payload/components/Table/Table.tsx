@@ -2,8 +2,8 @@ import { Alert, Table, TableBody, TableCell, TableHead, TableProps, TableRow, Ty
 import { useBreakpoint } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
-import { XyoApiThrownErrorBoundary } from '../../../../auth-service'
-import { ScrollTableOnSm } from '../../ScrollTableOnSm'
+import { XyoApiThrownErrorBoundary } from '../../../auth-service'
+import { ScrollTableOnSm } from '../../../general'
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { PayloadTableRow } from './TableRow'
 

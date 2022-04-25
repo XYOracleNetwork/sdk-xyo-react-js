@@ -1,29 +1,33 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
-import { XyoPayload, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/sdk-xyo-client-js'
+import compact from 'lodash/compact'
 import { DateTime } from 'luxon'
 import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
 
-import { HashTableCell } from '../../TableCell'
-import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig'
+import { HashTableCell } from '../../../general'
+import { useNetwork } from '../../../network'
+import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 
-export interface PayloadTableRowProps extends TableRowProps {
-  payload?: XyoPayload
+export interface BlockTableRowProps extends TableRowProps {
+  block?: XyoBoundWitness
   exploreDomain?: string
-  columns?: PayloadTableColumnConfig
+  columns?: BlockTableColumnConfig
   network?: string
 }
 
-export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain, network, payload, columns = payloadTableColumnConfigDefaults(), ...props }) => {
+export const BlockTableRow: React.FC<BlockTableRowProps> = ({ network: networkProp, exploreDomain, block, columns = blockTableColumnConfigDefaults(), ...props }) => {
   const breakPoint = useBreakpoint()
-  const timeStamp = payload?._timestamp ? DateTime.fromMillis(payload?._timestamp) : undefined
-  const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
+
+  const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
+  const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
+  const { network } = useNetwork()
 
   const archive = (
     <TableCell key="archive" align="center">
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {payload?._archive}
+        {block?._archive}
       </Typography>
     </TableCell>
   )
@@ -31,7 +35,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
   const client = (
     <TableCell key="client" align="center">
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {payload?._client}
+        {block?._client}
       </Typography>
     </TableCell>
   )
@@ -44,12 +48,12 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
     </TableCell>
   )
 
-  const hash = <HashTableCell key="hash" value={payload?._hash} archive={payload?._archive} dataType="payload" exploreDomain={exploreDomain} network={network} />
+  const hash = <HashTableCell key="hash" value={block?._hash} archive={block?._archive} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network.slug} />
 
-  const schema = (
+  const payloads = (
     <TableCell key="payloads" align="center">
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {payload?.schema}
+        {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|{compact(block?.previous_hashes ?? [])?.length}
       </Typography>
     </TableCell>
   )
@@ -62,22 +66,20 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
     </TableCell>
   )
 
-  const isValid = wrapper ? new XyoPayloadWrapperValidator(wrapper).all().length === 0 : undefined
-
   const valid = (
     <TableCell key="valid" align="center">
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {isValid === undefined ? <MdDone fontSize={18} color="yellow" /> : isValid ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
+        {wrapper?.validator.all().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
       </Typography>
     </TableCell>
   )
 
-  const tableCells: Record<PayloadTableColumnSlug, ReactElement> = {
+  const tableCells: Record<BlockTableColumnSlug, ReactElement> = {
     archive,
     client,
     date,
     hash,
-    schema,
+    payloads,
     time,
     valid,
   }
