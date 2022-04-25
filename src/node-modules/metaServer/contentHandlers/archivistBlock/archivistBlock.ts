@@ -4,7 +4,7 @@ import { Meta } from '@xyo-network/sdk-xyo-js'
 import { readFile } from 'fs/promises'
 import { extname, join } from 'path'
 
-import { getAdjustedPath } from '../../lib'
+import { getAdjustedPath, getUriBehindProxy } from '../../lib'
 import { ApplicationMiddlewareOptions, MountPathAndMiddleware } from '../../types'
 import { setHtmlMetaData } from './setHtmlMetaData'
 
@@ -32,7 +32,8 @@ const getHandler = (baseDir: string) => {
     if (defaultHtmlMeta && extname(adjustedPath) === '.html') {
       // TODO: Check if file exists
       const html = await readFile(join(baseDir, 'index.html'), { encoding: 'utf-8' })
-      const updatedHtml = await setHtmlMetaData(`${req.protocol}://${req.headers.host}${req.url}`, html, defaultHtmlMeta)
+      const uri = getUriBehindProxy(req)
+      const updatedHtml = await setHtmlMetaData(uri, html, defaultHtmlMeta)
       res.send(updatedHtml)
     } else {
       next()
