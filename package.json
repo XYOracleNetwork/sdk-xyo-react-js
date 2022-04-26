@@ -144,7 +144,7 @@
     "lint-pkg": "npmPkgJsonLint .",
     "deploy": "yarn build-storybook && yarn deploy3",
     "start": "start-storybook -p 6006",
-    "start-meta": "node ./bin/start-meta.js",
+    "start-meta": "node ./bin/start-meta.mjs",
     "test": "jest ./src",
     "build": "yarn xylabs-build && yarn gen:docs",
     "gen:docs": "typedoc ./src/index.ts --json ./dist/docs.json --tsconfig ./tsconfig.build.json"
