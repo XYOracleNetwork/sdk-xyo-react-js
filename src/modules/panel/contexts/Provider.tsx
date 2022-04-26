@@ -4,7 +4,7 @@ import { XyoApiConfig, XyoArchivistApi, XyoBoundWitness, XyoPanel, XyoPayload, X
 import { useEffect, useState } from 'react'
 
 import { useArchive } from '../../archive'
-import { useWallet } from '../../wallet'
+import { useAccount } from '../../wallet'
 import { XyoPanelContext } from './Context'
 import { XyoPanelReportProgress, XyoReportStatus } from './State'
 
@@ -42,7 +42,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
   const [status, setStatus] = useState(XyoReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
-  const { activeAccount: account } = useWallet()
+  const { account } = useAccount()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

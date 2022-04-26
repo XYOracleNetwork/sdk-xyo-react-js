@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
+import { BrowserRouter } from 'react-router-dom'
 
-import { AccountProvider } from '../../contexts'
+import { WalletProvider } from '../../contexts'
 import { WalletAccountDetails } from './WalletAccountDetails'
 
 const StorybookEntry = {
@@ -17,9 +18,11 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof WalletAccountDetails> = (args) => {
   return (
-    <AccountProvider defaultAccount={new XyoWalletBase('test me').getAccount(0)}>
-      <WalletAccountDetails {...args}></WalletAccountDetails>
-    </AccountProvider>
+    <BrowserRouter>
+      <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
+        <WalletAccountDetails {...args}></WalletAccountDetails>
+      </WalletProvider>
+    </BrowserRouter>
   )
 }
 
