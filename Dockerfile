@@ -1,13 +1,13 @@
 # syntax=docker/dockerfile:1
 # Build here and pull down all the devDependencies
-FROM node:16 AS builder
+FROM node:18 AS builder
 WORKDIR /app
 COPY . .
 RUN yarn install
 RUN yarn build
 
 # Just install the production dependencies here
-FROM node:16 AS dependencies
+FROM node:18 AS dependencies
 WORKDIR /app
 COPY ./package.json ./package.json
 COPY ./yarn.lock ./yarn.lock
@@ -15,7 +15,7 @@ RUN yarn install --production --immutable
 
 # Copy over the compiled output and production dependencies
 # into a slimmer container
-FROM node:16-alpine
+FROM node:18-alpine
 ENV PORT="80"
 WORKDIR /app
 
