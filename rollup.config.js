@@ -6,6 +6,8 @@ import pkg from './package.json'
 export default getRollupConfig({
   additionalNodeExternals: ['fs', 'fs/promises', 'path', 'querystring', 'url'],
   browserIndex: './src/browserIndex.ts',
+  bundlePrefix: 'bundle/',
   nodeIndex: './src/nodeIndex.ts',
+  outputs: ['cjs5', 'node', 'node-esm'],
   pkg,
 })
