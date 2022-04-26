@@ -26,7 +26,7 @@ COPY --from=builder /app/${BUILD_OUTPUT_DIR} ./bin/build
 # Copy over the meta-server to run the app
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/dist/node ./dist/node
-COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.js ./bin/start-meta.js
+COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.mjs ./bin/start-meta.mjs
 
 WORKDIR /app/bin
 
