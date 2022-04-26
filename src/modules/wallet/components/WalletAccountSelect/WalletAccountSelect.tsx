@@ -4,7 +4,7 @@ import { EthAccount } from '@xylabs/sdk-react'
 import { XyoWalletBase, XyoWebWallet } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
-import { useWallet } from '../../contexts'
+import { useAccount, useWallet } from '../../contexts'
 
 export interface WalletAccountSelectProps extends SelectProps<string> {
   wallet?: XyoWalletBase
@@ -18,8 +18,9 @@ const arrayRange = (length: number, start = 0) => {
 }
 
 export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ wallet: walletProp, icons, iconOnly, phrase, ...props }) => {
-  const { wallet = walletProp ?? (phrase ? new XyoWebWallet(phrase) : undefined), activeAccount, setActiveAccountIndex } = useWallet()
-  const [selected, setSelected] = useState(`${activeAccount}` ?? '')
+  const { wallet = walletProp ?? (phrase ? new XyoWebWallet(phrase) : undefined), setActiveAccountIndex } = useWallet()
+  const { account } = useAccount()
+  const [selected, setSelected] = useState(`${account}` ?? '')
 
   useEffect(() => {
     setActiveAccountIndex?.(parseInt(selected))

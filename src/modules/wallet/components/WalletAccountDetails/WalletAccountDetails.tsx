@@ -13,8 +13,8 @@ export interface WalletAccountDetailsProps extends FlexBoxProps {
 export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({ account: accountProp, ...props }) => {
   const { account = accountProp } = useAccount()
   const { network } = useNetwork()
-  const { urls } = network.diviners[0] ?? 'https://explore.xyo.network'
-  const exploreAddressUrl = `${urls.web}/recent?account=${account?.addressValue.hex}&network=${network.name ?? 'main'}`
+  const { urls } = network?.diviners[0] ?? { urls: { web: 'https://explore.xyo.network' } }
+  const exploreAddressUrl = `${urls?.web}/recent?account=${account?.addressValue.hex}&network=${network?.name ?? 'main'}`
 
   return (
     <FlexCol {...props}>
