@@ -1,14 +1,14 @@
 import { assertEx, delay } from '@xylabs/sdk-js'
 import { useAsyncEffect, WithChildren } from '@xylabs/sdk-react'
-import { XyoAccount, XyoApiConfig, XyoArchivistApi, XyoBoundWitness, XyoPanel, XyoPayload, XyoSystemInfoWitness, XyoWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiConfig, XyoArchivistApi, XyoBoundWitness, XyoPanel, XyoPayload, XyoSystemInfoWitness, XyoWitness } from '@xyo-network/sdk-xyo-client-js'
 import { useEffect, useState } from 'react'
 
 import { useArchive } from '../../archive'
+import { useWallet } from '../../wallet'
 import { XyoPanelContext } from './Context'
 import { XyoPanelReportProgress, XyoReportStatus } from './State'
 
 export interface XyoPanelProviderProps {
-  account?: XyoAccount
   archivists?: XyoArchivistApi[]
   inlinePayloads?: boolean
   witnesses?: XyoWitness<XyoPayload>[]
@@ -31,25 +31,24 @@ const getDefaultArchivists = () => {
 export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = ({
   inlinePayloads = false,
   required = false,
-  account = XyoAccount.random(),
   archivists = getDefaultArchivists(),
   witnesses = [new XyoSystemInfoWitness()],
-  archive,
   children,
 }) => {
-  const { archive: contextArchive } = useArchive()
+  const { archive } = useArchive()
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
   const [progress, setProgress] = useState<XyoPanelReportProgress>({})
   const [status, setStatus] = useState(XyoReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
+  const { activeAccount: account } = useWallet()
+
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const panel = new XyoPanel({
         account,
-        archive: archive ?? contextArchive,
         archivists,
         inlinePayloads,
         onArchivistSendEnd: (archivist: XyoArchivistApi, error?: Error) => {
@@ -130,7 +129,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
       await delay(0)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [account, archivists, witnesses, inlinePayloads, archive, contextArchive]
+    [account, archive, archivists]
   )
 
   useEffect(() => {
