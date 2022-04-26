@@ -48,7 +48,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({ network: networkPr
     </TableCell>
   )
 
-  const hash = <HashTableCell key="hash" value={block?._hash} archive={block?._archive} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network.slug} />
+  const hash = <HashTableCell key="hash" value={block?._hash} archive={block?._archive} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
 
   const payloads = (
     <TableCell key="payloads" align="center">
