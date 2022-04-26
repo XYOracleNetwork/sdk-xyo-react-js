@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Debug",
-      "program": "${workspaceFolder}/bin/start-meta.js",
+      "program": "${workspaceFolder}/bin/start-meta.mjs",
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "runtimeArgs": [
         "--experimental-specifier-resolution=node",
