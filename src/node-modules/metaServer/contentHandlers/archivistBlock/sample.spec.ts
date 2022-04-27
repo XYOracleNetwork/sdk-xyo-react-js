@@ -1,4 +1,4 @@
-import { Meta } from '@xyo-network/sdk-xyo-js'
+import { Meta } from '@xyo-network/xyo-meta-js'
 
 const title = 'XYO 2.0'
 
