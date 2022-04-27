@@ -24,7 +24,7 @@
     "@xylabs/pixel": "^1.3.7",
     "@xylabs/sdk-api-express-ecs": "^1.1.4",
     "@xylabs/sdk-js": "^2.5.4",
-    "@xylabs/sdk-react": "^2.11.13",
+    "@xylabs/sdk-react": "^2.11.14",
     "@xyo-network/sdk-xyo-client-js": "^2.19.15",
     "@xyo-network/xyo-meta-js": "^2.6.9",
     "bn.js": "^5.2.0",
@@ -69,7 +69,7 @@
     "@xylabs/pixel": "^1.3.7",
     "@xylabs/rollup-config": "^1.1.17",
     "@xylabs/sdk-js": "^2.5.4",
-    "@xylabs/sdk-react": "^2.11.13",
+    "@xylabs/sdk-react": "^2.11.14",
     "@xylabs/ts-scripts": "^1.0.55",
     "@xylabs/tsconfig": "^1.0.13",
     "axios": "^0.27.2",
@@ -91,12 +91,10 @@
     "typescript": "^4.6.3",
     "webpack": "^5.72.0"
   },
-  "esm5": "dist/bundle/esm5/index.js",
   "docs": "dist/docs.json",
   "browser": "dist/browserIndex.js",
   "exports": {
     ".": {
-      "esm5": "./dist/bundle/esm5/index.js",
       "node": {
         "import": "./dist/bundle/node-esm/index.js",
         "require": "./dist/bundle/node/index.js"
@@ -108,6 +106,8 @@
     },
     "./package.json": "./package.json"
   },
+  "main": "dist/bundle/node/index.js",
+  "module": "dist/browserIndex.js",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",
@@ -116,8 +116,6 @@
     "react"
   ],
   "license": "LGPL-3.0",
-  "main": "dist/bundle/node/index.js",
-  "module": "dist/browserIndex.js",
   "name": "@xyo-network/sdk-xyo-react",
   "peerDependencies": {
     "axios": ">0.26",
