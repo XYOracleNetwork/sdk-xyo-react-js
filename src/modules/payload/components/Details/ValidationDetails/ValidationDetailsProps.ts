@@ -5,6 +5,5 @@ export interface PayloadValidationDetailsProps extends FlexBoxProps {
   skipBody?: boolean
   skipMeta?: boolean
   value?: XyoPayload
-  nodeWebSiteUrl?: string
   viewSchemaUrl?: string
 }

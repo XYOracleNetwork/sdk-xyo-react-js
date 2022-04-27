@@ -1,5 +1,5 @@
 import { ComponentStory, Meta } from '@storybook/react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import { appThemeDecorator, samplePayload } from '../../../../.storybook'
 import { PayloadDetails } from '../Details'
@@ -24,18 +24,15 @@ const StorybookEntry: Meta = {
 
 const Template: ComponentStory<typeof PayloadValidationDetails> = (args) => (
   <BrowserRouter>
-    <Routes>
-      <Route element={<h1>navigated to huri</h1>} path="/:hash/schema" />
-    </Routes>
-    <PayloadValidationDetails {...args}></PayloadValidationDetails>
+    <PayloadValidationDetails {...args} />
   </BrowserRouter>
 )
 
 const Default = Template.bind({})
 Default.args = { skipBody: true, skipMeta: true }
 
-const WithActions = Template.bind({})
-WithActions.args = { nodeWebSiteUrl: 'http://google.com', viewSchemaUrl: '/someHash/schema' }
+const WithViewSchemaLink = Template.bind({})
+WithViewSchemaLink.args = { viewSchemaUrl: '/schema/6fe3f745b1179fefa74cc3c7eab58321bee1c9ca9e34d9585467364cc5d3bbe2/?huri=huri' }
 
 const WithErrorsInToolTip = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -52,10 +49,7 @@ const SkipMeta = Template.bind({})
 // @ts-ignore
 SkipMeta.args = { skipMeta: true, value: { _hash: null, schema: 'network.xyo.schema' } }
 
-const EditMode = Template.bind({})
-EditMode.args = { nodeWebSiteUrl: 'https://beta.node.xyo.network/witness/network.xyo.schema/observe?network=kerplunk&hash=123456', value: samplePayload }
-
-export { Default, EditMode, SkipBody, SkipMeta, WithActions, WithErrorsInToolTip }
+export { Default, SkipBody, SkipMeta, WithErrorsInToolTip, WithViewSchemaLink }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
