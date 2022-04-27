@@ -27,7 +27,6 @@
     "@xylabs/sdk-react": "^2.11.13",
     "@xyo-network/sdk-xyo-client-js": "^2.19.15",
     "@xyo-network/xyo-meta-js": "^2.6.9",
-    "axios": "^0.26.1",
     "bn.js": "^5.2.0",
     "express": "^4.18.0",
     "lodash": "^4.17.21",
@@ -73,6 +72,7 @@
     "@xylabs/sdk-react": "^2.11.13",
     "@xylabs/ts-scripts": "^1.0.55",
     "@xylabs/tsconfig": "^1.0.13",
+    "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
     "copyfiles": "^2.4.1",
     "depcheck": "^1.4.3",
@@ -120,6 +120,7 @@
   "module": "dist/browserIndex.js",
   "name": "@xyo-network/sdk-xyo-react",
   "peerDependencies": {
+    "axios": ">0.26",
     "react": "^17",
     "react-dom": "^17",
     "typedoc": "^0.22.13"

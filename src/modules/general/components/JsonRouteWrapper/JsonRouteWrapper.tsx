@@ -1,5 +1,5 @@
 import { ButtonEx, ErrorDialog, FlexBoxProps, FlexCol, FlexRow, useAsyncEffect } from '@xylabs/sdk-react'
-import { AxiosError } from 'axios'
+import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
 import { lazy, Suspense, useState } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'
 import { useSearchParams } from 'react-router-dom'
@@ -17,7 +17,7 @@ export interface JsonFromPromiseProps extends FlexBoxProps {
 
 export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({ callback, children, noBackButton = false, noJsonButton = false, jsonViewProps, ...props }) => {
   const [apiResponse, setApiResponse] = useState<object>()
-  const [apiError, setApiError] = useState<AxiosError>()
+  const [apiError, setApiError] = useState<XyoApiError>()
   const [searchParams, setSearchParams] = useSearchParams()
   const active = !!searchParams.get('json')
 
@@ -29,9 +29,14 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({ callback, chi
         if (mounted()) {
           setApiResponse(response)
         }
-      } catch (err) {
+      } catch (ex) {
         if (mounted()) {
-          setApiError(err as AxiosError)
+          const error = ex as XyoApiError
+          if (error.isXyoError) {
+            setApiError(error)
+          } else {
+            throw ex
+          }
         }
       }
     },
