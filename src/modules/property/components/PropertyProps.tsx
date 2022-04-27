@@ -1,4 +1,4 @@
-import { FlexboxProps } from '@mui/system'
+import { GridProps } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/sdk-react'
 import { ReactNode } from 'react'
 
@@ -15,5 +15,5 @@ export interface PropertyProps extends FlexBoxProps {
   hero?: boolean
   badge?: boolean
   stackBreak?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-  gridContainerFlexProps?: FlexboxProps
+  gridContainerProps?: GridProps
 }
