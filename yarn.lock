@@ -3455,7 +3455,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.6.2, @mui/material@npm:^5.6.3":
+"@mui/material@npm:^5.6.3":
   version: 5.6.3
   resolution: "@mui/material@npm:5.6.3"
   dependencies:
@@ -6609,7 +6609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.4.8, @xylabs/sdk-js@npm:^2.5.4":
+"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.5.4":
   version: 2.5.4
   resolution: "@xylabs/sdk-js@npm:2.5.4"
   dependencies:
@@ -6622,20 +6622,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.11.13":
-  version: 2.11.13
-  resolution: "@xylabs/sdk-react@npm:2.11.13"
+"@xylabs/sdk-react@npm:^2.11.14":
+  version: 2.11.14
+  resolution: "@xylabs/sdk-react@npm:2.11.14"
   dependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
     "@ethersproject/abstract-signer": ^5.6.0
     "@ethersproject/providers": ^5.6.4
     "@mui/icons-material": ^5.6.2
-    "@mui/material": ^5.6.2
+    "@mui/material": ^5.6.3
     "@mui/styles": ^5.6.2
     "@xylabs/pixel": ^1.3.7
-    "@xylabs/sdk-js": ^2.4.8
-    axios: ^0.26.1
+    "@xylabs/sdk-js": ^2.5.4
     lodash: ^4.17.21
     md5: ^2.3.0
     numeral: ^2.0.6
@@ -6644,9 +6643,10 @@ __metadata:
     react-icons: ^4.3.1
     react-router-dom: ^6.3.0
   peerDependencies:
+    axios: ">0.26"
     react: "*"
     react-dom: "*"
-  checksum: 35bbe2e945885a73eb9fb1c40e91735a42d5d08fc875e9b8118ce67745c86826e07ebf7ba99cba0ee49ca35c7d6fbb19467a2be3588eafcad05f8558160403ea
+  checksum: db59cf5a6569d2f158db3ec8dd8a6ecb3dc6fcb4494d2faf291570f380864e2fde359671d7dbbd428662d9eee6ae241d7e50c09f3b9b70464a91261af6787cc9
   languageName: node
   linkType: hard
 
@@ -6803,7 +6803,7 @@ __metadata:
     "@xylabs/rollup-config": ^1.1.17
     "@xylabs/sdk-api-express-ecs": ^1.1.4
     "@xylabs/sdk-js": ^2.5.4
-    "@xylabs/sdk-react": ^2.11.13
+    "@xylabs/sdk-react": ^2.11.14
     "@xylabs/ts-scripts": ^1.0.55
     "@xylabs/tsconfig": ^1.0.13
     "@xyo-network/sdk-xyo-client-js": ^2.19.15
