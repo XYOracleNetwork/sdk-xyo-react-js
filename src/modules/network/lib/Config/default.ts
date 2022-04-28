@@ -5,7 +5,7 @@ import { findArchivistPreset, findDivinerPreset } from '../../../general'
 export const defaultNetworkConfigs: XyoNetworkConfig[] = [
   {
     name: 'Kerplunk',
-    nodes: [findArchivistPreset('beta-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
+    nodes: [findArchivistPreset('kerplunk-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
     slug: 'kerplunk',
   },
   {
@@ -15,7 +15,7 @@ export const defaultNetworkConfigs: XyoNetworkConfig[] = [
   },
   {
     name: 'Local',
-    nodes: [findArchivistPreset('beta-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
+    nodes: [findArchivistPreset('kerplunk-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
     slug: 'local',
   },
 ]
