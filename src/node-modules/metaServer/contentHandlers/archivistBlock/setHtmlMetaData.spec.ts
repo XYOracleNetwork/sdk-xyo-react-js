@@ -1,4 +1,4 @@
-import { Meta } from '@xyo-network/xyo-meta-js'
+import { Meta } from '@xyo-network/sdk-meta'
 
 import { setHtmlMetaData } from './setHtmlMetaData'
 
