@@ -8,13 +8,13 @@ import { useAccount } from '../../contexts'
 
 export interface WalletAccountDetailsProps extends FlexBoxProps {
   account?: XyoAccount
+  exploreUrl?: string
 }
 
-export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({ account: accountProp, ...props }) => {
+export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({ exploreUrl = 'https://explore.xyo.network', account: accountProp, ...props }) => {
   const { account = accountProp } = useAccount()
   const { network } = useNetwork()
-  const { urls } = network?.diviners[0] ?? { urls: { web: 'https://explore.xyo.network' } }
-  const exploreAddressUrl = `${urls?.web}/recent?account=${account?.addressValue.hex}&network=${network?.name ?? 'main'}`
+  const exploreAddressUrl = `${exploreUrl}/recent?account=${account?.addressValue.hex}&network=${network?.name ?? 'main'}`
 
   return (
     <FlexCol {...props}>

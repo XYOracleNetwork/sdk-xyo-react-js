@@ -1,8 +1,8 @@
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { Huri, XyoApiError, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { Huri, XyoApiError, XyoNetworkConfig, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
-import { useNetwork, XyoNetworkConfig } from '../../network'
+import { useNetwork } from '../../network'
 import { findHuriNetwork } from './lib'
 
 const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean): [XyoPayload | undefined, boolean, XyoApiError | undefined] => {

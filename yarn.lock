@@ -6530,7 +6530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/eslint-config@npm:^2.3.20, @xylabs/eslint-config@npm:^2.3.22":
+"@xylabs/eslint-config@npm:^2.3.22":
   version: 2.3.22
   resolution: "@xylabs/eslint-config@npm:2.3.22"
   dependencies:
@@ -6622,9 +6622,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.11.14":
-  version: 2.11.14
-  resolution: "@xylabs/sdk-react@npm:2.11.14"
+"@xylabs/sdk-react@npm:^2.11.15":
+  version: 2.11.15
+  resolution: "@xylabs/sdk-react@npm:2.11.15"
   dependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
@@ -6646,21 +6646,21 @@ __metadata:
     axios: ">0.26"
     react: "*"
     react-dom: "*"
-  checksum: db59cf5a6569d2f158db3ec8dd8a6ecb3dc6fcb4494d2faf291570f380864e2fde359671d7dbbd428662d9eee6ae241d7e50c09f3b9b70464a91261af6787cc9
+  checksum: 823b9ed94e3d56d02ed6966b71811fc26bb839a63a567ffa4b37782a68b28272ce9d60ecfb944347c17bcfb584b84079bfe37bf50a2c7300c8470e31f803434e
   languageName: node
   linkType: hard
 
-"@xylabs/ts-scripts@npm:^1.0.55":
-  version: 1.0.55
-  resolution: "@xylabs/ts-scripts@npm:1.0.55"
+"@xylabs/ts-scripts@npm:^1.0.57":
+  version: 1.0.57
+  resolution: "@xylabs/ts-scripts@npm:1.0.57"
   dependencies:
-    "@xylabs/eslint-config": ^2.3.20
+    "@xylabs/eslint-config": ^2.3.22
     copyfiles: ^2.4.1
     depcheck: ^1.4.3
-    eslint: ^8.12.0
+    eslint: ^8.14.0
     eslint-plugin-sonarjs: ^0.13.0
     node-cmd: ^5.0.0
-    npm-check-updates: ^12.5.8
+    npm-check-updates: ^12.5.9
     npm-package-json-lint: ^6.3.0
     npm-package-json-lint-config-default: ^5.0.0
     parse-git-config: ^3.0.0
@@ -6712,7 +6712,7 @@ __metadata:
     xylabs-up3: bin/up3.js
     xylabs-updo: bin/updo.js
     xylabs-updo3: bin/updo3.js
-  checksum: 14843a48eead6a9162d1f7374107c26487247cd04e305f91fe7ec96a855a7b61c2eb965aa4e09b95770165e990427964dec57443e49d6f095fe6eca8601e8b47
+  checksum: 08852acdf2e71b162915419672d06de914810f955486f20d2fa8d11c9dd04446007adb11bb60caee0aba426975bf92cda02a773f84c6f85f8937b05526c23ca1
   languageName: node
   linkType: hard
 
@@ -6725,24 +6725,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-meta@npm:^2.6.10":
-  version: 2.6.10
-  resolution: "@xyo-network/sdk-meta@npm:2.6.10"
+"@xyo-network/sdk-meta@npm:^2.6.12":
+  version: 2.6.12
+  resolution: "@xyo-network/sdk-meta@npm:2.6.12"
   dependencies:
     cheerio: ^1.0.0-rc.10
-  checksum: 799e3a6358be218f396db0ac779fab01e9b33a60834874107f6538be0b2b1f38cdf1774cf2dd052c5ba5c1da967fa74e7f886f4c7db429c299e04fe62ba458db
+  checksum: c44726af5ecf9e15aed76e2276954bdb3cbdc076038cc30c1cc2e1545e1eceadece73d4269e52dc60447cb449e3c36c6a233333fbc18f6318417eec43bb064c5
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.19.15":
-  version: 2.19.15
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.19.15"
+"@xyo-network/sdk-xyo-client-js@npm:^2.19.16":
+  version: 2.19.16
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.19.16"
   dependencies:
     "@ethersproject/providers": ^5.6.4
     "@xylabs/sdk-js": ^2.5.4
     "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
     ajv: ^8.11.0
-    axios: ^0.27.1
+    axios: ^0.27.2
     bn.js: ^5.2.0
     bowser: ^2.11.0
     elliptic: ^6.5.4
@@ -6758,7 +6758,7 @@ __metadata:
     systeminformation: ^5.11.14
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 7b98b57fa213169f81833adc18378e04d53cc3f0d72b0d47072e5eca980b28f475778ccbae24efea15ee535c505ea74665644cb2af73a76492701bae6bc15c63
+  checksum: 687bb241aadf96955645c78202a145d0f3362e42c93073b4838e24017f2ac61e8f892f5b0e5222a8c33785141533ec165738ef5d7f9604635b10c67a9322b8ec
   languageName: node
   linkType: hard
 
@@ -6814,11 +6814,11 @@ __metadata:
     "@xylabs/rollup-config": ^1.1.17
     "@xylabs/sdk-api-express-ecs": ^1.1.4
     "@xylabs/sdk-js": ^2.5.4
-    "@xylabs/sdk-react": ^2.11.14
-    "@xylabs/ts-scripts": ^1.0.55
+    "@xylabs/sdk-react": ^2.11.15
+    "@xylabs/ts-scripts": ^1.0.57
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/sdk-meta": ^2.6.10
-    "@xyo-network/sdk-xyo-client-js": ^2.19.15
+    "@xyo-network/sdk-meta": ^2.6.12
+    "@xyo-network/sdk-xyo-client-js": ^2.19.16
     axios: ^0.27.2
     babel-loader: ^8.2.5
     bn.js: ^5.2.0
@@ -6843,7 +6843,7 @@ __metadata:
     serve-static: ^1.15.0
     storybook-dark-mode: ^1.1.0
     supertest: ^6.2.3
-    ts-jest: ^28.0.0-next.1
+    ts-jest: ^28.0.0-next.2
     ts-node: ^10.7.0
     tslib: ^2.4.0
     typedoc: ^0.22.15
@@ -7500,7 +7500,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.1, axios@npm:^0.27.2":
+"axios@npm:^0.27.2":
   version: 0.27.2
   resolution: "axios@npm:0.27.2"
   dependencies:
@@ -10677,7 +10677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.12.0, eslint@npm:^8.13.0, eslint@npm:^8.14.0":
+"eslint@npm:^8.13.0, eslint@npm:^8.14.0":
   version: 8.14.0
   resolution: "eslint@npm:8.14.0"
   dependencies:
@@ -16175,9 +16175,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^12.5.8":
-  version: 12.5.8
-  resolution: "npm-check-updates@npm:12.5.8"
+"npm-check-updates@npm:^12.5.9":
+  version: 12.5.10
+  resolution: "npm-check-updates@npm:12.5.10"
   dependencies:
     chalk: ^4.1.2
     cint: ^8.2.1
@@ -16211,7 +16211,7 @@ __metadata:
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: 3650f2bbf1b037f227606b4625c1c7c074f930a2c2cb76f6246477e148e520cfa61563fbb6386c8abbb70918c2c789265e59c406d2b086249455a62d96671141
+  checksum: 8903677ef23c406bcfec19ecf9c94236f7baa0759e53b6b51eb42f1f378a07d31f6b99cae2a2001f7d3754957c5134dd9c83bb770979a293760b397e8a46429f
   languageName: node
   linkType: hard
 
@@ -21597,9 +21597,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^28.0.0-next.1":
-  version: 28.0.0-next.1
-  resolution: "ts-jest@npm:28.0.0-next.1"
+"ts-jest@npm:^28.0.0-next.2":
+  version: 28.0.0-next.2
+  resolution: "ts-jest@npm:28.0.0-next.2"
   dependencies:
     bs-logger: 0.x
     fast-json-stable-stringify: 2.x
@@ -21626,7 +21626,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: 81e9fe6872ec092ec23c4a40b40f9d2c1df67185a1fd7f26282ab3c3fa4c741a27edb9ddaafb2cebd34ad9a69c76d11ed9c3d430d7072871dfedb4739f3a5dcc
+  checksum: 50ade2a9a70404f73b0d65a0fdeb5ae340b440da3caee4f6b00525d16859b17f951308573dd6437007cbf9f29f85dda87a04f51698094054328316d41e0d5be9
   languageName: node
   linkType: hard
 
