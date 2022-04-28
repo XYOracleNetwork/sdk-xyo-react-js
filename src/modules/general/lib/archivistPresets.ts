@@ -7,8 +7,6 @@ export interface XyoArchivistPreset extends XyoNodeConfig {
     staticAnswerHash: string
     animatedAnswerHashes: string[]
   }
-  docs?: string
-  web?: string
 }
 
 export const findArchivistPreset = (slug: string) => {
