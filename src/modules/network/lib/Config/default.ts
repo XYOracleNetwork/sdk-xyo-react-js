@@ -10,7 +10,7 @@ export const defaultNetworkConfigs: XyoNetworkConfig[] = [
   },
   {
     name: 'Main',
-    nodes: [findArchivistPreset('archivist-xyo-network'), findDivinerPreset('location-diviner-xyo-network')],
+    nodes: [findArchivistPreset('main-archivist-xyo-network'), findDivinerPreset('location-diviner-xyo-network')],
     slug: 'main',
   },
   {
