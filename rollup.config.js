@@ -8,6 +8,6 @@ export default getRollupConfig({
   browserIndex: './src/browserIndex.ts',
   bundlePrefix: 'bundle/',
   nodeIndex: './src/nodeIndex.ts',
-  outputs: ['cjs5', 'node', 'node-esm'],
+  outputs: ['node', 'node-esm'],
   pkg,
 })

@@ -3455,7 +3455,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.6.2, @mui/material@npm:^5.6.3":
+"@mui/material@npm:^5.6.3":
   version: 5.6.3
   resolution: "@mui/material@npm:5.6.3"
   dependencies:
@@ -4388,7 +4388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/api@npm:6.4.22":
+"@storybook/api@npm:6.4.22, @storybook/api@npm:^6.4.22":
   version: 6.4.22
   resolution: "@storybook/api@npm:6.4.22"
   dependencies:
@@ -5599,7 +5599,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.27":
+"@types/node@npm:*, @types/node@npm:^17.0.27, @types/node@npm:^17.0.29":
   version: 17.0.29
   resolution: "@types/node@npm:17.0.29"
   checksum: bb9d7bce9d6d3882efd9d63b773b548dce98df4bd57eff8ceaa316aa2f3346e36d3618764cc93da84bbff92005174a35eec3465cde91ee973ef1c351ffa40074
@@ -6609,7 +6609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.4.8, @xylabs/sdk-js@npm:^2.5.4":
+"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.5.4":
   version: 2.5.4
   resolution: "@xylabs/sdk-js@npm:2.5.4"
   dependencies:
@@ -6622,20 +6622,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.11.13":
-  version: 2.11.13
-  resolution: "@xylabs/sdk-react@npm:2.11.13"
+"@xylabs/sdk-react@npm:^2.11.14":
+  version: 2.11.14
+  resolution: "@xylabs/sdk-react@npm:2.11.14"
   dependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
     "@ethersproject/abstract-signer": ^5.6.0
     "@ethersproject/providers": ^5.6.4
     "@mui/icons-material": ^5.6.2
-    "@mui/material": ^5.6.2
+    "@mui/material": ^5.6.3
     "@mui/styles": ^5.6.2
     "@xylabs/pixel": ^1.3.7
-    "@xylabs/sdk-js": ^2.4.8
-    axios: ^0.26.1
+    "@xylabs/sdk-js": ^2.5.4
     lodash: ^4.17.21
     md5: ^2.3.0
     numeral: ^2.0.6
@@ -6644,9 +6643,10 @@ __metadata:
     react-icons: ^4.3.1
     react-router-dom: ^6.3.0
   peerDependencies:
+    axios: ">0.26"
     react: "*"
     react-dom: "*"
-  checksum: 35bbe2e945885a73eb9fb1c40e91735a42d5d08fc875e9b8118ce67745c86826e07ebf7ba99cba0ee49ca35c7d6fbb19467a2be3588eafcad05f8558160403ea
+  checksum: db59cf5a6569d2f158db3ec8dd8a6ecb3dc6fcb4494d2faf291570f380864e2fde359671d7dbbd428662d9eee6ae241d7e50c09f3b9b70464a91261af6787cc9
   languageName: node
   linkType: hard
 
@@ -6725,6 +6725,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/sdk-meta@npm:^2.6.10":
+  version: 2.6.10
+  resolution: "@xyo-network/sdk-meta@npm:2.6.10"
+  dependencies:
+    cheerio: ^1.0.0-rc.10
+  checksum: 799e3a6358be218f396db0ac779fab01e9b33a60834874107f6538be0b2b1f38cdf1774cf2dd052c5ba5c1da967fa74e7f886f4c7db429c299e04fe62ba458db
+  languageName: node
+  linkType: hard
+
 "@xyo-network/sdk-xyo-client-js@npm:^2.19.15":
   version: 2.19.15
   resolution: "@xyo-network/sdk-xyo-client-js@npm:2.19.15"
@@ -6784,6 +6793,7 @@ __metadata:
     "@storybook/addon-interactions": ^6.4.22
     "@storybook/addon-links": ^6.4.22
     "@storybook/addons": ^6.4.22
+    "@storybook/api": ^6.4.22
     "@storybook/components": ^6.4.22
     "@storybook/core-events": ^6.4.22
     "@storybook/react": ^6.4.22
@@ -6795,6 +6805,7 @@ __metadata:
     "@types/lodash": ^4.14.182
     "@types/luxon": ^2.3.1
     "@types/md5": ^2.3.2
+    "@types/node": ^17.0.29
     "@types/react-lines-ellipsis": ^0.15.1
     "@types/serve-static": ^1.13.10
     "@types/supertest": ^2.0.12
@@ -6803,11 +6814,11 @@ __metadata:
     "@xylabs/rollup-config": ^1.1.17
     "@xylabs/sdk-api-express-ecs": ^1.1.4
     "@xylabs/sdk-js": ^2.5.4
-    "@xylabs/sdk-react": ^2.11.13
+    "@xylabs/sdk-react": ^2.11.14
     "@xylabs/ts-scripts": ^1.0.55
     "@xylabs/tsconfig": ^1.0.13
+    "@xyo-network/sdk-meta": ^2.6.10
     "@xyo-network/sdk-xyo-client-js": ^2.19.15
-    "@xyo-network/xyo-meta-js": ^2.6.9
     axios: ^0.27.2
     babel-loader: ^8.2.5
     bn.js: ^5.2.0
@@ -6852,15 +6863,6 @@ __metadata:
     generate-dotenv: bin/generate-dotenv.js
   languageName: unknown
   linkType: soft
-
-"@xyo-network/xyo-meta-js@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xyo-network/xyo-meta-js@npm:2.6.9"
-  dependencies:
-    cheerio: ^1.0.0-rc.10
-  checksum: 805bf6463b99d5f07f5c70228ce0c111a335676870da73f3d4842a0a2cafc131c9facc058a6a109e9f844e95d37ff7fce63a9b96cbcff273a6f8ac31714a8b7d
-  languageName: node
-  linkType: hard
 
 "abbrev@npm:1":
   version: 1.1.1
