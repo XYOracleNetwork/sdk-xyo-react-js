@@ -1,23 +1,21 @@
+import { XyoNetworkConfig } from '@xyo-network/sdk-xyo-client-js'
+
 import { findArchivistPreset, findDivinerPreset } from '../../../general'
-import { XyoNetworkConfig } from './XyoNetworkConfig'
 
 export const defaultNetworkConfigs: XyoNetworkConfig[] = [
   {
-    archivists: [findArchivistPreset('beta-archivist-xyo-network')],
-    diviners: [findDivinerPreset('beta-explore-xyo-network')],
     name: 'Kerplunk',
+    nodes: [findArchivistPreset('beta-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
     slug: 'kerplunk',
   },
   {
-    archivists: [findArchivistPreset('archivist-xyo-network')],
-    diviners: [findDivinerPreset('explore-xyo-network')],
     name: 'Main',
+    nodes: [findArchivistPreset('archivist-xyo-network'), findDivinerPreset('location-diviner-xyo-network')],
     slug: 'main',
   },
   {
-    archivists: [findArchivistPreset('local-archivist-xyo-network')],
-    diviners: [findDivinerPreset('explore-xyo-network')],
     name: 'Local',
+    nodes: [findArchivistPreset('beta-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
     slug: 'local',
   },
 ]

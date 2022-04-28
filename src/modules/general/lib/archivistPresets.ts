@@ -1,17 +1,14 @@
+import { XyoNodeConfig } from '@xyo-network/sdk-xyo-client-js'
+
 import { ExplorerMapHashes } from './ExplorerMapHashes'
 
-export interface XyoArchivistPreset {
-  slug: string
-  name: string
-  urls: {
-    api: string
-    web: string
-    apiDocs?: string
-  }
+export interface XyoArchivistPreset extends XyoNodeConfig {
   explorerMapHashes?: {
     staticAnswerHash: string
     animatedAnswerHashes: string[]
   }
+  docs?: string
+  web?: string
 }
 
 export const findArchivistPreset = (slug: string) => {
@@ -24,32 +21,29 @@ export const findArchivistPreset = (slug: string) => {
 
 export const archivistPresets: XyoArchivistPreset[] = [
   {
+    docs: 'https://beta.archivist.xyo.network/api',
     explorerMapHashes: ExplorerMapHashes,
     name: 'XYO Shared Archivist (kerplunk)',
-    slug: 'beta-archivist-xyo-network',
-    urls: {
-      api: 'https://beta.api.archivist.xyo.network',
-      apiDocs: 'https://beta.archivist.xyo.network/api',
-      web: 'https://beta.archivist.xyo.network',
-    },
+    slug: 'kerplunk-archivist-xyo-network',
+    type: 'archivist',
+    uri: 'https://beta.api.archivist.xyo.network',
+    web: 'https://beta.archivist.xyo.network',
   },
   {
+    docs: 'https://archivist.xyo.network/api',
     explorerMapHashes: ExplorerMapHashes,
     name: 'XYO Shared Archivist (main)',
-    slug: 'archivist-xyo-network',
-    urls: {
-      api: 'https://api.archivist.xyo.network',
-      apiDocs: 'https://archivist.xyo.network/api',
-      web: 'https://archivist.xyo.network',
-    },
+    slug: 'main-archivist-xyo-network',
+    type: 'archivist',
+    uri: 'https://api.archivist.xyo.network',
+    web: 'https://archivist.xyo.network',
   },
   {
+    docs: 'http://localhost:8080/api',
     name: 'XYO Shared Archivist (local)',
     slug: 'local-archivist-xyo-network',
-    urls: {
-      api: 'http://localhost:8080',
-      apiDocs: 'http://localhost:8080/api',
-      web: 'http://localhost:8081',
-    },
+    type: 'archivist',
+    uri: 'http://localhost:8080',
+    web: 'http://localhost:8081',
   },
 ]

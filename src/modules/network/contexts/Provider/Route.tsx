@@ -1,8 +1,9 @@
 import { WithChildren } from '@xylabs/sdk-react'
+import { XyoNetworkConfig } from '@xyo-network/sdk-xyo-client-js'
 import { useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { defaultNetworkConfigs, findNetworkConfig, XyoNetworkConfig } from '../../lib'
+import { defaultNetworkConfigs, findNetworkConfig } from '../../lib'
 import { NetworkContext } from '../Context'
 import { useNetwork } from '../use'
 import { NetworkMemoryProvider } from './Memory'
