@@ -1,9 +1,5 @@
 import { XyoNodeConfig } from '@xyo-network/sdk-xyo-client-js'
 
-export interface XyoDivinerPreset extends XyoNodeConfig {
-  web?: string
-}
-
 export const findDivinerPreset = (slug: string) => {
   return (
     divinerPresets.find((item) => {
@@ -12,7 +8,7 @@ export const findDivinerPreset = (slug: string) => {
   )
 }
 
-export const divinerPresets: XyoDivinerPreset[] = [
+export const divinerPresets: XyoNodeConfig[] = [
   {
     name: 'XYO Location (beta)',
     slug: 'beta-location-diviner-xyo-network',
