@@ -1,5 +1,5 @@
 import { asyncHandler } from '@xylabs/sdk-api-express-ecs'
-import { Meta } from '@xyo-network/sdk-xyo-js'
+import { Meta } from '@xyo-network/sdk-meta'
 // import { readFileSync } from 'fs'
 import { readFile } from 'fs/promises'
 import { extname, join } from 'path'

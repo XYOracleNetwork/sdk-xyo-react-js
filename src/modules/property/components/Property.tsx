@@ -19,7 +19,7 @@ export const Property: React.FC<PropertyProps> = ({
   stackBreak = 'md',
   required,
   badge = false,
-  gridContainerFlexProps,
+  gridContainerProps,
   ...props
 }) => {
   const theme = useTheme()
@@ -59,7 +59,7 @@ export const Property: React.FC<PropertyProps> = ({
       borderRadius={1}
       {...props}
     >
-      <Grid container flexWrap={belowStackBreak ? 'wrap' : 'nowrap'} justifyContent="space-between" overflow="hidden" {...gridContainerFlexProps}>
+      <Grid container flexWrap={belowStackBreak ? 'wrap' : 'nowrap'} justifyContent="space-between" overflow="hidden" {...gridContainerProps}>
         <TitleGridItem />
         {children ? null : <FlexGrowRow />}
         <ChildrenGridItem />
