@@ -1,7 +1,7 @@
+import { XyoNetworkConfig } from '@xyo-network/sdk-xyo-client-js'
 import { Dispatch } from 'react'
 
 import { ContextExState } from '../../context-ex'
-import { XyoNetworkConfig } from '../lib'
 
 export interface NetworkContextState extends ContextExState {
   /** @field The currently selected XYO Network */
