@@ -49,6 +49,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
     async (mounted) => {
       const panel = new XyoPanel({
         account,
+        archive,
         archivists,
         inlinePayloads,
         onArchivistSendEnd: (archivist: XyoArchivistApi, error?: Error) => {
