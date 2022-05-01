@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { Huri, XyoApiError, XyoPayload, XyoPayloadBuilder, XyoSchemaCache, XyoSchemaCacheEntry } from '@xyo-network/sdk-xyo-client-js'
-import { useEffect, useState } from 'react'
+import { XyoApiError, XyoPayloadBuilder, XyoSchemaCache, XyoSchemaCacheEntry } from '@xyo-network/sdk-xyo-client-js'
+import { useState } from 'react'
 
 /**
  * Gets a Huri and schema payload from a schema string
@@ -9,8 +9,6 @@ const useGetSchemaPayload = (schema?: string) => {
   const [notFound, setNotFound] = useState(false)
   const [apiError, setApiError] = useState<XyoApiError>()
   const [schemaCacheEntry, setSchemaCacheEntry] = useState<XyoSchemaCacheEntry>()
-  const [schemaPayload, setSchemaPayload] = useState<XyoPayload | null | undefined>()
-  const [schemaHuri, setSchemaHuri] = useState<Huri | undefined>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -37,17 +35,12 @@ const useGetSchemaPayload = (schema?: string) => {
     [apiError, notFound, schema, schemaCacheEntry]
   )
 
-  useEffect(() => {
-    if (schemaCacheEntry) {
-      const { huri, payload } = schemaCacheEntry
-      const schemaPayload = new XyoPayloadBuilder(payload).fields(payload).build()
-
-      setSchemaPayload(schemaPayload)
-      setSchemaHuri(huri)
-    }
-  }, [schemaCacheEntry])
-
-  return { apiError, notFound, schemaHuri, schemaPayload }
+  return {
+    apiError,
+    notFound,
+    schemaHuri: schemaCacheEntry?.huri,
+    schemaPayload: schemaCacheEntry ? new XyoPayloadBuilder(schemaCacheEntry?.payload).build() : undefined,
+  }
 }
 
 export { useGetSchemaPayload }
