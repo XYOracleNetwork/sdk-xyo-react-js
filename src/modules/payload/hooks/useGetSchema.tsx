@@ -8,7 +8,7 @@ import { useState } from 'react'
 const useGetSchemaPayload = (schema?: string) => {
   const [notFound, setNotFound] = useState(false)
   const [apiError, setApiError] = useState<XyoApiError>()
-  const [schemaCacheEntry, setSchemaCacheEntry] = useState<XyoSchemaCacheEntry>()
+  const [schemaCacheEntry, setSchemaCacheEntry] = useState<XyoSchemaCacheEntry | null | undefined>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -16,13 +16,9 @@ const useGetSchemaPayload = (schema?: string) => {
       if (schema && !notFound && !schemaCacheEntry) {
         try {
           const schemaCacheEntry = await XyoSchemaCache.instance.get(schema)
-
           if (mounted()) {
-            if (schemaCacheEntry === undefined || schemaCacheEntry === null) {
-              setNotFound(true)
-            } else {
-              setSchemaCacheEntry(schemaCacheEntry)
-            }
+            setSchemaCacheEntry(schemaCacheEntry)
+            setNotFound(schemaCacheEntry === null || schemaCacheEntry === undefined)
           }
         } catch (e) {
           console.error(e)
