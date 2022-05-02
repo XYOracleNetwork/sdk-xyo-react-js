@@ -20,17 +20,58 @@ export const sampleBlock = {
 }
 
 export const sampleBlockWithPayloads: XyoBoundWitness = {
-  _archive: 'temp',
-  _client: 'js',
-  _hash: '2b5de274c24ccca79f5f00bb75b2f5093b472325863603f4ee6618cd797f48d7',
-  _payloads: [],
-  _signatures: [
-    '3046022100be1be14d11d4e6d261f46feb8bec687ca8f71bdf43151659990a196259c6fced022100a69ac717d728582a2844b91076bb1ad33122bda101181684d831332f7aec1298',
+  "_archive": "temp",
+  "_client": "js",
+  "_hash": "b31230e7f3386a63acc64cb5f89e5353d5f9379b3bd3ae7385c47b2e600fcbb2",
+  "_payloads": [{
+    "_id": "627035a3487cdd487ae490c8",
+    "_client": "js",
+    "_hash": "ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349",
+    "_observeDuration": 48,
+    "_timestamp": 1651520931057,
+    "definition": {
+      "$id": "'network.xyo.payload'",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "properties": {
+        "schema": {
+          "type": "'string'"
+        }
+      },
+      "required": [
+        "'schema'"
+      ],
+      "type": "'object'"
+    },
+    "schema": "network.xyo.payload",
+    "_archive": "temp"
+  },{
+    "_id": "627035a3487cdd487ae490c9",
+    "_client": "js",
+    "_hash": "930443bfebbdd0c9d14d8787def961ab41838fe9681f64acdad82c84e8803b59",
+    "_observeDuration": 47,
+    "_timestamp": 1651520931057,
+    "salt": "117243fd-ee33-45af-b82c-d2cfeb1f85c9",
+    "schema": "network.xyo.id",
+    "_archive": "temp"
+  }],
+  "_signatures": [
+    "0c742ec946ae28759e997dab4a7d3ca2fa1315e76b6a60c985bd6508b1f870f0ce914a927e15af6ed84f113be4b14ee1a432a896fc1294fc33fa1bb557f1ad6a"
   ],
-  _timestamp: 1647967579159,
-  addresses: ['5740d63a2d6105530d14a08fd83ca877e8a8b838'],
-  payload_hashes: [],
-  payload_schemas: [],
-  previous_hashes: [null],
-  schema: 'network.xyo.boundwitness',
+  "_timestamp": 1651520931051,
+
+  "addresses": [
+    "9e828f8ba1e8e212398b0fb8ef2a6167e91db24c"
+  ],
+  "payload_schemas": [
+    "network.xyo.payload",
+    "network.xyo.id"
+  ],
+  "previous_hashes": [
+    null
+  ],
+  "payload_hashes": [
+    "ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349",
+    "930443bfebbdd0c9d14d8787def961ab41838fe9681f64acdad82c84e8803b59"
+  ],
+  "schema": "network.xyo.boundwitness"
 }
