@@ -26,7 +26,7 @@ export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ 
           value={errors.length === 0 ? 'True' : 'False'}
           tip={
             errors.length > 0 ? (
-              <FlexCol>
+              <FlexCol flexWrap="wrap">
                 {errors.map((error, index) => {
                   return <Typography key={index}>{error.toString()}</Typography>
                 })}

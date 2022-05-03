@@ -31,7 +31,7 @@ module.exports = {
      // can likely be removed in storybook > 6.4 see - https://github.com/storybookjs/storybook/issues/17458
      fallback: {
        ...config.resolve.fallback,
-      'assert': toPath('commonjs-assert')
+      'assert': toPath('node_modules/assert')
      }
     },
  })

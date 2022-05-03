@@ -1,10 +1,11 @@
 import { Huri, XyoApiError, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 import { useCallback } from 'react'
 
+import { FetchHuriHashOptions } from './lib'
 import { usePayload } from './usePayload'
 import { useResolveHuri } from './useResolveHuri'
 
-const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string): [XyoPayload | undefined, boolean, XyoApiError | undefined] => {
+const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: FetchHuriHashOptions): [XyoPayload | undefined, boolean, XyoApiError | undefined] => {
   const hash = useCallback((huriOrHash?: string | Huri) => {
     if (huriOrHash) {
       if (typeof huriOrHash === 'string') {
@@ -17,7 +18,7 @@ const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string): [XyoPayload 
   }, [])
 
   const [payload, notFound, apiError] = usePayload(hash(huriOrHash))
-  const [huriPayload, huriPayloadNotFound, huriApiError] = useResolveHuri(huriUri, notFound)
+  const [huriPayload, huriPayloadNotFound, huriApiError] = useResolveHuri(huriUri, notFound, options)
 
   return [payload ?? huriPayload, huriPayloadNotFound, apiError ?? huriApiError]
 }
