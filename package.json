@@ -23,7 +23,7 @@
     "@xylabs/sdk-js": "^2.5.5",
     "@xylabs/sdk-react": "^2.11.16",
     "@xyo-network/sdk-meta": "^2.6.12",
-    "@xyo-network/sdk-xyo-client-js": "^2.19.27",
+    "@xyo-network/sdk-xyo-client-js": "^2.20.2",
     "express": "^4.18.1",
     "lodash": "^4.17.21",
     "luxon": "^2.3.2",
@@ -66,7 +66,7 @@
     "@xylabs/rollup-config": "^1.1.17",
     "@xylabs/sdk-js": "^2.5.5",
     "@xylabs/sdk-react": "^2.11.16",
-    "@xylabs/ts-scripts": "^1.0.64",
+    "@xylabs/ts-scripts": "^1.0.65",
     "@xylabs/tsconfig": "^1.0.13",
     "assert": "^2.0.0",
     "axios": "^0.27.2",
@@ -74,23 +74,27 @@
     "supertest": "^6.2.3",
     "typescript": "^4.6.4"
   },
+  "browser": "dist/esm/browserIndex.js",
   "docs": "dist/docs.json",
-  "browser": "dist/browserIndex.js",
   "exports": {
     ".": {
       "node": {
-        "import": "./dist/bundle/node-esm/index.js",
-        "require": "./dist/bundle/node/index.js"
+        "import": "./dist/esm/nodeIndex.js",
+        "require": "./dist/cjs/nodeIndex.js"
       },
-      "default": "./dist/browserIndex.js"
+      "browser": {
+        "import": "./dist/esm/browserIndex.js",
+        "require": "./dist/esm/browserIndex.js"
+      },
+      "default": "./dist/esm/index.js"
     },
     "./dist/docs.json": {
       "default": "./dist/docs.json"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/bundle/node/index.js",
-  "module": "dist/browserIndex.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",
@@ -129,11 +133,11 @@
     "deploy": "yarn build-storybook && yarn deploy3",
     "start": "start-storybook -p 6006",
     "start-meta": "node ./bin/start-meta.mjs",
-    "build": "yarn xylabs-build && yarn gen:docs",
-    "gen:docs": "typedoc ./src/index.ts --json ./dist/docs.json --tsconfig ./tsconfig.build.json"
+    "build": "yarn clean && tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && yarn gen:docs",
+    "gen:docs": "typedoc ./src/index.ts --json ./dist/docs.json --tsconfig ./tsconfig.json"
   },
   "sideEffects": false,
-  "types": "dist/index.d.ts",
+  "types": "dist/esm/index.d.ts",
   "version": "2.20.15",
   "packageManager": "yarn@3.1.1"
 }

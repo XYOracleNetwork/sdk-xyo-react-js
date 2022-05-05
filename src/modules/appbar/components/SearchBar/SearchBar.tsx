@@ -4,11 +4,11 @@ import { ButtonEx, FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-interface Props extends FlexBoxProps {
+export interface SearchBarProps extends FlexBoxProps {
   onSearch?: (term?: string) => void
 }
 
-const SearchBar: React.FC<Props> = ({ defaultValue, onSearch, ...props }) => {
+export const SearchBar: React.FC<SearchBarProps> = ({ defaultValue, onSearch, ...props }) => {
   const [term, setTerm] = useState<string>()
   const navigate = useNavigate()
   const onSearchHandler =
@@ -35,5 +35,3 @@ const SearchBar: React.FC<Props> = ({ defaultValue, onSearch, ...props }) => {
     </FlexRow>
   )
 }
-
-export { SearchBar }
