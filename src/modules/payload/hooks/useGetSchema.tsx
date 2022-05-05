@@ -13,7 +13,7 @@ const useGetSchemaPayload = (schema?: string) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (schema && !notFound && !schemaCacheEntry) {
+      if (schema && !notFound && !schemaCacheEntry && !apiError) {
         try {
           const schemaCacheEntry = await XyoSchemaCache.instance.get(schema)
           if (mounted()) {
