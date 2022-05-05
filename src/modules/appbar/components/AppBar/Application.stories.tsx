@@ -1,4 +1,3 @@
-import { TextField } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -6,6 +5,7 @@ import { ArchiveProvider } from '../../../archive'
 import { ArchivesProvider } from '../../../archives'
 import { ArchivistApiProvider } from '../../../archivist-api'
 import { NetworkMemoryProvider } from '../../../network'
+import { SearchBar } from '../SearchBar'
 import { SystemToolbar } from '../Toolbar'
 import { ApplicationAppBar } from './Application'
 
@@ -38,7 +38,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithChildren = Template.bind({})
-WithChildren.args = { children: <TextField fullWidth size="small" />, systemToolbar: <SystemToolbar darkModeButton authButton /> }
+WithChildren.args = { children: <SearchBar flexGrow={1} />, color: 'primary', systemToolbar: <SystemToolbar darkModeButton authButton /> }
 
 export { Default, WithChildren }
 
