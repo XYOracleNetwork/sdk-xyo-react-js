@@ -25,7 +25,8 @@ COPY --from=builder /app/${BUILD_OUTPUT_DIR} ./bin/build
 
 # Copy over the meta-server to run the app
 COPY --from=dependencies /app/node_modules ./node_modules
-COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/dist/bundle/node ./dist/node
+RUN cd /app/node_modules/@xyo-network/sdk-xyo-react && SDK_XYO_REACT_DIST=$(node -p "path.join(process.cwd(), path.dirname(require('./package').exports['.'].node.import))")
+COPY --from=dependencies ${SDK_XYO_REACT_DIST} ./dist/node
 COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.mjs ./bin/start-meta.mjs
 
 WORKDIR /app/bin
