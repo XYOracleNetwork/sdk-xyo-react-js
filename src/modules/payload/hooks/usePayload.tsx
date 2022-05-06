@@ -16,7 +16,7 @@ export const usePayload = (hash?: string): [XyoPayload | undefined, boolean, Xyo
     async (mounted) => {
       if (hash && hash.length > 0) {
         try {
-          const result = await api?.archive(archive).payload.getByHash(hash)
+          const result = await api?.archive(archive).payload.hash(hash).get()
           if (mounted()) {
             setApiError(undefined)
             if (result?.length) {
