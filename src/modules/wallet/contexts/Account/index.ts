@@ -1,4 +1,5 @@
 export * from './Context'
-export * from './Provider'
+export * from './MemoryProvider'
 export * from './State'
 export * from './use'
+export * from './WalletProvider'

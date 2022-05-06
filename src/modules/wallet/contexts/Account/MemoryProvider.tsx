@@ -4,11 +4,11 @@ import { useState } from 'react'
 
 import { AccountContext } from './Context'
 
-export interface AccountProviderProps {
+export interface AccountMemoryProviderProps {
   defaultAccount?: XyoAccount
 }
 
-export const AccountProvider: React.FC<WithChildren<AccountProviderProps>> = ({ defaultAccount, ...props }) => {
+export const AccountMemoryProvider: React.FC<WithChildren<AccountMemoryProviderProps>> = ({ defaultAccount, ...props }) => {
   const [account, setAccount] = useState<XyoAccount | undefined>(defaultAccount)
 
   return <AccountContext.Provider value={{ account: account, provided: true, setAccount }} {...props} />
