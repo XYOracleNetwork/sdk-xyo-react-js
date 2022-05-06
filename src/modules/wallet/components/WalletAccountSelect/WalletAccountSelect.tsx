@@ -1,14 +1,10 @@
 import { MenuItem, Select, SelectProps } from '@mui/material'
 import { EthAddress } from '@xylabs/sdk-js'
-import { EthAccount } from '@xylabs/sdk-react'
-import { XyoWalletBase, XyoWebWallet } from '@xyo-network/sdk-xyo-client-js'
-import { useEffect, useState } from 'react'
+import { EthAccountBox } from '@xylabs/sdk-react'
 
-import { useAccount, useWallet } from '../../contexts'
+import { useWallet } from '../../contexts'
 
-export interface WalletAccountSelectProps extends SelectProps<string> {
-  wallet?: XyoWalletBase
-  phrase?: string
+export interface WalletAccountSelectProps extends SelectProps<number> {
   iconOnly?: boolean
   icons?: boolean
 }
@@ -17,23 +13,19 @@ const arrayRange = (length: number, start = 0) => {
   return Array.from(Array(length).keys()).map((x) => x + start)
 }
 
-export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ wallet: walletProp, icons, iconOnly, phrase, ...props }) => {
-  const { wallet = walletProp ?? (phrase ? new XyoWebWallet(phrase) : undefined), setActiveAccountIndex } = useWallet()
-  const { account } = useAccount()
-  const [selected, setSelected] = useState(`${account}` ?? '')
+export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ icons, iconOnly, ...props }) => {
+  const { wallet, activeAccountIndex = 0, setActiveAccountIndex } = useWallet()
 
-  useEffect(() => {
-    setActiveAccountIndex?.(parseInt(selected))
-  }, [selected, setActiveAccountIndex])
+  console.log(`wallet: ${wallet}`)
 
   return (
     <Select
       renderValue={(selected) => {
-        const account = wallet?.getAccount(parseInt(selected))
-        return <EthAccount icon={icons} iconOnly={iconOnly} address={EthAddress.fromString(account?.addressValue.hex)} />
+        const account = wallet?.getAccount(parseInt(`${selected}`))
+        return <EthAccountBox icon={icons} iconOnly={iconOnly} address={EthAddress.fromString(account?.addressValue.hex)} />
       }}
-      value={selected}
-      onChange={(event) => setSelected(event.target.value)}
+      value={activeAccountIndex}
+      onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
       {...props}
     >
       {wallet
@@ -41,7 +33,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ wallet
             const account = wallet?.getAccount(index)
             return (
               <MenuItem key={index} value={index}>
-                <EthAccount icon={icons} address={EthAddress.fromString(account.addressValue.hex)} />
+                <EthAccountBox icon={icons} address={EthAddress.fromString(account.addressValue.hex)} />
               </MenuItem>
             )
           })
