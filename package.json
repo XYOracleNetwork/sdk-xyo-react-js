@@ -132,7 +132,7 @@
     "lint-pkg": "npmPkgJsonLint .",
     "deploy": "yarn build-storybook && yarn deploy3",
     "start": "start-storybook -p 6006",
-    "start-meta": "node ./bin/start-meta.js",
+    "start-meta": "node ./bin/start-meta.mjs",
     "build": "yarn clean && tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && yarn gen:docs",
     "gen:docs": "typedoc ./src/index.ts --json ./dist/docs.json --tsconfig ./tsconfig.json"
   },
