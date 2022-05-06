@@ -15,18 +15,28 @@ RUN yarn install --production --immutable
 
 # Copy over the compiled output and production dependencies
 # into a slimmer container
-FROM node:16-alpine
+FROM node:16-alpine as server
 ENV PORT="80"
 WORKDIR /app
+
+ENV SDK_XYO_REACT_DIR="./node_modules/@xyo-network/sdk-xyo-react"
+
+# Copy over the meta-server to run the app
+COPY --from=dependencies /app/node_modules ./node_modules
+
+# Use Node to read in the package.json and determine the Node output dist dir
+RUN SDK_XYO_REACT_DIST_DIR_RELATIVE=$(node -p "path.dirname(require('${SDK_XYO_REACT_DIR}/package').exports['.'].node.import)") \
+  && SDK_XYO_REACT_DIST_DIR=$(node -p "path.join('${SDK_XYO_REACT_DIR}', '${SDK_XYO_REACT_DIST_DIR_RELATIVE}')") \
+  # create the expected destination directory
+  && mkdir -p ${SDK_XYO_REACT_DIST_DIR_RELATIVE} \
+  # Copy over the node build files
+  && cp -r ${SDK_XYO_REACT_DIST_DIR}/. ${SDK_XYO_REACT_DIST_DIR_RELATIVE}/
+
+COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.mjs ./bin/start-meta.mjs
 
 # Copy over the compiled static app
 ARG BUILD_OUTPUT_DIR=build
 COPY --from=builder /app/${BUILD_OUTPUT_DIR} ./bin/build
-
-# Copy over the meta-server to run the app
-COPY --from=dependencies /app/node_modules ./node_modules
-COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/dist/bundle/node ./dist/node
-COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.mjs ./bin/start-meta.mjs
 
 WORKDIR /app/bin
 
