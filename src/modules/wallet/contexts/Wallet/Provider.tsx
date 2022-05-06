@@ -2,12 +2,19 @@ import { WithChildren } from '@xylabs/sdk-react'
 import { XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
-import { AccountWalletProvider } from '../Account'
+import { AccountContext } from '../Account'
 import { WalletContext } from './Context'
+import { useWallet } from './use'
 
 export interface WalletProviderProps {
   defaultWallet?: XyoWalletBase
   defaultActiveAccountIndex?: number
+}
+
+const AccountWalletProvider: React.FC<WithChildren> = (props) => {
+  const { wallet, activeAccountIndex = 0 } = useWallet()
+
+  return <AccountContext.Provider value={{ account: wallet?.getAccount(activeAccountIndex), provided: true }} {...props} />
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ defaultWallet, defaultActiveAccountIndex = 0, children, ...props }) => {
