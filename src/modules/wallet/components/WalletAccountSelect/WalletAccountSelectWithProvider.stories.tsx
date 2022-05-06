@@ -30,7 +30,10 @@ const Default = Template.bind({})
 Default.args = { icons: true }
 
 const DefaultSmall = Template.bind({})
-DefaultSmall.args = { icons: true, size: 'small' }
+DefaultSmall.args = { size: 'small' }
+
+const DefaultSmallIcon = Template.bind({})
+DefaultSmallIcon.args = { icons: true, size: 'small' }
 
 const IconsOnly = Template.bind({})
 IconsOnly.args = { iconOnly: true, icons: true }
@@ -38,7 +41,7 @@ IconsOnly.args = { iconOnly: true, icons: true }
 const IconsOnlySmall = Template.bind({})
 IconsOnlySmall.args = { iconOnly: true, icons: true, size: 'small' }
 
-export { Default, DefaultSmall, IconsOnly, IconsOnlySmall }
+export { Default, DefaultSmall, DefaultSmallIcon, IconsOnly, IconsOnlySmall }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
