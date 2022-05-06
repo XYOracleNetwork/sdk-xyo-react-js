@@ -1,7 +1,7 @@
 import { WithChildren } from '@xylabs/sdk-react'
 
-import { useWallet } from '../Wallet'
-import { AccountContext } from './Context'
+import { AccountContext } from '../Account/Context'
+import { useWallet } from '.'
 
 export const AccountWalletProvider: React.FC<WithChildren> = (props) => {
   const { wallet, activeAccountIndex = 0 } = useWallet()

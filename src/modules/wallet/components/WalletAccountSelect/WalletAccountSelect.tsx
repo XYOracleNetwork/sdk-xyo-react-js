@@ -1,6 +1,6 @@
 import { MenuItem, Select, SelectProps } from '@mui/material'
 import { EthAddress } from '@xylabs/sdk-js'
-import { EthAccountBox, FlexGrowCol } from '@xylabs/sdk-react'
+import { EthAccountBox } from '@xylabs/sdk-react'
 
 import { useWallet } from '../../contexts'
 

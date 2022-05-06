@@ -2,7 +2,7 @@ import { WithChildren } from '@xylabs/sdk-react'
 import { XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
 import { useState } from 'react'
 
-import { AccountWalletProvider } from '../Account'
+import { AccountWalletProvider } from './AccountWalletProvider'
 import { WalletContext } from './Context'
 
 export interface WalletProviderProps {
