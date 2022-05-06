@@ -7,13 +7,14 @@ import { useWallet } from '../../contexts'
 export interface WalletAccountSelectProps extends SelectProps<number> {
   iconOnly?: boolean
   icons?: boolean
+  iconSize?: number
 }
 
 const arrayRange = (length: number, start = 0) => {
   return Array.from(Array(length).keys()).map((x) => x + start)
 }
 
-export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ icons, iconOnly, ...props }) => {
+export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconSize, icons, iconOnly, ...props }) => {
   const { wallet, activeAccountIndex = 0, setActiveAccountIndex } = useWallet()
 
   console.log(`wallet: ${wallet}`)
@@ -22,7 +23,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ icons,
     <Select
       renderValue={(selected) => {
         const account = wallet?.getAccount(parseInt(`${selected}`))
-        return <EthAccountBox margin="2px" iconSize={20} icon={icons} iconOnly={iconOnly} address={EthAddress.fromString(account?.addressValue.hex)} />
+        return <EthAccountBox iconSize={iconSize} icon={icons} iconOnly={iconOnly} address={EthAddress.fromString(account?.addressValue.hex)} />
       }}
       value={activeAccountIndex}
       onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
@@ -33,7 +34,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ icons,
             const account = wallet?.getAccount(index)
             return (
               <MenuItem key={index} value={index}>
-                <EthAccountBox iconSize={20} icon={icons} address={EthAddress.fromString(account.addressValue.hex)} />
+                <EthAccountBox iconSize={iconSize} icon={icons} address={EthAddress.fromString(account.addressValue.hex)} />
               </MenuItem>
             )
           })
