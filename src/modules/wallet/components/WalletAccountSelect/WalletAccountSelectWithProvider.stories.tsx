@@ -29,10 +29,16 @@ const Template: ComponentStory<typeof WalletAccountSelect> = (args) => {
 const Default = Template.bind({})
 Default.args = { icons: true }
 
+const DefaultSmall = Template.bind({})
+DefaultSmall.args = { icons: true, size: 'small' }
+
 const IconsOnly = Template.bind({})
 IconsOnly.args = { iconOnly: true, icons: true }
 
-export { Default, IconsOnly }
+const IconsOnlySmall = Template.bind({})
+IconsOnlySmall.args = { iconOnly: true, icons: true, size: 'small' }
+
+export { Default, DefaultSmall, IconsOnly, IconsOnlySmall }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
