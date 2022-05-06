@@ -32,7 +32,7 @@ RUN SDK_XYO_REACT_DIST_DIR_RELATIVE=$(node -p "path.dirname(require('${SDK_XYO_R
   # Copy over the node build files
   && cp -r ${SDK_XYO_REACT_DIST_DIR}/. ${SDK_XYO_REACT_DIST_DIR_RELATIVE}/
 
-COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.mjs ./bin/start-meta.mjs
+COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.js ./bin/start-meta.js
 
 # Copy over the compiled static app
 ARG BUILD_OUTPUT_DIR=build
@@ -41,4 +41,4 @@ COPY --from=builder /app/${BUILD_OUTPUT_DIR} ./bin/build
 WORKDIR /app/bin
 
 # Start the meta-server pointed to the static app
-CMD ["node", "start-meta.mjs"]
+CMD ["node", "start-meta.js"]
