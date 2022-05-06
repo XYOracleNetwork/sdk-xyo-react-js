@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material'
 import { EthAddress } from '@xylabs/sdk-js'
-import { EthAccount, FlexBoxProps, FlexCol, NumberStatus } from '@xylabs/sdk-react'
+import { EthAccountButton, FlexBoxProps, FlexCol, NumberStatus } from '@xylabs/sdk-react'
 import { XyoAccount } from '@xyo-network/sdk-xyo-client-js'
 
 import { useNetwork } from '../../../network'
@@ -18,7 +18,7 @@ export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({ expl
 
   return (
     <FlexCol {...props}>
-      <EthAccount address={EthAddress.fromString(account?.addressValue.hex)} />
+      <EthAccountButton address={EthAddress.fromString(account?.addressValue.hex)} />
       <Stack spacing={1} direction="row">
         <NumberStatus rounded title="Tokens" value={0} to={`${exploreAddressUrl}&schema=network.xyo.account.tokens`} target="_blank" />
         <NumberStatus rounded title="NFTs" value={0} to={`${exploreAddressUrl}&schema=network.xyo.account.nfts`} target="_blank" />
