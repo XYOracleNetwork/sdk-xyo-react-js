@@ -25,14 +25,14 @@ ENV SDK_XYO_REACT_DIR="./node_modules/@xyo-network/sdk-xyo-react"
 COPY --from=dependencies /app/node_modules ./node_modules
 
 # Use Node to read in the package.json and determine the Node output dist dir
-RUN SDK_XYO_REACT_DIST_DIR_RELATIVE=$(node -p "path.dirname(require('${SDK_XYO_REACT_DIR}/package').exports['.'].node.import)") \
+RUN SDK_XYO_REACT_DIST_DIR_RELATIVE=$(node -p "path.dirname(require('${SDK_XYO_REACT_DIR}/package').exports['.'].node.require)") \
   && SDK_XYO_REACT_DIST_DIR=$(node -p "path.join('${SDK_XYO_REACT_DIR}', '${SDK_XYO_REACT_DIST_DIR_RELATIVE}')") \
   # create the expected destination directory
   && mkdir -p ${SDK_XYO_REACT_DIST_DIR_RELATIVE} \
   # Copy over the node build files
   && cp -r ${SDK_XYO_REACT_DIST_DIR}/. ${SDK_XYO_REACT_DIST_DIR_RELATIVE}/
 
-COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.mjs ./bin/start-meta.mjs
+COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.js ./bin/start-meta.js
 
 # Copy over the compiled static app
 ARG BUILD_OUTPUT_DIR=build
@@ -41,4 +41,4 @@ COPY --from=builder /app/${BUILD_OUTPUT_DIR} ./bin/build
 WORKDIR /app/bin
 
 # Start the meta-server pointed to the static app
-CMD ["node", "start-meta.mjs"]
+CMD ["node", "start-meta.js"]
