@@ -2838,7 +2838,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/providers@npm:^5.6.4, @ethersproject/providers@npm:^5.6.5":
+"@ethersproject/providers@npm:^5.6.5":
   version: 5.6.5
   resolution: "@ethersproject/providers@npm:5.6.5"
   dependencies:
@@ -3456,7 +3456,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.6.3, @mui/material@npm:^5.6.4":
+"@mui/material@npm:^5.6.4":
   version: 5.6.4
   resolution: "@mui/material@npm:5.6.4"
   dependencies:
@@ -6630,7 +6630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.5.4, @xylabs/sdk-js@npm:^2.5.5":
+"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.4.2, @xylabs/sdk-js@npm:^2.5.5":
   version: 2.5.5
   resolution: "@xylabs/sdk-js@npm:2.5.5"
   dependencies:
@@ -6643,19 +6643,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.11.16":
-  version: 2.11.16
-  resolution: "@xylabs/sdk-react@npm:2.11.16"
+"@xylabs/sdk-react@npm:^2.12.3":
+  version: 2.12.3
+  resolution: "@xylabs/sdk-react@npm:2.12.3"
   dependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
     "@ethersproject/abstract-signer": ^5.6.0
-    "@ethersproject/providers": ^5.6.4
+    "@ethersproject/providers": ^5.6.5
     "@mui/icons-material": ^5.6.2
-    "@mui/material": ^5.6.3
+    "@mui/material": ^5.6.4
     "@mui/styles": ^5.6.2
     "@xylabs/pixel": ^1.3.7
-    "@xylabs/sdk-js": ^2.5.4
+    "@xylabs/sdk-js": ^2.5.5
+    axios: ^0.27.2
     lodash: ^4.17.21
     md5: ^2.3.0
     numeral: ^2.0.6
@@ -6664,16 +6665,15 @@ __metadata:
     react-icons: ^4.3.1
     react-router-dom: ^6.3.0
   peerDependencies:
-    axios: ">0.26"
     react: "*"
     react-dom: "*"
-  checksum: d6caf8d5f904741983a50e986232f9fd57cf79d9bd378c9abb247723d1d814f9130b3650594ab671700ddaeb08bb91f17f3a3546fdee84533d323f9a967aa6a8
+  checksum: 8a6381496641a45f940e55c9c54db82b8ba05e0c7a722dc7fad29a9f89507661c989257d6888292bb4956031ac61721387a76844e838ec052d4a1b70ed585d18
   languageName: node
   linkType: hard
 
-"@xylabs/ts-scripts@npm:^1.0.65":
-  version: 1.0.65
-  resolution: "@xylabs/ts-scripts@npm:1.0.65"
+"@xylabs/ts-scripts@npm:^1.0.66":
+  version: 1.0.66
+  resolution: "@xylabs/ts-scripts@npm:1.0.66"
   dependencies:
     "@types/jest": ^27.4.1
     "@xylabs/eslint-config": ^2.3.22
@@ -6740,7 +6740,7 @@ __metadata:
     xylabs-up3: bin/up3.js
     xylabs-updo: bin/updo.js
     xylabs-updo3: bin/updo3.js
-  checksum: 334bcbdbb8366a1b4cb006165369897256faed8dd9f12c2be3eac17970a5900c56e023d2c5a892c13b0d6215419104d18840db9e4575cf67a994eaea250019eb
+  checksum: a05d5f06230a4f219c8797f3fdb31c78573918ded0989aa4d8ed279210f90c3b6a45fe29a05a4799a07cf21fd09e32e0d40eb92a0422fbfc83eb83c342f0a27f
   languageName: node
   linkType: hard
 
@@ -6762,9 +6762,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.20.6":
-  version: 2.20.6
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.20.6"
+"@xyo-network/sdk-xyo-client-js@npm:^2.20.8":
+  version: 2.20.8
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.20.8"
   dependencies:
     "@ethersproject/providers": ^5.6.5
     "@xylabs/sdk-js": ^2.5.5
@@ -6786,7 +6786,7 @@ __metadata:
     systeminformation: ^5.11.14
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: f67f3dc7692fcf72dc6a8c30ec2fe1799cacd4a5f6b59f2dc3b9f12d6ff036a49a97a9bb17a611087745baa1bbaabe2ea38ce3b856cb3c6c17d97aea8a35fb01
+  checksum: 1a20e34b86ddd5df61b8f3fc9d67dc7f0d3a36ad69f7f776d5cb6f4815cd6110247b402fbff0570ed980c71f115e232f04fc010207bfbd07871b755bdb5c6f80
   languageName: node
   linkType: hard
 
@@ -6837,11 +6837,11 @@ __metadata:
     "@xylabs/rollup-config": ^1.1.17
     "@xylabs/sdk-api-express-ecs": ^1.1.4
     "@xylabs/sdk-js": ^2.5.5
-    "@xylabs/sdk-react": ^2.11.16
-    "@xylabs/ts-scripts": ^1.0.65
+    "@xylabs/sdk-react": ^2.12.3
+    "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
     "@xyo-network/sdk-meta": ^2.6.16
-    "@xyo-network/sdk-xyo-client-js": ^2.20.6
+    "@xyo-network/sdk-xyo-client-js": ^2.20.8
     assert: ^2.0.0
     axios: ^0.27.2
     express: ^4.18.1
