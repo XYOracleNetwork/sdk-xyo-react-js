@@ -30,7 +30,7 @@ RUN SDK_XYO_REACT_DIST_DIR_RELATIVE=$(node -p "path.dirname(require('${SDK_XYO_R
   # create the expected destination directory
   && mkdir -p ${SDK_XYO_REACT_DIST_DIR_RELATIVE} \
   # Copy over the node build files
-  && cp -r ${SDK_XYO_REACT_DIST_DIR} ${SDK_XYO_REACT_DIST_DIR_RELATIVE}
+  && cp -r ${SDK_XYO_REACT_DIST_DIR}/. ${SDK_XYO_REACT_DIST_DIR_RELATIVE}/
 
 COPY --from=dependencies /app/node_modules/@xyo-network/sdk-xyo-react/bin/start-meta.mjs ./bin/start-meta.mjs
 
