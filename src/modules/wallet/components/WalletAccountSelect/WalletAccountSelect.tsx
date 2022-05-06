@@ -1,6 +1,6 @@
 import { MenuItem, Select, SelectProps } from '@mui/material'
 import { EthAddress } from '@xylabs/sdk-js'
-import { EthAccountBox } from '@xylabs/sdk-react'
+import { EthAccountBox, FlexGrowCol } from '@xylabs/sdk-react'
 
 import { useWallet } from '../../contexts'
 
@@ -22,7 +22,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ icons,
     <Select
       renderValue={(selected) => {
         const account = wallet?.getAccount(parseInt(`${selected}`))
-        return <EthAccountBox icon={icons} iconOnly={iconOnly} address={EthAddress.fromString(account?.addressValue.hex)} />
+        return <EthAccountBox margin="2px" iconSize={20} icon={icons} iconOnly={iconOnly} address={EthAddress.fromString(account?.addressValue.hex)} />
       }}
       value={activeAccountIndex}
       onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
@@ -33,7 +33,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ icons,
             const account = wallet?.getAccount(index)
             return (
               <MenuItem key={index} value={index}>
-                <EthAccountBox icon={icons} address={EthAddress.fromString(account.addressValue.hex)} />
+                <EthAccountBox iconSize={20} icon={icons} address={EthAddress.fromString(account.addressValue.hex)} />
               </MenuItem>
             )
           })
