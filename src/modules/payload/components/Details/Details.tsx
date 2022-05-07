@@ -2,7 +2,6 @@ import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
 
 import { PayloadDataDetails, PayloadDataDetailsProps } from './DataDetails'
-import { PayloadHashSourceDetails } from './HashSourceDetails'
 import { PayloadJsonDetails, PayloadJsonDetailsProps } from './JsonDetails'
 import { PayloadMetaDetails, PayloadMetaDetailsProps } from './MetaDetails'
 import { PayloadValidationDetails, PayloadValidationDetailsProps } from './ValidationDetails'
@@ -29,7 +28,6 @@ export const PayloadDetails: React.FC<PayloadDetailsProps> = ({
       <PayloadMetaDetails value={payload} {...payloadMetaDetailsProps} />
       <PayloadValidationDetails value={payload} {...payloadValidationDetailsProps} />
       <PayloadJsonDetails payload={payload} {...payloadJsonDetailsProps} />
-      <PayloadHashSourceDetails payload={payload} />
     </FlexCol>
   )
 }

@@ -21,6 +21,10 @@ const StorybookEntry = {
 } as ComponentMeta<typeof WalletAccountSelect>
 
 const Template: ComponentStory<typeof WalletAccountSelect> = (args) => {
+  return <WalletAccountSelect {...args}></WalletAccountSelect>
+}
+
+const WithWalletTemplate: ComponentStory<typeof WalletAccountSelect> = (args) => {
   return (
     <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
       <WalletAccountSelect {...args}></WalletAccountSelect>
@@ -49,10 +53,13 @@ const WithAppBarTemplate: ComponentStory<typeof WalletAccountSelect> = (args) =>
 const Default = Template.bind({})
 Default.args = {}
 
+const WithWallet = WithWalletTemplate.bind({})
+WithWallet.args = {}
+
 const WithAppBar = WithAppBarTemplate.bind({})
 WithAppBar.args = { icons: true, size: 'small' }
 
-export { Default, WithAppBar }
+export { Default, WithAppBar, WithWallet }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
