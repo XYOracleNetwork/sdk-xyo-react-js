@@ -9,11 +9,15 @@ const useGetSchemaPayload = (schema?: string) => {
   const [notFound, setNotFound] = useState(false)
   const [apiError, setApiError] = useState<XyoApiError>()
   const [schemaCacheEntry, setSchemaCacheEntry] = useState<XyoSchemaCacheEntry | null | undefined>()
+  const [schemaLocal, setSchemaLocal] = useState<string>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (schema && !notFound && !schemaCacheEntry && !apiError) {
+      const firstRequest = !notFound && !schemaCacheEntry && !apiError
+      const schemaChanged = schema !== schemaLocal
+
+      if ((schema && firstRequest) || (schema && schemaChanged)) {
         try {
           const schemaCacheEntry = await XyoSchemaCache.instance.get(schema)
           if (mounted()) {
@@ -27,8 +31,11 @@ const useGetSchemaPayload = (schema?: string) => {
           }
         }
       }
+      if (schemaChanged) {
+        setSchemaLocal(schema)
+      }
     },
-    [apiError, notFound, schema, schemaCacheEntry]
+    [apiError, notFound, schema, schemaLocal, schemaCacheEntry]
   )
 
   return {

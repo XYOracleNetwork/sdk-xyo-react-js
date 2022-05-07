@@ -1,8 +1,8 @@
-import { Typography } from '@mui/material'
+import { FormControl, TextField, Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { FlexCol } from '@xylabs/sdk-react'
+import { FlexCol, FlexRow } from '@xylabs/sdk-react'
 import { XyoSchemaCache } from '@xyo-network/sdk-xyo-client-js'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 
 import { useGetSchemaPayload } from './useGetSchema'
 
@@ -11,18 +11,34 @@ const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-jso
 XyoSchemaCache.instance.proxy = 'https://beta.api.archivist.xyo.network/domain'
 
 const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
-  const { schemaPayload } = useGetSchemaPayload(schema)
+  const exampleSchemas = ['network.xyo.domain', 'network.xyo.payload', 'network.xyo.schema']
+  const [schemaFieldValue, setSchemaFieldValue] = useState('')
+  const { schemaPayload } = useGetSchemaPayload(schemaFieldValue)
+
+  useEffect(() => {
+    if (schema) {
+      setSchemaFieldValue(schema)
+    }
+  }, [schema])
 
   return (
     <>
-      <Typography variant="body1" fontWeight="bold">
-        Fetches the domain config for schema: {schema}.
+      <Typography variant="body1" fontWeight="bold" mb={2}>
+        Example schemas to test:
+        {exampleSchemas.map((schema, index) => (
+          <Typography component="span" mx={1} key={index} onClick={() => setSchemaFieldValue(schema)} sx={{ cursor: 'pointer', textDecoration: 'underline' }}>
+            {schema}
+          </Typography>
+        ))}
       </Typography>
-      <FlexCol my={3}>
+      <FormControl>
+        <TextField value={schemaFieldValue} label="Schema Name" onChange={(e) => setSchemaFieldValue(e.target.value)} />
+      </FormControl>
+      <FlexRow my={3} justifyContent="start">
         <Suspense fallback={<FlexCol busy />}>
           <JsonView src={schemaPayload || {}} />
         </Suspense>
-      </FlexCol>
+      </FlexRow>
     </>
   )
 }
