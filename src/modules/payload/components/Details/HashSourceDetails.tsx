@@ -1,26 +1,40 @@
-import { Typography, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import { IconButton, Typography, useTheme } from '@mui/material'
+import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
 
 export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
+  noTitle?: boolean
   payload?: XyoPayload
 }
 
-export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> = ({ payload, ...props }) => {
+export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> = ({ noTitle = false, payload, ...props }) => {
   const theme = useTheme()
   const payloadWrapper = payload ? new XyoPayloadWrapper(payload) : null
 
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <FlexRow margin={1} justifyContent="flex-start">
-        <Typography>Hash Source</Typography>
-        <QuickTipButton title="Hash Source">The actual string used to generate the hash (SHA256)</QuickTipButton>
+      {noTitle ? null : (
+        <FlexRow margin={1} justifyContent="flex-start">
+          <Typography>Hash Source</Typography>
+          <QuickTipButton title="Hash Source">The actual string used to generate the hash (SHA256)</QuickTipButton>
+        </FlexRow>
+      )}
+      <FlexRow>
+        <FlexGrowRow paper border={1} borderColor={theme.palette.divider} justifyContent="start">
+          <Typography padding={2} fontFamily="monospace" variant="body1" sx={{ overflowWrap: 'break-word', wordBreak: 'break-all' }}>
+            {payloadWrapper?.sortedStringify() ?? ''}
+          </Typography>
+        </FlexGrowRow>
+        <IconButton>
+          <ContentCopyIcon />
+        </IconButton>
       </FlexRow>
-      <FlexGrowCol border={1} borderColor={theme.palette.divider} alignItems="start">
-        <Typography padding={2} fontFamily="monospace" variant="body1" sx={{ overflowWrap: 'break-word', wordBreak: 'break-all' }}>
-          {payloadWrapper?.sortedStringify() ?? ''}
-        </Typography>
-      </FlexGrowCol>
+      {noTitle ? (
+        <FlexRow margin={1} justifyContent="flex-start">
+          <Typography variant="body2">The actual string used to generate the hash (SHA256). This can be used to validate the hash manually.</Typography>
+        </FlexRow>
+      ) : null}
     </FlexCol>
   )
 }

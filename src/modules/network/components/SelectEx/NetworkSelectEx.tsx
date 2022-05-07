@@ -10,7 +10,7 @@ export interface NetworkSelectExProps extends SelectExProps<string> {
 }
 
 export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, responsive = true, ...props }) => {
-  const { network, setNetwork, networks } = useNetwork(true)
+  const { network, setNetwork, networks } = useNetwork(false)
   const sm = useBreakpoint() === 'sm'
   return (
     <SelectEx

@@ -23,9 +23,9 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonView
         <Typography>JSON</Typography>
         <QuickTipButton title="Payload JSON">The raw JSON of the payload</QuickTipButton>
       </FlexRow>
-      <Property paddingY={2} value={!!payload}>
+      <Property padding={1} value={!!payload}>
         <Suspense fallback={<FlexGrowRow />}>
-          <JsonView src={payload} collapseStringsAfterLength={belowSm ? 24 : 32} {...jsonViewProps} />
+          <JsonView src={payload} enableClipboard collapseStringsAfterLength={belowSm ? 24 : 32} {...jsonViewProps} />
         </Suspense>
       </Property>
     </FlexCol>

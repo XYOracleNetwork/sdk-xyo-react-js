@@ -1,3 +1,4 @@
+import { IconButton } from '@mui/material'
 import { ButtonEx, FlexRow } from '@xylabs/sdk-react'
 
 import { PropertyActionsProps } from './PropertyActionsProps'
@@ -9,8 +10,12 @@ export const PropertyActions: React.FC<PropertyActionsProps> = ({ actions, ...pr
         {actions.length > 0 ? (
           <FlexRow>
             {actions.map((action, index) => {
-              return (
-                <ButtonEx key={index} marginRight={1} size="small" disabled={action.disabled} onClick={action.onClick} variant="contained">
+              return action.icon ? (
+                <IconButton size="small" color="secondary" onClick={action.onClick}>
+                  {action.icon}
+                </IconButton>
+              ) : (
+                <ButtonEx color="secondary" key={index} marginRight={1} size="small" disabled={action.disabled} onClick={action.onClick} variant="contained">
                   {action.name}
                 </ButtonEx>
               )
