@@ -11,7 +11,7 @@ export const PropertyActions: React.FC<PropertyActionsProps> = ({ actions, ...pr
           <FlexRow>
             {actions.map((action, index) => {
               return action.icon ? (
-                <IconButton size="small" color="secondary" onClick={action.onClick}>
+                <IconButton size="small" key={index} color="secondary" onClick={action.onClick}>
                   {action.icon}
                 </IconButton>
               ) : (
