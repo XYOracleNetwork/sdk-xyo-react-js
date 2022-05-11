@@ -2,7 +2,6 @@ import SearchIcon from '@mui/icons-material/Search'
 import { Paper, TextField } from '@mui/material'
 import { ButtonEx, FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 export interface SearchBarProps extends FlexBoxProps {
   onSearch?: (term?: string) => void
@@ -10,12 +9,6 @@ export interface SearchBarProps extends FlexBoxProps {
 
 export const SearchBar: React.FC<SearchBarProps> = ({ defaultValue, onSearch, ...props }) => {
   const [term, setTerm] = useState<string>()
-  const navigate = useNavigate()
-  const onSearchHandler =
-    onSearch ||
-    ((term?: string) => {
-      navigate(`/block/${term}`)
-    })
 
   return (
     <FlexRow alignItems="stretch" {...props}>
@@ -26,9 +19,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({ defaultValue, onSearch, ..
           size="small"
           defaultValue={defaultValue}
           fullWidth
-          onBlur={(event) => setTerm(event.target.value)}
+          onChange={(event) => setTerm(event.target.value)}
+          onKeyDown={(event) => {
+            console.log(JSON.stringify(event.code, null, 2))
+            if (event.key === 'Enter') onSearch?.(term)
+          }}
         />
-        <ButtonEx variant="contained" style={{ borderRadius: 0, borderTopLeftRadius: 0 }} color="secondary" onClick={() => onSearchHandler(term)}>
+        <ButtonEx variant="contained" style={{ borderRadius: 0, borderTopLeftRadius: 0 }} color="secondary" onClick={() => onSearch?.(term)}>
           <SearchIcon />
         </ButtonEx>
       </Paper>
