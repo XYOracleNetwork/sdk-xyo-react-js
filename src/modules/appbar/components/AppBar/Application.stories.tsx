@@ -38,7 +38,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithChildren = Template.bind({})
-WithChildren.args = { children: <SearchBar flexGrow={1} />, color: 'primary', systemToolbar: <SystemToolbar darkModeButton authButton /> }
+WithChildren.args = { children: <SearchBar flexGrow={1} onSearch={(term) => alert(term)} />, color: 'primary', systemToolbar: <SystemToolbar darkModeButton authButton /> }
 
 export { Default, WithChildren }
 
