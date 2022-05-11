@@ -4,7 +4,7 @@ import { Dispatch, useState } from 'react'
 import { useArchive } from '../../../../archive'
 import { useArchivistApi } from '../../../../archivist-api'
 
-export const useSchemaList = (knownSchemaList: string[]): [string[] | undefined, Dispatch<string[]>] => {
+export const useSchemaList = (knownSchemaList?: string[]): [string[] | undefined, Dispatch<string[]>] => {
   const { api } = useArchivistApi(false)
   const { archive = 'temp' } = useArchive(false)
   const [schemaList, setSchemaList] = useState<string[] | undefined>(knownSchemaList)
