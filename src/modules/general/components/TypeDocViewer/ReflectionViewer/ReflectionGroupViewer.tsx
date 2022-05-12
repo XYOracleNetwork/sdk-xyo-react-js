@@ -11,7 +11,6 @@ import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps'
 
 export interface ReflectionGroupViewerProps extends ReflectionViewerProps<ContainerReflection> {
   reflection: ContainerReflection
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   renderer?: React.FC<ReflectionViewerProps>
   group: ReflectionGroup
   autoscroll?: boolean
