@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 // eslint-disable-next-line import/no-internal-modules
-import clientDocs from '@xyo-network/sdk-xyo-client-js/dist/docs.json'
+import clientDocs from '@xyo-network/core/dist/docs.json'
 import { BrowserRouter } from 'react-router-dom'
 import { ProjectReflection } from 'typedoc'
 
