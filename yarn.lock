@@ -6079,6 +6079,100 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/api@npm:^2.20.18":
+  version: 2.20.18
+  resolution: "@xyo-network/api@npm:2.20.18"
+  dependencies:
+    "@ethersproject/providers": ^5.6.5
+    "@xylabs/sdk-js": ^2.5.5
+    "@xyo-network/core": ^2.20.18
+    "@xyo-network/ethers-wrappers": ^2.6.17
+    "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
+    "@xyo-network/sdk-xyo-typechain": ^1.0.3
+    ajv: ^8.11.0
+    axios: ^0.27.2
+    bn.js: ^5.2.0
+    bowser: ^2.11.0
+    elliptic: ^6.5.4
+    keccak256: ^1.0.6
+    lodash: ^4.17.21
+    lru-cache: ^7.10.1
+    mongodb: ^4.6.0
+    neo4j-driver: ^4.4.5
+    neo4j-driver-core: ^4.4.5
+    pako: ^2.0.4
+    randombytes: ^2.1.0
+    sha.js: ^2.4.11
+    systeminformation: ^5.11.15
+    ua-parser-js: ^1.0.2
+    uuid: ^8.3.2
+  checksum: c47d82600a8530ddd0e993375adde704dab3294eae3ee0d5b88acb6d1f682918aec441a4a53a989be2ed3a1142955501c0b0a0fa7b20c9eb764a810d3aca6643
+  languageName: node
+  linkType: hard
+
+"@xyo-network/core@npm:^2.20.18":
+  version: 2.20.18
+  resolution: "@xyo-network/core@npm:2.20.18"
+  dependencies:
+    "@ethersproject/providers": ^5.6.5
+    "@xylabs/sdk-js": ^2.5.5
+    "@xyo-network/ethers-wrappers": ^2.6.17
+    "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
+    "@xyo-network/sdk-xyo-typechain": ^1.0.3
+    ajv: ^8.11.0
+    axios: ^0.27.2
+    bn.js: ^5.2.0
+    bowser: ^2.11.0
+    elliptic: ^6.5.4
+    keccak256: ^1.0.6
+    lodash: ^4.17.21
+    lru-cache: ^7.10.1
+    mongodb: ^4.6.0
+    neo4j-driver: ^4.4.5
+    neo4j-driver-core: ^4.4.5
+    pako: ^2.0.4
+    randombytes: ^2.1.0
+    sha.js: ^2.4.11
+    systeminformation: ^5.11.15
+    ua-parser-js: ^1.0.2
+    uuid: ^8.3.2
+  checksum: 69d7894b20dfbef5266a1fbe351aaa9e4ea8f57ca1949cfca2cb0d9f3df7a20108719590728265b798a4c4a32ee748ca195fa260e642f9ba8da31bf70ab6c52a
+  languageName: node
+  linkType: hard
+
+"@xyo-network/domain@npm:^2.20.18":
+  version: 2.20.18
+  resolution: "@xyo-network/domain@npm:2.20.18"
+  dependencies:
+    "@ethersproject/providers": ^5.6.5
+    "@xylabs/sdk-js": ^2.5.5
+    "@xyo-network/api": ^2.20.18
+    "@xyo-network/core": ^2.20.18
+    "@xyo-network/ethers-wrappers": ^2.6.17
+    "@xyo-network/network": ^2.20.18
+    "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
+    "@xyo-network/sdk-xyo-typechain": ^1.0.3
+    ajv: ^8.11.0
+    axios: ^0.27.2
+    bn.js: ^5.2.0
+    bowser: ^2.11.0
+    elliptic: ^6.5.4
+    keccak256: ^1.0.6
+    lodash: ^4.17.21
+    lru-cache: ^7.10.1
+    mongodb: ^4.6.0
+    neo4j-driver: ^4.4.5
+    neo4j-driver-core: ^4.4.5
+    pako: ^2.0.4
+    randombytes: ^2.1.0
+    sha.js: ^2.4.11
+    systeminformation: ^5.11.15
+    ua-parser-js: ^1.0.2
+    uuid: ^8.3.2
+  checksum: 31cf267cc611b0e562c76a4cb0e7ba1d27ce704a9439919d91133adc9a7fe4cffbba0ce4bc31a342c5d64e7543735a91516df59334b7db5f2dfac4bd1f255e95
+  languageName: node
+  linkType: hard
+
 "@xyo-network/ethers-wrappers@npm:^2.6.17":
   version: 2.6.17
   resolution: "@xyo-network/ethers-wrappers@npm:2.6.17"
@@ -6090,14 +6184,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-xyo-client-js@npm:^2.20.14":
-  version: 2.20.14
-  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.20.14"
+"@xyo-network/network@npm:^2.20.18":
+  version: 2.20.18
+  resolution: "@xyo-network/network@npm:2.20.18"
   dependencies:
     "@ethersproject/providers": ^5.6.5
     "@xylabs/sdk-js": ^2.5.5
+    "@xyo-network/core": ^2.20.18
     "@xyo-network/ethers-wrappers": ^2.6.17
     "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
+    "@xyo-network/sdk-xyo-typechain": ^1.0.3
     ajv: ^8.11.0
     axios: ^0.27.2
     bn.js: ^5.2.0
@@ -6105,17 +6201,32 @@ __metadata:
     elliptic: ^6.5.4
     keccak256: ^1.0.6
     lodash: ^4.17.21
-    lru-cache: ^7.9.0
-    mongodb: ^4.5.0
+    lru-cache: ^7.10.1
+    mongodb: ^4.6.0
     neo4j-driver: ^4.4.5
     neo4j-driver-core: ^4.4.5
     pako: ^2.0.4
     randombytes: ^2.1.0
     sha.js: ^2.4.11
-    systeminformation: ^5.11.14
+    systeminformation: ^5.11.15
     ua-parser-js: ^1.0.2
     uuid: ^8.3.2
-  checksum: 6f0bf3194d989ba99c772c4c5134e7e364d6a7d533e1d7ed2d139eeb17f35bcc4fff6527211987f32a3cb4bcd61ab7f4dd2b883473734448479263f30f365c12
+  checksum: 662876afcbc9f8c9e5c003a56523696b2215bb557005c0e9760c1e267d66c1db8e48e9d66c302e0189d115eb3671731f9809ee1b0e43ffbd27f1acd7cbd22fa2
+  languageName: node
+  linkType: hard
+
+"@xyo-network/sdk-xyo-client-js@npm:^2.20.18":
+  version: 2.20.18
+  resolution: "@xyo-network/sdk-xyo-client-js@npm:2.20.18"
+  dependencies:
+    "@xyo-network/api": ^2.20.18
+    "@xyo-network/core": ^2.20.18
+    "@xyo-network/domain": ^2.20.18
+    "@xyo-network/network": ^2.20.18
+    "@xyo-network/storage": ^2.20.18
+    "@xyo-network/utils": ^2.20.18
+    "@xyo-network/witnesses": ^2.20.18
+  checksum: 8e149db48231d57155769ae429cffa7663b4e4a84b66e555d0d7a7b5381d4a4a3f70bf6b26c9539d5850bac7bcadf1a2f608189271fdfa25f439c91ca1d77b84
   languageName: node
   linkType: hard
 
@@ -6164,7 +6275,7 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.5
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/sdk-xyo-client-js": ^2.20.14
+    "@xyo-network/sdk-xyo-client-js": ^2.20.18
     assert: ^2.0.0
     axios: ^0.27.2
     lodash: ^4.17.21
@@ -6187,7 +6298,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/sdk-xyo-typechain@npm:^1.0.2":
+"@xyo-network/sdk-xyo-typechain@npm:^1.0.2, @xyo-network/sdk-xyo-typechain@npm:^1.0.3":
   version: 1.0.3
   resolution: "@xyo-network/sdk-xyo-typechain@npm:1.0.3"
   dependencies:
@@ -6195,6 +6306,102 @@ __metadata:
     "@uniswap/v3-core": ^1.0.1
     ethers: ^5.6.5
   checksum: 9192d56ee630d435003f256c7dcae0aa48b7da26471c4cb60657399b5b9f77ba3a23bc1f27b46ec7bce0eb58f676265383ff14c03bcbdb828bb88fdc0b9edb2a
+  languageName: node
+  linkType: hard
+
+"@xyo-network/storage@npm:^2.20.18":
+  version: 2.20.18
+  resolution: "@xyo-network/storage@npm:2.20.18"
+  dependencies:
+    "@ethersproject/providers": ^5.6.5
+    "@xylabs/sdk-js": ^2.5.5
+    "@xyo-network/core": ^2.20.18
+    "@xyo-network/ethers-wrappers": ^2.6.17
+    "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
+    "@xyo-network/sdk-xyo-typechain": ^1.0.3
+    ajv: ^8.11.0
+    axios: ^0.27.2
+    bn.js: ^5.2.0
+    bowser: ^2.11.0
+    elliptic: ^6.5.4
+    keccak256: ^1.0.6
+    lodash: ^4.17.21
+    lru-cache: ^7.10.1
+    mongodb: ^4.6.0
+    neo4j-driver: ^4.4.5
+    neo4j-driver-core: ^4.4.5
+    pako: ^2.0.4
+    randombytes: ^2.1.0
+    sha.js: ^2.4.11
+    systeminformation: ^5.11.15
+    ua-parser-js: ^1.0.2
+    uuid: ^8.3.2
+  checksum: fe7bf8ffad1bd554dfc76f65934abb3923f4cc6b65653bba81f8a5a9f07779efc79b080c12a585abc697ba1c1219d2c43723e26a27fc4627062f5a04c9efe27f
+  languageName: node
+  linkType: hard
+
+"@xyo-network/utils@npm:^2.20.18":
+  version: 2.20.18
+  resolution: "@xyo-network/utils@npm:2.20.18"
+  dependencies:
+    "@ethersproject/providers": ^5.6.5
+    "@xylabs/sdk-js": ^2.5.5
+    "@xyo-network/api": ^2.20.18
+    "@xyo-network/core": ^2.20.18
+    "@xyo-network/domain": ^2.20.18
+    "@xyo-network/ethers-wrappers": ^2.6.17
+    "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
+    "@xyo-network/sdk-xyo-typechain": ^1.0.3
+    "@xyo-network/witnesses": ^2.20.18
+    ajv: ^8.11.0
+    axios: ^0.27.2
+    bn.js: ^5.2.0
+    bowser: ^2.11.0
+    elliptic: ^6.5.4
+    keccak256: ^1.0.6
+    lodash: ^4.17.21
+    lru-cache: ^7.10.1
+    mongodb: ^4.6.0
+    neo4j-driver: ^4.4.5
+    neo4j-driver-core: ^4.4.5
+    pako: ^2.0.4
+    randombytes: ^2.1.0
+    sha.js: ^2.4.11
+    systeminformation: ^5.11.15
+    ua-parser-js: ^1.0.2
+    uuid: ^8.3.2
+  checksum: f893b93d9f05bf7e5d892a0a6dc8fca94f8f0c384a7cb9a03f88c16ac2645043ace052b7d18ab9c54e39f2d8323b66f7425156bb8a665eda4da3a620ad312f33
+  languageName: node
+  linkType: hard
+
+"@xyo-network/witnesses@npm:^2.20.18":
+  version: 2.20.18
+  resolution: "@xyo-network/witnesses@npm:2.20.18"
+  dependencies:
+    "@ethersproject/providers": ^5.6.5
+    "@xylabs/sdk-js": ^2.5.5
+    "@xyo-network/core": ^2.20.18
+    "@xyo-network/ethers-wrappers": ^2.6.17
+    "@xyo-network/sdk-xyo-mongo-js": ^2.2.7
+    "@xyo-network/sdk-xyo-typechain": ^1.0.3
+    ajv: ^8.11.0
+    axios: ^0.27.2
+    bn.js: ^5.2.0
+    bowser: ^2.11.0
+    elliptic: ^6.5.4
+    keccak256: ^1.0.6
+    lodash: ^4.17.21
+    lru-cache: ^7.10.1
+    mongodb: ^4.6.0
+    neo4j-driver: ^4.4.5
+    neo4j-driver-core: ^4.4.5
+    pako: ^2.0.4
+    randombytes: ^2.1.0
+    sha.js: ^2.4.11
+    systeminformation: ^5.11.15
+    ua-parser-js: ^1.0.2
+    uuid: ^8.3.2
+  checksum: 2645586e3a07e45d2cf72b9606dba628da7165db20c6b64f6d68ea9b31a41bee631fdbaf62485bb2b91f8447ba08a80c36ecf216f57281880bf9550ebcbc8f76
   languageName: node
   linkType: hard
 
@@ -7329,12 +7536,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bson@npm:^4.6.2":
-  version: 4.6.2
-  resolution: "bson@npm:4.6.2"
+"bson@npm:^4.6.3":
+  version: 4.6.3
+  resolution: "bson@npm:4.6.3"
   dependencies:
     buffer: ^5.6.0
-  checksum: f4072d059ad9a46dd92451da5efb278d98f7b23fe6de0ee8dd1f9f05e005189156509b11deeba655befdf9434cffd283bfc35bcf75d2123c1fdf9b723ce8a98d
+  checksum: da99222fc14842ce3e693c8bcda5592b43816795c312c57cff8ee11172965e757c4227543234f8fa3469d621e213d86cdd8f8759d6c67a64b971416f850f833c
   languageName: node
   linkType: hard
 
@@ -13595,10 +13802,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^7.3.1, lru-cache@npm:^7.5.1, lru-cache@npm:^7.7.1, lru-cache@npm:^7.9.0":
-  version: 7.9.0
-  resolution: "lru-cache@npm:7.9.0"
-  checksum: c91a293a103d11ea4f07de4122ba4f73d8203d0de51852fb612b1764296aebf623a3e11dddef1b3aefdc8d71af97d52b222dad5459dcb967713bbab9a19fed7d
+"lru-cache@npm:^7.10.1, lru-cache@npm:^7.3.1, lru-cache@npm:^7.5.1, lru-cache@npm:^7.7.1":
+  version: 7.10.1
+  resolution: "lru-cache@npm:7.10.1"
+  checksum: e8b190d71ed0fcd7b29c71a3e9b01f851c92d1ef8865ff06b5581ca991db1e5e006920ed4da8b56da1910664ed51abfd76c46fb55e82ac252ff6c970ff910d72
   languageName: node
   linkType: hard
 
@@ -14606,11 +14813,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^4.4.0, mongodb@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "mongodb@npm:4.5.0"
+"mongodb@npm:^4.4.0, mongodb@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "mongodb@npm:4.6.0"
   dependencies:
-    bson: ^4.6.2
+    bson: ^4.6.3
     denque: ^2.0.1
     mongodb-connection-string-url: ^2.5.2
     saslprep: ^1.0.3
@@ -14618,7 +14825,7 @@ __metadata:
   dependenciesMeta:
     saslprep:
       optional: true
-  checksum: 423974a663c90e6673226a9ad691e8b445ecd43fc4e9e424343644b20c35188bd3d6692dcc2798022cc6b5c6f4391b54747c7543134b46f93cb3da428e5f9246
+  checksum: aa2a584fdb4e7f73b73b5f4019916e4f9cdba6e0aa81448eade44a5ff4e5d771ad62cd252f012b7a211eb80f6f88fba446c6ad8f0eb898ba56cf447719161540
   languageName: node
   linkType: hard
 
@@ -19837,12 +20044,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"systeminformation@npm:^5.11.14":
-  version: 5.11.14
-  resolution: "systeminformation@npm:5.11.14"
+"systeminformation@npm:^5.11.15":
+  version: 5.11.15
+  resolution: "systeminformation@npm:5.11.15"
   bin:
     systeminformation: lib/cli.js
-  checksum: 4e40f71da55899df2722288bd4b44562c22d9427e08591bb39e285303a4cce98b32ef0ccd1570a0264dca7863786fdf8cb71f75da85f77594361b8b7108898c9
+  checksum: 29bfd93cd6b733a2730a40daba415ecccb030b1dd965f872d0d0b272a935d31ab35c092ad273ce174f10f123899de03d95295336e5f9c68df0eb4a93b8eaed21
   conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
