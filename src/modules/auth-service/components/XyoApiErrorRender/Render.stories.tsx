@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoApiError, XyoArchive } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError, XyoArchive } from '@xyo-network/api'
 import axios from 'axios'
 import { useState } from 'react'
 

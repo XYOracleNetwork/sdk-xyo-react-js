@@ -1,7 +1,7 @@
 import { FormControl, TextField, Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/sdk-react'
-import { XyoSchemaCache } from '@xyo-network/sdk-xyo-client-js'
+import { XyoSchemaCache } from '@xyo-network/utils'
 import { lazy, Suspense, useEffect, useState } from 'react'
 
 import { useGetSchemaPayload } from './useGetSchema'

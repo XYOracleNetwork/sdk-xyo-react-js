@@ -2,7 +2,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { ButtonEx, FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/core'
 import { useState } from 'react'
 
 import { Property, PropertyAction, PropertyHeroProps, usePropertyHeroProps } from '../../../property'

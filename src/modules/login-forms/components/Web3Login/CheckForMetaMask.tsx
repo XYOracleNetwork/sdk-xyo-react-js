@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/sdk-react'
-import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
+import { XyoMetaMaskConnector } from '@xyo-network/utils'
 import { useEffect, useState } from 'react'
 
 export interface CheckForMetaMaskProps {

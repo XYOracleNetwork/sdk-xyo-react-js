@@ -1,4 +1,4 @@
-import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
+import { XyoMetaMaskConnector } from '@xyo-network/utils'
 
 import { WalletServiceState } from './State'
 

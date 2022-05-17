@@ -1,4 +1,4 @@
-import { XyoPayloadBuilder } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayloadBuilder } from '@xyo-network/core'
 
 export const samplePayloadFromBuilder = {
   ...new XyoPayloadBuilder({ schema: 'network.xyo.temp' }).fields({ test: 'hello' }).build(),

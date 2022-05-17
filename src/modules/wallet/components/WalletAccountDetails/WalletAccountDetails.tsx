@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material'
 import { EthAddress } from '@xylabs/sdk-js'
 import { EthAccountButton, FlexBoxProps, FlexCol, NumberStatus } from '@xylabs/sdk-react'
-import { XyoAccount } from '@xyo-network/sdk-xyo-client-js'
+import { XyoAccount } from '@xyo-network/core'
 
 import { useNetwork } from '../../../network'
 import { useAccount } from '../../contexts'

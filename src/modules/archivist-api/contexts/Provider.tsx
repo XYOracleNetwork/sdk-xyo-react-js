@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/sdk-react'
-import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
 import { useCallback, useEffect, useState } from 'react'
 
 import { AuthActionType, useAuthState } from '../../auth'

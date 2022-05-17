@@ -1,4 +1,4 @@
-import { XyoNetworkConfig } from '@xyo-network/sdk-xyo-client-js'
+import { XyoNetworkConfig } from '@xyo-network/network'
 
 export interface NetworkProviderProps {
   defaultNetwork?: XyoNetworkConfig

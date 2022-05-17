@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoArchive } from '@xyo-network/sdk-xyo-client-js'
+import { XyoArchive } from '@xyo-network/api'
 import { useEffect, useState } from 'react'
 
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../../.storybook'

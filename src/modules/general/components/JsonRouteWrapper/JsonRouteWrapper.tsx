@@ -1,5 +1,5 @@
 import { ButtonEx, ErrorDialog, FlexBoxProps, FlexCol, FlexRow, useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError } from '@xyo-network/api'
 import { lazy, Suspense, useState } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'
 import { useSearchParams } from 'react-router-dom'

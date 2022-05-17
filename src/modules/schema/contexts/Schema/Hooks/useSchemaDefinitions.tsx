@@ -1,5 +1,6 @@
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoSchemaCache, XyoSchemaPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoSchemaPayload } from '@xyo-network/core'
+import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
 import { useSchemaList } from './useSchemaList'

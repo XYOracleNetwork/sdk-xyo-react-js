@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/sdk-react'
-import { XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
+import { XyoWalletBase } from '@xyo-network/core'
 import { useState } from 'react'
 
 import { AccountContext } from '../Account'

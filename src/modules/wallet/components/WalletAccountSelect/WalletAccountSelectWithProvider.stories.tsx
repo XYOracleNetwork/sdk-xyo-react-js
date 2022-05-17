@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexRow } from '@xylabs/sdk-react'
-import { XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
+import { XyoWalletBase } from '@xyo-network/core'
 
 import { WalletProvider } from '../../contexts'
 import { WalletAccountSelect } from './WalletAccountSelect'

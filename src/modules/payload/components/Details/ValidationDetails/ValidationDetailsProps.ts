@@ -1,5 +1,5 @@
 import { FlexBoxProps } from '@xylabs/sdk-react'
-import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload } from '@xyo-network/core'
 
 export interface PayloadValidationDetailsProps extends FlexBoxProps {
   skipBody?: boolean

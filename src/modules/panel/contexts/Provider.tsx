@@ -1,6 +1,9 @@
 import { assertEx, delay } from '@xylabs/sdk-js'
 import { useAsyncEffect, WithChildren } from '@xylabs/sdk-react'
-import { XyoApiConfig, XyoArchivistApi, XyoBoundWitness, XyoPanel, XyoPayload, XyoSystemInfoWitness, XyoWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiConfig, XyoArchivistApi } from '@xyo-network/api'
+import { XyoBoundWitness, XyoPayload, XyoWitness } from '@xyo-network/core'
+import { XyoSystemInfoWitness } from '@xyo-network/systeminfo-witness'
+import { XyoPanel } from '@xyo-network/utils'
 import { useEffect, useState } from 'react'
 
 import { useArchive } from '../../archive'

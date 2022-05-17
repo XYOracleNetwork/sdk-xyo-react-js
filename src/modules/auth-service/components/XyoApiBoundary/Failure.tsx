@@ -1,6 +1,6 @@
 import { assertEx } from '@xylabs/sdk-js'
 import { BasePageProps, WithChildren } from '@xylabs/sdk-react'
-import { XyoApiError, XyoApiResponse } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError, XyoApiResponse } from '@xyo-network/api'
 import { useState } from 'react'
 
 import { ArchivistApiProvider, useArchivistApi } from '../../../archivist-api'

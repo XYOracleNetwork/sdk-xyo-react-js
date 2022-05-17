@@ -1,4 +1,4 @@
-import { XyoNodeConfig } from '@xyo-network/sdk-xyo-client-js'
+import { XyoNodeConfig } from '@xyo-network/network'
 
 export const findDivinerPreset = (slug: string) => {
   return (

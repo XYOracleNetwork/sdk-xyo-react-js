@@ -1,5 +1,5 @@
 import { Alert, Typography } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness } from '@xyo-network/core'
 
 import { XyoApiThrownErrorBoundary } from '../../../auth-service'
 import { BlockTableRow, BlockTableRowProps } from './TableRow'
