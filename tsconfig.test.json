@@ -24,7 +24,9 @@
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["jest", "@types/jest", "jest-sorted"]
   },
   "include": ["src/**/*.spec.ts", "src/**/*.spec.tsx"]
 }

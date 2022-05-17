@@ -1,4 +1,4 @@
-import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError } from '@xyo-network/api'
 
 type AuthError = Error | XyoApiError
 

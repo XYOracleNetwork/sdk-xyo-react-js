@@ -1,7 +1,8 @@
 import { Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 import { FlexCol } from '@xylabs/sdk-react'
-import { Huri, XyoSchemaCache } from '@xyo-network/sdk-xyo-client-js'
+import { Huri } from '@xyo-network/core'
+import { XyoSchemaCache } from '@xyo-network/utils'
 import { lazy, Suspense } from 'react'
 
 import { ArchivistApiProvider } from '../../archivist-api'

@@ -1,5 +1,5 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness } from '@xyo-network/core'
 
 import { Property, PropertyHeroProps, usePropertyHeroProps } from '../../../property'
 

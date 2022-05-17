@@ -1,5 +1,5 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/sdk-react'
-import { XyoArchive } from '@xyo-network/sdk-xyo-client-js'
+import { XyoArchive } from '@xyo-network/api'
 import { useCallback, useState } from 'react'
 
 import { useArchivistApi } from '../../archivist-api'

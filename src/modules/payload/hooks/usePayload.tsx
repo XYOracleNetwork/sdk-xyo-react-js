@@ -1,5 +1,6 @@
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoApiError, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError } from '@xyo-network/api'
+import { XyoPayload } from '@xyo-network/core'
 import { useState } from 'react'
 
 import { useArchive } from '../../archive'

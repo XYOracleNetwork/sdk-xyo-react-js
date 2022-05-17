@@ -1,6 +1,6 @@
 import { Typography, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
-import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/core'
 
 export interface BlockHashSourceDetailsProps extends FlexBoxProps {
   block?: XyoBoundWitness

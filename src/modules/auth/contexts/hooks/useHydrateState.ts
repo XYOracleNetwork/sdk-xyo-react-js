@@ -22,7 +22,7 @@ const loadAuthStateFromLocalStorage = () => {
 
 const saveAuthStateToLocalStorage = (state: AuthState, keysToSave: SaveableAuthStateProps[]) => {
   const saveableValues = keysToSave.reduce((previous, key) => {
-    previous[key] = state[key]
+    previous[key] = state[key] ?? undefined
     return previous
   }, {} as AuthState)
 

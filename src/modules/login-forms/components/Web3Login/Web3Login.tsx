@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { assertEx } from '@xylabs/sdk-js'
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError } from '@xyo-network/api'
 import { useEffect, useState } from 'react'
 
 import { useArchivistApi } from '../../../archivist-api'

@@ -1,4 +1,4 @@
-import { XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
+import { XyoWalletBase } from '@xyo-network/core'
 import { Dispatch } from 'react'
 
 import { ContextExState } from '../../../context-ex'

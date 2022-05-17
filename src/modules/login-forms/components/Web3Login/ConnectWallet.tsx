@@ -1,5 +1,5 @@
 import { ButtonEx } from '@xylabs/sdk-react'
-import { XyoMetaMaskConnector } from '@xyo-network/sdk-xyo-client-js'
+import { XyoMetaMaskConnector } from '@xyo-network/utils'
 import { Dispatch, SetStateAction } from 'react'
 
 import { MetaMaskError } from './MetaMaskError'

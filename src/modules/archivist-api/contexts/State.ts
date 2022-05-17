@@ -1,4 +1,4 @@
-import { XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
 
 export type XyoApiErrorCallback = (response: XyoApiResponse) => void
 

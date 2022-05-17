@@ -1,5 +1,5 @@
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/sdk-react'
-import { XyoBoundWitness, XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness, XyoPayload } from '@xyo-network/core'
 import uniqWith from 'lodash/uniqWith'
 
 import { BlockDataDetails } from './DataDetails'

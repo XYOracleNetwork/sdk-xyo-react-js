@@ -2,7 +2,7 @@
 /* eslint-disable deprecation/deprecation */
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
+import { XyoArchivistApi } from '@xyo-network/api'
 import { useState } from 'react'
 
 import { DeprecateStory } from '../../../../.storybook'

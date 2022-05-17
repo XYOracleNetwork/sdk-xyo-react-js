@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/sdk-react'
-import { XyoNetworkConfig } from '@xyo-network/sdk-xyo-client-js'
+import { XyoNetworkConfig } from '@xyo-network/network'
 import { useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 

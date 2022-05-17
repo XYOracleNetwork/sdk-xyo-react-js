@@ -1,6 +1,6 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
-import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/core'
 import compact from 'lodash/compact'
 import { DateTime } from 'luxon'
 import { ReactElement } from 'react'

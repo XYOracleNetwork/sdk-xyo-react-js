@@ -1,4 +1,4 @@
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness } from '@xyo-network/core'
 
 export const sampleBlock = {
   _archive: 'temp',

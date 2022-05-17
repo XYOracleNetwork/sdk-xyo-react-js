@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
-import { XyoArchivistApi } from '@xyo-network/sdk-xyo-client-js'
+import { XyoArchivistApi } from '@xyo-network/api'
 import { BrowserRouter, useSearchParams } from 'react-router-dom'
 
 import { JsonRouteWrapper } from './JsonRouteWrapper'

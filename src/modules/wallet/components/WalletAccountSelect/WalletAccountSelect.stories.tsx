@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoWalletBase } from '@xyo-network/sdk-xyo-client-js'
+import { XyoWalletBase } from '@xyo-network/core'
 import { BrowserRouter } from 'react-router-dom'
 
 import { ApplicationAppBar } from '../../../appbar'

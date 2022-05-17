@@ -1,4 +1,6 @@
-import { XyoArchivistApi, XyoBoundWitness, XyoPanel, XyoWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoArchivistApi } from '@xyo-network/api'
+import { XyoBoundWitness, XyoWitness } from '@xyo-network/core'
+import { XyoPanel } from '@xyo-network/utils'
 
 export enum XyoReportStatus {
   Idle = 'idle',
