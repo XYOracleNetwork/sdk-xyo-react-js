@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { appThemeDecorator, sampleBlockWithPayloads } from '../../../.storybook'
 import { BlockDetails } from './Details'
@@ -18,7 +18,10 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof BlockDetails> = (args) => (
   <BrowserRouter>
-    <BlockDetails {...args}></BlockDetails>
+    <Routes>
+      <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
+      <Route path="*" element={<BlockDetails {...args} />} />
+    </Routes>
   </BrowserRouter>
 )
 
@@ -28,7 +31,10 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { block: sampleBlockWithPayloads }
 
-export { Default, WithData }
+const WithArchiveLink = Template.bind({})
+WithArchiveLink.args = { block: sampleBlockWithPayloads, blockMetaDetailsProps: { archivePath: 'temp' } }
+
+export { Default, WithArchiveLink, WithData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
