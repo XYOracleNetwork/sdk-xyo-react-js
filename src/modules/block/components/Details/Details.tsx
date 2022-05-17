@@ -14,6 +14,7 @@ export interface BlockDetailsProps extends FlexBoxProps {
   block?: XyoBoundWitness
   payloads?: XyoPayload[]
   blockPayloadsProps?: BlockPayloadsProps
+  blockMetaDetailsProps?: BlockMetaDetails
 }
 
 const payloadsFromBlock = (block?: XyoBoundWitness) => {
@@ -34,11 +35,11 @@ const payloadsFromBlock = (block?: XyoBoundWitness) => {
   return uniqWith(payloads, (a, b) => a._hash === b._hash)
 }
 
-export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, blockPayloadsProps, ...props }) => {
+export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, blockPayloadsProps, blockMetaDetailsProps, ...props }) => {
   return (
     <FlexGrowCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
       <BlockDataDetails block={block} hero showBadge />
-      <BlockMetaDetails block={block} />
+      <BlockMetaDetails block={block} {...blockMetaDetailsProps} />
       <BlockSignatureDetails block={block} />
       <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} {...blockPayloadsProps} />
       <BlockValidationDetails value={block} />
