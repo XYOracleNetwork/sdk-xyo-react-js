@@ -1,6 +1,6 @@
 import { GridProps, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness } from '@xyo-network/core'
 
 import { Property } from '../../../property'
 import { BlockSignatureTable } from './SignatureTable'

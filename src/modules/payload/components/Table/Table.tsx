@@ -1,6 +1,6 @@
 import { Alert, Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
-import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload } from '@xyo-network/core'
 
 import { XyoApiThrownErrorBoundary } from '../../../auth-service'
 import { ScrollTableOnSm } from '../../../general'

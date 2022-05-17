@@ -1,6 +1,6 @@
 import { Typography, useMediaQuery, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness } from '@xyo-network/core'
 import { lazy, Suspense } from 'react'
 
 import { Property } from '../../../property'

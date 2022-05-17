@@ -1,5 +1,5 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
-import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload } from '@xyo-network/core'
 
 import { PayloadDataDetails, PayloadDataDetailsProps } from './DataDetails'
 import { PayloadJsonDetails, PayloadJsonDetailsProps } from './JsonDetails'

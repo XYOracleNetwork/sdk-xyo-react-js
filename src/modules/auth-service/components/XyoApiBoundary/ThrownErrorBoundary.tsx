@@ -1,6 +1,6 @@
 import { Alert, AlertTitle } from '@mui/material'
 import { BasePage, BasePageProps } from '@xylabs/sdk-react'
-import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError } from '@xyo-network/api'
 import { Component, ErrorInfo, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import Rollbar from 'rollbar'

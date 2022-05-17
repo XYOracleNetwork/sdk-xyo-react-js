@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
-import { XyoPayloadValidator } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayloadValidator } from '@xyo-network/core'
 
 import { Property } from '../../../../property'
 import { SchemaProperty } from './SchemaProperty'

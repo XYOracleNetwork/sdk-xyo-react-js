@@ -1,5 +1,5 @@
 import { FlexBoxProps } from '@xylabs/sdk-react'
-import { XyoApiError, XyoApiResponse } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError, XyoApiResponse } from '@xyo-network/api'
 import { ReactNode } from 'react'
 
 export interface XyoApiErrorRenderProps extends FlexBoxProps {

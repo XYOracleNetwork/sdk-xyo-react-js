@@ -1,4 +1,4 @@
-import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError } from '@xyo-network/api'
 
 import { AuthService, AuthServiceId } from './Service'
 
@@ -12,6 +12,6 @@ export interface AuthState {
   isLoggedIn?: boolean
   authError: undefined | Error | XyoApiError
   jwtToken?: string
-  loggedInAccount?: string
+  loggedInAccount?: string | null
   reAuthenticate?: boolean
 }

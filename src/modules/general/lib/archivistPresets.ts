@@ -1,4 +1,4 @@
-import { XyoNodeConfig } from '@xyo-network/sdk-xyo-client-js'
+import { XyoNodeConfig } from '@xyo-network/network'
 
 import { ExplorerMapHashes } from './ExplorerMapHashes'
 

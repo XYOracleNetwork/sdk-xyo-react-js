@@ -1,5 +1,5 @@
 import { TableProps } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/sdk-xyo-client-js'
+import { XyoBoundWitness } from '@xyo-network/core'
 
 import { BlockTableColumnConfig } from './BlockTableColumnConfig'
 

@@ -1,5 +1,5 @@
 import { Alert, AlertTitle, Typography, useTheme } from '@mui/material'
-import { XyoApiError } from '@xyo-network/sdk-xyo-client-js'
+import { XyoApiError } from '@xyo-network/api'
 
 export interface ApiErrorAlertProps {
   call: XyoApiError

@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/sdk-react'
-import { XyoAccount } from '@xyo-network/sdk-xyo-client-js'
+import { XyoAccount } from '@xyo-network/core'
 import { useState } from 'react'
 
 import { AccountContext } from './Context'

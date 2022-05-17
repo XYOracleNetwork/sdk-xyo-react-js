@@ -1,6 +1,6 @@
 import { TypographyProps, useTheme } from '@mui/material'
 import { LinkEx } from '@xylabs/sdk-react'
-import { XyoPayload } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload } from '@xyo-network/core'
 
 import { Property, PropertyValue } from '../../property'
 

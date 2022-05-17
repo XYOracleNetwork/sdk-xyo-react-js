@@ -1,4 +1,4 @@
-import { XyoAccount } from '@xyo-network/sdk-xyo-client-js'
+import { XyoAccount } from '@xyo-network/core'
 import { Dispatch } from 'react'
 
 import { ContextExState } from '../../../context-ex'

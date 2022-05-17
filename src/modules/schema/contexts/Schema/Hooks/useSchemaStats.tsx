@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/sdk-react'
-import { XyoArchivistArchivePayloadSchemaStats } from '@xyo-network/sdk-xyo-client-js'
+import { XyoArchivistArchivePayloadSchemaStats } from '@xyo-network/api'
 import { useState } from 'react'
 
 import { useArchive } from '../../../../archive'

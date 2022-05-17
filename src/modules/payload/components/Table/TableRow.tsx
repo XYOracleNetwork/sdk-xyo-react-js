@@ -1,6 +1,6 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
-import { XyoPayload, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/sdk-xyo-client-js'
+import { XyoPayload, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/core'
 import { DateTime } from 'luxon'
 import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
