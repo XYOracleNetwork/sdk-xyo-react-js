@@ -6,7 +6,7 @@ import { To, useNavigate } from 'react-router-dom'
 
 import { useIsMobile } from '../../hooks'
 
-export interface SimpleCardProps extends CardProps {
+export interface FullWidthCardProps extends CardProps {
   name: ReactNode
   desc?: ReactNode
   href?: string
@@ -17,7 +17,7 @@ export interface SimpleCardProps extends CardProps {
   cardIsButton?: boolean
 }
 
-export const FullWidthCard: React.FC<SimpleCardProps> = ({ name, small, cardIsButton, desc, href, to, media, ...props }) => {
+export const FullWidthCard: React.FC<FullWidthCardProps> = ({ name, small, cardIsButton, desc, href, to, media, ...props }) => {
   const theme = useTheme()
   const [raised, setRaised] = useState(false)
   const navigate = useNavigate()
