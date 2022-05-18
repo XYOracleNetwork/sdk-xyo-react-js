@@ -60,7 +60,7 @@ export const typography: ThemeOptions['typography'] = {
   h1: {
     fontFamily: fontFamilyPrimary,
     fontSize: '4rem',
-    fontWeight: lowerFontWeight,
+    fontWeight: 200,
   },
   h2: {
     fontFamily: fontFamilyPrimary,

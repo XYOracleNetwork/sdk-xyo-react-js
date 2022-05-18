@@ -1,6 +1,6 @@
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 import { alpha, Card, CardActions, CardContent, CardMedia, CardProps, IconButton, Typography, useTheme, Zoom } from '@mui/material'
-import { FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexCol, FlexGrowCol } from '@xylabs/sdk-react'
 import { ReactNode, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
@@ -15,9 +15,10 @@ export interface SimpleCardProps extends CardProps {
   small?: boolean
   iconImage?: string
   interactionVariant?: 'button' | 'card'
+  subtitle?: string
 }
 
-export const SimpleCard: React.FC<SimpleCardProps> = ({ iconImage, headline, small, desc, href, to, interactionVariant = 'card', media, ...props }) => {
+export const SimpleCard: React.FC<SimpleCardProps> = ({ iconImage, subtitle, headline, small, desc, href, to, interactionVariant = 'card', media, ...props }) => {
   const theme = useTheme()
   const [raised, setRaised] = useState(false)
   const navigate = useNavigate()
@@ -46,17 +47,24 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({ iconImage, headline, sma
       {media ? <CardMedia component="img" height="100" image={media} alt="" /> : null}
 
       <CardContent>
-        {iconImage ? <img src={iconImage} height="40px" style={{ paddingBottom: '8px' }} /> : null}
-        {typeof headline === 'string' ? (
-          <Typography fontWeight={700} variant={small ? 'body2' : 'body1'} textAlign="left" gutterBottom paddingBottom={1}>
-            {headline}
+        <FlexCol width="100%" alignItems="flex-start">
+          {iconImage ? <img src={iconImage} height="40px" style={{ paddingBottom: '8px' }} /> : null}
+          {typeof headline === 'string' ? (
+            <Typography variant={small ? 'body1' : 'h6'} textAlign="left" gutterBottom>
+              {headline}
+            </Typography>
+          ) : (
+            headline
+          )}
+          {subtitle ? (
+            <Typography variant="subtitle2" textAlign="left" gutterBottom>
+              {subtitle}
+            </Typography>
+          ) : null}
+          <Typography variant={small ? 'caption' : 'body1'} textAlign="left" gutterBottom>
+            {desc}
           </Typography>
-        ) : (
-          headline
-        )}
-        <Typography variant={small ? 'caption' : 'body2'} fontWeight={400} textAlign="left" gutterBottom>
-          {desc}
-        </Typography>
+        </FlexCol>
       </CardContent>
       {interactionVariant == 'button' ? (
         <CardActions>

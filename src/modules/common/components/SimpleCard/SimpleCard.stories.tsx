@@ -39,30 +39,35 @@ const Default = Template.bind({})
 Default.args = {
   desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat delectus nemo optio quis! Totam magni laboriosam repudiandae nam nobis at quisquam aut omnis, quis officiis similique enim id dolorem unde!',
   headline: 'Headline Lorem Ipsum',
+  subtitle: 'Aug 25, 1997',
 }
 const DefaultWithImage = Template.bind({})
 DefaultWithImage.args = {
   desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat delectus nemo optio quis! Totam magni laboriosam repudiandae nam nobis at quisquam aut omnis, quis officiis similique enim id dolorem unde!',
   headline: 'Headline Lorem Ipsum',
   iconImage: CoinbaseWalletIcon,
+  subtitle: 'Aug 25, 1997',
 }
 const VariantButton = Template.bind({})
 VariantButton.args = {
   desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat delectus nemo optio quis! Totam magni laboriosam repudiandae nam nobis at quisquam aut omnis, quis officiis similique enim id dolorem unde!',
   headline: 'Headline Lorem Ipsum',
   interactionVariant: 'button',
+  subtitle: 'Aug 25, 1997',
 }
 const DefaultSmallCard = Template.bind({})
 DefaultSmallCard.args = {
   desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat delectus nemo optio quis!',
   headline: 'Headline Lorem Ipsum',
   small: true,
+  subtitle: 'Aug 25, 1997',
 }
 const DefaultMediaCard = Template.bind({})
 DefaultMediaCard.args = {
   desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat delectus nemo optio quis! Totam magni laboriosam repudiandae nam nobis at quisquam aut omnis, quis officiis similique enim id dolorem unde!',
   headline: 'Headline Lorem Ipsum',
   media: MoneyMedia,
+  subtitle: 'Aug 25, 1997',
 }
 const CardWithAllParameters = Template.bind({})
 CardWithAllParameters.args = {
@@ -71,6 +76,7 @@ CardWithAllParameters.args = {
   iconImage: CoinbaseWalletIcon,
   interactionVariant: 'button',
   media: MoneyMedia,
+  subtitle: 'Aug 25, 1997',
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
