@@ -1,7 +1,6 @@
-import { Container, Grid, Typography } from '@mui/material'
+import { Container, Grid, Typography, useTheme } from '@mui/material'
 import { ButtonEx, FlexBoxProps, FlexGrowCol, FlexGrowRow, LinkEx } from '@xylabs/sdk-react'
 import { ReactElement } from 'react'
-import { useDarkMode } from 'storybook-dark-mode'
 
 import { useIsMobile } from '../../hooks'
 import { colorfulGradientDarkMode, colorfulGradientLightMode } from '../GradientText'
@@ -114,8 +113,8 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
   ...props
 }) => {
   const isMobile = useIsMobile()
-  const darkMode = useDarkMode()
-  const classes = darkMode ? colorfulGradientDarkMode() : colorfulGradientLightMode()
+  const theme = useTheme()
+  const classes = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
   return (
     <FlexGrowCol
       sx={{

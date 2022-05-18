@@ -1,7 +1,6 @@
-import { Divider, Grid, Typography } from '@mui/material'
+import { Divider, Grid, Typography, useTheme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { FlexCol } from '@xylabs/sdk-react'
-import { useDarkMode } from 'storybook-dark-mode'
 
 import { SimpleCard } from '../SimpleCard'
 
@@ -46,8 +45,8 @@ export const colorfulGradientDarkMode = makeStyles(() => ({
 }))
 
 export const GradientTextExample: React.FC = () => {
-  const darkMode = useDarkMode()
-  const classes = darkMode ? colorfulGradientDarkMode() : colorfulGradientLightMode()
+  const theme = useTheme()
+  const classes = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
   return (
     <FlexCol alignItems="stretch">
       <Typography variant="h4" gutterBottom>
