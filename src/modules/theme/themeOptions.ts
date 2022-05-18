@@ -5,6 +5,15 @@ import { fontFamilyPrimary } from './fontFamily'
 import { partialLightThemeOptions } from './partialLightThemeOptions'
 
 export const components: ThemeOptions['components'] = {
+  MuiCard: {
+    styleOverrides: {
+      root: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      },
+    },
+  },
   MuiCardHeader: {
     styleOverrides: {
       content: {
@@ -28,30 +37,40 @@ export const components: ThemeOptions['components'] = {
   },
 }
 
-const lowerFontWeight = 700
+const lowerFontWeight = 400
 
 export const typography: ThemeOptions['typography'] = {
+  body1: {
+    fontWeight: 400,
+    lineHeight: 1.57,
+  },
+  body2: {
+    lineHeight: 1.57,
+  },
   button: {
     fontSize: '1rem',
     fontWeight: 500,
-    textTransform: 'capitalize',
+    textTransform: 'inherit',
   },
   fontFamily: fontFamilyPrimary,
   fontWeightBold: 700,
-  fontWeightLight: 300,
+  fontWeightLight: 200,
   fontWeightMedium: 600,
   fontWeightRegular: 400,
   h1: {
     fontFamily: fontFamilyPrimary,
     fontSize: '4rem',
+    fontWeight: lowerFontWeight,
   },
   h2: {
     fontFamily: fontFamilyPrimary,
     fontSize: '2.4rem',
+    fontWeight: lowerFontWeight,
   },
   h3: {
     fontFamily: fontFamilyPrimary,
     fontSize: '2.24rem',
+    fontWeight: lowerFontWeight,
   },
   h4: {
     fontSize: '2rem',

@@ -1,13 +1,23 @@
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
-import { alpha, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography, useTheme, Zoom } from '@mui/material'
+import { alpha, Card, CardActions, CardContent, CardMedia, CardProps, Grid, IconButton, Typography, useTheme, Zoom } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/sdk-react'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
-import { useIsMobile } from '../hooks'
-import { SimpleCardProps } from './SimpleCard'
+import { useIsMobile } from '../../hooks'
 
-export const FullWidthCard: React.FC<SimpleCardProps> = ({ name, small, needsButton, cardIsButton, desc, href, to, media, ...props }) => {
+export interface SimpleCardProps extends CardProps {
+  name: ReactNode
+  desc?: ReactNode
+  href?: string
+  to?: To
+  linkText?: string
+  media?: string
+  small?: boolean
+  cardIsButton?: boolean
+}
+
+export const FullWidthCard: React.FC<SimpleCardProps> = ({ name, small, cardIsButton, desc, href, to, media, ...props }) => {
   const theme = useTheme()
   const [raised, setRaised] = useState(false)
   const navigate = useNavigate()
@@ -53,41 +63,36 @@ export const FullWidthCard: React.FC<SimpleCardProps> = ({ name, small, needsBut
               {desc}
             </Typography>
           </Grid>
-          {needsButton ? (
-            <Grid item xs={1} display={isMobile ? 'none' : 'flex'} justifyContent="center">
-              <Zoom in={raised}>
-                <IconButton
-                  color="primary"
-                  size={small ? 'small' : 'medium'}
-                  onClick={() => (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404'))}
-                  disableFocusRipple
-                  disableRipple
-                  disableTouchRipple
-                >
-                  <ArrowForwardRoundedIcon fontSize={small ? 'small' : 'medium'} />
-                </IconButton>
-              </Zoom>
-            </Grid>
-          ) : null}
+          <Grid item xs={1} display={isMobile ? 'none' : 'flex'} justifyContent="center">
+            <Zoom in={raised}>
+              <IconButton
+                color="primary"
+                size={small ? 'small' : 'medium'}
+                onClick={() => (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404'))}
+                disableFocusRipple
+                disableRipple
+                disableTouchRipple
+              >
+                <ArrowForwardRoundedIcon fontSize={small ? 'small' : 'medium'} />
+              </IconButton>
+            </Zoom>
+          </Grid>
         </Grid>
       </CardContent>
-
-      {needsButton ? (
-        <CardActions sx={{ display: { md: isMobile ? 'flex' : 'none' } }}>
-          <FlexGrowCol alignItems="flex-end">
-            <IconButton
-              color="primary"
-              size={small ? 'small' : 'medium'}
-              onClick={() => (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404'))}
-              disableFocusRipple
-              disableRipple
-              disableTouchRipple
-            >
-              <ArrowForwardRoundedIcon fontSize={small ? 'small' : 'medium'} />
-            </IconButton>
-          </FlexGrowCol>
-        </CardActions>
-      ) : null}
+      <CardActions sx={{ display: { md: isMobile ? 'flex' : 'none' } }}>
+        <FlexGrowCol alignItems="flex-end">
+          <IconButton
+            color="primary"
+            size={small ? 'small' : 'medium'}
+            onClick={() => (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404'))}
+            disableFocusRipple
+            disableRipple
+            disableTouchRipple
+          >
+            <ArrowForwardRoundedIcon fontSize={small ? 'small' : 'medium'} />
+          </IconButton>
+        </FlexGrowCol>
+      </CardActions>
     </Card>
   )
 }
