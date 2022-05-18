@@ -1,6 +1,5 @@
-import { createTheme, ThemeProvider, Typography } from '@mui/material'
-import { FlexCol, InvertableThemeProvider } from '@xylabs/sdk-react'
-import { useDarkMode } from 'storybook-dark-mode'
+import { Typography } from '@mui/material'
+import { FlexCol } from '@xylabs/sdk-react'
 
 import { AppBarsExample } from './AppBars.example'
 import { ButtonsExample } from './Buttons.example'

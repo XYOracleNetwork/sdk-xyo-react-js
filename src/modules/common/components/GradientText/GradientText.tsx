@@ -1,5 +1,4 @@
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
-import { Button, Chip, Divider, Grid, Stack, Typography } from '@mui/material'
+import { Divider, Grid, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { FlexCol } from '@xylabs/sdk-react'
 import { useDarkMode } from 'storybook-dark-mode'
