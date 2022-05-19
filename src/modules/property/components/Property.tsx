@@ -1,4 +1,4 @@
-import { CircularProgress, Grid, useMediaQuery, useTheme } from '@mui/material'
+import { CircularProgress, Divider, Grid, useMediaQuery, useTheme } from '@mui/material'
 import { FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
 
 import { IdenticonCorner } from './IdenticonCorner'
@@ -16,8 +16,9 @@ export const Property: React.FC<PropertyProps> = ({
   paddingFactor = 1,
   tip,
   actions,
-  stackBreak = 'md',
+  stackBreak = 'xs',
   required,
+  size,
   badge = false,
   gridContainerProps,
   ...props
@@ -50,10 +51,12 @@ export const Property: React.FC<PropertyProps> = ({
     )
   }
 
+  const sizedHeight = (size === 'small' ? 40 : 56) * (belowStackBreak ? 2 : 1)
+
   return (
     <FlexRow
+      height={sizedHeight}
       alignItems="center"
-      margin={0.5}
       border={1}
       borderColor={required && value === undefined ? theme.palette.error.main : theme.palette.divider}
       borderRadius={1}
@@ -61,6 +64,7 @@ export const Property: React.FC<PropertyProps> = ({
     >
       <Grid container flexWrap={belowStackBreak ? 'wrap' : 'nowrap'} justifyContent="space-between" overflow="hidden" {...gridContainerProps}>
         <TitleGridItem />
+        <Divider orientation="vertical" />
         {children ? null : <FlexGrowRow />}
         <ChildrenGridItem />
         {belowStackBreak ? null : (

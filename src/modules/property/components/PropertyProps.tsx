@@ -1,4 +1,4 @@
-import { GridProps } from '@mui/material'
+import { Breakpoint, GridProps } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/sdk-react'
 import { ReactNode } from 'react'
 
@@ -14,6 +14,7 @@ export interface PropertyProps extends FlexBoxProps {
   paddingFactor?: number
   hero?: boolean
   badge?: boolean
-  stackBreak?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'small' | 'medium'
+  stackBreak?: Breakpoint
   gridContainerProps?: GridProps
 }
