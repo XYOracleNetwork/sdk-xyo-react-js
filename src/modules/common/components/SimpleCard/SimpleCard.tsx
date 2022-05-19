@@ -7,7 +7,7 @@ import { To, useNavigate } from 'react-router-dom'
 import { useIsMobile } from '../../hooks'
 
 export interface SimpleCardProps extends CardProps {
-  headline: ReactNode
+  headline?: ReactNode
   desc?: ReactNode
   href?: string
   to?: To
