@@ -1,7 +1,6 @@
-import { Container, Grid, Typography } from '@mui/material'
+import { Container, Grid, Typography, useTheme } from '@mui/material'
 import { ButtonEx, FlexBoxProps, FlexGrowCol, FlexGrowRow, LinkEx } from '@xylabs/sdk-react'
 import { ReactElement } from 'react'
-import { useDarkMode } from 'storybook-dark-mode'
 
 import { useIsMobile } from '../../hooks'
 import { colorfulGradientDarkMode, colorfulGradientLightMode } from '../GradientText'
@@ -33,6 +32,7 @@ interface SubLinkSectionProps {
   subLinkText2?: string
   subLinkPath?: string
   subLinkIcon?: ReactElement
+  backgroundImageAlignment?: boolean
 }
 
 interface ButtonSectionProps {
@@ -40,32 +40,15 @@ interface ButtonSectionProps {
   to?: string
   buttonText?: string
 }
-
-const SubLinkSection: React.FC<SubLinkSectionProps> = ({ subLinkText1, subLinkText2, subLinkPath, subLinkIcon }) => {
-  const isMobile = useIsMobile()
+const SubLinkSection: React.FC<SubLinkSectionProps> = ({ subLinkText1, subLinkText2, subLinkPath, subLinkIcon, backgroundImageAlignment }) => {
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <FlexGrowRow width="100%" justifyContent="flex-start">
-          {subLinkIcon} &nbsp;
-          <Typography>{subLinkText1}&nbsp;</Typography>
-          {isMobile ? null : (
-            <LinkEx href={subLinkPath} underline="always" target="_blank" color="inherit">
-              <Typography>{subLinkText2}</Typography>
-            </LinkEx>
-          )}
-        </FlexGrowRow>
-      </Grid>
-      <Grid item xs={12}>
-        {isMobile ? (
-          <FlexGrowRow width="100%" justifyContent="flex-start">
-            <LinkEx href={subLinkPath} underline="always" target="_blank" color="inherit">
-              <Typography>{subLinkText2}</Typography>
-            </LinkEx>
-          </FlexGrowRow>
-        ) : null}
-      </Grid>
-    </Grid>
+    <FlexGrowRow width="100%" sx={{ flexDirection: { md: 'row', xs: 'column' }, justifyContent: { md: backgroundImageAlignment ? 'flex-start' : 'center', xs: 'center' } }}>
+      {subLinkIcon ? <span>{subLinkIcon}&nbsp;</span> : null}
+      <Typography>{subLinkText1}&nbsp;</Typography>
+      <LinkEx href={subLinkPath} underline="always" target="_blank" color="inherit">
+        <Typography>{subLinkText2}</Typography>
+      </LinkEx>
+    </FlexGrowRow>
   )
 }
 
@@ -114,8 +97,8 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
   ...props
 }) => {
   const isMobile = useIsMobile()
-  const darkMode = useDarkMode()
-  const classes = darkMode ? colorfulGradientDarkMode() : colorfulGradientLightMode()
+  const theme = useTheme()
+  const classes = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
   return (
     <FlexGrowCol
       sx={{
@@ -149,9 +132,9 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
           <Grid item xs={12} sm={8} md={backgroundImage ? 6 : 8} lg={backgroundImage ? 6 : 8}>
             <FlexGrowCol paddingY={2} sx={{ alignItems: { xs: backgroundImage && !isMobile ? 'flex-start' : 'center' } }}>
               <Typography variant="h1" component="h1" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
-                <span>{`${title} `}</span>
-                <span className={classes.heading}> {` ${gradientTitle}`}</span>
-                <span>{` ${title2}`}</span>
+                {title ? <span>{`${title} `}</span> : null}
+                {gradientTitle ? <span className={classes.heading}> {` ${gradientTitle}`}</span> : null}
+                {title2 ? <span>{` ${title2}`}</span> : null}
               </Typography>
               <Typography variant="body1" component="h2" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
                 {desc}
@@ -160,7 +143,13 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
                 <ButtonSection href={button1Href} to={button1To} buttonText={button1Text} />
                 <ButtonSection href={button2Href} to={button2To} buttonText={button2Text} />
               </FlexGrowRow>
-              <SubLinkSection subLinkIcon={subLinkIcon} subLinkText1={subLinkText1} subLinkText2={subLinkText2} subLinkPath={subLinkPath}></SubLinkSection>
+              <SubLinkSection
+                subLinkIcon={subLinkIcon}
+                subLinkText1={subLinkText1}
+                subLinkText2={subLinkText2}
+                subLinkPath={subLinkPath}
+                backgroundImageAlignment={backgroundImage ? true : false}
+              />
             </FlexGrowCol>
           </Grid>
           <Grid item xs={12} md={6}>
