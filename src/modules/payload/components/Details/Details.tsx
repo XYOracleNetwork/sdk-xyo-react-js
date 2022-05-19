@@ -24,7 +24,7 @@ export const PayloadDetails: React.FC<PayloadDetailsProps> = ({
 }) => {
   return (
     <FlexCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
-      <PayloadDataDetails hero showBadge value={payload} {...payloadDataDetailsProps} />
+      <PayloadDataDetails size="large" badge value={payload} {...payloadDataDetailsProps} />
       <PayloadMetaDetails value={payload} {...payloadMetaDetailsProps} />
       <PayloadValidationDetails value={payload} {...payloadValidationDetailsProps} />
       <PayloadJsonDetails payload={payload} {...payloadJsonDetailsProps} />

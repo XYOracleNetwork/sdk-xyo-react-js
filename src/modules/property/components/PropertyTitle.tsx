@@ -1,34 +1,36 @@
-import { Typography, useMediaQuery, useTheme } from '@mui/material'
+import { Typography, TypographyVariant } from '@mui/material'
 import { FlexBoxProps, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { ReactNode } from 'react'
 
-import { PropertyHeroProps } from './PropertyHeroProps'
+import { SizeProp } from './SizeProp'
 
-export interface PropertyTitleProps extends PropertyHeroProps, FlexBoxProps {
+export interface PropertyTitleProps extends FlexBoxProps {
   tip?: ReactNode
+  more?: ReactNode
   title?: string
-  paddingFactor: number
+  size?: SizeProp
 }
 
-export const PropertyTitle: React.FC<PropertyTitleProps> = ({ hero = false, tip, title, paddingFactor, ...props }) => {
-  const theme = useTheme()
-  const aboveSm = useMediaQuery(theme.breakpoints.up('sm'))
+export const PropertyTitle: React.FC<PropertyTitleProps> = ({ size = 'medium', tip, more, title, ...props }) => {
+  const sizeVariants: Record<SizeProp, TypographyVariant> = {
+    large: 'h6',
+    medium: 'caption',
+    small: 'caption',
+  }
 
   return (
-    <FlexRow
-      borderRight={aboveSm && hero === false ? `solid 1px ${theme.palette.divider}` : 'none'}
-      justifyContent="flex-start"
-      padding={theme.spacing(paddingFactor, paddingFactor)}
-      {...props}
-    >
-      <Typography noWrap variant={hero ? 'h2' : 'caption'} fontWeight={hero ? 'bold' : 'regular'}>
-        {title}
-      </Typography>
-      {tip ? (
-        <QuickTipButton style={{ paddingBottom: 0, paddingTop: 0 }} title={title ?? ''}>
-          {tip}
-        </QuickTipButton>
-      ) : null}
+    <FlexRow justifyContent="space-between" {...props}>
+      <FlexRow paddingX={1}>
+        <Typography noWrap variant={sizeVariants[size]}>
+          {title}
+        </Typography>
+        {tip ? (
+          <QuickTipButton color="inherit" title={title ?? ''}>
+            {tip}
+          </QuickTipButton>
+        ) : null}
+      </FlexRow>
+      {more}
     </FlexRow>
   )
 }

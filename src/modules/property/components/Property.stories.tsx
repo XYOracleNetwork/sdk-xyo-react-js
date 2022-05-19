@@ -58,17 +58,21 @@ const WithData = Template.bind({})
 WithData.args = { title: 'Block Hash', value: sampleBlockWithPayloads._hash }
 WithData.decorators = [appThemeDecorator]
 
-const WithDataSmall = TemplateSmall.bind({})
-WithDataSmall.args = { title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+const WithDataSmall = Template.bind({})
+WithDataSmall.args = { size: 'small', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
 WithDataSmall.decorators = [appThemeDecorator]
 
-const WithDataAndCompare = TemplateWithCompare.bind({})
-WithDataAndCompare.args = { title: 'Block Hash', value: sampleBlockWithPayloads._hash }
-WithDataAndCompare.decorators = [appThemeDecorator]
+const WithDataAndBadgeSmall = Template.bind({})
+WithDataAndBadgeSmall.args = { badge: true, size: 'small', tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataAndBadgeSmall.decorators = [appThemeDecorator]
 
-const WithDataAndBadge = Template.bind({})
-WithDataAndBadge.args = { badge: true, title: 'Block Hash', value: sampleBlockWithPayloads._hash }
-WithDataAndBadge.decorators = [appThemeDecorator]
+const WithDataAndBadgeMedium = Template.bind({})
+WithDataAndBadgeMedium.args = { badge: true, size: 'medium', tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataAndBadgeMedium.decorators = [appThemeDecorator]
+
+const WithDataAndBadgeLarge = Template.bind({})
+WithDataAndBadgeLarge.args = { badge: true, size: 'large', tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataAndBadgeLarge.decorators = [appThemeDecorator]
 
 const WithTip = Template.bind({})
 WithTip.args = {
@@ -96,28 +100,41 @@ WithActions.args = {
 }
 WithActions.decorators = [appThemeDecorator]
 
-const WithHero = Template.bind({})
-WithHero.args = {
+const LargeWithValue = Template.bind({})
+LargeWithValue.args = {
   badge: true,
-  hero: true,
+  size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
   value: sampleBlockWithPayloads._hash,
 }
-WithHero.decorators = [appThemeDecorator]
+LargeWithValue.decorators = [appThemeDecorator]
 
-const WithHeroAndActions = Template.bind({})
-WithHeroAndActions.args = {
+const LargeWithValueAndActions = Template.bind({})
+LargeWithValueAndActions.args = {
   actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
   badge: true,
-  hero: true,
+  size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
   value: sampleBlockWithPayloads._hash,
 }
-WithHeroAndActions.decorators = [appThemeDecorator]
+LargeWithValueAndActions.decorators = [appThemeDecorator]
 
-export { Default, WithActions, WithData, WithDataAndBadge, WithDataAndCompare, WithDataSmall, WithHero, WithHeroAndActions, WithTip, WithTipAndBadge, WithUndefinedData }
+export {
+  Default,
+  LargeWithValue,
+  LargeWithValueAndActions,
+  WithActions,
+  WithData,
+  WithDataAndBadgeLarge,
+  WithDataAndBadgeMedium,
+  WithDataAndBadgeSmall,
+  WithDataSmall,
+  WithTip,
+  WithTipAndBadge,
+  WithUndefinedData,
+}
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
