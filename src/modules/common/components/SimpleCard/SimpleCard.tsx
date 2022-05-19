@@ -7,7 +7,7 @@ import { To, useNavigate } from 'react-router-dom'
 import { useIsMobile } from '../../hooks'
 
 export interface SimpleCardProps extends CardProps {
-  headline: ReactNode
+  headline?: ReactNode
   desc?: ReactNode
   href?: string
   to?: To
@@ -46,7 +46,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({ iconImage, subtitle, hea
     >
       {media ? <CardMedia component="img" height="100" image={media} alt="" /> : null}
 
-      <CardContent>
+      <CardContent sx={{ height: '100%' }}>
         <FlexCol width="100%" alignItems="flex-start">
           {iconImage ? <img src={iconImage} height="40px" style={{ paddingBottom: '8px' }} /> : null}
           {typeof headline === 'string' ? (

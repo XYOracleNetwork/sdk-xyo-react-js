@@ -32,7 +32,6 @@ Default.args = {
   subLinkText1: 'We just announced XYO 2.0',
   subLinkText2: 'Read more here.',
   title: 'Lorem ipsum',
-  title2: 'sit amet consectetur adipisicing elit.',
 }
 const WithBackgroundImage = Template.bind({})
 WithBackgroundImage.args = {
