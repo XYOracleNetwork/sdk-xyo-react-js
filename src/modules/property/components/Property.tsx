@@ -1,5 +1,5 @@
-import { CircularProgress, TypographyVariant, useTheme } from '@mui/material'
-import { FlexCol, FlexGrowRow, FlexRow, WithChildren } from '@xylabs/sdk-react'
+import { Box, CircularProgress, TypographyVariant, useTheme } from '@mui/material'
+import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, WithChildren } from '@xylabs/sdk-react'
 
 import { IdenticonCorner } from './IdenticonCorner'
 import { PropertyActionsMenu } from './PropertyActionsMenu'
@@ -10,7 +10,6 @@ import { PropertyValue } from './Value'
 
 export const Property: React.FC<PropertyProps> = ({ title, value, children, size = 'medium', tip, actions, required, badge = false, ...props }) => {
   const theme = useTheme()
-  const minHeight = 48
 
   const sizeTitleHeight: Record<SizeProp, number> = {
     large: 40,
@@ -18,38 +17,32 @@ export const Property: React.FC<PropertyProps> = ({ title, value, children, size
     small: 18,
   }
 
-  const Value: React.FC<WithChildren<{ size?: SizeProp }>> = ({ size = 'medium', children }) => {
-    const sizeVariants: Record<SizeProp, TypographyVariant> = {
-      large: 'h6',
-      medium: 'body1',
-      small: 'caption',
-    }
-
-    const sizeValueHeight: Record<SizeProp, number> = {
-      large: 60,
-      medium: 30,
-      small: 22,
-    }
-
-    return (
-      <FlexRow height={sizeValueHeight[size]} justifyContent="flex-start" paddingLeft={1} paddingRight={badge ? 4 : 1}>
-        {value === undefined ? (
-          <FlexGrowRow minHeight={minHeight}>
-            <CircularProgress size={16} />
-          </FlexGrowRow>
-        ) : children ? (
-          children
-        ) : (
-          <PropertyValue value={value} typographyVariant={sizeVariants[size]} />
-        )}
-      </FlexRow>
-    )
+  interface ValueProps extends FlexBoxProps {
+    size?: SizeProp
   }
 
-  const sizedHeight = (size === 'small' ? 40 : 56) * (belowStackBreak ? 2 : 1)
+  const sizeValueHeight: Record<SizeProp, number> = {
+    large: 60,
+    medium: 30,
+    small: 22,
+  }
+
+  const sizeVariants: Record<SizeProp, TypographyVariant> = {
+    large: 'h6',
+    medium: 'body1',
+    small: 'caption',
+  }
 
   return (
-    <FlexCol alignItems="stretch" border={1} borderColor={required && value === undefined ? theme.palette.error.main : theme.palette.divider} borderRadius={1} {...props}>
+    <FlexCol
+      minWidth={0}
+      alignItems="stretch"
+      border={1}
+      borderColor={required && value === undefined ? theme.palette.error.main : theme.palette.divider}
+      borderRadius={1}
+      overflow="hidden"
+      {...props}
+    >
       <PropertyTitle
         tip={tip}
         title={title}
@@ -59,8 +52,8 @@ export const Property: React.FC<PropertyProps> = ({ title, value, children, size
         height={sizeTitleHeight[size]}
         more={<PropertyActionsMenu actions={actions} />}
       />
-      <FlexRow flexWrap="wrap" justifyContent="space-between" overflow="hidden">
-        <Value size={size}>{children}</Value>
+      <FlexRow justifyContent={value === undefined ? 'center' : 'space-between'} overflow="hidden" height={sizeValueHeight[size]}>
+        {value ? <PropertyValue shortSpace={badge ? sizeValueHeight[size] : 0} value={value} typographyVariant={sizeVariants[size]} /> : <CircularProgress size={16} />}
         {value ? badge ? <IdenticonCorner value={value} /> : null : null}
       </FlexRow>
     </FlexCol>
