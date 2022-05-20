@@ -1,5 +1,5 @@
-import { Box, CircularProgress, TypographyVariant, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, WithChildren } from '@xylabs/sdk-react'
+import { CircularProgress, TypographyVariant, useTheme } from '@mui/material'
+import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/sdk-react'
 
 import { IdenticonCorner } from './IdenticonCorner'
 import { PropertyActionsMenu } from './PropertyActionsMenu'
