@@ -5684,22 +5684,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/api@npm:^2.20.30":
-  version: 2.20.30
-  resolution: "@xyo-network/api@npm:2.20.30"
+"@xyo-network/api@npm:^2.20.31":
+  version: 2.20.31
+  resolution: "@xyo-network/api@npm:2.20.31"
   dependencies:
     "@xylabs/sdk-js": ^2.5.5
-    "@xyo-network/core": ^2.20.30
+    "@xyo-network/core": ^2.20.31
     axios: ^0.27.2
     pako: ^2.0.4
     uuid: ^8.3.2
-  checksum: bb32aae8f32b2cddaf39ccee27b617e786dff3c8d4cd5a882706b6ffd89ccbb966d92b329036252a89291364daa3f35985a7efa0e33c634e998684e2139e60c5
+  checksum: 9fabe2e919b1bd8a95b14013c701e0a3d9d36b53f46babf28b82da28c506332efdcaeacac1f275f7e95e2eb5e4a2d2ff9f97d3339c8d94489cfaeb3f126d85e0
   languageName: node
   linkType: hard
 
-"@xyo-network/core@npm:^2.20.30":
-  version: 2.20.30
-  resolution: "@xyo-network/core@npm:2.20.30"
+"@xyo-network/core@npm:^2.20.31":
+  version: 2.20.31
+  resolution: "@xyo-network/core@npm:2.20.31"
   dependencies:
     "@xylabs/sdk-js": ^2.5.5
     axios: ^0.27.2
@@ -5708,29 +5708,47 @@ __metadata:
     lodash: ^4.17.21
     sha.js: ^2.4.11
     ua-parser-js: ^1.0.2
-  checksum: 0980fb0c80d5591cc6351e8d3c9e790922e2b029e247a4628b342db686af01c70bb9039d4943484b3ea13e01e6c1691c6586fc7eb9677974151a4263027ed77f
+  checksum: 618cf9deabe2179413f3d0d85da154dbcf999cb61f988775217b42fc73058377a7386586e893eabd8245ef19bc3e4a010a8d9d3cbd32cbac91c16a402861a06c
   languageName: node
   linkType: hard
 
-"@xyo-network/domain@npm:^2.20.30":
-  version: 2.20.30
-  resolution: "@xyo-network/domain@npm:2.20.30"
+"@xyo-network/domain@npm:^2.20.31":
+  version: 2.20.31
+  resolution: "@xyo-network/domain@npm:2.20.31"
   dependencies:
-    "@xyo-network/api": ^2.20.30
-    "@xyo-network/core": ^2.20.30
-    "@xyo-network/network": ^2.20.30
+    "@xyo-network/api": ^2.20.31
+    "@xyo-network/core": ^2.20.31
+    "@xyo-network/network": ^2.20.31
     axios: ^0.27.2
     lodash: ^4.17.21
-  checksum: c3239bc114faca7bff31f2c095543f7ef209edae24e6b00d72e5e2ded24daacc83ae4f3609a2aa2246149d0d808f428e249acc0884a1ca82231a71148544cfe3
+  checksum: b530d7c510bfb1a4234db31e9babad1e10b8a5e78067ec13ca7d661ba398e9764d59aad4de0e963f791b74cb9c5673dabc86a575bfc3e5fda2f6f46e8dd73d13
   languageName: node
   linkType: hard
 
-"@xyo-network/network@npm:^2.20.30":
-  version: 2.20.30
-  resolution: "@xyo-network/network@npm:2.20.30"
+"@xyo-network/network@npm:^2.20.31":
+  version: 2.20.31
+  resolution: "@xyo-network/network@npm:2.20.31"
   dependencies:
     "@xylabs/sdk-js": ^2.5.5
-  checksum: 77ca447c7c3f7e7af817bdd1f5cdb78c76a12449cea8cd2c2d497f5fdf648c05dd9682014109d6bb82a8ca9133df24cc02e8083227c15879cc90c071aefd7c33
+  checksum: a724d80d70cba91d5e855e618ed81a9acab78471fe9b269d83fc7a0cdbb4609f6249a9902531f75cda6b738b547e0b382924332e2b6915bf0e71b8971e4a0ed6
+  languageName: node
+  linkType: hard
+
+"@xyo-network/panel@npm:^2.20.31":
+  version: 2.20.31
+  resolution: "@xyo-network/panel@npm:2.20.31"
+  dependencies:
+    "@ethersproject/providers": ^5.6.6
+    "@metamask/providers": ^8.1.1
+    "@xylabs/sdk-js": ^2.5.5
+    "@xyo-network/api": ^2.20.31
+    "@xyo-network/core": ^2.20.31
+    "@xyo-network/domain": ^2.20.31
+    "@xyo-network/systeminfo-witness": ^2.20.31
+    "@xyo-network/witnesses": ^2.20.31
+    ajv: ^8.11.0
+    lru-cache: ^7.10.1
+  checksum: 3ab2ab184a74d4cb258381f6fbf60ccbcc716b6ad72684dfa0c217139c832664b5aa26fa1fdf9d600d57aa24cb9771437f114cda3099f25b636bd93de190747a
   languageName: node
   linkType: hard
 
@@ -5768,11 +5786,12 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.6
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.30
-    "@xyo-network/core": ^2.20.30
-    "@xyo-network/network": ^2.20.30
-    "@xyo-network/systeminfo-witness": ^2.20.30
-    "@xyo-network/utils": ^2.20.30
+    "@xyo-network/api": ^2.20.31
+    "@xyo-network/core": ^2.20.31
+    "@xyo-network/network": ^2.20.31
+    "@xyo-network/panel": ^2.20.31
+    "@xyo-network/systeminfo-witness": ^2.20.31
+    "@xyo-network/utils": ^2.20.31
     assert: ^2.0.0
     axios: ^0.27.2
     lodash: ^4.17.21
@@ -5795,51 +5814,51 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/systeminfo-witness@npm:^2.20.30":
-  version: 2.20.30
-  resolution: "@xyo-network/systeminfo-witness@npm:2.20.30"
+"@xyo-network/systeminfo-witness@npm:^2.20.31":
+  version: 2.20.31
+  resolution: "@xyo-network/systeminfo-witness@npm:2.20.31"
   dependencies:
     "@ethersproject/providers": ^5.6.6
-    "@xyo-network/core": ^2.20.30
+    "@xyo-network/core": ^2.20.31
     axios: ^0.27.2
     bowser: ^2.11.0
     lodash: ^4.17.21
     systeminformation: ^5.11.15
     uuid: ^8.3.2
-  checksum: d9c71ab77de706a29737a4a3fa9488447500ab21820ed987347a1f88ba2b75221cc5c4d8bb96974b566d14ce2bb23d7a50e5df5afc348e30351fa4e08f159e2a
+  checksum: dd1d50b212246dc3c48a72aa8b0549becda394c3f25debb08a44593d3981a25177d35156ac20324f21bc0b23c0cc9c4eb2acb2a0219fc84eb40637ec8c5e8d7b
   languageName: node
   linkType: hard
 
-"@xyo-network/utils@npm:^2.20.30":
-  version: 2.20.30
-  resolution: "@xyo-network/utils@npm:2.20.30"
+"@xyo-network/utils@npm:^2.20.31":
+  version: 2.20.31
+  resolution: "@xyo-network/utils@npm:2.20.31"
   dependencies:
     "@ethersproject/providers": ^5.6.6
     "@metamask/providers": ^8.1.1
     "@xylabs/sdk-js": ^2.5.5
-    "@xyo-network/api": ^2.20.30
-    "@xyo-network/core": ^2.20.30
-    "@xyo-network/domain": ^2.20.30
-    "@xyo-network/systeminfo-witness": ^2.20.30
-    "@xyo-network/witnesses": ^2.20.30
+    "@xyo-network/api": ^2.20.31
+    "@xyo-network/core": ^2.20.31
+    "@xyo-network/domain": ^2.20.31
+    "@xyo-network/systeminfo-witness": ^2.20.31
+    "@xyo-network/witnesses": ^2.20.31
     ajv: ^8.11.0
     lru-cache: ^7.10.1
-  checksum: 2de6de58ca42b3eb5e131674a4a33c3ae465c797c68366834c99199ecf0da297432859b693e1763f030224c9016271740ee2aa2a1d192fd2f8261937fb8995c0
+  checksum: 1cf2ddfb24d6e0870c3211c3813298d6dd9bf28c52f4f8aab05fb730b210eb0fb1c15797e9a7e7c82ef8e63793c4e4ab0a03b5ec2e8864228d3c737f40843a5b
   languageName: node
   linkType: hard
 
-"@xyo-network/witnesses@npm:^2.20.30":
-  version: 2.20.30
-  resolution: "@xyo-network/witnesses@npm:2.20.30"
+"@xyo-network/witnesses@npm:^2.20.31":
+  version: 2.20.31
+  resolution: "@xyo-network/witnesses@npm:2.20.31"
   dependencies:
     "@ethersproject/providers": ^5.6.6
-    "@xyo-network/core": ^2.20.30
+    "@xyo-network/core": ^2.20.31
     axios: ^0.27.2
     bowser: ^2.11.0
     lodash: ^4.17.21
     systeminformation: ^5.11.15
     uuid: ^8.3.2
-  checksum: d0c72c39350d1378d0f9964ce14dc90cbea278e4f1426bdfdda24c9c4757e94b00003931e0708770e491a88834784e202353c1b9632ed8bb6cc8e88770369b68
+  checksum: 18dd84f49ceb87b7b417628d9cdb388acf22566244f18506c82bc25434830bd37fd9b53fdc5ad49a1db59fdac9ac1fb0e72980e29e9ea704b3743aa0c7d660ea
   languageName: node
   linkType: hard
 
