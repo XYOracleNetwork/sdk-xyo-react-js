@@ -5,14 +5,16 @@ import { ButtonEx, FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/core'
 import { useState } from 'react'
 
-import { Property, PropertyAction, PropertyHeroProps, usePropertyHeroProps } from '../../../property'
+import { Property, PropertyAction, SizeProp, usePropertyHeroProps } from '../../../property'
 import { PayloadHashSourceDetails } from './HashSourceDetails'
 
-export interface PayloadDataDetailsProps extends PropertyHeroProps, FlexBoxProps {
+export interface PayloadDataDetailsProps extends FlexBoxProps {
   value?: XyoPayload
+  size?: SizeProp
+  badge?: boolean
 }
 
-export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ value, ...props }) => {
+export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, badge, value, ...props }) => {
   const wrapper = value ? new XyoPayloadWrapper(value) : undefined
 
   const propertyHeroProps = usePropertyHeroProps(props)
@@ -38,7 +40,7 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ value, .
 
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <Property actions={actions} title="Payload Hash" value={hash ?? '<Unknown>'} tip="This is the payload hash" {...propertyHeroProps} />
+      <Property badge={badge} size={size} actions={actions} title="Payload Hash" value={hash ?? '<Unknown>'} tip="This is the payload hash" {...propertyHeroProps} />
       <Dialog open={viewSourceOpen} onClose={() => setViewSourceOpen(false)}>
         <DialogTitle>Hash Source</DialogTitle>
         <DialogContent>

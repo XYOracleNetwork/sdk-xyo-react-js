@@ -38,7 +38,7 @@ const payloadsFromBlock = (block?: XyoBoundWitness) => {
 export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, blockPayloadsProps, blockMetaDetailsProps, ...props }) => {
   return (
     <FlexGrowCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
-      <BlockDataDetails block={block} hero showBadge />
+      <BlockDataDetails block={block} size="large" badge />
       <BlockMetaDetails block={block} {...blockMetaDetailsProps} />
       <BlockSignatureDetails block={block} />
       <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} {...blockPayloadsProps} />

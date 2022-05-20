@@ -1,74 +1,61 @@
-import { CircularProgress, Grid, useMediaQuery, useTheme } from '@mui/material'
-import { FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
+import { Box, CircularProgress, TypographyVariant, useTheme } from '@mui/material'
+import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, WithChildren } from '@xylabs/sdk-react'
 
 import { IdenticonCorner } from './IdenticonCorner'
-import { PropertyActions } from './PropertyActions'
+import { PropertyActionsMenu } from './PropertyActionsMenu'
 import { PropertyProps } from './PropertyProps'
 import { PropertyTitle } from './PropertyTitle'
+import { SizeProp } from './SizeProp'
 import { PropertyValue } from './Value'
 
-export const Property: React.FC<PropertyProps> = ({
-  title,
-  value,
-  children,
-  hero = false,
-  maxTitleWidth = 180,
-  paddingFactor = 1,
-  tip,
-  actions,
-  stackBreak = 'md',
-  required,
-  badge = false,
-  gridContainerProps,
-  ...props
-}) => {
+export const Property: React.FC<PropertyProps> = ({ title, value, children, size = 'medium', tip, actions, required, badge = false, ...props }) => {
   const theme = useTheme()
-  const belowStackBreak = useMediaQuery(theme.breakpoints.down(stackBreak))
-  const minHeight = 48
 
-  const TitleGridItem: React.FC = () => {
-    return title ? (
-      <Grid display="flex" xs={12} {...{ [stackBreak]: hero ? 12 : 'auto' }} item alignItems="center" justifyContent="space-between">
-        <PropertyTitle hero={hero} maxWidth={hero ? 'auto' : maxTitleWidth} minHeight={minHeight} tip={tip} title={title} paddingFactor={paddingFactor} />
-        {belowStackBreak ? <PropertyActions marginRight={badge ? 3 : 0} justifyContent="flex-end" actions={actions} /> : null}
-        {badge && typeof value === 'string' && <IdenticonCorner value={value} />}
-      </Grid>
-    ) : null
+  const sizeTitleHeight: Record<SizeProp, number> = {
+    large: 40,
+    medium: 26,
+    small: 18,
   }
 
-  const ChildrenGridItem: React.FC = () => {
-    return (
-      <Grid borderTop={belowStackBreak && title ? `1px solid ${theme.palette.divider}` : 'none'} display="flex" xs={12} {...{ [stackBreak]: 'auto' }} item alignItems="center">
-        {value === undefined ? (
-          <FlexGrowRow minHeight={minHeight} padding={paddingFactor}>
-            <CircularProgress size={16} />
-          </FlexGrowRow>
-        ) : (
-          <>{children ? children : <PropertyValue value={value} paddingFactor={paddingFactor} typographyVariant={hero ? 'h6' : undefined} />}</>
-        )}
-      </Grid>
-    )
+  interface ValueProps extends FlexBoxProps {
+    size?: SizeProp
+  }
+
+  const sizeValueHeight: Record<SizeProp, number> = {
+    large: 60,
+    medium: 30,
+    small: 22,
+  }
+
+  const sizeVariants: Record<SizeProp, TypographyVariant> = {
+    large: 'h6',
+    medium: 'body1',
+    small: 'caption',
   }
 
   return (
-    <FlexRow
-      alignItems="center"
-      margin={0.5}
+    <FlexCol
+      minWidth={0}
+      alignItems="stretch"
       border={1}
       borderColor={required && value === undefined ? theme.palette.error.main : theme.palette.divider}
       borderRadius={1}
+      overflow="hidden"
       {...props}
     >
-      <Grid container flexWrap={belowStackBreak ? 'wrap' : 'nowrap'} justifyContent="space-between" overflow="hidden" {...gridContainerProps}>
-        <TitleGridItem />
-        {children ? null : <FlexGrowRow />}
-        <ChildrenGridItem />
-        {belowStackBreak ? null : (
-          <Grid display="flex" xs="auto" item marginRight={badge ? 4 : 0}>
-            <PropertyActions actions={actions} />
-          </Grid>
-        )}
-      </Grid>
-    </FlexRow>
+      <PropertyTitle
+        tip={tip}
+        title={title}
+        size={size}
+        bgcolor={theme.palette.secondary.main}
+        color={theme.palette.getContrastText(theme.palette.secondary.main)}
+        height={sizeTitleHeight[size]}
+        more={<PropertyActionsMenu actions={actions} />}
+      />
+      <FlexRow justifyContent={value === undefined ? 'center' : 'space-between'} overflow="hidden" height={sizeValueHeight[size]}>
+        {value ? <PropertyValue shortSpace={badge ? sizeValueHeight[size] : 0} value={value} typographyVariant={sizeVariants[size]} /> : <CircularProgress size={16} />}
+        {value ? badge ? <IdenticonCorner value={value} /> : null : null}
+      </FlexRow>
+    </FlexCol>
   )
 }
