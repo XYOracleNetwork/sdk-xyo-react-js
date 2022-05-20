@@ -1,8 +1,8 @@
-import { XyoNodeConfig } from '@xyo-network/network'
+import { XyoNetworkNodePayload, XyoNetworkNodePayloadSchema } from '@xyo-network/network'
 
 import { ExplorerMapHashes } from './ExplorerMapHashes'
 
-export interface XyoArchivistPreset extends XyoNodeConfig {
+export interface XyoArchivistPreset extends XyoNetworkNodePayload {
   explorerMapHashes?: {
     staticAnswerHash: string
     animatedAnswerHashes: string[]
@@ -22,6 +22,7 @@ export const archivistPresets: XyoArchivistPreset[] = [
     docs: 'https://beta.archivist.xyo.network/api',
     explorerMapHashes: ExplorerMapHashes,
     name: 'XYO Shared Archivist (kerplunk)',
+    schema: XyoNetworkNodePayloadSchema,
     slug: 'kerplunk-archivist-xyo-network',
     type: 'archivist',
     uri: 'https://beta.api.archivist.xyo.network',
@@ -31,6 +32,7 @@ export const archivistPresets: XyoArchivistPreset[] = [
     docs: 'https://archivist.xyo.network/api',
     explorerMapHashes: ExplorerMapHashes,
     name: 'XYO Shared Archivist (main)',
+    schema: XyoNetworkNodePayloadSchema,
     slug: 'main-archivist-xyo-network',
     type: 'archivist',
     uri: 'https://api.archivist.xyo.network',
@@ -39,6 +41,7 @@ export const archivistPresets: XyoArchivistPreset[] = [
   {
     docs: 'http://localhost:8080/api',
     name: 'XYO Shared Archivist (local)',
+    schema: XyoNetworkNodePayloadSchema,
     slug: 'local-archivist-xyo-network',
     type: 'archivist',
     uri: 'http://localhost:8080',

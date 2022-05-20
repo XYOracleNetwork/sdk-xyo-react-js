@@ -1,7 +1,7 @@
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/core'
-import { XyoNetworkConfig } from '@xyo-network/network'
+import { XyoNetworkPayload } from '@xyo-network/network'
 import { useState } from 'react'
 
 import { useNetwork } from '../../network'
@@ -9,7 +9,7 @@ import { FetchHuriHashOptions, findHuriNetwork } from './lib'
 
 const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?: FetchHuriHashOptions): [XyoPayload | undefined, boolean, XyoApiError | undefined] => {
   const { network, networks, setNetwork } = useNetwork()
-  const [huriNetwork, setHuriNetwork] = useState<XyoNetworkConfig>()
+  const [huriNetwork, setHuriNetwork] = useState<XyoNetworkPayload>()
   const [huriPayload, setHuriPayload] = useState<XyoPayload>()
   const [huriPayloadNotFound, setHuriPayloadNotFound] = useState(false)
   const [huriApiError, setHuriApiError] = useState<XyoApiError>()
