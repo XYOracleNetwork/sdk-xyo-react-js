@@ -1,5 +1,5 @@
 import { CircularProgress, TypographyVariant, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexCol, FlexRow } from '@xylabs/sdk-react'
 
 import { IdenticonCorner } from './IdenticonCorner'
 import { PropertyActionsMenu } from './PropertyActionsMenu'
@@ -15,10 +15,6 @@ export const Property: React.FC<PropertyProps> = ({ title, value, children, size
     large: 40,
     medium: 26,
     small: 18,
-  }
-
-  interface ValueProps extends FlexBoxProps {
-    size?: SizeProp
   }
 
   const sizeValueHeight: Record<SizeProp, number> = {

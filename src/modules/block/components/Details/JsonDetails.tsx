@@ -1,4 +1,4 @@
-import { Typography, useMediaQuery, useTheme } from '@mui/material'
+import { Paper, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoBoundWitness } from '@xyo-network/core'
 import { lazy, Suspense } from 'react'
@@ -21,11 +21,11 @@ export const BlockJsonDetails: React.FC<BlockJsonDetailsProps> = ({ block = {}, 
         <Typography>JSON</Typography>
         <QuickTipButton title="BoundWitness JSON">The raw JSON of the Bound Witness</QuickTipButton>
       </FlexRow>
-      <Property padding={1} value={!!block}>
+      <Paper variant="outlined">
         <Suspense fallback={<FlexGrowRow />}>
           <JsonView src={block} collapseStringsAfterLength={belowSm ? 24 : 32} />
         </Suspense>
-      </Property>
+      </Paper>
     </FlexCol>
   )
 }
