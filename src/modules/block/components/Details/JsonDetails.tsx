@@ -3,8 +3,6 @@ import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xy
 import { XyoBoundWitness } from '@xyo-network/core'
 import { lazy, Suspense } from 'react'
 
-import { Property } from '../../../property'
-
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 export interface BlockJsonDetailsProps extends FlexBoxProps {

@@ -4,8 +4,6 @@ import { XyoPayload } from '@xyo-network/core'
 import { lazy, Suspense } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'
 
-import { Property } from '../../../property'
-
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 export interface PayloadJsonDetailsProps extends FlexBoxProps {
