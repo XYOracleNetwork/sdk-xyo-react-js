@@ -3,7 +3,7 @@ import { FlexBoxProps, FlexRow, Identicon } from '@xylabs/sdk-react'
 import { useEffect, useRef, useState } from 'react'
 
 export interface IdenticonCornerProps extends FlexBoxProps {
-  value: string
+  value?: string | number | boolean | null
 }
 
 export const IdenticonCorner: React.FC<IdenticonCornerProps> = ({ value, ...props }) => {
@@ -18,10 +18,10 @@ export const IdenticonCorner: React.FC<IdenticonCornerProps> = ({ value, ...prop
   const calculatedHeight = parentHeight ?? 0
 
   return (
-    <FlexRow alignItems="flex-start" maxHeight={48} height="100%" position="absolute" right={1} top={1}>
-      <FlexRow background height={calculatedHeight} width={calculatedHeight} borderBottom={`1px solid ${theme.palette.divider}`} borderLeft={`1px solid ${theme.palette.divider}`}>
+    <FlexRow alignItems="flex-start" height="100%" position="absolute" right={0} bottom={0}>
+      <FlexRow background height={calculatedHeight} width={calculatedHeight} borderTop={`1px solid ${theme.palette.divider}`} borderLeft={`1px solid ${theme.palette.divider}`}>
         <div ref={ref}>
-          <Identicon size={calculatedHeight * 0.6} value={value} sx={{ padding: `${calculatedHeight * 0.2}px` }} {...props} />
+          <Identicon size={calculatedHeight * 0.6} value={`${value}`} sx={{ padding: `${calculatedHeight * 0.2}px` }} {...props} />
         </div>
       </FlexRow>
     </FlexRow>

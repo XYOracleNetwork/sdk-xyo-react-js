@@ -15,7 +15,7 @@ const ArchiveProperty: React.FC<ArchiveLinkProps> = ({ payload, path }) => {
     <Property flexGrow={1} title="Archive" value={payload?._archive} tip="This archive that is storing this block">
       {path ? (
         <LinkEx to={path} display="flex" color={theme.palette.secondary.main}>
-          <PropertyValue paddingFactor={1} value={payload?._archive} />
+          <PropertyValue value={payload?._archive} />
         </LinkEx>
       ) : null}
     </Property>

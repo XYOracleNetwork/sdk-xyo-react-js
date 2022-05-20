@@ -11,7 +11,7 @@ const SchemaProperty: React.FC<PayloadValidationDetailsProps> = ({ value, viewSc
     <Property flexGrow={1} title="Schema" value={value?.schema} tip="Schema sent with the payload">
       {viewSchemaUrl ? (
         <LinkEx href={viewSchemaUrl} target="_blank" rel="noopener noreferrer" display="flex" color={theme.palette.secondary.main}>
-          <PropertyValue paddingFactor={1} value={value?.schema} title="view schema in new window" />
+          <PropertyValue value={value?.schema} title="view schema in new window" />
           <FilterNoneIcon sx={{ left: '-6px', position: 'relative', top: '9px', width: '12px' }} />
         </LinkEx>
       ) : null}
