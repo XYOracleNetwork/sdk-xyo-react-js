@@ -1,4 +1,4 @@
-import { Typography, useMediaQuery, useTheme } from '@mui/material'
+import { Paper, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/core'
 import { lazy, Suspense } from 'react'
@@ -23,11 +23,11 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonView
         <Typography>JSON</Typography>
         <QuickTipButton title="Payload JSON">The raw JSON of the payload</QuickTipButton>
       </FlexRow>
-      <Property padding={1} value={!!payload}>
+      <Paper variant="outlined">
         <Suspense fallback={<FlexGrowRow />}>
           <JsonView src={payload} enableClipboard collapseStringsAfterLength={belowSm ? 24 : 32} {...jsonViewProps} />
         </Suspense>
-      </Property>
+      </Paper>
     </FlexCol>
   )
 }
