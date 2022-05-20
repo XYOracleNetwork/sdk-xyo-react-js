@@ -19,7 +19,7 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
 
   const propertyHeroProps = usePropertyHeroProps(props)
   const [viewSourceOpen, setViewSourceOpen] = useState(false)
-  const hash = wrapper?.sortedHash()
+  const hash = wrapper?.hash
 
   const actions: PropertyAction[] = [
     {
@@ -30,12 +30,12 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
     {
       icon: <ContentCopyIcon />,
       name: 'Copy',
-      onClick: async () => await navigator.clipboard.writeText(wrapper?.sortedHash() ?? ''),
+      onClick: async () => await navigator.clipboard.writeText(wrapper?.hash ?? ''),
     },
   ]
 
   const onCopy = async () => {
-    await navigator.clipboard.writeText(wrapper?.sortedStringify() ?? '')
+    await navigator.clipboard.writeText(wrapper?.stringified ?? '')
   }
 
   return (
