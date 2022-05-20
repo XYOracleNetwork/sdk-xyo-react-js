@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/sdk-react'
-import { XyoNetworkConfig } from '@xyo-network/network'
+import { XyoNetworkPayload } from '@xyo-network/network'
 import { useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
 
   //update the network stored in the route
   const setNetworkParam = useCallback(
-    (network?: XyoNetworkConfig) => {
+    (network?: XyoNetworkPayload) => {
       if (network) {
         params.set('network', network.slug)
         setParams(params, { replace: true })
@@ -33,7 +33,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
 
   //if the network is actively changed, update both memory and route
   const setNetworkLocal = useCallback(
-    (network: XyoNetworkConfig) => {
+    (network: XyoNetworkPayload) => {
       setNetworkParam(network)
       setNetwork?.(network)
     },

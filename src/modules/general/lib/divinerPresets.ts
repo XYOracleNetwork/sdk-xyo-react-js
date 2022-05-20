@@ -1,4 +1,4 @@
-import { XyoNodeConfig } from '@xyo-network/network'
+import { XyoNetworkNodePayload, XyoNetworkNodePayloadSchema } from '@xyo-network/network'
 
 export const findDivinerPreset = (slug: string) => {
   return (
@@ -8,9 +8,10 @@ export const findDivinerPreset = (slug: string) => {
   )
 }
 
-export const divinerPresets: XyoNodeConfig[] = [
+export const divinerPresets: XyoNetworkNodePayload[] = [
   {
     name: 'XYO Location (beta)',
+    schema: XyoNetworkNodePayloadSchema,
     slug: 'beta-location-diviner-xyo-network',
     type: 'diviner',
     uri: 'https://beta.api.location.diviner.xyo.network',
@@ -18,6 +19,7 @@ export const divinerPresets: XyoNodeConfig[] = [
   },
   {
     name: 'XYO Location',
+    schema: XyoNetworkNodePayloadSchema,
     slug: 'location-diviner-xyo-network',
     type: 'diviner',
     uri: 'https://api.location.diviner.xyo.network',

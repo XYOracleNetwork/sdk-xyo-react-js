@@ -17,7 +17,7 @@ export const BlockHashSourceDetails: React.FC<BlockHashSourceDetailsProps> = ({ 
       </FlexRow>
       <Paper variant="outlined">
         <Typography margin={1} fontFamily="monospace" variant="body1" sx={{ overflowWrap: 'break-word', wordBreak: 'break-all' }}>
-          {boundWitnessWrapper?.sortedStringify() ?? ''}
+          {boundWitnessWrapper?.stringified ?? ''}
         </Typography>
       </Paper>
     </FlexCol>

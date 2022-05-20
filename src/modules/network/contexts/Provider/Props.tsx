@@ -1,5 +1,5 @@
-import { XyoNetworkConfig } from '@xyo-network/network'
+import { XyoNetworkPayload } from '@xyo-network/network'
 
 export interface NetworkProviderProps {
-  defaultNetwork?: XyoNetworkConfig
+  defaultNetwork?: XyoNetworkPayload
 }

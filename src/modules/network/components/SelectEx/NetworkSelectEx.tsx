@@ -28,7 +28,7 @@ export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, resp
       {networks?.map((network) => {
         return (
           <MenuItem key={network.slug} value={network.slug}>
-            {responsive && sm ? network.name[0].toUpperCase() : network.name}
+            {responsive && sm ? network.name?.[0].toUpperCase() : network.name}
           </MenuItem>
         )
       })}
