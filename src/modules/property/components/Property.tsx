@@ -43,18 +43,26 @@ export const Property: React.FC<PropertyProps> = ({ title, value, children, size
       overflow="hidden"
       {...props}
     >
-      <PropertyTitle
-        tip={tip}
-        title={title}
-        size={size}
-        bgcolor={theme.palette.secondary.main}
-        color={theme.palette.getContrastText(theme.palette.secondary.main)}
-        height={sizeTitleHeight[size]}
-        more={<PropertyActionsMenu actions={actions} />}
-      />
+      {title !== undefined ? (
+        <PropertyTitle
+          tip={tip}
+          title={title}
+          size={size}
+          bgcolor={theme.palette.secondary.main}
+          color={theme.palette.getContrastText(theme.palette.secondary.main)}
+          height={sizeTitleHeight[size]}
+          more={<PropertyActionsMenu actions={actions} />}
+        />
+      ) : null}
       <FlexRow justifyContent={value === undefined ? 'center' : 'space-between'} overflow="hidden" height={sizeValueHeight[size]}>
-        {value ? <PropertyValue shortSpace={badge ? sizeValueHeight[size] : 0} value={value} typographyVariant={sizeVariants[size]} /> : <CircularProgress size={16} />}
-        {value ? badge ? <IdenticonCorner value={value} /> : null : null}
+        {children !== undefined ? (
+          children
+        ) : value !== undefined ? (
+          <PropertyValue shortSpace={badge ? sizeValueHeight[size] : 0} value={value} typographyVariant={sizeVariants[size]} />
+        ) : (
+          <CircularProgress size={16} />
+        )}
+        {value !== undefined ? badge ? <IdenticonCorner value={value} /> : null : null}
       </FlexRow>
     </FlexCol>
   )
