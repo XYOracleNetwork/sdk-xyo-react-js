@@ -21,7 +21,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({ defaultValue, onSearch, ..
           fullWidth
           onChange={(event) => setTerm(event.target.value)}
           onKeyDown={(event) => {
-            console.log(JSON.stringify(event.code, null, 2))
             if (event.key === 'Enter') onSearch?.(term)
           }}
         />

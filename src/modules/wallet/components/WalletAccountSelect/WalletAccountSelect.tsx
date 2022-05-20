@@ -17,8 +17,6 @@ const arrayRange = (length: number, start = 0) => {
 export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconSize, icons, iconOnly, ...props }) => {
   const { wallet, activeAccountIndex = 0, setActiveAccountIndex } = useWallet()
 
-  console.log(`wallet: ${wallet}`)
-
   const theme = useTheme()
 
   return (

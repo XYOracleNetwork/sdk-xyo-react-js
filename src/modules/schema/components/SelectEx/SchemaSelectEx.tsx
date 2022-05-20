@@ -20,7 +20,6 @@ export const SchemaSelectEx: React.FC<SchemaSelectExProps> = ({ onChange, ...pro
         }
       }}
       renderValue={(value) => {
-        console.log(`Render: ${value}`)
         return <Typography>{value === 'none' ? '- None -' : value}</Typography>
       }}
       {...props}
