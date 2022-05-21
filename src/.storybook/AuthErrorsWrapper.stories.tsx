@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { authDecorator, authServiceList } from './authHelpers'
-import { DeprecateStory } from './authHelpers'
+import { DeprecateStory } from './deprecate-story'
 /* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-deprecated */
 import { AuthErrorsWrapper } from '../../packages/auth/src/components/AuthErrors/AuthErrorsWrapper'
