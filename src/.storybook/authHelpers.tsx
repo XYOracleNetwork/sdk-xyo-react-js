@@ -2,9 +2,8 @@ import { useTheme } from '@mui/material'
 import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol, WithChildren } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
-import { ArchivistApiProvider, AuthProvider, AuthService, AuthServiceId, AuthState, AuthThemeExtender, defaultState, useAuthState } from '../modules'
-
-
+import { AuthProvider, AuthService, AuthServiceId, AuthState, AuthThemeExtender, defaultState, useAuthState } from '@xyo-network/react-auth'
+import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 
 interface WrappedArgs {
   authState?: Partial<AuthState>
