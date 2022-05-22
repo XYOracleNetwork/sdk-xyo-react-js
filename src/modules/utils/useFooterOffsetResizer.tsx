@@ -1,4 +1,4 @@
-import { MutableRefObject, RefObject, useLayoutEffect } from 'react'
+import { MutableRefObject, useLayoutEffect } from 'react'
 
 interface OffsetResizerArgs {
   targetElementRef: MutableRefObject<HTMLElement | undefined>
