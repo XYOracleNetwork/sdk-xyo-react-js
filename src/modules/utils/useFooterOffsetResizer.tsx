@@ -8,7 +8,7 @@ import { MutableRefObject, useLayoutEffect } from 'react'
 
 const useFooterOffsetResizer = (targetElementRef?: MutableRefObject<HTMLElement | undefined>, condition = true) => {
   useLayoutEffect(() => {
-    const footer = document.getElementsByTagName('footer')[0]
+    const footer = document.getElementById('footer')
 
     const observer = new ResizeObserver(() => {
       if (targetElementRef?.current) {

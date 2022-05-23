@@ -19,6 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, footerHtm
   const [hovering, setHovering] = useState(false)
   return (
     <FlexCol
+      id="footer"
       onMouseEnter={() => {
         setHovering(true)
       }}
