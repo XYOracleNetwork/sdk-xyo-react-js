@@ -19,7 +19,7 @@ export const PropertyActionsMenu: React.FC<PropertyActionsProps> = ({ actions, .
   return actions && actions?.length > 0 ? (
     <FlexRow {...props}>
       <IconButton size="small" color="inherit" onClick={handleClick}>
-        <MoreHorizIcon />
+        <MoreHorizIcon fontSize="inherit" />
       </IconButton>
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         {actions?.map((action) => {

@@ -1,3 +1,4 @@
+import ReplayIcon from '@mui/icons-material/Replay'
 import { TextField } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/sdk-react'
@@ -22,27 +23,27 @@ const TemplateWithCompare: ComponentStory<typeof Property> = (args) => (
   <FlexCol alignItems="stretch">
     <FlexRow>
       <TextField size="small" value="Sample text Field" />
-      <Property size="small" {...args}></Property>
+      <Property {...args} size="small"></Property>
     </FlexRow>
     <FlexRow>
-      <Property size="small" {...args}></Property>
-      <Property size="small" {...args}></Property>
+      <Property {...args} size="small"></Property>
+      <Property {...args} size="small"></Property>
     </FlexRow>
     <FlexRow>
       <TextField size="medium" value="Sample text Field" />
-      <Property size="medium" {...args}></Property>
+      <Property {...args} size="medium"></Property>
     </FlexRow>
     <FlexRow>
-      <Property size="medium" {...args}></Property>
-      <Property size="medium" {...args}></Property>
+      <Property {...args} size="medium"></Property>
+      <Property {...args} size="medium"></Property>
     </FlexRow>
     <FlexRow>
       <TextField value="Sample text Field" />
-      <Property size="large" {...args}></Property>
+      <Property {...args} size="large"></Property>
     </FlexRow>
     <FlexRow>
-      <Property size="large" {...args}></Property>
-      <Property size="large" {...args}></Property>
+      <Property {...args} size="large"></Property>
+      <Property {...args} size="large"></Property>
     </FlexRow>
   </FlexCol>
 )
@@ -67,9 +68,9 @@ const WithDataSmall = Template.bind({})
 WithDataSmall.args = { size: 'small', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
 WithDataSmall.decorators = [appThemeDecorator]
 
-const WithDataSmallCompare = TemplateWithCompare.bind({})
-WithDataSmallCompare.args = { size: 'small', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
-WithDataSmallCompare.decorators = [appThemeDecorator]
+const WithDataCompare = TemplateWithCompare.bind({})
+WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataCompare.decorators = [appThemeDecorator]
 
 const WithDataAndBadgeSmall = Template.bind({})
 WithDataAndBadgeSmall.args = { badge: true, size: 'small', tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
@@ -121,7 +122,7 @@ LargeWithValue.decorators = [appThemeDecorator]
 
 const LargeWithValueAndActions = Template.bind({})
 LargeWithValueAndActions.args = {
-  actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
+  actions: [{ icon: <ReplayIcon />, name: 'ActionOne' }, { name: 'ActionTwo' }],
   badge: true,
   size: 'large',
   tip: 'This is the block hash',
@@ -130,17 +131,29 @@ LargeWithValueAndActions.args = {
 }
 LargeWithValueAndActions.decorators = [appThemeDecorator]
 
+const SmallWithValueAndActions = Template.bind({})
+SmallWithValueAndActions.args = {
+  actions: [{ icon: <ReplayIcon />, name: 'ActionOne' }, { name: 'ActionTwo' }],
+  badge: true,
+  size: 'small',
+  tip: 'This is the block hash',
+  title: 'Block Hash',
+  value: sampleBlockWithPayloads._hash,
+}
+SmallWithValueAndActions.decorators = [appThemeDecorator]
+
 export {
   Default,
   LargeWithValue,
   LargeWithValueAndActions,
+  SmallWithValueAndActions,
   WithActions,
   WithData,
   WithDataAndBadgeLarge,
   WithDataAndBadgeMedium,
   WithDataAndBadgeSmall,
+  WithDataCompare,
   WithDataSmall,
-  WithDataSmallCompare,
   WithTip,
   WithTipAndBadge,
   WithUndefinedData,

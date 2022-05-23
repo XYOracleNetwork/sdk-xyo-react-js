@@ -2,7 +2,7 @@ import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
 
 import { WalletAccountSelect } from './Select'
 
-interface WalletAccountSelectBarProps extends FlexBoxProps {
+export interface WalletAccountSelectBarProps extends FlexBoxProps {
   size?: 'small' | 'medium'
 }
 

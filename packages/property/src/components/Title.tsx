@@ -1,4 +1,4 @@
-import { Typography, TypographyVariant } from '@mui/material'
+import { Typography, TypographyVariant, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { ReactNode } from 'react'
 
@@ -18,6 +18,8 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({ size = 'medium', t
     small: 'caption',
   }
 
+  const theme = useTheme()
+
   return (
     <FlexRow justifyContent="space-between" {...props}>
       <FlexRow paddingX={1}>
@@ -25,7 +27,7 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({ size = 'medium', t
           {title}
         </Typography>
         {tip ? (
-          <QuickTipButton color="inherit" title={title ?? ''}>
+          <QuickTipButton style={{ fontSize: theme.typography[sizeVariants[size]].fontSize }} color="inherit" title={title ?? ''}>
             {tip}
           </QuickTipButton>
         ) : null}
