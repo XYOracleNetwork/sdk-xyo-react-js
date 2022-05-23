@@ -24,7 +24,9 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ size, 
       SelectDisplayProps={{ style: { paddingBottom: 0, paddingLeft: icons ? 0 : theme.spacing(1), paddingTop: 0 } }}
       renderValue={(selected) => {
         const account = wallet?.getAccount(parseInt(`${selected}`))
-        return <EthAccountBox height={size === 'small' ? 40 : 56} iconOnly={iconOnly} icon={icons} address={EthAddress.fromString(account?.addressValue.hex)} />
+        return (
+          <EthAccountBox alignItems="stretch" height={size === 'small' ? 40 : 56} iconOnly={iconOnly} icon={icons} address={EthAddress.fromString(account?.addressValue.hex)} />
+        )
       }}
       value={activeAccountIndex}
       onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}

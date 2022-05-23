@@ -4,12 +4,15 @@ import { WalletAccountSelect } from './Select'
 
 export interface WalletAccountSelectBarProps extends FlexBoxProps {
   size?: 'small' | 'medium'
+  iconOnly?: boolean
+  icons?: boolean
+  iconSize?: number
 }
 
-export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({ size = 'small', ...props }) => {
+export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({ iconOnly, icons, iconSize, size = 'small', ...props }) => {
   return (
     <FlexRow paper alignItems="stretch" {...props}>
-      <WalletAccountSelect size={size} fullWidth />
+      <WalletAccountSelect iconOnly={iconOnly} icons={icons} iconSize={iconSize} size={size} fullWidth />
     </FlexRow>
   )
 }

@@ -1,8 +1,8 @@
 import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/core'
+import { ArchiveProperty } from '@xyo-network/react-archive'
 import { Property } from '@xyo-network/react-property'
-import { ArchiveProperty } from '@xyo-network/react-shared'
 
 export interface PayloadMetaDetailsProps extends FlexBoxProps {
   value?: XyoPayload

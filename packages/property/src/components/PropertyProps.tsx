@@ -1,8 +1,8 @@
 import { FlexBoxProps } from '@xylabs/sdk-react'
+import { SizeProp } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
 import { PropertyAction } from './PropertyAction'
-import { SizeProp } from './SizeProp'
 
 export interface PropertyProps extends FlexBoxProps {
   actions?: PropertyAction[]

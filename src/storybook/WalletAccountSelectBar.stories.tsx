@@ -38,7 +38,7 @@ const WithAppBarTemplate: ComponentStory<typeof WalletAccountSelectBar> = (args)
           <BrowserRouter>
             <ArchivesProvider>
               <ApplicationAppBar>
-                <WalletAccountSelectBar flexGrow={1} {...args}></WalletAccountSelectBar>
+                <WalletAccountSelectBar icons flexGrow={1} {...args}></WalletAccountSelectBar>
               </ApplicationAppBar>
             </ArchivesProvider>
           </BrowserRouter>

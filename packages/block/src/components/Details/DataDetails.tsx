@@ -1,6 +1,7 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
 import { XyoBoundWitness } from '@xyo-network/core'
-import { Property, SizeProp, usePropertyHeroProps } from '@xyo-network/react-property'
+import { Property, usePropertyHeroProps } from '@xyo-network/react-property'
+import { SizeProp } from '@xyo-network/react-shared'
 
 export interface BlockDataDetailsProps extends FlexBoxProps {
   block?: XyoBoundWitness

@@ -3,8 +3,9 @@ import VisibilityIcon from '@mui/icons-material/Visibility'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { ButtonEx, FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/core'
-import { Property, PropertyAction, SizeProp, usePropertyHeroProps } from '@xyo-network/react-property'
+import { Property, PropertyAction, usePropertyHeroProps } from '@xyo-network/react-property'
 import { useState } from 'react'
+import { SizeProp } from '@xyo-network/react-shared'
 
 import { PayloadHashSourceDetails } from './HashSourceDetails'
 
