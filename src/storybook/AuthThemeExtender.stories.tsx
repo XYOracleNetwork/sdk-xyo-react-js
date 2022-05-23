@@ -1,8 +1,8 @@
 import { createTheme, MenuItem, Select, Typography, useTheme } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
-import { authDecorator } from './authHelpers'
 import { AuthThemeExtender } from '@xyo-network/react-auth'
+
+import { authDecorator } from '../.storybook'
 
 const customPrimary = '#485c76'
 const customSecondary = '#8f91c7'

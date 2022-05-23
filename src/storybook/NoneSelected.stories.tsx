@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useAuthState } from '@xyo-network/react-auth'
+import { NoneSelected } from '@xyo-network/react-login-forms'
 import { useLocation } from 'react-router-dom'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from './authHelpers'
-import { useAuthState } from '@xyo-network/react-auth'
-import { NoneSelected } from '../../packages/login-forms/src/components/NoAuthSelected/NoneSelected'
+import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook'
 
 const StorybookEntry = {
   argTypes: {},

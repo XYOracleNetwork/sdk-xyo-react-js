@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { BasicHero } from '@xyo-network/react-shared/src/modules/common/components/BasicHero/BasicHero'
+import { BasicHero } from './BasicHero'
 import BackgroundImage from './default-desktop.svg'
 const StorybookEntry = {
   argTypes: {},

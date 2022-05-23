@@ -1,9 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
+import { NetworkMemoryProvider, NetworkSelectEx } from '@xyo-network/react-network'
 
-import { authDecorator, authServiceList, WrappedArgs } from './authHelpers'
-import { NetworkMemoryProvider } from '../../packages/network/src/contexts'
-import { NetworkSelectEx } from '../../packages/network/src/components/SelectEx/NetworkSelectEx'
+import { authDecorator, authServiceList, WrappedArgs } from '../.storybook'
 
 const StorybookEntry = {
   argTypes: {

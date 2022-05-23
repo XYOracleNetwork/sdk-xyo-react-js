@@ -1,13 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { XyoWalletBase } from '@xyo-network/core'
-import { BrowserRouter } from 'react-router-dom'
-
 import { ApplicationAppBar } from '@xyo-network/react-appbar'
 import { ArchivesProvider } from '@xyo-network/react-archive'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
-import { WalletProvider } from '../../packages/wallet/src/contexts'
-import { WalletAccountSelect } from '../../packages/wallet/src/components/WalletAccountSelect/WalletAccountSelect'
+import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
+import { BrowserRouter } from 'react-router-dom'
 
 const StorybookEntry = {
   argTypes: {},

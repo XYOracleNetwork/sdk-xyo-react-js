@@ -1,9 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexRow } from '@xylabs/sdk-react'
 import { XyoWalletBase } from '@xyo-network/core'
-
-import { WalletProvider } from '../../packages/wallet/src/contexts'
-import { WalletAccountSelect } from '../../packages/wallet/src/components/WalletAccountSelect/WalletAccountSelect'
+import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
 
 const StorybookEntry = {
   argTypes: {},

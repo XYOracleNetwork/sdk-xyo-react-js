@@ -1,11 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
-
-import { authDecorator, authServiceList, WrappedArgs } from './authHelpers'
-import { ArchivesProvider } from '../../packages/archive/src/archives'
+import { ArchiveProvider, ArchiveSelectEx, ArchivesProvider } from '@xyo-network/react-archive'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
-import { ArchiveProvider } from '../../packages/archive/src/archive/contexts'
-import { ArchiveSelectEx } from '../../packages/archive/src/archive/components/ArchiveSelectEx'
+
+import { authDecorator, authServiceList, WrappedArgs } from '../.storybook'
 
 const StorybookEntry = {
   argTypes: {

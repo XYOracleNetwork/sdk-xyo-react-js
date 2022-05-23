@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { NotFound } from '@xyo-network/react-shared'
 
-import { authServiceList } from './authHelpers'
-import { NotFound } from '../../packages/shared/src/components/NotFound'
+import { authServiceList } from '../.storybook'
 
 const StorybookEntry = {
   argTypes: {},

@@ -2,13 +2,12 @@ import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoArchive } from '@xyo-network/api'
+import { ApiHistory, ArchivistApiProvider, useArchivistApi } from '@xyo-network/react-archivist-api'
+import { useAuthState } from '@xyo-network/react-auth'
+import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { useEffect, useState } from 'react'
 
-import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
-import { authDecorator, authServiceList, WrappedAuthComponent } from './authHelpers'
-import { ArchivistApiProvider, useArchivistApi } from '@xyo-network/react-archivist-api'
-import { useAuthState } from '@xyo-network/react-auth'
-import { ApiHistory } from '@xyo-network/react-archivist-api'
+import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook'
 
 const StorybookEntry = {
   argTypes: {

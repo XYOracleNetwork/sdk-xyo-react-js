@@ -1,12 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ApplicationAppBar } from '@xyo-network/react-appbar'
 import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
+import { WalletAccountSelect } from '@xyo-network/react-wallet'
 import { BrowserRouter } from 'react-router-dom'
-
-import { SearchBar } from '../SearchBar'
-import { SystemToolbar } from '../Toolbar'
-import { ApplicationAppBar } from './Application'
 
 const StorybookEntry = {
   argTypes: {},
@@ -16,7 +14,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'AppBar/Application',
+  title: 'AppBar/Wallet',
 } as ComponentMeta<typeof ApplicationAppBar>
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
@@ -34,12 +32,9 @@ const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
 )
 
 const Default = Template.bind({})
-Default.args = {}
+Default.args = { children: <WalletAccountSelect />, color: 'primary' }
 
-const WithSearchBar = Template.bind({})
-WithSearchBar.args = { children: <SearchBar flexGrow={1} onSearch={(term) => alert(term)} />, color: 'primary', systemToolbar: <SystemToolbar darkModeButton authButton /> }
-
-export { Default, WithSearchBar }
+export { Default }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

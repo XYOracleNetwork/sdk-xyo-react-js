@@ -1,9 +1,9 @@
 import { Toolbar } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
-import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
-import { authDecorator, WrappedAuthComponent } from './authHelpers'
 import { AuthStatusIconButton } from '@xyo-network/react-auth'
+import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
+
+import { authDecorator, WrappedAuthComponent } from '../.storybook'
 
 const StorybookEntry = {
   argTypes: {

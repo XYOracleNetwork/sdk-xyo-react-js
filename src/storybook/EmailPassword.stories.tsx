@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
-
 import { AuthDispatch, useAuthState } from '@xyo-network/react-auth'
-import { authDecorator, WrappedAuthComponent } from './authHelpers'
-import { EmailPassword } from '../../packages/login-forms/src/components/EmailPassword/EmailPassword'
+import { EmailPassword } from '@xyo-network/react-login-forms'
+
+import { authDecorator, WrappedAuthComponent } from '../.storybook'
 
 const StorybookEntry = {
   argTypes: {},

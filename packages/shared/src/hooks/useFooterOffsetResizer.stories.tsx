@@ -3,7 +3,7 @@ import { ComponentStory, Meta } from '@storybook/react'
 import { FlexCol, FlexGrowCol } from '@xylabs/sdk-react'
 import { useRef } from 'react'
 
-import { Footer } from '../general'
+import { Footer } from '../components'
 import { useFooterOffsetResizer } from './useFooterOffsetResizer'
 
 const FooterOffsetResizer = () => {

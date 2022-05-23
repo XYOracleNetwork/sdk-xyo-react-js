@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import CoinbaseWalletIcon from './coinbase-wallet.svg'
 import MoneyMedia from './money.jpg'
-import { SimpleCard } from '@xyo-network/react-shared/src/modules/common/components/SimpleCard/SimpleCard'
+import { SimpleCard } from './SimpleCard'
 const StorybookEntry = {
   argTypes: {},
   component: SimpleCard,

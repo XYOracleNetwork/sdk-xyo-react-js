@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { LoginToggleMenuItem, LoginToggleMenuItemProps } from '../../packages/auth/src/components/LoginToggleMenuItem'
-import { authDecorator, WrappedAuthComponent } from './authHelpers'
+import { LoginToggleMenuItem, LoginToggleMenuItemProps } from '@xyo-network/react-auth'
+
+import { authDecorator, WrappedAuthComponent } from '../.storybook'
 
 const StorybookEntry = {
   argTypes: {
