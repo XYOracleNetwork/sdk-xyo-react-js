@@ -1,4 +1,4 @@
-import { MenuItem, Select, SelectProps, useTheme } from '@mui/material'
+import { MenuItem, SelectProps, useTheme } from '@mui/material'
 import { EthAddress } from '@xylabs/sdk-js'
 import { EthAccountBox, SelectEx } from '@xylabs/sdk-react'
 
