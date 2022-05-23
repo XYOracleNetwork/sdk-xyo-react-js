@@ -1,6 +1,6 @@
 import { MenuItem, Select, SelectProps, useTheme } from '@mui/material'
 import { EthAddress } from '@xylabs/sdk-js'
-import { EthAccountBox } from '@xylabs/sdk-react'
+import { EthAccountBox, SelectEx } from '@xylabs/sdk-react'
 
 import { useWallet } from '../../contexts'
 
@@ -14,20 +14,22 @@ const arrayRange = (length: number, start = 0) => {
   return Array.from(Array(length).keys()).map((x) => x + start)
 }
 
-export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconSize, icons, iconOnly, ...props }) => {
+export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ size, iconSize, icons, iconOnly, ...props }) => {
   const { wallet, activeAccountIndex = 0, setActiveAccountIndex } = useWallet()
 
   const theme = useTheme()
 
   return (
-    <Select
+    <SelectEx
       SelectDisplayProps={{ style: { paddingBottom: 0, paddingLeft: icons ? 0 : theme.spacing(1), paddingTop: 0 } }}
       renderValue={(selected) => {
         const account = wallet?.getAccount(parseInt(`${selected}`))
-        return <EthAccountBox iconOnly={iconOnly} icon={icons} address={EthAddress.fromString(account?.addressValue.hex)} />
+        return <EthAccountBox height={size === 'small' ? 40 : 56} iconOnly={iconOnly} icon={icons} address={EthAddress.fromString(account?.addressValue.hex)} />
       }}
       value={activeAccountIndex}
       onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
+      size={size}
+      variant="outlined"
       {...props}
     >
       {wallet
@@ -40,6 +42,6 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconSi
             )
           })
         : null}
-    </Select>
+    </SelectEx>
   )
 }

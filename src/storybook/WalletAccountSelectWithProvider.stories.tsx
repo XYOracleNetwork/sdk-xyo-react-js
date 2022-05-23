@@ -1,5 +1,5 @@
+/* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { FlexRow } from '@xylabs/sdk-react'
 import { XyoWalletBase } from '@xyo-network/core'
 import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
 
@@ -16,11 +16,9 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof WalletAccountSelect> = (args) => {
   return (
-    <FlexRow>
-      <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
-        <WalletAccountSelect {...args}></WalletAccountSelect>
-      </WalletProvider>
-    </FlexRow>
+    <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
+      <WalletAccountSelect {...args}></WalletAccountSelect>
+    </WalletProvider>
   )
 }
 
