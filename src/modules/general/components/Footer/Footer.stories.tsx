@@ -15,7 +15,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof Footer>
 
 const Template: ComponentStory<typeof Footer> = (args) => (
-  <Container maxWidth="xl">
+  <Container maxWidth="xl" style={{ display: 'flex', flexDirection: 'column', flexGrow: '1', justifyContent: 'end', minHeight: '100vh' }}>
     <Footer {...args}></Footer>
   </Container>
 )
