@@ -1,5 +1,4 @@
 export * from './Ampersand'
-export * from './ArchiveProperty'
 export * from './Footer'
 export * from './JsonRouteWrapper'
 export * from './NotFound'
