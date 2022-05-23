@@ -9,7 +9,7 @@ import { useFooterOffsetResizer } from './useFooterOffsetResizer'
 const FooterOffsetResizer = () => {
   const targetElementRef = useRef<HTMLDivElement>()
 
-  useFooterOffsetResizer({ targetElementRef })
+  useFooterOffsetResizer(targetElementRef)
 
   return (
     <>
@@ -21,7 +21,7 @@ const FooterOffsetResizer = () => {
 
       <FlexCol position="fixed" bottom={0} left={0} right={0} alignItems="stretch">
         <Paper elevation={8}>
-          <Footer dynamicHeight width="100%" />
+          <Footer footerHtmlElement dynamicHeight width="100%" />
         </Paper>
       </FlexCol>
     </>
