@@ -12,9 +12,10 @@ import { XyoTokens } from './XyoTokens'
 
 export interface FooterProps extends FlexBoxProps {
   dynamicHeight?: boolean
+  footerHtmlElement?: boolean
 }
 
-export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, ...props }) => {
+export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, footerHtmlElement = false, ...props }) => {
   const [hovering, setHovering] = useState(false)
   return (
     <FlexCol
@@ -25,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, ...props 
         setHovering(false)
       }}
       alignItems="stretch"
-      component="footer"
+      {...(footerHtmlElement && { component: 'footer' })}
       {...props}
     >
       {hovering || !dynamicHeight ? (

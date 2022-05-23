@@ -1,17 +1,12 @@
 import { MutableRefObject, useLayoutEffect } from 'react'
 
-interface OffsetResizerArgs {
-  targetElementRef: MutableRefObject<HTMLElement | undefined>
-  condition?: boolean
-}
-
 /**
  * Useful for calculating the height of the footer and adjusting another element.
  *
  * Note: Happens outside of react rendering to prevent needless rerendering
  */
 
-const useFooterOffsetResizer = ({ targetElementRef, condition = true }: OffsetResizerArgs) => {
+const useFooterOffsetResizer = (targetElementRef?: MutableRefObject<HTMLElement | undefined>, condition = true) => {
   useLayoutEffect(() => {
     const footer = document.getElementsByTagName('footer')[0]
 
@@ -22,7 +17,7 @@ const useFooterOffsetResizer = ({ targetElementRef, condition = true }: OffsetRe
       }
     })
 
-    if (condition) {
+    if (condition && footer) {
       observer.observe(footer)
     } else {
       observer.disconnect()
