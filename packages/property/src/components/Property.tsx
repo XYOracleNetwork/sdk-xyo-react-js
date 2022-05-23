@@ -1,10 +1,10 @@
 import { CircularProgress, TypographyVariant, useTheme } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { SizeProp } from '@xyo-network/react-shared'
 
 import { IdenticonCorner } from './IdenticonCorner'
 import { PropertyActionsMenu } from './PropertyActionsMenu'
 import { PropertyProps } from './PropertyProps'
-import { SizeProp } from './SizeProp'
 import { PropertyTitle } from './Title'
 import { PropertyValue } from './Value'
 

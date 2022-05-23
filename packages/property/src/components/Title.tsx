@@ -1,8 +1,7 @@
 import { Typography, TypographyVariant, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
+import { SizeProp } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
-
-import { SizeProp } from './SizeProp'
 
 export interface PropertyTitleProps extends FlexBoxProps {
   tip?: ReactNode
