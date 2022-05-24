@@ -21,7 +21,7 @@ jobs:
       - name: cycle
         run: yarn cycle
       - name: build
-        run: yarn build-all
+        run: yarn build
   build-windows:
     runs-on: windows-latest
     steps:
@@ -37,7 +37,7 @@ jobs:
       - name: install
         run: yarn install --network-timeout 1000000
       - name: build
-        run: yarn build-all
+        run: yarn build
   build-macos:
     runs-on: macos-latest
     steps:
@@ -51,4 +51,4 @@ jobs:
       - name: install
         run: yarn install
       - name: build
-        run: yarn build-all
+        run: yarn build
