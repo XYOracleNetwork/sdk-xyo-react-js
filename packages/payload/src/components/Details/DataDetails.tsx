@@ -4,8 +4,8 @@ import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material
 import { ButtonEx, FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/core'
 import { Property, PropertyAction, usePropertyHeroProps } from '@xyo-network/react-property'
-import { useState } from 'react'
 import { SizeProp } from '@xyo-network/react-shared'
+import { useState } from 'react'
 
 import { PayloadHashSourceDetails } from './HashSourceDetails'
 
