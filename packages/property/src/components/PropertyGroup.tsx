@@ -13,7 +13,7 @@ export const PropertyGroup: React.FC<PropertyGroupProps> = ({ border, borderColo
     <FlexRow
       border={border ?? variant === 'outlined' ? 1 : 0}
       borderColor={borderColor ?? variant === 'outlined' ? theme.palette.divider : undefined}
-      borderRadius={borderRadius ?? variant === 'outlined' ? theme.shape.borderRadius : undefined}
+      borderRadius={borderRadius ?? variant === 'outlined' ? 1 : undefined}
       overflow="hidden"
       justifyContent="flex-start"
       alignItems="stretch"

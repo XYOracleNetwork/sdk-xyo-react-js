@@ -52,7 +52,7 @@ export const Property: React.FC<PropertyProps> = ({
       alignItems="stretch"
       border={border ?? variant === 'outlined' ? 1 : undefined}
       borderColor={borderColor ?? variant === 'outlined' ? theme.palette.divider : undefined}
-      borderRadius={borderRadius ?? variant === 'outlined' ? theme.shape.borderRadius : undefined}
+      borderRadius={borderRadius ?? variant === 'outlined' ? 1 : undefined}
       overflow="hidden"
       {...props}
     >
