@@ -1,4 +1,5 @@
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { Stack, StackProps } from '@mui/material'
+import { FlexCol } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/core'
 
 import { PayloadDataDetails, PayloadDataDetailsProps } from './DataDetails'
@@ -6,7 +7,7 @@ import { PayloadJsonDetails, PayloadJsonDetailsProps } from './JsonDetails'
 import { PayloadMetaDetails, PayloadMetaDetailsProps } from './MetaDetails'
 import { PayloadValidationDetails, PayloadValidationDetailsProps } from './ValidationDetails'
 
-export interface PayloadDetailsProps extends FlexBoxProps {
+export interface PayloadDetailsProps extends StackProps {
   payload?: XyoPayload
   payloadDataDetailsProps?: PayloadDataDetailsProps
   payloadMetaDetailsProps?: PayloadMetaDetailsProps
@@ -23,11 +24,11 @@ export const PayloadDetails: React.FC<PayloadDetailsProps> = ({
   ...props
 }) => {
   return (
-    <FlexCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
+    <Stack direction="column" spacing={1} justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
       <PayloadDataDetails size="large" badge value={payload} {...payloadDataDetailsProps} />
       <PayloadMetaDetails value={payload} {...payloadMetaDetailsProps} />
-      <PayloadValidationDetails value={payload} {...payloadValidationDetailsProps} />
+      <PayloadValidationDetails marginY={1} value={payload} {...payloadValidationDetailsProps} />
       <PayloadJsonDetails payload={payload} {...payloadJsonDetailsProps} />
-    </FlexCol>
+    </Stack>
   )
 }

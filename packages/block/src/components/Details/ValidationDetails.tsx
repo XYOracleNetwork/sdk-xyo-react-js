@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
+import { FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoBoundWitness, XyoBoundWitnessValidator } from '@xyo-network/core'
-import { Property } from '@xyo-network/react-property'
+import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
-export interface BlockValidationDetailsProps extends FlexBoxProps {
+export interface BlockValidationDetailsProps extends PropertyGroupProps {
   value?: XyoBoundWitness
 }
 
@@ -13,29 +13,23 @@ export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ 
   const errors = validator?.all() ?? []
 
   return (
-    <FlexCol alignItems="stretch" {...props}>
-      <FlexRow margin={1} justifyContent="flex-start">
-        <Typography>Validation</Typography>
-        <QuickTipButton title="Block Validation">The results from validating the block</QuickTipButton>
-      </FlexRow>
-      <FlexRow flexWrap="wrap">
-        <Property
-          flexGrow={1}
-          title="Valid"
-          value={errors.length === 0 ? 'True' : 'False'}
-          tip={
-            errors.length > 0 ? (
-              <FlexCol flexWrap="wrap">
-                {errors.map((error, index) => {
-                  return <Typography key={index}>{error.toString()}</Typography>
-                })}
-              </FlexCol>
-            ) : (
-              <Typography>No Errors</Typography>
-            )
-          }
-        />
-      </FlexRow>
-    </FlexCol>
+    <PropertyGroup title="Validation" tip="The results from validating the block" {...props}>
+      <Property
+        flexGrow={1}
+        title="Valid"
+        value={errors.length === 0 ? 'True' : 'False'}
+        tip={
+          errors.length > 0 ? (
+            <FlexCol flexWrap="wrap">
+              {errors.map((error, index) => {
+                return <Typography key={index}>{error.toString()}</Typography>
+              })}
+            </FlexCol>
+          ) : (
+            <Typography>No Errors</Typography>
+          )
+        }
+      />
+    </PropertyGroup>
   )
 }

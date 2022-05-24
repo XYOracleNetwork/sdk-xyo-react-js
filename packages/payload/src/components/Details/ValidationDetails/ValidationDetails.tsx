@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { XyoPayloadValidator } from '@xyo-network/core'
-import { Property } from '@xyo-network/react-property'
+import { Property, PropertyGroup } from '@xyo-network/react-property'
 
 import { SchemaProperty } from './SchemaProperty'
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
@@ -14,30 +14,24 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
   const errors: Error[] = [...bodyErrors, ...metaErrors]
 
   return (
-    <FlexCol alignItems="start" {...props}>
-      <FlexRow margin={1} justifyContent="flex-start">
-        <Typography>Validation</Typography>
-        <QuickTipButton title="Block Validation">The results from validating the payload</QuickTipButton>
-      </FlexRow>
-      <FlexRow flexWrap="wrap">
-        <Property
-          flexGrow={1}
-          title="Valid"
-          value={errors.length === 0 ? 'True' : 'False'}
-          tip={
-            errors.length > 0 ? (
-              <FlexCol>
-                {errors.map((error, index) => {
-                  return <Typography key={index}>{error.toString()}</Typography>
-                })}
-              </FlexCol>
-            ) : (
-              <Typography>No Errors</Typography>
-            )
-          }
-        />
-        {value?.schema && <SchemaProperty value={value} viewSchemaUrl={viewSchemaUrl} />}
-      </FlexRow>
-    </FlexCol>
+    <PropertyGroup title="Validation" tip="The results from validating the payload" {...props}>
+      <Property
+        flexGrow={1}
+        title="Valid"
+        value={errors.length === 0 ? 'True' : 'False'}
+        tip={
+          errors.length > 0 ? (
+            <FlexCol>
+              {errors.map((error, index) => {
+                return <Typography key={index}>{error.toString()}</Typography>
+              })}
+            </FlexCol>
+          ) : (
+            <Typography>No Errors</Typography>
+          )
+        }
+      />
+      {value?.schema && <SchemaProperty value={value} viewSchemaUrl={viewSchemaUrl} />}
+    </PropertyGroup>
   )
 }
