@@ -147,8 +147,8 @@
     "updo": "yarn workspaces foreach -pv run updo3:package",
     "gen:docs:package": "typedoc $INIT_CWD/src/index.ts --json $INIT_CWD/dist/docs.json",
     "clean:package": "rimraf -q $INIT_CWD/dist && rimraf -q $INIT_CWD/build",
-    "fix:package": "yarn eslint $INIT_CWD --fix",
-    "lint:package": "yarn eslint $INIT_CWD",
+    "fix:package": "yarn eslint $INIT_CWD/src --fix",
+    "lint:package": "yarn eslint $INIT_CWD/src",
     "deps:package": "depcheck $INIT_CWD",
     "updo3:package": "yarn update-interactive",
     "build:package:cjs": "tsc -p $INIT_CWD/tsconfig.build.cjs.json",
@@ -157,6 +157,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.25.17",
+  "version": "2.25.18",
   "packageManager": "yarn@3.1.1"
 }

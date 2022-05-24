@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexCol, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/sdk-react'
 import { XyoBoundWitness, XyoBoundWitnessValidator } from '@xyo-network/core'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
