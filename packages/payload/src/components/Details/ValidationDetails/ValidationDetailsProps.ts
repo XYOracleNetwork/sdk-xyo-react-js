@@ -1,7 +1,7 @@
-import { FlexBoxProps } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/core'
+import { PropertyGroupProps } from '@xyo-network/react-property'
 
-export interface PayloadValidationDetailsProps extends FlexBoxProps {
+export interface PayloadValidationDetailsProps extends PropertyGroupProps {
   skipBody?: boolean
   skipMeta?: boolean
   value?: XyoPayload

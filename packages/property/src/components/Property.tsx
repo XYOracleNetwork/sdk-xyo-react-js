@@ -8,7 +8,22 @@ import { PropertyProps } from './PropertyProps'
 import { PropertyTitle } from './Title'
 import { PropertyValue } from './Value'
 
-export const Property: React.FC<PropertyProps> = ({ title, value, children, size = 'medium', tip, actions, required, badge = false, ...props }) => {
+export const Property: React.FC<PropertyProps> = ({
+  border,
+  borderColor,
+  borderRadius,
+  variant,
+  title,
+  color = 'secondary',
+  value,
+  children,
+  size = 'medium',
+  tip,
+  actions,
+  required,
+  badge = false,
+  ...props
+}) => {
   const theme = useTheme()
 
   const sizeTitleHeight: Record<SizeProp, number> = {
@@ -29,30 +44,33 @@ export const Property: React.FC<PropertyProps> = ({ title, value, children, size
     small: 'body1',
   }
 
+  const bgcolor = color === 'primary' || color === 'secondary' ? theme.palette[color].main : color
+
   return (
     <FlexCol
       minWidth={0}
       alignItems="stretch"
-      border={1}
-      borderColor={required && value === undefined ? theme.palette.error.main : theme.palette.divider}
-      borderRadius={1}
+      border={border ?? variant === 'outlined' ? 1 : undefined}
+      borderColor={borderColor ?? variant === 'outlined' ? theme.palette.divider : undefined}
+      borderRadius={borderRadius ?? variant === 'outlined' ? theme.shape.borderRadius : undefined}
       overflow="hidden"
       {...props}
     >
       {title !== undefined ? (
         <PropertyTitle
           tip={tip}
-          title={title}
+          title={required ? `${title}*` : title}
           size={size}
-          bgcolor={theme.palette.secondary.main}
-          color={theme.palette.getContrastText(theme.palette.secondary.main)}
+          bgcolor={bgcolor}
+          color={theme.palette.getContrastText(bgcolor)}
           height={sizeTitleHeight[size]}
           more={<PropertyActionsMenu actions={actions} />}
         />
       ) : null}
       <FlexRow justifyContent={value === undefined ? 'center' : 'space-between'} overflow="hidden" height={sizeValueHeight[size]}>
-        {children}
-        {value !== undefined ? (
+        {children ? (
+          children
+        ) : value !== undefined ? (
           <PropertyValue shortSpace={badge ? sizeValueHeight[size] : 0} value={value} typographyVariant={sizeVariants[size]} />
         ) : (
           <CircularProgress size={16} />
