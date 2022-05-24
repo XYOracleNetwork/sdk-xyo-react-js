@@ -149,7 +149,7 @@
     "lint:package": "yarn lint",
     "deps:package": "depcheck $INIT_CWD",
     "updo3:package": "yarn updo3",
-    "build:package": "tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && yarn gen:docs:package",
+    "build:package": "yarn clean:package && tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && yarn gen:docs:package",
     "start": "start-storybook -p 6006"
   },
   "sideEffects": false,
