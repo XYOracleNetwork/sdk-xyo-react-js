@@ -1,4 +1,4 @@
-import { Divider, Typography, useTheme } from '@mui/material'
+import { Typography, useTheme } from '@mui/material'
 import { FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
 import { typeOf } from '@xyo-network/core'
 import { ReactElement } from 'react'
