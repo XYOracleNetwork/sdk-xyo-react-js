@@ -40,12 +40,12 @@
   "devDependencies": {
     "@babel/core": "^7.18.0",
     "@babel/preset-env": "^7.18.0",
-    "@storybook/addons": "^6.5.4",
-    "@storybook/api": "^6.5.4",
-    "@storybook/components": "^6.5.4",
-    "@storybook/core-events": "^6.5.4",
-    "@storybook/react": "^6.5.4",
-    "@storybook/theming": "^6.5.4",
+    "@storybook/addons": "^6.5.5",
+    "@storybook/api": "^6.5.5",
+    "@storybook/components": "^6.5.5",
+    "@storybook/core-events": "^6.5.5",
+    "@storybook/react": "^6.5.5",
+    "@storybook/theming": "^6.5.5",
     "@types/lodash": "^4.14.182",
     "@types/luxon": "^2.3.2",
     "@xylabs/sdk-react": "^2.12.8",
@@ -53,7 +53,7 @@
     "@xylabs/tsconfig": "^1.0.13",
     "axios": "^0.27.2",
     "storybook-dark-mode": "^1.1.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.2"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
@@ -109,17 +109,10 @@
   },
   "scripts": {
     "lint-pkg": "npmPkgJsonLint .",
-    "gen:docs:package": "typedoc src/index.ts --json dist/docs.json",
-    "clean:package": "rimraf -q ./dist && rimraf -q ./build",
-    "fix:package": "yarn fix",
-    "lint:package": "yarn lint",
-    "deps:package": "depcheck $INIT_CWD",
-    "updo3:package": "yarn updo3",
-    "build:package": "yarn clean:package && tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && yarn gen:docs:package",
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.25.15",
+  "version": "2.25.16",
   "packageManager": "yarn@3.1.1"
 }
