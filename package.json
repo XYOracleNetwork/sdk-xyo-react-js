@@ -132,10 +132,10 @@
     "build-storybook": "build-storybook ./src",
     "lint-pkg": "npmPkgJsonLint .",
     "deploy3": "yarn deploy-patch",
-    "deploy-major": "yarn workspaces foreach version major --deferred && yarn deploy-common",
-    "deploy-minor": "yarn workspaces foreach version minor --deferred && yarn deploy-common",
-    "deploy-patch": "yarn workspaces foreach version patch --deferred && yarn deploy-common",
-    "deploy-common": "yarn cycle && yarn workspaces foreach -ptRv run build:package && yarn version apply --all && yarn workspaces foreach -ptRv npm publish",
+    "deploy-major": "yarn workspaces foreach --all version major --deferred && yarn deploy-common",
+    "deploy-minor": "yarn workspaces foreach --all version minor --deferred && yarn deploy-common",
+    "deploy-patch": "yarn workspaces foreach --all version patch --deferred && yarn deploy-common",
+    "deploy-common": "yarn build && yarn version apply --recursive && yarn workspaces foreach npm publish",
     "clean-all": "yarn workspaces foreach -ptRv run clean:package",
     "deps-all": "yarn workspaces foreach -ptRv run deps:package",
     "lint-all": "yarn workspaces foreach -ptRv run lint:package",
@@ -154,6 +154,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.25.1",
+  "version": "2.25.11",
   "packageManager": "yarn@3.1.1"
 }
