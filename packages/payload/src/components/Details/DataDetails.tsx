@@ -41,7 +41,16 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
 
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <Property badge={badge} size={size} actions={actions} title="Payload Hash" value={hash ?? '<Unknown>'} tip="This is the payload hash" {...propertyHeroProps} />
+      <Property
+        variant="outlined"
+        badge={badge}
+        size={size}
+        actions={actions}
+        title="Payload Hash"
+        value={hash ?? '<Unknown>'}
+        tip="This is the payload hash"
+        {...propertyHeroProps}
+      />
       <Dialog open={viewSourceOpen} onClose={() => setViewSourceOpen(false)}>
         <DialogTitle>Hash Source</DialogTitle>
         <DialogContent>

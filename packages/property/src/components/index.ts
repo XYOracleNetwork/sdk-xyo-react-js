@@ -1,5 +1,6 @@
 export * from './Property'
 export * from './PropertyAction'
+export * from './PropertyGroup'
 export * from './PropertyProps'
 export * from './usePropertyHeroProps'
 export * from './Value'

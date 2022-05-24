@@ -1,16 +1,14 @@
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/sdk-react'
+import { Stack, StackProps } from '@mui/material'
 import { XyoBoundWitness, XyoPayload } from '@xyo-network/core'
+import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload'
 import uniqWith from 'lodash/uniqWith'
 
-import { BlockDataDetails } from './DataDetails'
-import { BlockHashSourceDetails } from './HashSourceDetails'
-import { BlockJsonDetails } from './JsonDetails'
 import { BlockMetaDetails } from './MetaDetails'
 import { BlockPayloads, BlockPayloadsProps } from './Payloads'
 import { BlockSignatureDetails } from './SignatureDetails'
 import { BlockValidationDetails } from './ValidationDetails'
 
-export interface BlockDetailsProps extends FlexBoxProps {
+export interface BlockDetailsProps extends StackProps {
   block?: XyoBoundWitness
   payloads?: XyoPayload[]
   blockPayloadsProps?: BlockPayloadsProps
@@ -37,14 +35,13 @@ const payloadsFromBlock = (block?: XyoBoundWitness) => {
 
 export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, blockPayloadsProps, blockMetaDetailsProps, ...props }) => {
   return (
-    <FlexGrowCol justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
-      <BlockDataDetails block={block} size="large" badge />
+    <Stack justifyContent="flex-start" alignItems="stretch" spacing={1} {...props}>
+      <PayloadDataDetails value={block} size="large" badge />
       <BlockMetaDetails block={block} {...blockMetaDetailsProps} />
       <BlockSignatureDetails block={block} />
       <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} {...blockPayloadsProps} />
       <BlockValidationDetails value={block} />
-      <BlockJsonDetails block={block} />
-      <BlockHashSourceDetails block={block} />
-    </FlexGrowCol>
+      <PayloadJsonDetails payload={block} />
+    </Stack>
   )
 }
