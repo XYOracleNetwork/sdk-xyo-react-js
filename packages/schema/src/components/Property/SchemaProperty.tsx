@@ -49,12 +49,12 @@ export const SchemaProperty: React.FC<SchemaPropertyProps> = ({ value, viewSchem
         )
       ) : null}
       {value ? (
-        <LinkEx flexGrow={1} alignItems="center" href={`${viewSchemaUrl}${value}`} rel="noopener noreferrer" display="flex">
+        <LinkEx marginX={1} flexGrow={1} alignItems="center" href={`${viewSchemaUrl}${value}`} rel="noopener noreferrer" display="flex">
           <PropertyValue value={value} title="view schema in new window" />
         </LinkEx>
       ) : null}
       {value ? (
-        <LinkEx alignItems="center" href={`${viewSchemaUrl}${value}`} target="_blank" rel="noopener noreferrer" display="flex">
+        <LinkEx marginX={1} alignItems="center" href={`${viewSchemaUrl}${value}`} target="_blank" rel="noopener noreferrer" display="flex">
           <OpenInNewIcon fontSize="inherit" />
         </LinkEx>
       ) : null}
