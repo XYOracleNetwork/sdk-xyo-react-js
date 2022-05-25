@@ -2,8 +2,8 @@ import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/sdk-react'
 import { XyoPayloadValidator } from '@xyo-network/core'
 import { Property, PropertyGroup } from '@xyo-network/react-property'
+import { SchemaProperty } from '@xyo-network/react-schema'
 
-import { SchemaProperty } from './SchemaProperty'
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
 export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ viewSchemaUrl, skipMeta = false, skipBody = false, value, ...props }) => {
@@ -31,7 +31,7 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
           )
         }
       />
-      {value?.schema && <SchemaProperty value={value} viewSchemaUrl={viewSchemaUrl} />}
+      {value?.schema && <SchemaProperty value={value.schema} viewSchemaUrl={viewSchemaUrl} />}
     </PropertyGroup>
   )
 }
