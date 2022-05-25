@@ -32,9 +32,12 @@ const WithData = Template.bind({})
 WithData.args = { block: sampleBlockWithPayloads }
 
 const WithArchiveLink = Template.bind({})
-WithArchiveLink.args = { block: sampleBlockWithPayloads, blockMetaDetailsProps: { archivePath: 'temp' } }
+WithArchiveLink.args = { archivePath: 'temp', block: sampleBlockWithPayloads }
 
-export { Default, WithArchiveLink, WithData }
+const WithArchiveLinkPaper = Template.bind({})
+WithArchiveLinkPaper.args = { archivePath: 'temp', block: sampleBlockWithPayloads, paper: true }
+
+export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

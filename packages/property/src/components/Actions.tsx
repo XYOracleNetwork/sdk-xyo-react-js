@@ -1,7 +1,7 @@
 import { IconButton, Stack } from '@mui/material'
 import { ButtonEx, FlexRow } from '@xylabs/sdk-react'
 
-import { PropertyActionsProps } from './PropertyActionsProps'
+import { PropertyActionsProps } from './ActionsProps'
 
 export const PropertyActions: React.FC<PropertyActionsProps> = ({ buttons = false, actions, ...props }) => {
   if (actions) {

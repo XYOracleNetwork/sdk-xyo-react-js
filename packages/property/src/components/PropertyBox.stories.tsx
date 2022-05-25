@@ -14,34 +14,34 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Properties/Property',
+  title: 'Properties/PropertyBox',
 } as ComponentMeta<typeof Property>
 
-const Template: ComponentStory<typeof Property> = (args) => <Property {...args}></Property>
+const Template: ComponentStory<typeof Property> = (args) => <Property {...args} paper={false}></Property>
 
 const TemplateWithCompare: ComponentStory<typeof Property> = (args) => (
-  <FlexCol alignItems="stretch">
-    <FlexRow>
+  <FlexCol gap={1} alignItems="stretch">
+    <FlexRow gap={1}>
       <TextField size="small" value="Sample text Field" />
       <Property {...args} size="small"></Property>
     </FlexRow>
-    <FlexRow>
+    <FlexRow gap={1}>
       <Property {...args} size="small"></Property>
       <Property {...args} size="small"></Property>
     </FlexRow>
-    <FlexRow>
+    <FlexRow gap={1}>
       <TextField size="medium" value="Sample text Field" />
       <Property {...args} size="medium"></Property>
     </FlexRow>
-    <FlexRow>
+    <FlexRow gap={1}>
       <Property {...args} size="medium"></Property>
       <Property {...args} size="medium"></Property>
     </FlexRow>
-    <FlexRow>
+    <FlexRow gap={1}>
       <TextField value="Sample text Field" />
       <Property {...args} size="large"></Property>
     </FlexRow>
-    <FlexRow>
+    <FlexRow gap={1}>
       <Property {...args} size="large"></Property>
       <Property {...args} size="large"></Property>
     </FlexRow>

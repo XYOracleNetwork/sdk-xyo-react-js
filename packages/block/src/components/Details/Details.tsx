@@ -4,15 +4,15 @@ import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-paylo
 import uniqWith from 'lodash/uniqWith'
 
 import { BlockMetaDetails } from './MetaDetails'
-import { BlockPayloads, BlockPayloadsProps } from './Payloads'
+import { BlockPayloads } from './Payloads'
 import { BlockSignatureDetails } from './SignatureDetails'
 import { BlockValidationDetails } from './ValidationDetails'
 
 export interface BlockDetailsProps extends StackProps {
   block?: XyoBoundWitness
+  paper?: boolean
   payloads?: XyoPayload[]
-  blockPayloadsProps?: BlockPayloadsProps
-  blockMetaDetailsProps?: BlockMetaDetails
+  archivePath?: string
 }
 
 const payloadsFromBlock = (block?: XyoBoundWitness) => {
@@ -33,15 +33,15 @@ const payloadsFromBlock = (block?: XyoBoundWitness) => {
   return uniqWith(payloads, (a, b) => a._hash === b._hash)
 }
 
-export const BlockDetails: React.FC<BlockDetailsProps> = ({ block, payloads, blockPayloadsProps, blockMetaDetailsProps, ...props }) => {
+export const BlockDetails: React.FC<BlockDetailsProps> = ({ paper, archivePath, block, payloads, ...props }) => {
   return (
     <Stack justifyContent="flex-start" alignItems="stretch" spacing={1} {...props}>
-      <PayloadDataDetails value={block} size="large" badge />
-      <BlockMetaDetails block={block} {...blockMetaDetailsProps} />
-      <BlockSignatureDetails block={block} />
-      <BlockPayloads payloads={payloads ?? payloadsFromBlock(block)} {...blockPayloadsProps} />
-      <BlockValidationDetails value={block} />
-      <PayloadJsonDetails payload={block} />
+      <PayloadDataDetails paper={paper} value={block} size="large" badge />
+      <BlockMetaDetails paper={paper} block={block} archivePath={archivePath} />
+      <BlockSignatureDetails paper={paper} block={block} />
+      <BlockPayloads paper={paper} payloads={payloads ?? payloadsFromBlock(block)} />
+      <BlockValidationDetails paper={paper} value={block} />
+      <PayloadJsonDetails paper={paper} payload={block} />
     </Stack>
   )
 }

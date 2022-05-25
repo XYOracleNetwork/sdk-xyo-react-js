@@ -28,6 +28,7 @@ const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitness) => {
 
 export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
+
   return (
     <ScrollTableOnSm>
       <Table {...props}>

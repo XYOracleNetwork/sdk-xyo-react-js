@@ -19,7 +19,7 @@ export const IdenticonCorner: React.FC<IdenticonCornerProps> = ({ value, ...prop
 
   return (
     <FlexRow alignItems="flex-start" height="100%" position="absolute" right={0} bottom={0}>
-      <FlexRow background height={calculatedHeight} width={calculatedHeight} borderTop={`1px solid ${theme.palette.divider}`} borderLeft={`1px solid ${theme.palette.divider}`}>
+      <FlexRow background height={calculatedHeight} width={calculatedHeight} borderLeft={`1px solid ${theme.palette.divider}`}>
         <div ref={ref}>
           <Identicon size={calculatedHeight * 0.6} value={`${value}`} sx={{ padding: `${calculatedHeight * 0.2}px` }} {...props} />
         </div>

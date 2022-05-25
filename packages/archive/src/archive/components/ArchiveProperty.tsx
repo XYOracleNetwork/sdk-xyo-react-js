@@ -3,7 +3,7 @@ import { LinkEx } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/core'
 import { Property, PropertyProps, PropertyValue } from '@xyo-network/react-property'
 
-export interface ArchivePropertyProps extends PropertyProps {
+export type ArchivePropertyProps = PropertyProps & {
   payload?: XyoPayload
   path?: string
 }

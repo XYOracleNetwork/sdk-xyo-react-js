@@ -1,33 +1,27 @@
 import { Stack, StackProps } from '@mui/material'
 import { XyoPayload } from '@xyo-network/core'
 
-import { PayloadDataDetails, PayloadDataDetailsProps } from './DataDetails'
-import { PayloadJsonDetails, PayloadJsonDetailsProps } from './JsonDetails'
-import { PayloadMetaDetails, PayloadMetaDetailsProps } from './MetaDetails'
-import { PayloadValidationDetails, PayloadValidationDetailsProps } from './ValidationDetails'
+import { PayloadDataDetails } from './DataDetails'
+import { PayloadJsonDetails } from './JsonDetails'
+import { PayloadMetaDetails } from './MetaDetails'
+import { PayloadValidationDetails } from './ValidationDetails'
 
-export interface PayloadDetailsProps extends StackProps {
+export type WithPaper<T> = T & { paper: true }
+export type WithoutPaper<T> = T & { paper?: false }
+
+export type PayloadDetailsProps = StackProps & {
   payload?: XyoPayload
-  payloadDataDetailsProps?: PayloadDataDetailsProps
-  payloadMetaDetailsProps?: PayloadMetaDetailsProps
-  payloadValidationDetailsProps?: PayloadValidationDetailsProps
-  payloadJsonDetailsProps?: PayloadJsonDetailsProps
+  paper?: boolean
+  archivePath?: string
 }
 
-export const PayloadDetails: React.FC<PayloadDetailsProps> = ({
-  payload,
-  payloadDataDetailsProps,
-  payloadMetaDetailsProps,
-  payloadValidationDetailsProps,
-  payloadJsonDetailsProps,
-  ...props
-}) => {
+export const PayloadDetails: React.FC<PayloadDetailsProps> = ({ archivePath, paper, payload, ...props }) => {
   return (
     <Stack direction="column" spacing={1} justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
-      <PayloadDataDetails size="large" badge value={payload} {...payloadDataDetailsProps} />
-      <PayloadMetaDetails value={payload} {...payloadMetaDetailsProps} />
-      <PayloadValidationDetails marginY={1} value={payload} {...payloadValidationDetailsProps} />
-      <PayloadJsonDetails payload={payload} {...payloadJsonDetailsProps} />
+      <PayloadDataDetails paper={paper} size="large" badge payload={payload} />
+      <PayloadMetaDetails archivePath={archivePath} paper={paper ? true : false} value={payload} />
+      <PayloadValidationDetails paper={paper} value={payload} />
+      <PayloadJsonDetails paper={paper} payload={payload} />
     </Stack>
   )
 }

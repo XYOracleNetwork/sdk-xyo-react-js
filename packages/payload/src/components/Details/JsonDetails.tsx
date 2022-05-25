@@ -7,7 +7,7 @@ import { ReactJsonViewProps } from 'react-json-view'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
-export interface PayloadJsonDetailsProps extends PropertyGroupProps {
+export type PayloadJsonDetailsProps = PropertyGroupProps & {
   payload?: XyoPayload
   jsonViewProps?: ReactJsonViewProps
 }
@@ -16,8 +16,13 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonView
   const { breakpoints } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
 
+  let elevation = 2
+  if (props.paper) {
+    elevation += props.elevation ?? 0
+  }
+
   return (
-    <PropertyGroup title="JSON" tip="The raw JSON of the payload" alignItems="stretch" {...props}>
+    <PropertyGroup titleProps={{ elevation }} title="JSON" tip="The raw JSON of the payload" {...props}>
       <Suspense fallback={<FlexGrowRow />}>
         <JsonView src={payload} enableClipboard collapseStringsAfterLength={belowSm ? 24 : 32} {...jsonViewProps} />
       </Suspense>

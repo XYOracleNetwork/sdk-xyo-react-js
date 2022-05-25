@@ -96,7 +96,7 @@ export const typography: ThemeOptions['typography'] = {
 export const baseThemeOptions: ThemeOptions = {
   components,
   shape: {
-    borderRadius: 4,
+    borderRadius: 8,
   },
   spacing: 12,
   typography,

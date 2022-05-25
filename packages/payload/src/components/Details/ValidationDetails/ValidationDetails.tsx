@@ -13,9 +13,15 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
   const metaErrors = skipMeta ? [] : validator?.meta.all() ?? []
   const errors: Error[] = [...bodyErrors, ...metaErrors]
 
+  let elevation = 2
+  if (props.paper) {
+    elevation += props.elevation ?? 0
+  }
+
   return (
-    <PropertyGroup title="Validation" tip="The results from validating the payload" {...props}>
+    <PropertyGroup titleProps={{ elevation }} title="Validation" tip="The results from validating the payload" {...props}>
       <Property
+        titleProps={{ elevation }}
         flexGrow={1}
         title="Valid"
         value={errors.length === 0 ? 'True' : 'False'}
@@ -31,7 +37,7 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
           )
         }
       />
-      {value?.schema && <SchemaProperty value={value.schema} viewSchemaUrl={viewSchemaUrl} />}
+      {value?.schema && <SchemaProperty titleProps={{ elevation }} value={value.schema} viewSchemaUrl={viewSchemaUrl} />}
     </PropertyGroup>
   )
 }
