@@ -1,73 +1,30 @@
-import { CircularProgress, TypographyVariant, useTheme } from '@mui/material'
-import { FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { CircularProgress, Paper, TypographyVariant } from '@mui/material'
+import { FlexRow } from '@xylabs/sdk-react'
 import { SizeProp } from '@xyo-network/react-shared'
 
+import { PropertyActionsMenu } from './ActionsMenu'
 import { IdenticonCorner } from './IdenticonCorner'
-import { PropertyActionsMenu } from './PropertyActionsMenu'
-import { PropertyProps } from './PropertyProps'
+import { PropertyBoxProps, PropertyPaperProps, PropertyProps } from './Props'
 import { PropertyTitle } from './Title'
 import { PropertyValue } from './Value'
 
-export const Property: React.FC<PropertyProps> = ({
-  border,
-  borderColor,
-  borderRadius,
-  variant,
-  title,
-  color = 'secondary',
-  value,
-  children,
-  size = 'medium',
-  tip,
-  actions,
-  required,
-  badge = false,
-  ...props
-}) => {
-  const theme = useTheme()
-
-  const sizeTitleHeight: Record<SizeProp, number> = {
-    large: 36,
-    medium: 20,
-    small: 14,
-  }
-
+const PropertyBox: React.FC<PropertyBoxProps> = ({ titleProps, title, value, children, size = 'medium', tip, actions, required, badge = false, ...props }) => {
   const sizeValueHeight: Record<SizeProp, number> = {
-    large: 64,
+    large: 48,
     medium: 36,
-    small: 26,
+    small: 24,
   }
 
   const sizeVariants: Record<SizeProp, TypographyVariant> = {
     large: 'h6',
     medium: 'body1',
-    small: 'body1',
+    small: 'body2',
   }
 
-  const bgcolor = color === 'primary' || color === 'secondary' ? theme.palette[color].main : color
-
   return (
-    <FlexCol
-      minWidth={0}
-      alignItems="stretch"
-      border={border ?? variant === 'outlined' ? 1 : undefined}
-      borderColor={borderColor ?? variant === 'outlined' ? theme.palette.divider : undefined}
-      borderRadius={borderRadius ?? variant === 'outlined' ? 1 : undefined}
-      overflow="hidden"
-      {...props}
-    >
-      {title !== undefined ? (
-        <PropertyTitle
-          tip={tip}
-          title={required ? `${title}*` : title}
-          size={size}
-          bgcolor={bgcolor}
-          color={theme.palette.getContrastText(bgcolor)}
-          height={sizeTitleHeight[size]}
-          more={<PropertyActionsMenu actions={actions} />}
-        />
-      ) : null}
-      <FlexRow justifyContent={value === undefined ? 'center' : 'space-between'} overflow="hidden" height={sizeValueHeight[size]}>
+    <FlexRow flexDirection="column" minWidth={0} alignItems="stretch" overflow="hidden" {...props}>
+      {title !== undefined ? <PropertyTitle tip={tip} title={required ? `${title}*` : title} size={size} more={<PropertyActionsMenu actions={actions} />} {...titleProps} /> : null}
+      <FlexRow paddingX={1} justifyContent={value === undefined ? 'center' : 'space-between'} overflow="hidden" height={sizeValueHeight[size]}>
         {children ? (
           children
         ) : value !== undefined ? (
@@ -77,6 +34,18 @@ export const Property: React.FC<PropertyProps> = ({
         )}
         {value !== undefined ? badge ? <IdenticonCorner value={value} /> : null : null}
       </FlexRow>
-    </FlexCol>
+    </FlexRow>
   )
+}
+
+const PropertyPaper: React.FC<PropertyPaperProps> = ({ style, variant, elevation = 2, square, ...props }) => {
+  return (
+    <Paper style={{ minWidth: 0, overflow: 'hidden', ...style }} variant={variant} elevation={elevation} square={square}>
+      <PropertyBox {...props} paper={false} />
+    </Paper>
+  )
+}
+
+export const Property: React.FC<PropertyProps> = (props) => {
+  return props.paper ? <PropertyPaper {...props} /> : <PropertyBox {...props} />
 }

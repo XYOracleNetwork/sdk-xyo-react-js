@@ -13,7 +13,7 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ 
   return (
     <TableRow {...props}>
       <AddressTableCell archive={archive} value={address} />
-      <TableCell sx={{ display: { lg: 'table-cell', xs: 'none' } }} align="center">
+      <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center">
         <Typography variant="body2" fontFamily="monospace">
           {previousHash ? ellipsize(previousHash, 8) : '-'}
         </Typography>
