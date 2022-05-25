@@ -9,7 +9,7 @@ export interface PropertyValueProps extends TypographyProps<'div'> {
   shortSpace?: number
 }
 
-export const PropertyValue: React.FC<PropertyValueProps> = ({ value, shortSpace, typographyVariant = 'caption', ...props }) => {
+export const PropertyValue: React.FC<PropertyValueProps> = ({ value, shortSpace, typographyVariant = 'body1', ...props }) => {
   const [parentWidth, setParentWidth] = useState<number>()
   const theme = useTheme()
 
