@@ -1,5 +1,4 @@
 import { Stack, StackProps } from '@mui/material'
-import { FlexCol } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/core'
 
 import { PayloadDataDetails, PayloadDataDetailsProps } from './DataDetails'

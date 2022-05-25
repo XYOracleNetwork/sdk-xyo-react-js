@@ -14,7 +14,9 @@ const SchemaProperty: React.FC<PayloadValidationDetailsProps> = ({ value, viewSc
           <PropertyValue value={value?.schema} title="view schema in new window" />
           <FilterNoneIcon sx={{ left: '-6px', position: 'relative', top: '9px', width: '12px' }} />
         </LinkEx>
-      ) : null}
+      ) : (
+        <PropertyValue typographyVariant="body1" value={value?.schema} title="view schema in new window" />
+      )}
     </Property>
   )
 }
