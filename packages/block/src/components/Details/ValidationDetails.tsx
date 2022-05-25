@@ -3,7 +3,7 @@ import { FlexCol } from '@xylabs/sdk-react'
 import { XyoBoundWitness, XyoBoundWitnessValidator } from '@xyo-network/core'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
-export interface BlockValidationDetailsProps extends PropertyGroupProps {
+export type BlockValidationDetailsProps = PropertyGroupProps & {
   value?: XyoBoundWitness
 }
 
@@ -12,9 +12,15 @@ export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ 
 
   const errors = validator?.all() ?? []
 
+  let elevation = 2
+  if (props.paper) {
+    elevation += props.elevation ?? 0
+  }
+
   return (
-    <PropertyGroup title="Validation" tip="The results from validating the block" {...props}>
+    <PropertyGroup titleProps={{ elevation }} title="Validation" tip="The results from validating the block" {...props}>
       <Property
+        titleProps={{ elevation }}
         flexGrow={1}
         title="Valid"
         value={errors.length === 0 ? 'True' : 'False'}

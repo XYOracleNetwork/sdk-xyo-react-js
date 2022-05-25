@@ -37,10 +37,26 @@ WithBuilderSample.args = { payload: samplePayloadFromBuilder }
 WithBuilderSample.decorators = [appThemeDecorator]
 
 const WithArchiveLink = Template.bind({})
-WithArchiveLink.args = { payload: samplePayloadFromBuilder, payloadMetaDetailsProps: { archivePath: 'temp' } }
+WithArchiveLink.args = { archivePath: 'temp', payload: samplePayloadFromBuilder }
 WithArchiveLink.decorators = [appThemeDecorator]
 
-export { Default, WithArchiveLink, WithBuilderSample, WithSample }
+const DefaultPaper = Template.bind({})
+DefaultPaper.args = { paper: true }
+DefaultPaper.decorators = [appThemeDecorator]
+
+const WithSamplePaper = Template.bind({})
+WithSamplePaper.args = { paper: true, payload: samplePayload }
+WithSamplePaper.decorators = [appThemeDecorator]
+
+const WithBuilderSamplePaper = Template.bind({})
+WithBuilderSamplePaper.args = { paper: true, payload: samplePayloadFromBuilder }
+WithBuilderSamplePaper.decorators = [appThemeDecorator]
+
+const WithArchiveLinkPaper = Template.bind({})
+WithArchiveLinkPaper.args = { archivePath: 'temp', paper: true, payload: samplePayloadFromBuilder }
+WithArchiveLinkPaper.decorators = [appThemeDecorator]
+
+export { Default, DefaultPaper, WithArchiveLink, WithArchiveLinkPaper, WithBuilderSample, WithBuilderSamplePaper, WithSample, WithSamplePaper }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

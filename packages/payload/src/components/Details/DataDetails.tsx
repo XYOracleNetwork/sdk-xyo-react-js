@@ -1,26 +1,30 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
-import { ButtonEx, FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/core'
-import { Property, PropertyAction, usePropertyHeroProps } from '@xyo-network/react-property'
+import { Property, PropertyAction, PropertyProps } from '@xyo-network/react-property'
 import { SizeProp } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
 import { PayloadHashSourceDetails } from './HashSourceDetails'
 
-export interface PayloadDataDetailsProps extends FlexBoxProps {
-  value?: XyoPayload
+export type PayloadDataDetailsProps = PropertyProps & {
+  payload?: XyoPayload
   size?: SizeProp
   badge?: boolean
 }
 
-export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, badge, value, ...props }) => {
-  const wrapper = value ? new XyoPayloadWrapper(value) : undefined
+export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, badge, payload, ...props }) => {
+  const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
 
-  const propertyHeroProps = usePropertyHeroProps(props)
   const [viewSourceOpen, setViewSourceOpen] = useState(false)
   const hash = wrapper?.hash
+
+  let elevation = 2
+  if (props.paper) {
+    elevation += props.elevation ?? 0
+  }
 
   const actions: PropertyAction[] = [
     {
@@ -40,21 +44,12 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
   }
 
   return (
-    <FlexCol alignItems="stretch" {...props}>
-      <Property
-        variant="outlined"
-        badge={badge}
-        size={size}
-        actions={actions}
-        title="Payload Hash"
-        value={hash ?? '<Unknown>'}
-        tip="This is the payload hash"
-        {...propertyHeroProps}
-      />
+    <>
+      <Property titleProps={{ elevation }} badge={badge} size={size} actions={actions} title="Payload Hash" value={hash ?? '<Unknown>'} tip="This is the payload hash" {...props} />
       <Dialog open={viewSourceOpen} onClose={() => setViewSourceOpen(false)}>
         <DialogTitle>Hash Source</DialogTitle>
         <DialogContent>
-          <PayloadHashSourceDetails noTitle payload={value} />
+          <PayloadHashSourceDetails noTitle payload={payload} />
         </DialogContent>
         <DialogActions>
           <ButtonEx color="secondary" onClick={onCopy}>
@@ -65,6 +60,6 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
           </ButtonEx>
         </DialogActions>
       </Dialog>
-    </FlexCol>
+    </>
   )
 }

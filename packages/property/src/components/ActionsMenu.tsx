@@ -3,7 +3,7 @@ import { IconButton, Menu, MenuItem } from '@mui/material'
 import { FlexRow } from '@xylabs/sdk-react'
 import { useState } from 'react'
 
-import { PropertyActionsProps } from './PropertyActionsProps'
+import { PropertyActionsProps } from './ActionsProps'
 
 export const PropertyActionsMenu: React.FC<PropertyActionsProps> = ({ actions, ...props }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)

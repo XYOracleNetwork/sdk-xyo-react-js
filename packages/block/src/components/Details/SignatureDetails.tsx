@@ -3,13 +3,17 @@ import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 import { BlockSignatureTable } from './SignatureTable'
 
-export interface BlockSignatureDetailsProps extends PropertyGroupProps {
+export type BlockSignatureDetailsProps = PropertyGroupProps & {
   block?: XyoBoundWitness
 }
 
 export const BlockSignatureDetails: React.FC<BlockSignatureDetailsProps> = ({ block, ...props }) => {
+  let elevation = 2
+  if (props.paper) {
+    elevation += props.elevation ?? 0
+  }
   return (
-    <PropertyGroup title="Signatures" tip="The list of signatures for this block" {...props}>
+    <PropertyGroup titleProps={{ elevation }} title="Signatures" tip="The list of signatures for this block" {...props}>
       <BlockSignatureTable block={block} />
     </PropertyGroup>
   )
