@@ -37,7 +37,7 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
           )
         }
       />
-      {value?.schema && <SchemaProperty titleProps={{ elevation }} value={value.schema} viewSchemaUrl={viewSchemaUrl} />}
+      {value?.schema && <SchemaProperty flexGrow={1} titleProps={{ elevation }} value={value.schema} viewSchemaUrl={viewSchemaUrl} />}
     </PropertyGroup>
   )
 }
