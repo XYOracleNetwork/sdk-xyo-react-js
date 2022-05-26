@@ -15,8 +15,8 @@ export interface PropertyTitleProps extends FlexBoxProps {
 
 export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, size = 'medium', tip, more, title, ...props }) => {
   const sizeVariants: Record<TitleSizeProp, TypographyVariant> = {
-    full: 'h6',
-    large: 'h6',
+    full: 'caption',
+    large: 'caption',
     medium: 'caption',
     small: 'caption',
   }
@@ -29,13 +29,13 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, siz
   }
 
   const sizeFontSize: Record<TitleSizeProp, number> = {
-    full: 24,
-    large: 24,
+    full: 16,
+    large: 16,
     medium: 14,
     small: 10,
   }
 
-  const quickTipSize = sizeFontSize[size] < 18 ? sizeFontSize[size] : 18
+  const quickTipSize = sizeFontSize[size] < 16 ? sizeFontSize[size] : 16
 
   const theme = useTheme()
 
@@ -47,9 +47,11 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, siz
       justifyContent="space-between"
       {...props}
     >
-      <FlexRow paddingX={1}>
-        <Typography fontWeight={700} noWrap variant={sizeVariants[size]} fontSize={sizeFontSize[size]}>
-          {title}
+      <FlexRow paddingX={1} paddingY={0.5}>
+        <Typography fontWeight={500} noWrap variant={sizeVariants[size]} fontSize={sizeFontSize[size]}>
+          <small>
+            <strong>{title}</strong>
+          </small>
         </Typography>
         {tip ? (
           <QuickTipButton style={{ fontSize: quickTipSize }} color="inherit" title={title ?? ''}>

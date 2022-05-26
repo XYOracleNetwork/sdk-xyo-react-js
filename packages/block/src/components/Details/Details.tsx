@@ -36,7 +36,7 @@ const payloadsFromBlock = (block?: XyoBoundWitness) => {
 export const BlockDetails: React.FC<BlockDetailsProps> = ({ paper, archivePath, block, payloads, ...props }) => {
   return (
     <Stack justifyContent="flex-start" alignItems="stretch" spacing={1} {...props}>
-      <PayloadDataDetails paper={paper} value={block} size="large" badge />
+      <PayloadDataDetails paper={paper} payload={block} size="large" badge />
       <BlockMetaDetails paper={paper} block={block} archivePath={archivePath} />
       <BlockSignatureDetails paper={paper} block={block} />
       <BlockPayloads paper={paper} payloads={payloads ?? payloadsFromBlock(block)} />
