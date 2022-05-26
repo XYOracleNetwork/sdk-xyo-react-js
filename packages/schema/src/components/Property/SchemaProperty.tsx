@@ -4,7 +4,6 @@ import VerifiedIcon from '@mui/icons-material/Verified'
 import { IconButton } from '@mui/material'
 import { LinkEx, useAsyncEffect } from '@xylabs/sdk-react'
 import { Property, PropertyProps, PropertyValue } from '@xyo-network/react-property'
-import { PropertyTitleProps } from '@xyo-network/react-property/dist/esm/components/Title'
 import { XyoSchemaCache, XyoSchemaCacheEntry } from '@xyo-network/utils'
 import { useState } from 'react'
 
@@ -30,10 +29,10 @@ const useResolveSchema = (schema?: string) => {
   return entry
 }
 
-export const SchemaProperty: React.FC<SchemaPropertyProps> = ({ titleProps, value, viewSchemaUrl = 'https://explore.xyo.network/' }) => {
+export const SchemaProperty: React.FC<SchemaPropertyProps> = ({ titleProps, value, viewSchemaUrl = 'https://explore.xyo.network/', ...props }) => {
   const resolvedSchema = useResolveSchema(value)
   return (
-    <Property flexGrow={1} title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps}>
+    <Property title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
       {value ? (
         resolvedSchema === null ? (
           <IconButton rel="noopener noreferrer" size="small" target="_blank" href={`${viewSchemaUrl}${value}`}>
