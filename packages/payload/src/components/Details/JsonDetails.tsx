@@ -1,4 +1,4 @@
-import { useMediaQuery, useTheme } from '@mui/material'
+import { Paper, useMediaQuery, useTheme } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/core'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
@@ -13,7 +13,7 @@ export type PayloadJsonDetailsProps = PropertyGroupProps & {
 }
 
 export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonViewProps, payload = {}, ...props }) => {
-  const { breakpoints } = useTheme()
+  const { breakpoints, palette } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
 
   let elevation = 2
@@ -21,11 +21,24 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonView
     elevation += props.elevation ?? 0
   }
 
+  const jsonTheme = palette.mode === 'dark' ? 'shapeshifter' : undefined
+
   return (
     <PropertyGroup titleProps={{ elevation }} title="JSON" tip="The raw JSON of the payload" {...props}>
-      <Suspense fallback={<FlexGrowRow />}>
-        <JsonView src={payload} enableClipboard collapseStringsAfterLength={belowSm ? 24 : 32} {...jsonViewProps} />
-      </Suspense>
+      <Paper square elevation={2} style={{ overflow: 'hidden', padding: '16px', width: '100%' }}>
+        <Suspense fallback={<FlexGrowRow />}>
+          <JsonView
+            groupArraysAfterLength={5}
+            shouldCollapse={(props) => props.name !== 'root'}
+            style={{ backgroundColor: undefined, overflow: 'hidden' }}
+            src={payload}
+            enableClipboard
+            theme={jsonTheme}
+            collapseStringsAfterLength={belowSm ? 24 : 32}
+            {...jsonViewProps}
+          />
+        </Suspense>
+      </Paper>
     </PropertyGroup>
   )
 }

@@ -11,7 +11,7 @@ const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, childre
   const childrenArray = typeOf(children) === 'array' ? (children as ReactElement[]) : undefined
   return (
     <FlexRow overflow="hidden" justifyContent="flex-start" alignItems="stretch" {...props}>
-      <PropertyTitle size="full" title={title} tip={tip} {...titleProps} />
+      <PropertyTitle alignItems="flex-start" size="full" title={title} tip={tip} {...titleProps} />
       {childrenArray ? (
         <FlexGrowRow>
           {childrenArray?.map((child, index) => {
