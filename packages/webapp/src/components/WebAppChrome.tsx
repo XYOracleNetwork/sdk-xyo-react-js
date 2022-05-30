@@ -7,7 +7,7 @@ import { ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
 export interface WebAppChromeProps extends FlexBoxProps {
-  appName?: string
+  appName: string
   footer?: ReactNode
   appbar?: ReactNode
   errorPage?: ReactNode
