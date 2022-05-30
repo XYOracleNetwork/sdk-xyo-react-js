@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAuthState } from '@xyo-network/react-auth'
 import { Web3Login } from '@xyo-network/react-login-forms'
 
-import { authDecorator, WrappedAuthComponent } from '../.storybook'
+import { authDecorator, WrappedAuthComponent } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {},

@@ -7,7 +7,7 @@ import { useAuthState } from '@xyo-network/react-auth'
 import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { useEffect, useState } from 'react'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook'
+import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {

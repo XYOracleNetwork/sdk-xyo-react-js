@@ -5,16 +5,15 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider, AuthService, AuthServiceId, AuthState, AuthThemeExtender, defaultState, useAuthState } from '@xyo-network/react-auth'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 
-interface WrappedArgs {
+export interface WrappedArgs {
   authState?: Partial<AuthState>
   apiDomain?: string
   isDarkMode?: boolean
 }
-type WrappedAuthComponent = (props: WrappedArgs) => React.ReactElement
 
-export type { WrappedAuthComponent, WrappedArgs }
+export type WrappedAuthComponent = (props: WrappedArgs) => React.ReactElement
 
-const authServiceList: AuthService[] = [
+export const authServiceList: AuthService[] = [
   {
     id: AuthServiceId.Web3Wallet,
     title: 'Web3 wallet',
@@ -42,7 +41,7 @@ const WithArchivistApi: React.FC<WithChildren> = ({ children }) => {
   }
 }
 
-const authDecorator: DecoratorFn = (Story, { args }) => {
+export const authDecorator: DecoratorFn = (Story, { args }) => {
   const {authState} = args
   const mergedAuthState = {...defaultState(), ...authState}
 
@@ -56,5 +55,3 @@ const authDecorator: DecoratorFn = (Story, { args }) => {
     </FlexGrowCol>
   )
 }
-
-export { authDecorator, authServiceList }

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { AuthProvider, defaultState, InvalidTokenButton, useAuthState } from '@xyo-network/react-auth'
 
-import { WrappedAuthComponent } from '../.storybook'
+import { WrappedAuthComponent } from '../../.storybook'
 
 const AuthWrap: DecoratorFn = (Story, { args }) => (
   <AuthProvider authState={{ ...defaultState(), ...{ loggedInAccount: 'none@none.com' } }}>

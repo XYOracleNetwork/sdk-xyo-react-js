@@ -8,7 +8,7 @@ import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
 import axios from 'axios'
 import { useState } from 'react'
 
-import { archivistApiDecorator, authDecorator, authServiceList } from '../.storybook'
+import { archivistApiDecorator, authDecorator, authServiceList } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {

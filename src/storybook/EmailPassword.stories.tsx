@@ -3,7 +3,7 @@ import { userEvent, within } from '@storybook/testing-library'
 import { AuthDispatch, useAuthState } from '@xyo-network/react-auth'
 import { EmailPassword } from '@xyo-network/react-login-forms'
 
-import { authDecorator, WrappedAuthComponent } from '../.storybook'
+import { authDecorator, WrappedAuthComponent } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {},

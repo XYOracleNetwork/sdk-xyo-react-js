@@ -16,7 +16,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'AppBar/Application',
+  title: 'appbar/AppBar/Application',
 } as ComponentMeta<typeof ApplicationAppBar>
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (

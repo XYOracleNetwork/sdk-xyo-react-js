@@ -6,7 +6,7 @@ import { AuthErrorsWrapper } from '@xyo-network/react-auth'
 import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import axios from 'axios'
 
-import { authDecorator, authServiceList, DeprecateStory } from '../.storybook'
+import { authDecorator, authServiceList, DeprecateStory } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {

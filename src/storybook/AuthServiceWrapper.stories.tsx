@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { useLocation } from 'react-router-dom'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook'
+import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {

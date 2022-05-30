@@ -1,7 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { NotFound } from '@xyo-network/react-shared'
 
-import { authServiceList } from '../.storybook'
+import { NotFound } from './NotFound'
 
 const StorybookEntry = {
   argTypes: {},
@@ -19,11 +18,7 @@ const Template: ComponentStory<typeof NotFound> = () => {
 }
 
 const Default = Template.bind({})
-Default.args = {
-  authState: {
-    authServiceList: [authServiceList[0]],
-  },
-}
+Default.args = {}
 
 export { Default }
 

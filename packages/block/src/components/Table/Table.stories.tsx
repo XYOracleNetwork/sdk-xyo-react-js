@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { sampleBlock } from '../../.storybook'
+import { sampleBlock } from '../../../../../.storybook'
 import { BlockTable } from './Table'
 
 const StorybookEntry = {

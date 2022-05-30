@@ -6,7 +6,7 @@ import { AuthProvider, AuthState } from '@xyo-network/react-auth'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WrappedAuthComponent } from '../.storybook'
+import { WrappedAuthComponent } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {},

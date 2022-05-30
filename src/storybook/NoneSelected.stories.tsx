@@ -3,7 +3,7 @@ import { useAuthState } from '@xyo-network/react-auth'
 import { NoneSelected } from '@xyo-network/react-login-forms'
 import { useLocation } from 'react-router-dom'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../.storybook'
+import { authDecorator, authServiceList, WrappedAuthComponent } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {},

@@ -14,7 +14,7 @@ const StorybookEntry: Meta = {
       page: null,
     },
   },
-  title: 'System/SystemControls',
+  title: 'appbar/System/SystemControls',
 }
 
 const Template: ComponentStory<typeof SystemControls> = (props) => {

@@ -3,7 +3,7 @@ import { SelectExProps } from '@xylabs/sdk-react'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { SchemaMemoryProvider, SchemaSelectEx } from '@xyo-network/react-schema'
 
-import { authDecorator, authServiceList, WrappedArgs } from '../.storybook'
+import { authDecorator, authServiceList, WrappedArgs } from '../../.storybook'
 
 const StorybookEntry = {
   argTypes: {

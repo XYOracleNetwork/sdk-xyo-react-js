@@ -2,7 +2,7 @@ import { createTheme, MenuItem, Select, Typography, useTheme } from '@mui/materi
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { AuthThemeExtender } from '@xyo-network/react-auth'
 
-import { authDecorator } from '../.storybook'
+import { authDecorator } from '../../.storybook'
 
 const customPrimary = '#485c76'
 const customSecondary = '#8f91c7'
