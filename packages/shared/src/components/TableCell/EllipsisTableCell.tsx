@@ -12,21 +12,24 @@ interface TableCellValueProps {
   hashCellWidth: number | undefined
 }
 
-const TableCellValue: React.FC<TableCellValueProps> = ({ value, hashCellWidth }) => (
-  <Typography
-    variant="body2"
-    fontFamily="monospace"
-    style={{
-      display: 'block',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-      width: hashCellWidth,
-    }}
-  >
-    {value}
-  </Typography>
-)
+const TableCellValue: React.FC<TableCellValueProps> = ({ value, hashCellWidth }) => {
+  console.log(`hashCellWidth: ${hashCellWidth}`)
+  return (
+    <Typography
+      variant="body2"
+      fontFamily="monospace"
+      style={{
+        display: 'block',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        width: hashCellWidth,
+      }}
+    >
+      {value}
+    </Typography>
+  )
+}
 
 export interface EllipsisTableCellProps extends TableCellProps {
   value?: string
@@ -35,7 +38,7 @@ export interface EllipsisTableCellProps extends TableCellProps {
 }
 
 export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to, href, ...props }) => {
-  const [hashCellWidth, setHashCellWidth] = useState<number>()
+  const [hashCellWidth, setHashCellWidth] = useState<number>(0)
   const hashDivRef = useRef<HTMLDivElement>(null)
 
   const theme = useTheme()
@@ -50,11 +53,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
       const smallestParentWidth = getSmallestParentWidth(cell)
       if (smallestParentWidth && row) {
         const remainderWidth = smallestParentWidth - getRemainingRowWidth(row) - spacing
-        if (cell.clientWidth > remainderWidth) {
-          setHashCellWidth(remainderWidth)
-        } else if (hashCellWidth === undefined) {
-          setHashCellWidth(cell.clientWidth)
-        }
+        setHashCellWidth(remainderWidth)
       }
     }
 
@@ -71,7 +70,6 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
     return () => {
       window.removeEventListener('resize', onResize)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hashDivRef, spacing])
 
   return (
