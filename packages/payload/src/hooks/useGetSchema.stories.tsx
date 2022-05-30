@@ -51,7 +51,7 @@ const StorybookEntry: Meta = {
       page: null,
     },
   },
-  title: 'hooks/useGetSchema',
+  title: 'payload/useGetSchema',
 }
 
 const Template: ComponentStory<typeof UseGetSchemaComponent> = ({ schema }) => {

@@ -1,11 +1,12 @@
+/* eslint-disable import/no-internal-modules */
 import { Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 import { FlexCol } from '@xylabs/sdk-react'
 import { Huri } from '@xyo-network/core'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { lazy, Suspense } from 'react'
 
+import { ArchivistApiProvider } from '../../../archivist-api/src'
 import { useHuriHash } from './useHuriHash'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
@@ -49,7 +50,7 @@ const StorybookEntry: Meta = {
       page: null,
     },
   },
-  title: 'hooks/useHuriHash',
+  title: 'payload/useHuriHash',
 }
 
 const Template: ComponentStory<typeof UseHuriHashComponent> = ({ huriOrHash }) => {

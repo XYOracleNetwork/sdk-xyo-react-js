@@ -13,7 +13,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'ApiHistory/ApiCallEntry',
+  title: 'archivist-api/ApiHistory/ApiCallEntry',
 } as ComponentMeta<typeof ApiCallEntry>
 
 const Template: ComponentStory<typeof ApiCallEntry> = ({ ...props }) => {

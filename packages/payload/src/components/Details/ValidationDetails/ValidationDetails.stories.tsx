@@ -1,7 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { appThemeDecorator, samplePayload } from '../../../.storybook'
+import { appThemeDecorator, samplePayload } from '../../../../../../.storybook'
 import { PayloadDetails } from '../Details'
 import { PayloadValidationDetails } from './ValidationDetails'
 
@@ -19,7 +19,7 @@ const StorybookEntry: Meta = {
       page: null,
     },
   },
-  title: 'Payload/ValidationDetails',
+  title: 'payload/ValidationDetails',
 }
 
 const Template: ComponentStory<typeof PayloadValidationDetails> = (args) => (

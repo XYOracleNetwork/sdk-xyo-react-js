@@ -1,7 +1,7 @@
 import { FlexCol, InvertableThemeProvider } from '@xylabs/sdk-react'
 import { CssBaseline } from '@mui/material';
 import { useDarkMode } from 'storybook-dark-mode';
-import {partialDarkThemeOptions, themeOptions} from '@xyo-network/react-theme'
+import { partialDarkThemeOptions, themeOptions } from '../packages/theme/src'
 
 
 export const parameters = {
@@ -13,6 +13,11 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      method: 'alphabetical'
+    }
+  }
 }
 
 const withThemeProvider = (Story, context) => {

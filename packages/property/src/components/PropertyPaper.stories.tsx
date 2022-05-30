@@ -3,7 +3,7 @@ import { TextField } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/sdk-react'
 
-import { appThemeDecorator, sampleBlockWithPayloads } from '../.storybook'
+import { appThemeDecorator, sampleBlockWithPayloads } from '../../../../.storybook'
 import { Property } from './Property'
 import { PropertyPaperProps } from './Props'
 
@@ -15,7 +15,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Properties/PropertyPaper',
+  title: 'property/PropertyPaper',
 } as ComponentMeta<typeof Property>
 
 const Template: ComponentStory<typeof Property> = (args) => <Property {...(args as PropertyPaperProps)} paper={true}></Property>

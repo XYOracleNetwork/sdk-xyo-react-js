@@ -15,21 +15,20 @@ export interface FooterProps extends FlexBoxProps {
   footerHtmlElement?: boolean
 }
 
-export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, footerHtmlElement = false, ...props }) => {
-  const [hovering, setHovering] = useState(false)
+export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, ...props }) => {
+  const [more, setMore] = useState(false)
+  const onMore = () => {
+    setMore(!more)
+  }
   return (
     <FlexCol
-      onMouseEnter={() => {
-        setHovering(true)
-      }}
       onMouseLeave={() => {
-        setHovering(false)
+        setMore(false)
       }}
       alignItems="stretch"
-      {...(footerHtmlElement && { component: 'footer' })}
       {...props}
     >
-      {hovering || !dynamicHeight ? (
+      {more || !dynamicHeight ? (
         <FlexRow alignItems="flex-start">
           <Container>
             <Grid container justifyContent="space-between" alignItems="flex-start">
@@ -57,7 +56,7 @@ export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, footerHtm
       ) : null}
       <FlexRow>
         <Container>
-          <Copyright />
+          <Copyright onMore={onMore} />
         </Container>
       </FlexRow>
     </FlexCol>

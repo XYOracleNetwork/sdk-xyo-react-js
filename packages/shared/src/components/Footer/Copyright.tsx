@@ -1,23 +1,46 @@
-import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
+import { FlexBoxProps, FlexRow, LinkEx, LinkExProps } from '@xylabs/sdk-react'
 
-import { Ampersand } from '../Ampersand'
-import { Pipe } from '../Pipe'
 import { FooterLink } from './Link'
 
-export const Copyright: React.FC<FlexBoxProps> = (props) => (
-  <FlexRow {...props}>
-    <Typography margin={1} variant="subtitle1" textAlign="center">
-      Copyright &copy;&nbsp;2022&nbsp;
-      <FooterLink href="https://xy.company/">XY Labs, Inc.</FooterLink>
-      <Ampersand />
-      <FooterLink href="https://xyo.network/">XYO Foundation</FooterLink>
-      <Pipe />
-      <FooterLink href="https://xy.company/privacy/">Privacy Policy</FooterLink>
-      <Pipe />
-      <FooterLink href="https://xy.company/terms/">Terms of Service</FooterLink>
-      <Pipe />
-      <FooterLink href="https://xylabs.com/jobs">Careers</FooterLink>
-    </Typography>
+export interface CopyrightProps extends FlexBoxProps {
+  onMore?: () => void
+}
+
+const footerLinks: LinkExProps[] = [
+  {
+    href: 'https://xylabs.com/',
+    title: `Copyright © ${new Date().getFullYear()} XY Labs, Inc.`,
+  },
+  {
+    href: 'https://xyo.network/',
+    title: 'XYO Foundation',
+  },
+  {
+    href: 'https://xylabs.com/privacy/',
+    title: 'Privacy',
+  },
+  {
+    href: 'https://xylabs.com/terms/',
+    title: 'Terms',
+  },
+  {
+    href: 'https://xylabs.com/jobs',
+    title: 'Careers',
+  },
+]
+
+export const Copyright: React.FC<CopyrightProps> = ({ style, onMore, ...props }) => (
+  <FlexRow flexWrap="wrap" textTransform="uppercase" style={{ opacity: 0.6, ...style }} {...props}>
+    {footerLinks.map((footerLink, index) => (
+      <FooterLink noWrap key={index} paddingX={1} margin={0} {...footerLink}>
+        <small>{footerLink.title}</small>
+      </FooterLink>
+    ))}
+    {onMore ? (
+      <FlexRow style={{ cursor: 'pointer' }} paddingX={0.5} onClick={onMore}>
+        <MoreHorizIcon fontSize="small" />
+      </FlexRow>
+    ) : null}
   </FlexRow>
 )
