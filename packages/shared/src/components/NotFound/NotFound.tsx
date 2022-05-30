@@ -1,16 +1,14 @@
 import { Typography } from '@mui/material'
-import { FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexGrowCol } from '@xylabs/sdk-react'
 
-const NotFound = () => {
+const NotFound: React.FC<FlexBoxProps> = (props) => {
   return (
-    <>
-      <FlexGrowCol>
-        <Typography variant="h2">Sorry!</Typography>
-        <Typography marginY={3} variant="body2">
-          {"Can't find anything here"}
-        </Typography>
-      </FlexGrowCol>
-    </>
+    <FlexGrowCol {...props}>
+      <Typography variant="h2">Sorry!</Typography>
+      <Typography marginY={3} variant="body2">
+        {"Can't find anything here"}
+      </Typography>
+    </FlexGrowCol>
   )
 }
 
