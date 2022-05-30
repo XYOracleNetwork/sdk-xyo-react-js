@@ -11,7 +11,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Toolbar/Context',
+  title: 'appbar/Toolbar/Context',
 } as ComponentMeta<typeof ContextToolbar>
 
 const Template: ComponentStory<typeof ContextToolbar> = (args) => (

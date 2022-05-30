@@ -1,8 +1,9 @@
+/* eslint-disable import/no-internal-modules */
 import { ComponentStory, Meta } from '@storybook/react'
-import { ArchivesProvider } from '@xyo-network/react-archive'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
-import { NetworkMemoryProvider } from '@xyo-network/react-network'
 
+import { ArchivesProvider } from '../../../../archive/src'
+import { ArchivistApiProvider } from '../../../../archivist-api/src'
+import { NetworkMemoryProvider } from '../../../../network/src'
 import { SystemControls } from './SystemControls'
 import { SystemControlsType } from './SystemControlsType'
 
@@ -14,7 +15,7 @@ const StorybookEntry: Meta = {
       page: null,
     },
   },
-  title: 'System/SystemControls',
+  title: 'appbar/System/SystemControls',
 }
 
 const Template: ComponentStory<typeof SystemControls> = (props) => {

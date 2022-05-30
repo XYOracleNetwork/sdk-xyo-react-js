@@ -24,7 +24,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Json/JsonRouteWrapper',
+  title: 'shared/JsonRouteWrapper',
 } as ComponentMeta<typeof JsonRouteWrapper>
 
 const Template: ComponentStory<typeof JsonRouteWrapper> = (props) => {

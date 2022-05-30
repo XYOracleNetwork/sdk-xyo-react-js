@@ -5,7 +5,7 @@ import { ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoArchivistApi } from '@xyo-network/api'
 import { useState } from 'react'
 
-import { DeprecateStory } from '../../.storybook'
+import { DeprecateStory } from '../../../../../.storybook'
 import { ApiErrorsProvider } from './Provider'
 import { useApiCaller } from './useApiCaller'
 import { useApiLogger } from './useApiLogger'

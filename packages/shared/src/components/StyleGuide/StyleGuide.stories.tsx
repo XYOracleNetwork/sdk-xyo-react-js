@@ -10,7 +10,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'UI/StyleGuide',
+  title: 'shared/StyleGuide',
 } as ComponentMeta<typeof StyleGuideExample>
 
 const Template: ComponentStory<typeof StyleGuideExample> = () => <StyleGuideExample />

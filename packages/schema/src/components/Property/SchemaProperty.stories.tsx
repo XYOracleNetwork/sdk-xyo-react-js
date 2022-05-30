@@ -1,6 +1,6 @@
 import { ComponentStory, Meta } from '@storybook/react'
 
-import { appThemeDecorator } from '../../.storybook'
+import { appThemeDecorator } from '../../../../../.storybook'
 import { SchemaProperty } from './SchemaProperty'
 
 const StorybookEntry: Meta = {

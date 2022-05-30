@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { appThemeDecorator, samplePayload } from '../../.storybook'
+import { appThemeDecorator, samplePayload } from '../../../../../.storybook'
 import { PayloadTable } from './Table'
 
 const StorybookEntry = {
@@ -12,7 +12,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Payload/Table',
+  title: 'payload/Table',
 } as ComponentMeta<typeof PayloadTable>
 
 const Template: ComponentStory<typeof PayloadTable> = (args) => (

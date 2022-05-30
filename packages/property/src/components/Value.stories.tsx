@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { sampleBlockWithPayloads } from '../.storybook'
+import { sampleBlockWithPayloads } from '../../../../.storybook'
 import { PropertyValue } from './Value'
 
 const StorybookEntry = {
@@ -11,7 +11,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Properties/Value',
+  title: 'property/Value',
 } as ComponentMeta<typeof PropertyValue>
 
 const Template: ComponentStory<typeof PropertyValue> = (args) => <PropertyValue {...args}></PropertyValue>

@@ -1,0 +1,37 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
+
+import { FullWidthCard } from './FullWidthCard'
+const StorybookEntry = {
+  argTypes: {},
+  component: FullWidthCard,
+  parameters: {
+    docs: {
+      page: null,
+    },
+  },
+  title: 'shared/FullWidthCard',
+} as ComponentMeta<typeof FullWidthCard>
+
+const Template: ComponentStory<typeof FullWidthCard> = (args) => (
+  <BrowserRouter>
+    <FullWidthCard {...args}></FullWidthCard>
+  </BrowserRouter>
+)
+
+const Default = Template.bind({})
+Default.args = {
+  cardIsButton: true,
+  desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat delectus nemo optio quis! Totam magni laboriosam repudiandae nam nobis at quisquam aut omnis, quis officiis similique enim id dolorem unde!',
+  name: 'Big Title Here',
+
+  to: '/link',
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+
+export { Default }
+
+// eslint-disable-next-line import/no-default-export
+export default StorybookEntry
