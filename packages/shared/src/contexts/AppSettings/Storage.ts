@@ -3,7 +3,7 @@ import { AppSettingSlug } from './Slug'
 import { AppSettingsStorageBase } from './StorageBase'
 
 export class AppSettingsStorage extends AppSettingsStorageBase {
-  constructor(prefix = 'XyoAppSettings', defaults?: Record<string, unknown>) {
+  constructor(prefix = 'AppSettings', defaults?: Record<string, unknown>) {
     super(prefix, { ...appSettingDefault(), ...defaults })
   }
 
