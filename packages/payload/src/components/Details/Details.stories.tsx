@@ -12,7 +12,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Payload/Details',
+  title: 'payload/Details',
 } as ComponentMeta<typeof PayloadDetails>
 
 const Template: ComponentStory<typeof PayloadDetails> = (args) => (

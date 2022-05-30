@@ -19,7 +19,7 @@ const StorybookEntry: Meta = {
       page: null,
     },
   },
-  title: 'Payload/ValidationDetails',
+  title: 'payload/ValidationDetails',
 }
 
 const Template: ComponentStory<typeof PayloadValidationDetails> = (args) => (

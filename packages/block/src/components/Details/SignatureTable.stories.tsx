@@ -12,7 +12,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Block/SignatureTable',
+  title: 'block/SignatureTable',
 } as ComponentMeta<typeof BlockSignatureTable>
 
 const Template: ComponentStory<typeof BlockSignatureTable> = (args) => (

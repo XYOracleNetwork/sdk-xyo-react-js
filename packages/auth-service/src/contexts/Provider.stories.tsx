@@ -13,7 +13,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'ErrorReporter/ErrorReporterProvider',
+  title: 'auth-service/ErrorReporterProvider',
 } as ComponentMeta<typeof ErrorReporterProvider>
 
 const RollbarComponent = () => {

@@ -10,7 +10,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Properties/Title',
+  title: 'property/Title',
 } as ComponentMeta<typeof PropertyTitle>
 
 const Template: ComponentStory<typeof PropertyTitle> = (args) => <PropertyTitle {...args}></PropertyTitle>

@@ -36,7 +36,7 @@ const StorybookEntry: Meta = {
       page: null,
     },
   },
-  title: 'hooks/FooterOffsetResizer',
+  title: 'shared/useFooterOffsetResizer',
 }
 
 const Template: ComponentStory<typeof FooterOffsetResizer> = () => {

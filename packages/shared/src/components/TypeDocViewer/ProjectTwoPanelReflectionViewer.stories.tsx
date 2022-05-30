@@ -14,7 +14,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'ProjectTwoPanelReflectionViewer',
+  title: 'shared/TypeDocViewer/ProjectTwoPanelReflectionViewer',
 } as ComponentMeta<typeof ProjectTwoPanelReflectionViewer>
 
 const Template: ComponentStory<typeof ProjectTwoPanelReflectionViewer> = ({ reflection, ...props }) => {
