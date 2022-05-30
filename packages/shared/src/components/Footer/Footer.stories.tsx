@@ -1,5 +1,5 @@
-import { Container } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { FlexCol } from '@xylabs/sdk-react'
 
 import { Footer } from './Footer'
 
@@ -15,9 +15,9 @@ const StorybookEntry = {
 } as ComponentMeta<typeof Footer>
 
 const Template: ComponentStory<typeof Footer> = (args) => (
-  <Container maxWidth="xl" style={{ display: 'flex', flexDirection: 'column', flexGrow: '1', justifyContent: 'end', minHeight: '100vh' }}>
+  <FlexCol minHeight="80vh" justifyContent="flex-end">
     <Footer {...args}></Footer>
-  </Container>
+  </FlexCol>
 )
 
 const Default = Template.bind({})
