@@ -1,4 +1,4 @@
-import { CssBaseline } from '@mui/material'
+import { CssBaseline, Paper } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, InvertableThemeProvider } from '@xylabs/sdk-react'
 import { ApplicationAppBar } from '@xyo-network/react-appbar'
 import { ErrorBoundary, ErrorPage, Footer, useAppSettings } from '@xyo-network/react-shared'
@@ -11,9 +11,10 @@ export interface WebAppChromeProps extends FlexBoxProps {
   footer?: ReactNode
   appbar?: ReactNode
   errorPage?: ReactNode
+  footerElevation?: number
 }
 
-export const WebAppChrome: React.FC<WebAppChromeProps> = ({ errorPage, appbar, footer, children, appName, ...props }) => {
+export const WebAppChrome: React.FC<WebAppChromeProps> = ({ footerElevation = 4, errorPage, appbar, footer, children, appName, ...props }) => {
   const { darkMode } = useAppSettings()
 
   return (
@@ -27,7 +28,9 @@ export const WebAppChrome: React.FC<WebAppChromeProps> = ({ errorPage, appbar, f
         <FlexGrowCol overflow="hidden" justifyContent="flex-start" alignItems="stretch">
           <ErrorBoundary fallback={errorPage ?? <ErrorPage />}>{children}</ErrorBoundary>
         </FlexGrowCol>
-        {footer ?? <Footer dynamicHeight />}
+        <Paper elevation={footerElevation} square>
+          {footer ?? <Footer dynamicHeight />}
+        </Paper>
       </FlexCol>
     </InvertableThemeProvider>
   )
