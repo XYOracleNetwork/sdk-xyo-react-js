@@ -1,10 +1,9 @@
-import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
+import { TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/sdk-react'
 import { XyoPayload, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/core'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
 import { DateTime } from 'luxon'
-import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
 
 import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig'
@@ -22,44 +21,53 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
   const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
   const { network } = useNetwork()
 
-  const archive = (
-    <TableCell key="archive" align="center">
+  const archive: React.FC<TableCellProps> = (props) => (
+    <TableCell key="archive" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {payload?._archive}
       </Typography>
     </TableCell>
   )
 
-  const client = (
-    <TableCell key="client" align="center">
+  const client: React.FC<TableCellProps> = (props) => (
+    <TableCell key="client" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {payload?._client}
       </Typography>
     </TableCell>
   )
 
-  const date = (
-    <TableCell key="date" align="center">
+  const date: React.FC<TableCellProps> = (props) => (
+    <TableCell key="date" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {timeStamp?.toLocaleString(DateTime.DATE_SHORT)}
       </Typography>
     </TableCell>
   )
 
-  const hash = (
-    <HashTableCell key="hash" value={payload?._hash} archive={payload?._archive} dataType="payload" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
+  const hash: React.FC<TableCellProps> = (props) => (
+    <HashTableCell
+      key="hash"
+      width="100%"
+      value={payload?._hash}
+      archive={payload?._archive}
+      dataType="payload"
+      exploreDomain={exploreDomain}
+      network={networkProp ?? network?.slug}
+      {...props}
+    />
   )
 
-  const schema = (
-    <TableCell key="payloads" align="center">
+  const schema: React.FC<TableCellProps> = (props) => (
+    <TableCell key="payloads" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {payload?.schema}
       </Typography>
     </TableCell>
   )
 
-  const time = (
-    <TableCell key="time" align="center">
+  const time: React.FC<TableCellProps> = (props) => (
+    <TableCell key="time" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}
       </Typography>
@@ -68,15 +76,15 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
 
   const isValid = wrapper ? new XyoPayloadWrapperValidator(wrapper).all().length === 0 : undefined
 
-  const valid = (
-    <TableCell key="valid" align="center">
+  const valid: React.FC<TableCellProps> = (props) => (
+    <TableCell key="valid" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {isValid === undefined ? <MdDone fontSize={18} color="yellow" /> : isValid ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
       </Typography>
     </TableCell>
   )
 
-  const tableCells: Record<PayloadTableColumnSlug, ReactElement> = {
+  const tableCells: Record<PayloadTableColumnSlug, React.FC<TableCellProps>> = {
     archive,
     client,
     date,
@@ -89,7 +97,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
   return breakPoint ? (
     <TableRow style={{ maxWidth: '100vw' }} {...props}>
       {columns[breakPoint]?.map((column) => {
-        return tableCells[column]
+        return tableCells[column]({})
       })}
     </TableRow>
   ) : null

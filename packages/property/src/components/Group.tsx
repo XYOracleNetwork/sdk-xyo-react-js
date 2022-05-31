@@ -1,5 +1,5 @@
 import { Paper, useTheme } from '@mui/material'
-import { FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
+import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
 import { typeOf } from '@xyo-network/core'
 import { ReactElement } from 'react'
 
@@ -10,22 +10,24 @@ const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, childre
   const theme = useTheme()
   const childrenArray = typeOf(children) === 'array' ? (children as ReactElement[]) : undefined
   return (
-    <FlexRow overflow="hidden" justifyContent="flex-start" alignItems="stretch" {...props}>
-      <PropertyTitle alignItems="flex-start" size="full" title={title} tip={tip} {...titleProps} />
-      {childrenArray ? (
-        <FlexGrowRow>
-          {childrenArray?.map((child, index) => {
-            return child ? (
-              <FlexGrowRow key={index} borderLeft={1} borderColor={theme.palette.divider}>
-                {child}
-              </FlexGrowRow>
-            ) : null
-          })}
-        </FlexGrowRow>
-      ) : (
-        children
-      )}
-    </FlexRow>
+    <FlexCol alignItems="stretch" overflow="hidden" {...props}>
+      <FlexRow overflow="hidden" justifyContent="stretch" alignItems="stretch">
+        <PropertyTitle alignItems="flex-start" size="full" title={title} tip={tip} {...titleProps} />
+        {childrenArray ? (
+          <FlexGrowRow>
+            {childrenArray?.map((child, index) => {
+              return child ? (
+                <FlexGrowRow key={index} borderLeft={1} borderColor={theme.palette.divider}>
+                  {child}
+                </FlexGrowRow>
+              ) : null
+            })}
+          </FlexGrowRow>
+        ) : (
+          <FlexGrowRow overflow="hidden">{children}</FlexGrowRow>
+        )}
+      </FlexRow>
+    </FlexCol>
   )
 }
 
