@@ -1,4 +1,4 @@
-import { TableCell, TableCellProps, Typography, useTheme } from '@mui/material'
+import { TableCell, TableCellProps, Typography, TypographyProps, useTheme } from '@mui/material'
 import { LinkEx } from '@xylabs/sdk-react'
 import { useEffect, useRef, useState } from 'react'
 import { To } from 'react-router-dom'
@@ -7,24 +7,25 @@ import { findParent } from './findParent'
 import { getRemainingRowWidth } from './getRemainingRowWidth'
 import { getSmallestParentWidth } from './getSmallestParentWidth'
 
-interface TableCellValueProps {
+interface TableCellValueProps extends TypographyProps {
   value: string | undefined
   hashCellWidth: number | undefined
 }
 
-const TableCellValue: React.FC<TableCellValueProps> = ({ value, hashCellWidth }) => {
-  console.log(`hashCellWidth: ${hashCellWidth}`)
+const TableCellValue: React.FC<TableCellValueProps> = ({ style, hashCellWidth, value, ...props }) => {
   return (
     <Typography
       variant="body2"
       fontFamily="monospace"
       style={{
         display: 'block',
+        maxWidth: hashCellWidth,
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
-        width: hashCellWidth,
+        ...style,
       }}
+      {...props}
     >
       {value}
     </Typography>
@@ -74,13 +75,22 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
 
   return (
     <TableCell {...props}>
-      <div ref={hashDivRef}>
+      <div
+        ref={hashDivRef}
+        style={{
+          display: 'block',
+          maxWidth: hashCellWidth,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+        }}
+      >
         {href || to ? (
           <LinkEx to={to} href={href} target={href ? '_blank' : undefined}>
-            <TableCellValue hashCellWidth={hashCellWidth} value={value} />
+            <TableCellValue value={value} hashCellWidth={hashCellWidth} />
           </LinkEx>
         ) : (
-          <TableCellValue hashCellWidth={hashCellWidth} value={value} />
+          <TableCellValue value={value} hashCellWidth={hashCellWidth} />
         )}
       </div>
     </TableCell>

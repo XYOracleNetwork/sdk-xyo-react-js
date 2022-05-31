@@ -6,7 +6,6 @@ export const getRemainingRowWidth = (row: HTMLElement, forCell = 0) => {
     if (item) {
       if (i !== forCell) {
         const boundingRect = item?.getBoundingClientRect()
-        console.log(`getRemainingRowWidth:rect: ${boundingRect?.width}`)
         width += boundingRect?.width ?? 0
       }
     }
