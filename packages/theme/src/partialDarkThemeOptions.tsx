@@ -1,9 +1,10 @@
-import { ThemeOptions } from '@mui/material'
+import { darken, ThemeOptions } from '@mui/material'
 
 export const partialDarkThemeOptions: ThemeOptions = {
   palette: {
     background: {
-      default: '#171626',
+      default: darken('#171626', 0.1),
+      paper: '#171626',
     },
     mode: 'dark',
     primary: {
