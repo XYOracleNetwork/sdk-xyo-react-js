@@ -103,7 +103,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
         },
         onWitnessReportEnd: (witness: XyoWitness, error?: Error) => {
           const witnesses = progress.witnesses ?? {}
-          witnesses[witness.config.schema] = {
+          witnesses[witness.targetSchema] = {
             status: error ? XyoReportStatus.Failed : XyoReportStatus.Succeeded,
             witness,
           }
@@ -116,7 +116,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
         },
         onWitnessReportStart: (witness: XyoWitness) => {
           const witnesses = progress.witnesses ?? {}
-          witnesses[witness.config.schema] = {
+          witnesses[witness.targetSchema] = {
             status: XyoReportStatus.Started,
             witness,
           }
