@@ -4883,10 +4883,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.27":
-  version: 17.0.34
-  resolution: "@types/node@npm:17.0.34"
-  checksum: eb9a640ab85b62e8f7b9db1f19b674cc4ff49b94d55085ab6c28c997dbe90356631c4df484fe686082c938bfc6fb02c9e85eb805d1415dfe6de7e31f47a09a70
+"@types/node@npm:*, @types/node@npm:^17.0.38":
+  version: 17.0.38
+  resolution: "@types/node@npm:17.0.38"
+  checksum: 9db1c39d603850ced665ab60b8f8ebce674ff9d762dfff0f776d520e71e4d73fdcd4c7f69213b804d878cf3e726911b09cae4ee66e35ae2724538de9f4838681
   languageName: node
   linkType: hard
 
@@ -5620,16 +5620,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.5.5":
-  version: 2.5.5
-  resolution: "@xylabs/sdk-js@npm:2.5.5"
+"@xylabs/sdk-js@npm:^2.4.1, @xylabs/sdk-js@npm:^2.5.5, @xylabs/sdk-js@npm:^2.5.7":
+  version: 2.5.7
+  resolution: "@xylabs/sdk-js@npm:2.5.7"
   dependencies:
-    "@types/node": ^17.0.27
-    axios: ^0.26.1
-    bn.js: ^5.2.0
+    "@types/node": ^17.0.38
+    axios: ^0.27.2
+    bn.js: ^5.2.1
     buffer: ^6.0.3
     rollbar: ^2.25.0
-  checksum: c67665cf79f77602a953040476e344c96f3052e8973134df7deb66dc8b7d993e59b4135ac2e2d6235d96d9a19ed64ae5d160c921cfe9b642dd672b66d4139b3c
+  checksum: f75d7d17262b5454684c22d0d590a2e6bfe6294218e2d6d48b828b9d9b2bbf1858163945f831215dc29ee645b898dd860f21f4896b0b0a6a98d8036a0a80fb6c
   languageName: node
   linkType: hard
 
@@ -5743,72 +5743,72 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/api@npm:^2.20.38":
-  version: 2.20.38
-  resolution: "@xyo-network/api@npm:2.20.38"
+"@xyo-network/api@npm:^2.20.41":
+  version: 2.20.41
+  resolution: "@xyo-network/api@npm:2.20.41"
   dependencies:
-    "@xylabs/sdk-js": ^2.5.5
-    "@xyo-network/core": ^2.20.38
+    "@xylabs/sdk-js": ^2.5.7
+    "@xyo-network/core": ^2.20.41
     axios: ^0.27.2
     pako: ^2.0.4
     uuid: ^8.3.2
-  checksum: 96331959abbab4277c780a51e2c3d696f552434688014327af8c33428d91812fd87cf368e92e4b1497e62c34aaf69f17d4816e37851e2f7eba06840097785956
+  checksum: 95c86a9f63dc5be4b26aef6f6dd31a938f0de00727044b1afe5adc768e174502d03d4bc3fac4491933c7a80ee86b2be2de2993d97ebe81421a4db6e4a19d92de
   languageName: node
   linkType: hard
 
-"@xyo-network/core@npm:^2.20.38":
-  version: 2.20.38
-  resolution: "@xyo-network/core@npm:2.20.38"
+"@xyo-network/core@npm:^2.20.41":
+  version: 2.20.41
+  resolution: "@xyo-network/core@npm:2.20.41"
   dependencies:
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     axios: ^0.27.2
     elliptic: ^6.5.4
     keccak256: ^1.0.6
     lodash: ^4.17.21
     sha.js: ^2.4.11
     ua-parser-js: ^1.0.2
-  checksum: e1c7e831bba04337bb383ada8325290f7267a136c54f92b998acc400af0a6f44cb9436a07debedc0c22652f91c7f3ffd4068b2452341384637726b16d2c1be6e
+  checksum: 1d7e7e2572885b1d5e2f06a4e9747691392536573f2a38ab375f24fcc25484a9cca34ea99179300d270caf6df6ba4706137f17e2f246f4ff967422dbe36b7f50
   languageName: node
   linkType: hard
 
-"@xyo-network/domain@npm:^2.20.38":
-  version: 2.20.38
-  resolution: "@xyo-network/domain@npm:2.20.38"
+"@xyo-network/domain@npm:^2.20.41":
+  version: 2.20.41
+  resolution: "@xyo-network/domain@npm:2.20.41"
   dependencies:
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
-    "@xyo-network/network": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
+    "@xyo-network/network": ^2.20.41
     axios: ^0.27.2
     lodash: ^4.17.21
-  checksum: fd655a91495f4c4c4363c5c73b209483c490b9a90b90260e8ca67fa740c020fce38b65b9a7f201e4b700f36e817f60a45a384ab8b65c968b4a5349e1b61f9cde
+  checksum: f616cc17524c02ae56ccccf066323616517b94ebab59c207539f8c685e1a4b924428f611754889dd828cf8a249fadb5abcf33b3f2dae501f7821ea9b3fc01004
   languageName: node
   linkType: hard
 
-"@xyo-network/network@npm:^2.20.38":
-  version: 2.20.38
-  resolution: "@xyo-network/network@npm:2.20.38"
+"@xyo-network/network@npm:^2.20.41":
+  version: 2.20.41
+  resolution: "@xyo-network/network@npm:2.20.41"
   dependencies:
-    "@xylabs/sdk-js": ^2.5.5
-    "@xyo-network/core": ^2.20.38
-  checksum: 0dac125cecc3cda2cf126535eca8bcb8fd6ceb4aa0a98067a37564927c3192c340bf554f94302dc230d967472a4547de5147e5f4f2450cb5ca4e76af77b8794d
+    "@xylabs/sdk-js": ^2.5.7
+    "@xyo-network/core": ^2.20.41
+  checksum: 975f94e1907d2d87f78e73c12addd346f454fc64e8fef4d1984362695f173ff68a99c571e5272e499b1560d9f5db92cad2963ba3f9dc40494cb262cd3bf365fb
   languageName: node
   linkType: hard
 
-"@xyo-network/panel@npm:^2.20.38":
-  version: 2.20.38
-  resolution: "@xyo-network/panel@npm:2.20.38"
+"@xyo-network/panel@npm:^2.20.41":
+  version: 2.20.41
+  resolution: "@xyo-network/panel@npm:2.20.41"
   dependencies:
     "@ethersproject/providers": ^5.6.8
     "@metamask/providers": ^8.1.1
-    "@xylabs/sdk-js": ^2.5.5
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
-    "@xyo-network/domain": ^2.20.38
-    "@xyo-network/systeminfo-witness": ^2.20.38
-    "@xyo-network/witnesses": ^2.20.38
+    "@xylabs/sdk-js": ^2.5.7
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
+    "@xyo-network/domain": ^2.20.41
+    "@xyo-network/systeminfo-witness": ^2.20.41
+    "@xyo-network/witnesses": ^2.20.41
     ajv: ^8.11.0
     lru-cache: ^7.10.1
-  checksum: e06dc6cc2a50e40d2589da408d6450e38fd242870280bf35f0674db05998f9e3543122f075ad2eace021cb523d6161ad122bb8aaf4a447c0fcf1934f6cdca9e9
+  checksum: f682dd8ef27f6f29a95715300106d400b8deafacb1fee79fcbc73eadb030323a632782244d17022c1d0c86ab77a0399c8a3cb974c480bf5b0bf3399389e17cd0
   languageName: node
   linkType: hard
 
@@ -5832,7 +5832,7 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
@@ -5846,7 +5846,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -5876,8 +5876,8 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -5888,7 +5888,7 @@ __metadata:
     react-dom: ^18.1.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -5918,8 +5918,8 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
@@ -5929,7 +5929,7 @@ __metadata:
     react-dom: ^18.1.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -5956,12 +5956,12 @@ __metadata:
     "@storybook/react": ^6.5.6
     "@storybook/theming": ^6.5.6
     "@types/lodash": ^4.14.182
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
@@ -5976,7 +5976,7 @@ __metadata:
     rollbar: ^2.25.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6004,11 +6004,11 @@ __metadata:
     "@storybook/react": ^6.5.6
     "@storybook/theming": ^6.5.6
     "@types/lodash": ^4.14.182
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
     axios: ^0.27.2
     lodash: ^4.17.21
     react: ^18.1.0
@@ -6016,7 +6016,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6044,11 +6044,11 @@ __metadata:
     "@storybook/theming": ^6.5.6
     "@types/lodash": ^4.14.182
     "@types/luxon": ^2.3.2
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
@@ -6066,7 +6066,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6093,18 +6093,18 @@ __metadata:
     "@storybook/react": ^6.5.6
     "@storybook/theming": ^6.5.6
     "@types/lodash": ^4.14.182
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
-    "@xyo-network/utils": ^2.20.38
+    "@xyo-network/utils": ^2.20.41
     axios: ^0.27.2
     lodash: ^4.17.21
     react: ^18.1.0
@@ -6112,7 +6112,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6139,12 +6139,12 @@ __metadata:
     "@storybook/react": ^6.5.6
     "@storybook/theming": ^6.5.6
     "@types/lodash": ^4.14.182
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/core": ^2.20.38
-    "@xyo-network/network": ^2.20.38
+    "@xyo-network/core": ^2.20.41
+    "@xyo-network/network": ^2.20.41
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     axios: ^0.27.2
@@ -6154,7 +6154,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6181,25 +6181,25 @@ __metadata:
     "@storybook/react": ^6.5.6
     "@storybook/theming": ^6.5.6
     "@types/lodash": ^4.14.182
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
-    "@xyo-network/panel": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
+    "@xyo-network/panel": ^2.20.41
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
-    "@xyo-network/systeminfo-witness": ^2.20.38
+    "@xyo-network/systeminfo-witness": ^2.20.41
     axios: ^0.27.2
     lodash: ^4.17.21
     react: ^18.1.0
     react-dom: ^18.1.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6231,9 +6231,9 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
-    "@xyo-network/network": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
+    "@xyo-network/network": ^2.20.41
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
@@ -6242,7 +6242,7 @@ __metadata:
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
-    "@xyo-network/utils": ^2.20.38
+    "@xyo-network/utils": ^2.20.41
     axios: ^0.27.2
     lodash: ^4.17.21
     luxon: ^2.4.0
@@ -6253,7 +6253,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6284,7 +6284,7 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     axios: ^0.27.2
@@ -6293,7 +6293,7 @@ __metadata:
     react-dom: ^18.1.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6323,13 +6323,13 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
-    "@xyo-network/utils": ^2.20.38
+    "@xyo-network/utils": ^2.20.41
     axios: ^0.27.2
     lodash: ^4.17.21
     react: ^18.1.0
@@ -6337,7 +6337,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6369,13 +6369,13 @@ __metadata:
     "@types/lodash": ^4.14.182
     "@types/react-helmet": ^6.1.5
     "@xylabs/pixel": ^1.3.7
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
-    "@xyo-network/network": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
+    "@xyo-network/network": ^2.20.41
     "@xyo-network/react-theme": "workspace:^"
     axios: ^0.27.2
     lodash: ^4.17.21
@@ -6388,7 +6388,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6418,14 +6418,14 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/core": ^2.20.41
     axios: ^0.27.2
     lodash: ^4.17.21
     react: ^18.1.0
     react-dom: ^18.1.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6452,20 +6452,20 @@ __metadata:
     "@storybook/react": ^6.5.6
     "@storybook/theming": ^6.5.6
     "@types/lodash": ^4.14.182
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/utils": ^2.20.38
+    "@xyo-network/utils": ^2.20.41
     axios: ^0.27.2
     lodash: ^4.17.21
     react: ^18.1.0
     react-dom: ^18.1.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6492,11 +6492,11 @@ __metadata:
     "@storybook/react": ^6.5.6
     "@storybook/theming": ^6.5.6
     "@types/lodash": ^4.14.182
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
@@ -6507,7 +6507,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6539,13 +6539,13 @@ __metadata:
     "@types/lodash": ^4.14.182
     "@types/react-helmet": ^6.1.5
     "@xylabs/pixel": ^1.3.7
-    "@xylabs/sdk-js": ^2.5.5
+    "@xylabs/sdk-js": ^2.5.7
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
-    "@xyo-network/network": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
+    "@xyo-network/network": ^2.20.41
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
@@ -6560,7 +6560,7 @@ __metadata:
     react-router-dom: ^6.3.0
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
   peerDependencies:
     axios: ">0.26"
@@ -6600,8 +6600,8 @@ __metadata:
     "@xylabs/sdk-react": ^2.12.10
     "@xylabs/ts-scripts": ^1.0.66
     "@xylabs/tsconfig": ^1.0.13
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
@@ -6629,7 +6629,7 @@ __metadata:
     react-router-dom: ^6.3.0
     rimraf: ^3.0.2
     storybook-dark-mode: ^1.1.0
-    typedoc: ^0.22.16
+    typedoc: ^0.22.17
     typescript: ^4.7.2
     webpack: ^5.72.1
   peerDependencies:
@@ -6641,51 +6641,51 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/systeminfo-witness@npm:^2.20.38":
-  version: 2.20.38
-  resolution: "@xyo-network/systeminfo-witness@npm:2.20.38"
+"@xyo-network/systeminfo-witness@npm:^2.20.41":
+  version: 2.20.41
+  resolution: "@xyo-network/systeminfo-witness@npm:2.20.41"
   dependencies:
     "@ethersproject/providers": ^5.6.8
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/core": ^2.20.41
     axios: ^0.27.2
     bowser: ^2.11.0
     lodash: ^4.17.21
     systeminformation: ^5.11.16
     uuid: ^8.3.2
-  checksum: 3d058d8716e85c3d054e7f56c70946678e87f8fa8bf4b3188d942472d0c530a8c89a005899067541d788aff071ae5bc64c25a4e75f516e23cdce12ff460e632b
+  checksum: 314bb6c01b05e67343a8e8f78eaf99fdec77fc3852a7f0cb8357c99b76336cace080103e62c1e7e5c1dd86f39ea04cb662cbc33209699ed1ef2fcd0c8cfbdb1b
   languageName: node
   linkType: hard
 
-"@xyo-network/utils@npm:^2.20.38":
-  version: 2.20.38
-  resolution: "@xyo-network/utils@npm:2.20.38"
+"@xyo-network/utils@npm:^2.20.41":
+  version: 2.20.41
+  resolution: "@xyo-network/utils@npm:2.20.41"
   dependencies:
     "@ethersproject/providers": ^5.6.8
     "@metamask/providers": ^8.1.1
-    "@xylabs/sdk-js": ^2.5.5
-    "@xyo-network/api": ^2.20.38
-    "@xyo-network/core": ^2.20.38
-    "@xyo-network/domain": ^2.20.38
-    "@xyo-network/systeminfo-witness": ^2.20.38
-    "@xyo-network/witnesses": ^2.20.38
+    "@xylabs/sdk-js": ^2.5.7
+    "@xyo-network/api": ^2.20.41
+    "@xyo-network/core": ^2.20.41
+    "@xyo-network/domain": ^2.20.41
+    "@xyo-network/systeminfo-witness": ^2.20.41
+    "@xyo-network/witnesses": ^2.20.41
     ajv: ^8.11.0
     lru-cache: ^7.10.1
-  checksum: aa9775ae40dd2c60c8fe49d1bd0b6f9583e33bc121907edcd7b07ca619fbd1c472c150b317393a5e600e54adc9c45cde5d3275ac24c51b7b775039585552c452
+  checksum: e6c7b528e5706b90f47214a6b457064e606a3fd5808abf5b6aa4e5b19769aebabcba9145f1c07f334fed7e5801f7cb8b7c92c6a7f0d6698221e06ef6cb490c9b
   languageName: node
   linkType: hard
 
-"@xyo-network/witnesses@npm:^2.20.38":
-  version: 2.20.38
-  resolution: "@xyo-network/witnesses@npm:2.20.38"
+"@xyo-network/witnesses@npm:^2.20.41":
+  version: 2.20.41
+  resolution: "@xyo-network/witnesses@npm:2.20.41"
   dependencies:
     "@ethersproject/providers": ^5.6.8
-    "@xyo-network/core": ^2.20.38
+    "@xyo-network/core": ^2.20.41
     axios: ^0.27.2
     bowser: ^2.11.0
     lodash: ^4.17.21
     systeminformation: ^5.11.16
     uuid: ^8.3.2
-  checksum: f5801a84215a684d3cbfe48d0253e5805f6fe311dd0650587154b665a00bf2ed4b4ff3c7b6f97ed7fbfe315ee04c188b65e1f43088ea2c362d13ce6b97723e10
+  checksum: 944a2488fdaf6278da2f93351c43991341317cd47774cd1bc7e89b31cfcbe77550d63e39da008e0359dd3ee5ab0e2bfe205b3487cbb18810a3aea3c68e5a405f
   languageName: node
   linkType: hard
 
@@ -7292,15 +7292,6 @@ __metadata:
   dependencies:
     follow-redirects: ^1.14.7
   checksum: 2a8a3787c05f2a0c9c3878f49782357e2a9f38945b93018fb0c4fd788171c43dceefbb577988628e09fea53952744d1ecebde234b561f1e703aa43e0a598a3ad
-  languageName: node
-  linkType: hard
-
-"axios@npm:^0.26.1":
-  version: 0.26.1
-  resolution: "axios@npm:0.26.1"
-  dependencies:
-    follow-redirects: ^1.14.8
-  checksum: d9eb58ff4bc0b36a04783fc9ff760e9245c829a5a1052ee7ca6013410d427036b1d10d04e7380c02f3508c5eaf3485b1ae67bd2adbfec3683704745c8d7a6e1a
   languageName: node
   linkType: hard
 
@@ -10815,7 +10806,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.14.8, follow-redirects@npm:^1.14.9":
+"follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.14.9":
   version: 1.15.0
   resolution: "follow-redirects@npm:1.15.0"
   peerDependenciesMeta:
@@ -20804,9 +20795,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.22.16":
-  version: 0.22.16
-  resolution: "typedoc@npm:0.22.16"
+"typedoc@npm:^0.22.17":
+  version: 0.22.17
+  resolution: "typedoc@npm:0.22.17"
   dependencies:
     glob: ^8.0.3
     lunr: ^2.3.9
@@ -20817,7 +20808,7 @@ __metadata:
     typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x || 4.5.x || 4.6.x || 4.7.x
   bin:
     typedoc: bin/typedoc
-  checksum: f19530bfa60149ab5fe1d90d42b45721d92f169281f051fc508515f26281edb22d4e62072dd83bb12b12f8c59b6b25ca2ccc8752a34232e2f4069bf13258595d
+  checksum: 3a2f492477989855fa43afc0ebfb84dca819436ec5c868ca175cb02485c6347c04dbb2d11669a8be04fc6860a8f3d29d124300b5718ba17174622ace29a0276a
   languageName: node
   linkType: hard
 
