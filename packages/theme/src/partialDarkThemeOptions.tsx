@@ -2,12 +2,15 @@ import { ThemeOptions } from '@mui/material'
 
 export const partialDarkThemeOptions: ThemeOptions = {
   palette: {
+    background: {
+      default: '#171626',
+    },
     mode: 'dark',
     primary: {
-      main: '#db8dfa',
+      main: '#9993F5',
     },
     secondary: {
-      main: '#5898dd',
+      main: '#8EC8FF',
     },
   },
 }

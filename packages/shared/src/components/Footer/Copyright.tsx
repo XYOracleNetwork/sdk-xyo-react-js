@@ -39,7 +39,7 @@ export const Copyright: React.FC<CopyrightProps> = ({ style, onMore, ...props })
     ))}
     {onMore ? (
       <FlexRow style={{ cursor: 'pointer' }} paddingX={0.5} onClick={onMore}>
-        <MoreHorizIcon fontSize="small" />
+        <MoreHorizIcon color="primary" fontSize="small" />
       </FlexRow>
     ) : null}
   </FlexRow>
