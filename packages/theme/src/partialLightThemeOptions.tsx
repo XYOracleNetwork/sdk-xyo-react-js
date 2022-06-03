@@ -1,6 +1,15 @@
 import { ThemeOptions } from '@mui/material'
 
+const components: ThemeOptions['components'] = {
+  MuiPaper: {
+    defaultProps: {
+      variant: 'outlined',
+    },
+  },
+}
+
 export const partialLightThemeOptions: ThemeOptions = {
+  components,
   palette: {
     mode: 'light',
     primary: {

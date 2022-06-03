@@ -25,7 +25,7 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonView
 
   return (
     <PropertyGroup titleProps={{ elevation }} title="JSON" tip="The raw JSON of the payload" {...props}>
-      <Paper square elevation={2} style={{ overflow: 'hidden', padding: '16px', width: '100%' }}>
+      <Paper square variant="elevation" style={{ overflow: 'hidden', padding: '16px', width: '100%' }}>
         <Suspense fallback={<FlexGrowRow />}>
           <JsonView
             groupArraysAfterLength={5}
