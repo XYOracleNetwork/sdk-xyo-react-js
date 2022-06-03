@@ -11,7 +11,7 @@ export interface WalletAccountSelectBarProps extends FlexBoxProps {
 
 export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({ iconOnly, icons, iconSize, size = 'small', ...props }) => {
   return (
-    <FlexRow paper alignItems="stretch" {...props}>
+    <FlexRow background alignItems="stretch" {...props}>
       <WalletAccountSelect iconOnly={iconOnly} icons={icons} iconSize={iconSize} size={size} fullWidth />
     </FlexRow>
   )

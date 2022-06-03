@@ -1,4 +1,4 @@
-import { Theme, useMediaQuery } from '@mui/material'
+import { Paper, Theme, useMediaQuery } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/sdk-react'
 import { ArchiveSelectEx, useArchive } from '@xyo-network/react-archive'
 import { NetworkSelectEx, useNetwork } from '@xyo-network/react-network'
@@ -23,11 +23,15 @@ const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({ systemC
           systemControlsType={systemControlsType}
           controlElement={
             <>
-              <FlexRow paper className={'control-wrap'}>
-                <NetworkSelectEx responsive={false} className="network-ex" />
+              <FlexRow className={'control-wrap'}>
+                <Paper variant="elevation">
+                  <NetworkSelectEx responsive={false} className="network-ex" />
+                </Paper>
               </FlexRow>
-              <FlexRow paper>
-                <ArchiveSelectEx />
+              <FlexRow>
+                <Paper variant="elevation">
+                  <ArchiveSelectEx />
+                </Paper>
               </FlexRow>
             </>
           }

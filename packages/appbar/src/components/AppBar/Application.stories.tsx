@@ -1,10 +1,10 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
+import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ArchiveProvider, ArchivesProvider } from '../../../../archive/src'
-import { ArchivistApiProvider } from '../../../../archivist-api/src'
-import { NetworkMemoryProvider } from '../../../../network/src'
 import { SearchBar } from '../SearchBar'
 import { SystemToolbar } from '../Toolbar'
 import { ApplicationAppBar } from './Application'
@@ -22,15 +22,15 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
   <BrowserRouter>
-    <NetworkMemoryProvider>
-      <ArchiveProvider>
-        <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-          <ArchivesProvider>
+    <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+      <NetworkMemoryProvider>
+        <ArchivesProvider>
+          <ArchiveProvider>
             <ApplicationAppBar {...args}></ApplicationAppBar>
-          </ArchivesProvider>
-        </ArchivistApiProvider>
-      </ArchiveProvider>
-    </NetworkMemoryProvider>
+          </ArchiveProvider>
+        </ArchivesProvider>
+      </NetworkMemoryProvider>
+    </ArchivistApiProvider>
   </BrowserRouter>
 )
 
