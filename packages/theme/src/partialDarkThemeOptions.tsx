@@ -1,6 +1,15 @@
 import { darken, ThemeOptions } from '@mui/material'
 
+const components: ThemeOptions['components'] = {
+  MuiPaper: {
+    defaultProps: {
+      variant: 'elevation',
+    },
+  },
+}
+
 export const partialDarkThemeOptions: ThemeOptions = {
+  components,
   palette: {
     background: {
       default: darken('#171626', 0.1),
