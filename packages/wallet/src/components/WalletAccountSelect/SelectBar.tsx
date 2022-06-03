@@ -1,4 +1,5 @@
-import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
+import { Paper } from '@mui/material'
+import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
 
 import { WalletAccountSelect } from './Select'
 
@@ -11,8 +12,10 @@ export interface WalletAccountSelectBarProps extends FlexBoxProps {
 
 export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({ iconOnly, icons, iconSize, size = 'small', ...props }) => {
   return (
-    <FlexRow background alignItems="stretch" {...props}>
-      <WalletAccountSelect iconOnly={iconOnly} icons={icons} iconSize={iconSize} size={size} fullWidth />
-    </FlexRow>
+    <FlexCol alignItems="stretch" {...props}>
+      <Paper variant="elevation" elevation={0}>
+        <WalletAccountSelect fullWidth iconSize={iconSize} iconOnly={iconOnly} icons={icons} size={size ?? 'small'} />
+      </Paper>
+    </FlexCol>
   )
 }
