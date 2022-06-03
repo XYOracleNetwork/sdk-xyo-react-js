@@ -24,12 +24,12 @@ const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({ systemC
           controlElement={
             <>
               <FlexRow className={'control-wrap'}>
-                <Paper variant="elevation">
+                <Paper variant="elevation" elevation={0}>
                   <NetworkSelectEx responsive={false} className="network-ex" />
                 </Paper>
               </FlexRow>
               <FlexRow>
-                <Paper variant="elevation">
+                <Paper variant="elevation" elevation={0}>
                   <ArchiveSelectEx />
                 </Paper>
               </FlexRow>

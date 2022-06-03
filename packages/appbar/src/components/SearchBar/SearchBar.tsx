@@ -12,7 +12,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ defaultValue, onSearch, ..
 
   return (
     <FlexRow alignItems="stretch" {...props}>
-      <Paper variant="elevation" style={{ display: 'flex', flexGrow: 1, overflow: 'hidden' }}>
+      <Paper variant="elevation" elevation={0} style={{ display: 'flex', overflow: 'hidden', width: '100%' }}>
         <TextField
           InputProps={{ color: 'secondary', style: { borderBottomRightRadius: 0, borderTopRightRadius: 0, borderWidth: 0 } }}
           variant="outlined"
