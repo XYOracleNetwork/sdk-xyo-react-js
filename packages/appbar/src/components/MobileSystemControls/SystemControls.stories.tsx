@@ -1,9 +1,9 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentStory, Meta } from '@storybook/react'
+import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
+import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { NetworkMemoryProvider } from '@xyo-network/react-network'
 
-import { ArchivesProvider } from '../../../../archive/src'
-import { ArchivistApiProvider } from '../../../../archivist-api/src'
-import { NetworkMemoryProvider } from '../../../../network/src'
 import { SystemControls } from './SystemControls'
 import { SystemControlsType } from './SystemControlsType'
 
@@ -23,7 +23,9 @@ const Template: ComponentStory<typeof SystemControls> = (props) => {
     <NetworkMemoryProvider>
       <ArchivistApiProvider apiDomain="http://localhost:8080">
         <ArchivesProvider>
-          <SystemControls {...props} />
+          <ArchiveProvider>
+            <SystemControls {...props} />
+          </ArchiveProvider>
         </ArchivesProvider>
       </ArchivistApiProvider>
     </NetworkMemoryProvider>

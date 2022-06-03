@@ -28,7 +28,9 @@ const SystemControl: React.FC<WithChildren<SystemControlProps>> = ({ children, c
           {controlElement}
         </FlexRow>
       </Collapse>
-      <FlexCol onClick={() => setToggleControls(!toggleControls)}>{children}</FlexCol>
+      <FlexCol style={{ cursor: 'pointer' }} onClick={() => setToggleControls(!toggleControls)}>
+        {children}
+      </FlexCol>
     </FlexRow>
   )
 }
