@@ -1,4 +1,4 @@
-import { Toolbar, ToolbarProps } from '@mui/material'
+import { Paper, Toolbar, ToolbarProps } from '@mui/material'
 import { FlexRow, SelectExProps } from '@xylabs/sdk-react'
 import { ArchiveSelectEx } from '@xyo-network/react-archive'
 import { AuthStatusIconButton } from '@xyo-network/react-auth'
@@ -33,13 +33,17 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   return (
     <Toolbar {...props}>
       {hideNetworkSelect ? null : (
-        <FlexRow paper marginX={0.5} maxWidth={120}>
-          <NetworkSelectEx fullWidth {...networkSelectProps} />
+        <FlexRow marginX={0.5} maxWidth={120}>
+          <Paper variant="elevation">
+            <NetworkSelectEx fullWidth {...networkSelectProps} />
+          </Paper>
         </FlexRow>
       )}
       {hideArchiveSelect ? null : (
-        <FlexRow paper marginX={0.5} maxWidth={120}>
-          <ArchiveSelectEx fullWidth {...archiveSelectProps} />
+        <FlexRow marginX={0.5} maxWidth={120}>
+          <Paper variant="elevation">
+            <ArchiveSelectEx fullWidth {...archiveSelectProps} />
+          </Paper>
         </FlexRow>
       )}
       {children}
