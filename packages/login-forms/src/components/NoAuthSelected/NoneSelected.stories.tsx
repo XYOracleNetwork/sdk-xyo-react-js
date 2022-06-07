@@ -1,9 +1,11 @@
 /* eslint-disable import/no-internal-modules */
+import { Alert, AlertTitle } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { AuthServiceId, useAuthState } from '@xyo-network/react-auth'
+import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../../../.storybook'
-import { useAuthState } from '../../../../auth/src'
 import { NoneSelected } from './NoneSelected'
 
 const StorybookEntry = {
@@ -20,9 +22,18 @@ const StorybookEntry = {
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
+  const [activeAuthServiceId, setActiveAuthServiceId] = useState(AuthServiceId.None)
 
   if (state && dispatch) {
-    return <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
+    return (
+      <>
+        <Alert>
+          <AlertTitle>Active Auth Service Id</AlertTitle>
+          {activeAuthServiceId}
+        </Alert>
+        <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} setActiveAuthServiceId={setActiveAuthServiceId} />
+      </>
+    )
   } else {
     return <></>
   }
@@ -33,8 +44,18 @@ const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
   const location = useLocation()
   location.state = { message: 'Please login to view this page' }
 
+  const [activeAuthServiceId, setActiveAuthServiceId] = useState(AuthServiceId.None)
+
   if (state && dispatch) {
-    return <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
+    return (
+      <>
+        <Alert>
+          <AlertTitle>Active Auth Service Id</AlertTitle>
+          {activeAuthServiceId}
+        </Alert>
+        <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} setActiveAuthServiceId={setActiveAuthServiceId} />
+      </>
+    )
   } else {
     return <></>
   }

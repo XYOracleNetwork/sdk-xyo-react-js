@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { useLocation } from 'react-router-dom'
 
 import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../../.storybook'
 import { AuthServiceWrapper } from './AuthServiceWrapper'
@@ -22,8 +21,6 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
 }
 
 const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
-  const location = useLocation()
-  location.state = { from: { pathname: '/foo' } }
   return (
     <>
       <AuthServiceWrapper></AuthServiceWrapper>

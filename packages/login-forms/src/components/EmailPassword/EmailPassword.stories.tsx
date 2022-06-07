@@ -1,9 +1,9 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
+import { AuthDispatch, useAuthState } from '@xyo-network/react-auth'
 
 import { authDecorator, WrappedAuthComponent } from '../../../../../.storybook'
-import { AuthDispatch, useAuthState } from '../../../../auth/src'
 import { EmailPassword } from './EmailPassword'
 
 const StorybookEntry = {

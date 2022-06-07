@@ -3,7 +3,7 @@ import { assertEx } from '@xylabs/sdk-js'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoApiError } from '@xyo-network/api'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
-import { AuthActionType } from '@xyo-network/react-auth'
+import { AuthActionType, AuthServiceId } from '@xyo-network/react-auth'
 import { useWalletService } from '@xyo-network/react-wallet-service'
 import { useEffect, useState } from 'react'
 
@@ -13,7 +13,7 @@ import { CheckForMetaMask } from './CheckForMetaMask'
 import { ConnectWallet } from './ConnectWallet'
 import { MetaMaskError } from './MetaMaskError'
 
-const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
+const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, activeAuthServiceId, setActiveAuthServiceId }) => {
   const { handleReturnUrl } = useHandleReturnUrl()
   const [checkedWallet, setCheckedWallet] = useState(false)
   const { api } = useArchivistApi()
@@ -24,14 +24,15 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   const [xyoApiError, setXyoApiError] = useState<XyoApiError>()
 
   useEffect(() => {
-    if (!isLoading && token) {
+    if (!isLoading && token && activeAuthServiceId === AuthServiceId.Web3Wallet) {
       dispatch({
         payload: { jwtToken: token, loggedInAccount: metaMaskWallet.currentAccount },
         type: AuthActionType.AuthSuccessful,
       })
       handleReturnUrl()
+      setActiveAuthServiceId?.(AuthServiceId.None)
     }
-  }, [isLoading, token, dispatch, metaMaskWallet.currentAccount, handleReturnUrl])
+  }, [isLoading, token, dispatch, metaMaskWallet.currentAccount, handleReturnUrl, activeAuthServiceId, setActiveAuthServiceId])
 
   useEffect(() => {
     if (checkedWallet) {

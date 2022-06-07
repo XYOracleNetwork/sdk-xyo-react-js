@@ -1,17 +1,17 @@
 import { ButtonEx, ButtonExProps } from '@xylabs/sdk-react'
-import { AuthActionType, AuthService, useAuthState } from '@xyo-network/react-auth'
+import { AuthService, AuthServiceId } from '@xyo-network/react-auth'
+import { Dispatch, SetStateAction } from 'react'
 
 export interface AuthServiceButtonProps extends ButtonExProps {
   service: AuthService
+  setActiveAuthServiceId?: Dispatch<SetStateAction<AuthServiceId>>
 }
 
-export const AuthServiceButton: React.FC<AuthServiceButtonProps> = ({ service, ...props }) => {
+export const AuthServiceButton: React.FC<AuthServiceButtonProps> = ({ service, setActiveAuthServiceId, ...props }) => {
   const { id, title } = service
-  const { dispatch } = useAuthState()
-  const payload = { payload: { activeAuthServiceId: id }, type: AuthActionType.UpdateActiveAuthService }
 
   return (
-    <ButtonEx onClick={() => dispatch?.(payload)} key={id} variant="outlined" {...props}>
+    <ButtonEx onClick={() => setActiveAuthServiceId?.(id)} key={id} variant="outlined" {...props}>
       {title}
     </ButtonEx>
   )
