@@ -5,11 +5,11 @@ import { AuthServiceId, useAuthState } from '@xyo-network/react-auth'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../../../.storybook'
+import { authDecorator, WrappedAuthComponent } from '../../../../../.storybook'
 import { NoneSelected } from './NoneSelected'
 
 const StorybookEntry = {
-  argTypes: {},
+  args: {},
   component: NoneSelected,
   decorators: [authDecorator],
   parameters: {
@@ -62,26 +62,17 @@ const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
 }
 
 const Default = Template.bind({})
-Default.args = {
-  authState: {
-    authServiceList,
-  },
-}
+Default.args = {}
 
 const LoggedIn = Template.bind({})
 LoggedIn.args = {
   authState: {
-    authServiceList,
     loggedInAccount: 'none@none.com',
   },
 }
 
 const WithRouterState = TemplateWithRouterState.bind({})
-WithRouterState.args = {
-  authState: {
-    authServiceList,
-  },
-}
+WithRouterState.args = {}
 
 export { Default, LoggedIn, WithRouterState }
 

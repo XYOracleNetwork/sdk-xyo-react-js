@@ -5,7 +5,7 @@ import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoArchive } from '@xyo-network/api'
 import { useEffect, useState } from 'react'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../../../.storybook'
+import { authDecorator, WrappedAuthComponent } from '../../../../../.storybook'
 import { useAuthState } from '../../../../auth/src'
 import { AuthServiceWrapper } from '../../../../auth-service/src'
 import { ArchivistApiProvider, useArchivistApi } from '../../contexts'
@@ -15,9 +15,6 @@ const StorybookEntry = {
   argTypes: {
     apiDomain: {
       default: 'https://beta.api.archivist.xyo.network',
-    },
-    authServiceList: {
-      default: authServiceList,
     },
   },
   component: ArchivistApiProvider,
@@ -94,11 +91,7 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
 }
 
 const Default = Template.bind({})
-Default.args = {
-  authState: {
-    authServiceList,
-  },
-}
+Default.args = {}
 Default.decorators = [authDecorator]
 
 export { Default }

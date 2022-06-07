@@ -1,18 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
 
-import { authDecorator, authServiceList, WrappedArgs } from '../../../../../.storybook'
+import { authDecorator, WrappedArgs } from '../../../../../.storybook'
 import { NetworkMemoryProvider } from '../../contexts'
 import { NetworkSelectEx } from './NetworkSelectEx'
 
 const StorybookEntry = {
-  argTypes: {
-    authState: {
-      authServiceList,
-      jwtToken: 'badToken',
-      loggedInAccount: 'none@none.com',
-    },
-  },
+  argTypes: {},
   component: NetworkSelectEx,
   decorators: [authDecorator],
   parameters: {

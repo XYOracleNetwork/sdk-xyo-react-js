@@ -1,20 +1,14 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
+import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 
-import { authDecorator, authServiceList, WrappedArgs } from '../../../../../.storybook'
-import { ArchivistApiProvider } from '../../../../archivist-api/src'
+import { authDecorator, WrappedArgs } from '../../../../../.storybook'
 import { SchemaMemoryProvider } from '../../contexts'
 import { SchemaSelectEx } from './SchemaSelectEx'
 
 const StorybookEntry = {
-  argTypes: {
-    authState: {
-      authServiceList,
-      jwtToken: 'badToken',
-      loggedInAccount: 'none@none.com',
-    },
-  },
+  argTypes: {},
   component: SchemaSelectEx,
   decorators: [authDecorator],
   parameters: {

@@ -5,16 +5,12 @@ import { Button } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import axios from 'axios'
 
-import { authDecorator, authServiceList, DeprecateStory } from '../../../../../.storybook'
+import { authDecorator, DeprecateStory } from '../../../../../.storybook'
 import { AuthServiceWrapper } from '../../../../auth-service/src'
 import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 
 const StorybookEntry = {
-  argTypes: {
-    authState: {
-      authServiceList,
-    },
-  },
+  argTypes: {},
   component: AuthErrorsWrapper,
   decorators: [authDecorator],
   parameters: {

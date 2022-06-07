@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { authServiceList } from '@xyo-network/react-auth'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../../.storybook'
+import { authDecorator, WrappedAuthComponent } from '../../../../.storybook'
 import { AuthServiceWrapper } from './AuthServiceWrapper'
 
 const StorybookEntry = {

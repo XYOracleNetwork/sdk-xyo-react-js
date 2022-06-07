@@ -1,4 +1,4 @@
-import { AuthService, AuthServiceId } from "@xyo-network/react-auth";
+import { AuthService, AuthServiceId } from '../contexts'
 
 export const authServiceList: AuthService[] = [
   {
