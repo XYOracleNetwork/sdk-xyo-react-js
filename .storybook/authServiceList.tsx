@@ -1,4 +1,4 @@
-import { AuthService, AuthServiceId } from '../packages/auth/src'
+import { AuthService, AuthServiceId } from "@xyo-network/react-auth";
 
 export const authServiceList: AuthService[] = [
   {

@@ -1,4 +1,4 @@
-import { AuthState} from '../packages/auth/src'
+import { AuthState } from "@xyo-network/react-auth"
 
 export interface WrappedArgs {
   authState?: Partial<AuthState>

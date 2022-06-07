@@ -1,8 +1,8 @@
 import { DecoratorFn } from '@storybook/react'
 import { InvertableThemeProvider } from '@xylabs/sdk-react'
+import { appThemeOptions, partialDarkThemeOptions, themeOptions } from '@xyo-network/react-theme'
 import merge from 'lodash/merge'
 import { useDarkMode } from 'storybook-dark-mode'
-import { appThemeOptions, partialDarkThemeOptions, themeOptions } from '../packages/theme/src'
 
 const appThemeDecorator: DecoratorFn = (Story, { args }) => {
   const darkMode = useDarkMode()
