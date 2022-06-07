@@ -6,8 +6,9 @@ export interface AuthState {
   /** @deprecated now controlled by archivist api instead */
   apiDomain: string
   /** @deprecated now controlled by AuthServiceContext instead */
-  activeAuthServiceId: AuthServiceId
-  readonly authServiceList: AuthService[]
+  activeAuthServiceId?: AuthServiceId
+  /** @deprecated now controlled by AuthServiceContext instead */
+  readonly authServiceList?: AuthService[]
   isLoading: boolean
   /** @deprecated use loggedInAccount instead */
   isLoggedIn?: boolean

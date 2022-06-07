@@ -2,13 +2,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoApiError, XyoArchive } from '@xyo-network/api'
-import { useArchive } from '@xyo-network/react-archive'
-import { useArchivistApi } from '@xyo-network/react-archivist-api'
-import { AuthStatusIconButton } from '@xyo-network/react-auth'
 import axios from 'axios'
 import { useState } from 'react'
 
 import { archivistApiDecorator, authDecorator } from '../../../../../.storybook'
+import { useArchive } from '../../../../archive/src'
+import { useArchivistApi } from '../../../../archivist-api/src'
+import { AuthStatusIconButton } from '../../../../auth/src'
 import { XyoApiErrorRender } from './Render'
 
 const StorybookEntry = {

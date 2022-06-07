@@ -32,9 +32,7 @@ const authReducer = (state: AuthState, action: AuthAction) => {
     }
 
     case AuthActionType.Logout: {
-      // Keep the existing AuthService List provided by consumers
-      const { authServiceList } = state
-      return { ...defaultState(), ...{ authServiceList }, ...{ reAuthenticate: action.payload.reAuthenticate } }
+      return { ...defaultState(), ...{ reAuthenticate: action.payload.reAuthenticate } }
     }
 
     default: {

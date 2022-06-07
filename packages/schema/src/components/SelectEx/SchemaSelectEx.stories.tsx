@@ -1,9 +1,9 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 
 import { authDecorator, WrappedArgs } from '../../../../../.storybook'
+import { ArchivistApiProvider } from '../../../../archivist-api/src'
 import { SchemaMemoryProvider } from '../../contexts'
 import { SchemaSelectEx } from './SchemaSelectEx'
 

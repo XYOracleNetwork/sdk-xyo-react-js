@@ -1,4 +1,4 @@
-import { AuthService, AuthServiceId } from '../contexts'
+import { AuthService, AuthServiceId } from '../State'
 
 export const authServiceList: AuthService[] = [
   {

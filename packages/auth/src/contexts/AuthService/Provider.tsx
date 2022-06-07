@@ -1,0 +1,19 @@
+import { WithChildren } from '@xylabs/sdk-react'
+import { useState } from 'react'
+
+import { AuthService, AuthServiceId } from '../State'
+import { authServiceList as importedAuthServiceList } from './authServiceList'
+import { AuthServiceContext } from './Context'
+import { AuthServiceState } from './State'
+
+export const AuthServiceProvider: React.FC<WithChildren<{ authServiceListOverride?: AuthService[] }>> = ({ authServiceListOverride, children }) => {
+  const [activeAuthServiceId, setActiveAuthServiceId] = useState<AuthServiceId>(AuthServiceId.None)
+  const authServiceList = authServiceListOverride ?? importedAuthServiceList
+
+  const value: AuthServiceState = {
+    activeAuthServiceId,
+    authServiceList,
+    setActiveAuthServiceId,
+  }
+  return <AuthServiceContext.Provider value={value}>{children}</AuthServiceContext.Provider>
+}
