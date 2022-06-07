@@ -5,7 +5,6 @@ import { useDarkMode } from 'storybook-dark-mode'
 import { appThemeOptions, partialDarkThemeOptions, themeOptions } from '../packages/theme/src'
 
 const appThemeDecorator: DecoratorFn = (Story, { args }) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const darkMode = useDarkMode()
   const mergedThemeOptions = merge(themeOptions, appThemeOptions)
   return (
