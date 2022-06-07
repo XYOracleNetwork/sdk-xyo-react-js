@@ -5,6 +5,7 @@ import { AuthService, AuthServiceId } from './Service'
 export interface AuthState {
   /** @deprecated now controlled by archivist api instead */
   apiDomain: string
+  /** @deprecated now controlled by AuthServiceContext instead */
   activeAuthServiceId: AuthServiceId
   readonly authServiceList: AuthService[]
   isLoading: boolean
