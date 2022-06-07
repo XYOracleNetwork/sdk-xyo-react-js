@@ -12,9 +12,7 @@ import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 const StorybookEntry = {
   argTypes: {
     authState: {
-      defaultValue: {
-        authServiceList,
-      },
+      authServiceList,
     },
   },
   component: AuthErrorsWrapper,

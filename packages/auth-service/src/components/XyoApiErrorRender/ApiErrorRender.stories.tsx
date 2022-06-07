@@ -14,11 +14,9 @@ import { XyoApiErrorRender } from './Render'
 const StorybookEntry = {
   argTypes: {
     authState: {
-      defaultValue: {
-        authServiceList,
-        jwtToken: 'badToken',
-        loggedInAccount: 'none@none.com',
-      },
+      authServiceList,
+      jwtToken: 'badToken',
+      loggedInAccount: 'none@none.com',
     },
   },
   component: XyoApiErrorRender,

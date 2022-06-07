@@ -11,11 +11,9 @@ import { ArchiveSelectEx } from './ArchiveSelectEx'
 const StorybookEntry = {
   argTypes: {
     authState: {
-      defaultValue: {
-        authServiceList,
-        jwtToken: 'badToken',
-        loggedInAccount: 'none@none.com',
-      },
+      authServiceList,
+      jwtToken: 'badToken',
+      loggedInAccount: 'none@none.com',
     },
   },
   component: ArchiveSelectEx,
