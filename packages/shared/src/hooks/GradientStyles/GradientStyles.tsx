@@ -17,13 +17,14 @@ export const colorfulGradientLightMode = () => {
       borderImage: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
       borderImageSlice: 1,
       borderImageSource: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
+      borderRadius: 0,
       borderStyle: 'solid',
       borderWidth: '2px',
     },
     heading: {
+      WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       background: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
-      backgroundClip: 'text',
       display: 'inline-block',
     },
   }
@@ -38,13 +39,14 @@ export const colorfulGradientDarkMode = () => {
       borderImage: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
       borderImageSlice: 1,
       borderImageSource: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
+      borderRadius: 0,
       borderStyle: 'solid',
       borderWidth: '2px',
     },
     heading: {
+      WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       background: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
-      backgroundClip: 'text',
       display: 'inline-block',
     },
   }
@@ -53,6 +55,6 @@ export const colorfulGradientDarkMode = () => {
 export const useGradientStyles = () => {
   const theme = useTheme()
   const styles = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
-  const classes = makeStyles(createStyles(styles))
+  const classes = makeStyles(styles)
   return { classes, styles }
 }
