@@ -1,9 +1,8 @@
-import { Container, Grid, Typography, useTheme } from '@mui/material'
+import { Container, Grid, Typography } from '@mui/material'
 import { ButtonEx, FlexBoxProps, FlexGrowCol, FlexGrowRow, LinkEx } from '@xylabs/sdk-react'
 import { ReactElement } from 'react'
 
-import { useIsMobile } from '../../hooks'
-import { colorfulGradientDarkMode, colorfulGradientLightMode } from '../GradientText'
+import { useGradientStyles, useIsMobile } from '../../hooks'
 
 export interface BasicHeroProps extends FlexBoxProps {
   title: string
@@ -97,8 +96,7 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
   ...props
 }) => {
   const isMobile = useIsMobile()
-  const theme = useTheme()
-  const classes = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
+  const { classes } = useGradientStyles()
   return (
     <FlexGrowCol
       sx={{
@@ -133,7 +131,7 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
             <FlexGrowCol paddingY={2} sx={{ alignItems: { xs: backgroundImage && !isMobile ? 'flex-start' : 'center' } }}>
               <Typography variant="h1" component="h1" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
                 {title ? <span>{`${title} `}</span> : null}
-                {gradientTitle ? <span className={classes.heading}> {` ${gradientTitle}`}</span> : null}
+                {gradientTitle ? <span className={classes().heading}> {` ${gradientTitle}`}</span> : null}
                 {title2 ? <span>{` ${title2}`}</span> : null}
               </Typography>
               <Typography variant="body1" component="h2" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
