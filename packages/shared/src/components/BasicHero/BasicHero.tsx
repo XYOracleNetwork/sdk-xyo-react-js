@@ -131,7 +131,7 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
             <FlexGrowCol paddingY={2} sx={{ alignItems: { xs: backgroundImage && !isMobile ? 'flex-start' : 'center' } }}>
               <Typography variant="h1" component="h1" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
                 {title ? <span>{`${title} `}</span> : null}
-                {gradientTitle ? <span className={classes.heading}> {` ${gradientTitle}`}</span> : null}
+                {gradientTitle ? <span className={classes().heading}> {` ${gradientTitle}`}</span> : null}
                 {title2 ? <span>{` ${title2}`}</span> : null}
               </Typography>
               <Typography variant="body1" component="h2" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>

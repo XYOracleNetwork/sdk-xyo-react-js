@@ -53,6 +53,6 @@ export const colorfulGradientDarkMode = () => {
 export const useGradientStyles = () => {
   const theme = useTheme()
   const styles = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
-  const classes = makeStyles(createStyles(styles))()
+  const classes = makeStyles(createStyles(styles))
   return { classes, styles }
 }
