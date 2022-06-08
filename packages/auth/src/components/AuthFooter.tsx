@@ -1,14 +1,21 @@
 import { ButtonEx } from '@xylabs/sdk-react'
 import { memo } from 'react'
 
-export interface AuthFooterProps {
-  handleLogout: () => void
-}
+import { AuthActionType, AuthServiceId, useAuthService, useAuthState } from '../contexts'
 
-const AuthFooterComponent: React.FC<AuthFooterProps> = ({ handleLogout }) => (
-  <ButtonEx variant="outlined" onClick={handleLogout}>
-    Logout
-  </ButtonEx>
-)
+const AuthFooterComponent: React.FC = () => {
+  const { dispatch: authDispatch } = useAuthState()
+  const { setActiveAuthServiceId } = useAuthService()
+
+  const handleLogout = () => {
+    setActiveAuthServiceId?.(AuthServiceId.None)
+    authDispatch?.({ payload: {}, type: AuthActionType.Logout })
+  }
+  return (
+    <ButtonEx variant="outlined" onClick={handleLogout}>
+      Logout
+    </ButtonEx>
+  )
+}
 
 export const AuthFooter = memo(AuthFooterComponent)

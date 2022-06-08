@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { ButtonEx, FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
 import { XyoBoundWitness } from '@xyo-network/core'
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'

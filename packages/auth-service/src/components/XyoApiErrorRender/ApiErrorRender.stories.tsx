@@ -5,7 +5,7 @@ import { XyoApiError, XyoArchive } from '@xyo-network/api'
 import axios from 'axios'
 import { useState } from 'react'
 
-import { archivistApiDecorator, authDecorator, authServiceList } from '../../../../../.storybook'
+import { archivistApiDecorator, authDecorator } from '../../../../../.storybook'
 import { useArchive } from '../../../../archive/src'
 import { useArchivistApi } from '../../../../archivist-api/src'
 import { AuthStatusIconButton } from '../../../../auth/src'
@@ -14,11 +14,8 @@ import { XyoApiErrorRender } from './Render'
 const StorybookEntry = {
   argTypes: {
     authState: {
-      defaultValue: {
-        authServiceList,
-        jwtToken: 'badToken',
-        loggedInAccount: 'none@none.com',
-      },
+      jwtToken: 'badToken',
+      loggedInAccount: 'none@none.com',
     },
   },
   component: XyoApiErrorRender,

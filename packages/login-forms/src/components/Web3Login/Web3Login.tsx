@@ -13,7 +13,7 @@ import { CheckForMetaMask } from './CheckForMetaMask'
 import { ConnectWallet } from './ConnectWallet'
 import { MetaMaskError } from './MetaMaskError'
 
-const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
+const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }) => {
   const { handleReturnUrl } = useHandleReturnUrl()
   const [checkedWallet, setCheckedWallet] = useState(false)
   const { api } = useArchivistApi()
@@ -24,14 +24,15 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
   const [xyoApiError, setXyoApiError] = useState<XyoApiError>()
 
   useEffect(() => {
-    if (!isLoading && token) {
+    if (!isLoading && token && !loggedInAccount) {
       dispatch({
         payload: { jwtToken: token, loggedInAccount: metaMaskWallet.currentAccount },
         type: AuthActionType.AuthSuccessful,
       })
       handleReturnUrl()
+      onSuccess?.()
     }
-  }, [isLoading, token, dispatch, metaMaskWallet.currentAccount, handleReturnUrl])
+  }, [isLoading, token, dispatch, metaMaskWallet.currentAccount, handleReturnUrl, onSuccess, loggedInAccount])
 
   useEffect(() => {
     if (checkedWallet) {

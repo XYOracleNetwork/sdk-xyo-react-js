@@ -1,5 +1,5 @@
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import { FlexBoxProps, FlexRow, LinkEx, LinkExProps } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexRow, LinkExProps } from '@xylabs/sdk-react'
 
 import { FooterLink } from './Link'
 

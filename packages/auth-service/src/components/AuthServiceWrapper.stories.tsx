@@ -1,71 +1,42 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { useLocation } from 'react-router-dom'
+import { ComponentStory, Meta } from '@storybook/react'
+import { AuthService, authServiceList } from '@xyo-network/react-auth'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../../.storybook'
+import { authDecorator, WrappedAuthComponent } from '../../../../.storybook'
 import { AuthServiceWrapper } from './AuthServiceWrapper'
 
-const StorybookEntry = {
-  argTypes: {
-    authServiceList: [],
-  },
+type Combined = ComponentStory<typeof AuthServiceWrapper> & ComponentStory<WrappedAuthComponent>
+
+const StorybookEntry: Meta = {
+  argTypes: {},
   component: AuthServiceWrapper,
+  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
     },
   },
   title: 'auth-service/AuthServiceWrapper',
-} as ComponentMeta<WrappedAuthComponent>
-
-const Template: ComponentStory<WrappedAuthComponent> = () => {
-  return <AuthServiceWrapper></AuthServiceWrapper>
 }
 
-const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
-  const location = useLocation()
-  location.state = { from: { pathname: '/foo' } }
-  return (
-    <>
-      <AuthServiceWrapper></AuthServiceWrapper>
-    </>
-  )
+const Template: Combined = (props) => {
+  const combinedProps = props as Combined['argTypes']
+  return <AuthServiceWrapper authServiceListOverride={combinedProps?.authServiceListOverride as AuthService[]} />
 }
 
 const Default = Template.bind({})
-Default.args = {
-  authState: {
-    authServiceList: [authServiceList[0]],
-  },
-}
-Default.decorators = [authDecorator]
+Default.args = {}
 
 const FullAuthServiceList = Template.bind({})
-FullAuthServiceList.args = {
-  authState: {
-    authServiceList,
-  },
-}
-
-FullAuthServiceList.decorators = [authDecorator]
-
-const WithRouterState = TemplateWithRouterState.bind({})
-WithRouterState.args = {
-  authState: {
-    authServiceList,
-  },
-}
-WithRouterState.decorators = [authDecorator]
+FullAuthServiceList.args = { authServiceListOverride: authServiceList }
 
 const ErrorState = Template.bind({})
 ErrorState.args = {
   authState: {
     apiDomain: 'http://bogus.domain',
-    authServiceList,
   },
 }
-ErrorState.decorators = [authDecorator]
 
-export { Default, ErrorState, FullAuthServiceList, WithRouterState }
+export { Default, ErrorState, FullAuthServiceList }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

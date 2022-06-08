@@ -2,22 +2,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/sdk-react'
 
-import { authDecorator, authServiceList, WrappedArgs } from '../../../../../.storybook'
+import { authDecorator, WrappedArgs } from '../../../../../.storybook'
 import { ArchivistApiProvider } from '../../../../archivist-api/src'
 import { ArchivesProvider } from '../../archives'
 import { ArchiveProvider } from '../contexts'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 
 const StorybookEntry = {
-  argTypes: {
-    authState: {
-      defaultValue: {
-        authServiceList,
-        jwtToken: 'badToken',
-        loggedInAccount: 'none@none.com',
-      },
-    },
-  },
+  argTypes: {},
   component: ArchiveSelectEx,
   decorators: [authDecorator],
   parameters: {

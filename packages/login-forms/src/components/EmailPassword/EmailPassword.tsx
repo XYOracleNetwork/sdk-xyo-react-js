@@ -10,7 +10,7 @@ import { useHandleReturnUrl } from '../useHandleReturnUrl'
 import { FormFields } from './FormFields'
 import { LoginCredentials } from './LoginCredentials'
 
-const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount }) => {
+const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }) => {
   const { handleReturnUrl } = useHandleReturnUrl()
   const credentialsState = useState<LoginCredentials>({ email: '', password: '' })
   const [credentials] = credentialsState
@@ -25,9 +25,10 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
         payload: { jwtToken: token, loggedInAccount: credentials.email },
         type: AuthActionType.AuthSuccessful,
       })
+      onSuccess?.()
       handleReturnUrl()
     }
-  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl])
+  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl, onSuccess])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
