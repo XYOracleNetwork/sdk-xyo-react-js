@@ -1,54 +1,15 @@
-import { Divider, Grid, Typography, useTheme } from '@mui/material'
-import { makeStyles } from '@mui/styles'
-import { FlexCol } from '@xylabs/sdk-react'
+import { Divider, Grid, Typography } from '@mui/material'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { BrowserRouter } from 'react-router-dom'
 
-import { SimpleCard } from '../SimpleCard'
+import { SimpleCard } from '../../components'
+import { useGradientStyles } from './GradientStyles'
 
-export const colorfulGradientLightMode = makeStyles(() => ({
-  background: {
-    backgroundImage: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
-  },
-  border: {
-    borderImage: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
-    borderImageSlice: 1,
-    borderImageSource: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
-    borderRadius: 4,
-    borderStyle: 'solid',
-    borderWidth: '2px',
-  },
-  heading: {
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    background: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
-    display: 'inline-block',
-  },
-}))
-
-export const colorfulGradientDarkMode = makeStyles(() => ({
-  background: {
-    backgroundImage: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
-  },
-  border: {
-    borderImage: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
-    borderImageSlice: 1,
-    borderImageSource: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
-    borderRadius: 4,
-    borderStyle: 'solid',
-    borderWidth: '2px',
-  },
-  heading: {
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    background: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
-    display: 'inline-block',
-  },
-}))
-
-export const GradientTextExample: React.FC = () => {
-  const theme = useTheme()
-  const classes = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
+const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
+  const { styles, classes } = useGradientStyles()
   return (
-    <FlexCol alignItems="stretch">
+    <FlexCol alignItems="stretch" {...props}>
       <Typography variant="h4" gutterBottom>
         XYO Network Gradient Text Options
       </Typography>
@@ -57,13 +18,13 @@ export const GradientTextExample: React.FC = () => {
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
       <Typography variant="h5" gutterBottom>
-        Lorem ipsum dolor sit amet consectetur, <span className={classes.heading}>adipisicing elit.</span>
+        Lorem ipsum dolor sit amet consectetur, <span className={classes.typography}>adipisicing elit.</span>
       </Typography>
       <Typography variant="subtitle2" gutterBottom paddingTop={3}>
         Body Text
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
-      <Typography variant="h5" gutterBottom className={classes.heading}>
+      <Typography variant="h5" gutterBottom className={classes.typography}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas, suscipit ea vel dicta quasi hic,
         deserunt tempore, natus optio veritatis dolor?
       </Typography>
@@ -71,7 +32,7 @@ export const GradientTextExample: React.FC = () => {
         Caption
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
-      <Typography variant="caption" gutterBottom className={classes.heading}>
+      <Typography variant="caption" gutterBottom className={classes.typography}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas, suscipit ea vel dicta quasi hic,
         deserunt tempore, natus optio veritatis dolor?
       </Typography>
@@ -82,7 +43,7 @@ export const GradientTextExample: React.FC = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
           <SimpleCard
-            className={classes.border}
+            gradient="border"
             headline="Gradient Border Simple Card"
             desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam illo molestiae nisi perferendis a error, eum repellendus voluptatibus, provident, voluptatum qui laborum assumenda minus! Cum id quo eligendi dolor expedita."
             interactionVariant="button"
@@ -90,15 +51,15 @@ export const GradientTextExample: React.FC = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <SimpleCard
-            className={classes.border}
-            headline="Gradient Border Simple Card"
+            gradient="background"
+            headline="Gradient Background Simple Card"
             desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam illo molestiae nisi perferendis a error, eum repellendus voluptatibus, provident, voluptatum qui laborum assumenda minus! Cum id quo eligendi dolor expedita."
             interactionVariant="button"
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <SimpleCard
-            className={classes.border}
+            gradient="border"
             headline="Gradient Border Simple Card"
             desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam illo molestiae nisi perferendis a error, eum repellendus voluptatibus, provident, voluptatum qui laborum assumenda minus! Cum id quo eligendi dolor expedita."
             interactionVariant="button"
@@ -108,3 +69,26 @@ export const GradientTextExample: React.FC = () => {
     </FlexCol>
   )
 }
+
+const StorybookEntry = {
+  argTypes: {},
+  component: GradientTextExample,
+  parameters: {
+    docs: {
+      page: null,
+    },
+  },
+  title: 'shared/GradientText',
+} as ComponentMeta<typeof GradientTextExample>
+
+const Template: ComponentStory<typeof GradientTextExample> = (args) => (
+  <BrowserRouter>
+    <GradientTextExample {...args}></GradientTextExample>
+  </BrowserRouter>
+)
+
+export const Default = Template.bind({})
+Default.args = {}
+
+// eslint-disable-next-line import/no-default-export
+export default StorybookEntry
