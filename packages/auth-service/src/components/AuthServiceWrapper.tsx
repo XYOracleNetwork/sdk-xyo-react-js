@@ -1,34 +1,24 @@
 import { useTheme } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/sdk-react'
-import { AuthActionType, AuthFooter, AuthServiceId, useAuthState } from '@xyo-network/react-auth'
-import { useState } from 'react'
+import { AuthFooter, AuthService, AuthServiceProvider, useAuthState } from '@xyo-network/react-auth'
 
 import { MapActiveAuthService } from './MapActiveService'
 
-const AuthServiceWrapper: React.FC = () => {
+export interface AuthServiceWrapperProps {
+  authServiceListOverride?: AuthService[]
+}
+
+const AuthServiceWrapper: React.FC<AuthServiceWrapperProps> = ({ authServiceListOverride }) => {
   const { state: authState, dispatch: authDispatch } = useAuthState()
   const theme = useTheme()
-  const [activeAuthServiceId, setActiveAuthServiceId] = useState(AuthServiceId.None)
-
-  const handleLogout = () => {
-    authDispatch?.({ payload: {}, type: AuthActionType.Logout })
-  }
-
-  const handleBack = () => setActiveAuthServiceId(AuthServiceId.None)
 
   return authState && authDispatch ? (
-    <>
-      <MapActiveAuthService
-        authState={authState}
-        dispatch={authDispatch}
-        handleBack={handleBack}
-        setActiveAuthServiceId={setActiveAuthServiceId}
-        activeAuthServiceId={activeAuthServiceId}
-      />
+    <AuthServiceProvider authServiceListOverride={authServiceListOverride}>
+      <MapActiveAuthService authState={authState} dispatch={authDispatch} />
       <FlexGrowCol width="100%" maxWidth={theme.breakpoints.values.sm}>
-        {authState?.loggedInAccount && <AuthFooter handleLogout={handleLogout} />}
+        {authState?.loggedInAccount && <AuthFooter />}
       </FlexGrowCol>
-    </>
+    </AuthServiceProvider>
   ) : null
 }
 

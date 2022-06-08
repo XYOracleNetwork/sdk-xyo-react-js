@@ -8,7 +8,8 @@ import { AuthServiceState } from './State'
 
 export const AuthServiceProvider: React.FC<WithChildren<{ authServiceListOverride?: AuthService[] }>> = ({ authServiceListOverride, children }) => {
   const [activeAuthServiceId, setActiveAuthServiceId] = useState<AuthServiceId>(AuthServiceId.None)
-  const authServiceList = authServiceListOverride ?? importedAuthServiceList
+
+  const authServiceList = authServiceListOverride ?? [importedAuthServiceList[0]] // Defaulting to Web3 only
 
   const value: AuthServiceState = {
     activeAuthServiceId,

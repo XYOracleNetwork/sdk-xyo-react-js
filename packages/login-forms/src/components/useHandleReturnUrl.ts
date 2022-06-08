@@ -7,7 +7,6 @@ const useHandleReturnUrl = () => {
   const handleReturnUrl = () => {
     const pathFromState = (location.state as { from: { pathname: string } })?.from?.pathname
     const returnUrl = localStorage.getItem('returnUrl')
-    console.log(pathFromState || returnUrl || ' ')
     navigate(pathFromState || returnUrl || ' ')
     localStorage.removeItem('returnUrl')
   }

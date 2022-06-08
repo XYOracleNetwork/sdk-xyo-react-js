@@ -1,8 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { Alert, AlertTitle } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { AuthServiceId, useAuthState } from '@xyo-network/react-auth'
-import { useState } from 'react'
+import { useAuthService, useAuthState } from '@xyo-network/react-auth'
 import { useLocation } from 'react-router-dom'
 
 import { authDecorator, WrappedAuthComponent } from '../../../../../.storybook'
@@ -22,7 +21,7 @@ const StorybookEntry = {
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
-  const [activeAuthServiceId, setActiveAuthServiceId] = useState(AuthServiceId.None)
+  const { activeAuthServiceId } = useAuthService()
 
   if (state && dispatch) {
     return (
@@ -31,20 +30,19 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
           <AlertTitle>Active Auth Service Id</AlertTitle>
           {activeAuthServiceId}
         </Alert>
-        <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} setActiveAuthServiceId={setActiveAuthServiceId} />
+        <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} />
       </>
     )
   } else {
-    return <></>
+    return <h1>State and dispatch missing from authState</h1>
   }
 }
 
 const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
+  const { activeAuthServiceId } = useAuthService()
   const location = useLocation()
   location.state = { message: 'Please login to view this page' }
-
-  const [activeAuthServiceId, setActiveAuthServiceId] = useState(AuthServiceId.None)
 
   if (state && dispatch) {
     return (
@@ -53,11 +51,11 @@ const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
           <AlertTitle>Active Auth Service Id</AlertTitle>
           {activeAuthServiceId}
         </Alert>
-        <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} setActiveAuthServiceId={setActiveAuthServiceId} />
+        <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} />
       </>
     )
   } else {
-    return <></>
+    return <h1>State and dispatch missing from authState</h1>
   }
 }
 
