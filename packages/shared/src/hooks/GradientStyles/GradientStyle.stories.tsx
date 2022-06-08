@@ -7,7 +7,7 @@ import { SimpleCard } from '../../components'
 import { useGradientStyles } from './GradientStyles'
 
 const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
-  const { styles, classes } = useGradientStyles()
+  const { classes } = useGradientStyles()
   return (
     <FlexCol alignItems="stretch" {...props}>
       <Typography variant="h4" gutterBottom>
@@ -18,13 +18,13 @@ const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
       <Typography variant="h5" gutterBottom>
-        Lorem ipsum dolor sit amet consectetur, <span className={classes.typography}>adipisicing elit.</span>
+        Lorem ipsum dolor sit amet consectetur, <span className={classes.heading}>adipisicing elit.</span>
       </Typography>
       <Typography variant="subtitle2" gutterBottom paddingTop={3}>
         Body Text
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
-      <Typography variant="h5" gutterBottom className={classes.typography}>
+      <Typography variant="h5" gutterBottom className={classes.heading}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas, suscipit ea vel dicta quasi hic,
         deserunt tempore, natus optio veritatis dolor?
       </Typography>
@@ -32,7 +32,7 @@ const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
         Caption
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
-      <Typography variant="caption" gutterBottom className={classes.typography}>
+      <Typography variant="caption" gutterBottom className={classes.heading}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas, suscipit ea vel dicta quasi hic,
         deserunt tempore, natus optio veritatis dolor?
       </Typography>

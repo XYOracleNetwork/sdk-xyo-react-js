@@ -5,7 +5,7 @@ import { CSSProperties } from 'react'
 export interface GradientStyles {
   background: CSSProperties
   border: CSSProperties
-  typography: CSSProperties
+  heading: CSSProperties
 }
 
 export const colorfulGradientLightMode = () => {
@@ -20,7 +20,7 @@ export const colorfulGradientLightMode = () => {
       borderStyle: 'solid',
       borderWidth: '2px',
     },
-    typography: {
+    heading: {
       WebkitTextFillColor: 'transparent',
       background: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
       backgroundClip: 'text',
@@ -41,7 +41,7 @@ export const colorfulGradientDarkMode = () => {
       borderStyle: 'solid',
       borderWidth: '2px',
     },
-    typography: {
+    heading: {
       WebkitTextFillColor: 'transparent',
       background: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
       backgroundClip: 'text',
