@@ -1,17 +1,15 @@
 /* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-deprecated */
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 import { FlexCol } from '@xylabs/sdk-react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { DeprecateStory } from '../../../../../.storybook'
 import { JsonFromUrl } from './JsonFromUrl'
 
-const StorybookEntry = {
-  argTypes: {
-    apiDomain: {
-      defaultValue: 'http://localhost:8081',
-    },
+const StorybookEntry: Meta = {
+  args: {
+    apiDomain: 'http://localhost:8081',
   },
   component: JsonFromUrl,
   parameters: {
@@ -20,7 +18,7 @@ const StorybookEntry = {
     },
   },
   title: 'shared/JsonRouteWrapper/JsonFromUrl',
-} as ComponentMeta<typeof JsonFromUrl>
+}
 
 const Template: ComponentStory<typeof JsonFromUrl> = (props) => {
   return (

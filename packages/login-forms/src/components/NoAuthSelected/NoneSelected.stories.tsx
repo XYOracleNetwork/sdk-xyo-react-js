@@ -1,13 +1,14 @@
 /* eslint-disable import/no-internal-modules */
+import { Alert, AlertTitle } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useAuthService, useAuthState } from '@xyo-network/react-auth'
 import { useLocation } from 'react-router-dom'
 
-import { authDecorator, authServiceList, WrappedAuthComponent } from '../../../../../.storybook'
-import { useAuthState } from '../../../../auth/src'
+import { authDecorator, WrappedAuthComponent } from '../../../../../.storybook'
 import { NoneSelected } from './NoneSelected'
 
 const StorybookEntry = {
-  argTypes: {},
+  args: {},
   component: NoneSelected,
   decorators: [authDecorator],
   parameters: {
@@ -20,47 +21,56 @@ const StorybookEntry = {
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
+  const { activeAuthServiceId } = useAuthService()
 
   if (state && dispatch) {
-    return <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
+    return (
+      <>
+        <Alert>
+          <AlertTitle>Active Auth Service Id</AlertTitle>
+          {activeAuthServiceId}
+        </Alert>
+        <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} />
+      </>
+    )
   } else {
-    return <></>
+    return <h1>State and dispatch missing from authState</h1>
   }
 }
 
 const TemplateWithRouterState: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
+  const { activeAuthServiceId } = useAuthService()
   const location = useLocation()
   location.state = { message: 'Please login to view this page' }
 
   if (state && dispatch) {
-    return <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} authServiceList={state.authServiceList} />
+    return (
+      <>
+        <Alert>
+          <AlertTitle>Active Auth Service Id</AlertTitle>
+          {activeAuthServiceId}
+        </Alert>
+        <NoneSelected dispatch={dispatch} loggedInAccount={state.loggedInAccount} />
+      </>
+    )
   } else {
-    return <></>
+    return <h1>State and dispatch missing from authState</h1>
   }
 }
 
 const Default = Template.bind({})
-Default.args = {
-  authState: {
-    authServiceList,
-  },
-}
+Default.args = {}
 
 const LoggedIn = Template.bind({})
 LoggedIn.args = {
   authState: {
-    authServiceList,
     loggedInAccount: 'none@none.com',
   },
 }
 
 const WithRouterState = TemplateWithRouterState.bind({})
-WithRouterState.args = {
-  authState: {
-    authServiceList,
-  },
-}
+WithRouterState.args = {}
 
 export { Default, LoggedIn, WithRouterState }
 

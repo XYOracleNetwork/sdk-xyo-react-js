@@ -1,9 +1,10 @@
 import { useTheme } from '@mui/material'
 import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol, WithChildren } from '@xylabs/sdk-react'
+import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { AuthProvider, AuthThemeExtender, defaultState, useAuthState, AuthServiceProvider } from '@xyo-network/react-auth'
+import { WalletServiceProvider } from '@xyo-network/react-wallet-service'
 import { BrowserRouter } from 'react-router-dom'
-import { AuthProvider, AuthThemeExtender, defaultState, useAuthState } from '../packages/auth/src'
-import { ArchivistApiProvider } from '../packages/archivist-api/src'
 
 const WithArchivistApi: React.FC<WithChildren> = ({ children }) => {
   const { state } = useAuthState()
@@ -11,7 +12,7 @@ const WithArchivistApi: React.FC<WithChildren> = ({ children }) => {
 
   if (state) {
     return (
-      <ArchivistApiProvider apiDomain={state.apiDomain} jwtToken={state.jwtToken} required>
+      <ArchivistApiProvider apiDomain={state.apiDomain ?? 'https://beta.api.archivist.xyo.network'} jwtToken={state.jwtToken} required>
         <AuthThemeExtender themeOptions={theme}>
           {children}
         </AuthThemeExtender>
@@ -30,7 +31,11 @@ export const authDecorator: DecoratorFn = (Story, { args }) => {
     <FlexGrowCol marginY={2} justifyContent="flex-start" alignItems="center">
       <BrowserRouter>
         <AuthProvider authState={mergedAuthState}>
-          <WithArchivistApi><Story {...args} /></WithArchivistApi>
+          <AuthServiceProvider>
+            <WalletServiceProvider>
+              <WithArchivistApi><Story {...args} /></WithArchivistApi>
+            </WalletServiceProvider>
+          </AuthServiceProvider>
         </AuthProvider>
       </BrowserRouter>
     </FlexGrowCol>

@@ -1,18 +1,10 @@
 import { AuthActionType } from '../ActionType'
 import { AuthAction } from './Action'
 import { defaultState } from './default'
-import { AuthServiceId } from './Service'
 import { AuthState } from './State'
 
 const authReducer = (state: AuthState, action: AuthAction) => {
   switch (action.type) {
-    case AuthActionType.UpdateActiveAuthService: {
-      if (!action.payload.activeAuthServiceId) {
-        throw new Error('Missing AuthServiceId')
-      }
-      return { ...state, activeAuthServiceId: action.payload.activeAuthServiceId }
-    }
-
     case AuthActionType.RehydrateState: {
       if (!action.payload) {
         throw new Error('Missing Payload')
@@ -25,7 +17,6 @@ const authReducer = (state: AuthState, action: AuthAction) => {
         throw new Error('jwtToken or loggedInAccount missing from  payload')
       }
       const authCompleteState: Partial<AuthState> = {
-        activeAuthServiceId: AuthServiceId.None,
         isLoading: false,
         reAuthenticate: false,
       }
@@ -41,9 +32,7 @@ const authReducer = (state: AuthState, action: AuthAction) => {
     }
 
     case AuthActionType.Logout: {
-      // Keep the existing AuthService List provided by consumers
-      const { authServiceList } = state
-      return { ...defaultState(), ...{ authServiceList }, ...{ reAuthenticate: action.payload.reAuthenticate } }
+      return { ...defaultState(), ...{ reAuthenticate: action.payload.reAuthenticate } }
     }
 
     default: {

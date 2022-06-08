@@ -1,13 +1,14 @@
 import { ButtonGroup, Typography } from '@mui/material'
-import { AuthService } from '@xyo-network/react-auth'
+import { AuthService, useAuthService } from '@xyo-network/react-auth'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { LoginForm } from '../LoginForm'
-import { AuthServiceButton } from './AuthService'
+import { AuthServiceButton } from './AuthServiceButton'
 
-export const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount, authServiceList }) => {
+export const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount }) => {
   const location = useLocation()
+  const { authServiceList } = useAuthService()
   const [authWarning, setAuthWarning] = useState<string | undefined>()
 
   useEffect(() => {
