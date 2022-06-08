@@ -1,12 +1,13 @@
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
-import { alpha, Card, CardActions, CardContent, CardMedia, CardProps, IconButton, Typography, useTheme } from '@mui/material'
+import { alpha, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowCol } from '@xylabs/sdk-react'
 import { ReactNode, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
 import { useIsMobile } from '../../hooks'
+import { CardEx, CardExProps } from '../CardEx'
 
-export interface SimpleCardProps extends CardProps {
+export interface SimpleCardProps extends CardExProps {
   headline?: ReactNode
   desc?: ReactNode
   href?: string
@@ -30,10 +31,9 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({ iconImage, subtitle, hea
     href ? window.open(href) : navigate('/404')
   }
   return (
-    <Card
+    <CardEx
       elevation={raised ? 3 : 0}
       style={{ height: '100%', justifyContent: 'space-between', width: '100%' }}
-      {...props}
       sx={{
         '&:hover': {
           cursor: interactionVariant == 'button' ? 'pointer' : null,
@@ -43,6 +43,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({ iconImage, subtitle, hea
       onMouseEnter={() => (isMobile ? null : interactionVariant == 'button' ? setRaised(true) : null)}
       onMouseLeave={() => (isMobile ? null : interactionVariant == 'button' ? setRaised(false) : null)}
       onClick={() => (interactionVariant == 'button' ? (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404')) : null)}
+      {...props}
     >
       {media ? <CardMedia component="img" height="100" image={media} alt="" /> : null}
 
@@ -82,6 +83,6 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({ iconImage, subtitle, hea
           </FlexGrowCol>
         </CardActions>
       ) : null}
-    </Card>
+    </CardEx>
   )
 }
