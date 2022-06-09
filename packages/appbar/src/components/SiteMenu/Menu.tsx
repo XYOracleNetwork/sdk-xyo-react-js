@@ -4,7 +4,7 @@ import { Box, IconButton, List, SwipeableDrawer } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
 import { useState } from 'react'
 
-import { DrawerListItem } from './MenuItems'
+import { SiteMenuListItem } from './MenuItems'
 
 export interface SiteMenuProps extends FlexBoxProps {
   hideSettingsMenuItem?: boolean
@@ -29,7 +29,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ side = 'right', children, ..
         <Box width="auto" role="presentation" onClick={() => setOpen(false)} onKeyDown={() => setOpen(false)}>
           {children ?? (
             <List>
-              <DrawerListItem primary="Settings" icon={<SettingsIcon />} to="/settings" />
+              <SiteMenuListItem primary="Settings" icon={<SettingsIcon />} to="/settings" />
             </List>
           )}
         </Box>

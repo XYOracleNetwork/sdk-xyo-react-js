@@ -3,16 +3,16 @@ import { ListItemButtonEx, ListItemButtonExProps } from '@xyo-network/react-shar
 import { ReactNode } from 'react'
 import { To } from 'react-router-dom'
 
-export interface DrawerListItemProps extends ListItemProps {
+export interface SiteMenuListItemProps extends ListItemProps {
   primary: ListItemTextProps['primary']
   to?: To
   icon?: ReactNode
   onButtonClick?: ListItemButtonExProps['onClick']
 }
 
-export const DrawerListItem: React.FC<DrawerListItemProps> = ({ children, primary, to, icon, onButtonClick, ...props }) => {
+export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({ style, children, primary, to, icon, onButtonClick, ...props }) => {
   return (
-    <ListItem {...props}>
+    <ListItem style={{ display: 'block', ...style }} {...props}>
       <ListItemButtonEx to={to} onClick={onButtonClick}>
         <ListItemIcon>{icon}</ListItemIcon>
         <ListItemText primary={primary} />
