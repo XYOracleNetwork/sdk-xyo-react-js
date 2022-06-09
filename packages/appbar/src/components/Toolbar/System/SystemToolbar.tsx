@@ -6,14 +6,14 @@ import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-networ
 import { DarkModeIconButton } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
-import { SiteMenu } from './SiteMenu'
+import { SiteMenu } from '../../SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
   networkSelectProps?: NetworkSelectExProps
   archiveSelectProps?: SelectExProps<string>
   hideNetworkSelect?: boolean
   hideArchiveSelect?: boolean
-  menuItems?: ReactNode
+  menu?: ReactNode
   darkModeButton?: boolean
   authButton?: boolean
   noMenu?: boolean
@@ -25,7 +25,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   archiveSelectProps,
   hideNetworkSelect,
   hideArchiveSelect,
-  menuItems,
+  menu,
   darkModeButton = false,
   authButton = false,
   noMenu = false,
@@ -50,7 +50,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
       {children}
       {authButton ? <AuthStatusIconButton color="inherit" /> : null}
       {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
-      {noMenu ? null : <SiteMenu menu={menuItems} />}
+      {noMenu ? null : <SiteMenu>{menu}</SiteMenu>}
     </Toolbar>
   )
 }

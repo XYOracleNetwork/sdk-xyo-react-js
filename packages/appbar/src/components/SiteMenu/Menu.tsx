@@ -1,25 +1,17 @@
 import MenuIcon from '@mui/icons-material/Menu'
-import { Box, IconButton, SwipeableDrawer } from '@mui/material'
+import SettingsIcon from '@mui/icons-material/Settings'
+import { Box, IconButton, List, SwipeableDrawer } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
-import { ReactNode, useState } from 'react'
-import { To } from 'react-router-dom'
+import { useState } from 'react'
 
-import { DefaultMenuItems } from './DefaultMenuItems'
-
-export interface SiteMenuItem {
-  name: string
-  to?: To
-  href?: string
-  onClick?: () => void
-}
+import { DrawerListItem } from './MenuItems'
 
 export interface SiteMenuProps extends FlexBoxProps {
   hideSettingsMenuItem?: boolean
-  menu?: ReactNode
   side?: 'left' | 'right' | 'top' | 'bottom'
 }
 
-export const SiteMenu: React.FC<SiteMenuProps> = ({ side, menu, ...props }) => {
+export const SiteMenu: React.FC<SiteMenuProps> = ({ side = 'right', children, ...props }) => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -33,9 +25,13 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ side, menu, ...props }) => {
       >
         <MenuIcon fontSize="large" />
       </IconButton>
-      <SwipeableDrawer anchor={side ?? 'left'} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)}>
+      <SwipeableDrawer anchor={side} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)}>
         <Box width="auto" role="presentation" onClick={() => setOpen(false)} onKeyDown={() => setOpen(false)}>
-          {menu ?? <DefaultMenuItems />}
+          {children ?? (
+            <List>
+              <DrawerListItem primary="Settings" icon={<SettingsIcon />} to="/settings" />
+            </List>
+          )}
         </Box>
       </SwipeableDrawer>
     </FlexRow>
