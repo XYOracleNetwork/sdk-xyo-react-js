@@ -1,8 +1,10 @@
-import { Menu as MenuIcon } from '@mui/icons-material'
-import { Menu, MenuItem } from '@mui/material'
-import { FlexBoxProps, FlexRow, LinkEx } from '@xylabs/sdk-react'
-import { useRef, useState } from 'react'
-import { To, useNavigate } from 'react-router-dom'
+import MenuIcon from '@mui/icons-material/Menu'
+import { Box, IconButton, SwipeableDrawer } from '@mui/material'
+import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
+import { ReactNode, useState } from 'react'
+import { To } from 'react-router-dom'
+
+import { DefaultMenuItems } from './DefaultMenuItems'
 
 export interface SiteMenuItem {
   name: string
@@ -13,65 +15,29 @@ export interface SiteMenuItem {
 
 export interface SiteMenuProps extends FlexBoxProps {
   hideSettingsMenuItem?: boolean
-  menuItems?: SiteMenuItem[]
+  menu?: ReactNode
+  side?: 'left' | 'right' | 'top' | 'bottom'
 }
 
-export const SiteMenu: React.FC<SiteMenuProps> = ({ hideSettingsMenuItem, menuItems, ...props }) => {
-  const [menuElement, setMenuElement] = useState<HTMLButtonElement | null>(null)
-  const open = Boolean(menuElement)
-  const navigate = useNavigate()
-
-  const handleMenuClose = () => {
-    setMenuElement(null)
-  }
-
-  const ref = useRef(null)
+export const SiteMenu: React.FC<SiteMenuProps> = ({ side, menu, ...props }) => {
+  const [open, setOpen] = useState(false)
 
   return (
     <FlexRow alignItems="stretch" {...props}>
-      <LinkEx
+      <IconButton
+        size="small"
         color="inherit"
         onClick={() => {
-          setMenuElement(ref.current)
+          setOpen(!open)
         }}
       >
-        <div style={{ alignItems: 'center', cursor: 'pointer', display: 'flex' }} ref={ref}>
-          <MenuIcon fontSize="large" />
-        </div>
-      </LinkEx>
-      <Menu anchorEl={menuElement} open={open} onClose={handleMenuClose}>
-        {menuItems?.map(({ name, to, href, onClick }) => {
-          return (
-            <MenuItem
-              key={name}
-              onClick={() => {
-                if (onClick) {
-                  onClick()
-                } else if (to) {
-                  navigate(to)
-                } else if (href) {
-                  window.open(href)
-                }
-                handleMenuClose()
-              }}
-              disableRipple
-            >
-              {name}
-            </MenuItem>
-          )
-        })}
-        {hideSettingsMenuItem ? null : (
-          <MenuItem
-            onClick={() => {
-              navigate('/settings')
-              handleMenuClose()
-            }}
-            disableRipple
-          >
-            Settings
-          </MenuItem>
-        )}
-      </Menu>
+        <MenuIcon fontSize="large" />
+      </IconButton>
+      <SwipeableDrawer anchor={side ?? 'left'} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)}>
+        <Box width="auto" role="presentation" onClick={() => setOpen(false)} onKeyDown={() => setOpen(false)}>
+          {menu ?? <DefaultMenuItems />}
+        </Box>
+      </SwipeableDrawer>
     </FlexRow>
   )
 }
