@@ -25,14 +25,12 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({ side = 'right', children, ..
       >
         <MenuIcon fontSize="large" />
       </IconButton>
-      <SwipeableDrawer anchor={side} open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)}>
-        <Box width="auto" role="presentation" onClick={() => setOpen(false)} onKeyDown={() => setOpen(false)}>
-          {children ?? (
-            <List>
-              <SiteMenuListItem primary="Settings" icon={<SettingsIcon />} to="/settings" />
-            </List>
-          )}
-        </Box>
+      <SwipeableDrawer anchor={side} open={open} onClick={() => setOpen(false)} onKeyDown={() => setOpen(false)} onClose={() => setOpen(false)} onOpen={() => setOpen(true)}>
+        {children ?? (
+          <List>
+            <SiteMenuListItem primary="Settings" icon={<SettingsIcon />} to="/settings" />
+          </List>
+        )}
       </SwipeableDrawer>
     </FlexRow>
   )
