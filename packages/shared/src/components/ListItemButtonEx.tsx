@@ -24,6 +24,6 @@ export const ListItemButtonEx: React.FC<ListItemButtonExProps> = ({ to, ...props
   if (to) {
     return <ListItemButtonExTo to={to} {...props} />
   } else {
-    return <ListItemButtonEx {...props} />
+    return <ListItemButton {...props} />
   }
 }
