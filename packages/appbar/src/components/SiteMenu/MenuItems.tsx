@@ -10,13 +10,14 @@ export interface DrawerListItemProps extends ListItemProps {
   onButtonClick?: ListItemButtonExProps['onClick']
 }
 
-export const DrawerListItem: React.FC<DrawerListItemProps> = ({ primary, to, icon, onButtonClick, ...props }) => {
+export const DrawerListItem: React.FC<DrawerListItemProps> = ({ children, primary, to, icon, onButtonClick, ...props }) => {
   return (
     <ListItem {...props}>
       <ListItemButtonEx to={to} onClick={onButtonClick}>
         <ListItemIcon>{icon}</ListItemIcon>
         <ListItemText primary={primary} />
       </ListItemButtonEx>
+      {children}
     </ListItem>
   )
 }
