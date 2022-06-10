@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-appbar",
+  "name": "@xyo-network/react-footer",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -14,20 +14,12 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.3",
     "@mui/material": "^5.8.3",
-    "@xylabs/react-button": "^2.12.23",
     "@xylabs/react-common": "^2.12.23",
     "@xylabs/react-flexbox": "^2.12.23",
-    "@xylabs/react-shared": "^2.12.23",
-    "@xyo-network/core": "^2.20.45",
-    "@xyo-network/react-archive": "workspace:^",
-    "@xyo-network/react-archivist-api": "workspace:^",
-    "@xyo-network/react-auth": "workspace:^",
-    "@xyo-network/react-network": "workspace:^",
-    "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/react-wallet": "^2.25.51",
+    "@xylabs/sdk-js": "^2.5.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-router-dom": "^6.3.0",
+    "react-icons": "^4.4.0",
     "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
@@ -35,6 +27,7 @@
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@storybook/react": "^6.5.8",
+    "@xylabs/sdk-js": "^2.5.7",
     "@xylabs/tsconfig": "^1.0.13"
   },
   "browser": "dist/esm/index.js",

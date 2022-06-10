@@ -11,7 +11,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Shared/Footer',
+  title: 'footer/Footer',
 } as ComponentMeta<typeof Footer>
 
 const Template: ComponentStory<typeof Footer> = (args) => (
