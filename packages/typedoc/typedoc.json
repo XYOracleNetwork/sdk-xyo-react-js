@@ -1,0 +1,18 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "./src/index.ts"
+  ],
+  "excludeExternals": true,
+  "excludeInternal": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "intentionallyNotExported": [
+    "AuthDispatch",
+    "AuthServiceId",
+    "AuthState",
+    "LoginForm"
+  ],
+  "json": "./dist/docs.json",
+  "tsconfig": "./tsconfig.json"
+}

@@ -13,21 +13,22 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.8.3",
+    "@xylabs/react-button": "^2.12.23",
+    "@xylabs/react-flexbox": "^2.12.23",
+    "@xylabs/react-shared": "^2.12.23",
     "@xyo-network/api": "^2.20.45",
     "@xyo-network/react-auth": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "tslib": "^2.4.0",
-    "typedoc": "^0.22.17"
+    "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@storybook/react": "^6.5.8",
-    "@xylabs/tsconfig": "^1.0.13",
-    "axios": "^0.27.2"
+    "@xylabs/tsconfig": "^1.0.13"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
@@ -58,15 +59,6 @@
     "react"
   ],
   "license": "LGPL-3.0",
-  "peerDependencies": {
-    "axios": ">0.26",
-    "typedoc": "^0.22.13"
-  },
-  "peerDependenciesMeta": {
-    "typedoc": {
-      "optional": true
-    }
-  },
   "resolutions": {
     "@storybook/react/webpack": "^5",
     "bn.js": "^5.2.0",
