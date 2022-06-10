@@ -1,7 +1,8 @@
 /* eslint-disable import/no-internal-modules */
 import { Alert, Paper, TextField } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { BasePageProps, FlexCol } from '@xylabs/sdk-react'
+import { BasePageProps } from '@xylabs/react-common'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
 import { ApplicationAppBar, SystemToolbar } from '../../../../appbar/src'

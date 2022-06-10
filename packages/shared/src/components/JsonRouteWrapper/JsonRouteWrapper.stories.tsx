@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
-import { ButtonEx, FlexCol } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { XyoArchivistApi } from '@xyo-network/api'
 import { BrowserRouter, useSearchParams } from 'react-router-dom'
 

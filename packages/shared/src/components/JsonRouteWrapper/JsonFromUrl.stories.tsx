@@ -1,7 +1,7 @@
 /* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-deprecated */
 import { ComponentStory, Meta } from '@storybook/react'
-import { FlexCol } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
 import { DeprecateStory } from '../../../../../.storybook'

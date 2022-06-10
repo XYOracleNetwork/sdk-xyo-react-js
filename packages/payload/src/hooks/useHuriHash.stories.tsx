@@ -1,7 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { FlexCol } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { Huri } from '@xyo-network/core'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { lazy, Suspense } from 'react'

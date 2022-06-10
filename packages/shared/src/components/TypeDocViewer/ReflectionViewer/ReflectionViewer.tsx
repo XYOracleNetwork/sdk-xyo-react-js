@@ -1,4 +1,4 @@
-import { FlexCol } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { ReflectionFlags } from 'typedoc'
 
 import { CommentViewer } from '../CommentViewer'

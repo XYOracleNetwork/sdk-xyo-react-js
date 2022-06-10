@@ -1,5 +1,5 @@
 import { AppBar, AppBarProps, Container, Toolbar, ToolbarProps, useMediaQuery, useTheme } from '@mui/material'
-import { FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
+import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import React, { ReactElement } from 'react'
 
 import { ContextToolbar, SystemToolbar } from '../Toolbar'

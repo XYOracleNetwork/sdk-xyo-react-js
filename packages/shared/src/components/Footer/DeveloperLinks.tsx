@@ -1,4 +1,4 @@
-import { FlexBoxProps } from '@xylabs/sdk-react'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 
 import { FooterLink } from './Link'
 import { FooterLinks } from './Links'

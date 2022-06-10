@@ -1,6 +1,6 @@
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import { IconButton, Menu, MenuItem } from '@mui/material'
-import { FlexRow } from '@xylabs/sdk-react'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
 import { PropertyActionsProps } from './ActionsProps'

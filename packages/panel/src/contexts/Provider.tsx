@@ -1,5 +1,5 @@
+import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { assertEx, delay } from '@xylabs/sdk-js'
-import { useAsyncEffect, WithChildren } from '@xylabs/sdk-react'
 import { XyoApiConfig, XyoArchivistApi } from '@xyo-network/api'
 import { XyoBoundWitness, XyoPayload, XyoWitness } from '@xyo-network/core'
 import { XyoPanel } from '@xyo-network/panel'

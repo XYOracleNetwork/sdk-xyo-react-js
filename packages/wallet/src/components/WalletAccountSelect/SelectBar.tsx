@@ -1,5 +1,5 @@
 import { Paper } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 
 import { WalletAccountSelect } from './Select'
 

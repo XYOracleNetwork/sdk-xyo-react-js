@@ -1,5 +1,5 @@
 import { Paper, useTheme } from '@mui/material'
-import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/sdk-react'
+import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { typeOf } from '@xyo-network/core'
 import { ReactElement } from 'react'
 

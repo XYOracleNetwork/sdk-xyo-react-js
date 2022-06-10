@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 import React, { ProviderProps, useState } from 'react'
 
 import { AppSettingsContext, AppSettingsContextProps } from './Context'

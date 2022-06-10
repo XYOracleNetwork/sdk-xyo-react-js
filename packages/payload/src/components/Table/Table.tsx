@@ -1,5 +1,5 @@
 import { Alert, Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
-import { useBreakpoint } from '@xylabs/sdk-react'
+import { useBreakpoint } from '@xylabs/react-shared'
 import { XyoPayload } from '@xyo-network/core'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 

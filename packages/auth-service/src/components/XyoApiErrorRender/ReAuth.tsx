@@ -1,4 +1,4 @@
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoApiResponse } from '@xyo-network/api'
 import { AuthActionType, AuthThemeExtender, useAuthState } from '@xyo-network/react-auth'
 import { appThemeOptions } from '@xyo-network/react-theme'

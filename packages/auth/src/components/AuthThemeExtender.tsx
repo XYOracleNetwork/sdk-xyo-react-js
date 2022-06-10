@@ -1,5 +1,7 @@
-import { createTheme, ThemeOptions, ThemeProvider, useTheme } from '@mui/material'
-import { WithChildren } from '@xylabs/sdk-react'
+import { ThemeOptions } from '@mui/material'
+import { InvertableThemeProvider, useInvertableThemeProvider } from '@xylabs/react-invertable-theme'
+import { WithChildren } from '@xylabs/react-shared'
+import cloneDeep from 'lodash/cloneDeep'
 import merge from 'lodash/merge'
 
 export interface AuthThemeExtenderProps {
@@ -7,8 +9,7 @@ export interface AuthThemeExtenderProps {
 }
 
 const AuthThemeExtender: React.FC<WithChildren<AuthThemeExtenderProps>> = ({ children, themeOptions = {} }) => {
-  const theme = useTheme()
-  const mergedThemeOptions = merge(themeOptions, theme)
+  const { options } = useInvertableThemeProvider()
 
   const authThemeOptions: ThemeOptions = {
     components: {
@@ -41,9 +42,10 @@ const AuthThemeExtender: React.FC<WithChildren<AuthThemeExtenderProps>> = ({ chi
       },
     },
   }
-  const authTheme = createTheme({ ...mergedThemeOptions, ...themeOptions, ...authThemeOptions })
 
-  return <ThemeProvider theme={authTheme}>{children}</ThemeProvider>
+  const mergedThemeOptions = merge({}, cloneDeep(themeOptions), cloneDeep(options), authThemeOptions)
+
+  return <InvertableThemeProvider options={mergedThemeOptions}>{children}</InvertableThemeProvider>
 }
 
 export { AuthThemeExtender }

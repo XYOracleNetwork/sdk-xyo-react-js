@@ -1,4 +1,4 @@
-import { ButtonEx, ButtonExProps } from '@xylabs/sdk-react'
+import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 
 import { AuthActionType, useAuthState } from '../../contexts'
 

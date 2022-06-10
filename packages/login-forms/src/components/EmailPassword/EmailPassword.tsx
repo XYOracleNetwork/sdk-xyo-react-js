@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
-import { BusyBox, useAsyncEffect } from '@xylabs/sdk-react'
+import { BusyBox } from '@xylabs/react-flexbox'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { AuthActionType } from '@xyo-network/react-auth'
 import { Property } from '@xyo-network/react-property'

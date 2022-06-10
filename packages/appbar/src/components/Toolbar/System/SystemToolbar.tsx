@@ -1,5 +1,6 @@
 import { Paper, Toolbar, ToolbarProps } from '@mui/material'
-import { FlexRow, SelectExProps } from '@xylabs/sdk-react'
+import { SelectExProps } from '@xylabs/react-common'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { ArchiveSelectEx } from '@xyo-network/react-archive'
 import { AuthStatusIconButton } from '@xyo-network/react-auth'
 import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'

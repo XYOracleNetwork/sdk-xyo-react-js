@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { assertEx } from '@xylabs/sdk-js'
-import { useAsyncEffect } from '@xylabs/sdk-react'
 import { XyoApiError } from '@xyo-network/api'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { AuthActionType } from '@xyo-network/react-auth'

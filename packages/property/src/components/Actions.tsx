@@ -1,5 +1,6 @@
 import { IconButton } from '@mui/material'
-import { ButtonEx, FlexRow } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
+import { FlexRow } from '@xylabs/react-flexbox'
 
 import { PropertyActionsProps } from './ActionsProps'
 

@@ -1,7 +1,8 @@
 /* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
-import { ButtonEx, useAsyncEffect } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistApi } from '@xyo-network/api'
 import { useState } from 'react'
 

@@ -1,5 +1,5 @@
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
-import { ButtonEx, ButtonExProps } from '@xylabs/sdk-react'
+import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { lazy, Suspense, useState } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'
 

@@ -1,4 +1,4 @@
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness, XyoPayload } from '@xyo-network/core'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload'
 import uniqWith from 'lodash/uniqWith'

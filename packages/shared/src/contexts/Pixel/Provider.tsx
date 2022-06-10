@@ -1,5 +1,5 @@
 import { XyPixel } from '@xylabs/pixel'
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 
 import { PixelContext } from './Context'
 

@@ -1,8 +1,9 @@
 import { Error } from '@mui/icons-material'
 import PersonIcon from '@mui/icons-material/Person'
 import { IconButton, IconButtonProps, useTheme } from '@mui/material'
+import { FlexRow } from '@xylabs/react-flexbox'
+import { Identicon } from '@xylabs/react-identicon'
 import { ellipsize, EthAddress } from '@xylabs/sdk-js'
-import { FlexRow, Identicon } from '@xylabs/sdk-react'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 

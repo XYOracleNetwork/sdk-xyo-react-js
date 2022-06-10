@@ -1,5 +1,5 @@
 import { Dialog, DialogActions, DialogContent } from '@mui/material'
-import { ButtonEx } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
 import { Dispatch, SetStateAction } from 'react'
 
 import { AuthServiceWrapper } from '../AuthServiceWrapper'

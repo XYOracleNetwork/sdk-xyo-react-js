@@ -1,5 +1,5 @@
 import { Button, ButtonTypeMap, Typography } from '@mui/material'
-import { FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 
 const colors = ['primary', 'secondary'] as ButtonTypeMap['props']['color'][]
 const variants = ['text', 'contained', 'outlined'] as ButtonTypeMap['props']['variant'][]

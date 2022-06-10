@@ -1,7 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { Paper } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { XyoWalletBase } from '@xyo-network/core'
 import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'

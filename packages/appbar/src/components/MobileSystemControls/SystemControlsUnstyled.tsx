@@ -1,5 +1,5 @@
 import { Paper, Theme, useMediaQuery } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { ArchiveSelectEx, useArchive } from '@xyo-network/react-archive'
 import { NetworkSelectEx, useNetwork } from '@xyo-network/react-network'
 

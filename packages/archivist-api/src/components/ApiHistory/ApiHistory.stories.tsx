@@ -1,7 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/sdk-react'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchive } from '@xyo-network/api'
 import { useEffect, useState } from 'react'
 

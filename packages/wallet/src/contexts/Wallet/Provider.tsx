@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 import { XyoWalletBase } from '@xyo-network/core'
 import { useState } from 'react'
 

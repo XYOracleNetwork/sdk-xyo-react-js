@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { SourceReference } from 'typedoc'
 
 export interface SourceViewerProps extends FlexBoxProps {

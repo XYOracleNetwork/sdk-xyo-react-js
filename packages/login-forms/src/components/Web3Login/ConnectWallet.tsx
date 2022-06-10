@@ -1,4 +1,4 @@
-import { ButtonEx } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
 import { XyoMetaMaskConnector } from '@xyo-network/utils'
 import { Dispatch, SetStateAction } from 'react'
 

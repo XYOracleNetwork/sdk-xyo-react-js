@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/sdk-react'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoSchemaPayload } from '@xyo-network/core'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'

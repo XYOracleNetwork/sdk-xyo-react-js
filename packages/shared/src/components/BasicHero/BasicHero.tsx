@@ -1,5 +1,7 @@
 import { Container, Grid, Typography } from '@mui/material'
-import { ButtonEx, FlexBoxProps, FlexGrowCol, FlexGrowRow, LinkEx } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
+import { LinkEx } from '@xylabs/react-common'
+import { FlexBoxProps, FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { ReactElement } from 'react'
 
 import { useGradientStyles, useIsMobile } from '../../hooks'

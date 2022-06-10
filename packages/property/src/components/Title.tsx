@@ -1,5 +1,6 @@
 import { darken, lighten, Typography, TypographyVariant, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
+import { QuickTipButton } from '@xylabs/react-common'
+import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { SizeProp } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
