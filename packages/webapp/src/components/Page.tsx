@@ -5,12 +5,12 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
-export interface FlexPageProps extends FlexBoxProps {
+export interface WebAppPageProps extends FlexBoxProps {
   container?: ContainerProps['maxWidth']
   breadcrumbs?: ReactNode
 }
 
-export const FlexPage: React.FC<FlexPageProps> = ({ title, container = 'xl', breadcrumbs, children, ...props }) => {
+export const WebAppPage: React.FC<WebAppPageProps> = ({ title, container = 'xl', breadcrumbs, children, ...props }) => {
   const userEvents = useUserEvents()
   const { pathname } = useLocation()
 
@@ -42,3 +42,6 @@ export const FlexPage: React.FC<FlexPageProps> = ({ title, container = 'xl', bre
     </FlexGrowCol>
   )
 }
+
+/** @deprecated use WebAppPagePage instead */
+export const FlexPage = WebAppPage

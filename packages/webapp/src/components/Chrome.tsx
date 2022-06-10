@@ -1,9 +1,12 @@
 import { Paper } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { ApplicationAppBar } from '@xyo-network/react-appbar'
-import { ErrorBoundary, ErrorPage, Footer } from '@xyo-network/react-shared'
+import { Footer } from '@xyo-network/react-footer'
+import { ErrorBoundary } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
+
+import { WebAppErrorPage } from './ErrorPage'
 
 export interface WebAppChromeProps extends FlexBoxProps {
   appName: string
@@ -21,7 +24,7 @@ export const WebAppChrome: React.FC<WebAppChromeProps> = ({ footerElevation = 4,
       </Helmet>
       {appbar ?? <ApplicationAppBar />}
       <FlexGrowCol overflow="hidden" justifyContent="flex-start" alignItems="stretch">
-        <ErrorBoundary fallback={errorPage ?? <ErrorPage />}>{children}</ErrorBoundary>
+        <ErrorBoundary fallback={errorPage ?? <WebAppErrorPage />}>{children}</ErrorBoundary>
       </FlexGrowCol>
       <Paper elevation={footerElevation} square>
         {footer ?? <Footer dynamicHeight />}

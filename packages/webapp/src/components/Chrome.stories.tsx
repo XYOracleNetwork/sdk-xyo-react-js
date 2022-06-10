@@ -3,8 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
-import { FlexPage } from '../../../shared/src'
-import { WebAppChrome } from './WebAppChrome'
+import { WebAppChrome } from './Chrome'
+import { WebAppPage } from './Page'
 
 const StorybookEntry = {
   argTypes: {},
@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
     <FlexCol height="80vh" alignItems="stretch" overflow="hidden">
       <BrowserRouter>
         <WebAppChrome {...args}>
-          <FlexPage />
+          <WebAppPage />
         </WebAppChrome>
       </BrowserRouter>
     </FlexCol>

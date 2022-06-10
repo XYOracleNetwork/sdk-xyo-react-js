@@ -10,7 +10,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'shared/NotFound',
+  title: 'webapp/NotFound',
 } as ComponentMeta<typeof NotFound>
 
 const Template: ComponentStory<typeof NotFound> = () => {
