@@ -1,5 +1,6 @@
+import { BasePageProps } from '@xylabs/react-common'
+import { WithChildren } from '@xylabs/react-shared'
 import { assertEx } from '@xylabs/sdk-js'
-import { BasePageProps, WithChildren } from '@xylabs/sdk-react'
 import { XyoApiError, XyoApiResponse } from '@xyo-network/api'
 import { ArchivistApiProvider, useArchivistApi } from '@xyo-network/react-archivist-api'
 import { useState } from 'react'

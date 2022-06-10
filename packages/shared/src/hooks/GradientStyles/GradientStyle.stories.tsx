@@ -1,6 +1,6 @@
 import { Divider, Grid, Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SimpleCard } from '../../components'

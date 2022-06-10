@@ -1,6 +1,7 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import { IconButton, Typography, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow, QuickTipButton } from '@xylabs/sdk-react'
+import { QuickTipButton } from '@xylabs/react-common'
+import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/core'
 
 export interface PayloadHashSourceDetailsProps extends FlexBoxProps {

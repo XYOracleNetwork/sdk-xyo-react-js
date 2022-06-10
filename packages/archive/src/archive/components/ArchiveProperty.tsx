@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material'
-import { LinkEx } from '@xylabs/sdk-react'
+import { LinkEx } from '@xylabs/react-common'
 import { XyoPayload } from '@xyo-network/core'
 import { Property, PropertyProps, PropertyValue } from '@xyo-network/react-property'
 

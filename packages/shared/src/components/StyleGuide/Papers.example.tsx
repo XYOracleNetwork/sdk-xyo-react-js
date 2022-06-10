@@ -1,5 +1,5 @@
 import { Paper, Typography } from '@mui/material'
-import { FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 
 export const PapersExample: React.FC = ({ ...props }) => {
   return (

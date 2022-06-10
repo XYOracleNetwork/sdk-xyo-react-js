@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexCol } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { XyoPayloadValidator } from '@xyo-network/core'
 import { Property, PropertyGroup } from '@xyo-network/react-property'
 import { SchemaProperty } from '@xyo-network/react-schema'

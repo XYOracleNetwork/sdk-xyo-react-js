@@ -1,6 +1,6 @@
 import { Search } from '@mui/icons-material'
 import { TextField, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { useMemo, useState } from 'react'
 
 import { createLookup } from './createLookup'

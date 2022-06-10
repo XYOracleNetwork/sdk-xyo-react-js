@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { SelectExProps } from '@xylabs/sdk-react'
+import { SelectExProps } from '@xylabs/react-common'
 
 import { authDecorator, WrappedArgs } from '../../../../../.storybook'
 import { ArchivistApiProvider } from '../../../../archivist-api/src'

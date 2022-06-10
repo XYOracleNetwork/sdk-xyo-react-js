@@ -1,5 +1,6 @@
 import { Typography, useTheme } from '@mui/material'
-import { ButtonEx, FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
 import { ApiCallEntry } from './ApiCallEntry'

@@ -1,6 +1,6 @@
 import { Box, Paper } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { FlexCol, FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useRef } from 'react'
 
 import { Footer } from '../components'

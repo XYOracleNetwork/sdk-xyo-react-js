@@ -1,6 +1,6 @@
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 import { alpha, Card, CardActions, CardContent, CardMedia, CardProps, Grid, IconButton, Typography, useTheme, Zoom } from '@mui/material'
-import { FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { ReactNode, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 

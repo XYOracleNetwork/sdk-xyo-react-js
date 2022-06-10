@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexCol } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/react-flexbox'
 
 import { AppBarsExample } from './AppBars.example'
 import { ButtonsExample } from './Buttons.example'

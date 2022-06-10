@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
-import { FlexBoxProps, FlexRow, WithChildren } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import { WithChildren } from '@xylabs/react-shared'
 
 const ApiCallTable: React.FC<WithChildren<FlexBoxProps>> = ({ children, ...props }) => {
   return (

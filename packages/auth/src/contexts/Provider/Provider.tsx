@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 import { useReducer } from 'react'
 
 import { AuthContext } from '../Context'

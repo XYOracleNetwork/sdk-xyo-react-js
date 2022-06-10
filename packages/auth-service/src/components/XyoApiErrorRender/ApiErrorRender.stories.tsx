@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/sdk-react'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError, XyoArchive } from '@xyo-network/api'
 import axios from 'axios'
 import { useState } from 'react'

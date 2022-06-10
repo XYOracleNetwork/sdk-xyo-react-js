@@ -1,4 +1,7 @@
-import { ButtonEx, ErrorDialog, FlexBoxProps, FlexCol, FlexRow, useAsyncEffect } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
+import { ErrorDialog } from '@xylabs/react-common'
+import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
 import { lazy, Suspense, useState } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'

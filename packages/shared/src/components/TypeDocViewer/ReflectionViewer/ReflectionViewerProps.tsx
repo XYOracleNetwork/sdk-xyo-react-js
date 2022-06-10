@@ -1,5 +1,5 @@
 import { TypographyVariant } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/sdk-react'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ReactElement } from 'react'
 import { Reflection } from 'typedoc'
 

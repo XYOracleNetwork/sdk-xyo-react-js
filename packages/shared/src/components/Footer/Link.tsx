@@ -1,5 +1,5 @@
+import { LinkEx, LinkExProps } from '@xylabs/react-common'
 import { assertEx } from '@xylabs/sdk-js'
-import { LinkEx, LinkExProps } from '@xylabs/sdk-react'
 
 /**
  * @description

@@ -1,5 +1,5 @@
 /* eslint-disable deprecation/deprecation */
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 import { useState } from 'react'
 
 import { ApiLoggerState } from './ApiLoggerTypes'

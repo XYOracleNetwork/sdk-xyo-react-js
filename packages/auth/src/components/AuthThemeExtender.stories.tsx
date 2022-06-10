@@ -1,6 +1,6 @@
 import { createTheme, Typography, useTheme } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { ButtonEx } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
 
 import { authDecorator } from '../../../../.storybook'
 import { AuthThemeExtender } from './AuthThemeExtender'

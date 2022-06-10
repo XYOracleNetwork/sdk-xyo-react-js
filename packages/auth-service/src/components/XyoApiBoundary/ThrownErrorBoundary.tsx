@@ -1,5 +1,5 @@
 import { Alert, AlertTitle } from '@mui/material'
-import { BasePage, BasePageProps } from '@xylabs/sdk-react'
+import { BasePage, BasePageProps } from '@xylabs/react-common'
 import { XyoApiError } from '@xyo-network/api'
 import { Component, ErrorInfo, ReactNode } from 'react'
 import { Link } from 'react-router-dom'

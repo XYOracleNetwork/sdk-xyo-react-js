@@ -1,7 +1,7 @@
 import { Add, Remove } from '@mui/icons-material'
 import { TreeItem, TreeView } from '@mui/lab'
 import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useNavigate } from 'react-router-dom'
 import { ContainerReflection, Reflection } from 'typedoc'
 

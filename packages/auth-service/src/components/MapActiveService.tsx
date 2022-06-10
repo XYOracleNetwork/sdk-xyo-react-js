@@ -1,6 +1,7 @@
 import { useTheme } from '@mui/material'
+import { ButtonEx } from '@xylabs/react-button'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { assertEx } from '@xylabs/sdk-js'
-import { ButtonEx, FlexGrowCol } from '@xylabs/sdk-react'
 import { AuthDispatch, AuthServiceId, AuthState, useAuthService } from '@xyo-network/react-auth'
 import { LoginForm } from '@xyo-network/react-login-forms'
 import { WalletServiceProvider } from '@xyo-network/react-wallet-service'

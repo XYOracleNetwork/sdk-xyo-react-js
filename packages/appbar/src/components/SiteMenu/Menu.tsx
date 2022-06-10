@@ -1,7 +1,7 @@
 import MenuIcon from '@mui/icons-material/Menu'
 import SettingsIcon from '@mui/icons-material/Settings'
-import { Box, IconButton, List, SwipeableDrawer } from '@mui/material'
-import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
+import { IconButton, List, SwipeableDrawer } from '@mui/material'
+import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
 import { SiteMenuListItem } from './MenuItems'
