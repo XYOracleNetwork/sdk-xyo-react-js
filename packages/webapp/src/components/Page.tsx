@@ -10,7 +10,7 @@ export interface WebAppPageProps extends FlexBoxProps {
   breadcrumbs?: ReactNode
 }
 
-export const WebAppPage: React.FC<WebAppPageProps> = ({ title, container = 'xl', breadcrumbs, children, ...props }) => {
+export const WebAppPage: React.FC<WebAppPageProps> = ({ title, container, breadcrumbs, children, ...props }) => {
   const userEvents = useUserEvents()
   const { pathname } = useLocation()
 
