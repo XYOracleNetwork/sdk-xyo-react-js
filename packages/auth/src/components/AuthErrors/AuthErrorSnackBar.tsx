@@ -1,5 +1,5 @@
 import { Alert, Snackbar, SnackbarProps } from '@mui/material'
-import { ButtonEx } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
 import { XyoApiError } from '@xyo-network/api'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 

@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material'
-import { FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { AuthFooter, AuthService, AuthServiceProvider, useAuthState } from '@xyo-network/react-auth'
 
 import { MapActiveAuthService } from './MapActiveService'

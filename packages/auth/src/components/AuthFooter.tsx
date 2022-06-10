@@ -1,4 +1,4 @@
-import { ButtonEx } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
 import { memo } from 'react'
 
 import { AuthActionType, AuthServiceId, useAuthService, useAuthState } from '../contexts'

@@ -1,5 +1,5 @@
 import { styled } from '@mui/material'
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 
 const StyledScrollTableOnSm = styled('div')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {

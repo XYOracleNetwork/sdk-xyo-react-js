@@ -1,6 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search'
 import { Paper, TextField } from '@mui/material'
-import { ButtonEx, FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
+import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
 export interface SearchBarProps extends FlexBoxProps {

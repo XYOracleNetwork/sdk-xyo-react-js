@@ -1,5 +1,5 @@
 import { Chip, Stack, Typography, TypographyVariant } from '@mui/material'
-import { FlexBoxProps, FlexRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 
 import { JsonViewerButton } from '../JsonViewerButton'
 import { SomeReflection } from '../SomeReflection'

@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
-import { useBreakpoint } from '@xylabs/sdk-react'
+import { useBreakpoint } from '@xylabs/react-shared'
 
 import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
 import { BlockTableProps } from './BlockTableProps'

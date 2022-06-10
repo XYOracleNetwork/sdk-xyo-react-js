@@ -1,7 +1,7 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
-import { ButtonEx } from '@xylabs/sdk-react'
+import { ButtonEx } from '@xylabs/react-button'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/core'
 import { Property, PropertyAction, PropertyProps } from '@xyo-network/react-property'
 import { SizeProp } from '@xyo-network/react-shared'

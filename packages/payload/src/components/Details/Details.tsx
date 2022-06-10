@@ -1,4 +1,4 @@
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/core'
 
 import { PayloadDataDetails } from './DataDetails'

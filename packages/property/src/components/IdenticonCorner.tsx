@@ -1,5 +1,6 @@
 import { useTheme } from '@mui/material'
-import { FlexBoxProps, FlexRow, Identicon } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import { Identicon } from '@xylabs/react-identicon'
 import { useEffect, useRef, useState } from 'react'
 
 export interface IdenticonCornerProps extends FlexBoxProps {

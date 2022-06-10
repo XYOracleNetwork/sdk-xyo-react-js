@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 
 import { JsonViewerButton } from '../JsonViewerButton'
 import { ReflectionGroupViewerProps, ReflectionViewer } from '../ReflectionViewer'

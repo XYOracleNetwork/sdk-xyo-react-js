@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/sdk-react'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
 import { XyoPayload } from '@xyo-network/core'
 import { useArchive } from '@xyo-network/react-archive'

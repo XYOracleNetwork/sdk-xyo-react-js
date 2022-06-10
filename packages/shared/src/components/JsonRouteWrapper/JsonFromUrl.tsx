@@ -1,4 +1,6 @@
-import { ErrorDialog, FlexCol, useAsyncEffect } from '@xylabs/sdk-react'
+import { ErrorDialog } from '@xylabs/react-common'
+import { FlexCol } from '@xylabs/react-flexbox'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { lazy, Suspense, useState } from 'react'
 import { ThemeKeys, ThemeObject } from 'react-json-view'

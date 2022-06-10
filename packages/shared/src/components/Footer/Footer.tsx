@@ -1,5 +1,5 @@
 import { Container, Grid } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
 import { Copyright } from './Copyright'

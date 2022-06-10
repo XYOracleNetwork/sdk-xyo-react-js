@@ -1,6 +1,6 @@
 import { FormControl, TextField, Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { FlexCol, FlexRow } from '@xylabs/sdk-react'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { lazy, Suspense, useEffect, useState } from 'react'
 

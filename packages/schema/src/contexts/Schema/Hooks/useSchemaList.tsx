@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/sdk-react'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { useArchive } from '@xyo-network/react-archive'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { Dispatch, useState } from 'react'

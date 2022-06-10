@@ -1,5 +1,5 @@
 import { PaperProps } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/sdk-react'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { SizeProp } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 

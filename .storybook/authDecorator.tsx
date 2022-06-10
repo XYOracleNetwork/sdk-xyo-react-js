@@ -1,6 +1,7 @@
 import { useTheme } from '@mui/material'
 import { DecoratorFn } from '@storybook/react'
-import { FlexGrowCol, WithChildren } from '@xylabs/sdk-react'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
+import { WithChildren } from '@xylabs/react-shared'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { AuthProvider, AuthThemeExtender, defaultState, useAuthState, AuthServiceProvider } from '@xyo-network/react-auth'
 import { WalletServiceProvider } from '@xyo-network/react-wallet-service'

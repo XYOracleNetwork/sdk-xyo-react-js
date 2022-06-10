@@ -1,6 +1,7 @@
 import { MenuItem, SelectProps, useTheme } from '@mui/material'
+import { SelectEx } from '@xylabs/react-common'
+import { EthAccountBox } from '@xylabs/react-crypto'
 import { EthAddress } from '@xylabs/sdk-js'
-import { EthAccountBox, SelectEx } from '@xylabs/sdk-react'
 
 import { useWallet } from '../../contexts'
 

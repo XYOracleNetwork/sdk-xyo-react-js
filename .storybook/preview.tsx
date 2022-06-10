@@ -1,4 +1,5 @@
-import { FlexCol, InvertableThemeProvider } from '@xylabs/sdk-react'
+import { InvertableThemeProvider } from '@xylabs/react-invertable-theme'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { CssBaseline } from '@mui/material';
 import { useDarkMode } from 'storybook-dark-mode';
 import { partialDarkThemeOptions, themeOptions } from '@xyo-network/react-theme'

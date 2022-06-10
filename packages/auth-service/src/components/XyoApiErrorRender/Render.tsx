@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexCol } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { AxiosLoggedError } from '@xyo-network/react-auth'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'

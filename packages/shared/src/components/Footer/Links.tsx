@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 
 export const FooterLinks: React.FC<FlexBoxProps> = ({ children, title, ...props }) => {
   return (

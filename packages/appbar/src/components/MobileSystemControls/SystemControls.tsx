@@ -1,4 +1,4 @@
-import { FlexCol } from '@xylabs/sdk-react'
+import { FlexCol } from '@xylabs/react-flexbox'
 
 import { SystemControlsRoot } from './SystemControlsRoot'
 import { SystemControlsUnstyledProps } from './SystemControlsUnstyled'

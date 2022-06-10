@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material'
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 import { useEffect, useState } from 'react'
 
 import { AuthThemeExtender } from '../AuthThemeExtender'

@@ -1,5 +1,5 @@
 import { MenuItem } from '@mui/material'
-import { SelectEx, SelectExProps } from '@xylabs/sdk-react'
+import { SelectEx, SelectExProps } from '@xylabs/react-common'
 
 import { useArchives } from '../../archives'
 import { useArchive } from '../contexts'

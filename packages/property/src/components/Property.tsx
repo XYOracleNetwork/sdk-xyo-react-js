@@ -1,5 +1,5 @@
 import { CircularProgress, Paper, TypographyVariant } from '@mui/material'
-import { FlexRow } from '@xylabs/sdk-react'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { SizeProp } from '@xyo-network/react-shared'
 
 import { PropertyActionsMenu } from './ActionsMenu'

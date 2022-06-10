@@ -1,5 +1,5 @@
 import { Paper } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { ApplicationAppBar } from '@xyo-network/react-appbar'
 import { ErrorBoundary, ErrorPage, Footer } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'

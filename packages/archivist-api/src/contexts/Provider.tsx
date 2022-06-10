@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
 import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
 import { useCallback, useEffect, useState } from 'react'

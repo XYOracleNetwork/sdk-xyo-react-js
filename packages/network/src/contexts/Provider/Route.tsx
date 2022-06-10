@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/sdk-react'
+import { WithChildren } from '@xylabs/react-shared'
 import { XyoNetworkPayload } from '@xyo-network/network'
 import { useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'

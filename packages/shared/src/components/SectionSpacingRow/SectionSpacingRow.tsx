@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material'
-import { FlexBoxProps, FlexGrowRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexGrowRow } from '@xylabs/react-flexbox'
 
 export const SectionSpacingRow: React.FC<FlexBoxProps> = ({ children, sx, ...props }) => {
   const theme = useTheme()

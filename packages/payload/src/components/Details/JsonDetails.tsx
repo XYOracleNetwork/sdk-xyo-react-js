@@ -1,5 +1,5 @@
 import { Paper, useMediaQuery, useTheme } from '@mui/material'
-import { FlexGrowRow } from '@xylabs/sdk-react'
+import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/core'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 import { lazy, Suspense } from 'react'

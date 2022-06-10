@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 
 const NotFound: React.FC<FlexBoxProps> = (props) => {
   return (

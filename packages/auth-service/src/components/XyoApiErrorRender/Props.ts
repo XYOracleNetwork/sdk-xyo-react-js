@@ -1,4 +1,4 @@
-import { FlexBoxProps } from '@xylabs/sdk-react'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { XyoApiError, XyoApiResponse } from '@xyo-network/api'
 import { ReactNode } from 'react'
 
