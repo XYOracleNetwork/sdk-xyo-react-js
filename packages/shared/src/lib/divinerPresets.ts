@@ -25,4 +25,12 @@ export const divinerPresets: XyoNetworkNodePayload[] = [
     uri: 'https://api.location.diviner.xyo.network',
     web: 'https://explore.xyo.network',
   },
+  {
+    name: 'XYO Location (local)',
+    schema: XyoNetworkNodePayloadSchema,
+    slug: 'local-location-diviner-xyo-network',
+    type: 'diviner',
+    uri: 'http://localhost:8082',
+    web: 'http://localhost:3000',
+  },
 ]

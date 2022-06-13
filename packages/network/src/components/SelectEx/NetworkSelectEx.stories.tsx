@@ -1,8 +1,10 @@
+import { Card, CardContent } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/react-common'
+import { FlexCol } from '@xylabs/react-flexbox'
 
 import { authDecorator, WrappedArgs } from '../../../../../.storybook'
-import { NetworkMemoryProvider } from '../../contexts'
+import { NetworkMemoryProvider, useNetwork } from '../../contexts'
 import { NetworkSelectEx } from './NetworkSelectEx'
 
 const StorybookEntry = {
@@ -17,6 +19,19 @@ const StorybookEntry = {
   title: 'network/NetworkSelectEx',
 } as ComponentMeta<typeof NetworkSelectEx>
 
+const NetworkConfigOutput = () => {
+  const { network } = useNetwork()
+  return (
+    <FlexCol my={2}>
+      <Card>
+        <CardContent>
+          <pre>{JSON.stringify(network, null, 2)}</pre>
+        </CardContent>
+      </Card>
+    </FlexCol>
+  )
+}
+
 const Template: ComponentStory<typeof NetworkSelectEx> = (args) => {
   return <NetworkSelectEx {...args}></NetworkSelectEx>
 }
@@ -28,6 +43,7 @@ const TemplateWithProvider: ComponentStory<typeof NetworkSelectEx> = (args) => {
   return (
     <NetworkMemoryProvider>
       <NetworkSelectEx {...props}></NetworkSelectEx>
+      <NetworkConfigOutput />
     </NetworkMemoryProvider>
   )
 }
