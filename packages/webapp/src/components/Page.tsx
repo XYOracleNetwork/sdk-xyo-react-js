@@ -7,10 +7,11 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 export interface WebAppPageProps extends FlexBoxProps {
   container?: ContainerProps['maxWidth']
+  disableGutters?: boolean
   breadcrumbs?: ReactNode
 }
 
-export const WebAppPage: React.FC<WebAppPageProps> = ({ title, container, breadcrumbs, children, ...props }) => {
+export const WebAppPage: React.FC<WebAppPageProps> = ({ disableGutters, title, container, breadcrumbs, children, ...props }) => {
   const userEvents = useUserEvents()
   const { pathname } = useLocation()
 
@@ -33,11 +34,15 @@ export const WebAppPage: React.FC<WebAppPageProps> = ({ title, container, breadc
     <FlexGrowCol alignItems="stretch" justifyContent="flex-start" minHeight={0} overflow="visible scroll">
       <Helmet title={title} />
       {container ? (
-        <Container style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }} maxWidth={container}>
+        <Container
+          disableGutters={disableGutters}
+          style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
+          maxWidth={container}
+        >
           <Body {...props} />
         </Container>
       ) : (
-        <Body {...props} />
+        <Body paddingX={disableGutters ? 0 : 1} {...props} />
       )}
     </FlexGrowCol>
   )
