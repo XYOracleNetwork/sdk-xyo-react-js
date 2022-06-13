@@ -22,8 +22,6 @@ jobs:
         run: yarn build
       - name: cycle
         run: yarn cycle
-      - name: lint
-        run: yarn lint
   build-windows:
     runs-on: windows-latest
     steps:
@@ -42,8 +40,6 @@ jobs:
         run: yarn build
       - name: cycle
         run: yarn cycle
-      - name: lint
-        run: yarn lint
   build-macos:
     runs-on: macos-latest
     steps:
@@ -60,5 +56,3 @@ jobs:
         run: yarn build
       - name: cycle
         run: yarn cycle
-      - name: lint
-        run: yarn lint
