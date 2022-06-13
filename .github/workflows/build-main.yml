@@ -22,6 +22,8 @@ jobs:
         run: yarn build
       - name: cycle
         run: yarn cycle
+      - name: deploy-storybook
+        run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
   build-windows:
     runs-on: windows-latest
     steps:

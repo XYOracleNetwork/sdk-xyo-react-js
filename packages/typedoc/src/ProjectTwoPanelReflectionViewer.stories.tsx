@@ -25,15 +25,12 @@ const Template: ComponentStory<typeof ProjectTwoPanelReflectionViewer> = ({ refl
   )
 }
 
-const Default = Template.bind({})
-Default.args = {}
-
 const Client = Template.bind({})
 Client.args = {
   reflection: clientDocs as unknown as ProjectReflection,
 }
 
-export { Client, Default }
+export { Client }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

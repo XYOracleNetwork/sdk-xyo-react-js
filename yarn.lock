@@ -6015,7 +6015,7 @@ __metadata:
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/react-wallet": ^2.25.58
+    "@xyo-network/react-wallet": ^2.25.59
     react: ^18.1.0
     react-dom: ^18.1.0
     react-router-dom: ^6.3.0
@@ -6443,7 +6443,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-wallet@^2.25.58, @xyo-network/react-wallet@workspace:^, @xyo-network/react-wallet@workspace:packages/wallet":
+"@xyo-network/react-wallet@^2.25.59, @xyo-network/react-wallet@workspace:^, @xyo-network/react-wallet@workspace:packages/wallet":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet@workspace:packages/wallet"
   dependencies:
@@ -6550,6 +6550,7 @@ __metadata:
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/react-webapp": "workspace:^"
     assert: ^2.0.0
+    chromatic: ^6.5.6
     depcheck: ^1.4.3
     eslint: ^8.17.0
     eslint-import-resolver-typescript: ^2.7.1
@@ -8114,6 +8115,17 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: c57cf9dd0791e2f18a5ee9c1a299ae6e801ff58fee96dc8bfd0dcb4738a6ce58dd252a3605b1c93c6418fe4f9d5093b28ffbf4d66648cb2a9c67eaef9679be2f
+  languageName: node
+  linkType: hard
+
+"chromatic@npm:^6.5.6":
+  version: 6.5.6
+  resolution: "chromatic@npm:6.5.6"
+  bin:
+    chroma: bin/main.cjs
+    chromatic: bin/main.cjs
+    chromatic-cli: bin/main.cjs
+  checksum: dbfe276683add0420e559c1dc42e5c10d9dcd8c3b53fb4a1d36de684077a455d472c5e64427d83ccb88f3b73643aabc4979bd1b38339c42784c73e3659377fc2
   languageName: node
   linkType: hard
 
