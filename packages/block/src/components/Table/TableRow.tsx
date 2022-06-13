@@ -26,25 +26,19 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({ network: networkPr
 
   const archive = (
     <TableCell key="archive" align="center">
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {block?._archive}
-      </Typography>
+      {block?._archive}
     </TableCell>
   )
 
   const client = (
     <TableCell key="client" align="center">
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {block?._client}
-      </Typography>
+      {block?._client}
     </TableCell>
   )
 
   const date = (
     <TableCell key="date" align="center">
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {timeStamp?.toLocaleString(DateTime.DATE_SHORT)}
-      </Typography>
+      {timeStamp?.toLocaleString(DateTime.DATE_SHORT)}
     </TableCell>
   )
 
@@ -52,25 +46,19 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({ network: networkPr
 
   const payloads = (
     <TableCell key="payloads" align="center">
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|{compact(block?.previous_hashes ?? [])?.length}
-      </Typography>
+      {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|{compact(block?.previous_hashes ?? [])?.length}
     </TableCell>
   )
 
   const time = (
     <TableCell key="time" align="center">
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}
-      </Typography>
+      {timeStamp?.toLocaleString(DateTime.TIME_SIMPLE)}
     </TableCell>
   )
 
   const valid = (
     <TableCell key="valid" align="center">
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {wrapper?.validator.all().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
-      </Typography>
+      {wrapper?.validator.all().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
     </TableCell>
   )
 

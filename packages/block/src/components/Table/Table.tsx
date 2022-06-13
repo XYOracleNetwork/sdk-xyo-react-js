@@ -14,9 +14,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({ exploreDomain, onRowClic
           {columns[breakPoint]?.map((column, index) => {
             return (
               <TableCell key={index} width={index > 0 ? '10px' : undefined} align={index === 0 ? 'left' : 'center'}>
-                <Typography variant="caption" noWrap>
-                  <strong>{blockColumnNames[column]}</strong>
-                </Typography>
+                {blockColumnNames[column]}
               </TableCell>
             )
           })}
