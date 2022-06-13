@@ -1,4 +1,4 @@
-import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
+import { TableCell, TableRow, TableRowProps } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/core'
 import { useNetwork } from '@xyo-network/react-network'

@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
+import { makeStyles } from '@mui/styles'
 import { CSSProperties } from 'react'
 
 export interface GradientStyles {
