@@ -16,7 +16,7 @@ export const defaultNetworkConfigs: XyoNetworkPayload[] = [
   },
   {
     name: 'Local',
-    nodes: [findArchivistPreset('kerplunk-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
+    nodes: [findArchivistPreset('local-archivist-xyo-network'), findDivinerPreset('local-location-diviner-xyo-network')],
     schema: XyoNetworkPayloadSchema,
     slug: 'local',
   },
