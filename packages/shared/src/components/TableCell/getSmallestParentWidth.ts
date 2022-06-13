@@ -3,8 +3,8 @@ export const getSmallestParentWidth = (element: HTMLElement, maxDepth = 4) => {
   let width = currentElement?.clientWidth ?? screen.width
   let maxDepthCounter = maxDepth
   while (currentElement && maxDepthCounter > 0) {
-    if (width > currentElement.getBoundingClientRect()?.['width']) {
-      width = currentElement.getBoundingClientRect()?.['width']
+    if (width > currentElement.clientWidth) {
+      width = currentElement.clientWidth
     }
     currentElement = currentElement.parentElement
     maxDepthCounter--
