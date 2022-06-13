@@ -142,7 +142,7 @@
     "outdated": "yarn workspaces foreach -pv outdated",
     "up": "yarn workspaces foreach -pv up",
     "updo": "yarn workspaces foreach -pv run updo3:package",
-    "gen:docs:package": "typedoc $INIT_CWD/src/index.ts --json $INIT_CWD/dist/docs.json",
+    "gen:docs:package": "typedoc --excludeExternals --externalPattern \"packages/**/*\" $INIT_CWD/src/index.ts --json $INIT_CWD/dist/docs.json",
     "clean:package": "rimraf -q $INIT_CWD/dist && rimraf -q $INIT_CWD/build",
     "fix:package": "yarn eslint $INIT_CWD/src --fix",
     "lint:package": "yarn eslint $INIT_CWD/src",

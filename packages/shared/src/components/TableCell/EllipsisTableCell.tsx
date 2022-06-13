@@ -39,11 +39,13 @@ export interface EllipsisTableCellProps extends TableCellProps {
 }
 
 export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to, href, ...props }) => {
-  const [hashCellWidth, setHashCellWidth] = useState<number>(0)
+  const [calcCellWidth, setCalcCellWidth] = useState<number>(0)
   const hashDivRef = useRef<HTMLDivElement>(null)
 
   const theme = useTheme()
-  const spacing = parseInt(theme.spacing(2).substring(-2))
+
+  // We calulate the spacing since we know that table rows use padding.
+  const spacing = parseInt(theme.spacing(4).substring(-2))
 
   useEffect(() => {
     const currentElement = hashDivRef.current?.parentElement
@@ -54,7 +56,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
       const smallestParentWidth = getSmallestParentWidth(cell)
       if (smallestParentWidth && row) {
         const remainderWidth = smallestParentWidth - getRemainingRowWidth(row) - spacing
-        setHashCellWidth(remainderWidth)
+        setCalcCellWidth(remainderWidth)
       }
     }
 
@@ -79,7 +81,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
         ref={hashDivRef}
         style={{
           display: 'block',
-          maxWidth: hashCellWidth,
+          maxWidth: calcCellWidth,
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
@@ -87,10 +89,10 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
       >
         {href || to ? (
           <LinkEx to={to} href={href} target={href ? '_blank' : undefined}>
-            <TableCellValue value={value} hashCellWidth={hashCellWidth} />
+            <TableCellValue value={value} hashCellWidth={calcCellWidth} />
           </LinkEx>
         ) : (
-          <TableCellValue value={value} hashCellWidth={hashCellWidth} />
+          <TableCellValue value={value} hashCellWidth={calcCellWidth} />
         )}
       </div>
     </TableCell>
