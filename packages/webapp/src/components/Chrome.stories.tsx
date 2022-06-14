@@ -1,5 +1,7 @@
 /* eslint-disable import/no-internal-modules */
+import { Breadcrumbs } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { LinkEx } from '@xylabs/react-common'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -22,7 +24,13 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
     <FlexCol height="80vh" alignItems="stretch" overflow="hidden">
       <BrowserRouter>
         <WebAppChrome {...args}>
-          <WebAppPage />
+          <WebAppPage
+            breadcrumbs={
+              <Breadcrumbs>
+                <LinkEx>BreadCrumbs</LinkEx>
+              </Breadcrumbs>
+            }
+          />
         </WebAppChrome>
       </BrowserRouter>
     </FlexCol>
