@@ -1,3 +1,4 @@
+import { WebAppNavigationType } from '../../WebAppNavigationType'
 import { appSettingDefault } from './appSettingDefault'
 import { AppSettingSlug } from './Slug'
 import { AppSettingsStorageBase } from './StorageBase'
@@ -21,5 +22,13 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
 
   set developerMode(value: boolean) {
     this.setBoolean(AppSettingSlug.Developer, value)
+  }
+
+  get navigationType() {
+    return this.getString(AppSettingSlug.NavigationType) as WebAppNavigationType
+  }
+
+  set navigationType(value: WebAppNavigationType) {
+    this.setString(AppSettingSlug.NavigationType, value)
   }
 }

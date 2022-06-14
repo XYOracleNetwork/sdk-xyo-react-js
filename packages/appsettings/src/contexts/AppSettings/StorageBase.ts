@@ -1,6 +1,5 @@
 import { assertEx } from '@xylabs/sdk-js'
-
-import { assertDefinedEx } from '../../lib'
+import { assertDefinedEx } from '@xyo-network/react-shared'
 
 export class AppSettingsStorageBase {
   private prefix: string

@@ -1,6 +1,5 @@
 export * from './Ampersand'
 export * from './BasicHero'
-export * from './DarkModeIconButton'
 export * from './ErrorBoundry'
 export * from './FullWidthCard'
 export * from './JsonRouteWrapper'
