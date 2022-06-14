@@ -1,5 +1,5 @@
 import { Container, ContainerProps } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { ReactNode } from 'react'
@@ -9,9 +9,11 @@ export interface WebAppPageProps extends FlexBoxProps {
   container?: ContainerProps['maxWidth']
   disableGutters?: boolean
   breadcrumbs?: ReactNode
+  disableBreadcrumbGutter?: boolean
+  spacing?: string | number
 }
 
-export const WebAppPage: React.FC<WebAppPageProps> = ({ disableGutters, title, container, breadcrumbs, children, ...props }) => {
+export const WebAppPage: React.FC<WebAppPageProps> = ({ spacing, disableBreadcrumbGutter, disableGutters, title, container, breadcrumbs, children, ...props }) => {
   const userEvents = useUserEvents()
   const { pathname } = useLocation()
 
@@ -24,8 +26,10 @@ export const WebAppPage: React.FC<WebAppPageProps> = ({ disableGutters, title, c
   )
 
   const Body: React.FC<FlexBoxProps> = (props) => (
-    <FlexGrowCol gap={2} paddingY={2} justifyContent="flex-start" alignItems="stretch" {...props}>
-      {breadcrumbs}
+    <FlexGrowCol gap={1} paddingY={1} justifyContent="flex-start" alignItems="stretch" {...props}>
+      <FlexRow justifyContent="flex-start" marginX={disableBreadcrumbGutter ? 0 : 1}>
+        {breadcrumbs}
+      </FlexRow>
       {children}
     </FlexGrowCol>
   )
