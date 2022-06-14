@@ -1,7 +1,4 @@
-/* eslint-disable import/no-internal-modules */
-import { Button, FormControl } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { FlexRow } from '@xylabs/react-flexbox'
 import { XyoWalletBase } from '@xyo-network/core'
 
 import { WalletProvider } from '../../contexts'
