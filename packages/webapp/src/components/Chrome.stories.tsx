@@ -1,8 +1,9 @@
 /* eslint-disable import/no-internal-modules */
-import { Breadcrumbs } from '@mui/material'
+import { Breadcrumbs, List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { LinkEx } from '@xylabs/react-common'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { SiteMenuListItem } from '@xyo-network/react-appbar'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WebAppChrome } from './Chrome'
@@ -23,7 +24,14 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
   return (
     <FlexCol height="80vh" alignItems="stretch" overflow="hidden">
       <BrowserRouter>
-        <WebAppChrome {...args}>
+        <WebAppChrome
+          menuItems={
+            <List>
+              <SiteMenuListItem primary="Hello" />
+            </List>
+          }
+          {...args}
+        >
           <WebAppPage
             breadcrumbs={
               <Breadcrumbs>
@@ -40,7 +48,10 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const DefaultSideBar = Template.bind({})
+DefaultSideBar.args = { navigationType: 'sidebar' }
+
+export { Default, DefaultSideBar }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
