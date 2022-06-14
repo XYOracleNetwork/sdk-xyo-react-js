@@ -1,16 +1,19 @@
 import { Card, CardContent } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { SelectExProps } from '@xylabs/react-common'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { useEffect, useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import { authDecorator, WrappedArgs } from '../../../../../.storybook'
-import { NetworkMemoryProvider, useNetwork } from '../../contexts'
+import { NetworkMemoryProvider, NetworkRouteProvider, useNetwork } from '../../contexts'
 import { NetworkSelectEx } from './NetworkSelectEx'
 
 const StorybookEntry = {
-  argTypes: {},
+  argTypes: {
+    responsive: {
+      defaultValue: false,
+    },
+  },
   component: NetworkSelectEx,
-  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
@@ -36,10 +39,7 @@ const Template: ComponentStory<typeof NetworkSelectEx> = (args) => {
   return <NetworkSelectEx {...args}></NetworkSelectEx>
 }
 
-const TemplateWithProvider: ComponentStory<typeof NetworkSelectEx> = (args) => {
-  const combinedArgs = args as WrappedArgs & SelectExProps<string>
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { authState, ...props } = combinedArgs
+const TemplateWithMemoryProvider: ComponentStory<typeof NetworkSelectEx> = (props) => {
   return (
     <NetworkMemoryProvider>
       <NetworkSelectEx {...props}></NetworkSelectEx>
@@ -48,13 +48,53 @@ const TemplateWithProvider: ComponentStory<typeof NetworkSelectEx> = (args) => {
   )
 }
 
+const TemplateWithRouteProvider: ComponentStory<typeof NetworkSelectEx> = (props) => {
+  const url = new URL(window.location.toString())
+  url.searchParams.set('network', 'main')
+  history.pushState({}, '', url)
+  return (
+    <BrowserRouter>
+      <NetworkRouteProvider>
+        <TemplateWithRouteProviderInner {...props} />
+      </NetworkRouteProvider>
+    </BrowserRouter>
+  )
+}
+
+const TemplateWithRouteProviderInner: ComponentStory<typeof NetworkSelectEx> = (props) => {
+  const { network } = useNetwork()
+  const [uris, setUris] = useState<(string | undefined)[]>([])
+
+  useEffect(() => {
+    setUris((previous) => [...previous, network?.nodes?.find((node) => node.type === 'archivist')?.uri])
+  }, [network?.nodes])
+
+  useEffect(() => {
+    if (uris.length > 1) {
+      throw Error('Error: Route Provider sent multiple network uris but should only send one.')
+    }
+  })
+
+  return (
+    <>
+      <NetworkSelectEx {...props}></NetworkSelectEx>
+      {uris.map((uri) => (
+        <p key={uri}>{uri}</p>
+      ))}
+    </>
+  )
+}
+
 const Default = Template.bind({})
 Default.args = {}
 
-const WithProvider = TemplateWithProvider.bind({})
-WithProvider.args = {}
+const WithMemoryProvider = TemplateWithMemoryProvider.bind({})
+WithMemoryProvider.args = {}
 
-export { Default, WithProvider }
+const WithRouteProvider = TemplateWithRouteProvider.bind({})
+WithRouteProvider.args = {}
+
+export { Default, WithMemoryProvider, WithRouteProvider }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
