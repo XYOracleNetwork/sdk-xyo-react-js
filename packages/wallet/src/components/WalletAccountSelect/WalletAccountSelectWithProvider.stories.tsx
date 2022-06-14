@@ -1,5 +1,7 @@
 /* eslint-disable import/no-internal-modules */
+import { Button, FormControl } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { XyoWalletBase } from '@xyo-network/core'
 
 import { WalletProvider } from '../../contexts'
@@ -25,7 +27,10 @@ const Template: ComponentStory<typeof WalletAccountSelect> = (args) => {
 }
 
 const Default = Template.bind({})
-Default.args = { icons: true }
+Default.args = {}
+
+const DefaultIcons = Template.bind({})
+DefaultIcons.args = { icons: true }
 
 const DefaultSmall = Template.bind({})
 DefaultSmall.args = { size: 'small' }
@@ -39,7 +44,7 @@ IconsOnly.args = { iconOnly: true, icons: true }
 const IconsOnlySmall = Template.bind({})
 IconsOnlySmall.args = { iconOnly: true, icons: true, size: 'small' }
 
-export { Default, DefaultSmall, DefaultSmallIcon, IconsOnly, IconsOnlySmall }
+export { Default, DefaultIcons, DefaultSmall, DefaultSmallIcon, IconsOnly, IconsOnlySmall }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

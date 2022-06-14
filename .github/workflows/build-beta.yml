@@ -22,6 +22,10 @@ jobs:
         run: yarn build
       - name: cycle
         run: yarn cycle
+      - name: build-storybook
+        run: yarn build-storybook
+      - name: deploy-storybook
+        run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
   build-windows:
     runs-on: windows-latest
     steps:
@@ -40,6 +44,8 @@ jobs:
         run: yarn build
       - name: cycle
         run: yarn cycle
+      - name: build-storybook
+        run: yarn build-storybook
   build-macos:
     runs-on: macos-latest
     steps:
@@ -56,3 +62,5 @@ jobs:
         run: yarn build
       - name: cycle
         run: yarn cycle
+      - name: build-storybook
+        run: yarn build-storybook
