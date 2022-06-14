@@ -13,7 +13,7 @@ export interface WebAppPageProps extends FlexBoxProps {
   spacing?: string | number
 }
 
-export const WebAppPage: React.FC<WebAppPageProps> = ({ spacing, disableBreadcrumbGutter, disableGutters, title, container, breadcrumbs, children, ...props }) => {
+export const WebAppPage: React.FC<WebAppPageProps> = ({ spacing = 1, disableBreadcrumbGutter, disableGutters, title, container, breadcrumbs, children, ...props }) => {
   const userEvents = useUserEvents()
   const { pathname } = useLocation()
 
@@ -26,8 +26,8 @@ export const WebAppPage: React.FC<WebAppPageProps> = ({ spacing, disableBreadcru
   )
 
   const Body: React.FC<FlexBoxProps> = (props) => (
-    <FlexGrowCol gap={1} paddingY={1} justifyContent="flex-start" alignItems="stretch" {...props}>
-      <FlexRow justifyContent="flex-start" marginX={disableBreadcrumbGutter ? 0 : 1}>
+    <FlexGrowCol gap={1} paddingY={spacing} justifyContent="flex-start" alignItems="stretch" {...props}>
+      <FlexRow justifyContent="flex-start" marginX={disableBreadcrumbGutter ? 0 : spacing}>
         {breadcrumbs}
       </FlexRow>
       {children}
