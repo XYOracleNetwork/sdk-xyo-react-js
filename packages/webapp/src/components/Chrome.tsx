@@ -1,5 +1,6 @@
-import { Paper } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
+import { Divider, Paper } from '@mui/material'
+import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
+import { WebAppNavigationType } from '@xyo-network/react-app-settings'
 import { ApplicationAppBar } from '@xyo-network/react-appbar'
 import { Footer } from '@xyo-network/react-footer'
 import { ErrorBoundary } from '@xyo-network/react-shared'
@@ -14,18 +15,28 @@ export interface WebAppChromeProps extends FlexBoxProps {
   appbar?: ReactNode
   errorPage?: ReactNode
   footerElevation?: number
+  navigationType?: WebAppNavigationType
+  menuItems?: ReactNode
 }
 
-export const WebAppChrome: React.FC<WebAppChromeProps> = ({ footerElevation = 4, errorPage, appbar, footer, children, appName, ...props }) => {
+export const WebAppChrome: React.FC<WebAppChromeProps> = ({ menuItems, navigationType = 'menu', footerElevation = 4, errorPage, appbar, footer, children, appName, ...props }) => {
   return (
     <FlexCol alignItems="stretch" height="100vh" {...props}>
       <Helmet defaultTitle={appName} titleTemplate={`%s | ${appName}`}>
         <meta content="website" property="og:type" />
       </Helmet>
-      {appbar ?? <ApplicationAppBar />}
-      <FlexGrowCol overflow="hidden" justifyContent="flex-start" alignItems="stretch">
-        <ErrorBoundary fallback={errorPage ?? <WebAppErrorPage />}>{children}</ErrorBoundary>
-      </FlexGrowCol>
+      {appbar ?? <ApplicationAppBar menuItems={navigationType === 'menu' ? menuItems : undefined} />}
+      <FlexGrowRow alignItems="stretch">
+        {navigationType !== 'menu' ? (
+          <>
+            {menuItems}
+            <Divider orientation="vertical" />
+          </>
+        ) : null}
+        <FlexGrowCol overflow="hidden" justifyContent="flex-start" alignItems="stretch">
+          <ErrorBoundary fallback={errorPage ?? <WebAppErrorPage />}>{children}</ErrorBoundary>
+        </FlexGrowCol>
+      </FlexGrowRow>
       <Paper elevation={footerElevation} square>
         {footer ?? <Footer dynamicHeight />}
       </Paper>

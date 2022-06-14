@@ -1,3 +1,4 @@
+export * from '@xyo-network/react-app-settings'
 export * from '@xyo-network/react-appbar'
 export * from '@xyo-network/react-archive'
 export * from '@xyo-network/react-archivist-api'

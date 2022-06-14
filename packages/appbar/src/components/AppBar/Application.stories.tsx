@@ -1,5 +1,5 @@
 /* eslint-disable import/no-internal-modules */
-import { Paper } from '@mui/material'
+import { List, Paper } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { XyoWalletBase } from '@xyo-network/core'
@@ -10,6 +10,7 @@ import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SearchBar } from '../SearchBar'
+import { SiteMenuListItem } from '../SiteMenu'
 import { SystemToolbar } from '../Toolbar'
 import { ApplicationAppBar } from './Application'
 
@@ -31,7 +32,14 @@ const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
         <NetworkMemoryProvider>
           <ArchivesProvider>
             <ArchiveProvider>
-              <ApplicationAppBar {...args}></ApplicationAppBar>
+              <ApplicationAppBar
+                menuItems={
+                  <List>
+                    <SiteMenuListItem primary="Hello" />
+                  </List>
+                }
+                {...args}
+              ></ApplicationAppBar>
             </ArchiveProvider>
           </ArchivesProvider>
         </NetworkMemoryProvider>

@@ -1,23 +1,18 @@
 import { Paper, Toolbar, ToolbarProps } from '@mui/material'
 import { SelectExProps } from '@xylabs/react-common'
 import { FlexRow } from '@xylabs/react-flexbox'
+import { DarkModeIconButton } from '@xyo-network/react-app-settings'
 import { ArchiveSelectEx } from '@xyo-network/react-archive'
 import { AuthStatusIconButton } from '@xyo-network/react-auth'
 import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'
-import { DarkModeIconButton } from '@xyo-network/react-shared'
-import { ReactNode } from 'react'
-
-import { SiteMenu } from '../../SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
   networkSelectProps?: NetworkSelectExProps
   archiveSelectProps?: SelectExProps<string>
   hideNetworkSelect?: boolean
   hideArchiveSelect?: boolean
-  menu?: ReactNode
   darkModeButton?: boolean
   authButton?: boolean
-  noMenu?: boolean
 }
 
 export const SystemToolbar: React.FC<SystemToolbarProps> = ({
@@ -26,10 +21,8 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   archiveSelectProps,
   hideNetworkSelect,
   hideArchiveSelect,
-  menu,
   darkModeButton = false,
   authButton = false,
-  noMenu = false,
   ...props
 }) => {
   return (
@@ -51,7 +44,6 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
       {children}
       {authButton ? <AuthStatusIconButton color="inherit" /> : null}
       {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
-      {noMenu ? null : <SiteMenu>{menu}</SiteMenu>}
     </Toolbar>
   )
 }
