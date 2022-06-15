@@ -2,7 +2,7 @@
 import { Breadcrumbs, List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { LinkEx } from '@xylabs/react-common'
-import { FlexCol } from '@xylabs/react-flexbox'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { SiteMenuListItem } from '@xyo-network/react-appbar'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -19,6 +19,8 @@ const StorybookEntry = {
   },
   title: 'webapp/WebAppChrome',
 } as ComponentMeta<typeof WebAppChrome>
+
+const rowArray = [32, 64, 128, 256, 512, 1024]
 
 const Template: ComponentStory<typeof WebAppChrome> = (args) => {
   return (
@@ -38,7 +40,15 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
                 <LinkEx>BreadCrumbs</LinkEx>
               </Breadcrumbs>
             }
-          />
+          >
+            {rowArray.map((height) => {
+              return (
+                <FlexRow key={height} bgcolor="red" height={height}>
+                  {height}
+                </FlexRow>
+              )
+            })}
+          </WebAppPage>
         </WebAppChrome>
       </BrowserRouter>
     </FlexCol>
