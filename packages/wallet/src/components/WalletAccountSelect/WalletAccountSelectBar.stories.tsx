@@ -34,7 +34,10 @@ Default.args = {}
 const WithWallet = WithWalletTemplate.bind({})
 WithWallet.args = {}
 
-export { Default, WithWallet }
+const WithWalletIcon = WithWalletTemplate.bind({})
+WithWalletIcon.args = { icons: true }
+
+export { Default, WithWallet, WithWalletIcon }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
