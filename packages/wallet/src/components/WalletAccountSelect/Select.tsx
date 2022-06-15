@@ -1,6 +1,8 @@
 import { MenuItem, SelectProps } from '@mui/material'
 import { SelectEx } from '@xylabs/react-common'
 import { EthAccountBox } from '@xylabs/react-crypto'
+import { FlexRow } from '@xylabs/react-flexbox'
+import { Identicon } from '@xylabs/react-identicon'
 import { EthAddress } from '@xylabs/sdk-js'
 
 import { useWallet } from '../../contexts'
@@ -15,14 +17,23 @@ const arrayRange = (length: number, start = 0) => {
   return Array.from(Array(length).keys()).map((x) => x + start)
 }
 
-export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ size, iconSize, icons, iconOnly, ...props }) => {
+export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ size, iconSize = 24, icons, iconOnly, ...props }) => {
   const { wallet, activeAccountIndex = 0, setActiveAccountIndex } = useWallet()
 
   return (
     <SelectEx
       renderValue={(selected) => {
         const account = wallet?.getAccount(parseInt(`${selected}`))
-        return <EthAccountBox alignItems="stretch" iconOnly={iconOnly} icon={icons} address={EthAddress.fromString(account?.addressValue.hex)} />
+        return (
+          <FlexRow justifyContent="flex-start" gap={1}>
+            {icons ? (
+              <FlexRow>
+                <Identicon size={iconSize} value={account?.addressValue.hex} />
+              </FlexRow>
+            ) : null}
+            <EthAccountBox alignItems="stretch" iconOnly={iconOnly} address={EthAddress.fromString(account?.addressValue.hex)} />
+          </FlexRow>
+        )
       }}
       value={activeAccountIndex}
       onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
