@@ -21,25 +21,27 @@ export interface WebAppChromeProps extends FlexBoxProps {
 
 export const WebAppChrome: React.FC<WebAppChromeProps> = ({ menuItems, navigationType = 'menu', footerElevation = 4, errorPage, appbar, footer, children, appName, ...props }) => {
   return (
-    <FlexCol alignItems="stretch" height="100vh" {...props}>
+    <FlexCol alignItems="stretch" overflow="hidden" height="100vh" {...props}>
       <Helmet defaultTitle={appName} titleTemplate={`%s | ${appName}`}>
         <meta content="website" property="og:type" />
       </Helmet>
       {appbar ?? <ApplicationAppBar menuItems={navigationType === 'menu' ? menuItems : undefined} />}
-      <FlexGrowRow alignItems="stretch">
+      <FlexGrowRow overflow="hidden" alignItems="stretch">
         {navigationType !== 'menu' ? (
           <>
             {menuItems}
             <Divider orientation="vertical" />
           </>
         ) : null}
-        <FlexGrowCol overflow="hidden" justifyContent="flex-start" alignItems="stretch">
+        <FlexGrowCol justifyContent="flex-start" alignItems="stretch">
           <ErrorBoundary fallback={errorPage ?? <WebAppErrorPage />}>{children}</ErrorBoundary>
         </FlexGrowCol>
       </FlexGrowRow>
-      <Paper elevation={footerElevation} square>
-        {footer ?? <Footer dynamicHeight />}
-      </Paper>
+      <FlexCol alignItems="stretch">
+        <Paper elevation={footerElevation} square>
+          {footer ?? <Footer dynamicHeight />}
+        </Paper>
+      </FlexCol>
     </FlexCol>
   )
 }
