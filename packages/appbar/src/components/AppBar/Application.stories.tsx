@@ -33,10 +33,14 @@ const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
           <ArchivesProvider>
             <ArchiveProvider>
               <ApplicationAppBar
-                menuItems={
-                  <List>
-                    <SiteMenuListItem primary="Hello" />
-                  </List>
+                systemToolbar={
+                  <SystemToolbar
+                    menuItems={
+                      <List>
+                        <SiteMenuListItem primary="Hello" />
+                      </List>
+                    }
+                  />
                 }
                 {...args}
               ></ApplicationAppBar>
@@ -52,7 +56,21 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithSearchBar = Template.bind({})
-WithSearchBar.args = { children: <SearchBar flexGrow={1} onSearch={(term) => alert(term)} />, color: 'primary', systemToolbar: <SystemToolbar darkModeButton authButton /> }
+WithSearchBar.args = {
+  children: <SearchBar flexGrow={1} onSearch={(term) => alert(term)} />,
+  color: 'primary',
+  systemToolbar: (
+    <SystemToolbar
+      darkModeButton
+      authButton
+      menuItems={
+        <List>
+          <SiteMenuListItem primary="Hello" />
+        </List>
+      }
+    />
+  ),
+}
 
 const WithWalletSelectBar = Template.bind({})
 WithWalletSelectBar.args = {

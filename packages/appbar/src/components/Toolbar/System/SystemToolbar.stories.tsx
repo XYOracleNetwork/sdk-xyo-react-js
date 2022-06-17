@@ -1,4 +1,5 @@
 /* eslint-disable import/no-internal-modules */
+import { List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -7,6 +8,7 @@ import { ArchiveProvider, ArchivesProvider } from '../../../../../archive/src'
 import { ArchivistApiProvider } from '../../../../../archivist-api/src'
 import { AuthProvider, AuthState } from '../../../../../auth/src'
 import { NetworkMemoryProvider } from '../../../../../network/src'
+import { SiteMenuListItem } from '../../SiteMenu'
 import { SystemToolbar } from './SystemToolbar'
 
 const StorybookEntry = {
@@ -41,7 +43,13 @@ const TemplateWithAuthContext: ComponentStory<WrappedAuthComponent> = ({ authSta
         <BrowserRouter>
           <NetworkMemoryProvider>
             <ArchiveProvider>
-              <SystemToolbar />
+              <SystemToolbar
+                menuItems={
+                  <List>
+                    <SiteMenuListItem primary="Hello" />
+                  </List>
+                }
+              />
             </ArchiveProvider>
           </NetworkMemoryProvider>
         </BrowserRouter>
