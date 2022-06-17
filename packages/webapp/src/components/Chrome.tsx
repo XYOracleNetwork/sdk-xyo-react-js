@@ -1,7 +1,7 @@
 import { Divider, Paper } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { WebAppNavigationType } from '@xyo-network/react-app-settings'
-import { ApplicationAppBar } from '@xyo-network/react-appbar'
+import { ApplicationAppBar, SystemToolbar } from '@xyo-network/react-appbar'
 import { Footer } from '@xyo-network/react-footer'
 import { ErrorBoundary } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
@@ -25,7 +25,7 @@ export const WebAppChrome: React.FC<WebAppChromeProps> = ({ menuItems, navigatio
       <Helmet defaultTitle={appName} titleTemplate={`%s | ${appName}`}>
         <meta content="website" property="og:type" />
       </Helmet>
-      {appbar ?? <ApplicationAppBar menuItems={navigationType === 'menu' ? menuItems : undefined} />}
+      {appbar ?? <ApplicationAppBar systemToolbar={<SystemToolbar menuItems={navigationType === 'menu' ? menuItems : undefined} />} />}
       <FlexGrowRow overflow="hidden" alignItems="stretch">
         {navigationType !== 'menu' ? (
           <>

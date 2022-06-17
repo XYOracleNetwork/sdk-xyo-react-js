@@ -25,6 +25,7 @@ const partialAppThemeOptions: ThemeOptions = {
       },
     },
   },
+  spacing: 8,
 }
 
 export const appThemeOptions = merge({}, themeOptions, partialAppThemeOptions, partialAppLightThemeOptions)
