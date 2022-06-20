@@ -1,7 +1,8 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
-import { Card, CardHeader, CardHeaderProps, CardProps, IconButton, SvgIconProps } from '@mui/material'
+import { CardHeader, CardHeaderProps, CardProps, IconButton, SvgIconProps } from '@mui/material'
 import { ReactNode } from 'react'
 
+import { CardEx } from './CardEx'
 import { TypographyEx } from './TypographyEx'
 
 export interface PageCardProps extends CardProps {
@@ -12,7 +13,7 @@ export interface PageCardProps extends CardProps {
 
 export const PageCard: React.FC<PageCardProps> = ({ subheader, title, icon, onRefresh, children, style, ...props }) => {
   return (
-    <Card style={{ position: 'relative', ...style }} {...props}>
+    <CardEx style={{ position: 'relative', ...style }} {...props}>
       {icon?.({ style: { fontSize: 512, left: '-144px', opacity: 0.05, position: 'absolute', top: '-144px' } })}
       <CardHeader
         title={
@@ -32,6 +33,6 @@ export const PageCard: React.FC<PageCardProps> = ({ subheader, title, icon, onRe
         }
       />
       {children}
-    </Card>
+    </CardEx>
   )
 }
