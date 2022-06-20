@@ -5208,20 +5208,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.19.0, @typescript-eslint/parser@npm:^5.28.0, @typescript-eslint/parser@npm:^5.5.0":
-  version: 5.28.0
-  resolution: "@typescript-eslint/parser@npm:5.28.0"
+"@typescript-eslint/parser@npm:^5.19.0, @typescript-eslint/parser@npm:^5.29.0, @typescript-eslint/parser@npm:^5.5.0":
+  version: 5.29.0
+  resolution: "@typescript-eslint/parser@npm:5.29.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.28.0
-    "@typescript-eslint/types": 5.28.0
-    "@typescript-eslint/typescript-estree": 5.28.0
+    "@typescript-eslint/scope-manager": 5.29.0
+    "@typescript-eslint/types": 5.29.0
+    "@typescript-eslint/typescript-estree": 5.29.0
     debug: ^4.3.4
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: cb18ff47b0a10373ba1c05c90901d08f5f99180e624f3f2faa85f13d1048fc59601a3cab6b852f72d13287b314d94c4d4997129ff6c639496a9144c762f6d31e
+  checksum: 7805796638d1ddbe21f2627e9f03493ec17710e22ae81d2345f3e0f5ff9cbf6f0cd1b0e05d8d0b9aa08435bafdb6b5c86f27d7115f0959de43e3322b86c00709
   languageName: node
   linkType: hard
 
@@ -5232,6 +5232,16 @@ __metadata:
     "@typescript-eslint/types": 5.28.0
     "@typescript-eslint/visitor-keys": 5.28.0
   checksum: f187fd295d152508aa85233ef3ac89031952300fbbe277e188dfba3fbfd82656b15d3d8daa6d85984970ce00a30fdf75da912c4024df982004b24f3a95420b8f
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/scope-manager@npm:5.29.0":
+  version: 5.29.0
+  resolution: "@typescript-eslint/scope-manager@npm:5.29.0"
+  dependencies:
+    "@typescript-eslint/types": 5.29.0
+    "@typescript-eslint/visitor-keys": 5.29.0
+  checksum: 540642bef9c55fd7692af98dfb42ab99eeb82553f42ab2a3c4e132e02b5ba492da1c6bf1ca6b02b900a678fc74399ad6c564c0ca20d91032090b6cbcb01a5bde
   languageName: node
   linkType: hard
 
@@ -5258,6 +5268,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/types@npm:5.29.0":
+  version: 5.29.0
+  resolution: "@typescript-eslint/types@npm:5.29.0"
+  checksum: 982ecdd69103105cabff8deac7f82f6002cf909238702ce902133e9af655cd962f977d5adf650c5ddae80d8c0e46abe1612a9141b25c7ed20ba8d662eb7ab871
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/typescript-estree@npm:5.28.0":
   version: 5.28.0
   resolution: "@typescript-eslint/typescript-estree@npm:5.28.0"
@@ -5273,6 +5290,24 @@ __metadata:
     typescript:
       optional: true
   checksum: e7be6e9ff778ab2728bdc545713f29cd40bbe1282662461453fe46bc18f676f9b33c60e3514347fbc4e5e94d764525c20b8ef3d47baa62fec6bd3ce05fdde6eb
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/typescript-estree@npm:5.29.0":
+  version: 5.29.0
+  resolution: "@typescript-eslint/typescript-estree@npm:5.29.0"
+  dependencies:
+    "@typescript-eslint/types": 5.29.0
+    "@typescript-eslint/visitor-keys": 5.29.0
+    debug: ^4.3.4
+    globby: ^11.1.0
+    is-glob: ^4.0.3
+    semver: ^7.3.7
+    tsutils: ^3.21.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: b91107a9fc31bf511aaa70f1e6d1d832d3acf08cfe999c870169447a7c223abff54c1d604bbb08d7c069dd98b43fb279bc314d1726097704fe8ad4c6e0969b12
   languageName: node
   linkType: hard
 
@@ -5299,6 +5334,16 @@ __metadata:
     "@typescript-eslint/types": 5.28.0
     eslint-visitor-keys: ^3.3.0
   checksum: e97251968ea273ce33fa0de8a9c04426499b797f6f7800379ff880c4be6e6e02fe023038be0092c595be394a8636f73ee8911974214d5232b3d59492a50771bf
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/visitor-keys@npm:5.29.0":
+  version: 5.29.0
+  resolution: "@typescript-eslint/visitor-keys@npm:5.29.0"
+  dependencies:
+    "@typescript-eslint/types": 5.29.0
+    eslint-visitor-keys: ^3.3.0
+  checksum: 15f228ad9ffaf0e42cc6b2ee4e5095c1e89c4c2dc46a65d19ca0e2296d88c08a1192039d942bd9600b1496176749f6322d636dd307602dbab90404a9501b4d6e
   languageName: node
   linkType: hard
 
@@ -5987,7 +6032,7 @@ __metadata:
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/react-wallet": ^2.25.73
+    "@xyo-network/react-wallet": ^2.25.74
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -6415,7 +6460,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-wallet@^2.25.73, @xyo-network/react-wallet@workspace:^, @xyo-network/react-wallet@workspace:packages/wallet":
+"@xyo-network/react-wallet@^2.25.74, @xyo-network/react-wallet@workspace:^, @xyo-network/react-wallet@workspace:packages/wallet":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet@workspace:packages/wallet"
   dependencies:
@@ -6496,7 +6541,7 @@ __metadata:
     "@storybook/theming": ^6.5.9
     "@types/lodash": ^4.14.182
     "@types/node": ^18.0.0
-    "@typescript-eslint/parser": ^5.28.0
+    "@typescript-eslint/parser": ^5.29.0
     "@xylabs/eslint-config": ^2.3.22
     "@xylabs/eslint-config-react": ^2.1.5
     "@xylabs/react-flexbox": ^2.14.4
@@ -6526,7 +6571,7 @@ __metadata:
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/react-webapp": "workspace:^"
     assert: ^2.0.0
-    chromatic: ^6.6.2
+    chromatic: ^6.6.3
     depcheck: ^1.4.3
     eslint: ^8.18.0
     eslint-import-resolver-typescript: ^2.7.1
@@ -8094,16 +8139,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^6.6.2":
-  version: 6.6.2
-  resolution: "chromatic@npm:6.6.2"
+"chromatic@npm:^6.6.3":
+  version: 6.6.3
+  resolution: "chromatic@npm:6.6.3"
   dependencies:
     "@types/webpack-env": ^1.17.0
   bin:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: 8667bec68587f3a2654e65809301b8573c4b029f7816b332dc3721df40a15379aa2935f17fcd12019aa8c2d0a654f6092ab21b1750be4f8b1cb3c664f5973a0a
+  checksum: 24eb091427ffaebe95bbed39363a613cea14798c8399e5328612fea3ee1aa77be37969f473e72fad8ee3d47fd6f27c663f973ec9cff701bafc1e5b09fc177629
   languageName: node
   linkType: hard
 
