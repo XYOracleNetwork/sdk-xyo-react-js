@@ -41,11 +41,7 @@ export interface EllipsisTableCellProps extends TableCellProps {
 export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to, href, ...props }) => {
   const [calcCellWidth, setCalcCellWidth] = useState<number>(0)
   const hashDivRef = useRef<HTMLDivElement>(null)
-
   const theme = useTheme()
-
-  // We calulate the spacing since we know that table rows use padding.
-  const spacing = parseInt(theme.spacing(4).substring(-2))
 
   useEffect(() => {
     const currentElement = hashDivRef.current?.parentElement
@@ -55,7 +51,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
     const checkWidth = (cell: HTMLElement) => {
       const smallestParentWidth = getSmallestParentWidth(cell)
       if (smallestParentWidth && row) {
-        const remainderWidth = smallestParentWidth - getRemainingRowWidth(row) - spacing
+        const remainderWidth = smallestParentWidth - getRemainingRowWidth(row) - parseInt(theme.spacing(4).substring(0, -2)) * 4
         setCalcCellWidth(remainderWidth)
       }
     }
@@ -73,7 +69,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
     return () => {
       window.removeEventListener('resize', onResize)
     }
-  }, [hashDivRef, spacing])
+  }, [hashDivRef])
 
   return (
     <TableCell {...props}>
