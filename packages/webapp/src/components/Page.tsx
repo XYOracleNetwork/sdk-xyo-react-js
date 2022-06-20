@@ -6,7 +6,7 @@ import { ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 export interface WebAppPageProps extends FlexBoxProps {
-  container?: ContainerProps['maxWidth']
+  container?: ContainerProps['maxWidth'] | 'none'
   disableGutters?: boolean
   breadcrumbs?: ReactNode
   disableBreadcrumbGutter?: boolean
@@ -37,7 +37,7 @@ export const WebAppPage: React.FC<WebAppPageProps> = ({ spacing = 1, disableBrea
   return (
     <FlexGrowCol alignItems="stretch" justifyContent="flex-start" minHeight={0} maxWidth="100vw" overflow="visible scroll">
       <Helmet title={title} />
-      {container ? (
+      {container && container !== 'none' ? (
         <Container
           disableGutters={disableGutters}
           style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
