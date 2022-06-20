@@ -43,7 +43,7 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
           >
             {rowArray.map((height) => {
               return (
-                <FlexRow key={height} bgcolor="red" height={height}>
+                <FlexRow key={height} height={height}>
                   {height}
                 </FlexRow>
               )
