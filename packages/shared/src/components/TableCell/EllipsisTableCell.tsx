@@ -1,4 +1,4 @@
-import { TableCell, TableCellProps, Typography, TypographyProps, useTheme } from '@mui/material'
+import { TableCell, TableCellProps, Typography, TypographyProps } from '@mui/material'
 import { LinkEx } from '@xylabs/react-common'
 import { useEffect, useRef, useState } from 'react'
 import { To } from 'react-router-dom'
@@ -54,6 +54,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
         const remainingWidth = getRemainingRowWidth(row)
         const actualPaddingX = getActualPaddingX(cell)
         const remainderWidth = smallestParentWidth - remainingWidth - actualPaddingX
+        cell.style.width = `${remainderWidth}`
         setCalcCellWidth(remainderWidth)
       }
     }
@@ -67,30 +68,44 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
     if (cell) {
       checkWidth(cell)
       window.addEventListener('resize', onResize)
+      row?.addEventListener('resize', onResize)
     }
     return () => {
       window.removeEventListener('resize', onResize)
+      row?.removeEventListener('resize', onResize)
     }
   }, [hashDivRef])
 
   return (
     <TableCell {...props}>
-      <div
-        ref={hashDivRef}
-        style={{
-          display: 'block',
-          maxWidth: calcCellWidth,
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-        }}
-      >
+      <div ref={hashDivRef}>
         {href || to ? (
-          <LinkEx to={to} href={href} target={href ? '_blank' : undefined}>
-            <TableCellValue value={value} hashCellWidth={calcCellWidth} />
+          <LinkEx
+            style={{
+              display: 'block',
+              maxWidth: calcCellWidth,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+            to={to}
+            href={href}
+            target={href ? '_blank' : undefined}
+          >
+            {value}
           </LinkEx>
         ) : (
-          <TableCellValue value={value} hashCellWidth={calcCellWidth} />
+          <span
+            style={{
+              display: 'block',
+              maxWidth: calcCellWidth,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {value}
+          </span>
         )}
       </div>
     </TableCell>
