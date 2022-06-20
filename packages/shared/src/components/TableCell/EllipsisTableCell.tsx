@@ -78,22 +78,34 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
 
   return (
     <TableCell {...props}>
-      <div
-        ref={hashDivRef}
-        style={{
-          display: 'block',
-          maxWidth: calcCellWidth,
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-        }}
-      >
+      <div ref={hashDivRef}>
         {href || to ? (
-          <LinkEx to={to} href={href} target={href ? '_blank' : undefined}>
-            <TableCellValue value={value} hashCellWidth={calcCellWidth} />
+          <LinkEx
+            style={{
+              display: 'block',
+              maxWidth: calcCellWidth,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+            to={to}
+            href={href}
+            target={href ? '_blank' : undefined}
+          >
+            {value}
           </LinkEx>
         ) : (
-          <TableCellValue value={value} hashCellWidth={calcCellWidth} />
+          <span
+            style={{
+              display: 'block',
+              maxWidth: calcCellWidth,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {value}
+          </span>
         )}
       </div>
     </TableCell>
