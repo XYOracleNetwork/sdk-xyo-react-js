@@ -25,7 +25,7 @@ const Template: ComponentStory<typeof BlockTable> = ({ blocks: blocksParam, ...a
   return (
     <BrowserRouter>
       <Container maxWidth="lg">
-        <FlexCol alignItems="stretch">
+        <FlexCol alignItems="stretch" bgcolor="red">
           <BlockTable blocks={blocks} {...args}></BlockTable>
         </FlexCol>
         <ButtonEx onClick={() => setBlocks([...blocks, sampleBlock])}>Add</ButtonEx>

@@ -5,8 +5,7 @@ export const getRemainingRowWidth = (row: HTMLElement, forCell = 0) => {
     const item = row?.children.item(i)
     if (item) {
       if (i !== forCell) {
-        const boundingRect = item?.getBoundingClientRect()
-        width += boundingRect?.width ?? 0
+        width += item?.clientWidth ?? 0
       }
     }
   }

@@ -3,6 +3,7 @@ import { LinkEx } from '@xylabs/react-common'
 import { useEffect, useRef, useState } from 'react'
 import { To } from 'react-router-dom'
 
+import { getActualPaddingX } from '../../lib'
 import { findParent } from './findParent'
 import { getRemainingRowWidth } from './getRemainingRowWidth'
 import { getSmallestParentWidth } from './getSmallestParentWidth'
@@ -41,7 +42,6 @@ export interface EllipsisTableCellProps extends TableCellProps {
 export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to, href, ...props }) => {
   const [calcCellWidth, setCalcCellWidth] = useState<number>(0)
   const hashDivRef = useRef<HTMLDivElement>(null)
-  const theme = useTheme()
 
   useEffect(() => {
     const currentElement = hashDivRef.current?.parentElement
@@ -51,7 +51,9 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ value, to,
     const checkWidth = (cell: HTMLElement) => {
       const smallestParentWidth = getSmallestParentWidth(cell)
       if (smallestParentWidth && row) {
-        const remainderWidth = smallestParentWidth - getRemainingRowWidth(row) - parseInt(theme.spacing(4).substring(0, -2)) * 4
+        const remainingWidth = getRemainingRowWidth(row)
+        const actualPaddingX = getActualPaddingX(cell)
+        const remainderWidth = smallestParentWidth - remainingWidth - actualPaddingX
         setCalcCellWidth(remainderWidth)
       }
     }
