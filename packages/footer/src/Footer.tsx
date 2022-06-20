@@ -1,4 +1,5 @@
-import { Container, Grid } from '@mui/material'
+import { Container, ContainerProps, Grid } from '@mui/material'
+import { GridProps } from '@mui/system'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
@@ -13,9 +14,35 @@ import { XyoTokens } from './XyoTokens'
 export interface FooterProps extends FlexBoxProps {
   dynamicHeight?: boolean
   footerHtmlElement?: boolean
+  container?: ContainerProps['maxWidth'] | 'none'
 }
 
-export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, ...props }) => {
+export const FooterLinkSection: React.FC<GridProps> = (props) => {
+  return (
+    <Grid container justifyContent="space-between" alignItems="flex-start" {...props}>
+      <Grid item xs={12} md={2}>
+        <SocialLinks alignItems="flex-start" />
+      </Grid>
+      <Grid item xs={6} md={2}>
+        <NetworkLinks alignItems="flex-start" />
+      </Grid>
+      <Grid item xs={6} md={2}>
+        <XyoTokens alignItems="flex-start" />
+      </Grid>
+      <Grid item xs={6} md={2}>
+        <DeveloperLinks alignItems="flex-start" />
+      </Grid>
+      <Grid item xs={6} md={2}>
+        <MoreLinks alignItems="flex-start" />
+      </Grid>
+      <Grid item xs={6} md={2}>
+        <SupportLinks alignItems="flex-start" />
+      </Grid>
+    </Grid>
+  )
+}
+
+export const Footer: React.FC<FooterProps> = ({ container, dynamicHeight = false, ...props }) => {
   const [more, setMore] = useState(false)
   const onMore = () => {
     setMore(!more)
@@ -30,34 +57,23 @@ export const Footer: React.FC<FooterProps> = ({ dynamicHeight = false, ...props 
     >
       {more || !dynamicHeight ? (
         <FlexRow alignItems="flex-start">
-          <Container>
-            <Grid container justifyContent="space-between" alignItems="flex-start">
-              <Grid item xs={12} md={2}>
-                <SocialLinks alignItems="flex-start" />
-              </Grid>
-              <Grid item xs={6} md={2}>
-                <NetworkLinks alignItems="flex-start" />
-              </Grid>
-              <Grid item xs={6} md={2}>
-                <XyoTokens alignItems="flex-start" />
-              </Grid>
-              <Grid item xs={6} md={2}>
-                <DeveloperLinks alignItems="flex-start" />
-              </Grid>
-              <Grid item xs={6} md={2}>
-                <MoreLinks alignItems="flex-start" />
-              </Grid>
-              <Grid item xs={6} md={2}>
-                <SupportLinks alignItems="flex-start" />
-              </Grid>
-            </Grid>
-          </Container>
+          {container && container !== 'none' ? (
+            <Container>
+              <FooterLinkSection />
+            </Container>
+          ) : (
+            <FooterLinkSection />
+          )}
         </FlexRow>
       ) : null}
       <FlexRow>
-        <Container>
+        {container && container !== 'none' ? (
+          <Container>
+            <Copyright onMore={onMore} />
+          </Container>
+        ) : (
           <Copyright onMore={onMore} />
-        </Container>
+        )}
       </FlexRow>
     </FlexCol>
   )
