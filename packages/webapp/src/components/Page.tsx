@@ -35,7 +35,7 @@ export const WebAppPage: React.FC<WebAppPageProps> = ({ spacing = 1, disableBrea
   )
 
   return (
-    <FlexGrowCol alignItems="stretch" justifyContent="flex-start" minHeight={0} overflow="visible scroll">
+    <FlexGrowCol alignItems="stretch" justifyContent="flex-start" minHeight={0} maxWidth="100vw" overflow="visible scroll">
       <Helmet title={title} />
       {container ? (
         <Container
