@@ -1,7 +1,6 @@
 import { ThemeOptions } from '@mui/material'
 import merge from 'lodash/merge'
 
-import { partialAppLightThemeOptions } from './partialLightThemeOptions'
 import { themeOptions } from './themeOptions'
 
 const partialAppThemeOptions: ThemeOptions = {
@@ -28,4 +27,4 @@ const partialAppThemeOptions: ThemeOptions = {
   spacing: 8,
 }
 
-export const appThemeOptions = merge({}, themeOptions, partialAppThemeOptions, partialAppLightThemeOptions)
+export const appThemeOptions = merge({}, themeOptions, partialAppThemeOptions)
