@@ -3,21 +3,13 @@ import { CSSProperties } from 'react'
 
 import { useGradientStyles } from '../hooks'
 
-export interface CardExProps extends CardProps {
-  gradient?: 'border' | 'background'
-  display?: CSSProperties['display']
-  flexDirection?: CSSProperties['flexDirection']
-  flexGrow?: CSSProperties['flexGrow']
-  alignItems?: CSSProperties['alignItems']
-  alignContent?: CSSProperties['alignContent']
-  alignSelf?: CSSProperties['alignSelf']
-  justifyItems?: CSSProperties['justifyItems']
-  justifyContent?: CSSProperties['justifyContent']
-  justifySelf?: CSSProperties['justifySelf']
-}
+export type CardExProps = CardProps &
+  CSSProperties & {
+    gradient?: 'border' | 'background'
+  }
 
 export const CardEx: React.FC<CardExProps> = ({
-  display,
+  display = 'flex',
   flexDirection = 'column',
   flexGrow,
   alignItems = 'stretch',
@@ -27,12 +19,47 @@ export const CardEx: React.FC<CardExProps> = ({
   justifyContent = 'flex-start',
   justifySelf,
   style,
+  padding,
+  paddingLeft,
+  paddingRight,
+  paddingTop,
+  paddingBottom,
+  margin,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
   gradient,
   ...props
 }) => {
   const { styles } = useGradientStyles()
   const gradientStyle = gradient === 'border' ? styles.border : gradient === 'background' ? styles.background : {}
   return (
-    <Card style={{ ...gradientStyle, alignContent, alignItems, alignSelf, display, flexDirection, flexGrow, justifyContent, justifyItems, justifySelf, ...style }} {...props} />
+    <Card
+      style={{
+        ...gradientStyle,
+        alignContent,
+        alignItems,
+        alignSelf,
+        display,
+        flexDirection,
+        flexGrow,
+        justifyContent,
+        justifyItems,
+        justifySelf,
+        margin,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        marginTop,
+        padding,
+        paddingBottom,
+        paddingLeft,
+        paddingRight,
+        paddingTop,
+        ...style,
+      }}
+      {...props}
+    />
   )
 }
