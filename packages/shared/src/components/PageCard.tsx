@@ -1,11 +1,11 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
-import { CardHeader, CardHeaderProps, CardProps, IconButton, SvgIconProps } from '@mui/material'
+import { CardHeader, CardHeaderProps, IconButton, SvgIconProps } from '@mui/material'
 import { ReactNode } from 'react'
 
-import { CardEx } from './CardEx'
+import { CardEx, CardExProps } from './CardEx'
 import { TypographyEx } from './TypographyEx'
 
-export interface PageCardProps extends CardProps {
+export interface PageCardProps extends CardExProps {
   icon?: (props?: SvgIconProps) => ReactNode
   onRefresh?: () => void
   subheader?: CardHeaderProps['subheader']

@@ -1,5 +1,6 @@
 export * from './Ampersand'
 export * from './BasicHero'
+export * from './CardEx'
 export * from './ErrorBoundry'
 export * from './FullWidthCard'
 export * from './JsonRouteWrapper'
