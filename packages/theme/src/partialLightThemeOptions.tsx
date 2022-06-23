@@ -1,4 +1,5 @@
 import { ThemeOptions } from '@mui/material'
+import merge from 'lodash/merge'
 
 const appComponents: ThemeOptions['components'] = {
   MuiPaper: {
@@ -20,7 +21,4 @@ export const partialLightThemeOptions: ThemeOptions = {
   },
 }
 
-export const partialAppLightThemeOptions: ThemeOptions = {
-  ...partialLightThemeOptions,
-  components: appComponents,
-}
+export const partialAppLightThemeOptions: ThemeOptions = merge({}, partialLightThemeOptions, { components: appComponents })

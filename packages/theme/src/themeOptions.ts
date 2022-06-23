@@ -1,8 +1,6 @@
 import { ThemeOptions } from '@mui/material'
-import merge from 'lodash/merge'
 
 import { fontFamilyPrimary } from './fontFamily'
-import { partialLightThemeOptions } from './partialLightThemeOptions'
 
 export const components: ThemeOptions['components'] = {
   MuiCard: {
@@ -95,7 +93,7 @@ export const typography: ThemeOptions['typography'] = {
   },
 }
 
-export const baseThemeOptions: ThemeOptions = {
+export const themeOptions: ThemeOptions = {
   components,
   shape: {
     borderRadius: 8,
@@ -103,5 +101,3 @@ export const baseThemeOptions: ThemeOptions = {
   spacing: 16,
   typography,
 }
-
-export const themeOptions = merge({}, baseThemeOptions, partialLightThemeOptions)
