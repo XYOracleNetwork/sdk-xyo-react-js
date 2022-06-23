@@ -1,4 +1,4 @@
-import { Card, CardProps } from '@mui/material'
+import { Card, CardProps, useTheme } from '@mui/material'
 import { CSSProperties } from 'react'
 
 import { useGradientStyles } from '../hooks'
@@ -36,6 +36,10 @@ export const CardEx: React.FC<CardExProps> = ({
   ...props
 }) => {
   const { styles } = useGradientStyles()
+  const theme = useTheme()
+  const applySpacing = (value?: number | string) => {
+    return value === undefined ? value : typeof value === 'string' ? value : theme.spacing(value)
+  }
   const gradientStyle = gradient === 'border' ? styles.border : gradient === 'background' ? styles.background : {}
   return (
     <Card
@@ -44,25 +48,25 @@ export const CardEx: React.FC<CardExProps> = ({
         alignContent,
         alignItems,
         alignSelf,
-        columnGap,
+        columnGap: applySpacing(columnGap),
         display,
         flexDirection,
         flexGrow,
-        gap,
+        gap: applySpacing(gap),
         justifyContent,
         justifyItems,
         justifySelf,
-        margin,
-        marginBottom,
-        marginLeft,
-        marginRight,
-        marginTop,
-        padding,
-        paddingBottom,
-        paddingLeft,
-        paddingRight,
-        paddingTop,
-        rowGap,
+        margin: applySpacing(margin),
+        marginBottom: applySpacing(marginBottom),
+        marginLeft: applySpacing(marginLeft),
+        marginRight: applySpacing(marginRight),
+        marginTop: applySpacing(marginTop),
+        padding: applySpacing(padding),
+        paddingBottom: applySpacing(paddingBottom),
+        paddingLeft: applySpacing(paddingLeft),
+        paddingRight: applySpacing(paddingRight),
+        paddingTop: applySpacing(paddingTop),
+        rowGap: applySpacing(rowGap),
         ...style,
       }}
       {...props}
