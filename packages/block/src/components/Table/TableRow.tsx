@@ -1,6 +1,6 @@
 import { TableCell, TableRow, TableRowProps } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/core'
+import { XyoBoundWitnessValidator, XyoBoundWitnessWithMeta, XyoBoundWitnessWithPartialMeta } from '@xyo-network/core'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
@@ -11,7 +11,7 @@ import { MdClear, MdDone } from 'react-icons/md'
 import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 
 export interface BlockTableRowProps extends TableRowProps {
-  block?: XyoBoundWitness
+  block?: XyoBoundWitnessWithPartialMeta
   exploreDomain?: string
   columns?: BlockTableColumnConfig
   network?: string
@@ -21,7 +21,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({ network: networkPr
   const breakPoint = useBreakpoint()
 
   const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
-  const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
+  const validator = block ? new XyoBoundWitnessValidator(block as XyoBoundWitnessWithMeta) : undefined
   const { network } = useNetwork()
 
   const archive = (
@@ -58,7 +58,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({ network: networkPr
 
   const valid = (
     <TableCell key="valid" align="center">
-      {wrapper?.validator.all().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
+      {validator?.validate().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
     </TableCell>
   )
 
