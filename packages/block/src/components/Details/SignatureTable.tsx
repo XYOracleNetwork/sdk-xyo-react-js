@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/core'
+import { XyoBoundWitness, XyoBoundWitnessWithPartialMeta } from '@xyo-network/core'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
 import { BlockSignatureTableRow } from './SignatureTableRow'
@@ -14,7 +14,7 @@ interface SignatureData {
   signature?: string
 }
 
-const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitness) => {
+const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitnessWithPartialMeta) => {
   const result: SignatureData[] = []
   for (let i = 0; i < boundWitness.addresses.length; i++) {
     result.push({
