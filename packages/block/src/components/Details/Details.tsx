@@ -1,5 +1,5 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitness, XyoPayload } from '@xyo-network/core'
+import { XyoBoundWitnessWithPartialMeta, XyoPayload, XyoPayloadWithPartialMeta } from '@xyo-network/core'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload'
 import uniqWith from 'lodash/uniqWith'
 
@@ -9,14 +9,14 @@ import { BlockSignatureDetails } from './SignatureDetails'
 import { BlockValidationDetails } from './ValidationDetails'
 
 export interface BlockDetailsProps extends FlexBoxProps {
-  block?: XyoBoundWitness
+  block?: XyoBoundWitnessWithPartialMeta
   paper?: boolean
   payloads?: XyoPayload[]
   archivePath?: string
 }
 
-const payloadsFromBlock = (block?: XyoBoundWitness) => {
-  const payloads: XyoPayload[] = []
+const payloadsFromBlock = (block?: XyoBoundWitnessWithPartialMeta) => {
+  const payloads: XyoPayloadWithPartialMeta[] = []
   if (block) {
     block.payload_hashes.forEach((_, index) => {
       payloads.push(

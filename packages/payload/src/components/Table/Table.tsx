@@ -1,6 +1,6 @@
 import { Alert, Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/core'
+import { XyoPayload, XyoPayloadWithPartialMeta } from '@xyo-network/core'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
@@ -9,7 +9,7 @@ import { PayloadTableRow } from './TableRow'
 export interface PayloadTableProps extends TableProps {
   exploreDomain?: string
   onRowClick?: (value: XyoPayload) => void
-  payloads?: XyoPayload[] | null
+  payloads?: XyoPayloadWithPartialMeta[] | null
   columns?: PayloadTableColumnConfig
 }
 

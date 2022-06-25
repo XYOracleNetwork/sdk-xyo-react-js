@@ -1,6 +1,6 @@
 import { TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/core'
+import { XyoPayloadWithMeta, XyoPayloadWithPartialMeta, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/core'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
 import { DateTime } from 'luxon'
@@ -9,7 +9,7 @@ import { MdClear, MdDone } from 'react-icons/md'
 import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig'
 
 export interface PayloadTableRowProps extends TableRowProps {
-  payload?: XyoPayload
+  payload?: XyoPayloadWithPartialMeta
   exploreDomain?: string
   columns?: PayloadTableColumnConfig
   network?: string
@@ -74,7 +74,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
     </TableCell>
   )
 
-  const isValid = wrapper ? new XyoPayloadWrapperValidator(wrapper).all().length === 0 : undefined
+  const isValid = wrapper ? new XyoPayloadWrapperValidator(wrapper as XyoPayloadWrapper<XyoPayloadWithMeta>).validate().length === 0 : undefined
 
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>

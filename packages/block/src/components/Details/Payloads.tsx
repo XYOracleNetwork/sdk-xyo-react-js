@@ -1,9 +1,9 @@
-import { XyoPayload } from '@xyo-network/core'
+import { XyoPayloadWithPartialMeta } from '@xyo-network/core'
 import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 export type BlockPayloadsProps = PropertyGroupProps & {
-  payloads?: XyoPayload[]
+  payloads?: XyoPayloadWithPartialMeta[]
   payloadTableProps?: PayloadTableProps
 }
 

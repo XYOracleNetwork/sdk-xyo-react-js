@@ -1,9 +1,9 @@
-import { XyoPayload } from '@xyo-network/core'
+import { XyoPayloadWithPartialMeta } from '@xyo-network/core'
 import { ArchiveProperty } from '@xyo-network/react-archive'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 export type PayloadMetaDetailsProps = PropertyGroupProps & {
-  value?: XyoPayload
+  value?: XyoPayloadWithPartialMeta
   archivePath?: string
 }
 
