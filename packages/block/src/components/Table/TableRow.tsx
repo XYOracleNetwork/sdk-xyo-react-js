@@ -1,6 +1,6 @@
 import { TableCell, TableRow, TableRowProps } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoBoundWitnessValidator, XyoBoundWitnessWithMeta, XyoBoundWitnessWithPartialMeta } from '@xyo-network/core'
+import { XyoBoundWitnessValidator, XyoBoundWitnessWithMeta, XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'

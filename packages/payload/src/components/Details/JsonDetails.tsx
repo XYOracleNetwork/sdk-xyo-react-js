@@ -1,6 +1,6 @@
 import { Paper, useMediaQuery, useTheme } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { XyoPayload } from '@xyo-network/core'
+import { XyoPayload } from '@xyo-network/payload'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 import { lazy, Suspense } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'

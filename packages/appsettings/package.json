@@ -12,11 +12,13 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.5",
     "@xylabs/react-button": "^2.14.4",
     "@xylabs/react-flexbox": "^2.14.4",
     "@xylabs/react-pixel": "^2.14.4",
     "@xylabs/react-shared": "^2.14.4",
+    "@xylabs/sdk-js": "^2.5.9",
     "@xyo-network/react-shared": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,10 +30,9 @@
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
-    "@storybook/react": "^6.5.9",
-    "@types/react-helmet": "^6.1.5",
-    "@xylabs/react-common": "^2.14.4",
-    "@xylabs/tsconfig": "^1.0.14"
+    "@xylabs/tsconfig": "^1.0.14",
+    "@xyo-network/react-appbar": "workspace:^",
+    "@xyo-network/react-footer": "workspace:^"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",

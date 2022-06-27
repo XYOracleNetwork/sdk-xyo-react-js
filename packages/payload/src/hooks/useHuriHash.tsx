@@ -1,5 +1,5 @@
 import { XyoApiError } from '@xyo-network/api'
-import { Huri, XyoPayload } from '@xyo-network/core'
+import { Huri, XyoPayload } from '@xyo-network/payload'
 import { useCallback } from 'react'
 
 import { FetchHuriHashOptions } from './lib'

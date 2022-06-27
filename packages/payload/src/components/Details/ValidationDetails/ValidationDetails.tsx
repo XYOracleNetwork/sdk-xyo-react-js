@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoPayloadValidator, XyoPayloadWithMeta } from '@xyo-network/core'
+import { XyoPayloadValidator, XyoPayloadWithMeta } from '@xyo-network/payload'
 import { Property, PropertyGroup } from '@xyo-network/react-property'
 import { SchemaProperty } from '@xyo-network/react-schema'
 

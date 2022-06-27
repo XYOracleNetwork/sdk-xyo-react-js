@@ -1,7 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
-import { Huri, XyoPayload } from '@xyo-network/core'
 import { XyoNetworkPayload } from '@xyo-network/network'
+import { Huri, XyoPayload } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
 import { useState } from 'react'
 

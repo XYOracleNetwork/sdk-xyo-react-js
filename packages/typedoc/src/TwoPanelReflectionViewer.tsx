@@ -2,6 +2,7 @@ import { Search } from '@mui/icons-material'
 import { TextField, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { useMemo, useState } from 'react'
+import { ReflectionGroup } from 'typedoc'
 
 import { createLookup } from './createLookup'
 import { ContainerReflectionViewerProps, ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer'
@@ -16,14 +17,14 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
   }
 
   const reflectionGroups = useMemo(() => {
-    return reflection.groups?.map((group) => {
+    return reflection.groups?.map((group: ReflectionGroup) => {
       return (
         <ReflectionGroupViewer
           autoscroll
           variant="h6"
           lookup={lookup}
           renderer={itemRenderer}
-          key={group.kind}
+          key={group.title}
           group={group}
           reflection={reflection}
           alignItems="stretch"

@@ -2,7 +2,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import { IconButton, Typography, useTheme } from '@mui/material'
 import { QuickTipButton } from '@xylabs/react-common'
 import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/core'
+import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/payload'
 
 export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
   noTitle?: boolean

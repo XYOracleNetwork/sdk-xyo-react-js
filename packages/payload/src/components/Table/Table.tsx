@@ -1,6 +1,6 @@
 import { Alert, Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload, XyoPayloadWithPartialMeta } from '@xyo-network/core'
+import { XyoPayload, XyoPayloadWithPartialMeta } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
