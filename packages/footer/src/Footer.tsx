@@ -1,5 +1,4 @@
-import { Container, ContainerProps, Grid } from '@mui/material'
-import { GridProps } from '@mui/system'
+import { Container, ContainerProps, Grid, GridProps } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 

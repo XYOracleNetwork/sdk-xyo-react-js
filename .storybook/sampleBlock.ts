@@ -1,4 +1,6 @@
-import { StringKeyObject, XyoBoundWitness, XyoBoundWitnessWithMeta, XyoBoundWitnessWithPartialMeta, XyoPayload, XyoPayloadWithMeta, XyoPayloadWithPartialMeta } from '@xyo-network/core'
+import { XyoPayloadWithPartialMeta } from '@xyo-network/payload'
+import { XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
+import { StringKeyObject } from '@xyo-network/core'
 
 export const sampleBlock = {
   _archive: 'temp',

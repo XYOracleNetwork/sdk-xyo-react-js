@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoWalletBase } from '@xyo-network/core'
+import { XyoWalletBase } from '@xyo-network/wallet'
 
 import { WalletProvider } from '../../contexts'
 import { WalletAccountSelectBar } from './SelectBar'

@@ -1,4 +1,4 @@
-import { ContainerReflection } from 'typedoc'
+import { ContainerReflection, ReflectionGroup } from 'typedoc'
 
 import { createLookup } from '../createLookup'
 import { ReflectionGroupViewer } from './ReflectionGroupViewer'
@@ -15,13 +15,13 @@ export const ContainerReflectionViewer: React.FC<ContainerReflectionViewerProps>
 
   return (
     <ReflectionViewer title="ContainerReflectionViewer" sources reflection={reflection} lookup={lookup} {...props}>
-      {reflection.groups?.map((group) => {
+      {reflection.groups?.map((group: ReflectionGroup) => {
         return (
           <ReflectionGroupViewer
             margin={1}
             lookup={lookup}
             renderer={itemRenderer}
-            key={group.kind}
+            key={group.title}
             group={group}
             reflection={reflection}
             hiddenFlags={hiddenFlags}

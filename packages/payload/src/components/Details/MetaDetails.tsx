@@ -1,4 +1,4 @@
-import { XyoPayloadWithPartialMeta } from '@xyo-network/core'
+import { XyoPayloadWithPartialMeta } from '@xyo-network/payload'
 import { ArchiveProperty } from '@xyo-network/react-archive'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 

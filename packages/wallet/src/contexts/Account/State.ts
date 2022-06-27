@@ -1,4 +1,4 @@
-import { XyoAccount } from '@xyo-network/core'
+import { XyoAccount } from '@xyo-network/account'
 import { ContextExState } from '@xyo-network/react-shared'
 import { Dispatch } from 'react'
 

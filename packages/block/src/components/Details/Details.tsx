@@ -1,5 +1,6 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitnessWithPartialMeta, XyoPayload, XyoPayloadWithPartialMeta } from '@xyo-network/core'
+import { XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
+import { XyoPayload, XyoPayloadWithPartialMeta } from '@xyo-network/payload'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload'
 import uniqWith from 'lodash/uniqWith'
 

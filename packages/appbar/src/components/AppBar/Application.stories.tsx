@@ -2,11 +2,11 @@
 import { List, Paper } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { XyoWalletBase } from '@xyo-network/core'
 import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
+import { XyoWalletBase } from '@xyo-network/wallet'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SearchBar } from '../SearchBar'

@@ -12,15 +12,17 @@
   "dependencies": {
     "@xylabs/react-shared": "^2.14.4",
     "@xylabs/sdk-js": "^2.5.9",
-    "@xyo-network/api": "^2.21.10",
-    "@xyo-network/core": "^2.21.10",
-    "@xyo-network/panel": "^2.21.10",
+    "@xyo-network/api": "^2.21.11",
+    "@xyo-network/boundwitness": "^2.21.11",
+    "@xyo-network/core": "^2.21.11",
+    "@xyo-network/panel": "^2.21.11",
+    "@xyo-network/payload": "^2.21.11",
     "@xyo-network/react-archive": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "@xyo-network/react-wallet": "workspace:^",
-    "@xyo-network/systeminfo-witness": "^2.21.10",
+    "@xyo-network/systeminfo-witness": "^2.21.11",
+    "@xyo-network/witnesses": "^2.21.11",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
@@ -79,6 +81,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.26.3",
+  "version": "2.26.4",
   "packageManager": "yarn@3.1.1"
 }

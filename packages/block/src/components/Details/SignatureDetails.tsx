@@ -1,4 +1,4 @@
-import { XyoBoundWitness } from '@xyo-network/core'
+import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 import { BlockSignatureTable } from './SignatureTable'

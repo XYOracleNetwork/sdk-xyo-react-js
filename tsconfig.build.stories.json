@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "outDir": "./dist/cjs",
+    "target": "ES6",
+    "typeRoots": ["./node_modules/@types"],
+    "noEmit": true
+  },
+  "exclude": ["**/*.spec.*"],
+  "extends": "./tsconfig.json",
+  "include": ["src/types/images.d.ts", "packages/**/src/**/*.stories.*"]
+}

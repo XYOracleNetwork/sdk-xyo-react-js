@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoAccount } from '@xyo-network/core'
+import { XyoAccount } from '@xyo-network/account'
 import { useState } from 'react'
 
 import { AccountContext } from './Context'

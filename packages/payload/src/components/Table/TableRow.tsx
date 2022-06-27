@@ -1,6 +1,6 @@
 import { TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayloadWithMeta, XyoPayloadWithPartialMeta, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/core'
+import { XyoPayloadWithMeta, XyoPayloadWithPartialMeta, XyoPayloadWrapper, XyoPayloadWrapperValidator } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
 import { DateTime } from 'luxon'
