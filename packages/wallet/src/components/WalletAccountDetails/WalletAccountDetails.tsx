@@ -2,7 +2,7 @@ import { NumberStatus } from '@xylabs/react-common'
 import { EthAccountButton } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { EthAddress } from '@xylabs/sdk-js'
-import { XyoAccount } from '@xyo-network/core'
+import { XyoAccount } from '@xyo-network/account'
 import { useNetwork } from '@xyo-network/react-network'
 
 import { useAccount } from '../../contexts'

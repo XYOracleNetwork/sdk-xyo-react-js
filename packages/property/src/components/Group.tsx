@@ -1,6 +1,6 @@
 import { Paper, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
-import { typeOf } from '@xyo-network/core'
+import { typeOf } from '@xyo-network/typeof'
 import { ReactElement } from 'react'
 
 import { PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps } from './Props'

@@ -1,4 +1,4 @@
-import { XyoBoundWitnessWithPartialMeta } from '@xyo-network/core'
+import { XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
 import { ArchiveProperty } from '@xyo-network/react-archive'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 

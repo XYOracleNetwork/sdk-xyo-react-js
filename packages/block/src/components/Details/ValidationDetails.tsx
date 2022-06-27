@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitnessValidator, XyoBoundWitnessWithMeta, XyoBoundWitnessWithPartialMeta } from '@xyo-network/core'
+import { XyoBoundWitnessValidator, XyoBoundWitnessWithMeta, XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 export type BlockValidationDetailsProps = PropertyGroupProps & {

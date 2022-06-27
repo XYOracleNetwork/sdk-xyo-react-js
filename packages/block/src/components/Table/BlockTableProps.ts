@@ -1,5 +1,5 @@
 import { TableProps } from '@mui/material'
-import { XyoBoundWitness, XyoBoundWitnessWithPartialMeta } from '@xyo-network/core'
+import { XyoBoundWitness, XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
 
 import { BlockTableColumnConfig } from './BlockTableColumnConfig'
 

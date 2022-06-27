@@ -1,4 +1,4 @@
-import { XyoPayloadWithPartialMeta } from '@xyo-network/core'
+import { XyoPayloadWithPartialMeta } from '@xyo-network/payload'
 import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 

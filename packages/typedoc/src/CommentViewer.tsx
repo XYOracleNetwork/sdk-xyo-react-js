@@ -9,7 +9,7 @@ export interface CommentViewerProps extends FlexBoxProps {
 export const CommentViewer: React.FC<CommentViewerProps> = ({ comment, ...props }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <Typography variant="body2">{comment.text ?? comment.shortText}</Typography>
+      <Typography variant="body2">{comment.summary[0]?.text}</Typography>
     </FlexCol>
   )
 }

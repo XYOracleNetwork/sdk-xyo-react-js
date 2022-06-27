@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { ProjectReflection } from 'typedoc'
+import { ProjectReflection, ReflectionGroup } from 'typedoc'
 
 import { createLookup } from '../createLookup'
 import { ContainerReflectionViewerProps } from './Container'
@@ -11,13 +11,13 @@ export const ProjectReflectionViewer: React.FC<ContainerReflectionViewerProps<Pr
   return (
     <ReflectionViewer title="ProjectReflectionViewer" hiddenFlags={hiddenFlags} reflection={reflection} {...props}>
       {useMemo(() => {
-        return reflection.groups?.map((group) => {
+        return reflection.groups?.map((group: ReflectionGroup) => {
           return (
             <ReflectionGroupViewer
               autoscroll
               variant="h6"
               lookup={lookup}
-              key={group.kind}
+              key={group.title}
               renderer={itemRenderer}
               group={group}
               reflection={reflection}
