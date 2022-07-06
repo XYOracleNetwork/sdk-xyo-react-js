@@ -11,14 +11,21 @@ export const usePayload = (hash?: string): [XyoPayload | undefined, boolean, Xyo
   const [notFound, setNotFound] = useState(false)
   const [apiError, setApiError] = useState<XyoApiError>()
   const [payload, setPayload] = useState<XyoPayload>()
+
+  const reset = () => {
+    setPayload(undefined)
+    setApiError(undefined)
+    setNotFound(false)
+  }
+
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (hash && hash.length > 0) {
+      if (api && hash && hash.length > 0) {
         try {
           const result = await api?.archive(archive).payload.hash(hash).get()
           if (mounted()) {
-            setApiError(undefined)
+            reset()
             if (result?.length) {
               setPayload(result[0])
             } else if (result) {
@@ -27,8 +34,8 @@ export const usePayload = (hash?: string): [XyoPayload | undefined, boolean, Xyo
             }
           }
         } catch (e) {
+          reset()
           setApiError(e as XyoApiError)
-          setPayload(undefined)
           console.error(e)
         }
       }
