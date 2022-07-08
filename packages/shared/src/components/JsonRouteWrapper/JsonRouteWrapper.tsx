@@ -1,5 +1,5 @@
 import { ButtonEx } from '@xylabs/react-button'
-import { ErrorDialog } from '@xylabs/react-common'
+import { ErrorDialog } from '@xylabs/react-dialogs'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'

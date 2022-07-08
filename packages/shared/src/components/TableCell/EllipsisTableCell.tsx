@@ -1,5 +1,5 @@
 import { TableCell, TableCellProps } from '@mui/material'
-import { LinkEx } from '@xylabs/react-common'
+import { LinkEx } from '@xylabs/react-link'
 import { useEffect, useRef, useState } from 'react'
 import { To } from 'react-router-dom'
 

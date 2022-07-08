@@ -1,4 +1,4 @@
-import { NumberStatus } from '@xylabs/react-common'
+import { NumberStatus } from '@xylabs/react-number-status'
 import { EthAccountButton } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { EthAddress } from '@xylabs/sdk-js'
