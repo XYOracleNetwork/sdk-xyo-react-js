@@ -1,6 +1,6 @@
 import { Typography, useTheme } from '@mui/material'
-import { LinkEx, LinkExProps } from '@xylabs/react-common'
 import { FlexRow } from '@xylabs/react-flexbox'
+import { LinkEx, LinkExProps } from '@xylabs/react-link'
 
 import { XyoLogo } from './XyoLogo'
 

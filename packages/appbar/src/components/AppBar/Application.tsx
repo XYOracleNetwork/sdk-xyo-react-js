@@ -1,5 +1,5 @@
 import { ToolbarProps } from '@mui/material'
-import { AppBarEx, AppBarExProps } from '@xylabs/react-common'
+import { AppBarEx, AppBarExProps } from '@xylabs/react-appbar'
 import { ReactElement } from 'react'
 
 import { ContextToolbar, SystemToolbar } from '../Toolbar'

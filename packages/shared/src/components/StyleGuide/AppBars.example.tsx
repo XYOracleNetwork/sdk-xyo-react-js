@@ -1,6 +1,6 @@
 import { Menu as MenuIcon } from '@mui/icons-material'
 import { Button, IconButton, Toolbar, Typography } from '@mui/material'
-import { AppBarEx } from '@xylabs/react-common'
+import { AppBarEx } from '@xylabs/react-appbar'
 import { FlexCol } from '@xylabs/react-flexbox'
 
 export const AppBarsExample = () => {
