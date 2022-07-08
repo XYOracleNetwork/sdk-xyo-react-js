@@ -13,7 +13,7 @@ const useHuriHash = (
   huriOrHash?: string | Huri,
   huriUri?: string,
   options?: FetchHuriHashOptions
-): [XyoPayload | undefined, boolean, XyoApiError | undefined, boolean | undefined] => {
+): [XyoPayload | undefined, boolean | undefined, XyoApiError | undefined, boolean | undefined] => {
   const hash = useCallback((huriOrHash?: string | Huri) => {
     if (huriOrHash) {
       if (typeof huriOrHash === 'string') {

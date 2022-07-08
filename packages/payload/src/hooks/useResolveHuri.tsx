@@ -2,7 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { FetchHuriHashOptions, findHuriNetwork } from './lib'
 
@@ -10,18 +10,24 @@ const useResolveHuri = (
   huriUri?: string,
   dependentNotFound?: boolean,
   options?: FetchHuriHashOptions
-): [XyoPayload | undefined, boolean, XyoApiError | undefined, boolean | undefined] => {
+): [XyoPayload | undefined, boolean | undefined, XyoApiError | undefined, boolean | undefined] => {
   const { network, networks, setNetwork } = useNetwork()
   const [huriPayload, setHuriPayload] = useState<XyoPayload>()
-  const [huriPayloadNotFound, setHuriPayloadNotFound] = useState(false)
+  const [huriPayloadNotFound, setHuriPayloadNotFound] = useState<boolean>()
   const [huriNetworkNotFound, setHuriNetworkNotFound] = useState<boolean>()
   const [huriApiError, setHuriApiError] = useState<XyoApiError>()
 
   const { changeActiveNetwork } = options ?? {}
 
+  useEffect(() => {
+    // Initially, sync local not found with dependent's status
+    setHuriPayloadNotFound(dependentNotFound)
+  }, [dependentNotFound])
+
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
+      // if dependent value is resolved, don't do anything, if not resolved, try to resolve huriUri
       if ((dependentNotFound === undefined || dependentNotFound) && huriUri) {
         const huriInstance = new Huri(huriUri)
 
@@ -50,11 +56,6 @@ const useResolveHuri = (
           }
         } else {
           setHuriNetworkNotFound(true)
-        }
-      } else {
-        // If the dependent is not found, then assume not found till proven otherwise
-        if (dependentNotFound) {
-          setHuriPayloadNotFound(true)
         }
       }
     },

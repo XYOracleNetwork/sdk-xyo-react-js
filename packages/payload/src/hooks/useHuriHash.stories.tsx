@@ -1,12 +1,13 @@
 /* eslint-disable import/no-internal-modules */
 import { Alert, Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { FlexCol } from '@xylabs/react-flexbox'
+import { ButtonEx } from '@xylabs/react-button'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { Huri } from '@xyo-network/payload'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { XyoSchemaCache } from '@xyo-network/utils'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState } from 'react'
 
 import { FetchHuriHashOptions } from './lib'
 import { useHuriHash } from './useHuriHash'
@@ -17,6 +18,7 @@ interface UseHuriHashComponentProps {
   huriOrHash: string | Huri
   huriUri?: string
   options?: FetchHuriHashOptions
+  reTestable?: boolean
 }
 
 const apiDomain = 'https://beta.api.archivist.xyo.network'
@@ -34,14 +36,25 @@ const Wrapper: React.FC<UseHuriHashComponentProps> = (props) => (
   </NetworkMemoryProvider>
 )
 
-const UseHuriHashComponent: React.FC<UseHuriHashComponentProps> = ({ huriOrHash, huriUri, options }) => {
-  const [payload, notFound, _, networkNotFound] = useHuriHash(huriOrHash, huriUri, options)
+const UseHuriHashComponent: React.FC<UseHuriHashComponentProps> = ({ huriOrHash, huriUri, options, reTestable }) => {
+  const [trigger, setTrigger] = useState<string | Huri>(huriOrHash)
+  const [payload, notFound, , networkNotFound] = useHuriHash(trigger, huriUri, options)
 
   return (
     <>
       <Typography variant="body1" fontWeight="bold">
         Fetches the payload for a huriOrHash.
       </Typography>
+      {reTestable ? (
+        <FlexRow columnGap={2}>
+          <ButtonEx variant="contained" onClick={() => setTrigger(hash)}>
+            Fetch Valid Hash
+          </ButtonEx>
+          <ButtonEx variant="contained" onClick={() => setTrigger('foo')}>
+            Hash Not Found
+          </ButtonEx>
+        </FlexRow>
+      ) : null}
       <FlexCol my={3}>
         {notFound ? <Alert severity="warning">Not Found</Alert> : null}
         {networkNotFound ? <Alert severity="warning">Network Not Found</Alert> : null}
@@ -72,7 +85,7 @@ const Default = Template.bind({})
 Default.args = { huriOrHash: hash }
 
 const NotFound = Template.bind({})
-NotFound.args = { huriOrHash: 'foo' }
+NotFound.args = { huriOrHash: 'foo', reTestable: true }
 
 const WithHuri = Template.bind({})
 WithHuri.args = { huriOrHash: new Huri(`${apiDomain}/${hash}`) }
