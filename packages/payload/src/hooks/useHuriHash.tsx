@@ -6,7 +6,14 @@ import { FetchHuriHashOptions } from './lib'
 import { usePayload } from './usePayload'
 import { useResolveHuri } from './useResolveHuri'
 
-const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: FetchHuriHashOptions): [XyoPayload | undefined, boolean, XyoApiError | undefined] => {
+/**
+ * Resolve a hash or a huri regardless of network
+ */
+const useHuriHash = (
+  huriOrHash?: string | Huri,
+  huriUri?: string,
+  options?: FetchHuriHashOptions
+): [XyoPayload | undefined, boolean, XyoApiError | undefined, boolean | undefined] => {
   const hash = useCallback((huriOrHash?: string | Huri) => {
     if (huriOrHash) {
       if (typeof huriOrHash === 'string') {
@@ -18,10 +25,15 @@ const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: Fet
     }
   }, [])
 
-  const [payload, notFound, apiError] = usePayload(hash(huriOrHash))
-  const [huriPayload, huriPayloadNotFound, huriApiError] = useResolveHuri(huriUri, notFound, options)
+  const foundHash = hash(huriOrHash)
 
-  return [payload ?? huriPayload, huriPayloadNotFound, apiError ?? huriApiError]
+  // Optimistically try to grab the has from the current network and archive
+  const [payload, notFound, apiError] = usePayload(foundHash)
+
+  // If payload isn't found, fallback to the huriUri
+  const [huriPayload, huriPayloadNotFound, huriApiError, networkNotFound] = useResolveHuri(huriUri, notFound, options)
+
+  return [payload ?? huriPayload, huriPayloadNotFound, apiError ?? huriApiError, networkNotFound]
 }
 
 export { useHuriHash }

@@ -1,32 +1,41 @@
 /* eslint-disable import/no-internal-modules */
-import { Typography } from '@mui/material'
+import { Alert, Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { Huri } from '@xyo-network/payload'
+import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { lazy, Suspense } from 'react'
 
-import { ArchivistApiProvider } from '../../../archivist-api/src'
+import { FetchHuriHashOptions } from './lib'
 import { useHuriHash } from './useHuriHash'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 interface UseHuriHashComponentProps {
   huriOrHash: string | Huri
+  huriUri?: string
+  options?: FetchHuriHashOptions
 }
 
 const apiDomain = 'https://beta.api.archivist.xyo.network'
 const hash = '5605fabad11b10bb5fb86b309ca0970894eda8f22362dda1a489817723bca992'
 XyoSchemaCache.instance.proxy = `${apiDomain}/domain`
 
-const Wrapper: React.FC<UseHuriHashComponentProps> = ({ huriOrHash }) => (
-  <ArchivistApiProvider apiDomain={apiDomain}>
-    <UseHuriHashComponent huriOrHash={huriOrHash} />
-  </ArchivistApiProvider>
+const mainApiDomain = 'https://api.archivist.xyo.network'
+const mainHash = 'd3a3936e31ba1d835c528784ab77c1eaaeedd6e16b7aad68a88241ce539853cb'
+
+const Wrapper: React.FC<UseHuriHashComponentProps> = (props) => (
+  <NetworkMemoryProvider>
+    <ArchivistApiProvider apiDomain={apiDomain}>
+      <UseHuriHashComponent {...props} />
+    </ArchivistApiProvider>
+  </NetworkMemoryProvider>
 )
 
-const UseHuriHashComponent: React.FC<UseHuriHashComponentProps> = ({ huriOrHash }) => {
-  const [payload] = useHuriHash(huriOrHash)
+const UseHuriHashComponent: React.FC<UseHuriHashComponentProps> = ({ huriOrHash, huriUri, options }) => {
+  const [payload, notFound, _, networkNotFound] = useHuriHash(huriOrHash, huriUri, options)
 
   return (
     <>
@@ -34,6 +43,8 @@ const UseHuriHashComponent: React.FC<UseHuriHashComponentProps> = ({ huriOrHash 
         Fetches the payload for a huriOrHash.
       </Typography>
       <FlexCol my={3}>
+        {notFound ? <Alert severity="warning">Not Found</Alert> : null}
+        {networkNotFound ? <Alert severity="warning">Network Not Found</Alert> : null}
         <Suspense fallback={<FlexCol busy />}>
           <JsonView src={payload || {}} />
         </Suspense>
@@ -53,17 +64,31 @@ const StorybookEntry: Meta = {
   title: 'payload/useHuriHash',
 }
 
-const Template: ComponentStory<typeof UseHuriHashComponent> = ({ huriOrHash }) => {
-  return <Wrapper huriOrHash={huriOrHash} />
+const Template: ComponentStory<typeof UseHuriHashComponent> = (props) => {
+  return <Wrapper {...props} />
 }
 
 const Default = Template.bind({})
 Default.args = { huriOrHash: hash }
 
+const NotFound = Template.bind({})
+NotFound.args = { huriOrHash: 'foo' }
+
 const WithHuri = Template.bind({})
 WithHuri.args = { huriOrHash: new Huri(`${apiDomain}/${hash}`) }
 
-export { Default, WithHuri }
+const WithHuriUri = Template.bind({})
+WithHuriUri.args = { huriUri: `${mainApiDomain}/${mainHash}` }
+
+const WithHuriUriNetworkNotFound = Template.bind({})
+WithHuriUriNetworkNotFound.args = { huriUri: `http://badarchivisturl.com/${mainHash}` }
+
+// Note - story will work correctly once main net return 200 instead of 404 when payloads aren't found
+// Resolve huriUri when network is different from the current network
+const WithHuriUriNotFound = Template.bind({})
+WithHuriUriNotFound.args = { huriUri: `${mainApiDomain}/foo` }
+
+export { Default, NotFound, WithHuri, WithHuriUri, WithHuriUriNetworkNotFound, WithHuriUriNotFound }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

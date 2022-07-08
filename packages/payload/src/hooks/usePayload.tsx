@@ -5,17 +5,17 @@ import { useArchive } from '@xyo-network/react-archive'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { useState } from 'react'
 
-export const usePayload = (hash?: string): [XyoPayload | undefined, boolean, XyoApiError | undefined] => {
+export const usePayload = (hash?: string): [XyoPayload | undefined, boolean | undefined, XyoApiError | undefined] => {
   const { api } = useArchivistApi()
   const { archive } = useArchive()
-  const [notFound, setNotFound] = useState(false)
+  const [notFound, setNotFound] = useState<boolean>()
   const [apiError, setApiError] = useState<XyoApiError>()
   const [payload, setPayload] = useState<XyoPayload>()
 
   const reset = () => {
     setPayload(undefined)
     setApiError(undefined)
-    setNotFound(false)
+    setNotFound(undefined)
   }
 
   useAsyncEffect(
@@ -23,9 +23,9 @@ export const usePayload = (hash?: string): [XyoPayload | undefined, boolean, Xyo
     async (mounted) => {
       if (api && hash && hash.length > 0) {
         try {
+          reset()
           const result = await api?.archive(archive).payload.hash(hash).get()
           if (mounted()) {
-            reset()
             if (result?.length) {
               setPayload(result[0])
             } else if (result) {
