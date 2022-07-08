@@ -1,8 +1,8 @@
 /* eslint-disable import/no-internal-modules */
 import { Breadcrumbs, List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { LinkEx } from '@xylabs/react-common'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { LinkEx } from '@xylabs/react-link'
 import { SiteMenuListItem } from '@xyo-network/react-appbar'
 import { BrowserRouter } from 'react-router-dom'
 

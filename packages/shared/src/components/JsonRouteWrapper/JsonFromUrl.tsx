@@ -1,4 +1,4 @@
-import { ErrorDialog } from '@xylabs/react-common'
+import { ErrorDialog } from '@xylabs/react-dialogs'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import axios, { AxiosError, AxiosResponse } from 'axios'
