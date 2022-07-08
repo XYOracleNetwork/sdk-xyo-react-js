@@ -1,19 +1,15 @@
-import { XyoApiError } from '@xyo-network/api'
-import { Huri, XyoPayload } from '@xyo-network/payload'
+import { Huri } from '@xyo-network/payload'
 import { useCallback } from 'react'
 
 import { FetchHuriHashOptions } from './lib'
+import { UseHuriOrHashArgs } from './ResolvePayloadArgs'
 import { usePayload } from './usePayload'
 import { useResolveHuri } from './useResolveHuri'
 
 /**
  * Resolve a hash or a huri regardless of network
  */
-const useHuriHash = (
-  huriOrHash?: string | Huri,
-  huriUri?: string,
-  options?: FetchHuriHashOptions
-): [XyoPayload | undefined, boolean | undefined, XyoApiError | undefined, boolean | undefined] => {
+const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: FetchHuriHashOptions): UseHuriOrHashArgs => {
   const hash = useCallback((huriOrHash?: string | Huri) => {
     if (huriOrHash) {
       if (typeof huriOrHash === 'string') {

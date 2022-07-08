@@ -1,4 +1,5 @@
 export * from './lib'
+export * from './ResolvePayloadArgs'
 export * from './useGetSchema'
 export * from './useHuriHash'
 export * from './usePayload'
