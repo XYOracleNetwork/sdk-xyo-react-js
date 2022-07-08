@@ -5,7 +5,9 @@ import { useArchive } from '@xyo-network/react-archive'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { useState } from 'react'
 
-export const usePayload = (hash?: string): [XyoPayload | undefined, boolean | undefined, XyoApiError | undefined] => {
+import { UsePayloadArgs } from './ResolvePayloadArgs'
+
+export const usePayload = (hash?: string): UsePayloadArgs => {
   const { api } = useArchivistApi()
   const { archive } = useArchive()
   const [notFound, setNotFound] = useState<boolean>()

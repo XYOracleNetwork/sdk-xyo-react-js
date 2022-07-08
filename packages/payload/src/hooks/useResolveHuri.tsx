@@ -5,12 +5,9 @@ import { useNetwork } from '@xyo-network/react-network'
 import { useEffect, useState } from 'react'
 
 import { FetchHuriHashOptions, findHuriNetwork } from './lib'
+import { UseHuriOrHashArgs } from './ResolvePayloadArgs'
 
-const useResolveHuri = (
-  huriUri?: string,
-  dependentNotFound?: boolean,
-  options?: FetchHuriHashOptions
-): [XyoPayload | undefined, boolean | undefined, XyoApiError | undefined, boolean | undefined] => {
+const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?: FetchHuriHashOptions): UseHuriOrHashArgs => {
   const { network, networks, setNetwork } = useNetwork()
   const [huriPayload, setHuriPayload] = useState<XyoPayload>()
   const [huriPayloadNotFound, setHuriPayloadNotFound] = useState<boolean>()
