@@ -56,6 +56,7 @@ const UseHuriHashComponent: React.FC<UseHuriHashComponentProps> = ({ huriOrHash,
         </FlexRow>
       ) : null}
       <FlexCol my={3}>
+        {notFound === undefined && networkNotFound === undefined ? 'Loading...' : null}
         {notFound ? <Alert severity="warning">Not Found</Alert> : null}
         {networkNotFound ? <Alert severity="warning">Network Not Found</Alert> : null}
         <Suspense fallback={<FlexCol busy />}>
