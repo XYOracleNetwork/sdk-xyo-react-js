@@ -1,7 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoApiError, XyoArchive } from '@xyo-network/api'
+import { XyoApiError } from '@xyo-network/api'
 import axios from 'axios'
 import { useState } from 'react'
 
@@ -58,35 +58,32 @@ const TemplateStats: ComponentStory<typeof XyoApiErrorRender> = () => {
   )
 }
 
-const TemplateArchives: ComponentStory<typeof XyoApiErrorRender> = () => {
+const Template401: ComponentStory<typeof XyoApiErrorRender> = () => {
   const [apiError, setApiError] = useState<XyoApiError>()
-  const [archives, setArchives] = useState<XyoArchive[]>([])
-  const { api } = useArchivistApi()
+  const [response, setResponse] = useState<any>()
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
     try {
-      if (api) {
-        const response = (await api.archives.get()) ?? []
-        setArchives(response)
-        setApiError(undefined)
-      }
+      const response = await axios.get('http://httpstat.us/401')
+      setResponse(response)
+      setApiError(undefined)
     } catch (error) {
       setApiError(error as XyoApiError)
     }
-  }, [api])
+  }, [])
 
   return (
     <>
       <XyoApiErrorRender apiError={apiError}>
         <AuthStatusIconButton />
-        <ul>{archives.length > 0 && archives.map((archive, index) => <li key={index}>{archive.archive}</li>)}</ul>
+        <pre>{JSON.stringify(response, null, 2)}</pre>
       </XyoApiErrorRender>
     </>
   )
 }
 
-const Template404: ComponentStory<typeof XyoApiErrorRender> = () => {
+const Template500: ComponentStory<typeof XyoApiErrorRender> = () => {
   const [apiError, setApiError] = useState<XyoApiError>()
 
   useAsyncEffect(
@@ -106,14 +103,14 @@ const Template404: ComponentStory<typeof XyoApiErrorRender> = () => {
 }
 
 TemplateStats.decorators = [archivistApiDecorator]
-TemplateArchives.decorators = [archivistApiDecorator]
-Template404.decorators = [archivistApiDecorator]
+Template401.decorators = [archivistApiDecorator]
+Template500.decorators = [archivistApiDecorator]
 
 const AuthRequired = TemplateStats.bind({})
-const UnAuthedFallback = TemplateArchives.bind({})
-const Server400 = Template404.bind({})
+const UnAuthedFallback = Template401.bind({})
+const Server500 = Template500.bind({})
 
-export { AuthRequired, Server400, UnAuthedFallback }
+export { AuthRequired, Server500, UnAuthedFallback }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
