@@ -10,7 +10,7 @@ const ApiErrorAlert: React.FC<ApiErrorAlertProps> = ({ call, ...props }) => {
   return (
     <Alert {...props} sx={{ marginBottom: theme.spacing(1) }} severity="error">
       <AlertTitle>
-        {call?.config?.method?.toUpperCase()} {call?.response?.status} - {call?.config.url}
+        {call?.config?.method?.toUpperCase()} {call?.response?.status} - {call?.config?.url}
       </AlertTitle>
       <Typography variant="caption" mr={0.5} fontWeight="bold">
         Error:
