@@ -26,8 +26,9 @@ const Template: ComponentStory<typeof ProjectTwoPanelReflectionViewer> = ({ refl
 }
 
 const Client = Template.bind({})
+const clientDocsWithProject = { kindString: 'Project', ...clientDocs }
 Client.args = {
-  reflection: clientDocs as unknown as ProjectReflection,
+  reflection: clientDocsWithProject as unknown as ProjectReflection,
 }
 
 export { Client }
