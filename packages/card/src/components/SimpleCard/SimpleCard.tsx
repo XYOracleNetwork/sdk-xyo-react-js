@@ -1,10 +1,10 @@
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 import { alpha, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
+import { useIsMobile } from '@xyo-network/react-shared'
 import { ReactNode, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
-import { useIsMobile } from '../../hooks'
 import { CardEx, CardExProps } from '../CardEx'
 
 export interface SimpleCardProps extends CardExProps {

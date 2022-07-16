@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "outDir": "./dist/esm",
+    "target": "ES2021",
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "exclude": ["**/*.spec.*", "**/*.stories.*", ".storybook", "**/*.example.*"],
+  "extends": "./tsconfig.json",
+  "include": ["src"]
+}
