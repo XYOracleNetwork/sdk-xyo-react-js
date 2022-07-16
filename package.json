@@ -16,9 +16,9 @@
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.9.0",
     "@xylabs/react-shared": "^2.14.8",
-    "@xyo-network/boundwitness": "^2.21.18",
-    "@xyo-network/core": "^2.21.18",
-    "@xyo-network/payload": "^2.21.18",
+    "@xyo-network/boundwitness": "^2.21.19",
+    "@xyo-network/core": "^2.21.19",
+    "@xyo-network/payload": "^2.21.19",
     "@xyo-network/react-app-settings": "workspace:^",
     "@xyo-network/react-appbar": "workspace:^",
     "@xyo-network/react-archive": "workspace:^",
@@ -128,7 +128,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
-    "build": "yarn build:esm || yarn build:cjs && yarn gen:docs",
+    "build": "yarn build:esm && yarn build:cjs && yarn gen:docs",
     "build:cjs": "yarn workspaces foreach -ptRv run build:package:cjs",
     "build:esm": "yarn workspaces foreach -ptRv run build:package:esm",
     "build:stories": "tsc -p $INIT_CWD/tsconfig.build.stories.json",
