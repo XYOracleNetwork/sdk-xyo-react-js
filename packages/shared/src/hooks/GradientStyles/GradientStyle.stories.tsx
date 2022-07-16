@@ -1,9 +1,8 @@
-import { Divider, Grid, Typography } from '@mui/material'
+import { Divider, Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
-import { SimpleCard } from '../../components'
 import { useGradientStyles } from './GradientStyles'
 
 const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
@@ -41,32 +40,6 @@ const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
         Card Border
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={4}>
-          <SimpleCard
-            gradient="border"
-            headline="Gradient Border Simple Card"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam illo molestiae nisi perferendis a error, eum repellendus voluptatibus, provident, voluptatum qui laborum assumenda minus! Cum id quo eligendi dolor expedita."
-            interactionVariant="button"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <SimpleCard
-            gradient="background"
-            headline="Gradient Background Simple Card"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam illo molestiae nisi perferendis a error, eum repellendus voluptatibus, provident, voluptatum qui laborum assumenda minus! Cum id quo eligendi dolor expedita."
-            interactionVariant="button"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <SimpleCard
-            gradient="border"
-            headline="Gradient Border Simple Card"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam illo molestiae nisi perferendis a error, eum repellendus voluptatibus, provident, voluptatum qui laborum assumenda minus! Cum id quo eligendi dolor expedita."
-            interactionVariant="button"
-          />
-        </Grid>
-      </Grid>
     </FlexCol>
   )
 }

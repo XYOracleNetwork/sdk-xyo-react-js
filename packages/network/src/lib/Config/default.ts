@@ -1,5 +1,7 @@
 import { XyoNetworkPayload, XyoNetworkPayloadSchema } from '@xyo-network/network'
-import { findArchivistPreset, findDivinerPreset } from '@xyo-network/react-shared'
+
+import { findArchivistPreset } from '../archivistPresets'
+import { findDivinerPreset } from '../divinerPresets'
 
 export const defaultNetworkConfigs: XyoNetworkPayload[] = [
   {
