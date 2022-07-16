@@ -1,6 +1,5 @@
 import { Card, CardProps } from '@mui/material'
-
-import { useGradientStyles } from '../hooks'
+import { useGradientStyles } from '@xyo-network/react-shared'
 
 export type CardExProps = CardProps & {
   gradient?: 'border' | 'background'
