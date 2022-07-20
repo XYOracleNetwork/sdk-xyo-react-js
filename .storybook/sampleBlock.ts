@@ -1,5 +1,5 @@
 import { XyoPayloadWithPartialMeta } from '@xyo-network/payload'
-import { XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
+import { XyoBoundWitness, XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
 import { StringKeyObject } from '@xyo-network/core'
 
 export const sampleBlock = {
@@ -21,7 +21,7 @@ export const sampleBlock = {
   schema: 'network.xyo.boundwitness',
 }
 
-export const sampleBlockWithPayloads: XyoBoundWitnessWithPartialMeta<unknown, XyoPayloadWithPartialMeta<StringKeyObject>> = {
+export const sampleBlockWithPayloads: XyoBoundWitnessWithPartialMeta<XyoBoundWitness, XyoPayloadWithPartialMeta<StringKeyObject>> = {
   "_archive": "temp",
   "_client": "js",
   "_hash": "b31230e7f3386a63acc64cb5f89e5353d5f9379b3bd3ae7385c47b2e600fcbb2",
