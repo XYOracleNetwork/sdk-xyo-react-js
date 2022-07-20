@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-schema",
+  "name": "@xyo-network/react-archivist",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -12,28 +12,25 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.1",
-    "@xylabs/react-common": "^2.14.10",
-    "@xylabs/react-link": "^2.14.10",
+    "@xylabs/react-button": "^2.14.10",
+    "@xylabs/react-flexbox": "^2.14.10",
     "@xylabs/react-shared": "^2.14.10",
+    "@xylabs/sdk-js": "2.6.2",
     "@xyo-network/api": "^2.21.23",
+    "@xyo-network/archivist": "^2.21.23",
+    "@xyo-network/boundwitness": "^2.21.23",
     "@xyo-network/payload": "^2.21.23",
-    "@xyo-network/react-archive": "workspace:^",
-    "@xyo-network/react-archivist-api": "workspace:^",
-    "@xyo-network/react-property": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/utils": "^2.21.23",
+    "lru-cache": "^7.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
     "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
-    "@storybook/react": "^6.5.9",
     "@xylabs/tsconfig": "^1.0.14"
   },
   "browser": "dist/esm/index.js",

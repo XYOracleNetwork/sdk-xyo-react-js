@@ -5,7 +5,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { ArchivistApiProvider, useArchivistApi } from '@xyo-network/react-archivist-api'
 import { lazy, Suspense, useState } from 'react'
 
-import { usePayload } from './usePayload'
+import { useLoadPayload } from './useLoadPayload'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
@@ -21,7 +21,7 @@ const Wrapper: React.FC<{ hash?: string }> = ({ hash }) => (
 const UsePayloadComponent: React.FC<{ hash?: string }> = ({ hash }) => {
   const { api } = useArchivistApi()
   const [trigger, setTrigger] = useState<string>()
-  const [payload, notFound] = usePayload(trigger)
+  const [payload, notFound] = useLoadPayload(trigger)
 
   return (
     <>

@@ -7,7 +7,8 @@ import { useEffect, useState } from 'react'
 
 import { UsePayload } from './ResolvePayloadArgs'
 
-export const usePayload = (hash?: string): UsePayload => {
+// I hate this name, would prefer loadPayload, but need use prefix to make it a 'hook'
+export const useLoadPayload = (hash?: string): UsePayload => {
   const { api } = useArchivistApi()
   const { archive } = useArchive()
   const [localHash, setLocalHash] = useState<string>()

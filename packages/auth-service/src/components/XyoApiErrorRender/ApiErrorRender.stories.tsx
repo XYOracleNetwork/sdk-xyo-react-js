@@ -2,7 +2,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { useState } from 'react'
 
 import { archivistApiDecorator, authDecorator } from '../../../../../.storybook'
@@ -60,7 +60,7 @@ const TemplateStats: ComponentStory<typeof XyoApiErrorRender> = () => {
 
 const Template401: ComponentStory<typeof XyoApiErrorRender> = () => {
   const [apiError, setApiError] = useState<XyoApiError>()
-  const [response, setResponse] = useState<any>()
+  const [response, setResponse] = useState<AxiosResponse>()
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
