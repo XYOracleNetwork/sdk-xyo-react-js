@@ -3,6 +3,7 @@ import { XyoApiArchivist, XyoArchivist, XyoArchivistApi, XyoMemoryArchivist } fr
 import { useState } from 'react'
 
 import { ArchivistContext } from './Context'
+import { useArchivist } from './use'
 
 export interface ArchivistProviderProps {
   required?: boolean
@@ -10,7 +11,7 @@ export interface ArchivistProviderProps {
 }
 
 export const ArchivistProvider: React.FC<WithChildren<ArchivistProviderProps>> = ({ archivist: archivistProp, required = false, children }) => {
-  const [archivist, setArchivist] = useState<XyoArchivist | undefined>(archivistProp ?? new XyoMemoryArchivist())
+  const [archivist, setArchivist] = useState<XyoArchivist | undefined>(archivistProp)
 
   return (
     <ArchivistContext.Provider
@@ -27,10 +28,12 @@ export const ArchivistProvider: React.FC<WithChildren<ArchivistProviderProps>> =
 
 export interface ArchivistMemoryProviderProps {
   required?: boolean
+  parent?: XyoArchivist
 }
 
-export const ArchivistMemoryProvider: React.FC<WithChildren<ArchivistMemoryProviderProps>> = (props) => {
-  return <ArchivistProvider archivist={new XyoMemoryArchivist()} {...props} />
+export const ArchivistMemoryProvider: React.FC<WithChildren<ArchivistMemoryProviderProps>> = ({ parent: parentProp, ...props }) => {
+  const { archivist: parent } = useArchivist()
+  return <ArchivistProvider archivist={new XyoMemoryArchivist(parentProp ?? parent)} {...props} />
 }
 
 export interface ArchivistApiProviderProps {
