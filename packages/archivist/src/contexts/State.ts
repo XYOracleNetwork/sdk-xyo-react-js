@@ -1,4 +1,4 @@
-import { XyoArchivist } from '@xyo-network/api'
+import { XyoArchivist } from '@xyo-network/archivist'
 import { Dispatch } from 'react'
 
 export interface ArchivistState {

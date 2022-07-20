@@ -1,5 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoApiArchivist, XyoArchivist, XyoArchivistApi, XyoMemoryArchivist } from '@xyo-network/api'
+import { XyoApiArchivist, XyoArchivistApi } from '@xyo-network/api'
+import { XyoArchivist, XyoMemoryArchivist } from '@xyo-network/archivist'
 import { useState } from 'react'
 
 import { ArchivistContext } from './Context'
@@ -26,22 +27,22 @@ export const ArchivistProvider: React.FC<WithChildren<ArchivistProviderProps>> =
   )
 }
 
-export interface ArchivistMemoryProviderProps {
+export interface MemoryArchivistProviderProps {
   required?: boolean
   parent?: XyoArchivist
 }
 
-export const ArchivistMemoryProvider: React.FC<WithChildren<ArchivistMemoryProviderProps>> = ({ parent: parentProp, ...props }) => {
+export const MemoryArchivistProvider: React.FC<WithChildren<MemoryArchivistProviderProps>> = ({ parent: parentProp, ...props }) => {
   const { archivist: parent } = useArchivist()
   return <ArchivistProvider archivist={new XyoMemoryArchivist(parentProp ?? parent)} {...props} />
 }
 
-export interface ArchivistApiProviderProps {
+export interface ApiArchivistProviderProps {
   required?: boolean
   api: XyoArchivistApi
   archive: string
 }
 
-export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderProps>> = ({ api, archive, ...props }) => {
+export const ApiArchivistProvider: React.FC<WithChildren<ApiArchivistProviderProps>> = ({ api, archive, ...props }) => {
   return <ArchivistProvider archivist={new XyoApiArchivist(api, archive)} {...props} />
 }
