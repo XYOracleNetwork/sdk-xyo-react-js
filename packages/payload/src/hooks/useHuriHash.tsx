@@ -1,9 +1,9 @@
 import { Huri } from '@xyo-network/payload'
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 
 import { FetchHuriHashOptions } from './lib'
 import { UseHuriOrHash } from './ResolvePayloadArgs'
-import { usePayload } from './usePayload'
+import { useLoadPayload } from './useLoadPayload'
 import { useResolveHuri } from './useResolveHuri'
 
 /**
@@ -24,7 +24,7 @@ const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: Fet
   const providedHash = hash(huriOrHash)
 
   // Optimistically try to grab the has from the current network and archive
-  const [payload, notFound, apiError] = usePayload(providedHash)
+  const [payload, notFound, apiError] = useLoadPayload(providedHash)
 
   // if a huriUri was passed, we can safely override the notFound from the hash only query
   const notFoundOverride = huriUri ? true : notFound
