@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoApiArchivist, XyoArchivistApi } from '@xyo-network/api'
+import { XyoArchivistApi, XyoRemoteArchivist } from '@xyo-network/api'
 import { XyoArchivist, XyoMemoryArchivist } from '@xyo-network/archivist'
 import { useState } from 'react'
 
@@ -43,6 +43,6 @@ export interface ApiArchivistProviderProps {
   archive: string
 }
 
-export const ApiArchivistProvider: React.FC<WithChildren<ApiArchivistProviderProps>> = ({ api, archive, ...props }) => {
-  return <ArchivistProvider archivist={new XyoApiArchivist(api, archive)} {...props} />
+export const RemoteArchivistProvider: React.FC<WithChildren<ApiArchivistProviderProps>> = ({ api, archive, ...props }) => {
+  return <ArchivistProvider archivist={new XyoRemoteArchivist(api, archive)} {...props} />
 }

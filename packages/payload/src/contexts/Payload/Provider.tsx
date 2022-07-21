@@ -20,7 +20,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ 
       if (payload === undefined && hash) {
         const loadedPayload = await archivist?.get(hash)
         if (mounted()) {
-          setPayload(loadedPayload?.pop())
+          setPayload(loadedPayload)
         }
       }
     },
