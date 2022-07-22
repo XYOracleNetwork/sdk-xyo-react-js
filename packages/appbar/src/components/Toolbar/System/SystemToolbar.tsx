@@ -17,10 +17,12 @@ export interface SystemToolbarProps extends ToolbarProps {
   darkModeButton?: boolean
   authButton?: boolean
   menuItems?: ReactNode
+  precedingChildren?: ReactNode
 }
 
 export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   children,
+  precedingChildren,
   networkSelectProps,
   archiveSelectProps,
   hideNetworkSelect,
@@ -32,6 +34,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
 }) => {
   return (
     <Toolbar {...props}>
+      {precedingChildren}
       {hideNetworkSelect ? null : (
         <FlexRow marginX={0.5}>
           <Paper variant="elevation">
