@@ -18,6 +18,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
     <SelectEx
       variant="outlined"
       size="small"
+      sx={{ maxWidth: 300 }}
       value={archive ?? ''}
       onChange={(event, child) => {
         if (event.target.value !== archive) {
