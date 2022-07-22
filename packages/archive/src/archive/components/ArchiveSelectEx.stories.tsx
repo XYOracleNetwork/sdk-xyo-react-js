@@ -1,11 +1,14 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/react-common'
+import { WithChildren } from '@xylabs/react-shared'
+import { XyoArchive } from '@xyo-network/api'
+import { useState } from 'react'
 
 import { authDecorator, WrappedArgs } from '../../../../../.storybook'
 import { ArchivistApiProvider } from '../../../../archivist-api/src'
-import { ArchivesProvider } from '../../archives'
-import { ArchiveProvider } from '../contexts'
+import { ArchivesContext } from '../../archives'
+import { ArchiveContext } from '../contexts'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 
 const StorybookEntry = {
@@ -20,17 +23,41 @@ const StorybookEntry = {
   title: 'archive/ArchiveSelectEx',
 } as ComponentMeta<typeof ArchiveSelectEx>
 
+const veryLongArchiveName = 'some-very-very-long-archive-name-that-should-be-truncated'
+const temp = 'temp'
+
+const FakeArchivesProvider: React.FC<WithChildren> = ({ children }) => {
+  const archives: XyoArchive[] = [
+    {
+      accessControl: false,
+      archive: veryLongArchiveName,
+      user: '0x2345',
+    },
+    {
+      accessControl: false,
+      archive: 'temp',
+      user: '0x2345',
+    },
+  ]
+  return <ArchivesContext.Provider value={{ archives, provided: true }}>{children}</ArchivesContext.Provider>
+}
+
+const FakeArchiveProvider: React.FC<WithChildren> = ({ children }) => {
+  const [archive, setArchive] = useState(temp)
+  return <ArchiveContext.Provider value={{ archive, provided: true, setArchive }}>{children}</ArchiveContext.Provider>
+}
+
 const Template: ComponentStory<typeof ArchiveSelectEx> = (args) => {
   const combinedArgs = args as WrappedArgs & SelectExProps<string>
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { authState, ...props } = combinedArgs
   return (
     <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-      <ArchivesProvider>
-        <ArchiveProvider>
+      <FakeArchivesProvider>
+        <FakeArchiveProvider>
           <ArchiveSelectEx {...props}></ArchiveSelectEx>
-        </ArchiveProvider>
-      </ArchivesProvider>
+        </FakeArchiveProvider>
+      </FakeArchivesProvider>
     </ArchivistApiProvider>
   )
 }
