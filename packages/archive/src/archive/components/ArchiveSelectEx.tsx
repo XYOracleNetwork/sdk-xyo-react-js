@@ -1,4 +1,4 @@
-import { MenuItem } from '@mui/material'
+import { MenuItem, Theme, useMediaQuery } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/react-common'
 
 import { useArchives } from '../../archives'
@@ -7,6 +7,7 @@ import { useArchive } from '../contexts'
 export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...props }) => {
   const { archives } = useArchives()
   const { archive, setArchive } = useArchive()
+  const isMedium = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
 
   const archivesList = [...(archives?.map((archive) => archive.archive) ?? [])]
 
@@ -18,7 +19,7 @@ export const ArchiveSelectEx: React.FC<SelectExProps<string>> = ({ onChange, ...
     <SelectEx
       variant="outlined"
       size="small"
-      sx={{ maxWidth: 300 }}
+      sx={{ maxWidth: isMedium ? '100px' : '300px' }}
       value={archive ?? ''}
       onChange={(event, child) => {
         if (event.target.value !== archive) {
