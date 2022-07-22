@@ -33,14 +33,14 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   return (
     <Toolbar {...props}>
       {hideNetworkSelect ? null : (
-        <FlexRow marginX={0.5} maxWidth={120}>
+        <FlexRow marginX={0.5}>
           <Paper variant="elevation">
             <NetworkSelectEx fullWidth {...networkSelectProps} />
           </Paper>
         </FlexRow>
       )}
       {hideArchiveSelect ? null : (
-        <FlexRow marginX={0.5} maxWidth={120}>
+        <FlexRow marginX={0.5}>
           <Paper variant="elevation">
             <ArchiveSelectEx fullWidth {...archiveSelectProps} />
           </Paper>
