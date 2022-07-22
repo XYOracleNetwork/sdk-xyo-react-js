@@ -3,6 +3,7 @@ import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { XyoArchivist, XyoArchivistConfig, XyoMemoryArchivist } from '@xyo-network/archivist'
 import { useState } from 'react'
 
+import { ArchivistDetails } from '../components'
 import { ArchivistContext } from './Context'
 import { useArchivist } from './use'
 
@@ -32,10 +33,14 @@ export interface MemoryArchivistProviderProps {
   config?: XyoArchivistConfig
 }
 
-export const MemoryArchivistProvider: React.FC<WithChildren<MemoryArchivistProviderProps>> = ({ config = {}, ...props }) => {
+export const MemoryArchivistProvider: React.FC<WithChildren<MemoryArchivistProviderProps>> = ({ config = {}, children, ...props }) => {
   const { archivist } = useArchivist()
   config.parent = config.parent ?? archivist
-  return <ArchivistProvider archivist={new XyoMemoryArchivist(config)} {...props} />
+  return (
+    <ArchivistProvider archivist={new XyoMemoryArchivist(config)} {...props}>
+      {children}
+    </ArchivistProvider>
+  )
 }
 
 export interface ApiArchivistProviderProps {
