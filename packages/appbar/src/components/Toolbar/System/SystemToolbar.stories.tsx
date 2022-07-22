@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { List } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WrappedAuthComponent } from '../../../../../../.storybook'
@@ -8,11 +8,11 @@ import { ArchiveProvider, ArchivesProvider } from '../../../../../archive/src'
 import { ArchivistApiProvider } from '../../../../../archivist-api/src'
 import { AuthProvider, AuthState } from '../../../../../auth/src'
 import { NetworkMemoryProvider } from '../../../../../network/src'
+import { TypographyEx } from '../../../../../shared/src'
 import { SiteMenuListItem } from '../../SiteMenu'
 import { SystemToolbar } from './SystemToolbar'
 
-const StorybookEntry = {
-  argTypes: {},
+const StorybookEntry: Meta = {
   component: SystemToolbar,
   parameters: {
     docs: {
@@ -20,7 +20,7 @@ const StorybookEntry = {
     },
   },
   title: 'appbar/Toolbar/System',
-} as ComponentMeta<typeof SystemToolbar>
+}
 
 const Template: ComponentStory<typeof SystemToolbar> = (args) => (
   <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
@@ -75,7 +75,16 @@ NeedsReAuth.args = {
   },
 }
 
-export { Default, NeedsReAuth, WithLoggedInAccount }
+const PrecedingChildren = Template.bind({})
+PrecedingChildren.args = {
+  precedingChildren: (
+    <TypographyEx variant="body1" mx={0.5}>
+      Preceding Child Component
+    </TypographyEx>
+  ),
+}
+
+export { Default, NeedsReAuth, PrecedingChildren, WithLoggedInAccount }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
