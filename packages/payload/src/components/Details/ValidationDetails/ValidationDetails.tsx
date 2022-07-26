@@ -6,12 +6,11 @@ import { SchemaProperty } from '@xyo-network/react-schema'
 
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
-export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ viewSchemaUrl, skipMeta = false, skipBody = false, value, ...props }) => {
+export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ viewSchemaUrl, skipBody = false, value, ...props }) => {
   const validator = value ? new XyoPayloadValidator(value as XyoPayloadWithMeta) : undefined
 
   const bodyErrors = skipBody ? [] : validator?.body.validate() ?? []
-  const metaErrors = skipMeta ? [] : validator?.meta.validate() ?? []
-  const errors: Error[] = [...bodyErrors, ...metaErrors]
+  const errors: Error[] = [...bodyErrors]
 
   let elevation = 2
   if (props.paper) {

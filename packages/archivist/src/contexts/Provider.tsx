@@ -3,7 +3,6 @@ import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { XyoArchivist, XyoArchivistConfig, XyoMemoryArchivist } from '@xyo-network/archivist'
 import { useState } from 'react'
 
-import { ArchivistDetails } from '../components'
 import { ArchivistContext } from './Context'
 import { useArchivist } from './use'
 

@@ -10,7 +10,8 @@
 [![codeclimate-badge][]][codeclimate-link]
 [![snyk-badge][]][snyk-link]
 
-> The XYO Foundation provides this source code available in our efforts to advance the understanding of the XYO Procotol and its possible uses.
+> The XYO Foundation provides this source code available in our efforts to
+> advance the understanding of the XYO Procotol and its possible uses.
 
 ## Table of Contents
 
