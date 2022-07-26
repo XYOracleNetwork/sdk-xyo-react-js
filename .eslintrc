@@ -3,6 +3,9 @@
   "extends": [
     "@xylabs/react"
   ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "ignorePatterns": ["node_modules", "build", "dist", "bin", "storybook-static", ".yarn"],
   "rules": {
     "import/no-default-export": "warn",

@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof PayloadValidationDetails> = (args) => (
 )
 
 const Default = Template.bind({})
-Default.args = { skipBody: true, skipMeta: true }
+Default.args = { skipBody: true }
 
 const WithViewSchemaLink = Template.bind({})
 WithViewSchemaLink.args = { viewSchemaUrl: 'http://beta.explore.xyo.network/6fe3f745b1179fefa74cc3c7eab58321bee1c9ca9e34d9585467364cc5d3bbe2/?huri=huri' }
