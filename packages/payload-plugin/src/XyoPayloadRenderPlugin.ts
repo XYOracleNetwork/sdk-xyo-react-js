@@ -3,24 +3,24 @@ import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload'
 import { ComponentType } from 'react'
 
-export interface XyoPayloadRenderProps<T extends XyoPayload = XyoPayload> {
-  payload?: T
+export interface XyoPayloadRenderProps {
+  payload?: XyoPayload
 }
 
-export interface XyoPayloadRenderPlugin<T extends XyoPayload = XyoPayload> {
+export interface XyoPayloadRenderPlugin {
   name: string
   components?: {
     card?: {
-      header?: ComponentType<XyoPayloadRenderProps<T> & CardHeaderProps>
-      content?: ComponentType<XyoPayloadRenderProps<T> & CardContentProps>
-      actionArea?: ComponentType<XyoPayloadRenderProps<T> & CardActionAreaProps>
+      header?: ComponentType<XyoPayloadRenderProps & CardHeaderProps>
+      content?: ComponentType<XyoPayloadRenderProps & CardContentProps>
+      actionArea?: ComponentType<XyoPayloadRenderProps & CardActionAreaProps>
     }
     table?: {
-      cell?: ComponentType<XyoPayloadRenderProps<T> & TableCellProps>
+      cell?: ComponentType<XyoPayloadRenderProps & TableCellProps>
     }
     details?: {
-      box?: ComponentType<XyoPayloadRenderProps<T> & FlexBoxProps>
+      box?: ComponentType<XyoPayloadRenderProps & FlexBoxProps>
     }
   }
-  canRender: (payload?: T) => boolean
+  canRender: (payload?: XyoPayload) => boolean
 }
