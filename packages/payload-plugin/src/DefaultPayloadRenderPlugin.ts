@@ -8,13 +8,13 @@ export const DefaultPayloadRenderPlugin: XyoPayloadRenderPlugin = {
     return !!payload?.schema
   },
   components: {
+    box: {
+      details: XyoPayloadDetailsBox,
+    },
     card: {
       actionArea: XyoPayloadCardActionArea,
       content: XyoPayloadCardContent,
       header: XyoPayloadCardHeader,
-    },
-    details: {
-      box: XyoPayloadDetailsBox,
     },
     table: {
       cell: XyoPayloadTableCell,

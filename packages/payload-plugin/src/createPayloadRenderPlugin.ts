@@ -1,6 +1,8 @@
-import { DefaultPayloadRenderPlugin } from './DefaultPayloadRenderPlugin'
-import { XyoPayloadRenderPlugin, XyoPayloadRenderPluginBase, XyoPayloadRenderPluginComponents } from './XyoPayloadRenderPlugin'
+import merge from 'lodash/merge'
 
-export const createPayloadRenderPlugin = (plugin: XyoPayloadRenderPluginBase & Partial<XyoPayloadRenderPluginComponents>): XyoPayloadRenderPlugin => {
-  return { ...DefaultPayloadRenderPlugin, ...plugin }
+import { DefaultPayloadRenderPlugin } from './DefaultPayloadRenderPlugin'
+import { XyoPayloadRenderPlugin, XyoPayloadRenderPluginConfig } from './XyoPayloadRenderPlugin'
+
+export const createPayloadRenderPlugin = (plugin: XyoPayloadRenderPluginConfig): XyoPayloadRenderPlugin => {
+  return merge({}, DefaultPayloadRenderPlugin, plugin)
 }
