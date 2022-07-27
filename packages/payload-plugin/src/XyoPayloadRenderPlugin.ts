@@ -42,6 +42,6 @@ export interface XyoPayloadRenderPlugin extends XyoPayloadRenderPluginBase {
   components: XyoPayloadRenderPluginComponents
 }
 
-export interface XyoPayloadRenderPluginConfig extends XyoPayloadRenderPluginBase, XyoPayloadRenderPluginComponents {
+export interface XyoPayloadRenderPluginConfig extends XyoPayloadRenderPluginBase {
   components?: XyoPayloadRenderPluginComponentsConfig
 }
