@@ -7,20 +7,25 @@ export interface XyoPayloadRenderProps {
   payload?: XyoPayload
 }
 
-export interface XyoPayloadRenderPlugin {
+export interface XyoPayloadRenderPluginBase {
   name: string
-  components?: {
-    card?: {
-      header?: ComponentType<XyoPayloadRenderProps & CardHeaderProps>
-      content?: ComponentType<XyoPayloadRenderProps & CardContentProps>
-      actionArea?: ComponentType<XyoPayloadRenderProps & CardActionAreaProps>
-    }
-    table?: {
-      cell?: ComponentType<XyoPayloadRenderProps & TableCellProps>
-    }
-    details?: {
-      box?: ComponentType<XyoPayloadRenderProps & FlexBoxProps>
-    }
-  }
   canRender: (payload?: XyoPayload) => boolean
 }
+
+export interface XyoPayloadRenderPluginComponents {
+  components: {
+    card: {
+      header: ComponentType<XyoPayloadRenderProps & CardHeaderProps>
+      content: ComponentType<XyoPayloadRenderProps & CardContentProps>
+      actionArea: ComponentType<XyoPayloadRenderProps & CardActionAreaProps>
+    }
+    table: {
+      cell: ComponentType<XyoPayloadRenderProps & TableCellProps>
+    }
+    details: {
+      box: ComponentType<XyoPayloadRenderProps & FlexBoxProps>
+    }
+  }
+}
+
+export interface XyoPayloadRenderPlugin extends XyoPayloadRenderPluginBase, XyoPayloadRenderPluginComponents {}
