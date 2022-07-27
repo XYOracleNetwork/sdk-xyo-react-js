@@ -12,20 +12,36 @@ export interface XyoPayloadRenderPluginBase {
   canRender: (payload?: XyoPayload) => boolean
 }
 
-export interface XyoPayloadRenderPluginComponents {
-  components: {
-    card: {
-      header: ComponentType<XyoPayloadRenderProps & CardHeaderProps>
-      content: ComponentType<XyoPayloadRenderProps & CardContentProps>
-      actionArea: ComponentType<XyoPayloadRenderProps & CardActionAreaProps>
-    }
-    table: {
-      cell: ComponentType<XyoPayloadRenderProps & TableCellProps>
-    }
-    details: {
-      box: ComponentType<XyoPayloadRenderProps & FlexBoxProps>
-    }
-  }
+export interface XyoPayloadRenderPluginCardComponents {
+  header: ComponentType<XyoPayloadRenderProps & CardHeaderProps>
+  content: ComponentType<XyoPayloadRenderProps & CardContentProps>
+  actionArea: ComponentType<XyoPayloadRenderProps & CardActionAreaProps>
 }
 
-export interface XyoPayloadRenderPlugin extends XyoPayloadRenderPluginBase, XyoPayloadRenderPluginComponents {}
+export interface XyoPayloadRenderPluginTableComponents {
+  cell: ComponentType<XyoPayloadRenderProps & TableCellProps>
+}
+
+export interface XyoPayloadRenderPluginBoxComponents {
+  details: ComponentType<XyoPayloadRenderProps & FlexBoxProps>
+}
+
+export interface XyoPayloadRenderPluginComponents {
+  card: XyoPayloadRenderPluginCardComponents
+  table: XyoPayloadRenderPluginTableComponents
+  box: XyoPayloadRenderPluginBoxComponents
+}
+
+export interface XyoPayloadRenderPluginComponentsConfig {
+  card?: Partial<XyoPayloadRenderPluginCardComponents>
+  table?: Partial<XyoPayloadRenderPluginTableComponents>
+  box?: Partial<XyoPayloadRenderPluginBoxComponents>
+}
+
+export interface XyoPayloadRenderPlugin extends XyoPayloadRenderPluginBase {
+  components: XyoPayloadRenderPluginComponents
+}
+
+export interface XyoPayloadRenderPluginConfig extends XyoPayloadRenderPluginBase, XyoPayloadRenderPluginComponents {
+  components?: XyoPayloadRenderPluginComponentsConfig
+}
