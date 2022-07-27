@@ -135,7 +135,7 @@
     "compile:cjs": "echo Compiling CJS... && yarn workspaces foreach -ptRv run compile:package:cjs",
     "compile:esm": "echo Compiling ESM... && yarn workspaces foreach -ptRv run compile:package:esm",
     "build:stories": "echo Building Stories... && tsc -p $INIT_CWD/tsconfig.build.stories.json",
-    "gen:docs": "yarn workspaces foreach -pv run gen:docs:package",
+    "gen:docs": "echo Generating Docs... && yarn workspaces foreach -pv run gen:docs:package",
     "build-storybook": "build-storybook ./src",
     "lint-pkg": "npmPkgJsonLint .",
     "deploy3": "yarn deploy-patch",
@@ -163,6 +163,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.26.40",
+  "version": "2.26.42",
   "packageManager": "yarn@3.2.1"
 }
