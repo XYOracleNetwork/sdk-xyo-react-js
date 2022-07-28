@@ -1,0 +1,10 @@
+import { XyoPayload } from '@xyo-network/payload'
+import { Feature, Point, Polygon } from 'geojson'
+
+interface NetworkLocationAnswerBase<T> extends XyoPayload {
+  result: T
+}
+
+export type NetworkXyoLocationAnswerPayload = NetworkLocationAnswerBase<{ features: Feature<Point>[] }>
+export type NetworkXyoLocationHeatmapAnswerPayload = NetworkLocationAnswerBase<{ features: Feature<Polygon>[] }>
+export type NetworkXyoLocationHeatmapQuadkeyAnswerPayload = NetworkLocationAnswerBase<{ quadkey: string; density: number }[]>
