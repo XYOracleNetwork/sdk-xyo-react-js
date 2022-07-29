@@ -11,5 +11,13 @@ export interface ApplicationAppBarProps extends AppBarExProps {
 }
 
 export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({ systemToolbar, contextToolbar, responsive = true, ...props }) => {
-  return <AppBarEx systemToolbar={systemToolbar ?? <SystemToolbar />} contextToolbar={contextToolbar ?? <ContextToolbar />} position="sticky" responsive={responsive} {...props} />
+  return (
+    <AppBarEx
+      systemToolbar={systemToolbar ?? <SystemToolbar />}
+      contextToolbar={contextToolbar ?? <ContextToolbar />}
+      position="sticky"
+      responsive={responsive}
+      {...props}
+    />
+  )
 }

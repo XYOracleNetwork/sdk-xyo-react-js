@@ -19,7 +19,13 @@ export const PayloadMetaDetails: React.FC<PayloadMetaDetailsProps> = ({ archiveP
       ) : null}
       {value?._archive ? <ArchiveProperty titleProps={{ elevation }} flexGrow={1} payload={value} path={archivePath} /> : null}
       {value?._reportedHash ? (
-        <Property titleProps={{ elevation }} flexGrow={1} title="Reported Hash" value={value?._reportedHash ?? '<Unknown>'} tip="The has reported by the payload" />
+        <Property
+          titleProps={{ elevation }}
+          flexGrow={1}
+          title="Reported Hash"
+          value={value?._reportedHash ?? '<Unknown>'}
+          tip="The has reported by the payload"
+        />
       ) : null}
       {value?._timestamp ? (
         <Property titleProps={{ elevation }} flexGrow={1} title="Timestamp" value={value?._timestamp ?? '<Unknown>'} tip="This timestamp of the payload" />

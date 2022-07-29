@@ -43,7 +43,10 @@ interface ButtonSectionProps {
 }
 const SubLinkSection: React.FC<SubLinkSectionProps> = ({ subLinkText1, subLinkText2, subLinkPath, subLinkIcon, backgroundImageAlignment }) => {
   return (
-    <FlexGrowRow width="100%" sx={{ flexDirection: { md: 'row', xs: 'column' }, justifyContent: { md: backgroundImageAlignment ? 'flex-start' : 'center', xs: 'center' } }}>
+    <FlexGrowRow
+      width="100%"
+      sx={{ flexDirection: { md: 'row', xs: 'column' }, justifyContent: { md: backgroundImageAlignment ? 'flex-start' : 'center', xs: 'center' } }}
+    >
       {subLinkIcon ? <span>{subLinkIcon}&nbsp;</span> : null}
       <Typography>{subLinkText1}&nbsp;</Typography>
       <LinkEx href={subLinkPath} underline="always" target="_blank" color="inherit">

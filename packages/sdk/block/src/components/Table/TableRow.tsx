@@ -17,7 +17,13 @@ export interface BlockTableRowProps extends TableRowProps {
   network?: string
 }
 
-export const BlockTableRow: React.FC<BlockTableRowProps> = ({ network: networkProp, exploreDomain, block, columns = blockTableColumnConfigDefaults(), ...props }) => {
+export const BlockTableRow: React.FC<BlockTableRowProps> = ({
+  network: networkProp,
+  exploreDomain,
+  block,
+  columns = blockTableColumnConfigDefaults(),
+  ...props
+}) => {
   const breakPoint = useBreakpoint()
 
   const timeStamp = block?._timestamp ? DateTime.fromMillis(block?._timestamp) : undefined
@@ -42,7 +48,16 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({ network: networkPr
     </TableCell>
   )
 
-  const hash = <HashTableCell key="hash" value={block?._hash} archive={block?._archive} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
+  const hash = (
+    <HashTableCell
+      key="hash"
+      value={block?._hash}
+      archive={block?._archive}
+      dataType="block"
+      exploreDomain={exploreDomain}
+      network={networkProp ?? network?.slug}
+    />
+  )
 
   const payloads = (
     <TableCell key="payloads" align="center">

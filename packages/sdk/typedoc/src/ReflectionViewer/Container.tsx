@@ -10,7 +10,13 @@ export interface ContainerReflectionViewerProps<T extends ContainerReflection = 
   itemRenderer?: React.FC<ReflectionViewerProps<any>>
 }
 
-export const ContainerReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({ children, reflection, hiddenFlags, itemRenderer = ReflectionViewer, ...props }) => {
+export const ContainerReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({
+  children,
+  reflection,
+  hiddenFlags,
+  itemRenderer = ReflectionViewer,
+  ...props
+}) => {
   const lookup = createLookup(reflection)
 
   return (

@@ -1,7 +1,7 @@
 import { XyoArchivistApi } from '@xyo-network/api'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPanel } from '@xyo-network/panel'
-import { XyoWitness } from '@xyo-network/witnesses'
+import { XyoWitness } from '@xyo-network/witness'
 
 export enum XyoReportStatus {
   Idle = 'idle',

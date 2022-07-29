@@ -104,7 +104,12 @@ export class XyoMapHeat extends XyoMapBase<Polygon> {
       // 2x factor to account for combinative effect of the overlay of two layers at once
       const divisor = factor + factor * sinFade
       const offset = initialPad * cosFade
-      return ['let', 'density', ['+', ['/', ['number', ['get', 'value']], divisor], offset], ['interpolate', ['linear'], ['var', 'density'], 0, lowUsageColor, 0.5, highUsageColor]]
+      return [
+        'let',
+        'density',
+        ['+', ['/', ['number', ['get', 'value']], divisor], offset],
+        ['interpolate', ['linear'], ['var', 'density'], 0, lowUsageColor, 0.5, highUsageColor],
+      ]
     }
 
     const fadedIn: boolean[] = layers.map((_) => false)
