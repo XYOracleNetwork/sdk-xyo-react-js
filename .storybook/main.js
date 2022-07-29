@@ -16,5 +16,5 @@ module.exports = {
   features: { modernInlineRendering: true },
   typescript: {
     check: true,
-  },
+  }
 }
