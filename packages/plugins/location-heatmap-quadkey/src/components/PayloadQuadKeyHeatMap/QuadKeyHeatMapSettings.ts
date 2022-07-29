@@ -1,4 +1,4 @@
-import { DefaultMapSettings } from '../../../../../map'
+import { DefaultMapSettings } from '@xyo-network/react-map'
 
 const QuadKeyHeatMapSettings = DefaultMapSettings()
 const { debugLayer, scrollToZoom, fitToPoints } = QuadKeyHeatMapSettings

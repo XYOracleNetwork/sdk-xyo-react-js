@@ -7,7 +7,11 @@ import { useFetchPayloads, useFindHashes, useHeatMapColors } from '../hooks'
 import { AnimatedHeatMap } from './AnimatedHeatMap'
 import { AnimatedHeatMapLegend } from './Legend'
 
-export const AnimatedHeatMapLoaded: React.FC<FlexBoxProps> = (props) => {
+export interface AnimatedHeatMapLoadedProps extends FlexBoxProps {
+  accessToken: string
+}
+
+export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ accessToken, ...props }) => {
   const hashes = useFindHashes()
   const { multipleFeatureSets } = useFetchPayloads(hashes)
   const { heatMapColorProps, legendProps } = useHeatMapColors()
@@ -21,6 +25,7 @@ export const AnimatedHeatMapLoaded: React.FC<FlexBoxProps> = (props) => {
     <FlexCol alignItems="stretch" {...props}>
       {hashes !== undefined ? (
         <AnimatedHeatMap
+          accessToken={accessToken}
           defaultMapSettings={AnimatedHeatMapSettings}
           animatedFeatureSets={multipleFeatureSets.slice(1, multipleFeatureSets.length) as Feature<Polygon>[][]}
           staticFeatureSet={multipleFeatureSets[0] as Feature<Polygon>[]}

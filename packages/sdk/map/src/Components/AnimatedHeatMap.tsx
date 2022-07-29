@@ -15,9 +15,17 @@ interface AnimatedHeatMapProps {
   staticFeatureSet: Feature<Polygon>[]
   defaultMapSettings?: MapSetting
   heatMapColorProps: XyoAnimatedHeatMapColorProps
+  accessToken: string
 }
 
-export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({ animatedFeatureSets, defaultMapSettings, staticFeatureSet, heatMapColorProps, ...props }) => {
+export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
+  accessToken,
+  animatedFeatureSets,
+  defaultMapSettings,
+  staticFeatureSet,
+  heatMapColorProps,
+  ...props
+}) => {
   const theme = useTheme()
   const { staticMapColor, lowUsageColor, highUsageColor } = heatMapColorProps || {}
   const localStaticMapColor = staticMapColor ?? theme.palette.primary.light
@@ -38,7 +46,7 @@ export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({ 
           featureSetsLayers={layers.slice(1, 3)}
           heatMapColorProps={heatMapColorProps}
         >
-          <MapBoxHeat {...props}></MapBoxHeat>
+          <MapBoxHeat accessToken={accessToken} {...props}></MapBoxHeat>
         </HeatMapInitializerProvider>
       </MapSettingsProvider>
     </MapBoxInstanceProvider>

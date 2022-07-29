@@ -11,9 +11,10 @@ import { MapSettings } from './MapSettingsComponents'
 
 interface MapBoxPointsProps extends XyoMapBoxBaseProps {
   features?: Feature<Point>[]
+  accessToken: string
 }
 
-const MapBoxPoints: React.FC<MapBoxPointsProps> = ({ features, layers, fitToPointsPadding = 20, zoom, ...props }) => {
+const MapBoxPoints: React.FC<MapBoxPointsProps> = ({ accessToken, features, layers, fitToPointsPadding = 20, zoom, ...props }) => {
   const [MapPoints, setMapPoints] = useState<XyoMapPoints>()
   const { mapSettings } = useMapSettings()
   const { map, mapInitialized } = useMapBoxInstance()
@@ -58,7 +59,7 @@ const MapBoxPoints: React.FC<MapBoxPointsProps> = ({ features, layers, fitToPoin
     <FlexCol alignItems="stretch" {...props}>
       {features ? (
         <>
-          <MapBox zoom={zoom} />
+          <MapBox accessToken={accessToken} zoom={zoom} />
           <MapSettings />
         </>
       ) : (

@@ -15,4 +15,5 @@ export interface XyoMapBoxBaseProps extends FlexBoxProps {
   requestLocation?: boolean
   zoom?: number
   legend?: ReactNode
+  accessToken: string
 }

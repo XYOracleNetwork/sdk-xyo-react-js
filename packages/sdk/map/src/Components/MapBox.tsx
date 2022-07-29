@@ -11,7 +11,7 @@ export interface MapBoxProps {
   options?: Partial<MapboxOptions>
   zoom?: number
   darkMode?: boolean
-  accessToken?: string
+  accessToken: string
 }
 
 export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, zoom = 2, options, ...props }) => {
@@ -48,7 +48,7 @@ export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, z
       console.log('Removing Map')
       map.remove()
     }
-  }, [mapContainerRef, setMap, options, zoom, setMapBoxInstance])
+  }, [mapContainerRef, setMap, options, zoom, setMapBoxInstance, accessToken])
 
   return (
     <div
