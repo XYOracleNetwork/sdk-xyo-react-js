@@ -23,7 +23,9 @@ const PropertyBox: React.FC<PropertyBoxProps> = ({ titleProps, title, value, chi
 
   return (
     <FlexRow flexDirection="column" minWidth={0} alignItems="stretch" overflow="hidden" {...props}>
-      {title !== undefined ? <PropertyTitle tip={tip} title={required ? `${title}*` : title} size={size} more={<PropertyActionsMenu actions={actions} />} {...titleProps} /> : null}
+      {title !== undefined ? (
+        <PropertyTitle tip={tip} title={required ? `${title}*` : title} size={size} more={<PropertyActionsMenu actions={actions} />} {...titleProps} />
+      ) : null}
       <FlexRow paddingX={1} justifyContent={value === undefined ? 'center' : 'space-between'} overflow="hidden" height={sizeValueHeight[size]}>
         {children ? (
           children

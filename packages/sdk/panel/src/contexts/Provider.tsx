@@ -7,7 +7,7 @@ import { XyoPayload } from '@xyo-network/payload'
 import { useArchive } from '@xyo-network/react-archive'
 import { useAccount } from '@xyo-network/react-wallet'
 import { XyoSystemInfoWitness } from '@xyo-network/systeminfo-witness'
-import { XyoWitness } from '@xyo-network/witnesses'
+import { XyoWitness } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
 
 import { XyoPanelContext } from './Context'

@@ -44,7 +44,9 @@ const useGetSchemaPayload = (schema?: string) => {
     apiError,
     notFound,
     schemaHuri: schemaCacheEntry?.huri,
-    schemaPayload: schemaCacheEntry ? new XyoPayloadBuilder<XyoSchemaPayload>(schemaCacheEntry?.payload).fields(schemaCacheEntry.payload).build() : schemaCacheEntry,
+    schemaPayload: schemaCacheEntry
+      ? new XyoPayloadBuilder<XyoSchemaPayload>(schemaCacheEntry?.payload).fields(schemaCacheEntry.payload).build()
+      : schemaCacheEntry,
   }
 }
 

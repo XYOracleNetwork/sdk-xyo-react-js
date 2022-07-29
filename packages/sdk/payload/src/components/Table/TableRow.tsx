@@ -15,7 +15,13 @@ export interface PayloadTableRowProps extends TableRowProps {
   network?: string
 }
 
-export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain, network: networkProp, payload, columns = payloadTableColumnConfigDefaults(), ...props }) => {
+export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
+  exploreDomain,
+  network: networkProp,
+  payload,
+  columns = payloadTableColumnConfigDefaults(),
+  ...props
+}) => {
   const breakPoint = useBreakpoint()
   const timeStamp = payload?._timestamp ? DateTime.fromMillis(payload?._timestamp) : undefined
   const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
@@ -79,7 +85,13 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({ exploreDomain,
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {isValid === undefined ? <MdDone fontSize={18} color="yellow" /> : isValid ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
+        {isValid === undefined ? (
+          <MdDone fontSize={18} color="yellow" />
+        ) : isValid ? (
+          <MdDone fontSize={18} color="green" />
+        ) : (
+          <MdClear color="red" fontSize={18} />
+        )}
       </Typography>
     </TableCell>
   )

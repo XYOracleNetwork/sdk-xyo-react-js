@@ -6,7 +6,12 @@ import { ContainerReflectionViewerProps } from './Container'
 import { ReflectionGroupViewer } from './ReflectionGroupViewer'
 import { ReflectionViewer } from './ReflectionViewer'
 
-export const ProjectReflectionViewer: React.FC<ContainerReflectionViewerProps<ProjectReflection>> = ({ reflection, hiddenFlags, itemRenderer = ReflectionViewer, ...props }) => {
+export const ProjectReflectionViewer: React.FC<ContainerReflectionViewerProps<ProjectReflection>> = ({
+  reflection,
+  hiddenFlags,
+  itemRenderer = ReflectionViewer,
+  ...props
+}) => {
   const lookup = useMemo(() => createLookup(reflection), [reflection])
   return (
     <ReflectionViewer title="ProjectReflectionViewer" hiddenFlags={hiddenFlags} reflection={reflection} {...props}>

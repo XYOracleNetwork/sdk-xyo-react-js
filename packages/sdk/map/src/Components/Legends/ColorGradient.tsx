@@ -12,7 +12,11 @@ const ColorGradientLegend: React.FC<ColorGradientLegendProps> = ({ startColor, e
         {heading}
       </Typography>
       <FlexCol flexGrow={1} alignItems="stretch" paddingX={theme.spacing(1)} mb={theme.spacing(0.25)}>
-        <FlexCol height={theme.spacing(0.75)} border={`1px solid ${textColor}`} sx={{ backgroundImage: `linear-gradient(to right, ${startColor},${endColor})` }} />
+        <FlexCol
+          height={theme.spacing(0.75)}
+          border={`1px solid ${textColor}`}
+          sx={{ backgroundImage: `linear-gradient(to right, ${startColor},${endColor})` }}
+        />
       </FlexCol>
       <FlexRow flexGrow={1} justifyContent="space-between">
         <Typography color={textColor} variant="caption">

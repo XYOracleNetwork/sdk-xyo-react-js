@@ -5,7 +5,14 @@ import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableCo
 import { BlockTableProps } from './BlockTableProps'
 import { BlockTableRowWithErrorBoundary } from './TableRowWithErrorBoundary'
 
-export const BlockTable: React.FC<BlockTableProps> = ({ exploreDomain, onRowClick, blocks, columns = blockTableColumnConfigDefaults(), children, ...props }) => {
+export const BlockTable: React.FC<BlockTableProps> = ({
+  exploreDomain,
+  onRowClick,
+  blocks,
+  columns = blockTableColumnConfigDefaults(),
+  children,
+  ...props
+}) => {
   const breakPoint = useBreakpoint()
   return breakPoint ? (
     <Table style={{ overflow: 'hidden' }} {...props}>

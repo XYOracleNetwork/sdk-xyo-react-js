@@ -13,7 +13,16 @@ export interface WebAppPageProps extends FlexBoxProps {
   spacing?: string | number
 }
 
-export const WebAppPage: React.FC<WebAppPageProps> = ({ spacing = 1, disableBreadcrumbGutter, disableGutters, title, container, breadcrumbs, children, ...props }) => {
+export const WebAppPage: React.FC<WebAppPageProps> = ({
+  spacing = 1,
+  disableBreadcrumbGutter,
+  disableGutters,
+  title,
+  container,
+  breadcrumbs,
+  children,
+  ...props
+}) => {
   const userEvents = useUserEvents()
   const { pathname } = useLocation()
 

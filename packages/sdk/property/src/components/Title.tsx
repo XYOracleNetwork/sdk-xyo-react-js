@@ -4,7 +4,7 @@ import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { SizeProp } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
-type TitleSizeProp = SizeProp | 'full'
+export type TitleSizeProp = SizeProp | 'full'
 
 export interface PropertyTitleProps extends FlexBoxProps {
   tip?: ReactNode
@@ -42,7 +42,9 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, siz
 
   return (
     <FlexRow
-      bgcolor={theme.palette.mode === 'dark' ? lighten(theme.palette.background.paper, 0.05 * elevation) : darken(theme.palette.background.paper, 0.025 * elevation)}
+      bgcolor={
+        theme.palette.mode === 'dark' ? lighten(theme.palette.background.paper, 0.05 * elevation) : darken(theme.palette.background.paper, 0.025 * elevation)
+      }
       alignItems="center"
       height={sizeTitleHeight[size]}
       justifyContent="space-between"

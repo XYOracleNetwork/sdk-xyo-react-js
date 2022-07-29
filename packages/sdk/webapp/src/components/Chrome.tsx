@@ -19,7 +19,17 @@ export interface WebAppChromeProps extends FlexBoxProps {
   menuItems?: ReactNode
 }
 
-export const WebAppChrome: React.FC<WebAppChromeProps> = ({ menuItems, navigationType = 'menu', footerElevation = 4, errorPage, appbar, footer, children, appName, ...props }) => {
+export const WebAppChrome: React.FC<WebAppChromeProps> = ({
+  menuItems,
+  navigationType = 'menu',
+  footerElevation = 4,
+  errorPage,
+  appbar,
+  footer,
+  children,
+  appName,
+  ...props
+}) => {
   return (
     <FlexCol alignItems="stretch" overflow="hidden" height="100vh" {...props}>
       <Helmet defaultTitle={appName} titleTemplate={`%s | ${appName}`}>

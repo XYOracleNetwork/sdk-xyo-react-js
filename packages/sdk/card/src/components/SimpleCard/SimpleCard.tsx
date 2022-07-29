@@ -19,7 +19,18 @@ export interface SimpleCardProps extends CardExProps {
   subtitle?: string
 }
 
-export const SimpleCard: React.FC<SimpleCardProps> = ({ iconImage, subtitle, headline, small, desc, href, to, interactionVariant = 'card', media, ...props }) => {
+export const SimpleCard: React.FC<SimpleCardProps> = ({
+  iconImage,
+  subtitle,
+  headline,
+  small,
+  desc,
+  href,
+  to,
+  interactionVariant = 'card',
+  media,
+  ...props
+}) => {
   const theme = useTheme()
   const [raised, setRaised] = useState(false)
   const navigate = useNavigate()

@@ -1,4 +1,4 @@
-type MapSettingFields = 'debugLayer' | 'fitToPoints' | 'scrollToZoom' | 'enableControls' | 'debugLogging' | 'preferDark'
+export type MapSettingFields = 'debugLayer' | 'fitToPoints' | 'scrollToZoom' | 'enableControls' | 'debugLogging' | 'preferDark'
 
 export type MapSetting = {
   [field in MapSettingFields | string]: {

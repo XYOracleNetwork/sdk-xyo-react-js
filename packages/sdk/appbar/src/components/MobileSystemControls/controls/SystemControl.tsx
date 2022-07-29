@@ -10,7 +10,12 @@ interface SystemControlProps extends FlexBoxProps {
   systemControlsType?: SystemControlsType
 }
 
-const SystemControl: React.FC<WithChildren<SystemControlProps>> = ({ children, controlElement, systemControlsType = SystemControlsType.WindowShade, ...props }) => {
+const SystemControl: React.FC<WithChildren<SystemControlProps>> = ({
+  children,
+  controlElement,
+  systemControlsType = SystemControlsType.WindowShade,
+  ...props
+}) => {
   const [toggleControls, setToggleControls] = useState(false)
 
   let orientation: CollapseProps['orientation'] = 'vertical'

@@ -5,7 +5,14 @@ import { JsonViewerButton } from '../JsonViewerButton'
 import { ReflectionGroupViewerProps, ReflectionViewer } from '../ReflectionViewer'
 import { resolveChildren } from '../resolveChildren'
 
-export const ReflectionGroupTreeViewer: React.FC<ReflectionGroupViewerProps> = ({ variant, group, children, lookup, renderer = ReflectionViewer, ...props }) => {
+export const ReflectionGroupTreeViewer: React.FC<ReflectionGroupViewerProps> = ({
+  variant,
+  group,
+  children,
+  lookup,
+  renderer = ReflectionViewer,
+  ...props
+}) => {
   return (
     <FlexCol {...props}>
       <FlexRow marginY={1} justifyContent="flex-start">
