@@ -10,7 +10,7 @@ import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, XyoMapLayer } fr
 import { MapSetting } from '../Settings'
 import { MapBoxHeat } from './MapBoxHeat'
 
-interface AnimatedHeatMapProps {
+export interface AnimatedHeatMapProps {
   animatedFeatureSets: Feature<Polygon>[][]
   staticFeatureSet: Feature<Polygon>[]
   defaultMapSettings?: MapSetting

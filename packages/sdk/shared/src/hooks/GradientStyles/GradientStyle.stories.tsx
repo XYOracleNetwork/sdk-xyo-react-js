@@ -25,16 +25,16 @@ const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
       <Typography variant="h5" gutterBottom className={classNames.heading}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas, suscipit ea vel dicta quasi hic,
-        deserunt tempore, natus optio veritatis dolor?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas, suscipit ea
+        vel dicta quasi hic, deserunt tempore, natus optio veritatis dolor?
       </Typography>
       <Typography variant="subtitle2" gutterBottom paddingTop={3}>
         Caption
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
       <Typography variant="caption" gutterBottom className={classNames.heading}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas, suscipit ea vel dicta quasi hic,
-        deserunt tempore, natus optio veritatis dolor?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas, suscipit ea
+        vel dicta quasi hic, deserunt tempore, natus optio veritatis dolor?
       </Typography>
       <Typography variant="subtitle2" gutterBottom paddingTop={3}>
         Card Border

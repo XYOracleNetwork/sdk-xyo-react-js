@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { XyoMapLayer } from '../Layers'
 import { XyoMapBoxBaseProps } from '../lib'
 
-interface LayerAnimatorProps {
+export interface LayerAnimatorProps {
   map: Map | undefined
   animateLayers?: boolean
   layersInitialized: boolean
@@ -15,7 +15,7 @@ interface LayerAnimatorProps {
 const timeIncrement = 2000
 const animatedLayerCount = 3
 
-const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ children, animateLayers, layersInitialized, layers, map }) => {
+export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ children, animateLayers, layersInitialized, layers, map }) => {
   const [fillLayers, setFillLayers] = useState<XyoMapLayer[]>([])
   const layerIndexQueue = useRef<number[]>([])
 
@@ -115,5 +115,3 @@ const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ children, a
 
   return <>{children}</>
 }
-
-export { LayerAnimator }

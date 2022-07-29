@@ -7,14 +7,20 @@ import { useMapBoxInstance } from '../MapBoxInstance'
 import { MapSettingsContext } from './Context'
 import { MapSettingsState } from './State'
 
-interface MapSettingsProviderProps {
+export interface MapSettingsProviderProps {
   defaultMapSettings?: MapSetting
   requestLocation?: boolean
   zoom?: number
   debugLayerName?: string
 }
 
-export const MapSettingsProvider: React.FC<WithChildren<MapSettingsProviderProps>> = ({ children, debugLayerName, defaultMapSettings, requestLocation, zoom = 1 }) => {
+export const MapSettingsProvider: React.FC<WithChildren<MapSettingsProviderProps>> = ({
+  children,
+  debugLayerName,
+  defaultMapSettings,
+  requestLocation,
+  zoom = 1,
+}) => {
   const [mapSettings, setMapSettings] = useState<MapSetting>(defaultMapSettings || {})
   const { map, mapInitialized } = useMapBoxInstance()
 

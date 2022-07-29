@@ -6,7 +6,9 @@ export const sampleBlock = {
   _archive: 'temp',
   _client: 'js',
   _hash: 'd9f26b6a04a66f3e3e2744fcc0d6cacb68e5e9b6374c91d6aac3312230e23f53',
-  _signatures: ['3046022100f55dbe72f844784756779db13fcdf986dee408873ff0ae51798de0a2d09f0109022100e4b60f328286a8f2313a8504cf93b810b73f11891a30c113a85399f5dfddce09'],
+  _signatures: [
+    '3046022100f55dbe72f844784756779db13fcdf986dee408873ff0ae51798de0a2d09f0109022100e4b60f328286a8f2313a8504cf93b810b73f11891a30c113a85399f5dfddce09',
+  ],
   _timestamp: 1645845910361,
   addresses: ['9316fcf7ef5bdcfb3030711b2c89da1d90ed9ce1'],
   payload_hashes: [

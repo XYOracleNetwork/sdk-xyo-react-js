@@ -13,7 +13,14 @@ export interface PayloadTableProps extends TableProps {
   columns?: PayloadTableColumnConfig
 }
 
-export const PayloadTable: React.FC<PayloadTableProps> = ({ exploreDomain, onRowClick, payloads, children, columns = payloadTableColumnConfigDefaults(), ...props }) => {
+export const PayloadTable: React.FC<PayloadTableProps> = ({
+  exploreDomain,
+  onRowClick,
+  payloads,
+  children,
+  columns = payloadTableColumnConfigDefaults(),
+  ...props
+}) => {
   const breakPoint = useBreakpoint()
   return breakPoint ? (
     <Table {...props}>

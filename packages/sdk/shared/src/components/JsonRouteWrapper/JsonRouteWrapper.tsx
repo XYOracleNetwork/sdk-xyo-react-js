@@ -18,7 +18,14 @@ export interface JsonFromPromiseProps extends FlexBoxProps {
   jsonViewProps?: ReactJsonViewProps
 }
 
-export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({ callback, children, noBackButton = false, noJsonButton = false, jsonViewProps, ...props }) => {
+export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
+  callback,
+  children,
+  noBackButton = false,
+  noJsonButton = false,
+  jsonViewProps,
+  ...props
+}) => {
   const [apiResponse, setApiResponse] = useState<object>()
   const [apiError, setApiError] = useState<XyoApiError>()
   const [searchParams, setSearchParams] = useSearchParams()
