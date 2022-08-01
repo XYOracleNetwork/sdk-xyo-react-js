@@ -6,13 +6,15 @@ import { ComponentType } from 'react'
 
 export interface XyoPayloadRenderProps {
   payload?: XyoPayload
+}
+
+export interface XyoPayloadDetailsRenderProps extends XyoPayloadRenderProps {
   listMode?: ListMode
 }
 
 export interface XyoPayloadRenderPluginBase {
   name: string
   canRender: (payload?: XyoPayload) => boolean
-  listModes?: ListMode[]
 }
 
 export interface XyoPayloadRenderPluginCardComponents {
@@ -26,7 +28,8 @@ export interface XyoPayloadRenderPluginTableComponents {
 }
 
 export interface XyoPayloadRenderPluginBoxComponents {
-  details: ComponentType<XyoPayloadRenderProps & FlexBoxProps>
+  listModes?: ListMode[]
+  details: ComponentType<XyoPayloadDetailsRenderProps & FlexBoxProps>
 }
 
 export interface XyoPayloadRenderPluginComponents {
