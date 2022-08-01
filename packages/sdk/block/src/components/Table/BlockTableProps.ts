@@ -5,6 +5,7 @@ import { BlockTableColumnConfig } from './BlockTableColumnConfig'
 
 export interface BlockTableProps extends TableProps {
   blocks?: XyoBoundWitnessWithPartialMeta[] | null
+  archive?: string
   onRowClick?: (value: XyoBoundWitness) => void
   exploreDomain?: string
   columns?: BlockTableColumnConfig
