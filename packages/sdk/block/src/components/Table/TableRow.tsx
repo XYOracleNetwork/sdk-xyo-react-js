@@ -11,6 +11,7 @@ import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColum
 
 export interface BlockTableRowProps extends TableRowProps {
   block?: XyoBoundWitness
+  archive?: string
   exploreDomain?: string
   columns?: BlockTableColumnConfig
   network?: string
@@ -20,6 +21,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   network: networkProp,
   exploreDomain,
   block,
+  archive,
   columns = blockTableColumnConfigDefaults(),
   ...props
 }) => {
@@ -30,7 +32,9 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
 
-  const hash = <HashTableCell key="hash" value={wrapper?.hash} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
+  const hash = (
+    <HashTableCell key="hash" archive={archive} value={wrapper?.hash} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
+  )
 
   const payloads = (
     <TableCell key="payloads" align="center">
