@@ -8,7 +8,8 @@ export interface HashTableCellProps extends EllipsisTableCellProps {
 }
 
 export const HashTableCell: React.FC<HashTableCellProps> = ({ value, archive, dataType, network, exploreDomain, ...props }) => {
-  const explorePath = `/archive/${archive}/${dataType}/hash/${value}?network=${network ?? 'main'}`
+  const hashPath = `/${dataType}/hash/${value}?network=${network ?? 'main'}`
+  const explorePath = archive ? `/archive/${archive}${hashPath}` : hashPath
   return (
     <EllipsisTableCell
       value={value}
