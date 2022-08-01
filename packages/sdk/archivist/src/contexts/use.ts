@@ -10,7 +10,7 @@ export const useArchivist = (required = false) => {
   return useContextEx(ArchivistContext, 'Archivist', required)
 }
 
-export const useArchivistGet = (ids?: string[], required = false) => {
+export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload | null)[]?, Error?] => {
   const { archivist } = useArchivist(required)
   const [payloads, setPayloads] = useState<(XyoPayload | null)[]>()
   const [error, setError] = useState<Error>()
@@ -32,7 +32,7 @@ export const useArchivistGet = (ids?: string[], required = false) => {
   return [payloads, error]
 }
 
-export const useArchivistFind = <TQuery extends XyoPayloadFindQuery>(query?: TQuery, required = false) => {
+export const useArchivistFind = <TQuery extends XyoPayloadFindQuery>(query?: TQuery, required = false): [(XyoPayload | null)[]?, Error?] => {
   const { archivist } = useArchivist(required)
   const [payloads, setPayloads] = useState<(XyoPayload | null)[]>()
   const [error, setError] = useState<Error>()
