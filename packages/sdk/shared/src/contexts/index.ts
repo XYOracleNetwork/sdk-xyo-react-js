@@ -1,3 +1,3 @@
 export * from './contextEx'
-export * from './Paradigm'
+export * from './ListMode'
 export * from './Pixel'
