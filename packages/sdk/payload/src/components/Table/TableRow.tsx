@@ -9,6 +9,7 @@ import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTabl
 
 export interface PayloadTableRowProps extends TableRowProps {
   payload?: XyoPayload
+  archive?: string
   exploreDomain?: string
   columns?: PayloadTableColumnConfig
   network?: string
@@ -18,6 +19,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   exploreDomain,
   network: networkProp,
   payload,
+  archive,
   columns = payloadTableColumnConfigDefaults(),
   ...props
 }) => {
@@ -28,6 +30,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const hash: React.FC<TableCellProps> = (props) => (
     <HashTableCell
       key="hash"
+      archive={archive}
       width="100%"
       value={wrapper?.hash}
       dataType="payload"
