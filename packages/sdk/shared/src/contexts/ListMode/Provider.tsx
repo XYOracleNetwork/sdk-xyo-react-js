@@ -9,7 +9,7 @@ export interface ListModeProviderProps {
 }
 
 export const ListModeProvider: React.FC<WithChildren<ListModeProviderProps>> = ({ children, defaultListMode }) => {
-  const [listMode, setListMode] = useState(defaultListMode)
+  const [listMode, setListMode] = useState(defaultListMode ?? 'default')
 
   return (
     <ListModeContext.Provider

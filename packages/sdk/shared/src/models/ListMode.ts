@@ -1,1 +1,1 @@
-export type ListMode = 'table' | 'grid'
+export type ListMode = 'table' | 'grid' | 'default'
