@@ -1,7 +1,7 @@
 import { useContextEx } from '../contextEx'
 import { ParadigmContext } from './Context'
 
-export const usePixel = (required = true) => {
+export const useParadigm = (required = true) => {
   const { list } = useContextEx(ParadigmContext, 'Paradigm', required)
   return { list }
 }
