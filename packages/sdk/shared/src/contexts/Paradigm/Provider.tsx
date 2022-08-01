@@ -3,13 +3,15 @@ import { WithChildren } from '@xylabs/react-shared'
 import { Paradigm } from '../../models'
 import { ParadigmContext } from './Context'
 
-export type ParadigmProviderProps = Paradigm
+export interface ParadigmProviderProps {
+  paradigm: Paradigm
+}
 
-export const ParadigmProvider: React.FC<WithChildren<ParadigmProviderProps>> = ({ children, list }) => {
+export const ParadigmProvider: React.FC<WithChildren<ParadigmProviderProps>> = ({ children, paradigm }) => {
   return (
     <ParadigmContext.Provider
       value={{
-        list,
+        paradigm,
         provided: true,
       }}
     >
