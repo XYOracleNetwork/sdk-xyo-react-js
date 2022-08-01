@@ -1,17 +1,18 @@
 import { CardActionAreaProps, CardContentProps, CardHeaderProps, TableCellProps } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload'
-import { Paradigm } from '@xyo-network/react-shared'
+import { ListMode } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 
 export interface XyoPayloadRenderProps {
   payload?: XyoPayload
-  paradigm?: Paradigm
+  listMode?: ListMode
 }
 
 export interface XyoPayloadRenderPluginBase {
   name: string
   canRender: (payload?: XyoPayload) => boolean
+  listModes?: ListMode[]
 }
 
 export interface XyoPayloadRenderPluginCardComponents {

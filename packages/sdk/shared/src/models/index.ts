@@ -1,1 +1,1 @@
-export * from './Paradigm'
+export * from './ListMode'
