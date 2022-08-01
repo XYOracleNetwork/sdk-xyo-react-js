@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 
 import { UsePayload } from './ResolvePayloadArgs'
 
-/** @deprecated use useArchivist with a get instead */
 export const useLoadPayload = (hash?: string): UsePayload => {
   const { api } = useArchivistApi()
   const { archive } = useArchive()
