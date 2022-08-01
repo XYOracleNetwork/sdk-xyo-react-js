@@ -8,6 +8,7 @@ import { PayloadTableRow } from './TableRow'
 
 export interface PayloadTableProps extends TableProps {
   exploreDomain?: string
+  archive?: string
   onRowClick?: (value: XyoPayload) => void
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
@@ -15,6 +16,7 @@ export interface PayloadTableProps extends TableProps {
 
 export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
+  archive,
   onRowClick,
   payloads,
   children,
@@ -50,6 +52,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
               )}
             >
               <PayloadTableRow
+                archive={archive}
                 onClick={
                   onRowClick
                     ? () => {
