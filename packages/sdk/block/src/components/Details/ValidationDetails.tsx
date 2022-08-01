@@ -1,14 +1,14 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitnessValidator, XyoBoundWitnessWithMeta, XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
+import { XyoBoundWitness, XyoBoundWitnessValidator } from '@xyo-network/boundwitness'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 export type BlockValidationDetailsProps = PropertyGroupProps & {
-  value?: XyoBoundWitnessWithPartialMeta
+  value?: XyoBoundWitness
 }
 
 export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ value, ...props }) => {
-  const validator = value ? new XyoBoundWitnessValidator(value as XyoBoundWitnessWithMeta) : undefined
+  const validator = value ? new XyoBoundWitnessValidator(value) : undefined
 
   const errors = validator?.validate() ?? []
 

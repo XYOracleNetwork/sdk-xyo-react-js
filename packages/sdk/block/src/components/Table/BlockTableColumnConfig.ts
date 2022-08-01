@@ -1,4 +1,4 @@
-export type BlockTableColumnSlug = 'hash' | 'archive' | 'client' | 'date' | 'time' | 'payloads' | 'valid'
+export type BlockTableColumnSlug = 'hash' | 'payloads' | 'valid'
 
 export interface BlockTableColumnConfig {
   xs?: BlockTableColumnSlug[]
@@ -9,20 +9,16 @@ export interface BlockTableColumnConfig {
 }
 
 export const blockColumnNames: Record<BlockTableColumnSlug, string> = {
-  archive: 'Archive',
-  client: 'Client',
-  date: 'Date',
   hash: 'Hash',
   payloads: 'Payloads',
-  time: 'Time',
   valid: 'Valid',
 }
 
 export const blockTableColumnConfigDefaults = (): BlockTableColumnConfig => {
-  const xs: BlockTableColumnSlug[] = ['hash', 'time', 'valid']
-  const sm: BlockTableColumnSlug[] = ['hash', 'archive', 'time', 'valid']
-  const md: BlockTableColumnSlug[] = ['hash', 'payloads', 'archive', 'time', 'valid']
-  const lg: BlockTableColumnSlug[] = ['hash', 'payloads', 'archive', 'client', 'date', 'time', 'valid']
-  const xl: BlockTableColumnSlug[] = ['hash', 'payloads', 'archive', 'client', 'date', 'time', 'valid']
+  const xs: BlockTableColumnSlug[] = ['hash', 'payloads', 'valid']
+  const sm: BlockTableColumnSlug[] = ['hash', 'payloads', 'valid']
+  const md: BlockTableColumnSlug[] = ['hash', 'payloads', 'valid']
+  const lg: BlockTableColumnSlug[] = ['hash', 'payloads', 'valid']
+  const xl: BlockTableColumnSlug[] = ['hash', 'payloads', 'valid']
   return { lg, md, sm, xl, xs }
 }

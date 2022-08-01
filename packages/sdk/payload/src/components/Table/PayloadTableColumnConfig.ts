@@ -1,4 +1,4 @@
-export type PayloadTableColumnSlug = 'hash' | 'archive' | 'client' | 'date' | 'time' | 'schema' | 'valid'
+export type PayloadTableColumnSlug = 'hash' | 'schema' | 'valid'
 
 export interface PayloadTableColumnConfig {
   xs?: PayloadTableColumnSlug[]
@@ -9,20 +9,17 @@ export interface PayloadTableColumnConfig {
 }
 
 export const payloadColumnNames: Record<PayloadTableColumnSlug, string> = {
-  archive: 'Archive',
-  client: 'Client',
-  date: 'Date',
   hash: 'Hash',
   schema: 'Schema',
-  time: 'Time',
+
   valid: 'Valid',
 }
 
 export const payloadTableColumnConfigDefaults = (): PayloadTableColumnConfig => {
-  const xs: PayloadTableColumnSlug[] = ['hash', 'time', 'valid']
-  const sm: PayloadTableColumnSlug[] = ['hash', 'time', 'archive', 'valid']
-  const md: PayloadTableColumnSlug[] = ['hash', 'schema', 'archive', 'time', 'valid']
-  const lg: PayloadTableColumnSlug[] = ['hash', 'schema', 'archive', 'date', 'time', 'valid']
-  const xl: PayloadTableColumnSlug[] = ['hash', 'schema', 'archive', 'client', 'date', 'time', 'valid']
+  const xs: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
+  const sm: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
+  const md: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
+  const lg: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
+  const xl: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
   return { lg, md, sm, xl, xs }
 }
