@@ -14,9 +14,9 @@ export const ViewModeProvider: React.FC<WithChildren<ListModeProviderProps>> = (
   return (
     <ListModeContext.Provider
       value={{
+        listMode,
         provided: true,
         setListMode,
-        listMode,
       }}
     >
       {children}
