@@ -7,10 +7,11 @@ import { BlockTableRow, BlockTableRowProps } from './TableRow'
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
   index: number
   exploreDomain?: string
+  archive?: string
   onRowClick?: (value: XyoBoundWitness) => void
 }
 
-const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({ block, columns, onRowClick, index, exploreDomain }) => {
+const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({ block, archive, columns, onRowClick, index, exploreDomain }) => {
   const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
   return (
     <>
@@ -24,6 +25,7 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
           )}
         >
           <BlockTableRow
+            archive={archive}
             exploreDomain={exploreDomain}
             block={block}
             columns={columns}
