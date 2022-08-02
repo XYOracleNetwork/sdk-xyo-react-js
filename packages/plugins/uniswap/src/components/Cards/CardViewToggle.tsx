@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, Typography } from '@mui/material'
-import { FlexBoxProps, FlexGrowRow } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexGrowRow } from '@xylabs/react-flexbox'
 import { Dispatch, SetStateAction } from 'react'
 
 import { CardViewType } from './CardViewType'

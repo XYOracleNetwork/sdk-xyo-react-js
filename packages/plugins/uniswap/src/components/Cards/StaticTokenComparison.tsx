@@ -1,5 +1,5 @@
 import { Divider } from '@mui/material'
-import { FlexGrowCol, FlexGrowRow } from '@xylabs/sdk-react'
+import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { XyoUniswapCryptoPair } from '@xyo-network/cryptomarket-witness'
 
 import { useGetTokenData } from '../../useGetTokenData'

@@ -1,17 +1,16 @@
-import { WithChildren } from '@xylabs/react-shared'
 import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { XyoArchivist, XyoArchivistConfig, XyoMemoryArchivist } from '@xyo-network/archivist'
+import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
 import { ArchivistContext } from './Context'
 import { useArchivist } from './use'
 
-export interface ArchivistProviderProps {
-  required?: boolean
+export type ArchivistProviderProps = ContextExProviderProps<{
   archivist?: XyoArchivist
-}
+}>
 
-export const ArchivistProvider: React.FC<WithChildren<ArchivistProviderProps>> = ({ archivist: archivistProp, required = false, children }) => {
+export const ArchivistProvider: React.FC<ArchivistProviderProps> = ({ archivist: archivistProp, required = false, children }) => {
   const [archivist, setArchivist] = useState<XyoArchivist | undefined>(archivistProp)
 
   return (
@@ -27,27 +26,21 @@ export const ArchivistProvider: React.FC<WithChildren<ArchivistProviderProps>> =
   )
 }
 
-export interface MemoryArchivistProviderProps {
-  required?: boolean
+export type MemoryArchivistProviderProps = ContextExProviderProps<{
   config?: XyoArchivistConfig
-}
+}>
 
-export const MemoryArchivistProvider: React.FC<WithChildren<MemoryArchivistProviderProps>> = ({ config = {}, children, ...props }) => {
+export const MemoryArchivistProvider: React.FC<MemoryArchivistProviderProps> = ({ config = {}, ...props }) => {
   const { archivist } = useArchivist()
   config.parent = config.parent ?? archivist
-  return (
-    <ArchivistProvider archivist={new XyoMemoryArchivist(config)} {...props}>
-      {children}
-    </ArchivistProvider>
-  )
+  return <ArchivistProvider archivist={new XyoMemoryArchivist(config)} {...props} />
 }
 
-export interface ApiArchivistProviderProps {
-  required?: boolean
+export type ApiArchivistProviderProps = ContextExProviderProps<{
   config?: XyoRemoteArchivistConfig
-}
+}>
 
-export const RemoteArchivistProvider: React.FC<WithChildren<ApiArchivistProviderProps>> = ({ config = {}, ...props }) => {
+export const RemoteArchivistProvider: React.FC<ApiArchivistProviderProps> = ({ config = {}, ...props }) => {
   const { archivist } = useArchivist()
   config.parent = config.parent ?? archivist
   return <ArchivistProvider archivist={new XyoRemoteArchivist(config)} {...props} />

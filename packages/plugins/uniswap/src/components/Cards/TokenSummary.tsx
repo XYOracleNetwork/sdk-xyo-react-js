@@ -1,12 +1,12 @@
 import { Typography, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow, WithChildren } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 
 interface TokenSummaryProps extends FlexBoxProps {
   icon?: string
   symbol?: string
 }
 
-export const TokenSummary: React.FC<WithChildren<TokenSummaryProps>> = ({ icon, symbol, children, ...props }) => {
+export const TokenSummary: React.FC<TokenSummaryProps> = ({ icon, symbol, children, ...props }) => {
   const theme = useTheme()
   return (
     <>

@@ -1,5 +1,5 @@
 import { alpha, Typography, useTheme } from '@mui/material'
-import { FlexGrowRow } from '@xylabs/sdk-react'
+import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useDarkMode } from 'storybook-dark-mode'
 interface GrayBarProps {
   text1?: string | number
