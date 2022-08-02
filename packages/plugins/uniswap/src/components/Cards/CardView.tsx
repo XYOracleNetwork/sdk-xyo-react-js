@@ -1,5 +1,5 @@
 import { Card, CardContent, Grid } from '@mui/material'
-import { FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { XyoCryptoMarketUniswapPayload, XyoUniswapCryptoPair } from '@xyo-network/cryptomarket-witness'
 import { XyoPayload } from '@xyo-network/payload'
 import { useState } from 'react'

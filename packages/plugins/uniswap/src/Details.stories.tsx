@@ -4,7 +4,6 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { UniswapDetailsRender } from './components'
 import { DetailsBox } from './Details'
 import { payloadData } from './payloadData'
-import { UniswapPairsRenderPlugin } from './Plugin'
 
 const StorybookEntry = {
   argTypes: {},
