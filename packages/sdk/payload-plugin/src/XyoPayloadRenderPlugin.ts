@@ -56,3 +56,8 @@ export interface XyoPayloadRenderPlugin extends XyoPayloadRenderPluginBase {
 export interface XyoPayloadRenderPluginConfig extends XyoPayloadRenderPluginBase {
   components?: XyoPayloadRenderPluginComponentsConfig
 }
+
+export interface XyoRenderPlugin extends XyoPayloadRenderPlugin {
+  slug: string
+  defaultFullScreen?: boolean
+}
