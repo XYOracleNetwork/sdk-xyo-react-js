@@ -64,8 +64,8 @@
     "@xylabs/eslint-config-react": "^2.1.7",
     "@xylabs/react-flexbox": "^2.14.10",
     "@xylabs/react-invertable-theme": "^2.14.10",
-    "@xylabs/ts-scripts": "^2.5.11",
-    "@xylabs/tsconfig-dom": "^2.5.11",
+    "@xylabs/ts-scripts": "^2.5.13",
+    "@xylabs/tsconfig-dom": "^2.5.13",
     "assert": "^2.0.0",
     "chromatic": "^6.7.3",
     "depcheck": "^1.4.3",
@@ -120,7 +120,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
-    "build": "echo Building... && yarn clean && yarn compile && yarn gen:docs && yarn lint",
+    "build": "echo Building... && yarn clean && yarn compile && yarn gen:docs && yarn lint-fast",
     "compile": "echo Compiling... && yarn compile:esm && yarn compile:cjs",
     "compile:cjs": "echo Compiling CJS... && yarn workspaces foreach -pAt run compile:package:cjs",
     "compile:esm": "echo Compiling ESM... && yarn workspaces foreach -pAt run compile:package:esm",
@@ -136,8 +136,10 @@
     "clean": "echo Cleaning... && yarn workspaces foreach -Ap run clean:package",
     "deps": "yarn workspaces foreach -Apv run deps:package",
     "lint": "echo Linting... && yarn eslint .",
+    "lint-fast": "echo Linting... && yarn eslint . --cache",
     "cycle": "yarn workspaces foreach -Apv run cycle:package",
-    "fix": "yarn workspaces foreach -Apv run fix:package",
+    "fix": "echo Fixing... && yarn eslint . --fix",
+    "fix-fast": "echo Fixing... && yarn eslint . --fix --cache",
     "outdated": "yarn workspaces foreach -Apv outdated",
     "up": "yarn workspaces foreach -pv up",
     "updo": "yarn workspaces foreach -pv run updo3:package",
@@ -153,6 +155,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.26.59",
+  "version": "2.26.60",
   "packageManager": "yarn@3.2.1"
 }
