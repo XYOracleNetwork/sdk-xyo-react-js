@@ -1,6 +1,13 @@
 import { XyoPayload } from '@xyo-network/payload'
 
-import { XyoPayloadCardActionArea, XyoPayloadCardContent, XyoPayloadCardHeader, XyoPayloadDetailsBox, XyoPayloadTableCell } from './components'
+import {
+  XyoPayloadCardActionArea,
+  XyoPayloadCardContent,
+  XyoPayloadCardHeader,
+  XyoPayloadDetailsBox,
+  XyoPayloadEditorBox,
+  XyoPayloadTableCell,
+} from './components'
 import { XyoPayloadRenderPlugin } from './XyoPayloadRenderPlugin'
 
 export const DefaultPayloadRenderPlugin: XyoPayloadRenderPlugin = {
@@ -10,6 +17,7 @@ export const DefaultPayloadRenderPlugin: XyoPayloadRenderPlugin = {
   components: {
     box: {
       details: XyoPayloadDetailsBox,
+      editor: XyoPayloadEditorBox,
     },
     card: {
       actionArea: XyoPayloadCardActionArea,

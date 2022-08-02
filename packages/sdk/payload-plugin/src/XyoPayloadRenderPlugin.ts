@@ -12,6 +12,10 @@ export interface XyoPayloadDetailsRenderProps extends XyoPayloadRenderProps {
   listMode?: ListMode
 }
 
+export interface XyoPayloadEditorRenderProps extends XyoPayloadDetailsRenderProps {
+  onChange?: (payload: XyoPayload) => boolean
+}
+
 export interface XyoPayloadRenderPluginBase {
   name: string
   canRender: (payload?: XyoPayload) => boolean
@@ -30,6 +34,7 @@ export interface XyoPayloadRenderPluginTableComponents {
 export interface XyoPayloadRenderPluginBoxComponents {
   listModes?: ListMode[]
   details: ComponentType<XyoPayloadDetailsRenderProps & FlexBoxProps>
+  editor: ComponentType<XyoPayloadEditorRenderProps & FlexBoxProps>
 }
 
 export interface XyoPayloadRenderPluginComponents {
