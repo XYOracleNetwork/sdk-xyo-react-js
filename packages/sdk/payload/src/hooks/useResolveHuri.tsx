@@ -16,6 +16,7 @@ const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?:
 
   const { changeActiveNetwork } = options ?? {}
 
+  //AT: TODO -> Talk about this pattern
   const reset = () => {
     setHuriPayload(undefined)
     setHuriPayloadNotFound(undefined)

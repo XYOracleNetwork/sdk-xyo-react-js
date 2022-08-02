@@ -23,6 +23,8 @@ const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: Fet
 
   const providedHash = hash(huriOrHash)
 
+  //AT: TODO -> Talk about this pattern
+
   // Optimistically try to grab the has from the current network and archive
   const [payload, notFound, apiError] = useLoadPayload(providedHash)
 
