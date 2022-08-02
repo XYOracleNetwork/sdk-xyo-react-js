@@ -6336,6 +6336,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/payload-plugin@npm:^2.23.0":
+  version: 2.23.0
+  resolution: "@xyo-network/payload-plugin@npm:2.23.0"
+  dependencies:
+    "@xylabs/sdk-js": ^2.6.2
+    "@xyo-network/core": ^2.23.0
+    "@xyo-network/payload": ^2.23.0
+    "@xyo-network/witness": ^2.23.0
+    tslib: ^2.4.0
+  checksum: a7fa273e6024d5b30b69d7fa56dfba41f6677f1a34221cb0e815bb3f8b61fce489deba3b2775e22d0aebb036e07bd2e361a8882ac72701ea67caa5c3e66d1917
+  languageName: node
+  linkType: hard
+
 "@xyo-network/payload@npm:^2.23.0":
   version: 2.23.0
   resolution: "@xyo-network/payload@npm:2.23.0"
@@ -6387,7 +6400,7 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    "@xyo-network/react-wallet": ^2.26.58
+    "@xyo-network/react-wallet": ^2.26.59
     "@xyo-network/wallet": ^2.23.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6728,16 +6741,18 @@ __metadata:
     "@mui/material": ^5.9.3
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-identicon": ^2.14.10
+    "@xylabs/sdk-js": ^2.6.2
     "@xylabs/tsconfig-dom": ^2.5.11
     "@xyo-network/payload": ^2.23.0
-    "@xyo-network/react-payload": ^2.26.58
+    "@xyo-network/payload-plugin": ^2.23.0
+    "@xyo-network/react-payload": ^2.26.59
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-payload@^2.26.58, @xyo-network/react-payload@workspace:^, @xyo-network/react-payload@workspace:packages/sdk/payload":
+"@xyo-network/react-payload@^2.26.59, @xyo-network/react-payload@workspace:^, @xyo-network/react-payload@workspace:packages/sdk/payload":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload@workspace:packages/sdk/payload"
   dependencies:
@@ -7000,7 +7015,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-wallet@^2.26.58, @xyo-network/react-wallet@workspace:^, @xyo-network/react-wallet@workspace:packages/sdk/wallet":
+"@xyo-network/react-wallet@^2.26.59, @xyo-network/react-wallet@workspace:^, @xyo-network/react-wallet@workspace:packages/sdk/wallet":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet@workspace:packages/sdk/wallet"
   dependencies:
