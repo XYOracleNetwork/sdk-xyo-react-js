@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness, XyoBoundWitnessWithPartialMeta } from '@xyo-network/boundwitness'
+import { XyoHasher } from '@xyo-network/core'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
 import { BlockSignatureTableRow } from './SignatureTableRow'
@@ -28,6 +29,7 @@ const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitnessWithPartialM
 
 export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
+  const hash = block ? new XyoHasher(block).hash : undefined
 
   return (
     <ScrollTableOnSm>
@@ -49,17 +51,25 @@ export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block,
                 <strong>Signature</strong>
               </Typography>
             </TableCell>
+            <TableCell align="center" width="10px">
+              <Typography variant="caption">
+                <strong>Valid</strong>
+              </Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {signatureData?.map((data, index) => (
-            <BlockSignatureTableRow
-              key={`${data.signature}-${data.previous_hash}-${index}`}
-              address={data.address}
-              previousHash={data.previous_hash}
-              signature={data.signature}
-            />
-          ))}
+          {signatureData?.map((data, index) => {
+            return (
+              <BlockSignatureTableRow
+                key={`${data.signature}-${data.previous_hash}-${index}`}
+                address={data.address}
+                previousHash={data.previous_hash}
+                hash={hash}
+                signature={data.signature}
+              />
+            )
+          })}
         </TableBody>
       </Table>
     </ScrollTableOnSm>

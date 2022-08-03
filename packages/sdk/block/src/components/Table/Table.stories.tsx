@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof BlockTable> = ({ blocks: blocksParam, ...a
   const [blocks, setBlocks] = useState<XyoBoundWitness[]>(blocksParam ?? [])
   return (
     <BrowserRouter>
-      <FlexCol alignItems="stretch" bgcolor="red">
+      <FlexCol alignItems="stretch">
         <BlockTable blocks={blocks} {...args}></BlockTable>
       </FlexCol>
       <ButtonEx onClick={() => setBlocks([...blocks, sampleBlock])}>Add</ButtonEx>
@@ -36,7 +36,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { _hash, ...badBlock } = sampleBlock
+const badBlock = sampleBlock
 
 const WithData = Template.bind({})
 WithData.args = { blocks: [sampleBlock] }
