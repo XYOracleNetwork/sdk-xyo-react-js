@@ -3,24 +3,13 @@ import { StringKeyObject } from '@xyo-network/core'
 import { XyoPayloadWithPartialMeta } from '@xyo-network/payload'
 
 export const sampleBlock = {
-  _archive: 'temp',
-  _client: 'js',
-  _hash: 'd9f26b6a04a66f3e3e2744fcc0d6cacb68e5e9b6374c91d6aac3312230e23f53',
-  _signatures: [
-    '3046022100f55dbe72f844784756779db13fcdf986dee408873ff0ae51798de0a2d09f0109022100e4b60f328286a8f2313a8504cf93b810b73f11891a30c113a85399f5dfddce09',
-  ],
-  _timestamp: 1645845910361,
-  addresses: ['9316fcf7ef5bdcfb3030711b2c89da1d90ed9ce1'],
-  payload_hashes: [
-    '60942fbcf8538cc967e8f16e9ce7fd17f6bc14a80de87a672a46217d85feac73',
-    'e3b846587bd20f28f1b46fb9eab64f3cf60b83cf13a8d4ceaf20564f627010a8',
-    'beed27dcacd8dca28bfae24c119cdc8391eedb7a5007078b1ffa366fd43a0a49',
-  ],
-  payload_schemas: ['network.xyo.id', 'network.xyo.location', 'network.xyo.system.info.browser'],
-  previous_hashes: ['e8924ffda579a0410cd7927e12a06b2f8120e509d7817f945cb1f5b4fc82f329'],
+  _signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
+  addresses: ['9c6df83b84297985d3ccc1f721ba1c2e3608c751'],
+  payload_hashes: ['43df96261884ec99e0d7667120d036065c1f6a88dbb999f30d7c820dc9a37ee5', '31b3a835ebad2b6f2d6cc16ec855b41f237116f52b515aac9a8f555fec05fa3e'],
+  payload_schemas: ['network.xyo.location', 'network.xyo.id'],
+  previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
 }
-
 export const sampleBlockWithPayloads: XyoBoundWitnessWithPartialMeta<XyoBoundWitness, XyoPayloadWithPartialMeta<StringKeyObject>> = {
   _archive: 'temp',
   _client: 'js',
