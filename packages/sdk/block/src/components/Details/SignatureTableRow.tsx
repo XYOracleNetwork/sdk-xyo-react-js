@@ -1,15 +1,20 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { ellipsize } from '@xylabs/sdk-js'
+import { XyoBoundWitnessValidator } from '@xyo-network/boundwitness'
 import { AddressTableCell } from '@xyo-network/react-shared'
+import { MdClear, MdDone } from 'react-icons/md'
 
 export interface BlockSignatureTableRowProps extends TableRowProps {
   address?: string
   archive?: string
+  hash?: string
   previousHash?: string | null
   signature?: string
 }
 
-export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ address, previousHash, signature, archive, ...props }) => {
+export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ hash, address, previousHash, signature, archive, ...props }) => {
+  const errors = hash && address ? XyoBoundWitnessValidator.validateSignature(hash, address, signature) : []
+
   return (
     <TableRow {...props}>
       <AddressTableCell archive={archive} value={address} />
@@ -22,6 +27,9 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ 
         <Typography variant="body2" fontFamily="monospace">
           {signature ? ellipsize(signature, 8) : '-'}
         </Typography>
+      </TableCell>
+      <TableCell key="valid" align="center">
+        {errors.length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
       </TableCell>
     </TableRow>
   )
