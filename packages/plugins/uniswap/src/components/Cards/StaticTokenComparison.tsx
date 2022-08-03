@@ -1,7 +1,7 @@
 import { Divider } from '@mui/material'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
-import { XyoUniswapCryptoPair } from '@xyo-network/cryptomarket-witness'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
+import { XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 interface StaticTokenSummaryProps {
   tokenPayload: XyoUniswapCryptoPair

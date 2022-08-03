@@ -1,7 +1,7 @@
 import { Card, CardContent, Grid } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { XyoCryptoMarketUniswapPayload, XyoUniswapCryptoPair } from '@xyo-network/cryptomarket-witness'
 import { XyoPayload } from '@xyo-network/payload'
+import { XyoUniswapCryptoMarketPayload, XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
 
 import { CardViewToggle } from './CardViewToggle'
@@ -15,7 +15,7 @@ interface UniswapPairsCardsProps {
 }
 
 export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload }) => {
-  const uniswapPayload = payload ? (payload as XyoCryptoMarketUniswapPayload) : undefined
+  const uniswapPayload = payload ? (payload as XyoUniswapCryptoMarketPayload) : undefined
   const [cardViewStyle, setCardViewStyle] = useState(CardViewType.Static)
 
   return (
