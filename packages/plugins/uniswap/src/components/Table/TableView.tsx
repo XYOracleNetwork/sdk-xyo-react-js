@@ -1,8 +1,8 @@
 import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel } from '@mui/material'
 import { visuallyHidden } from '@mui/utils'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { XyoCryptoMarketUniswapPayload } from '@xyo-network/cryptomarket-witness'
 import { XyoPayload } from '@xyo-network/payload'
+import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
 
 import { UniswapTableRowRender } from './TableRow'
@@ -125,7 +125,7 @@ export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ pay
     setRowsPerPage(parseInt(event.target.value, 10))
     setPage(0)
   }
-  const uniswapPayload = payload ? (payload as XyoCryptoMarketUniswapPayload) : undefined
+  const uniswapPayload = payload ? (payload as XyoUniswapCryptoMarketPayload) : undefined
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - (uniswapPayload?.pairs.length ?? 0)) : 0
   return (
     <>

@@ -1,7 +1,7 @@
 import { Typography, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 
-interface TokenSummaryProps extends FlexBoxProps {
+export interface TokenSummaryProps extends FlexBoxProps {
   icon?: string
   symbol?: string
 }
