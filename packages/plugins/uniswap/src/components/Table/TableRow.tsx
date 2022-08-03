@@ -1,8 +1,7 @@
 import SwapHorizRoundedIcon from '@mui/icons-material/SwapHorizRounded'
 import { TableCell, TableRow } from '@mui/material'
-import { XyoUniswapCryptoPair } from '@xyo-network/cryptomarket-witness'
-
-import { useGetTokenData } from '../../useGetTokenData'
+import { useGetTokenData } from '@xyo-network/react-shared'
+import { XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 export interface TableRowProps {
   tokenPair: XyoUniswapCryptoPair
