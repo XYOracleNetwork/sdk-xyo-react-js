@@ -18,7 +18,7 @@ export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payloa
         {cryptoAssetPayload
           ? Object.entries(cryptoAssetPayload.assets).map(([asset, priceInfo]) => (
               <Grid item key={asset} xs={12} md={6} lg={4} xl={3}>
-                <CryptoAsset asset={asset} priceInfo={priceInfo} />
+                <CryptoAsset style={{ height: '100%' }} asset={asset} priceInfo={priceInfo} />
               </Grid>
             ))
           : null}
