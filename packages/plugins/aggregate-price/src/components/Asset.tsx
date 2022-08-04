@@ -1,25 +1,23 @@
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
-import { Card, CardContent, Grid, GridProps, IconButton, Tooltip } from '@mui/material'
-import { FlexGrowRow } from '@xylabs/react-flexbox'
+import { Card, CardContent, CardProps, IconButton, Paper, Tooltip } from '@mui/material'
+import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 
 import { XyoCryptoAssetValue } from './lib'
 
-interface CryptoAssetProps extends GridProps {
+interface CryptoAssetProps extends CardProps {
   asset: string
   priceInfo: XyoCryptoAssetValue
 }
 
 export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...props }) => {
   const [tokenInfo] = useGetTokenData([asset])
-  const [currency, price] = Object.entries(priceInfo.value)[0]
-  console.log(currency, price)
 
   return (
-    <Grid item xs={12} md={6} lg={4} xl={3} spacing={2} {...props}>
-      <Card>
-        <CardContent>
-          <FlexGrowRow>
+    <Card {...props}>
+      <CardContent style={{ height: '100%' }}>
+        <FlexCol alignItems="stretch" height="100%" justifyItems="flex-start">
+          <FlexRow>
             <TokenSummary icon={tokenInfo.icon} symbol={asset}>
               <IconButton sx={{ mb: 3 }}>
                 <Tooltip title="The meta price takes into account the price of XYO against other crypto currencies and derives a meta-price.">
@@ -27,10 +25,16 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
                 </Tooltip>
               </IconButton>
             </TokenSummary>
-          </FlexGrowRow>
-          <TokenBar text1={price} text2={currency} />
-        </CardContent>
-      </Card>
-    </Grid>
+          </FlexRow>
+          <FlexGrowCol alignItems="stretch" justifyContent="flex-start">
+            <Paper elevation={0} style={{ height: '100%', overflow: 'hidden', width: '100%' }}>
+              {Object.entries(priceInfo.value).map(([price, currency]) => (
+                <TokenBar square key={currency} text1={price} text2={currency} />
+              ))}
+            </Paper>
+          </FlexGrowCol>
+        </FlexCol>
+      </CardContent>
+    </Card>
   )
 }

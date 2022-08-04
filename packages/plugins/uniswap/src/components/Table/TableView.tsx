@@ -1,6 +1,6 @@
 import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel } from '@mui/material'
 import { visuallyHidden } from '@mui/utils'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
@@ -106,7 +106,7 @@ interface UniswapPairsRendererProps extends FlexBoxProps {
   payload?: XyoPayload
 }
 
-export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ payload }) => {
+export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ payload, ...props }) => {
   const [order, setOrder] = useState<Order>('asc')
   const [orderBy, setOrderBy] = useState<string>('symbol')
   const [page, setPage] = useState(0)
@@ -128,7 +128,7 @@ export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ pay
   const uniswapPayload = payload ? (payload as XyoUniswapCryptoMarketPayload) : undefined
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - (uniswapPayload?.pairs.length ?? 0)) : 0
   return (
-    <>
+    <FlexCol alignItems="flex-start" {...props}>
       <TableContainer>
         <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size="medium">
           <EnhancedTableHead order={order} orderBy={orderBy} onRequestSort={handleRequestSort} rowCount={uniswapPayload?.pairs.length ?? 0} />
@@ -157,6 +157,6 @@ export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ pay
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </TableContainer>
-    </>
+    </FlexCol>
   )
 }
