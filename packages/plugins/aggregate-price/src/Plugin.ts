@@ -11,8 +11,8 @@ export const CryptoAssetRenderPlugin: XyoRenderPlugin = {
         details: CryptoAssetRenderer,
       },
     },
-    name: 'Meta Price',
+    name: 'Aggregate Price',
   }),
   defaultFullScreen: false,
-  slug: 'meta-price',
+  slug: 'aggregate-price',
 }

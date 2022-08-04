@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-typedoc",
+  "name": "@xyo-network/react-aggregate-price-plugin",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -13,23 +13,23 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
-    "@mui/lab": "^5.0.0-alpha.93",
     "@mui/material": "^5.9.3",
     "@xylabs/react-button": "^2.14.10",
     "@xylabs/react-flexbox": "^2.14.10",
-    "@xylabs/sdk-js": "^2.6.3",
-    "@xyo-network/core": "^2.24.7",
+    "@xylabs/react-identicon": "^2.14.10",
+    "@xylabs/react-quick-tip-button": "^2.14.10",
+    "@xyo-network/react-shared": "workspace:^",
+    "@xyo-network/react-payload-plugin": "workspace:^",
+    "@xyo-network/typeof": "^2.24.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-json-view": "^1.21.3",
-    "react-router-dom": "^6.3.0",
-    "typedoc": "^0.23.10"
+    "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@storybook/react": "^6.5.10",
-    "@xylabs/sdk-js": "^2.6.3",
-    "@xylabs/tsconfig-dom": "^2.5.13"
+    "@xylabs/tsconfig-dom": "^2.5.13",
+    "@xyo-network/react-storybook": "workspace:^"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
@@ -80,5 +80,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.27.2"
+  "version": "2.27.1"
 }
