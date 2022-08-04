@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-wallet-service",
+  "name": "@xyo-network/react-embed",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,16 +10,29 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.9.3",
+    "@xylabs/react-flexbox": "^2.14.10",
     "@xylabs/react-shared": "^2.14.10",
-    "@xylabs/sdk-js": "^2.6.3",
+    "@xyo-network/api": "^2.24.10",
+    "@xyo-network/payload": "^2.24.10",
+    "@xyo-network/react-auth-service": "workspace:^",
+    "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/utils": "^2.24.10",
-    "react": "^18.2.0"
+    "@xyo-network/react-webapp": "workspace:^",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@xylabs/sdk-js": "^2.6.3",
-    "@xylabs/tsconfig-dom": "^2.5.13"
+    "@storybook/react": "^6.5.10",
+    "@xylabs/tsconfig-dom": "^2.5.13",
+    "@xyo-network/react-aggregate-price-plugin": "workspace:^",
+    "@xyo-network/react-crypto-market-uniswap-payload-plugin": "workspace:^",
+    "@xyo-network/react-storybook": "workspace:^",
+    "react-router-dom": "^6.3.0"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
@@ -70,5 +83,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.27.3"
+  "version": "2.27.1"
 }
