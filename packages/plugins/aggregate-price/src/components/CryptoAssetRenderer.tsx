@@ -1,21 +1,28 @@
 import { Grid } from '@mui/material'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload'
 
 import { CryptoAsset } from './Asset'
 import { XyoCryptoAssetPayload } from './lib'
 
-interface CryptoMarketResultRendererProps {
+interface CryptoAssetRendererProps extends FlexBoxProps {
   payload?: XyoPayload
 }
 
-export const CryptoAssetRenderer: React.FC<CryptoMarketResultRendererProps> = ({ payload }) => {
+export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payload, ...props }) => {
   const cryptoAssetPayload = payload ? (payload as XyoCryptoAssetPayload) : undefined
 
   return (
-    <Grid container justifyContent="center">
-      {cryptoAssetPayload
-        ? Object.entries(cryptoAssetPayload.assets).map(([asset, priceInfo]) => <CryptoAsset key={asset} asset={asset} priceInfo={priceInfo} />)
-        : null}
-    </Grid>
+    <FlexCol alignItems="stretch" justifyContent="flex-start" {...props}>
+      <Grid container spacing={2} justifyContent="center">
+        {cryptoAssetPayload
+          ? Object.entries(cryptoAssetPayload.assets).map(([asset, priceInfo]) => (
+              <Grid item key={asset} xs={12} md={6} lg={4} xl={3}>
+                <CryptoAsset asset={asset} priceInfo={priceInfo} />
+              </Grid>
+            ))
+          : null}
+      </Grid>
+    </FlexCol>
   )
 }
