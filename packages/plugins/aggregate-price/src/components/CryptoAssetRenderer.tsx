@@ -5,7 +5,7 @@ import { XyoPayload } from '@xyo-network/payload'
 import { CryptoAsset } from './Asset'
 import { XyoCryptoAssetPayload } from './lib'
 
-interface CryptoAssetRendererProps extends FlexBoxProps {
+export interface CryptoAssetRendererProps extends FlexBoxProps {
   payload?: XyoPayload
 }
 
