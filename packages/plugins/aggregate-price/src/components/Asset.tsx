@@ -20,7 +20,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
           <FlexRow>
             <TokenSummary icon={tokenInfo.icon} symbol={asset}>
               <IconButton sx={{ mb: 3 }}>
-                <Tooltip title="The meta price takes into account the price of XYO against other crypto currencies and derives a meta-price.">
+                <Tooltip title="The price of cryptos based on multiple inputs.">
                   <HelpOutlineIcon />
                 </Tooltip>
               </IconButton>
