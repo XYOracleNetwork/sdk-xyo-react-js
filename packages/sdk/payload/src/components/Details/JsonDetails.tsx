@@ -28,8 +28,7 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonView
       <Paper square variant="elevation" style={{ overflow: 'hidden', padding: '16px', width: '100%' }}>
         <Suspense fallback={<FlexGrowRow />}>
           <JsonView
-            groupArraysAfterLength={5}
-            shouldCollapse={(props) => props.name !== 'root'}
+            groupArraysAfterLength={20}
             style={{ backgroundColor: undefined, overflow: 'hidden' }}
             src={payload}
             enableClipboard

@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoSchemaPayload } from '@xyo-network/payload'
+import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
