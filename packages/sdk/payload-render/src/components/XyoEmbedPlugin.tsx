@@ -1,4 +1,6 @@
 import { Alert, AlertTitle, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { ButtonEx } from '@xylabs/react-button'
+import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
@@ -44,6 +46,12 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
     [huri, payload]
   )
 
+  const refreshHuri = () => {
+    setHuriApiError(undefined)
+    setNotFound(undefined)
+    setPayload(undefined)
+  }
+
   if (payload && plugins?.length === 0) {
     return (
       <Alert severity="warning">
@@ -56,23 +64,30 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
     <ListModeProvider>
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError} rowGap={2} {...props}>
-          <FormControl>
-            <InputLabel id={renderSelectId}>{renderSelectLabel}</InputLabel>
-            <Select size="small" value={ActivePlugin.name} label={renderSelectLabel} labelId={renderSelectId}>
-              {plugins?.map((plugin) => (
-                <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin(plugin)}>
-                  {plugin.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? (
-            <FormControl sx={{ mb: 2 }}>
-              <InputLabel id={listModeSelectId}>{listModeSelectLabel}</InputLabel>
-              <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} />
+          <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap">
+            <FormControl>
+              <InputLabel id={renderSelectId}>{renderSelectLabel}</InputLabel>
+              <Select size="small" value={ActivePlugin.name} label={renderSelectLabel} labelId={renderSelectId}>
+                {plugins?.map((plugin) => (
+                  <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin(plugin)}>
+                    {plugin.name}
+                  </MenuItem>
+                ))}
+              </Select>
             </FormControl>
-          ) : null}
+            {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? (
+              <FormControl>
+                <InputLabel id={listModeSelectId}>{listModeSelectLabel}</InputLabel>
+                <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} />
+              </FormControl>
+            ) : null}
+          </FlexGrowRow>
           <RenderComponent payload={payload} ActivePlugin={ActivePlugin} />
+          <FlexGrowRow>
+            <ButtonEx variant="contained" onClick={refreshHuri}>
+              Refresh
+            </ButtonEx>
+          </FlexGrowRow>
         </XyoApiErrorRender>
       </ResultLoader>
     </ListModeProvider>
