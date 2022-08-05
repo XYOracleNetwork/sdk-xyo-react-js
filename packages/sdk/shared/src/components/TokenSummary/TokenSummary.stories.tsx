@@ -22,9 +22,6 @@ const Template: ComponentStory<typeof TokenSummary> = (args) => (
 const WithData = Template.bind({})
 WithData.args = { icon: 'string', symbol: 'string' }
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
-
 export { WithData }
 
 // eslint-disable-next-line import/no-default-export
