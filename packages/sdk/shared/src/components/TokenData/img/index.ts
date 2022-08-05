@@ -1,11 +1,17 @@
-import bitcoin from './bitcoin.png'
+import ada from './ada.png'
+import btc from './btc.png'
+import busd from './busd.png'
 import dai from './dai.png'
+import dogecoin from './dogecoin.png'
+import dot from './dot.png'
 import ethereum from './ethereum.png'
 import frax from './frax.png'
+import link from './link.png'
+import sol from './sol.png'
 import tether from './tether.png'
 import usdCoin from './usd-coin.png'
 import weth from './weth.png'
 import wrappedBtc from './wrapped-bitcoin.png'
 import xyo from './xyo.png'
 
-export { bitcoin, dai, ethereum, frax, tether, usdCoin, weth, wrappedBtc, xyo }
+export { ada, btc, busd, dai, dogecoin, dot, ethereum, frax, link, sol, tether, usdCoin, weth, wrappedBtc, xyo }
