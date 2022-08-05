@@ -6573,7 +6573,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-embed@workspace:packages/sdk/payload-render":
+"@xyo-network/react-embed@workspace:^, @xyo-network/react-embed@workspace:packages/sdk/payload-render":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-embed@workspace:packages/sdk/payload-render"
   dependencies:
@@ -6735,9 +6735,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-payload-plugin@workspace:^, @xyo-network/react-payload-plugin@workspace:packages/sdk/payload-plugin":
+"@xyo-network/react-payload-plugin@workspace:^, @xyo-network/react-payload-plugin@workspace:packages/sdk/embed":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-payload-plugin@workspace:packages/sdk/payload-plugin"
+  resolution: "@xyo-network/react-payload-plugin@workspace:packages/sdk/embed"
   dependencies:
     "@emotion/react": ^11.10.0
     "@emotion/styled": ^11.10.0
@@ -7092,6 +7092,7 @@ __metadata:
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-block": "workspace:^"
     "@xyo-network/react-card": "workspace:^"
+    "@xyo-network/react-embed": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
     "@xyo-network/react-login-forms": "workspace:^"
     "@xyo-network/react-map": "workspace:^"
