@@ -19,7 +19,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
   return (
     <Card {...props}>
       <CardContent style={{ height: '100%' }}>
-        <FlexCol alignItems="stretch" height="100%" justifyItems="flex-start">
+        <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
           <FlexRow>
             <TokenSummary icon={tokenInfo.icon} symbol={asset} imgBgColor={darkMode ? '' : '#F6F5FA'}>
               <IconButton sx={{ mb: 3 }}>
