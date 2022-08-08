@@ -21,7 +21,7 @@ const renderSelectLabel = 'Renderer'
 const listModeSelectId = 'listmode-select-id'
 const listModeSelectLabel = 'List Mode'
 
-export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], huri, ...props }) => {
+export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], huri, refreshLabel, ...props }) => {
   const [payload, setPayload] = useState<XyoPayload>()
   const [notFound, setNotFound] = useState<boolean>()
   const [huriApiError, setHuriApiError] = useState<XyoApiError>()
@@ -66,8 +66,8 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError} rowGap={2} {...props}>
           <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap">
-            <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
-              {plugins.length > 1 ? (
+            {plugins.length > 1 ? (
+              <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
                 <EmbedRenderSelect
                   label={renderSelectLabel}
                   labelId={renderSelectId}
@@ -75,8 +75,8 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
                   plugins={plugins}
                   setActivePlugin={setActivePlugin}
                 />
-              ) : null}
-            </EmbedControlWrap>
+              </EmbedControlWrap>
+            ) : null}
             {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? (
               <EmbedControlWrap formId={listModeSelectId} formLabel={listModeSelectLabel}>
                 <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} />
