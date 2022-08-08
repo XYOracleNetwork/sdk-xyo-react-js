@@ -1,21 +1,22 @@
-import { MenuItem, Select, SelectProps } from '@mui/material'
-import { XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
-import { Dispatch, SetStateAction } from 'react'
+import { MenuItem, Select } from '@mui/material'
 
-interface EmbedRenderSelectProps extends SelectProps {
-  activePlugin?: XyoPayloadRenderPlugin
-  plugins?: XyoPayloadRenderPlugin[]
-  setActivePlugin?: Dispatch<SetStateAction<XyoPayloadRenderPlugin>>
-}
+import { useXyoEmbedPluginState } from '../../contexts'
+import { EmbedControlWrap } from './ControlWrap'
 
-export const EmbedRenderSelect: React.FC<EmbedRenderSelectProps> = ({ activePlugin, setActivePlugin, plugins, ...props }) => {
+const renderSelectId = 'render-select-id'
+const renderSelectLabel = 'Renderer'
+
+export const EmbedRenderSelect: React.FC = (props) => {
+  const { activePlugin, setActivePlugin, plugins } = useXyoEmbedPluginState()
   return (
-    <Select size="small" value={activePlugin?.name} {...props}>
-      {plugins?.map((plugin) => (
-        <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin?.(plugin)}>
-          {plugin.name}
-        </MenuItem>
-      ))}
-    </Select>
+    <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
+      <Select size="small" value={activePlugin?.name} {...props}>
+        {plugins?.map((plugin) => (
+          <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin?.(plugin)}>
+            {plugin.name}
+          </MenuItem>
+        ))}
+      </Select>
+    </EmbedControlWrap>
   )
 }

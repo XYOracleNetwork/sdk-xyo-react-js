@@ -1,6 +1,11 @@
 import { MenuItem, Select, SelectProps } from '@mui/material'
 import { ListMode, useListMode } from '@xyo-network/react-shared'
 
+import { EmbedControlWrap } from './ControlWrap'
+
+const listModeSelectId = 'listmode-select-id'
+const listModeSelectLabel = 'List Mode'
+
 export const ListModeSelect: React.FC<SelectProps<ListMode>> = (props) => {
   const { listMode, setListMode } = useListMode()
 
@@ -22,5 +27,13 @@ export const ListModeSelect: React.FC<SelectProps<ListMode>> = (props) => {
         Grid
       </MenuItem>
     </Select>
+  )
+}
+
+export const ListModeSelectFormControl: React.FC<SelectProps<ListMode>> = (props) => {
+  return (
+    <EmbedControlWrap formId={listModeSelectId} formLabel={listModeSelectLabel}>
+      <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} {...props} />
+    </EmbedControlWrap>
   )
 }
