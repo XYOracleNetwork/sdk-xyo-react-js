@@ -21,7 +21,5 @@ export const EmbedCardEx: React.FC<WithChildren<CardProps>> = ({ children, ...pr
     }
   }, [darkMode, props])
 
-  console.log(darkMode)
-
   return <Card {...cardProps()}>{children}</Card>
 }

@@ -1,7 +1,7 @@
 import { ListModeProvider } from '@xyo-network/react-shared'
 
 import { XyoEmbedPluginProvider } from '../contexts'
-import { PluginEmbedCard, ValidatePlugins } from './embed-card'
+import { EmbedPluginContainer, ValidatePlugins } from './embed-card'
 import { XyoEmbedPluginProps } from './XyoEmbedPluginProps'
 
 export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], huri, refreshTitle = '', timestampLabel = 'Data From', ...props }) => {
@@ -9,7 +9,7 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
     <XyoEmbedPluginProvider refreshTitle={refreshTitle} timestampLabel={timestampLabel} plugins={plugins} huri={huri}>
       <ListModeProvider>
         <ValidatePlugins>
-          <PluginEmbedCard />
+          <EmbedPluginContainer />
         </ValidatePlugins>
       </ListModeProvider>
     </XyoEmbedPluginProvider>
