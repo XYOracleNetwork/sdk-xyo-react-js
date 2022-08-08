@@ -37,7 +37,7 @@ WithBuilderSample.args = { payload: samplePayloadFromBuilder }
 WithBuilderSample.decorators = [useAppThemeDecorator]
 
 const WithArchiveLink = Template.bind({})
-WithArchiveLink.args = { archivePath: 'temp', payload: samplePayloadFromBuilder }
+WithArchiveLink.args = { payload: samplePayloadFromBuilder }
 WithArchiveLink.decorators = [useAppThemeDecorator]
 
 const DefaultPaper = Template.bind({})
@@ -53,7 +53,7 @@ WithBuilderSamplePaper.args = { paper: true, payload: samplePayloadFromBuilder }
 WithBuilderSamplePaper.decorators = [useAppThemeDecorator]
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = { archivePath: 'temp', paper: true, payload: samplePayloadFromBuilder }
+WithArchiveLinkPaper.args = { paper: true, payload: samplePayloadFromBuilder }
 WithArchiveLinkPaper.decorators = [useAppThemeDecorator]
 
 export { Default, DefaultPaper, WithArchiveLink, WithArchiveLinkPaper, WithBuilderSample, WithBuilderSamplePaper, WithSample, WithSamplePaper }

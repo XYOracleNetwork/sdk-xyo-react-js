@@ -7,6 +7,7 @@ export type PayloadMetaDetailsProps = PropertyGroupProps & {
   archivePath?: string
 }
 
+/** @deprecated - Meta no longer returned from Archivist */
 export const PayloadMetaDetails: React.FC<PayloadMetaDetailsProps> = ({ archivePath, value, ...props }) => {
   let elevation = 2
   if (props.paper) {
