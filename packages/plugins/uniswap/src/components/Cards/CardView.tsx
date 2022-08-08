@@ -4,7 +4,6 @@ import { XyoPayload } from '@xyo-network/payload'
 import { XyoUniswapCryptoMarketPayload, XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
 
-import { CardViewToggle } from './CardViewToggle'
 import { CardViewType } from './CardViewType'
 import { DynamicTokenComparison } from './DynamicTokenComparison'
 import { StaticTokenComparison } from './StaticTokenComparison'
@@ -15,11 +14,12 @@ interface UniswapPairsCardsProps extends FlexBoxProps {
 
 export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload, ...props }) => {
   const uniswapPayload = payload ? (payload as XyoUniswapCryptoMarketPayload) : undefined
-  const [cardViewStyle, setCardViewStyle] = useState(CardViewType.Static)
+  const [cardViewStyle] = useState(CardViewType.Static)
 
   return (
     <FlexCol alignItems="stretch" justifyContent="flex-start" {...props}>
-      <CardViewToggle cardViewStyle={cardViewStyle} setCardViewStyle={setCardViewStyle} />
+      {/* Bring back once Dynamic view is more mature */}
+      {/* <CardViewToggle cardViewStyle={cardViewStyle} setCardViewStyle={setCardViewStyle} /> */}
       <Grid container spacing={2}>
         {uniswapPayload?.pairs.map((pair: XyoUniswapCryptoPair, index) => (
           <Grid item xs={12} md={4} key={index}>
