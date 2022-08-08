@@ -9,7 +9,7 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
     <XyoEmbedPluginProvider refreshTitle={refreshTitle} timestampLabel={timestampLabel} plugins={plugins} huri={huri}>
       <ListModeProvider>
         <ValidatePlugins>
-          <EmbedPluginContainer />
+          <EmbedPluginContainer {...props} />
         </ValidatePlugins>
       </ListModeProvider>
     </XyoEmbedPluginProvider>
