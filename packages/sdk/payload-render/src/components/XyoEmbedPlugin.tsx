@@ -1,6 +1,6 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
 import { Alert, AlertTitle, Avatar, Card, CardContent, CardHeader, Link, Theme } from '@mui/material'
-import { FlexGrowRow } from '@xylabs/react-flexbox'
+import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
@@ -65,30 +65,9 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
     <ListModeProvider>
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError} rowGap={2} {...props}>
-          <Card>
-            <CardContent>
-              <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap">
-                {plugins.length > 1 ? (
-                  <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
-                    <EmbedRenderSelect
-                      label={renderSelectLabel}
-                      labelId={renderSelectId}
-                      activePlugin={ActivePlugin}
-                      plugins={plugins}
-                      setActivePlugin={setActivePlugin}
-                    />
-                  </EmbedControlWrap>
-                ) : null}
-                {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? (
-                  <EmbedControlWrap formId={listModeSelectId} formLabel={listModeSelectLabel}>
-                    <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} />
-                  </EmbedControlWrap>
-                ) : null}
-              </FlexGrowRow>
-            </CardContent>
-          </Card>
           <Card elevation={3}>
             <CardHeader
+              sx={{ flexWrap: 'wrap', rowGap: 1 }}
               avatar={
                 <Avatar sx={{ bgcolor: (theme: Theme) => theme.palette.primary.main }} aria-label={ActivePlugin?.name}>
                   {ActivePlugin?.name?.charAt(0)}
@@ -110,6 +89,24 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
               }
               title={ActivePlugin.name}
             />
+            <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" justifyContent="start" pl={1}>
+              {plugins.length > 1 ? (
+                <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
+                  <EmbedRenderSelect
+                    label={renderSelectLabel}
+                    labelId={renderSelectId}
+                    activePlugin={ActivePlugin}
+                    plugins={plugins}
+                    setActivePlugin={setActivePlugin}
+                  />
+                </EmbedControlWrap>
+              ) : null}
+              {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? (
+                <EmbedControlWrap formId={listModeSelectId} formLabel={listModeSelectLabel}>
+                  <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} />
+                </EmbedControlWrap>
+              ) : null}
+            </FlexGrowRow>
             <CardContent>
               <RenderComponent payload={payload} ActivePlugin={ActivePlugin} />
             </CardContent>
