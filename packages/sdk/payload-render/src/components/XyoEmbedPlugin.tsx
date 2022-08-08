@@ -1,14 +1,14 @@
-import { Alert, AlertTitle } from '@mui/material'
-import { ButtonEx } from '@xylabs/react-button'
+import RefreshIcon from '@mui/icons-material/Refresh'
+import { Alert, AlertTitle, Avatar, Card, CardContent, CardHeader, Link, Theme } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
 import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
 import { XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
-import { ListModeProvider } from '@xyo-network/react-shared'
+import { ListModeProvider, TypographyEx } from '@xyo-network/react-shared'
 import { ResultLoader } from '@xyo-network/react-webapp'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 import { EmbedControlWrap, EmbedRenderSelect } from './controls'
 import { ListModeSelect } from './ListModeSelect'
@@ -21,7 +21,7 @@ const renderSelectLabel = 'Renderer'
 const listModeSelectId = 'listmode-select-id'
 const listModeSelectLabel = 'List Mode'
 
-export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], huri, refreshLabel, ...props }) => {
+export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], huri, refreshTitle = '', timestampLabel = 'Data From', ...props }) => {
   const [payload, setPayload] = useState<XyoPayload>()
   const [notFound, setNotFound] = useState<boolean>()
   const [huriApiError, setHuriApiError] = useState<XyoApiError>()
@@ -65,30 +65,55 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
     <ListModeProvider>
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError} rowGap={2} {...props}>
-          <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap">
-            {plugins.length > 1 ? (
-              <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
-                <EmbedRenderSelect
-                  label={renderSelectLabel}
-                  labelId={renderSelectId}
-                  activePlugin={ActivePlugin}
-                  plugins={plugins}
-                  setActivePlugin={setActivePlugin}
-                />
-              </EmbedControlWrap>
-            ) : null}
-            {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? (
-              <EmbedControlWrap formId={listModeSelectId} formLabel={listModeSelectLabel}>
-                <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} />
-              </EmbedControlWrap>
-            ) : null}
-          </FlexGrowRow>
-          <RenderComponent payload={payload} ActivePlugin={ActivePlugin} />
-          <FlexGrowRow>
-            <ButtonEx variant="contained" onClick={refreshHuri}>
-              Refresh
-            </ButtonEx>
-          </FlexGrowRow>
+          <Card>
+            <CardContent>
+              <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap">
+                {plugins.length > 1 ? (
+                  <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
+                    <EmbedRenderSelect
+                      label={renderSelectLabel}
+                      labelId={renderSelectId}
+                      activePlugin={ActivePlugin}
+                      plugins={plugins}
+                      setActivePlugin={setActivePlugin}
+                    />
+                  </EmbedControlWrap>
+                ) : null}
+                {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? (
+                  <EmbedControlWrap formId={listModeSelectId} formLabel={listModeSelectLabel}>
+                    <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} />
+                  </EmbedControlWrap>
+                ) : null}
+              </FlexGrowRow>
+            </CardContent>
+          </Card>
+          <Card elevation={3}>
+            <CardHeader
+              avatar={
+                <Avatar sx={{ bgcolor: (theme: Theme) => theme.palette.primary.main }} aria-label={ActivePlugin?.name}>
+                  {ActivePlugin?.name?.charAt(0)}
+                </Avatar>
+              }
+              action={
+                <Fragment>
+                  {payload?.timestamp ? (
+                    <FlexGrowRow>
+                      <TypographyEx variant="caption">{`${timestampLabel} ${new Date(payload.timestamp).toLocaleString()}`}</TypographyEx>
+                      <Link onClick={refreshHuri} sx={{ cursor: 'pointer' }} title={refreshTitle}>
+                        <RefreshIcon sx={{ height: (theme: Theme) => theme.spacing(1), position: 'relative', top: '2px' }} />
+                      </Link>
+                    </FlexGrowRow>
+                  ) : (
+                    <></>
+                  )}
+                </Fragment>
+              }
+              title={ActivePlugin.name}
+            />
+            <CardContent>
+              <RenderComponent payload={payload} ActivePlugin={ActivePlugin} />
+            </CardContent>
+          </Card>
         </XyoApiErrorRender>
       </ResultLoader>
     </ListModeProvider>
