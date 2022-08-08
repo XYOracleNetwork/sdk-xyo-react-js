@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { Alert, AlertTitle } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
@@ -10,6 +10,7 @@ import { ListModeProvider } from '@xyo-network/react-shared'
 import { ResultLoader } from '@xyo-network/react-webapp'
 import { useState } from 'react'
 
+import { EmbedControlWrap, EmbedRenderSelect } from './controls'
 import { ListModeSelect } from './ListModeSelect'
 import { RenderComponent } from './RenderComponent'
 import { XyoEmbedPluginProps } from './XyoEmbedPluginProps'
@@ -65,21 +66,21 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError} rowGap={2} {...props}>
           <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap">
-            <FormControl>
-              <InputLabel id={renderSelectId}>{renderSelectLabel}</InputLabel>
-              <Select size="small" value={ActivePlugin.name} label={renderSelectLabel} labelId={renderSelectId}>
-                {plugins?.map((plugin) => (
-                  <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin(plugin)}>
-                    {plugin.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+            <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
+              {plugins.length > 1 ? (
+                <EmbedRenderSelect
+                  label={renderSelectLabel}
+                  labelId={renderSelectId}
+                  activePlugin={ActivePlugin}
+                  plugins={plugins}
+                  setActivePlugin={setActivePlugin}
+                />
+              ) : null}
+            </EmbedControlWrap>
             {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? (
-              <FormControl>
-                <InputLabel id={listModeSelectId}>{listModeSelectLabel}</InputLabel>
+              <EmbedControlWrap formId={listModeSelectId} formLabel={listModeSelectLabel}>
                 <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} />
-              </FormControl>
+              </EmbedControlWrap>
             ) : null}
           </FlexGrowRow>
           <RenderComponent payload={payload} ActivePlugin={ActivePlugin} />
