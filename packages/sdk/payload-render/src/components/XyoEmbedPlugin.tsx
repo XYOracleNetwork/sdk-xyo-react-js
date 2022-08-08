@@ -1,6 +1,6 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
 import { Alert, AlertTitle, Avatar, Card, CardContent, CardHeader, Link, Theme } from '@mui/material'
-import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
+import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
