@@ -49,7 +49,6 @@ const AggregatePriceExample = Template.bind({})
 AggregatePriceExample.args = {
   huri: AggregatePricePointer,
   plugins: [CryptoAssetRenderPlugin],
-  refreshLabel: 'Get Latest Prices',
   timestampLabel: 'Last Updated - ',
 }
 
@@ -57,7 +56,6 @@ const UniswapPairsExample = Template.bind({})
 UniswapPairsExample.args = {
   huri: UniswapPairPointer,
   plugins: [UniswapPairsRenderPlugin],
-  refreshLabel: 'Get Latest Prices',
   timestampLabel: 'Last Updated - ',
 }
 
