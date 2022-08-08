@@ -89,7 +89,7 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({ plugins = [], hu
               }
               title={ActivePlugin.name}
             />
-            <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" justifyContent="start" pl={1}>
+            <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" justifyContent="center" pb={1}>
               {plugins.length > 1 ? (
                 <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
                   <EmbedRenderSelect
