@@ -21,7 +21,7 @@ export const useDivinePayload = (huri?: string): [XyoPayload | undefined | null,
     async (mounted) => {
       if (huri) {
         try {
-          const payload = (await diviner?.divine({ huri, schema: XyoPayloadDivinerQueryPayloadSchema, targetSchema: XyoPayloadDivinerPayloadSchema }))?.payload
+          const payload = (await diviner?.divine({ huri, schema: XyoPayloadDivinerQueryPayloadSchema, targetSchema: XyoPayloadDivinerPayloadSchema }))?.[1][0]
           if (mounted()) {
             setPayload(payload)
           }
@@ -50,7 +50,7 @@ export const useDivinePayloads = (huriList: string[]): [(XyoPayload | null)[] | 
       const payloads = await Promise.allSettled(
         huriList.map(
           async (huri) =>
-            (await diviner?.divine({ huri, schema: XyoPayloadDivinerQueryPayloadSchema, targetSchema: XyoPayloadDivinerPayloadSchema }))?.payload ?? null
+            (await diviner?.divine({ huri, schema: XyoPayloadDivinerQueryPayloadSchema, targetSchema: XyoPayloadDivinerPayloadSchema }))?.[1][0] ?? null
         )
       )
       if (mounted()) {
