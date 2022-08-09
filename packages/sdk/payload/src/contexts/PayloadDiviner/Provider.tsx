@@ -1,3 +1,4 @@
+import { XyoAccount } from '@xyo-network/account'
 import { XyoHuriPayloadDiviner, XyoPayloadDiviner } from '@xyo-network/diviner'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
@@ -15,7 +16,7 @@ export const PayloadDivinerProvider: React.FC<PayloadDivinerProviderProps> = ({ 
 
   const activeDiviner = useMemo(() => {
     //if no diviner is set, then we use a XyoHuriPayloadDiviner
-    return diviner ?? new XyoHuriPayloadDiviner({ archivistUri: api?.config.apiDomain })
+    return diviner ?? new XyoHuriPayloadDiviner(new XyoAccount(), { archivistUri: api?.config.apiDomain })
   }, [diviner, api?.config.apiDomain])
 
   return (
