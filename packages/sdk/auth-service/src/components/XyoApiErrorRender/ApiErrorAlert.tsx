@@ -7,11 +7,11 @@ export interface ApiErrorAlertProps {
 
 const ApiErrorAlert: React.FC<ApiErrorAlertProps> = ({ call, ...props }) => {
   const theme = useTheme()
+
   return (
     <Alert {...props} sx={{ marginBottom: theme.spacing(1) }} severity="error">
-      <AlertTitle>
-        {call?.config?.method?.toUpperCase()} {call?.response?.status} - {call?.config?.url}
-      </AlertTitle>
+      <AlertTitle>Whoops! Something went wrong</AlertTitle>
+      <Typography sx={{ wordBreak: 'break-all' }}>{call?.config?.url}</Typography>
       <Typography variant="caption" mr={0.5} fontWeight="bold">
         Error:
       </Typography>

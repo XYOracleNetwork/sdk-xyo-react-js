@@ -36,10 +36,7 @@ export const XyoApiErrorRender: React.FC<XyoApiErrorRenderProps> = ({
         {noErrorDisplay ? (
           customError
         ) : (
-          <FlexCol alignItems="start" {...props}>
-            <Typography variant="h5" color="error" my={1}>
-              Error Making Request
-            </Typography>
+          <FlexCol alignItems="center" {...props}>
             <ApiErrorAlert call={loggedError} />
           </FlexCol>
         )}
