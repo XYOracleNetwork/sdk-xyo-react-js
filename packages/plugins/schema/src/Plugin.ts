@@ -4,7 +4,7 @@ import { XyoSchemaPayloadSchema } from '@xyo-network/schema-payload-plugin'
 
 import { DetailsBox } from './Details'
 
-export const RenderPlugin: XyoPayloadRenderPlugin = createPayloadRenderPlugin({
+export const SchemaRenderPlugin: XyoPayloadRenderPlugin = createPayloadRenderPlugin({
   canRender: (payload?: XyoPayload) => payload?.schema === XyoSchemaPayloadSchema,
   components: {
     box: {

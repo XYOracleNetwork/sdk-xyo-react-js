@@ -3,7 +3,7 @@ import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/
 
 import { DetailsBox } from './Details'
 
-export const RenderPlugin: XyoPayloadRenderPlugin = createPayloadRenderPlugin({
+export const PointerRenderPlugin: XyoPayloadRenderPlugin = createPayloadRenderPlugin({
   canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.pointer',
   components: {
     box: {
