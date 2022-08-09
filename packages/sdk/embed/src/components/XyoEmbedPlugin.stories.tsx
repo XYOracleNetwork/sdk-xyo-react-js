@@ -18,7 +18,7 @@ export default {
       page: null,
     },
   },
-  title: 'payload/XyoEmbedPlugin',
+  title: 'embed/XyoEmbedPlugin',
 } as Meta
 
 const Template: ComponentStory<typeof XyoEmbedPlugin> = (args) => {
