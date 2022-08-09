@@ -14,13 +14,13 @@ import {
 } from '@xyo-network/react-map'
 import { Feature, Polygon } from 'geojson'
 
-import { QuadKeyHeatMapSettings } from './QuadKeyHeatMapSettings'
+import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
 
-interface PayloadQuadkeyHeatMapProps extends FlexBoxProps {
+export interface PayloadQuadkeyHeatMapProps extends FlexBoxProps {
   payload?: XyoPayload
 }
 
-const PayloadQuadkeyHeatMap: React.FC<PayloadQuadkeyHeatMapProps> = ({ payload, ...props }) => {
+export const PayloadQuadkeyHeatMap: React.FC<PayloadQuadkeyHeatMapProps> = ({ payload, ...props }) => {
   const { features } = useQuadKeyPayloadsToFeatures(payload as NetworkXyoLocationHeatmapQuadkeyAnswerPayload)
   const theme = useTheme()
   const { accessToken } = useMapboxAccessToken(true)
@@ -36,14 +36,12 @@ const PayloadQuadkeyHeatMap: React.FC<PayloadQuadkeyHeatMapProps> = ({ payload, 
   ) : null
 }
 
-const PayloadQuadKeyHeatMapWithSettings: React.FC<PayloadQuadkeyHeatMapProps> = ({ ...props }) => {
+export const PayloadQuadkeyHeatMapWithSettings: React.FC<PayloadQuadkeyHeatMapProps> = ({ ...props }) => {
   return (
     <MapBoxInstanceProvider>
-      <MapSettingsProvider defaultMapSettings={QuadKeyHeatMapSettings} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
+      <MapSettingsProvider defaultMapSettings={QuadkeyHeatMapSettings} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
         <PayloadQuadkeyHeatMap {...props} />
       </MapSettingsProvider>
     </MapBoxInstanceProvider>
   )
 }
-
-export { PayloadQuadkeyHeatMap, PayloadQuadKeyHeatMapWithSettings }
