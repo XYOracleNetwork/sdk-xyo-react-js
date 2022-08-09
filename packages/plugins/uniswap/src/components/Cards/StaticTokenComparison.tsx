@@ -13,14 +13,14 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
 
   return (
     <FlexCol justifyContent="flex-start" alignItems="stretch" padding={0.5}>
-      <TokenSummary {...token0} icon={tokenInfo0.icon}>
-        <TokenBar text1={token0.value} text2={token1.symbol} />
+      <TokenSummary {...token0} icon={tokenInfo0.icon} imgBgProps={{ variant: 'lightModeBg' }}>
+        <TokenBar text1={token0.value} text2={token1.symbol} variant="lightModeBg" />
       </TokenSummary>
       <FlexGrowRow paddingY={2}>
         <Divider variant="fullWidth" />
       </FlexGrowRow>
-      <TokenSummary {...token1} icon={tokenInfo1.icon}>
-        <TokenBar text1={token1.value} text2={token0.symbol} />
+      <TokenSummary {...token1} icon={tokenInfo1.icon} imgBgProps={{ variant: 'lightModeBg' }}>
+        <TokenBar text1={token1.value} text2={token0.symbol} variant="lightModeBg" />
       </TokenSummary>
     </FlexCol>
   )
