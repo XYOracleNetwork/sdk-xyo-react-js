@@ -11,8 +11,15 @@ export const TokenSummary: React.FC<TokenSummaryProps> = ({ imgBgColor, icon, sy
   const theme = useTheme()
   return (
     <>
-      <FlexRow paddingBottom={3} width="100%" justifyContent="flex-start" {...props}>
-        <FlexCol borderRadius="50%" padding={1} bgcolor={imgBgColor ? imgBgColor : theme.palette.text.primary} height="40px" width="40px">
+      <FlexRow className="TokenSummary-root" paddingBottom={3} width="100%" justifyContent="flex-start" {...props}>
+        <FlexCol
+          borderRadius="50%"
+          padding={1}
+          className="token-logo-bg"
+          bgcolor={imgBgColor ? imgBgColor : theme.palette.text.primary}
+          height="40px"
+          width="40px"
+        >
           <img src={icon} height="25px" />
         </FlexCol>
         <Typography variant="h6" fontWeight={300} textTransform="uppercase" paddingLeft={1}>

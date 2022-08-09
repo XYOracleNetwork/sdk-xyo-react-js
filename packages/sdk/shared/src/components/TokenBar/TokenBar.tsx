@@ -7,7 +7,7 @@ export interface TokenBarProps extends PaperProps {
 
 export const TokenBar: React.FC<TokenBarProps> = ({ text1, text2, ...props }) => {
   return (
-    <Paper elevation={0} {...props}>
+    <Paper elevation={0} className="TokenBar-root" {...props}>
       <FlexRow justifyContent="space-between">
         <Typography variant="body1" fontWeight={300} margin={1}>
           {text1}

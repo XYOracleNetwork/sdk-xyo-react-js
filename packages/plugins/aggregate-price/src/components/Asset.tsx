@@ -17,7 +17,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
   const { darkMode } = useAppSettings()
 
   return (
-    <Card {...props}>
+    <Card className="CryptoAsset-root" {...props}>
       <CardContent style={{ height: '100%' }}>
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
           <FlexRow>
