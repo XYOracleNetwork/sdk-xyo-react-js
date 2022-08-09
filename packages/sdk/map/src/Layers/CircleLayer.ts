@@ -6,7 +6,7 @@ export class CircleLayerBuilder extends LayerBase<CircleLayer> {
   CircleLayerOptions: Partial<CircleLayer>
 
   // ensures this class passes for `AnyLayer` type in MapBox
-  type: 'circle' = 'circle'
+  type: 'circle' = 'circle' as const
 
   constructor(id: string, source: string, CircleLayerOptions?: Partial<CircleLayer>) {
     super(id, source)
