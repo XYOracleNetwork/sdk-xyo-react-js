@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.9.3",
+    "@mui/material": "^5.10.0",
     "@mui/utils": "^5.9.3",
     "@storybook/react": "^6.5.10",
     "@xylabs/react-flexbox": "^2.14.10",
@@ -24,7 +24,7 @@
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@xylabs/tsconfig-dom": "^2.5.79"
+    "@xylabs/tsconfig-dom": "^2.5.84"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
@@ -55,13 +55,6 @@
     "react"
   ],
   "license": "LGPL-3.0",
-  "resolutions": {
-    "@storybook/react/webpack": "^5",
-    "bn.js": "^5.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "webpack": "^5"
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -75,5 +68,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.27.9"
+  "version": "2.27.10"
 }
