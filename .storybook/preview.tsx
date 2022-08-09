@@ -2,7 +2,7 @@ import { InvertableThemeProvider } from '@xylabs/react-invertable-theme'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { CssBaseline } from '@mui/material';
 import { useDarkMode } from 'storybook-dark-mode';
-import { partialDarkThemeOptions, themeOptions } from '@xyo-network/react-theme'
+import { partialDarkThemeOptions, partialAppLightThemeOptions, themeOptions } from '@xyo-network/react-theme'
 import { AppSettingsProvider } from '@xyo-network/react-app-settings'
 import React from 'react';
 
@@ -31,7 +31,7 @@ const withThemeProvider = (Story, context) => {
 
   return (
     <AppSettingsProvider value={{darkMode}}>
-    <InvertableThemeProvider dark={darkMode} darkTheme={partialDarkThemeOptions} options={themeOptions}>
+    <InvertableThemeProvider dark={darkMode} lightOptions={partialAppLightThemeOptions} darkTheme={partialDarkThemeOptions} options={themeOptions}>
       <CssBaseline enableColorScheme />
       <FlexCol alignItems="unset">
         <Story {...context}/>
