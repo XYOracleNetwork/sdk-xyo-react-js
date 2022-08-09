@@ -1,5 +1,5 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
-import { Avatar, CardContent, CardHeader, Link, Theme } from '@mui/material'
+import { Avatar, Card, CardContent, CardHeader, CardProps, Link, Theme } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { Fragment } from 'react'
@@ -7,12 +7,11 @@ import { Fragment } from 'react'
 import { useXyoEmbedPluginState } from '../../contexts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../controls'
 import { RenderComponent } from '../RenderComponent'
-import { EmbedCardEx } from './EmbedCardEx'
 
-export const EmbedPluginContainer: React.FC = () => {
+export const EmbedPluginContainer: React.FC<CardProps> = (props) => {
   const { activePlugin, payload, timestampLabel, refreshHuri, refreshTitle, plugins } = useXyoEmbedPluginState()
   return (
-    <EmbedCardEx elevation={3}>
+    <Card elevation={3} variant="elevation" {...props}>
       <CardHeader
         sx={{ flexWrap: 'wrap', rowGap: 1 }}
         avatar={
@@ -43,6 +42,6 @@ export const EmbedPluginContainer: React.FC = () => {
       <CardContent>
         <RenderComponent payload={payload} ActivePlugin={activePlugin} />
       </CardContent>
-    </EmbedCardEx>
+    </Card>
   )
 }

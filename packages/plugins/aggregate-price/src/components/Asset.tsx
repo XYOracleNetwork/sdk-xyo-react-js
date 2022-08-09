@@ -1,5 +1,5 @@
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
-import { Card, CardContent, CardProps, Divider, IconButton, Paper, Tooltip } from '@mui/material'
+import { Card, CardContent, CardProps, Divider, IconButton, Paper, PaperProps, Tooltip, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { Fragment } from 'react'
@@ -12,14 +12,32 @@ interface CryptoAssetProps extends CardProps {
 }
 
 export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...props }) => {
+  const theme = useTheme()
+  const isLightMode = theme.palette.mode !== 'dark'
+
   const [tokenInfo] = useGetTokenData([asset])
+
+  const imgBgProps: PaperProps = {
+    elevation: isLightMode ? 1 : 3,
+    sx: {
+      bgcolor: isLightMode ? '#F6F5FA' : 'inherit',
+    },
+    variant: 'elevation',
+  }
+
+  const tokenBarBgProps: PaperProps = {
+    sx: {
+      bgcolor: isLightMode ? '#F6F5FA' : 'inherit',
+      border: 'none',
+    },
+  }
 
   return (
     <Card className="CryptoAsset-root" {...props}>
       <CardContent style={{ height: '100%' }}>
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
           <FlexRow>
-            <TokenSummary icon={tokenInfo.icon} symbol={asset} imgBgProps={{ variant: 'lightModeBg' }}>
+            <TokenSummary icon={tokenInfo.icon} symbol={asset} imgBgProps={imgBgProps}>
               <IconButton sx={{ mb: 3 }}>
                 <Tooltip title="The price of cryptos based on multiple inputs.">
                   <HelpOutlineIcon />
@@ -28,10 +46,10 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
             </TokenSummary>
           </FlexRow>
           <FlexCol alignItems="stretch" justifyContent="flex-start">
-            <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden" sx={{ border: 'none' }}>
+            <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden">
               {Object.entries(priceInfo.value).map(([currency, price], index, arr) => (
                 <Fragment key={currency}>
-                  <TokenBar square text1={currency.toUpperCase()} text2={price} variant="lightModeBg" />
+                  <TokenBar square text1={currency.toUpperCase()} text2={price} {...tokenBarBgProps} />
                   {/* hide the last divider */}
                   {index !== arr.length - 1 ? <Divider flexItem /> : null}
                 </Fragment>
