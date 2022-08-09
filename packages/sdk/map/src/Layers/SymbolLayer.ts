@@ -6,7 +6,7 @@ export class SymbolLayerBuilder extends LayerBase<SymbolLayer> {
   SymbolLayerOptions: Partial<SymbolLayer>
 
   // ensures this class passes for `AnyLayer` type in MapBox
-  type: 'symbol' = 'symbol'
+  type: 'symbol' = 'symbol' as const
 
   constructor(id: string, source: string, SymbolLayerOptions?: Partial<SymbolLayer>) {
     super(id, source)

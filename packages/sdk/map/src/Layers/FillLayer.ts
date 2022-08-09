@@ -6,7 +6,7 @@ export class FillLayerBuilder extends LayerBase<FillLayer> {
   FillLayerOptions: Partial<FillLayer>
 
   // ensures this class passes for `AnyLayer` type in MapBox
-  type: 'fill' = 'fill'
+  type: 'fill' = 'fill' as const
 
   constructor(id: string, source: string, FillLayerOptions?: Partial<FillLayer>) {
     super(id, source)

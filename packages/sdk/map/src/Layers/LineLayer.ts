@@ -6,7 +6,7 @@ export class LineLayerBuilder extends LayerBase<LineLayer> {
   LineLayerOptions: Partial<LineLayer>
 
   // ensures this class passes for `AnyLayer` type in MapBox
-  type: 'line' = 'line'
+  type: 'line' = 'line' as const
 
   constructor(id: string, source: string, LineLayerOptions?: Partial<LineLayer>) {
     super(id, source)
