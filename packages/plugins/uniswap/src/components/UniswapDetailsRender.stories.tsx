@@ -22,7 +22,10 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { payload: payloadData }
 
-export { Default, WithData }
+const WithTableData = Template.bind({})
+WithTableData.args = { payload: payloadData, listMode: 'table' }
+
+export { Default, WithData, WithTableData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
