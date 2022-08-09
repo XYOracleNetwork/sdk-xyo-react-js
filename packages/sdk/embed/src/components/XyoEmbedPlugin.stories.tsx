@@ -59,4 +59,11 @@ UniswapPairsExample.args = {
   timestampLabel: 'Last Updated - ',
 }
 
-export { AggregatePriceExample, Default, UniswapPairsExample }
+const Error = Template.bind({})
+Error.args = {
+  huri: 'https://api.archivist.xyo.network/9663b2f80395a9e7e95948fdd5988b778a4dcc047202bf67e855ff6cd459b8c',
+  plugins: [UniswapPairsRenderPlugin],
+  timestampLabel: 'Last Updated - ',
+}
+
+export { AggregatePriceExample, Default, Error, UniswapPairsExample }

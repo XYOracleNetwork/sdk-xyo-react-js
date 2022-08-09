@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { AxiosLoggedError } from '@xyo-network/react-auth'
 import { useEffect } from 'react'
@@ -36,10 +35,7 @@ export const XyoApiErrorRender: React.FC<XyoApiErrorRenderProps> = ({
         {noErrorDisplay ? (
           customError
         ) : (
-          <FlexCol alignItems="start" {...props}>
-            <Typography variant="h5" color="error" my={1}>
-              Error Making Request
-            </Typography>
+          <FlexCol alignItems="center" {...props}>
             <ApiErrorAlert call={loggedError} />
           </FlexCol>
         )}

@@ -102,15 +102,35 @@ const Template500: ComponentStory<typeof XyoApiErrorRender> = () => {
   return <XyoApiErrorRender apiError={apiError}>I should never show</XyoApiErrorRender>
 }
 
+const Template404: ComponentStory<typeof XyoApiErrorRender> = () => {
+  const [apiError, setApiError] = useState<XyoApiError>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      try {
+        await axios.get('https://beta.xyo.network/somelongstringthatisntarealhashbutcouldbe')
+        setApiError(undefined)
+      } catch (error) {
+        setApiError(error as XyoApiError)
+      }
+    },
+    []
+  )
+
+  return <XyoApiErrorRender apiError={apiError}>I should never show</XyoApiErrorRender>
+}
+
 TemplateStats.decorators = [archivistApiDecorator]
 Template401.decorators = [archivistApiDecorator]
 Template500.decorators = [archivistApiDecorator]
 
 const AuthRequired = TemplateStats.bind({})
 const UnAuthedFallback = Template401.bind({})
+const Server404 = Template404.bind({})
 const Server500 = Template500.bind({})
 
-export { AuthRequired, Server500, UnAuthedFallback }
+export { AuthRequired, Server404, Server500, UnAuthedFallback }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
