@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { AxiosLoggedError } from '@xyo-network/react-auth'
 import { useEffect } from 'react'
