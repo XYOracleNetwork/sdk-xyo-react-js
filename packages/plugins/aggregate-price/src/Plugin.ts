@@ -1,9 +1,9 @@
 import { XyoPayload } from '@xyo-network/payload'
-import { createPayloadRenderPlugin, XyoRenderPlugin } from '@xyo-network/react-payload-plugin'
+import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { CryptoAssetRenderer } from './components'
 
-export const CryptoAssetRenderPlugin: XyoRenderPlugin = {
+export const CryptoAssetRenderPlugin: XyoPayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.crypto.asset',
     components: {
@@ -13,6 +13,4 @@ export const CryptoAssetRenderPlugin: XyoRenderPlugin = {
     },
     name: 'Aggregate Price',
   }),
-  defaultFullScreen: false,
-  slug: 'aggregate-price',
 }
