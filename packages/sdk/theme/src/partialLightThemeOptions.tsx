@@ -6,6 +6,14 @@ const appComponents: ThemeOptions['components'] = {
     defaultProps: {
       variant: 'outlined',
     },
+    variants: [
+      {
+        props: { variant: 'lightModeBg' },
+        style: {
+          backgroundColor: '#F6F5FA',
+        },
+      },
+    ],
   },
 }
 

@@ -1,5 +1,4 @@
-import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel } from '@mui/material'
-import { visuallyHidden } from '@mui/utils'
+import { Table, TableBody, TableCell, TableCellProps, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
@@ -29,34 +28,40 @@ interface HeadCell {
   id: string
   label: string
   numeric: boolean
+  align: TableCellProps['align']
 }
 
 const headCells: readonly HeadCell[] = [
   {
-    disablePadding: true,
+    align: 'center',
+    disablePadding: false,
     id: 'pair',
     label: 'Token Pair',
     numeric: false,
   },
   {
+    align: 'right',
     disablePadding: false,
     id: 'symbol0',
     label: 'Symbol',
     numeric: true,
   },
   {
+    align: 'right',
     disablePadding: false,
     id: 'value0',
     label: 'Value',
     numeric: true,
   },
   {
+    align: 'right',
     disablePadding: false,
     id: 'symbol1',
     label: 'Symbol',
     numeric: true,
   },
   {
+    align: 'right',
     disablePadding: false,
     id: 'value1',
     label: 'Value',
@@ -72,30 +77,30 @@ interface EnhancedTableProps {
 }
 
 function EnhancedTableHead(props: EnhancedTableProps) {
-  const { order, orderBy, onRequestSort } = props
-  const createSortHandler = (property: string) => (event: React.MouseEvent<unknown>) => {
-    onRequestSort(event, property)
-  }
+  const { order, orderBy } = props
+  // const createSortHandler = (property: string) => (event: React.MouseEvent<unknown>) => {
+  //   onRequestSort(event, property)
+  // }
 
   return (
     <TableHead>
       <TableRow>
-        <TableCell></TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
+            align={headCell.align}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
-            <TableSortLabel active={orderBy === headCell.id} direction={orderBy === headCell.id ? order : 'asc'} onClick={createSortHandler(headCell.id)}>
+            {headCell.label}
+            {/* <TableSortLabel active={orderBy === headCell.id} direction={orderBy === headCell.id ? order : 'asc'} onClick={createSortHandler(headCell.id)}>
               {headCell.label}
               {orderBy === headCell.id ? (
                 <Box component="span" sx={visuallyHidden}>
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
                 </Box>
               ) : null}
-            </TableSortLabel>
+            </TableSortLabel> */}
           </TableCell>
         ))}
       </TableRow>
