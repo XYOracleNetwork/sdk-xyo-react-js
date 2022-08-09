@@ -3314,7 +3314,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/eslint-patch@npm:^1.1.0, @rushstack/eslint-patch@npm:^1.1.4":
+"@rushstack/eslint-patch@npm:^1.1.0":
   version: 1.1.4
   resolution: "@rushstack/eslint-patch@npm:1.1.4"
   checksum: 597bc84e2f76c7f5f2bcedd4c4b1dd5d02524167a0f67ac588e8fbbd94666297aaf0e6a53ec46afb95554164fc1169ff782841003280e4bc98e80ab6559412c6
@@ -5018,10 +5018,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.6.4":
-  version: 18.6.4
-  resolution: "@types/node@npm:18.6.4"
-  checksum: fc453dd2b541f5812ba1a8f957f577727cf2d8aee886f1d5c03eb153b2b3373d2e0953c5bd2b7a5b184073bc317f54ec91f1ec4830a58eda4a833e90654021de
+"@types/node@npm:*, @types/node@npm:^18.6.5":
+  version: 18.6.5
+  resolution: "@types/node@npm:18.6.5"
+  checksum: e3e66c9a84b94010a57c1b9dac882c08484278d74f9d120dbe6a3e45d00740d178bd1d34a5deee28197c94b9f4359153b637bab9b305328e865027e9987a0f3d
   languageName: node
   linkType: hard
 
@@ -5266,13 +5266,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.32.0, @typescript-eslint/eslint-plugin@npm:^5.5.0":
-  version: 5.32.0
-  resolution: "@typescript-eslint/eslint-plugin@npm:5.32.0"
+"@typescript-eslint/eslint-plugin@npm:^5.33.0, @typescript-eslint/eslint-plugin@npm:^5.5.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:5.33.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.32.0
-    "@typescript-eslint/type-utils": 5.32.0
-    "@typescript-eslint/utils": 5.32.0
+    "@typescript-eslint/scope-manager": 5.33.0
+    "@typescript-eslint/type-utils": 5.33.0
+    "@typescript-eslint/utils": 5.33.0
     debug: ^4.3.4
     functional-red-black-tree: ^1.0.1
     ignore: ^5.2.0
@@ -5285,7 +5285,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 9785c34d9742b51130237bfe244924ca6dfd529bdcc5932a5cf81558f0235099c963a11125df393037db51ce451f7ab9442aba3c3a8bb2e0607569a0e31480c8
+  checksum: d408f3f474b34fefde8ee65d98deb126949fd7d8e211a7f95c5cc2b507dedbf8eb239f3895e0c37aa6338989531e37c5f35c2e0de36a126c52f0846e89605487
   languageName: node
   linkType: hard
 
@@ -5300,20 +5300,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.32.0, @typescript-eslint/parser@npm:^5.5.0":
-  version: 5.32.0
-  resolution: "@typescript-eslint/parser@npm:5.32.0"
+"@typescript-eslint/parser@npm:^5.33.0, @typescript-eslint/parser@npm:^5.5.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/parser@npm:5.33.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.32.0
-    "@typescript-eslint/types": 5.32.0
-    "@typescript-eslint/typescript-estree": 5.32.0
+    "@typescript-eslint/scope-manager": 5.33.0
+    "@typescript-eslint/types": 5.33.0
+    "@typescript-eslint/typescript-estree": 5.33.0
     debug: ^4.3.4
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 3fcfa183cad125c3198fd63701c6e13dad1cc984d309e8cd40ec9a2eb857902abfd7e9ee3f030b18eb1c18c795a61ea289ef147a7f9dfac38df905e7514316af
+  checksum: 2617aba987a70ee6b16ecc6afa6d245422df33a9d056018ff2e316159e667a0ab9d9c15fcea95e0ba65832661e71cc2753a221e77f0b0fab278e52c4497b8278
   languageName: node
   linkType: hard
 
@@ -5327,11 +5327,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/type-utils@npm:5.32.0":
-  version: 5.32.0
-  resolution: "@typescript-eslint/type-utils@npm:5.32.0"
+"@typescript-eslint/scope-manager@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/scope-manager@npm:5.33.0"
   dependencies:
-    "@typescript-eslint/utils": 5.32.0
+    "@typescript-eslint/types": 5.33.0
+    "@typescript-eslint/visitor-keys": 5.33.0
+  checksum: b2cbea9abd528d01a5acb2d68a2a5be51ec6827760d3869bdd70920cf6c3a4f9f96d87c77177f8313009d9db71253e4a75f8393f38651e2abaf91ef28e60fb9d
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/type-utils@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/type-utils@npm:5.33.0"
+  dependencies:
+    "@typescript-eslint/utils": 5.33.0
     debug: ^4.3.4
     tsutils: ^3.21.0
   peerDependencies:
@@ -5339,7 +5349,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 4063808ca054789bebc6adb376d15c13e38f8ea14fa2842c38ae616d77fb77681b67a04b77887cf9ceb6f801ab3fc5eddfb6325779ab821404c62f36c56310bb
+  checksum: a1d1ffb42fe96bfc2339cc2875e218aa82fa9391be04c1a266bb11da1eca6835555687e81cde75477c60e6702049cd4dde7d2638e7e9b9d8cf4b7b2242353a6e
   languageName: node
   linkType: hard
 
@@ -5347,6 +5357,13 @@ __metadata:
   version: 5.32.0
   resolution: "@typescript-eslint/types@npm:5.32.0"
   checksum: 6758f54d8d7763893cd7c1753f525ef1777eee8b558bf3d54fd2a2ce691ca0cf813c68a26e4db83a1deae4e4a62b247f1195e15a1f3577f1293849f9e55a232c
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/types@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/types@npm:5.33.0"
+  checksum: 8bbddda84cb3adf5c659b0d42547a2d6ab87f4eea574aca5dd63a3bd85169f32796ecbddad3b27f18a609070f6b1d18a54018d488bad746ae0f6ea5c02206109
   languageName: node
   linkType: hard
 
@@ -5368,7 +5385,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.32.0, @typescript-eslint/utils@npm:^5.13.0":
+"@typescript-eslint/typescript-estree@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/typescript-estree@npm:5.33.0"
+  dependencies:
+    "@typescript-eslint/types": 5.33.0
+    "@typescript-eslint/visitor-keys": 5.33.0
+    debug: ^4.3.4
+    globby: ^11.1.0
+    is-glob: ^4.0.3
+    semver: ^7.3.7
+    tsutils: ^3.21.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 26f9005cdfb14654125a33d90d872b926820e560dff8970c4629fd5f6f47ad2a31e4c63161564d21bb42a8fc3ced0033994854ee37336ae07d90ccf6300d702b
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/utils@npm:5.32.0":
   version: 5.32.0
   resolution: "@typescript-eslint/utils@npm:5.32.0"
   dependencies:
@@ -5384,6 +5419,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/utils@npm:5.33.0, @typescript-eslint/utils@npm:^5.13.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/utils@npm:5.33.0"
+  dependencies:
+    "@types/json-schema": ^7.0.9
+    "@typescript-eslint/scope-manager": 5.33.0
+    "@typescript-eslint/types": 5.33.0
+    "@typescript-eslint/typescript-estree": 5.33.0
+    eslint-scope: ^5.1.1
+    eslint-utils: ^3.0.0
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  checksum: 6ce5ee5eabeb6d73538b24e6487f811ecb0ef3467bd366cbd15bf30d904bdedb73fc6f48cf2e2e742dda462b42999ea505e8b59255545825ec9db86f3d423ea7
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/visitor-keys@npm:5.32.0":
   version: 5.32.0
   resolution: "@typescript-eslint/visitor-keys@npm:5.32.0"
@@ -5391,6 +5442,16 @@ __metadata:
     "@typescript-eslint/types": 5.32.0
     eslint-visitor-keys: ^3.3.0
   checksum: 1f9b756d648c2346a6e8538ffde729d3d9ce6621fded3d9f15c96aa0ebf8f511daf8232470423fb36359c2113538a4daaf3336181be78a0cfbfd297af91ce9ba
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/visitor-keys@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/visitor-keys@npm:5.33.0"
+  dependencies:
+    "@typescript-eslint/types": 5.33.0
+    eslint-visitor-keys: ^3.3.0
+  checksum: d7e3653de6bac6841e6fcc54226b93ad6bdca4aa76ebe7d83459c016c3eebcc50d4f65ee713174bc267d765295b642d1927a778c5de707b8389e3fcc052aa4a1
   languageName: node
   linkType: hard
 
@@ -5747,12 +5808,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/assert@npm:^2.6.4":
+  version: 2.6.4
+  resolution: "@xylabs/assert@npm:2.6.4"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: fdbd9f9da3cef2795dd03a00a4677350fea300bdf36191746bbb44458b2433592c352128caad34e8e62e6ccabbec53ef2f2d10464d349881bcc0b52c96c336e3
+  languageName: node
+  linkType: hard
+
 "@xylabs/buffer@npm:^2.6.3":
   version: 2.6.3
   resolution: "@xylabs/buffer@npm:2.6.3"
   dependencies:
     buffer: ^6.0.3
   checksum: 51195ee53aa67f8975c4d0d879d72ab1e59a8760de52f0048f1b60f8eed71807d309b77f04f87ff4ff5948d945711b1d50d26b48098ceea49b4f8d32a615605b
+  languageName: node
+  linkType: hard
+
+"@xylabs/delay@npm:^2.6.4":
+  version: 2.6.4
+  resolution: "@xylabs/delay@npm:2.6.4"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: 94aa30059461b3d394456b93bdab3fafc9af841c4d6a4838bd678efe65e75058d63074428d88a4305cb6d8353a29320b0606c76eb42c043c5c41adf05fa6266f
   languageName: node
   linkType: hard
 
@@ -5775,15 +5854,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/eslint-config@npm:^2.3.28, @xylabs/eslint-config@npm:^2.5.75":
-  version: 2.5.75
-  resolution: "@xylabs/eslint-config@npm:2.5.75"
+"@xylabs/eslint-config@npm:^2.3.28, @xylabs/eslint-config@npm:^2.5.78":
+  version: 2.5.78
+  resolution: "@xylabs/eslint-config@npm:2.5.78"
   dependencies:
     "@babel/core": ^7.18.10
     "@babel/eslint-parser": ^7.18.9
-    "@rushstack/eslint-patch": ^1.1.4
-    "@typescript-eslint/eslint-plugin": ^5.32.0
-    "@typescript-eslint/parser": ^5.32.0
+    "@typescript-eslint/eslint-plugin": ^5.33.0
+    "@typescript-eslint/parser": ^5.33.0
     eslint: ^8.21.0
     eslint-config-prettier: ^8.5.0
     eslint-import-resolver-typescript: ^3.4.0
@@ -5800,7 +5878,17 @@ __metadata:
     remark-lint-maximum-line-length: ^3.1.2
     remark-preset-lint-markdown-style-guide: ^5.1.2
     typescript: ^4.7.4
-  checksum: e746cdb3802b1424e4fd7ca6a8badbcc80930527fc2d06e5e9ef40d6ddd4fc4e494fdad020fc934b09a2a4be7ccd85572a7b70b9132241142516e7cd34ad22e3
+  checksum: 4485c5170499fd84b5a8401d4ba41543df1dda4f0689e7a06b8ace6adf3f333da60baa155255ae2e2e0ebeef126fb3998fe521900776e57fa58cac58da8cd5c1
+  languageName: node
+  linkType: hard
+
+"@xylabs/forget@npm:^2.6.4":
+  version: 2.6.4
+  resolution: "@xylabs/forget@npm:2.6.4"
+  dependencies:
+    "@xylabs/delay": ^2.6.4
+    tslib: ^2.4.0
+  checksum: efd21a2af53f9b28a6ba07f6445454e58a669a586c4d95e6c2fc1feb7816de7284aef50ae89d18de75113985842c210ca92c6c00846ebdc26172497e96fc16f1
   languageName: node
   linkType: hard
 
@@ -6054,32 +6142,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:2.6.3, @xylabs/sdk-js@npm:^2.6.2, @xylabs/sdk-js@npm:^2.6.3":
-  version: 2.6.3
-  resolution: "@xylabs/sdk-js@npm:2.6.3"
+"@xylabs/sdk-js@npm:2.6.4, @xylabs/sdk-js@npm:^2.6.2, @xylabs/sdk-js@npm:^2.6.3, @xylabs/sdk-js@npm:^2.6.4":
+  version: 2.6.4
+  resolution: "@xylabs/sdk-js@npm:2.6.4"
   dependencies:
+    "@xylabs/assert": ^2.6.4
+    "@xylabs/delay": ^2.6.4
+    "@xylabs/forget": ^2.6.4
     axios: ^0.27.2
     bn.js: ^5.2.1
     rollbar: ^2.25.1
-  checksum: d0e014094f9bec5055d369d4e55fea02779b982009007d393cfe8d65d2fe3bb28d2a9d4386f47102cdc781f8152de822a88a0ec2eaa7fc265be1ba9bd7d8555c
+  checksum: b687870e5bd2ea97db07dda7b907d1f5bac029a82a278cbaf9f88f9482273919bd805e83ea38c227a09d05f21d909271c72e2d2dce31a643a8d89852f78231af
   languageName: node
   linkType: hard
 
-"@xylabs/ts-scripts-yarn3@npm:^2.5.75":
-  version: 2.5.75
-  resolution: "@xylabs/ts-scripts-yarn3@npm:2.5.75"
+"@xylabs/ts-scripts-yarn3@npm:^2.5.78":
+  version: 2.5.78
+  resolution: "@xylabs/ts-scripts-yarn3@npm:2.5.78"
   dependencies:
     "@babel/core": ^7.18.10
     "@babel/preset-env": ^7.18.10
     "@types/jest": ^28.1.6
-    "@types/node": ^18.6.4
-    "@xylabs/eslint-config": ^2.5.75
-    "@xylabs/sdk-js": ^2.6.3
+    "@types/node": ^18.6.5
+    "@xylabs/eslint-config": ^2.5.78
+    "@xylabs/sdk-js": ^2.6.4
     chalk: ^4.1.2
     cpy-cli: ^4.1.0
     depcheck: ^1.4.3
     eslint: ^8.21.0
-    eslint-plugin-sonarjs: ^0.14.0
+    eslint-plugin-sonarjs: ^0.15.0
     jest: ^28.1.3
     jest-environment-jsdom: ^28.1.3
     jest-extended: ^3.0.2
@@ -6152,26 +6243,26 @@ __metadata:
     xylabs-updo: dist/cjs/updo.js
     xylabs-yarn3only: dist/cjs/yarn3only.js
     yarn3only: dist/cjs/yarn3only.js
-  checksum: 7695e1f2c17c81665b38831631128ce83b43699089062a62465d596e206ed3795c8215ce862528d793301911a7ee91a7a886da3dfa12a634f6702595ad2333b0
+  checksum: 4e62da496ddf54891fc9685f45384fdf551e82df6767833bd659e88022cf9f8e5b98607fbd054318b7b266db127e049e3a06a3796970ab967e138f85903a807a
   languageName: node
   linkType: hard
 
-"@xylabs/tsconfig-dom@npm:^2.5.75":
-  version: 2.5.75
-  resolution: "@xylabs/tsconfig-dom@npm:2.5.75"
+"@xylabs/tsconfig-dom@npm:^2.5.78":
+  version: 2.5.78
+  resolution: "@xylabs/tsconfig-dom@npm:2.5.78"
   dependencies:
-    "@xylabs/tsconfig": ^2.5.75
+    "@xylabs/tsconfig": ^2.5.78
     typescript: ^4.7.4
-  checksum: 25efaf0ea53c2cf96cf6f37da5b377518b1afc54f1b3aeaa76e843189ef16ab7b6e25d064e9854168327fa434089f06db0fb3d0bbf3dee1a1e8f433a3fad5726
+  checksum: a9cc043e188ad9e560894e32f1b535c96c564ccfd05f8dbdae87affc61f4867639c73593ffea4141146bf23f9d11bdc686a905bc7ab2e556286653cb9cd24449
   languageName: node
   linkType: hard
 
-"@xylabs/tsconfig@npm:^2.5.75":
-  version: 2.5.75
-  resolution: "@xylabs/tsconfig@npm:2.5.75"
+"@xylabs/tsconfig@npm:^2.5.78":
+  version: 2.5.78
+  resolution: "@xylabs/tsconfig@npm:2.5.78"
   dependencies:
     typescript: ^4.7.4
-  checksum: 71d0b1cd669dcd5d133910747e50cceedd02a444ddc8e0f66d255a385f3186a07dacdab4894e737a4da41109ee2f4a9a4b443a242f4ac52e06cdfc98e98b7bb0
+  checksum: a8a47144fbd15704eee0419a6386512ac55caaaa4acdeab0c2e051a106388b91a7416fea77d0ab76ed6e63869fc9075ef0c38e4a0a3a57e5a0e4a8dfbb5b9147
   languageName: node
   linkType: hard
 
@@ -6376,7 +6467,7 @@ __metadata:
     "@mui/material": ^5.9.3
     "@storybook/react": ^6.5.10
     "@xylabs/react-flexbox": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -6396,8 +6487,8 @@ __metadata:
     "@mui/icons-material": ^5.8.4
     "@mui/material": ^5.9.3
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/react-shared": "workspace:^"
     react: ^18.2.0
   languageName: unknown
@@ -6418,7 +6509,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-link": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
@@ -6445,7 +6536,7 @@ __metadata:
     "@xylabs/react-common": ^2.14.10
     "@xylabs/react-link": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-archivist-api": "workspace:^"
@@ -6468,7 +6559,7 @@ __metadata:
     "@xylabs/react-button": ^2.14.10
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -6489,8 +6580,8 @@ __metadata:
     "@xylabs/react-button": ^2.14.10
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": 2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": 2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/archivist": ^2.24.12
     "@xyo-network/payload": ^2.24.12
@@ -6513,8 +6604,8 @@ __metadata:
     "@xylabs/react-common": ^2.14.10
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
@@ -6546,8 +6637,8 @@ __metadata:
     "@xylabs/react-identicon": ^2.14.10
     "@xylabs/react-invertable-theme": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/react-storybook": "workspace:^"
     axios: ^0.27.2
@@ -6570,8 +6661,8 @@ __metadata:
     "@xylabs/react-button": ^2.14.10
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/account": ^2.24.12
     "@xyo-network/boundwitness": ^2.24.12
     "@xyo-network/core": ^2.24.12
@@ -6601,7 +6692,7 @@ __metadata:
     "@mui/material": ^5.9.3
     "@storybook/react": ^6.5.10
     "@xylabs/react-flexbox": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/react-shared": "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6618,7 +6709,7 @@ __metadata:
     "@mui/utils": ^5.9.3
     "@storybook/react": ^6.5.10
     "@xylabs/react-flexbox": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.24.12
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-payload": "workspace:^"
@@ -6639,7 +6730,7 @@ __metadata:
     "@xylabs/react-button": ^2.14.10
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
@@ -6667,8 +6758,8 @@ __metadata:
     "@storybook/react": ^6.5.10
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-link": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.4.0
@@ -6683,7 +6774,7 @@ __metadata:
     "@emotion/styled": ^11.10.0
     "@mui/material": ^5.9.3
     "@xylabs/react-flexbox": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -6706,8 +6797,8 @@ __metadata:
     "@xylabs/react-button": ^2.14.10
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
@@ -6731,8 +6822,8 @@ __metadata:
     "@types/mapbox-gl": ^2.7.5
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-app-settings": "workspace:^"
@@ -6740,7 +6831,7 @@ __metadata:
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/sdk-geo": ^2.6.18
+    "@xyo-network/sdk-geo": ^2.6.19
     geojson: ^0.5.0
     mapbox-gl: ^2.9.2
     react: ^18.2.0
@@ -6761,8 +6852,8 @@ __metadata:
     "@xylabs/react-common": ^2.14.10
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/network": ^2.24.12
     "@xyo-network/react-shared": "workspace:^"
     react: ^18.2.0
@@ -6776,8 +6867,8 @@ __metadata:
   resolution: "@xyo-network/react-panel@workspace:packages/sdk/panel"
   dependencies:
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/boundwitness": ^2.24.12
     "@xyo-network/panel": ^2.24.12
@@ -6800,8 +6891,8 @@ __metadata:
     "@mui/material": ^5.9.3
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-identicon": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/payload-plugin": ^2.24.12
     "@xyo-network/react-payload": ^2.27.8
@@ -6825,7 +6916,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-quick-tip-button": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/network": ^2.24.12
     "@xyo-network/payload": ^2.24.12
@@ -6853,7 +6944,7 @@ __metadata:
   resolution: "@xyo-network/react-pointer-payload-plugin@workspace:packages/plugins/pointer"
   dependencies:
     "@xylabs/react-flexbox": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -6874,7 +6965,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-identicon": ^2.14.10
     "@xylabs/react-quick-tip-button": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/typeof": ^2.24.12
@@ -6889,7 +6980,7 @@ __metadata:
   resolution: "@xyo-network/react-schema-payload-plugin@workspace:packages/plugins/schema"
   dependencies:
     "@xylabs/react-flexbox": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -6910,7 +7001,7 @@ __metadata:
     "@xylabs/react-common": ^2.14.10
     "@xylabs/react-link": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/payload": ^2.24.12
     "@xyo-network/react-archive": "workspace:^"
@@ -6943,7 +7034,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-link": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/api": ^2.24.12
     "@xyo-network/core": ^2.24.12
     "@xyo-network/react-storybook": "workspace:^"
@@ -6967,7 +7058,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-invertable-theme": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/boundwitness": ^2.24.12
     "@xyo-network/core": ^2.24.12
     "@xyo-network/payload": ^2.24.12
@@ -6991,7 +7082,7 @@ __metadata:
     "@emotion/styled": ^11.10.0
     "@mui/material": ^5.9.3
     "@types/lodash": ^4.14.182
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7010,8 +7101,8 @@ __metadata:
     "@storybook/react": ^6.5.10
     "@xylabs/react-button": ^2.14.10
     "@xylabs/react-flexbox": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/core": ^2.24.12
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7026,8 +7117,8 @@ __metadata:
   resolution: "@xyo-network/react-wallet-service@workspace:packages/sdk/wallet-service"
   dependencies:
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/utils": ^2.24.12
     react: ^18.2.0
@@ -7048,8 +7139,8 @@ __metadata:
     "@xylabs/react-identicon": ^2.14.10
     "@xylabs/react-number-status": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/sdk-js": ^2.6.3
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/account": ^2.24.12
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7074,7 +7165,7 @@ __metadata:
     "@xylabs/react-link": ^2.14.10
     "@xylabs/react-pixel": ^2.14.10
     "@xylabs/react-shared": ^2.14.10
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
@@ -7100,13 +7191,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/sdk-geo@npm:^2.6.18":
-  version: 2.6.18
-  resolution: "@xyo-network/sdk-geo@npm:2.6.18"
+"@xyo-network/sdk-geo@npm:^2.6.19":
+  version: 2.6.19
+  resolution: "@xyo-network/sdk-geo@npm:2.6.19"
   dependencies:
     geojson: ^0.5.0
-    mapbox-gl: ^2.8.2
-  checksum: 3ccd5867c776ca20e20eae3eb6ceb69d7a303269a4ad6c002892673cd8d8ad6366d397ccecc407336fbce253dcbfdcd11ca5ccc5cc5bb7241f44a75e63a22227
+    mapbox-gl: ^2.9.2
+  checksum: 1ad63e546aa9257bf04cc55cd9a35d7fe34d3dafb1ba621f32010611478c6d38064884d4cd008c494deb99facacdadb4ffdbb8eee749f83c410474cd9c2807dd
   languageName: node
   linkType: hard
 
@@ -7137,8 +7228,8 @@ __metadata:
     "@xylabs/eslint-config-react": ^2.1.7
     "@xylabs/react-flexbox": ^2.14.10
     "@xylabs/react-invertable-theme": ^2.14.10
-    "@xylabs/ts-scripts-yarn3": ^2.5.75
-    "@xylabs/tsconfig-dom": ^2.5.75
+    "@xylabs/ts-scripts-yarn3": ^2.5.78
+    "@xylabs/tsconfig-dom": ^2.5.78
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-archive": "workspace:^"
@@ -10824,12 +10915,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "eslint-plugin-sonarjs@npm:0.14.0"
+"eslint-plugin-sonarjs@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "eslint-plugin-sonarjs@npm:0.15.0"
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 5a6d20d985ce3d0e776d04815e305822dc866040903a4b8796011c4d1e8e8ccebe8904c6807596c5cc69ce898098956ce48f5a7bc47ad4ea7290e6845f7b3b1f
+  checksum: 0718232626057e9a30c58350ef79af3bbc5ea7c3a880d1609965b0c1cbe347e4834ddf831962f755464f7a6350cb715c1c76e2670dc7bdf1a48c37bf0fe269c8
   languageName: node
   linkType: hard
 
@@ -15081,7 +15172,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
+"lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -15309,7 +15400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mapbox-gl@npm:^2.8.2, mapbox-gl@npm:^2.9.2":
+"mapbox-gl@npm:^2.9.2":
   version: 2.9.2
   resolution: "mapbox-gl@npm:2.9.2"
   dependencies:

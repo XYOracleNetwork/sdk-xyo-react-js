@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "outDir": "./dist",
-    "sourceMap": true
+    "composite": true,
+    "outDir": "./dist"
   },
-  "exclude": [".yarn/**/*", "dist", "node_modules"],
-  "extends": "@xylabs/tsconfig-dom"
+  "extends": "../../../tsconfig.json"
 }
