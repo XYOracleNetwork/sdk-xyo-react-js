@@ -1,12 +1,7 @@
 import { XyoPayload } from '@xyo-network/payload'
-import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import { createPayloadRenderPlugin, XyoRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { UniswapDetailsRender } from './components'
-
-export interface XyoRenderPlugin extends XyoPayloadRenderPlugin {
-  slug: string
-  defaultFullScreen?: boolean
-}
 
 export const UniswapPairsRenderPlugin: XyoRenderPlugin = {
   ...createPayloadRenderPlugin({

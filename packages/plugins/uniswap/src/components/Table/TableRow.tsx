@@ -16,9 +16,9 @@ export const UniswapTableRowRender: React.FC<TableRowProps> = ({ tokenPair }) =>
     <TableRow hover role="checkbox" tabIndex={-1}>
       <TableCell align="center">
         <FlexRow columnGap={2}>
-        <img src={tokenInfo0.icon} height="25px" />
-        <SwapHorizRoundedIcon />
-        <img src={tokenInfo1.icon} height="25px" />
+          <img src={tokenInfo0.icon} height="25px" />
+          <SwapHorizRoundedIcon />
+          <img src={tokenInfo1.icon} height="25px" />
         </FlexRow>
       </TableCell>
       <TableCell align="right">{tokenInfo0.readableName}</TableCell>

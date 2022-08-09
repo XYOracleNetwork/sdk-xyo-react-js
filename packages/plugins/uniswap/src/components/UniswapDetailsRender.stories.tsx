@@ -23,7 +23,7 @@ const WithData = Template.bind({})
 WithData.args = { payload: payloadData }
 
 const WithTableData = Template.bind({})
-WithTableData.args = { payload: payloadData, listMode: 'table' }
+WithTableData.args = { listMode: 'table', payload: payloadData }
 
 export { Default, WithData, WithTableData }
 

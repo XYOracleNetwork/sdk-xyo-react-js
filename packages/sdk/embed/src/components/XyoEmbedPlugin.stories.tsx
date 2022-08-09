@@ -1,6 +1,6 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { CryptoAssetRenderPlugin } from '@xyo-network/react-aggregate-price-plugin'
-import UniswapPairsRenderPlugin from '@xyo-network/react-crypto-market-uniswap-payload-plugin'
+import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-payload-plugin'
 import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { BrowserRouter } from 'react-router-dom'
 

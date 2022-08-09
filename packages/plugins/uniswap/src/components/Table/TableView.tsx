@@ -1,5 +1,4 @@
-import { Box, Table, TableBody, TableCell, TableCellProps, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel } from '@mui/material'
-import { visuallyHidden } from '@mui/utils'
+import { Table, TableBody, TableCell, TableCellProps, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
@@ -34,39 +33,39 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
+    align: 'center',
     disablePadding: false,
     id: 'pair',
     label: 'Token Pair',
     numeric: false,
-    align: 'center'
   },
   {
+    align: 'right',
     disablePadding: false,
     id: 'symbol0',
     label: 'Symbol',
     numeric: true,
-    align: 'right',
   },
   {
+    align: 'right',
     disablePadding: false,
     id: 'value0',
     label: 'Value',
     numeric: true,
-    align: 'right',
   },
   {
+    align: 'right',
     disablePadding: false,
     id: 'symbol1',
     label: 'Symbol',
     numeric: true,
-    align: 'right',
   },
   {
+    align: 'right',
     disablePadding: false,
     id: 'value1',
     label: 'Value',
     numeric: true,
-    align: 'right',
   },
 ]
 
@@ -78,10 +77,10 @@ interface EnhancedTableProps {
 }
 
 function EnhancedTableHead(props: EnhancedTableProps) {
-  const { order, orderBy, onRequestSort } = props
-  const createSortHandler = (property: string) => (event: React.MouseEvent<unknown>) => {
-    onRequestSort(event, property)
-  }
+  const { order, orderBy } = props
+  // const createSortHandler = (property: string) => (event: React.MouseEvent<unknown>) => {
+  //   onRequestSort(event, property)
+  // }
 
   return (
     <TableHead>
@@ -93,7 +92,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
-              {headCell.label}
+            {headCell.label}
             {/* <TableSortLabel active={orderBy === headCell.id} direction={orderBy === headCell.id ? order : 'asc'} onClick={createSortHandler(headCell.id)}>
               {headCell.label}
               {orderBy === headCell.id ? (
