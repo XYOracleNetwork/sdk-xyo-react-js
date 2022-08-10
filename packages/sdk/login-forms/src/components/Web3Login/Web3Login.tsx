@@ -66,7 +66,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
         setCheckedWallet(false)
       }
     },
-    [dispatch, checkedWallet, metaMaskWallet, isLoading, api, token]
+    [dispatch, checkedWallet, metaMaskWallet, isLoading, api, token],
   )
 
   return (
@@ -79,7 +79,12 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
         </>
       ) : (
         <>
-          <ConnectWallet isLoading={isLoading} setCheckedWallet={setCheckedWallet} metaMaskWallet={metaMaskWallet} setMetaMaskError={setMetaMaskError} />
+          <ConnectWallet
+            isLoading={isLoading}
+            setCheckedWallet={setCheckedWallet}
+            metaMaskWallet={metaMaskWallet}
+            setMetaMaskError={setMetaMaskError}
+          />
           {metaMaskError && (
             <>
               <Typography variant="body1" mt={2} color="error">

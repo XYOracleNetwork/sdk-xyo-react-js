@@ -13,7 +13,10 @@ export const CardViewToggle: React.FC<CardViewToggleProps> = ({ cardViewStyle, s
   return (
     <FlexGrowRow paddingBottom={3} alignContent="flex-start" alignItems="start" width="100%">
       <ButtonGroup variant="contained" color="secondary" aria-label="outlined primary button group">
-        <Button onClick={() => setCardViewStyle(CardViewType.Static)} sx={{ bgcolor: cardViewStyle === CardViewType.Static ? 'secondary.dark' : 'secondary' }}>
+        <Button
+          onClick={() => setCardViewStyle(CardViewType.Static)}
+          sx={{ bgcolor: cardViewStyle === CardViewType.Static ? 'secondary.dark' : 'secondary' }}
+        >
           Static
         </Button>
         <Button

@@ -13,8 +13,14 @@ export const MapHeatConstants = {
 }
 
 export const LocationHeatMapLayerBuilder = (color: string, alternateColor = '#000') => {
-  const { LocationFillLayerId, LocationFillLayerSource, LocationLineLayerId, LocationLineLayerSource, LocationDebugLayerId, LocationDebugLayerSource } =
-    MapHeatConstants
+  const {
+    LocationFillLayerId,
+    LocationFillLayerSource,
+    LocationLineLayerId,
+    LocationLineLayerSource,
+    LocationDebugLayerId,
+    LocationDebugLayerSource,
+  } = MapHeatConstants
 
   const fillLayerConfig = HeatMapFillLayerConfig(color)
   const lineLayerConfig = HeatMapLineLayerConfig(color)

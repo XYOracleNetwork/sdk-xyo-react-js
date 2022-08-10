@@ -45,7 +45,7 @@ const TemplateStats: ComponentStory<typeof XyoApiErrorRender> = () => {
         setApiError(error as XyoApiError)
       }
     },
-    [api, archive]
+    [api, archive],
   )
 
   return (
@@ -96,7 +96,7 @@ const Template500: ComponentStory<typeof XyoApiErrorRender> = () => {
         setApiError(error as XyoApiError)
       }
     },
-    []
+    [],
   )
 
   return <XyoApiErrorRender apiError={apiError}>I should never show</XyoApiErrorRender>
@@ -115,7 +115,7 @@ const Template404: ComponentStory<typeof XyoApiErrorRender> = () => {
         setApiError(error as XyoApiError)
       }
     },
-    []
+    [],
   )
 
   return <XyoApiErrorRender apiError={apiError}>I should never show</XyoApiErrorRender>

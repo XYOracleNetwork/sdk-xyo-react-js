@@ -28,7 +28,7 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ chil
       }
       return layerIndexQueue.current.at(-1)
     },
-    [fillLayers]
+    [fillLayers],
   )
 
   const lastQueuedIndex = useCallback(() => {
@@ -63,7 +63,7 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ chil
         console.warn('tried to queue an empty layer')
       }
     },
-    [map, unshiftQueue]
+    [map, unshiftQueue],
   )
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ chil
             map.setPaintProperty(layer.id, 'fill-opacity-transition', { delay: 0, duration: 4000 })
           }
           return fillLayer
-        })
+        }),
       )
     }
   }, [layers, layersInitialized, map])

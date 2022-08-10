@@ -7,7 +7,7 @@ export const findHuriNetwork = (huriInstance: Huri, networks?: XyoNetworkPayload
     ?.filter((network) =>
       network.nodes?.find((node) => {
         return node.type === 'archivist' && new URL(node.uri).hostname === huriInstance.archivist
-      })
+      }),
     )
     .shift()
 }

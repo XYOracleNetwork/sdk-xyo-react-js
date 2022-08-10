@@ -48,7 +48,16 @@ export const PropertyValue: React.FC<PropertyValueProps> = ({ value, shortSpace,
   }, [])
 
   return value !== undefined ? (
-    <Typography minWidth={0} ref={ref} component="div" variant={typographyVariant} fontFamily="monospace" fontWeight="light" {...customThemeProps} {...props}>
+    <Typography
+      minWidth={0}
+      ref={ref}
+      component="div"
+      variant={typographyVariant}
+      fontFamily="monospace"
+      fontWeight="light"
+      {...customThemeProps}
+      {...props}
+    >
       {value}
     </Typography>
   ) : null

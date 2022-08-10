@@ -24,8 +24,13 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ 
         }
       }
     },
-    [archivist, payload, hash]
+    [archivist, payload, hash],
   )
 
-  return <PayloadContext.Provider value={{ payload, provided: true, setPayload }}> {payload ? children : required ? null : children}</PayloadContext.Provider>
+  return (
+    <PayloadContext.Provider value={{ payload, provided: true, setPayload }}>
+      {' '}
+      {payload ? children : required ? null : children}
+    </PayloadContext.Provider>
+  )
 }

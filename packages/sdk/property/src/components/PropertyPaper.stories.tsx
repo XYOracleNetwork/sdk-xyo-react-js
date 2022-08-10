@@ -86,7 +86,13 @@ WithDataAndBadgeSmall.args = { badge: true, size: 'small', tip: 'This is the blo
 WithDataAndBadgeSmall.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeMedium = Template.bind({})
-WithDataAndBadgeMedium.args = { badge: true, size: 'medium', tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataAndBadgeMedium.args = {
+  badge: true,
+  size: 'medium',
+  tip: 'This is the block hash',
+  title: 'Block Hash',
+  value: sampleBlockWithPayloads._hash,
+}
 WithDataAndBadgeMedium.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeLarge = Template.bind({})

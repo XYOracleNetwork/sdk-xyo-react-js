@@ -11,7 +11,7 @@ export const buildIntersectionString = (typeObj: IntersectionType, reflectionVie
         .map((arg) => {
           return typeBuilder(arg, reflectionViewer)
         })
-        .join(' & ')
+        .join(' & '),
     )
   }
   return parts

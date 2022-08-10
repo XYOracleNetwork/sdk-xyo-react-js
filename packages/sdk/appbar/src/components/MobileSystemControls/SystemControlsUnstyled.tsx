@@ -11,7 +11,11 @@ interface SystemControlsUnstyledProps extends FlexBoxProps {
   systemControlsType?: SystemControlsType
 }
 
-const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({ systemControlsType = SystemControlsType.WindowShade, visible, ...props }) => {
+const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({
+  systemControlsType = SystemControlsType.WindowShade,
+  visible,
+  ...props
+}) => {
   const { network } = useNetwork()
   const { archive } = useArchive()
   const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))

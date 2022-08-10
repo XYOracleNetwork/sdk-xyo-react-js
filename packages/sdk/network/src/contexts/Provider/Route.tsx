@@ -29,7 +29,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
         params.delete('network')
       }
     },
-    [params, setParams, setNetwork]
+    [params, setParams, setNetwork],
   )
 
   //if the network is actively changed, update both memory and route
@@ -38,7 +38,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
       setNetworkParam(network)
       setNetwork?.(network)
     },
-    [setNetworkParam, setNetwork]
+    [setNetworkParam, setNetwork],
   )
 
   //sync memory and route storage of network

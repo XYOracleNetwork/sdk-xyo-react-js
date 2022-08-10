@@ -8,7 +8,12 @@ import { createLookup } from './createLookup'
 import { ContainerReflectionViewerProps, ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer'
 import { ReflectionTreeViewer } from './TreeViewer'
 
-export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({ reflection, itemRenderer = ReflectionViewer, hiddenFlags, ...props }) => {
+export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({
+  reflection,
+  itemRenderer = ReflectionViewer,
+  hiddenFlags,
+  ...props
+}) => {
   const lookup = useMemo(() => createLookup(reflection), [reflection])
   const theme = useTheme()
   const [searchTerm, setSearchTerm] = useState<string>()
