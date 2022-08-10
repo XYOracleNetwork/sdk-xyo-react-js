@@ -46,15 +46,10 @@ const SkipBody = Template.bind({})
 // @ts-ignore
 SkipBody.args = {
   skipBody: true,
-  value: { _hash: '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a', _timestamp: new Date().getTime() },
+  value: { _hash: '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a', _timestamp: new Date().getTime(), schema: 'network.xyo.test' },
 }
 
-const SkipMeta = Template.bind({})
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-SkipMeta.args = { skipMeta: true, value: { _hash: null, schema: 'network.xyo.schema' } }
-
-export { Default, SkipBody, SkipMeta, WithErrorsInToolTip, WithViewSchemaLink }
+export { Default, SkipBody, WithErrorsInToolTip, WithViewSchemaLink }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
