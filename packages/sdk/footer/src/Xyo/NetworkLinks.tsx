@@ -1,9 +1,9 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 
-import { FooterLink } from './Link'
-import { FooterLinks } from './Links'
+import { FooterLink } from '../Link'
+import { FooterLinks } from '../Links'
 
-export const NetworkLinks: React.FC<FlexBoxProps> = (props) => (
+export const XyoNetworkLinks: React.FC<FlexBoxProps> = (props) => (
   <FooterLinks title="Network" {...props}>
     <FooterLink href="https://xyo.network/network">Overview</FooterLink>
     <FooterLink href="https://xyo.network/network/bound-witness">Bound Witness</FooterLink>

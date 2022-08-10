@@ -2,10 +2,10 @@ import { Facebook, Instagram, LinkedIn, Reddit, Telegram, Twitter, YouTube } fro
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { FaDiscord } from 'react-icons/fa'
 
-import { FooterLink } from './Link'
-import { FooterLinks } from './Links'
+import { FooterLink } from '../Link'
+import { FooterLinks } from '../Links'
 
-export const SocialLinks: React.FC<FlexBoxProps> = (props) => {
+export const XyoSocialLinks: React.FC<FlexBoxProps> = (props) => {
   return (
     <FooterLinks title="XYO Socials" {...props}>
       <FlexRow flexWrap="wrap" justifyContent="flex-start">
