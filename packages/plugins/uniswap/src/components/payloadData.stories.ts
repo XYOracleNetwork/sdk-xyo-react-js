@@ -186,3 +186,9 @@ export const payloadData = {
   schema: 'network.xyo.crypto.market.uniswap',
   timestamp: 1659071465718,
 }
+
+export const payloadDataMissingPairs = {
+  pairs: [],
+  schema: 'network.xyo.crypto.market.uniswap',
+  timestamp: 1659071465718,
+}

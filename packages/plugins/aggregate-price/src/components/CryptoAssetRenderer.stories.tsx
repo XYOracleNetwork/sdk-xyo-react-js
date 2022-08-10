@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { CryptoAssetRenderer } from './CryptoAssetRenderer'
-import { payloadData } from './payloadData.stories'
+import { payloadData, payloadDataMissingAssets } from './payloadData.stories'
 
 const StorybookEntry = {
   argTypes: {},
@@ -22,7 +22,10 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { payload: payloadData }
 
-export { Default, WithData }
+const WithMissingData = Template.bind({})
+WithMissingData.args = { payload: payloadDataMissingAssets }
+
+export { Default, WithData, WithMissingData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
