@@ -29,7 +29,6 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ 
 
   return (
     <PayloadContext.Provider value={{ payload, provided: true, setPayload }}>
-      {' '}
       {payload ? children : required ? null : children}
     </PayloadContext.Provider>
   )
