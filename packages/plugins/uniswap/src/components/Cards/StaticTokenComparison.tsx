@@ -7,6 +7,14 @@ interface StaticTokenSummaryProps {
   tokenPayload: XyoUniswapCryptoPair
 }
 
+const formattedPrice = (price: number) => {
+  if (price < 1) {
+    return price.toFixed(9)
+  } else {
+    return price.toFixed(2)
+  }
+}
+
 export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ tokenPayload }) => {
   const theme = useTheme()
   const isLightMode = theme.palette.mode !== 'dark'
@@ -29,7 +37,7 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
         <Divider variant="fullWidth" />
       </FlexGrowRow>
       <TokenSummary {...token1} icon={tokenInfo1.icon} imgBgProps={imgBgProps}>
-        <TokenBar text1={token1.value.toFixed(6)} text1Props={{ title: token1.value.toString() }} text2={token0.symbol} {...imgBgProps} />
+        <TokenBar text1={formattedPrice(token1.value)} text1Props={{ title: token1.value.toString() }} text2={token0.symbol} {...imgBgProps} />
       </TokenSummary>
     </FlexCol>
   )

@@ -32,6 +32,15 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
     },
   }
 
+  const formattedPrice = (price: string) => {
+    const floatedPrice = parseFloat(price)
+    if (floatedPrice < 1) {
+      return floatedPrice.toFixed(9)
+    } else {
+      return floatedPrice.toFixed(2)
+    }
+  }
+
   return (
     <Card className="CryptoAsset-root" {...props}>
       <CardContent style={{ height: '100%' }}>
@@ -49,13 +58,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
             <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden">
               {Object.entries(priceInfo.value).map(([currency, price], index, arr) => (
                 <Fragment key={currency}>
-                  <TokenBar
-                    square
-                    text1={currency.toUpperCase()}
-                    text2={parseFloat(price).toFixed(6)}
-                    text2Props={{ title: price }}
-                    {...tokenBarBgProps}
-                  />
+                  <TokenBar square text1={currency.toUpperCase()} text2={formattedPrice(price)} text2Props={{ title: price }} {...tokenBarBgProps} />
                   {/* hide the last divider */}
                   {index !== arr.length - 1 ? <Divider flexItem /> : null}
                 </Fragment>
