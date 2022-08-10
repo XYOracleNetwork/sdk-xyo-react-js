@@ -1,5 +1,6 @@
 export * from './AlwaysLinks'
 export * from './DeveloperLinks'
+export * from './Footer'
 export * from './MoreLinks'
 export * from './NetworkLinks'
 export * from './SocialLinks'
