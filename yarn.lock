@@ -5965,6 +5965,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-flexbox@npm:^2.14.11":
+  version: 2.14.11
+  resolution: "@xylabs/react-flexbox@npm:2.14.11"
+  dependencies:
+    "@emotion/react": ^11.10.0
+    "@emotion/styled": ^11.10.0
+    "@mui/material": ^5.10.0
+    "@mui/styles": ^5.9.3
+    "@xylabs/react-shared": ^2.14.11
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 605f1399a0b6d76ac3523784b3ba67ea348fce1791213488cf4df8d00a92fff3c9cb0569b579df089f764be6b2912ff0173f4dcebaa59622366fe997d234701c
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-identicon@npm:^2.14.10":
   version: 2.14.10
   resolution: "@xylabs/react-identicon@npm:2.14.10"
@@ -5973,6 +5988,17 @@ __metadata:
     md5: ^2.3.0
     react: ^18.2.0
   checksum: f24609cc6328bea1b7746a671acce06cb2f1376dd9d8a88a72ec89c57eb379130956c726bd38ac4159727ee90f9dcf17f801facfa51a18cb9f937c044c441610
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-identicon@npm:^2.14.11":
+  version: 2.14.11
+  resolution: "@xylabs/react-identicon@npm:2.14.11"
+  dependencies:
+    "@xylabs/react-flexbox": ^2.14.11
+    md5: ^2.3.0
+    react: ^18.2.0
+  checksum: 9a27f30cc4e95a7e207e7fd52029a37a9a7d0883300870c626186b2ba3b0f7c813080ff91c94d9cc84037d52ab369b3bbe8873c23d6affa74f44100430962075
   languageName: node
   linkType: hard
 
@@ -6073,6 +6099,20 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
   checksum: e1589784cb56dba8b0a83aecd23e445fc3c2ff9bbad0cf2bd8f0acc1f49d0076ddff6f74b5848a80dd95a5894192a2024d36ea36f8c28da904d7bf76efeb4124
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-shared@npm:^2.14.11":
+  version: 2.14.11
+  resolution: "@xylabs/react-shared@npm:2.14.11"
+  dependencies:
+    "@emotion/react": ^11.10.0
+    "@emotion/styled": ^11.10.0
+    "@mui/material": ^5.10.0
+    "@xylabs/sdk-js": ^2.6.4
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 52d8e0c968f4a67613773dd4821e75d0af40e914a1dbcd895efce261f3e00bd88b3e43337dcaa7f1d90be6bae596465f156c7a8c21ba76fa0e19480b71646c8b
   languageName: node
   linkType: hard
 
@@ -6660,17 +6700,22 @@ __metadata:
     "@mui/material": ^5.10.0
     "@storybook/react": ^6.5.10
     "@xylabs/react-flexbox": ^2.14.10
+    "@xylabs/react-identicon": ^2.14.11
     "@xylabs/react-shared": ^2.14.10
+    "@xylabs/sdk-js": ^2.6.4
     "@xylabs/tsconfig-dom": ^2.5.89
     "@xyo-network/api": ^2.25.2
     "@xyo-network/payload": ^2.25.2
+    "@xyo-network/payload-plugin": ^2.25.2
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-payload-plugin": "workspace:^"
+    "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-webapp": "workspace:^"
+    lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
