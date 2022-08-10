@@ -1,22 +1,22 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 
-import { Footer } from './Footer'
+import { XyoFooter } from './Footer'
 
 const StorybookEntry = {
   argTypes: {},
-  component: Footer,
+  component: XyoFooter,
   parameters: {
     docs: {
       page: null,
     },
   },
   title: 'footer/Footer',
-} as ComponentMeta<typeof Footer>
+} as ComponentMeta<typeof XyoFooter>
 
-const Template: ComponentStory<typeof Footer> = (args) => (
+const Template: ComponentStory<typeof XyoFooter> = (args) => (
   <FlexCol minHeight="80vh" justifyContent="flex-end">
-    <Footer {...args}></Footer>
+    <XyoFooter {...args} />
   </FlexCol>
 )
 
