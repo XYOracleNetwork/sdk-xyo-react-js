@@ -28,37 +28,37 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
   const [notFound, setNotFound] = useState<boolean>()
   const [huriApiError, setHuriApiError] = useState<XyoApiError>()
   const [activePlugin, setActivePlugin] = useState<XyoPayloadRenderPlugin | undefined>(plugins ? plugins[0] : undefined)
+  const [refreshPayload, setRefreshPayload] = useState(0)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (!payload && huri) {
+      if (huri && !refreshPayload) {
         try {
           const huriInstance = new Huri(huri)
           const result = await huriInstance.fetch()
 
           if (mounted()) {
-            if (result === null) setNotFound(true)
-            if (payload === undefined) setPayload(result)
+            setNotFound(result === null)
+            setPayload(result)
+            setRefreshPayload(1)
           }
         } catch (e) {
           setHuriApiError(e as XyoApiError)
         }
       }
     },
-    [huri, payload],
+    [huri, payload, refreshPayload],
   )
 
   const refreshHuri = () => {
-    setHuriApiError(undefined)
-    setNotFound(undefined)
-    setPayload(undefined)
+    setRefreshPayload(0)
   }
 
   return (
     <XyoEmbedPluginContext.Provider value={{ activePlugin, payload, refreshHuri, refreshTitle, setActivePlugin, timestampLabel }}>
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
-        <XyoApiErrorRender apiError={huriApiError} {...props}>
+        <XyoApiErrorRender apiError={huriApiError} busy={Boolean(!refreshPayload && payload)} {...props}>
           {children}
         </XyoApiErrorRender>
       </ResultLoader>
