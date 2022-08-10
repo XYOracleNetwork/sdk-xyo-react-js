@@ -8,7 +8,12 @@ const useAppThemeDecorator: DecoratorFn = (Story, { args }) => {
   const darkMode = useDarkMode()
   const mergedThemeOptions = merge(themeOptions, appThemeOptions)
   return (
-    <InvertableThemeProvider dark={darkMode} options={mergedThemeOptions} lightOptions={partialAppLightThemeOptions} darkOptions={partialAppDarkThemeOptions}>
+    <InvertableThemeProvider
+      dark={darkMode}
+      options={mergedThemeOptions}
+      lightOptions={partialAppLightThemeOptions}
+      darkOptions={partialAppDarkThemeOptions}
+    >
       <Story {...args} />
     </InvertableThemeProvider>
   )

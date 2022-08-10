@@ -21,7 +21,9 @@ export const useDivinePayload = (huri?: string): [XyoPayload | undefined | null,
     async (mounted) => {
       if (huri) {
         try {
-          const payload = (await diviner?.divine({ huri, schema: XyoPayloadDivinerQueryPayloadSchema, targetSchema: XyoPayloadDivinerPayloadSchema }))?.[1][0]
+          const payload = (
+            await diviner?.divine({ huri, schema: XyoPayloadDivinerQueryPayloadSchema, targetSchema: XyoPayloadDivinerPayloadSchema })
+          )?.[1][0]
           if (mounted()) {
             setPayload(payload)
           }
@@ -32,7 +34,7 @@ export const useDivinePayload = (huri?: string): [XyoPayload | undefined | null,
         }
       }
     },
-    [diviner, huri]
+    [diviner, huri],
   )
 
   return [payload, error]
@@ -50,15 +52,18 @@ export const useDivinePayloads = (huriList: string[]): [(XyoPayload | null)[] | 
       const payloads = await Promise.allSettled(
         huriList.map(
           async (huri) =>
-            (await diviner?.divine({ huri, schema: XyoPayloadDivinerQueryPayloadSchema, targetSchema: XyoPayloadDivinerPayloadSchema }))?.[1][0] ?? null
-        )
+            (await diviner?.divine({ huri, schema: XyoPayloadDivinerQueryPayloadSchema, targetSchema: XyoPayloadDivinerPayloadSchema }))?.[1][0] ??
+            null,
+        ),
       )
       if (mounted()) {
         setPayloads([...payloads.values()].map((value) => (value.status === 'rejected' ? null : value.value)))
-        setErrors(compact([...payloads.values()].map((value) => (value.status === 'rejected' ? Error('fivine failed', { cause: value.reason }) : undefined))))
+        setErrors(
+          compact([...payloads.values()].map((value) => (value.status === 'rejected' ? Error('fivine failed', { cause: value.reason }) : undefined))),
+        )
       }
     },
-    [diviner, huriList]
+    [diviner, huriList],
   )
 
   console.log(`payloads: ${JSON.stringify(payloads, null, 2)}`)

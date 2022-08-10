@@ -53,7 +53,7 @@ export const useLoadPayload = (hash?: string): UsePayload => {
         }
       }
     },
-    [hash, api, archive, payload, notFound, localHash]
+    [hash, api, archive, payload, notFound, localHash],
   )
   return [payload, notFound, apiError]
 }

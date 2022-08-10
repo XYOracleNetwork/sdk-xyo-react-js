@@ -29,7 +29,11 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
           <AlertTitle>Active Auth Service Id</AlertTitle>
           {activeAuthServiceId}
         </Alert>
-        <Web3Login dispatch={dispatch} loggedInAccount={state.loggedInAccount} onSuccess={() => setActiveAuthServiceId?.(AuthServiceId.None)}></Web3Login>
+        <Web3Login
+          dispatch={dispatch}
+          loggedInAccount={state.loggedInAccount}
+          onSuccess={() => setActiveAuthServiceId?.(AuthServiceId.None)}
+        ></Web3Login>
       </>
     )
   } else {

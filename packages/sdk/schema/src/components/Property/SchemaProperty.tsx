@@ -25,7 +25,7 @@ const useResolveSchema = (schema?: string) => {
         }
       }
     },
-    [schema]
+    [schema],
   )
   return entry
 }

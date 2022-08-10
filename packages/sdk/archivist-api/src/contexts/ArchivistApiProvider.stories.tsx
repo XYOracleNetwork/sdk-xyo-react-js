@@ -43,7 +43,7 @@ const DemoArchiveFetcher = () => {
         }
       }
     },
-    [api, state?.jwtToken, currentToken, state?.loggedInAccount, setSuccessfulCall]
+    [api, state?.jwtToken, currentToken, state?.loggedInAccount, setSuccessfulCall],
   )
 
   useEffect(() => {

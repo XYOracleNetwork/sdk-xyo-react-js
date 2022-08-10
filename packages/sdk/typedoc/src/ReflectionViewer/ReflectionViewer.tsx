@@ -17,12 +17,24 @@ const hide = (flags?: ReflectionFlags, hiddenFlags: FlagFilter[] = []) => {
   return hide
 }
 
-export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({ variant, nameViewer, children, reflection, hiddenFlags, sources = false, ...props }) => {
+export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({
+  variant,
+  nameViewer,
+  children,
+  reflection,
+  hiddenFlags,
+  sources = false,
+  ...props
+}) => {
   const someReflection = reflection as SomeReflection
 
   return hide(reflection?.flags, hiddenFlags) ? null : (
     <FlexCol title="ReflectionViewer" alignItems="stretch" {...props}>
-      {nameViewer === undefined ? <NameViewer marginY={0.25} variant={variant} reflection={someReflection} reflectionViewer={ReflectionViewer} /> : nameViewer}
+      {nameViewer === undefined ? (
+        <NameViewer marginY={0.25} variant={variant} reflection={someReflection} reflectionViewer={ReflectionViewer} />
+      ) : (
+        nameViewer
+      )}
       {reflection.comment ? <CommentViewer comment={reflection.comment} /> : null}
       {sources && reflection.sources && children ? (
         <>

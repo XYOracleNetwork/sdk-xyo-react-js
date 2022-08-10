@@ -25,7 +25,7 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ archivist: archiv
         setPayloads(payloads)
       }
     },
-    [archivist, refresh]
+    [archivist, refresh],
   )
 
   return (

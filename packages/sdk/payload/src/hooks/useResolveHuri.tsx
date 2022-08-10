@@ -66,7 +66,7 @@ const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?:
         }
       }
     },
-    [huriUri, network, networks, dependentNotFound, setNetwork, changeActiveNetwork]
+    [huriUri, network, networks, dependentNotFound, setNetwork, changeActiveNetwork],
   )
 
   return [huriPayload, huriPayloadNotFound, huriApiError, huriNetworkNotFound]

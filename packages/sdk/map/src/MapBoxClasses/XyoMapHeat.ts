@@ -72,7 +72,13 @@ export class XyoMapHeat extends XyoMapBase<Polygon> {
     layer.update(map, true)
   }
 
-  static async initializeAnimatedHeatMapSource(layers: XyoMapLayer[], featureSet: Feature<Polygon>[][], map: Map, startColor?: string, endColor?: string) {
+  static async initializeAnimatedHeatMapSource(
+    layers: XyoMapLayer[],
+    featureSet: Feature<Polygon>[][],
+    map: Map,
+    startColor?: string,
+    endColor?: string,
+  ) {
     this.animationStarted = true
     let layerTick = 0
     let sourceTick = 0

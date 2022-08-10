@@ -46,7 +46,7 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
         }
       }
     },
-    [huri, payload]
+    [huri, payload],
   )
 
   const refreshHuri = () => {

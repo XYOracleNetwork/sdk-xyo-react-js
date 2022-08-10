@@ -5,7 +5,10 @@ import { XyoPayloadWithPartialMeta } from '@xyo-network/payload'
 export const sampleBlock = {
   _signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
   addresses: ['9c6df83b84297985d3ccc1f721ba1c2e3608c751'],
-  payload_hashes: ['43df96261884ec99e0d7667120d036065c1f6a88dbb999f30d7c820dc9a37ee5', '31b3a835ebad2b6f2d6cc16ec855b41f237116f52b515aac9a8f555fec05fa3e'],
+  payload_hashes: [
+    '43df96261884ec99e0d7667120d036065c1f6a88dbb999f30d7c820dc9a37ee5',
+    '31b3a835ebad2b6f2d6cc16ec855b41f237116f52b515aac9a8f555fec05fa3e',
+  ],
   payload_schemas: ['network.xyo.location', 'network.xyo.id'],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
@@ -48,7 +51,10 @@ export const sampleBlockWithPayloads: XyoBoundWitnessWithPartialMeta<XyoBoundWit
   _timestamp: 1651520931051,
 
   addresses: ['9e828f8ba1e8e212398b0fb8ef2a6167e91db24c'],
-  payload_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349', '930443bfebbdd0c9d14d8787def961ab41838fe9681f64acdad82c84e8803b59'],
+  payload_hashes: [
+    'ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349',
+    '930443bfebbdd0c9d14d8787def961ab41838fe9681f64acdad82c84e8803b59',
+  ],
   payload_schemas: ['network.xyo.payload', 'network.xyo.id'],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',

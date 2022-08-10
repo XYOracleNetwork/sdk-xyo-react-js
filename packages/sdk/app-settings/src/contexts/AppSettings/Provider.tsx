@@ -9,7 +9,12 @@ export interface AppSettingsProviderProps<T extends AppSettingsContextProps = Ap
   storage?: AppSettingsStorage
 }
 
-export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps>> = ({ storage = new AppSettingsStorage(), value, children, ...props }) => {
+export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps>> = ({
+  storage = new AppSettingsStorage(),
+  value,
+  children,
+  ...props
+}) => {
   const [developerMode, setDeveloperMode] = useState(storage.developerMode)
   const [darkMode, setDarkMode] = useState(storage.darkMode)
   const [navigationType, setNaviagtionType] = useState(storage.navigationType)

@@ -19,7 +19,7 @@ export const useSchemaStats = (): XyoArchivistArchivePayloadSchemaStats | undefi
         }
       }
     },
-    [api, archive]
+    [api, archive],
   )
 
   return stats

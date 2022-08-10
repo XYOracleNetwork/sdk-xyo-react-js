@@ -17,12 +17,12 @@ export const useSchemaDefinitions = (): XyoSchemaPayload[] | undefined => {
           setSchemaPayloads(
             promiseResults
               .map((result) => (result.status === 'fulfilled' ? result.value?.payload : undefined))
-              .filter((item) => item !== undefined && item !== null) as XyoSchemaPayload[]
+              .filter((item) => item !== undefined && item !== null) as XyoSchemaPayload[],
           )
         }
       }
     },
-    [schemaList]
+    [schemaList],
   )
   return schemaPayloads
 }

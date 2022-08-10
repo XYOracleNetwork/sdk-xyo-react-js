@@ -38,7 +38,7 @@ const useGetSchemaPayload = (schema?: string) => {
         setSchemaLocal(schema)
       }
     },
-    [apiError, notFound, schema, schemaLocal, schemaCacheEntry]
+    [apiError, notFound, schema, schemaLocal, schemaCacheEntry],
   )
 
   return {

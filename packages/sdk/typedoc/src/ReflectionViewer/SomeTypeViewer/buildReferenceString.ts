@@ -13,7 +13,7 @@ export const buildReferenceString = (typeObj: ReferenceType, reflectionViewer: R
         .map((arg) => {
           return typeBuilder(arg, reflectionViewer)
         })
-        .join(', ')
+        .join(', '),
     )
     parts.push('>')
   }

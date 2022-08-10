@@ -44,7 +44,7 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
     (response: XyoApiResponse) => {
       logWithMax(responseHistory, response, responseHistoryMaxDepth)
     },
-    [responseHistory, responseHistoryMaxDepth]
+    [responseHistory, responseHistoryMaxDepth],
   )
 
   const onFailure = useCallback(
@@ -57,7 +57,7 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
       logWithMax(failureHistory, response, failureHistoryMaxDepth)
       logResponse(response)
     },
-    [logResponse, failureHistory, failureHistoryMaxDepth, setAuthState, authState]
+    [logResponse, failureHistory, failureHistoryMaxDepth, setAuthState, authState],
   )
 
   const onSuccess = useCallback(
@@ -65,14 +65,14 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
       logWithMax(successHistory, response, successHistoryMaxDepth)
       logResponse(response)
     },
-    [logResponse, successHistory, successHistoryMaxDepth]
+    [logResponse, successHistory, successHistoryMaxDepth],
   )
 
   const onError = useCallback(
     (error: XyoApiError) => {
       logWithMax(errorHistory, error, errorHistoryMaxDepth)
     },
-    [errorHistory, errorHistoryMaxDepth]
+    [errorHistory, errorHistoryMaxDepth],
   )
 
   useEffect(() => {
@@ -82,7 +82,7 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
         onError,
         onFailure,
         onSuccess,
-      })
+      }),
     )
   }, [config, onError, onFailure, onSuccess])
 

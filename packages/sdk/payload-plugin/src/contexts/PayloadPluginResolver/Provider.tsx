@@ -8,7 +8,11 @@ export type PayloadPluginResolverProviderProps = ContextExProviderProps<{
   resolver: XyoPayloadPluginResolver
 }>
 
-export const PayloadPluginResolverProvider: React.FC<PayloadPluginResolverProviderProps> = ({ resolver: resolverProp, required = false, children }) => {
+export const PayloadPluginResolverProvider: React.FC<PayloadPluginResolverProviderProps> = ({
+  resolver: resolverProp,
+  required = false,
+  children,
+}) => {
   const [resolver, setResolver] = useState<XyoPayloadPluginResolver>(resolverProp)
 
   return (
