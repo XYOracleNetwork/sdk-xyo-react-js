@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { payloadData } from './payloadData.stories'
+import { payloadData, payloadDataMissingPairs } from './payloadData.stories'
 import { UniswapDetailsRender } from './UniswapDetailsRender'
 
 const StorybookEntry = {
@@ -25,7 +25,10 @@ WithData.args = { payload: payloadData }
 const WithTableData = Template.bind({})
 WithTableData.args = { listMode: 'table', payload: payloadData }
 
-export { Default, WithData, WithTableData }
+const WithNoPairs = Template.bind({})
+WithNoPairs.args = { listMode: 'table', payload: payloadDataMissingPairs }
+
+export { Default, WithData, WithNoPairs, WithTableData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
