@@ -48,7 +48,7 @@ const useFetchPayloads = (hashes?: string[]) => {
         }
       }
     },
-    [ArchivistApi, apiError, archive, hashes, inFlight, payloads]
+    [ArchivistApi, apiError, archive, hashes, inFlight, payloads],
   )
 
   return { apiError, features, multipleFeatureSets, notFound }

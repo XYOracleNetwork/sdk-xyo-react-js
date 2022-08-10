@@ -17,7 +17,7 @@ export const ArchivesProvider: React.FC<WithChildren> = ({ children }) => {
         setArchives(loadedArchives)
       }
     },
-    [api]
+    [api],
   )
 
   useAsyncEffect(
@@ -25,7 +25,7 @@ export const ArchivesProvider: React.FC<WithChildren> = ({ children }) => {
     async (mounted) => {
       await refresh(mounted)
     },
-    [refresh]
+    [refresh],
   )
 
   return <ArchivesContext.Provider value={{ archives, provided: true, refresh, setArchives }}>{children}</ArchivesContext.Provider>

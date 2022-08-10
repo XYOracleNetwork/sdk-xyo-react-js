@@ -31,7 +31,7 @@ export const WebAppPage: React.FC<WebAppPageProps> = ({
     async () => {
       await userEvents?.viewContent({ name: title ?? 'NodeBasePage', path: location.pathname })
     },
-    [pathname, title, userEvents]
+    [pathname, title, userEvents],
   )
 
   const Body: React.FC<FlexBoxProps> = (props) => (

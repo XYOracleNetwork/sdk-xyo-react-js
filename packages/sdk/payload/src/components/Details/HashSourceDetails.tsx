@@ -33,7 +33,9 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
       </FlexRow>
       {noTitle ? (
         <FlexRow margin={1} justifyContent="flex-start">
-          <Typography variant="body2">The actual string used to generate the hash (SHA256). This can be used to validate the hash manually.</Typography>
+          <Typography variant="body2">
+            The actual string used to generate the hash (SHA256). This can be used to validate the hash manually.
+          </Typography>
         </FlexRow>
       ) : null}
     </FlexCol>

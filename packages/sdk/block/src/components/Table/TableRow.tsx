@@ -33,7 +33,14 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
 
   const hash = (
-    <HashTableCell key="hash" archive={archive} value={wrapper?.hash} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
+    <HashTableCell
+      key="hash"
+      archive={archive}
+      value={wrapper?.hash}
+      dataType="block"
+      exploreDomain={exploreDomain}
+      network={networkProp ?? network?.slug}
+    />
   )
 
   const payloads = (

@@ -135,7 +135,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
       await delay(0)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [account, archive, archivists, witnesses]
+    [account, archive, archivists, witnesses],
   )
 
   useEffect(() => {

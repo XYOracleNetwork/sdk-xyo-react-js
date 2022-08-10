@@ -18,7 +18,7 @@ export const useSchemaList = (knownSchemaList?: string[]): [string[] | undefined
         }
       }
     },
-    [api, archive]
+    [api, archive],
   )
 
   return [schemaList, setSchemaList]

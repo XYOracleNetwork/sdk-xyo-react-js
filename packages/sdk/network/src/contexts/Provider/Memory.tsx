@@ -5,8 +5,14 @@ import { defaultNetworkConfigs } from '../../lib'
 import { NetworkContext } from '../Context'
 import { NetworkProviderProps } from './Props'
 
-export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetwork, ...props }) => {
-  const [network, setNetwork] = useState(defaultNetwork ?? defaultNetworkConfigs[0])
+export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetworkConfig, defaultNetworkName, ...props }) => {
+  if (defaultNetworkConfig && defaultNetworkName) {
+    console.warn('Both defaultNetworkConfig and defaultNetworkName were passed to provider. Falling back to defaultNetworkConfig')
+  }
+
+  const resolvedDefaultNetworkConfig = defaultNetworkName ? defaultNetworkConfigs.find((config) => config.name === defaultNetworkName) : undefined
+
+  const [network, setNetwork] = useState(defaultNetworkConfig ?? resolvedDefaultNetworkConfig ?? defaultNetworkConfigs[0])
 
   return <NetworkContext.Provider value={{ network, networks: defaultNetworkConfigs, provided: true, setNetwork }} {...props} />
 }

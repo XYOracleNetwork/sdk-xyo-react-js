@@ -27,7 +27,7 @@ export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload 
         setError(ex as Error)
       }
     },
-    [archivist, ids]
+    [archivist, ids],
   )
   return [payloads, error]
 }
@@ -49,7 +49,7 @@ export const useArchivistFind = <TQuery extends XyoPayloadFindQuery>(query?: TQu
         setError(ex as Error)
       }
     },
-    [archivist, query]
+    [archivist, query],
   )
   return [payloads, error]
 }

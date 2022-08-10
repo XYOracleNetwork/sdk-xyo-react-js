@@ -11,7 +11,7 @@ export const buildUnionString = (typeObj: UnionType, reflectionViewer: React.FC<
         .map((arg) => {
           return typeBuilder(arg, reflectionViewer)
         })
-        .join(' | ')
+        .join(' | '),
     )
   }
   return parts

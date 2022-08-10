@@ -43,7 +43,9 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, siz
   return (
     <FlexRow
       bgcolor={
-        theme.palette.mode === 'dark' ? lighten(theme.palette.background.paper, 0.05 * elevation) : darken(theme.palette.background.paper, 0.025 * elevation)
+        theme.palette.mode === 'dark'
+          ? lighten(theme.palette.background.paper, 0.05 * elevation)
+          : darken(theme.palette.background.paper, 0.025 * elevation)
       }
       alignItems="center"
       height={sizeTitleHeight[size]}

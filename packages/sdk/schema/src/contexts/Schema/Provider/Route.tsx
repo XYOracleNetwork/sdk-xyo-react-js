@@ -25,7 +25,7 @@ const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
         params.delete('network')
       }
     },
-    [params, setParams, setSchema]
+    [params, setParams, setSchema],
   )
 
   //if the network is actively changed, update both memory and route
@@ -34,7 +34,7 @@ const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
       setSchemaParam(schema)
       setSchema?.(schema)
     },
-    [setSchemaParam, setSchema]
+    [setSchemaParam, setSchema],
   )
 
   //sync memory and route storage of network

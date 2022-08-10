@@ -50,7 +50,7 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
         }
       }
     },
-    [callback]
+    [callback],
   )
 
   return (
