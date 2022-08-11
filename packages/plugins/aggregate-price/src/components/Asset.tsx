@@ -1,6 +1,6 @@
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import { Card, CardContent, CardProps, Divider, IconButton, Paper, PaperProps, Tooltip, useTheme } from '@mui/material'
-import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { Fragment } from 'react'
 
