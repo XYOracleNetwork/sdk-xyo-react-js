@@ -54,11 +54,7 @@ export const XyoApiErrorRender: React.FC<XyoApiErrorRenderProps> = ({
       </FlexCol>
     )
   } else {
-    return (
-      <FlexCol alignItems="stretch" {...props}>
-        {children}
-      </FlexCol>
-    )
+    return children ?? null
   }
 }
 /** @deprecated use XyoApiErrorRender instead */

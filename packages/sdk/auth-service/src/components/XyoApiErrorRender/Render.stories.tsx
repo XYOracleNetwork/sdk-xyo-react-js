@@ -1,14 +1,16 @@
 /* eslint-disable import/no-internal-modules */
+import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
+import { useArchive } from '@xyo-network/react-archive/src'
+import { useArchivistApi } from '@xyo-network/react-archivist-api/src'
+import { AuthStatusIconButton } from '@xyo-network/react-auth/src'
 import { archivistApiDecorator, authDecorator } from '@xyo-network/react-storybook'
 import axios, { AxiosResponse } from 'axios'
 import { useState } from 'react'
 
-import { useArchive } from '../../../../archive/src'
-import { useArchivistApi } from '../../../../archivist-api/src'
-import { AuthStatusIconButton } from '../../../../auth/src'
 import { XyoApiErrorRender } from './Render'
 
 const StorybookEntry = {
@@ -76,8 +78,10 @@ const Template401: ComponentStory<typeof XyoApiErrorRender> = () => {
   return (
     <>
       <XyoApiErrorRender apiError={apiError}>
-        <AuthStatusIconButton />
-        <pre>{JSON.stringify(response, null, 2)}</pre>
+        <FlexCol>
+          <AuthStatusIconButton />
+          <pre>{JSON.stringify(response, null, 2)}</pre>
+        </FlexCol>
       </XyoApiErrorRender>
     </>
   )
@@ -99,7 +103,11 @@ const Template500: ComponentStory<typeof XyoApiErrorRender> = () => {
     [],
   )
 
-  return <XyoApiErrorRender apiError={apiError}>I should never show</XyoApiErrorRender>
+  return (
+    <XyoApiErrorRender apiError={apiError}>
+      <Typography>I should never show</Typography>
+    </XyoApiErrorRender>
+  )
 }
 
 const Template404: ComponentStory<typeof XyoApiErrorRender> = () => {
@@ -118,7 +126,11 @@ const Template404: ComponentStory<typeof XyoApiErrorRender> = () => {
     [],
   )
 
-  return <XyoApiErrorRender apiError={apiError}>I should never show</XyoApiErrorRender>
+  return (
+    <XyoApiErrorRender apiError={apiError}>
+      <Typography>I should never show</Typography>
+    </XyoApiErrorRender>
+  )
 }
 
 TemplateStats.decorators = [archivistApiDecorator]

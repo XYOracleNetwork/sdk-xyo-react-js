@@ -1,4 +1,4 @@
-import { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
@@ -59,7 +59,7 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
     <XyoEmbedPluginContext.Provider value={{ activePlugin, payload, refreshHuri, refreshTitle, setActivePlugin, timestampLabel }}>
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError} busy={Boolean(!refreshPayload && payload)} {...props}>
-          {children}
+          <FlexCol>{children}</FlexCol>
         </XyoApiErrorRender>
       </ResultLoader>
     </XyoEmbedPluginContext.Provider>
