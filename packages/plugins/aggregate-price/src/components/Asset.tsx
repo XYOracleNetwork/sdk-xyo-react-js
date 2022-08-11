@@ -17,14 +17,6 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
 
   const [tokenInfo] = useGetTokenData([asset])
 
-  const imgBgProps: PaperProps = {
-    elevation: isLightMode ? 1 : 3,
-    sx: {
-      bgcolor: isLightMode ? '#F6F5FA' : 'inherit',
-    },
-    variant: 'elevation',
-  }
-
   const tokenBarBgProps: PaperProps = {
     sx: {
       bgcolor: isLightMode ? '#F6F5FA' : 'inherit',
@@ -43,17 +35,19 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
 
   return (
     <Card className="CryptoAsset-root" {...props}>
+      <TokenSummary
+        icon={tokenInfo.icon}
+        symbol={asset}
+        action={
+          <IconButton sx={{ cursor: 'default' }}>
+            <Tooltip title="The price of cryptos based on multiple inputs.">
+              <HelpOutlineIcon />
+            </Tooltip>
+          </IconButton>
+        }
+      ></TokenSummary>
       <CardContent style={{ height: '100%' }}>
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
-          <FlexRow>
-            <TokenSummary icon={tokenInfo.icon} symbol={asset} imgBgProps={imgBgProps}>
-              <IconButton sx={{ mb: 3 }}>
-                <Tooltip title="The price of cryptos based on multiple inputs.">
-                  <HelpOutlineIcon />
-                </Tooltip>
-              </IconButton>
-            </TokenSummary>
-          </FlexRow>
           <FlexCol alignItems="stretch" justifyContent="flex-start">
             <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden">
               {Object.entries(priceInfo.value).map(([currency, price], index, arr) => (
