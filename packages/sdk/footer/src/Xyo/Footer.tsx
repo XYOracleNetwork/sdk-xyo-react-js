@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
 
-import { copyrightLinkTitle } from '../AlwaysLinks'
 import { Footer, FooterProps } from '../Footer'
+import { copyrightLinkTitle } from '../lib'
 import { XyoDeveloperLinks } from './DeveloperLinks'
 import { XyoMoreLinks } from './MoreLinks'
 import { XyoNetworkLinks } from './NetworkLinks'

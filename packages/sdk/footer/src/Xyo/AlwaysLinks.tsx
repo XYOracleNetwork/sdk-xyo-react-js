@@ -1,6 +1,7 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 
-import { copyrightLinkTitle, FooterAlwaysLinks } from '../AlwaysLinks'
+import { FooterAlwaysLinks } from '../AlwaysLinks'
+import { copyrightLinkTitle } from '../lib'
 
 export interface XyoFooterAlwaysLinksProps extends FlexBoxProps {
   onMore?: () => void
