@@ -20,7 +20,7 @@ export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload
     <FlexCol alignItems="stretch" justifyContent="flex-start" {...props}>
       {/* Bring back once Dynamic view is more mature */}
       {/* <CardViewToggle cardViewStyle={cardViewStyle} setCardViewStyle={setCardViewStyle} /> */}
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         {uniswapPayload?.pairs.map((pair: XyoUniswapCryptoPair, index) => (
           <Grid item xs={12} md={4} key={index}>
             <Card style={{ width: '100%' }}>
