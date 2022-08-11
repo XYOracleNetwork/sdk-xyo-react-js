@@ -1,3 +1,4 @@
+import { Paper } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 
@@ -15,7 +16,8 @@ const StorybookEntry = {
 } as ComponentMeta<typeof XyoFooter>
 
 const Template: ComponentStory<typeof XyoFooter> = (args) => (
-  <FlexCol minHeight="80vh" justifyContent="flex-end">
+  <FlexCol minHeight="80vh" alignItems="stretch">
+    <Paper style={{ alignItems: 'center', display: 'flex', flexGrow: 1, justifyContent: 'center' }}>Test Content</Paper>
     <XyoFooter {...args} />
   </FlexCol>
 )

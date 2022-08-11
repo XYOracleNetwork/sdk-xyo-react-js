@@ -20,7 +20,7 @@ export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payloa
 
   return (
     <FlexCol alignItems="stretch" justifyContent="flex-start" {...props}>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={1} justifyContent="center">
         {cryptoAssetPayload
           ? Object.entries(cryptoAssetPayload.assets).map(([asset, priceInfo]) => (
               <Grid item key={asset} xs={12} md={6} lg={4} xl={3}>

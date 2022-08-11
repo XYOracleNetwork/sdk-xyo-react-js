@@ -1,4 +1,4 @@
-import { Container, ContainerProps } from '@mui/material'
+import { Container, ContainerProps, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
@@ -16,6 +16,8 @@ export const Footer: React.FC<FooterProps> = ({ children, alwaysFooterLinksProps
     setMore(!more)
   }
 
+  const theme = useTheme()
+
   return (
     <FlexCol
       alignItems="stretch"
@@ -24,8 +26,15 @@ export const Footer: React.FC<FooterProps> = ({ children, alwaysFooterLinksProps
       }}
       {...props}
     >
-      {more || !dynamicHeight ? (
-        <FlexRow alignItems="flex-start">{container && container !== 'none' ? <Container>{children}</Container> : children}</FlexRow>
+      {more && dynamicHeight ? (
+        <FlexCol alignItems="stretch">
+          <FlexRow bottom={-1} position="absolute" width="100%" bgcolor={theme.palette.background.default}>
+            {container && container !== 'none' ? <Container>{children}</Container> : children}
+          </FlexRow>
+        </FlexCol>
+      ) : null}
+      {!dynamicHeight ? (
+        <FlexCol alignItems="stretch">{container && container !== 'none' ? <Container>{children}</Container> : children}</FlexCol>
       ) : null}
       <FlexRow>
         {container && container !== 'none' ? (
