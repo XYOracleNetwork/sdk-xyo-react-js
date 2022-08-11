@@ -1,4 +1,4 @@
-import { Button, darken, ThemeOptions } from '@mui/material'
+import { Button, darken, Theme, ThemeOptions } from '@mui/material'
 import merge from 'lodash/merge'
 declare module '@mui/material/styles' {
   interface Palette {
@@ -6,12 +6,6 @@ declare module '@mui/material/styles' {
   }
   interface PaletteOptions {
     neutral?: PaletteOptions['primary']
-  }
-}
-
-declare module '@mui/material/Button' {
-  interface ButtonPropsColorOverrides {
-    neutral: true
   }
 }
 
@@ -45,5 +39,5 @@ export const partialDarkThemeOptions: ThemeOptions = {
 export const partialAppDarkThemeOptions: ThemeOptions = merge({}, partialDarkThemeOptions, { components: appComponents })
 
 export const TestNeutralButton = () => {
-  return <Button color="neutral">neutral</Button>
+  return <Button sx={{ color: (theme: Theme) => theme.palette.neutral.main }}>neutral</Button>
 }
