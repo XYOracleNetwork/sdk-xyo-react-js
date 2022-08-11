@@ -9,10 +9,6 @@ export interface FooterAlwaysLinksProps extends FlexBoxProps {
   onMore?: () => void
 }
 
-export const copyrightLinkTitle = (entity: string) => {
-  return `Copyright © ${new Date().getFullYear()} ${entity}`
-}
-
 export const FooterAlwaysLinks: React.FC<FooterAlwaysLinksProps> = ({ style, footerLinks, onMore, ...props }) => (
   <FlexRow flexWrap="wrap" textTransform="uppercase" style={{ opacity: 0.6, ...style }} {...props}>
     {footerLinks?.map((footerLink, index) => (
