@@ -1,31 +1,33 @@
-import { Paper, PaperProps, Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { Avatar, AvatarProps, CardHeader, CardHeaderProps, Typography, useTheme } from '@mui/material'
 
-export interface TokenSummaryProps extends FlexBoxProps {
+export interface TokenSummaryProps extends CardHeaderProps {
   icon?: string
   symbol?: string
-  imgBgProps?: PaperProps
-  imageMode?: 'circle'
+  imgBgProps?: AvatarProps
 }
 
-export const TokenSummary: React.FC<TokenSummaryProps> = ({ imageMode = 'circle', imgBgProps = {}, icon, symbol, children, ...props }) => {
-  const paperProps = {
+export const TokenSummary: React.FC<TokenSummaryProps> = ({ imgBgProps = {}, icon, symbol, children, ...props }) => {
+  const theme = useTheme()
+  const avatarProps = {
     ...imgBgProps,
     sx: {
+      background: theme.palette.common.white,
+      height: '40px',
+      padding: theme.spacing(0.25),
       ...imgBgProps.sx,
-      borderRadius: imageMode === 'circle' ? '50%' : 'inherit',
     },
   }
   return (
     <>
-      <FlexRow className="TokenSummary-root" paddingBottom={3} width="100%" justifyContent="flex-start" {...props}>
-        <Paper component={FlexCol} padding={1} className="token-logo-bg" height="40px" width="40px" {...paperProps}>
-          <img src={icon} height="25px" />
-        </Paper>
-        <Typography variant="h6" fontWeight={300} textTransform="uppercase" paddingLeft={1}>
-          {symbol}
-        </Typography>
-      </FlexRow>
+      <CardHeader
+        avatar={<Avatar src={icon} alt={symbol} {...avatarProps} />}
+        title={
+          <Typography variant="h6" fontWeight={300} textTransform="uppercase">
+            {symbol}
+          </Typography>
+        }
+        {...props}
+      />
       {children}
     </>
   )
