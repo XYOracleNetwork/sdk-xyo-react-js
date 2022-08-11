@@ -8,5 +8,5 @@ export interface XyoApiErrorRenderProps extends FlexBoxProps {
   customError?: ReactNode
   noReAuth?: boolean
   noErrorDisplay?: boolean
-  children?: ReactElement
+  children?: ReactElement | null
 }
