@@ -1,20 +1,12 @@
 import SwapHorizRoundedIcon from '@mui/icons-material/SwapHorizRounded'
 import { TableCell, TableRow } from '@mui/material'
+import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { useGetTokenData } from '@xyo-network/react-shared'
 import { XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 export interface TableRowProps {
   tokenPair: XyoUniswapCryptoPair
-}
-
-const toDecimalPrecision = (value: number, digits: number) => {
-  let fixed = 0
-  const result = parseFloat(value.toPrecision(digits))
-  while (parseFloat(result.toFixed(fixed)) !== result && fixed < 20) {
-    fixed++
-  }
-  return result.toFixed(fixed)
 }
 
 export const UniswapTableRowRender: React.FC<TableRowProps> = ({ tokenPair }) => {

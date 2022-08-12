@@ -1,5 +1,6 @@
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import { Card, CardContent, CardProps, Divider, IconButton, Paper, PaperProps, Tooltip, useTheme } from '@mui/material'
+import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { Fragment } from 'react'
@@ -9,15 +10,6 @@ import { XyoCryptoAssetValue } from './lib'
 export interface CryptoAssetProps extends CardProps {
   asset: string
   priceInfo: XyoCryptoAssetValue
-}
-
-const toDecimalPrecision = (value: number, digits: number) => {
-  let fixed = 0
-  const result = parseFloat(value.toPrecision(digits))
-  while (parseFloat(result.toFixed(fixed)) !== result && fixed < 20) {
-    fixed++
-  }
-  return result.toFixed(fixed)
 }
 
 export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...props }) => {

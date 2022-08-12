@@ -5747,12 +5747,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/assert@npm:^2.6.4":
-  version: 2.6.4
-  resolution: "@xylabs/assert@npm:2.6.4"
+"@xylabs/assert@npm:^2.6.5":
+  version: 2.6.5
+  resolution: "@xylabs/assert@npm:2.6.5"
   dependencies:
     tslib: ^2.4.0
-  checksum: fdbd9f9da3cef2795dd03a00a4677350fea300bdf36191746bbb44458b2433592c352128caad34e8e62e6ccabbec53ef2f2d10464d349881bcc0b52c96c336e3
+  checksum: 9dc33d4b40eaf3f10cc07cbae10e2bc1458cead99dc08588a34a7168c28d09ef3f5f967488e852d9647c46b9580109e7b34c45ef217e1cfd940bab47688ea33c
   languageName: node
   linkType: hard
 
@@ -5766,12 +5766,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/delay@npm:^2.6.4":
-  version: 2.6.4
-  resolution: "@xylabs/delay@npm:2.6.4"
+"@xylabs/decimal-precision@npm:^2.6.5":
+  version: 2.6.5
+  resolution: "@xylabs/decimal-precision@npm:2.6.5"
   dependencies:
     tslib: ^2.4.0
-  checksum: 94aa30059461b3d394456b93bdab3fafc9af841c4d6a4838bd678efe65e75058d63074428d88a4305cb6d8353a29320b0606c76eb42c043c5c41adf05fa6266f
+  checksum: 1d2a4bae302a3fe65c9b1a0029e95245ba9d505f621a8769c9ce2d8cc0a210453c83efc92f6fa17a064ff55881b01fee1d7ed0429b545ea5b7756d72957c794d
+  languageName: node
+  linkType: hard
+
+"@xylabs/delay@npm:^2.6.5":
+  version: 2.6.5
+  resolution: "@xylabs/delay@npm:2.6.5"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: 80ff189c570bf4d2efb367c64b71d445e930270574899838a7f94f3b6e60c6273a7b4933b121a744307354c3f77cf0fbaa9d9bd41943672d8e61e5a880207b61
   languageName: node
   linkType: hard
 
@@ -5816,13 +5825,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/forget@npm:^2.6.4":
-  version: 2.6.4
-  resolution: "@xylabs/forget@npm:2.6.4"
+"@xylabs/forget@npm:^2.6.5":
+  version: 2.6.5
+  resolution: "@xylabs/forget@npm:2.6.5"
   dependencies:
-    "@xylabs/delay": ^2.6.4
+    "@xylabs/delay": ^2.6.5
     tslib: ^2.4.0
-  checksum: efd21a2af53f9b28a6ba07f6445454e58a669a586c4d95e6c2fc1feb7816de7284aef50ae89d18de75113985842c210ca92c6c00846ebdc26172497e96fc16f1
+  checksum: 692c63df3b28cfbfe29b7ebcc4f1552ba248415b165e1502aa8994015f64e5f424c96c5d9608754eaf46b316ea62d42f87d8ccd938a8d7dd3502db5f9352fa6b
   languageName: node
   linkType: hard
 
@@ -6076,17 +6085,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:2.6.4, @xylabs/sdk-js@npm:^2.6.2, @xylabs/sdk-js@npm:^2.6.4":
-  version: 2.6.4
-  resolution: "@xylabs/sdk-js@npm:2.6.4"
+"@xylabs/sdk-js@npm:2.6.5, @xylabs/sdk-js@npm:^2.6.2, @xylabs/sdk-js@npm:^2.6.4, @xylabs/sdk-js@npm:^2.6.5":
+  version: 2.6.5
+  resolution: "@xylabs/sdk-js@npm:2.6.5"
   dependencies:
-    "@xylabs/assert": ^2.6.4
-    "@xylabs/delay": ^2.6.4
-    "@xylabs/forget": ^2.6.4
+    "@xylabs/assert": ^2.6.5
+    "@xylabs/delay": ^2.6.5
+    "@xylabs/forget": ^2.6.5
     axios: ^0.27.2
     bn.js: ^5.2.1
     rollbar: ^2.25.1
-  checksum: b687870e5bd2ea97db07dda7b907d1f5bac029a82a278cbaf9f88f9482273919bd805e83ea38c227a09d05f21d909271c72e2d2dce31a643a8d89852f78231af
+  checksum: 4f14e7885d6bc451119a51e25b5c8273727da030555884ff0e7881f964ee2bd10c34adbeb0c2266948b07e73084f86460763477e43339c7f9af7d2e404c7b7e3
   languageName: node
   linkType: hard
 
@@ -6390,6 +6399,7 @@ __metadata:
     "@mui/icons-material": ^5.8.4
     "@mui/material": ^5.10.0
     "@storybook/react": ^6.5.10
+    "@xylabs/decimal-precision": ^2.6.5
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/payload": ^2.25.2
@@ -6411,7 +6421,7 @@ __metadata:
     "@mui/icons-material": ^5.8.4
     "@mui/material": ^5.10.0
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/react-shared": "workspace:^"
     react: ^18.2.0
@@ -6509,7 +6519,7 @@ __metadata:
     "@xylabs/react-button": ^2.14.11
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": 2.6.4
+    "@xylabs/sdk-js": 2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/api": ^2.25.2
     "@xyo-network/archivist": ^2.25.2
@@ -6534,7 +6544,7 @@ __metadata:
     "@xylabs/react-common": ^2.14.11
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/api": ^2.25.2
     "@xyo-network/react-appbar": "workspace:^"
@@ -6570,7 +6580,7 @@ __metadata:
     "@xylabs/react-identicon": ^2.14.11
     "@xylabs/react-invertable-theme": ^2.14.11
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/api": ^2.25.2
     "@xyo-network/react-storybook": "workspace:^"
@@ -6595,7 +6605,7 @@ __metadata:
     "@xylabs/react-button": ^2.14.11
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/boundwitness": ^2.25.2
     "@xyo-network/core": ^2.25.2
@@ -6642,6 +6652,7 @@ __metadata:
     "@mui/icons-material": ^5.8.4
     "@mui/material": ^5.10.0
     "@storybook/react": ^6.5.10
+    "@xylabs/decimal-precision": ^2.6.5
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/payload": ^2.25.2
@@ -6694,7 +6705,7 @@ __metadata:
     "@storybook/react": ^6.5.10
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/react-link": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6734,7 +6745,7 @@ __metadata:
     "@xylabs/react-button": ^2.14.11
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/api": ^2.25.2
     "@xyo-network/react-archivist-api": "workspace:^"
@@ -6760,7 +6771,7 @@ __metadata:
     "@types/mapbox-gl": ^2.7.5
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/api": ^2.25.2
     "@xyo-network/payload": ^2.25.2
@@ -6789,7 +6800,7 @@ __metadata:
     "@xylabs/react-common": ^2.14.11
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/network": ^2.25.2
     "@xyo-network/react-shared": "workspace:^"
@@ -6805,7 +6816,7 @@ __metadata:
   resolution: "@xyo-network/react-panel@workspace:packages/sdk/panel"
   dependencies:
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/api": ^2.25.2
     "@xyo-network/boundwitness": ^2.25.2
@@ -6830,7 +6841,7 @@ __metadata:
     "@mui/material": ^5.10.0
     "@xylabs/react-flexbox": ^2.14.11
     "@xylabs/react-identicon": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/payload": ^2.25.2
     "@xyo-network/payload-plugin": ^2.25.2
@@ -7051,7 +7062,7 @@ __metadata:
     "@storybook/react": ^6.5.10
     "@xylabs/react-button": ^2.14.11
     "@xylabs/react-flexbox": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/core": ^2.25.2
     react: ^18.2.0
@@ -7069,7 +7080,7 @@ __metadata:
   resolution: "@xyo-network/react-wallet-service@workspace:packages/sdk/wallet-service"
   dependencies:
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/utils": ^2.25.2
@@ -7092,7 +7103,7 @@ __metadata:
     "@xylabs/react-identicon": ^2.14.11
     "@xylabs/react-number-status": ^2.14.11
     "@xylabs/react-shared": ^2.14.11
-    "@xylabs/sdk-js": ^2.6.4
+    "@xylabs/sdk-js": ^2.6.5
     "@xylabs/tsconfig-dom": ^2.5.92
     "@xyo-network/account": ^2.25.2
     "@xyo-network/react-network": "workspace:^"

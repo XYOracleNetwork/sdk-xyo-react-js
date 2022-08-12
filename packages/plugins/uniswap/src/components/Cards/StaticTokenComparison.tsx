@@ -1,19 +1,11 @@
 import { Paper, PaperProps, useTheme } from '@mui/material'
+import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 interface StaticTokenSummaryProps {
   tokenPayload: XyoUniswapCryptoPair
-}
-
-const toDecimalPrecision = (value: number, digits: number) => {
-  let fixed = 0
-  const result = parseFloat(value.toPrecision(digits))
-  while (parseFloat(result.toFixed(fixed)) !== result && fixed < 20) {
-    fixed++
-  }
-  return result.toFixed(fixed)
 }
 
 export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ tokenPayload }) => {

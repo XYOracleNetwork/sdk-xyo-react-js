@@ -1,5 +1,6 @@
 import SwapHorizRoundedIcon from '@mui/icons-material/SwapHorizRounded'
 import { Divider, IconButton } from '@mui/material'
+import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
@@ -7,15 +8,6 @@ import { useState } from 'react'
 
 export interface TokenComparisonSummaryProps {
   tokenPayload: XyoUniswapCryptoPair
-}
-
-const toDecimalPrecision = (value: number, digits: number) => {
-  let fixed = 0
-  const result = parseFloat(value.toPrecision(digits))
-  while (parseFloat(result.toFixed(fixed)) !== result && fixed < 20) {
-    fixed++
-  }
-  return result.toFixed(fixed)
 }
 
 export const DynamicTokenComparison: React.FC<TokenComparisonSummaryProps> = ({ tokenPayload }) => {
