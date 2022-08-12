@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useXyoEmbedPluginState } from '../XyoEmbedPluginContext'
 import { ValidatePayloadContext } from './Context'
 
-interface ValidatePayloadProviderProps {
+export interface ValidatePayloadProviderProps {
   // Opt-in flag to validate payloads for the plugin(s)
   enabled?: boolean
 }
