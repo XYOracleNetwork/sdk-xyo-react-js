@@ -1,5 +1,5 @@
-import { createContext } from 'react'
+import { createContextEx } from '@xyo-network/react-shared'
 
 import { XyoEmbedPluginState } from './State'
 
-export const XyoEmbedPluginContext = createContext<XyoEmbedPluginState>({})
+export const XyoEmbedPluginContext = createContextEx<XyoEmbedPluginState>()

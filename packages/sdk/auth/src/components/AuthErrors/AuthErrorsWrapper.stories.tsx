@@ -3,10 +3,10 @@
 /* eslint-disable import/no-internal-modules */
 import { Button } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { authDecorator, DeprecateStory } from '@xyo-network/react-storybook'
 import axios from 'axios'
 
-import { AuthServiceWrapper } from '../../../../auth-service/src'
 import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 
 const StorybookEntry = {

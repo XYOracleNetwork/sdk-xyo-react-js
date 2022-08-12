@@ -3,11 +3,11 @@ import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchive } from '@xyo-network/api'
+import { useAuthState } from '@xyo-network/react-auth'
+import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { authDecorator, WrappedAuthComponent } from '@xyo-network/react-storybook'
 import { useEffect, useState } from 'react'
 
-import { useAuthState } from '../../../../auth/src'
-import { AuthServiceWrapper } from '../../../../auth-service/src'
 import { ArchivistApiProvider, useArchivistApi } from '../../contexts'
 import { ApiHistory } from './ApiHistory'
 
@@ -55,7 +55,7 @@ const DemoArchiveFetcher = () => {
 
   return (
     <>
-      <AuthServiceWrapper></AuthServiceWrapper>
+      <AuthServiceWrapper />
       <p>My Archives</p>
       {successfulCall && (
         <Typography color="success.main" variant="body1">

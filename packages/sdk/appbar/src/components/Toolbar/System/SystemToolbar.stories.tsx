@@ -1,14 +1,14 @@
 /* eslint-disable import/no-internal-modules */
 import { List } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
+import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
+import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { AuthProvider, AuthState } from '@xyo-network/react-auth'
+import { NetworkMemoryProvider } from '@xyo-network/react-network'
+import { TypographyEx } from '@xyo-network/react-shared'
 import { WrappedAuthComponent } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ArchiveProvider, ArchivesProvider } from '../../../../../archive/src'
-import { ArchivistApiProvider } from '../../../../../archivist-api/src'
-import { AuthProvider, AuthState } from '../../../../../auth/src'
-import { NetworkMemoryProvider } from '../../../../../network/src'
-import { TypographyEx } from '../../../../../shared/src'
 import { SiteMenuListItem } from '../../SiteMenu'
 import { SystemToolbar } from './SystemToolbar'
 

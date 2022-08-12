@@ -1,18 +1,11 @@
 import { Paper, PaperProps, useTheme } from '@mui/material'
+import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 interface StaticTokenSummaryProps {
   tokenPayload: XyoUniswapCryptoPair
-}
-
-const formattedPrice = (price: number) => {
-  if (price < 1) {
-    return price.toFixed(9)
-  } else {
-    return price.toFixed(2)
-  }
 }
 
 export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ tokenPayload }) => {
@@ -32,11 +25,11 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
     <>
       <TokenSummary {...token0} icon={tokenInfo0.icon} sx={{ pt: 0, px: 0 }} />
       <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden" mb={3}>
-        <TokenBar text1={token0.value.toFixed(6)} text2={token1.symbol} text1Props={{ title: token0.value.toString() }} {...paperProps} />
+        <TokenBar text1={toDecimalPrecision(token0.value, 6)} text2={token1.symbol} text1Props={{ title: token0.value.toString() }} {...paperProps} />
       </Paper>
       <TokenSummary {...token1} icon={tokenInfo1.icon} sx={{ px: 0 }} />
       <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden">
-        <TokenBar text1={formattedPrice(token1.value)} text1Props={{ title: token1.value.toString() }} text2={token0.symbol} {...paperProps} />
+        <TokenBar text1={toDecimalPrecision(token1.value, 6)} text1Props={{ title: token1.value.toString() }} text2={token0.symbol} {...paperProps} />
       </Paper>
     </>
   )
