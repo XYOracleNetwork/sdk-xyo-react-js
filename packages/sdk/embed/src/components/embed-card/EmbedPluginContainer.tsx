@@ -8,10 +8,10 @@ import { RenderComponent } from '../RenderComponent'
 import { EmbedMenu } from './menu'
 
 export interface EmbedPluginContainerProps extends CardProps {
-  hideJsonButton?: boolean
+  hideEmbedMenu?: boolean
 }
 
-export const EmbedPluginContainer: React.FC<EmbedPluginContainerProps> = ({ hideJsonButton, ...props }) => {
+export const EmbedPluginContainer: React.FC<EmbedPluginContainerProps> = ({ hideEmbedMenu, ...props }) => {
   const { activePlugin, payload, timestampLabel, refreshHuri, plugins } = useXyoEmbedPluginState()
   return (
     <Card elevation={3} variant="elevation" {...props}>
@@ -32,7 +32,7 @@ export const EmbedPluginContainer: React.FC<EmbedPluginContainerProps> = ({ hide
                 label={`${timestampLabel} ${new Date(payload.timestamp).toLocaleString()}`}
               />
             ) : null}
-            {hideJsonButton ? null : <EmbedMenu />}
+            {hideEmbedMenu ? null : <EmbedMenu />}
           </FlexRow>
         }
         title={activePlugin?.name}
