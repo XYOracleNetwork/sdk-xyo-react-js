@@ -1,15 +1,26 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
-import { Avatar, Card, CardContent, CardHeader, CardProps, Link, Theme } from '@mui/material'
-import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { TypographyEx } from '@xyo-network/react-shared'
-import { Fragment } from 'react'
+import { Avatar, Card, CardContent, CardHeader, CardProps, Chip, Theme } from '@mui/material'
+import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
+import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 
 import { useXyoEmbedPluginState } from '../../contexts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../controls'
 import { RenderComponent } from '../RenderComponent'
 
-export const EmbedPluginContainer: React.FC<CardProps> = (props) => {
-  const { activePlugin, payload, timestampLabel, refreshHuri, refreshTitle, plugins } = useXyoEmbedPluginState()
+export const JsonButton: React.FC<ButtonExProps> = (props) => {
+  return (
+    <ButtonEx size="small" title="Source Payload JSON" color="primary" variant="outlined" marginX={1} {...props}>
+      JSON
+    </ButtonEx>
+  )
+}
+
+export interface EmbedPluginContainerProps extends CardProps {
+  hideJsonButton?: boolean
+}
+
+export const EmbedPluginContainer: React.FC<EmbedPluginContainerProps> = ({ hideJsonButton, ...props }) => {
+  const { activePlugin, payload, timestampLabel, refreshHuri, plugins } = useXyoEmbedPluginState()
   return (
     <Card elevation={3} variant="elevation" {...props}>
       <CardHeader
@@ -20,18 +31,17 @@ export const EmbedPluginContainer: React.FC<CardProps> = (props) => {
           </Avatar>
         }
         action={
-          <Fragment>
+          <FlexRow>
             {payload?.timestamp ? (
-              <FlexGrowRow>
-                <TypographyEx variant="caption">{`${timestampLabel} ${new Date(payload.timestamp).toLocaleString()}`}</TypographyEx>
-                <Link onClick={refreshHuri} sx={{ cursor: 'pointer' }} title={refreshTitle}>
-                  <RefreshIcon sx={{ height: (theme: Theme) => theme.spacing(1), position: 'relative', top: '2px' }} />
-                </Link>
-              </FlexGrowRow>
-            ) : (
-              <></>
-            )}
-          </Fragment>
+              <Chip
+                avatar={<RefreshIcon />}
+                clickable
+                onClick={refreshHuri}
+                label={`${timestampLabel} ${new Date(payload.timestamp).toLocaleString()}`}
+              />
+            ) : null}
+            {hideJsonButton ? null : <JsonButton />}
+          </FlexRow>
         }
         title={activePlugin?.name}
       />

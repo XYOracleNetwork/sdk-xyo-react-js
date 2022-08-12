@@ -6,4 +6,5 @@ export interface XyoEmbedPluginProps extends CardProps {
   huri?: string
   refreshTitle?: string
   timestampLabel?: string
+  validateSchema?: boolean
 }
