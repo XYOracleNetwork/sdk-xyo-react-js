@@ -9,6 +9,7 @@ export interface XyoEmbedPluginState extends ContextExState {
   payload?: XyoPayload
   plugins?: XyoPayloadRenderPlugin[]
   refreshHuri?: () => void
+  huri?: string
   refreshTitle?: string
   timestampLabel?: string
 }
