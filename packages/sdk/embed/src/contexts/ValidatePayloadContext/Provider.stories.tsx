@@ -6,9 +6,9 @@ import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provide
 import { useValidatePayload } from './use'
 
 const EmbedDecorator: DecoratorFn = (Story, { args }) => {
-  const { value, ...props } = args
+  const { xyoEmbedPluginContext, ...props } = args
   return (
-    <XyoEmbedPluginContext.Provider value={value}>
+    <XyoEmbedPluginContext.Provider value={xyoEmbedPluginContext}>
       <Story {...props} />
     </XyoEmbedPluginContext.Provider>
   )
@@ -26,7 +26,7 @@ const ValidatePayloadState = () => {
 }
 
 interface ValidatePayloadProviderPropsEx extends ValidatePayloadProviderProps {
-  value: XyoEmbedPluginState
+  xyoEmbedPluginContext: XyoEmbedPluginState
 }
 
 const Template: ComponentStory<React.FC<ValidatePayloadProviderPropsEx>> = (props) => {
@@ -44,13 +44,13 @@ const ValidPayload = { definition: { $id: 'test.schema' }, schema: 'network.xyo.
 const XyoEmbedPluginProviderDefaultValue = { provided: true }
 
 const Default = Template.bind({})
-Default.args = { value: XyoEmbedPluginProviderDefaultValue }
+Default.args = { xyoEmbedPluginContext: XyoEmbedPluginProviderDefaultValue }
 
 const ValidationSucceeded = Template.bind({})
-ValidationSucceeded.args = { enabled: true, value: { payload: ValidPayload, ...XyoEmbedPluginProviderDefaultValue } }
+ValidationSucceeded.args = { enabled: true, xyoEmbedPluginContext: { payload: ValidPayload, ...XyoEmbedPluginProviderDefaultValue } }
 
 const ValidationFailed = Template.bind({})
-ValidationFailed.args = { enabled: true, value: { payload: InvalidPayload, ...XyoEmbedPluginProviderDefaultValue } }
+ValidationFailed.args = { enabled: true, xyoEmbedPluginContext: { payload: InvalidPayload, ...XyoEmbedPluginProviderDefaultValue } }
 
 export { Default, ValidationFailed, ValidationSucceeded }
 

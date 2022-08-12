@@ -56,7 +56,9 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
   }
 
   return (
-    <XyoEmbedPluginContext.Provider value={{ activePlugin, payload, provided: true, refreshHuri, refreshTitle, setActivePlugin, timestampLabel }}>
+    <XyoEmbedPluginContext.Provider
+      value={{ activePlugin, huri, payload, provided: true, refreshHuri, refreshTitle, setActivePlugin, timestampLabel }}
+    >
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError} busy={Boolean(!refreshPayload && payload)} {...props}>
           <FlexCol>{children}</FlexCol>

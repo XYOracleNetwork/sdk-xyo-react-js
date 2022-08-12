@@ -1,19 +1,11 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
 import { Avatar, Card, CardContent, CardHeader, CardProps, Chip, Theme } from '@mui/material'
-import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 
 import { useXyoEmbedPluginState } from '../../contexts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../controls'
 import { RenderComponent } from '../RenderComponent'
-
-export const JsonButton: React.FC<ButtonExProps> = (props) => {
-  return (
-    <ButtonEx size="small" title="Source Payload JSON" color="primary" variant="outlined" marginX={1} {...props}>
-      JSON
-    </ButtonEx>
-  )
-}
+import { EmbedMenu } from './menu'
 
 export interface EmbedPluginContainerProps extends CardProps {
   hideJsonButton?: boolean
@@ -40,7 +32,7 @@ export const EmbedPluginContainer: React.FC<EmbedPluginContainerProps> = ({ hide
                 label={`${timestampLabel} ${new Date(payload.timestamp).toLocaleString()}`}
               />
             ) : null}
-            {hideJsonButton ? null : <JsonButton />}
+            {hideJsonButton ? null : <EmbedMenu />}
           </FlexRow>
         }
         title={activePlugin?.name}
