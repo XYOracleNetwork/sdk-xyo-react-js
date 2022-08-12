@@ -21,14 +21,7 @@ export const EmbedMenu: React.FC<IconButtonProps> = (props) => {
       <IconButton onClick={handleClick} {...props}>
         <MoreVertIcon />
       </IconButton>
-      <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        marginThreshold={33}
-        PaperProps={{ variant: 'elevation' }}
-        MenuListProps={{ dense: true }}
-      >
+      <Menu anchorEl={anchorEl} open={open} onClose={handleClose} PaperProps={{ variant: 'elevation' }} MenuListProps={{ dense: true }}>
         <JsonMenuItem />
       </Menu>
     </>
