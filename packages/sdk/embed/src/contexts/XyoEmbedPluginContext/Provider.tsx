@@ -1,5 +1,6 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { delay } from '@xylabs/sdk-js'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
 import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
@@ -37,6 +38,8 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
         try {
           const huriInstance = new Huri(huri)
           const result = await huriInstance.fetch()
+          // ensure the busy state can stay for a moment to avoid flashing too quickly
+          await delay(500)
 
           if (mounted()) {
             setNotFound(result === null)
@@ -56,7 +59,9 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
   }
 
   return (
-    <XyoEmbedPluginContext.Provider value={{ activePlugin, payload, provided: true, refreshHuri, refreshTitle, setActivePlugin, timestampLabel }}>
+    <XyoEmbedPluginContext.Provider
+      value={{ activePlugin, huri, payload, provided: true, refreshHuri, refreshTitle, setActivePlugin, timestampLabel }}
+    >
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError} busy={Boolean(!refreshPayload && payload)} {...props}>
           <FlexCol>{children}</FlexCol>
