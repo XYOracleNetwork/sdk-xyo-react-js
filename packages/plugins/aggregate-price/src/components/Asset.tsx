@@ -6,9 +6,18 @@ import { Fragment } from 'react'
 
 import { XyoCryptoAssetValue } from './lib'
 
-interface CryptoAssetProps extends CardProps {
+export interface CryptoAssetProps extends CardProps {
   asset: string
   priceInfo: XyoCryptoAssetValue
+}
+
+const toDecimalPrecision = (value: number, digits: number) => {
+  let fixed = 0
+  const result = parseFloat(value.toPrecision(digits))
+  while (parseFloat(result.toFixed(fixed)) !== result && fixed < 20) {
+    fixed++
+  }
+  return result.toFixed(fixed)
 }
 
 export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...props }) => {
@@ -26,11 +35,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
 
   const formattedPrice = (price: string) => {
     const floatedPrice = parseFloat(price)
-    if (floatedPrice < 1) {
-      return floatedPrice.toFixed(9)
-    } else {
-      return floatedPrice.toFixed(2)
-    }
+    return toDecimalPrecision(floatedPrice, 3)
   }
 
   return (

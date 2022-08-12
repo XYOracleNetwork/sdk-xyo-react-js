@@ -1,4 +1,4 @@
-import { Chip, Typography } from '@mui/material'
+import { Chip } from '@mui/material'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { XyoSchemaCache, XyoSchemaNameToValidatorMap } from '@xyo-network/utils'
 import { useState } from 'react'

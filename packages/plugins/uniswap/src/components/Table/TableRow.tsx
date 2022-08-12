@@ -8,6 +8,15 @@ export interface TableRowProps {
   tokenPair: XyoUniswapCryptoPair
 }
 
+const toDecimalPrecision = (value: number, digits: number) => {
+  let fixed = 0
+  const result = parseFloat(value.toPrecision(digits))
+  while (parseFloat(result.toFixed(fixed)) !== result && fixed < 20) {
+    fixed++
+  }
+  return result.toFixed(fixed)
+}
+
 export const UniswapTableRowRender: React.FC<TableRowProps> = ({ tokenPair }) => {
   const [token0, token1] = tokenPair.tokens
 
@@ -22,9 +31,9 @@ export const UniswapTableRowRender: React.FC<TableRowProps> = ({ tokenPair }) =>
         </FlexRow>
       </TableCell>
       <TableCell align="right">{tokenInfo0.readableName}</TableCell>
-      <TableCell align="right">{token0.value}</TableCell>
+      <TableCell align="right">{toDecimalPrecision(token0.value, 6)}</TableCell>
       <TableCell align="right">{tokenInfo1.readableName}</TableCell>
-      <TableCell align="right">{token1.value}</TableCell>
+      <TableCell align="right">{toDecimalPrecision(token1.value, 6)}</TableCell>
     </TableRow>
   )
 }

@@ -1,9 +1,9 @@
 /* eslint-disable import/no-internal-modules */
 import { Toolbar } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { authDecorator, WrappedAuthComponent } from '@xyo-network/react-storybook'
 
-import { AuthServiceWrapper } from '../../../auth-service/src'
 import { AuthStatusIconButton } from './AuthStatusIconButton'
 
 const StorybookEntry = {

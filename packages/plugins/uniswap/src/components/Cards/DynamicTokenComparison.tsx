@@ -5,8 +5,17 @@ import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shar
 import { XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
 
-interface TokenComparisonSummaryProps {
+export interface TokenComparisonSummaryProps {
   tokenPayload: XyoUniswapCryptoPair
+}
+
+const toDecimalPrecision = (value: number, digits: number) => {
+  let fixed = 0
+  const result = parseFloat(value.toPrecision(digits))
+  while (parseFloat(result.toFixed(fixed)) !== result && fixed < 20) {
+    fixed++
+  }
+  return result.toFixed(fixed)
 }
 
 export const DynamicTokenComparison: React.FC<TokenComparisonSummaryProps> = ({ tokenPayload }) => {
@@ -18,7 +27,7 @@ export const DynamicTokenComparison: React.FC<TokenComparisonSummaryProps> = ({ 
   return (
     <FlexGrowCol width="100%" justifyContent="flex-start" alignItems="flex-start" padding={0.5}>
       <TokenSummary {...token0} icon={tokenInfo0.icon}>
-        <TokenBar text1={baseToken0 ? 1 : token1.value} text2={token0.symbol} />
+        <TokenBar text1={baseToken0 ? 1 : toDecimalPrecision(token1.value, 6)} text2={token0.symbol} />
       </TokenSummary>
       <FlexGrowRow paddingY={2} width="100%">
         <Divider flexItem>
@@ -28,7 +37,7 @@ export const DynamicTokenComparison: React.FC<TokenComparisonSummaryProps> = ({ 
         </Divider>
       </FlexGrowRow>
       <TokenSummary {...token1} icon={tokenInfo1.icon}>
-        <TokenBar text1={baseToken0 ? token0.value : 1} text2={token1.symbol} />
+        <TokenBar text1={baseToken0 ? toDecimalPrecision(token0.value, 6) : 1} text2={token1.symbol} />
       </TokenSummary>
     </FlexGrowCol>
   )
