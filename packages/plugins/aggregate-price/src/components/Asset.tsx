@@ -1,7 +1,7 @@
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
-import { Card, CardContent, CardProps, Divider, IconButton, Paper, PaperProps, Tooltip, useTheme } from '@mui/material'
+import { Card, CardContent, CardProps, Divider, Link, Paper, PaperProps, useTheme } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
+import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { Fragment } from 'react'
 
@@ -35,14 +35,13 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
       <TokenSummary
         icon={tokenInfo.icon}
         symbol={asset}
-        action={
-          <IconButton sx={{ cursor: 'default' }}>
-            <Tooltip title="The price of cryptos based on multiple inputs.">
-              <HelpOutlineIcon />
-            </Tooltip>
-          </IconButton>
+        symbolElement={
+          <Link href={tokenInfo.coinmarketcapLink} underline="hover" target="_blank">
+            {asset}
+          </Link>
         }
-      ></TokenSummary>
+        action={<QuickTipButton hoverText="The price of cryptos based on multiple inputs." />}
+      />
       <CardContent style={{ height: '100%' }}>
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
           <FlexCol alignItems="stretch" justifyContent="flex-start">
