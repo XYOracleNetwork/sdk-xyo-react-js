@@ -9,20 +9,18 @@ import { ResultLoader } from '@xyo-network/react-webapp'
 import { useState } from 'react'
 
 import { XyoEmbedPluginContext } from './Context'
+import { XyoEmbedPluginBase } from './State'
 
-export interface XyoEmbedPluginProviderProps extends FlexBoxProps {
-  plugins?: XyoPayloadRenderPlugin[]
-  huri?: string
-  refreshTitle?: string
-  timestampLabel?: string
-}
+export interface XyoEmbedPluginProviderProps extends XyoEmbedPluginBase, FlexBoxProps {}
 
 export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProviderProps>> = ({
   children,
   refreshTitle,
   timestampLabel,
+  hideElementsConfig,
   huri,
   plugins,
+  pluginConfig,
   ...props
 }) => {
   const [payload, setPayload] = useState<XyoPayload>()
@@ -60,7 +58,18 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
 
   return (
     <XyoEmbedPluginContext.Provider
-      value={{ activePlugin, huri, payload, provided: true, refreshHuri, refreshTitle, setActivePlugin, timestampLabel }}
+      value={{
+        activePlugin,
+        hideElementsConfig,
+        huri,
+        payload,
+        pluginConfig,
+        provided: true,
+        refreshHuri,
+        refreshTitle,
+        setActivePlugin,
+        timestampLabel,
+      }}
     >
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError}>

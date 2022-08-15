@@ -1,8 +1,8 @@
 import { ListModeProvider } from '@xyo-network/react-shared'
 
 import { ValidatePayloadProvider, XyoEmbedPluginProvider } from '../contexts'
+import { XyoEmbedPluginProps } from '../types'
 import { EmbedPluginContainer, ValidatePayload, ValidatePlugins } from './embed-card'
-import { XyoEmbedPluginProps } from './XyoEmbedPluginProps'
 
 export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
   validateSchema,
@@ -11,15 +11,23 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
   refreshTitle = '',
   timestampLabel = 'Data From',
   hideElementsConfig,
+  pluginConfig,
   ...props
 }) => {
   return (
-    <XyoEmbedPluginProvider refreshTitle={refreshTitle} timestampLabel={timestampLabel} plugins={plugins} huri={huri}>
+    <XyoEmbedPluginProvider
+      refreshTitle={refreshTitle}
+      timestampLabel={timestampLabel}
+      plugins={plugins}
+      huri={huri}
+      pluginConfig={pluginConfig}
+      hideElementsConfig={hideElementsConfig}
+    >
       <ValidatePayloadProvider enabled={validateSchema}>
-        <ListModeProvider>
+        <ListModeProvider defaultListMode={pluginConfig?.listMode}>
           <ValidatePlugins>
             <ValidatePayload>
-              <EmbedPluginContainer hideElementsConfig={hideElementsConfig} {...props} />
+              <EmbedPluginContainer {...props} />
             </ValidatePayload>
           </ValidatePlugins>
         </ListModeProvider>

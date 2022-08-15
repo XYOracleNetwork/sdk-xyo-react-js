@@ -1,29 +1,23 @@
 import { Card, CardContent, CardProps } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
+import { useListMode } from '@xyo-network/react-shared'
 
 import { useXyoEmbedPluginState } from '../../contexts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../controls'
-import { RenderComponent } from '../RenderComponent'
-import { EmbedPluginVisibilityConfig } from '../XyoEmbedPluginProps'
 import { EmbedCardHeader } from './EmbedCardHeader'
 
-export interface EmbedPluginContainerProps extends CardProps {
-  hideElementsConfig?: EmbedPluginVisibilityConfig
-}
-
-export const EmbedPluginContainer: React.FC<EmbedPluginContainerProps> = ({ hideElementsConfig, ...props }) => {
-  const { activePlugin, payload, plugins } = useXyoEmbedPluginState()
+export const EmbedPluginContainer: React.FC<CardProps> = (props) => {
+  const { activePlugin: ActivePlugin, payload, plugins, hideElementsConfig } = useXyoEmbedPluginState()
+  const { listMode } = useListMode()
 
   return (
     <Card elevation={3} variant="elevation" {...props}>
-      <EmbedCardHeader hideElementsConfig={hideElementsConfig} />
+      {hideElementsConfig?.hideCardHeader ? null : <EmbedCardHeader />}
       <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" justifyContent="center" pb={1}>
         {plugins && plugins.length > 1 ? <EmbedRenderSelect /> : null}
-        {(activePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? <ListModeSelectFormControl /> : null}
+        {(ActivePlugin?.components?.box?.listModes?.length ?? 0) > 1 ? <ListModeSelectFormControl /> : null}
       </FlexGrowRow>
-      <CardContent>
-        <RenderComponent payload={payload} ActivePlugin={activePlugin} />
-      </CardContent>
+      <CardContent>{ActivePlugin ? <ActivePlugin.components.box.details payload={payload} listMode={listMode} /> : null}</CardContent>
     </Card>
   )
 }
