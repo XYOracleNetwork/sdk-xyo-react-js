@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { XyoEmbedPlugin } from './XyoEmbedPlugin'
 
-const AggregatePricePointer = 'https://api.archivist.xyo.network/9663b2f80395a9e7e95948fdd5988b778a4dcc047202bf67e855ff6cd459b8c0'
+const AggregatePricePointer = 'https://api.archivist.xyo.network/1948bf4eedf90ee2b8a1f63216b7c6b3b18d7bc2834330d85bcd6ab3d6428a20'
 const UniswapPairPointer = 'https://beta.api.archivist.xyo.network/e36602006239d86b6e08412f7879372b2c622d74f4d6bc508a08a46fa8ad6523'
 
 // eslint-disable-next-line import/no-default-export
@@ -66,4 +66,19 @@ Error.args = {
   timestampLabel: 'Last Updated - ',
 }
 
-export { AggregatePriceExample, Default, Error, UniswapPairsExample }
+const HiddenElements = Template.bind({})
+HiddenElements.args = {
+  hideElementsConfig: {
+    hideAvatar: true,
+    hideCardActions: true,
+    hideCardHeader: true,
+    hideRefreshButton: true,
+    hideTimestamp: true,
+    hideTitle: true,
+  },
+  huri: AggregatePricePointer,
+  plugins: [CryptoAssetRenderPlugin],
+  timestampLabel: 'Last Updated - ',
+}
+
+export { AggregatePriceExample, Default, Error, HiddenElements, UniswapPairsExample }
