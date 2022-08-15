@@ -1,7 +1,6 @@
 import { CardProps } from '@mui/material'
 
-import { XyoEmbedPluginBase } from '../contexts'
-import { EmbedPluginVisibilityConfig } from './EmbedPluginVisibility'
+import { EmbedPluginVisibilityConfig, XyoEmbedPluginBase } from '../contexts'
 
 export interface XyoEmbedPluginProps extends XyoEmbedPluginBase, CardProps {
   validateSchema?: boolean

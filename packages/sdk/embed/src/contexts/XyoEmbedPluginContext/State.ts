@@ -14,7 +14,7 @@ export interface EmbedPluginVisibilityConfig {
 
 export interface PluginConfig {
   listMode?: ListMode
-  [key: string]: undefined | unknown
+  [key: string]: unknown
 }
 
 export interface XyoEmbedPluginBase {
