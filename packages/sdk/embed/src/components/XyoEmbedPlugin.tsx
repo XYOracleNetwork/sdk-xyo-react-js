@@ -10,6 +10,7 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
   huri,
   refreshTitle = '',
   timestampLabel = 'Data From',
+  hideElementsConfig,
   ...props
 }) => {
   return (
@@ -18,7 +19,7 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
         <ListModeProvider>
           <ValidatePlugins>
             <ValidatePayload>
-              <EmbedPluginContainer {...props} />
+              <EmbedPluginContainer hideElementsConfig={hideElementsConfig} {...props} />
             </ValidatePayload>
           </ValidatePlugins>
         </ListModeProvider>
