@@ -1,4 +1,4 @@
-import { Card, CardContent, CardProps, Divider, Paper, PaperProps, useTheme } from '@mui/material'
+import { Card, CardContent, CardProps, Divider, Link, Paper, PaperProps, useTheme } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
@@ -32,7 +32,16 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
 
   return (
     <Card className="CryptoAsset-root" {...props}>
-      <TokenSummary icon={tokenInfo.icon} symbol={asset} action={<QuickTipButton hoverText="The price of cryptos based on multiple inputs." />} />
+      <TokenSummary
+        icon={tokenInfo.icon}
+        symbol={asset}
+        symbolElement={
+          <Link href={tokenInfo.coinmarketcapLink} underline="hover" target="_blank">
+            {asset}
+          </Link>
+        }
+        action={<QuickTipButton hoverText="The price of cryptos based on multiple inputs." />}
+      />
       <CardContent style={{ height: '100%' }}>
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
           <FlexCol alignItems="stretch" justifyContent="flex-start">

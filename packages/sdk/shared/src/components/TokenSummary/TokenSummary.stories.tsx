@@ -1,6 +1,8 @@
+import { Link } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
+import * as tokenData from '../TokenData'
 import { TokenSummary } from './TokenSummary'
 const StorybookEntry = {
   argTypes: {},
@@ -20,9 +22,20 @@ const Template: ComponentStory<typeof TokenSummary> = (args) => (
 )
 
 const WithData = Template.bind({})
-WithData.args = { icon: 'string', symbol: 'string' }
+WithData.args = { icon: tokenData.TokenData[0].icon, symbol: 'string' }
 
-export { WithData }
+const SymbolElement = Template.bind({})
+SymbolElement.args = {
+  icon: tokenData.TokenData[0].icon,
+  symbol: 'string',
+  symbolElement: (
+    <Link underline="hover" href="#">
+      Linked Title
+    </Link>
+  ),
+}
+
+export { SymbolElement, WithData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
