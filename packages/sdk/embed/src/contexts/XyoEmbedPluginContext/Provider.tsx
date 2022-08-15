@@ -20,7 +20,7 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
   hideElementsConfig,
   huri,
   plugins,
-  pluginConfig,
+  embedPluginConfig,
   ...props
 }) => {
   const [payload, setPayload] = useState<XyoPayload>()
@@ -60,10 +60,10 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
     <XyoEmbedPluginContext.Provider
       value={{
         activePlugin,
+        embedPluginConfig,
         hideElementsConfig,
         huri,
         payload,
-        pluginConfig,
         provided: true,
         refreshHuri,
         refreshTitle,

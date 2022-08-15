@@ -12,14 +12,17 @@ export interface EmbedPluginVisibilityConfig {
   hideCardHeader?: boolean
 }
 
-export interface PluginConfig {
+/**
+ * Extend for custom plugin configuration
+ */
+export interface XyoPluginConfig {
   listMode?: ListMode
-  [key: string]: unknown
 }
 
 export interface XyoEmbedPluginBase {
   plugins?: XyoPayloadRenderPlugin[]
-  pluginConfig?: PluginConfig
+  /** XyoEmbedPlugin component configuration */
+  embedPluginConfig?: XyoPluginConfig
   huri?: string
   refreshTitle?: string
   timestampLabel?: string
