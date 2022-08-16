@@ -1,10 +1,10 @@
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import { ListItemIcon, ListItemText, MenuItem, MenuItemProps } from '@mui/material'
 
-import { useXyoEmbedPluginState } from '../../../contexts'
+import { useResolvePayload } from '../../../contexts'
 
 export const JsonMenuItem: React.FC<MenuItemProps> = (props) => {
-  const { huri } = useXyoEmbedPluginState()
+  const { huri } = useResolvePayload()
 
   return (
     <>

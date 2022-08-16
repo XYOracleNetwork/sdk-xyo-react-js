@@ -4,6 +4,7 @@ import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-unisw
 import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { BrowserRouter } from 'react-router-dom'
 
+import { payloadData } from './payload.stories'
 import { XyoEmbedPlugin } from './XyoEmbedPlugin'
 
 const AggregatePricePointer = 'https://api.archivist.xyo.network/1948bf4eedf90ee2b8a1f63216b7c6b3b18d7bc2834330d85bcd6ab3d6428a20'
@@ -47,21 +48,21 @@ Default.args = {
 
 const AggregatePriceExample = Template.bind({})
 AggregatePriceExample.args = {
-  huri: AggregatePricePointer,
+  huriPayload: AggregatePricePointer,
   plugins: [CryptoAssetRenderPlugin],
   timestampLabel: 'Last Updated - ',
 }
 
 const UniswapPairsExample = Template.bind({})
 UniswapPairsExample.args = {
-  huri: UniswapPairPointer,
+  huriPayload: UniswapPairPointer,
   plugins: [UniswapPairsRenderPlugin],
   timestampLabel: 'Last Updated - ',
 }
 
 const Error = Template.bind({})
 Error.args = {
-  huri: 'https://api.archivist.xyo.network/9663b2f80395a9e7e95948fdd5988b778a4dcc047202bf67e855ff6cd459b8c',
+  huriPayload: 'https://api.archivist.xyo.network/9663b2f80395a9e7e95948fdd5988b778a4dcc047202bf67e855ff6cd459b8c',
   plugins: [UniswapPairsRenderPlugin],
   timestampLabel: 'Last Updated - ',
 }
@@ -76,9 +77,19 @@ HiddenElements.args = {
     hideTimestamp: true,
     hideTitle: true,
   },
-  huri: AggregatePricePointer,
+  huriPayload: AggregatePricePointer,
   plugins: [CryptoAssetRenderPlugin],
   timestampLabel: 'Last Updated - ',
 }
 
-export { AggregatePriceExample, Default, Error, HiddenElements, UniswapPairsExample }
+const WithPassedPayload = Template.bind({})
+WithPassedPayload.args = {
+  hideElementsConfig: {
+    hideRefreshButton: true,
+  },
+  huriPayload: payloadData,
+  plugins: [CryptoAssetRenderPlugin],
+  timestampLabel: 'Last Updated - ',
+}
+
+export { AggregatePriceExample, Default, Error, HiddenElements, UniswapPairsExample, WithPassedPayload }

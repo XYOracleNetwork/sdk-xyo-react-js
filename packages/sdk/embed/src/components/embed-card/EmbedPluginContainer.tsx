@@ -2,12 +2,13 @@ import { Card, CardContent, CardProps } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useListMode } from '@xyo-network/react-shared'
 
-import { useXyoEmbedPluginState } from '../../contexts'
+import { useResolvePayload, useXyoEmbedPluginState } from '../../contexts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../controls'
 import { EmbedCardHeader } from './EmbedCardHeader'
 
 export const EmbedPluginContainer: React.FC<CardProps> = (props) => {
-  const { activePlugin: ActivePlugin, payload, plugins, hideElementsConfig } = useXyoEmbedPluginState()
+  const { payload } = useResolvePayload()
+  const { activePlugin: ActivePlugin, plugins, hideElementsConfig } = useXyoEmbedPluginState()
   const { listMode } = useListMode()
 
   return (

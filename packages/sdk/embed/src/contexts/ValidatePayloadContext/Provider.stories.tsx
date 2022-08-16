@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 
+import { ResolvePayloadProvider, ResolvePayloadState } from '../ResolvePayloadContext'
 import { XyoEmbedPluginContext, XyoEmbedPluginState } from '../XyoEmbedPluginContext'
 import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider'
 import { useValidatePayload } from './use'
@@ -8,9 +9,11 @@ import { useValidatePayload } from './use'
 const EmbedDecorator: DecoratorFn = (Story, { args }) => {
   const { xyoEmbedPluginContext, ...props } = args
   return (
-    <XyoEmbedPluginContext.Provider value={xyoEmbedPluginContext}>
-      <Story {...props} />
-    </XyoEmbedPluginContext.Provider>
+    <ResolvePayloadProvider>
+      <XyoEmbedPluginContext.Provider value={xyoEmbedPluginContext}>
+        <Story {...props} />
+      </XyoEmbedPluginContext.Provider>
+    </ResolvePayloadProvider>
   )
 }
 
@@ -27,6 +30,7 @@ const ValidatePayloadState = () => {
 
 interface ValidatePayloadProviderPropsEx extends ValidatePayloadProviderProps {
   xyoEmbedPluginContext: XyoEmbedPluginState
+  resolvePayloadContext: ResolvePayloadState
 }
 
 const Template: ComponentStory<React.FC<ValidatePayloadProviderPropsEx>> = (props) => {
@@ -41,16 +45,24 @@ const Template: ComponentStory<React.FC<ValidatePayloadProviderPropsEx>> = (prop
 
 const InvalidPayload = { schema: 'network.xyo.schema' }
 const ValidPayload = { definition: { $id: 'test.schema' }, schema: 'network.xyo.schema' }
-const XyoEmbedPluginProviderDefaultValue = { provided: true }
+const stubProviderDefaultValue = { provided: true }
 
 const Default = Template.bind({})
-Default.args = { xyoEmbedPluginContext: XyoEmbedPluginProviderDefaultValue }
+Default.args = { xyoEmbedPluginContext: stubProviderDefaultValue }
 
 const ValidationSucceeded = Template.bind({})
-ValidationSucceeded.args = { enabled: true, xyoEmbedPluginContext: { payload: ValidPayload, ...XyoEmbedPluginProviderDefaultValue } }
+ValidationSucceeded.args = {
+  enabled: true,
+  resolvePayloadContext: { payload: ValidPayload, ...stubProviderDefaultValue },
+  xyoEmbedPluginContext: stubProviderDefaultValue,
+}
 
 const ValidationFailed = Template.bind({})
-ValidationFailed.args = { enabled: true, xyoEmbedPluginContext: { payload: InvalidPayload, ...XyoEmbedPluginProviderDefaultValue } }
+ValidationFailed.args = {
+  enabled: true,
+  resolvePayloadContext: { payload: InvalidPayload, ...stubProviderDefaultValue },
+  xyoEmbedPluginContext: stubProviderDefaultValue,
+}
 
 export { Default, ValidationFailed, ValidationSucceeded }
 

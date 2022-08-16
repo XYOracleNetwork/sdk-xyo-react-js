@@ -3,7 +3,7 @@ import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { XyoSchemaCache, XyoSchemaNameToValidatorMap } from '@xyo-network/utils'
 import { useState } from 'react'
 
-import { useXyoEmbedPluginState } from '../XyoEmbedPluginContext'
+import { useResolvePayload } from '../ResolvePayloadContext'
 import { ValidatePayloadContext } from './Context'
 
 export interface ValidatePayloadProviderProps {
@@ -12,7 +12,7 @@ export interface ValidatePayloadProviderProps {
 }
 
 export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProviderProps>> = ({ children, enabled = false }) => {
-  const { payload } = useXyoEmbedPluginState()
+  const { payload } = useResolvePayload()
   const [initialized, setInitialized] = useState(false)
   const [valid, setValid] = useState<boolean>()
 
