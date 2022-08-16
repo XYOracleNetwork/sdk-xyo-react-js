@@ -5,27 +5,22 @@ import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 
+import { XyoCryptoAssetPayload } from '../lib'
 import { CryptoAsset } from './Asset'
-import { XyoCryptoAssetPayload } from './lib'
 
 export interface CryptoAssetRendererProps extends XyoPayloadDetailsRenderProps {
   payload?: XyoPayload
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payload, ...props }) => {
   const cryptoAssetPayload = payload ? (payload as XyoCryptoAssetPayload) : undefined
-
-  // once plugin supports listMode, this can go away
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { listMode, ...flexBoxProps } = props
 
   if (isEmpty(cryptoAssetPayload?.assets)) {
     return <PayloadDataMissing alertBody="Payload is missing valid asset prices" />
   }
 
   return (
-    <FlexCol alignItems="stretch" justifyContent="flex-start" {...flexBoxProps}>
+    <FlexCol alignItems="stretch" justifyContent="flex-start" {...props}>
       <Grid container spacing={1} justifyContent="center">
         {cryptoAssetPayload
           ? Object.entries(cryptoAssetPayload.assets).map(([asset, priceInfo]) => (

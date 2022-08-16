@@ -5,7 +5,7 @@ import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { Fragment } from 'react'
 
-import { XyoCryptoAssetValue } from './lib'
+import { XyoCryptoAssetValue } from '../lib'
 
 export interface CryptoAssetProps extends CardProps {
   asset: string
@@ -40,7 +40,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
             {asset}
           </Link>
         }
-        action={<QuickTipButton hoverText="The price of cryptos based on multiple inputs." />}
+        action={<QuickTipButton hoverText="The price of cryptos based on multiple inputs." disableDialog />}
       />
       <CardContent style={{ height: '100%' }}>
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
