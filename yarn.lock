@@ -6221,17 +6221,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/all-crypto-market-payload-plugins@npm:^2.25.2":
-  version: 2.25.2
-  resolution: "@xyo-network/all-crypto-market-payload-plugins@npm:2.25.2"
-  dependencies:
-    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.25.2
-    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.25.2
-    tslib: ^2.4.0
-  checksum: 6249df41fe5de858cfd27d2f5acc12105808a071c3bb47e760906b9dfd9e33328aa74372beb1d7541647ac13ef093fe3d5590df4e558e7f7bb68e67f4040efee
-  languageName: node
-  linkType: hard
-
 "@xyo-network/api@npm:^2.25.2":
   version: 2.25.2
   resolution: "@xyo-network/api@npm:2.25.2"
@@ -6671,20 +6660,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-coin-gecko-prices-plugin@workspace:packages/plugins/coin-gecko-prices":
+"@xyo-network/react-coin-gecko-prices-plugin@workspace:^, @xyo-network/react-coin-gecko-prices-plugin@workspace:packages/plugins/coin-gecko-prices":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-coin-gecko-prices-plugin@workspace:packages/plugins/coin-gecko-prices"
   dependencies:
-    "@emotion/react": ^11.10.0
-    "@emotion/styled": ^11.10.0
-    "@mui/material": ^5.10.0
     "@storybook/react": ^6.5.10
-    "@xylabs/decimal-precision": ^2.6.6
-    "@xylabs/react-flexbox": ^2.14.13
-    "@xylabs/react-quick-tip-button": ^2.14.13
     "@xylabs/sdk-js": ^2.6.6
     "@xylabs/tsconfig-dom": ^2.5.99
-    "@xyo-network/all-crypto-market-payload-plugins": ^2.25.2
     "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.25.2
     "@xyo-network/payload": ^2.25.2
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
@@ -7257,6 +7239,7 @@ __metadata:
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-block": "workspace:^"
     "@xyo-network/react-card": "workspace:^"
+    "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-payload-plugin": "workspace:^"
     "@xyo-network/react-embed": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
