@@ -6638,6 +6638,7 @@ __metadata:
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-payload": "workspace:^"
+    "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
@@ -6874,6 +6875,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/payload-plugin-resolver":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/payload-plugin-resolver"
+  dependencies:
+    "@xylabs/sdk-js": ^2.6.6
+    "@xylabs/tsconfig-dom": ^2.5.99
+    "@xyo-network/payload": ^2.25.5
+    "@xyo-network/payload-plugin": ^2.25.5
+    "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    react: ^18.2.0
+    tslib: ^2.4.0
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-payload-plugin@workspace:^, @xyo-network/react-payload-plugin@workspace:packages/sdk/payload-plugin":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-plugin@workspace:packages/sdk/payload-plugin"
@@ -6881,17 +6897,65 @@ __metadata:
     "@emotion/react": ^11.10.0
     "@emotion/styled": ^11.10.0
     "@mui/material": ^5.10.1
+    "@storybook/react": ^6.5.10
     "@xylabs/react-flexbox": ^2.14.13
     "@xylabs/react-identicon": ^2.14.13
+    "@xylabs/react-shared": ^2.14.13
     "@xylabs/sdk-js": ^2.6.6
     "@xylabs/tsconfig-dom": ^2.5.99
+    "@xyo-network/api": ^2.25.5
     "@xyo-network/payload": ^2.25.5
     "@xyo-network/payload-plugin": ^2.25.5
     "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.25.5
+    "@xyo-network/utils": ^2.25.5
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-json-view: ^1.21.3
+    tslib: ^2.4.0
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-payload-table@workspace:^, @xyo-network/react-payload-table@workspace:packages/sdk/payload-table":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-payload-table@workspace:packages/sdk/payload-table"
+  dependencies:
+    "@emotion/react": ^11.10.0
+    "@emotion/styled": ^11.10.0
+    "@mui/icons-material": ^5.8.4
+    "@mui/material": ^5.10.1
+    "@storybook/react": ^6.5.10
+    "@xylabs/react-button": ^2.14.13
+    "@xylabs/react-flexbox": ^2.14.13
+    "@xylabs/react-quick-tip-button": ^2.14.13
+    "@xylabs/react-shared": ^2.14.13
+    "@xylabs/tsconfig-dom": ^2.5.99
+    "@xyo-network/account": ^2.25.5
+    "@xyo-network/api": ^2.25.5
+    "@xyo-network/diviner": ^2.25.5
+    "@xyo-network/network": ^2.25.5
+    "@xyo-network/payload": ^2.25.5
+    "@xyo-network/react-archive": "workspace:^"
+    "@xyo-network/react-archivist": "workspace:^"
+    "@xyo-network/react-archivist-api": "workspace:^"
+    "@xyo-network/react-auth-service": "workspace:^"
+    "@xyo-network/react-crypto-market-uniswap-payload-plugin": "workspace:^"
+    "@xyo-network/react-network": "workspace:^"
+    "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-property": "workspace:^"
+    "@xyo-network/react-schema": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.25.5
+    "@xyo-network/utils": ^2.25.5
+    lodash: ^4.17.21
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-icons: ^4.4.0
+    react-json-view: ^1.21.3
+    react-router-dom: ^6.3.0
     tslib: ^2.4.0
   languageName: unknown
   linkType: soft
