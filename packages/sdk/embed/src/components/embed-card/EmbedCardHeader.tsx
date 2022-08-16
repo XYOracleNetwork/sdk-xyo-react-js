@@ -2,11 +2,12 @@ import RefreshIcon from '@mui/icons-material/Refresh'
 import { Avatar, CardHeader, CardHeaderProps, Chip, Theme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 
-import { useXyoEmbedPluginState } from '../../contexts'
+import { useResolvePayload, useXyoEmbedPluginState } from '../../contexts'
 import { EmbedMenu } from './menu'
 
 export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
-  const { activePlugin, payload, timestampLabel, refreshHuri, hideElementsConfig } = useXyoEmbedPluginState()
+  const { payload, refreshHuri, huri } = useResolvePayload()
+  const { activePlugin, timestampLabel, hideElementsConfig } = useXyoEmbedPluginState()
   const { hideAvatar, hideTitle, hideRefreshButton, hideTimestamp, hideCardActions } = hideElementsConfig ?? {}
   return (
     <CardHeader
@@ -28,13 +29,14 @@ export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
             ) : (
               <Chip
                 avatar={hideRefreshButton ? <></> : <RefreshIcon />}
-                clickable
+                clickable={!!huri}
                 onClick={refreshHuri}
                 label={hideTimestamp ? '' : `${timestampLabel} ${new Date(payload.timestamp).toLocaleString()}`}
               />
             )
           ) : null}
-          {hideCardActions ? null : <EmbedMenu />}
+          {/* Huri case is valid as long as the only menu item is JSON */}
+          {hideCardActions || huri === undefined ? null : <EmbedMenu />}
         </FlexRow>
       }
       title={hideTitle ? '' : activePlugin?.name}
