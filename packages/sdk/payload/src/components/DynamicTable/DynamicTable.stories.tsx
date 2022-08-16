@@ -1,24 +1,30 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-payload-plugin'
+import { DefaultPayloadRenderPlugin, PayloadRenderPluginResolverProvider, XyoPayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin'
 import { samplePayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadTable } from './Table'
+import { PayloadDynamicTable } from './Table'
 
 const StorybookEntry = {
   argTypes: {},
-  component: PayloadTable,
+  component: PayloadDynamicTable,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'payload/Table',
-} as ComponentMeta<typeof PayloadTable>
+  title: 'payload/DynamicTable',
+} as ComponentMeta<typeof PayloadDynamicTable>
 
-const Template: ComponentStory<typeof PayloadTable> = (args) => (
-  <BrowserRouter>
-    <PayloadTable {...args}></PayloadTable>
-  </BrowserRouter>
+const Template: ComponentStory<typeof PayloadDynamicTable> = (args) => (
+  <PayloadRenderPluginResolverProvider
+    resolver={new XyoPayloadRenderPluginResolver().register(UniswapPairsRenderPlugin).register(DefaultPayloadRenderPlugin)}
+  >
+    <BrowserRouter>
+      <PayloadDynamicTable {...args}></PayloadDynamicTable>
+    </BrowserRouter>
+  </PayloadRenderPluginResolverProvider>
 )
 
 const Default = Template.bind({})
@@ -26,10 +32,6 @@ Default.args = {}
 Default.decorators = [useAppThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.args = { payloads: [samplePayload, samplePayload] }
-WithData.decorators = [useAppThemeDecorator]
-
-const WithDynamicDataRow = Template.bind({})
 WithData.args = { payloads: [samplePayload, samplePayload] }
 WithData.decorators = [useAppThemeDecorator]
 
@@ -41,7 +43,7 @@ const { _hash, ...badPayload } = samplePayload
 //@ts-ignore
 WithError.args = { payloads: [samplePayload, badPayload] }
 
-export { Default, WithData, WithDynamicDataRow, WithError }
+export { Default, WithData, WithError }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
