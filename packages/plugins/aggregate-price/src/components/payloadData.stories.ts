@@ -22,6 +22,6 @@ export const payloadData = {
 
 export const payloadDataMissingAssets = {
   assets: {},
-  schema: 'network.xyo.crypto.market.uniswap',
+  schema: 'network.xyo.crypto.asset',
   timestamp: 1659071465718,
 }
