@@ -1,4 +1,3 @@
-import { XyoPayload } from '@xyo-network/payload'
 import { XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { ContextExState, ListMode } from '@xyo-network/react-shared'
 import { Dispatch, SetStateAction } from 'react'
@@ -23,6 +22,7 @@ export interface XyoEmbedPluginBase {
   plugins?: XyoPayloadRenderPlugin[]
   /** XyoEmbedPlugin component configuration */
   embedPluginConfig?: XyoPluginConfig
+  /** @deprecated use huriPayload */
   huri?: string
   refreshTitle?: string
   timestampLabel?: string
@@ -32,6 +32,4 @@ export interface XyoEmbedPluginBase {
 export interface XyoEmbedPluginState extends XyoEmbedPluginBase, ContextExState {
   activePlugin?: XyoPayloadRenderPlugin
   setActivePlugin?: Dispatch<SetStateAction<XyoPayloadRenderPlugin | undefined>>
-  payload?: XyoPayload
-  refreshHuri?: () => void
 }

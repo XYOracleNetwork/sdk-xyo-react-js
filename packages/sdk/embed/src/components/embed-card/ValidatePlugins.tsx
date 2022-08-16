@@ -1,10 +1,11 @@
 import { Alert, AlertTitle } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 
-import { useXyoEmbedPluginState } from '../../contexts'
+import { useResolvePayload, useXyoEmbedPluginState } from '../../contexts'
 
 export const ValidatePlugins: React.FC<WithChildren> = ({ children }) => {
-  const { payload, plugins } = useXyoEmbedPluginState()
+  const { payload } = useResolvePayload()
+  const { plugins } = useXyoEmbedPluginState()
 
   if (payload && plugins?.length === 0) {
     return (
