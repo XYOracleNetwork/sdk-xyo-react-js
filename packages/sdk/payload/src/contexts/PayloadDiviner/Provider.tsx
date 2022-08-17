@@ -16,7 +16,14 @@ export const PayloadDivinerProvider: React.FC<PayloadDivinerProviderProps> = ({ 
 
   const activeDiviner = useMemo(() => {
     //if no diviner is set, then we use a XyoHuriPayloadDiviner
-    return diviner ?? new XyoHuriPayloadDiviner(new XyoAccount(), { archivistUri: api?.config.apiDomain })
+    return (
+      diviner ??
+      new XyoHuriPayloadDiviner({
+        account: new XyoAccount(),
+        options: { archivistUri: api?.config.apiDomain },
+        schema: 'network.xyo.diviner.payload.huri.config',
+      })
+    )
   }, [diviner, api?.config.apiDomain])
 
   return (

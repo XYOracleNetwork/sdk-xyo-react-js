@@ -29,6 +29,10 @@ const WithData = Template.bind({})
 WithData.args = { payloads: [samplePayload, samplePayload] }
 WithData.decorators = [useAppThemeDecorator]
 
+const WithDynamicDataRow = Template.bind({})
+WithData.args = { payloads: [samplePayload, samplePayload] }
+WithData.decorators = [useAppThemeDecorator]
+
 const WithError = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { _hash, ...badPayload } = samplePayload
@@ -37,7 +41,7 @@ const { _hash, ...badPayload } = samplePayload
 //@ts-ignore
 WithError.args = { payloads: [samplePayload, badPayload] }
 
-export { Default, WithData, WithError }
+export { Default, WithData, WithDynamicDataRow, WithError }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -1,5 +1,5 @@
 import { XyoPayload } from '@xyo-network/payload'
-import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload'
+import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload-table'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 export type BlockPayloadsProps = PropertyGroupProps & {

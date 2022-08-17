@@ -1,4 +1,4 @@
-import { CardActionAreaProps, CardContentProps, CardHeaderProps, TableCellProps } from '@mui/material'
+import { AvatarProps, CardActionAreaProps, CardContentProps, CardHeaderProps, TableCellProps } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload'
 import { ListMode } from '@xyo-network/react-shared'
@@ -27,6 +27,10 @@ export interface XyoPayloadRenderPluginCardComponents {
   actionArea: ComponentType<XyoPayloadRenderProps & CardActionAreaProps>
 }
 
+export interface XyoPayloadRenderPluginAvatarComponents {
+  image: ComponentType<XyoPayloadRenderProps & AvatarProps>
+}
+
 export interface XyoPayloadRenderPluginTableComponents {
   cell: ComponentType<XyoPayloadRenderProps & TableCellProps>
 }
@@ -41,12 +45,14 @@ export interface XyoPayloadRenderPluginComponents {
   card: XyoPayloadRenderPluginCardComponents
   table: XyoPayloadRenderPluginTableComponents
   box: XyoPayloadRenderPluginBoxComponents
+  avatar: XyoPayloadRenderPluginAvatarComponents
 }
 
 export interface XyoPayloadRenderPluginComponentsConfig {
   card?: Partial<XyoPayloadRenderPluginCardComponents>
   table?: Partial<XyoPayloadRenderPluginTableComponents>
   box?: Partial<XyoPayloadRenderPluginBoxComponents>
+  avatar?: Partial<XyoPayloadRenderPluginAvatarComponents>
 }
 
 export interface XyoPayloadRenderPlugin extends XyoPayloadRenderPluginBase {

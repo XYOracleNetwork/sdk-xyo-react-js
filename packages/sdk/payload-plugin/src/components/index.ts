@@ -1,3 +1,4 @@
+export * from './XyoPayloadAvatar'
 export * from './XyoPayloadCardActionArea'
 export * from './XyoPayloadCardContent'
 export * from './XyoPayloadCardHeader'

@@ -1,5 +1,5 @@
 import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
-import { XyoArchivist, XyoArchivistConfig, XyoMemoryArchivist } from '@xyo-network/archivist'
+import { XyoArchivist, XyoMemoryArchivist, XyoMemoryArchivistConfig } from '@xyo-network/archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
@@ -27,21 +27,31 @@ export const ArchivistProvider: React.FC<ArchivistProviderProps> = ({ archivist:
 }
 
 export type MemoryArchivistProviderProps = ContextExProviderProps<{
-  config?: XyoArchivistConfig
+  config: XyoMemoryArchivistConfig
 }>
 
-export const MemoryArchivistProvider: React.FC<MemoryArchivistProviderProps> = ({ config = {}, ...props }) => {
+export const MemoryArchivistProvider: React.FC<MemoryArchivistProviderProps> = ({ config, ...props }) => {
   const { archivist } = useArchivist()
-  config.parent = config.parent ?? archivist
+  const memoryArchivistConfig: XyoMemoryArchivistConfig = { ...config }
+  memoryArchivistConfig.parents = memoryArchivistConfig.parents ?? {}
+  memoryArchivistConfig.parents.read = memoryArchivistConfig.parents.read ?? {}
+  if (archivist) {
+    memoryArchivistConfig.parents.read[archivist.address] = archivist
+  }
   return <ArchivistProvider archivist={new XyoMemoryArchivist(config)} {...props} />
 }
 
 export type ApiArchivistProviderProps = ContextExProviderProps<{
-  config?: XyoRemoteArchivistConfig
+  config: XyoRemoteArchivistConfig
 }>
 
-export const RemoteArchivistProvider: React.FC<ApiArchivistProviderProps> = ({ config = {}, ...props }) => {
+export const RemoteArchivistProvider: React.FC<ApiArchivistProviderProps> = ({ config, ...props }) => {
   const { archivist } = useArchivist()
-  config.parent = config.parent ?? archivist
+  const remoteArchivistConfig: XyoRemoteArchivistConfig = { ...config }
+  remoteArchivistConfig.parents = remoteArchivistConfig.parents ?? {}
+  remoteArchivistConfig.parents.read = remoteArchivistConfig.parents.read ?? {}
+  if (archivist) {
+    remoteArchivistConfig.parents.read[archivist.address] = archivist
+  }
   return <ArchivistProvider archivist={new XyoRemoteArchivist(config)} {...props} />
 }

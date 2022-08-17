@@ -1,5 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { assertEx, delay } from '@xylabs/sdk-js'
+import { XyoAccount } from '@xyo-network/account'
 import { XyoApiConfig, XyoArchivistApi } from '@xyo-network/api'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPanel } from '@xyo-network/panel'
@@ -37,7 +38,13 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
   inlinePayloads = false,
   required = false,
   archivists = getDefaultArchivists(),
-  witnesses = [new XyoSystemInfoWitness()],
+  witnesses = [
+    new XyoSystemInfoWitness({
+      account: new XyoAccount(),
+      schema: 'network.xyo.system.info.query',
+      targetSchema: 'network.xyo.system.info.browser',
+    }) as XyoWitness,
+  ],
   children,
 }) => {
   const { archive } = useArchive()
@@ -105,7 +112,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
         },
         onWitnessReportEnd: (witness: XyoWitness, error?: Error) => {
           const witnesses = progress.witnesses ?? {}
-          witnesses[witness.targetSchema] = {
+          witnesses[witness.address] = {
             status: error ? XyoReportStatus.Failed : XyoReportStatus.Succeeded,
             witness,
           }
@@ -118,7 +125,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
         },
         onWitnessReportStart: (witness: XyoWitness) => {
           const witnesses = progress.witnesses ?? {}
-          witnesses[witness.targetSchema] = {
+          witnesses[witness.address] = {
             status: XyoReportStatus.Started,
             witness,
           }

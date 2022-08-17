@@ -1,6 +1,7 @@
 import { XyoPayload } from '@xyo-network/payload'
 
 import {
+  XyoPayloadAvatar,
   XyoPayloadCardActionArea,
   XyoPayloadCardContent,
   XyoPayloadCardHeader,
@@ -15,6 +16,9 @@ export const DefaultPayloadRenderPlugin: XyoPayloadRenderPlugin = {
     return !!payload?.schema
   },
   components: {
+    avatar: {
+      image: XyoPayloadAvatar,
+    },
     box: {
       details: XyoPayloadDetailsBox,
       editor: XyoPayloadEditorBox,
