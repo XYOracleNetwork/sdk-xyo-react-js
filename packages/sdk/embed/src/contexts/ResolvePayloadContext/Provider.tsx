@@ -1,4 +1,3 @@
-import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
 import { XyoApiError } from '@xyo-network/api'
