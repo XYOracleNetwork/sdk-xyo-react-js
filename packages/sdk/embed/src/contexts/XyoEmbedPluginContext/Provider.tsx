@@ -1,17 +1,13 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload'
 import { XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { useState } from 'react'
 
 import { XyoEmbedPluginContext } from './Context'
 import { XyoEmbedPluginBase } from './State'
 
-export interface XyoEmbedPluginProviderProps extends XyoEmbedPluginBase {
-  /** string for huri to resolve and payload for bypassing huri resolution */
-  huriPayload?: string | XyoPayload
-}
+export type XyoEmbedPluginProviderProps = XyoEmbedPluginBase
 
-/** Expose passed embed plugin props and payload via context */
+/** Expose passed embed plugin props via context */
 export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProviderProps>> = ({
   children,
   refreshTitle,
