@@ -26,23 +26,13 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
       embedPluginConfig={embedPluginConfig}
     >
       <WithResolvers onRefresh={onRefresh} huriPayload={huriPayload} {...props}>
-        <WithValidations validateSchema={validateSchema}>
+        <WithValidators validateSchema={validateSchema}>
           <ListModeProvider defaultListMode={embedPluginConfig?.listMode}>
             <EmbedPluginCard />
           </ListModeProvider>
-        </WithValidations>
+        </WithValidators>
       </WithResolvers>
     </XyoEmbedPluginProvider>
-  )
-}
-
-const WithValidations: React.FC<WithChildren<{ validateSchema?: boolean }>> = ({ children, validateSchema }) => {
-  return (
-    <ValidatePayloadProvider enabled={validateSchema}>
-      <ValidatePlugins>
-        <ValidatePayload>{children}</ValidatePayload>
-      </ValidatePlugins>
-    </ValidatePayloadProvider>
   )
 }
 
@@ -55,5 +45,15 @@ const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({ children, o
         <EmbedCardResolver {...props}>{children}</EmbedCardResolver>
       </ResolvePayloadProvider>
     </RefreshPayloadProvider>
+  )
+}
+
+const WithValidators: React.FC<WithChildren<{ validateSchema?: boolean }>> = ({ children, validateSchema }) => {
+  return (
+    <ValidatePayloadProvider enabled={validateSchema}>
+      <ValidatePlugins>
+        <ValidatePayload>{children}</ValidatePayload>
+      </ValidatePlugins>
+    </ValidatePayloadProvider>
   )
 }
