@@ -29,7 +29,7 @@ export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
             ) : (
               <Chip
                 avatar={hideRefreshButton ? <></> : <RefreshIcon />}
-                clickable={!!huri}
+                clickable={hideRefreshButton ? false : true}
                 onClick={refreshHuri}
                 label={hideTimestamp ? '' : `${timestampLabel} ${new Date(payload.timestamp).toLocaleString()}`}
               />

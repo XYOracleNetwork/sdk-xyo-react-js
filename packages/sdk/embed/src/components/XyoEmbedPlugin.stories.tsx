@@ -50,21 +50,18 @@ const AggregatePriceExample = Template.bind({})
 AggregatePriceExample.args = {
   huriPayload: AggregatePricePointer,
   plugins: [CryptoAssetRenderPlugin],
-  timestampLabel: 'Last Updated - ',
 }
 
 const UniswapPairsExample = Template.bind({})
 UniswapPairsExample.args = {
   huriPayload: UniswapPairPointer,
   plugins: [UniswapPairsRenderPlugin],
-  timestampLabel: 'Last Updated - ',
 }
 
 const Error = Template.bind({})
 Error.args = {
   huriPayload: 'https://api.archivist.xyo.network/9663b2f80395a9e7e95948fdd5988b778a4dcc047202bf67e855ff6cd459b8c',
   plugins: [UniswapPairsRenderPlugin],
-  timestampLabel: 'Last Updated - ',
 }
 
 const HiddenElements = Template.bind({})
@@ -79,7 +76,6 @@ HiddenElements.args = {
   },
   huriPayload: AggregatePricePointer,
   plugins: [CryptoAssetRenderPlugin],
-  timestampLabel: 'Last Updated - ',
 }
 
 const WithPassedPayload = Template.bind({})
@@ -89,7 +85,20 @@ WithPassedPayload.args = {
   },
   huriPayload: payloadData,
   plugins: [CryptoAssetRenderPlugin],
-  timestampLabel: 'Last Updated - ',
 }
 
-export { AggregatePriceExample, Default, Error, HiddenElements, UniswapPairsExample, WithPassedPayload }
+const WithOutsideRefresh = Template.bind({})
+WithOutsideRefresh.args = {
+  busy: true,
+  huriPayload: payloadData,
+  plugins: [CryptoAssetRenderPlugin],
+}
+
+const WithOnRefresh = Template.bind({})
+WithOnRefresh.args = {
+  huriPayload: payloadData,
+  onRefresh: () => console.log('refreshed'),
+  plugins: [CryptoAssetRenderPlugin],
+}
+
+export { AggregatePriceExample, Default, Error, HiddenElements, UniswapPairsExample, WithOnRefresh, WithOutsideRefresh, WithPassedPayload }

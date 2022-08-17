@@ -10,6 +10,5 @@ export interface ResolvePayloadState extends ContextExState {
   notFound?: boolean
   payload?: XyoPayload
   refreshHuri?: () => void
-  refreshPayload?: number
   setPayload?: Dispatch<SetStateAction<XyoPayload | undefined>>
 }
