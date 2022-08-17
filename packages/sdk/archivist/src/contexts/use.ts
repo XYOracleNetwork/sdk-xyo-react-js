@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoPayloadFindQuery } from '@xyo-network/archivist'
+import { XyoPayloadFindFilter } from '@xyo-network/archivist'
 import { XyoPayload } from '@xyo-network/payload'
 import { useContextEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
@@ -32,7 +32,7 @@ export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload 
   return [payloads, error]
 }
 
-export const useArchivistFind = <TQuery extends XyoPayloadFindQuery>(query?: TQuery, required = false): [(XyoPayload | null)[]?, Error?] => {
+export const useArchivistFind = (filter?: XyoPayloadFindFilter, required = false): [(XyoPayload | null)[]?, Error?] => {
   const { archivist } = useArchivist(required)
   const [payloads, setPayloads] = useState<(XyoPayload | null)[]>()
   const [error, setError] = useState<Error>()
@@ -40,7 +40,7 @@ export const useArchivistFind = <TQuery extends XyoPayloadFindQuery>(query?: TQu
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const result = archivist && query ? await archivist.find(query) : undefined
+        const result = archivist && filter ? await archivist.find(filter) : undefined
         if (mounted()) {
           setError(undefined)
           setPayloads(result)
@@ -49,7 +49,7 @@ export const useArchivistFind = <TQuery extends XyoPayloadFindQuery>(query?: TQu
         setError(ex as Error)
       }
     },
-    [archivist, query],
+    [archivist, filter],
   )
   return [payloads, error]
 }

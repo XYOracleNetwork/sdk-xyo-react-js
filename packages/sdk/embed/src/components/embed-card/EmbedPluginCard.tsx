@@ -6,7 +6,7 @@ import { useResolvePayload, useXyoEmbedPluginState } from '../../contexts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../controls'
 import { EmbedCardHeader } from './EmbedCardHeader'
 
-export const EmbedPluginContainer: React.FC<CardProps> = (props) => {
+export const EmbedPluginCard: React.FC<CardProps> = (props) => {
   const { payload } = useResolvePayload()
   const { activePlugin: ActivePlugin, plugins, hideElementsConfig } = useXyoEmbedPluginState()
   const { listMode } = useListMode()

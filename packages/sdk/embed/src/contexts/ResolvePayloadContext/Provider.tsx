@@ -1,32 +1,30 @@
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
-import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
-import { ResultLoader } from '@xyo-network/react-webapp'
 import { useEffect, useState } from 'react'
 
+import { useRefreshPayload } from '../RefreshPayloadContext'
 import { ResolvePayloadContext } from './Context'
 import { ResolvePayloadState } from './State'
 
-export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided' & FlexBoxProps>
+export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided'>
 
-export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload, ...props }) => {
+export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload }) => {
   const [payload, setPayload] = useState<XyoPayload>()
   const [huri, setHuri] = useState<string>()
+  const { refreshPayload, setRefreshPayload, onRefresh } = useRefreshPayload()
 
   useEffect(() => {
     typeof huriPayload === 'string' ? setHuri(huriPayload) : undefined
     if (typeof huriPayload === 'object') {
       setPayload(huriPayload)
-      setRefreshPayload(1)
+      setRefreshPayload?.(true)
     }
-  }, [huriPayload])
+  }, [huriPayload, setRefreshPayload])
 
   const [notFound, setNotFound] = useState<boolean>()
   const [huriApiError, setHuriApiError] = useState<XyoApiError>()
-  const [refreshPayload, setRefreshPayload] = useState(0)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,31 +39,26 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
           if (mounted()) {
             setNotFound(result === null)
             setPayload(result)
-            setRefreshPayload(1)
+            setRefreshPayload?.(true)
           }
         } catch (e) {
           setHuriApiError(e as XyoApiError)
         }
       }
     },
-    [huri, payload, refreshPayload],
+    [huri, payload, refreshPayload, setRefreshPayload],
   )
 
   const refreshHuri = () => {
+    onRefresh?.()
     if (huri) {
-      setRefreshPayload(0)
+      setRefreshPayload?.(false)
     }
   }
 
   return (
-    <ResolvePayloadContext.Provider value={{ huri, huriApiError, notFound, payload, provided: true, refreshHuri, refreshPayload, setPayload }}>
-      <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
-        <XyoApiErrorRender apiError={huriApiError}>
-          <FlexCol busy={Boolean(!refreshPayload && payload)} {...props}>
-            {children}
-          </FlexCol>
-        </XyoApiErrorRender>
-      </ResultLoader>
+    <ResolvePayloadContext.Provider value={{ huri, huriApiError, notFound, payload, provided: true, refreshHuri, setPayload }}>
+      {children}
     </ResolvePayloadContext.Provider>
   )
 }
