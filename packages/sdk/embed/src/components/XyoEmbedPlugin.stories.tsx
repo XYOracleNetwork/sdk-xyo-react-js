@@ -80,15 +80,12 @@ HiddenElements.args = {
 
 const WithPassedPayload = Template.bind({})
 WithPassedPayload.args = {
-  hideElementsConfig: {
-    hideRefreshButton: true,
-  },
   huriPayload: payloadData,
   plugins: [CryptoAssetRenderPlugin],
 }
 
-const WithOutsideRefresh = Template.bind({})
-WithOutsideRefresh.args = {
+const WithSetBusyExternally = Template.bind({})
+WithSetBusyExternally.args = {
   busy: true,
   huriPayload: payloadData,
   plugins: [CryptoAssetRenderPlugin],
@@ -101,4 +98,4 @@ WithOnRefresh.args = {
   plugins: [CryptoAssetRenderPlugin],
 }
 
-export { AggregatePriceExample, Default, Error, HiddenElements, UniswapPairsExample, WithOnRefresh, WithOutsideRefresh, WithPassedPayload }
+export { AggregatePriceExample, Default, Error, HiddenElements, UniswapPairsExample, WithOnRefresh, WithPassedPayload, WithSetBusyExternally }
