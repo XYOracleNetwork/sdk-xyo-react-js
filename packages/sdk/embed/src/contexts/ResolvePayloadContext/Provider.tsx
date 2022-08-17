@@ -1,24 +1,20 @@
-import { useTheme } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
 import { XyoApiError } from '@xyo-network/api'
 import { Huri, XyoPayload } from '@xyo-network/payload'
-import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
-import { ResultLoader } from '@xyo-network/react-webapp'
 import { useEffect, useState } from 'react'
 
 import { useRefreshPayload } from '../RefreshPayloadContext'
 import { ResolvePayloadContext } from './Context'
 import { ResolvePayloadState } from './State'
 
-export interface ResolvePayloadProviderProps extends Omit<ResolvePayloadState, 'provided'>, FlexBoxProps {}
+export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided'>
 
-export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload, ...props }) => {
+export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload }) => {
   const [payload, setPayload] = useState<XyoPayload>()
   const [huri, setHuri] = useState<string>()
   const { refreshPayload, setRefreshPayload, onRefresh } = useRefreshPayload()
-  const theme = useTheme()
 
   useEffect(() => {
     typeof huriPayload === 'string' ? setHuri(huriPayload) : undefined
@@ -63,17 +59,7 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
 
   return (
     <ResolvePayloadContext.Provider value={{ huri, huriApiError, notFound, payload, provided: true, refreshHuri, setPayload }}>
-      <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
-        <XyoApiErrorRender apiError={huriApiError}>
-          <FlexGrowCol
-            busy={Boolean(!refreshPayload && payload)}
-            busyCircularProps={{ style: { alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2 } }}
-            {...props}
-          >
-            {children}
-          </FlexGrowCol>
-        </XyoApiErrorRender>
-      </ResultLoader>
+      {children}
     </ResolvePayloadContext.Provider>
   )
 }
