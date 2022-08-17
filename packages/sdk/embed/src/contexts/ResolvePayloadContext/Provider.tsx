@@ -17,16 +17,16 @@ export interface ResolvePayloadProviderProps extends Omit<ResolvePayloadState, '
 export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload, ...props }) => {
   const [payload, setPayload] = useState<XyoPayload>()
   const [huri, setHuri] = useState<string>()
-  const { refreshingPayload, setRefreshingPayload, onRefresh } = useRefreshPayload()
+  const { refreshPayload, setRefreshPayload, onRefresh } = useRefreshPayload()
   const theme = useTheme()
 
   useEffect(() => {
     typeof huriPayload === 'string' ? setHuri(huriPayload) : undefined
     if (typeof huriPayload === 'object') {
       setPayload(huriPayload)
-      setRefreshingPayload?.(false)
+      setRefreshPayload?.(true)
     }
-  }, [huriPayload, setRefreshingPayload])
+  }, [huriPayload, setRefreshPayload])
 
   const [notFound, setNotFound] = useState<boolean>()
   const [huriApiError, setHuriApiError] = useState<XyoApiError>()
@@ -34,7 +34,7 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (huri && !refreshingPayload) {
+      if (huri && !refreshPayload) {
         try {
           const huriInstance = new Huri(huri)
           const result = await huriInstance.fetch()
@@ -44,20 +44,20 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
           if (mounted()) {
             setNotFound(result === null)
             setPayload(result)
-            setRefreshingPayload?.(false)
+            setRefreshPayload?.(true)
           }
         } catch (e) {
           setHuriApiError(e as XyoApiError)
         }
       }
     },
-    [huri, payload, refreshingPayload, setRefreshingPayload],
+    [huri, payload, refreshPayload, setRefreshPayload],
   )
 
   const refreshHuri = () => {
     onRefresh?.()
     if (huri) {
-      setRefreshingPayload?.(true)
+      setRefreshPayload?.(false)
     }
   }
 
@@ -66,7 +66,7 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
       <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
         <XyoApiErrorRender apiError={huriApiError}>
           <FlexGrowCol
-            busy={Boolean(refreshingPayload && payload)}
+            busy={Boolean(!refreshPayload && payload)}
             busyCircularProps={{ style: { alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2 } }}
             {...props}
           >

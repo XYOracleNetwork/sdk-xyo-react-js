@@ -3,6 +3,6 @@ import { Dispatch, SetStateAction } from 'react'
 
 export interface RefreshPayloadState extends ContextExState {
   onRefresh?: () => void
-  refreshingPayload?: boolean
-  setRefreshingPayload?: Dispatch<SetStateAction<boolean | undefined>>
+  refreshPayload?: boolean
+  setRefreshPayload?: Dispatch<SetStateAction<boolean | undefined>>
 }

@@ -9,10 +9,10 @@ export interface RefreshPayloadProps {
 }
 
 export const RefreshPayloadProvider: React.FC<WithChildren<RefreshPayloadProps>> = ({ children, onRefresh, refreshPayload }) => {
-  const [localRefreshPayload, setRefreshingPayload] = useState(refreshPayload)
+  const [localRefreshPayload, setRefreshPayload] = useState(refreshPayload)
 
   return (
-    <RefreshPayloadContext.Provider value={{ onRefresh, provided: true, refreshingPayload: localRefreshPayload, setRefreshingPayload }}>
+    <RefreshPayloadContext.Provider value={{ onRefresh, provided: true, refreshPayload: localRefreshPayload, setRefreshPayload }}>
       {children}
     </RefreshPayloadContext.Provider>
   )
