@@ -1,5 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoPayloadFindFilter } from '@xyo-network/archivist'
+import { XyoArchivistFindQueryPayloadSchema, XyoArchivistGetQueryPayloadSchema, XyoPayloadFindFilter } from '@xyo-network/archivist'
+import { XyoPayloads } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload'
 import { useContextEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
@@ -12,13 +13,13 @@ export const useArchivist = (required = false) => {
 
 export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload | null)[]?, Error?] => {
   const { archivist } = useArchivist(required)
-  const [payloads, setPayloads] = useState<(XyoPayload | null)[]>()
+  const [payloads, setPayloads] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const result = archivist ? await archivist.get(ids ?? []) : undefined
+        const [, result] = archivist ? await archivist.query({ hashes: ids ?? [], schema: XyoArchivistGetQueryPayloadSchema }) : []
         if (mounted()) {
           setError(undefined)
           setPayloads(result)
@@ -32,15 +33,15 @@ export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload 
   return [payloads, error]
 }
 
-export const useArchivistFind = (filter?: XyoPayloadFindFilter, required = false): [(XyoPayload | null)[]?, Error?] => {
+export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(filter: TFilter, required = false): [(XyoPayload | null)[]?, Error?] => {
   const { archivist } = useArchivist(required)
-  const [payloads, setPayloads] = useState<(XyoPayload | null)[]>()
+  const [payloads, setPayloads] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const result = archivist && filter ? await archivist.find(filter) : undefined
+        const [, result] = archivist ? await archivist.query({ filter, schema: XyoArchivistFindQueryPayloadSchema }) : []
         if (mounted()) {
           setError(undefined)
           setPayloads(result)
