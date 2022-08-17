@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-payload",
+  "name": "@xyo-network/react-payload-plugin-resolver",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,40 +10,17 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.10.1",
-    "@xylabs/react-button": "^2.14.13",
-    "@xylabs/react-flexbox": "^2.14.13",
-    "@xylabs/react-quick-tip-button": "^2.14.13",
-    "@xylabs/react-shared": "^2.14.13",
-    "@xyo-network/account": "^2.25.5",
-    "@xyo-network/api": "^2.25.5",
-    "@xyo-network/diviner": "^2.25.5",
-    "@xyo-network/network": "^2.25.5",
+    "@xylabs/sdk-js": "^2.6.6",
     "@xyo-network/payload": "^2.25.5",
-    "@xyo-network/react-archive": "workspace:^",
-    "@xyo-network/react-archivist": "workspace:^",
-    "@xyo-network/react-archivist-api": "workspace:^",
-    "@xyo-network/react-network": "workspace:^",
-    "@xyo-network/react-property": "workspace:^",
-    "@xyo-network/react-schema": "workspace:^",
+    "@xyo-network/payload-plugin": "^2.25.5",
+    "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/schema-payload-plugin": "^2.25.5",
-    "@xyo-network/utils": "^2.25.5",
-    "lodash": "^4.17.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-json-view": "^1.21.3",
-    "react-router-dom": "^6.3.0",
     "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@storybook/react": "^6.5.10",
-    "@xylabs/tsconfig-dom": "^2.5.117",
-    "@xyo-network/react-storybook": "workspace:^"
+    "@xylabs/tsconfig-dom": "^2.5.117"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
