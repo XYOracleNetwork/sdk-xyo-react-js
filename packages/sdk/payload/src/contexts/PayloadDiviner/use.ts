@@ -21,9 +21,9 @@ export const useDivinePayload = (huri?: string): [XyoPayload | undefined | null,
     async (mounted) => {
       if (huri) {
         try {
-          const payload = (await diviner?.query({ huri, schema: XyoPayloadDivinerQueryPayloadSchema }))?.[1][0]
+          const [, payloads] = (await diviner?.query({ huri, schema: XyoPayloadDivinerQueryPayloadSchema })) ?? []
           if (mounted()) {
-            setPayload(payload)
+            setPayload(compact(payloads)[0])
           }
         } catch (ex) {
           if (mounted()) {
@@ -48,7 +48,10 @@ export const useDivinePayloads = (huriList: string[]): [(XyoPayload | null)[] | 
     async (mounted) => {
       console.log(`huriList: ${JSON.stringify(huriList, null, 2)}`)
       const payloads = await Promise.allSettled(
-        huriList.map(async (huri) => (await diviner?.query({ huri, schema: XyoPayloadDivinerQueryPayloadSchema }))?.[1][0] ?? null),
+        huriList.map(async (huri) => {
+          const [, payloads] = (await diviner?.query({ huri, schema: XyoPayloadDivinerQueryPayloadSchema })) ?? []
+          return compact(payloads)[0]
+        }),
       )
       if (mounted()) {
         setPayloads([...payloads.values()].map((value) => (value.status === 'rejected' ? null : value.value)))
