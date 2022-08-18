@@ -1,19 +1,23 @@
 import { Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 
-import { ResolvePayloadProvider, ResolvePayloadState } from '../ResolvePayloadContext'
+import { RefreshPayloadProvider } from '../RefreshPayloadContext'
+import { ResolvePayloadContext, ResolvePayloadState } from '../ResolvePayloadContext'
 import { XyoEmbedPluginContext, XyoEmbedPluginState } from '../XyoEmbedPluginContext'
 import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider'
 import { useValidatePayload } from './use'
 
 const EmbedDecorator: DecoratorFn = (Story, { args }) => {
-  const { xyoEmbedPluginContext, ...props } = args
+  const { xyoEmbedPluginContext, resolvePayloadContext, ...props } = args
+  console.log(resolvePayloadContext)
   return (
-    <ResolvePayloadProvider>
-      <XyoEmbedPluginContext.Provider value={xyoEmbedPluginContext}>
-        <Story {...props} />
-      </XyoEmbedPluginContext.Provider>
-    </ResolvePayloadProvider>
+    <RefreshPayloadProvider>
+      <ResolvePayloadContext.Provider value={resolvePayloadContext}>
+        <XyoEmbedPluginContext.Provider value={xyoEmbedPluginContext}>
+          <Story {...props} />
+        </XyoEmbedPluginContext.Provider>
+      </ResolvePayloadContext.Provider>
+    </RefreshPayloadProvider>
   )
 }
 
@@ -48,7 +52,7 @@ const ValidPayload = { definition: { $id: 'test.schema' }, schema: 'network.xyo.
 const stubProviderDefaultValue = { provided: true }
 
 const Default = Template.bind({})
-Default.args = { xyoEmbedPluginContext: stubProviderDefaultValue }
+Default.args = { resolvePayloadContext: stubProviderDefaultValue, xyoEmbedPluginContext: stubProviderDefaultValue }
 
 const ValidationSucceeded = Template.bind({})
 ValidationSucceeded.args = {

@@ -1,7 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistFindQueryPayloadSchema, XyoArchivistGetQueryPayloadSchema, XyoPayloadFindFilter } from '@xyo-network/archivist'
-import { XyoPayloads } from '@xyo-network/module'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
 import { useContextEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
