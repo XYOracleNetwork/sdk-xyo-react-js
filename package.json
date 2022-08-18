@@ -120,7 +120,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
-    "compile:stories": "echo Building Stories... && tsc -p $INIT_CWD/tsconfig.build.stories.json",
+    "compile:stories": "echo Building Stories... && tsc -p tsconfig.build.stories.json",
     "build-storybook": "build-storybook ./src",
     "lint-pkg": "npmPkgJsonLint .",
     "start": "start-storybook -p 6006"
