@@ -24,6 +24,6 @@ export const payloadData: XyoCoingeckoCryptoMarketPayload = {
 
 export const payloadDataMissingAssets = {
   assets: {},
-  schema: XyoCoingeckoCryptoMarketPayloadSchema,
+  schema: 'network.xyo.crypto.market.coingecko',
   timestamp: 1659071465718,
 }

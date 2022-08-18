@@ -5961,6 +5961,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-experiments@npm:^2.14.13":
+  version: 2.14.13
+  resolution: "@xylabs/react-experiments@npm:2.14.13"
+  dependencies:
+    "@emotion/react": ^11.10.0
+    "@emotion/styled": ^11.10.0
+    "@mui/material": ^5.10.0
+    "@xylabs/pixel": ^1.4.5
+    "@xylabs/react-flexbox": ^2.14.13
+    "@xylabs/react-pixel": ^2.14.13
+    "@xylabs/react-shared": ^2.14.13
+    "@xylabs/sdk-js": ^2.6.5
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 0e07e5af9399a4d39bc4bd6403a9e6527c286af95114319231dd267383e0b27e6c76d24d3779d19653dafd63310f9c68ab48fe26cdccd12dd4532cb7ad622dd8
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-flexbox@npm:^2.14.13":
   version: 2.14.13
   resolution: "@xylabs/react-flexbox@npm:2.14.13"
@@ -6031,6 +6049,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-pixel-debugger@npm:^2.14.13":
+  version: 2.14.13
+  resolution: "@xylabs/react-pixel-debugger@npm:2.14.13"
+  dependencies:
+    "@emotion/react": ^11.10.0
+    "@emotion/styled": ^11.10.0
+    "@mui/material": ^5.10.0
+    "@xylabs/pixel": ^1.4.5
+    "@xylabs/react-button": ^2.14.13
+    "@xylabs/react-common": ^2.14.13
+    "@xylabs/react-flexbox": ^2.14.13
+    "@xylabs/react-pixel": ^2.14.13
+    "@xylabs/react-shared": ^2.14.13
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: ae103f836fbcc2c4803d87423de67a3e3687605bb21f546d403ac6273cfdfaa1a3125af0155e76c0114b5e19621db5665db355d26f324ce3b6f579fb1f5e0a4d
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-pixel@npm:^2.14.13":
   version: 2.14.13
   resolution: "@xylabs/react-pixel@npm:2.14.13"
@@ -6056,6 +6093,15 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
   checksum: c52baaf098770f5e8d1888d849e0b685a233cd2ae7157345316ab7bab590738a74de6f7f5926b0c36ea2ab8ef5fdb36d0abfd4f3adaef7b6eda5b98c2909b928
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-rich-result@npm:^2.14.13":
+  version: 2.14.13
+  resolution: "@xylabs/react-rich-result@npm:2.14.13"
+  dependencies:
+    react: ^18.2.0
+  checksum: fc8003d12ae83b218b6da31b30a587ad5ff1572906d5c00f5c70bb374de8e1cd6dc03c773ddcfd0d0ab0766a761a6bad0bf33192c65ae421bfc084c1b99b4ccb
   languageName: node
   linkType: hard
 
@@ -6098,6 +6144,37 @@ __metadata:
     bn.js: ^5.2.1
     rollbar: ^2.25.1
   checksum: 7e2533e84c30db285a9e20cef6930ddfe75c4956b454133c29bdc277a1a8a132348fbad4f87c47e864645a24b1f5b1ccb505f19751cc013f5f9dbecb663fff4e
+  languageName: node
+  linkType: hard
+
+"@xylabs/sdk-react@npm:^2.14.13":
+  version: 2.14.13
+  resolution: "@xylabs/sdk-react@npm:2.14.13"
+  dependencies:
+    "@emotion/react": ^11.10.0
+    "@emotion/styled": ^11.10.0
+    "@mui/material": ^5.10.0
+    "@xylabs/react-appbar": ^2.14.13
+    "@xylabs/react-button": ^2.14.13
+    "@xylabs/react-common": ^2.14.13
+    "@xylabs/react-cookie-consent": ^2.14.13
+    "@xylabs/react-crypto": ^2.14.13
+    "@xylabs/react-dialogs": ^2.14.13
+    "@xylabs/react-experiments": ^2.14.13
+    "@xylabs/react-flexbox": ^2.14.13
+    "@xylabs/react-identicon": ^2.14.13
+    "@xylabs/react-invertable-theme": ^2.14.13
+    "@xylabs/react-link": ^2.14.13
+    "@xylabs/react-number-status": ^2.14.13
+    "@xylabs/react-pixel": ^2.14.13
+    "@xylabs/react-pixel-debugger": ^2.14.13
+    "@xylabs/react-quick-tip-button": ^2.14.13
+    "@xylabs/react-rich-result": ^2.14.13
+    "@xylabs/react-scroll-to-top": ^2.14.13
+    "@xylabs/react-shared": ^2.14.13
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 83a6c61f4e73518336360cb03c8a2d213ba80e8ffa45766ace0611c5a23c20dc5938fdc1673a2f93cb39f3336063e8dc62ee2434fee8e2b0a2f32ebfee4529fd
   languageName: node
   linkType: hard
 
@@ -6739,6 +6816,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-crypto-prices-plugin@workspace:^, @xyo-network/react-crypto-prices-plugin@workspace:packages/plugins/crypto-prices":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-crypto-prices-plugin@workspace:packages/plugins/crypto-prices"
+  dependencies:
+    "@mui/material": ^5.10.1
+    "@storybook/react": ^6.5.10
+    "@xylabs/sdk-react": ^2.14.13
+    "@xylabs/tsconfig-dom": ^2.5.119
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.26.14
+    "@xyo-network/payload": ^2.26.14
+    "@xyo-network/react-payload-plugin": "workspace:^"
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    tslib: ^2.4.0
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-embed@workspace:^, @xyo-network/react-embed@workspace:packages/sdk/embed":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-embed@workspace:packages/sdk/embed"
@@ -7329,6 +7423,7 @@ __metadata:
     "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-payload-plugin": "workspace:^"
+    "@xyo-network/react-crypto-prices-plugin": "workspace:^"
     "@xyo-network/react-embed": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
     "@xyo-network/react-login-forms": "workspace:^"
