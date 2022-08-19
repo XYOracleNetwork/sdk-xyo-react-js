@@ -6,7 +6,7 @@ interface EmbedControlWrapProps extends FormControlProps {
   formLabel?: string
 }
 
-export const EmbedControlWrap: React.FC<WithChildren<EmbedControlWrapProps>> = ({ formId, formLabel, children, ...props }) => {
+export const EmbedFormControl: React.FC<WithChildren<EmbedControlWrapProps>> = ({ formId, formLabel, children, ...props }) => {
   return (
     <FormControl {...props}>
       <InputLabel id={formId}>{formLabel}</InputLabel>

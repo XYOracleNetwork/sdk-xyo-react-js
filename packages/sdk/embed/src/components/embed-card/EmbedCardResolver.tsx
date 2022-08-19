@@ -6,7 +6,7 @@ import { ResultLoader } from '@xyo-network/react-webapp'
 
 import { useRefreshPayload, useResolvePayload } from '../../contexts'
 
-export const EmbedCardResolver: React.FC<WithChildren<FlexBoxProps>> = ({ children, ...props }) => {
+export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({ children, ...props }) => {
   const { payload, notFound, huriApiError } = useResolvePayload()
   const { refreshPayload } = useRefreshPayload()
   const theme = useTheme()

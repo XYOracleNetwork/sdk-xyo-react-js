@@ -3,7 +3,7 @@ import { WithChildren } from '@xylabs/react-shared'
 
 import { useValidatePayload } from '../../contexts'
 
-export const ValidatePayload: React.FC<WithChildren<AlertProps>> = ({ children, ...props }) => {
+export const ValidatePayloadAlert: React.FC<WithChildren<AlertProps>> = ({ children, ...props }) => {
   const { validPayload, enabled, schema } = useValidatePayload()
 
   if (enabled && validPayload === false) {

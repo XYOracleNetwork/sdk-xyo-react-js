@@ -4,7 +4,7 @@ import { ListModeProvider } from '@xyo-network/react-shared'
 
 import { RefreshPayloadProvider, ResolvePayloadProvider, ValidatePayloadProvider, XyoEmbedPluginProvider } from '../contexts'
 import { XyoEmbedPluginProps } from '../types'
-import { EmbedCardResolver, EmbedPluginCard, ValidatePayload, ValidatePlugins } from './embed-card'
+import { EmbedCardResolverFlexBox, EmbedPluginCard, ValidatePayloadAlert, ValidatePluginsAlert } from './embed-card'
 
 export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
   validateSchema,
@@ -42,7 +42,7 @@ const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({ children, o
   return (
     <RefreshPayloadProvider onRefresh={onRefresh}>
       <ResolvePayloadProvider huriPayload={huriPayload}>
-        <EmbedCardResolver {...props}>{children}</EmbedCardResolver>
+        <EmbedCardResolverFlexBox {...props}>{children}</EmbedCardResolverFlexBox>
       </ResolvePayloadProvider>
     </RefreshPayloadProvider>
   )
@@ -51,9 +51,9 @@ const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({ children, o
 const WithValidators: React.FC<WithChildren<{ validateSchema?: boolean }>> = ({ children, validateSchema }) => {
   return (
     <ValidatePayloadProvider enabled={validateSchema}>
-      <ValidatePlugins>
-        <ValidatePayload>{children}</ValidatePayload>
-      </ValidatePlugins>
+      <ValidatePluginsAlert>
+        <ValidatePayloadAlert>{children}</ValidatePayloadAlert>
+      </ValidatePluginsAlert>
     </ValidatePayloadProvider>
   )
 }
