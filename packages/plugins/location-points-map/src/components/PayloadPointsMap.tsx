@@ -4,10 +4,10 @@ import { XyoPayload } from '@xyo-network/payload'
 import {
   LocationPointsMapLayerBuilder,
   MapBoxInstanceProvider,
-  MapBoxPoints,
   MapSettingsProvider,
   NetworkXyoLocationAnswerPayload,
   useMapboxAccessToken,
+  XyoMapboxPointsFlexBox,
 } from '@xyo-network/react-map'
 
 import { PointsMapSettings } from './PointsMapSettings'
@@ -23,7 +23,12 @@ const PayloadPointsMap: React.FC<PayloadPointsMapProps> = ({ payload, ...props }
   return (
     <>
       {accessToken ? (
-        <MapBoxPoints accessToken={accessToken} features={features} layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)} {...props} />
+        <XyoMapboxPointsFlexBox
+          accessToken={accessToken}
+          features={features}
+          layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
+          {...props}
+        />
       ) : (
         <Alert title="Mapbox Token Missing" />
       )}
