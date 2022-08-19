@@ -1,6 +1,6 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { XyoApiError, XyoApiResponse } from '@xyo-network/api'
-import { ReactElement, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 export interface XyoApiErrorRenderProps extends FlexBoxProps {
   apiError?: XyoApiError
@@ -8,5 +8,4 @@ export interface XyoApiErrorRenderProps extends FlexBoxProps {
   customError?: ReactNode
   noReAuth?: boolean
   noErrorDisplay?: boolean
-  children?: ReactElement | null
 }

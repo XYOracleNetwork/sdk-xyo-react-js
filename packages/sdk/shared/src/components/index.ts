@@ -1,4 +1,5 @@
 export * from './Ampersand'
+export * from './ApiErrorAlert'
 export * from './BasicHero'
 export * from './ErrorBoundry'
 export * from './JsonRouteWrapper'
