@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { payloadData, payloadDataMissingPairs } from '../payloadData.stories'
+import { payloadData } from '../payloadData.stories'
 import { TableCellSummary } from './TableCellSummary'
 
 const StorybookEntry = {
