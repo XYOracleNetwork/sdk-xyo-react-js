@@ -22,7 +22,7 @@ export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
         )
       }
       action={
-        <FlexRow>
+        <FlexRow flexWrap="wrap" columnGap={0.5}>
           {payload?.timestamp ? (
             hideTimestamp && hideRefreshButton ? (
               ''
