@@ -4,7 +4,7 @@ import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 
 import { PayloadDynamicTableRow } from './DynamicTableRow'
-import { payloadColumnNames, PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig'
+import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig'
 
 export interface PayloadDynamicTableProps extends TableProps {
   exploreDomain?: string
@@ -25,14 +25,14 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
 }) => {
   const breakPoint = useBreakpoint()
   return breakPoint ? (
-    <Table {...props}>
+    <Table {...props} stickyHeader>
       <TableHead>
         <TableRow>
           {columns[breakPoint]?.map((column, index) => {
             return (
-              <TableCell key={index} width={undefined} align="left">
-                <Typography variant="caption" noWrap>
-                  <strong>{payloadColumnNames[column]}</strong>
+              <TableCell key={index} align={column.alignment ?? 'left'} width={column.width}>
+                <Typography variant="body2" noWrap>
+                  {column.name}
                 </Typography>
               </TableCell>
             )

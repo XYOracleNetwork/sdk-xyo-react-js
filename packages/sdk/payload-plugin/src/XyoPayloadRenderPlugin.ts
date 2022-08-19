@@ -4,8 +4,8 @@ import { XyoPayload } from '@xyo-network/payload'
 import { ListMode } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 
-export interface XyoPayloadRenderProps {
-  payload?: XyoPayload
+export interface XyoPayloadRenderProps<T extends XyoPayload = XyoPayload> {
+  payload?: T
 }
 
 export interface XyoPayloadDetailsRenderProps extends XyoPayloadRenderProps {

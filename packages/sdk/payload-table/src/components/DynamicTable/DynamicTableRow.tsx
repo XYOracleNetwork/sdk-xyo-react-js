@@ -40,33 +40,15 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
       key="hash"
       align="left"
       archive={archive}
-      width="100%"
       value={wrapper?.hash}
       dataType="payload"
       exploreDomain={exploreDomain}
-      sx={{ textOverflow: 'ellipsis' }}
       network={networkProp ?? network?.slug}
       {...props}
     />
   )
 
   const schema: React.FC<TableCellProps> = (props) => (
-    <TableCell key="payloads" align="center" {...props}>
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {payload?.schema}
-      </Typography>
-    </TableCell>
-  )
-
-  const details: React.FC<TableCellProps> = (props) => (
-    <TableCell key="payloads" align="center" {...props}>
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {payload?.sources}
-      </Typography>
-    </TableCell>
-  )
-
-  const render: React.FC<TableCellProps> = (props) => (
     <TableCell key="payloads" align="left" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {payload?.schema}
@@ -74,10 +56,30 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     </TableCell>
   )
 
+  const details: React.FC<TableCellProps> = (props) => (
+    <TableCell key="payloads" align="left" {...props}>
+      <Typography fontFamily="monospace" variant="body2" noWrap>
+        {payload?.sources}
+      </Typography>
+    </TableCell>
+  )
+
+  const render: React.FC<TableCellProps> = (props) => {
+    const Render: ComponentType<XyoPayloadRenderProps & TableCellProps> | undefined = payload
+      ? resolver?.resolve(payload)?.components.table.cell
+      : undefined
+    return (
+      <TableCell key="payloads" align="left" {...props}>
+        {Render ? <Render payload={payload} /> : null}
+      </TableCell>
+    )
+  }
+
   const icon: React.FC<TableCellProps> = (props) => {
     const Avatar: ComponentType<XyoPayloadRenderProps & AvatarProps> | undefined = payload
       ? resolver?.resolve(payload)?.components.avatar.image
       : undefined
+
     return (
       <TableCell key="payloads" align="left" {...props}>
         {Avatar ? <Avatar payload={payload} /> : null}
@@ -111,7 +113,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   return breakPoint ? (
     <TableRow style={{ maxWidth: '100vw' }} {...props}>
       {columns[breakPoint]?.map((column) => {
-        return tableCells[column]({})
+        return column.slug ? tableCells[column.slug]({}) : null
       })}
     </TableRow>
   ) : null
