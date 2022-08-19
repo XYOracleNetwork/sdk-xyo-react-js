@@ -4,13 +4,13 @@ import { XyoPayload } from '@xyo-network/payload'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,
-  MapBoxHeat,
   MapBoxInstanceProvider,
   MapHeatConstants,
   MapSettingsProvider,
   NetworkXyoLocationHeatmapQuadkeyAnswerPayload,
   useMapboxAccessToken,
   useQuadKeyPayloadsToFeatures,
+  XyoMapboxHeatFlexBox,
 } from '@xyo-network/react-map'
 import { Feature, Polygon } from 'geojson'
 
@@ -31,7 +31,7 @@ export const PayloadQuadkeyHeatMap: React.FC<PayloadQuadkeyHeatMapProps> = ({ pa
       heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
       layers={LocationHeatMapLayerBuilder(theme.palette.secondary.main)}
     >
-      <MapBoxHeat accessToken={accessToken} features={features as Feature<Polygon>[]} {...props} />
+      <XyoMapboxHeatFlexBox accessToken={accessToken} features={features as Feature<Polygon>[]} {...props} />
     </HeatMapInitializerProvider>
   ) : null
 }
