@@ -15,6 +15,7 @@ export const EmbedCardResolver: React.FC<WithChildren<FlexBoxProps>> = ({ childr
     <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
       <XyoApiErrorRender apiError={huriApiError}>
         <FlexGrowCol
+          alignItems="stretch"
           busy={Boolean(!refreshPayload && payload)}
           busyCircularProps={{ style: { alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2 } }}
           {...props}
