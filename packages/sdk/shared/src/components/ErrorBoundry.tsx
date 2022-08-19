@@ -1,10 +1,13 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { Component, ErrorInfo, ReactNode } from 'react'
+import { cloneElement, Component, ErrorInfo, ReactElement, ReactNode } from 'react'
 
 export interface ErrorBoundaryProps {
   children: ReactNode
+  // fallback as a static ReactNode value
   fallback?: ReactNode
+  // fallback element that can receive the error as a prop
+  fallbackWithErrorProp?: ReactElement<{ error: Error }>
 }
 
 export interface ErrorBoundaryState {
@@ -27,6 +30,10 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
   render() {
     if (this.state.error) {
+      if (this.props.fallbackWithErrorProp) {
+        const clone = cloneElement(this.props.fallbackWithErrorProp, { error: this.state.error })
+        return clone
+      }
       return (
         this.props.fallback ?? (
           <FlexCol>
