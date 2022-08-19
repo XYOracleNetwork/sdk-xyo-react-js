@@ -24,16 +24,34 @@ const testPlugin1 = createPayloadRenderPlugin({
   name: 'Test1 Plugin',
 })
 
+const failingPlugin = createPayloadRenderPlugin({
+  canRender: () => true,
+  components: {
+    box: {
+      details: () => {
+        throw Error('testing Error Boundary')
+      },
+    },
+  },
+  name: 'Failing Plugin',
+})
+
 const Default = Template.bind({})
 Default.args = {
   huri: AggregatePricePointer,
   plugins: [testPlugin, testPlugin1],
 }
 
-const Error = Template.bind({})
-Error.args = {
+const ApiError = Template.bind({})
+ApiError.args = {
   huriPayload: 'https://api.archivist.xyo.network/9663b2f80395a9e7e95948fdd5988b778a4dcc047202bf67e855ff6cd459b8c',
   plugins: [UniswapPairsRenderPlugin],
+}
+
+const ThrownError = Template.bind({})
+ThrownError.args = {
+  huriPayload: AggregatePricePointer,
+  plugins: [failingPlugin],
 }
 
 const HiddenElements = Template.bind({})
@@ -70,4 +88,4 @@ WithOnRefresh.args = {
   plugins: [CryptoAssetRenderPlugin],
 }
 
-export { Default, Error, HiddenElements, WithOnRefresh, WithPassedPayload, WithSetBusyExternally }
+export { ApiError, Default, HiddenElements, ThrownError, WithOnRefresh, WithPassedPayload, WithSetBusyExternally }
