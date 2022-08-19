@@ -1,27 +1,55 @@
 export type PayloadDynamicTableColumnSlug = 'hash' | 'schema' | 'valid' | 'details' | 'render' | 'icon'
 
-export interface PayloadDynamicTableColumnConfig {
-  xs?: PayloadDynamicTableColumnSlug[]
-  sm?: PayloadDynamicTableColumnSlug[]
-  md?: PayloadDynamicTableColumnSlug[]
-  lg?: PayloadDynamicTableColumnSlug[]
-  xl?: PayloadDynamicTableColumnSlug[]
+export interface PayloadDynamicTableColumnHeadData {
+  slug?: 'hash' | 'schema' | 'valid' | 'details' | 'render' | 'icon'
+  alignment?: 'left' | 'center' | 'right'
+  width?: string | number
+  name?: string
 }
 
-export const payloadColumnNames: Record<PayloadDynamicTableColumnSlug, string> = {
-  details: 'Details',
-  hash: 'Hash',
-  icon: 'Icon',
-  render: 'Render',
-  schema: 'Schema',
-  valid: 'Valid',
+export interface PayloadDynamicTableColumnConfig {
+  xs?: PayloadDynamicTableColumnHeadData[]
+  sm?: PayloadDynamicTableColumnHeadData[]
+  md?: PayloadDynamicTableColumnHeadData[]
+  lg?: PayloadDynamicTableColumnHeadData[]
+  xl?: PayloadDynamicTableColumnHeadData[]
 }
 
 export const payloadDynamicTableColumnConfigDefaults = (): PayloadDynamicTableColumnConfig => {
-  const xs: PayloadDynamicTableColumnSlug[] = ['icon', 'hash', 'schema', 'render', 'valid']
-  const sm: PayloadDynamicTableColumnSlug[] = ['icon', 'hash', 'schema', 'render', 'valid']
-  const md: PayloadDynamicTableColumnSlug[] = ['icon', 'hash', 'schema', 'render', 'valid']
-  const lg: PayloadDynamicTableColumnSlug[] = ['icon', 'hash', 'schema', 'render', 'valid']
-  const xl: PayloadDynamicTableColumnSlug[] = ['icon', 'hash', 'schema', 'render', 'valid']
+  const xs: PayloadDynamicTableColumnHeadData[] = [
+    { alignment: 'left', name: 'Icon', slug: 'icon' },
+    { alignment: 'left', name: 'Hash', slug: 'hash', width: '100%' },
+    { alignment: 'left', name: 'Schema', slug: 'schema', width: '50px' },
+    { alignment: 'left', name: 'Render', slug: 'render', width: '50px' },
+    { alignment: 'left', name: 'Valid', slug: 'valid', width: '50px' },
+  ]
+  const sm: PayloadDynamicTableColumnHeadData[] = [
+    { alignment: 'left', name: 'Icon', slug: 'icon', width: '50px' },
+    { alignment: 'left', name: 'Hash', slug: 'hash', width: '50px' },
+    { alignment: 'left', name: 'Schema', slug: 'schema', width: '50px' },
+    { alignment: 'left', name: 'Render', slug: 'render', width: '50px' },
+    { alignment: 'left', name: 'Valid', slug: 'valid', width: '50px' },
+  ]
+  const md: PayloadDynamicTableColumnHeadData[] = [
+    { alignment: 'left', name: 'Icon', slug: 'icon', width: '50px' },
+    { alignment: 'left', name: 'Hash', slug: 'hash', width: '50px' },
+    { alignment: 'left', name: 'Schema', slug: 'schema', width: '50px' },
+    { alignment: 'left', name: 'Render', slug: 'render', width: '50px' },
+    { alignment: 'left', name: 'Valid', slug: 'valid', width: '50px' },
+  ]
+  const lg: PayloadDynamicTableColumnHeadData[] = [
+    { alignment: 'left', name: 'Icon', slug: 'icon', width: '50px' },
+    { alignment: 'left', name: 'Hash', slug: 'hash', width: '50px' },
+    { alignment: 'left', name: 'Schema', slug: 'schema', width: '50px' },
+    { alignment: 'left', name: 'Render', slug: 'render', width: '50px' },
+    { alignment: 'left', name: 'Valid', slug: 'valid', width: '50px' },
+  ]
+  const xl: PayloadDynamicTableColumnHeadData[] = [
+    { alignment: 'left', name: 'Icon', slug: 'icon', width: '50px' },
+    { alignment: 'left', name: 'Hash', slug: 'hash', width: '50px' },
+    { alignment: 'left', name: 'Schema', slug: 'schema', width: '50px' },
+    { alignment: 'left', name: 'Render', slug: 'render', width: '50px' },
+    { alignment: 'left', name: 'Valid', slug: 'valid', width: '50px' },
+  ]
   return { lg, md, sm, xl, xs }
 }
