@@ -1,9 +1,6 @@
-import { CardProps, useTheme } from '@mui/material'
+import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoApiError } from '@xyo-network/api'
-import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
-import { ApiErrorAlert } from '@xyo-network/react-shared'
 import { ResultLoader } from '@xyo-network/react-webapp'
 
 import { useRefreshPayload, useResolvePayload } from '../../contexts'
