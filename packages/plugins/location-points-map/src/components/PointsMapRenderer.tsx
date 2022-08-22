@@ -23,22 +23,18 @@ const PointsMapInner: React.FC<PointsMapInnerProps> = ({ payload, accessToken, .
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken()
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
-  return (
-    <>
-      {accessTokenResolved ? (
-        <XyoMapboxPointsFlexBox
-          accessToken={accessTokenResolved}
-          features={features}
-          layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
-          {...props}
-        />
-      ) : (
-        <Alert severity={'error'}>
-          <AlertTitle>Mapbox Token Missing</AlertTitle>
-          Please add it to the environment variable or pass it directly to the component
-        </Alert>
-      )}
-    </>
+  return accessTokenResolved ? (
+    <XyoMapboxPointsFlexBox
+      accessToken={accessTokenResolved}
+      features={features}
+      layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
+      {...props}
+    />
+  ) : (
+    <Alert severity={'error'}>
+      <AlertTitle>Mapbox Token Missing</AlertTitle>
+      Please add it to the environment variable or pass it directly to the component
+    </Alert>
   )
 }
 
