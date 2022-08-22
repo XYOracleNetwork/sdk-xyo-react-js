@@ -63,7 +63,7 @@ export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
   }, [mapInitialized, reInitializeMap, updateMapSetup])
 
   return (
-    <FlexCol alignItems="stretch" {...props}>
+    <FlexCol alignItems="stretch" id="xyo-mapbox-wrap" {...props}>
       {features ? (
         <>
           <MapBox accessToken={accessToken} zoom={zoom} />
