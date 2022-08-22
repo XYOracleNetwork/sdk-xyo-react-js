@@ -1,4 +1,4 @@
-import { Alert, useTheme } from '@mui/material'
+import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/sdk-react'
 import { XyoPayload } from '@xyo-network/payload'
 import {
@@ -12,11 +12,11 @@ import {
 
 import { PointsMapSettings } from './PointsMapSettings'
 
-interface PayloadPointsMapProps extends FlexBoxProps {
+export interface PayloadPointsMapProps extends FlexBoxProps {
   payload?: XyoPayload
 }
 
-const PayloadPointsMap: React.FC<PayloadPointsMapProps> = ({ payload, ...props }) => {
+const PayloadPointsMapInner: React.FC<PayloadPointsMapProps> = ({ payload, ...props }) => {
   const theme = useTheme()
   const features = (payload as NetworkXyoLocationAnswerPayload)?.result?.features
   const { accessToken } = useMapboxAccessToken()
@@ -30,7 +30,9 @@ const PayloadPointsMap: React.FC<PayloadPointsMapProps> = ({ payload, ...props }
           {...props}
         />
       ) : (
-        <Alert title="Mapbox Token Missing" />
+        <Alert severity={'error'}>
+          <AlertTitle>Mapbox Token Missing</AlertTitle>
+        </Alert>
       )}
     </>
   )
@@ -42,6 +44,14 @@ const PayloadPointsMapWithSettings: React.FC<PayloadPointsMapProps> = ({ ...prop
       <MapSettingsProvider defaultMapSettings={PointsMapSettings}>
         <PayloadPointsMap {...props} />
       </MapSettingsProvider>
+    </MapBoxInstanceProvider>
+  )
+}
+
+const PayloadPointsMap: React.FC<PayloadPointsMapProps> = (props) => {
+  return (
+    <MapBoxInstanceProvider>
+      <PayloadPointsMapInner {...props} />
     </MapBoxInstanceProvider>
   )
 }
