@@ -2,14 +2,13 @@ import { Card, CardContent, CardProps, Divider, Link, Paper, PaperProps, useThem
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
+import { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { Fragment } from 'react'
 
-import { XyoCryptoAssetValue } from '../lib'
-
 export interface CryptoAssetProps extends CardProps {
   asset: string
-  priceInfo: XyoCryptoAssetValue
+  priceInfo?: AssetInfo
 }
 
 export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...props }) => {
@@ -46,7 +45,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
           <FlexCol alignItems="stretch" justifyContent="flex-start">
             <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden">
-              {Object.entries(priceInfo.value).map(([currency, price], index, arr) => (
+              {Object.entries(priceInfo?.value ?? {}).map(([currency, price], index, arr) => (
                 <Fragment key={currency}>
                   <TokenBar square text1={currency.toUpperCase()} text2={formattedPrice(price)} text2Props={{ title: price }} {...tokenBarBgProps} />
                   {/* hide the last divider */}
