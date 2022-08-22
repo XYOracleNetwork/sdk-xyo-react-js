@@ -12,19 +12,22 @@ import {
 
 import { PointsMapSettings } from './PointsMapSettings'
 
-export interface PayloadPointsMapProps extends FlexBoxProps {
+export interface PointsMapInnerProps extends FlexBoxProps {
   payload?: XyoPayload
+  accessToken?: string
 }
 
-const PayloadPointsMapInner: React.FC<PayloadPointsMapProps> = ({ payload, ...props }) => {
+const PointsMapInner: React.FC<PointsMapInnerProps> = ({ payload, accessToken, ...props }) => {
   const theme = useTheme()
   const features = (payload as NetworkXyoLocationAnswerPayload)?.result?.features
-  const { accessToken } = useMapboxAccessToken()
+  const { accessToken: accessTokenFromContext } = useMapboxAccessToken()
+  const accessTokenResolved = accessToken ?? accessTokenFromContext
+
   return (
     <>
-      {accessToken ? (
+      {accessTokenResolved ? (
         <XyoMapboxPointsFlexBox
-          accessToken={accessToken}
+          accessToken={accessTokenResolved}
           features={features}
           layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
           {...props}
@@ -32,28 +35,29 @@ const PayloadPointsMapInner: React.FC<PayloadPointsMapProps> = ({ payload, ...pr
       ) : (
         <Alert severity={'error'}>
           <AlertTitle>Mapbox Token Missing</AlertTitle>
+          Please add it to the environment variable or pass it directly to the component
         </Alert>
       )}
     </>
   )
 }
 
-const PayloadPointsMapWithSettings: React.FC<PayloadPointsMapProps> = ({ ...props }) => {
+const PointsMapWithSettingsRenderer: React.FC<PointsMapInnerProps> = ({ ...props }) => {
   return (
     <MapBoxInstanceProvider>
       <MapSettingsProvider defaultMapSettings={PointsMapSettings}>
-        <PayloadPointsMap {...props} />
+        <PointsMapInner {...props} />
       </MapSettingsProvider>
     </MapBoxInstanceProvider>
   )
 }
 
-const PayloadPointsMap: React.FC<PayloadPointsMapProps> = (props) => {
+const PointsMapRenderer: React.FC<PointsMapInnerProps> = (props) => {
   return (
     <MapBoxInstanceProvider>
-      <PayloadPointsMapInner {...props} />
+      <PointsMapInner {...props} />
     </MapBoxInstanceProvider>
   )
 }
 
-export { PayloadPointsMap, PayloadPointsMapWithSettings }
+export { PointsMapRenderer, PointsMapWithSettingsRenderer }

@@ -2,12 +2,17 @@ import { ComponentStory, Meta } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
 import { locationRangeAnswerPayload } from './payload.stories'
-import { PayloadPointsMap } from './PayloadPointsMap'
+import { PointsMapRenderer } from './PointsMapRenderer'
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  argTypes: {},
-  component: PayloadPointsMap,
+  argTypes: {
+    minHeight: {
+      // calc used to account for the offset provided by storybook wrapper
+      defaultValue: 'calc(100vh - 2rem)',
+    },
+  },
+  component: PointsMapRenderer,
   decorators: [WithMapboxSetup],
   parameters: {
     docs: {
@@ -17,15 +22,16 @@ export default {
   title: 'plugin/points-map/PointsMap',
 } as Meta
 
-const Template: ComponentStory<typeof PayloadPointsMap> = (args) => {
-  return <PayloadPointsMap {...args} />
+const Template: ComponentStory<typeof PointsMapRenderer> = (args) => {
+  return <PointsMapRenderer {...args} />
 }
 
 const Default = Template.bind({})
-Default.args = {
-  // calc used to account for the offset provided by storybook wrapper
-  minHeight: 'calc(100vh - 2rem)',
+Default.args = {}
+
+const WithData = Template.bind({})
+WithData.args = {
   payload: locationRangeAnswerPayload,
 }
 
-export { Default }
+export { Default, WithData }

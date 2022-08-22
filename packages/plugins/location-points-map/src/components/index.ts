@@ -1,1 +1,1 @@
-export * from './PayloadPointsMap'
+export * from './PointsMapRenderer'
