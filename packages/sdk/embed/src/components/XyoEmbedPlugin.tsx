@@ -18,7 +18,7 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
   ...props
 }) => {
   return (
-    <ErrorBoundary fallbackWithErrorProp={<EmbedErrorCard showErrorMessage />}>
+    <ErrorBoundary fallbackWithError={(error) => <EmbedErrorCard hideErrorDetails={hideElementsConfig?.hideErrorDetails} error={error} />}>
       <XyoEmbedPluginProvider
         refreshTitle={refreshTitle}
         timestampLabel={timestampLabel}
