@@ -1,7 +1,5 @@
 import { PayloadDetails } from '@xyo-network/react-payload'
 
-const PayloadDetailsRender = ({ ...props }) => {
+export const DetailsRenderer = ({ ...props }) => {
   return <PayloadDetails paper {...props} />
 }
-
-export { PayloadDetailsRender }
