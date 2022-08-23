@@ -1,5 +1,6 @@
 export * from './AlwaysLinks'
 export * from './Footer'
+export * from './lib'
 export * from './Link'
 export * from './Links'
 export * from './Xyo'

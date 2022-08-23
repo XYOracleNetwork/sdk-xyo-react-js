@@ -1,10 +1,10 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { ListModeProvider } from '@xyo-network/react-shared'
+import { ErrorBoundary, ListModeProvider } from '@xyo-network/react-shared'
 
 import { RefreshPayloadProvider, ResolvePayloadProvider, ValidatePayloadProvider, XyoEmbedPluginProvider } from '../contexts'
 import { XyoEmbedPluginProps } from '../types'
-import { EmbedCardResolver, EmbedPluginCard, ValidatePayload, ValidatePlugins } from './embed-card'
+import { EmbedCardResolverFlexBox, EmbedErrorCard, EmbedPluginCard, ValidatePayloadAlert, ValidatePluginsAlert } from './embed-card'
 
 export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
   validateSchema,
@@ -18,21 +18,23 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
   ...props
 }) => {
   return (
-    <XyoEmbedPluginProvider
-      refreshTitle={refreshTitle}
-      timestampLabel={timestampLabel}
-      hideElementsConfig={hideElementsConfig}
-      plugins={plugins}
-      embedPluginConfig={embedPluginConfig}
-    >
-      <WithResolvers onRefresh={onRefresh} huriPayload={huriPayload} {...props}>
-        <WithValidators validateSchema={validateSchema}>
-          <ListModeProvider defaultListMode={embedPluginConfig?.listMode}>
-            <EmbedPluginCard />
-          </ListModeProvider>
-        </WithValidators>
-      </WithResolvers>
-    </XyoEmbedPluginProvider>
+    <ErrorBoundary fallbackWithError={(error) => <EmbedErrorCard hideErrorDetails={hideElementsConfig?.hideErrorDetails} error={error} />}>
+      <XyoEmbedPluginProvider
+        refreshTitle={refreshTitle}
+        timestampLabel={timestampLabel}
+        hideElementsConfig={hideElementsConfig}
+        plugins={plugins}
+        embedPluginConfig={embedPluginConfig}
+      >
+        <WithResolvers onRefresh={onRefresh} huriPayload={huriPayload} {...props}>
+          <WithValidators validateSchema={validateSchema}>
+            <ListModeProvider defaultListMode={embedPluginConfig?.listMode}>
+              <EmbedPluginCard />
+            </ListModeProvider>
+          </WithValidators>
+        </WithResolvers>
+      </XyoEmbedPluginProvider>
+    </ErrorBoundary>
   )
 }
 
@@ -42,7 +44,7 @@ const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({ children, o
   return (
     <RefreshPayloadProvider onRefresh={onRefresh}>
       <ResolvePayloadProvider huriPayload={huriPayload}>
-        <EmbedCardResolver {...props}>{children}</EmbedCardResolver>
+        <EmbedCardResolverFlexBox {...props}>{children}</EmbedCardResolverFlexBox>
       </ResolvePayloadProvider>
     </RefreshPayloadProvider>
   )
@@ -51,9 +53,9 @@ const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({ children, o
 const WithValidators: React.FC<WithChildren<{ validateSchema?: boolean }>> = ({ children, validateSchema }) => {
   return (
     <ValidatePayloadProvider enabled={validateSchema}>
-      <ValidatePlugins>
-        <ValidatePayload>{children}</ValidatePayload>
-      </ValidatePlugins>
+      <ValidatePluginsAlert>
+        <ValidatePayloadAlert>{children}</ValidatePayloadAlert>
+      </ValidatePluginsAlert>
     </ValidatePayloadProvider>
   )
 }
