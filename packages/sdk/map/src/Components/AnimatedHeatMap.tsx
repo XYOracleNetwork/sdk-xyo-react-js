@@ -8,7 +8,7 @@ import { XyoAnimatedHeatMapColorProps } from '../Colors'
 import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts'
 import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, XyoMapLayer } from '../Layers'
 import { MapSetting } from '../Settings'
-import { MapBoxHeat } from './MapBoxHeat'
+import { XyoMapboxHeatFlexBox } from './MapBoxHeat'
 
 export interface AnimatedHeatMapProps {
   animatedFeatureSets: Feature<Polygon>[][]
@@ -46,11 +46,11 @@ export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
           featureSetsLayers={layers.slice(1, 3)}
           heatMapColorProps={heatMapColorProps}
         >
-          <MapBoxHeat accessToken={accessToken} {...props}></MapBoxHeat>
+          <XyoMapboxHeatFlexBox accessToken={accessToken} {...props}></XyoMapboxHeatFlexBox>
         </HeatMapInitializerProvider>
       </MapSettingsProvider>
     </MapBoxInstanceProvider>
   ) : (
-    <FlexCol flexGrow={1} busy />
+    <FlexCol minHeight={160} minWidth={160} busy />
   )
 }

@@ -1,7 +1,7 @@
 import { XyoPayload } from '@xyo-network/payload'
 import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { UniswapDetailsRender } from './components'
+import { TableCellSummary, UniswapDetailsRender } from './components'
 
 export const UniswapPairsRenderPlugin: XyoPayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
@@ -10,6 +10,9 @@ export const UniswapPairsRenderPlugin: XyoPayloadRenderPlugin = {
       box: {
         details: UniswapDetailsRender,
         listModes: ['table', 'grid'],
+      },
+      table: {
+        cell: TableCellSummary,
       },
     },
     name: 'Uniswap Pairs View',

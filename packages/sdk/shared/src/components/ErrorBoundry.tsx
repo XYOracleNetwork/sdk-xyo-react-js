@@ -4,7 +4,10 @@ import { Component, ErrorInfo, ReactNode } from 'react'
 
 export interface ErrorBoundaryProps {
   children: ReactNode
+  // fallback as a static ReactNode value
   fallback?: ReactNode
+  // fallback element that can receive the error as a prop
+  fallbackWithError?: (error: Error) => ReactNode
 }
 
 export interface ErrorBoundaryState {
@@ -27,6 +30,9 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
   render() {
     if (this.state.error) {
+      if (this.props.fallbackWithError) {
+        return this.props.fallbackWithError(this.state.error)
+      }
       return (
         this.props.fallback ?? (
           <FlexCol>

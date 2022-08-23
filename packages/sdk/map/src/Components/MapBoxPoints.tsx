@@ -4,17 +4,24 @@ import { Feature, Point } from 'geojson'
 import { useCallback, useEffect, useState } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts'
-import { XyoMapBoxBaseProps } from '../lib'
+import { XyoMapboxFlexBoxProps } from '../lib'
 import { XyoMapPoints } from '../MapBoxClasses'
 import { MapBox } from './MapBox'
 import { MapSettings } from './MapSettingsComponents'
 
-export interface MapBoxPointsProps extends XyoMapBoxBaseProps {
+export interface XyoMapboxPointsFlexBoxProps extends XyoMapboxFlexBoxProps {
   features?: Feature<Point>[]
   accessToken: string
 }
 
-export const MapBoxPoints: React.FC<MapBoxPointsProps> = ({ accessToken, features, layers, fitToPointsPadding = 20, zoom, ...props }) => {
+export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
+  accessToken,
+  features,
+  layers,
+  fitToPointsPadding = 20,
+  zoom,
+  ...props
+}) => {
   const [MapPoints, setMapPoints] = useState<XyoMapPoints>()
   const { mapSettings } = useMapSettings()
   const { map, mapInitialized } = useMapBoxInstance()
@@ -56,7 +63,7 @@ export const MapBoxPoints: React.FC<MapBoxPointsProps> = ({ accessToken, feature
   }, [mapInitialized, reInitializeMap, updateMapSetup])
 
   return (
-    <FlexCol alignItems="stretch" {...props}>
+    <FlexCol alignItems="stretch" id="xyo-mapbox-wrap" {...props}>
       {features ? (
         <>
           <MapBox accessToken={accessToken} zoom={zoom} />

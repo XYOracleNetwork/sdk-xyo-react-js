@@ -31,8 +31,8 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
           {columns[breakPoint]?.map((column, index) => {
             return (
               <TableCell key={index} width={index === 0 ? '100%' : undefined} align={index === 0 ? 'left' : 'center'}>
-                <Typography variant="caption" noWrap>
-                  <strong>{payloadColumnNames[column]}</strong>
+                <Typography variant="body2" noWrap>
+                  {payloadColumnNames[column]}
                 </Typography>
               </TableCell>
             )

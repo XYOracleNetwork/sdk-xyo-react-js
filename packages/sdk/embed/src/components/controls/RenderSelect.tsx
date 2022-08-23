@@ -1,15 +1,15 @@
-import { MenuItem, Select } from '@mui/material'
+import { MenuItem, Select, SelectProps } from '@mui/material'
 
 import { useXyoEmbedPluginState } from '../../contexts'
-import { EmbedControlWrap } from './ControlWrap'
+import { EmbedFormControl } from './EmbedFormControl'
 
 const renderSelectId = 'render-select-id'
 const renderSelectLabel = 'Renderer'
 
-export const EmbedRenderSelect: React.FC = (props) => {
+export const EmbedRenderSelect: React.FC<SelectProps> = (props) => {
   const { activePlugin, setActivePlugin, plugins } = useXyoEmbedPluginState()
   return (
-    <EmbedControlWrap formId={renderSelectId} formLabel={renderSelectLabel}>
+    <EmbedFormControl formId={renderSelectId} formLabel={renderSelectLabel}>
       <Select size="small" value={activePlugin?.name} {...props}>
         {plugins?.map((plugin) => (
           <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin?.(plugin)}>
@@ -17,6 +17,6 @@ export const EmbedRenderSelect: React.FC = (props) => {
           </MenuItem>
         ))}
       </Select>
-    </EmbedControlWrap>
+    </EmbedFormControl>
   )
 }

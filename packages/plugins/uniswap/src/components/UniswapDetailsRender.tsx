@@ -14,9 +14,5 @@ export const UniswapDetailsRender: React.FC<XyoPayloadDetailsRenderProps & FlexB
     return <PayloadDataMissing alertBody="Payload is missing valid Uniswap Pairs." />
   }
 
-  if (listMode === 'table') {
-    return <UniswapPairsTableView {...props} />
-  } else {
-    return <UniswapPairsCardView {...props} />
-  }
+  return <>{listMode === 'table' ? <UniswapPairsTableView {...props} /> : <UniswapPairsCardView {...props} />}</>
 }

@@ -3,13 +3,13 @@ import { Map } from 'mapbox-gl'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { XyoMapLayer } from '../Layers'
-import { XyoMapBoxBaseProps } from '../lib'
+import { XyoMapboxFlexBoxProps } from '../lib'
 
 export interface LayerAnimatorProps {
   map: Map | undefined
   animateLayers?: boolean
   layersInitialized: boolean
-  layers: XyoMapBoxBaseProps['layers']
+  layers: XyoMapboxFlexBoxProps['layers']
 }
 
 const timeIncrement = 2000

@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 
 import { XyoMapLayer } from '../Layers'
 
-export interface XyoMapBoxBaseProps extends FlexBoxProps {
+export interface XyoMapboxFlexBoxProps extends FlexBoxProps {
   disableControls?: boolean
   disableFitToPoints?: boolean
   features?: Feature[]
