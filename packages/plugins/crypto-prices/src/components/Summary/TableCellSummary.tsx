@@ -28,7 +28,7 @@ export const TableCellSummary: React.FC<XyoPayloadRenderProps & TableCellProps> 
   const payloadTokenImageListData = makeTokenImageList(payloadTokenListData)
   console.log(payloadTokenListData)
   return (
-    <TableCell {...props} align="left">
+    <TableCell {...props}>
       <XyoThemeTokenAvatarGroup total={payloadTyped?.pairs.length} images={payloadTokenImageListData} />
     </TableCell>
   )
