@@ -5,6 +5,7 @@ import { useDarkMode } from 'storybook-dark-mode';
 import { partialDarkThemeOptions, partialAppLightThemeOptions, themeOptions } from '@xyo-network/react-theme'
 import { AppSettingsProvider } from '@xyo-network/react-app-settings'
 import React from 'react';
+import { DecoratorFn } from '@storybook/react';
 
 
 export const parameters = {
@@ -23,7 +24,7 @@ export const parameters = {
   }
 }
 
-const withThemeProvider = (Story, context) => {
+const withThemeProvider: DecoratorFn = (Story, context) => {
   // Clear the auth state with each story
   localStorage.setItem('AuthState', '')
 

@@ -1,1 +1,1 @@
-export * from './PayloadQuadKeyHeatMap'
+export * from './QuadkeyHeatMapRenderer'

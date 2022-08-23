@@ -9,6 +9,7 @@ export interface EmbedPluginVisibilityConfig {
   hideTimestamp?: boolean
   hideCardActions?: boolean
   hideCardHeader?: boolean
+  hideErrorDetails?: boolean
 }
 
 /**

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-payload-plugin'
 import { DefaultPayloadRenderPlugin, PayloadRenderPluginResolverProvider, XyoPayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin'
-import { samplePayload, sampleUniswapPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { sampleCoinGeckoPayload, samplePayload, sampleUniswapPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadDynamicTable } from './Table'
@@ -32,7 +32,7 @@ Default.args = {}
 Default.decorators = [useAppThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.args = { payloads: [samplePayload, samplePayload, sampleUniswapPayload, samplePayload, sampleUniswapPayload] }
+WithData.args = { payloads: [samplePayload, sampleUniswapPayload, sampleCoinGeckoPayload, samplePayload, sampleUniswapPayload] }
 WithData.decorators = [useAppThemeDecorator]
 
 const WithError = Template.bind({})

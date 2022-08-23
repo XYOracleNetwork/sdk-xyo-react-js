@@ -21,7 +21,7 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (huri) {
+      if (huri && payload === undefined) {
         try {
           const huriPayload: XyoHuriPayload = { huri, schema: XyoHuriPayloadSchema }
           const [, payloads] = (await diviner?.query({ payloads: [huriPayload], schema: XyoDivinerDivineQuerySchema })) ?? []
@@ -35,7 +35,7 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
         }
       }
     },
-    [diviner, huri],
+    [diviner, huri, payload],
   )
 
   return [payload, setPayload, error]
@@ -64,9 +64,17 @@ export const useDivinePayloads = <T extends XyoPayload = XyoPayload>(
         setErrors(
           compact([...payloads.values()].map((value) => (value.status === 'rejected' ? Error('fivine failed', { cause: value.reason }) : undefined))),
         )
+        if (mounted()) {
+          setPayloads([...payloads.values()].map((value) => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
+          setErrors(
+            compact(
+              [...payloads.values()].map((value) => (value.status === 'rejected' ? Error('divine failed', { cause: value.reason }) : undefined)),
+            ),
+          )
+        }
       }
     },
-    [diviner, huriList],
+    [diviner, huriList, payloads],
   )
 
   return [payloads, setPayloads, errors]

@@ -1,13 +1,13 @@
 import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { PayloadDetailsRender } from './components'
+import { DetailsRenderer } from './components'
 
 export const DetailsRenderPlugin: XyoPayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: () => true,
     components: {
       box: {
-        details: PayloadDetailsRender,
+        details: DetailsRenderer,
       },
     },
     name: 'Details',
