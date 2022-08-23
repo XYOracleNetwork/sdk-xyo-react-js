@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoPayloadDivinerQueryPayloadSchema } from '@xyo-network/diviner'
+import { XyoDivinerDivineQuerySchema, XyoHuriPayload, XyoHuriPayloadSchema } from '@xyo-network/diviner'
 import { XyoPayload } from '@xyo-network/payload'
 import { useContextEx } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
@@ -23,7 +23,8 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
     async (mounted) => {
       if (huri) {
         try {
-          const [, payloads] = (await diviner?.query({ huri, schema: XyoPayloadDivinerQueryPayloadSchema })) ?? []
+          const huriPayload: XyoHuriPayload = { huri, schema: XyoHuriPayloadSchema }
+          const [, payloads] = (await diviner?.query({ payloads: [huriPayload], schema: XyoDivinerDivineQuerySchema })) ?? []
           if (mounted()) {
             setPayload(compact(payloads)[0] as T)
           }
@@ -53,7 +54,8 @@ export const useDivinePayloads = <T extends XyoPayload = XyoPayload>(
       console.log(`huriList: ${JSON.stringify(huriList, null, 2)}`)
       const payloads = await Promise.allSettled(
         huriList.map(async (huri) => {
-          const [, payloads] = (await diviner?.query({ huri, schema: XyoPayloadDivinerQueryPayloadSchema })) ?? []
+          const huriPayload: XyoHuriPayload = { huri, schema: XyoHuriPayloadSchema }
+          const [, payloads] = (await diviner?.query({ payloads: [huriPayload], schema: XyoDivinerDivineQuerySchema })) ?? []
           return compact(payloads)[0]
         }),
       )
