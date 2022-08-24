@@ -1,13 +1,11 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { assertEx, delay } from '@xylabs/sdk-js'
-import { XyoAccount } from '@xyo-network/account'
 import { XyoApiConfig, XyoArchivistApi } from '@xyo-network/api'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPanel } from '@xyo-network/panel'
 import { XyoPayload } from '@xyo-network/payload'
 import { useArchive } from '@xyo-network/react-archive'
 import { useAccount } from '@xyo-network/react-wallet'
-import { XyoSystemInfoWitness } from '@xyo-network/systeminfo-witness'
 import { XyoWitness } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
 
@@ -38,13 +36,7 @@ export const XyoPanelProvider: React.FC<WithChildren<XyoPanelProviderProps>> = (
   inlinePayloads = false,
   required = false,
   archivists = getDefaultArchivists(),
-  witnesses = [
-    new XyoSystemInfoWitness({
-      account: new XyoAccount(),
-      schema: 'network.xyo.system.info.query',
-      targetSchema: 'network.xyo.system.info.browser',
-    }) as XyoWitness,
-  ],
+  witnesses = [],
   children,
 }) => {
   const { archive } = useArchive()
