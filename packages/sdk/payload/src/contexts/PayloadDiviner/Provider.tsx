@@ -22,6 +22,7 @@ export const PayloadDivinerProvider: React.FC<PayloadDivinerProviderProps> = ({ 
         account: new XyoAccount(),
         options: { archivistUri: api?.config.apiDomain },
         schema: 'network.xyo.diviner.payload.huri.config',
+        targetSchema: 'network.xyo.diviner.payload',
       })
     )
   }, [diviner, api?.config.apiDomain])
