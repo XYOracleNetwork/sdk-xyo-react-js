@@ -68,11 +68,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     const Render: ComponentType<XyoPayloadRenderProps & TableCellProps> | undefined = payload
       ? resolver?.resolve(payload)?.components.table.cell
       : undefined
-    return (
-      <TableCell key="payloads" align="left" {...props}>
-        {Render ? <Render payload={payload} /> : null}
-      </TableCell>
-    )
+    return Render ? <Render payload={payload} {...props} /> : null
   }
 
   const icon: React.FC<TableCellProps> = (props) => {
