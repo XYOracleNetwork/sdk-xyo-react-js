@@ -63,7 +63,7 @@ export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...pr
 
   const handleClick = () => {
     if (!authState?.loggedInAccount) {
-      navigate('/login')
+      navigate('/login', { state: { from: { pathname: window.location.pathname } } })
     }
   }
   return (
