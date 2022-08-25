@@ -16,4 +16,5 @@ export interface AuthState {
   jwtToken?: string
   loggedInAccount?: string | null
   reAuthenticate?: boolean
+  tokenCheckComplete?: boolean
 }

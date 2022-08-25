@@ -5,6 +5,10 @@ import { AuthState } from './State'
 
 const authReducer = (state: AuthState, action: AuthAction) => {
   switch (action.type) {
+    case AuthActionType.TokenCheckComplete: {
+      state.tokenCheckComplete = true
+      return { ...state }
+    }
     case AuthActionType.RehydrateState: {
       if (!action.payload) {
         throw new Error('Missing Payload')
