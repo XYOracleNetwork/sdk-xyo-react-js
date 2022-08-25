@@ -1,7 +1,7 @@
 import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { XyoArchivist, XyoMemoryArchivist, XyoMemoryArchivistConfig } from '@xyo-network/archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { ArchivistContext } from './Context'
 import { useArchivist } from './use'
@@ -12,6 +12,10 @@ export type ArchivistProviderProps = ContextExProviderProps<{
 
 export const ArchivistProvider: React.FC<ArchivistProviderProps> = ({ archivist: archivistProp, required = false, children }) => {
   const [archivist, setArchivist] = useState<XyoArchivist | undefined>(archivistProp)
+
+  useEffect(() => {
+    setArchivist(archivistProp)
+  }, [archivistProp])
 
   return (
     <ArchivistContext.Provider
