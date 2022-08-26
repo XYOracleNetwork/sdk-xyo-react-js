@@ -8,5 +8,6 @@ export const defaultState = (): AuthState => {
     jwtToken: '',
     loggedInAccount: '',
     reAuthenticate: false,
+    tokenCheckComplete: false,
   }
 }

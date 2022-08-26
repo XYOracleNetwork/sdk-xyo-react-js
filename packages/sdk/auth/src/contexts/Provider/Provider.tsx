@@ -17,5 +17,5 @@ export const AuthProvider: React.FC<WithChildren<AuthProviderProps>> = ({ childr
 
   const value = { dispatch, state }
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={value}>{state.tokenCheckComplete ? children : null}</AuthContext.Provider>
 }

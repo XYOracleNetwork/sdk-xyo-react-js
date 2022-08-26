@@ -39,6 +39,7 @@ export const useHydrateState = (state: AuthState, dispatch: React.Dispatch<AuthA
         dispatch({ payload: authState, type: AuthActionType.RehydrateState })
       }
       setIsFirstRun(false)
+      dispatch({ payload: {}, type: AuthActionType.TokenCheckComplete })
     } else {
       saveAuthStateToLocalStorage(state, keysToSave)
     }
