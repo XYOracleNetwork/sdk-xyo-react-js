@@ -1,10 +1,13 @@
 /* eslint-disable import/no-internal-modules */
-import { Alert, AlertTitle } from '@mui/material'
+import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { AuthServiceId, useAuthService, useAuthState } from '@xyo-network/react-auth'
+import { useAuthState } from '@xyo-network/react-auth'
 import { authDecorator, WrappedAuthComponent } from '@xyo-network/react-storybook'
+import { Route, Routes, useLocation } from 'react-router-dom'
 
 import { Web3Login } from './Web3Login'
+
+const redirectUrl = '/foo'
 
 const StorybookEntry = {
   argTypes: {},
@@ -20,20 +23,23 @@ const StorybookEntry = {
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state, dispatch } = useAuthState()
-  const { activeAuthServiceId, setActiveAuthServiceId } = useAuthService()
+  const location = useLocation()
+  location.state = { from: { pathname: redirectUrl } }
 
   if (state && dispatch) {
     return (
       <>
-        <Alert>
-          <AlertTitle>Active Auth Service Id</AlertTitle>
-          {activeAuthServiceId}
-        </Alert>
-        <Web3Login
-          dispatch={dispatch}
-          loggedInAccount={state.loggedInAccount}
-          onSuccess={() => setActiveAuthServiceId?.(AuthServiceId.None)}
-        ></Web3Login>
+        <Routes>
+          <Route
+            path="/foo"
+            element={
+              <Typography variant="body1" color={'green'}>
+                Successfully routed to redirectUrl: {redirectUrl} after login
+              </Typography>
+            }
+          />
+        </Routes>
+        <Web3Login dispatch={dispatch} loggedInAccount={state.loggedInAccount} onSuccess={() => console.log('succeeded')}></Web3Login>
       </>
     )
   } else {
