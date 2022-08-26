@@ -36,7 +36,7 @@ const authReducer = (state: AuthState, action: AuthAction) => {
     }
 
     case AuthActionType.Logout: {
-      return { ...defaultState(), ...{ reAuthenticate: action.payload.reAuthenticate } }
+      return { ...defaultState(), ...{ reAuthenticate: action.payload.reAuthenticate, tokenCheckComplete: true } }
     }
 
     default: {

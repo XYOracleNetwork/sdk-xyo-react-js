@@ -26,7 +26,9 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
           const huriPayload: XyoHuriPayload = { huri, schema: XyoHuriPayloadSchema }
           const [, payloads] = (await diviner?.query({ payloads: [huriPayload], schema: XyoDivinerDivineQuerySchema })) ?? []
           if (mounted()) {
-            setPayload(compact(payloads)[0] as T)
+            // if [0] returns undefined after the compact then no payloads were found so set payload state to null
+            const results = compact(payloads)[0] as T
+            setPayload(results ? results : null)
           }
         } catch (ex) {
           if (mounted()) {
