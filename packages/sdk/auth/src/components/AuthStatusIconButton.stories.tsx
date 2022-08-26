@@ -24,7 +24,7 @@ const StorybookEntry = {
 const Template: ComponentStory<WrappedAuthComponent> = (args) => {
   const { authState } = args
   return (
-    <AuthProvider authState={authState}>
+    <AuthProvider authState={authState ?? {}}>
       <Toolbar>
         <AuthStatusIconButton />
       </Toolbar>
