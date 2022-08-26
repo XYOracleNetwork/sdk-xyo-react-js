@@ -15,7 +15,7 @@ export const EmbedPluginCard: React.FC<CardProps> = ({ ...props }) => {
   return (
     <Card elevation={3} variant="elevation" {...props}>
       {hideElementsConfig?.hideCardHeader ? null : <EmbedCardHeader />}
-      <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" justifyContent="center" pb={1}>
+      <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" pb={1}>
         {plugins && plugins.length > 1 ? <EmbedRenderSelect /> : null}
         {supportsListMode ? <ListModeSelectFormControl /> : null}
       </FlexGrowRow>
