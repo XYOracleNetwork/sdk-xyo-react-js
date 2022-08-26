@@ -5,7 +5,7 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { ellipsize, EthAddress } from '@xylabs/sdk-js'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { AuthState, useAuthState } from '../contexts'
 
@@ -44,7 +44,6 @@ export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...pr
   const [showReAuthBadge, setReAuthBadge] = useState(authState?.reAuthenticate)
   const navigate = useNavigate()
   const theme = useTheme()
-  const [params, setParams] = useSearchParams()
 
   useEffect(() => {
     formatIconHint(authState, setIconHint)
@@ -64,9 +63,7 @@ export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...pr
 
   const handleClick = () => {
     if (!authState?.loggedInAccount) {
-      params.set('returnUrl', window.location.pathname)
-      setParams(params, { replace: true })
-      navigate('/login')
+      navigate(`/login/?returnUrl=${window.location.hostname}`, { replace: true })
     }
   }
   return (

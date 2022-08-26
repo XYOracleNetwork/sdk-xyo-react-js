@@ -3,7 +3,7 @@ import { XyoApiError, XyoApiResponse } from '@xyo-network/api'
 import { ReactNode } from 'react'
 
 export interface XyoApiErrorRenderProps extends FlexBoxProps {
-  apiError?: XyoApiError
+  apiError?: XyoApiError | Error
   apiFailure?: XyoApiResponse
   customError?: ReactNode
   noReAuth?: boolean
