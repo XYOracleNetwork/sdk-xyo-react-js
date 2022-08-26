@@ -20,7 +20,7 @@ export const ArchivistProvider: React.FC<ArchivistProviderProps> = ({ archivist:
   return (
     <ArchivistContext.Provider
       value={{
-        archivist,
+        archivist: archivist !== archivistProp ? undefined : archivist,
         provided: true,
         setArchivist,
       }}
