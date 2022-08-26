@@ -39,7 +39,6 @@ const formatIconHint = (authState: AuthState | undefined, setIconHint: Dispatch<
 
 export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...props }) => {
   const { state: authState } = useAuthState()
-  console.log(authState)
   const [currentAccount, setCurrentAccount] = useState<string>()
   const [iconHint, setIconHint] = useState<string>()
   const [showReAuthBadge, setReAuthBadge] = useState(authState?.reAuthenticate)
