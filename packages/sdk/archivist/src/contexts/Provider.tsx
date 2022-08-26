@@ -1,6 +1,7 @@
 import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { XyoArchivist, XyoMemoryArchivist, XyoMemoryArchivistConfig } from '@xyo-network/archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
+import merge from 'lodash/merge'
 import { useEffect, useState } from 'react'
 
 import { ArchivistContext } from './Context'
@@ -11,7 +12,7 @@ export type ArchivistProviderProps = ContextExProviderProps<{
 }>
 
 export const ArchivistProvider: React.FC<ArchivistProviderProps> = ({ archivist: archivistProp, required = false, children }) => {
-  const [archivist, setArchivist] = useState<XyoArchivist | undefined>(archivistProp)
+  const [archivist, setArchivist] = useState<XyoArchivist>()
 
   useEffect(() => {
     setArchivist(archivistProp)
@@ -20,7 +21,7 @@ export const ArchivistProvider: React.FC<ArchivistProviderProps> = ({ archivist:
   return (
     <ArchivistContext.Provider
       value={{
-        archivist,
+        archivist: archivist !== archivistProp ? undefined : archivist,
         provided: true,
         setArchivist,
       }}
@@ -36,13 +37,27 @@ export type MemoryArchivistProviderProps = ContextExProviderProps<{
 
 export const MemoryArchivistProvider: React.FC<MemoryArchivistProviderProps> = ({ config, ...props }) => {
   const { archivist } = useArchivist()
-  const memoryArchivistConfig: XyoMemoryArchivistConfig = { ...config }
-  memoryArchivistConfig.parents = memoryArchivistConfig.parents ?? {}
-  memoryArchivistConfig.parents.read = memoryArchivistConfig.parents.read ?? {}
-  if (archivist) {
-    memoryArchivistConfig.parents.read[archivist.address] = archivist
-  }
-  return <ArchivistProvider archivist={new XyoMemoryArchivist(config)} {...props} />
+  return (
+    <ArchivistProvider
+      archivist={
+        new XyoMemoryArchivist(
+          merge(
+            config,
+            archivist
+              ? {
+                  parents: {
+                    read: {
+                      [archivist.address]: archivist,
+                    },
+                  },
+                }
+              : undefined,
+          ),
+        )
+      }
+      {...props}
+    />
+  )
 }
 
 export type ApiArchivistProviderProps = ContextExProviderProps<{
@@ -51,11 +66,25 @@ export type ApiArchivistProviderProps = ContextExProviderProps<{
 
 export const RemoteArchivistProvider: React.FC<ApiArchivistProviderProps> = ({ config, ...props }) => {
   const { archivist } = useArchivist()
-  const remoteArchivistConfig: XyoRemoteArchivistConfig = { ...config }
-  remoteArchivistConfig.parents = remoteArchivistConfig.parents ?? {}
-  remoteArchivistConfig.parents.read = remoteArchivistConfig.parents.read ?? {}
-  if (archivist) {
-    remoteArchivistConfig.parents.read[archivist.address] = archivist
-  }
-  return <ArchivistProvider archivist={new XyoRemoteArchivist(config)} {...props} />
+  return (
+    <ArchivistProvider
+      archivist={
+        new XyoRemoteArchivist(
+          merge(
+            config,
+            archivist
+              ? {
+                  parents: {
+                    read: {
+                      [archivist.address]: archivist,
+                    },
+                  },
+                }
+              : undefined,
+          ),
+        )
+      }
+      {...props}
+    />
+  )
 }

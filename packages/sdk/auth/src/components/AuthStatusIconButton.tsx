@@ -63,7 +63,8 @@ export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ onClick, ...pr
 
   const handleClick = () => {
     if (!authState?.loggedInAccount) {
-      navigate('/login', { state: { from: { pathname: window.location.pathname } } })
+      localStorage.setItem('returnUrl', window.location.pathname)
+      navigate('/login')
     }
   }
   return (

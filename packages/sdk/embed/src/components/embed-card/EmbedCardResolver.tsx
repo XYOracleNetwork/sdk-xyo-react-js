@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { ResultLoader } from '@xyo-network/react-webapp'
 
@@ -14,14 +14,16 @@ export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({
   return (
     <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriApiError}>
       <EmbedCardApiErrorRenderer apiError={huriApiError}>
-        <FlexGrowCol
+        <FlexCol
+          id="embed-outer-wrap"
           alignItems="stretch"
+          justifyContent="start"
           busy={Boolean(!refreshPayload && payload)}
           busyCircularProps={{ style: { alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2 } }}
           {...props}
         >
           {children}
-        </FlexGrowCol>
+        </FlexCol>
       </EmbedCardApiErrorRenderer>
     </ResultLoader>
   )
