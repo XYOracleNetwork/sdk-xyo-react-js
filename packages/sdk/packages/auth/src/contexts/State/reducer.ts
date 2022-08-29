@@ -5,11 +5,8 @@ import { AuthState } from './State'
 
 const authReducer = (state: AuthState, action: AuthAction) => {
   switch (action.type) {
-    case AuthActionType.TokenCheckComplete: {
-      state.tokenCheckComplete = true
-      return { ...state }
-    }
     case AuthActionType.RehydrateState: {
+      console.warn('no longer needed.  Logic Built into AuthProvider')
       if (!action.payload) {
         throw new Error('Missing Payload')
       }
@@ -36,7 +33,7 @@ const authReducer = (state: AuthState, action: AuthAction) => {
     }
 
     case AuthActionType.Logout: {
-      return { ...defaultState(), ...{ reAuthenticate: action.payload.reAuthenticate, tokenCheckComplete: true } }
+      return { ...defaultState(), ...{ reAuthenticate: action.payload.reAuthenticate } }
     }
 
     default: {

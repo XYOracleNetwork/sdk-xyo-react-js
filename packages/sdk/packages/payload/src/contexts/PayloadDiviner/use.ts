@@ -3,7 +3,7 @@ import { XyoDivinerDivineQuerySchema, XyoHuriPayload, XyoHuriPayloadSchema } fro
 import { XyoPayload } from '@xyo-network/payload'
 import { useContextEx } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
-import { Dispatch, useState } from 'react'
+import { Dispatch, useEffect, useState } from 'react'
 
 import { PayloadDivinerContext } from './Context'
 
@@ -17,6 +17,12 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
   const { diviner } = usePayloadDiviner()
   const [payload, setPayload] = useState<T | null>()
   const [error, setError] = useState<Error>()
+
+  useEffect(() => {
+    if (diviner) {
+      setPayload(undefined)
+    }
+  }, [diviner])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -49,6 +55,12 @@ export const useDivinePayloads = <T extends XyoPayload = XyoPayload>(
   const { diviner } = usePayloadDiviner()
   const [payloads, setPayloads] = useState<(T | null)[]>()
   const [errors, setErrors] = useState<Error[]>()
+
+  useEffect(() => {
+    if (diviner) {
+      setPayloads(undefined)
+    }
+  }, [diviner])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
