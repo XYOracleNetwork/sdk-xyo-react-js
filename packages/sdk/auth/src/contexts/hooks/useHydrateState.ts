@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+/* eslint-disable deprecation/deprecation */
+import { AuthState } from '../State'
 
-import { AuthActionType } from '../ActionType'
-import { AuthAction, AuthState } from '../State'
-
-export type SaveableAuthStateProps = Extract<keyof AuthState, 'jwtToken' | 'loggedInAccount'>
+type SaveableAuthStateProps = Extract<keyof AuthState, 'jwtToken' | 'loggedInAccount'>
 
 const LOCAL_STORAGE_NAME = 'AuthState'
 
+/** @deprecated - built into AuthProvider */
 const loadAuthStateFromLocalStorage = () => {
   const savedState = localStorage.getItem(LOCAL_STORAGE_NAME)
   if (savedState) {
@@ -20,6 +19,7 @@ const loadAuthStateFromLocalStorage = () => {
   return null
 }
 
+/** @deprecated - built into AuthProvider */
 const saveAuthStateToLocalStorage = (state: AuthState, keysToSave: SaveableAuthStateProps[]) => {
   const saveableValues = keysToSave.reduce((previous, key) => {
     previous[key] = state[key] ?? undefined
@@ -29,19 +29,11 @@ const saveAuthStateToLocalStorage = (state: AuthState, keysToSave: SaveableAuthS
   localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(saveableValues))
 }
 
-export const useHydrateState = (state: AuthState, dispatch: React.Dispatch<AuthAction>, keysToSave: SaveableAuthStateProps[]) => {
-  const [isFirstRun, setIsFirstRun] = useState(true)
-
-  useEffect(() => {
-    if (isFirstRun) {
-      const authState = loadAuthStateFromLocalStorage()
-      if (authState !== null) {
-        dispatch({ payload: authState, type: AuthActionType.RehydrateState })
-      }
-      setIsFirstRun(false)
-      dispatch({ payload: {}, type: AuthActionType.TokenCheckComplete })
-    } else {
-      saveAuthStateToLocalStorage(state, keysToSave)
-    }
-  }, [dispatch, isFirstRun, state, keysToSave])
+/** @deprecated - built into AuthProvider */
+export const useHydrateState = (keysToSave: SaveableAuthStateProps[]) => {
+  const savedAuthState = loadAuthStateFromLocalStorage()
+  if (savedAuthState !== null) {
+    saveAuthStateToLocalStorage(savedAuthState, keysToSave)
+    return savedAuthState
+  }
 }
