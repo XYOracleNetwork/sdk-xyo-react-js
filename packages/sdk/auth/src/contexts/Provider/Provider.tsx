@@ -1,21 +1,26 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 
 import { AuthContext } from '../Context'
-import { useHydrateState } from '../hooks'
 import { authReducer, AuthState, defaultState } from '../State'
+import { localStorageAuthProviderService } from './lib'
 
 export interface AuthProviderProps {
   authState: Partial<AuthState>
 }
 
 export const AuthProvider: React.FC<WithChildren<AuthProviderProps>> = ({ children, authState }) => {
-  const defaultStateWithServices = { ...defaultState(), ...authState }
+  const { loadAuthStateFromLocalStorage, saveAuthStateToLocalStorage } = localStorageAuthProviderService
+  const savedAuthState = loadAuthStateFromLocalStorage()
+  const defaultStateWithServices = { ...defaultState(), ...savedAuthState, ...authState }
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 
-  useHydrateState(state, dispatch, ['jwtToken', 'loggedInAccount'])
+  useEffect(() => {
+    saveAuthStateToLocalStorage(state, ['jwtToken', 'loggedInAccount'])
+  }, [saveAuthStateToLocalStorage, state])
 
   const value = { dispatch, state }
+  console.log(state)
 
-  return <AuthContext.Provider value={value}>{state.tokenCheckComplete ? children : null}</AuthContext.Provider>
+  return <AuthContext.Provider value={value}>{state ? children : null}</AuthContext.Provider>
 }
