@@ -1,5 +1,5 @@
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { AxiosError } from 'axios'
+import { XyoApiError } from '@xyo-network/api'
 import { PropsWithChildren } from 'react'
 
 import { NotFound } from './NotFoundPage'
