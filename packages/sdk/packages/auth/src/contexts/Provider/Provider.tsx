@@ -20,7 +20,6 @@ export const AuthProvider: React.FC<WithChildren<AuthProviderProps>> = ({ childr
   }, [saveAuthStateToLocalStorage, state])
 
   const value = { dispatch, state }
-  console.log(state)
 
   return <AuthContext.Provider value={value}>{state ? children : null}</AuthContext.Provider>
 }
