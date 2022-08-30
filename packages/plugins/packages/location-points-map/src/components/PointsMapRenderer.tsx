@@ -23,6 +23,15 @@ const PointsMapInner: React.FC<PointsMapInnerProps> = ({ payload, accessToken, .
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken()
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
+  if (Array.isArray(features) && features.length === 0) {
+    return (
+      <Alert severity="warning">
+        <AlertTitle>Missing Data</AlertTitle>
+        No geolocation data present in payload
+      </Alert>
+    )
+  }
+
   return accessTokenResolved ? (
     <XyoMapboxPointsFlexBox
       accessToken={accessTokenResolved}
