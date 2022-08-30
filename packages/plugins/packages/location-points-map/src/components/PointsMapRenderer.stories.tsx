@@ -34,4 +34,16 @@ WithData.args = {
   payload: locationRangeAnswerPayload,
 }
 
-export { Default, WithData }
+const missingData = {
+  result: {
+    features: [],
+  },
+  schema: 'network.xyo.location.range.answer',
+}
+
+const WithNoData = Template.bind({})
+WithNoData.args = {
+  payload: missingData,
+}
+
+export { Default, WithData, WithNoData }

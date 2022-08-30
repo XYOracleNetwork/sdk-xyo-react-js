@@ -27,10 +27,10 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (huri && payload === undefined) {
+      if (huri && diviner && payload === undefined) {
         try {
           const huriPayload: XyoHuriPayload = { huri, schema: XyoHuriPayloadSchema }
-          const [, payloads] = (await diviner?.query({ payloads: [huriPayload], schema: XyoDivinerDivineQuerySchema })) ?? []
+          const [, payloads] = (await diviner.query({ payloads: [huriPayload], schema: XyoDivinerDivineQuerySchema })) ?? []
           if (mounted()) {
             // if [0] returns undefined after the compact then no payloads were found so set payload state to null
             const results = compact(payloads)[0] as T
