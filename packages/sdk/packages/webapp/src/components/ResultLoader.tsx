@@ -5,7 +5,7 @@ import { PropsWithChildren } from 'react'
 import { NotFound } from './NotFoundPage'
 
 export interface HandleItemDetailLoadingProps<T> {
-  apiError: AxiosError | undefined
+  apiError: Error | XyoApiError | undefined
   notFound: boolean
   searchResult: T | undefined
 }
