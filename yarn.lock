@@ -1236,7 +1236,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx@npm:^7.12.12, @babel/plugin-transform-react-jsx@npm:^7.18.6":
+"@babel/plugin-transform-react-jsx@npm:^7.12.12, @babel/plugin-transform-react-jsx@npm:^7.18.10, @babel/plugin-transform-react-jsx@npm:^7.18.6":
   version: 7.18.10
   resolution: "@babel/plugin-transform-react-jsx@npm:7.18.10"
   dependencies:
@@ -3375,9 +3375,9 @@ __metadata:
   linkType: hard
 
 "@sinclair/typebox@npm:^0.24.1":
-  version: 0.24.31
-  resolution: "@sinclair/typebox@npm:0.24.31"
-  checksum: 7bd64b8f7b5241ba6dea3547a0400def9dbeae1df62e22d5b6d02d00c47533fe0da9c1c0094dd1cbd5c6a2afacd81349b0fcb5e00bc43bdb92ba105378a0e0d3
+  version: 0.24.34
+  resolution: "@sinclair/typebox@npm:0.24.34"
+  checksum: 35adcc7698fe751951e75fefe748a1d6e928afa3e52c153d1984a9d47c2a4f39e89f6adf727daef5cc12a58c71c2a0f63e3d88d105e4435252cfb68231518687
   languageName: node
   linkType: hard
 
@@ -5051,9 +5051,9 @@ __metadata:
   linkType: hard
 
 "@types/minimatch@npm:*":
-  version: 5.1.1
-  resolution: "@types/minimatch@npm:5.1.1"
-  checksum: 75d7cc5b0964dab6993dbdc7a4d0f082459260fec3210baa907856fb2cf6bca7112717422b488b81953e07f8fc36466cdaa9e9684942b9210d240ddaa2fdf42a
+  version: 5.1.2
+  resolution: "@types/minimatch@npm:5.1.2"
+  checksum: 0391a282860c7cb6fe262c12b99564732401bdaa5e395bee9ca323c312c1a0f45efbf34dce974682036e857db59a5c9b1da522f3d6055aeead7097264c8705a8
   languageName: node
   linkType: hard
 
@@ -5842,28 +5842,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/eslint-config-react@npm:^2.5.165":
-  version: 2.5.165
-  resolution: "@xylabs/eslint-config-react@npm:2.5.165"
+"@xylabs/eslint-config-react@npm:^2.5.167":
+  version: 2.5.167
+  resolution: "@xylabs/eslint-config-react@npm:2.5.167"
   dependencies:
-    "@xylabs/eslint-config": ^2.5.165
+    "@babel/core": ^7.18.13
+    "@babel/plugin-syntax-flow": ^7.18.6
+    "@babel/plugin-transform-react-jsx": ^7.18.10
+    "@xylabs/eslint-config": ^2.5.167
     eslint-config-react-app: ^7.0.1
     eslint-plugin-react: ^7.31.1
     eslint-plugin-react-hooks: ^4.6.0
     typescript: ^4.8.2
-  checksum: 3b84c375da4b02c840fce71fcb5ce2f6a530cd2dd32207ddec6bd26ba93b408d63d3931223dfc544834864972391fce9258d4112f1ec8506c8712ef849840651
+  peerDependencies:
+    eslint: ^8.23.0
+  checksum: 91c6095ae981facce490e402a181395b78cf9283366caf94aa8ff19de193bd3bc08bea76ad68972c9a4fc5e75230b6902cc6ec1f366bdace0f885ee6c33de63f
   languageName: node
   linkType: hard
 
-"@xylabs/eslint-config@npm:^2.5.165":
-  version: 2.5.165
-  resolution: "@xylabs/eslint-config@npm:2.5.165"
+"@xylabs/eslint-config@npm:^2.5.167":
+  version: 2.5.167
+  resolution: "@xylabs/eslint-config@npm:2.5.167"
   dependencies:
     "@babel/core": ^7.18.13
     "@babel/eslint-parser": ^7.18.9
     "@typescript-eslint/eslint-plugin": ^5.36.1
     "@typescript-eslint/parser": ^5.36.1
-    eslint: ^8.23.0
     eslint-config-prettier: ^8.5.0
     eslint-import-resolver-typescript: ^3.5.0
     eslint-plugin-deprecation: ^1.3.2
@@ -5880,7 +5884,9 @@ __metadata:
     remark-lint-maximum-line-length: ^3.1.2
     remark-preset-lint-markdown-style-guide: ^5.1.2
     typescript: ^4.8.2
-  checksum: a866fa5ed3c2c180b27bc1fe650d130a910231cb52130eed88302e273ccab70328b8f3e972cae0220dc744c94f1b7d6a64c2920140a2620e0f9b450e4656db52
+  peerDependencies:
+    eslint: ^8.23.0
+  checksum: bfa30a341dffa2f6a2ee0115b9eb7693d8b8ad053eca4dfa08b91918a6e5ee6d1e45e38787d4872824bc658968af7e79c86e0bb9e4f2f1df0f7d10099052efd6
   languageName: node
   linkType: hard
 
@@ -6236,15 +6242,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/ts-scripts-yarn3@npm:^2.5.165":
-  version: 2.5.165
-  resolution: "@xylabs/ts-scripts-yarn3@npm:2.5.165"
+"@xylabs/ts-scripts-yarn3@npm:^2.5.167":
+  version: 2.5.167
+  resolution: "@xylabs/ts-scripts-yarn3@npm:2.5.167"
   dependencies:
     "@babel/core": ^7.18.13
     "@babel/preset-env": ^7.18.10
     "@types/jest": ^29.0.0
     "@types/node": ^18.7.14
-    "@xylabs/eslint-config": ^2.5.165
+    "@xylabs/eslint-config": ^2.5.167
     chalk: ^4
     cpy: ^8
     depcheck: ^1.4.3
@@ -6310,26 +6316,26 @@ __metadata:
     up: dist/cjs/bin/up.js
     updo: dist/cjs/bin/updo.js
     yarn3only: dist/cjs/bin/yarn3only.js
-  checksum: 52166a11f72719826b347c6f1d7b14d60a85937eb23342c7508fc448e2cad14986240560b31ce8502a88ce0f2754c84e10a6f9e040428e8456232387bdc117ae
+  checksum: 0d257bf171cfc6ef7ff60cfd0f13c92578ca9e72ef02ba30331ec20fce0f9e39c401eaa21feccb4c6678520b1a7926e94663cc05f404a64c14344bfd6182fac1
   languageName: node
   linkType: hard
 
-"@xylabs/tsconfig-dom@npm:^2.5.165":
-  version: 2.5.165
-  resolution: "@xylabs/tsconfig-dom@npm:2.5.165"
+"@xylabs/tsconfig-dom@npm:^2.5.167":
+  version: 2.5.167
+  resolution: "@xylabs/tsconfig-dom@npm:2.5.167"
   dependencies:
-    "@xylabs/tsconfig": ^2.5.165
+    "@xylabs/tsconfig": ^2.5.167
     typescript: ^4.8.2
-  checksum: 1886ef1aa29f8d6b80bd0c9aeb87e2d4cdfeb35b183a862e1624633b00bf05a8306b88ec2d08839b6ba96de16b67a2db2eb1ca16994facdb95ebcc601b51daba
+  checksum: 1c356c3966f5616ac8238b0e35798fe4b72138f717a5e66d7ce2d6d61c3d548a3b82392f9b015a44e6ae118dd518594d681bbcb79c5947eb254accfadf0c1bf8
   languageName: node
   linkType: hard
 
-"@xylabs/tsconfig@npm:^2.5.165":
-  version: 2.5.165
-  resolution: "@xylabs/tsconfig@npm:2.5.165"
+"@xylabs/tsconfig@npm:^2.5.167":
+  version: 2.5.167
+  resolution: "@xylabs/tsconfig@npm:2.5.167"
   dependencies:
     typescript: ^4.8.2
-  checksum: 6186648eb4b033b57c602eb93beb5a2e17b6a5870bbf3a7a366ffdf3f45b0399acedbe70165022160587fe8f4829f14a67c5579975d92059140dca063db53dc7
+  checksum: 3db68fc63512e3db6ef206f36d03618558e0fb5c2d8368b79088abb2f686f3d5750150433dabebf4f758ef21676abcf1427d98ea037b08a83c9ae0877b733614
   languageName: node
   linkType: hard
 
@@ -7543,11 +7549,11 @@ __metadata:
     "@storybook/react": ^6.5.10
     "@storybook/testing-library": ^0.0.13
     "@storybook/theming": ^6.5.10
-    "@xylabs/eslint-config-react": ^2.5.165
+    "@xylabs/eslint-config-react": ^2.5.167
     "@xylabs/react-flexbox": ^2.14.14
     "@xylabs/react-invertable-theme": ^2.14.14
-    "@xylabs/ts-scripts-yarn3": ^2.5.165
-    "@xylabs/tsconfig-dom": ^2.5.165
+    "@xylabs/ts-scripts-yarn3": ^2.5.167
+    "@xylabs/tsconfig-dom": ^2.5.167
     "@xyo-network/archivist": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/diviner": ^2.30.0-rc.3
@@ -7562,6 +7568,8 @@ __metadata:
     "@xyo-network/wallet": ^2.30.0-rc.3
     assert: ^2.0.0
     chromatic: ^6.8.0
+    eslint: ^8.23.0
+    react: ^18.2.0
     require-from-string: ^2.0.2
     storybook-dark-mode: ^1.1.0
     typescript: ^4.8.2
@@ -9099,9 +9107,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001370":
-  version: 1.0.30001385
-  resolution: "caniuse-lite@npm:1.0.30001385"
-  checksum: fc526aa2a8070f7b77e7128567cb7e599ae7b1a172bef965f60345b7a327daa5029e984b42819e5c0a6de4282c9e932f58978cf36f58cc381d5128a940485d96
+  version: 1.0.30001387
+  resolution: "caniuse-lite@npm:1.0.30001387"
+  checksum: 57b894aa54da582f867018cdbc3c8956f894962988233cd4ace8710ab0e3405dd928926e35f46e5a9b4068e5cea7e36c6e14f930c9c40972885f329df7e8119e
   languageName: node
   linkType: hard
 
@@ -10542,9 +10550,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.202":
-  version: 1.4.236
-  resolution: "electron-to-chromium@npm:1.4.236"
-  checksum: 3eaf8c305f9c7ff3924808eeeb9ef664e7aa3dbb3d4a428ece4d1b390788dbced0ddbfe774aa57f788a71c69404c45d6646c09b49cce2f14166d2d0a02b71cf7
+  version: 1.4.237
+  resolution: "electron-to-chromium@npm:1.4.237"
+  checksum: 5f95ada8864dfa423e5fdc3ba69ee81d8229a6934079849b33125081d58f4d6243cc627bbfba8faea08fad2ed3e625cd6bcfcdfcbe6e984796e2bf9ca3ca2227
   languageName: node
   linkType: hard
 
@@ -20727,15 +20735,15 @@ __metadata:
   linkType: hard
 
 "sass@npm:^1.29.0":
-  version: 1.54.6
-  resolution: "sass@npm:1.54.6"
+  version: 1.54.7
+  resolution: "sass@npm:1.54.7"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 0cfd3e1b5d3c79a53cdd84bf0d3bd3160c99a87e9ea948f8d025a93477e058ecf80d64f45127d5e23c62ed2e34279b9672198f640d10e48a6cbd5ccebc5df899
+  checksum: 4b6a10e93387e65dcbad2683d46b4249453ab8777c1bafab7a73ac3900a21fa91fa31d68df7a1b982c7e332a99b5574b1adc6168eb1ac6d7ebb28e18a65c4198
   languageName: node
   linkType: hard
 
