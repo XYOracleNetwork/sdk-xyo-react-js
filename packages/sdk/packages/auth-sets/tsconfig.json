@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../auth-sets",
+    "composite": true,
+    "outDir": "../auth-sets/dist",
+    "rootDir": "../auth-sets/src"
+  },
+  "extends": "../../tsconfig.json",
+  "include": ["../auth-sets/src/**/*"]
+}
