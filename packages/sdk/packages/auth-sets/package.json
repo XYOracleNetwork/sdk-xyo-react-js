@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-sdk",
+  "name": "@xyo-network/react-auth-sets",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,38 +10,17 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-app-settings": "workspace:^",
-    "@xyo-network/react-appbar": "workspace:^",
-    "@xyo-network/react-archive": "workspace:^",
-    "@xyo-network/react-archivist": "workspace:^",
+    "@xylabs/react-shared": "^2.14.14",
     "@xyo-network/react-archivist-api": "workspace:^",
     "@xyo-network/react-auth": "workspace:^",
-    "@xyo-network/react-auth-service": "workspace:^",
-    "@xyo-network/react-auth-sets": "workspace:/^",
-    "@xyo-network/react-block": "workspace:^",
-    "@xyo-network/react-card": "workspace:^",
-    "@xyo-network/react-embed": "workspace:^",
-    "@xyo-network/react-footer": "workspace:^",
-    "@xyo-network/react-login-forms": "workspace:^",
-    "@xyo-network/react-map": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
-    "@xyo-network/react-panel": "workspace:^",
-    "@xyo-network/react-payload": "workspace:^",
-    "@xyo-network/react-payload-plugin": "workspace:^",
-    "@xyo-network/react-payload-table": "workspace:^",
-    "@xyo-network/react-property": "workspace:^",
-    "@xyo-network/react-schema": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/react-theme": "workspace:^",
-    "@xyo-network/react-typedoc": "workspace:^",
-    "@xyo-network/react-wallet": "workspace:^",
-    "@xyo-network/react-wallet-service": "workspace:^",
-    "@xyo-network/react-webapp": "workspace:^",
     "react": "^18.2.0",
     "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
+    "@storybook/react": "^6.5.10",
     "@xylabs/tsconfig-dom": "^2.5.163"
   },
   "browser": "dist/esm/index.js",
