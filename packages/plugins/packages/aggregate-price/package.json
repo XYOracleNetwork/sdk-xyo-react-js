@@ -16,8 +16,6 @@
     "@xylabs/decimal-precision": "^2.6.7",
     "@xylabs/react-flexbox": "^2.14.14",
     "@xylabs/react-quick-tip-button": "^2.14.14",
-    "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
-    "@xyo-network/payload": "^2.30.0-rc.3",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "lodash": "^4.17.21",
@@ -25,9 +23,14 @@
     "react-dom": "^18.2.0",
     "tslib": "^2.4.0"
   },
+  "peerDependencies": {
+    "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3"
+  },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@storybook/react": "^6.5.10"
+    "@storybook/react": "^6.5.10",
+    "require-from-string": "^2.0.2"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
