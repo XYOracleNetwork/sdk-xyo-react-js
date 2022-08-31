@@ -1,6 +1,6 @@
 import { AuthState } from '../../State'
 
-export type SaveableAuthStateProps = Extract<keyof AuthState, 'jwtToken' | 'loggedInAccount'>
+export type SaveableAuthStateProps = Extract<keyof AuthState, 'jwtToken' | 'loggedInAccount' | 'issuer'>
 
 const LOCAL_STORAGE_NAME = 'AuthState'
 

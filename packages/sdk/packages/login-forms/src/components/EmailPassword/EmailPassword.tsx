@@ -23,7 +23,7 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
   useEffect(() => {
     if (!isLoading && token) {
       dispatch({
-        payload: { jwtToken: token, loggedInAccount: credentials.email },
+        payload: { issuer: api?.config.apiDomain, jwtToken: token, loggedInAccount: credentials.email },
         type: AuthActionType.AuthSuccessful,
       })
       onSuccess?.()

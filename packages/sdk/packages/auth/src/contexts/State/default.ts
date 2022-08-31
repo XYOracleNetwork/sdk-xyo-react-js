@@ -2,12 +2,12 @@ import { AuthState } from './State'
 
 export const defaultState = (): AuthState => {
   return {
-    apiDomain: 'http://localhost:8081',
+    apiDomain: '',
     authError: undefined,
     isLoading: false,
+    issuer: '',
     jwtToken: '',
     loggedInAccount: '',
     reAuthenticate: false,
-    tokenCheckComplete: false,
   }
 }
