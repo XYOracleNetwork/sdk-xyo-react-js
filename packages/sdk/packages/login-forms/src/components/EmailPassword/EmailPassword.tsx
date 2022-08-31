@@ -29,7 +29,7 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
       onSuccess?.()
       handleReturnUrl()
     }
-  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl, onSuccess])
+  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl, onSuccess, api.config.apiDomain])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
