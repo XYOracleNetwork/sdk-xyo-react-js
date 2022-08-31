@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-auth",
+  "name": "@xyo-network/react-auth-sets",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,32 +10,18 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
-    "@xylabs/react-button": "^2.14.14",
-    "@xylabs/react-flexbox": "^2.14.14",
-    "@xylabs/react-identicon": "^2.14.14",
-    "@xylabs/react-invertable-theme": "^2.14.14",
     "@xylabs/react-shared": "^2.14.14",
-    "@xylabs/sdk-js": "^2.6.7",
-    "@xyo-network/api": "^2.29.0",
-    "lodash": "^4.17.21",
+    "@xyo-network/react-archivist-api": "workspace:^",
+    "@xyo-network/react-auth": "workspace:^",
+    "@xyo-network/react-network": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
     "tslib": "^2.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@storybook/react": "^6.5.10",
-    "@types/lodash": "^4.14.184",
-    "@xylabs/sdk-js": "^2.6.7",
-    "@xylabs/tsconfig-dom": "^2.5.163",
-    "@xyo-network/react-auth-service": "workspace:^",
-    "@xyo-network/react-storybook": "workspace:^",
-    "axios": "^0.27.2"
+    "@xylabs/tsconfig-dom": "^2.5.163"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
