@@ -6590,8 +6590,17 @@ __metadata:
     require-from-string: ^2.0.2
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6635,12 +6644,19 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
-    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6661,10 +6677,20 @@ __metadata:
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6680,14 +6706,25 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
     "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6705,9 +6742,6 @@ __metadata:
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": 2.6.7
     "@xyo-network/account": ^2.30.0-rc.3
-    "@xyo-network/api": ^2.30.0-rc.3
-    "@xyo-network/archivist": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
@@ -6715,6 +6749,10 @@ __metadata:
     react-dom: ^18.2.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6732,6 +6770,7 @@ __metadata:
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
@@ -6743,6 +6782,8 @@ __metadata:
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     axios: ^0.27.2
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -6750,6 +6791,14 @@ __metadata:
     require-from-string: ^2.0.2
     rollbar: ^2.25.1
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6769,9 +6818,11 @@ __metadata:
     "@xylabs/react-invertable-theme": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     axios: ^0.27.2
     lodash: ^4.17.21
     react: ^18.2.0
@@ -6779,6 +6830,14 @@ __metadata:
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6795,9 +6854,6 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/boundwitness": ^2.30.0-rc.3
-    "@xyo-network/core": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
@@ -6813,6 +6869,20 @@ __metadata:
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/core": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6850,9 +6920,18 @@ __metadata:
     require-from-string: ^2.0.2
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
     "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6872,8 +6951,18 @@ __metadata:
     require-from-string: ^2.0.2
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6891,9 +6980,19 @@ __metadata:
     require-from-string: ^2.0.2
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
     "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6905,6 +7004,19 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     react: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6920,9 +7032,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
@@ -6930,12 +7040,23 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-webapp": "workspace:^"
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
-    "@xyo-network/utils": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6968,16 +7089,39 @@ __metadata:
     "@mui/material": ^5.10.3
     "@storybook/react": ^6.5.10
     "@xylabs/react-flexbox": ^2.14.14
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
+    "@xyo-network/witness": ^2.30.0-rc.3
     geojson: ^0.5.0
     react: ^18.2.0
     react-dom: ^18.2.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
+    "@xyo-network/witness": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -6989,15 +7133,35 @@ __metadata:
     "@emotion/styled": ^11.10.4
     "@mui/material": ^5.10.3
     "@storybook/react": ^6.5.10
+    "@xylabs/sdk-react": ^2.14.14
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7015,17 +7179,27 @@ __metadata:
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7048,11 +7222,21 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/sdk-geo": ^2.6.19
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     geojson: ^0.5.0
     mapbox-gl: ^2.10.0
     react: ^18.2.0
     react-dom: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7068,13 +7252,14 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/react-shared": "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/network": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7091,9 +7276,22 @@ __metadata:
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     "@xyo-network/witness": ^2.30.0-rc.3
     react: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/panel": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
+    "@xyo-network/witness": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7102,12 +7300,31 @@ __metadata:
   resolution: "@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload-plugin-resolver"
   dependencies:
     "@xylabs/sdk-js": ^2.6.7
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7124,18 +7341,33 @@ __metadata:
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
     react-json-view: ^1.21.3
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7149,7 +7381,7 @@ __metadata:
     "@mui/material": ^5.10.3
     "@storybook/react": ^6.5.10
     "@xylabs/react-shared": ^2.14.14
-    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
@@ -7163,6 +7395,18 @@ __metadata:
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7194,7 +7438,9 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-webapp": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7202,6 +7448,17 @@ __metadata:
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7221,11 +7478,21 @@ __metadata:
     react: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
     "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
+    "@xyo-network/witness": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7239,7 +7506,16 @@ __metadata:
     react: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7258,11 +7534,12 @@ __metadata:
     "@xylabs/react-quick-tip-button": ^2.14.14
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    "@xyo-network/typeof": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/typeof": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7271,13 +7548,31 @@ __metadata:
   resolution: "@xyo-network/react-schema-plugin@workspace:packages/plugins/packages/schema"
   dependencies:
     "@xylabs/react-flexbox": ^2.14.14
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7294,6 +7589,7 @@ __metadata:
     "@xylabs/react-link": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
     "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
@@ -7301,11 +7597,21 @@ __metadata:
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7313,6 +7619,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-sdk@workspace:packages/sdk"
   dependencies:
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/core": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/panel": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-archive": "workspace:^"
@@ -7339,8 +7654,28 @@ __metadata:
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/react-webapp": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
+    "@xyo-network/witness": ^2.30.0-rc.3
     react: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/core": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/panel": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
+    "@xyo-network/witness": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7372,6 +7707,8 @@ __metadata:
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/core": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7392,14 +7729,20 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.14
     "@xylabs/react-invertable-theme": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/boundwitness": ^2.30.0-rc.3
     "@xyo-network/core": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7438,7 +7781,6 @@ __metadata:
     "@xylabs/react-button": ^2.14.14
     "@xylabs/react-flexbox": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/core": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-json-view: ^1.21.3
@@ -7447,6 +7789,8 @@ __metadata:
     tslib: ^2.4.0
     typedoc: ^0.23.11
     typescript: ^4.8.2
+  peerDependencies:
+    "@xyo-network/core": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7457,9 +7801,10 @@ __metadata:
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/utils": ^2.30.0-rc.3
     react: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/utils": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7478,15 +7823,17 @@ __metadata:
     "@xylabs/react-number-status": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/account": ^2.30.0-rc.3
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7505,10 +7852,13 @@ __metadata:
     "@xylabs/react-pixel": ^2.14.14
     "@xylabs/react-shared": ^2.14.14
     "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
     axios: ^0.27.2
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7516,6 +7866,14 @@ __metadata:
     react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
@@ -7571,10 +7929,26 @@ __metadata:
     "@xylabs/react-invertable-theme": ^2.14.14
     "@xylabs/ts-scripts-yarn3": ^2.5.163
     "@xylabs/tsconfig-dom": ^2.5.163
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/core": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/panel": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-plugins": "workspace:^"
     "@xyo-network/react-sdk": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
+    "@xyo-network/witness": ^2.30.0-rc.3
     assert: ^2.0.0
     chromatic: ^6.8.0
     react: ^18.2.0
@@ -7583,11 +7957,24 @@ __metadata:
     storybook-dark-mode: ^1.1.0
     typescript: ^4.8.2
   peerDependencies:
+    "@xyo-network/account": ^2.30.0-rc.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
     "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/core": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/panel": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/typeof": ^2.30.0-rc.3
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/wallet": ^2.30.0-rc.3
+    "@xyo-network/witness": ^2.30.0-rc.3
   languageName: unknown
   linkType: soft
 
