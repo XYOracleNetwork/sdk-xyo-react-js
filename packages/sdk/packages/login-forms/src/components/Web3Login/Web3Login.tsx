@@ -32,7 +32,7 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
       handleReturnUrl()
       onSuccess?.()
     }
-  }, [isLoading, token, dispatch, metaMaskWallet.currentAccount, handleReturnUrl, onSuccess, loggedInAccount])
+  }, [isLoading, token, dispatch, api?.config.apiDomain, metaMaskWallet.currentAccount, handleReturnUrl, onSuccess, loggedInAccount])
 
   useEffect(() => {
     if (checkedWallet) {
