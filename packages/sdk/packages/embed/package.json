@@ -17,38 +17,27 @@
     "@xylabs/react-flexbox": "^2.14.14",
     "@xylabs/react-shared": "^2.14.14",
     "@xylabs/sdk-js": "^2.6.7",
+    "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-auth-service": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/react-webapp": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
     "@xyo-network/account": "^2.30.0-rc.3",
-    "@xyo-network/api": "^2.30.0-rc.3",
-    "@xyo-network/archivist": "^2.30.0-rc.3",
     "@xyo-network/core": "^2.30.0-rc.3",
-    "@xyo-network/diviner": "^2.30.0-rc.3",
     "@xyo-network/network": "^2.30.0-rc.3",
-    "@xyo-network/payload": "^2.30.0-rc.3",
-    "@xyo-network/payload-plugin": "^2.30.0-rc.3",
     "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
-    "@xyo-network/typeof": "^2.30.0-rc.3",
-    "@xyo-network/utils": "^2.30.0-rc.3",
-    "@xyo-network/wallet": "^2.30.0-rc.3"
+    "@xyo-network/typeof": "^2.30.0-rc.3"
+  },
+  "devDependencies": {
+    "@xyo-network/api": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3",
+    "@xyo-network/utils": "^2.30.0-rc.3"
   },
   "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@storybook/react": "^6.5.10",
-    "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
-    "@xyo-network/react-aggregate-price-plugin": "workspace:^",
-    "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^",
-    "@xyo-network/uniswap-crypto-market-payload-plugin": "^2.30.0-rc.3",
-    "react-router-dom": "^6.3.0",
-    "require-from-string": "^2.0.2"
-  },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {

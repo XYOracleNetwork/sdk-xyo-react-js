@@ -22,11 +22,9 @@
     "@xylabs/react-shared": "^2.14.14",
     "@xyo-network/react-app-settings": "workspace:^",
     "@xyo-network/react-archive": "workspace:^",
-    "@xyo-network/react-archivist-api": "workspace:^",
     "@xyo-network/react-auth": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/react-wallet": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
@@ -34,20 +32,11 @@
   },
   "peerDependencies": {
     "@xyo-network/account": "^2.30.0-rc.3",
-    "@xyo-network/api": "^2.30.0-rc.3",
     "@xyo-network/core": "^2.30.0-rc.3",
     "@xyo-network/network": "^2.30.0-rc.3",
-    "@xyo-network/payload": "^2.30.0-rc.3",
-    "@xyo-network/typeof": "^2.30.0-rc.3",
-    "@xyo-network/utils": "^2.30.0-rc.3",
-    "@xyo-network/wallet": "^2.30.0-rc.3"
+    "@xyo-network/typeof": "^2.30.0-rc.3"
   },
   "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@storybook/react": "^6.5.10",
-    "@xyo-network/react-storybook": "workspace:^",
-    "require-from-string": "^2.0.2"
-  },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {

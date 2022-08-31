@@ -10,6 +10,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-app-settings": "workspace:^",
     "@xyo-network/react-appbar": "workspace:^",
     "@xyo-network/react-archive": "workspace:^",
@@ -63,13 +64,11 @@
     "@xyo-network/core": "^2.30.0-rc.3",
     "@xyo-network/diviner": "^2.30.0-rc.3",
     "@xyo-network/network": "^2.30.0-rc.3",
-    "@xyo-network/panel": "^2.30.0-rc.3",
     "@xyo-network/payload": "^2.30.0-rc.3",
     "@xyo-network/payload-plugin": "^2.30.0-rc.3",
     "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
     "@xyo-network/utils": "^2.30.0-rc.3",
-    "@xyo-network/wallet": "^2.30.0-rc.3",
-    "@xyo-network/witness": "^2.30.0-rc.3"
+    "@xyo-network/wallet": "^2.30.0-rc.3"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
