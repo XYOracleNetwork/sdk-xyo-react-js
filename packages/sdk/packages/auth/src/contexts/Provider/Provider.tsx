@@ -16,7 +16,7 @@ export const AuthProvider: React.FC<WithChildren<AuthProviderProps>> = ({ childr
   const [state, dispatch] = useReducer(authReducer, defaultStateWithServices)
 
   useEffect(() => {
-    saveAuthStateToLocalStorage(state, ['jwtToken', 'loggedInAccount'])
+    saveAuthStateToLocalStorage(state, ['jwtToken', 'loggedInAccount', 'issuer'])
   }, [saveAuthStateToLocalStorage, state])
 
   const value = { dispatch, state }

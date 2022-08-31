@@ -26,13 +26,13 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
   useEffect(() => {
     if (!isLoading && token && !loggedInAccount) {
       dispatch({
-        payload: { jwtToken: token, loggedInAccount: metaMaskWallet.currentAccount },
+        payload: { issuer: api?.config.apiDomain, jwtToken: token, loggedInAccount: metaMaskWallet.currentAccount },
         type: AuthActionType.AuthSuccessful,
       })
       handleReturnUrl()
       onSuccess?.()
     }
-  }, [isLoading, token, dispatch, metaMaskWallet.currentAccount, handleReturnUrl, onSuccess, loggedInAccount])
+  }, [isLoading, token, dispatch, api?.config.apiDomain, metaMaskWallet.currentAccount, handleReturnUrl, onSuccess, loggedInAccount])
 
   useEffect(() => {
     if (checkedWallet) {
