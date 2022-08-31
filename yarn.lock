@@ -6875,13 +6875,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-auth-sets@workspace:packages/sdk/packages/auth-sets":
+"@xyo-network/react-auth-sets@workspace:^, @xyo-network/react-auth-sets@workspace:packages/sdk/packages/auth-sets":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-auth-sets@workspace:packages/sdk/packages/auth-sets"
   dependencies:
-    "@emotion/react": ^11.10.0
-    "@emotion/styled": ^11.10.0
-    "@mui/material": ^5.10.3
     "@storybook/react": ^6.5.10
     "@xylabs/react-shared": ^2.14.14
     "@xylabs/tsconfig-dom": ^2.5.163
@@ -6890,8 +6887,6 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     react: ^18.2.0
-    react-dom: ^18.2.0
-    react-router-dom: ^6.3.0
     tslib: ^2.4.0
   languageName: unknown
   linkType: soft
@@ -7454,6 +7449,7 @@ __metadata:
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
+    "@xyo-network/react-auth-sets": "workspace:^"
     "@xyo-network/react-block": "workspace:^"
     "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-embed": "workspace:^"
