@@ -11,9 +11,6 @@
   },
   "dependencies": {
     "@xylabs/sdk-js": "^2.6.7",
-    "@xyo-network/coingecko-crypto-market-payload-plugin": "^2.30.0-rc.3",
-    "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
-    "@xyo-network/payload": "^2.30.0-rc.3",
     "@xyo-network/react-aggregate-price-plugin": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
@@ -21,6 +18,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
+    "@xyo-network/coingecko-crypto-market-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {

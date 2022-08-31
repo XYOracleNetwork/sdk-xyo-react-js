@@ -10,8 +10,6 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
-    "@xyo-network/payload": "^2.30.0-rc.3",
     "@xyo-network/react-aggregate-price-plugin": "workspace:^",
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^",
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^",
@@ -23,6 +21,13 @@
     "@xyo-network/react-schema-plugin": "workspace:^",
     "react": "^18.2.0",
     "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
+    "@xyo-network/coingecko-crypto-market-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3",
+    "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/uniswap-crypto-market-payload-plugin": "^2.30.0-rc.3"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",

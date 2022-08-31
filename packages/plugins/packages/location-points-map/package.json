@@ -13,13 +13,15 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.3",
-    "@xyo-network/payload": "^2.30.0-rc.3",
     "@xyo-network/react-map": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-storybook": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
+    "@xyo-network/payload": "^2.30.0-rc.3"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
