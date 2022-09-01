@@ -12,12 +12,10 @@
   "dependencies": {
     "@xyo-network/react-payload": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
+    "react": "^18.2.0",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
-    "@mui/styles": "^5.10.3",
     "@xyo-network/archivist": "^2.30.0-rc.3",
     "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
     "@xyo-network/diviner": "^2.30.0-rc.3",
@@ -25,15 +23,7 @@
     "@xyo-network/payload-plugin": "^2.30.0-rc.3",
     "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
     "@xyo-network/utils": "^2.30.0-rc.3",
-    "@xyo-network/wallet": "^2.30.0-rc.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0"
-  },
-  "devDependencies": {
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
-    "@mui/styles": "^5.10.3"
+    "@xyo-network/wallet": "^2.30.0-rc.3"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
@@ -78,6 +68,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.32.0-rc.9",
-  "stableVersion": "2.31.3"
+  "version": "2.32.0-rc.6",
+  "stableVersion": "2.31.2"
 }
