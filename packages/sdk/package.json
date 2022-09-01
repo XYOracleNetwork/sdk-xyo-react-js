@@ -10,10 +10,6 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/account": "workspace:^",
-    "@xyo-network/boundwitness": "workspace:^",
-    "@xyo-network/core": "workspace:^",
-    "@xyo-network/payload": "workspace:^",
     "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-app-settings": "workspace:^",
     "@xyo-network/react-appbar": "workspace:^",
@@ -39,24 +35,15 @@
     "@xyo-network/react-shared": "workspace:^",
     "@xyo-network/react-theme": "workspace:^",
     "@xyo-network/react-typedoc": "workspace:^",
-    "@xyo-network/wallet": "workspace:^",
+    "@xyo-network/react-wallet": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
     "@xyo-network/react-webapp": "workspace:^",
-    "@xylabs/react-button": "^2.14.14",
-    "@xylabs/react-common": "^2.14.14",
-    "@xylabs/react-crypto": "^2.14.14",
-    "@xylabs/react-flexbox": "^2.14.14",
-    "@xylabs/react-identicon": "^2.14.14",
-    "@xylabs/react-invertable-theme": "^2.14.14",
-    "@xylabs/react-number-status": "^2.14.14",
-    "@xylabs/react-pixel": "^2.14.14",
-    "@xylabs/sdk-js": "^2.6.7",
     "react": "^18.2.0",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@xyo-network/schema-payload-plugin": "^2.29.2",
-    "@xyo-network/utils": "^2.29.2"
+    "@xyo-network/schema-payload-plugin": "next",
+    "@xyo-network/utils": "next"
   },
   "peerDependencies": {
     "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
