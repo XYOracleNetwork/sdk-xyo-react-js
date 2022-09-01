@@ -1,9 +1,11 @@
-import { TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded'
+import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded'
+import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded'
+import { alpha, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { XyoPayload, XyoPayloadValidator, XyoPayloadWrapper } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
-import { MdClear, MdDone } from 'react-icons/md'
 
 import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig'
 
@@ -52,15 +54,16 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
 
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>
-      <Typography fontFamily="monospace" variant="body2" noWrap>
-        {isValid === undefined ? (
-          <MdDone fontSize={18} color="yellow" />
-        ) : isValid ? (
-          <MdDone fontSize={18} color="green" />
-        ) : (
-          <MdClear color="red" fontSize={18} />
-        )}
-      </Typography>
+      {isValid === undefined && payload != undefined ? (
+        <WarningAmberRoundedIcon fontSize="small" color="warning" />
+      ) : isValid === true ? (
+        <CheckCircleOutlineRoundedIcon fontSize="small" color="success" />
+      ) : isValid === false ? (
+        <ErrorOutlineRoundedIcon color="error" fontSize="small" />
+      ) : (
+        //to keep row height consistent when no data provided, may need fix later
+        <ErrorOutlineRoundedIcon sx={{ color: alpha('#fff', 0) }} fontSize="small" />
+      )}
     </TableCell>
   )
 
