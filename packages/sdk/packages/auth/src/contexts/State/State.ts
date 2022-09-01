@@ -16,5 +16,6 @@ export interface AuthState {
   jwtToken?: string
   loggedInAccount?: string | null
   reAuthenticate?: boolean
-  tokenCheckComplete?: boolean
+  /** url responsible for issuing the current jwtToken */
+  issuer?: string
 }

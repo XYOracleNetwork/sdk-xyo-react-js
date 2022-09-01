@@ -14,8 +14,8 @@ const authReducer = (state: AuthState, action: AuthAction) => {
     }
 
     case AuthActionType.AuthSuccessful: {
-      if (!action.payload?.jwtToken || !action.payload?.loggedInAccount) {
-        throw new Error('jwtToken or loggedInAccount missing from  payload')
+      if (!action.payload?.jwtToken || !action.payload?.loggedInAccount || !action.payload.issuer) {
+        throw new Error('jwtToken or loggedInAccount or issuer missing from  payload')
       }
       const authCompleteState: Partial<AuthState> = {
         isLoading: false,

@@ -23,13 +23,13 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
   useEffect(() => {
     if (!isLoading && token) {
       dispatch({
-        payload: { jwtToken: token, loggedInAccount: credentials.email },
+        payload: { issuer: api?.config.apiDomain, jwtToken: token, loggedInAccount: credentials.email },
         type: AuthActionType.AuthSuccessful,
       })
       onSuccess?.()
       handleReturnUrl()
     }
-  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl, onSuccess])
+  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl, onSuccess, api?.config.apiDomain])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
