@@ -1,0 +1,31 @@
+import { CardContent } from '@mui/material'
+import { FlexGrowRow } from '@xylabs/react-flexbox'
+import { useListMode } from '@xyo-network/react-shared'
+
+import { useResolvePayload, useXyoEmbedPluginState } from '../../../contexts'
+import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls'
+import { BusyCard, BusyCardProps } from './BusyCard'
+import { EmbedCardHeader } from './EmbedCardHeader'
+
+export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
+  const { payload } = useResolvePayload()
+  const { activePlugin: ActivePlugin, plugins, hideElementsConfig } = useXyoEmbedPluginState()
+  const { listMode } = useListMode()
+  const supportsListMode = ActivePlugin?.components?.box?.listModes?.length ?? 0 > 1
+
+  return (
+    <BusyCard elevation={3} variant="elevation" {...props}>
+      {hideElementsConfig?.hideCardHeader ? null : <EmbedCardHeader />}
+      {/* Only show the row if the children are present */}
+      {(plugins && plugins.length) || supportsListMode ? (
+        <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" pb={1}>
+          {plugins && plugins.length > 1 ? <EmbedRenderSelect /> : null}
+          {supportsListMode ? <ListModeSelectFormControl /> : null}
+        </FlexGrowRow>
+      ) : null}
+      <CardContent>
+        {ActivePlugin ? <ActivePlugin.components.box.details payload={payload} {...(supportsListMode && { listMode })} /> : null}
+      </CardContent>
+    </BusyCard>
+  )
+}
