@@ -4,9 +4,10 @@ import { ErrorBoundary, ListModeProvider } from '@xyo-network/react-shared'
 
 import { RefreshPayloadProvider, ResolvePayloadProvider, ValidatePayloadProvider, XyoEmbedPluginProvider } from '../contexts'
 import { XyoEmbedPluginProps } from '../types'
-import { EmbedCardResolverFlexBox, EmbedErrorCard, EmbedPluginCard, ValidatePayloadAlert, ValidatePluginsAlert } from './embed-card'
+import { EmbedResolver } from './EmbedResolver'
+import { ValidatePayloadAlert, ValidatePluginsAlert } from './validation-alerts'
 
-export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
+export const XyoEmbedPluginInner: React.FC<WithChildren<XyoEmbedPluginProps>> = ({
   validateSchema,
   plugins = [],
   huriPayload,
@@ -15,10 +16,10 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
   hideElementsConfig,
   embedPluginConfig,
   onRefresh,
-  ...props
+  children,
 }) => {
   return (
-    <ErrorBoundary fallbackWithError={(error) => <EmbedErrorCard hideErrorDetails={hideElementsConfig?.hideErrorDetails} error={error} />}>
+    <ErrorBoundary>
       <XyoEmbedPluginProvider
         refreshTitle={refreshTitle}
         timestampLabel={timestampLabel}
@@ -26,11 +27,9 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
         plugins={plugins}
         embedPluginConfig={embedPluginConfig}
       >
-        <WithResolvers onRefresh={onRefresh} huriPayload={huriPayload} {...props}>
+        <WithResolvers onRefresh={onRefresh} huriPayload={huriPayload}>
           <WithValidators validateSchema={validateSchema}>
-            <ListModeProvider defaultListMode={embedPluginConfig?.listMode}>
-              <EmbedPluginCard />
-            </ListModeProvider>
+            <ListModeProvider defaultListMode={embedPluginConfig?.listMode}>{children}</ListModeProvider>
           </WithValidators>
         </WithResolvers>
       </XyoEmbedPluginProvider>
@@ -40,11 +39,11 @@ export const XyoEmbedPlugin: React.FC<XyoEmbedPluginProps> = ({
 
 interface WithResolversProps extends Pick<XyoEmbedPluginProps, 'onRefresh' | 'huriPayload'>, FlexBoxProps {}
 
-const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({ children, onRefresh, huriPayload, ...props }) => {
+const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({ children, onRefresh, huriPayload }) => {
   return (
     <RefreshPayloadProvider onRefresh={onRefresh}>
       <ResolvePayloadProvider huriPayload={huriPayload}>
-        <EmbedCardResolverFlexBox {...props}>{children}</EmbedCardResolverFlexBox>
+        <EmbedResolver>{children}</EmbedResolver>
       </ResolvePayloadProvider>
     </RefreshPayloadProvider>
   )

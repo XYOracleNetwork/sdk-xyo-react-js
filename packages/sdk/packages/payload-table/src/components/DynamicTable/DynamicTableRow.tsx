@@ -68,7 +68,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     const Render: ComponentType<XyoPayloadRenderProps & TableCellProps> | undefined = payload
       ? resolver?.resolve(payload)?.components.table.cell
       : undefined
-    return Render ? <Render payload={payload} {...props} /> : null
+    return Render ? <Render payload={payload} {...props} /> : <TableCell key="payloads" align="left" {...props}></TableCell>
   }
 
   const icon: React.FC<TableCellProps> = (props) => {
@@ -87,12 +87,15 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
 
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>
-      {isValid === undefined ? (
+      {isValid === undefined && payload != undefined ? (
         <WarningAmberRoundedIcon fontSize="small" color="warning" />
-      ) : isValid ? (
+      ) : isValid === true ? (
         <CheckCircleOutlineRoundedIcon fontSize="small" color="success" />
-      ) : (
+      ) : isValid === false ? (
         <ErrorOutlineRoundedIcon color="error" fontSize="small" />
+      ) : (
+        //nbsp to keep row height consistent even when no data is provided for the row
+        <Typography> &nbsp;</Typography>
       )}
     </TableCell>
   )
