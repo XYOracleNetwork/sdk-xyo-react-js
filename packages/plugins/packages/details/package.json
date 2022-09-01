@@ -15,6 +15,9 @@
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
     "@xyo-network/archivist": "^2.30.0-rc.3",
     "@xyo-network/crypto-asset-payload-plugin": "^2.30.0-rc.3",
     "@xyo-network/diviner": "^2.30.0-rc.3",
@@ -26,6 +29,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",

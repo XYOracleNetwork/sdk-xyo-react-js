@@ -10,10 +10,6 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
     "@xylabs/react-button": "^2.14.14",
     "@xylabs/react-flexbox": "^2.14.14",
     "@xylabs/react-quick-tip-button": "^2.14.14",
@@ -28,19 +24,28 @@
     "@xyo-network/react-schema": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "lodash": "^4.17.21",
+    "react-json-view": "^1.21.3",
+    "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-json-view": "^1.21.3",
-    "react-router-dom": "^6.3.0",
-    "tslib": "^2.4.0"
+    "react-router-dom": "^6.3.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
     "@xyo-network/api": "^2.30.0-rc.3",
     "@xyo-network/archivist": "^2.30.0-rc.3",
     "@xyo-network/diviner": "^2.30.0-rc.3",
     "@xyo-network/network": "^2.30.0-rc.3",
-    "@xyo-network/payload": "^2.30.0-rc.3"
+    "@xyo-network/payload": "^2.30.0-rc.3",
+    "react-router-dom": "^6.3.0"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
