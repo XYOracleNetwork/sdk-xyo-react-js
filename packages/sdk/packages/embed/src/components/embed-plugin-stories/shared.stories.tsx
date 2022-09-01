@@ -1,11 +1,11 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { XyoEmbedPlugin } from '../XyoEmbedPlugin'
+import { XyoEmbedPluginCard } from '../embed-card'
 
 export const xyoEmbedStoryBase: Meta = {
   argTypes: {},
-  component: XyoEmbedPlugin,
+  component: XyoEmbedPluginCard,
   parameters: {
     docs: {
       page: null,
@@ -13,10 +13,10 @@ export const xyoEmbedStoryBase: Meta = {
   },
 }
 
-export const Template: ComponentStory<typeof XyoEmbedPlugin> = (args) => {
+export const Template: ComponentStory<typeof XyoEmbedPluginCard> = (args) => {
   return (
     <BrowserRouter>
-      <XyoEmbedPlugin {...args} />
+      <XyoEmbedPluginCard {...args} />
     </BrowserRouter>
   )
 }

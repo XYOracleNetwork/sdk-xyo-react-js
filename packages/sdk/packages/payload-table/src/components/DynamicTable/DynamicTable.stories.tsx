@@ -32,7 +32,27 @@ Default.args = {}
 Default.decorators = [useAppThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.args = { payloads: [samplePayload, sampleUniswapPayload, sampleCoinGeckoPayload, samplePayload, sampleUniswapPayload] }
+WithData.args = {
+  payloads: [
+    samplePayload,
+    sampleUniswapPayload,
+    sampleCoinGeckoPayload,
+    samplePayload,
+    sampleUniswapPayload,
+    samplePayload,
+    sampleUniswapPayload,
+    sampleCoinGeckoPayload,
+    samplePayload,
+    sampleUniswapPayload,
+    samplePayload,
+    sampleUniswapPayload,
+    sampleCoinGeckoPayload,
+    samplePayload,
+    sampleUniswapPayload,
+    samplePayload,
+    sampleUniswapPayload,
+  ],
+}
 WithData.decorators = [useAppThemeDecorator]
 
 const WithError = Template.bind({})
