@@ -17,9 +17,12 @@
     "@xylabs/react-shared": "^2.14.14",
     "@xylabs/sdk-js": "^2.6.7",
     "@xyo-network/react-shared": "workspace:^",
+    "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tslib": "^2.4.0"
+    "react-router-dom": "^6.3.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",

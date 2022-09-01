@@ -17,14 +17,17 @@
     "@xylabs/react-flexbox": "^2.14.14",
     "@xylabs/react-link": "^2.14.14",
     "@xylabs/sdk-js": "^2.6.7",
+    "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.4.0",
-    "tslib": "^2.4.0"
+    "react-icons": "^4.4.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@xylabs/sdk-js": "^2.6.7"
+    "@xylabs/sdk-js": "^2.6.7",
+    "react-icons": "^4.4.0"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
