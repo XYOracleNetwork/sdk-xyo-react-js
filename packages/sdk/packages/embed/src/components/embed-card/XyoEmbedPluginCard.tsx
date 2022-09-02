@@ -49,8 +49,11 @@ export const XyoEmbedPluginCardInner: React.FC<BusyCardProps> = (props) => {
   return (
     <EmbedCardApiErrorRenderer apiError={huriApiError}>
       <EmbedPluginCard
+        elevation={3}
+        variant="elevation"
         busy={Boolean(!refreshPayload && payload)}
         busyVariantProps={{ style: { alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2 } }}
+        sx={{ position: 'relative' }}
         {...props}
       />
     </EmbedCardApiErrorRenderer>
