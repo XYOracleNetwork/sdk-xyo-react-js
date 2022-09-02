@@ -7,13 +7,28 @@ export const samplePayloadFromBuilder = {
   _archive: 'temp',
 }
 
-export const samplePayload = {
-  _archive: 'temp',
-  _client: 'js',
-  _hash: 'a98a39e11205ceacc0cf271db4dd74dd7841fa25f26585f6cd7f2fc3f03c7d55',
-  _id: '62199875bcb044877bd6ddf3',
-  _observeDuration: 13,
-  _timestamp: 1645844597478,
+export const sampleIdPayload = {
   salt: '81b2372a-b4f0-4ab5-8642-c4e6de46a1cf',
   schema: 'network.xyo.id',
+}
+
+export const sampleSystemInfoBrowserPayload = {
+  bowser: {
+    browser: {
+      name: 'Chrome',
+      version: '104.0.0.0',
+    },
+    engine: {
+      name: 'Blink',
+    },
+    os: {
+      name: 'Windows',
+      version: 'NT 10.0',
+      versionName: '10',
+    },
+    platform: {
+      type: 'desktop',
+    },
+  },
+  schema: 'network.xyo.system.info.browser',
 }

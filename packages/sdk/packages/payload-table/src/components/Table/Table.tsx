@@ -10,7 +10,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 import * as React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { PayloadTableRow } from './TableRow'
@@ -19,6 +19,7 @@ export interface PayloadTableProps extends TableProps {
   exploreDomain?: string
   archive?: string
   onRowClick?: (value: XyoPayload) => void
+  rowsPerPage?: number
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
 }
@@ -72,6 +73,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
   archive,
   onRowClick,
+  rowsPerPage: rowsPerPageProp = 10,
   payloads,
   children,
   columns = payloadTableColumnConfigDefaults(),
@@ -79,10 +81,14 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
 }) => {
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
   const payloadCount = payloads ? payloads.length : 0
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount) : 0
+
+  useEffect(() => {
+    setRowsPerPage(rowsPerPageProp)
+  }, [rowsPerPageProp])
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     setPage(newPage)
@@ -115,7 +121,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
           return (
             <XyoApiThrownErrorBoundary
               key={`${wrapper.hash}-${index}`}
-              errorComponent={(e) => (
+              errorComponent={(e: Error) => (
                 <Alert severity="error">
                   Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>
                 </Alert>
