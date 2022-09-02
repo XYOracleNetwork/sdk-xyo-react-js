@@ -10,29 +10,28 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
     "@xylabs/react-shared": "^2.14.16",
-    "@xyo-network/payload": "^2.29.2",
     "@xyo-network/react-auth-service": "workspace:^",
-    "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.4.0",
-    "react-router-dom": "^6.3.0",
     "tslib": "^2.4.0"
   },
-  "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@storybook/react": "^6.5.10",
-    "@xylabs/tsconfig-dom": "^2.5.167",
-    "@xyo-network/react-storybook": "workspace:^"
+  "peerDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
+    "@xyo-network/api": "^2.30.0-rc.3",
+    "@xyo-network/network": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3",
+    "@xyo-network/payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/utils": "^2.30.0-rc.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
   },
+  "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {
@@ -75,5 +74,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.31.5"
+  "version": "2.32.0-rc.16",
+  "stableVersion": "2.31.2"
 }

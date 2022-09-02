@@ -1,8 +1,7 @@
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { XyoApiError } from '@xyo-network/api'
+import { NotFound } from '@xyo-network/react-shared'
 import { PropsWithChildren } from 'react'
-
-import { NotFound } from './NotFoundPage'
 
 export interface HandleItemDetailLoadingProps<T> {
   apiError: Error | XyoApiError | undefined

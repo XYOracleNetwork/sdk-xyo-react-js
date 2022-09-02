@@ -11,23 +11,26 @@
   },
   "dependencies": {
     "@xylabs/react-shared": "^2.14.16",
-    "@xylabs/sdk-js": "^2.6.7",
-    "@xyo-network/api": "^2.29.2",
-    "@xyo-network/boundwitness": "^2.29.2",
-    "@xyo-network/panel": "^2.29.2",
-    "@xyo-network/payload": "^2.29.2",
     "@xyo-network/react-archive": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "@xyo-network/react-wallet": "workspace:^",
-    "@xyo-network/witness": "^2.29.2",
-    "react": "^18.2.0",
     "tslib": "^2.4.0"
   },
-  "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
+  "peerDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
     "@xylabs/sdk-js": "^2.6.7",
-    "@xylabs/tsconfig-dom": "^2.5.167"
+    "@xyo-network/api": "^2.30.0-rc.3",
+    "@xyo-network/boundwitness": "^2.30.0-rc.3",
+    "@xyo-network/panel": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3",
+    "@xyo-network/witness": "^2.30.0-rc.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
   },
+  "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {
@@ -70,5 +73,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.31.5"
+  "version": "2.32.0-rc.16",
+  "stableVersion": "2.31.2"
 }

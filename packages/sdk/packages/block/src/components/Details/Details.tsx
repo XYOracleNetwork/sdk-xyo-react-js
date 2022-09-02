@@ -1,7 +1,7 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayload } from '@xyo-network/payload'
-import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload'
+import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 
 import { BlockMetaDetails } from './MetaDetails'
 import { BlockPayloads } from './Payloads'

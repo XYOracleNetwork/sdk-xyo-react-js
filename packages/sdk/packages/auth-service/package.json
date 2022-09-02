@@ -10,38 +10,35 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.3",
     "@xylabs/react-button": "^2.14.16",
     "@xylabs/react-common": "^2.14.16",
     "@xylabs/react-flexbox": "^2.14.16",
     "@xylabs/react-shared": "^2.14.16",
     "@xylabs/sdk-js": "^2.6.7",
-    "@xyo-network/api": "^2.29.2",
-    "@xyo-network/react-archive": "workspace:^",
+    "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-archivist-api": "workspace:^",
     "@xyo-network/react-auth": "workspace:^",
     "@xyo-network/react-login-forms": "workspace:^",
-    "@xyo-network/react-network": "workspace:^",
-    "@xyo-network/react-shared": "workspace:^",
     "@xyo-network/react-theme": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
     "rollbar": "^2.25.1",
     "tslib": "^2.4.0"
   },
+  "peerDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
+    "@xyo-network/api": "^2.30.0-rc.3",
+    "@xyo-network/network": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
+  },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@storybook/react": "^6.5.10",
     "@xylabs/sdk-js": "^2.6.7",
-    "@xylabs/tsconfig-dom": "^2.5.167",
-    "@xyo-network/react-appbar": "workspace:^",
-    "@xyo-network/react-footer": "workspace:^",
-    "@xyo-network/react-storybook": "workspace:^",
-    "axios": "^0.27.2"
+    "@xyo-network/api": "^2.30.0"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
@@ -85,5 +82,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.31.5"
+  "version": "2.32.0-rc.16",
+  "stableVersion": "2.31.2"
 }

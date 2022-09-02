@@ -10,6 +10,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-app-settings": "workspace:^",
     "@xyo-network/react-appbar": "workspace:^",
     "@xyo-network/react-archive": "workspace:^",
@@ -27,6 +28,8 @@
     "@xyo-network/react-network": "workspace:^",
     "@xyo-network/react-panel": "workspace:^",
     "@xyo-network/react-payload": "workspace:^",
+    "@xyo-network/react-payload-details": "workspace:^",
+    "@xyo-network/react-payload-diviner": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-payload-table": "workspace:^",
     "@xyo-network/react-property": "workspace:^",
@@ -37,13 +40,32 @@
     "@xyo-network/react-wallet": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
     "@xyo-network/react-webapp": "workspace:^",
-    "react": "^18.2.0",
     "tslib": "^2.4.0"
   },
-  "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@xylabs/tsconfig-dom": "^2.5.167"
+  "peerDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/lab": "^5.0.0-alpha.97",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
+    "@xylabs/sdk-js": "^2.6.7",
+    "@xyo-network/api": "^2.30.0-rc.3",
+    "@xyo-network/archivist": "^2.30.0-rc.3",
+    "@xyo-network/boundwitness": "^2.30.0-rc.3",
+    "@xyo-network/core": "^2.30.0-rc.3",
+    "@xyo-network/diviner": "^2.30.0-rc.3",
+    "@xyo-network/network": "^2.30.0-rc.3",
+    "@xyo-network/panel": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3",
+    "@xyo-network/payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/utils": "^2.30.0-rc.3",
+    "@xyo-network/witness": "^2.30.0-rc.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0"
   },
+  "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {
@@ -86,5 +108,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.31.5"
+  "version": "2.32.0-rc.16",
+  "stableVersion": "2.31.2"
 }
