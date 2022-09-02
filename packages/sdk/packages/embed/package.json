@@ -10,10 +10,6 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
     "@xylabs/react-flexbox": "^2.14.16",
     "@xylabs/react-shared": "^2.14.16",
     "@xylabs/sdk-js": "^2.6.7",
@@ -21,12 +17,17 @@
     "@xyo-network/react-auth-service": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
-    "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3"
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
+    "@xyo-network/property": "^2.30.0-rc.3",
+    "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@xyo-network/api": "^2.30.0-rc.3",

@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-block",
+  "name": "@xyo-network/react-payload-details",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,17 +10,13 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xylabs/react-button": "^2.14.16",
     "@xylabs/react-flexbox": "^2.14.16",
-    "@xylabs/react-shared": "^2.14.16",
-    "@xylabs/sdk-js": "^2.6.7",
-    "@xyo-network/react-archive": "workspace:^",
-    "@xyo-network/react-auth-service": "workspace:^",
-    "@xyo-network/react-network": "workspace:^",
-    "@xyo-network/react-payload-details": "workspace:^",
-    "@xyo-network/react-payload-table": "workspace:^",
+    "@xylabs/react-quick-tip-button": "^2.14.16",
     "@xyo-network/react-property": "workspace:^",
+    "@xyo-network/react-schema": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "lodash": "^4.17.21",
+    "react-json-view": "^1.21.3",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
@@ -28,15 +24,12 @@
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
     "@xyo-network/api": "^2.30.0-rc.3",
-    "@xyo-network/boundwitness": "^2.30.0-rc.3",
-    "@xyo-network/core": "^2.30.0-rc.3",
     "@xyo-network/payload": "^2.30.0-rc.3",
     "@xyo-network/property": "^2.30.0-rc.3",
     "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
     "@xyo-network/utils": "^2.30.0-rc.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0"
   },
   "description": "Common React library for all XYO projects that use React",

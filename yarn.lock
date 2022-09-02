@@ -1792,7 +1792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.10.0, @emotion/react@npm:^11.10.4":
+"@emotion/react@npm:^11.10.0":
   version: 11.10.4
   resolution: "@emotion/react@npm:11.10.4"
   dependencies:
@@ -1836,7 +1836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.10.0, @emotion/styled@npm:^11.10.4":
+"@emotion/styled@npm:^11.10.0":
   version: 11.10.4
   resolution: "@emotion/styled@npm:11.10.4"
   dependencies:
@@ -6597,23 +6597,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-aggregate-price-plugin@workspace:packages/plugins/packages/aggregate-price"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/decimal-precision": ^2.6.7
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-quick-tip-button": ^2.14.16
-    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
-    react: ^18.2.0
-    react-dom: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6621,22 +6624,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-api@workspace:packages/sdk/packages/api"
   dependencies:
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
-    "@mui/styles": ^5.10.3
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-dialogs": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
-    "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/react-shared": "workspace:^"
     react-json-view: ^1.21.3
-    react-router-dom: ^6.3.0
     tslib: ^2.4.0
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -6647,16 +6646,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-app-settings@workspace:packages/sdk/packages/app-settings"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/react-shared": ^2.14.16
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6664,10 +6664,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-appbar@workspace:packages/sdk/packages/appbar"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/react-appbar": ^2.14.16
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-common": ^2.14.16
@@ -6679,10 +6675,16 @@ __metadata:
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -6690,20 +6692,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-archive@workspace:packages/sdk/packages/archive"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/react-common": ^2.14.16
     "@xylabs/react-link": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
-    "@xyo-network/api": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6711,18 +6715,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-archivist-api@workspace:packages/sdk/packages/archivist-api"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
     "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6730,9 +6736,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-archivist@workspace:packages/sdk/packages/archivist"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@types/lodash": ^4.14.184
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
@@ -6742,9 +6745,14 @@ __metadata:
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6752,9 +6760,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-auth-service@workspace:packages/sdk/packages/auth-service"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-common": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
@@ -6767,11 +6772,15 @@ __metadata:
     "@xyo-network/react-login-forms": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
+    rollbar: ^2.25.1
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
-    rollbar: ^2.25.1
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -6802,10 +6811,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-auth@workspace:packages/sdk/packages/auth"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@types/lodash": ^4.14.184
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
@@ -6815,10 +6820,13 @@ __metadata:
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/api": ^2.30.0-rc.3
     lodash: ^4.17.21
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -6826,31 +6834,33 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-block@workspace:packages/sdk/packages/block"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
-    "@types/lodash": ^4.14.184
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/boundwitness": ^2.30.0-rc.3
-    "@xyo-network/core": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
-    "@xyo-network/react-payload": "workspace:^"
+    "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/core": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.4.0
-    tslib: ^2.4.0
-  peerDependencies:
-    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
-    "@xyo-network/utils": ^2.30.0-rc.3
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6858,16 +6868,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-card@workspace:packages/sdk/packages/card"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/react-flexbox": ^2.14.16
     "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -6876,17 +6886,25 @@ __metadata:
   resolution: "@xyo-network/react-coin-gecko-prices-plugin@workspace:packages/plugins/packages/coin-gecko-prices"
   dependencies:
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
-    react: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6894,20 +6912,24 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-crypto-market-uniswap-plugin@workspace:packages/plugins/packages/crypto-market-uniswap"
   dependencies:
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/decimal-precision": ^2.6.7
     "@xylabs/react-flexbox": ^2.14.16
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
-    react: ^18.2.0
-    react-dom: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6915,19 +6937,24 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-crypto-prices-plugin@workspace:packages/plugins/packages/crypto-prices"
   dependencies:
-    "@mui/material": ^5.10.3
     "@xylabs/sdk-react": ^2.14.16
-    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
-    react: ^18.2.0
-    react-dom: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6935,19 +6962,26 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-details-plugin@workspace:packages/plugins/packages/details"
   dependencies:
-    "@xyo-network/react-payload": "workspace:^"
+    "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/archivist": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/diviner": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
     "@xyo-network/wallet": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6955,10 +6989,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-embed@workspace:packages/sdk/packages/embed"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
     "@xylabs/sdk-js": ^2.6.7
@@ -6969,11 +6999,16 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/utils": ^2.30.0-rc.3
-    react: ^18.2.0
-    react-dom: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -6981,17 +7016,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-footer@workspace:packages/sdk/packages/footer"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-link": ^2.14.16
     "@xylabs/sdk-js": ^2.6.7
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.4.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -6999,20 +7033,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-location-heatmap-quadkey-plugin@workspace:packages/plugins/packages/location-heatmap-quadkey"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/react-flexbox": ^2.14.16
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     geojson: ^0.5.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7020,19 +7057,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-location-points-map-plugin@workspace:packages/plugins/packages/location-points-map"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/sdk-react": ^2.14.16
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: ^18.2.0
-    react-dom: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7040,9 +7080,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-login-forms@workspace:packages/sdk/packages/login-forms"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
@@ -7053,10 +7090,14 @@ __metadata:
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/utils": ^2.30.0-rc.3
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -7064,9 +7105,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-map@workspace:packages/sdk/packages/map"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@types/mapbox-gl": ^2.7.5
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
@@ -7081,9 +7119,14 @@ __metadata:
     "@xyo-network/sdk-geo": ^2.6.19
     geojson: ^0.5.0
     mapbox-gl: ^2.10.0
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7091,18 +7134,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-network@workspace:packages/sdk/packages/network"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/react-common": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -7120,8 +7164,41 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/witness": ^2.30.0-rc.3
-    react: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-payload-details@workspace:^, @xyo-network/react-payload-details@workspace:packages/sdk/packages/payload-details":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-payload-details@workspace:packages/sdk/packages/payload-details"
+  dependencies:
+    "@xylabs/react-button": ^2.14.16
+    "@xylabs/react-flexbox": ^2.14.16
+    "@xylabs/react-quick-tip-button": ^2.14.16
+    "@xyo-network/react-property": "workspace:^"
+    "@xyo-network/react-schema": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    react-json-view: ^1.21.3
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7130,12 +7207,21 @@ __metadata:
   resolution: "@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload-plugin-resolver"
   dependencies:
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/payload": ^2.30.0-rc.3
-    "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    react: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7143,24 +7229,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-plugin@workspace:packages/sdk/packages/payload-plugin"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-identicon": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
     "@xylabs/sdk-js": ^2.6.7
+    "@xyo-network/react-payload-details": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    lodash: ^4.17.21
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
-    "@xyo-network/react-payload": "workspace:^"
-    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
-    lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7168,20 +7257,24 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-table@workspace:packages/sdk/packages/payload-table"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/react-shared": ^2.14.16
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-icons: ^4.4.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7189,34 +7282,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload@workspace:packages/sdk/packages/payload"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
-    "@xylabs/react-button": ^2.14.16
-    "@xylabs/react-flexbox": ^2.14.16
-    "@xylabs/react-quick-tip-button": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
-    "@xyo-network/api": ^2.30.0-rc.3
-    "@xyo-network/archivist": ^2.30.0-rc.3
-    "@xyo-network/diviner": ^2.30.0-rc.3
-    "@xyo-network/network": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
-    "@xyo-network/react-property": "workspace:^"
-    "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-json-view: ^1.21.3
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -7233,17 +7322,26 @@ __metadata:
     "@xyo-network/react-location-points-map-plugin": "workspace:^"
     "@xyo-network/react-pointer-plugin": "workspace:^"
     "@xyo-network/react-schema-plugin": "workspace:^"
-    react: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/diviner": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
     "@xyo-network/wallet": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7252,14 +7350,21 @@ __metadata:
   resolution: "@xyo-network/react-pointer-plugin@workspace:packages/plugins/packages/pointer"
   dependencies:
     "@xylabs/react-flexbox": ^2.14.16
-    "@xyo-network/payload": ^2.30.0-rc.3
-    "@xyo-network/react-payload": "workspace:^"
+    "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7267,19 +7372,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-property@workspace:packages/sdk/packages/property"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-identicon": ^2.14.16
     "@xylabs/react-quick-tip-button": ^2.14.16
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/typeof": ^2.30.0-rc.3
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7288,14 +7394,21 @@ __metadata:
   resolution: "@xyo-network/react-schema-plugin@workspace:packages/plugins/packages/schema"
   dependencies:
     "@xylabs/react-flexbox": ^2.14.16
-    "@xyo-network/payload": ^2.30.0-rc.3
-    "@xyo-network/react-payload": "workspace:^"
+    "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
-    react: ^18.2.0
     tslib: ^2.4.0
   peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
+    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7303,24 +7416,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-schema@workspace:packages/sdk/packages/schema"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
     "@xylabs/react-common": ^2.14.16
     "@xylabs/react-link": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
-    "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist-api": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -7346,6 +7460,7 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-panel": "workspace:^"
     "@xyo-network/react-payload": "workspace:^"
+    "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
@@ -7356,13 +7471,26 @@ __metadata:
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/react-webapp": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/lab": ^5.0.0-alpha.97
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/core": ^2.30.0-rc.3
+    "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
+    "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
     react: ^18.2.0
-    tslib: ^2.4.0
-  peerDependencies:
-    react: ^18.2.0
     react-dom: ^18.2.0
+    react-icons: ^4.4.0
     react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
@@ -7371,11 +7499,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-shared@workspace:packages/sdk/packages/shared"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
-    "@mui/styles": ^5.10.3
     "@xylabs/pixel": ^1.4.5
     "@xylabs/react-appbar": ^2.14.16
     "@xylabs/react-button": ^2.14.16
@@ -7383,10 +7506,14 @@ __metadata:
     "@xylabs/react-link": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
     "@xyo-network/core": ^2.30.0-rc.3
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -7394,9 +7521,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-storybook@workspace:packages/sdk/packages/storybook"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@storybook/addons": ^6.5.10
     "@storybook/api": ^6.5.10
     "@storybook/components": ^6.5.10
@@ -7416,12 +7540,16 @@ __metadata:
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     lodash: ^4.17.21
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     storybook-dark-mode: ^1.1.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7429,14 +7557,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-theme@workspace:packages/sdk/packages/theme"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@types/lodash": ^4.14.184
     lodash: ^4.17.21
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/material": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -7444,21 +7571,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-typedoc@workspace:packages/sdk/packages/typedoc"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/lab": ^5.0.0-alpha.97
-    "@mui/material": ^5.10.3
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/sdk-js": ^2.6.7
+    react-json-view: ^1.21.3
+    tslib: ^2.4.0
+    typedoc: ^0.23.13
+    typescript: ^4.8.2
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/lab": ^5.0.0-alpha.97
+    "@mui/material": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-json-view: ^1.21.3
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
-    typedoc: ^0.23.12
-    typescript: ^4.8.2
   languageName: unknown
   linkType: soft
 
@@ -7470,8 +7596,14 @@ __metadata:
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/utils": ^2.30.0-rc.3
-    react: ^18.2.0
     tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7479,9 +7611,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet@workspace:packages/sdk/packages/wallet"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@xylabs/react-common": ^2.14.16
     "@xylabs/react-crypto": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
@@ -7493,9 +7622,14 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/wallet": ^2.30.0-rc.3
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    tslib: ^2.4.0
+    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
@@ -7503,9 +7637,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-webapp@workspace:packages/sdk/packages/webapp"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.3
     "@types/react-helmet": ^6.1.5
     "@xylabs/react-button": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
@@ -7515,11 +7646,18 @@ __metadata:
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    react-helmet: ^6.1.0
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-helmet: ^6.1.0
+    react-icons: ^4.4.0
     react-router-dom: ^6.3.0
-    tslib: ^2.4.0
   languageName: unknown
   linkType: soft
 
@@ -7576,7 +7714,10 @@ __metadata:
     "@xylabs/react-invertable-theme": ^2.14.16
     "@xylabs/ts-scripts-yarn3": ^2.5.167
     "@xylabs/tsconfig-dom": ^2.5.167
+    "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/diviner": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
@@ -7586,13 +7727,15 @@ __metadata:
     "@xyo-network/react-sdk": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
-    "@xyo-network/wallet": ^2.30.0-rc.3
     assert: ^2.0.0
-    chromatic: ^6.8.0
+    chromatic: ^6.8.1
     eslint: ^8.23.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-icons: ^4.4.0
+    react-router-dom: ^6.3.0
     require-from-string: ^2.0.2
     storybook-dark-mode: ^1.1.0
     typescript: ^4.8.2
@@ -7601,12 +7744,19 @@ __metadata:
     "@mui/lab": ^5.0.0-alpha.97
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/archivist": ^2.30.0-rc.3
+    "@xyo-network/boundwitness": ^2.30.0-rc.3
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/core": ^2.30.0-rc.3
     "@xyo-network/crypto-asset-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/diviner": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.30.0-rc.3
     "@xyo-network/utils": ^2.30.0-rc.3
     "@xyo-network/wallet": ^2.30.0-rc.3
     react: ^18.2.0
@@ -9282,7 +9432,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^6.8.0":
+"chromatic@npm:^6.8.1":
   version: 6.8.1
   resolution: "chromatic@npm:6.8.1"
   dependencies:
@@ -22408,7 +22558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.12":
+"typedoc@npm:^0.23.12, typedoc@npm:^0.23.13":
   version: 0.23.13
   resolution: "typedoc@npm:0.23.13"
   dependencies:
