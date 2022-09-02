@@ -1,5 +1,5 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
-import { CardHeader, CardHeaderProps, IconButton, SvgIconProps } from '@mui/material'
+import { CardHeader, CardHeaderProps, IconButton, SvgIconProps, useTheme } from '@mui/material'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
@@ -17,11 +17,11 @@ export const PageCard: React.FC<PageCardProps> = ({ subheader, title, icon, onRe
       {icon?.({ style: { fontSize: 512, left: '-144px', opacity: 0.05, position: 'absolute', top: '-144px' } })}
       <CardHeader
         title={
-          <TypographyEx variant="h4" gradient="text">
+          <TypographyEx variant="h5" gutterBottom>
             {title}
           </TypographyEx>
         }
-        subheader={subheader}
+        subheader={<TypographyEx variant="subtitle1">{subheader}</TypographyEx>}
         action={
           <>
             {onRefresh ? (

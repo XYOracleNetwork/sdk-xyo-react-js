@@ -61,7 +61,7 @@ export const typography: ThemeOptions['typography'] = {
   fontFamily: fontFamilyPrimary,
   fontWeightBold: 700,
   fontWeightLight: 200,
-  fontWeightMedium: 600,
+  fontWeightMedium: 300,
   fontWeightRegular: 400,
   h1: {
     fontFamily: fontFamilyPrimary,
@@ -82,14 +82,13 @@ export const typography: ThemeOptions['typography'] = {
     fontSize: '1.5rem',
   },
   h6: {
-    fontSize: '1.25rem',
+    fontSize: '1.1rem',
   },
   subtitle1: {
-    opacity: '50%',
-    textTransform: 'uppercase',
+    opacity: '70%',
   },
   subtitle2: {
-    opacity: '50%',
+    opacity: '70%',
   },
 }
 
