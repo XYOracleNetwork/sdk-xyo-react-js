@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { ResultLoader } from '@xyo-network/react-webapp'
+import { ResultLoader } from '@xyo-network/react-api'
 
 import { useResolvePayload } from '../contexts'
 

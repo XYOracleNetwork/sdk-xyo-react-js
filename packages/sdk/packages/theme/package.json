@@ -10,18 +10,17 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.3",
     "lodash": "^4.17.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
+    "@mui/material": "^5.10.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@types/lodash": "^4.14.184",
-    "@xylabs/tsconfig-dom": "^2.5.167"
+    "@types/lodash": "^4.14.184"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
@@ -65,5 +64,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.31.6"
+  "version": "2.32.0-rc.16",
+  "stableVersion": "2.31.2"
 }
