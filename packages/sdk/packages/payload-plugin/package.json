@@ -10,31 +10,29 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.3",
     "@xylabs/react-flexbox": "^2.14.16",
     "@xylabs/react-identicon": "^2.14.16",
     "@xylabs/react-shared": "^2.14.16",
     "@xylabs/sdk-js": "^2.6.7",
-    "@xyo-network/api": "^2.29.2",
-    "@xyo-network/payload": "^2.29.2",
-    "@xyo-network/payload-plugin": "^2.29.2",
-    "@xyo-network/react-payload": "workspace:^",
+    "@xyo-network/react-payload-details": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/schema-payload-plugin": "^2.29.2",
     "lodash": "^4.17.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "tslib": "^2.4.0"
   },
-  "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@storybook/react": "^6.5.10",
-    "@xylabs/tsconfig-dom": "^2.5.167",
-    "@xyo-network/utils": "^2.29.2",
-    "react-json-view": "^1.21.3"
+  "peerDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
+    "@xyo-network/api": "^2.30.0-rc.3",
+    "@xyo-network/payload": "^2.30.0-rc.3",
+    "@xyo-network/payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/schema-payload-plugin": "^2.30.0-rc.3",
+    "@xyo-network/utils": "^2.30.0-rc.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
   },
+  "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {
@@ -77,5 +75,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.31.6"
+  "version": "2.32.0-rc.16",
+  "stableVersion": "2.31.2"
 }

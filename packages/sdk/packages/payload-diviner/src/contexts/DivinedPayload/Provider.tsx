@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
+import { ResultLoader } from '@xyo-network/react-api'
 import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
-import { ResultLoader } from '@xyo-network/react-webapp'
 import { useParams, useSearchParams } from 'react-router-dom'
 
 import { useDivinePayload } from '../PayloadDiviner'

@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-
-import { NotFound } from './NotFound'
+import { NotFound } from '@xyo-network/react-shared'
 
 const StorybookEntry = {
   argTypes: {},

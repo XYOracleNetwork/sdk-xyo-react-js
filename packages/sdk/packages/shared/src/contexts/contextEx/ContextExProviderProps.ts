@@ -1,5 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { EmptyObject } from '@xyo-network/core'
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+type EmptyObject = {}
 
 export type ContextExProviderProps<T extends EmptyObject = EmptyObject> = WithChildren<
   {

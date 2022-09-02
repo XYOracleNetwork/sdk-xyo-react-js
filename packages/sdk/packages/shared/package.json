@@ -10,35 +10,23 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
-    "@mui/styles": "^5.10.3",
     "@xylabs/pixel": "^1.4.5",
     "@xylabs/react-appbar": "^2.14.16",
     "@xylabs/react-button": "^2.14.16",
-    "@xylabs/react-dialogs": "^2.14.16",
     "@xylabs/react-flexbox": "^2.14.16",
     "@xylabs/react-link": "^2.14.16",
-    "@xylabs/react-quick-tip-button": "^2.14.16",
     "@xylabs/react-shared": "^2.14.16",
-    "@xyo-network/core": "^2.29.2",
-    "axios": "^0.27.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-json-view": "^1.21.3",
-    "react-router-dom": "^6.3.0",
     "tslib": "^2.4.0"
   },
-  "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@storybook/react": "^6.5.10",
-    "@xylabs/pixel": "^1.4.5",
-    "@xylabs/tsconfig-dom": "^2.5.167",
-    "@xyo-network/api": "^2.29.2",
-    "@xyo-network/react-storybook": "workspace:^"
+  "peerDependencies": {
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0"
   },
+  "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {
@@ -81,5 +69,6 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.31.6"
+  "version": "2.32.0-rc.16",
+  "stableVersion": "2.31.2"
 }

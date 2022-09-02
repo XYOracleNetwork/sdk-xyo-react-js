@@ -1,5 +1,5 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { PayloadDetails } from '@xyo-network/react-payload'
+import { PayloadDetails } from '@xyo-network/react-payload-details'
 
 import { XyoPayloadEditorRenderProps } from '../XyoPayloadRenderPlugin'
 
