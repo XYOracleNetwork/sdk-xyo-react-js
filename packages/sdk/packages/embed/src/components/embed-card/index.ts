@@ -1,5 +1,1 @@
-export * from './EmbedCardResolver'
-export * from './EmbedPluginCard'
-export * from './error-handling'
-export * from './ValidatePayload'
-export * from './ValidatePlugins'
+export * from './XyoEmbedPluginCard'

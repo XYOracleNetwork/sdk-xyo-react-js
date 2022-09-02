@@ -37,6 +37,7 @@ const PointsMapInner: React.FC<PointsMapInnerProps> = ({ payload, accessToken, .
       accessToken={accessTokenResolved}
       features={features}
       layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
+      height="100%"
       {...props}
     />
   ) : (
