@@ -1,5 +1,5 @@
 import RefreshIcon from '@mui/icons-material/Refresh'
-import { CardHeader, CardHeaderProps, IconButton, SvgIconProps, useTheme } from '@mui/material'
+import { CardHeader, CardHeaderProps, IconButton, SvgIconProps } from '@mui/material'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
