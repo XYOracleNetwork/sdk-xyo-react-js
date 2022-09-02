@@ -14,7 +14,7 @@ export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
   const supportsListMode = ActivePlugin?.components?.box?.listModes?.length ?? 0 > 1
 
   return (
-    <BusyCard elevation={3} variant="elevation" {...props}>
+    <BusyCard {...props}>
       {hideElementsConfig?.hideCardHeader ? null : <EmbedCardHeader />}
       {/* Only show the row if the children are present */}
       {(plugins && plugins.length) || supportsListMode ? (
