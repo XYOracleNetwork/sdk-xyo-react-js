@@ -6629,6 +6629,9 @@ __metadata:
     "@xylabs/react-dialogs": ^2.14.16
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
+    "@xyo-network/react-archive": "workspace:^"
+    "@xyo-network/react-archivist-api": "workspace:^"
+    "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     react-json-view: ^1.21.3
     tslib: ^2.4.0
@@ -6637,6 +6640,8 @@ __metadata:
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
     "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -6779,6 +6784,8 @@ __metadata:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -6854,6 +6861,7 @@ __metadata:
     "@xyo-network/api": ^2.30.0-rc.3
     "@xyo-network/boundwitness": ^2.30.0-rc.3
     "@xyo-network/core": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/property": ^2.30.0-rc.3
@@ -6997,21 +7005,22 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
     "@xylabs/sdk-js": ^2.6.7
-    "@xyo-network/api": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/utils": ^2.30.0-rc.3
     tslib: ^2.4.0
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
+    "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/property": ^2.30.0-rc.3
     "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
+    "@xyo-network/utils": ^2.30.0-rc.3
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7210,6 +7219,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload-diviner":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload-diviner"
+  dependencies:
+    "@xylabs/react-shared": ^2.14.16
+    "@xyo-network/react-api": "workspace:^"
+    "@xyo-network/react-auth-service": "workspace:^"
+    "@xyo-network/react-network": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    lodash: ^4.17.21
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/api": "*"
+    "@xyo-network/diviner": "*"
+    "@xyo-network/network": "*"
+    "@xyo-network/payload": "*"
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload-plugin-resolver":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload-plugin-resolver"
@@ -7276,6 +7310,7 @@ __metadata:
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
     "@xyo-network/api": ^2.30.0-rc.3
+    "@xyo-network/network": ^2.30.0-rc.3
     "@xyo-network/payload": ^2.30.0-rc.3
     "@xyo-network/payload-plugin": ^2.30.0-rc.3
     "@xyo-network/property": ^2.30.0-rc.3
@@ -7292,26 +7327,15 @@ __metadata:
   resolution: "@xyo-network/react-payload@workspace:packages/sdk/packages/payload"
   dependencies:
     "@xylabs/react-shared": ^2.14.16
-    "@xyo-network/react-api": "workspace:^"
-    "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist": "workspace:^"
-    "@xyo-network/react-archivist-api": "workspace:^"
-    "@xyo-network/react-auth-service": "workspace:^"
-    "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    lodash: ^4.17.21
     tslib: ^2.4.0
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
-    "@xyo-network/api": ^2.30.0-rc.3
-    "@xyo-network/archivist": ^2.30.0-rc.3
-    "@xyo-network/diviner": ^2.30.0-rc.3
-    "@xyo-network/network": ^2.30.0-rc.3
-    "@xyo-network/payload": ^2.30.0-rc.3
-    "@xyo-network/schema-payload-plugin": ^2.30.0-rc.3
-    "@xyo-network/utils": ^2.30.0-rc.3
+    "@xyo-network/archivist": "*"
+    "@xyo-network/payload": "*"
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7516,7 +7540,6 @@ __metadata:
     "@xylabs/react-flexbox": ^2.14.16
     "@xylabs/react-link": ^2.14.16
     "@xylabs/react-shared": ^2.14.16
-    "@xyo-network/core": ^2.30.0-rc.3
     tslib: ^2.4.0
   peerDependencies:
     "@mui/icons-material": ^5.10.3
