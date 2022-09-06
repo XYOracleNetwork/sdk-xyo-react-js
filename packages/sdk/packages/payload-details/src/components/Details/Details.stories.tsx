@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { samplePayload, samplePayloadFromBuilder, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { sampleIdPayload, samplePayloadFromBuilder, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { PayloadDetails } from './Details'
@@ -29,7 +29,7 @@ Default.args = {}
 Default.decorators = [useAppThemeDecorator]
 
 const WithSample = Template.bind({})
-WithSample.args = { payload: samplePayload }
+WithSample.args = { payload: sampleIdPayload }
 WithSample.decorators = [useAppThemeDecorator]
 
 const WithBuilderSample = Template.bind({})
@@ -45,7 +45,7 @@ DefaultPaper.args = { paper: true }
 DefaultPaper.decorators = [useAppThemeDecorator]
 
 const WithSamplePaper = Template.bind({})
-WithSamplePaper.args = { paper: true, payload: samplePayload }
+WithSamplePaper.args = { paper: true, payload: sampleIdPayload }
 WithSamplePaper.decorators = [useAppThemeDecorator]
 
 const WithBuilderSamplePaper = Template.bind({})
