@@ -34,6 +34,9 @@ const AuthStateComponent = () => {
   const logout = () => {
     dispatch?.({ payload: {}, type: AuthActionType.Logout })
   }
+  const reauthenticate = () => {
+    dispatch?.({ payload: { reAuthenticate: true }, type: AuthActionType.Logout })
+  }
   return (
     <>
       <p>AuthState:</p>
@@ -43,6 +46,7 @@ const AuthStateComponent = () => {
       <ButtonGroup>
         <Button onClick={authSuccessful}>AuthSuccessful</Button>
         <Button onClick={logout}>Logout</Button>
+        <Button onClick={reauthenticate}>ReAuthenticate</Button>
       </ButtonGroup>
     </>
   )

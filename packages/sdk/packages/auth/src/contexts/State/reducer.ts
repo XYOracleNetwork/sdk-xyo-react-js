@@ -33,7 +33,8 @@ const authReducer = (state: AuthState, action: AuthAction) => {
     }
 
     case AuthActionType.Logout: {
-      return { ...defaultState(), ...{ reAuthenticate: action.payload.reAuthenticate } }
+      // preserve issuer to know where we last logged in successfully
+      return { ...defaultState(), ...{ issuer: state.issuer, reAuthenticate: action.payload.reAuthenticate } }
     }
 
     default: {

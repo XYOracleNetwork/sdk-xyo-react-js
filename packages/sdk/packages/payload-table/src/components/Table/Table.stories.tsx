@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { samplePayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadTable } from './Table'
@@ -28,48 +28,31 @@ Default.decorators = [useAppThemeDecorator]
 const WithData = Template.bind({})
 WithData.args = {
   payloads: [
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
-    samplePayload,
+    sampleIdPayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
+    sampleSystemInfoBrowserPayload,
   ],
 }
 WithData.decorators = [useAppThemeDecorator]
 
 const WithError = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { _hash, ...badPayload } = samplePayload
+const { ...badPayload } = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
-WithError.args = { payloads: [samplePayload, badPayload] }
+WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
 export { Default, WithData, WithError }
 
