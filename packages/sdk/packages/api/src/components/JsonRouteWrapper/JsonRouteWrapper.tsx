@@ -34,23 +34,25 @@ export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      try {
-        const response = await callback()
-        if (mounted()) {
-          setApiResponse(response)
-        }
-      } catch (ex) {
-        if (mounted()) {
-          const error = ex as XyoApiError
-          if (error.isXyoError) {
-            setApiError(error)
-          } else {
-            throw ex
+      if (active) {
+        try {
+          const response = await callback()
+          if (mounted()) {
+            setApiResponse(response)
+          }
+        } catch (ex) {
+          if (mounted()) {
+            const error = ex as XyoApiError
+            if (error.isXyoError) {
+              setApiError(error)
+            } else {
+              throw ex
+            }
           }
         }
       }
     },
-    [callback],
+    [active, callback],
   )
 
   return (
