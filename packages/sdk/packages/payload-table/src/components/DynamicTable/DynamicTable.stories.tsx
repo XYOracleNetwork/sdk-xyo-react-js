@@ -1,7 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-plugin'
 import { DefaultPayloadRenderPlugin, PayloadRenderPluginResolverProvider, XyoPayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin'
-import { sampleCoinGeckoPayload, samplePayload, sampleUniswapPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import {
+  sampleCoinGeckoPayload,
+  sampleIdPayload,
+  sampleSystemInfoBrowserPayload,
+  sampleUniswapPayload,
+  useAppThemeDecorator,
+} from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadDynamicTable } from './Table'
@@ -34,34 +40,38 @@ Default.decorators = [useAppThemeDecorator]
 const WithData = Template.bind({})
 WithData.args = {
   payloads: [
-    samplePayload,
+    sampleIdPayload,
     sampleUniswapPayload,
     sampleCoinGeckoPayload,
-    samplePayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
     sampleUniswapPayload,
-    samplePayload,
-    sampleUniswapPayload,
-    sampleCoinGeckoPayload,
-    samplePayload,
-    sampleUniswapPayload,
-    samplePayload,
+    sampleIdPayload,
     sampleUniswapPayload,
     sampleCoinGeckoPayload,
-    samplePayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
     sampleUniswapPayload,
-    samplePayload,
+    sampleIdPayload,
     sampleUniswapPayload,
+    sampleCoinGeckoPayload,
+    sampleSystemInfoBrowserPayload,
+    sampleIdPayload,
+    sampleUniswapPayload,
+    sampleIdPayload,
+    sampleUniswapPayload,
+    sampleSystemInfoBrowserPayload,
   ],
 }
 WithData.decorators = [useAppThemeDecorator]
 
 const WithError = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { _hash, ...badPayload } = samplePayload
+const { ...badPayload } = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
-WithError.args = { payloads: [samplePayload, badPayload] }
+WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
 export { Default, WithData, WithError }
 
