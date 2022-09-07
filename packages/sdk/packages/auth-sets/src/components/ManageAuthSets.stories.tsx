@@ -1,7 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
 
 import { AuthSetsProvider, AuthSetsProviderProps, AuthSetsState } from '../contexts'
-import { ManageAuthSets } from './ManageAuthSets'
+import { ManageAuthSetsList } from './ManageAuthSets'
 
 const defaultAuthSets: AuthSetsState['authSets'] = new Map()
 defaultAuthSets.set('http://beta.api.archivist.xyo.network', [
@@ -19,13 +19,13 @@ defaultAuthSets.set('http://api.archivist.xyo.network', [
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: ManageAuthSets,
-  title: 'authSets/ManageAuthSets',
+  component: ManageAuthSetsList,
+  title: 'authSets/ManageAuthSetsList',
 } as Meta
 
 const Template: ComponentStory<React.FC<AuthSetsProviderProps>> = (props) => (
   <AuthSetsProvider {...props}>
-    <ManageAuthSets />
+    <ManageAuthSetsList />
   </AuthSetsProvider>
 )
 

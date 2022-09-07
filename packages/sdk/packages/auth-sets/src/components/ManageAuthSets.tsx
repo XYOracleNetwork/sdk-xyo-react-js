@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 import { useAuthSets } from '../contexts'
 import { AuthSetListItem } from './AuthSet'
 
-export const ManageAuthSets: React.FC<ListProps> = (props) => {
+export const ManageAuthSetsList: React.FC<ListProps> = (props) => {
   const { authSets } = useAuthSets()
 
   if (!authSets || authSets.size === 0) {
