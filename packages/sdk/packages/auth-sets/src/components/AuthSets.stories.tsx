@@ -1,4 +1,4 @@
-import { List, Menu, MenuItem } from '@mui/material'
+import { List } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 
 import { AuthSetListItem } from './AuthSet'
