@@ -1,4 +1,4 @@
-import { Menu, MenuItem } from '@mui/material'
+import { List, Menu, MenuItem } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 
 import { AuthSetListItem } from './AuthSet'
@@ -13,15 +13,13 @@ const Template: ComponentStory<typeof AuthSetListItem> = (props) => {
   return <AuthSetListItem {...props} />
 }
 
-const WithMenuItemTemplate: ComponentStory<typeof AuthSetListItem> = (props) => {
+const WithListTemplate: ComponentStory<typeof AuthSetListItem> = (props) => {
   return (
-    <>
-      <Menu open={true}>
-        <MenuItem selected={false}>
-          <AuthSetListItem {...props} />
-        </MenuItem>
-      </Menu>
-    </>
+    <List>
+      <AuthSetListItem {...props} />
+      <AuthSetListItem {...props} />
+      <AuthSetListItem {...props} />
+    </List>
   )
 }
 
@@ -34,10 +32,10 @@ WithData.args = {
   issuer: 'https://beta.api.archivist.xyo.network',
 }
 
-const WithMenuItem = WithMenuItemTemplate.bind({})
-WithMenuItem.args = {
+const WithList = WithListTemplate.bind({})
+WithList.args = {
   currentAccount: '0x12345678910',
   issuer: 'https://beta.api.archivist.xyo.network',
 }
 
-export { Default, WithData, WithMenuItem }
+export { Default, WithData, WithList }
