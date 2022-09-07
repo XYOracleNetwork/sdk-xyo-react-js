@@ -3,8 +3,9 @@ import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
 import { useNetwork } from '@xyo-network/react-network'
 import { useEffect, useMemo, useState } from 'react'
 
+import { AuthSet } from './AuthSet'
 import { AuthSetsContext } from './Context'
-import { AuthSet, AuthSetsState } from './State'
+import { AuthSetsState } from './State'
 
 export interface AuthSetsProviderProps extends WithChildren {
   defaultAuthSets?: AuthSetsState['authSets']
