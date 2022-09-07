@@ -7,7 +7,7 @@ import { AuthSetsContext } from './Context'
 import { AuthSet, AuthSetsState } from './State'
 
 export interface AuthSetsProviderProps extends WithChildren {
-  defaultAuthSets: AuthSetsState['authSets']
+  defaultAuthSets?: AuthSetsState['authSets']
 }
 
 export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthSets = new Map(), children }) => {
