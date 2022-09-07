@@ -28,13 +28,13 @@ Default.args = {}
 
 const WithData = Template.bind({})
 WithData.args = {
-  currentAccount: '0x12345678910',
+  account: '0x12345678910',
   issuer: 'https://beta.api.archivist.xyo.network',
 }
 
 const WithList = WithListTemplate.bind({})
 WithList.args = {
-  currentAccount: '0x12345678910',
+  account: '0x12345678910',
   issuer: 'https://beta.api.archivist.xyo.network',
 }
 
