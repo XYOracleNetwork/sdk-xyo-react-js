@@ -5,7 +5,7 @@ import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { authDecorator, WrappedAuthComponent } from '@xyo-network/react-storybook'
 
 import { AuthProvider } from '../../contexts'
-import { AuthStatusIconButton } from '.'
+import { AuthStatusIconButton } from './AuthStatusIconButton'
 
 const StorybookEntry = {
   argTypes: {

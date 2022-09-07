@@ -2,7 +2,7 @@ import { IconButtonProps } from '@mui/material'
 
 import { useAuthState } from '../../contexts'
 import { AuthStatusIconButtonInner } from './AuthStatusIconButtonInner'
-import { formatIconHint } from './lib'
+import { formatIconHint } from './formatIconHint'
 
 export const AuthStatusIconButton: React.FC<IconButtonProps> = ({ ...props }) => {
   const { state: authState } = useAuthState()
