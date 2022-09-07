@@ -5,6 +5,7 @@ export interface AuthSet {
   address?: string
   issuer?: string
   account?: string
+  reAuthenticate?: boolean
 }
 
 /** Name used to identify the AuthSet i.e. api domain or ip address */
