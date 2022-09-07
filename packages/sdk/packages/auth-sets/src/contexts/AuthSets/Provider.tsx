@@ -1,16 +1,20 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
 import { useNetwork } from '@xyo-network/react-network'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { AuthSetsContext } from './Context'
 import { AuthSet, AuthSetsState } from './State'
 
-export const AuthSetsProvider: React.FC<WithChildren> = ({ children }) => {
+export interface AuthSetsProviderProps extends WithChildren {
+  defaultAuthSets: AuthSetsState['authSets']
+}
+
+export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthSets = new Map(), children }) => {
   const { network } = useNetwork()
   const { state: authState, dispatch: setAuthState } = useAuthState()
 
-  const [authSets, setAuthSets] = useState<AuthSetsState['authSets']>(new Map())
+  const [authSets, setAuthSets] = useState<AuthSetsState['authSets']>(defaultAuthSets)
   const [activeAuthSetId, setActiveAuthSetId] = useState<string>()
 
   // Watch for network changes
@@ -19,6 +23,7 @@ export const AuthSetsProvider: React.FC<WithChildren> = ({ children }) => {
       const activeNode = network?.nodes?.find((node) => node.type === 'archivist')
       const apiDomain = activeNode?.uri
       setActiveAuthSetId(apiDomain)
+      // Reset AuthState since the network changed
       setAuthState?.({ payload: {}, type: AuthActionType.Logout })
     }
   }, [network, setAuthState])
@@ -43,7 +48,7 @@ export const AuthSetsProvider: React.FC<WithChildren> = ({ children }) => {
     }
   }, [authState])
 
-  const activeAuthSet = activeAuthSetId ? authSets?.get(activeAuthSetId)?.[0] : null
+  const activeAuthSet = useMemo(() => (activeAuthSetId ? authSets?.get(activeAuthSetId)?.[0] : null), [authSets, activeAuthSetId])
 
   return <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true }}>{children}</AuthSetsContext.Provider>
 }

@@ -3,16 +3,7 @@ import PersonIcon from '@mui/icons-material/Person'
 import { IconButton, IconButtonProps, useTheme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
-import { ellipsize, EthAddress } from '@xylabs/sdk-js'
 import { useNavigate } from 'react-router-dom'
-
-const formatAccount = (account: string) => {
-  if (account.startsWith('0x')) {
-    return EthAddress.fromString(account)?.toShortString()
-  } else {
-    return ellipsize(account, 4)
-  }
-}
 
 interface AuthStatusIconButtonInnerProps extends IconButtonProps {
   currentAccount?: string | null
@@ -39,7 +30,7 @@ export const AuthStatusIconButtonInner: React.FC<AuthStatusIconButtonInnerProps>
   return (
     <IconButton title={iconHint} onClick={onClick ?? handleClick} {...props}>
       {currentAccount ? (
-        <Identicon borderRadius="50%" padding={0.8} bgcolor={theme.palette.action.active} size={16} value={formatAccount(currentAccount)} />
+        <Identicon borderRadius="50%" padding={0.8} bgcolor={theme.palette.action.active} size={16} value={currentAccount} />
       ) : (
         <FlexRow>
           <PersonIcon />
