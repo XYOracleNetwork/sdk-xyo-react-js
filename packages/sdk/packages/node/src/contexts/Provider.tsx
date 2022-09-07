@@ -1,5 +1,4 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoModule } from '@xyo-network/module'
 import { XyoNode } from '@xyo-network/node'
 import { useEffect, useState } from 'react'
 
@@ -12,11 +11,6 @@ export interface XyoNodeProviderProps {
 
 export const XyoNodeProvider: React.FC<WithChildren<XyoNodeProviderProps>> = ({ node: nodeProp, required = false, children }) => {
   const [node, setNode] = useState<XyoNode>()
-
-  const attach = (module: XyoModule) => {
-    node?.attach(module)
-    setNode(node)
-  }
 
   useEffect(() => {
     setNode(nodeProp)
