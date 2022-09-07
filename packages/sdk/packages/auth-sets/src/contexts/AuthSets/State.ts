@@ -1,12 +1,6 @@
 import { ContextExState } from '@xyo-network/react-shared'
 
-export interface AuthSet {
-  token?: string
-  address?: string
-  issuer?: string
-  account?: string
-  reAuthenticate?: boolean
-}
+import { AuthSet } from './AuthSet'
 
 /** Name used to identify the AuthSet i.e. api domain or ip address */
 type AuthSetIdentifier = string
