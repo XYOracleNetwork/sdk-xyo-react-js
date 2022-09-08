@@ -17,10 +17,10 @@ export const ManageAuthSetsList: React.FC<ListProps> = (props) => {
     return (
       <List sx={{ bgcolor: 'background.paper', border: (theme: Theme) => `1px solid ${theme.palette.divider}` }} {...props}>
         {Array.from(authSets?.entries()).map(([key, value], index, arr) => {
-          const { account, issuer } = value[0] ?? {}
+          const { account, issuer, identifier } = value[0] ?? {}
           return (
             <Fragment key={key}>
-              <AuthSetListItem alignItems="flex-start" account={account} issuer={issuer} />
+              <AuthSetListItem alignItems="flex-start" account={account} issuer={issuer} identifier={identifier} />
               {index !== arr.length - 1 ? <Divider component="li" /> : null}
             </Fragment>
           )

@@ -1,6 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
-import { useNetwork } from '@xyo-network/react-network'
 import { useEffect, useMemo, useState } from 'react'
 
 import { AuthSet } from './AuthSet'
@@ -9,10 +8,11 @@ import { AuthSetsState } from './State'
 
 export interface AuthSetsProviderProps extends WithChildren {
   defaultAuthSets?: AuthSetsState['authSets']
+  activeIssuer?: string
+  issuerMapping?: Record<string, string>
 }
 
-export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthSets = new Map(), children }) => {
-  const { network } = useNetwork()
+export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthSets = new Map(), activeIssuer, issuerMapping, children }) => {
   const { state: authState, dispatch: setAuthState } = useAuthState()
 
   const [authSets, setAuthSets] = useState<AuthSetsState['authSets']>(defaultAuthSets)
@@ -20,14 +20,12 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthS
 
   // Watch for network changes
   useEffect(() => {
-    if (network) {
-      const activeNode = network?.nodes?.find((node) => node.type === 'archivist')
-      const apiDomain = activeNode?.uri
-      setActiveAuthSetId(apiDomain)
+    if (activeIssuer) {
+      setActiveAuthSetId(activeIssuer)
       // Reset AuthState since the network changed
       setAuthState?.({ payload: {}, type: AuthActionType.Logout })
     }
-  }, [network, setAuthState])
+  }, [activeIssuer, setAuthState])
 
   // Watch for authState changes
   useEffect(() => {
@@ -38,6 +36,7 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthS
         const authSet: AuthSet = {
           account: loggedInAccount,
           address: '',
+          identifier: issuerMapping?.[issuer],
           issuer,
           token: authState?.jwtToken,
         }
@@ -47,7 +46,7 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthS
         return
       }
     }
-  }, [authState])
+  }, [authState, issuerMapping])
 
   const activeAuthSet = useMemo(() => (activeAuthSetId ? authSets?.get(activeAuthSetId)?.[0] : null), [authSets, activeAuthSetId])
 
