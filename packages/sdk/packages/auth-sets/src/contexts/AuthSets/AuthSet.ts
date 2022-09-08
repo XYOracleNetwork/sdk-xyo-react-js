@@ -3,5 +3,6 @@ export interface AuthSet {
   address?: string
   issuer?: string
   account?: string
+  identifier?: string
   reAuthenticate?: boolean
 }
