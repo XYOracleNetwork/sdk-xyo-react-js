@@ -16,12 +16,10 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthS
   const { state: authState, dispatch: setAuthState } = useAuthState()
 
   const [authSets, setAuthSets] = useState<AuthSetsState['authSets']>(defaultAuthSets)
-  const [activeAuthSetId, setActiveAuthSetId] = useState<string>()
 
   // Watch for network changes
   useEffect(() => {
     if (activeIssuer) {
-      setActiveAuthSetId(activeIssuer)
       // Reset AuthState since the network changed
       setAuthState?.({ payload: {}, type: AuthActionType.Logout })
     }
@@ -48,7 +46,7 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthS
     }
   }, [authState, issuerMapping])
 
-  const activeAuthSet = useMemo(() => (activeAuthSetId ? authSets?.get(activeAuthSetId)?.[0] : null), [authSets, activeAuthSetId])
+  const activeAuthSet = useMemo(() => (activeIssuer ? authSets?.get(activeIssuer)?.[0] : null), [authSets, activeIssuer])
 
   return <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true }}>{children}</AuthSetsContext.Provider>
 }

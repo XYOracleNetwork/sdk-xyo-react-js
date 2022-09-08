@@ -5,7 +5,7 @@ import { useAuthSets } from '../contexts'
 import { AuthSetListItem } from './AuthSet'
 
 export const ManageAuthSetsList: React.FC<ListProps> = (props) => {
-  const { authSets } = useAuthSets()
+  const { authSets, activeAuthSet } = useAuthSets()
 
   if (!authSets || authSets.size === 0) {
     return (
@@ -20,7 +20,13 @@ export const ManageAuthSetsList: React.FC<ListProps> = (props) => {
           const { account, issuer, identifier } = value[0] ?? {}
           return (
             <Fragment key={key}>
-              <AuthSetListItem alignItems="flex-start" account={account} issuer={issuer} identifier={identifier} />
+              <AuthSetListItem
+                alignItems="flex-start"
+                account={account}
+                issuer={issuer}
+                identifier={identifier}
+                active={value[0] === activeAuthSet}
+              />
               {index !== arr.length - 1 ? <Divider component="li" /> : null}
             </Fragment>
           )
