@@ -2,5 +2,5 @@ import { useNode } from './useNode'
 
 export const useModuleAddresses = () => {
   const [node] = useNode()
-  return node?.list()
+  return [node?.attached(), node?.available()]
 }
