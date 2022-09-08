@@ -1,6 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
-import { useNetwork } from '@xyo-network/react-network'
 import { useEffect, useMemo, useState } from 'react'
 
 import { AuthSet } from './AuthSet'
@@ -9,25 +8,40 @@ import { AuthSetsState } from './State'
 
 export interface AuthSetsProviderProps extends WithChildren {
   defaultAuthSets?: AuthSetsState['authSets']
+  activeIssuer?: string
+  issuerMapping?: Record<string, string>
 }
 
-export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthSets = new Map(), children }) => {
-  const { network } = useNetwork()
+export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthSets = new Map(), activeIssuer, issuerMapping, children }) => {
   const { state: authState, dispatch: setAuthState } = useAuthState()
 
   const [authSets, setAuthSets] = useState<AuthSetsState['authSets']>(defaultAuthSets)
-  const [activeAuthSetId, setActiveAuthSetId] = useState<string>()
+
+  const removeAuthSet = (issuer?: string) => {
+    if (!issuer) {
+      return false
+    }
+
+    const removed = authSets?.delete(issuer)
+    if (removed) {
+      setAuthSets(new Map(authSets))
+      if (issuer === activeIssuer) {
+        // Logout when removing authSet that maps to current issuer
+        setAuthState?.({ payload: {}, type: AuthActionType.Logout })
+      }
+      return true
+    } else {
+      return false
+    }
+  }
 
   // Watch for network changes
   useEffect(() => {
-    if (network) {
-      const activeNode = network?.nodes?.find((node) => node.type === 'archivist')
-      const apiDomain = activeNode?.uri
-      setActiveAuthSetId(apiDomain)
+    if (activeIssuer) {
       // Reset AuthState since the network changed
       setAuthState?.({ payload: {}, type: AuthActionType.Logout })
     }
-  }, [network, setAuthState])
+  }, [activeIssuer, setAuthState])
 
   // Watch for authState changes
   useEffect(() => {
@@ -38,6 +52,7 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthS
         const authSet: AuthSet = {
           account: loggedInAccount,
           address: '',
+          identifier: issuerMapping?.[issuer],
           issuer,
           token: authState?.jwtToken,
         }
@@ -47,9 +62,9 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({ defaultAuthS
         return
       }
     }
-  }, [authState])
+  }, [authState, issuerMapping])
 
-  const activeAuthSet = useMemo(() => (activeAuthSetId ? authSets?.get(activeAuthSetId)?.[0] : null), [authSets, activeAuthSetId])
+  const activeAuthSet = useMemo(() => (activeIssuer ? authSets?.get(activeIssuer)?.[0] : null), [authSets, activeIssuer])
 
-  return <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true }}>{children}</AuthSetsContext.Provider>
+  return <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true, removeAuthSet }}>{children}</AuthSetsContext.Provider>
 }
