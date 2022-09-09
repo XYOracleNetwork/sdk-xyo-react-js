@@ -1,12 +1,16 @@
 import { Alert, AlertTitle, Divider, List, ListProps, Theme } from '@mui/material'
 import { Fragment } from 'react'
 
-import { useAuthSets } from '../contexts'
+import { AuthSetsState } from '../contexts'
 import { AuthSetListItem } from './AuthSet'
 
-export const ManageAuthSetsList: React.FC<ListProps> = (props) => {
-  const { authSets, activeAuthSet, removeAuthSet } = useAuthSets()
+export interface ManageAuthSetsListProps extends ListProps {
+  authSets?: AuthSetsState['authSets']
+  activeAuthSet?: AuthSetsState['activeAuthSet']
+  removeAuthSet?: AuthSetsState['removeAuthSet']
+}
 
+export const ManageAuthSetsList: React.FC<ManageAuthSetsListProps> = ({ authSets, activeAuthSet, removeAuthSet, ...props }) => {
   if (!authSets || authSets.size === 0) {
     return (
       <Alert severity="warning">
