@@ -29,6 +29,7 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = {
   account: '0x12345678910',
+  active: true,
   issuer: 'https://beta.api.archivist.xyo.network',
 }
 
