@@ -10,7 +10,7 @@ import { useHandleReturnUrl } from '../useHandleReturnUrl'
 import { FormFields } from './FormFields'
 import { LoginCredentials } from './LoginCredentials'
 
-interface EmailPasswordComponentProps extends LoginForm, FlexBoxProps {}
+export interface EmailPasswordComponentProps extends LoginForm, FlexBoxProps {}
 
 const EmailPasswordComponent: React.FC<EmailPasswordComponentProps> = ({ dispatch, loggedInAccount, onSuccess, ...props }) => {
   const { handleReturnUrl } = useHandleReturnUrl()
