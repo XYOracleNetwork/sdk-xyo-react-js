@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { BusyBox } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { AuthActionType } from '@xyo-network/react-auth'
@@ -11,7 +11,9 @@ import { useHandleReturnUrl } from '../useHandleReturnUrl'
 import { FormFields } from './FormFields'
 import { LoginCredentials } from './LoginCredentials'
 
-const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }) => {
+interface EmailPasswordComponentProps extends LoginForm, FlexBoxProps {}
+
+const EmailPasswordComponent: React.FC<EmailPasswordComponentProps> = ({ dispatch, loggedInAccount, onSuccess, ...props }) => {
   const { handleReturnUrl } = useHandleReturnUrl()
   const credentialsState = useState<LoginCredentials>({ email: '', password: '' })
   const [credentials] = credentialsState
@@ -51,20 +53,14 @@ const EmailPasswordComponent: React.FC<LoginForm> = ({ dispatch, loggedInAccount
   }
 
   return (
-    <>
-      {loggedInAccount ? (
-        <Property title="Logged in Account" value={loggedInAccount}></Property>
-      ) : (
-        <>
-          <Typography variant="h3">Login with Email</Typography>
-          <form onSubmit={handleSubmit}>
-            <BusyBox>
-              <FormFields isLoading={isLoading} credentialsState={credentialsState} />
-            </BusyBox>
-          </form>
-        </>
-      )}
-    </>
+    <FlexCol rowGap={2} {...props}>
+      <Typography variant="h3">Login with Email</Typography>
+      <form onSubmit={handleSubmit}>
+        <FlexCol rowGap={2}>
+          <FormFields isLoading={isLoading} credentialsState={credentialsState} />
+        </FlexCol>
+      </form>
+    </FlexCol>
   )
 }
 

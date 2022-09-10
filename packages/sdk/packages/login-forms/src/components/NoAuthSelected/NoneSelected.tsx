@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import { LoginForm } from '../LoginForm'
 import { AuthServiceButton } from './AuthServiceButton'
 
-export const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount }) => {
+export const NoneSelected: React.FC<LoginForm> = () => {
   const location = useLocation()
   const { authServiceList } = useAuthService()
   const [authWarning, setAuthWarning] = useState<string | undefined>()
@@ -19,26 +19,18 @@ export const NoneSelected: React.FC<LoginForm> = ({ loggedInAccount }) => {
   }, [location])
   return (
     <>
-      {loggedInAccount ? (
-        <Typography variant="subtitle2" paddingY={2}>
-          Logged In Account: {loggedInAccount}
+      <Typography variant="h3">Select Login Provider</Typography>
+      {authWarning && (
+        <Typography marginBottom={2} color="error" variant="body1">
+          {authWarning}
         </Typography>
-      ) : (
-        <>
-          <Typography variant="h3">Select Login Provider</Typography>
-          {authWarning && (
-            <Typography marginBottom={2} color="error" variant="body1">
-              {authWarning}
-            </Typography>
-          )}
-          <ButtonGroup onClick={() => setAuthWarning(undefined)} orientation="vertical" aria-label="vertical outlined button group" fullWidth={true}>
-            {authServiceList &&
-              authServiceList.map((service: AuthService) => {
-                return <AuthServiceButton key={service.id} service={service} />
-              })}
-          </ButtonGroup>
-        </>
       )}
+      <ButtonGroup onClick={() => setAuthWarning(undefined)} orientation="vertical" aria-label="vertical outlined button group" fullWidth={true}>
+        {authServiceList &&
+          authServiceList.map((service: AuthService) => {
+            return <AuthServiceButton key={service.id} service={service} />
+          })}
+      </ButtonGroup>
     </>
   )
 }
