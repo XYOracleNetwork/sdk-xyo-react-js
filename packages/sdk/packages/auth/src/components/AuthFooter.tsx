@@ -12,7 +12,7 @@ const AuthFooterComponent: React.FC = () => {
     authDispatch?.({ payload: {}, type: AuthActionType.Logout })
   }
   return (
-    <ButtonEx variant="outlined" onClick={handleLogout}>
+    <ButtonEx variant="contained" onClick={handleLogout}>
       Logout
     </ButtonEx>
   )
