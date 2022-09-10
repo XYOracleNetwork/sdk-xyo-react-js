@@ -3,7 +3,6 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { AuthActionType } from '@xyo-network/react-auth'
-import { Property } from '@xyo-network/react-property'
 import { FormEvent, memo, useEffect, useState } from 'react'
 
 import { LoginForm } from '../LoginForm'
@@ -23,7 +22,7 @@ const EmailPasswordComponent: React.FC<EmailPasswordComponentProps> = ({ dispatc
   const { api } = useArchivistApi()
 
   useEffect(() => {
-    if (!isLoading && token) {
+    if (!isLoading && token && !loggedInAccount) {
       dispatch({
         payload: { issuer: api?.config.apiDomain, jwtToken: token, loggedInAccount: credentials.email },
         type: AuthActionType.AuthSuccessful,
@@ -31,7 +30,7 @@ const EmailPasswordComponent: React.FC<EmailPasswordComponentProps> = ({ dispatc
       onSuccess?.()
       handleReturnUrl()
     }
-  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl, onSuccess, api?.config.apiDomain])
+  }, [isLoading, token, dispatch, credentials.email, handleReturnUrl, onSuccess, api?.config.apiDomain, loggedInAccount])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useAsyncEffect(async () => {
@@ -45,7 +44,7 @@ const EmailPasswordComponent: React.FC<EmailPasswordComponentProps> = ({ dispatc
         setIsLoading(false)
       }
     }
-  }, [dispatch, isLoading, credentials, api])
+  }, [isLoading, credentials, api])
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()

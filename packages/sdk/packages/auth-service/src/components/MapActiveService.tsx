@@ -1,4 +1,3 @@
-import { useTheme } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { assertEx } from '@xylabs/sdk-js'
