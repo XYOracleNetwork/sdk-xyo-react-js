@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { FlexGrowCol } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { assertEx } from '@xylabs/sdk-js'
 import { AuthDispatch, AuthServiceId, AuthState, useAuthService } from '@xyo-network/react-auth'
 import { LoginForm } from '@xyo-network/react-login-forms'
@@ -9,13 +9,12 @@ import React, { useEffect, useState } from 'react'
 
 import { AuthServiceComponentMap } from '../lib'
 
-export interface ActiveAuthServiceProps {
+export interface ActiveAuthServiceProps extends FlexBoxProps {
   authState: AuthState
   dispatch: AuthDispatch
 }
 
-export const MapActiveAuthService: React.FC<ActiveAuthServiceProps> = ({ dispatch, authState }) => {
-  const theme = useTheme()
+export const MapActiveAuthService: React.FC<ActiveAuthServiceProps> = ({ dispatch, authState, ...props }) => {
   const { isLoading, loggedInAccount } = authState
   const { activeAuthServiceId, setActiveAuthServiceId } = useAuthService()
   const [ActiveAuthService, setActiveAuthService] = useState<React.FC | React.FC<LoginForm>>()
@@ -35,19 +34,19 @@ export const MapActiveAuthService: React.FC<ActiveAuthServiceProps> = ({ dispatc
   }
 
   return (
-    <FlexGrowCol maxWidth={theme.breakpoints.values.sm}>
+    <FlexCol {...props}>
       {ActiveAuthService ? (
         <WalletServiceProvider>
           <ActiveAuthService loggedInAccount={loggedInAccount} dispatch={dispatch} onSuccess={onSuccess} />
         </WalletServiceProvider>
       ) : null}
       {activeAuthServiceId !== AuthServiceId.None ? (
-        <ButtonEx marginY={theme.spacing(4)} disabled={isLoading} variant="outlined" onClick={() => setActiveAuthServiceId?.(AuthServiceId.None)}>
+        <ButtonEx disabled={isLoading} variant="outlined" onClick={() => setActiveAuthServiceId?.(AuthServiceId.None)}>
           Back
         </ButtonEx>
       ) : (
         <></>
       )}
-    </FlexGrowCol>
+    </FlexCol>
   )
 }
