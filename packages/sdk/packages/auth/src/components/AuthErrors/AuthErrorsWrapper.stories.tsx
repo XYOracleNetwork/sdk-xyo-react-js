@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
   }
 
   const create401 = () => {
-    const request = axios.post('http://localhost:8081/user/login', { email: 'none@none.com', password: 'wrong' })
+    const request = axios.post('http://localhost:8081/user/accounts', { email: 'none@none.com', password: 'wrong' })
     request.then().catch((error) => console.error(error))
   }
 

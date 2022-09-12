@@ -21,7 +21,7 @@ export const AuthErrorsWrapper: React.FC<WithChildren<AuthErrorsWrapperProps>> =
       // Relying on window and localStorage so router is not a dependency and
       // avoids nesting within a context to cause rerenders and multiple interceptors
       localStorage.setItem('returnUrl', window.location.pathname)
-      window.location.pathname = '/login'
+      window.location.pathname = '/accounts'
     }
   }, [reAuth])
 

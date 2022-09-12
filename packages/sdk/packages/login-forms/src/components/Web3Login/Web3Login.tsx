@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Alert, AlertTitle, Typography } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { assertEx } from '@xylabs/sdk-js'
 import { XyoApiError } from '@xyo-network/api'
@@ -71,7 +71,9 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
 
   return (
     <CheckForMetaMask metaMaskWallet={metaMaskWallet}>
-      <Typography variant="h3">Login with Web3 Wallet</Typography>
+      <Typography variant="h3" mb={2}>
+        Login with Web3 Wallet
+      </Typography>
       {metaMaskWallet.currentAccount && loggedInAccount ? (
         <>
           <p>Authorized: {metaMaskWallet.currentAccount}</p>
@@ -87,18 +89,17 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
           />
           {metaMaskError && (
             <>
-              <Typography variant="body1" mt={2} color="error">
-                Error Connecting to MetaMask:
-              </Typography>
-              <Typography variant="body1" mt={2} color="error">
+              <Alert severity={'error'}>
+                <AlertTitle>Error Connecting to MetaMask:</AlertTitle>
                 {metaMaskError.message}
-              </Typography>
+              </Alert>
             </>
           )}
           {xyoApiError && (
-            <Typography variant="body1" mt={2} color="error">
-              Error making request to confirm wallet access: {xyoApiError.message}
-            </Typography>
+            <Alert severity={'error'}>
+              <AlertTitle>Error making request to confirm wallet access:</AlertTitle>
+              {xyoApiError.message}
+            </Alert>
           )}
         </>
       )}
