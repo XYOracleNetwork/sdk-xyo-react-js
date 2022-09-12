@@ -19,13 +19,19 @@ export const NoneSelected: React.FC<LoginForm> = () => {
   }, [location])
   return (
     <>
-      <Typography variant="h3">Select Login Provider</Typography>
+      <Typography variant="h3">Authenticate Account</Typography>
       {authWarning && (
         <Typography marginBottom={2} color="error" variant="body1">
           {authWarning}
         </Typography>
       )}
-      <ButtonGroup onClick={() => setAuthWarning(undefined)} orientation="vertical" aria-label="vertical outlined button group" fullWidth={true}>
+      <ButtonGroup
+        size="large"
+        onClick={() => setAuthWarning(undefined)}
+        orientation="vertical"
+        aria-label="vertical outlined button group"
+        fullWidth={true}
+      >
         {authServiceList &&
           authServiceList.map((service: AuthService) => {
             return <AuthServiceButton key={service.id} service={service} />
