@@ -1,19 +1,18 @@
-import { ButtonEx } from '@xylabs/react-button'
+import { Button, ButtonProps } from '@mui/material'
 import { XyoMetaMaskConnector } from '@xyo-network/utils'
 import { Dispatch, SetStateAction } from 'react'
 
 import { MetaMaskError } from './MetaMaskError'
 import { MetaMaskSVG } from './MetaMaskSVG'
-import { Web3ProviderIcon } from './Web3ProviderIcon'
 
-interface ConnectWalletProps {
+interface ConnectWalletProps extends ButtonProps {
   setCheckedWallet: Dispatch<SetStateAction<boolean>>
   metaMaskWallet: XyoMetaMaskConnector
   isLoading: boolean
   setMetaMaskError: Dispatch<SetStateAction<MetaMaskError | undefined>>
 }
 
-const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, metaMaskWallet, isLoading, setMetaMaskError }) => {
+const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, metaMaskWallet, isLoading, setMetaMaskError, ...props }) => {
   const connectWallet = async () => {
     if (!metaMaskWallet.currentAccount) {
       try {
@@ -28,12 +27,16 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, metaMas
   }
 
   return (
-    <ButtonEx size="large" variant="outlined" onClick={connectWallet} disabled={isLoading}>
-      <Web3ProviderIcon>
-        <MetaMaskSVG />
-      </Web3ProviderIcon>
+    <Button
+      variant="contained"
+      onClick={connectWallet}
+      disabled={isLoading}
+      startIcon={<MetaMaskSVG style={{ width: '48px' }} />}
+      sx={{ mb: 2 }}
+      {...props}
+    >
       Login with MetaMask
-    </ButtonEx>
+    </Button>
   )
 }
 
