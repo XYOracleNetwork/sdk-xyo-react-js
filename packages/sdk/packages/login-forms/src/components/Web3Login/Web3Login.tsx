@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 
 import { LoginForm } from '../LoginForm'
 import { useHandleReturnUrl } from '../useHandleReturnUrl'
+import { AuthenticatedAlert } from './AuthenticatedAlert'
 import { CheckForMetaMask } from './CheckForMetaMask'
 import { ConnectWallet } from './ConnectWallet'
 import { MetaMaskError } from './MetaMaskError'
@@ -18,32 +19,27 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
   const [checkedWallet, setCheckedWallet] = useState(false)
   const { api } = useArchivistApi()
   const { metaMaskWallet } = useWalletService()
-  const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState('')
   const [metaMaskError, setMetaMaskError] = useState<MetaMaskError>()
   const [xyoApiError, setXyoApiError] = useState<XyoApiError>()
+  const [newAuthentication, setNewAuthentication] = useState(false)
 
   useEffect(() => {
-    if (!isLoading && token && !loggedInAccount) {
+    if (newAuthentication) {
       dispatch({
         payload: { issuer: api?.config.apiDomain, jwtToken: token, loggedInAccount: metaMaskWallet.currentAccount },
         type: AuthActionType.AuthSuccessful,
       })
       handleReturnUrl()
       onSuccess?.()
+      setNewAuthentication(false)
     }
-  }, [isLoading, token, dispatch, api?.config.apiDomain, metaMaskWallet.currentAccount, handleReturnUrl, onSuccess, loggedInAccount])
-
-  useEffect(() => {
-    if (checkedWallet) {
-      setIsLoading(true)
-    }
-  }, [checkedWallet])
+  }, [token, dispatch, api?.config.apiDomain, metaMaskWallet.currentAccount, handleReturnUrl, onSuccess, newAuthentication])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (checkedWallet && isLoading && api && !token) {
+      if (checkedWallet && api) {
         try {
           // Get the message to sign from the server
           const { state: message } = assertEx(await api.account(metaMaskWallet.currentAccount).challenge.post())
@@ -54,27 +50,40 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
           // Send to server for verification
           const { token } = assertEx(await api.account(metaMaskWallet.currentAccount).verify.post({ message: message as string, signature }))
 
-          setToken(assertEx(token))
-          setIsLoading(false)
+          if (mounted()) {
+            setToken(assertEx(token))
+            setNewAuthentication(true)
+          }
         } catch (err) {
-          setCheckedWallet(false)
-          setIsLoading(false)
           setXyoApiError(err as XyoApiError)
         }
+        return
       }
-      if (checkedWallet && token && mounted()) {
-        setCheckedWallet(false)
-      }
+
+      // once we show the dialog, reset wallet check
+      setCheckedWallet(false)
     },
-    [dispatch, checkedWallet, metaMaskWallet, isLoading, api, token],
+    [dispatch, checkedWallet, metaMaskWallet, api, metaMaskWallet.currentAccount],
   )
+
+  useEffect(() => {
+    if (newAuthentication || xyoApiError) {
+      setCheckedWallet(false)
+    }
+  }, [newAuthentication, xyoApiError])
 
   return (
     <CheckForMetaMask metaMaskWallet={metaMaskWallet}>
       <Typography variant="h3" mb={2}>
         Authenticate with Web3 Wallet
       </Typography>
-      <ConnectWallet isLoading={isLoading} setCheckedWallet={setCheckedWallet} metaMaskWallet={metaMaskWallet} setMetaMaskError={setMetaMaskError} />
+      <AuthenticatedAlert metaMaskAccount={metaMaskWallet.currentAccount} authStateAccount={loggedInAccount} sx={{ mb: 2 }} />
+      <ConnectWallet
+        checkedWallet={checkedWallet}
+        setCheckedWallet={setCheckedWallet}
+        metaMaskWallet={metaMaskWallet}
+        setMetaMaskError={setMetaMaskError}
+      />
       {metaMaskError && (
         <>
           <Alert severity={'error'}>

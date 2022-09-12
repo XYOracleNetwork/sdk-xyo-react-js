@@ -7,12 +7,12 @@ import { MetaMaskSVG } from './MetaMaskSVG'
 
 interface ConnectWalletProps extends ButtonProps {
   setCheckedWallet: Dispatch<SetStateAction<boolean>>
+  checkedWallet?: boolean
   metaMaskWallet: XyoMetaMaskConnector
-  isLoading: boolean
   setMetaMaskError: Dispatch<SetStateAction<MetaMaskError | undefined>>
 }
 
-const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, metaMaskWallet, isLoading, setMetaMaskError, ...props }) => {
+const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, checkedWallet, metaMaskWallet, setMetaMaskError, ...props }) => {
   const connectWallet = async () => {
     if (!metaMaskWallet.currentAccount) {
       try {
@@ -30,7 +30,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, metaMas
     <Button
       variant="contained"
       onClick={connectWallet}
-      disabled={isLoading}
+      disabled={checkedWallet}
       startIcon={<MetaMaskSVG style={{ width: '48px' }} />}
       sx={{ mb: 2 }}
       {...props}
