@@ -35,6 +35,12 @@ export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = tr
   const [authSets, setAuthSets] = useState<AuthSetsState['authSets']>(() => resolveInitialAuthSets(defaultAuthSets, persist))
   const { dispatch: setAuthState } = useAuthState()
 
+  const updateLocalStorage = (authSets?: AuthSetsState['authSets'], persist?: boolean) => {
+    if (authSets && persist) {
+      localStorage.setItem(AuthSetsLocalStorageKey, JSON.stringify(Array.from(authSets)))
+    }
+  }
+
   const addAuthSet = useCallback(
     (token?: string, issuer?: string, account?: string | null, identifier?: string) => {
       if (token && issuer && account) {
@@ -50,9 +56,7 @@ export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = tr
         // but for now we only have one per identifier
         setAuthSets((previous) => {
           const newSets = new Map(previous?.set(issuer, [authSet]))
-          if (persist) {
-            localStorage.setItem(AuthSetsLocalStorageKey, JSON.stringify(Array.from(newSets)))
-          }
+          updateLocalStorage(newSets, persist)
           return newSets
         })
       }
@@ -67,11 +71,13 @@ export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = tr
 
     const removed = authSets?.delete(issuer)
     if (removed) {
-      setAuthSets(new Map(authSets))
+      const newSets = new Map(authSets)
+      setAuthSets(newSets)
       if (issuer === activeIssuer) {
         // Logout when removing authSet that maps to current issuer
         setAuthState?.({ payload: {}, type: AuthActionType.Logout })
       }
+      updateLocalStorage(newSets, persist)
       return true
     } else {
       return false

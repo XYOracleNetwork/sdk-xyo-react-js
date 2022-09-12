@@ -4,6 +4,7 @@ export type SaveableAuthStateProps = Extract<keyof AuthState, 'jwtToken' | 'logg
 
 const LOCAL_STORAGE_NAME = 'AuthState'
 
+/** @deprecated */
 export class localStorageAuthProviderService {
   public static loadAuthStateFromLocalStorage = () => {
     const savedState = localStorage.getItem(LOCAL_STORAGE_NAME)

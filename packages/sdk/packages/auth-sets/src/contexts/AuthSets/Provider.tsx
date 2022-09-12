@@ -23,22 +23,6 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
   const { addAuthSet, removeAuthSet, authSets } = useAuthSetsMethods({ activeIssuer, defaultAuthSets, persist })
   const { state: authState } = useAuthState()
 
-  // Watch for network changes
-  /**
-   * Only needed to ensure that authState serializes the current authSet values correctly.
-   * I.e. if we go from beta to main, then we need to make sure that beta credentials don't
-   * end up in localStorage anymore.  Possible plan, serialize authSets (namespaced) and
-   * bring them back on load.  Update AuthState based on de-serialized results. Remove
-   * serialization from authContext.
-   **/
-
-  // useEffect(() => {
-  //   if (activeIssuer) {
-  //     // Reset AuthState since the network changed
-  //     setAuthState?.({ payload: {}, type: AuthActionType.Logout })
-  //   }
-  // }, [activeIssuer, setAuthState])
-
   // Watch for authState changes
   useEffect(() => {
     if (authState) {

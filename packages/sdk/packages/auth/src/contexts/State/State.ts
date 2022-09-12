@@ -1,5 +1,6 @@
 import { XyoApiError } from '@xyo-network/api'
 
+import { AuthActionType } from '../ActionType'
 import { AuthService, AuthServiceId } from './Service'
 
 export interface AuthState {
@@ -18,4 +19,5 @@ export interface AuthState {
   reAuthenticate?: boolean
   /** url responsible for issuing the current jwtToken */
   issuer?: string
+  lastAction?: AuthActionType
 }
