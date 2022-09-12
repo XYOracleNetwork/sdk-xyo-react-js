@@ -72,36 +72,22 @@ const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }
   return (
     <CheckForMetaMask metaMaskWallet={metaMaskWallet}>
       <Typography variant="h3" mb={2}>
-        Login with Web3 Wallet
+        Authenticate with Web3 Wallet
       </Typography>
-      {metaMaskWallet.currentAccount && loggedInAccount ? (
+      <ConnectWallet isLoading={isLoading} setCheckedWallet={setCheckedWallet} metaMaskWallet={metaMaskWallet} setMetaMaskError={setMetaMaskError} />
+      {metaMaskError && (
         <>
-          <p>Authorized: {metaMaskWallet.currentAccount}</p>
-          <p>Disconnect your account from your wallet to logout</p>
+          <Alert severity={'error'}>
+            <AlertTitle>Error Connecting to MetaMask:</AlertTitle>
+            {metaMaskError.message}
+          </Alert>
         </>
-      ) : (
-        <>
-          <ConnectWallet
-            isLoading={isLoading}
-            setCheckedWallet={setCheckedWallet}
-            metaMaskWallet={metaMaskWallet}
-            setMetaMaskError={setMetaMaskError}
-          />
-          {metaMaskError && (
-            <>
-              <Alert severity={'error'}>
-                <AlertTitle>Error Connecting to MetaMask:</AlertTitle>
-                {metaMaskError.message}
-              </Alert>
-            </>
-          )}
-          {xyoApiError && (
-            <Alert severity={'error'}>
-              <AlertTitle>Error making request to confirm wallet access:</AlertTitle>
-              {xyoApiError.message}
-            </Alert>
-          )}
-        </>
+      )}
+      {xyoApiError && (
+        <Alert severity={'error'}>
+          <AlertTitle>Error making request to confirm wallet access:</AlertTitle>
+          {xyoApiError.message}
+        </Alert>
       )}
     </CheckForMetaMask>
   )

@@ -35,7 +35,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, metaMas
       sx={{ mb: 2 }}
       {...props}
     >
-      Login with MetaMask
+      MetaMask
     </Button>
   )
 }
