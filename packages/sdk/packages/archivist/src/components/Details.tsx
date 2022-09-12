@@ -33,13 +33,13 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ archivist: archiv
       <Typography>{`Payloads: ${payloads ? payloads.length : '-'}`}</Typography>
       <ButtonGroup>
         <ButtonEx
-          disabled={!archivist?.queriable(XyoArchivistCommitQuerySchema)}
+          disabled={!archivist?.queryable(XyoArchivistCommitQuerySchema)}
           onClick={() => archivist?.query?.({ schema: XyoArchivistCommitQuerySchema })}
         >
           Commit
         </ButtonEx>
         <ButtonEx
-          disabled={archivist?.queriable(XyoArchivistClearQuerySchema)}
+          disabled={archivist?.queryable(XyoArchivistClearQuerySchema)}
           onClick={() => archivist?.query({ schema: XyoArchivistClearQuerySchema })}
         >
           Clear

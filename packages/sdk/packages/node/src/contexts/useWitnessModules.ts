@@ -6,7 +6,7 @@ import { useModules } from './useModules'
 export const useWitnessModules = () => {
   const modules = useModules()
 
-  return compact(modules?.filter((module) => module?.queriable(XyoWitnessObserveQuerySchema))).map((module) =>
+  return compact(modules?.filter((module) => module?.queryable(XyoWitnessObserveQuerySchema))).map((module) =>
     module ? new XyoWitnessWrapper(module) : undefined,
   )
 }
