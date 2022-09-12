@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { forget } from '@xylabs/sdk-js'
-import { XyoAccount } from '@xyo-network/account'
 import { XyoMemoryArchivist } from '@xyo-network/archivist'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 
@@ -19,7 +18,7 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof ArchivistDetails> = (args) => <ArchivistDetails {...args}></ArchivistDetails>
 
-const archivist = new XyoMemoryArchivist({ account: new XyoAccount(), schema: 'network.xyo.module.config.archivist.memory' })
+const archivist = new XyoMemoryArchivist()
 const initArchivist = async () => {
   await archivist.insert?.([{ schema: 'network.xyo.test' }])
 }

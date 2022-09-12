@@ -1,4 +1,4 @@
-import { XyoCoingeckoCryptoMarketPayload, XyoCoingeckoCryptoMarketPayloadSchema } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import { XyoCoingeckoCryptoMarketPayload, XyoCoingeckoCryptoMarketSchema } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 
 export const payloadData: XyoCoingeckoCryptoMarketPayload = {
   assets: {
@@ -18,7 +18,7 @@ export const payloadData: XyoCoingeckoCryptoMarketPayload = {
     weth: { btc: 0.0703735, usdc: 1610.82, xyo: 186652 },
     xyo: { btc: 3.79226e-7, dai: 0.00874169, eth: 0.000005353785, eur: 0.00844792, link: 0.0011937, usd: 0.00872519 },
   },
-  schema: XyoCoingeckoCryptoMarketPayloadSchema,
+  schema: XyoCoingeckoCryptoMarketSchema,
   timestamp: 1659625815232,
 }
 
