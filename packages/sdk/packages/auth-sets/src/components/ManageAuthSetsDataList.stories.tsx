@@ -1,5 +1,6 @@
-import { Typography } from '@mui/material'
+import { Button, Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { useEffect, useState } from 'react'
 
 import { AuthSetsProvider, AuthSetsProviderProps } from '../contexts'
 import { betaApiDomain, defaultAuthSets, localStorageSets } from './authSetsData.stories'
@@ -27,11 +28,21 @@ const LocalStorageCleanerDecorator: DecoratorFn = (Story, args) => {
   return <Story {...args} />
 }
 
-const Template: ComponentStory<React.FC<AuthSetsProviderProps>> = (props) => {
-  const savedSets = localStorage.getItem('XyoAuthSets')
+const LocalStorageState = () => {
+  const [savedSets, setSavedSets] = useState('')
+
+  const handleClick = () => setSavedSets(localStorage.getItem('XyoAuthSets') ?? '')
+
+  useEffect(() => {
+    // refresh localStorage once on load
+    handleClick()
+  }, [])
+
   return (
-    <AuthSetsProvider {...props}>
-      <ManageAuthSetsDataList />
+    <>
+      <Button sx={{ mt: 2 }} variant="contained" onClick={handleClick}>
+        Refresh LocalStorage
+      </Button>
       {savedSets ? (
         <>
           <Typography variant="h2" mt={3}>
@@ -40,6 +51,15 @@ const Template: ComponentStory<React.FC<AuthSetsProviderProps>> = (props) => {
           <pre>{JSON.stringify(JSON.parse(savedSets ?? ''), null, 2)}</pre>
         </>
       ) : null}
+    </>
+  )
+}
+
+const Template: ComponentStory<React.FC<AuthSetsProviderProps>> = (props) => {
+  return (
+    <AuthSetsProvider {...props}>
+      <ManageAuthSetsDataList />
+      <LocalStorageState />
     </AuthSetsProvider>
   )
 }
