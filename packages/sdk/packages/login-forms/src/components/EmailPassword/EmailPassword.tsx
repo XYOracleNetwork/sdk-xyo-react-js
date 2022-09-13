@@ -53,7 +53,7 @@ const EmailPasswordComponent: React.FC<EmailPasswordComponentProps> = ({ dispatc
 
   return (
     <FlexCol rowGap={2} {...props}>
-      <Typography variant="h3">Login with Email</Typography>
+      <Typography variant="h3">Authenticate with Email</Typography>
       <form onSubmit={handleSubmit}>
         <FlexCol rowGap={2}>
           <FormFields isLoading={isLoading} credentialsState={credentialsState} />

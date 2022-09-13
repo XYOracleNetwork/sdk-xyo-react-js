@@ -24,8 +24,8 @@ export const AuthStatusIconButtonInner: React.FC<AuthStatusIconButtonInnerProps>
   const handleClick = () => {
     if (currentAccount) {
       localStorage.setItem('returnUrl', window.location.pathname)
-      navigate('/accounts')
     }
+    navigate('/accounts')
   }
   return (
     <IconButton title={iconHint} onClick={onClick ?? handleClick} {...props}>

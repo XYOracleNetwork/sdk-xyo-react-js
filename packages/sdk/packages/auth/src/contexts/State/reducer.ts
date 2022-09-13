@@ -3,14 +3,14 @@ import { AuthAction } from './Action'
 import { defaultState } from './default'
 import { AuthState } from './State'
 
-const authReducer = (state: AuthState, action: AuthAction) => {
+const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
     case AuthActionType.RehydrateState: {
       console.warn('no longer needed.  Logic Built into AuthProvider')
       if (!action.payload) {
         throw new Error('Missing Payload')
       }
-      return { ...state, ...action.payload }
+      return { ...state, ...action.payload, lastAction: AuthActionType.RehydrateState }
     }
 
     case AuthActionType.AuthSuccessful: {
@@ -21,7 +21,7 @@ const authReducer = (state: AuthState, action: AuthAction) => {
         isLoading: false,
         reAuthenticate: false,
       }
-      return { ...state, ...{ ...authCompleteState, ...action.payload } }
+      return { ...state, ...{ ...authCompleteState, ...action.payload }, lastAction: AuthActionType.AuthSuccessful }
     }
 
     case AuthActionType.AuthFailure: {
@@ -29,12 +29,12 @@ const authReducer = (state: AuthState, action: AuthAction) => {
         throw new Error('authError missing from  payload')
       }
       const { authError } = action.payload
-      return { ...state, ...{ authError, isLoading: false } }
+      return { ...state, ...{ authError, isLoading: false }, lastAction: AuthActionType.AuthFailure }
     }
 
     case AuthActionType.Logout: {
       // preserve issuer to know where we last logged in successfully
-      return { ...defaultState(), ...{ issuer: state.issuer, reAuthenticate: action.payload.reAuthenticate } }
+      return { ...defaultState(), ...{ issuer: state.issuer, reAuthenticate: action.payload.reAuthenticate }, lastAction: AuthActionType.Logout }
     }
 
     default: {
