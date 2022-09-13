@@ -3,7 +3,6 @@ import { SelectExProps } from '@xylabs/react-common'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { DarkModeIconButton } from '@xyo-network/react-app-settings'
 import { ArchiveSelectEx } from '@xyo-network/react-archive'
-import { AuthStatusIconButton } from '@xyo-network/react-auth'
 import { AuthSetsStatusIconButton } from '@xyo-network/react-auth-sets'
 import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'
 import { ReactNode } from 'react'
@@ -32,7 +31,6 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   darkModeButton = false,
   authButton = false,
   menuItems,
-  developerMode = false,
   ...props
 }) => {
   return (
@@ -53,7 +51,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
         </FlexRow>
       )}
       {children}
-      {authButton ? developerMode ? <AuthSetsStatusIconButton color="inherit" /> : <AuthStatusIconButton color="inherit" /> : null}
+      {authButton ? <AuthSetsStatusIconButton color="inherit" /> : null}
       {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
       {menuItems ? <SiteMenu>{menuItems}</SiteMenu> : null}
     </Toolbar>
