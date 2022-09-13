@@ -31,6 +31,8 @@
     "@xyo-network/api": "*",
     "@xyo-network/network": "*",
     "@xyo-network/payload": "*",
+    "axios": "^0.27.2",
+    "pako": "^2.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"
@@ -38,7 +40,8 @@
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@xylabs/sdk-js": "^2.6.7",
-    "@xyo-network/api": "^2.32.0"
+    "@xyo-network/api": "next",
+    "axios": "^0.27.2"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
