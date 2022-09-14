@@ -13,7 +13,7 @@ export interface AuthSetsProviderProps extends WithChildren {
   persist?: boolean
 }
 
-export const AuthSetsProviderInner: React.FC<AuthSetsProviderProps> = ({
+export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
   defaultAuthSets = new Map(),
   activeIssuer,
   issuerMapping,
