@@ -1,6 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
 import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
+import { useAuthSets } from '@xyo-network/react-auth-sets'
 import { useCallback, useEffect, useState } from 'react'
 
 import { ArchivistApiContext } from './Context'
@@ -31,7 +32,8 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
   const [failureHistory] = useState<XyoApiResponse[]>([])
   const [errorHistory] = useState<XyoApiError[]>([])
 
-  const { state: authState, dispatch: setAuthState } = useAuthState()
+  const { dispatch: setAuthState } = useAuthState()
+  const { activeAuthSet } = useAuthSets()
 
   //we are doing this with config since we want a value compare and not a ref compare
   useEffect(() => {
@@ -50,14 +52,14 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
   const onFailure = useCallback(
     (response: XyoApiResponse) => {
       //if 401 and we think we are authenticated, logout
-      if (response.status === 401 && authState?.loggedInAccount) {
+      if (response.status === 401 && activeAuthSet?.account) {
         setAuthState?.({ payload: { reAuthenticate: true }, type: AuthActionType.Logout })
       }
 
       logWithMax(failureHistory, response, failureHistoryMaxDepth)
       logResponse(response)
     },
-    [logResponse, failureHistory, failureHistoryMaxDepth, setAuthState, authState],
+    [activeAuthSet?.account, failureHistory, failureHistoryMaxDepth, logResponse, setAuthState],
   )
 
   const onSuccess = useCallback(

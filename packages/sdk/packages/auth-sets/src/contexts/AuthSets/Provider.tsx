@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { useAuthState } from '@xyo-network/react-auth'
-import { useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 
 import { AuthSetsContext } from './Context'
 import { useAuthSetsMethods } from './hooks'
@@ -20,19 +20,25 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
   persist = true,
   children,
 }) => {
-  const { addAuthSet, removeAuthSet, authSets } = useAuthSetsMethods({ activeIssuer, defaultAuthSets, persist })
+  const { updateAuthSet, removeAuthSet, authSets, activeAuthSet, markForReAuthenticate } = useAuthSetsMethods({
+    activeIssuer,
+    defaultAuthSets,
+    persist,
+  })
   const { state: authState } = useAuthState()
 
   // Watch for authState changes
   useEffect(() => {
     if (authState) {
-      const { jwtToken, issuer, loggedInAccount } = authState
+      const { jwtToken, issuer, loggedInAccount, reAuthenticate } = authState
       // New Login
-      addAuthSet(jwtToken, issuer, loggedInAccount, issuer ? issuerMapping?.[issuer] : undefined)
-    }
-  }, [authState, issuerMapping, addAuthSet])
+      updateAuthSet(jwtToken, issuer, loggedInAccount, issuer ? issuerMapping?.[issuer] : undefined)
 
-  const activeAuthSet = useMemo(() => (activeIssuer ? authSets?.get(activeIssuer)?.[0] : null), [authSets, activeIssuer])
+      if (reAuthenticate) {
+        markForReAuthenticate()
+      }
+    }
+  }, [authState, issuerMapping, updateAuthSet, markForReAuthenticate])
 
   return <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true, removeAuthSet }}>{children}</AuthSetsContext.Provider>
 }

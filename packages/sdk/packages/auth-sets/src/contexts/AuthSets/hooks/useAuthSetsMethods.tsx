@@ -1,5 +1,5 @@
 import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 import { AuthSet } from '../AuthSet'
 import { AuthSetsState } from '../State'
@@ -34,6 +34,7 @@ interface UseAuthSetsMethodsConfig {
 export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = true }: UseAuthSetsMethodsConfig) => {
   const [authSets, setAuthSets] = useState<AuthSetsState['authSets']>(() => resolveInitialAuthSets(defaultAuthSets, persist))
   const { dispatch: setAuthState } = useAuthState()
+  const activeAuthSet = useMemo(() => (activeIssuer ? authSets?.get(activeIssuer)?.[0] : null), [authSets, activeIssuer])
 
   const updateLocalStorage = (authSets?: AuthSetsState['authSets'], persist?: boolean) => {
     if (authSets && persist) {
@@ -41,7 +42,7 @@ export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = tr
     }
   }
 
-  const addAuthSet = useCallback(
+  const updateAuthSet = useCallback(
     (token?: string, issuer?: string, account?: string | null, identifier?: string) => {
       if (token && issuer && account) {
         const authSet: AuthSet = {
@@ -84,5 +85,12 @@ export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = tr
     }
   }
 
-  return { addAuthSet, authSets, removeAuthSet, resolveInitialAuthSets, setAuthSets }
+  const markForReAuthenticate = () => {
+    if (activeAuthSet && activeIssuer) {
+      activeAuthSet.reAuthenticate = true
+      setAuthSets((previous) => new Map(previous?.set(activeIssuer, [activeAuthSet])))
+    }
+  }
+
+  return { activeAuthSet, authSets, markForReAuthenticate, removeAuthSet, resolveInitialAuthSets, setAuthSets, updateAuthSet }
 }
