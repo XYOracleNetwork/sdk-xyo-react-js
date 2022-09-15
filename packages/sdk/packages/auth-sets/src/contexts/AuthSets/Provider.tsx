@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { useAuthState } from '@xyo-network/react-auth'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { AuthSetsContext } from './Context'
 import { useAuthSetsMethods } from './hooks'
@@ -22,7 +22,7 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
   persist = true,
   children,
 }) => {
-  const { updateAuthSet, removeAuthSet, authSets, activeAuthSet } = useAuthSetsMethods({
+  const { addAuthSet, removeAuthSet, authSets, activeAuthSet, onFailure } = useAuthSetsMethods({
     activeIssuer,
     defaultAuthSets,
     persist,
@@ -30,22 +30,30 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
   const [reAuthIssuer, setReAuthIssuer] = useState<string | undefined>(defaultReAuthIssuer)
   const { state: authState } = useAuthState()
 
+  const updateReAuthIssuer = useCallback(
+    (reAuthenticate?: boolean, issuer?: string) => {
+      if (reAuthIssuer !== issuer) {
+        setReAuthIssuer(reAuthenticate ? issuer : undefined)
+      }
+    },
+    [reAuthIssuer],
+  )
+
   // Watch for authState changes
   useEffect(() => {
     if (authState) {
       const { jwtToken, issuer, loggedInAccount, reAuthenticate } = authState
-      // New Login
-      updateAuthSet(jwtToken, issuer, loggedInAccount, issuer ? issuerMapping?.[issuer] : undefined)
-
-      if (reAuthenticate && reAuthIssuer !== issuer) {
-        setReAuthIssuer(issuer)
-      } else if (!reAuthenticate && reAuthIssuer !== issuer) {
-        setReAuthIssuer(undefined)
+      if (!reAuthenticate) {
+        // New Login
+        addAuthSet(jwtToken, issuer, loggedInAccount, issuer ? issuerMapping?.[issuer] : undefined)
       }
+      updateReAuthIssuer(reAuthenticate, issuer)
     }
-  }, [authState, issuerMapping, reAuthIssuer, updateAuthSet])
+  }, [addAuthSet, authState, issuerMapping, reAuthIssuer, updateReAuthIssuer])
 
   return (
-    <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true, reAuthIssuer, removeAuthSet }}>{children}</AuthSetsContext.Provider>
+    <AuthSetsContext.Provider value={{ activeAuthSet, authSets, onFailure, provided: true, reAuthIssuer, removeAuthSet }}>
+      {children}
+    </AuthSetsContext.Provider>
   )
 }

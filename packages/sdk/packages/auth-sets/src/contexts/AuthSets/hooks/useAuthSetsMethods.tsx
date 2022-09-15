@@ -33,7 +33,7 @@ interface UseAuthSetsMethodsConfig {
 
 export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = true }: UseAuthSetsMethodsConfig) => {
   const [authSets, setAuthSets] = useState<AuthSetsState['authSets']>(() => resolveInitialAuthSets(defaultAuthSets, persist))
-  const { dispatch: setAuthState } = useAuthState()
+  const { state: authState, dispatch: setAuthState } = useAuthState()
   const activeAuthSet = useMemo(() => (activeIssuer ? authSets?.get(activeIssuer)?.[0] : null), [authSets, activeIssuer])
 
   const updateLocalStorage = (authSets?: AuthSetsState['authSets'], persist?: boolean) => {
@@ -42,7 +42,7 @@ export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = tr
     }
   }
 
-  const updateAuthSet = useCallback(
+  const addAuthSet = useCallback(
     (token?: string, issuer?: string, account?: string | null, identifier?: string) => {
       if (token && issuer && account) {
         const authSet: AuthSet = {
@@ -85,5 +85,14 @@ export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = tr
     }
   }
 
-  return { activeAuthSet, authSets, removeAuthSet, resolveInitialAuthSets, setAuthSets, updateAuthSet }
+  const onFailure = useCallback(
+    (statusCode?: number) => {
+      if (statusCode === 401 && authState?.reAuthenticate === false) {
+        setAuthState?.({ payload: { issuer: activeIssuer, reAuthenticate: true }, type: AuthActionType.Logout })
+      }
+    },
+    [activeIssuer, authState?.reAuthenticate, setAuthState],
+  )
+
+  return { activeAuthSet, addAuthSet, authSets, onFailure, removeAuthSet, resolveInitialAuthSets, setAuthSets }
 }
