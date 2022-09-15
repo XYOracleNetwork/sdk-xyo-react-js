@@ -37,9 +37,13 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
       // New Login
       updateAuthSet(jwtToken, issuer, loggedInAccount, issuer ? issuerMapping?.[issuer] : undefined)
 
-      setReAuthIssuer(reAuthenticate ? issuer : undefined)
+      if (reAuthenticate && reAuthIssuer !== issuer) {
+        setReAuthIssuer(issuer)
+      } else if (!reAuthenticate && reAuthIssuer !== issuer) {
+        setReAuthIssuer(undefined)
+      }
     }
-  }, [authState, issuerMapping, updateAuthSet])
+  }, [authState, issuerMapping, reAuthIssuer, updateAuthSet])
 
   return (
     <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true, reAuthIssuer, removeAuthSet }}>{children}</AuthSetsContext.Provider>
