@@ -1,7 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
 import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
-import { useAuthSets } from '@xyo-network/react-auth-sets'
 import { useCallback, useEffect, useState } from 'react'
 
 import { ArchivistApiContext } from './Context'
@@ -13,6 +12,8 @@ export interface ArchivistApiProviderProps extends XyoApiConfig {
   responseHistoryMaxDepth?: number
   failureHistoryMaxDepth?: number
   errorHistoryMaxDepth?: number
+  activeAccount?: string
+  activeIssuer?: string
 }
 
 export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderProps>> = ({
@@ -21,6 +22,8 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
   responseHistoryMaxDepth = 0,
   failureHistoryMaxDepth = 0,
   errorHistoryMaxDepth = 0,
+  activeAccount,
+  activeIssuer,
   children,
   ...configProps
 }) => {
@@ -33,7 +36,6 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
   const [errorHistory] = useState<XyoApiError[]>([])
 
   const { dispatch: setAuthState } = useAuthState()
-  const { activeAuthSet } = useAuthSets()
 
   //we are doing this with config since we want a value compare and not a ref compare
   useEffect(() => {
@@ -52,14 +54,14 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
   const onFailure = useCallback(
     (response: XyoApiResponse) => {
       //if 401 and we think we are authenticated, logout
-      if (response.status === 401 && activeAuthSet?.account) {
-        setAuthState?.({ payload: { issuer: activeAuthSet.issuer, reAuthenticate: true }, type: AuthActionType.Logout })
+      if (response.status === 401 && activeAccount) {
+        setAuthState?.({ payload: { issuer: activeIssuer, reAuthenticate: true }, type: AuthActionType.Logout })
       }
 
       logWithMax(failureHistory, response, failureHistoryMaxDepth)
       logResponse(response)
     },
-    [activeAuthSet?.account, activeAuthSet?.issuer, failureHistory, failureHistoryMaxDepth, logResponse, setAuthState],
+    [activeAccount, activeIssuer, failureHistory, failureHistoryMaxDepth, logResponse, setAuthState],
   )
 
   const onSuccess = useCallback(
