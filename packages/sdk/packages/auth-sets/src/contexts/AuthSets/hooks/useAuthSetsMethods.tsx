@@ -85,12 +85,5 @@ export const useAuthSetsMethods = ({ defaultAuthSets, activeIssuer, persist = tr
     }
   }
 
-  const markForReAuthenticate = () => {
-    if (activeAuthSet && activeIssuer) {
-      activeAuthSet.reAuthenticate = true
-      setAuthSets((previous) => new Map(previous?.set(activeIssuer, [activeAuthSet])))
-    }
-  }
-
-  return { activeAuthSet, authSets, markForReAuthenticate, removeAuthSet, resolveInitialAuthSets, setAuthSets, updateAuthSet }
+  return { activeAuthSet, authSets, removeAuthSet, resolveInitialAuthSets, setAuthSets, updateAuthSet }
 }

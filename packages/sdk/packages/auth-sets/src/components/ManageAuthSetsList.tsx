@@ -8,9 +8,10 @@ export interface ManageAuthSetsListProps extends ListProps {
   authSets?: AuthSetsState['authSets']
   activeAuthSet?: AuthSetsState['activeAuthSet']
   removeAuthSet?: AuthSetsState['removeAuthSet']
+  reAuthIssuer?: string
 }
 
-export const ManageAuthSetsList: React.FC<ManageAuthSetsListProps> = ({ authSets, activeAuthSet, removeAuthSet, ...props }) => {
+export const ManageAuthSetsList: React.FC<ManageAuthSetsListProps> = ({ authSets, activeAuthSet, removeAuthSet, reAuthIssuer, ...props }) => {
   if (!authSets || authSets.size === 0) {
     return (
       <Alert severity="warning">
@@ -31,6 +32,7 @@ export const ManageAuthSetsList: React.FC<ManageAuthSetsListProps> = ({ authSets
                 identifier={identifier}
                 active={value[0] === activeAuthSet}
                 onRemove={() => removeAuthSet?.(issuer)}
+                reAuth={!!(issuer && reAuthIssuer && issuer === reAuthIssuer)}
               />
               {index !== arr.length - 1 ? <Divider component="li" /> : null}
             </Fragment>
