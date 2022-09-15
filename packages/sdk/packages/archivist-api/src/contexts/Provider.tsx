@@ -1,6 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
-import { AuthActionType, useAuthState } from '@xyo-network/react-auth'
 import { useCallback, useEffect, useState } from 'react'
 
 import { ArchivistApiContext } from './Context'
@@ -12,8 +11,7 @@ export interface ArchivistApiProviderProps extends XyoApiConfig {
   responseHistoryMaxDepth?: number
   failureHistoryMaxDepth?: number
   errorHistoryMaxDepth?: number
-  activeAccount?: string
-  activeIssuer?: string
+  onFailureCallback?: (statusCode?: number) => void
 }
 
 export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderProps>> = ({
@@ -22,8 +20,7 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
   responseHistoryMaxDepth = 0,
   failureHistoryMaxDepth = 0,
   errorHistoryMaxDepth = 0,
-  activeAccount,
-  activeIssuer,
+  onFailureCallback,
   children,
   ...configProps
 }) => {
@@ -34,8 +31,6 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
   const [responseHistory] = useState<XyoApiResponse[]>([])
   const [failureHistory] = useState<XyoApiResponse[]>([])
   const [errorHistory] = useState<XyoApiError[]>([])
-
-  const { dispatch: setAuthState } = useAuthState()
 
   //we are doing this with config since we want a value compare and not a ref compare
   useEffect(() => {
@@ -53,15 +48,11 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
 
   const onFailure = useCallback(
     (response: XyoApiResponse) => {
-      //if 401 and we think we are authenticated, logout
-      if (response.status === 401 && activeAccount) {
-        setAuthState?.({ payload: { issuer: activeIssuer, reAuthenticate: true }, type: AuthActionType.Logout })
-      }
-
+      onFailureCallback?.(response.status)
       logWithMax(failureHistory, response, failureHistoryMaxDepth)
       logResponse(response)
     },
-    [activeAccount, activeIssuer, failureHistory, failureHistoryMaxDepth, logResponse, setAuthState],
+    [onFailureCallback, failureHistory, failureHistoryMaxDepth, logResponse],
   )
 
   const onSuccess = useCallback(
