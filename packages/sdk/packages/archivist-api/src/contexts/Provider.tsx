@@ -53,13 +53,13 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
     (response: XyoApiResponse) => {
       //if 401 and we think we are authenticated, logout
       if (response.status === 401 && activeAuthSet?.account) {
-        setAuthState?.({ payload: { reAuthenticate: true }, type: AuthActionType.Logout })
+        setAuthState?.({ payload: { issuer: activeAuthSet.issuer, reAuthenticate: true }, type: AuthActionType.Logout })
       }
 
       logWithMax(failureHistory, response, failureHistoryMaxDepth)
       logResponse(response)
     },
-    [activeAuthSet?.account, failureHistory, failureHistoryMaxDepth, logResponse, setAuthState],
+    [activeAuthSet?.account, activeAuthSet?.issuer, failureHistory, failureHistoryMaxDepth, logResponse, setAuthState],
   )
 
   const onSuccess = useCallback(
