@@ -73,6 +73,7 @@ WithProviderData.decorators = [LocalStorageCleanerDecorator]
 WithProviderData.args = {
   activeIssuer: betaApiDomain,
   defaultAuthSets,
+  defaultReAuthIssuer: betaApiDomain,
 }
 
 const WithLocalStorage = Template.bind({})

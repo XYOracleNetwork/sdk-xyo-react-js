@@ -11,4 +11,5 @@ export interface AuthSetsState extends ContextExState {
   authSets?: AuthSetMap
   activeAuthSet?: AuthSet | null
   removeAuthSet?: (issuer?: string) => boolean
+  reAuthIssuer?: string
 }
