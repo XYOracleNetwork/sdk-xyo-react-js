@@ -1,7 +1,7 @@
-import { Archivist } from '@xyo-network/archivist'
+import { PayloadArchivist } from '@xyo-network/archivist'
 import { Dispatch } from 'react'
 
 export interface ArchivistState {
-  archivist?: Archivist
-  setArchivist?: Dispatch<Archivist>
+  archivist?: PayloadArchivist
+  setArchivist?: Dispatch<PayloadArchivist>
 }
