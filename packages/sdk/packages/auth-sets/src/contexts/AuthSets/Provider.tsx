@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { useAuthState } from '@xyo-network/react-auth'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { AuthSetsContext } from './Context'
 import { useAuthSetsMethods } from './hooks'
@@ -8,6 +8,7 @@ import { AuthSetsState } from './State'
 
 export interface AuthSetsProviderProps extends WithChildren {
   defaultAuthSets?: AuthSetsState['authSets']
+  defaultReAuthIssuer?: string
   activeIssuer?: string
   issuerMapping?: Record<string, string>
   persist?: boolean
@@ -15,16 +16,18 @@ export interface AuthSetsProviderProps extends WithChildren {
 
 export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
   defaultAuthSets = new Map(),
+  defaultReAuthIssuer,
   activeIssuer,
   issuerMapping,
   persist = true,
   children,
 }) => {
-  const { updateAuthSet, removeAuthSet, authSets, activeAuthSet, markForReAuthenticate } = useAuthSetsMethods({
+  const { updateAuthSet, removeAuthSet, authSets, activeAuthSet } = useAuthSetsMethods({
     activeIssuer,
     defaultAuthSets,
     persist,
   })
+  const [reAuthIssuer, setReAuthIssuer] = useState<string | undefined>(defaultReAuthIssuer)
   const { state: authState } = useAuthState()
 
   // Watch for authState changes
@@ -34,11 +37,11 @@ export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
       // New Login
       updateAuthSet(jwtToken, issuer, loggedInAccount, issuer ? issuerMapping?.[issuer] : undefined)
 
-      if (reAuthenticate) {
-        markForReAuthenticate()
-      }
+      setReAuthIssuer(reAuthenticate ? issuer : undefined)
     }
-  }, [authState, issuerMapping, updateAuthSet, markForReAuthenticate])
+  }, [authState, issuerMapping, updateAuthSet])
 
-  return <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true, removeAuthSet }}>{children}</AuthSetsContext.Provider>
+  return (
+    <AuthSetsContext.Provider value={{ activeAuthSet, authSets, provided: true, reAuthIssuer, removeAuthSet }}>{children}</AuthSetsContext.Provider>
+  )
 }
