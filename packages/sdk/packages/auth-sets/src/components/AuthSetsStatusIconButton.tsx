@@ -4,13 +4,14 @@ import { AuthStatusIconButtonInner, formatIconHint } from '@xyo-network/react-au
 import { useAuthSets } from '../contexts'
 
 export const AuthSetsStatusIconButton: React.FC<IconButtonProps> = (props) => {
-  const { activeAuthSet } = useAuthSets()
+  const { activeAuthSet, reAuthIssuer } = useAuthSets()
+  const reAuth = !!(activeAuthSet?.issuer && reAuthIssuer && activeAuthSet.issuer === reAuthIssuer)
 
   return (
     <AuthStatusIconButtonInner
       currentAccount={activeAuthSet?.account}
-      iconHint={formatIconHint(activeAuthSet?.account, activeAuthSet?.reAuthenticate)}
-      reAuthenticate={activeAuthSet?.reAuthenticate}
+      iconHint={formatIconHint(activeAuthSet?.account, reAuth)}
+      reAuthenticate={reAuth}
       {...props}
     />
   )

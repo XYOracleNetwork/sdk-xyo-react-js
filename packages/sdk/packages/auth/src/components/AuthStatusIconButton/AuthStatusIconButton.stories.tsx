@@ -59,6 +59,7 @@ const NeedsReAuth = Template.bind({})
 NeedsReAuth.args = {
   authState: {
     authServiceList: [],
+    loggedInAccount: 'test1234@somedomain.com',
     reAuthenticate: true,
   },
 }

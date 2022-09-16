@@ -4,6 +4,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
 import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { AuthProvider } from '@xyo-network/react-auth'
+import { AuthSetsProvider } from '@xyo-network/react-auth-sets'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
 import { XyoWalletBase } from '@xyo-network/wallet'
@@ -27,28 +29,32 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
   <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
-    <BrowserRouter>
-      <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-        <NetworkMemoryProvider>
-          <ArchivesProvider>
-            <ArchiveProvider>
-              <ApplicationAppBar
-                systemToolbar={
-                  <SystemToolbar
-                    menuItems={
-                      <List>
-                        <SiteMenuListItem primary="Hello" />
-                      </List>
+    <AuthProvider authState={{}}>
+      <AuthSetsProvider>
+        <BrowserRouter>
+          <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+            <NetworkMemoryProvider>
+              <ArchivesProvider>
+                <ArchiveProvider>
+                  <ApplicationAppBar
+                    systemToolbar={
+                      <SystemToolbar
+                        menuItems={
+                          <List>
+                            <SiteMenuListItem primary="Hello" />
+                          </List>
+                        }
+                      />
                     }
-                  />
-                }
-                {...args}
-              ></ApplicationAppBar>
-            </ArchiveProvider>
-          </ArchivesProvider>
-        </NetworkMemoryProvider>
-      </ArchivistApiProvider>
-    </BrowserRouter>
+                    {...args}
+                  ></ApplicationAppBar>
+                </ArchiveProvider>
+              </ArchivesProvider>
+            </NetworkMemoryProvider>
+          </ArchivistApiProvider>
+        </BrowserRouter>
+      </AuthSetsProvider>
+    </AuthProvider>
   </WalletProvider>
 )
 

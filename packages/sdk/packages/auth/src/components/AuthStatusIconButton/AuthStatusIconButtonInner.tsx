@@ -27,14 +27,19 @@ export const AuthStatusIconButtonInner: React.FC<AuthStatusIconButtonInnerProps>
     }
     navigate('/accounts')
   }
+
   return (
     <IconButton title={iconHint} onClick={onClick ?? handleClick} {...props}>
-      {currentAccount ? (
+      {reAuthenticate ? (
+        <FlexRow>
+          <PersonIcon />
+          <Error color="warning" sx={{ position: 'absolute', right: '-13px', top: '-10px' }} />
+        </FlexRow>
+      ) : currentAccount ? (
         <Identicon borderRadius="50%" padding={0.8} bgcolor={theme.palette.action.active} size={16} value={currentAccount} />
       ) : (
         <FlexRow>
           <PersonIcon />
-          {reAuthenticate && <Error color="warning" sx={{ position: 'absolute', right: '-13px', top: '-10px' }} />}
         </FlexRow>
       )}
     </IconButton>
