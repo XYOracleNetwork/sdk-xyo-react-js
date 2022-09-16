@@ -29,6 +29,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
   to,
   interactionVariant = 'card',
   media,
+  sx,
   ...props
 }) => {
   const theme = useTheme()
@@ -44,12 +45,12 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
   return (
     <CardEx
       elevation={raised ? 3 : 0}
-      style={{ height: '100%', justifyContent: 'space-between', width: '100%' }}
       sx={{
         '&:hover': {
           cursor: interactionVariant == 'button' ? 'pointer' : null,
         },
         backgroundColor: alpha(theme.palette.primary.light, 0.05),
+        ...sx,
       }}
       onMouseEnter={() => (isMobile ? null : interactionVariant == 'button' ? setRaised(true) : null)}
       onMouseLeave={() => (isMobile ? null : interactionVariant == 'button' ? setRaised(false) : null)}
