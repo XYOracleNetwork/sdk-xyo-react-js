@@ -1,5 +1,5 @@
 import { Alert, Typography } from '@mui/material'
-import { XyoBoundWitness, XyoBoundWitnessWrapper } from '@xyo-network/boundwitness'
+import { BoundWitnessWrapper, XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 
 import { BlockTableRow, BlockTableRowProps } from './TableRow'
@@ -12,7 +12,7 @@ interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
 }
 
 const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({ block, archive, columns, onRowClick, index, exploreDomain }) => {
-  const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
+  const wrapper = block ? new BoundWitnessWrapper(block) : undefined
   return (
     <>
       {block ? (

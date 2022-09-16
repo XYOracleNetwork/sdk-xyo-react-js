@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
+import { Hasher } from '@xyo-network/core'
 
 import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
 import { BlockTableProps } from './BlockTableProps'
@@ -32,7 +33,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
         {blocks?.map((block, index) => (
           <BlockTableRowWithErrorBoundary
             archive={archive}
-            key={`${block._hash}-${block._timestamp}-${index}`}
+            key={`${Hasher.hash(block)}`}
             block={block}
             index={index}
             exploreDomain={exploreDomain}

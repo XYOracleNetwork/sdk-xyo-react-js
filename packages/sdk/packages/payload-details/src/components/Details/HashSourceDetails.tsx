@@ -2,7 +2,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import { IconButton, Typography, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 
 export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
   noTitle?: boolean
@@ -11,7 +11,7 @@ export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
 
 export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> = ({ noTitle = false, payload, ...props }) => {
   const theme = useTheme()
-  const payloadWrapper = payload ? new XyoPayloadWrapper(payload) : null
+  const payloadWrapper = payload ? new PayloadWrapper(payload) : null
 
   return (
     <FlexCol alignItems="stretch" {...props}>

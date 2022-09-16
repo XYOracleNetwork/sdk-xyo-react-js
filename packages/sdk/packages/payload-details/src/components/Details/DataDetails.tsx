@@ -2,7 +2,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { Property, PropertyAction, PropertyProps } from '@xyo-network/react-property'
 import { SizeProp } from '@xyo-network/react-shared'
 import { useState } from 'react'
@@ -16,7 +16,7 @@ export type PayloadDataDetailsProps = PropertyProps & {
 }
 
 export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, badge, payload, ...props }) => {
-  const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
+  const wrapper = payload ? new PayloadWrapper(payload) : undefined
 
   const [viewSourceOpen, setViewSourceOpen] = useState(false)
   const hash = wrapper?.hash

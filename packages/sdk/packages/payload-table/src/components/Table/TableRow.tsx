@@ -3,7 +3,7 @@ import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded'
 import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded'
 import { alpha, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload, XyoPayloadValidator, XyoPayloadWrapper } from '@xyo-network/payload'
+import { PayloadValidator, PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
 
@@ -26,7 +26,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-  const wrapper = payload ? new XyoPayloadWrapper(payload) : undefined
+  const wrapper = payload ? new PayloadWrapper(payload) : undefined
   const { network } = useNetwork()
 
   const hash: React.FC<TableCellProps> = (props) => (
@@ -50,7 +50,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     </TableCell>
   )
 
-  const isValid = wrapper ? new XyoPayloadValidator(wrapper.body).validate().length === 0 : undefined
+  const isValid = wrapper ? new PayloadValidator(wrapper.body).validate().length === 0 : undefined
 
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>

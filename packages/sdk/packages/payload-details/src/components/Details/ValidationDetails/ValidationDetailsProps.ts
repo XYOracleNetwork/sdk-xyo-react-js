@@ -1,8 +1,8 @@
-import { XyoPayloadWithPartialMeta } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload'
 import { PropertyGroupProps } from '@xyo-network/react-property'
 
 export type PayloadValidationDetailsProps = PropertyGroupProps & {
   skipBody?: boolean
-  value?: XyoPayloadWithPartialMeta
+  value?: XyoPayload
   viewSchemaUrl?: string
 }

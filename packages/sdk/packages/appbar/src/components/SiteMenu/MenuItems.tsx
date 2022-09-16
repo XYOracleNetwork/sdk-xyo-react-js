@@ -1,26 +1,29 @@
-import { ListItem, ListItemIcon, ListItemProps, ListItemText, ListItemTextProps } from '@mui/material'
-import { ListItemButtonEx, ListItemButtonExProps } from '@xyo-network/react-shared'
+import { ListItemProps, ListItemTextProps } from '@mui/material'
+import { ListItemButtonExProps } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 import { To } from 'react-router-dom'
 
-export interface SiteMenuListItemProps extends ListItemProps {
+import { SiteMenuListItemBase } from './lib'
+import { MenuIcon } from './MenuIcon'
+import { MenuListItem } from './MenuListItem'
+import { MenuListItemButtonEx } from './MenuListItemButtonEx'
+import { MenuListItemText } from './MenuListItemText'
+
+export interface SiteMenuListItemProps extends SiteMenuListItemBase, ListItemProps {
   primary: ListItemTextProps['primary']
   to?: To
   icon?: ReactNode
   onButtonClick?: ListItemButtonExProps['onClick']
-  minIconWidth?: number
 }
 
-export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({ style, children, primary, to, icon, minIconWidth, onButtonClick, ...props }) => {
-  const listItemIconProps = minIconWidth !== undefined ? { style: { minWidth: `${minIconWidth}px` } } : {}
-  console.log(listItemIconProps)
+export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({ style, children, iconOnly, icon, primary, onButtonClick, ...props }) => {
   return (
-    <ListItem style={{ display: 'block', ...style }} {...props}>
-      <ListItemButtonEx to={to} onClick={onButtonClick}>
-        <ListItemIcon {...listItemIconProps}>{icon}</ListItemIcon>
-        <ListItemText primary={primary} />
-      </ListItemButtonEx>
+    <MenuListItem style={style} iconOnly={iconOnly} {...props}>
+      <MenuListItemButtonEx iconOnly={iconOnly} onClick={onButtonClick}>
+        <MenuIcon icon={icon} iconOnly={iconOnly} />
+        <MenuListItemText primary={primary} iconOnly={iconOnly} />
+      </MenuListItemButtonEx>
       {children}
-    </ListItem>
+    </MenuListItem>
   )
 }
