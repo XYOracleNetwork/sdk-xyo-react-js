@@ -22,6 +22,7 @@ export interface PayloadTableProps extends TableProps {
   rowsPerPage?: number
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
+  maxSchemaDepth?: number
 }
 
 interface TablePaginationActionsProps {
@@ -77,6 +78,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   payloads,
   children,
   columns = payloadTableColumnConfigDefaults(),
+  maxSchemaDepth,
   ...props
 }) => {
   const breakPoint = useBreakpoint()
@@ -128,6 +130,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
               )}
             >
               <PayloadTableRow
+                maxSchemaDepth={maxSchemaDepth}
                 archive={archive}
                 onClick={
                   onRowClick
