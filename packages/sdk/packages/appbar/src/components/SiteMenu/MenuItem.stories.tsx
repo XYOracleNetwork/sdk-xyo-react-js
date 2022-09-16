@@ -1,3 +1,4 @@
+import PublicRoundedIcon from '@mui/icons-material/PublicRounded'
 import { List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
@@ -24,12 +25,18 @@ const Template: ComponentStory<typeof SiteMenuListItem> = (args) => {
 
 const Default = Template.bind({})
 Default.args = {
+  icon: <PublicRoundedIcon />,
   primary: 'Test',
 }
 
 const WithChildren = Template.bind({})
 WithChildren.args = {
-  children: <SiteMenuListItem primary="Test Child" />,
+  children: (
+    <List>
+      <SiteMenuListItem primary="Test Child" />
+    </List>
+  ),
+  icon: <PublicRoundedIcon />,
   primary: 'Test',
 }
 
