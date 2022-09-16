@@ -18,7 +18,7 @@ import {
   useTheme,
 } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 import { useEffect, useState } from 'react'
 
@@ -126,7 +126,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
       </TableHead>
       <TableBody sx={{ overflowY: 'scroll ' }}>
         {payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((payload, index) => {
-          const wrapper = new XyoPayloadWrapper(payload)
+          const wrapper = new PayloadWrapper(payload)
           return (
             <XyoApiThrownErrorBoundary
               key={`${wrapper.hash}-${index}`}

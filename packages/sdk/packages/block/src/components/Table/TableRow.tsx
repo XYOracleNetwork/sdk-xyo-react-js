@@ -1,6 +1,6 @@
 import { TableCell, TableRow, TableRowProps } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoBoundWitness, XyoBoundWitnessValidator, XyoBoundWitnessWrapper } from '@xyo-network/boundwitness'
+import { BoundWitnessValidator, BoundWitnessWrapper, XyoBoundWitness } from '@xyo-network/boundwitness'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
@@ -27,10 +27,10 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 }) => {
   const breakPoint = useBreakpoint()
 
-  const validator = block ? new XyoBoundWitnessValidator(block) : undefined
+  const validator = block ? new BoundWitnessValidator(block) : undefined
   const { network } = useNetwork()
 
-  const wrapper = block ? new XyoBoundWitnessWrapper(block) : undefined
+  const wrapper = block ? new BoundWitnessWrapper(block) : undefined
 
   const hash = (
     <HashTableCell

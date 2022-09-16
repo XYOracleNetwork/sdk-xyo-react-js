@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { PayloadWrapper } from '@xyo-network/payload'
 import { sampleBlockWithPayloads } from '@xyo-network/react-storybook'
 
 import { PropertyValue } from './Value'
@@ -21,7 +22,7 @@ Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = { value: sampleBlockWithPayloads._hash }
+WithData.args = { value: PayloadWrapper.hash(sampleBlockWithPayloads) }
 
 export { Default, WithData }
 
