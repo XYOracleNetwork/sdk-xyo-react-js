@@ -7,7 +7,7 @@ import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import { useTheme } from '@mui/material/styles'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload, XyoPayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
@@ -117,7 +117,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
       <TableBody sx={{ overflowY: 'scroll ' }}>
         {payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((payload, index) => {
           // {payloads?.map((payload, index) => {
-          const wrapper = new XyoPayloadWrapper(payload)
+          const wrapper = new PayloadWrapper(payload)
           return (
             <XyoApiThrownErrorBoundary
               key={`${wrapper.hash}-${index}`}
