@@ -1,5 +1,5 @@
 import { createContextEx } from '@xyo-network/react-shared'
 
-import { XyoPanelContextState } from './State'
+import { PanelContextState } from './State'
 
-export const XyoPanelContext = createContextEx<XyoPanelContextState>()
+export const PanelContext = createContextEx<PanelContextState>()

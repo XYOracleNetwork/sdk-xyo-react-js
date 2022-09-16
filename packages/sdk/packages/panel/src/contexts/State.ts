@@ -3,7 +3,7 @@ import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPanel } from '@xyo-network/panel'
 import { XyoWitness } from '@xyo-network/witness'
 
-export enum XyoReportStatus {
+export enum ReportStatus {
   Idle = 'idle',
   Queued = 'queued',
   Started = 'started',
@@ -11,25 +11,25 @@ export enum XyoReportStatus {
   Failed = 'failed',
 }
 
-export interface XyoWitnessReportProgress {
+export interface WitnessReportProgress {
   witness: XyoWitness
-  status: XyoReportStatus
+  status: ReportStatus
 }
 
-export interface XyoArchivistApiReportProgress {
+export interface ArchivistApiReportProgress {
   archivist: XyoArchivistApi
-  status: XyoReportStatus
+  status: ReportStatus
 }
 
-export interface XyoPanelReportProgress {
-  witnesses?: Record<string, XyoWitnessReportProgress>
-  archivists?: Record<string, XyoArchivistApiReportProgress>
+export interface PanelReportProgress {
+  witnesses?: Record<string, WitnessReportProgress>
+  archivists?: Record<string, ArchivistApiReportProgress>
 }
 
-export interface XyoPanelContextState {
+export interface PanelContextState {
   panel?: XyoPanel
   history?: XyoBoundWitness[]
-  progress?: XyoPanelReportProgress
-  status?: XyoReportStatus
+  progress?: PanelReportProgress
+  status?: ReportStatus
   reportingErrors?: Error[]
 }
