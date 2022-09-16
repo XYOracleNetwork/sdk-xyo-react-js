@@ -1,11 +1,11 @@
-import { ButtonBase, ButtonBaseProps, ListItem, ListItemProps, ListItemText, ListItemTextProps } from '@mui/material'
-import { ListItemButtonEx, ListItemButtonExProps } from '@xyo-network/react-shared'
+import { ListItemProps, ListItemTextProps } from '@mui/material'
+import { ListItemButtonExProps } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 import { To } from 'react-router-dom'
 
 import { SiteMenuListItemBase } from './lib'
+import { MenuIcon } from './MenuIcon'
 import { MenuListItem } from './MenuListItem'
-import { MenuListItemButtonBaseEx } from './MenuListItemButtonBase'
 import { MenuListItemButtonEx } from './MenuListItemButtonEx'
 import { MenuListItemText } from './MenuListItemText'
 
@@ -20,7 +20,7 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({ style, child
   return (
     <MenuListItem style={style} iconOnly={iconOnly} {...props}>
       <MenuListItemButtonEx iconOnly={iconOnly} onClick={onButtonClick}>
-        <MenuListItemButtonBaseEx iconOnly={iconOnly} icon={icon} />
+        <MenuIcon icon={icon} iconOnly={iconOnly} />
         <MenuListItemText primary={primary} iconOnly={iconOnly} />
       </MenuListItemButtonEx>
       {children}
