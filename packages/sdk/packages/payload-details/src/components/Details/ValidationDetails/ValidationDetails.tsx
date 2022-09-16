@@ -1,15 +1,15 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoPayloadValidator } from '@xyo-network/payload'
+import { PayloadValidator } from '@xyo-network/payload'
 import { Property, PropertyGroup } from '@xyo-network/react-property'
 import { SchemaProperty } from '@xyo-network/react-schema'
 
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
 export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ viewSchemaUrl, skipBody = false, value, ...props }) => {
-  const validator = value ? new XyoPayloadValidator(value) : undefined
+  const validator = value ? new PayloadValidator(value) : undefined
 
-  const bodyErrors = skipBody ? [] : validator?.body.validate() ?? []
+  const bodyErrors = skipBody ? [] : validator?.validate() ?? []
   const errors: Error[] = [...bodyErrors]
 
   let elevation = 2

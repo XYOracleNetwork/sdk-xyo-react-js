@@ -1,8 +1,8 @@
 import { useContextEx } from '@xyo-network/react-shared'
 
-import { XyoPanelContext } from './Context'
+import { PanelContext } from './Context'
 
-export const useXyoPanel = () => {
-  const { panel, history, progress, reportingErrors, status } = useContextEx(XyoPanelContext, 'XyoPanel')
+export const usePanel = () => {
+  const { panel, history, progress, reportingErrors, status } = useContextEx(PanelContext, 'XyoPanel')
   return { history, panel, progress, reportingErrors, status }
 }

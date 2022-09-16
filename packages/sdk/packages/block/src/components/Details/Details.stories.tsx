@@ -32,10 +32,10 @@ const WithData = Template.bind({})
 WithData.args = { block: sampleBlockWithPayloads }
 
 const WithArchiveLink = Template.bind({})
-WithArchiveLink.args = { archivePath: 'temp', block: sampleBlockWithPayloads }
+WithArchiveLink.args = { block: sampleBlockWithPayloads }
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = { archivePath: 'temp', block: sampleBlockWithPayloads, paper: true }
+WithArchiveLinkPaper.args = { block: sampleBlockWithPayloads, paper: true }
 
 export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData }
 
