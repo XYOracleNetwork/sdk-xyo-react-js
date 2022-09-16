@@ -11,7 +11,6 @@ export interface PayloadTableColumnConfig {
 export const payloadColumnNames: Record<PayloadTableColumnSlug, string> = {
   hash: 'Hash',
   schema: 'Schema',
-
   valid: 'Valid',
 }
 
