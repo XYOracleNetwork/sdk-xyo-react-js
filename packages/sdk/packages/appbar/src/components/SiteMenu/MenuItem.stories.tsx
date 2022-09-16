@@ -29,12 +29,6 @@ Default.args = {
   primary: 'Test',
 }
 
-const WithListItemIconProps = Template.bind({})
-WithListItemIconProps.args = {
-  icon: <PublicRoundedIcon />,
-  primary: 'Test',
-}
-
 const WithChildren = Template.bind({})
 WithChildren.args = {
   children: (
@@ -46,7 +40,7 @@ WithChildren.args = {
   primary: 'Test',
 }
 
-export { Default, WithChildren, WithListItemIconProps }
+export { Default, WithChildren }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
