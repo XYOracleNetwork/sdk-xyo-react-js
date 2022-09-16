@@ -1,4 +1,5 @@
 import { ComponentStory, Meta } from '@storybook/react'
+import { XyoPayload } from '@xyo-network/payload'
 import { sampleIdPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -46,7 +47,11 @@ const SkipBody = Template.bind({})
 // @ts-ignore
 SkipBody.args = {
   skipBody: true,
-  value: { _hash: '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a', _timestamp: new Date().getTime(), schema: 'network.xyo.test' },
+  value: {
+    _hash: '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a',
+    _timestamp: new Date().getTime(),
+    schema: 'network.xyo.test',
+  } as XyoPayload,
 }
 
 export { Default, SkipBody, WithErrorsInToolTip, WithViewSchemaLink }

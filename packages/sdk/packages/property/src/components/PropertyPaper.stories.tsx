@@ -2,6 +2,7 @@ import ReplayIcon from '@mui/icons-material/Replay'
 import { TextField } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { PayloadWrapper } from '@xyo-network/payload'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 
 import { Property } from './Property'
@@ -62,27 +63,43 @@ WithUndefinedData.args = { title: 'Block Hash' }
 WithUndefinedData.decorators = [useAppThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.args = { title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithData.args = { title: 'Block Hash', value: PayloadWrapper.hash(sampleBlockWithPayloads) }
 WithData.decorators = [useAppThemeDecorator]
 
 const WithDataSmall = Template.bind({})
-WithDataSmall.args = { size: 'small', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataSmall.args = { size: 'small', title: 'Block Hash', value: PayloadWrapper.hash(sampleBlockWithPayloads) }
 WithDataSmall.decorators = [useAppThemeDecorator]
 
 const WithDataCompare = TemplateWithCompare.bind({})
-WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: PayloadWrapper.hash(sampleBlockWithPayloads) }
 WithDataCompare.decorators = [useAppThemeDecorator]
 
 const WithDataCompareOutlined = TemplateWithCompare.bind({})
-WithDataCompareOutlined.args = { tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash, variant: 'outlined' }
+WithDataCompareOutlined.args = {
+  tip: 'This is the block hash',
+  title: 'Block Hash',
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  variant: 'outlined',
+}
 WithDataCompareOutlined.decorators = [useAppThemeDecorator]
 
 const WithDataCompareElevation = TemplateWithCompare.bind({})
-WithDataCompareElevation.args = { tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash, variant: 'elevation' }
+WithDataCompareElevation.args = {
+  tip: 'This is the block hash',
+  title: 'Block Hash',
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  variant: 'elevation',
+}
 WithDataCompareElevation.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeSmall = Template.bind({})
-WithDataAndBadgeSmall.args = { badge: true, size: 'small', tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataAndBadgeSmall.args = {
+  badge: true,
+  size: 'small',
+  tip: 'This is the block hash',
+  title: 'Block Hash',
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+}
 WithDataAndBadgeSmall.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeMedium = Template.bind({})
@@ -91,19 +108,25 @@ WithDataAndBadgeMedium.args = {
   size: 'medium',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPayloads._hash,
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
 }
 WithDataAndBadgeMedium.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeLarge = Template.bind({})
-WithDataAndBadgeLarge.args = { badge: true, size: 'large', tip: 'This is the block hash', title: 'Block Hash', value: sampleBlockWithPayloads._hash }
+WithDataAndBadgeLarge.args = {
+  badge: true,
+  size: 'large',
+  tip: 'This is the block hash',
+  title: 'Block Hash',
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+}
 WithDataAndBadgeLarge.decorators = [useAppThemeDecorator]
 
 const WithTip = Template.bind({})
 WithTip.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPayloads._hash,
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
 }
 WithTip.decorators = [useAppThemeDecorator]
 
@@ -112,7 +135,7 @@ WithTipAndBadge.args = {
   badge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPayloads._hash,
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
 }
 WithTipAndBadge.decorators = [useAppThemeDecorator]
 
@@ -121,7 +144,7 @@ WithActions.args = {
   actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPayloads._hash,
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
 }
 WithActions.decorators = [useAppThemeDecorator]
 
@@ -131,7 +154,7 @@ LargeWithValue.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPayloads._hash,
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
 }
 LargeWithValue.decorators = [useAppThemeDecorator]
 
@@ -142,7 +165,7 @@ LargeWithValueAndActions.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPayloads._hash,
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
 }
 LargeWithValueAndActions.decorators = [useAppThemeDecorator]
 
@@ -153,7 +176,7 @@ SmallWithValueAndActions.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: sampleBlockWithPayloads._hash,
+  value: PayloadWrapper.hash(sampleBlockWithPayloads),
 }
 SmallWithValueAndActions.decorators = [useAppThemeDecorator]
 
