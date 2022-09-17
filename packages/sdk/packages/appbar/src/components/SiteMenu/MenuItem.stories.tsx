@@ -52,7 +52,6 @@ const CollapseTemplate: ComponentStory<typeof SiteMenuListItem> = (args) => {
 }
 
 const Template: ComponentStory<typeof SiteMenuListItem> = (args) => {
-  console.log(args)
   return <SiteMenuList {...args} />
 }
 
@@ -64,6 +63,7 @@ Default.args = {
 
 const WithCollapse = CollapseTemplate.bind({})
 WithCollapse.args = {
+  dense: true,
   icon: <PublicRoundedIcon />,
   primary: 'Test',
 }
