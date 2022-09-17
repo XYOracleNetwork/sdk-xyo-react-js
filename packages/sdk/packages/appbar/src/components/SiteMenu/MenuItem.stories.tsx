@@ -1,8 +1,10 @@
 import PublicRoundedIcon from '@mui/icons-material/PublicRounded'
-import { List } from '@mui/material'
+import { Button, Collapse, Divider, List, useTheme } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { FlexRow } from '@xylabs/react-flexbox'
+import { useState } from 'react'
 
-import { SiteMenuListItem } from './MenuItems'
+import { SiteMenuListItem, SiteMenuListItemProps } from './MenuItems'
 
 const StorybookEntry = {
   argTypes: {},
@@ -15,12 +17,43 @@ const StorybookEntry = {
   title: 'appbar/SiteMenuListItem',
 } as ComponentMeta<typeof SiteMenuListItem>
 
-const Template: ComponentStory<typeof SiteMenuListItem> = (args) => {
+const SiteMenuList: React.FC<SiteMenuListItemProps> = (args) => {
   return (
     <List>
       <SiteMenuListItem {...args} />
+      <SiteMenuListItem {...args} />
+      <SiteMenuListItem {...args} />
     </List>
   )
+}
+
+const CollapseTemplate: ComponentStory<typeof SiteMenuListItem> = (args) => {
+  const [collapse, setCollapse] = useState(false)
+  const [onCollapseEnd, setOnCollapseEnd] = useState(false)
+  const theme = useTheme()
+  return (
+    <>
+      <FlexRow justifyContent="start">
+        <Collapse in={!collapse} orientation="horizontal" collapsedSize={theme.spacing(5)} onExited={() => setOnCollapseEnd(true)}>
+          <SiteMenuList {...args} iconOnly={collapse} collapseEnd={onCollapseEnd} />
+        </Collapse>
+        <Divider orientation="vertical" flexItem />
+      </FlexRow>
+      <Button
+        onClick={() => {
+          setOnCollapseEnd((previous) => (previous ? false : previous))
+          setCollapse(!collapse)
+        }}
+      >
+        Toggle
+      </Button>
+    </>
+  )
+}
+
+const Template: ComponentStory<typeof SiteMenuListItem> = (args) => {
+  console.log(args)
+  return <SiteMenuList {...args} />
 }
 
 const Default = Template.bind({})
@@ -29,18 +62,24 @@ Default.args = {
   primary: 'Test',
 }
 
+const WithCollapse = CollapseTemplate.bind({})
+WithCollapse.args = {
+  icon: <PublicRoundedIcon />,
+  primary: 'Test',
+}
+
 const WithChildren = Template.bind({})
 WithChildren.args = {
   children: (
     <List>
-      <SiteMenuListItem primary="Test Child" />
+      <SiteMenuListItem primary="Test Child" icon={<PublicRoundedIcon />} />
     </List>
   ),
   icon: <PublicRoundedIcon />,
   primary: 'Test',
 }
 
-export { Default, WithChildren }
+export { Default, WithChildren, WithCollapse }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

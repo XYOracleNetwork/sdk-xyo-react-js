@@ -16,11 +16,20 @@ export interface SiteMenuListItemProps extends SiteMenuListItemBase, ListItemPro
   onButtonClick?: ListItemButtonExProps['onClick']
 }
 
-export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({ style, children, iconOnly, icon, primary, onButtonClick, ...props }) => {
+export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
+  style,
+  children,
+  iconOnly,
+  collapseEnd,
+  icon,
+  primary,
+  onButtonClick,
+  ...props
+}) => {
   return (
     <MenuListItem style={style} iconOnly={iconOnly} {...props}>
-      <MenuListItemButtonEx iconOnly={iconOnly} onClick={onButtonClick}>
-        <MenuIcon icon={icon} iconOnly={iconOnly} />
+      <MenuListItemButtonEx iconOnly={iconOnly} onClick={onButtonClick} collapseEnd={collapseEnd}>
+        <MenuIcon icon={icon} />
         <MenuListItemText primary={primary} iconOnly={iconOnly} />
       </MenuListItemButtonEx>
       {children}
