@@ -48,10 +48,16 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     if (maxSchemaDepth) {
       const parts = schema?.split('.') ?? []
       const partsToRemove = parts.length - maxSchemaDepth > 0 ? parts.length - maxSchemaDepth : 0
-      return parts.slice(partsToRemove).reduce((previousValue, part) => `${previousValue}.${part}`)
-    } else {
-      return schema
+      if (partsToRemove > 0) {
+        return (
+          <>
+            <>&#x2026;</>
+            {`${parts.slice(partsToRemove).reduce((previousValue, part) => `${previousValue}.${part}`)}`}
+          </>
+        )
+      }
     }
+    return schema
   }
 
   const schema: React.FC<TableCellProps> = (props) => (
