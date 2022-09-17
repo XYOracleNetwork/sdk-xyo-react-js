@@ -74,13 +74,14 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
   archive,
   onRowClick,
-  rowsPerPage: rowsPerPageProp = 10,
+  rowsPerPage: rowsPerPageProp = 25,
   payloads,
   children,
   columns = payloadTableColumnConfigDefaults(),
   maxSchemaDepth,
   ...props
 }) => {
+  const theme = useTheme()
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
@@ -103,7 +104,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
 
   return breakPoint ? (
     <Table stickyHeader {...props}>
-      <TableHead>
+      <TableHead style={{ position: 'sticky', top: 0 }}>
         <TableRow>
           {columns[breakPoint]?.map((column, index) => {
             return (
@@ -116,7 +117,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
           })}
         </TableRow>
       </TableHead>
-      <TableBody sx={{ overflowY: 'scroll ' }}>
+      <TableBody>
         {payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((payload, index) => {
           // {payloads?.map((payload, index) => {
           const wrapper = new PayloadWrapper(payload)
@@ -148,14 +149,14 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
         {children}
         {emptyRows > 0 && Array(emptyRows).fill(<PayloadTableRow />)}
       </TableBody>
-      <TableFooter>
+      <TableFooter style={{ backgroundColor: theme.palette.background.default, bottom: 0, position: 'sticky' }}>
         <TableRow>
           <TablePagination
             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-            colSpan={3}
             count={payloadCount}
             rowsPerPage={rowsPerPage}
             page={page}
+            style={{ borderTop: '1px solid', borderTopColor: theme.palette.divider }}
             SelectProps={{
               inputProps: {
                 'aria-label': 'rows per page',
