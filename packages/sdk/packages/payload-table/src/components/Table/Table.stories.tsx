@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { XyoPayload } from '@xyo-network/payload'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
@@ -18,7 +19,9 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof PayloadTable> = (args) => (
   <BrowserRouter>
-    <PayloadTable {...args}></PayloadTable>
+    <Box height="90vh" overflow="auto">
+      <PayloadTable {...args}></PayloadTable>
+    </Box>
   </BrowserRouter>
 )
 
