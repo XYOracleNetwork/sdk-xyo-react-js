@@ -26,9 +26,10 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
   onButtonClick,
   ...props
 }) => {
+  const { dense } = props
   return (
     <MenuListItem style={style} iconOnly={iconOnly} {...props}>
-      <MenuListItemButtonEx iconOnly={iconOnly} onClick={onButtonClick} collapseEnd={collapseEnd}>
+      <MenuListItemButtonEx iconOnly={iconOnly} onClick={onButtonClick} collapseEnd={collapseEnd} dense={dense}>
         <MenuIcon icon={icon} />
         <MenuListItemText primary={primary} iconOnly={iconOnly} />
       </MenuListItemButtonEx>
