@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoNode } from '@xyo-network/node'
+import {} from '@xyo-network/node'
 
 import { NodeProvider } from '../contexts'
 import { NodeBox } from './Node'
@@ -20,7 +20,6 @@ const StorybookEntry = {
 } as ComponentMeta<typeof NodeBox>
 
 const Template: ComponentStory<typeof NodeBox> = (args) => {
-  const node = new XyoMemoryNode()
   return (
     <NodeProvider>
       <NodeBox {...args}></NodeBox>
