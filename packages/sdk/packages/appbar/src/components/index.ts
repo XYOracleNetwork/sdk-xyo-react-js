@@ -1,4 +1,5 @@
 export * from './AppBar'
+export * from './CollapsibleDrawer'
 export * from './MobileSystemControls'
 export * from './SearchBar'
 export * from './SiteMenu'

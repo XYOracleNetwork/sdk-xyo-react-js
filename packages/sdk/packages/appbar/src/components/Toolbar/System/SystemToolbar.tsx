@@ -7,7 +7,7 @@ import { AuthSetsStatusIconButton } from '@xyo-network/react-auth-sets'
 import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'
 import { ReactNode } from 'react'
 
-import { SiteMenu } from '../../SiteMenu'
+import { SiteMenu, SiteMenuProps } from '../../SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
   networkSelectProps?: NetworkSelectExProps
@@ -19,6 +19,7 @@ export interface SystemToolbarProps extends ToolbarProps {
   menuItems?: ReactNode
   precedingChildren?: ReactNode
   developerMode?: boolean
+  onMenuToggle?: SiteMenuProps['onMenuToggle']
 }
 
 export const SystemToolbar: React.FC<SystemToolbarProps> = ({
@@ -31,6 +32,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   darkModeButton = false,
   authButton = false,
   menuItems,
+  onMenuToggle,
   ...props
 }) => {
   return (
@@ -53,7 +55,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
       {children}
       {authButton ? <AuthSetsStatusIconButton color="inherit" /> : null}
       {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
-      {menuItems ? <SiteMenu>{menuItems}</SiteMenu> : null}
+      {menuItems ? <SiteMenu onMenuToggle={onMenuToggle}>{menuItems}</SiteMenu> : null}
     </Toolbar>
   )
 }
