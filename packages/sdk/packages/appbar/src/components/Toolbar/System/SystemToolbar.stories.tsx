@@ -12,6 +12,12 @@ import { BrowserRouter } from 'react-router-dom'
 import { SiteMenuListItem } from '../../SiteMenu'
 import { SystemToolbar } from './SystemToolbar'
 
+const DefaultMenu = (
+  <List>
+    <SiteMenuListItem primary="Hello" />
+  </List>
+)
+
 const StorybookEntry: Meta = {
   component: SystemToolbar,
   parameters: {
@@ -43,13 +49,7 @@ const TemplateWithAuthContext: ComponentStory<WrappedAuthComponent> = ({ authSta
         <BrowserRouter>
           <NetworkMemoryProvider>
             <ArchiveProvider>
-              <SystemToolbar
-                menuItems={
-                  <List>
-                    <SiteMenuListItem primary="Hello" />
-                  </List>
-                }
-              />
+              <SystemToolbar menuItems={DefaultMenu} />
             </ArchiveProvider>
           </NetworkMemoryProvider>
         </BrowserRouter>
@@ -84,7 +84,13 @@ PrecedingChildren.args = {
   ),
 }
 
-export { Default, NeedsReAuth, PrecedingChildren, WithLoggedInAccount }
+const WithOnMenuToggle = Template.bind({})
+WithOnMenuToggle.args = {
+  menuItems: DefaultMenu,
+  onMenuToggle: (state) => console.log(state),
+}
+
+export { Default, NeedsReAuth, PrecedingChildren, WithLoggedInAccount, WithOnMenuToggle }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
