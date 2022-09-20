@@ -7,5 +7,6 @@ export type MapSetting = {
     label: string
     hidden?: boolean
     devMode?: boolean
+    dynamicMapResize?: boolean
   }
 }

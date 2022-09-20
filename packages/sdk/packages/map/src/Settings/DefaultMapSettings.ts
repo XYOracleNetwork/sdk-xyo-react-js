@@ -14,6 +14,12 @@ export const DefaultMapSettings: () => MapSetting = () => ({
     label: 'Debug Logging',
     value: false,
   },
+  dynamicMapResize: {
+    devMode: false,
+    field: 'dynamicMapResize',
+    label: 'Auto Map Resize',
+    value: true,
+  },
   enableControls: {
     devMode: true,
     field: 'enableControls',
