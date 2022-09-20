@@ -5,6 +5,7 @@ import { Map, MapboxOptions } from 'mapbox-gl'
 import { useEffect, useRef, useState } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts'
+import { useDynamicMapResize } from '../hooks'
 import { XyoMapStyle } from '../lib'
 
 export interface MapBoxProps {
@@ -17,8 +18,12 @@ export interface MapBoxProps {
 export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, zoom = 2, options, ...props }) => {
   const [map, setMap] = useState<Map>()
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
-  const { setMapBoxInstance } = useMapBoxInstance()
+  const mapCanvasRef = useRef<HTMLCanvasElement | null>(null)
+  const { setMapBoxInstance, map: mapInstance } = useMapBoxInstance()
   const { mapSettings } = useMapSettings()
+
+  const activeResize = mapSettings?.dynamicMapResize.value
+  useDynamicMapResize(mapContainerRef, mapCanvasRef, mapInstance, activeResize)
 
   useEffect(() => {
     if (mapSettings?.preferDark?.value === true) {
@@ -41,6 +46,9 @@ export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, z
     // Allow external components to control the map
     setMapBoxInstance?.(map)
     setMap(map)
+
+    // save the map canvas ref to help with resizing
+    mapCanvasRef.current = document.querySelector('.mapboxgl-canvas')
 
     console.log('Created Map')
 

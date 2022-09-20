@@ -1,3 +1,4 @@
+export * from './useDynamicMapResize'
 export * from './useDynamicPositioning'
 export * from './useFetchPayloads'
 export * from './useFindHashes'
