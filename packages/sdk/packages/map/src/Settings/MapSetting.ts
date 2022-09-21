@@ -1,4 +1,4 @@
-export type MapSettingFields = 'debugLayer' | 'fitToPoints' | 'scrollToZoom' | 'enableControls' | 'debugLogging' | 'preferDark'
+export type MapSettingFields = 'debugLayer' | 'fitToPoints' | 'scrollToZoom' | 'enableControls' | 'debugLogging' | 'preferDark' | 'dynamicMapResize'
 
 export type MapSetting = {
   [field in MapSettingFields | string]: {
@@ -7,6 +7,5 @@ export type MapSetting = {
     label: string
     hidden?: boolean
     devMode?: boolean
-    dynamicMapResize?: boolean
   }
 }
