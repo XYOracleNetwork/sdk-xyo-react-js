@@ -15,8 +15,9 @@ export const DefaultMapSettings: () => MapSetting = () => ({
     value: false,
   },
   dynamicMapResize: {
-    devMode: false,
+    devMode: true,
     field: 'dynamicMapResize',
+    hidden: true,
     label: 'Auto Map Resize',
     value: true,
   },
@@ -43,7 +44,6 @@ export const DefaultMapSettings: () => MapSetting = () => ({
   scrollToZoom: {
     devMode: true,
     field: 'scrollToZoom',
-    hidden: true,
     label: 'Scroll To Zoom',
     value: false,
   },
