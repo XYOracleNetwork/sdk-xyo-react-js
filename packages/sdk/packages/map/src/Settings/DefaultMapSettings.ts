@@ -43,6 +43,7 @@ export const DefaultMapSettings: () => MapSetting = () => ({
   scrollToZoom: {
     devMode: true,
     field: 'scrollToZoom',
+    hidden: true,
     label: 'Scroll To Zoom',
     value: false,
   },
