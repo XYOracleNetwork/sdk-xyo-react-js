@@ -1,6 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
-import { Archivist, PayloadArchivist } from '@xyo-network/archivist'
+import { PayloadArchivist } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPanel } from '@xyo-network/panel'
 import { XyoPayload } from '@xyo-network/payload'
@@ -14,7 +14,7 @@ import { PanelContext } from './Context'
 import { PanelReportProgress, ReportStatus } from './State'
 
 export interface PanelProviderProps {
-  archivist?: Archivist
+  archivist?: PayloadArchivist
   witnesses?: XyoWitness<XyoPayload>[]
   required?: boolean
   archive?: string
