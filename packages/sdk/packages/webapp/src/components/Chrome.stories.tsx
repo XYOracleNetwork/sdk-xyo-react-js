@@ -1,7 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { Breadcrumbs, List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import { SiteMenuListItem } from '@xyo-network/react-appbar'
 import { BrowserRouter } from 'react-router-dom'
@@ -24,34 +24,33 @@ const rowArray = [32, 64, 128, 256, 512, 1024]
 
 const Template: ComponentStory<typeof WebAppChrome> = (args) => {
   return (
-    <FlexCol height="80vh" alignItems="stretch" overflow="hidden">
-      <BrowserRouter>
-        <WebAppChrome
-          menuItems={
-            <List>
-              <SiteMenuListItem primary="Hello" />
-            </List>
+    <BrowserRouter>
+      <WebAppChrome
+        menuItems={
+          <List>
+            <SiteMenuListItem primary="Hello" />
+          </List>
+        }
+        height="calc(100vh - 2rem)"
+        {...args}
+      >
+        <WebAppPage
+          breadcrumbs={
+            <Breadcrumbs>
+              <LinkEx>BreadCrumbs</LinkEx>
+            </Breadcrumbs>
           }
-          {...args}
         >
-          <WebAppPage
-            breadcrumbs={
-              <Breadcrumbs>
-                <LinkEx>BreadCrumbs</LinkEx>
-              </Breadcrumbs>
-            }
-          >
-            {rowArray.map((height) => {
-              return (
-                <FlexRow key={height} height={height}>
-                  {height}
-                </FlexRow>
-              )
-            })}
-          </WebAppPage>
-        </WebAppChrome>
-      </BrowserRouter>
-    </FlexCol>
+          {rowArray.map((height) => {
+            return (
+              <FlexRow key={height} height={height}>
+                {height}
+              </FlexRow>
+            )
+          })}
+        </WebAppPage>
+      </WebAppChrome>
+    </BrowserRouter>
   )
 }
 

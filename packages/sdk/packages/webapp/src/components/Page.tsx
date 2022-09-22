@@ -1,30 +1,21 @@
-import { Container, ContainerProps } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import { Container, ContainerProps, Theme, useMediaQuery } from '@mui/material'
+import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
-import { useAsyncEffect } from '@xylabs/react-shared'
-import { ReactNode } from 'react'
+import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
-export interface WebAppPageProps extends FlexBoxProps {
+
+import { WebAppBody, WebAppBodyProps } from './Body'
+
+export interface WebAppPageProps extends WebAppBodyProps, FlexBoxProps {
   container?: ContainerProps['maxWidth'] | 'none'
   disableGutters?: boolean
-  breadcrumbs?: ReactNode
-  disableBreadcrumbGutter?: boolean
-  spacing?: string | number
 }
 
-export const WebAppPage: React.FC<WebAppPageProps> = ({
-  spacing = 1,
-  disableBreadcrumbGutter,
-  disableGutters,
-  title,
-  container,
-  breadcrumbs,
-  children,
-  ...props
-}) => {
+export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({ disableGutters, title, container, children, ...props }) => {
   const userEvents = useUserEvents()
   const { pathname } = useLocation()
+  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,17 +25,13 @@ export const WebAppPage: React.FC<WebAppPageProps> = ({
     [pathname, title, userEvents],
   )
 
-  const Body: React.FC<FlexBoxProps> = (props) => (
-    <FlexGrowCol gap={1} paddingY={spacing} justifyContent="flex-start" alignItems="stretch" {...props}>
-      <FlexRow justifyContent="flex-start" marginX={disableBreadcrumbGutter ? 0 : spacing}>
-        {breadcrumbs}
-      </FlexRow>
-      {children}
-    </FlexGrowCol>
-  )
+  const appContentStyles: FlexBoxProps = {
+    position: isMobile ? 'absolute' : 'relative',
+    sx: { inset: isMobile ? '0' : 'unset' },
+  }
 
   return (
-    <FlexGrowCol alignItems="stretch" justifyContent="flex-start" minHeight={0} maxWidth="100vw" overflow="visible scroll">
+    <FlexGrowCol id="webapp-page-flex" alignItems="stretch" justifyContent="flex-start" maxWidth="100vw" {...appContentStyles}>
       <Helmet title={title} />
       {container && container !== 'none' ? (
         <Container
@@ -52,10 +39,12 @@ export const WebAppPage: React.FC<WebAppPageProps> = ({
           style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
           maxWidth={container}
         >
-          <Body {...props} />
+          <WebAppBody {...props}>{children}</WebAppBody>
         </Container>
       ) : (
-        <Body paddingX={disableGutters ? 0 : 1} {...props} />
+        <WebAppBody paddingX={disableGutters ? 0 : 1} {...props}>
+          {children}
+        </WebAppBody>
       )}
     </FlexGrowCol>
   )
