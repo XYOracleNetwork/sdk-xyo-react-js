@@ -1,4 +1,3 @@
-import { Box } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { XyoPayload } from '@xyo-network/payload'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
@@ -52,6 +51,12 @@ WithData.args = {
 }
 WithData.decorators = [useAppThemeDecorator]
 
+const WithOutStickyHeaderFooter = Template.bind({})
+WithOutStickyHeaderFooter.args = {
+  payloads,
+  variant: 'normal',
+}
+
 const WithDataAndMaxSchemaDepth = Template.bind({})
 WithDataAndMaxSchemaDepth.args = {
   maxSchemaDepth: 2,
@@ -67,7 +72,7 @@ const { ...badPayload } = sampleIdPayload
 //@ts-ignore
 WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
-export { Default, WithData, WithDataAndMaxSchemaDepth, WithError }
+export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithOutStickyHeaderFooter }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

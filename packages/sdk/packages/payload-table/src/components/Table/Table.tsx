@@ -79,6 +79,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   children,
   columns = payloadTableColumnConfigDefaults(),
   maxSchemaDepth,
+  variant = 'scrollable',
   ...props
 }) => {
   const theme = useTheme()
@@ -103,8 +104,8 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   }
 
   return breakPoint ? (
-    <TableEx variant="scrollable" {...props}>
-      <TableHead style={{ position: 'sticky', top: 0 }}>
+    <TableEx variant={variant} {...props}>
+      <TableHead>
         <TableRow>
           {columns[breakPoint]?.map((column, index) => {
             return (
@@ -149,7 +150,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
         {children}
         {emptyRows > 0 && Array(emptyRows).fill(<PayloadTableRow />)}
       </TableBody>
-      <TableFooterEx variant="scrollable">
+      <TableFooterEx variant={variant}>
         <TableRow>
           <TablePagination
             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
