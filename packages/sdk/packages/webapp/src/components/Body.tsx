@@ -37,6 +37,7 @@ const WebAppBodyScrollable = styled(FlexGrowCol, {
 })<WebAppBodyProps>(({ theme, scrollingBreakpoint = 'sm' }) => ({
   alignItems: 'stretch',
   inset: 0,
+  justifyContent: 'start',
   position: 'absolute',
   [theme.breakpoints.down(scrollingBreakpoint)]: {
     inset: 'unset',
