@@ -1,6 +1,8 @@
 import { styled, Table, TableProps } from '@mui/material'
 import { CSSProperties, PropsWithChildren } from 'react'
 
+import { TableExVariants } from './lib'
+
 const ScrollableTableExWrapper = styled('div', {
   name: 'ScrollableTableEx',
   shouldForwardProp: (propName) => propName !== 'wrapperHeight' && propName !== 'variant',
@@ -11,7 +13,7 @@ const ScrollableTableExWrapper = styled('div', {
 }))
 
 export interface TableExProps extends PropsWithChildren, TableProps {
-  variant?: 'scrollable'
+  variant?: TableExVariants
   wrapperHeight?: CSSProperties['height']
 }
 
