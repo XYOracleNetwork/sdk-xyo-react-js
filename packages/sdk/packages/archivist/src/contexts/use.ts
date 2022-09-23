@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoArchivistFindQuerySchema, XyoArchivistGetQuerySchema, XyoPayloadFindFilter } from '@xyo-network/archivist'
+import { XyoArchivistWrapper, XyoPayloadFindFilter } from '@xyo-network/archivist'
 import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
 import { useContextEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
@@ -18,7 +18,8 @@ export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const [, result] = archivist ? await archivist.query({ hashes: ids ?? [], schema: XyoArchivistGetQuerySchema }) : []
+        const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
+        const result = (await wrapper?.get(ids ?? [])) ?? []
         if (mounted()) {
           setError(undefined)
           setPayloads(result)
@@ -40,7 +41,8 @@ export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(filter: T
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const [, result] = archivist ? await archivist.query({ filter, schema: XyoArchivistFindQuerySchema }) : []
+        const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
+        const result = await wrapper?.find(filter)
         if (mounted()) {
           setError(undefined)
           setPayloads(result)
