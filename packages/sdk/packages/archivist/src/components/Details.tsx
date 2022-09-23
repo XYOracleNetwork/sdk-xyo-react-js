@@ -2,9 +2,9 @@ import { ButtonGroup, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoArchivist, XyoArchivistClearQuerySchema, XyoArchivistCommitQuerySchema } from '@xyo-network/archivist'
+import { XyoArchivist, XyoArchivistClearQuerySchema, XyoArchivistCommitQuerySchema, XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoPayload } from '@xyo-network/payload'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useArchivist } from '../contexts'
 
@@ -16,32 +16,31 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ archivist: archiv
   const { archivist = archivistProp } = useArchivist()
   const [payloads, setPayloads] = useState<(XyoPayload | null)[]>()
   const [refresh, setRefresh] = useState(0)
+  const [wrapper, setWrapper] = useState<XyoArchivistWrapper>()
+
+  useEffect(() => {
+    setWrapper(archivist ? new XyoArchivistWrapper(archivist) : undefined)
+  }, [archivist])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const [, payloads] = (await archivist?.query({ schema: 'network.xyo.query.archivist.all' })) ?? []
+      const payloads = (await wrapper?.all()) ?? []
       if (mounted()) {
         setPayloads(payloads)
       }
     },
-    [archivist, refresh],
+    [wrapper, refresh],
   )
 
   return (
     <FlexCol {...props}>
       <Typography>{`Payloads: ${payloads ? payloads.length : '-'}`}</Typography>
       <ButtonGroup>
-        <ButtonEx
-          disabled={!archivist?.queryable(XyoArchivistCommitQuerySchema)}
-          onClick={() => archivist?.query?.({ schema: XyoArchivistCommitQuerySchema })}
-        >
+        <ButtonEx disabled={!archivist?.queryable(XyoArchivistCommitQuerySchema)} onClick={() => wrapper?.commit()}>
           Commit
         </ButtonEx>
-        <ButtonEx
-          disabled={archivist?.queryable(XyoArchivistClearQuerySchema)}
-          onClick={() => archivist?.query({ schema: XyoArchivistClearQuerySchema })}
-        >
+        <ButtonEx disabled={archivist?.queryable(XyoArchivistClearQuerySchema)} onClick={() => wrapper?.clear()}>
           Clear
         </ButtonEx>
         <ButtonEx
