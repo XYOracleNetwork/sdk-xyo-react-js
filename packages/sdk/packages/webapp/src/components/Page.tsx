@@ -36,6 +36,7 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   children,
   breadcrumbs,
   scrollingBreakpoint,
+  devMode,
   ...props
 }) => {
   const userEvents = useUserEvents()
@@ -49,37 +50,46 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
     [pathname, title, userEvents],
   )
 
-  return (
-    <WebAppPageRoot scrollingBreakpoint={scrollingBreakpoint} {...props}>
-      <Helmet title={title} />
-      {container && container !== 'none' ? (
-        <Container
-          disableGutters={disableGutters}
-          style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
-          maxWidth={container}
-        >
+  if (devMode) {
+    return (
+      <WebAppPageRoot scrollingBreakpoint={scrollingBreakpoint} {...props}>
+        <Helmet title={title} />
+        {container && container !== 'none' ? (
+          <Container
+            disableGutters={disableGutters}
+            style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
+            maxWidth={container}
+          >
+            <WebAppBody
+              devMode={devMode}
+              disableBreadcrumbGutter={disableBreadcrumbGutter}
+              breadcrumbs={breadcrumbs}
+              scrollingBreakpoint={scrollingBreakpoint}
+              {...props}
+            >
+              {children}
+            </WebAppBody>
+          </Container>
+        ) : (
           <WebAppBody
+            devMode={devMode}
             disableBreadcrumbGutter={disableBreadcrumbGutter}
             breadcrumbs={breadcrumbs}
             scrollingBreakpoint={scrollingBreakpoint}
+            paddingX={disableGutters ? 0 : 1}
             {...props}
           >
             {children}
           </WebAppBody>
-        </Container>
-      ) : (
-        <WebAppBody
-          disableBreadcrumbGutter={disableBreadcrumbGutter}
-          breadcrumbs={breadcrumbs}
-          scrollingBreakpoint={scrollingBreakpoint}
-          paddingX={disableGutters ? 0 : 1}
-          {...props}
-        >
-          {children}
-        </WebAppBody>
-      )}
-    </WebAppPageRoot>
-  )
+        )}
+      </WebAppPageRoot>
+    )
+  } else {
+    return (
+      
+    )
+  }
+
 }
 
 /** @deprecated use WebAppPagePage instead */
