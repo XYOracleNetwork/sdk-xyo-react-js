@@ -1,14 +1,13 @@
-import { Typography } from '@mui/material'
-import { TypographyExProps } from '@xyo-network/react-shared'
+import { Typography, TypographyProps } from '@mui/material'
 import { ReactNode } from 'react'
 
-export interface MenuIconProps extends TypographyExProps {
+export interface MenuIconProps extends TypographyProps {
   icon?: ReactNode
 }
 
 export const MenuIcon: React.FC<MenuIconProps> = ({ icon, ...props }) => {
   return (
-    <Typography display="flex" variant="caption" {...props}>
+    <Typography display="flex" {...props}>
       {icon}
     </Typography>
   )
