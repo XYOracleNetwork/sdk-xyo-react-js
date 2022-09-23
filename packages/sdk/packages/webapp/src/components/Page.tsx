@@ -86,10 +86,40 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
     )
   } else {
     return (
-      
+      <FlexGrowCol alignItems="stretch" justifyContent="flex-start" minHeight={0} maxWidth="100vw" overflow="visible scroll">
+        <Helmet title={title} />
+        {container && container !== 'none' ? (
+          <Container
+            disableGutters={disableGutters}
+            style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
+            maxWidth={container}
+          >
+            <WebAppBody
+              devMode={devMode}
+              disableBreadcrumbGutter={disableBreadcrumbGutter}
+              breadcrumbs={breadcrumbs}
+              scrollingBreakpoint={scrollingBreakpoint}
+              paddingX={disableGutters ? 0 : 1}
+              {...props}
+            >
+              {children}
+            </WebAppBody>
+          </Container>
+        ) : (
+          <WebAppBody
+            devMode={devMode}
+            disableBreadcrumbGutter={disableBreadcrumbGutter}
+            breadcrumbs={breadcrumbs}
+            scrollingBreakpoint={scrollingBreakpoint}
+            paddingX={disableGutters ? 0 : 1}
+            {...props}
+          >
+            {children}
+          </WebAppBody>
+        )}
+      </FlexGrowCol>
     )
   }
-
 }
 
 /** @deprecated use WebAppPagePage instead */
