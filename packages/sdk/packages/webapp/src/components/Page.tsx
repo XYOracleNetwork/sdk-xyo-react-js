@@ -1,4 +1,4 @@
-import { Container, ContainerProps, Theme, useMediaQuery } from '@mui/material'
+import { Container, ContainerProps, styled } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
@@ -7,15 +7,39 @@ import { useLocation } from 'react-router-dom'
 
 import { WebAppBody, WebAppBodyProps } from './Body'
 
+const WebAppPageRoot = styled(FlexGrowCol, {
+  name: 'WebAppPage',
+  shouldForwardProp: (propName) => propName !== 'scrollingBreakpoint',
+  slot: 'Root',
+})<WebAppPageProps>(({ theme, scrollingBreakpoint = 'sm' }) => ({
+  alignItems: 'stretch',
+  inset: 'unset',
+  justifyContent: 'start',
+  maxWidth: '100vw',
+  position: 'relative',
+  [theme.breakpoints.down(scrollingBreakpoint)]: {
+    inset: 0,
+    position: 'absolute',
+  },
+}))
+
 export interface WebAppPageProps extends WebAppBodyProps, FlexBoxProps {
   container?: ContainerProps['maxWidth'] | 'none'
   disableGutters?: boolean
 }
 
-export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({ disableGutters, title, container, children, ...props }) => {
+export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
+  disableGutters,
+  disableBreadcrumbGutter,
+  title,
+  container,
+  children,
+  breadcrumbs,
+  scrollingBreakpoint,
+  ...props
+}) => {
   const userEvents = useUserEvents()
   const { pathname } = useLocation()
-  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -25,13 +49,8 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({ disableGut
     [pathname, title, userEvents],
   )
 
-  const appContentStyles: FlexBoxProps = {
-    position: isMobile ? 'absolute' : 'relative',
-    sx: { inset: isMobile ? '0' : 'unset' },
-  }
-
   return (
-    <FlexGrowCol id="webapp-page-flex" alignItems="stretch" justifyContent="flex-start" maxWidth="100vw" {...appContentStyles}>
+    <WebAppPageRoot scrollingBreakpoint={scrollingBreakpoint} {...props}>
       <Helmet title={title} />
       {container && container !== 'none' ? (
         <Container
@@ -39,14 +58,27 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({ disableGut
           style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
           maxWidth={container}
         >
-          <WebAppBody {...props}>{children}</WebAppBody>
+          <WebAppBody
+            disableBreadcrumbGutter={disableBreadcrumbGutter}
+            breadcrumbs={breadcrumbs}
+            scrollingBreakpoint={scrollingBreakpoint}
+            {...props}
+          >
+            {children}
+          </WebAppBody>
         </Container>
       ) : (
-        <WebAppBody paddingX={disableGutters ? 0 : 1} {...props}>
+        <WebAppBody
+          disableBreadcrumbGutter={disableBreadcrumbGutter}
+          breadcrumbs={breadcrumbs}
+          scrollingBreakpoint={scrollingBreakpoint}
+          paddingX={disableGutters ? 0 : 1}
+          {...props}
+        >
           {children}
         </WebAppBody>
       )}
-    </FlexGrowCol>
+    </WebAppPageRoot>
   )
 }
 

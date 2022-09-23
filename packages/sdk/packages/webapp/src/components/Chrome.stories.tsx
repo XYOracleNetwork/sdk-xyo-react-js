@@ -7,7 +7,7 @@ import { SiteMenuListItem } from '@xyo-network/react-appbar'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WebAppChrome } from './Chrome'
-import { WebAppPage } from './Page'
+import { WebAppPage, WebAppPageProps } from './Page'
 
 const StorybookEntry = {
   argTypes: {},
@@ -22,6 +22,25 @@ const StorybookEntry = {
 
 const rowArray = [32, 64, 128, 256, 512, 1024]
 
+const Children: React.FC<WebAppPageProps> = (props) => (
+  <WebAppPage
+    breadcrumbs={
+      <Breadcrumbs>
+        <LinkEx>BreadCrumbs</LinkEx>
+      </Breadcrumbs>
+    }
+    {...props}
+  >
+    {rowArray.map((height) => {
+      return (
+        <FlexRow key={height} height={height}>
+          {height}
+        </FlexRow>
+      )
+    })}
+  </WebAppPage>
+)
+
 const Template: ComponentStory<typeof WebAppChrome> = (args) => {
   return (
     <BrowserRouter>
@@ -33,23 +52,7 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
         }
         height="calc(100vh - 2rem)"
         {...args}
-      >
-        <WebAppPage
-          breadcrumbs={
-            <Breadcrumbs>
-              <LinkEx>BreadCrumbs</LinkEx>
-            </Breadcrumbs>
-          }
-        >
-          {rowArray.map((height) => {
-            return (
-              <FlexRow key={height} height={height}>
-                {height}
-              </FlexRow>
-            )
-          })}
-        </WebAppPage>
-      </WebAppChrome>
+      ></WebAppChrome>
     </BrowserRouter>
   )
 }
@@ -58,9 +61,12 @@ const Default = Template.bind({})
 Default.args = {}
 
 const DefaultSideBar = Template.bind({})
-DefaultSideBar.args = { navigationType: 'sidebar' }
+DefaultSideBar.args = { children: <Children />, navigationType: 'sidebar' }
 
-export { Default, DefaultSideBar }
+const DefaultAlwaysScrollable = Template.bind({})
+DefaultAlwaysScrollable.args = { children: <Children scrollingBreakpoint="xl" />, navigationType: 'sidebar' }
+
+export { Default, DefaultAlwaysScrollable, DefaultSideBar }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

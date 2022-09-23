@@ -1,39 +1,63 @@
-import { Theme, useMediaQuery } from '@mui/material'
+import { Breakpoint, styled } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { ReactNode } from 'react'
+
+const WebAppBodyName = 'WebAppBody'
+
+const WebAppBodyRoot = styled(FlexGrowCol, {
+  name: WebAppBodyName,
+  slot: 'Root',
+})<WebAppBodyProps>(({ spacing, theme, scrollingBreakpoint = 'sm' }) => ({
+  alignItems: 'stretch',
+  gap: 1,
+  justifyContent: 'flex-start',
+  overflow: 'hidden',
+  paddingY: spacing,
+  [theme.breakpoints.down(scrollingBreakpoint)]: {
+    overflow: 'scroll',
+  },
+}))
+
+const WebAppBodyBreadcrumb = styled(FlexRow, {
+  name: WebAppBodyName,
+  slot: 'Breadcrumb',
+})<WebAppBodyProps>(({ disableBreadcrumbGutter, spacing }) => ({
+  justifyContent: 'start',
+  marginX: disableBreadcrumbGutter ? 0 : spacing,
+}))
+
+const WebAppBodyScrollableWrapper = styled(FlexGrowCol, {
+  name: WebAppBodyName,
+  slot: 'ScrollableWrapper',
+})<WebAppBodyProps>(() => ({}))
+
+const WebAppBodyScrollable = styled(FlexGrowCol, {
+  name: WebAppBodyName,
+  slot: 'Scrollable',
+})<WebAppBodyProps>(({ theme, scrollingBreakpoint = 'sm' }) => ({
+  alignItems: 'stretch',
+  inset: 0,
+  position: 'absolute',
+  [theme.breakpoints.down(scrollingBreakpoint)]: {
+    inset: 'unset',
+    position: 'relative',
+  },
+}))
 
 export interface WebAppBodyProps extends FlexBoxProps {
   breadcrumbs?: ReactNode
   disableBreadcrumbGutter?: boolean
   spacing?: string | number
+  scrollingBreakpoint?: Breakpoint
 }
 
-export const WebAppBody: React.FC<WebAppBodyProps> = ({ children, spacing = 1, breadcrumbs, disableBreadcrumbGutter, ...props }) => {
-  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
-
-  const bodyContentStyles: FlexBoxProps = {
-    position: isMobile ? 'relative' : 'absolute',
-    sx: { inset: isMobile ? 'inherit' : 0 },
-  }
-
+export const WebAppBody: React.FC<WebAppBodyProps> = ({ children, breadcrumbs, disableBreadcrumbGutter, scrollingBreakpoint, ...props }) => {
   return (
-    <FlexGrowCol
-      id="webapp-body-flex"
-      gap={1}
-      paddingY={spacing}
-      justifyContent="flex-start"
-      alignItems="stretch"
-      overflow={isMobile ? 'scroll' : 'hidden'}
-      {...props}
-    >
-      <FlexRow id="webapp-breadcrumb-flex" justifyContent="flex-start" marginX={disableBreadcrumbGutter ? 0 : spacing}>
-        {breadcrumbs}
-      </FlexRow>
-      <FlexGrowCol>
-        <FlexGrowCol id="webapp-scrollable-flex" alignItems="stretch" {...bodyContentStyles}>
-          {children}
-        </FlexGrowCol>
-      </FlexGrowCol>
-    </FlexGrowCol>
+    <WebAppBodyRoot scrollingBreakpoint={scrollingBreakpoint} {...props}>
+      <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter}>{breadcrumbs}</WebAppBodyBreadcrumb>
+      <WebAppBodyScrollableWrapper>
+        <WebAppBodyScrollable scrollingBreakpoint={scrollingBreakpoint}>{children}</WebAppBodyScrollable>
+      </WebAppBodyScrollableWrapper>
+    </WebAppBodyRoot>
   )
 }
