@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 
 import { CollapsibleProvider, useCollapsible } from '../../contexts'
-import { SiteMenuListItem, SiteMenuListItemProps } from '../SiteMenu'
+import { SiteMenuListItem } from '../SiteMenu'
 import { CollapseToggleFlex } from './CollapseToggle'
 import { CollapsibleDrawer } from './CollapsibleDrawer'
 import { menuDataBottom, menuDataTop } from './ExampleMenuData'
