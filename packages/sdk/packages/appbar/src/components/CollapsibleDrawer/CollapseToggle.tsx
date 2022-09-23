@@ -1,7 +1,6 @@
-import KeyboardDoubleArrowLeftRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowLeftRounded'
-import KeyboardDoubleArrowRightRounded from '@mui/icons-material/KeyboardDoubleArrowRightRounded'
 import { IconButton } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'
 
 import { useCollapsible } from '../../contexts'
 
@@ -19,10 +18,9 @@ export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
         onClick={handleCollapseToggle}
         sx={{
           flexDirection: 'column',
-          ml: 1,
         }}
       >
-        {!collapse ? <KeyboardDoubleArrowLeftRoundedIcon /> : <KeyboardDoubleArrowRightRounded />}
+        {!collapse ? <VscArrowSmallLeft /> : <VscArrowSmallRight />}
       </IconButton>
     </FlexRow>
   )

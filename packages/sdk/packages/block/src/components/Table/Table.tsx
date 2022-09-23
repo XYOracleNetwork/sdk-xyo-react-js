@@ -1,6 +1,7 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import { TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { Hasher } from '@xyo-network/core'
+import { TableEx } from '@xyo-network/react-table'
 
 import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
 import { BlockTableProps } from './BlockTableProps'
@@ -13,11 +14,12 @@ export const BlockTable: React.FC<BlockTableProps> = ({
   blocks,
   columns = blockTableColumnConfigDefaults(),
   children,
+  variant = 'scrollable',
   ...props
 }) => {
   const breakPoint = useBreakpoint()
   return breakPoint ? (
-    <Table style={{ overflow: 'hidden' }} {...props}>
+    <TableEx variant={variant} {...props}>
       <TableHead>
         <TableRow>
           {columns[breakPoint]?.map((column, index) => {
@@ -43,6 +45,6 @@ export const BlockTable: React.FC<BlockTableProps> = ({
         ))}
         {children}
       </TableBody>
-    </Table>
+    </TableEx>
   ) : null
 }

@@ -1,10 +1,11 @@
 import { Collapse, IconButton, List, ListItemProps, ListItemTextProps, Tooltip, useTheme } from '@mui/material'
-import { FlexRow } from '@xylabs/react-flexbox'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { ListItemButtonExProps } from '@xyo-network/react-shared'
 import { ReactNode, useState } from 'react'
 import { VscChevronDown, VscInfo } from 'react-icons/vsc'
 import { To } from 'react-router-dom'
 
+import { useCollapsible } from '../../contexts'
 import { SiteMenuListItemBase } from './lib'
 import { MenuIcon } from './MenuIcon'
 import { MenuListItem } from './MenuListItem'
@@ -19,7 +20,7 @@ export interface SiteMenuListItemProps extends SiteMenuListItemBase, ListItemPro
   onButtonClick?: ListItemButtonExProps['onClick']
   subNavListItems?: SubNavListItemProps[]
   tooltip?: string
-  small?: boolean
+  subNavOpen?: boolean
 }
 
 export interface SubNavListItemProps {
@@ -36,7 +37,6 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
   subNavListItems,
   iconOnly,
   tooltip,
-  small,
   collapseEnd,
   icon,
   primary,
@@ -46,17 +46,11 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
 }) => {
   const { dense } = props
   const theme = useTheme()
+  const { collapse } = useCollapsible()
   const [openSubNav, setOpenSubNav] = useState(false)
   const [hovered, setHovered] = useState(false)
   return (
-    <MenuListItem
-      disableGutters
-      style={{ whiteSpace: 'nowrap', ...style }}
-      iconOnly={iconOnly}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      {...props}
-    >
+    <MenuListItem disableGutters style={{ whiteSpace: 'nowrap', ...style }} iconOnly={iconOnly} {...props}>
       <MenuListItemButtonEx
         iconOnly={iconOnly}
         onClick={onButtonClick}
@@ -64,36 +58,36 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
         dense={dense}
         to={to}
         sx={{ justifyContent: 'space-between' }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
         <FlexRow>
-          <MenuIcon
-            icon={icon}
-            fontSize={small ? '14px' : '16px'}
-            paddingRight={theme.spacing(1)}
-            color={hovered ? theme.palette.primary.main : 'inherit'}
-          />
-          <MenuListItemText primary={primary} iconOnly={iconOnly} sx={{ fontSize: small ? theme.typography.caption.fontSize : '' }} />
+          <MenuIcon icon={icon} paddingRight={theme.spacing(1)} color={hovered ? 'primary' : 'inherit'} />
+          <MenuListItemText primary={primary} iconOnly={iconOnly} />
         </FlexRow>
         <FlexRow>
           {subNavListItems ? (
             <IconButton onClick={() => setOpenSubNav(!openSubNav)} sx={{ marginRight: theme.spacing(1) }}>
-              <VscChevronDown fontSize={small ? '14px' : '16px'} />
+              <VscChevronDown fontSize="16px" />
             </IconButton>
           ) : null}
           {tooltip ? (
             <Tooltip title={tooltip} placement="right">
+              {/* Needs div so it can work, the hovering doesn't work with a FlexCol */}
               <div>
-                <VscInfo color="disabled" />
+                <FlexCol justifyContent="center">
+                  <VscInfo color="grey" />
+                </FlexCol>
               </div>
             </Tooltip>
           ) : null}
         </FlexRow>
       </MenuListItemButtonEx>
-      {subNavListItems && !iconOnly ? (
-        <Collapse in={openSubNav}>
+      {subNavListItems ? (
+        <Collapse in={collapse == true ? false : openSubNav}>
           <List>
             {subNavListItems.map((item, index) => {
-              return <SiteMenuListItem key={index} {...item} />
+              return <SiteMenuListItem sx={{ pl: theme.spacing(1) }} key={index} {...item} />
             })}
           </List>
         </Collapse>

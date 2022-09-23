@@ -31,23 +31,23 @@ export const WebAppChrome: React.FC<WebAppChromeProps> = ({
   ...props
 }) => {
   return (
-    <FlexCol alignItems="stretch" overflow="hidden" height="100vh" {...props}>
+    <FlexCol id="web-chrome-flex" alignItems="stretch" overflow="hidden" height="100vh" {...props}>
       <Helmet defaultTitle={appName} titleTemplate={`%s | ${appName}`}>
         <meta content="website" property="og:type" />
       </Helmet>
       {appbar ?? <ApplicationAppBar systemToolbar={<SystemToolbar menuItems={navigationType === 'menu' ? menuItems : undefined} />} />}
-      <FlexGrowRow overflow="hidden" alignItems="stretch">
+      <FlexGrowRow id="sidebar-nav-flex" overflow="hidden" alignItems="stretch">
         {navigationType !== 'menu' ? (
           <>
             {menuItems}
             <Divider orientation="vertical" />
           </>
         ) : null}
-        <FlexGrowCol justifyContent="flex-start" alignItems="stretch">
+        <FlexGrowCol id="main-flex" justifyContent="flex-start" alignItems="stretch">
           <ErrorBoundary fallback={errorPage ?? <WebAppErrorPage />}>{children}</ErrorBoundary>
         </FlexGrowCol>
       </FlexGrowRow>
-      <FlexCol alignItems="stretch">
+      <FlexCol id="footer-flex" alignItems="stretch">
         <Paper elevation={footerElevation} square>
           {footer ?? <Footer dynamicHeight />}
         </Paper>
