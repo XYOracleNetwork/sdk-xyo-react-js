@@ -39,7 +39,8 @@ Default.args = {}
 const badBlock = sampleBlock
 
 const WithData = Template.bind({})
-WithData.args = { blocks: [sampleBlock] }
+const sampleBlocks = [...Array(100).keys()].map(() => sampleBlock)
+WithData.args = { blocks: sampleBlocks }
 
 const WithError = Template.bind({})
 WithError.args = { blocks: [sampleBlock, badBlock as XyoBoundWitness] }

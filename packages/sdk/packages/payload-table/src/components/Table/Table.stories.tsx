@@ -1,4 +1,3 @@
-import { Box } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { XyoPayload } from '@xyo-network/payload'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
@@ -19,9 +18,7 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof PayloadTable> = (args) => (
   <BrowserRouter>
-    <Box height="90vh" overflow="auto">
-      <PayloadTable {...args}></PayloadTable>
-    </Box>
+    <PayloadTable {...args}></PayloadTable>
   </BrowserRouter>
 )
 
@@ -50,8 +47,15 @@ const payloads: XyoPayload[] = [
 const WithData = Template.bind({})
 WithData.args = {
   payloads,
+  wrapperHeight: 'calc(100vh - 2rem)',
 }
 WithData.decorators = [useAppThemeDecorator]
+
+const WithOutStickyHeaderFooter = Template.bind({})
+WithOutStickyHeaderFooter.args = {
+  payloads,
+  variant: 'normal',
+}
 
 const WithDataAndMaxSchemaDepth = Template.bind({})
 WithDataAndMaxSchemaDepth.args = {
@@ -68,7 +72,7 @@ const { ...badPayload } = sampleIdPayload
 //@ts-ignore
 WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
-export { Default, WithData, WithDataAndMaxSchemaDepth, WithError }
+export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithOutStickyHeaderFooter }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

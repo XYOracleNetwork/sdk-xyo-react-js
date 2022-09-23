@@ -7029,6 +7029,7 @@ __metadata:
     "@xyo-network/network": "*"
     "@xyo-network/payload": "*"
     "@xyo-network/payload-plugin": "*"
+    "@xyo-network/react-table": "workspace:^"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
     axios: ^0.27.2
@@ -7494,6 +7495,7 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-table": "workspace:^"
     tslib: ^2.4.0
   peerDependencies:
     "@mui/icons-material": ^5.10.3
@@ -7692,6 +7694,7 @@ __metadata:
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-table": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-typedoc": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
@@ -7785,6 +7788,18 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-table@workspace:^, @xyo-network/react-table@workspace:packages/sdk/packages/table":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-table@workspace:packages/sdk/packages/table"
+  dependencies:
+    tslib: ^2.4.0
+  peerDependencies:
+    "@mui/material": ^5.10.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
 
