@@ -1,6 +1,6 @@
-import PublicRoundedIcon from '@mui/icons-material/PublicRounded'
 import { List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { FaGlobeAmericas } from 'react-icons/fa'
 
 import { SiteMenuListItem, SiteMenuListItemProps } from './MenuItems'
 
@@ -31,19 +31,18 @@ const Template: ComponentStory<typeof SiteMenuListItem> = (args) => {
 
 const Default = Template.bind({})
 Default.args = {
-  icon: <PublicRoundedIcon />,
-  primary: 'Test',
+  dense: true,
+  icon: <FaGlobeAmericas />,
+  primary: 'Explore',
+  tooltip: 'View global archivist data on a world map.',
 }
 
 const WithChildren = Template.bind({})
 WithChildren.args = {
-  children: (
-    <List>
-      <SiteMenuListItem primary="Test Child" icon={<PublicRoundedIcon />} />
-    </List>
-  ),
-  icon: <PublicRoundedIcon />,
-  primary: 'Test',
+  icon: <FaGlobeAmericas />,
+  primary: 'Explore',
+  subNavListItems: [{ primary: 'Explore', to: '/explore', tooltip: 'View global archivist data on a world map.' }],
+  tooltip: 'View global archivist data on a world map.',
 }
 
 export { Default, WithChildren }
