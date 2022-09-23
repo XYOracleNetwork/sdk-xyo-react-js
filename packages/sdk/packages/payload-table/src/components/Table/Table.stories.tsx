@@ -19,9 +19,7 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof PayloadTable> = (args) => (
   <BrowserRouter>
-    <Box height="90vh" overflow="auto">
-      <PayloadTable {...args}></PayloadTable>
-    </Box>
+    <PayloadTable {...args}></PayloadTable>
   </BrowserRouter>
 )
 
@@ -50,6 +48,7 @@ const payloads: XyoPayload[] = [
 const WithData = Template.bind({})
 WithData.args = {
   payloads,
+  wrapperHeight: 'calc(100vh - 2rem)',
 }
 WithData.decorators = [useAppThemeDecorator]
 
