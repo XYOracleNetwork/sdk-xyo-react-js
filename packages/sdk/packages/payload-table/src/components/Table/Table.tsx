@@ -2,26 +2,27 @@ import FirstPageIcon from '@mui/icons-material/FirstPage'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import LastPageIcon from '@mui/icons-material/LastPage'
-import { Alert, Table, TableBody, TableCell, TableFooter, TableHead, TablePagination, TableProps, TableRow, Typography } from '@mui/material'
+import { Alert, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import { useTheme } from '@mui/material/styles'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
+import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { PayloadTableRow } from './TableRow'
-
-export interface PayloadTableProps extends TableProps {
+export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
   archive?: string
   onRowClick?: (value: XyoPayload) => void
   rowsPerPage?: number
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
+  maxSchemaDepth?: number
 }
 
 interface TablePaginationActionsProps {
@@ -73,12 +74,15 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
   archive,
   onRowClick,
-  rowsPerPage: rowsPerPageProp = 10,
+  rowsPerPage: rowsPerPageProp = 25,
   payloads,
   children,
   columns = payloadTableColumnConfigDefaults(),
+  maxSchemaDepth,
+  variant = 'scrollable',
   ...props
 }) => {
+  const theme = useTheme()
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
@@ -100,7 +104,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   }
 
   return breakPoint ? (
-    <Table stickyHeader {...props}>
+    <TableEx variant={variant} {...props}>
       <TableHead>
         <TableRow>
           {columns[breakPoint]?.map((column, index) => {
@@ -114,7 +118,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
           })}
         </TableRow>
       </TableHead>
-      <TableBody sx={{ overflowY: 'scroll ' }}>
+      <TableBody>
         {payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((payload, index) => {
           // {payloads?.map((payload, index) => {
           const wrapper = new PayloadWrapper(payload)
@@ -128,6 +132,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
               )}
             >
               <PayloadTableRow
+                maxSchemaDepth={maxSchemaDepth}
                 archive={archive}
                 onClick={
                   onRowClick
@@ -145,14 +150,14 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
         {children}
         {emptyRows > 0 && Array(emptyRows).fill(<PayloadTableRow />)}
       </TableBody>
-      <TableFooter>
+      <TableFooterEx variant={variant}>
         <TableRow>
           <TablePagination
             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-            colSpan={3}
             count={payloadCount}
             rowsPerPage={rowsPerPage}
             page={page}
+            style={{ borderTop: '1px solid', borderTopColor: theme.palette.divider }}
             SelectProps={{
               inputProps: {
                 'aria-label': 'rows per page',
@@ -164,7 +169,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
             ActionsComponent={TablePaginationActions}
           />
         </TableRow>
-      </TableFooter>
-    </Table>
+      </TableFooterEx>
+    </TableEx>
   ) : null
 }

@@ -15,6 +15,7 @@ export interface PayloadTableRowProps extends TableRowProps {
   exploreDomain?: string
   columns?: PayloadTableColumnConfig
   network?: string
+  maxSchemaDepth?: number
 }
 
 export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
@@ -22,6 +23,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   network: networkProp,
   payload,
   archive,
+  maxSchemaDepth,
   columns = payloadTableColumnConfigDefaults(),
   ...props
 }) => {
@@ -42,10 +44,26 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     />
   )
 
+  const reduceSchemaDepth = (schema?: string, maxSchemaDepth?: number) => {
+    if (maxSchemaDepth) {
+      const parts = schema?.split('.') ?? []
+      const partsToRemove = parts.length - maxSchemaDepth > 0 ? parts.length - maxSchemaDepth : 0
+      if (partsToRemove > 0) {
+        return (
+          <>
+            <>&#x2026;</>
+            {`${parts.slice(partsToRemove).reduce((previousValue, part) => `${previousValue}.${part}`)}`}
+          </>
+        )
+      }
+    }
+    return schema
+  }
+
   const schema: React.FC<TableCellProps> = (props) => (
-    <TableCell key="payloads" align="center" {...props}>
+    <TableCell title={payload?.schema} key="payloads" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {payload?.schema}
+        {reduceSchemaDepth(payload?.schema, maxSchemaDepth)}
       </Typography>
     </TableCell>
   )

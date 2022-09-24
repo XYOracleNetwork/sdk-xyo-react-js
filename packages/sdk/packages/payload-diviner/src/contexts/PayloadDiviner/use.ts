@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoDivinerDivineQuerySchema, XyoHuriPayload, XyoHuriSchema } from '@xyo-network/diviner'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoDivinerWrapper, XyoHuriPayload, XyoHuriSchema } from '@xyo-network/diviner'
+import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { useContextEx } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
 import { Dispatch, useEffect, useState } from 'react'
@@ -29,12 +29,11 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
     async (mounted) => {
       if (huri && diviner && payload === undefined) {
         try {
-          const huriPayload: XyoHuriPayload = { huri, schema: XyoHuriSchema }
-          const [, payloads] = (await diviner.query({ payloads: [huriPayload], schema: XyoDivinerDivineQuerySchema })) ?? []
+          const huriPayload: XyoHuriPayload = { huri: [huri], schema: XyoHuriSchema }
+          const wrapper = diviner ? new XyoDivinerWrapper(diviner) : undefined
+          const [payload] = (await wrapper?.divine(PayloadWrapper.hash(huriPayload), [huriPayload])) ?? []
           if (mounted()) {
-            // if [0] returns undefined after the compact then no payloads were found so set payload state to null
-            const results = compact(payloads)[0] as T
-            setPayload(results ? results : null)
+            setPayload(payload ? (payload as T) : null)
           }
         } catch (ex) {
           if (mounted()) {
@@ -68,9 +67,10 @@ export const useDivinePayloads = <T extends XyoPayload = XyoPayload>(
       console.log(`huriList: ${JSON.stringify(huriList, null, 2)}`)
       const payloads = await Promise.allSettled(
         huriList.map(async (huri) => {
-          const huriPayload: XyoHuriPayload = { huri, schema: XyoHuriSchema }
-          const [, payloads] = (await diviner?.query({ payloads: [huriPayload], schema: XyoDivinerDivineQuerySchema })) ?? []
-          return compact(payloads)[0]
+          const huriPayload: XyoHuriPayload = { huri: [huri], schema: XyoHuriSchema }
+          const wrapper = diviner ? new XyoDivinerWrapper(diviner) : undefined
+          const [payload] = (await wrapper?.divine(PayloadWrapper.hash(huriPayload), [huriPayload])) ?? []
+          return payload
         }),
       )
       if (mounted()) {

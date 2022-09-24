@@ -1,16 +1,13 @@
-import { Typography } from '@mui/material'
-import { TypographyExProps } from '@xyo-network/react-shared'
+import { Typography, TypographyProps } from '@mui/material'
 import { ReactNode } from 'react'
 
-import { SiteMenuListItemBase } from './lib'
-
-export interface MenuIconProps extends SiteMenuListItemBase, TypographyExProps {
+export interface MenuIconProps extends TypographyProps {
   icon?: ReactNode
 }
 
-export const MenuIcon: React.FC<MenuIconProps> = ({ iconOnly, icon, ...props }) => {
+export const MenuIcon: React.FC<MenuIconProps> = ({ icon, ...props }) => {
   return (
-    <Typography mr={iconOnly ? 0 : 1} display="flex" variant="caption" {...props}>
+    <Typography display="flex" {...props}>
       {icon}
     </Typography>
   )
