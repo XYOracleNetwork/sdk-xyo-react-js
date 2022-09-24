@@ -47,7 +47,6 @@ const payloads: XyoPayload[] = [
 const WithData = Template.bind({})
 WithData.args = {
   payloads,
-  wrapperHeight: 'calc(100vh - 2rem)',
 }
 WithData.decorators = [useAppThemeDecorator]
 
