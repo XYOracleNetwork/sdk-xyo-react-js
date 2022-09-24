@@ -13,7 +13,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'Table/TableEx',
+  title: 'shared/TableEx',
 } as ComponentMeta<typeof TableEx>
 
 const Template: ComponentStory<typeof TableEx> = (args) => {
