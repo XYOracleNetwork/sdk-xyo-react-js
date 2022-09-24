@@ -1,9 +1,15 @@
 /* eslint-disable import/no-internal-modules */
 import { TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 
 import { TableEx } from './TableEx'
 import { TableFooterEx } from './TableFooterEx'
+
+const ScrollableDecoratorFn: DecoratorFn = (Story, args) => (
+  <div style={{ height: 'calc(100vh - 2rem)', inset: 0, position: 'absolute' }}>
+    <Story {...args} />
+  </div>
+)
 
 const StorybookEntry = {
   argTypes: {},
@@ -68,7 +74,8 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithScrollable = Template.bind({})
-WithScrollable.args = { variant: 'scrollable', wrapperHeight: 'calc(100vh - 2rem)' }
+WithScrollable.args = { variant: 'scrollable' }
+WithScrollable.decorators = [ScrollableDecoratorFn]
 
 export { Default, WithScrollable }
 
