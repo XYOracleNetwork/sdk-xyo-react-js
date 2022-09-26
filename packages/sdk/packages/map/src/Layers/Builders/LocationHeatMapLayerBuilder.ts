@@ -2,6 +2,7 @@ import { HeatMapFillLayerConfig, HeatMapLineLayerConfig, HeatMapSymbolLayerConfi
 import { FillLayerBuilder } from '../FillLayer'
 import { LineLayerBuilder } from '../LineLayer'
 import { SymbolLayerBuilder } from '../SymbolLayer'
+import { XyoMapLayer } from '../XyoMapLayer'
 
 export const MapHeatConstants = {
   LocationDebugLayerId: 'location-debug-id',
@@ -12,7 +13,7 @@ export const MapHeatConstants = {
   LocationLineLayerSource: 'location-line-source',
 }
 
-export const LocationHeatMapLayerBuilder = (color: string, alternateColor = '#000') => {
+export const LocationHeatMapLayerBuilder = (color: string, alternateColor = '#000', showDebugLayer = false) => {
   const {
     LocationFillLayerId,
     LocationFillLayerSource,
@@ -30,5 +31,9 @@ export const LocationHeatMapLayerBuilder = (color: string, alternateColor = '#00
   const lineLayer = new LineLayerBuilder(LocationLineLayerId, LocationLineLayerSource, lineLayerConfig)
   const debugLayer = new SymbolLayerBuilder(LocationDebugLayerId, LocationDebugLayerSource, debugLayerConfig)
 
-  return [fillLayer, lineLayer, debugLayer]
+  const layers: XyoMapLayer[] = [fillLayer, lineLayer]
+  if (showDebugLayer) {
+    layers.push(debugLayer)
+  }
+  return layers
 }

@@ -1,8 +1,14 @@
 import { DefaultMapSettings } from '@xyo-network/react-map'
 
-export const QuadkeyHeatMapSettings = DefaultMapSettings()
-const { debugLayer, scrollToZoom, fitToPoints, preferDark } = QuadkeyHeatMapSettings
-debugLayer.hidden = false
-scrollToZoom.value = true
-fitToPoints.value = false
-preferDark.value = true
+const quadkeyHeatMapSettings = () => {
+  const quadkeyHeatMapSettings = DefaultMapSettings()
+  const { debugLayer, scrollToZoom, fitToPoints, preferDark } = quadkeyHeatMapSettings
+  debugLayer.hidden = true
+  scrollToZoom.value = true
+  fitToPoints.value = false
+  preferDark.value = true
+
+  return quadkeyHeatMapSettings
+}
+
+export const QuadkeyHeatMapSettings = quadkeyHeatMapSettings
