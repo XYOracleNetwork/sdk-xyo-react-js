@@ -33,11 +33,11 @@ const Template: ComponentStory<typeof CollapsibleDrawer> = (args) => {
   const theme = useTheme()
   return (
     <>
-      <FlexGrowCol alignItems="start" height="calc(100vh - 2rem)">
+      <FlexGrowCol alignItems="start">
         <CollapsibleDrawer in={!collapse} orientation="horizontal" collapsedSize={theme.spacing(5)} onExited={() => setCollapseEnd?.(true)} {...args}>
           <MenuSection title="Explore & Create" listItems={menuDataTop} showTitle={!collapse} />
           <MenuSection title="Settings & Analytics" listItems={menuDataBottom} showTitle={!collapse} />
-          <FlexGrowCol />
+          <FlexGrowCol height="100%" />
           <CollapseToggleFlex justifyContent="start" />
         </CollapsibleDrawer>
       </FlexGrowCol>
