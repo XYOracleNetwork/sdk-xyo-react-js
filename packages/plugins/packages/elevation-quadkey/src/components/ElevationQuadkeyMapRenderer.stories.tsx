@@ -1,6 +1,5 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
-import React from 'react'
 
 import { ElevationQuadkeyMapRenderer } from './ElevationQuadkeyMap'
 import { elevationQuadKeyMapPayload } from './payload.stories'

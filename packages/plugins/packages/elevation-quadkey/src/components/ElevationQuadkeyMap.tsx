@@ -1,5 +1,6 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
+import { WithChildren } from '@xylabs/react-shared'
 import { XyoPayload } from '@xyo-network/payload'
 import {
   HeatMapInitializerProvider,
@@ -15,6 +16,8 @@ import {
 import { Feature, Polygon } from 'geojson'
 import React from 'react'
 
+import { OpenElevationApiProvider } from '../contexts'
+import { useElevationProcessor } from '../hooks'
 import { ElevationQuadkeyMapSettings } from './ElevationQuadkeyMapSettings'
 
 export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
@@ -23,6 +26,7 @@ export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
 }
 
 const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ payload, accessToken, ...props }) => {
+  useElevationProcessor(payload)
   const { features } = useQuadKeyPayloadsToFeatures(payload as NetworkXyoLocationHeatmapQuadkeyAnswerPayload)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
@@ -44,20 +48,26 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ pay
   )
 }
 
+const WithProviders: React.FC<WithChildren> = ({ children }) => (
+  <OpenElevationApiProvider>
+    <MapBoxInstanceProvider>{children}</MapBoxInstanceProvider>
+  </OpenElevationApiProvider>
+)
+
 export const ElevationQuadkeyMapWithSettingsRenderer: React.FC<ElevationQuadkeyMapInnerProps> = ({ ...props }) => {
   return (
-    <MapBoxInstanceProvider>
+    <WithProviders>
       <MapSettingsProvider defaultMapSettings={ElevationQuadkeyMapSettings} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
         <ElevationQuadkeyMapInner {...props} />
       </MapSettingsProvider>
-    </MapBoxInstanceProvider>
+    </WithProviders>
   )
 }
 
 export const ElevationQuadkeyMapRenderer: React.FC<ElevationQuadkeyMapInnerProps> = ({ ...props }) => {
   return (
-    <MapBoxInstanceProvider>
+    <WithProviders>
       <ElevationQuadkeyMapInner {...props} />
-    </MapBoxInstanceProvider>
+    </WithProviders>
   )
 }

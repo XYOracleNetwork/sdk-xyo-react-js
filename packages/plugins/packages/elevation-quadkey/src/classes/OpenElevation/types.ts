@@ -14,5 +14,5 @@ export interface LookupResponse {
 }
 
 export interface LookupPostRequest {
-  locations: LocationElevation[]
+  locations: LatLngBase[]
 }
