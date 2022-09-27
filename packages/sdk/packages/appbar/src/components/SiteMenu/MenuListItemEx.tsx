@@ -1,10 +1,10 @@
-import { ListItemButtonEx, ListItemButtonExProps } from '@xyo-network/react-shared'
+import { ListItem, ListItemProps } from '@mui/material'
 
 import { SiteMenuListItemBase } from './lib'
 
-export interface MenuListItemButtonExProps extends SiteMenuListItemBase, ListItemButtonExProps {}
+export interface ListItemExProps extends SiteMenuListItemBase, ListItemProps {}
 
-export const MenuListItemButtonEx: React.FC<MenuListItemButtonExProps> = ({ iconOnly, collapseEnd, sx, children, ...props }) => {
+export const MenuListItemEx: React.FC<ListItemExProps> = ({ iconOnly, collapseEnd, sx, children, ...props }) => {
   const dense = props
   const listItemButtonSx = iconOnly ? { borderRadius: '50%', display: 'inline-flex', flexGrow: 0 } : {}
   // wait till collapseEnds to remove the spacing between items
@@ -12,8 +12,8 @@ export const MenuListItemButtonEx: React.FC<MenuListItemButtonExProps> = ({ icon
   // adjusts to the paddingY value which does NOT scale along the theme.spacing
   const paddingSx = dense ? { px: '8px' } : { px: '12px' }
   return (
-    <ListItemButtonEx sx={{ ...listItemButtonSx, ...spacingSx, ...paddingSx, ...sx }} {...props}>
+    <ListItem sx={{ ...listItemButtonSx, ...spacingSx, ...paddingSx, ...sx }} {...props}>
       {children}
-    </ListItemButtonEx>
+    </ListItem>
   )
 }
