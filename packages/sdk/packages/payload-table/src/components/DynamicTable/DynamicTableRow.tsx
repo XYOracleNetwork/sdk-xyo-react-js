@@ -6,7 +6,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadValidator, PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
 import { usePayloadRenderPluginResolver, XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { HashTableCell } from '@xyo-network/react-shared'
+import { HashTableCell, HashTableCellProps } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 
 import {
@@ -21,6 +21,7 @@ export interface PayloadDynamicTableRowProps extends TableRowProps {
   exploreDomain?: string
   columns?: PayloadDynamicTableColumnConfig
   network?: string
+  forCell?: number //cell index for ellipsized table cell
 }
 
 export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
@@ -28,6 +29,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   network: networkProp,
   payload,
   archive,
+  forCell,
   columns = payloadDynamicTableColumnConfigDefaults(),
   ...props
 }) => {
@@ -35,8 +37,9 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   const wrapper = payload ? new PayloadWrapper(payload) : undefined
   const { network } = useNetwork()
   const { resolver } = usePayloadRenderPluginResolver()
-  const hash: React.FC<TableCellProps> = (props) => (
+  const hash: React.FC<HashTableCellProps> = (props) => (
     <HashTableCell
+      forCell={forCell}
       key="hash"
       align="left"
       archive={archive}
