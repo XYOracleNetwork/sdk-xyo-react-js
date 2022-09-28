@@ -1,5 +1,7 @@
+import { useEffect } from '@storybook/addons'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { useRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { BlockDetails } from './Details'
@@ -16,14 +18,25 @@ const StorybookEntry = {
   title: 'block/Details',
 } as ComponentMeta<typeof BlockDetails>
 
-const Template: ComponentStory<typeof BlockDetails> = (args) => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
-      <Route path="*" element={<BlockDetails {...args} />} />
-    </Routes>
-  </BrowserRouter>
-)
+const Template: ComponentStory<typeof BlockDetails> = (args) => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    console.log(`ref.current: ${ref?.current}`)
+    ref.current?.addEventListener('xyo', () => console.log('Bah!'))
+  })
+
+  return (
+    <div id="event-box" ref={ref}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
+          <Route path="*" element={<BlockDetails {...args} />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}
 
 const Default = Template.bind({})
 Default.args = {}
