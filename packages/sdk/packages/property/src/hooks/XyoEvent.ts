@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 
 export type XyoEventNoun = 'payload' | 'boundwitness' | 'address'
 export type XyoEventVerb = 'click'
