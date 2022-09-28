@@ -27,14 +27,12 @@ const Template: ComponentStory<typeof BlockDetails> = (args) => {
   })
 
   return (
-    <div id="event-box" ref={ref}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
-          <Route path="*" element={<BlockDetails {...args} />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
+        <Route path="*" element={<BlockDetails ref={ref} {...args} />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
