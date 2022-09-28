@@ -51,7 +51,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, 
       window.removeEventListener('resize', onResize)
       row?.removeEventListener('resize', onResize)
     }
-  }, [hashDivRef])
+  }, [forCell, hashDivRef])
 
   return (
     <TableCell {...props}>
