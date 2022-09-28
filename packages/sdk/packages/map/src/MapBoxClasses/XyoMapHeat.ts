@@ -26,7 +26,7 @@ export class XyoMapHeat extends XyoMapBase<Polygon> {
       const existingSource = this.config.map.getSource(layer.source as string) as GeoJSONSource
       const source = getSource(index)
       if (existingSource) {
-        existingSource.setData(assertEx(source.data))
+        existingSource.setData(assertEx(source.data) as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>)
       } else {
         this.config.map.addSource(layer.source as string, source)
       }
@@ -65,7 +65,7 @@ export class XyoMapHeat extends XyoMapBase<Polygon> {
   private static updateLayer(map: Map, layer: XyoMapLayer, source: GeoJSONSourceRaw) {
     const existingSource = map.getSource(layer.source as string) as GeoJSONSource
     if (existingSource && source.data) {
-      existingSource.setData(source.data)
+      existingSource.setData(source.data as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>)
     } else if (source) {
       map.addSource(layer.source as string, source)
     }
