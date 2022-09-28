@@ -13,7 +13,7 @@ export const useElevationProcessor = (payloads?: XyoPayload) => {
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    async () => {
+    async (mounted) => {
       // Convert Single Payload from Quadkeys to GeoJson with Elevations
       if (payloads && (payloads as NetworkElevationQuadkeyAnswerPayload).result && lookupLocations) {
         const singlePayload = payloads as NetworkElevationQuadkeyAnswerPayload
@@ -21,7 +21,7 @@ export const useElevationProcessor = (payloads?: XyoPayload) => {
         elevationProcessor.buildFeatures()
 
         const featuresWithElevations = await elevationProcessor.buildElevations()
-        if (featuresWithElevations) {
+        if (featuresWithElevations && mounted()) {
           setFeatures(featuresWithElevations)
         }
       }
