@@ -1,6 +1,6 @@
 import { Collapse, IconButton, List, ListItemProps, ListItemTextProps, Tooltip, useTheme } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { ListItemButtonExProps } from '@xyo-network/react-shared'
+import { LinkEx, LinkExProps } from '@xylabs/react-link'
 import { ReactNode, useState } from 'react'
 import { VscChevronDown, VscInfo } from 'react-icons/vsc'
 import { To } from 'react-router-dom'
@@ -9,7 +9,7 @@ import { useCollapsible } from '../../contexts'
 import { SiteMenuListItemBase } from './lib'
 import { MenuIcon } from './MenuIcon'
 import { MenuListItem } from './MenuListItem'
-import { MenuListItemButtonEx } from './MenuListItemButtonEx'
+import { MenuListItemEx } from './MenuListItemEx'
 import { MenuListItemText } from './MenuListItemText'
 
 export interface SiteMenuListItemProps extends SiteMenuListItemBase, ListItemProps {
@@ -17,10 +17,11 @@ export interface SiteMenuListItemProps extends SiteMenuListItemBase, ListItemPro
   to?: To
   href?: string
   icon?: ReactNode
-  onButtonClick?: ListItemButtonExProps['onClick']
+  onButtonClick?: LinkExProps['onClick']
   subNavListItems?: SubNavListItemProps[]
   tooltip?: string
   subNavOpen?: boolean
+  iconOnly?: boolean
 }
 
 export interface SubNavListItemProps {
@@ -28,7 +29,7 @@ export interface SubNavListItemProps {
   to?: To
   href?: string
   icon?: ReactNode
-  onButtonClick?: ListItemButtonExProps['onClick']
+  onButtonClick?: LinkExProps['onClick']
   tooltip?: string
 }
 
@@ -37,7 +38,6 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
   subNavListItems,
   iconOnly,
   tooltip,
-  collapseEnd,
   icon,
   primary,
   onButtonClick,
@@ -51,23 +51,27 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
   const [hovered, setHovered] = useState(false)
   return (
     <MenuListItem disableGutters style={{ whiteSpace: 'nowrap', ...style }} iconOnly={iconOnly} {...props}>
-      <MenuListItemButtonEx
-        iconOnly={iconOnly}
-        onClick={onButtonClick}
-        collapseEnd={collapseEnd}
-        dense={dense}
-        to={to}
-        sx={{ justifyContent: 'space-between' }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
+      <MenuListItemEx iconOnly={iconOnly} onClick={onButtonClick} dense={dense} sx={{ justifyContent: 'space-between' }}>
         <FlexRow>
-          <MenuIcon icon={icon} paddingRight={theme.spacing(1)} color={hovered ? 'primary' : 'inherit'} />
-          <MenuListItemText primary={primary} iconOnly={iconOnly} />
+          <MenuIcon icon={icon} paddingRight={theme.spacing(1)} color={hovered ? 'secondary' : 'inherit'} />
+          <LinkEx
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            color="inherit"
+            to={to}
+            sx={{
+              '& :hover': {
+                cursor: 'pointer',
+                textDecoration: 'underline',
+              },
+            }}
+          >
+            <MenuListItemText primary={primary} iconOnly={iconOnly} />
+          </LinkEx>
         </FlexRow>
-        <FlexRow>
+        <FlexRow style={{ marginLeft: theme.spacing(1) }}>
           {subNavListItems ? (
-            <IconButton onClick={() => setOpenSubNav(!openSubNav)} sx={{ marginRight: theme.spacing(1) }}>
+            <IconButton onClick={() => setOpenSubNav(!openSubNav)} sx={{ marginRight: theme.spacing(0.5) }}>
               <VscChevronDown fontSize="16px" />
             </IconButton>
           ) : null}
@@ -82,7 +86,7 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
             </Tooltip>
           ) : null}
         </FlexRow>
-      </MenuListItemButtonEx>
+      </MenuListItemEx>
       {subNavListItems ? (
         <Collapse in={collapse == true ? false : openSubNav}>
           <List>

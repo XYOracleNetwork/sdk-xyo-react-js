@@ -99,7 +99,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   )
 
   useEffect(() => {
-    setHistory(panel?.history)
+    setHistory(panel?.history as XyoBoundWitness[])
   }, [panel])
 
   return !required || panel ? (

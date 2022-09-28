@@ -1,4 +1,4 @@
-import { TableCell, TableCellProps } from '@mui/material'
+import { TableCell, TableCellProps, useTheme } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
 import { useEffect, useRef, useState } from 'react'
 import { To } from 'react-router-dom'
@@ -12,11 +12,13 @@ export interface EllipsisTableCellProps extends TableCellProps {
   value?: string
   to?: To | undefined
   href?: string | undefined
+  forCell?: number //cell index for ellipsized table cell
 }
 
-export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, value, to, href, ...props }) => {
+export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, value, to, forCell, href, ...props }) => {
   const [calcCellWidth, setCalcCellWidth] = useState<number>(0)
   const hashDivRef = useRef<HTMLDivElement>(null)
+  const theme = useTheme()
 
   useEffect(() => {
     const currentElement = hashDivRef.current?.parentElement
@@ -26,7 +28,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, 
     const checkWidth = (cell: HTMLElement) => {
       const smallestParentWidth = getSmallestParentWidth(cell)
       if (smallestParentWidth && row) {
-        const remainingWidth = getRemainingRowWidth(row)
+        const remainingWidth = getRemainingRowWidth(row, forCell)
         const actualPaddingX = getActualPaddingX(cell)
         const remainderWidth = smallestParentWidth - remainingWidth - actualPaddingX
         cell.style.width = `${remainderWidth}`
@@ -49,7 +51,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, 
       window.removeEventListener('resize', onResize)
       row?.removeEventListener('resize', onResize)
     }
-  }, [hashDivRef])
+  }, [forCell, hashDivRef])
 
   return (
     <TableCell {...props}>
@@ -59,6 +61,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, 
             style={{
               display: 'block',
               maxWidth: calcCellWidth,
+              minWidth: theme.spacing(10),
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap',
@@ -71,6 +74,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, 
             style={{
               display: 'block',
               maxWidth: calcCellWidth,
+              minWidth: theme.spacing(10),
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap',
@@ -86,6 +90,7 @@ export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, 
             style={{
               display: 'block',
               maxWidth: calcCellWidth,
+              minWidth: theme.spacing(10),
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap',

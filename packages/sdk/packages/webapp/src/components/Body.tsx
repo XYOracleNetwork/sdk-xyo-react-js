@@ -1,30 +1,40 @@
-import { Breakpoint, styled } from '@mui/material'
+import { Breakpoint, experimental_sx as sx, styled } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { ReactNode } from 'react'
 
 const WebAppBodyName = 'WebAppBody'
+const propsNotForwarded = ['scrollingBreakpoint', 'spacing']
+const defaultStyledOptions = {
+  shouldForwardProp: (prop: string) => !propsNotForwarded.includes(prop),
+}
 
 const WebAppBodyRoot = styled(FlexGrowCol, {
+  ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Root',
-})<WebAppBodyProps>(({ spacing, theme, scrollingBreakpoint = 'sm' }) => ({
-  alignItems: 'stretch',
-  gap: 1,
-  justifyContent: 'flex-start',
-  overflow: 'hidden',
-  paddingY: spacing,
-  [theme.breakpoints.down(scrollingBreakpoint)]: {
-    overflow: 'scroll',
-  },
-}))
+})<WebAppBodyProps>(({ spacing, theme, scrollingBreakpoint = 'sm' }) =>
+  sx({
+    alignItems: 'stretch',
+    gap: 1,
+    justifyContent: 'flex-start',
+    overflow: 'hidden',
+    paddingY: spacing,
+    [theme.breakpoints.down(scrollingBreakpoint)]: {
+      overflow: 'scroll',
+    },
+  }),
+)
 
 const WebAppBodyBreadcrumb = styled(FlexRow, {
+  ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Breadcrumb',
-})<WebAppBodyProps>(({ disableBreadcrumbGutter, spacing }) => ({
-  justifyContent: 'start',
-  marginX: disableBreadcrumbGutter ? 0 : spacing,
-}))
+})<WebAppBodyProps>(({ disableBreadcrumbGutter, spacing }) =>
+  sx({
+    justifyContent: 'start',
+    marginX: disableBreadcrumbGutter ? 0 : spacing,
+  }),
+)
 
 const WebAppBodyScrollableWrapper = styled(FlexGrowCol, {
   name: WebAppBodyName,
@@ -32,6 +42,7 @@ const WebAppBodyScrollableWrapper = styled(FlexGrowCol, {
 })<WebAppBodyProps>(() => ({}))
 
 const WebAppBodyScrollable = styled(FlexGrowCol, {
+  ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Scrollable',
 })<WebAppBodyProps>(({ theme, scrollingBreakpoint = 'sm' }) => ({
@@ -59,9 +70,10 @@ export const WebAppBody: React.FC<WebAppBodyProps> = ({
   breadcrumbs,
   disableBreadcrumbGutter,
   scrollingBreakpoint,
-  spacing,
+  spacing = 1,
   ...props
 }) => {
+  // console.log(spacing)
   if (devMode) {
     return (
       <WebAppBodyRoot scrollingBreakpoint={scrollingBreakpoint} spacing={spacing} {...props}>
