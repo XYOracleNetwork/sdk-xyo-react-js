@@ -1,10 +1,9 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoPayload } from '@xyo-network/payload'
 import {
   HeatMapInitializerProvider,
-  LocationHeatMapLayerBuilder,
   MapBoxInstanceProvider,
   MapHeatConstants,
   MapSettingsProvider,
@@ -18,6 +17,7 @@ import React from 'react'
 
 import { OpenElevationApiProvider } from '../contexts'
 import { useElevationProcessor } from '../hooks'
+import { ElevationExtrusionLayerBuilder } from '../layers'
 import { ElevationQuadkeyMapSettings } from './ElevationQuadkeyMapSettings'
 
 export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
@@ -27,20 +27,31 @@ export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
 }
 
 const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ payload, developerMode, accessToken, ...props }) => {
-  useElevationProcessor(payload)
-  const { features } = useQuadKeyPayloadsToFeatures(payload as NetworkXyoLocationHeatmapQuadkeyAnswerPayload)
+  const { features } = useElevationProcessor(payload)
+  console.log(features)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
   return accessTokenResolved ? (
-    <HeatMapInitializerProvider
-      features={features as Feature<Polygon>[]}
-      heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
-      layers={LocationHeatMapLayerBuilder(theme.palette.secondary.main)}
-    >
-      <XyoMapboxHeatFlexBox developerMode={developerMode} accessToken={accessTokenResolved} features={features as Feature<Polygon>[]} {...props} />
-    </HeatMapInitializerProvider>
+    <>
+      {features && features.length ? (
+        <HeatMapInitializerProvider
+          features={features as Feature<Polygon>[]}
+          heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
+          layers={ElevationExtrusionLayerBuilder(theme.palette.secondary.main)}
+        >
+          <XyoMapboxHeatFlexBox
+            developerMode={developerMode}
+            accessToken={accessTokenResolved}
+            features={features as Feature<Polygon>[]}
+            {...props}
+          />
+        </HeatMapInitializerProvider>
+      ) : (
+        <FlexCol busy minHeight={400} />
+      )}
+    </>
   ) : (
     <Alert severity={'error'}>
       <AlertTitle>Mapbox Token Missing</AlertTitle>

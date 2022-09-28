@@ -30,7 +30,6 @@ export class ElevationPayloadProcessor {
     try {
       const locationElevations = (await this.config.lookupLocations?.({ locations: this.locations }))?.results
       const featuresWithElevations = this.features.map((feature, index) => this.featuresWithElevationsIterator(feature, index, locationElevations))
-      console.log(featuresWithElevations)
       return featuresWithElevations
     } catch (e) {
       console.error('Error fetching elevation data')
