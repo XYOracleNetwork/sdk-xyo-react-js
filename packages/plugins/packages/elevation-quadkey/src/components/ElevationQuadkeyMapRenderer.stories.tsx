@@ -1,7 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
-import { ElevationQuadkeyMapRenderer } from './ElevationQuadkeyMap'
+import { ElevationQuadkeyMapWithSettingsRenderer } from './ElevationQuadkeyMap'
 import { elevationQuadKeyMapPayload } from './payload.stories'
 
 // eslint-disable-next-line import/no-default-export
@@ -12,7 +12,7 @@ export default {
       defaultValue: 'calc(100vh - 2rem)',
     },
   },
-  component: ElevationQuadkeyMapRenderer,
+  component: ElevationQuadkeyMapWithSettingsRenderer,
   decorators: [WithMapboxSetup],
   parameters: {
     docs: {
@@ -22,8 +22,8 @@ export default {
   title: 'plugin/elevation-map/ElevationQuadkeyMap',
 } as Meta
 
-const Template: ComponentStory<typeof ElevationQuadkeyMapRenderer> = (args) => {
-  return <ElevationQuadkeyMapRenderer {...args} />
+const Template: ComponentStory<typeof ElevationQuadkeyMapWithSettingsRenderer> = (args) => {
+  return <ElevationQuadkeyMapWithSettingsRenderer {...args} />
 }
 
 const Default = Template.bind({})
@@ -34,4 +34,10 @@ WithData.args = {
   payload: elevationQuadKeyMapPayload,
 }
 
-export { Default, WithData }
+const WithDevMode = Template.bind({})
+WithDevMode.args = {
+  developerMode: true,
+  payload: elevationQuadKeyMapPayload,
+}
+
+export { Default, WithData, WithDevMode }

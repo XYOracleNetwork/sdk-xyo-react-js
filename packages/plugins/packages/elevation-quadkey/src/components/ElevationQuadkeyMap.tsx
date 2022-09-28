@@ -23,9 +23,10 @@ import { ElevationQuadkeyMapSettings } from './ElevationQuadkeyMapSettings'
 export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
   payload?: XyoPayload
   accessToken?: string
+  developerMode?: boolean
 }
 
-const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ payload, accessToken, ...props }) => {
+const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ payload, developerMode, accessToken, ...props }) => {
   useElevationProcessor(payload)
   const { features } = useQuadKeyPayloadsToFeatures(payload as NetworkXyoLocationHeatmapQuadkeyAnswerPayload)
   const theme = useTheme()
@@ -38,7 +39,7 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ pay
       heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
       layers={LocationHeatMapLayerBuilder(theme.palette.secondary.main)}
     >
-      <XyoMapboxHeatFlexBox accessToken={accessTokenResolved} features={features as Feature<Polygon>[]} {...props} />
+      <XyoMapboxHeatFlexBox developerMode={developerMode} accessToken={accessTokenResolved} features={features as Feature<Polygon>[]} {...props} />
     </HeatMapInitializerProvider>
   ) : (
     <Alert severity={'error'}>
@@ -57,7 +58,7 @@ const WithProviders: React.FC<WithChildren> = ({ children }) => (
 export const ElevationQuadkeyMapWithSettingsRenderer: React.FC<ElevationQuadkeyMapInnerProps> = ({ ...props }) => {
   return (
     <WithProviders>
-      <MapSettingsProvider defaultMapSettings={ElevationQuadkeyMapSettings} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
+      <MapSettingsProvider defaultMapSettings={ElevationQuadkeyMapSettings()} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
         <ElevationQuadkeyMapInner {...props} />
       </MapSettingsProvider>
     </WithProviders>
