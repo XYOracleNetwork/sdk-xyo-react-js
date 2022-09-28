@@ -45,8 +45,11 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ pay
             developerMode={developerMode}
             accessToken={accessTokenResolved}
             features={features as Feature<Polygon>[]}
+            mapBoxOptions={{ pitch: 40 }}
             {...props}
-          />
+          >
+            {/* TODO - pass elevation settings as children */}
+          </XyoMapboxHeatFlexBox>
         </HeatMapInitializerProvider>
       ) : (
         <FlexCol busy minHeight={400} />
