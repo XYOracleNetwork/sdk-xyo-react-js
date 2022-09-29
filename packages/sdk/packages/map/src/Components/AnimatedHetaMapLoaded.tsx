@@ -1,4 +1,4 @@
-import { Alert } from '@mui/material'
+import { Alert, AlertTitle } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Feature, Polygon } from 'geojson'
 
@@ -13,12 +13,21 @@ export interface AnimatedHeatMapLoadedProps extends FlexBoxProps {
 
 export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ accessToken, ...props }) => {
   const hashes = useFindHashes()
-  const { multipleFeatureSets } = useFetchPayloads(hashes)
+  const { multipleFeatureSets, apiError } = useFetchPayloads(hashes)
   const { heatMapColorProps, legendProps } = useHeatMapColors()
 
   const MapBoxHeatProps = {
     flexGrow: 1,
     legend: legendProps ? <AnimatedHeatMapLegend {...legendProps} /> : null,
+  }
+
+  if (apiError) {
+    return (
+      <Alert sx={{ mt: 2 }}>
+        <AlertTitle>Error Loading Map</AlertTitle>
+        You might try authenticating again.
+      </Alert>
+    )
   }
 
   return (
