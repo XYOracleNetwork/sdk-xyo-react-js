@@ -21,7 +21,6 @@ export interface PayloadDynamicTableRowProps extends TableRowProps {
   exploreDomain?: string
   columns?: PayloadDynamicTableColumnConfig
   network?: string
-  forCell?: number //cell index for ellipsized table cell
 }
 
 export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
@@ -29,7 +28,6 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   network: networkProp,
   payload,
   archive,
-  forCell,
   columns = payloadDynamicTableColumnConfigDefaults(),
   ...props
 }) => {
@@ -39,7 +37,6 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   const { resolver } = usePayloadRenderPluginResolver()
   const hash: React.FC<HashTableCellProps> = (props) => (
     <HashTableCell
-      forCell={forCell}
       key="hash"
       align="left"
       archive={archive}

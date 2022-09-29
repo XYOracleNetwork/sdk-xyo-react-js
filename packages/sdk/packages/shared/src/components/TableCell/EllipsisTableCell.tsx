@@ -1,105 +1,81 @@
-import { TableCell, TableCellProps, useTheme } from '@mui/material'
+import { styled, TableCell, TableCellProps } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
-import { useEffect, useRef, useState } from 'react'
+import { WithChildren } from '@xylabs/react-shared'
 import { To } from 'react-router-dom'
 
-import { getActualPaddingX } from '../../lib'
-import { findParent } from './findParent'
-import { getRemainingRowWidth } from './getRemainingRowWidth'
-import { getSmallestParentWidth } from './getSmallestParentWidth'
+/**
+ * Heavily inspired by - https://stackoverflow.com/a/30362531/2803259
+ */
+
+const ComponentName = 'EllipsisTableCell'
+
+const EllipsisTableCellRoot = styled(TableCell, {
+  name: ComponentName,
+  shouldForwardProp: (prop) => prop !== 'width',
+  slot: 'Root',
+})<EllipsisTableCellProps>(({ width = '100%' }) => ({
+  '&': {
+    // because the cell content ends up absolutely positioned, the cell doesn't know the content height.
+    // the pseudo element with a hidden character establishes the proper height of the content and hides it
+    ':before': {
+      content: "'nbsp;'",
+      display: 'block',
+      // take the pseudo element out of the `display: block` flow so it won't push against our actual content
+      float: 'left',
+      visibility: 'hidden',
+    },
+    width,
+  },
+}))
+
+const EllipsisTableCellInnerWrap = styled('div', {
+  name: ComponentName,
+  slot: 'innerWrap',
+})(() => ({
+  position: 'relative',
+}))
+
+const EllipsisTableCellContentWrap = styled('span', {
+  name: ComponentName,
+  slot: 'contentWrap',
+})(() => ({
+  left: 0,
+  overflow: 'hidden',
+  position: 'absolute',
+  right: 0,
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+}))
 
 export interface EllipsisTableCellProps extends TableCellProps {
+  /**
+   * Width of the table cell.
+   *
+   * Note: When using percentages, this value can be different than what you expect
+   * if used on a cell that is not the first cell in the first row.
+   */
+  width?: string | number
+  href?: string
+  to?: To
   value?: string
-  to?: To | undefined
-  href?: string | undefined
-  forCell?: number //cell index for ellipsized table cell
 }
 
-export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, value, to, forCell, href, ...props }) => {
-  const [calcCellWidth, setCalcCellWidth] = useState<number>(0)
-  const hashDivRef = useRef<HTMLDivElement>(null)
-  const theme = useTheme()
-
-  useEffect(() => {
-    const currentElement = hashDivRef.current?.parentElement
-    const cell = findParent('td', currentElement)
-    const row = findParent('tr', currentElement)
-
-    const checkWidth = (cell: HTMLElement) => {
-      const smallestParentWidth = getSmallestParentWidth(cell)
-      if (smallestParentWidth && row) {
-        const remainingWidth = getRemainingRowWidth(row, forCell)
-        const actualPaddingX = getActualPaddingX(cell)
-        const remainderWidth = smallestParentWidth - remainingWidth - actualPaddingX
-        cell.style.width = `${remainderWidth}`
-        setCalcCellWidth(remainderWidth)
-      }
-    }
-
-    const onResize = () => {
-      if (cell) {
-        checkWidth(cell)
-      }
-    }
-
-    if (cell) {
-      checkWidth(cell)
-      window.addEventListener('resize', onResize)
-      row?.addEventListener('resize', onResize)
-    }
-    return () => {
-      window.removeEventListener('resize', onResize)
-      row?.removeEventListener('resize', onResize)
-    }
-  }, [forCell, hashDivRef])
-
+export const EllipsisTableCell: React.FC<WithChildren<EllipsisTableCellProps>> = ({ children, href, to, value, ...props }) => {
   return (
-    <TableCell {...props}>
-      <div ref={hashDivRef}>
-        {children ? (
-          <span
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              minWidth: theme.spacing(10),
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {children}
-          </span>
-        ) : href || to ? (
-          <LinkEx
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              minWidth: theme.spacing(10),
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-            to={to}
-            href={href}
-            target={href ? '_blank' : undefined}
-          >
-            {value}
-          </LinkEx>
-        ) : (
-          <span
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              minWidth: theme.spacing(10),
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {value}
-          </span>
-        )}
-      </div>
-    </TableCell>
+    <EllipsisTableCellRoot {...props}>
+      <EllipsisTableCellInnerWrap>
+        <EllipsisTableCellContentWrap>
+          {children ? (
+            children
+          ) : href || to ? (
+            <LinkEx to={to} href={href} target={href ? '_blank' : undefined}>
+              {value}
+            </LinkEx>
+          ) : (
+            value
+          )}
+        </EllipsisTableCellContentWrap>
+      </EllipsisTableCellInnerWrap>
+    </EllipsisTableCellRoot>
   )
 }

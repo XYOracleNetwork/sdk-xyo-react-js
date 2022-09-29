@@ -61,10 +61,10 @@ const Default = Template.bind({})
 Default.args = {}
 
 const DefaultSideBar = Template.bind({})
-DefaultSideBar.args = { children: <Children devMode />, navigationType: 'sidebar' }
+DefaultSideBar.args = { children: <Children />, navigationType: 'sidebar' }
 
 const DefaultAlwaysScrollable = Template.bind({})
-DefaultAlwaysScrollable.args = { children: <Children devMode scrollingBreakpoint="xl" />, navigationType: 'sidebar' }
+DefaultAlwaysScrollable.args = { children: <Children scrollingBreakpoint="xl" />, navigationType: 'sidebar' }
 
 export { Default, DefaultAlwaysScrollable, DefaultSideBar }
 
