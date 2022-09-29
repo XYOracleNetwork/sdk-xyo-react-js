@@ -1,4 +1,4 @@
-import { assertEx } from '@xylabs/sdk-js'
+import { assertEx } from '@xylabs/assert'
 import { createRef, RefObject, useEffect } from 'react'
 
 export type CustomEventDispatch<T = unknown> = (detail: T) => boolean | void
