@@ -40,7 +40,9 @@ const WithArchiveLink = Template.bind({})
 WithArchiveLink.args = { block: sampleBlockWithPayloads }
 
 const WithPreviousHash = Template.bind({})
-WithPreviousHash.args = { block: { ...sampleBlockWithPayloads, previous_hash: 'ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349' } }
+WithPreviousHash.args = {
+  block: { ...sampleBlockWithPayloads, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] },
+}
 
 const WithArchiveLinkPaper = Template.bind({})
 WithArchiveLinkPaper.args = { block: sampleBlockWithPayloads, paper: true }

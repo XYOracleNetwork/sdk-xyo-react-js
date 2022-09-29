@@ -18,15 +18,19 @@ export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, 
 
   return (
     <PropertyGroup titleProps={{ elevation }} title="Links" tip="Blocks that are linked to this block" {...props}>
-      <Property titleProps={{ elevation }} flexGrow={1} title="Previous Hash" tip={value?.previousHash}>
-        {value?.previous_hash ? (
-          <FlexRow ref={ref} onClick={() => dispatch?.('boundwitness', 'click', value?.previous_hash)}>
-            <Typography fontFamily="monospace">{value?.previous_hash}</Typography>
-          </FlexRow>
-        ) : (
-          'None'
-        )}
-      </Property>
+      {value?.previous_hashes.map((hash) => {
+        return (
+          <Property key={hash} titleProps={{ elevation }} flexGrow={1} title="Previous Hash" tip={hash}>
+            {hash ? (
+              <FlexRow ref={ref} onClick={() => dispatch?.('boundwitness', 'click', hash)}>
+                <Typography fontFamily="monospace">{hash}</Typography>
+              </FlexRow>
+            ) : (
+              'None'
+            )}
+          </Property>
+        )
+      })}
     </PropertyGroup>
   )
 }
