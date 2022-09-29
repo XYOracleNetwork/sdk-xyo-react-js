@@ -61,11 +61,9 @@ export interface WebAppBodyProps extends FlexBoxProps {
   disableBreadcrumbGutter?: boolean
   spacing?: string | number
   scrollingBreakpoint?: Breakpoint
-  devMode?: boolean
 }
 
 export const WebAppBody: React.FC<WebAppBodyProps> = ({
-  devMode,
   children,
   breadcrumbs,
   disableBreadcrumbGutter,
@@ -73,26 +71,14 @@ export const WebAppBody: React.FC<WebAppBodyProps> = ({
   spacing = 1,
   ...props
 }) => {
-  // console.log(spacing)
-  if (devMode) {
-    return (
-      <WebAppBodyRoot scrollingBreakpoint={scrollingBreakpoint} spacing={spacing} {...props}>
-        <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter} spacing={spacing}>
-          {breadcrumbs}
-        </WebAppBodyBreadcrumb>
-        <WebAppBodyScrollableWrapper>
-          <WebAppBodyScrollable scrollingBreakpoint={scrollingBreakpoint}>{children}</WebAppBodyScrollable>
-        </WebAppBodyScrollableWrapper>
-      </WebAppBodyRoot>
-    )
-  } else {
-    return (
-      <FlexGrowCol gap={1} paddingY={spacing} justifyContent="flex-start" alignItems="stretch" {...props}>
-        <FlexRow justifyContent="flex-start" marginX={disableBreadcrumbGutter ? 0 : spacing}>
-          {breadcrumbs}
-        </FlexRow>
-        {children}
-      </FlexGrowCol>
-    )
-  }
+  return (
+    <WebAppBodyRoot scrollingBreakpoint={scrollingBreakpoint} spacing={spacing} {...props}>
+      <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter} spacing={spacing}>
+        {breadcrumbs}
+      </WebAppBodyBreadcrumb>
+      <WebAppBodyScrollableWrapper>
+        <WebAppBodyScrollable scrollingBreakpoint={scrollingBreakpoint}>{children}</WebAppBodyScrollable>
+      </WebAppBodyScrollableWrapper>
+    </WebAppBodyRoot>
+  )
 }
