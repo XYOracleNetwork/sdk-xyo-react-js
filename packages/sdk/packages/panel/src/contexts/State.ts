@@ -1,7 +1,7 @@
 import { XyoArchivistApi } from '@xyo-network/api'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPanel } from '@xyo-network/panel'
-import { XyoWitness } from '@xyo-network/witness'
+import { XyoWitnessWrapper } from '@xyo-network/witness'
 
 export enum ReportStatus {
   Idle = 'idle',
@@ -12,7 +12,7 @@ export enum ReportStatus {
 }
 
 export interface WitnessReportProgress {
-  witness: XyoWitness
+  witness: XyoWitnessWrapper
   status: ReportStatus
 }
 

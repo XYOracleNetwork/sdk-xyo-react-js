@@ -1,7 +1,6 @@
-import { useEffect } from '@storybook/addons'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
-import { useRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { BlockDetails } from './Details'
@@ -19,12 +18,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof BlockDetails>
 
 const Template: ComponentStory<typeof BlockDetails> = (args) => {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    console.log(`ref.current: ${ref?.current}`)
-    ref.current?.addEventListener('xyo', () => console.log('Bah!'))
-  })
+  const [ref] = useXyoEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`))
 
   return (
     <BrowserRouter>
@@ -46,7 +40,9 @@ const WithArchiveLink = Template.bind({})
 WithArchiveLink.args = { block: sampleBlockWithPayloads }
 
 const WithPreviousHash = Template.bind({})
-WithPreviousHash.args = { block: { ...sampleBlockWithPayloads, previous_hash: 'ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349' } }
+WithPreviousHash.args = {
+  block: { ...sampleBlockWithPayloads, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] },
+}
 
 const WithArchiveLinkPaper = Template.bind({})
 WithArchiveLinkPaper.args = { block: sampleBlockWithPayloads, paper: true }
