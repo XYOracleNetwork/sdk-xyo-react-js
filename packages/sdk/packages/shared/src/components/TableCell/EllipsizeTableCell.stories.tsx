@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { EllipsisTableCellv2 } from './EllipsisTableCellv2'
+import { EllipsisTableCell } from './EllipsisTableCell'
 
 const TableDecorator: DecoratorFn = (Story, args) => {
   return (
@@ -26,15 +26,15 @@ const TableDecorator: DecoratorFn = (Story, args) => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: EllipsisTableCellv2,
+  component: EllipsisTableCell,
   decorators: [TableDecorator],
-  title: 'shared/EllipsisTableCellv2',
+  title: 'shared/EllipsisTableCell',
 } as Meta
 
-const Template: ComponentStory<typeof EllipsisTableCellv2> = (props) => {
+const Template: ComponentStory<typeof EllipsisTableCell> = (props) => {
   return (
     <TableRow>
-      <EllipsisTableCellv2 to="/foo" value="As-Link-e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915" {...props} />
+      <EllipsisTableCell to="/foo" value="As-Link-e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915" {...props} />
       <TableCell>d2fa4a7d47dad915501ff6b2f860b7992c347</TableCell>
       <TableCell>d2fa4a7d47dad915</TableCell>
       <TableCell>e0f05</TableCell>
@@ -42,46 +42,46 @@ const Template: ComponentStory<typeof EllipsisTableCellv2> = (props) => {
   )
 }
 
-const TemplateWithMultiple: ComponentStory<typeof EllipsisTableCellv2> = (props) => {
+const TemplateWithMultiple: ComponentStory<typeof EllipsisTableCell> = (props) => {
   return (
     <TableRow>
-      <EllipsisTableCellv2 width="50%" {...props}>
+      <EllipsisTableCell width="50%" {...props}>
         As-children-e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915
-      </EllipsisTableCellv2>
-      <EllipsisTableCellv2 width="50%" {...props}>
+      </EllipsisTableCell>
+      <EllipsisTableCell width="50%" {...props}>
         e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915
-      </EllipsisTableCellv2>
+      </EllipsisTableCell>
       <TableCell>d2fa4a7d47dad915</TableCell>
       <TableCell>e0f05</TableCell>
     </TableRow>
   )
 }
 
-const TemplateWithMultipleRows: ComponentStory<typeof EllipsisTableCellv2> = (props) => {
+const TemplateWithMultipleRows: ComponentStory<typeof EllipsisTableCell> = (props) => {
   return (
     <>
       <TableRow>
-        <EllipsisTableCellv2
+        <EllipsisTableCell
           width="50%"
           href="http://foo.com"
           {...props}
           value="As-href-e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915"
         />
-        <EllipsisTableCellv2 width="50%" {...props}>
+        <EllipsisTableCell width="50%" {...props}>
           e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915
-        </EllipsisTableCellv2>
+        </EllipsisTableCell>
         <TableCell>d2fa4a7d47dad915</TableCell>
         <TableCell>e0f05</TableCell>
       </TableRow>
       <TableRow>
         <TableCell>d2fa4a7d47dad915</TableCell>
         <TableCell>e0f05</TableCell>
-        <EllipsisTableCellv2 width="50%" {...props}>
+        <EllipsisTableCell width="50%" {...props}>
           e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915
-        </EllipsisTableCellv2>
-        <EllipsisTableCellv2 width="50%" {...props}>
+        </EllipsisTableCell>
+        <EllipsisTableCell width="50%" {...props}>
           e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915
-        </EllipsisTableCellv2>
+        </EllipsisTableCell>
       </TableRow>
     </>
   )
