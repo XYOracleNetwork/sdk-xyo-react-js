@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-wallet-service",
+  "name": "@xyo-network/react-event",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,26 +10,34 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xylabs/react-button": "^2.15.0",
+    "@xylabs/react-flexbox": "^2.15.0",
     "@xylabs/react-shared": "^2.15.0",
     "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/react-shared": "workspace:^",
+    "lodash": "^4.17.21",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
+    "@xyo-network/api": "*",
+    "@xyo-network/boundwitness": "*",
+    "@xyo-network/core": "*",
+    "@xyo-network/network": "*",
+    "@xyo-network/payload": "*",
+    "@xyo-network/payload-plugin": "*",
+    "@xyo-network/react-table": "workspace:^",
+    "@xyo-network/schema-payload-plugin": "*",
+    "@xyo-network/utils": "*",
     "axios": "^0.27.2",
     "pako": "^2.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0"
   },
   "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/utils": "^2.36.1"
-  },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {

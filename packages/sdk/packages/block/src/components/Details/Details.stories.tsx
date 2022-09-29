@@ -1,7 +1,6 @@
-import { useEffect } from '@storybook/addons'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
-import { useRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { BlockDetails } from './Details'
@@ -19,12 +18,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof BlockDetails>
 
 const Template: ComponentStory<typeof BlockDetails> = (args) => {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    console.log(`ref.current: ${ref?.current}`)
-    ref.current?.addEventListener('xyo', () => console.log('Bah!'))
-  })
+  const [ref] = useXyoEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`))
 
   return (
     <BrowserRouter>
