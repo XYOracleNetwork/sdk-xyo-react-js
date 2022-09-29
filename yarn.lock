@@ -7025,7 +7025,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-block@workspace:packages/sdk/packages/block"
   dependencies:
-    "@xylabs/react-button": ^2.15.0
     "@xylabs/react-flexbox": ^2.15.0
     "@xylabs/react-shared": ^2.15.0
     "@xylabs/sdk-js": ^2.6.9
@@ -7081,7 +7080,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-coin-gecko-prices-plugin@workspace:packages/plugins/packages/coin-gecko-prices"
   dependencies:
-    "@xylabs/sdk-js": ^2.6.9
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7214,31 +7212,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-event@workspace:packages/sdk/packages/event"
   dependencies:
-    "@xylabs/react-button": ^2.15.0
-    "@xylabs/react-flexbox": ^2.15.0
-    "@xylabs/react-shared": ^2.15.0
-    "@xylabs/sdk-js": ^2.6.9
-    lodash: ^4.17.21
+    "@xylabs/assert": ^2.6.9
     tslib: ^2.4.0
   peerDependencies:
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
-    "@mui/styles": ^5.10.3
-    "@xyo-network/api": "*"
-    "@xyo-network/boundwitness": "*"
-    "@xyo-network/core": "*"
-    "@xyo-network/network": "*"
-    "@xyo-network/payload": "*"
-    "@xyo-network/payload-plugin": "*"
-    "@xyo-network/react-table": "workspace:^"
-    "@xyo-network/schema-payload-plugin": "*"
-    "@xyo-network/utils": "*"
-    axios: ^0.27.2
-    pako: ^2.0.4
     react: ^18.2.0
-    react-dom: ^18.2.0
-    react-icons: ^4.4.0
-    react-router-dom: ^6.3.0
   languageName: unknown
   linkType: soft
 
