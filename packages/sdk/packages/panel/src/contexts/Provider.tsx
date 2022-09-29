@@ -1,6 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
-import { PayloadArchivist } from '@xyo-network/archivist'
+import { PayloadArchivist, XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPanel, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchive } from '@xyo-network/react-archive'
@@ -39,54 +39,61 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const activeArchivist: PayloadArchivist | undefined = archivistProp ?? archivist
-      const panel = activeArchivist
-        ? new XyoPanel({
-            archivists: [activeArchivist.address],
-            onReportEnd: (_, errors?: Error[]) => {
-              if (mounted()) {
-                setProgress({
-                  archivists: progress.archivists,
-                  witnesses: progress.witnesses,
-                })
-                setStatus(errors ? ReportStatus.Failed : ReportStatus.Succeeded)
-                setReportingErrors(errors)
-              }
+      const archivistWrapper = activeArchivist ? new XyoArchivistWrapper(activeArchivist) : undefined
+      const panel = archivistWrapper
+        ? new XyoPanel(
+            {
+              archivists: [archivistWrapper.address],
+              onReportEnd: (_, errors?: Error[]) => {
+                if (mounted()) {
+                  setProgress({
+                    archivists: progress.archivists,
+                    witnesses: progress.witnesses,
+                  })
+                  setStatus(errors ? ReportStatus.Failed : ReportStatus.Succeeded)
+                  setReportingErrors(errors)
+                }
+              },
+              onReportStart: () => {
+                if (mounted()) {
+                  setProgress({ archivists: {}, witnesses: {} })
+                  setStatus(ReportStatus.Started)
+                }
+              },
+              onWitnessReportEnd: (witness: XyoWitnessWrapper, error?: Error) => {
+                const witnesses = progress.witnesses ?? {}
+                witnesses[witness.address] = {
+                  status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
+                  witness,
+                }
+                if (mounted()) {
+                  setProgress({
+                    archivists: progress.archivists,
+                    witnesses,
+                  })
+                }
+              },
+              onWitnessReportStart: (witness: XyoWitnessWrapper) => {
+                const witnesses = progress.witnesses ?? {}
+                witnesses[witness.address] = {
+                  status: ReportStatus.Started,
+                  witness,
+                }
+                if (mounted()) {
+                  setProgress({
+                    archivists: progress.archivists,
+                    witnesses,
+                  })
+                }
+              },
+              schema: XyoPanelConfigSchema,
+              witnesses: witnesses.map((witness) => witness.address),
             },
-            onReportStart: () => {
-              if (mounted()) {
-                setProgress({ archivists: {}, witnesses: {} })
-                setStatus(ReportStatus.Started)
-              }
+            undefined,
+            (address) => {
+              return archivistWrapper.address === address ? archivistWrapper : witnesses.find((witness) => witness.address === address) ?? null
             },
-            onWitnessReportEnd: (witness: XyoWitnessWrapper, error?: Error) => {
-              const witnesses = progress.witnesses ?? {}
-              witnesses[witness.address] = {
-                status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
-                witness,
-              }
-              if (mounted()) {
-                setProgress({
-                  archivists: progress.archivists,
-                  witnesses,
-                })
-              }
-            },
-            onWitnessReportStart: (witness: XyoWitnessWrapper) => {
-              const witnesses = progress.witnesses ?? {}
-              witnesses[witness.address] = {
-                status: ReportStatus.Started,
-                witness,
-              }
-              if (mounted()) {
-                setProgress({
-                  archivists: progress.archivists,
-                  witnesses,
-                })
-              }
-            },
-            schema: XyoPanelConfigSchema,
-            witnesses: witnesses.map((witness) => witness.address),
-          })
+          )
         : undefined
       setPanel(panel)
       await delay(0)
