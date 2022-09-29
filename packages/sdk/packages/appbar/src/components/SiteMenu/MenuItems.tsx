@@ -9,7 +9,6 @@ import { useCollapsible } from '../../contexts'
 import { SiteMenuListItemBase } from './lib'
 import { MenuIcon } from './MenuIcon'
 import { MenuListItem } from './MenuListItem'
-import { MenuListItemEx } from './MenuListItemEx'
 import { MenuListItemText } from './MenuListItemText'
 
 export interface SiteMenuListItemProps extends SiteMenuListItemBase, ListItemProps {
@@ -50,8 +49,15 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
   const [openSubNav, setOpenSubNav] = useState(false)
   const [hovered, setHovered] = useState(false)
   return (
-    <MenuListItem disableGutters style={{ whiteSpace: 'nowrap', ...style }} iconOnly={iconOnly} {...props}>
-      <MenuListItemEx iconOnly={iconOnly} onClick={onButtonClick} dense={dense} sx={{ justifyContent: 'space-between' }}>
+    <>
+      <MenuListItem
+        disableGutters
+        iconOnly={iconOnly}
+        onClick={onButtonClick}
+        dense={dense}
+        sx={{ justifyContent: 'space-between' }}
+        style={{ whiteSpace: 'nowrap', ...style }}
+      >
         <FlexRow>
           <MenuIcon icon={icon} paddingRight={theme.spacing(1)} color={hovered ? 'secondary' : 'inherit'} />
           <LinkEx
@@ -86,7 +92,7 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
             </Tooltip>
           ) : null}
         </FlexRow>
-      </MenuListItemEx>
+      </MenuListItem>
       {subNavListItems ? (
         <Collapse in={collapse == true ? false : openSubNav}>
           <List>
@@ -96,6 +102,6 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
           </List>
         </Collapse>
       ) : null}
-    </MenuListItem>
+    </>
   )
 }

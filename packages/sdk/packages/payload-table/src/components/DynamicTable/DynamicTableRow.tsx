@@ -6,7 +6,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadValidator, PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
 import { usePayloadRenderPluginResolver, XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { HashTableCell } from '@xyo-network/react-shared'
+import { HashTableCell, HashTableCellProps } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 
 import {
@@ -35,7 +35,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   const wrapper = payload ? new PayloadWrapper(payload) : undefined
   const { network } = useNetwork()
   const { resolver } = usePayloadRenderPluginResolver()
-  const hash: React.FC<TableCellProps> = (props) => (
+  const hash: React.FC<HashTableCellProps> = (props) => (
     <HashTableCell
       key="hash"
       align="left"

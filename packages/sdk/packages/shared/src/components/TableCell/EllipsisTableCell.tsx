@@ -1,100 +1,45 @@
-import { TableCell, TableCellProps } from '@mui/material'
+import { styled, TableCell, TableCellProps } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
-import { useEffect, useRef, useState } from 'react'
+import { WithChildren } from '@xylabs/react-shared'
 import { To } from 'react-router-dom'
 
-import { getActualPaddingX } from '../../lib'
-import { findParent } from './findParent'
-import { getRemainingRowWidth } from './getRemainingRowWidth'
-import { getSmallestParentWidth } from './getSmallestParentWidth'
+import { Ellipsize } from '../Ellipsize'
+
+const EllipsisTableCellRoot = styled(TableCell, {
+  name: 'EllipsisTableCell',
+  shouldForwardProp: (prop) => prop !== 'width',
+  slot: 'Root',
+})(({ width = '100%' }) => ({
+  width,
+}))
 
 export interface EllipsisTableCellProps extends TableCellProps {
+  /**
+   * Width of the table cell.
+   *
+   * Note: When using percentages, this value can be different than what you expect
+   * if used on a cell that is not the first cell in the first row.
+   */
+  width?: string | number
+  href?: string
+  to?: To
   value?: string
-  to?: To | undefined
-  href?: string | undefined
 }
 
-export const EllipsisTableCell: React.FC<EllipsisTableCellProps> = ({ children, value, to, href, ...props }) => {
-  const [calcCellWidth, setCalcCellWidth] = useState<number>(0)
-  const hashDivRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const currentElement = hashDivRef.current?.parentElement
-    const cell = findParent('td', currentElement)
-    const row = findParent('tr', currentElement)
-
-    const checkWidth = (cell: HTMLElement) => {
-      const smallestParentWidth = getSmallestParentWidth(cell)
-      if (smallestParentWidth && row) {
-        const remainingWidth = getRemainingRowWidth(row)
-        const actualPaddingX = getActualPaddingX(cell)
-        const remainderWidth = smallestParentWidth - remainingWidth - actualPaddingX
-        cell.style.width = `${remainderWidth}`
-        setCalcCellWidth(remainderWidth)
-      }
-    }
-
-    const onResize = () => {
-      if (cell) {
-        checkWidth(cell)
-      }
-    }
-
-    if (cell) {
-      checkWidth(cell)
-      window.addEventListener('resize', onResize)
-      row?.addEventListener('resize', onResize)
-    }
-    return () => {
-      window.removeEventListener('resize', onResize)
-      row?.removeEventListener('resize', onResize)
-    }
-  }, [hashDivRef])
-
+export const EllipsisTableCell: React.FC<WithChildren<EllipsisTableCellProps>> = ({ children, href, to, value, ...props }) => {
   return (
-    <TableCell {...props}>
-      <div ref={hashDivRef}>
+    <EllipsisTableCellRoot {...props}>
+      <Ellipsize>
         {children ? (
-          <span
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {children}
-          </span>
+          children
         ) : href || to ? (
-          <LinkEx
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-            to={to}
-            href={href}
-            target={href ? '_blank' : undefined}
-          >
+          <LinkEx to={to} href={href} target={href ? '_blank' : undefined}>
             {value}
           </LinkEx>
         ) : (
-          <span
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {value}
-          </span>
+          value
         )}
-      </div>
-    </TableCell>
+      </Ellipsize>
+    </EllipsisTableCellRoot>
   )
 }

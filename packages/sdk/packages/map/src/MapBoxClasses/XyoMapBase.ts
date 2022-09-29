@@ -33,7 +33,7 @@ export abstract class XyoMapBase<T extends Geometry> {
     const existingSource = this._config.map.getSource(layer.source as string) as GeoJSONSource
     const source = getSource()
     if (existingSource) {
-      existingSource.setData(assertEx(source.data))
+      existingSource.setData(assertEx(source.data as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>))
     } else {
       this._config.map.addSource(layer.source as string, source)
     }
