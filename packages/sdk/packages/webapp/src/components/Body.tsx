@@ -3,7 +3,7 @@ import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { ReactNode } from 'react'
 
 const WebAppBodyName = 'WebAppBody'
-const propsNotForwarded = ['scrollingBreakpoint', 'spacing']
+const propsNotForwarded = ['scrollingBreakpoint', 'spacing', 'disableBreadcrumbGutter']
 const defaultStyledOptions = {
   shouldForwardProp: (prop: string) => !propsNotForwarded.includes(prop),
 }
@@ -73,9 +73,11 @@ export const WebAppBody: React.FC<WebAppBodyProps> = ({
 }) => {
   return (
     <WebAppBodyRoot scrollingBreakpoint={scrollingBreakpoint} spacing={spacing} {...props}>
-      <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter} spacing={spacing}>
-        {breadcrumbs}
-      </WebAppBodyBreadcrumb>
+      {breadcrumbs ? (
+        <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter} spacing={spacing}>
+          {breadcrumbs}
+        </WebAppBodyBreadcrumb>
+      ) : null}
       <WebAppBodyScrollableWrapper>
         <WebAppBodyScrollable scrollingBreakpoint={scrollingBreakpoint}>{children}</WebAppBodyScrollable>
       </WebAppBodyScrollableWrapper>
