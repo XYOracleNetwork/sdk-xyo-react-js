@@ -63,10 +63,10 @@ Default.args = {}
 const DefaultSideBar = Template.bind({})
 DefaultSideBar.args = { children: <Children />, navigationType: 'sidebar' }
 
-const DefaultAlwaysScrollable = Template.bind({})
-DefaultAlwaysScrollable.args = { children: <Children scrollingBreakpoint="xl" />, navigationType: 'sidebar' }
+const WithFixedSizePage = Template.bind({})
+WithFixedSizePage.args = { children: <Children variant="fixed" />, navigationType: 'sidebar' }
 
-export { Default, DefaultAlwaysScrollable, DefaultSideBar }
+export { Default, DefaultSideBar, WithFixedSizePage }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

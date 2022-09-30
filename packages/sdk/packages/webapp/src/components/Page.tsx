@@ -6,22 +6,25 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 
 import { WebAppBody, WebAppBodyProps } from './Body'
+import { fixedWrap, scrollableWrap } from './lib'
 
 const WebAppPageRoot = styled(FlexGrowCol, {
   name: 'WebAppPage',
-  shouldForwardProp: (propName) => propName !== 'scrollingBreakpoint',
+  shouldForwardProp: (propName) => propName !== 'mobileScrollingBreakpoint' && propName !== 'variant',
   slot: 'Root',
-})<WebAppPageProps>(({ theme, scrollingBreakpoint = 'sm' }) => ({
-  alignItems: 'stretch',
-  inset: 'unset',
-  justifyContent: 'start',
-  maxWidth: '100vw',
-  position: 'relative',
-  [theme.breakpoints.down(scrollingBreakpoint)]: {
-    inset: 0,
-    position: 'absolute',
-  },
-}))
+})<WebAppPageProps>(({ theme, mobileScrollingBreakpoint = 'sm', variant }) => {
+  const props = variant === 'scrollable' ? scrollableWrap : fixedWrap
+  return {
+    ...props,
+    alignItems: 'stretch',
+    justifyContent: 'start',
+    maxWidth: '100vw',
+    [theme.breakpoints.down(mobileScrollingBreakpoint)]: {
+      inset: 0,
+      position: 'absolute',
+    },
+  }
+})
 
 export interface WebAppPageProps extends WebAppBodyProps, FlexBoxProps {
   container?: ContainerProps['maxWidth'] | 'none'
@@ -35,7 +38,8 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   container,
   children,
   breadcrumbs,
-  scrollingBreakpoint,
+  mobileScrollingBreakpoint,
+  variant = 'scrollable',
   ...props
 }) => {
   const userEvents = useUserEvents()
@@ -50,7 +54,7 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   )
 
   return (
-    <WebAppPageRoot scrollingBreakpoint={scrollingBreakpoint} {...props}>
+    <WebAppPageRoot mobileScrollingBreakpoint={mobileScrollingBreakpoint} variant={variant} {...props}>
       <Helmet title={title} />
       {container && container !== 'none' ? (
         <Container
@@ -61,7 +65,8 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
           <WebAppBody
             disableBreadcrumbGutter={disableBreadcrumbGutter}
             breadcrumbs={breadcrumbs}
-            scrollingBreakpoint={scrollingBreakpoint}
+            mobileScrollingBreakpoint={mobileScrollingBreakpoint}
+            variant={variant}
             {...props}
           >
             {children}
@@ -71,8 +76,9 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
         <WebAppBody
           disableBreadcrumbGutter={disableBreadcrumbGutter}
           breadcrumbs={breadcrumbs}
-          scrollingBreakpoint={scrollingBreakpoint}
+          mobileScrollingBreakpoint={mobileScrollingBreakpoint}
           paddingX={disableGutters ? 0 : 1}
+          variant={variant}
           {...props}
         >
           {children}
