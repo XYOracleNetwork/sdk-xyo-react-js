@@ -52,6 +52,18 @@ const EllipsizeContentWrap = styled(Typography, {
   whiteSpace: 'nowrap',
 }))
 
+const useClientHeight = () => {
+  const [contentWrapHeight, setContentWrapHeight] = useState<string>()
+
+  const contentWrapRef = useCallback((node: HTMLElement) => {
+    if (node !== null) {
+      setContentWrapHeight(node.clientHeight + 'px')
+    }
+  }, [])
+
+  return { contentWrapHeight, contentWrapRef }
+}
+
 // See - https://mui.com/material-ui/guides/composition/#with-typescript
 interface TypographyWithComponentProps<Comp extends ElementType = ElementType> extends TypographyProps {
   component?: Comp
@@ -63,13 +75,7 @@ export interface EllipsizeBoxProps extends BoxProps {
 
 export const EllipsizeBox: React.FC<WithChildren<EllipsizeBoxProps>> = ({ children, typographyProps, ...props }) => {
   // Allow syncing of :before pseudo element height with contentWrapHeight
-  const [contentWrapHeight, setContentWrapHeight] = useState<string>()
-
-  const contentWrapRef = useCallback((node: HTMLElement) => {
-    if (node !== null) {
-      setContentWrapHeight(node.clientHeight + 'px')
-    }
-  }, [])
+  const { contentWrapRef, contentWrapHeight } = useClientHeight()
 
   return (
     <EllipsizeRoot beforeLineHeight={contentWrapHeight} {...props}>
