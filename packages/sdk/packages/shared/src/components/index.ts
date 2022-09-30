@@ -1,5 +1,6 @@
 export * from './Ampersand'
 export * from './BasicHero'
+export * from './Ellipsize'
 export * from './ErrorBoundry'
 export * from './ListItemButtonEx'
 export * from './NotFound'
