@@ -58,23 +58,23 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
         sx={{ justifyContent: 'space-between' }}
         style={{ whiteSpace: 'nowrap', ...style }}
       >
-        <FlexRow>
-          <MenuIcon icon={icon} paddingRight={theme.spacing(1)} color={hovered ? 'secondary' : 'inherit'} />
-          <LinkEx
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            color="inherit"
-            to={to}
-            sx={{
-              '& :hover': {
-                cursor: 'pointer',
-                textDecoration: 'underline',
-              },
-            }}
-          >
+        <LinkEx
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          color="inherit"
+          to={to}
+          sx={{
+            '& :hover': {
+              cursor: 'pointer',
+              textDecoration: 'underline',
+            },
+          }}
+        >
+          <FlexRow>
+            <MenuIcon icon={icon} paddingRight={theme.spacing(1)} color={hovered ? 'secondary' : 'inherit'} />
             <MenuListItemText primary={primary} iconOnly={iconOnly} />
-          </LinkEx>
-        </FlexRow>
+          </FlexRow>
+        </LinkEx>
         <FlexRow style={{ marginLeft: theme.spacing(1) }}>
           {subNavListItems ? (
             <IconButton onClick={() => setOpenSubNav(!openSubNav)} sx={{ marginRight: theme.spacing(0.5) }}>
