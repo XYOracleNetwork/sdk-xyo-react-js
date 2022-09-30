@@ -42,7 +42,9 @@ const WebAppBodyBreadcrumb = styled(FlexRow, {
 const WebAppBodyScrollableWrapper = styled(FlexGrowCol, {
   name: WebAppBodyName,
   slot: 'ScrollableWrapper',
-})<WebAppBodyProps>(() => ({}))
+})<WebAppBodyProps>(() => ({
+  alignItems: 'stretch',
+}))
 
 const WebAppBodyScrollable = styled(FlexGrowCol, {
   ...defaultStyledOptions,
