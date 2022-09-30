@@ -1,4 +1,4 @@
-import { XyoStorageArchivist, XyoStorageArchivistConfig } from '@xyo-network/archivist'
+import { XyoArchivistWrapper, XyoStorageArchivist, XyoStorageArchivistConfig } from '@xyo-network/archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 
@@ -11,6 +11,7 @@ export type StorageArchivistProviderProps = ContextExProviderProps<{
 
 export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config, ...props }) => {
   const { archivist } = useArchivist()
+  const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
   return (
     <ArchivistProvider
       archivist={
@@ -22,13 +23,13 @@ export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> =
               ? {
                   parents: {
                     commit: {
-                      [archivist.address]: archivist,
+                      [archivist.address]: wrapper,
                     },
                     read: {
-                      [archivist.address]: archivist,
+                      [archivist.address]: wrapper,
                     },
                     write: {
-                      [archivist.address]: archivist,
+                      [archivist.address]: wrapper,
                     },
                   },
                 }
