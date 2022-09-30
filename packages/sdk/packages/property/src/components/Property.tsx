@@ -43,11 +43,17 @@ const PropertyBox: React.FC<PropertyBoxProps> = ({
           {...titleProps}
         />
       ) : null}
-      <FlexRow paddingX={1} justifyContent={value === undefined ? 'center' : 'space-between'} overflow="hidden" height={sizeValueHeight[size]}>
+      <FlexRow
+        pl={1}
+        columnGap={1}
+        justifyContent={value === undefined ? 'center' : 'space-between'}
+        overflow="hidden"
+        height={sizeValueHeight[size]}
+      >
         {children ? (
           children
         ) : value !== undefined ? (
-          <PropertyValue shortSpace={badge ? sizeValueHeight[size] : 0} value={value} typographyVariant={sizeVariants[size]} />
+          <PropertyValue value={value} typographyVariant={sizeVariants[size]} />
         ) : (
           <CircularProgress size={16} />
         )}
