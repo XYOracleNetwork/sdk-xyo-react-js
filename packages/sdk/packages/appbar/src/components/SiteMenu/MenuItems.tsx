@@ -97,7 +97,7 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
         <Collapse in={collapse == true ? false : openSubNav}>
           <List>
             {subNavListItems.map((item, index) => {
-              return <SiteMenuListItem sx={{ pl: theme.spacing(1) }} key={index} {...item} />
+              return <SiteMenuListItem dense={dense} sx={{ pl: theme.spacing(1) }} key={index} {...item} />
             })}
           </List>
         </Collapse>
