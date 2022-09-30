@@ -41,6 +41,7 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
   primary,
   onButtonClick,
   to,
+  sx,
   ...props
 }) => {
   const { dense } = props
@@ -55,7 +56,7 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
         iconOnly={iconOnly}
         onClick={onButtonClick}
         dense={dense}
-        sx={{ justifyContent: 'space-between' }}
+        sx={{ justifyContent: 'space-between', ...sx }}
         style={{ whiteSpace: 'nowrap', ...style }}
         {...props}
       >
