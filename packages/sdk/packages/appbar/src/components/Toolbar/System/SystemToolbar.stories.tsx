@@ -15,6 +15,12 @@ import { SystemToolbar } from './SystemToolbar'
 const DefaultMenu = (
   <List>
     <SiteMenuListItem primary="Hello" />
+    <SiteMenuListItem
+      primary="Click and Keep Open"
+      onClick={(event) => {
+        event.stopPropagation()
+      }}
+    />
   </List>
 )
 
