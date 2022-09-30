@@ -57,6 +57,7 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
         dense={dense}
         sx={{ justifyContent: 'space-between' }}
         style={{ whiteSpace: 'nowrap', ...style }}
+        {...props}
       >
         <LinkEx
           onMouseEnter={() => setHovered(true)}
@@ -77,7 +78,13 @@ export const SiteMenuListItem: React.FC<SiteMenuListItemProps> = ({
         </LinkEx>
         <FlexRow style={{ marginLeft: theme.spacing(1) }}>
           {subNavListItems ? (
-            <IconButton onClick={() => setOpenSubNav(!openSubNav)} sx={{ marginRight: theme.spacing(0.5) }}>
+            <IconButton
+              onClick={(event) => {
+                event.stopPropagation()
+                setOpenSubNav(!openSubNav)
+              }}
+              sx={{ marginRight: theme.spacing(0.5) }}
+            >
               <VscChevronDown fontSize="16px" />
             </IconButton>
           ) : null}
