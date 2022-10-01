@@ -1,4 +1,5 @@
 import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
+import { XyoModuleResolverFunc } from '@xyo-network/module'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 
@@ -7,9 +8,10 @@ import { ArchivistProvider } from './Provider'
 
 export type RemoteArchivistProviderProps = ContextExProviderProps<{
   config: XyoRemoteArchivistConfig
+  resolver?: XyoModuleResolverFunc
 }>
 
-export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = ({ config, ...props }) => {
+export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = ({ config, resolver, ...props }) => {
   const { archivist } = useArchivist()
   return (
     <ArchivistProvider
@@ -34,6 +36,8 @@ export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = (
                 }
               : undefined,
           ),
+          undefined,
+          resolver,
         )
       }
       {...props}
