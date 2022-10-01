@@ -14,6 +14,13 @@ export type StorageArchivistProviderProps = ContextExProviderProps<{
 export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config, resolver, ...props }) => {
   const { archivist } = useArchivist()
   const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
+  const activeResolver: XyoModuleResolverFunc = (address: string) => {
+    if (archivist && address === archivist?.address) {
+      return new XyoArchivistWrapper(archivist)
+    }
+    return resolver?.(address) ?? null
+  }
+
   return (
     <ArchivistProvider
       archivist={
@@ -24,21 +31,15 @@ export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> =
             archivist
               ? {
                   parents: {
-                    commit: {
-                      [archivist.address]: wrapper,
-                    },
-                    read: {
-                      [archivist.address]: wrapper,
-                    },
-                    write: {
-                      [archivist.address]: wrapper,
-                    },
+                    commit: [archivist.address],
+                    read: [archivist.address],
+                    write: [archivist.address],
                   },
                 }
               : undefined,
           ),
           undefined,
-          resolver,
+          activeResolver,
         )
       }
       {...props}

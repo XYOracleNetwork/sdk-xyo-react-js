@@ -1,4 +1,4 @@
-import { XyoCookieArchivist, XyoCookieArchivistConfig } from '@xyo-network/archivist'
+import { XyoArchivistWrapper, XyoCookieArchivist, XyoCookieArchivistConfig } from '@xyo-network/archivist'
 import { XyoModuleResolverFunc } from '@xyo-network/module'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
@@ -13,6 +13,12 @@ export type CookieArchivistProviderProps = ContextExProviderProps<{
 
 export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = ({ config, resolver, ...props }) => {
   const { archivist } = useArchivist()
+  const activeResolver: XyoModuleResolverFunc = (address: string) => {
+    if (archivist && address === archivist?.address) {
+      return new XyoArchivistWrapper(archivist)
+    }
+    return resolver?.(address) ?? null
+  }
   return (
     <ArchivistProvider
       archivist={
@@ -23,21 +29,15 @@ export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = (
             archivist
               ? {
                   parents: {
-                    commit: {
-                      [archivist.address]: archivist,
-                    },
-                    read: {
-                      [archivist.address]: archivist,
-                    },
-                    write: {
-                      [archivist.address]: archivist,
-                    },
+                    commit: [archivist.address],
+                    read: [archivist.address],
+                    write: [archivist.address],
                   },
                 }
               : undefined,
           ),
           undefined,
-          resolver,
+          activeResolver,
         )
       }
       {...props}
