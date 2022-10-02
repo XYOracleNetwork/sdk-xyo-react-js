@@ -3,7 +3,7 @@ import { Breadcrumbs, List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import { SiteMenuListItem } from '@xyo-network/react-appbar'
+import { MenuListItemContainer } from '@xyo-network/react-appbar'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WebAppChrome } from './Chrome'
@@ -47,7 +47,7 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
       <WebAppChrome
         menuItems={
           <List>
-            <SiteMenuListItem primary="Hello" />
+            <MenuListItemContainer primary="Hello" />
           </List>
         }
         height="calc(100vh - 2rem)"

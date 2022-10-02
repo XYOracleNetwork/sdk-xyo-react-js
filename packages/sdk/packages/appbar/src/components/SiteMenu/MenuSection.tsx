@@ -1,11 +1,11 @@
 import { Collapse, ListSubheader } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 
-import { SiteMenuListItem, SiteMenuListItemProps } from './MenuItems'
+import { MenuListItemContainer, MenuListItemProps } from './MenuListItem'
 
 export interface MenuSectionProps extends FlexBoxProps {
   title: string
-  listItems: SiteMenuListItemProps[]
+  listItems: MenuListItemProps[]
   showTitle?: boolean
 }
 
@@ -17,9 +17,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ title, listItems, show
       </Collapse>
 
       {listItems.map((item, index) => (
-        <>
-          <SiteMenuListItem key={index} {...item}></SiteMenuListItem>
-        </>
+        <MenuListItemContainer key={index} {...item}></MenuListItemContainer>
       ))}
     </FlexCol>
   )
