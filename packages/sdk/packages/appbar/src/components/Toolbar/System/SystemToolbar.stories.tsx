@@ -7,17 +7,18 @@ import { AuthProvider, AuthState } from '@xyo-network/react-auth'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { WrappedAuthComponent } from '@xyo-network/react-storybook'
+import { SyntheticEvent } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { SiteMenuListItem } from '../../SiteMenu'
+import { MenuListItemContainer } from '../../SiteMenu'
 import { SystemToolbar } from './SystemToolbar'
 
 const DefaultMenu = (
   <List>
-    <SiteMenuListItem primary="Hello" />
-    <SiteMenuListItem
+    <MenuListItemContainer primary="Hello" />
+    <MenuListItemContainer
       primary="Click and Keep Open"
-      onClick={(event) => {
+      onClick={(event: SyntheticEvent) => {
         event.stopPropagation()
       }}
     />
