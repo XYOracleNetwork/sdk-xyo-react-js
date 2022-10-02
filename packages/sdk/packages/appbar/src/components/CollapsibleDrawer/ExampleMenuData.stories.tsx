@@ -13,9 +13,9 @@ import {
   VscTable,
 } from 'react-icons/vsc'
 
-import { SiteMenuListItemProps } from '../SiteMenu'
+import { MenuListItemProps } from '../SiteMenu'
 
-export const menuDataTop: SiteMenuListItemProps[] = [
+export const menuDataTop: MenuListItemProps[] = [
   {
     icon: <VscGlobe fontSize="body1" />,
     primary: 'Explore',
@@ -53,7 +53,7 @@ export const menuDataTop: SiteMenuListItemProps[] = [
   },
 ]
 
-export const menuDataBottom: SiteMenuListItemProps[] = [
+export const menuDataBottom: MenuListItemProps[] = [
   {
     icon: <VscGraphLine fontSize="body1" />,
     primary: 'Statistics',

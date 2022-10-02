@@ -2,30 +2,30 @@ import { List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FaGlobeAmericas } from 'react-icons/fa'
 
-import { SiteMenuListItem, SiteMenuListItemProps } from './MenuItems'
+import { MenuListItemContainer, MenuListItemProps } from './MenuListItemContainer'
 
 const StorybookEntry = {
   argTypes: {},
-  component: SiteMenuListItem,
+  component: MenuListItemContainer,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'appbar/SiteMenuListItem',
-} as ComponentMeta<typeof SiteMenuListItem>
+  title: 'appbar/MenuListItemContainer',
+} as ComponentMeta<typeof MenuListItemContainer>
 
-const SiteMenuList: React.FC<SiteMenuListItemProps> = (args) => {
+const SiteMenuList: React.FC<MenuListItemProps> = (args) => {
   return (
     <List>
-      <SiteMenuListItem {...args} />
-      <SiteMenuListItem {...args} />
-      <SiteMenuListItem {...args} />
+      <MenuListItemContainer {...args} />
+      <MenuListItemContainer {...args} />
+      <MenuListItemContainer {...args} />
     </List>
   )
 }
 
-const Template: ComponentStory<typeof SiteMenuListItem> = (args) => {
+const Template: ComponentStory<typeof MenuListItemContainer> = (args) => {
   return <SiteMenuList {...args} />
 }
 
