@@ -17,9 +17,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ title, listItems, show
       </Collapse>
 
       {listItems.map((item, index) => (
-        <>
-          <MenuListItemContainer key={index} {...item}></MenuListItemContainer>
-        </>
+        <MenuListItemContainer key={item.primary + index.toString()} {...item}></MenuListItemContainer>
       ))}
     </FlexCol>
   )
