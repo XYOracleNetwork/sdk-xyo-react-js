@@ -1,7 +1,7 @@
 import { Collapse, ListSubheader } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 
-import { MenuListItemContainer, MenuListItemProps } from './MenuListItemContainer'
+import { MenuListItemContainer, MenuListItemProps } from './MenuListItem'
 
 export interface MenuSectionProps extends FlexBoxProps {
   title: string
