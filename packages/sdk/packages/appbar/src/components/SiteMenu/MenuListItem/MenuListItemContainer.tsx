@@ -12,6 +12,7 @@ export interface MenuListItemProps extends NavListItemProps, SiteMenuListItemBas
   subNavListItems?: NavListItemProps[]
   subNavOpen?: boolean
   iconOnly?: boolean
+  iconMenuTextSpacing?: string
 }
 
 export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
@@ -24,6 +25,7 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
   onButtonClick,
   to,
   sx,
+  iconMenuTextSpacing,
   ...props
 }) => {
   const { dense } = props
@@ -31,6 +33,8 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
   const { collapse } = useCollapsible()
   const [openSubNav, setOpenSubNav] = useState(false)
   const [hovered, setHovered] = useState(false)
+  const resolvedIconMenuTextSpacing = iconMenuTextSpacing ? iconMenuTextSpacing : theme.spacing(1)
+
   return (
     <>
       <MenuListItem
@@ -55,7 +59,7 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
           }}
         >
           <FlexRow>
-            <MenuIcon icon={icon} paddingRight={theme.spacing(1)} color={hovered ? 'secondary' : 'inherit'} />
+            <MenuIcon icon={icon} paddingRight={resolvedIconMenuTextSpacing} color={hovered ? 'secondary' : 'inherit'} />
             <ListItemText primary={primary} />
           </FlexRow>
         </LinkEx>
