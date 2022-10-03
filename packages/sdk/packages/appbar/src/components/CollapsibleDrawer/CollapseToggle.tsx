@@ -22,7 +22,7 @@ export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         fontSize={'large'}
-        sx={{ color: hover ? theme.palette.primary.main : 'initial', cursor: 'pointer' }}
+        sx={{ color: hover ? theme.palette.primary.main : 'inherit', cursor: 'pointer' }}
       >
         {!collapse ? <VscArrowSmallLeft /> : <VscArrowSmallRight />}
       </Icon>
