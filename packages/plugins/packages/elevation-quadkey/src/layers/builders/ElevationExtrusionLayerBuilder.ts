@@ -1,3 +1,5 @@
+import { HeatMapSymbolLayerConfig, SymbolLayerBuilder, XyoMapLayer } from '@xyo-network/react-map'
+
 import { ElevationExtrusionLayerConfig } from '../configs'
 import { FillExtrusionLayerBuilder } from '../FillExtrusionLayer'
 
@@ -10,16 +12,29 @@ export const MapHeatConstants = {
   QuadkeyElevationLayerSource: 'quadkey-elevation-fill-source',
 }
 
-export const ElevationExtrusionLayerBuilder = (color: string, alternateColor = '#000') => {
-  const { ElevationExtrusionLayerId, ElevationExtrusionLayerSource, QuadkeyElevationLayerId, QuadkeyElevationLayerSource } = MapHeatConstants
+export const ElevationExtrusionLayerBuilder = (color: string, alternateColor = '#000', showDebugLayer = false) => {
+  const {
+    ElevationExtrusionLayerId,
+    ElevationExtrusionLayerSource,
+    QuadkeyElevationLayerId,
+    QuadkeyElevationLayerSource,
+    ElevationDebugLayerId,
+    ElevationDebugLayerSource,
+  } = MapHeatConstants
 
   const elevationLayerConfig = ElevationExtrusionLayerConfig(color, 'elevation')
   const quadkeyElevationLayerConfig = ElevationExtrusionLayerConfig(alternateColor, 'quadkeyElevation')
-  // const debugLayerConfig = HeatMapSymbolLayerConfig(alternateColor)
+  // TODO - replace
+  const debugLayerConfig = HeatMapSymbolLayerConfig(alternateColor)
 
   const elevationLayer = new FillExtrusionLayerBuilder(ElevationExtrusionLayerId, ElevationExtrusionLayerSource, elevationLayerConfig)
   const quadkeyElevationLayer = new FillExtrusionLayerBuilder(QuadkeyElevationLayerId, QuadkeyElevationLayerSource, quadkeyElevationLayerConfig)
-  // const debugLayer = new SymbolLayerBuilder(LocationDebugLayerId, LocationDebugLayerSource, debugLayerConfig)
+  const debugLayer = new SymbolLayerBuilder(ElevationDebugLayerId, ElevationDebugLayerSource, debugLayerConfig)
 
-  return [elevationLayer, quadkeyElevationLayer]
+  const layers: XyoMapLayer[] = [elevationLayer, quadkeyElevationLayer]
+  if (showDebugLayer) {
+    layers.push(debugLayer)
+  }
+
+  return layers
 }

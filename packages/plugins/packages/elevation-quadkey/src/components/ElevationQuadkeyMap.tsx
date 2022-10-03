@@ -7,13 +7,12 @@ import {
   MapBoxInstanceProvider,
   MapHeatConstants,
   MapSettingsProvider,
-  NetworkXyoLocationHeatmapQuadkeyAnswerPayload,
   useMapboxAccessToken,
-  useQuadKeyPayloadsToFeatures,
+  useMapSettings,
   XyoMapboxHeatFlexBox,
 } from '@xyo-network/react-map'
 import { Feature, Polygon } from 'geojson'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { OpenElevationApiProvider } from '../contexts'
 import { useElevationProcessor } from '../hooks'
@@ -28,7 +27,6 @@ export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
 
 const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ payload, developerMode, accessToken, ...props }) => {
   const { features } = useElevationProcessor(payload)
-  console.log(features)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
   const accessTokenResolved = accessToken ?? accessTokenFromContext
@@ -70,9 +68,10 @@ const WithProviders: React.FC<WithChildren> = ({ children }) => (
 )
 
 export const ElevationQuadkeyMapWithSettingsRenderer: React.FC<ElevationQuadkeyMapInnerProps> = ({ ...props }) => {
+  const defaultElevationSettings = useMemo(() => ElevationQuadkeyMapSettings(), [])
   return (
     <WithProviders>
-      <MapSettingsProvider defaultMapSettings={ElevationQuadkeyMapSettings()} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
+      <MapSettingsProvider defaultMapSettings={defaultElevationSettings} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
         <ElevationQuadkeyMapInner {...props} />
       </MapSettingsProvider>
     </WithProviders>
