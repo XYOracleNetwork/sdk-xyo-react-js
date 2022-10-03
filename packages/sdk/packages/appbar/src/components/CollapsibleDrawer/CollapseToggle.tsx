@@ -1,11 +1,14 @@
-import { IconButton } from '@mui/material'
+import { Icon, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import { useState } from 'react'
 import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'
 
 import { useCollapsible } from '../../contexts'
 
 export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
   const { collapse, setCollapse, setCollapseEnd } = useCollapsible()
+  const [hover, setHover] = useState(false)
+  const theme = useTheme()
 
   const handleCollapseToggle = () => {
     setCollapse?.(!collapse)
@@ -14,14 +17,15 @@ export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
 
   return (
     <FlexRow mt={2} py={2} {...props}>
-      <IconButton
+      <Icon
         onClick={handleCollapseToggle}
-        sx={{
-          flexDirection: 'column',
-        }}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        fontSize={'large'}
+        sx={{ color: hover ? theme.palette.primary.main : 'initial', cursor: 'pointer' }}
       >
         {!collapse ? <VscArrowSmallLeft /> : <VscArrowSmallRight />}
-      </IconButton>
+      </Icon>
     </FlexRow>
   )
 }
