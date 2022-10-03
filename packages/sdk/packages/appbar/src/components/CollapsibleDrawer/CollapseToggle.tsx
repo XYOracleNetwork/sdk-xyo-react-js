@@ -1,4 +1,4 @@
-import { Icon, IconButton, useTheme } from '@mui/material'
+import { Icon, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'
