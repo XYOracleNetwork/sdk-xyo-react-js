@@ -17,7 +17,8 @@ export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps
 }) => {
   const [developerMode, setDeveloperMode] = useState(storage.developerMode)
   const [darkMode, setDarkMode] = useState(storage.darkMode)
-  const [navigationType, setNaviagtionType] = useState(storage.navigationType)
+  const [navigationType, setNavigationType] = useState(storage.navigationType)
+  const [navigationCollapsed, setNavigationCollapsed] = useState(storage.navigationCollapsed)
 
   const enableDeveloperMode = (value: boolean) => {
     storage.developerMode = value
@@ -31,17 +32,24 @@ export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps
 
   const changeNavigationType = (value: WebAppNavigationType) => {
     storage.navigationType = value
-    setNaviagtionType(value)
+    setNavigationType(value)
+  }
+
+  const changeNavigationCollapsed = (value: boolean) => {
+    storage.navigationCollapsed = value
+    setNavigationCollapsed(value)
   }
 
   return (
     <AppSettingsContext.Provider
       value={{
+        changeNavigationCollapsed,
         changeNavigationType,
         darkMode,
         developerMode,
         enableDarkMode,
         enableDeveloperMode,
+        navigationCollapsed,
         navigationType,
 
         ...value,
