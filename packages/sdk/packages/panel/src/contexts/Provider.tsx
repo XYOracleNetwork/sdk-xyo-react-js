@@ -1,13 +1,12 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
-import { PayloadArchivist } from '@xyo-network/archivist'
+import { PayloadArchivist, XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { XyoPanel } from '@xyo-network/panel'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPanel, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchive } from '@xyo-network/react-archive'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useAccount } from '@xyo-network/react-wallet'
-import { XyoWitness } from '@xyo-network/witness'
+import { XyoWitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
 
 import { PanelContext } from './Context'
@@ -15,7 +14,7 @@ import { PanelReportProgress, ReportStatus } from './State'
 
 export interface PanelProviderProps {
   archivist?: PayloadArchivist
-  witnesses?: XyoWitness<XyoPayload>[]
+  witnesses?: XyoWitnessWrapper[]
   required?: boolean
   archive?: string
 }
@@ -40,10 +39,11 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const activeArchivist: PayloadArchivist | undefined = archivistProp ?? archivist
-      const panel = activeArchivist
+      const archivistWrapper = activeArchivist ? new XyoArchivistWrapper(activeArchivist) : undefined
+      const panel = archivistWrapper
         ? new XyoPanel(
             {
-              archive,
+              archivists: [archivistWrapper.address],
               onReportEnd: (_, errors?: Error[]) => {
                 if (mounted()) {
                   setProgress({
@@ -60,7 +60,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
                   setStatus(ReportStatus.Started)
                 }
               },
-              onWitnessReportEnd: (witness: XyoWitness, error?: Error) => {
+              onWitnessReportEnd: (witness: XyoWitnessWrapper, error?: Error) => {
                 const witnesses = progress.witnesses ?? {}
                 witnesses[witness.address] = {
                   status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
@@ -73,7 +73,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
                   })
                 }
               },
-              onWitnessReportStart: (witness: XyoWitness) => {
+              onWitnessReportStart: (witness: XyoWitnessWrapper) => {
                 const witnesses = progress.witnesses ?? {}
                 witnesses[witness.address] = {
                   status: ReportStatus.Started,
@@ -86,9 +86,13 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
                   })
                 }
               },
-              witnesses: witnesses.filter((witness) => !!witness),
+              schema: XyoPanelConfigSchema,
+              witnesses: witnesses.map((witness) => witness.address),
             },
-            activeArchivist,
+            undefined,
+            (address) => {
+              return archivistWrapper.address === address ? archivistWrapper : witnesses.find((witness) => witness.address === address) ?? null
+            },
           )
         : undefined
       setPanel(panel)

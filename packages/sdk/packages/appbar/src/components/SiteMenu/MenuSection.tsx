@@ -1,15 +1,16 @@
 import { Collapse, ListSubheader } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 
-import { SiteMenuListItem, SiteMenuListItemProps } from './MenuItems'
+import { MenuListItemContainer, MenuListItemProps } from './MenuListItem'
 
 export interface MenuSectionProps extends FlexBoxProps {
   title: string
-  listItems: SiteMenuListItemProps[]
+  listItems: MenuListItemProps[]
   showTitle?: boolean
+  iconMenuTextSpacing?: string
 }
 
-export const MenuSection: React.FC<MenuSectionProps> = ({ title, listItems, showTitle = true, ...props }) => {
+export const MenuSection: React.FC<MenuSectionProps> = ({ title, listItems, iconMenuTextSpacing, showTitle = true, ...props }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
       <Collapse in={showTitle} timeout={700}>
@@ -17,9 +18,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ title, listItems, show
       </Collapse>
 
       {listItems.map((item, index) => (
-        <>
-          <SiteMenuListItem key={index} {...item}></SiteMenuListItem>
-        </>
+        <MenuListItemContainer key={index} iconMenuTextSpacing={iconMenuTextSpacing} {...item}></MenuListItemContainer>
       ))}
     </FlexCol>
   )

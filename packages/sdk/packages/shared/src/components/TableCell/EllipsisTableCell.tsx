@@ -3,7 +3,7 @@ import { LinkEx } from '@xylabs/react-link'
 import { WithChildren } from '@xylabs/react-shared'
 import { To } from 'react-router-dom'
 
-import { Ellipsize } from '../Ellipsize'
+import { EllipsizeBox } from '../Ellipsize'
 
 const EllipsisTableCellRoot = styled(TableCell, {
   name: 'EllipsisTableCell',
@@ -29,7 +29,7 @@ export interface EllipsisTableCellProps extends TableCellProps {
 export const EllipsisTableCell: React.FC<WithChildren<EllipsisTableCellProps>> = ({ children, href, to, value, ...props }) => {
   return (
     <EllipsisTableCellRoot {...props}>
-      <Ellipsize>
+      <EllipsizeBox>
         {children ? (
           children
         ) : href || to ? (
@@ -39,7 +39,7 @@ export const EllipsisTableCell: React.FC<WithChildren<EllipsisTableCellProps>> =
         ) : (
           value
         )}
-      </Ellipsize>
+      </EllipsizeBox>
     </EllipsisTableCellRoot>
   )
 }

@@ -12,7 +12,7 @@ import { XyoWalletBase } from '@xyo-network/wallet'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SearchBar } from '../SearchBar'
-import { SiteMenuListItem } from '../SiteMenu'
+import { MenuListItemContainer } from '../SiteMenu'
 import { SystemToolbar } from '../Toolbar'
 import { ApplicationAppBar } from './Application'
 
@@ -41,7 +41,7 @@ const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
                       <SystemToolbar
                         menuItems={
                           <List>
-                            <SiteMenuListItem primary="Hello" />
+                            <MenuListItemContainer primary="Hello" />
                           </List>
                         }
                       />
@@ -71,7 +71,7 @@ WithSearchBar.args = {
       authButton
       menuItems={
         <List>
-          <SiteMenuListItem primary="Hello" />
+          <MenuListItemContainer primary="Hello" />
         </List>
       }
     />

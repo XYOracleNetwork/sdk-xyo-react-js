@@ -2,8 +2,10 @@ import { Breakpoint, experimental_sx as sx, styled } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { ReactNode } from 'react'
 
+import { fixedContent, scrollableContent } from './lib'
+
 const WebAppBodyName = 'WebAppBody'
-const propsNotForwarded = ['scrollingBreakpoint', 'spacing', 'disableBreadcrumbGutter']
+const propsNotForwarded = ['mobileScrollingBreakpoint', 'variant', 'spacing', 'disableBreadcrumbGutter']
 const defaultStyledOptions = {
   shouldForwardProp: (prop: string) => !propsNotForwarded.includes(prop),
 }
@@ -12,18 +14,19 @@ const WebAppBodyRoot = styled(FlexGrowCol, {
   ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Root',
-})<WebAppBodyProps>(({ spacing, theme, scrollingBreakpoint = 'sm' }) =>
-  sx({
+})<WebAppBodyProps>(({ spacing, theme, mobileScrollingBreakpoint = 'sm', variant }) => {
+  const scrollable = variant === 'scrollable'
+  return sx({
     alignItems: 'stretch',
     gap: 1,
     justifyContent: 'flex-start',
-    overflow: 'hidden',
+    overflow: scrollable ? 'scroll' : 'hidden',
     paddingY: spacing,
-    [theme.breakpoints.down(scrollingBreakpoint)]: {
+    [theme.breakpoints.down(mobileScrollingBreakpoint)]: {
       overflow: 'scroll',
     },
-  }),
-)
+  })
+})
 
 const WebAppBodyBreadcrumb = styled(FlexRow, {
   ...defaultStyledOptions,
@@ -39,47 +42,55 @@ const WebAppBodyBreadcrumb = styled(FlexRow, {
 const WebAppBodyScrollableWrapper = styled(FlexGrowCol, {
   name: WebAppBodyName,
   slot: 'ScrollableWrapper',
-})<WebAppBodyProps>(() => ({}))
+})<WebAppBodyProps>(() => ({
+  alignItems: 'stretch',
+}))
 
 const WebAppBodyScrollable = styled(FlexGrowCol, {
   ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Scrollable',
-})<WebAppBodyProps>(({ theme, scrollingBreakpoint = 'sm' }) => ({
-  alignItems: 'stretch',
-  inset: 0,
-  justifyContent: 'start',
-  position: 'absolute',
-  [theme.breakpoints.down(scrollingBreakpoint)]: {
-    inset: 'unset',
-    position: 'relative',
-  },
-}))
+})<WebAppBodyProps>(({ theme, mobileScrollingBreakpoint = 'sm', variant }) => {
+  const props = variant === 'scrollable' ? scrollableContent : fixedContent
+  return {
+    ...props,
+    alignItems: 'stretch',
+    justifyContent: 'start',
+    [theme.breakpoints.down(mobileScrollingBreakpoint)]: {
+      inset: 'unset',
+      position: 'relative',
+    },
+  }
+})
 
 export interface WebAppBodyProps extends FlexBoxProps {
   breadcrumbs?: ReactNode
   disableBreadcrumbGutter?: boolean
   spacing?: string | number
-  scrollingBreakpoint?: Breakpoint
+  mobileScrollingBreakpoint?: Breakpoint
+  variant?: 'scrollable' | 'fixed'
 }
 
 export const WebAppBody: React.FC<WebAppBodyProps> = ({
   children,
   breadcrumbs,
   disableBreadcrumbGutter,
-  scrollingBreakpoint,
+  mobileScrollingBreakpoint,
   spacing = 1,
+  variant,
   ...props
 }) => {
   return (
-    <WebAppBodyRoot scrollingBreakpoint={scrollingBreakpoint} spacing={spacing} {...props}>
+    <WebAppBodyRoot mobileScrollingBreakpoint={mobileScrollingBreakpoint} spacing={spacing} variant={variant} {...props}>
       {breadcrumbs ? (
         <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter} spacing={spacing}>
           {breadcrumbs}
         </WebAppBodyBreadcrumb>
       ) : null}
       <WebAppBodyScrollableWrapper>
-        <WebAppBodyScrollable scrollingBreakpoint={scrollingBreakpoint}>{children}</WebAppBodyScrollable>
+        <WebAppBodyScrollable mobileScrollingBreakpoint={mobileScrollingBreakpoint} variant={variant}>
+          {children}
+        </WebAppBodyScrollable>
       </WebAppBodyScrollableWrapper>
     </WebAppBodyRoot>
   )
