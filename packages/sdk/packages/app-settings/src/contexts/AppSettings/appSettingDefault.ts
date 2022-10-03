@@ -5,5 +5,6 @@ export const appSettingDefault = (): Record<string, unknown> => {
     [AppSettingSlug.DarkMode]: false,
     [AppSettingSlug.Developer]: false,
     [AppSettingSlug.NavigationType]: 'menu',
+    [AppSettingSlug.NavigationCollapsed]: false,
   }
 }
