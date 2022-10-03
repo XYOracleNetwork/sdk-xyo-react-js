@@ -1,6 +1,6 @@
-import { useTheme } from '@mui/material'
+import { Divider, useTheme } from '@mui/material'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
-import { FlexGrowCol } from '@xylabs/react-flexbox'
+import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 
 import { CollapsibleProvider, useCollapsible } from '../../contexts'
 import { MenuSection } from '../SiteMenu'
@@ -32,16 +32,17 @@ const Template: ComponentStory<typeof CollapsibleDrawer> = (args) => {
   const { collapse, setCollapseEnd } = useCollapsible()
   const theme = useTheme()
   return (
-    <>
-      <FlexGrowCol alignItems="start">
+    <FlexRow justifyContent="start">
+      <FlexCol alignItems="start">
         <CollapsibleDrawer in={!collapse} orientation="horizontal" collapsedSize={theme.spacing(5)} onExited={() => setCollapseEnd?.(true)} {...args}>
           <MenuSection title="Explore & Create" listItems={menuDataTop} showTitle={!collapse} />
           <MenuSection title="Settings & Analytics" listItems={menuDataBottom} showTitle={!collapse} />
           <FlexGrowCol height="100%" />
           <CollapseToggleFlex justifyContent="start" />
         </CollapsibleDrawer>
-      </FlexGrowCol>
-    </>
+      </FlexCol>
+      <Divider flexItem orientation={'vertical'} />
+    </FlexRow>
   )
 }
 
