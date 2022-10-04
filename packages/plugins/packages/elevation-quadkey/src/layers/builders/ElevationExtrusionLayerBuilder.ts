@@ -1,9 +1,9 @@
-import { HeatMapSymbolLayerConfig, SymbolLayerBuilder, XyoMapLayer } from '@xyo-network/react-map'
+import { SymbolLayerBuilder, XyoMapLayer } from '@xyo-network/react-map'
 
-import { ElevationExtrusionLayerConfig } from '../configs'
+import { ElevationExtrusionLayerConfig, ElevationSymbolLayerConfig } from '../configs'
 import { FillExtrusionLayerBuilder } from '../FillExtrusionLayer'
 
-export const MapHeatConstants = {
+export const ExtrusionLayerBuilderConstants = {
   ElevationDebugLayerId: 'elevation-debug-id',
   ElevationDebugLayerSource: 'elevation-debug-source',
   ElevationExtrusionLayerId: 'elevation-fill-id',
@@ -12,7 +12,7 @@ export const MapHeatConstants = {
   QuadkeyElevationLayerSource: 'quadkey-elevation-fill-source',
 }
 
-export const ElevationExtrusionLayerBuilder = (color: string, alternateColor = '#000', showDebugLayer = false) => {
+export const ElevationExtrusionLayerBuilder = (color: string, alternateColor = '#000') => {
   const {
     ElevationExtrusionLayerId,
     ElevationExtrusionLayerSource,
@@ -20,21 +20,17 @@ export const ElevationExtrusionLayerBuilder = (color: string, alternateColor = '
     QuadkeyElevationLayerSource,
     ElevationDebugLayerId,
     ElevationDebugLayerSource,
-  } = MapHeatConstants
+  } = ExtrusionLayerBuilderConstants
 
   const elevationLayerConfig = ElevationExtrusionLayerConfig(color, 'elevation')
   const quadkeyElevationLayerConfig = ElevationExtrusionLayerConfig(alternateColor, 'quadkeyElevation')
-  // TODO - replace
-  const debugLayerConfig = HeatMapSymbolLayerConfig(alternateColor)
+  const debugLayerConfig = ElevationSymbolLayerConfig(alternateColor)
 
   const elevationLayer = new FillExtrusionLayerBuilder(ElevationExtrusionLayerId, ElevationExtrusionLayerSource, elevationLayerConfig)
   const quadkeyElevationLayer = new FillExtrusionLayerBuilder(QuadkeyElevationLayerId, QuadkeyElevationLayerSource, quadkeyElevationLayerConfig)
   const debugLayer = new SymbolLayerBuilder(ElevationDebugLayerId, ElevationDebugLayerSource, debugLayerConfig)
 
-  const layers: XyoMapLayer[] = [elevationLayer, quadkeyElevationLayer]
-  if (showDebugLayer) {
-    layers.push(debugLayer)
-  }
+  const layers: XyoMapLayer[] = [elevationLayer, quadkeyElevationLayer, debugLayer]
 
   return layers
 }

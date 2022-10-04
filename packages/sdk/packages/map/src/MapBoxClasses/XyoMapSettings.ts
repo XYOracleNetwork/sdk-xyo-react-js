@@ -59,12 +59,13 @@ export class XyoMapSettings {
     return this
   }
 
-  static toggleDebugLayer(value: boolean | undefined, map: Map, layer: string) {
-    if (layer && map.getLayer(layer)) {
+  static toggleDebugLayer(value: boolean | undefined, map: Map, layerName: string) {
+    const debugLayer = map.getLayer(layerName)
+    if (debugLayer) {
       if (value) {
-        map.setLayoutProperty(layer, 'visibility', 'visible')
+        map.setLayoutProperty(layerName, 'visibility', 'visible')
       } else {
-        map.setLayoutProperty(layer, 'visibility', 'none')
+        map.setLayoutProperty(layerName, 'visibility', 'none')
       }
     }
 

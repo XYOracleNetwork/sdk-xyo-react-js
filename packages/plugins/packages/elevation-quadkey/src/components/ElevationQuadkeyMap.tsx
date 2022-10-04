@@ -5,10 +5,8 @@ import { XyoPayload } from '@xyo-network/payload'
 import {
   HeatMapInitializerProvider,
   MapBoxInstanceProvider,
-  MapHeatConstants,
   MapSettingsProvider,
   useMapboxAccessToken,
-  useMapSettings,
   XyoMapboxHeatFlexBox,
 } from '@xyo-network/react-map'
 import { Feature, Polygon } from 'geojson'
@@ -16,7 +14,7 @@ import React, { useMemo } from 'react'
 
 import { OpenElevationApiProvider } from '../contexts'
 import { useElevationProcessor } from '../hooks'
-import { ElevationExtrusionLayerBuilder } from '../layers'
+import { ElevationExtrusionLayerBuilder, ExtrusionLayerBuilderConstants } from '../layers'
 import { ElevationQuadkeyMapSettings } from './ElevationQuadkeyMapSettings'
 
 export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
@@ -71,7 +69,7 @@ export const ElevationQuadkeyMapWithSettingsRenderer: React.FC<ElevationQuadkeyM
   const defaultElevationSettings = useMemo(() => ElevationQuadkeyMapSettings(), [])
   return (
     <WithProviders>
-      <MapSettingsProvider defaultMapSettings={defaultElevationSettings} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
+      <MapSettingsProvider defaultMapSettings={defaultElevationSettings} debugLayerName={ExtrusionLayerBuilderConstants.ElevationDebugLayerId}>
         <ElevationQuadkeyMapInner {...props} />
       </MapSettingsProvider>
     </WithProviders>

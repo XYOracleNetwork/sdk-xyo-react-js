@@ -1,1 +1,2 @@
-export * from './ElevationExtrusionLayerConfig'
+export * from './ElevationExtrusion'
+export * from './ElevationSymbol'
