@@ -10,7 +10,6 @@ import {
   MapSettingsProvider,
   NetworkXyoLocationHeatmapQuadkeyAnswerPayload,
   useMapboxAccessToken,
-  useMapSettings,
   useQuadKeyPayloadsToFeatures,
   XyoMapboxHeatFlexBox,
 } from '@xyo-network/react-map'
@@ -26,16 +25,14 @@ export interface QuadkeyHeatMapInnerProps extends FlexBoxProps {
 }
 
 const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode, payload, accessToken, ...props }) => {
-  const { mapSettings } = useMapSettings()
   const { features } = useQuadKeyPayloadsToFeatures(payload as NetworkXyoLocationHeatmapQuadkeyAnswerPayload)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
   const layers = useMemo(() => {
-    const showDebugLayer = mapSettings?.debugLayer?.value
-    return LocationHeatMapLayerBuilder(theme.palette.secondary.main, undefined, showDebugLayer)
-  }, [mapSettings?.debugLayer?.value, theme.palette.secondary.main])
+    return LocationHeatMapLayerBuilder(theme.palette.secondary.main, undefined)
+  }, [theme.palette.secondary.main])
 
   return accessTokenResolved ? (
     <HeatMapInitializerProvider
