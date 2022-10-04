@@ -4,11 +4,11 @@ import { LinkEx } from '@xylabs/react-link'
 import { useState } from 'react'
 
 import { useCollapsible } from '../../../contexts'
-import { NavListItemProps, SiteMenuListItemBase } from '../lib'
+import { MenuListItemBase, NavListItemProps } from '../lib'
 import { ListItemTooltip, MenuIcon, MenuListItem } from './list-item-components'
 import { SubNavListItemsCollapse, SubNavToggleIconButton } from './sub-nav'
 
-export interface MenuListItemProps extends NavListItemProps, SiteMenuListItemBase, ListItemProps {
+export interface MenuListItemProps extends NavListItemProps, MenuListItemBase, ListItemProps {
   subNavListItems?: NavListItemProps[]
   subNavOpen?: boolean
   iconOnly?: boolean
