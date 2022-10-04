@@ -11,7 +11,7 @@ import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { PayloadTableRow } from './TableRow'
@@ -23,16 +23,18 @@ export interface PayloadTableProps extends TableExProps {
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
   maxSchemaDepth?: number
+  infiniteCount?: boolean
 }
 
 interface TablePaginationActionsProps {
   count: number
+  infiniteCount?: boolean
   page: number
   rowsPerPage: number
   onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
 }
 
-function TablePaginationActions({ count, page, rowsPerPage, onPageChange }: TablePaginationActionsProps) {
+function TablePaginationActions({ count, page, rowsPerPage, onPageChange, infiniteCount }: TablePaginationActionsProps) {
   const theme = useTheme()
 
   const handleFirstPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -59,7 +61,7 @@ function TablePaginationActions({ count, page, rowsPerPage, onPageChange }: Tabl
       <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
         {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
       </IconButton>
-      <IconButton onClick={handleNextButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
+      <IconButton onClick={handleNextButtonClick} disabled={!infiniteCount && page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
         {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
       </IconButton>
       <IconButton onClick={handleLastPageButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="last page">
@@ -78,6 +80,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   children,
   columns = payloadTableColumnConfigDefaults(),
   maxSchemaDepth,
+  infiniteCount,
   variant = 'scrollable',
   ...props
 }) => {
@@ -104,6 +107,8 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
     setPage(0)
   }
 
+  const visiblePayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, rowsPerPage, page])
+
   return breakPoint ? (
     <TableEx variant={variant} {...props}>
       <TableHead>
@@ -120,8 +125,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
         </TableRow>
       </TableHead>
       <TableBody>
-        {payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((payload, index) => {
-          // {payloads?.map((payload, index) => {
+        {visiblePayloads?.map((payload, index) => {
           const wrapper = new PayloadWrapper(payload)
           return (
             <XyoApiThrownErrorBoundary
@@ -168,7 +172,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
             }}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-            ActionsComponent={TablePaginationActions}
+            ActionsComponent={(props) => <TablePaginationActions infiniteCount={infiniteCount} {...props} />}
           />
         </TableRow>
       </TableFooterEx>

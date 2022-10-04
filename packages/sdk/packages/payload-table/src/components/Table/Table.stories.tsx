@@ -50,6 +50,13 @@ WithData.args = {
 }
 WithData.decorators = [useAppThemeDecorator]
 
+const WithInfiniteCount = Template.bind({})
+WithInfiniteCount.args = {
+  infiniteCount: true,
+  payloads,
+}
+WithData.decorators = [useAppThemeDecorator]
+
 const WithOutStickyHeaderFooter = Template.bind({})
 WithOutStickyHeaderFooter.args = {
   payloads,
@@ -71,7 +78,7 @@ const { ...badPayload } = sampleIdPayload
 //@ts-ignore
 WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
-export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithOutStickyHeaderFooter }
+export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithInfiniteCount, WithOutStickyHeaderFooter }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
