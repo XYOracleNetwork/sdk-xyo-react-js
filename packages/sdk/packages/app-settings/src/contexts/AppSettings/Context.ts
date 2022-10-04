@@ -9,7 +9,9 @@ export interface AppSettingsContextProps {
   enableDarkMode?: (value: boolean) => void
   enableDeveloperMode?: (value: boolean) => void
   changeNavigationType?: (value: WebAppNavigationType) => void
+  changeNavigationCollapsed?: (value: boolean) => void
   navigationType?: WebAppNavigationType
+  navigationCollapsed?: boolean
 }
 
 export const AppSettingsContext = createContext<AppSettingsContextProps>(appSettingDefault())

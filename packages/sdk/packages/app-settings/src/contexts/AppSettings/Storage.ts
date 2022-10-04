@@ -31,4 +31,12 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
   set navigationType(value: WebAppNavigationType) {
     this.setString(AppSettingSlug.NavigationType, value)
   }
+
+  get navigationCollapsed() {
+    return this.getBoolean(AppSettingSlug.NavigationCollapsed)
+  }
+
+  set navigationCollapsed(value: boolean) {
+    this.setBoolean(AppSettingSlug.NavigationCollapsed, value)
+  }
 }
