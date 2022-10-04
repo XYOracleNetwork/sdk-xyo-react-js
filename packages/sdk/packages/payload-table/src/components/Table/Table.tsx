@@ -9,8 +9,8 @@ import { useTheme } from '@mui/material/styles'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
+import { useXyoEvent } from '@xyo-network/react-event'
 import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
-import * as React from 'react'
 import { useEffect, useState } from 'react'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
@@ -32,9 +32,8 @@ interface TablePaginationActionsProps {
   onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
 }
 
-function TablePaginationActions(props: TablePaginationActionsProps) {
+function TablePaginationActions({ count, page, rowsPerPage, onPageChange }: TablePaginationActionsProps) {
   const theme = useTheme()
-  const { count, page, rowsPerPage, onPageChange } = props
 
   const handleFirstPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     onPageChange(event, 0)
@@ -89,12 +88,14 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   const payloadCount = payloads ? payloads.length : 0
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount) : 0
+  const [ref, dispatch] = useXyoEvent<HTMLDivElement>()
 
   useEffect(() => {
     setRowsPerPage(rowsPerPageProp)
   }, [rowsPerPageProp])
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    dispatch?.('pagechange', 'click', newPage.toString())
     setPage(newPage)
   }
 
@@ -153,6 +154,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
       <TableFooterEx variant={variant}>
         <TableRow>
           <TablePagination
+            ref={ref}
             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
             count={payloadCount}
             rowsPerPage={rowsPerPage}
