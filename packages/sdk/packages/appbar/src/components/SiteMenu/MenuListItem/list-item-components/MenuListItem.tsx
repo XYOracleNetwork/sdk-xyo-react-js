@@ -1,8 +1,8 @@
 import { ListItem, ListItemProps } from '@mui/material'
 
-import { SiteMenuListItemBase } from '../../lib'
+import { MenuListItemBase } from '../../lib'
 
-export interface ListItemExProps extends SiteMenuListItemBase, ListItemProps {}
+export interface ListItemExProps extends MenuListItemBase, ListItemProps {}
 
 export const MenuListItem: React.FC<ListItemExProps> = ({ iconOnly, collapseEnd, sx, children, dense, ...props }) => {
   const listItemSx = iconOnly ? { borderRadius: '50%', display: 'inline-flex', flexGrow: 0, width: 'auto' } : { width: '100%' }
