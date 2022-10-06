@@ -1,5 +1,6 @@
 import { Button, Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
+import { delay } from '@xylabs/sdk-js'
 import { XyoPayload } from '@xyo-network/payload'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
@@ -12,28 +13,40 @@ const newPayloads = () =>
     .fill(undefined)
     .map((_, index) => ({ index, random: Math.random(), schema: 'network.xyo.stories.test' }))
 
+// simulating the end of the list
+const maxPayloads = 200
+
 const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
-  // simulating the end of the list
-  const maxPayloads = 200
   const [payloads, setPayloads] = useState<XyoPayload[]>(newPayloads())
   const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(false)
 
-  const addPayloads = () => {
+  const addPayloads = async () => {
+    setLoading(true)
+    // Simulating delay fetching new payloads
+    await delay(800)
     setPayloads((previous) => {
       previous.push(...newPayloads())
       setCount(previous.length)
       return previous
     })
+    setLoading(false)
+    return true
   }
 
-  const newPayloadList = () => {
+  const newPayloadList = async () => {
+    setLoading(true)
+    // Simulating delay fetching new payloads
+    await delay(800)
     const newPayloadList = newPayloads()
     setPayloads(newPayloadList)
+    setLoading(false)
   }
 
   args.args = {
     ...args.args,
     count,
+    loading,
     onMorePayloads: payloads.length < maxPayloads ? addPayloads : null,
     payloads,
   }

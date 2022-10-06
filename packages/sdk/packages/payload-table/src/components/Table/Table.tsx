@@ -1,5 +1,4 @@
-import { Alert, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography } from '@mui/material'
-import { useTheme } from '@mui/material/styles'
+import { Alert, styled, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography, useTheme } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
@@ -13,12 +12,13 @@ export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
   archive?: string
   onRowClick?: (value: XyoPayload) => void
-  onMorePayloads?: () => void
+  onMorePayloads?: () => Promise<boolean>
   rowsPerPage?: number
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
   maxSchemaDepth?: number
   count?: number | null
+  loading?: boolean
 }
 
 export const PayloadTable: React.FC<PayloadTableProps> = ({
@@ -33,9 +33,9 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   maxSchemaDepth,
   count,
   variant = 'scrollable',
+  loading = false,
   ...props
 }) => {
-  const theme = useTheme()
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
@@ -54,14 +54,14 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
     setPage(0)
   }, [payloads])
 
-  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+  const handleChangePage = async (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     if (onMorePayloads) {
       const buffer = rowsPerPage * 2
       const lastVisiblePayload = visiblePayloads?.at(-1)
       if (lastVisiblePayload) {
         const lastVisibleIndex = payloads?.indexOf(lastVisiblePayload)
         if (payloads && lastVisibleIndex !== undefined && payloads?.length - (lastVisibleIndex + 1) <= buffer) {
-          onMorePayloads()
+          return await onMorePayloads()
         }
       }
     }
@@ -123,12 +123,11 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
       </TableBody>
       <TableFooterEx variant={variant}>
         <TableRow>
-          <TablePagination
+          <StyledTablePagination
             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
             count={payloadCount}
             rowsPerPage={rowsPerPage}
             page={page}
-            style={{ borderTop: '1px solid', borderTopColor: theme.palette.divider }}
             SelectProps={{
               inputProps: {
                 'aria-label': 'rows per page',
@@ -137,10 +136,18 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
             }}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-            ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!onMorePayloads} {...props} />}
+            ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!onMorePayloads} loading={loading} {...props} />}
           />
         </TableRow>
       </TableFooterEx>
     </TableEx>
   ) : null
 }
+
+const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
+  '& > .MuiToolbar-root': {
+    paddingLeft: theme.spacing(1),
+  },
+  borderTop: '1px solid',
+  borderTopColor: theme.palette.divider,
+}))
