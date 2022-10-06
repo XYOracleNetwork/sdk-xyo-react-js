@@ -39,6 +39,8 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
+
+  const visiblePayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, rowsPerPage, page])
   const payloadCount = count ?? payloads !== undefined ? payloads?.length ?? 0 : 0
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount || 0) : 0
@@ -46,6 +48,11 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   useEffect(() => {
     setRowsPerPage(rowsPerPageProp)
   }, [rowsPerPageProp])
+
+  // If the payload reference changes, assume we have a new list and reset current page
+  useEffect(() => {
+    setPage(0)
+  }, [payloads])
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     if (onMorePayloads) {
@@ -66,10 +73,6 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
     setPage(0)
   }
 
-  const visiblePayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, rowsPerPage, page])
-
-  // identify if last visible payload === last passed payload
-  // allow one more advancement to fetch more payloads (emit event?)
   // show loading indicator in table footer
 
   return breakPoint ? (

@@ -16,18 +16,24 @@ const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
   // simulating the end of the list
   const maxPayloads = 200
   const [payloads, setPayloads] = useState<XyoPayload[]>(newPayloads())
+  const [count, setCount] = useState(0)
 
   const addPayloads = () => {
     setPayloads((previous) => {
       previous.push(...newPayloads())
-      return [...previous]
+      setCount(previous.length)
+      return previous
     })
   }
-  console.log(payloads.length)
+
+  const newPayloadList = () => {
+    const newPayloadList = newPayloads()
+    setPayloads(newPayloadList)
+  }
 
   args.args = {
     ...args.args,
-    count: payloads.length,
+    count,
     onMorePayloads: payloads.length < maxPayloads ? addPayloads : null,
     payloads,
   }
@@ -35,6 +41,9 @@ const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
   return (
     <>
       <Typography>Max Payloads: {maxPayloads}</Typography>
+      <Button variant="contained" onClick={newPayloadList}>
+        Simulate Network Change
+      </Button>
       <Story {...args} />
     </>
   )
