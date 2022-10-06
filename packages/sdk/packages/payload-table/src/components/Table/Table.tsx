@@ -7,6 +7,7 @@ import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
 import { useEffect, useMemo, useState } from 'react'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
+import { TablePaginationActions } from './TablePagination'
 import { PayloadTableRow } from './TableRow'
 export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
