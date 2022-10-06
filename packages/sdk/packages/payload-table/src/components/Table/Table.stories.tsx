@@ -1,9 +1,41 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Button } from '@mui/material'
+import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { XyoPayload } from '@xyo-network/payload'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadTable } from './Table'
+
+const newPayloads = () =>
+  Array(25)
+    .fill(undefined)
+    .map((_, index) => ({ index, random: Math.random(), schema: 'network.xyo.stories.test' }))
+
+const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
+  const [payloads, setPayloads] = useState<XyoPayload[]>(newPayloads())
+
+  const addPayloads = () => {
+    setPayloads((previous) => {
+      previous.push(...newPayloads())
+      return previous
+    })
+  }
+
+  args.args = {
+    ...args.args,
+    payloads,
+  }
+
+  return (
+    <>
+      <Button variant="contained" onClick={addPayloads}>
+        New Payloads
+      </Button>
+      <Story ref={} {...args} payloads={payloads} length={payloads.length} />
+    </>
+  )
+}
 
 const StorybookEntry = {
   argTypes: {},
@@ -50,10 +82,10 @@ WithData.args = {
 }
 WithData.decorators = [useAppThemeDecorator]
 
-const WithInfiniteCount = Template.bind({})
-WithInfiniteCount.args = {
-  infiniteCount: true,
-  payloads,
+const WithUnknownCount = Template.bind({})
+WithUnknownCount.decorators = [NewPayloadsDecorator]
+WithUnknownCount.args = {
+  unknownCount: true,
 }
 WithData.decorators = [useAppThemeDecorator]
 
@@ -78,7 +110,7 @@ const { ...badPayload } = sampleIdPayload
 //@ts-ignore
 WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
-export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithInfiniteCount, WithOutStickyHeaderFooter }
+export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithOutStickyHeaderFooter, WithUnknownCount }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

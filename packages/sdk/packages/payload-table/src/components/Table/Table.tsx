@@ -23,18 +23,19 @@ export interface PayloadTableProps extends TableExProps {
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
   maxSchemaDepth?: number
-  infiniteCount?: boolean
+  unknownCount?: boolean
+  count?: number
 }
 
 interface TablePaginationActionsProps {
   count: number
-  infiniteCount?: boolean
+  disableNextPage?: boolean
   page: number
   rowsPerPage: number
   onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
 }
 
-function TablePaginationActions({ count, page, rowsPerPage, onPageChange, infiniteCount }: TablePaginationActionsProps) {
+function TablePaginationActions({ count, page, rowsPerPage, onPageChange, disableNextPage }: TablePaginationActionsProps) {
   const theme = useTheme()
 
   const handleFirstPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -61,7 +62,7 @@ function TablePaginationActions({ count, page, rowsPerPage, onPageChange, infini
       <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
         {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
       </IconButton>
-      <IconButton onClick={handleNextButtonClick} disabled={!infiniteCount && page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
+      <IconButton onClick={handleNextButtonClick} disabled={!disableNextPage && page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
         {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
       </IconButton>
       <IconButton onClick={handleLastPageButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="last page">
@@ -80,7 +81,8 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   children,
   columns = payloadTableColumnConfigDefaults(),
   maxSchemaDepth,
-  infiniteCount,
+  unknownCount,
+  count,
   variant = 'scrollable',
   ...props
 }) => {
@@ -88,9 +90,9 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
-  const payloadCount = payloads ? payloads.length : 0
+  const payloadCount = count ?? payloads !== undefined ? payloads?.length ?? 0 : 0
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount) : 0
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount || 0) : 0
   const [ref, dispatch] = useXyoEvent<HTMLDivElement>()
 
   useEffect(() => {
@@ -98,7 +100,16 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   }, [rowsPerPageProp])
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    dispatch?.('pagechange', 'click', newPage.toString())
+    if (unknownCount) {
+      const buffer = rowsPerPage * 2
+      const lastVisiblePayload = visiblePayloads?.at(-1)
+      if (lastVisiblePayload) {
+        const lastVisibleIndex = payloads?.indexOf(lastVisiblePayload)
+        if (payloads && lastVisibleIndex !== undefined && payloads?.length - (lastVisibleIndex + 1) <= buffer) {
+          console.log('need more payloads')
+        }
+      }
+    }
     setPage(newPage)
   }
 
@@ -108,6 +119,10 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   }
 
   const visiblePayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, rowsPerPage, page])
+
+  // identify if last visible payload === last passed payload
+  // allow one more advancement to fetch more payloads (emit event?)
+  // show loading indicator in table footer
 
   return breakPoint ? (
     <TableEx variant={variant} {...props}>
@@ -172,7 +187,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
             }}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-            ActionsComponent={(props) => <TablePaginationActions infiniteCount={infiniteCount} {...props} />}
+            ActionsComponent={TablePaginationActions}
           />
         </TableRow>
       </TableFooterEx>
