@@ -73,8 +73,6 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
     setPage(0)
   }
 
-  // show loading indicator in table footer
-
   return breakPoint ? (
     <TableEx variant={variant} {...props}>
       <TableHead>

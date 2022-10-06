@@ -2,8 +2,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import LastPageIcon from '@mui/icons-material/LastPage'
-import { Box, CircularProgress, IconButton, Theme, useTheme } from '@mui/material'
-import { FlexCol } from '@xylabs/react-flexbox'
+import { Box, CircularProgress, IconButton, useTheme } from '@mui/material'
 
 interface TablePaginationActionsProps {
   count: number
