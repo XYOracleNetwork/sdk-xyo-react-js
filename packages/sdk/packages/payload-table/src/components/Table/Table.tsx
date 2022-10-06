@@ -18,7 +18,6 @@ export interface PayloadTableProps extends TableExProps {
   columns?: PayloadTableColumnConfig
   maxSchemaDepth?: number
   count?: number | null
-  loading?: boolean
 }
 
 export const PayloadTable: React.FC<PayloadTableProps> = ({
@@ -33,10 +32,10 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   maxSchemaDepth,
   count,
   variant = 'scrollable',
-  loading = false,
   ...props
 }) => {
   const breakPoint = useBreakpoint()
+  const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
 
@@ -61,7 +60,9 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
       if (lastVisiblePayload) {
         const lastVisibleIndex = payloads?.indexOf(lastVisiblePayload)
         if (payloads && lastVisibleIndex !== undefined && payloads?.length - (lastVisibleIndex + 1) <= buffer) {
-          return await onMorePayloads()
+          setLoading(true)
+          await onMorePayloads()
+          setLoading(false)
         }
       }
     }

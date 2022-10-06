@@ -19,10 +19,8 @@ const maxPayloads = 200
 const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
   const [payloads, setPayloads] = useState<XyoPayload[]>(newPayloads())
   const [count, setCount] = useState(0)
-  const [loading, setLoading] = useState(false)
 
   const addPayloads = async () => {
-    setLoading(true)
     // Simulating delay fetching new payloads
     await delay(800)
     setPayloads((previous) => {
@@ -30,23 +28,19 @@ const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
       setCount(previous.length)
       return previous
     })
-    setLoading(false)
     return true
   }
 
   const newPayloadList = async () => {
-    setLoading(true)
     // Simulating delay fetching new payloads
     await delay(800)
     const newPayloadList = newPayloads()
     setPayloads(newPayloadList)
-    setLoading(false)
   }
 
   args.args = {
     ...args.args,
     count,
-    loading,
     onMorePayloads: payloads.length < maxPayloads ? addPayloads : null,
     payloads,
   }
