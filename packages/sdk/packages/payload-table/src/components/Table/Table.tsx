@@ -9,7 +9,6 @@ import { useTheme } from '@mui/material/styles'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
-import { useXyoEvent } from '@xyo-network/react-event'
 import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -19,12 +18,12 @@ export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
   archive?: string
   onRowClick?: (value: XyoPayload) => void
+  onMorePayloads?: () => void
   rowsPerPage?: number
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
   maxSchemaDepth?: number
-  unknownCount?: boolean
-  count?: number
+  count?: number | null
 }
 
 interface TablePaginationActionsProps {
@@ -76,12 +75,12 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
   archive,
   onRowClick,
+  onMorePayloads,
   rowsPerPage: rowsPerPageProp = 25,
   payloads,
   children,
   columns = payloadTableColumnConfigDefaults(),
   maxSchemaDepth,
-  unknownCount,
   count,
   variant = 'scrollable',
   ...props
@@ -93,20 +92,19 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   const payloadCount = count ?? payloads !== undefined ? payloads?.length ?? 0 : 0
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount || 0) : 0
-  const [ref, dispatch] = useXyoEvent<HTMLDivElement>()
 
   useEffect(() => {
     setRowsPerPage(rowsPerPageProp)
   }, [rowsPerPageProp])
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    if (unknownCount) {
+    if (onMorePayloads) {
       const buffer = rowsPerPage * 2
       const lastVisiblePayload = visiblePayloads?.at(-1)
       if (lastVisiblePayload) {
         const lastVisibleIndex = payloads?.indexOf(lastVisiblePayload)
         if (payloads && lastVisibleIndex !== undefined && payloads?.length - (lastVisibleIndex + 1) <= buffer) {
-          console.log('need more payloads')
+          onMorePayloads()
         }
       }
     }
@@ -173,7 +171,6 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
       <TableFooterEx variant={variant}>
         <TableRow>
           <TablePagination
-            ref={ref}
             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
             count={payloadCount}
             rowsPerPage={rowsPerPage}

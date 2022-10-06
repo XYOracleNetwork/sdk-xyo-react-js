@@ -24,6 +24,8 @@ const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
 
   args.args = {
     ...args.args,
+    count: payloads.length,
+    onMorePayloads: addPayloads,
     payloads,
   }
 
@@ -32,7 +34,7 @@ const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
       <Button variant="contained" onClick={addPayloads}>
         New Payloads
       </Button>
-      <Story ref={} {...args} payloads={payloads} length={payloads.length} />
+      <Story {...args} />
     </>
   )
 }
@@ -82,12 +84,8 @@ WithData.args = {
 }
 WithData.decorators = [useAppThemeDecorator]
 
-const WithUnknownCount = Template.bind({})
-WithUnknownCount.decorators = [NewPayloadsDecorator]
-WithUnknownCount.args = {
-  unknownCount: true,
-}
-WithData.decorators = [useAppThemeDecorator]
+const WithUnknownAmount = Template.bind({})
+WithUnknownAmount.decorators = [NewPayloadsDecorator]
 
 const WithOutStickyHeaderFooter = Template.bind({})
 WithOutStickyHeaderFooter.args = {
@@ -110,7 +108,7 @@ const { ...badPayload } = sampleIdPayload
 //@ts-ignore
 WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
-export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithOutStickyHeaderFooter, WithUnknownCount }
+export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithOutStickyHeaderFooter, WithUnknownAmount }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
