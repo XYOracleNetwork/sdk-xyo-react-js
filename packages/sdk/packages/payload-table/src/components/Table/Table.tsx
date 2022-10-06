@@ -134,7 +134,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
             }}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-            ActionsComponent={TablePaginationActions}
+            ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!onMorePayloads} {...props} />}
           />
         </TableRow>
       </TableFooterEx>

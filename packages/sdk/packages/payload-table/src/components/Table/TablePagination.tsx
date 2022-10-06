@@ -6,13 +6,13 @@ import { Box, IconButton, useTheme } from '@mui/material'
 
 interface TablePaginationActionsProps {
   count: number
-  disableNextPage?: boolean
+  enableNextPage?: boolean
   page: number
   rowsPerPage: number
   onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
 }
 
-export function TablePaginationActions({ count, page, rowsPerPage, onPageChange, disableNextPage }: TablePaginationActionsProps) {
+export function TablePaginationActions({ count, page, rowsPerPage, onPageChange, enableNextPage }: TablePaginationActionsProps) {
   const theme = useTheme()
 
   const handleFirstPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -39,7 +39,7 @@ export function TablePaginationActions({ count, page, rowsPerPage, onPageChange,
       <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
         {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
       </IconButton>
-      <IconButton onClick={handleNextButtonClick} disabled={!disableNextPage && page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
+      <IconButton onClick={handleNextButtonClick} disabled={!enableNextPage && page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
         {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
       </IconButton>
       <IconButton onClick={handleLastPageButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="last page">

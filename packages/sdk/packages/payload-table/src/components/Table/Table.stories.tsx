@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { XyoPayload } from '@xyo-network/payload'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
@@ -13,27 +13,28 @@ const newPayloads = () =>
     .map((_, index) => ({ index, random: Math.random(), schema: 'network.xyo.stories.test' }))
 
 const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
+  // simulating the end of the list
+  const maxPayloads = 200
   const [payloads, setPayloads] = useState<XyoPayload[]>(newPayloads())
 
   const addPayloads = () => {
     setPayloads((previous) => {
       previous.push(...newPayloads())
-      return previous
+      return [...previous]
     })
   }
+  console.log(payloads.length)
 
   args.args = {
     ...args.args,
     count: payloads.length,
-    onMorePayloads: addPayloads,
+    onMorePayloads: payloads.length < maxPayloads ? addPayloads : null,
     payloads,
   }
 
   return (
     <>
-      <Button variant="contained" onClick={addPayloads}>
-        New Payloads
-      </Button>
+      <Typography>Max Payloads: {maxPayloads}</Typography>
       <Story {...args} />
     </>
   )
