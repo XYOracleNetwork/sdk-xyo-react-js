@@ -8,11 +8,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { TablePaginationActions } from './TablePagination'
 import { PayloadTableRow } from './TableRow'
+
 export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
   archive?: string
   onRowClick?: (value: XyoPayload) => void
-  onMorePayloads?: () => Promise<boolean>
+  onMorePayloads?: () => boolean
   rowsPerPage?: number
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
@@ -38,11 +39,16 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
+  const [payloadCount, setPayloadCount] = useState(0)
 
   const visiblePayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, rowsPerPage, page])
-  const payloadCount = count ?? payloads !== undefined ? payloads?.length ?? 0 : 0
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount || 0) : 0
+
+  // when the count changes but the payload reference does not, update the count manually
+  useEffect(() => {
+    setPayloadCount(payloads !== undefined ? payloads?.length ?? 0 : 0)
+  }, [count, payloads])
 
   useEffect(() => {
     setRowsPerPage(rowsPerPageProp)

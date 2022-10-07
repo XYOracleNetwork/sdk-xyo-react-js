@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { PayloadTable } from './Table'
 
 const newPayloads = () =>
-  Array(25)
+  Array(50)
     .fill(undefined)
     .map((_, index) => ({ index, random: Math.random(), schema: 'network.xyo.stories.test' }))
 
@@ -17,12 +17,11 @@ const newPayloads = () =>
 const maxPayloads = 200
 
 const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
-  const [payloads, setPayloads] = useState<XyoPayload[]>(newPayloads())
-  const [count, setCount] = useState(0)
+  const testPayloads = newPayloads()
+  const [payloads, setPayloads] = useState<XyoPayload[]>(testPayloads)
+  const [count, setCount] = useState(testPayloads.length)
 
-  const addPayloads = async () => {
-    // Simulating delay fetching new payloads
-    await delay(800)
+  const addPayloads = () => {
     setPayloads((previous) => {
       previous.push(...newPayloads())
       setCount(previous.length)
