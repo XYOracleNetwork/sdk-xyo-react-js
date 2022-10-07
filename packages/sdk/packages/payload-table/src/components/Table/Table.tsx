@@ -1,100 +1,76 @@
-import FirstPageIcon from '@mui/icons-material/FirstPage'
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
-import LastPageIcon from '@mui/icons-material/LastPage'
-import { Alert, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography } from '@mui/material'
-import Box from '@mui/material/Box'
-import IconButton from '@mui/material/IconButton'
-import { useTheme } from '@mui/material/styles'
+import { Alert, styled, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography, useTheme } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
-import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
+import { TablePaginationActions } from './TablePagination'
 import { PayloadTableRow } from './TableRow'
+
 export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
   archive?: string
   onRowClick?: (value: XyoPayload) => void
+  fetchMorePayloads?: () => boolean
   rowsPerPage?: number
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
   maxSchemaDepth?: number
-}
-
-interface TablePaginationActionsProps {
-  count: number
-  page: number
-  rowsPerPage: number
-  onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
-}
-
-function TablePaginationActions(props: TablePaginationActionsProps) {
-  const theme = useTheme()
-  const { count, page, rowsPerPage, onPageChange } = props
-
-  const handleFirstPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    onPageChange(event, 0)
-  }
-
-  const handleBackButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    onPageChange(event, page - 1)
-  }
-
-  const handleNextButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    onPageChange(event, page + 1)
-  }
-
-  const handleLastPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1))
-  }
-
-  return (
-    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
-      <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
-        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
-      </IconButton>
-      <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
-        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-      </IconButton>
-      <IconButton onClick={handleNextButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-      </IconButton>
-      <IconButton onClick={handleLastPageButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="last page">
-        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
-      </IconButton>
-    </Box>
-  )
+  count?: number | null
+  loading?: boolean
 }
 
 export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
   archive,
   onRowClick,
+  fetchMorePayloads,
   rowsPerPage: rowsPerPageProp = 25,
   payloads,
   children,
   columns = payloadTableColumnConfigDefaults(),
   maxSchemaDepth,
+  count,
+  loading = false,
   variant = 'scrollable',
   ...props
 }) => {
-  const theme = useTheme()
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
-  const payloadCount = payloads ? payloads.length : 0
+  const [payloadCount, setPayloadCount] = useState(0)
+
+  const visiblePayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, rowsPerPage, page])
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount) : 0
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount || 0) : 0
+
+  // when the count changes but the payload reference does not, update the count manually
+  useEffect(() => {
+    setPayloadCount(payloads !== undefined ? payloads?.length ?? 0 : 0)
+  }, [count, payloads])
 
   useEffect(() => {
     setRowsPerPage(rowsPerPageProp)
   }, [rowsPerPageProp])
 
+  // If the payload reference changes, assume we have a new list and reset current page
+  useEffect(() => {
+    setPage(0)
+  }, [payloads])
+
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    if (fetchMorePayloads) {
+      const buffer = rowsPerPage * 2
+      const lastVisiblePayload = visiblePayloads?.at(-1)
+      if (lastVisiblePayload) {
+        const lastVisibleIndex = payloads?.indexOf(lastVisiblePayload)
+        if (payloads && lastVisibleIndex !== undefined && payloads?.length - (lastVisibleIndex + 1) <= buffer) {
+          fetchMorePayloads()
+        }
+      }
+    }
     setPage(newPage)
   }
 
@@ -119,8 +95,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
         </TableRow>
       </TableHead>
       <TableBody>
-        {payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((payload, index) => {
-          // {payloads?.map((payload, index) => {
+        {visiblePayloads?.map((payload, index) => {
           const wrapper = new PayloadWrapper(payload)
           return (
             <XyoApiThrownErrorBoundary
@@ -152,12 +127,11 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
       </TableBody>
       <TableFooterEx variant={variant}>
         <TableRow>
-          <TablePagination
+          <StyledTablePagination
             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
             count={payloadCount}
             rowsPerPage={rowsPerPage}
             page={page}
-            style={{ borderTop: '1px solid', borderTopColor: theme.palette.divider }}
             SelectProps={{
               inputProps: {
                 'aria-label': 'rows per page',
@@ -166,10 +140,18 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
             }}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-            ActionsComponent={TablePaginationActions}
+            ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!fetchMorePayloads} loading={loading} {...props} />}
           />
         </TableRow>
       </TableFooterEx>
     </TableEx>
   ) : null
 }
+
+const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
+  '& > .MuiToolbar-root': {
+    paddingLeft: theme.spacing(1),
+  },
+  borderTop: '1px solid',
+  borderTopColor: theme.palette.divider,
+}))
