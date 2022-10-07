@@ -39,7 +39,7 @@ const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
   args.args = {
     ...args.args,
     count,
-    onMorePayloads: payloads.length < maxPayloads ? addPayloads : null,
+    fetchMorePayloads: payloads.length < maxPayloads ? addPayloads : null,
     payloads,
   }
 

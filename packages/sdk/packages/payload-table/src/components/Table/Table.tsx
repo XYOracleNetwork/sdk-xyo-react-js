@@ -13,7 +13,7 @@ export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
   archive?: string
   onRowClick?: (value: XyoPayload) => void
-  onMorePayloads?: () => boolean
+  fetchMorePayloads?: () => boolean
   rowsPerPage?: number
   payloads?: XyoPayload[] | null
   columns?: PayloadTableColumnConfig
@@ -26,7 +26,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   exploreDomain,
   archive,
   onRowClick,
-  onMorePayloads,
+  fetchMorePayloads,
   rowsPerPage: rowsPerPageProp = 25,
   payloads,
   children,
@@ -61,13 +61,13 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   }, [payloads])
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    if (onMorePayloads) {
+    if (fetchMorePayloads) {
       const buffer = rowsPerPage * 2
       const lastVisiblePayload = visiblePayloads?.at(-1)
       if (lastVisiblePayload) {
         const lastVisibleIndex = payloads?.indexOf(lastVisiblePayload)
         if (payloads && lastVisibleIndex !== undefined && payloads?.length - (lastVisibleIndex + 1) <= buffer) {
-          onMorePayloads()
+          fetchMorePayloads()
         }
       }
     }
@@ -140,7 +140,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
             }}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-            ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!onMorePayloads} loading={loading} {...props} />}
+            ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!fetchMorePayloads} loading={loading} {...props} />}
           />
         </TableRow>
       </TableFooterEx>
