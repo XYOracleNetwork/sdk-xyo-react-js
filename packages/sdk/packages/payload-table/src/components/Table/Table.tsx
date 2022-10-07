@@ -19,6 +19,7 @@ export interface PayloadTableProps extends TableExProps {
   columns?: PayloadTableColumnConfig
   maxSchemaDepth?: number
   count?: number | null
+  loading?: boolean
 }
 
 export const PayloadTable: React.FC<PayloadTableProps> = ({
@@ -32,11 +33,11 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   columns = payloadTableColumnConfigDefaults(),
   maxSchemaDepth,
   count,
+  loading = false,
   variant = 'scrollable',
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-  const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
   const [payloadCount, setPayloadCount] = useState(0)
@@ -59,16 +60,14 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
     setPage(0)
   }, [payloads])
 
-  const handleChangePage = async (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     if (onMorePayloads) {
       const buffer = rowsPerPage * 2
       const lastVisiblePayload = visiblePayloads?.at(-1)
       if (lastVisiblePayload) {
         const lastVisibleIndex = payloads?.indexOf(lastVisiblePayload)
         if (payloads && lastVisibleIndex !== undefined && payloads?.length - (lastVisibleIndex + 1) <= buffer) {
-          setLoading(true)
-          await onMorePayloads()
-          setLoading(false)
+          onMorePayloads()
         }
       }
     }
