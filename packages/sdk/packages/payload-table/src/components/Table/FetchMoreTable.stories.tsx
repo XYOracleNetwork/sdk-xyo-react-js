@@ -1,4 +1,5 @@
 import { Button, Typography } from '@mui/material'
+import { useEffect } from '@storybook/addons'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { delay } from '@xylabs/sdk-js'
 import { XyoPayload } from '@xyo-network/payload'
@@ -17,15 +18,26 @@ const maxPayloads = 200
 
 const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
   const testPayloads = newPayloads()
-  const [payloads, setPayloads] = useState<XyoPayload[]>(testPayloads)
-  const [count, setCount] = useState(testPayloads.length)
+  const [payloads, setPayloads] = useState<XyoPayload[]>([])
+  const [count, setCount] = useState(0)
 
-  const addPayloads = () => {
+  const addToTotalPayloads = (payloads: XyoPayload[]) =>
     setPayloads((previous) => {
-      previous.push(...newPayloads())
+      previous.push(...payloads)
       setCount(previous.length)
       return previous
     })
+
+  useEffect(() => {
+    // simulate initial async payloads
+    setTimeout(() => {
+      addToTotalPayloads(testPayloads)
+    }, 500)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const addPayloads = () => {
+    addToTotalPayloads(newPayloads())
     return true
   }
 
