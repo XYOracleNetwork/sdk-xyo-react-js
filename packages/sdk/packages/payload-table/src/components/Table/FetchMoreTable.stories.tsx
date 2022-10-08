@@ -45,6 +45,7 @@ const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
     // Simulating delay fetching new payloads
     await delay(800)
     const newPayloadList = newPayloads()
+    setCount(newPayloadList.length)
     setPayloads(newPayloadList)
   }
 
