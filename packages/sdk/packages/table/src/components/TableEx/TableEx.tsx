@@ -7,9 +7,15 @@ export interface TableExProps extends PropsWithChildren, TableProps {
   variant?: TableExVariants
 }
 
-const TableExInner: React.FC<TableExProps> = ({ children, ...props }) => {
-  return <Table {...props}>{children}</Table>
-}
+const TableExInner: React.FC<TableExProps> = forwardRef(({ children, ...props }, ref) => {
+  return (
+    <Table ref={ref} {...props}>
+      {children}
+    </Table>
+  )
+})
+
+TableExInner.displayName = 'TableExInner'
 
 export const TableExWithRef: React.FC<TableExProps> = forwardRef(({ variant, children, ...props }, ref) => {
   return (
