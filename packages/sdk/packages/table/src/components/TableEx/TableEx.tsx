@@ -1,5 +1,5 @@
 import { Table, TableProps } from '@mui/material'
-import { PropsWithChildren } from 'react'
+import { forwardRef, PropsWithChildren } from 'react'
 
 import { TableExVariants } from './lib'
 
@@ -11,10 +11,14 @@ const TableExInner: React.FC<TableExProps> = ({ children, ...props }) => {
   return <Table {...props}>{children}</Table>
 }
 
-export const TableEx: React.FC<TableExProps> = ({ variant, children, ...props }) => {
+export const TableExWithRef: React.FC<TableExProps> = forwardRef(({ variant, children, ...props }, ref) => {
   return (
-    <TableExInner stickyHeader={variant === 'scrollable'} {...props}>
+    <TableExInner stickyHeader={variant === 'scrollable'} ref={ref} {...props}>
       {children}
     </TableExInner>
   )
-}
+})
+
+TableExWithRef.displayName = 'TableEx'
+
+export const TableEx = TableExWithRef

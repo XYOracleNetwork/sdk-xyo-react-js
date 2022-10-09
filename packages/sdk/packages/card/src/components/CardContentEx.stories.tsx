@@ -1,8 +1,8 @@
 /* eslint-disable import/no-internal-modules */
-import { Button, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { useRef } from 'react'
+import { WithRefDecorator } from '@xyo-network/react-storybook'
 
 import { CardContentEx } from './CardContentEx'
 import { PageCard } from './PageCard'
@@ -12,25 +12,6 @@ const ScrollableDecoratorFn: DecoratorFn = (Story, args) => (
     <Story {...args} />
   </FlexGrowCol>
 )
-
-const WithRefDecorator: DecoratorFn = (Story, args) => {
-  const ref = useRef<HTMLDivElement | null>(null)
-  const onClick = () => {
-    if (ref.current) {
-      ref.current.style.color = 'green'
-    }
-  }
-
-  args.args.ref = ref
-  return (
-    <>
-      <Button onClick={onClick} variant="contained">
-        Change to green
-      </Button>
-      <Story {...args} />
-    </>
-  )
-}
 
 const StorybookEntry: Meta = {
   argTypes: {},
