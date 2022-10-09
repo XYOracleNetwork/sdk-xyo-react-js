@@ -2,6 +2,7 @@
 import { Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
+import { WithRefDecorator } from '@xyo-network/react-storybook'
 
 import { CardContentEx } from './CardContentEx'
 import { PageCard } from './PageCard'
@@ -38,11 +39,14 @@ const Template: ComponentStory<typeof CardContentEx> = (props) => {
 const Default = Template.bind({})
 Default.args = {}
 
+const WithRef = Template.bind({})
+WithRef.decorators = [WithRefDecorator]
+
 const WithVariant = Template.bind({})
 WithVariant.args = { variant: 'scrollable' }
 WithVariant.decorators = [ScrollableDecoratorFn]
 
-export { Default, WithVariant }
+export { Default, WithRef, WithVariant }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
