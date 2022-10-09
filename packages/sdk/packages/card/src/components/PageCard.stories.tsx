@@ -1,9 +1,29 @@
 /* eslint-disable import/no-internal-modules */
-import { CardContent, Typography } from '@mui/material'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Button, CardContent, Typography } from '@mui/material'
+import { useRef } from '@storybook/addons'
+import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useState } from 'react'
 
 import { PageCard } from './PageCard'
+
+const WithRefDecorator: DecoratorFn = (Story, args) => {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const onClick = () => {
+    if (ref.current) {
+      ref.current.style.color = 'green'
+    }
+  }
+
+  args.args.ref = ref
+  return (
+    <>
+      <Button onClick={onClick} variant="contained">
+        Change to green
+      </Button>
+      <Story {...args} />
+    </>
+  )
+}
 
 const StorybookEntry: Meta = {
   argTypes: {
@@ -56,7 +76,10 @@ WithNoOnRefresh.parameters = {
   actions: { argTypesRegex: '' },
 }
 
-export { Default, WithNoOnRefresh }
+const WithRef = Template.bind({})
+WithRef.decorators = [WithRefDecorator]
+
+export { Default, WithNoOnRefresh, WithRef }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -1,4 +1,5 @@
 import { CardContent, CardContentProps, styled } from '@mui/material'
+import { forwardRef } from 'react'
 
 const CardContentExRoot = styled(CardContent, {
   name: 'CardContentEx',
@@ -18,6 +19,10 @@ export type CardContentExProps = CardContentProps & {
   variant?: 'scrollable' | 'normal'
 }
 
-export const CardContentEx: React.FC<CardContentExProps> = (props) => {
-  return <CardContentExRoot {...props} />
-}
+export const CardContentExWithRef: React.FC<CardContentExProps> = forwardRef((props, ref) => {
+  return <CardContentExRoot ref={ref} {...props} />
+})
+
+CardContentExWithRef.displayName = 'CardContentEx'
+
+export const CardContentEx = CardContentExWithRef
