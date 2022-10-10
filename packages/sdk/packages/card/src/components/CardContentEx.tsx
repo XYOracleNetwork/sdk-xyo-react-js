@@ -1,5 +1,5 @@
 import { CardContent, CardContentProps, styled } from '@mui/material'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect } from 'react'
 
 const CardContentExRoot = styled(CardContent, {
   name: 'CardContentEx',
@@ -17,9 +17,15 @@ const CardContentExRoot = styled(CardContent, {
 
 export type CardContentExProps = CardContentProps & {
   variant?: 'scrollable' | 'normal'
+  scrollToTop?: boolean
 }
 
-export const CardContentExWithRef: React.FC<CardContentExProps> = forwardRef((props, ref) => {
+export const CardContentExWithRef = forwardRef<HTMLDivElement | null, CardContentExProps>(({ scrollToTop, ...props }, ref) => {
+  useEffect(() => {
+    if (ref !== null && typeof ref === 'object') {
+      ref?.current?.scroll({ behavior: 'smooth', top: 0 })
+    }
+  }, [ref, scrollToTop])
   return <CardContentExRoot ref={ref} {...props} />
 })
 
