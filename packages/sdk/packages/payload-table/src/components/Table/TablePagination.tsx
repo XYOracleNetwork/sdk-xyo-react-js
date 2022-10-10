@@ -14,26 +14,29 @@ interface TablePaginationActionsProps {
   onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
 }
 
+type PaginationNouns = 'nextPage' | 'previousPage' | 'firstPage' | 'lastPage'
+
 export function TablePaginationActions({ count, page, rowsPerPage, onPageChange, enableNextPage, loading }: TablePaginationActionsProps) {
   const theme = useTheme()
-  const [nextPageRef, nextPageDispatch] = useXyoEvent<HTMLButtonElement>()
-  const [previousPageRef, previousPageDispatch] = useXyoEvent<HTMLButtonElement>()
+  const [paginationRef, paginationDispatch] = useXyoEvent<HTMLButtonElement, PaginationNouns>()
 
   const handleFirstPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    paginationDispatch('firstPage', 'click', 'true')
     onPageChange(event, 0)
   }
 
   const handleBackButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    previousPageDispatch('previousPage', 'click')
+    paginationDispatch('previousPage', 'click', (page - 1)?.toString())
     onPageChange(event, page - 1)
   }
 
   const handleNextButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    nextPageDispatch('nextPage', 'click')
+    paginationDispatch('nextPage', 'click', (page + 1)?.toString())
     onPageChange(event, page + 1)
   }
 
   const handleLastPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    paginationDispatch('lastPage', 'click', 'true')
     onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1))
   }
 
@@ -44,11 +47,11 @@ export function TablePaginationActions({ count, page, rowsPerPage, onPageChange,
         <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
           {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
         </IconButton>
-        <IconButton ref={previousPageRef} onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
+        <IconButton ref={paginationRef} onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
           {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
         </IconButton>
         <IconButton
-          ref={nextPageRef}
+          ref={paginationRef}
           onClick={handleNextButtonClick}
           disabled={!enableNextPage && page >= Math.ceil(count / rowsPerPage) - 1}
           aria-label="next page"
