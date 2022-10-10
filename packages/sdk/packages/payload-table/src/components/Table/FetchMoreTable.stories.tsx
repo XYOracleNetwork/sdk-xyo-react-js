@@ -3,6 +3,7 @@ import { useEffect } from '@storybook/addons'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { delay } from '@xylabs/sdk-js'
 import { XyoPayload } from '@xyo-network/payload'
+import { useXyoEvent } from '@xyo-network/react-event'
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -78,11 +79,14 @@ const StorybookEntry = {
   title: 'payload/FetchMoreTable',
 } as ComponentMeta<typeof PayloadTable>
 
-const Template: ComponentStory<typeof PayloadTable> = (args) => (
-  <BrowserRouter>
-    <PayloadTable {...args}></PayloadTable>
-  </BrowserRouter>
-)
+const Template: ComponentStory<typeof PayloadTable> = (args) => {
+  const [ref] = useXyoEvent<HTMLTableElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`))
+  return (
+    <BrowserRouter>
+      <PayloadTable ref={ref} {...args}></PayloadTable>
+    </BrowserRouter>
+  )
+}
 
 const Default = Template.bind({})
 Default.args = {}
