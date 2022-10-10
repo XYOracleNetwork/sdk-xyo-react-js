@@ -1,6 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme } from '@mui/material'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
+import { WithRefDecorator } from '@xyo-network/react-storybook'
 
 import { TableEx } from './TableEx'
 import { TableFooterEx } from './TableFooterEx'
@@ -73,11 +74,14 @@ const Template: ComponentStory<typeof TableEx> = (args) => {
 const Default = Template.bind({})
 Default.args = {}
 
+const WithRef = Template.bind({})
+WithRef.decorators = [WithRefDecorator]
+
 const WithScrollable = Template.bind({})
 WithScrollable.args = { variant: 'scrollable' }
 WithScrollable.decorators = [ScrollableDecoratorFn]
 
-export { Default, WithScrollable }
+export { Default, WithRef, WithScrollable }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
