@@ -5,6 +5,8 @@ import LastPageIcon from '@mui/icons-material/LastPage'
 import { Box, CircularProgress, IconButton, useTheme } from '@mui/material'
 import { useXyoEvent } from '@xyo-network/react-event'
 
+import { PaginationNouns } from './types'
+
 interface TablePaginationActionsProps {
   count: number
   enableNextPage?: boolean
@@ -13,8 +15,6 @@ interface TablePaginationActionsProps {
   loading?: boolean
   onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
 }
-
-type PaginationNouns = 'nextPage' | 'previousPage' | 'firstPage' | 'lastPage'
 
 export function TablePaginationActions({ count, page, rowsPerPage, onPageChange, enableNextPage, loading }: TablePaginationActionsProps) {
   const theme = useTheme()
