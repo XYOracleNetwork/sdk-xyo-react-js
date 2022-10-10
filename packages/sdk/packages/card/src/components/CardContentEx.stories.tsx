@@ -9,14 +9,14 @@ import { CardContentEx } from './CardContentEx'
 import { PageCard } from './PageCard'
 
 const ScrollableDecoratorFn: DecoratorFn = (Story, args) => {
-  const [scrollToTop, setScrollToTop] = useState(false)
+  const [scrollToTop, setScrollToTop] = useState(0)
   const ref = useRef<HTMLDivElement | null>(null)
 
   args.args.ref = ref
   args.args.scrollToTop = scrollToTop
 
   const onScrollToTop = () => {
-    setScrollToTop(!scrollToTop)
+    setScrollToTop(scrollToTop + 1)
   }
   return (
     <FlexGrowCol alignItems="stretch" position="absolute" height="calc(100vh - 2rem)" style={{ inset: 0 }}>
