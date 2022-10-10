@@ -3,7 +3,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { TablePaginationActions } from './TablePagination'
@@ -13,13 +13,16 @@ export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
   archive?: string
   onRowClick?: (value: XyoPayload) => void
-  fetchMorePayloads?: () => boolean
   rowsPerPage?: number
   payloads?: XyoPayload[] | null
-  columns?: PayloadTableColumnConfig
-  maxSchemaDepth?: number
-  count?: number | null
   loading?: boolean
+  columns?: PayloadTableColumnConfig
+  /** External trigger to fetch more payloads */
+  fetchMorePayloads?: () => void
+  /** set number of schema parts to display starting from the end */
+  maxSchemaDepth?: number
+  /** Total number of payloads passed */
+  count?: number
 }
 
 export const PayloadTable: React.FC<PayloadTableProps> = ({
@@ -32,7 +35,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   children,
   columns = payloadTableColumnConfigDefaults(),
   maxSchemaDepth,
-  count,
+  count = 0,
   loading = false,
   variant = 'scrollable',
   ...props
@@ -40,37 +43,43 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
-  const [payloadCount, setPayloadCount] = useState(0)
+  const [visiblePayloads, setVisiblePayloads] = useState<XyoPayload[]>([])
 
-  const visiblePayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, rowsPerPage, page])
   // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount || 0) : 0
-
-  // when the count changes but the payload reference does not, update the count manually
-  useEffect(() => {
-    setPayloadCount(payloads !== undefined ? payloads?.length ?? 0 : 0)
-  }, [count, payloads])
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - count || 0) : 0
 
   useEffect(() => {
     setRowsPerPage(rowsPerPageProp)
   }, [rowsPerPageProp])
+
+  // React to various prop changes to derive new visible payloads
+  // count is needed to show initial payloads added async to the same payloads reference
+  useEffect(() => {
+    if (payloads) {
+      setVisiblePayloads(payloads.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage))
+    }
+  }, [count, page, payloads, rowsPerPage])
 
   // If the payload reference changes, assume we have a new list and reset current page
   useEffect(() => {
     setPage(0)
   }, [payloads])
 
-  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    if (fetchMorePayloads) {
+  const handleAdditionalPayloads = () => {
+    if (fetchMorePayloads && payloads) {
       const buffer = rowsPerPage * 2
       const lastVisiblePayload = visiblePayloads?.at(-1)
       if (lastVisiblePayload) {
         const lastVisibleIndex = payloads?.indexOf(lastVisiblePayload)
-        if (payloads && lastVisibleIndex !== undefined && payloads?.length - (lastVisibleIndex + 1) <= buffer) {
+        if (lastVisibleIndex !== undefined && payloads.length - (lastVisibleIndex + 1) <= buffer) {
           fetchMorePayloads()
         }
       }
     }
+  }
+
+  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    handleAdditionalPayloads()
     setPage(newPage)
   }
 
@@ -129,7 +138,7 @@ export const PayloadTable: React.FC<PayloadTableProps> = ({
         <TableRow>
           <StyledTablePagination
             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-            count={payloadCount}
+            count={count ?? 0}
             rowsPerPage={rowsPerPage}
             page={page}
             SelectProps={{
