@@ -26,7 +26,7 @@ export const useCustomEvent = <TElement extends HTMLElement, TDetail = unknown>(
     }
     return () => {
       if (handler && element) {
-        element?.removeEventListener('xyo', handler)
+        element?.removeEventListener(type, handler)
       }
     }
   })
