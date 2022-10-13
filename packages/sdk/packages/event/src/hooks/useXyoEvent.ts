@@ -15,6 +15,7 @@ export type XyoEventDispatch<TNoun = XyoEventNoun, TVerb = XyoEventVerb, TData =
 
 export const useXyoEvent = <T extends HTMLElement, TNoun = XyoEventNoun, TVerb = XyoEventVerb, TData = string>(
   listener?: XyoEventDispatch<TNoun, TVerb, TData>,
+  sharableRef?: RefObject<T>,
 ): [RefObject<T>, XyoEventDispatch<TNoun, TVerb, TData>] => {
   const [ref, customDispatch] = useCustomEvent<T, XyoEvent<TNoun, TVerb, TData>>(
     'xyo',
@@ -23,6 +24,7 @@ export const useXyoEvent = <T extends HTMLElement, TNoun = XyoEventNoun, TVerb =
           return listener(detail.noun, detail.verb, detail.data)
         }
       : undefined,
+    sharableRef,
   )
 
   const dispatch: XyoEventDispatch<TNoun, TVerb, TData> = (noun: TNoun, verb: TVerb, data?: TData) => {
