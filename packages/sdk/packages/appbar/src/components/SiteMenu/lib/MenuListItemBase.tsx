@@ -1,4 +1,4 @@
-export interface SiteMenuListItemBase {
+export interface MenuListItemBase {
   iconOnly?: boolean
   collapseEnd?: boolean
 }

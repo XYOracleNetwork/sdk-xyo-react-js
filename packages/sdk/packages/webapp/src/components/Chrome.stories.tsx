@@ -3,7 +3,7 @@ import { Breadcrumbs, List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import { SiteMenuListItem } from '@xyo-network/react-appbar'
+import { MenuListItemContainer } from '@xyo-network/react-appbar'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WebAppChrome } from './Chrome'
@@ -47,7 +47,7 @@ const Template: ComponentStory<typeof WebAppChrome> = (args) => {
       <WebAppChrome
         menuItems={
           <List>
-            <SiteMenuListItem primary="Hello" />
+            <MenuListItemContainer primary="Hello" />
           </List>
         }
         height="calc(100vh - 2rem)"
@@ -61,12 +61,12 @@ const Default = Template.bind({})
 Default.args = {}
 
 const DefaultSideBar = Template.bind({})
-DefaultSideBar.args = { children: <Children devMode />, navigationType: 'sidebar' }
+DefaultSideBar.args = { children: <Children />, navigationType: 'sidebar' }
 
-const DefaultAlwaysScrollable = Template.bind({})
-DefaultAlwaysScrollable.args = { children: <Children devMode scrollingBreakpoint="xl" />, navigationType: 'sidebar' }
+const WithFixedSizePage = Template.bind({})
+WithFixedSizePage.args = { children: <Children variant="fixed" />, navigationType: 'sidebar' }
 
-export { Default, DefaultAlwaysScrollable, DefaultSideBar }
+export { Default, DefaultSideBar, WithFixedSizePage }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -1,8 +1,8 @@
-import { Button, Typography } from '@mui/material'
-import { ButtonExProps } from '@xylabs/react-button'
+import { Typography } from '@mui/material'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { Property, PropertyGroup, PropertyGroupProps, XyoEvent, XyoEventNoun, XyoEventVerb } from '@xyo-network/react-property'
-import { createRef, forwardRef } from 'react'
+import { useXyoEvent } from '@xyo-network/react-event'
+import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 export type PreviousBlockDetailsProps = PropertyGroupProps & {
   value?: XyoBoundWitness
@@ -14,37 +14,23 @@ export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, 
     elevation += props.elevation ?? 0
   }
 
-  const ref = createRef<HTMLButtonElement>()
-
-  const dispatch = (noun: XyoEventNoun, verb: XyoEventVerb, data?: string) => {
-    const event = new CustomEvent<XyoEvent>('xyo', { bubbles: true, cancelable: true, composed: true, detail: { data, noun, verb } })
-    ref.current?.dispatchEvent(event)
-  }
-
-  const ButtonExRef = forwardRef<HTMLButtonElement, ButtonExProps>((props, ref) => (
-    <Button ref={ref} onClick={() => dispatch?.('boundwitness', 'click', value?.previous_hash)} {...props}>
-      <Typography fontFamily="monospace">{value?.previous_hash}</Typography>
-    </Button>
-  ))
-
-  ButtonExRef.displayName = 'ButtonExRef'
+  const [ref, dispatch] = useXyoEvent<HTMLDivElement>()
 
   return (
     <PropertyGroup titleProps={{ elevation }} title="Links" tip="Blocks that are linked to this block" {...props}>
-      <Property titleProps={{ elevation }} flexGrow={1} title="Previous Hash" tip={value?.previousHash}>
-        {value?.previous_hash ? (
-          <ButtonExRef
-            ref={ref}
-            onClick={() => {
-              dispatch?.('boundwitness', 'click', value?.previous_hash)
-            }}
-          >
-            <Typography fontFamily="monospace">{value?.previous_hash}</Typography>
-          </ButtonExRef>
-        ) : (
-          'None'
-        )}
-      </Property>
+      {value?.previous_hashes.map((hash) => {
+        return (
+          <Property key={hash} titleProps={{ elevation }} flexGrow={1} title="Previous Hash" tip={hash}>
+            {hash ? (
+              <FlexRow ref={ref} onClick={() => dispatch?.('boundwitness', 'click', hash)}>
+                <Typography fontFamily="monospace">{hash}</Typography>
+              </FlexRow>
+            ) : (
+              'None'
+            )}
+          </Property>
+        )
+      })}
     </PropertyGroup>
   )
 }

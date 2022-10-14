@@ -137,7 +137,6 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
               )}
             >
               <PayloadDynamicTableRow
-                forCell={1}
                 archive={archive}
                 onClick={
                   onRowClick

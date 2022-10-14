@@ -1,9 +1,8 @@
-import { PartialRecord } from '@xylabs/sdk-js'
 import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 
-const mapAssetsToString = (assetValues: PartialRecord<string, number> | undefined) => {
+const mapAssetsToString = (assetValues: Partial<Record<string, number>> | undefined) => {
   return assetValues
-    ? Object.entries(assetValues).reduce<PartialRecord<string, string>>((accumulator, [symbol, value]) => {
+    ? Object.entries(assetValues).reduce<Partial<Record<string, string>>>((accumulator, [symbol, value]) => {
         accumulator[symbol] = value?.toString()
         return accumulator
       }, {})
@@ -20,7 +19,7 @@ export const useCoinGeckoToAssetPriceDiviner = (payload?: XyoCoingeckoCryptoMark
         },
       }
       return accumulator
-    }, {} as Record<string, { value: PartialRecord<string, string> }>)
+    }, {} as Record<string, { value: Partial<Record<string, string>> }>)
 
     return {
       ...payload,

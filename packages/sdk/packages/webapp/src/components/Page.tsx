@@ -6,22 +6,25 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 
 import { WebAppBody, WebAppBodyProps } from './Body'
+import { fixedWrap, scrollableWrap } from './lib'
 
 const WebAppPageRoot = styled(FlexGrowCol, {
   name: 'WebAppPage',
-  shouldForwardProp: (propName) => propName !== 'scrollingBreakpoint',
+  shouldForwardProp: (propName) => propName !== 'mobileScrollingBreakpoint' && propName !== 'variant',
   slot: 'Root',
-})<WebAppPageProps>(({ theme, scrollingBreakpoint = 'sm' }) => ({
-  alignItems: 'stretch',
-  inset: 'unset',
-  justifyContent: 'start',
-  maxWidth: '100vw',
-  position: 'relative',
-  [theme.breakpoints.down(scrollingBreakpoint)]: {
-    inset: 0,
-    position: 'absolute',
-  },
-}))
+})<WebAppPageProps>(({ theme, mobileScrollingBreakpoint = 'sm', variant }) => {
+  const props = variant === 'scrollable' ? scrollableWrap : fixedWrap
+  return {
+    ...props,
+    alignItems: 'stretch',
+    justifyContent: 'start',
+    maxWidth: '100vw',
+    [theme.breakpoints.down(mobileScrollingBreakpoint)]: {
+      inset: 0,
+      position: 'absolute',
+    },
+  }
+})
 
 export interface WebAppPageProps extends WebAppBodyProps, FlexBoxProps {
   container?: ContainerProps['maxWidth'] | 'none'
@@ -35,8 +38,8 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   container,
   children,
   breadcrumbs,
-  scrollingBreakpoint,
-  devMode,
+  mobileScrollingBreakpoint,
+  variant = 'scrollable',
   ...props
 }) => {
   const userEvents = useUserEvents()
@@ -50,76 +53,39 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
     [pathname, title, userEvents],
   )
 
-  if (devMode) {
-    return (
-      <WebAppPageRoot scrollingBreakpoint={scrollingBreakpoint} {...props}>
-        <Helmet title={title} />
-        {container && container !== 'none' ? (
-          <Container
-            disableGutters={disableGutters}
-            style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
-            maxWidth={container}
-          >
-            <WebAppBody
-              devMode={devMode}
-              disableBreadcrumbGutter={disableBreadcrumbGutter}
-              breadcrumbs={breadcrumbs}
-              scrollingBreakpoint={scrollingBreakpoint}
-              {...props}
-            >
-              {children}
-            </WebAppBody>
-          </Container>
-        ) : (
+  return (
+    <WebAppPageRoot mobileScrollingBreakpoint={mobileScrollingBreakpoint} variant={variant} {...props}>
+      <Helmet title={title} />
+      {container && container !== 'none' ? (
+        <Container
+          disableGutters={disableGutters}
+          style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
+          maxWidth={container}
+        >
           <WebAppBody
-            devMode={devMode}
             disableBreadcrumbGutter={disableBreadcrumbGutter}
             breadcrumbs={breadcrumbs}
-            scrollingBreakpoint={scrollingBreakpoint}
-            paddingX={disableGutters ? 0 : 1}
+            mobileScrollingBreakpoint={mobileScrollingBreakpoint}
+            variant={variant}
             {...props}
           >
             {children}
           </WebAppBody>
-        )}
-      </WebAppPageRoot>
-    )
-  } else {
-    return (
-      <FlexGrowCol alignItems="stretch" justifyContent="flex-start" minHeight={0} maxWidth="100vw" overflow="visible scroll">
-        <Helmet title={title} />
-        {container && container !== 'none' ? (
-          <Container
-            disableGutters={disableGutters}
-            style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
-            maxWidth={container}
-          >
-            <WebAppBody
-              devMode={devMode}
-              disableBreadcrumbGutter={disableBreadcrumbGutter}
-              breadcrumbs={breadcrumbs}
-              scrollingBreakpoint={scrollingBreakpoint}
-              paddingX={disableGutters ? 0 : 1}
-              {...props}
-            >
-              {children}
-            </WebAppBody>
-          </Container>
-        ) : (
-          <WebAppBody
-            devMode={devMode}
-            disableBreadcrumbGutter={disableBreadcrumbGutter}
-            breadcrumbs={breadcrumbs}
-            scrollingBreakpoint={scrollingBreakpoint}
-            paddingX={disableGutters ? 0 : 1}
-            {...props}
-          >
-            {children}
-          </WebAppBody>
-        )}
-      </FlexGrowCol>
-    )
-  }
+        </Container>
+      ) : (
+        <WebAppBody
+          disableBreadcrumbGutter={disableBreadcrumbGutter}
+          breadcrumbs={breadcrumbs}
+          mobileScrollingBreakpoint={mobileScrollingBreakpoint}
+          paddingX={disableGutters ? 0 : 1}
+          variant={variant}
+          {...props}
+        >
+          {children}
+        </WebAppBody>
+      )}
+    </WebAppPageRoot>
+  )
 }
 
 /** @deprecated use WebAppPagePage instead */

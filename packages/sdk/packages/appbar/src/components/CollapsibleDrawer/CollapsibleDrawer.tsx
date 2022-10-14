@@ -3,7 +3,7 @@ import { WithChildren } from '@xylabs/react-shared'
 
 import { useCollapsible } from '../../contexts'
 
-export const CollapsibleDrawer: React.FC<WithChildren<CollapseProps>> = ({ children, ...props }) => {
+export const CollapsibleDrawer: React.FC<WithChildren<CollapseProps>> = ({ children, sx, ...props }) => {
   const { collapse, setCollapseEnd } = useCollapsible()
   const theme = useTheme()
 
@@ -19,6 +19,7 @@ export const CollapsibleDrawer: React.FC<WithChildren<CollapseProps>> = ({ child
         alignItems: 'start',
         display: 'flex',
         height: '100%',
+        ...sx,
       }}
       {...props}
     >
