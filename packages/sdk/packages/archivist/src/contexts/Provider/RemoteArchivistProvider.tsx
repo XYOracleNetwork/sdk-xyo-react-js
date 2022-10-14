@@ -1,6 +1,6 @@
 import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { XyoArchivistWrapper } from '@xyo-network/archivist'
-import { XyoModuleResolverFunc } from '@xyo-network/module'
+import { XyoModuleResolver } from '@xyo-network/module'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 
@@ -9,22 +9,17 @@ import { ArchivistProvider } from './Provider'
 
 export type RemoteArchivistProviderProps = ContextExProviderProps<{
   config: XyoRemoteArchivistConfig
-  resolver?: XyoModuleResolverFunc
+  resolver?: XyoModuleResolver
 }>
 
 export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = ({ config, resolver, ...props }) => {
   const { archivist } = useArchivist()
-  const activeResolver: XyoModuleResolverFunc = (address: string) => {
-    if (archivist && address === archivist?.address) {
-      return new XyoArchivistWrapper(archivist)
-    }
-    return resolver?.(address) ?? null
-  }
+  const activeResolver = resolver ?? new XyoModuleResolver().add(archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined)
   return (
     <ArchivistProvider
       archivist={
-        new XyoRemoteArchivist(
-          merge(
+        new XyoRemoteArchivist({
+          config: merge(
             {},
             config,
             archivist
@@ -37,9 +32,8 @@ export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = (
                 }
               : undefined,
           ),
-          undefined,
-          activeResolver,
-        )
+          resolver: activeResolver,
+        })
       }
       {...props}
     />

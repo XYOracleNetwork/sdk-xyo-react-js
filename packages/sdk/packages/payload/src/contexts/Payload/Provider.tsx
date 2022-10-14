@@ -19,7 +19,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (payload === undefined && hash) {
-        const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
+        const wrapper = archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined
         const loadedPayloads = (await wrapper?.get([hash])) ?? []
         if (mounted()) {
           setPayload(loadedPayloads?.pop() ?? null)

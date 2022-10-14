@@ -2,6 +2,7 @@ import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
 import { PayloadArchivist, XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchive } from '@xyo-network/react-archive'
 import { useArchivist } from '@xyo-network/react-archivist'
@@ -34,15 +35,16 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   const { account } = useAccount()
+  const resolver = new XyoModuleResolver().add(witnesses).add(archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const activeArchivist: PayloadArchivist | undefined = archivistProp ?? archivist
-      const archivistWrapper = activeArchivist ? new XyoArchivistWrapper(activeArchivist) : undefined
+      const archivistWrapper = activeArchivist ? new XyoArchivistWrapper({ module: activeArchivist }) : undefined
       const panel = archivistWrapper
-        ? new XyoPanel(
-            {
+        ? new XyoPanel({
+            config: {
               archivists: [archivistWrapper.address],
               onReportEnd: (_, errors?: Error[]) => {
                 if (mounted()) {
@@ -89,11 +91,8 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
               schema: XyoPanelConfigSchema,
               witnesses: witnesses.map((witness) => witness.address),
             },
-            undefined,
-            (address) => {
-              return archivistWrapper.address === address ? archivistWrapper : witnesses.find((witness) => witness.address === address) ?? null
-            },
-          )
+            resolver,
+          })
         : undefined
       setPanel(panel)
       await delay(0)

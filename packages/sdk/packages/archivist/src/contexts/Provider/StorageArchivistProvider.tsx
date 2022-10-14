@@ -1,5 +1,5 @@
 import { XyoArchivistWrapper, XyoStorageArchivist, XyoStorageArchivistConfig } from '@xyo-network/archivist'
-import { XyoModuleResolverFunc } from '@xyo-network/module'
+import { XyoModuleResolver } from '@xyo-network/module'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 
@@ -8,23 +8,18 @@ import { ArchivistProvider } from './Provider'
 
 export type StorageArchivistProviderProps = ContextExProviderProps<{
   config: XyoStorageArchivistConfig
-  resolver?: XyoModuleResolverFunc
+  resolver?: XyoModuleResolver
 }>
 
 export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config, resolver, ...props }) => {
   const { archivist } = useArchivist()
-  const activeResolver: XyoModuleResolverFunc = (address: string) => {
-    if (archivist && address === archivist?.address) {
-      return new XyoArchivistWrapper(archivist)
-    }
-    return resolver?.(address) ?? null
-  }
+  const activeResolver = resolver ?? new XyoModuleResolver().add(archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined)
 
   return (
     <ArchivistProvider
       archivist={
-        new XyoStorageArchivist(
-          merge(
+        new XyoStorageArchivist({
+          config: merge(
             {},
             config,
             archivist
@@ -37,9 +32,8 @@ export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> =
                 }
               : undefined,
           ),
-          undefined,
-          activeResolver,
-        )
+          resolver: activeResolver,
+        })
       }
       {...props}
     />
