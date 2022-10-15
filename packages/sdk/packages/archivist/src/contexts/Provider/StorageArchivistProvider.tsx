@@ -11,31 +11,47 @@ export type StorageArchivistProviderProps = ContextExProviderProps<{
   resolver?: XyoModuleResolver
 }>
 
+import { useAsyncEffect } from '@xylabs/react-shared'
+import { useMemo, useState } from 'react'
+
 export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config, resolver, ...props }) => {
   const { archivist } = useArchivist()
-  const activeResolver = resolver ?? new XyoModuleResolver().add(archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined)
-
-  return (
-    <ArchivistProvider
-      archivist={
-        new XyoStorageArchivist({
-          config: merge(
-            {},
-            config,
-            archivist
-              ? {
-                  parents: {
-                    commit: [archivist.address],
-                    read: [archivist.address],
-                    write: [archivist.address],
-                  },
-                }
-              : undefined,
-          ),
-          resolver: activeResolver,
-        })
-      }
-      {...props}
-    />
+  const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined), [archivist])
+  const activeResolver: XyoModuleResolver | undefined = useMemo(
+    () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),
+    [resolver, wrapper],
   )
+  if (archivist) {
+    activeResolver?.add(new XyoArchivistWrapper({ module: archivist }))
+  }
+
+  const [activeArchivist, setActiveArchivist] = useState<XyoStorageArchivist>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      const activeArchivist = await new XyoStorageArchivist({
+        config: merge(
+          {},
+          config,
+          archivist
+            ? {
+                parents: {
+                  commit: [archivist.address],
+                  read: [archivist.address],
+                  write: [archivist.address],
+                },
+              }
+            : undefined,
+        ),
+        resolver: activeResolver,
+      }).start()
+      if (mounted()) {
+        setActiveArchivist(activeArchivist)
+      }
+    },
+    [activeResolver, archivist, config],
+  )
+
+  return <ArchivistProvider archivist={activeArchivist} {...props} />
 }
