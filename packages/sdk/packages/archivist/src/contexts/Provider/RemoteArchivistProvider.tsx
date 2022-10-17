@@ -30,7 +30,7 @@ export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = (
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const activeArchivist = await new XyoRemoteArchivist({
+      const activeArchivist = await XyoRemoteArchivist.create({
         config: merge(
           {},
           config,
@@ -45,7 +45,7 @@ export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = (
             : undefined,
         ),
         resolver: activeResolver,
-      }).start()
+      })
       if (mounted()) {
         setActiveArchivist(activeArchivist)
       }

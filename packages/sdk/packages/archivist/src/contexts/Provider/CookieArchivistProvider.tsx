@@ -29,7 +29,7 @@ export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = (
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const activeArchivist = await new XyoCookieArchivist({
+      const activeArchivist = await XyoCookieArchivist.create({
         config: merge(
           {},
           config,
@@ -44,7 +44,7 @@ export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = (
             : undefined,
         ),
         resolver: activeResolver,
-      }).start()
+      })
       if (mounted()) {
         setActiveArchivist(activeArchivist)
       }

@@ -29,7 +29,7 @@ export const MemoryArchivistProvider: React.FC<MemoryArchivistProviderProps> = (
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const activeArchivist = await new XyoMemoryArchivist({
+      const activeArchivist = await XyoMemoryArchivist.create({
         config: merge(
           {},
           config,
@@ -44,7 +44,7 @@ export const MemoryArchivistProvider: React.FC<MemoryArchivistProviderProps> = (
             : undefined,
         ),
         resolver: activeResolver,
-      }).start()
+      })
       if (mounted()) {
         setActiveArchivist(activeArchivist)
       }

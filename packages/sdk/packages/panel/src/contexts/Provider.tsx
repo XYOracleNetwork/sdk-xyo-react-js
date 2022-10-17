@@ -3,7 +3,7 @@ import { delay } from '@xylabs/sdk-js'
 import { PayloadArchivist, XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoModuleResolver } from '@xyo-network/module'
-import { XyoPanel, XyoPanelConfigSchema } from '@xyo-network/panel'
+import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchive } from '@xyo-network/react-archive'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useAccount } from '@xyo-network/react-wallet'
@@ -43,7 +43,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
       const activeArchivist: PayloadArchivist | undefined = archivistProp ?? archivist
       const archivistWrapper = activeArchivist ? new XyoArchivistWrapper({ module: activeArchivist }) : undefined
       const panel = archivistWrapper
-        ? new XyoPanel({
+        ? await XyoPanel.create({
             config: {
               archivists: [archivistWrapper.address],
               onReportEnd: (_, errors?: Error[]) => {
@@ -90,7 +90,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
               },
               schema: XyoPanelConfigSchema,
               witnesses: witnesses.map((witness) => witness.address),
-            },
+            } as XyoPanelConfig,
             resolver,
           })
         : undefined
