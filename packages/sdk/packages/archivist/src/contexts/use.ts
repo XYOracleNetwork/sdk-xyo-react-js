@@ -56,6 +56,29 @@ export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(filter: T
   return [payloads, error]
 }
 
+export const useArchivistInsert = (payloads: XyoPayload[], required = false): [(XyoPayload | null)[]?, Error?] => {
+  const { archivist } = useArchivist(required)
+  const [resultPayloads, setResultPayloads] = useState<XyoPayloads>()
+  const [error, setError] = useState<Error>()
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      try {
+        const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
+        const result = await wrapper?.insert(payloads)
+        if (mounted()) {
+          setError(undefined)
+          setResultPayloads(result)
+        }
+      } catch (ex) {
+        setError(ex as Error)
+      }
+    },
+    [archivist, payloads],
+  )
+  return [resultPayloads, error]
+}
+
 export const useArchivistAll = (required = false): [(XyoPayload | null)[]?, Error?] => {
   const { archivist } = useArchivist(required)
   const [payloads, setPayloads] = useState<XyoPayloads>()
