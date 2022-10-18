@@ -15,13 +15,13 @@ export type CookieArchivistProviderProps = ContextExProviderProps<{
 
 export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = ({ config, resolver, ...props }) => {
   const { archivist } = useArchivist()
-  const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined), [archivist])
+  const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper(archivist) : undefined), [archivist])
   const activeResolver: XyoModuleResolver | undefined = useMemo(
     () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),
     [resolver, wrapper],
   )
   if (archivist) {
-    activeResolver?.add(new XyoArchivistWrapper({ module: archivist }))
+    activeResolver?.add(new XyoArchivistWrapper(archivist))
   }
 
   const [activeArchivist, setActiveArchivist] = useState<XyoCookieArchivist>()

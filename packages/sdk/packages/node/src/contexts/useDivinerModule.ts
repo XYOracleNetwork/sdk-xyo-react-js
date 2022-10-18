@@ -4,5 +4,5 @@ import { useModule } from './useModule'
 
 export const useDivinerModule = (address?: string) => {
   const module = useModule(address)
-  return module ? new XyoDivinerWrapper({ module }) : undefined
+  return module ? new XyoDivinerWrapper(module) : undefined
 }

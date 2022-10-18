@@ -18,7 +18,7 @@ export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const wrapper = archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined
+        const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
         const result = (await wrapper?.get(ids ?? [])) ?? []
         if (mounted()) {
           setError(undefined)
@@ -41,7 +41,7 @@ export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(filter: T
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const wrapper = archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined
+        const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
         const result = await wrapper?.find(filter)
         if (mounted()) {
           setError(undefined)

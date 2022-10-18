@@ -35,13 +35,13 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   const { account } = useAccount()
-  const resolver = new XyoModuleResolver().add(witnesses).add(archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined)
+  const resolver = new XyoModuleResolver().add(witnesses).add(archivist ? new XyoArchivistWrapper(archivist) : undefined)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const activeArchivist: PayloadArchivist | undefined = archivistProp ?? archivist
-      const archivistWrapper = activeArchivist ? new XyoArchivistWrapper({ module: activeArchivist }) : undefined
+      const archivistWrapper = activeArchivist ? new XyoArchivistWrapper(activeArchivist) : undefined
       const panel = archivistWrapper
         ? await XyoPanel.create({
             config: {

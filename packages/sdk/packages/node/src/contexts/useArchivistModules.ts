@@ -7,6 +7,6 @@ export const useArchivistModules = () => {
   const modules = useModules()
 
   return compact(modules?.filter((module) => module?.queryable(XyoArchivistGetQuerySchema))).map((module) =>
-    module ? new XyoArchivistWrapper({ module }) : undefined,
+    module ? new XyoArchivistWrapper(module) : undefined,
   )
 }

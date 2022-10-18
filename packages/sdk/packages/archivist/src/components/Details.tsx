@@ -19,7 +19,7 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ archivist: archiv
   const [wrapper, setWrapper] = useState<XyoArchivistWrapper>()
 
   useEffect(() => {
-    setWrapper(archivist ? new XyoArchivistWrapper({ module: archivist }) : undefined)
+    setWrapper(archivist ? new XyoArchivistWrapper(archivist) : undefined)
   }, [archivist])
 
   useAsyncEffect(
