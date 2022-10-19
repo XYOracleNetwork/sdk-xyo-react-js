@@ -33,7 +33,7 @@ export const EllipsisTableCell: React.FC<WithChildren<EllipsisTableCellProps>> =
         {children ? (
           children
         ) : href || to ? (
-          <LinkEx to={to} href={href} target={href ? '_blank' : undefined}>
+          <LinkEx title={value} to={to} href={href} target={href ? '_blank' : undefined}>
             {value}
           </LinkEx>
         ) : (
