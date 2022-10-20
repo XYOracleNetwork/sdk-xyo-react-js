@@ -54,9 +54,10 @@ export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload 
 export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(
   filter: TFilter,
   required = false,
-): [(XyoPayload | null)[]?, Error?, RefreshCallback?] => {
+): [XyoPayload[]?, Error?, RefreshCallback?] => {
   const [savedFilter] = useDataState(filter)
-  const { archivist, error, inFlight, payloads, refresh, setError, setInFlight, setPayloads, refreshPayloads } = useSharedUseArchivistState(required)
+  const [payloads, setPayloads] = useState<XyoPayload[]>()
+  const { archivist, error, inFlight, refresh, setError, setInFlight, refreshPayloads } = useSharedUseArchivistState(required)
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
