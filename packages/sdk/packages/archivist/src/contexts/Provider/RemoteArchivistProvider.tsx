@@ -1,47 +1,57 @@
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { XyoArchivistWrapper } from '@xyo-network/archivist'
-import { XyoModuleResolverFunc } from '@xyo-network/module'
+import { XyoModuleResolver } from '@xyo-network/module'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
+import { useMemo, useState } from 'react'
 
 import { useArchivist } from '../use'
 import { ArchivistProvider } from './Provider'
 
 export type RemoteArchivistProviderProps = ContextExProviderProps<{
-  config: XyoRemoteArchivistConfig
-  resolver?: XyoModuleResolverFunc
+  config?: XyoRemoteArchivistConfig
+  resolver?: XyoModuleResolver
 }>
 
 export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = ({ config, resolver, ...props }) => {
   const { archivist } = useArchivist()
-  const activeResolver: XyoModuleResolverFunc = (address: string) => {
-    if (archivist && address === archivist?.address) {
-      return new XyoArchivistWrapper(archivist)
-    }
-    return resolver?.(address) ?? null
-  }
-  return (
-    <ArchivistProvider
-      archivist={
-        new XyoRemoteArchivist(
-          merge(
-            {},
-            config,
-            archivist
-              ? {
-                  parents: {
-                    commit: [archivist.address],
-                    read: [archivist.address],
-                    write: [archivist.address],
-                  },
-                }
-              : undefined,
-          ),
-          undefined,
-          activeResolver,
-        )
-      }
-      {...props}
-    />
+  const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper(archivist) : undefined), [archivist])
+  const activeResolver: XyoModuleResolver | undefined = useMemo(
+    () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),
+    [resolver, wrapper],
   )
+  if (archivist) {
+    activeResolver?.add(new XyoArchivistWrapper(archivist))
+  }
+
+  const [activeArchivist, setActiveArchivist] = useState<XyoRemoteArchivist>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      const activeArchivist = await XyoRemoteArchivist.create({
+        config: merge(
+          {},
+          config,
+          archivist
+            ? {
+                parents: {
+                  commit: [archivist.address],
+                  read: [archivist.address],
+                  write: [archivist.address],
+                },
+              }
+            : undefined,
+        ),
+        resolver: activeResolver,
+      })
+      if (mounted()) {
+        setActiveArchivist(activeArchivist)
+      }
+    },
+    [activeResolver, archivist, config],
+  )
+
+  return <ArchivistProvider archivist={activeArchivist} {...props} />
 }

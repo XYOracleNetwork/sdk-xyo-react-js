@@ -2,7 +2,8 @@ import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
 import { PayloadArchivist, XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { XyoPanel, XyoPanelConfigSchema } from '@xyo-network/panel'
+import { XyoModuleResolver } from '@xyo-network/module'
+import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchive } from '@xyo-network/react-archive'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useAccount } from '@xyo-network/react-wallet'
@@ -34,6 +35,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   const { account } = useAccount()
+  const resolver = new XyoModuleResolver().add(witnesses).add(archivist ? new XyoArchivistWrapper(archivist) : undefined)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,8 +43,8 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
       const activeArchivist: PayloadArchivist | undefined = archivistProp ?? archivist
       const archivistWrapper = activeArchivist ? new XyoArchivistWrapper(activeArchivist) : undefined
       const panel = archivistWrapper
-        ? new XyoPanel(
-            {
+        ? await XyoPanel.create({
+            config: {
               archivists: [archivistWrapper.address],
               onReportEnd: (_, errors?: Error[]) => {
                 if (mounted()) {
@@ -88,12 +90,9 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
               },
               schema: XyoPanelConfigSchema,
               witnesses: witnesses.map((witness) => witness.address),
-            },
-            undefined,
-            (address) => {
-              return archivistWrapper.address === address ? archivistWrapper : witnesses.find((witness) => witness.address === address) ?? null
-            },
-          )
+            } as XyoPanelConfig,
+            resolver,
+          })
         : undefined
       setPanel(panel)
       await delay(0)

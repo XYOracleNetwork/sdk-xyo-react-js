@@ -1,6 +1,6 @@
 import { Box, BoxProps, styled, Typography, TypographyProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
-import React, { ElementType, useCallback, useState } from 'react'
+import React, { ElementType, forwardRef, useCallback, useState } from 'react'
 
 /**
  * Heavily inspired by - https://stackoverflow.com/a/30362531/2803259
@@ -41,16 +41,25 @@ const EllipsizeInnerWrap = styled(Box, {
 
 const EllipsizeContentWrap = styled(Typography, {
   name: ComponentName,
+  shouldForwardProp: (prop) => prop !== 'ellipsisPosition',
   slot: 'contentWrap',
-})<TypographyWithComponentProps>(() => ({
-  fontFamily: 'monospace',
-  left: 0,
-  overflow: 'hidden',
-  position: 'absolute',
-  right: 0,
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-}))
+})<TypographyWithComponentProps>(({ ellipsisPosition }) => {
+  return {
+    fontFamily: 'monospace',
+    left: 0,
+    overflow: 'hidden',
+    position: 'absolute',
+    right: 0,
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    ...(ellipsisPosition === 'end'
+      ? {
+          direction: 'rtl',
+          textAlign: 'left',
+        }
+      : {}),
+  }
+})
 
 const useClientHeight = () => {
   const [contentWrapHeight, setContentWrapHeight] = useState<string>()
@@ -67,23 +76,30 @@ const useClientHeight = () => {
 // See - https://mui.com/material-ui/guides/composition/#with-typescript
 interface TypographyWithComponentProps<Comp extends ElementType = ElementType> extends TypographyProps {
   component?: Comp
+  ellipsisPosition?: 'start' | 'end'
 }
 
 export interface EllipsizeBoxProps extends BoxProps {
   typographyProps?: TypographyWithComponentProps
+  ellipsisPosition?: 'start' | 'end'
 }
 
-export const EllipsizeBox: React.FC<WithChildren<EllipsizeBoxProps>> = ({ children, typographyProps, ...props }) => {
-  // Allow syncing of :before pseudo element height with contentWrapHeight
-  const { contentWrapRef, contentWrapHeight } = useClientHeight()
+export const EllipsizeBoxInner: React.FC<WithChildren<EllipsizeBoxProps>> = forwardRef(
+  ({ children, ellipsisPosition = 'end', typographyProps, ...props }, ref) => {
+    // Allow syncing of :before pseudo element height with contentWrapHeight
+    const { contentWrapRef, contentWrapHeight } = useClientHeight()
 
-  return (
-    <EllipsizeRoot beforeLineHeight={contentWrapHeight} {...props}>
-      <EllipsizeInnerWrap>
-        <EllipsizeContentWrap ref={contentWrapRef} component={'span'} {...typographyProps}>
-          {children}
-        </EllipsizeContentWrap>
-      </EllipsizeInnerWrap>
-    </EllipsizeRoot>
-  )
-}
+    return (
+      <EllipsizeRoot beforeLineHeight={contentWrapHeight} ref={ref} {...props}>
+        <EllipsizeInnerWrap>
+          <EllipsizeContentWrap ref={contentWrapRef} component={'span'} ellipsisPosition={ellipsisPosition} {...typographyProps}>
+            {children}
+          </EllipsizeContentWrap>
+        </EllipsizeInnerWrap>
+      </EllipsizeRoot>
+    )
+  },
+)
+
+EllipsizeBoxInner.displayName = 'EllipsizeBox'
+export const EllipsizeBox = EllipsizeBoxInner

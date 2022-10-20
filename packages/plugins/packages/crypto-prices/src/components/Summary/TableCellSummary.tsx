@@ -10,7 +10,6 @@ export const TableCellSummary: React.FC<XyoPayloadRenderProps & TableCellProps> 
     {
       payloadData.map((pair) => pair.tokens.map((token) => (tokenList.includes(token.symbol) ? null : tokenList.push(token.symbol))))
     }
-    console.log(tokenList)
     return tokenList
   }
 
