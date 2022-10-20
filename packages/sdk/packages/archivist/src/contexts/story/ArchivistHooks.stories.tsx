@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { useArchivistFind, useArchivistGet } from '../contexts'
-import { ArchivistPayloads, WithArchivistProviders } from './ArchivistHooks'
+import { useArchivistFind, useArchivistGet } from '../use'
+import { ArchivistPayloads } from './ArchivistPayloads.stories'
+import { WithArchivistProviders } from './WithArchivistProviders.stories'
 
 const StorybookEntry = {
   argTypes: {},
