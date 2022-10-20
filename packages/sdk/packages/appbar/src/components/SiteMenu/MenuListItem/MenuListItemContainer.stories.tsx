@@ -1,6 +1,7 @@
 import { List } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FaGlobeAmericas } from 'react-icons/fa'
+import { BrowserRouter } from 'react-router-dom'
 
 import { MenuListItemContainer, MenuListItemProps } from './MenuListItemContainer'
 
@@ -17,11 +18,13 @@ const StorybookEntry = {
 
 const SiteMenuList: React.FC<MenuListItemProps> = (args) => {
   return (
-    <List>
-      <MenuListItemContainer {...args} />
-      <MenuListItemContainer {...args} />
-      <MenuListItemContainer {...args} />
-    </List>
+    <BrowserRouter>
+      <List>
+        <MenuListItemContainer {...args} />
+        <MenuListItemContainer {...args} />
+        <MenuListItemContainer {...args} />
+      </List>
+    </BrowserRouter>
   )
 }
 

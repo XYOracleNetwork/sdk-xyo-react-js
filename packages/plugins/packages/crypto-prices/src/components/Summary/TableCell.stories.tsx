@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { sampleUniswapPayload } from '@xyo-network/react-storybook'
 
-import { payloadData } from '../payloadData.stories'
 import { TableCellSummary } from './TableCellSummary'
 
 const StorybookEntry = {
@@ -17,7 +17,7 @@ const StorybookEntry = {
 const Template: ComponentStory<typeof TableCellSummary> = (args) => <TableCellSummary {...args}></TableCellSummary>
 
 const WithData = Template.bind({})
-WithData.args = { payload: payloadData }
+WithData.args = { payload: sampleUniswapPayload }
 
 export { WithData }
 
