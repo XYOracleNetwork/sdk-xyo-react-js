@@ -2,7 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoPayload, XyoPayloadFindFilter, XyoPayloads } from '@xyo-network/payload'
 import { useContextEx, useDataState } from '@xyo-network/react-shared'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { ArchivistContext } from './Context'
 
@@ -17,36 +17,36 @@ const useSharedUseArchivistState = (required: boolean) => {
   const { archivist } = useArchivist(required)
   const [error, setError] = useState<Error>()
   const [refresh, setRefresh] = useState(1)
-  const [inFlight, setInFlight] = useState(false)
+  const loadingRef = useRef<boolean>(false)
   const refreshPayloads = () => setRefresh((previous) => previous + 1)
 
-  return { archivist, error, inFlight, payloads, refresh, refreshPayloads, setError, setInFlight, setPayloads }
+  return { archivist, error, loadingRef, payloads, refresh, refreshPayloads, setError, setPayloads }
 }
 
 export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload | null)[]?, Error?, RefreshCallback?] => {
   const [savedIds] = useDataState(ids)
-  const { archivist, error, inFlight, payloads, refresh, setError, setInFlight, setPayloads, refreshPayloads } = useSharedUseArchivistState(required)
+  const { archivist, error, loadingRef, payloads, refresh, setError, setPayloads, refreshPayloads } = useSharedUseArchivistState(required)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        if (archivist && !inFlight && savedIds) {
+        if (archivist && savedIds && !loadingRef.current) {
           const wrapper = new XyoArchivistWrapper(archivist)
+          loadingRef.current = true
           const result = (await wrapper?.get(savedIds ?? [])) ?? []
-          setInFlight(true)
+          loadingRef.current = false
           if (mounted()) {
             setError(undefined)
             setPayloads(result)
-            setInFlight(false)
           }
         }
       } catch (ex) {
+        loadingRef.current = false
         setError(ex as Error)
-        setInFlight(false)
       }
     },
-    [archivist, savedIds, refresh, inFlight, setInFlight, setError, setPayloads],
+    [archivist, savedIds, refresh, setError, setPayloads, loadingRef],
   )
   return [payloads, error, refreshPayloads]
 }
@@ -57,27 +57,27 @@ export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(
 ): [XyoPayload[]?, Error?, RefreshCallback?] => {
   const [savedFilter] = useDataState(filter)
   const [payloads, setPayloads] = useState<XyoPayload[]>()
-  const { archivist, error, inFlight, refresh, setError, setInFlight, refreshPayloads } = useSharedUseArchivistState(required)
+  const { archivist, error, loadingRef, refresh, setError, refreshPayloads } = useSharedUseArchivistState(required)
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        if (archivist && !inFlight && savedFilter) {
+        if (archivist && savedFilter && !loadingRef.current) {
           const wrapper = new XyoArchivistWrapper(archivist)
+          loadingRef.current = true
           const result = await wrapper?.find(savedFilter)
-          setInFlight(true)
+          loadingRef.current = false
           if (mounted()) {
             setError(undefined)
             setPayloads(result)
-            setInFlight(false)
           }
         }
       } catch (ex) {
         setError(ex as Error)
-        setInFlight(false)
+        loadingRef.current = false
       }
     },
-    [archivist, inFlight, refresh, savedFilter, setError, setInFlight, setPayloads],
+    [archivist, loadingRef, refresh, savedFilter, setError, setPayloads],
   )
   return [payloads, error, refreshPayloads]
 }
@@ -87,11 +87,10 @@ export const useArchivistInsert = (payloads: XyoPayload[], required = false): [(
   const {
     archivist,
     error,
-    inFlight,
+    loadingRef,
     payloads: resultPayloads,
     refresh,
     setError,
-    setInFlight,
     setPayloads: setResultPayloads,
   } = useSharedUseArchivistState(required)
 
@@ -99,21 +98,22 @@ export const useArchivistInsert = (payloads: XyoPayload[], required = false): [(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        if (archivist && !inFlight && savedPayloads) {
+        if (archivist && savedPayloads && !loadingRef.current) {
           const wrapper = new XyoArchivistWrapper(archivist)
+          loadingRef.current = true
           const result = await wrapper.insert(savedPayloads)
-          setInFlight(true)
+          loadingRef.current = false
           if (mounted()) {
             setError(undefined)
             setResultPayloads(result)
           }
         }
       } catch (ex) {
+        loadingRef.current = false
         setError(ex as Error)
-        setInFlight(true)
       }
     },
-    [archivist, inFlight, refresh, savedPayloads, setError, setInFlight, setResultPayloads],
+    [archivist, loadingRef, refresh, savedPayloads, setError, setResultPayloads],
   )
   return [resultPayloads, error]
 }
