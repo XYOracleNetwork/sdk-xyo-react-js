@@ -14,7 +14,7 @@ export interface ArchivistDetails extends FlexBoxProps {
 
 export const ArchivistDetails: React.FC<ArchivistDetails> = ({ archivist: archivistProp, ...props }) => {
   const { archivist = archivistProp } = useArchivist()
-  const [payloads, setPayloads] = useState<(XyoPayload | null)[]>()
+  const [payloads, setPayloads] = useState<XyoPayload[]>()
   const [refresh, setRefresh] = useState(0)
   const [wrapper, setWrapper] = useState<XyoArchivistWrapper>()
 
