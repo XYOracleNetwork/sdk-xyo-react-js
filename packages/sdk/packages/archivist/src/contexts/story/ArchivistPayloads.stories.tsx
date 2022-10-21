@@ -4,7 +4,7 @@ import { XyoPayload } from '@xyo-network/payload'
 
 export interface ArchivistPayloadsProps {
   refresh?: () => void
-  payloads?: (XyoPayload | null)[]
+  payloads?: XyoPayload[]
   error?: Error
 }
 

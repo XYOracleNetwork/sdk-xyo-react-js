@@ -23,7 +23,7 @@ const useSharedUseArchivistState = (required: boolean) => {
   return { archivist, error, loadingRef, payloads, refresh, refreshPayloads, setError, setPayloads }
 }
 
-export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload | null)[]?, Error?, RefreshCallback?] => {
+export const useArchivistGet = (ids?: string[], required = false): [XyoPayload[]?, Error?, RefreshCallback?] => {
   const [savedIds] = useDataState(ids)
   const { archivist, error, loadingRef, payloads, refresh, setError, setPayloads, refreshPayloads } = useSharedUseArchivistState(required)
 
@@ -82,7 +82,7 @@ export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(
   return [payloads, error, refreshPayloads]
 }
 
-export const useArchivistInsert = (payloads: XyoPayload[], required = false): [(XyoPayload | null)[]?, Error?] => {
+export const useArchivistInsert = (payloads: XyoPayload[], required = false): [XyoPayload[]?, Error?] => {
   const [savedPayloads] = useDataState(payloads)
   const {
     archivist,
@@ -118,7 +118,7 @@ export const useArchivistInsert = (payloads: XyoPayload[], required = false): [(
   return [resultPayloads, error]
 }
 
-export const useArchivistAll = (required = false): [(XyoPayload | null)[]?, Error?] => {
+export const useArchivistAll = (required = false): [XyoPayload[]?, Error?] => {
   const { archivist } = useArchivist(required)
   const [payloads, setPayloads] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
@@ -141,7 +141,7 @@ export const useArchivistAll = (required = false): [(XyoPayload | null)[]?, Erro
   return [payloads, error]
 }
 
-export const useArchivistClear = (required = false): [(XyoPayload | null)[]?, Error?] => {
+export const useArchivistClear = (required = false): [XyoPayload[]?, Error?] => {
   const { archivist } = useArchivist(required)
   const [payloads, setPayloads] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
