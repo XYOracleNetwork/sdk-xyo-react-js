@@ -1,11 +1,11 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayloads } from '@xyo-network/payload'
 import { useDataState } from '@xyo-network/react-shared'
 
 import { RefreshCallback } from './lib'
 import { useArchivistStates } from './useArchivistStates'
 
-export const useArchivistGet = (ids?: string[], required = false): [(XyoPayload | null)[]?, Error?, RefreshCallback?] => {
+export const useArchivistGet = (ids?: string[], required = false): [XyoPayloads?, Error?, RefreshCallback?] => {
   const [savedIds] = useDataState(ids)
   const { archivistWrapper, error, payloads, refresh, setError, setPayloads, refreshPayloads } = useArchivistStates(required)
 
