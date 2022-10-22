@@ -24,13 +24,13 @@ const ApiCallEntry: React.FC<ApiCallEntryProps> = ({ call, bgColor, index }) => 
         <Typography variant="caption">{index + 1}.</Typography>
       </TableCell>
       <TableCell sx={{ backgroundColor: bgColor }}>
-        <Typography variant="caption">{call.config.method?.toUpperCase()}</Typography>
+        <Typography variant="caption">{call.config?.method?.toUpperCase()}</Typography>
       </TableCell>
       <TableCell sx={{ backgroundColor: bgColor }}>
         <Typography variant="caption">{formatCall(call)}</Typography>
       </TableCell>
       <TableCell sx={{ backgroundColor: bgColor }}>
-        <Typography variant="caption">{call.config.url}</Typography>
+        <Typography variant="caption">{call.config?.url}</Typography>
       </TableCell>
     </TableRow>
   )
