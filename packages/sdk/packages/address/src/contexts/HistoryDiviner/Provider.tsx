@@ -1,6 +1,6 @@
 import { XyoRemoteAddressHistoryDiviner } from '@xyo-network/api'
-import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
-import { useEffect } from 'react'
+import { ContextExProviderProps } from '@xyo-network/react-shared'
+import { useEffect, useState } from 'react'
 
 import { AddressHistoryDivinerContext } from './Context'
 
@@ -10,7 +10,7 @@ export type AddressHistoryDivinerProviderProps = ContextExProviderProps<{
 }>
 
 export const AddressHistoryDivinerProvider: React.FC<AddressHistoryDivinerProviderProps> = ({ diviner: divinerProp, required = false, children }) => {
-  const [diviner, setDiviner] = useDataState<XyoRemoteAddressHistoryDiviner | undefined>(divinerProp)
+  const [diviner, setDiviner] = useState<XyoRemoteAddressHistoryDiviner | undefined>(divinerProp)
 
   useEffect(() => {
     if (divinerProp) {
