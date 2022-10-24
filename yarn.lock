@@ -4078,7 +4078,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:6.5.12, @storybook/components@npm:^6.0.0, @storybook/components@npm:^6.5.12":
+"@storybook/client-logger@npm:6.5.13":
+  version: 6.5.13
+  resolution: "@storybook/client-logger@npm:6.5.13"
+  dependencies:
+    core-js: ^3.8.2
+    global: ^4.4.0
+  checksum: 0252d9364a0b2a8faae588fdb29aaf458f660904c330ec7af790f63a668710926ece8f087f58f9b1bebb052e2fe517b8b74867e7500567499cc710ab71ccbbab
+  languageName: node
+  linkType: hard
+
+"@storybook/components@npm:6.5.12, @storybook/components@npm:^6.0.0":
   version: 6.5.12
   resolution: "@storybook/components@npm:6.5.12"
   dependencies:
@@ -4094,6 +4104,25 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: fa469ae615d9146df7e23f01b85731d27e6400e2d94035db172deb1f61903d86c121d858558dd12307ecc6344d21b496db020731e73eff6ace3f82672b953a93
+  languageName: node
+  linkType: hard
+
+"@storybook/components@npm:^6.5.12":
+  version: 6.5.13
+  resolution: "@storybook/components@npm:6.5.13"
+  dependencies:
+    "@storybook/client-logger": 6.5.13
+    "@storybook/csf": 0.0.2--canary.4566f4d.1
+    "@storybook/theming": 6.5.13
+    core-js: ^3.8.2
+    memoizerific: ^1.11.3
+    qs: ^6.10.0
+    regenerator-runtime: ^0.13.7
+    util-deprecate: ^1.0.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5d01c0f445f6574ccadcfa79afd99c078bd1f81d65e59186361100dc57bd73ccbb877e5a8bbc49dd6551bce1b32fbe6f135c2bea15c0126a83faf222cfaed878
   languageName: node
   linkType: hard
 
@@ -4719,6 +4748,21 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: a982ebf88c7e1e21127febd17feebf26ac8d655f0c868bf110cbcaaef87eedb257300087618c525cb654808b590dc4b7b98dd6fec92fd76a040441d86c4b8289
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:6.5.13":
+  version: 6.5.13
+  resolution: "@storybook/theming@npm:6.5.13"
+  dependencies:
+    "@storybook/client-logger": 6.5.13
+    core-js: ^3.8.2
+    memoizerific: ^1.11.3
+    regenerator-runtime: ^0.13.7
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: f7a59c7d81b87f3fbf65c5eb72f5db5a5c1707236c92350d46bc7e1dcf848d57522ca5dcdd4fe19336d4611bd20727e0d900c4b591d2e8e1dd8a754cb9c56aa3
   languageName: node
   linkType: hard
 
