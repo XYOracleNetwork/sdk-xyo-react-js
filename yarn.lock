@@ -6806,6 +6806,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/react-address@workspace:^, @xyo-network/react-address@workspace:packages/sdk/packages/address":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-address@workspace:packages/sdk/packages/address"
+  dependencies:
+    "@xylabs/react-shared": ^2.15.1
+    "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.0
+  peerDependencies:
+    "@xyo-network/api": ^2.38.11
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-aggregate-price-plugin@workspace:^, @xyo-network/react-aggregate-price-plugin@workspace:packages/plugins/packages/aggregate-price":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-aggregate-price-plugin@workspace:packages/plugins/packages/aggregate-price"
@@ -7728,6 +7743,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-sdk@workspace:packages/sdk"
   dependencies:
+    "@xyo-network/react-address": "workspace:^"
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"
