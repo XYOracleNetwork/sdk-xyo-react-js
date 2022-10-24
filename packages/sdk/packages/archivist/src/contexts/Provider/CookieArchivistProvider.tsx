@@ -1,7 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistWrapper, XyoCookieArchivist, XyoCookieArchivistConfig } from '@xyo-network/archivist'
 import { XyoModuleResolver } from '@xyo-network/module'
-import { ContextExProviderProps } from '@xyo-network/react-shared'
+import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 import { useMemo, useState } from 'react'
 
@@ -13,8 +13,13 @@ export type CookieArchivistProviderProps = ContextExProviderProps<{
   resolver?: XyoModuleResolver
 }>
 
-export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = ({ config, resolver, ...props }) => {
+export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = ({ config: configProp, resolver, ...props }) => {
+  const [config, setConfig] = useDataState(configProp)
   const { archivist } = useArchivist()
+
+  //we set this every time, but it will only take if config VALUE changed
+  setConfig(config)
+
   const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper(archivist) : undefined), [archivist])
   const activeResolver: XyoModuleResolver | undefined = useMemo(
     () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),
