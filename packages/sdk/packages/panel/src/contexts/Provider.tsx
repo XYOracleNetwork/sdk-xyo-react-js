@@ -4,7 +4,6 @@ import { PayloadArchivist, XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
-import { useArchive } from '@xyo-network/react-archive'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useAccount } from '@xyo-network/react-wallet'
 import { XyoWitnessWrapper } from '@xyo-network/witness'
@@ -26,7 +25,6 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   witnesses = [],
   children,
 }) => {
-  const { archive } = useArchive()
   const { archivist } = useArchivist()
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
@@ -98,7 +96,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
       await delay(0)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [account, archive, archivist, witnesses],
+    [account, archivist, witnesses],
   )
 
   useEffect(() => {

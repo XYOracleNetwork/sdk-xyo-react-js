@@ -1,6 +1,5 @@
-/* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-internal-modules */
+/* eslint-disable import/no-deprecated */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { DeprecateStory, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
