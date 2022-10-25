@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import { useSchemaStatsApiDiviner } from './use'
 
-export const useDivineSchemaStats = (address?: string): [SchemaStats | undefined, Error | undefined, () => void] => {
+export const useDivineSchemaStats = (): [SchemaStats | undefined, Error | undefined, () => void] => {
   const [stats, setStats] = useState<SchemaStats>()
   const [error, setError] = useState<Error>()
   const { diviner } = useSchemaStatsApiDiviner()
@@ -16,7 +16,7 @@ export const useDivineSchemaStats = (address?: string): [SchemaStats | undefined
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (diviner && address) {
+      if (diviner) {
         try {
           const result = (await new XyoDivinerWrapper(diviner).divine()) as SchemaStats[]
           if (mounted()) {
@@ -27,7 +27,7 @@ export const useDivineSchemaStats = (address?: string): [SchemaStats | undefined
         }
       }
     },
-    [address, diviner, refresh],
+    [diviner, refresh],
   )
 
   return [stats, error, refreshStats]
