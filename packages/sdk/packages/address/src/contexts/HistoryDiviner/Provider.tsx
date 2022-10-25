@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { AddressHistoryDivinerContext } from './Context'
 
 export type AddressHistoryDivinerProviderProps = ContextExProviderProps<{
-  /** Required */
   diviner?: XyoRemoteAddressHistoryDiviner
 }>
 
@@ -18,10 +17,18 @@ export const AddressHistoryDivinerProvider: React.FC<AddressHistoryDivinerProvid
     }
   }, [divinerProp, setDiviner])
 
+  const resolveDiviner = () => {
+    if (divinerProp) {
+      return diviner === divinerProp ? diviner : undefined
+    } else {
+      return diviner
+    }
+  }
+
   return (
     <AddressHistoryDivinerContext.Provider
       value={{
-        diviner: diviner === divinerProp ? diviner : undefined,
+        diviner: resolveDiviner(),
         provided: true,
         setDiviner,
       }}
