@@ -1,6 +1,6 @@
-/* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-internal-modules */
+/* eslint-disable import/no-deprecated */
+
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { DeprecateStory, sampleBlock, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'

@@ -1,5 +1,4 @@
 import { FlexCol } from '@xylabs/react-flexbox'
-import { WithChildren } from '@xylabs/react-shared'
 import { ApiErrorAlert } from '@xyo-network/react-api'
 import { AxiosLoggedError } from '@xyo-network/react-auth'
 import { useEffect } from 'react'
@@ -8,7 +7,7 @@ import { useLocation } from 'react-router-dom'
 import { XyoApiErrorRenderProps } from './Props'
 import { ReAuth } from './ReAuth'
 
-export const XyoApiErrorRender: React.FC<WithChildren<XyoApiErrorRenderProps>> = ({
+export const XyoApiErrorRender: React.FC<XyoApiErrorRenderProps> = ({
   apiError,
   apiFailure,
   noErrorDisplay = false,
