@@ -7101,6 +7101,7 @@ __metadata:
     "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
     tslib: ^2.4.0
   peerDependencies:
@@ -7586,7 +7587,10 @@ __metadata:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    "@xylabs/sdk-js": ^2.6.9
     "@xyo-network/api": "*"
+    "@xyo-network/diviner": "*"
+    "@xyo-network/module": "*"
     "@xyo-network/payload": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
@@ -7967,7 +7971,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-storybook@workspace:packages/sdk/packages/storybook":
+"@xyo-network/react-storybook@workspace:^, @xyo-network/react-storybook@workspace:packages/sdk/packages/storybook":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-storybook@workspace:packages/sdk/packages/storybook"
   dependencies:
