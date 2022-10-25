@@ -1,3 +1,5 @@
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
@@ -9,12 +11,13 @@ import { BlockPayloads } from './Payloads'
 import { BlockSignatureDetails } from './SignatureDetails'
 import { BlockValidationDetails } from './ValidationDetails'
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockDetailsProps extends WithChildren, FlexBoxProps {
   block?: XyoBoundWitness
   paper?: boolean
   payloads?: XyoPayload[]
 }
-
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 const BlockDetails = forwardRef<unknown, BlockDetailsProps>(({ paper, block, payloads, children, ...props }, ref) => {
   return (
     <FlexCol justifyContent="flex-start" alignItems="stretch" gap={1} ref={ref} {...props}>

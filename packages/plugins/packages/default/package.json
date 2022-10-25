@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-plugins",
+  "name": "@xyo-network/react-default-plugin",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,31 +10,21 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-aggregate-price-plugin": "workspace:^",
-    "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^",
-    "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^",
-    "@xyo-network/react-crypto-prices-plugin": "workspace:^",
-    "@xyo-network/react-default-plugin": "workspace:^",
-    "@xyo-network/react-location-heatmap-quadkey-plugin": "workspace:^",
-    "@xyo-network/react-location-points-map-plugin": "workspace:^",
-    "@xyo-network/react-pointer-plugin": "workspace:^",
-    "@xyo-network/react-schema-plugin": "workspace:^",
+    "@xyo-network/react-payload-details": "workspace:^",
+    "@xyo-network/react-payload-plugin": "workspace:^",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
-    "@xylabs/sdk-js": "^2.6.7",
     "@xyo-network/api": "*",
     "@xyo-network/archivist": "*",
-    "@xyo-network/coingecko-crypto-market-payload-plugin": "*",
     "@xyo-network/crypto-asset-payload-plugin": "*",
     "@xyo-network/diviner": "*",
     "@xyo-network/payload": "*",
     "@xyo-network/payload-plugin": "*",
     "@xyo-network/schema-payload-plugin": "*",
-    "@xyo-network/uniswap-crypto-market-payload-plugin": "*",
     "@xyo-network/utils": "*",
     "@xyo-network/wallet": "*",
     "axios": "^1.1.3",
