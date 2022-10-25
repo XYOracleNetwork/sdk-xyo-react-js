@@ -4,6 +4,7 @@ import { useArchive } from '@xyo-network/react-archive'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { useState } from 'react'
 
+/** @deprecated - use schema stats api diviner */
 export const useSchemaStats = (): XyoArchivistArchivePayloadSchemaStats | undefined => {
   const { api } = useArchivistApi(false)
   const { archive = 'temp' } = useArchive(false)
