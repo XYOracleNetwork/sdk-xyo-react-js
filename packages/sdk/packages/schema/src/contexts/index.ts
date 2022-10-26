@@ -1,2 +1,2 @@
+export * from './Diviners'
 export * from './Schema'
-export * from './StatsDiviner'
