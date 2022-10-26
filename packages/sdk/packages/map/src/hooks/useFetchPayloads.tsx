@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistWrapper } from '@xyo-network/archivist'
 import { WrapperError, XyoError } from '@xyo-network/module'

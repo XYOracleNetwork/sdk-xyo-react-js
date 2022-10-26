@@ -6737,7 +6737,11 @@ __metadata:
     "@mui/icons-material": ^5.10.9
     "@mui/material": ^5.10.10
     "@mui/styles": ^5.10.10
+    "@xylabs/react-shared": ^2.15.1
     "@xyo-network/api": ^2.38.18
+    "@xyo-network/boundwitness": ^2.38.18
+    "@xyo-network/diviner": ^2.38.18
+    "@xyo-network/payload": ^2.38.18
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7048,7 +7052,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-boundwitness-plugin@workspace:packages/plugins/packages/boundwitness":
+"@xyo-network/react-boundwitness-plugin@workspace:^, @xyo-network/react-boundwitness-plugin@workspace:packages/plugins/packages/boundwitness":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-boundwitness-plugin@workspace:packages/plugins/packages/boundwitness"
   dependencies:
@@ -7419,7 +7423,6 @@ __metadata:
     "@xylabs/react-flexbox": ^2.15.1
     "@xylabs/react-shared": ^2.15.1
     "@xyo-network/react-app-settings": "workspace:^"
-    "@xyo-network/react-archive": "workspace:^"
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7690,6 +7693,7 @@ __metadata:
   resolution: "@xyo-network/react-plugins@workspace:packages/plugins"
   dependencies:
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
+    "@xyo-network/react-boundwitness-plugin": "workspace:^"
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-crypto-prices-plugin": "workspace:^"
@@ -7818,6 +7822,7 @@ __metadata:
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
     "@xylabs/sdk-js": ^2.6.9
+    "@xyo-network/api": "*"
     "@xyo-network/diviner": "*"
     "@xyo-network/module": "*"
     "@xyo-network/payload": "*"
