@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { NetworkXyoLocationHeatmapQuadkeyAnswerPayload } from '../types'
 import { useQuadKeyPayloadsToFeatures } from './useQuadKeyPayloadsToFeatures'
 
+/** @deprecated - use useArchivistGet */
 const useFetchPayloads = (hashes?: string[]) => {
   const { archivist } = useArchivist()
 
