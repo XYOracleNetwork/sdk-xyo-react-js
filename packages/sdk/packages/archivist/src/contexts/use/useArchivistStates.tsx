@@ -1,13 +1,14 @@
 import { XyoArchivistWrapper } from '@xyo-network/archivist'
+import { WrapperError } from '@xyo-network/module'
 import { XyoPayloads } from '@xyo-network/payload'
 import { useEffect, useState } from 'react'
 
 import { useArchivist } from './use'
 
-export const useArchivistStates = (required: boolean) => {
-  const [payloads, setPayloads] = useState<XyoPayloads>()
+export const useArchivistStates = <T extends XyoPayloads = XyoPayloads>(required: boolean) => {
+  const [payloads, setPayloads] = useState<T>()
   const { archivist } = useArchivist(required)
-  const [error, setError] = useState<Error>()
+  const [error, setError] = useState<WrapperError>()
   const [refresh, setRefresh] = useState(1)
   const refreshPayloads = () => setRefresh((previous) => previous + 1)
 

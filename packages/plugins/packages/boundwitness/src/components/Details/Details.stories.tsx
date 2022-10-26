@@ -4,7 +4,7 @@ import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/reac
 import { createRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { BlockLinksDetails } from './BlockLinksDetails'
+import { BoundWitnessLinksDetails } from './BoundWitnessLinksDetails'
 import { BoundWitnessDetails } from './Details'
 
 const StorybookEntry = {
@@ -50,7 +50,7 @@ WithPreviousHash.args = {
   children: (
     <>
       <h2>For Testing events only</h2>
-      <BlockLinksDetails value={payload} />
+      <BoundWitnessLinksDetails value={payload} />
     </>
   ),
   payload,
