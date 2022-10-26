@@ -3,6 +3,7 @@ import { useArchive } from '@xyo-network/react-archive'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { Dispatch, useState } from 'react'
 
+/** @deprecated - use schema list api diviner */
 export const useSchemaList = (knownSchemaList?: string[]): [string[] | undefined, Dispatch<string[]>] => {
   const { api } = useArchivistApi(false)
   const { archive = 'temp' } = useArchive(false)
