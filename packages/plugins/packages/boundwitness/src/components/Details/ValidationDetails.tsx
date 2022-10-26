@@ -3,11 +3,11 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitnessValidator, XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
-export type BlockValidationDetailsProps = PropertyGroupProps & {
+export type BoundWitnessValidationDetailsProps = PropertyGroupProps & {
   value?: XyoBoundWitness
 }
 
-export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ value, ...props }) => {
+export const BoundWitnessValidationDetails: React.FC<BoundWitnessValidationDetailsProps> = ({ value, ...props }) => {
   const validator = value ? new BoundWitnessValidator(value) : undefined
 
   const errors = validator?.validate() ?? []

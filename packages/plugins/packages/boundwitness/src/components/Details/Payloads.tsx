@@ -2,12 +2,12 @@ import { XyoPayload } from '@xyo-network/payload'
 import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload-table'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
-export type BlockPayloadsProps = PropertyGroupProps & {
+export type BoundWitnessPayloadsProps = PropertyGroupProps & {
   payloads?: XyoPayload[]
   payloadTableProps?: PayloadTableProps
 }
 
-export const BlockPayloads: React.FC<BlockPayloadsProps> = ({ payloads, payloadTableProps, ...props }) => {
+export const BoundWitnessPayloads: React.FC<BoundWitnessPayloadsProps> = ({ payloads, payloadTableProps, ...props }) => {
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0
