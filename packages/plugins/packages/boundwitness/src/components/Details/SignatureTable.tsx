@@ -3,9 +3,9 @@ import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
-import { BlockSignatureTableRow } from './SignatureTableRow'
+import { BoundWitnessSignatureTableRow } from './SignatureTableRow'
 
-export interface BlockSignatureTableProps extends TableProps {
+export interface BoundWitnessSignatureTableProps extends TableProps {
   block?: XyoBoundWitness
 }
 
@@ -27,7 +27,7 @@ const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitness) => {
   return result
 }
 
-export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
+export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
   const hash = block ? new Hasher(block).hash : undefined
 
@@ -61,7 +61,7 @@ export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block,
         <TableBody>
           {signatureData?.map((data, index) => {
             return (
-              <BlockSignatureTableRow
+              <BoundWitnessSignatureTableRow
                 key={`${data.signature}-${data.previous_hash}-${index}`}
                 address={data.address}
                 previousHash={data.previous_hash}

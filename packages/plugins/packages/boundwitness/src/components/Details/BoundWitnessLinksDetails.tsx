@@ -4,11 +4,11 @@ import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
-export type PreviousBlockDetailsProps = PropertyGroupProps & {
+export type BoundWitnessLinksDetails = PropertyGroupProps & {
   value?: XyoBoundWitness
 }
 
-export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, ...props }) => {
+export const BoundWitnessLinksDetails: React.FC<BoundWitnessLinksDetails> = ({ value, ...props }) => {
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0

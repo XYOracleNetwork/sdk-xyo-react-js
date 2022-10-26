@@ -4,7 +4,7 @@ import { BoundWitnessValidator } from '@xyo-network/boundwitness'
 import { AddressTableCell } from '@xyo-network/react-shared'
 import { MdClear, MdDone } from 'react-icons/md'
 
-export interface BlockSignatureTableRowProps extends TableRowProps {
+export interface BoundWitnessSignatureTableRowProps extends TableRowProps {
   address?: string
   archive?: string
   hash?: string
@@ -12,7 +12,14 @@ export interface BlockSignatureTableRowProps extends TableRowProps {
   signature?: string
 }
 
-export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ hash, address, previousHash, signature, archive, ...props }) => {
+export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableRowProps> = ({
+  hash,
+  address,
+  previousHash,
+  signature,
+  archive,
+  ...props
+}) => {
   const errors = hash && address ? BoundWitnessValidator.validateSignature(hash, address, signature) : []
 
   return (
