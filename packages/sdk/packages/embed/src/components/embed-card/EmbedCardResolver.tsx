@@ -13,7 +13,7 @@ export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({
 
   return (
     <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriError}>
-      <EmbedCardApiErrorRenderer apiError={huriError}>
+      <EmbedCardApiErrorRenderer xyoError={huriError}>
         <FlexCol
           id="embed-outer-wrap"
           alignItems="stretch"
