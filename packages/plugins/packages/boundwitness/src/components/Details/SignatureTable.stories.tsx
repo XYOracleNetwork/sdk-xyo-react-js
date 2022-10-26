@@ -2,22 +2,22 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { sampleBlock, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { BlockSignatureTable } from './SignatureTable'
+import { BoundWitnessSignatureTable } from './SignatureTable'
 
 const StorybookEntry = {
   argTypes: {},
-  component: BlockSignatureTable,
+  component: BoundWitnessSignatureTable,
   parameters: {
     docs: {
       page: null,
     },
   },
   title: 'block/SignatureTable',
-} as ComponentMeta<typeof BlockSignatureTable>
+} as ComponentMeta<typeof BoundWitnessSignatureTable>
 
-const Template: ComponentStory<typeof BlockSignatureTable> = (args) => (
+const Template: ComponentStory<typeof BoundWitnessSignatureTable> = (args) => (
   <BrowserRouter>
-    <BlockSignatureTable {...args}></BlockSignatureTable>
+    <BoundWitnessSignatureTable {...args}></BoundWitnessSignatureTable>
   </BrowserRouter>
 )
 
