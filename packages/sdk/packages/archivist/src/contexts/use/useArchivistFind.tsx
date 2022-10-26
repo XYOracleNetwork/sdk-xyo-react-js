@@ -1,4 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
+import { WrapperError } from '@xyo-network/module'
 import { XyoPayload, XyoPayloadFindFilter } from '@xyo-network/payload'
 import { useDataState } from '@xyo-network/react-shared'
 import { useState } from 'react'
@@ -9,7 +10,7 @@ import { useArchivistStates } from './useArchivistStates'
 export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(
   filter: TFilter,
   required = false,
-): [XyoPayload[]?, Error?, RefreshCallback?] => {
+): [XyoPayload[]?, WrapperError?, RefreshCallback?] => {
   const [savedFilter] = useDataState(filter)
   const [payloads, setPayloads] = useState<XyoPayload[]>()
   const { archivistWrapper, error, refresh, setError, refreshPayloads } = useArchivistStates(required)
@@ -26,7 +27,7 @@ export const useArchivistFind = <TFilter extends XyoPayloadFindFilter>(
           }
         }
       } catch (ex) {
-        setError(ex as Error)
+        setError(ex as WrapperError)
       }
     },
     [archivistWrapper, refresh, savedFilter, setError],
