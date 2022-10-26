@@ -1,4 +1,5 @@
 export * from '@xyo-network/react-aggregate-price-plugin'
+export * from '@xyo-network/react-boundwitness-plugin'
 export * from '@xyo-network/react-coin-gecko-prices-plugin'
 export * from '@xyo-network/react-crypto-market-uniswap-plugin'
 export * from '@xyo-network/react-crypto-prices-plugin'
