@@ -47,7 +47,7 @@ export const XyoEmbedPluginCardInner: React.FC<BusyCardProps> = (props) => {
   const theme = useTheme()
 
   return (
-    <EmbedCardApiErrorRenderer apiError={huriError}>
+    <EmbedCardApiErrorRenderer xyoError={huriError}>
       <EmbedPluginCard
         elevation={3}
         variant="elevation"
