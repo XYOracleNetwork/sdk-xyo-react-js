@@ -6,13 +6,14 @@ import { BoundWitnessCardContent } from './CardContent'
 import { BoundWitnessCardHeader } from './Header'
 
 export interface BoundWitnessCardProps extends CardProps {
-  boundwitness?: XyoPayload<XyoBoundWitness>
+  payload?: XyoPayload
 }
-export const BoundWitnessRendererCard: React.FC<BoundWitnessCardProps> = ({ boundwitness, ...props }) => {
+export const BoundWitnessRendererCard: React.FC<BoundWitnessCardProps> = ({ payload, ...props }) => {
+  const boundwitness = payload as XyoPayload<XyoBoundWitness>
   return (
     <Card {...props}>
-      <BoundWitnessCardHeader boundwitness={boundwitness} />
-      <BoundWitnessCardContent boundwitness={boundwitness} />
+      <BoundWitnessCardHeader payload={boundwitness} />
+      <BoundWitnessCardContent payload={boundwitness} />
     </Card>
   )
 }

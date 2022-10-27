@@ -5,10 +5,11 @@ import { EllipsizeBox } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
-  boundwitness?: XyoPayload<XyoBoundWitness>
+  payload?: XyoPayload
 }
 
-export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ boundwitness, ...props }) => {
+export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ payload, ...props }) => {
+  const boundwitness = payload as XyoPayload<XyoBoundWitness>
   const [hash, setHash] = useState('')
   useEffect(() => {
     if (boundwitness) {

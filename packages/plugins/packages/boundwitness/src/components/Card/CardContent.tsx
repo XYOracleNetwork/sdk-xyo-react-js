@@ -5,10 +5,11 @@ import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayload } from '@xyo-network/payload'
 
 export interface BoundWitnessCardContentProps extends CardContentProps {
-  boundwitness?: XyoPayload<XyoBoundWitness>
+  payload?: XyoPayload
 }
 
-export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = ({ boundwitness, ...props }) => {
+export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = ({ payload, ...props }) => {
+  const boundwitness = payload as XyoPayload<XyoBoundWitness>
   const theme = useTheme()
   const additionalAddressCount = (count?: number) => {
     if (!count || count <= 1) {
