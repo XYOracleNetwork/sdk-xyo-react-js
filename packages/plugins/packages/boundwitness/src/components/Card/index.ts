@@ -1,3 +1,3 @@
 export * from './Card'
-export * from './CardContent'
+export * from './CardContent/CardContent'
 export * from './Header'
