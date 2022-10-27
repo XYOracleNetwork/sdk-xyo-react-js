@@ -1,6 +1,7 @@
-import { CardHeader, CardHeaderProps } from '@mui/material'
+import { CardHeader, CardHeaderProps, styled } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
+import { EllipsizeBox } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
@@ -15,5 +16,15 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ 
     }
   }, [boundwitness])
 
-  return <CardHeader title={hash} {...props} />
+  return <CardHeaderHash title={<EllipsizeBox>{hash}</EllipsizeBox>} {...props} />
 }
+
+const CardHeaderHash = styled(CardHeader, { name: 'CardHeaderHash' })(({ theme }) => ({
+  '& .MuiCardHeader-content': {
+    overflow: 'visible',
+  },
+  '&.MuiCardHeader-root': {
+    backgroundColor: theme.palette.secondary.dark,
+    color: theme.palette.getContrastText,
+  },
+}))

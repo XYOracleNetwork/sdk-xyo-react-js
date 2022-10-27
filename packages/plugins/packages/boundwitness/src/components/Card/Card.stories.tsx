@@ -9,7 +9,7 @@ export default {
   title: 'plugin/boundwitness/CardRenderer',
 } as Meta
 
-export const Template: ComponentStory<typeof BoundWitnessRendererCard> = (props) => {
+const Template: ComponentStory<typeof BoundWitnessRendererCard> = (props) => {
   return <BoundWitnessRendererCard {...props} />
 }
 
