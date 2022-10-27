@@ -16,7 +16,7 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ 
     }
   }, [boundwitness])
 
-  return <CardHeaderHash title={<EllipsizeBox>{hash}</EllipsizeBox>} {...props} />
+  return <CardHeaderHash title={<EllipsizeBox typographyProps={{ title: hash }}>{hash}</EllipsizeBox>} {...props} />
 }
 
 const CardHeaderHash = styled(CardHeader, { name: 'CardHeaderHash' })(({ theme }) => ({
@@ -24,7 +24,7 @@ const CardHeaderHash = styled(CardHeader, { name: 'CardHeaderHash' })(({ theme }
     overflow: 'visible',
   },
   '&.MuiCardHeader-root': {
-    backgroundColor: theme.palette.secondary.dark,
-    color: theme.palette.getContrastText,
+    backgroundColor: theme.palette.info.main,
+    color: theme.palette.info.contrastText,
   },
 }))
