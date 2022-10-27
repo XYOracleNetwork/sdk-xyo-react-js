@@ -15,7 +15,7 @@ export interface AnimatedHeatMapLoadedProps extends FlexBoxProps {
 
 export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ accessToken, ...props }) => {
   const hashes = useFindHashes()
-  const [payloads, xyoError] = useArchivistGet<NetworkXyoLocationHeatmapQuadkeyAnswerPayload[]>(hashes)
+  const [payloads, xyoError] = useArchivistGet<NetworkXyoLocationHeatmapQuadkeyAnswerPayload>(hashes)
   const { multipleFeatureSets } = useQuadKeyPayloadsToFeatures(payloads)
   const { heatMapColorProps, legendProps } = useHeatMapColors()
 

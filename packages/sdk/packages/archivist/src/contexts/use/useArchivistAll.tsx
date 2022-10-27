@@ -1,14 +1,11 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistWrapper } from '@xyo-network/archivist'
-import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
-import { useState } from 'react'
 
-import { useArchivist } from './use'
+import { useArchivistStates } from './useArchivistStates'
 
-export const useArchivistAll = (required = false): [(XyoPayload | null)[]?, Error?] => {
-  const { archivist } = useArchivist(required)
-  const [payloads, setPayloads] = useState<XyoPayloads>()
-  const [error, setError] = useState<Error>()
+export const useArchivistAll = (required = false) => {
+  const { archivist, error, payloads, setPayloads, refresh, setError, refreshCount } = useArchivistStates(required)
+
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
@@ -23,7 +20,7 @@ export const useArchivistAll = (required = false): [(XyoPayload | null)[]?, Erro
         setError(ex as Error)
       }
     },
-    [archivist],
+    [archivist, refreshCount, setError, setPayloads],
   )
-  return [payloads, error]
+  return [payloads, error, refresh]
 }
