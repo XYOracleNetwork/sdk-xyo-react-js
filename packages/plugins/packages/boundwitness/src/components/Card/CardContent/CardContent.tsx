@@ -1,6 +1,5 @@
-import { Avatar, AvatarGroup, CardContent, CardContentProps, styled, Typography, TypographyProps, useTheme } from '@mui/material'
+import { CardContent, CardContentProps, styled, Typography, TypographyProps, useTheme } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { Identicon } from '@xylabs/react-identicon'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayload } from '@xyo-network/payload'
 
