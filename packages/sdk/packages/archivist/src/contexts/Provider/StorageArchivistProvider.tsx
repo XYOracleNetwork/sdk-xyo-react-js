@@ -1,6 +1,6 @@
 import { XyoArchivistWrapper, XyoStorageArchivist, XyoStorageArchivistConfig } from '@xyo-network/archivist'
 import { XyoModuleResolver } from '@xyo-network/module'
-import { ContextExProviderProps } from '@xyo-network/react-shared'
+import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 
 import { useArchivist } from '../use'
@@ -14,8 +14,13 @@ export type StorageArchivistProviderProps = ContextExProviderProps<{
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { useMemo, useState } from 'react'
 
-export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config, resolver, ...props }) => {
+export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config: configProp, resolver, ...props }) => {
+  const [config, setConfig] = useDataState(configProp)
   const { archivist } = useArchivist()
+
+  //we set this every time, but it will only take if config VALUE changed
+  setConfig(config)
+
   const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper(archivist) : undefined), [archivist])
   const activeResolver: XyoModuleResolver | undefined = useMemo(
     () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),

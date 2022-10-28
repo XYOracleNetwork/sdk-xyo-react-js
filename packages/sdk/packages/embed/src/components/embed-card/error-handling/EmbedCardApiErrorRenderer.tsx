@@ -1,27 +1,27 @@
 import { CardProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoApiError } from '@xyo-network/api'
+import { XyoError } from '@xyo-network/module'
 import { ApiErrorAlert } from '@xyo-network/react-api'
 import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
 
 import { EmbedErrorCard } from './EmbedErrorCard'
 
 interface EmbedCardApiErrorRendererProps extends CardProps {
-  apiError?: XyoApiError
+  xyoError?: XyoError
 }
 
-export const EmbedCardApiErrorRenderer: React.FC<WithChildren<EmbedCardApiErrorRendererProps>> = ({ apiError, children, ...props }) => {
+export const EmbedCardApiErrorRenderer: React.FC<WithChildren<EmbedCardApiErrorRendererProps>> = ({ xyoError, children, ...props }) => {
   return (
-    <XyoApiErrorRender apiError={apiError} noReAuth noErrorDisplay customError={<CustomApiErrorCard apiError={apiError} {...props} />}>
+    <XyoApiErrorRender apiError={xyoError} noReAuth noErrorDisplay customError={<CustomApiErrorCard xyoError={xyoError} {...props} />}>
       {children}
     </XyoApiErrorRender>
   )
 }
 
-const CustomApiErrorCard: React.FC<EmbedCardApiErrorRendererProps> = ({ apiError, ...props }) => {
+const CustomApiErrorCard: React.FC<EmbedCardApiErrorRendererProps> = ({ xyoError, ...props }) => {
   return (
     <EmbedErrorCard {...props}>
-      <ApiErrorAlert call={apiError} />
+      <ApiErrorAlert call={xyoError} />
     </EmbedErrorCard>
   )
 }

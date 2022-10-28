@@ -1,4 +1,4 @@
-import { XyoArchivistApi } from '@xyo-network/api'
+import { XyoArchivist } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPanel } from '@xyo-network/panel'
 import { XyoWitnessWrapper } from '@xyo-network/witness'
@@ -17,7 +17,7 @@ export interface WitnessReportProgress {
 }
 
 export interface ArchivistApiReportProgress {
-  archivist: XyoArchivistApi
+  archivist: XyoArchivist
   status: ReportStatus
 }
 

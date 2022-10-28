@@ -1,6 +1,8 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
-import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { DeprecateStory, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -28,6 +30,7 @@ const Template: ComponentStory<typeof BlockDetails> = (args) => {
   return (
     <BrowserRouter>
       <Routes>
+        <DeprecateStory />
         <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
         <Route path="*" element={<BlockDetails ref={sharedRef} {...args} />} />
       </Routes>

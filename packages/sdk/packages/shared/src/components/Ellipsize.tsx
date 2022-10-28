@@ -52,7 +52,7 @@ const EllipsizeContentWrap = styled(Typography, {
     right: 0,
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    ...(ellipsisPosition === 'end'
+    ...(ellipsisPosition === 'start'
       ? {
           direction: 'rtl',
           textAlign: 'left',
@@ -85,12 +85,12 @@ export interface EllipsizeBoxProps extends BoxProps {
 }
 
 export const EllipsizeBoxInner: React.FC<WithChildren<EllipsizeBoxProps>> = forwardRef(
-  ({ children, ellipsisPosition = 'end', typographyProps, ...props }, ref) => {
+  ({ children, ellipsisPosition = 'start', typographyProps, ...props }, ref) => {
     // Allow syncing of :before pseudo element height with contentWrapHeight
     const { contentWrapRef, contentWrapHeight } = useClientHeight()
 
     return (
-      <EllipsizeRoot beforeLineHeight={contentWrapHeight} ref={ref} {...props}>
+      <EllipsizeRoot beforeLineHeight={ref ? contentWrapHeight : undefined} ref={ref} {...props}>
         <EllipsizeInnerWrap>
           <EllipsizeContentWrap ref={contentWrapRef} component={'span'} ellipsisPosition={ellipsisPosition} {...typographyProps}>
             {children}

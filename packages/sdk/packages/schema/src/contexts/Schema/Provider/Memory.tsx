@@ -1,13 +1,20 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
+import { useDivineSchemaList } from '../../Diviners'
 import { SchemaContext } from '../Context'
-import { useSchemaList } from '../Hooks'
 import { SchemaProviderProps } from './Props'
 
 export const SchemaMemoryProvider: React.FC<WithChildren<SchemaProviderProps>> = ({ defaultSchema, knownSchemaList = [], ...props }) => {
   const [schema, setSchema] = useState(defaultSchema)
-  const [schemaList, setSchemaList] = useSchemaList(knownSchemaList)
+  const [schemaList, setSchemaList] = useState<string[] | undefined>(knownSchemaList)
+  const [fetchedSchemaList] = useDivineSchemaList()
 
-  return <SchemaContext.Provider value={{ provided: true, schema, schemaList, setSchema, setSchemaList }} {...props} />
+  useEffect(() => {
+    if (fetchedSchemaList) {
+      setSchemaList(fetchedSchemaList.map(({ name }) => name))
+    }
+  }, [fetchedSchemaList])
+
+  return <SchemaContext.Provider value={{ provided: true, schema, schemaList: knownSchemaList ?? schemaList, setSchema, setSchemaList }} {...props} />
 }

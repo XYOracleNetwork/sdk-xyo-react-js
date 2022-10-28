@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoApiError } from '@xyo-network/api'
+import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { XyoPayloadBuilder } from '@xyo-network/payload'
 import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { XyoSchemaCache, XyoSchemaCacheEntry } from '@xyo-network/utils'
@@ -10,14 +10,14 @@ import { useState } from 'react'
  */
 const useGetSchemaPayload = (schema?: string) => {
   const [notFound, setNotFound] = useState(false)
-  const [apiError, setApiError] = useState<XyoApiError>()
+  const [xyoError, setXyoError] = useState<XyoError>()
   const [schemaCacheEntry, setSchemaCacheEntry] = useState<XyoSchemaCacheEntry | null | undefined>()
   const [schemaLocal, setSchemaLocal] = useState<string>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const firstRequest = !notFound && !schemaCacheEntry && !apiError
+      const firstRequest = !notFound && !schemaCacheEntry && !xyoError
       const schemaChanged = schema !== schemaLocal
 
       if ((schema && firstRequest) || (schema && schemaChanged)) {
@@ -28,9 +28,10 @@ const useGetSchemaPayload = (schema?: string) => {
             setNotFound(schemaCacheEntry === null || schemaCacheEntry === undefined)
           }
         } catch (e) {
+          const error = e as Error
           console.error(e)
           if (mounted()) {
-            setApiError(e as XyoApiError)
+            setXyoError({ message: error.message, schema: XyoErrorSchema, sources: [] })
           }
         }
       }
@@ -38,16 +39,16 @@ const useGetSchemaPayload = (schema?: string) => {
         setSchemaLocal(schema)
       }
     },
-    [apiError, notFound, schema, schemaLocal, schemaCacheEntry],
+    [xyoError, notFound, schema, schemaLocal, schemaCacheEntry],
   )
 
   return {
-    apiError,
     notFound,
     schemaHuri: schemaCacheEntry?.huri,
     schemaPayload: schemaCacheEntry
       ? new XyoPayloadBuilder<XyoSchemaPayload>(schemaCacheEntry?.payload).fields(schemaCacheEntry.payload).build()
       : schemaCacheEntry,
+    xyoError,
   }
 }
 
