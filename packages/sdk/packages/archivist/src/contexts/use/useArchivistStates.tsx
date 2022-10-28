@@ -1,23 +1,23 @@
 import { XyoArchivistWrapper } from '@xyo-network/archivist'
-import { XyoPayloads } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload'
 import { useEffect, useState } from 'react'
 
 import { useArchivist } from './use'
 
-export const useArchivistStates = <T extends XyoPayloads = XyoPayloads>(required: boolean) => {
-  const [payloads, setPayloads] = useState<T>()
-  const { archivist } = useArchivist(required)
+export const useArchivistStates = <T extends XyoPayload = XyoPayload>(required: boolean) => {
+  const { archivist: archivistFromHook } = useArchivist(required)
+  const [payloads, setPayloads] = useState<T[]>()
   const [error, setError] = useState<Error>()
-  const [refresh, setRefresh] = useState(1)
-  const refreshPayloads = () => setRefresh((previous) => previous + 1)
+  const [refreshCount, setRefreshCount] = useState(1)
+  const refreshPayloads = () => setRefreshCount((previous) => previous + 1)
 
-  const [archivistWrapper, setArchivistWrapper] = useState<XyoArchivistWrapper>()
+  const [archivist, setArchivist] = useState<XyoArchivistWrapper>()
 
   useEffect(() => {
-    if (archivist) {
-      setArchivistWrapper(new XyoArchivistWrapper(archivist))
+    if (archivistFromHook) {
+      setArchivist(new XyoArchivistWrapper(archivistFromHook))
     }
-  }, [archivist])
+  }, [archivistFromHook])
 
-  return { archivistWrapper, error, payloads, refresh, refreshPayloads, setError, setPayloads }
+  return { archivist, error, payloads, refresh: refreshPayloads, refreshCount, setError, setPayloads }
 }

@@ -4,16 +4,16 @@ import { useDataState } from '@xyo-network/react-shared'
 
 import { useArchivistStates } from './useArchivistStates'
 
-export const useArchivistInsert = (payloads: XyoPayload[], required = false): [(XyoPayload | null)[]?, Error?] => {
+export const useArchivistInsert = (payloads: XyoPayload[], required = false) => {
   const [savedPayloads] = useDataState(payloads)
-  const { archivistWrapper, error, payloads: resultPayloads, refresh, setError, setPayloads: setResultPayloads } = useArchivistStates(required)
+  const { archivist, error, payloads: resultPayloads, refresh, setError, setPayloads: setResultPayloads, refreshCount } = useArchivistStates(required)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        if (archivistWrapper && savedPayloads) {
-          const result = await archivistWrapper.insert(savedPayloads)
+        if (archivist && savedPayloads) {
+          const result = await archivist.insert(savedPayloads)
           if (mounted()) {
             setError(undefined)
             setResultPayloads(result)
@@ -23,7 +23,7 @@ export const useArchivistInsert = (payloads: XyoPayload[], required = false): [(
         setError(ex as Error)
       }
     },
-    [archivistWrapper, refresh, savedPayloads, setError, setResultPayloads],
+    [archivist, refresh, savedPayloads, setError, setResultPayloads, refreshCount],
   )
-  return [resultPayloads, error]
+  return [resultPayloads, error, refresh]
 }
