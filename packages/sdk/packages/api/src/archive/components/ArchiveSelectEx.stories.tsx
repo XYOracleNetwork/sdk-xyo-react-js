@@ -3,11 +3,11 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/react-common'
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoArchive } from '@xyo-network/api'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { authDecorator, WrappedArgs } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
 import { ArchivesContext } from '../../archives'
+import { ApiProvider } from '../../contexts'
 import { ArchiveContext } from '../contexts'
 import { ArchiveSelectEx } from './ArchiveSelectEx'
 
@@ -52,13 +52,13 @@ const Template: ComponentStory<typeof ArchiveSelectEx> = (args) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { authState, ...props } = combinedArgs
   return (
-    <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+    <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
       <FakeArchivesProvider>
         <FakeArchiveProvider>
           <ArchiveSelectEx {...props}></ArchiveSelectEx>
         </FakeArchiveProvider>
       </FakeArchivesProvider>
-    </ArchivistApiProvider>
+    </ApiProvider>
   )
 }
 

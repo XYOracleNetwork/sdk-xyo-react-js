@@ -2,10 +2,10 @@ import { WithChildren } from '@xylabs/react-shared'
 import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
 import { useCallback, useEffect, useState } from 'react'
 
-import { ArchivistApiContext } from './Context'
+import { ApiContext } from './Context'
 import { logWithMax } from './logWithMax'
 
-export interface ArchivistApiProviderProps extends XyoApiConfig {
+export interface ApiProviderProps extends XyoApiConfig {
   required?: boolean
   successHistoryMaxDepth?: number
   responseHistoryMaxDepth?: number
@@ -14,7 +14,7 @@ export interface ArchivistApiProviderProps extends XyoApiConfig {
   onFailureCallback?: (statusCode?: number) => void
 }
 
-export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderProps>> = ({
+export const ApiProvider: React.FC<WithChildren<ApiProviderProps>> = ({
   required = false,
   successHistoryMaxDepth = 0,
   responseHistoryMaxDepth = 0,
@@ -82,7 +82,7 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
   }, [config, onError, onFailure, onSuccess])
 
   return (
-    <ArchivistApiContext.Provider
+    <ApiContext.Provider
       value={{
         api,
         currentToken: config.jwtToken,
@@ -94,6 +94,9 @@ export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderPro
       }}
     >
       {api ? children : required ? null : children}
-    </ArchivistApiContext.Provider>
+    </ApiContext.Provider>
   )
 }
+
+/** @deprecated use ApiProvider instead */
+export const ArchivistApiProvider = ApiProvider

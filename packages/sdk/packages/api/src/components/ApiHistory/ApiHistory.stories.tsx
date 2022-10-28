@@ -8,8 +8,8 @@ import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { authDecorator, WrappedAuthComponent } from '@xyo-network/react-storybook'
 import { useEffect, useState } from 'react'
 
-import { ArchivistApiProvider } from './Provider'
-import { useArchivistApi } from './use'
+import { ApiProvider, useApi } from '../../contexts'
+import { ApiHistory } from './ApiHistory'
 
 const StorybookEntry = {
   argTypes: {
@@ -17,18 +17,18 @@ const StorybookEntry = {
       default: 'https://beta.api.archivist.xyo.network',
     },
   },
-  component: ArchivistApiProvider,
+  component: ApiProvider,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'archivist-api/ArchivistApiProvider',
+  title: 'archivist-api/ApiHistory/ApiHistory',
 } as ComponentMeta<WrappedAuthComponent>
 
 const DemoArchiveFetcher = () => {
   const [myArchives, setMyArchives] = useState<XyoArchive[]>([])
-  const { api, currentToken, responseHistory } = useArchivistApi()
+  const { api, currentToken } = useApi()
   const { state } = useAuthState()
   const [successfulCall, setSuccessfulCall] = useState(false)
 
@@ -68,11 +68,7 @@ const DemoArchiveFetcher = () => {
         ))}
       </ul>
       <Typography variant="h6">Responses</Typography>
-      {responseHistory?.map((response, index) => (
-        <Typography key={index} variant="body1">
-          {response.status}
-        </Typography>
-      ))}
+      <ApiHistory />
     </>
   )
 }
@@ -81,7 +77,7 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
   const { state } = useAuthState()
   const jwtToken = state?.jwtToken
   return (
-    <ArchivistApiProvider
+    <ApiProvider
       errorHistoryMaxDepth={10}
       successHistoryMaxDepth={10}
       failureHistoryMaxDepth={10}
@@ -90,7 +86,7 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
       jwtToken={jwtToken}
     >
       <DemoArchiveFetcher />
-    </ArchivistApiProvider>
+    </ApiProvider>
   )
 }
 

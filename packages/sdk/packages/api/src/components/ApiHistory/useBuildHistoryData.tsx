@@ -1,9 +1,9 @@
 import { lighten, useTheme } from '@mui/material'
 
-import { useArchivistApi } from '../../contexts'
+import { useApi } from '../../contexts'
 
 const useBuildHistoryData = () => {
-  const { errorHistory, responseHistory, successHistory, failureHistory } = useArchivistApi()
+  const { errorHistory, responseHistory, successHistory, failureHistory } = useApi()
   const theme = useTheme()
 
   const histories = [

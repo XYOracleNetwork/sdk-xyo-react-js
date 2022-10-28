@@ -1,15 +1,15 @@
 import { DecoratorFn } from '@storybook/react'
 import { WithChildren } from '@xylabs/react-shared'
-import { ArchivistApiProvider, useArchivistApi } from '@xyo-network/react-archivist-api'
 
-import { RemoteArchivistProvider } from '../Provider'
+import { ApiProvider, useApi } from './ArchivistApi'
+import { RemoteArchivistProvider } from './RemoteArchivistProvider'
 
 const WithArchivist: React.FC<WithChildren> = ({ children }) => {
-  return <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">{children}</ArchivistApiProvider>
+  return <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">{children}</ApiProvider>
 }
 
 const WithRemoteArchivist: React.FC<WithChildren> = ({ children }) => {
-  const { api } = useArchivistApi()
+  const { api } = useApi()
   return (
     <RemoteArchivistProvider config={{ api: api, archive: 'temp', schema: 'network.xyo.archivist.remote.config' }}>
       {children}

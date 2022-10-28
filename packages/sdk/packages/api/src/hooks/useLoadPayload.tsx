@@ -1,14 +1,14 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload'
-import { useArchive } from '@xyo-network/react-archive'
-import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { useEffect, useState } from 'react'
 
+import { useArchive } from '../archive'
+import { useApi } from '../contexts'
 import { UsePayload } from './ResolvePayloadArgs'
 
 export const useLoadPayloadViaApi = (hash?: string): UsePayload => {
-  const { api } = useArchivistApi()
+  const { api } = useApi()
   const { archive } = useArchive()
   const [localHash, setLocalHash] = useState<string>()
   const [notFound, setNotFound] = useState<boolean>()

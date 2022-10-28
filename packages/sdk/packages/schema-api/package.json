@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "@xylabs/react-shared": "^2.15.1",
-    "@xyo-network/react-archive": "workspace:^",
-    "@xyo-network/react-archivist-api": "workspace:^",
+    "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-schema": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "tslib": "^2.4.0"
@@ -21,11 +20,13 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
+    "@xylabs/react-common": "^2.15.1",
     "@xylabs/sdk-js": "^2.6.9",
     "@xyo-network/api": "*",
     "@xyo-network/archivist": "*",
     "@xyo-network/diviner": "*",
     "@xyo-network/module": "*",
+    "@xyo-network/network": "*",
     "@xyo-network/payload": "*",
     "@xyo-network/schema-payload-plugin": "*",
     "@xyo-network/utils": "*",
@@ -79,5 +80,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.38.16"
+  "version": "2.38.17"
 }

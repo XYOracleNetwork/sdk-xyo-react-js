@@ -1,8 +1,9 @@
 import { XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
 
+/** @deprecated */
 export type XyoApiErrorCallback = (response: XyoApiResponse) => void
 
-export interface ArchivistApiState {
+export interface ApiState {
   api?: XyoArchivistApi
   currentToken?: string
   successHistory?: XyoApiResponse[]

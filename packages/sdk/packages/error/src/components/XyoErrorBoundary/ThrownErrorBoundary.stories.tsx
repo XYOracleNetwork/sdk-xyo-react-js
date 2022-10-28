@@ -3,9 +3,8 @@ import { Alert, Paper, TextField } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 import { BasePageProps } from '@xylabs/react-common'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { ApiProvider, ArchivesProvider } from '@xyo-network/react-api'
 import { ApplicationAppBar, SystemToolbar } from '@xyo-network/react-appbar'
-import { ArchivesProvider } from '@xyo-network/react-archive'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { Footer } from '@xyo-network/react-footer'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { BrowserRouter } from 'react-router-dom'
@@ -58,13 +57,13 @@ const Template: ComponentStory<typeof XyoThrownErrorBoundary> = ({ basePageProps
   return (
     <BrowserRouter>
       <NetworkMemoryProvider>
-        <ArchivistApiProvider apiDomain="http://localhost:8080">
+        <ApiProvider apiDomain="http://localhost:8080">
           <ArchivesProvider>
             <XyoThrownErrorBoundary basePageProps={basePageProps} errorComponent={errorComponent}>
               <Alert severity="info">Use React Dev Tools to trigger and error within the boundary</Alert>
             </XyoThrownErrorBoundary>
           </ArchivesProvider>
-        </ArchivistApiProvider>
+        </ApiProvider>
       </NetworkMemoryProvider>
     </BrowserRouter>
   )

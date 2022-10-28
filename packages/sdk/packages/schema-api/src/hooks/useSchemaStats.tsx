@@ -1,12 +1,11 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistArchivePayloadSchemaStats } from '@xyo-network/api'
-import { useArchive } from '@xyo-network/react-archive'
-import { useArchivistApi } from '@xyo-network/react-archivist-api'
+import { useApi, useArchive } from '@xyo-network/react-api'
 import { useState } from 'react'
 
 /** @deprecated - use schema stats api diviner */
 export const useSchemaStats = (): XyoArchivistArchivePayloadSchemaStats | undefined => {
-  const { api } = useArchivistApi(false)
+  const { api } = useApi(false)
   const { archive = 'temp' } = useArchive(false)
   const [stats, setStats] = useState<XyoArchivistArchivePayloadSchemaStats>()
 
