@@ -10,7 +10,7 @@ import { Footer } from '@xyo-network/react-footer'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { BrowserRouter } from 'react-router-dom'
 
-import { XyoApiThrownErrorBoundary } from './ThrownErrorBoundary'
+import { XyoThrownErrorBoundary } from './ThrownErrorBoundary'
 
 const basePageProps: BasePageProps = {
   appBar: (
@@ -45,7 +45,7 @@ const StorybookEntry: Meta = {
   args: {
     basePageProps,
   },
-  component: XyoApiThrownErrorBoundary,
+  component: XyoThrownErrorBoundary,
   parameters: {
     docs: {
       page: null,
@@ -54,15 +54,15 @@ const StorybookEntry: Meta = {
   title: 'auth-service/XyoApiBoundary/ThrownErrorBoundary',
 }
 
-const Template: ComponentStory<typeof XyoApiThrownErrorBoundary> = ({ basePageProps, errorComponent }) => {
+const Template: ComponentStory<typeof XyoThrownErrorBoundary> = ({ basePageProps, errorComponent }) => {
   return (
     <BrowserRouter>
       <NetworkMemoryProvider>
         <ArchivistApiProvider apiDomain="http://localhost:8080">
           <ArchivesProvider>
-            <XyoApiThrownErrorBoundary basePageProps={basePageProps} errorComponent={errorComponent}>
+            <XyoThrownErrorBoundary basePageProps={basePageProps} errorComponent={errorComponent}>
               <Alert severity="info">Use React Dev Tools to trigger and error within the boundary</Alert>
-            </XyoApiThrownErrorBoundary>
+            </XyoThrownErrorBoundary>
           </ArchivesProvider>
         </ArchivistApiProvider>
       </NetworkMemoryProvider>

@@ -1,6 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoErrorSchema } from '@xyo-network/module'
-import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
 import { XyoErrorRender } from '@xyo-network/react-error'
 import { useParams, useSearchParams } from 'react-router-dom'
 
@@ -33,7 +32,7 @@ export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children
 
   return (
     <XyoErrorRender xyoError={payloadError ? { message: payloadError.message, schema: XyoErrorSchema, sources: [] } : undefined}>
-      <XyoApiErrorRender apiError={payloadError}>{children}</XyoApiErrorRender>
+      <XyoErrorRender xyoError={{ message: payloadError?.message, schema: XyoErrorSchema, sources: [] }}>{children}</XyoErrorRender>
     </XyoErrorRender>
   )
 }

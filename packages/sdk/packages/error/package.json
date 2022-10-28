@@ -10,17 +10,24 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-flexbox": "^2.15.1",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
     "@mui/material": "^5.10.3",
+    "@xylabs/react-common": "^2.15.1",
+    "@xylabs/react-flexbox": "^2.15.1",
+    "@xylabs/react-shared": "^2.15.1",
     "@xyo-network/module": "*",
-    "lodash": "^4.17.21",
     "pako": "^2.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "rollbar": "^2.25.2"
+  },
+  "peerDependenciesMeta": {
+    "rollbar": {
+      "optional": true
+    }
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",

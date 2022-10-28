@@ -7,11 +7,10 @@ import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { useArchive } from '@xyo-network/react-archive'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { AuthStatusIconButton } from '@xyo-network/react-auth'
+import { XyoErrorRender } from '@xyo-network/react-error'
 import { archivistApiDecorator, authDecorator } from '@xyo-network/react-storybook'
 import axios, { AxiosResponse } from 'axios'
 import { useState } from 'react'
-
-import { XyoErrorRender } from './Render'
 
 const StorybookEntry = {
   argTypes: {
