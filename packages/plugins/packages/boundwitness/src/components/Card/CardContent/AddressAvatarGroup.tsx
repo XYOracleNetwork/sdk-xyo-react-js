@@ -4,9 +4,10 @@ import { useLayoutEffect, useRef, useState } from 'react'
 
 export interface AddressAvatarGroupProps extends AvatarGroupProps {
   addresses?: string[]
+  maxAvatars?: number
 }
 
-export const AddressAvatarGroup: React.FC<AddressAvatarGroupProps> = ({ addresses, ...props }) => {
+export const AddressAvatarGroup: React.FC<AddressAvatarGroupProps> = ({ addresses, maxAvatars = 4, ...props }) => {
   const [size, setSize] = useState<number>()
   const ref = useRef<HTMLDivElement | null>(null)
 
@@ -17,7 +18,7 @@ export const AddressAvatarGroup: React.FC<AddressAvatarGroupProps> = ({ addresse
   }, [addresses])
 
   return (
-    <AvatarGroup max={5} total={addresses?.length} {...props}>
+    <AvatarGroup max={maxAvatars} total={addresses?.length} {...props}>
       {addresses?.map((address, index) => (
         <Avatar key={index + address} title={address} ref={ref}>
           <Identicon value={address} position="absolute" p={0.25} top={0} bottom={0} left={0} right={0} size={size} />
