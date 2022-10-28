@@ -17,13 +17,16 @@
     "@xyo-network/react-archivist-api": "workspace:^",
     "@xyo-network/react-auth": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
-    "lodash": "^4.17.21",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
+    "@xyo-network/api": "*",
+    "@xyo-network/archivist": "*",
+    "@xyo-network/module": "*",
+    "@xyo-network/utils": "*",
     "axios": "^0.27.2",
     "pako": "^2.0.4",
     "react": "^18.2.0",
@@ -31,11 +34,6 @@
     "react-router-dom": "^6.3.0"
   },
   "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/api": "^2.38.27",
-    "@xyo-network/utils": "^2.38.27"
-  },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {

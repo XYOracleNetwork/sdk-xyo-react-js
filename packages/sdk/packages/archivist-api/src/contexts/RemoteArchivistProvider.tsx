@@ -2,12 +2,10 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistApi, XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { XyoArchivistWrapper } from '@xyo-network/archivist'
 import { XyoModuleResolver } from '@xyo-network/module'
+import { ArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 import { useMemo, useState } from 'react'
-
-import { useArchivist } from '../use'
-import { ArchivistProvider } from './Provider'
 
 export type RemoteArchivistProviderProps = ContextExProviderProps<{
   config?: XyoRemoteArchivistConfig
