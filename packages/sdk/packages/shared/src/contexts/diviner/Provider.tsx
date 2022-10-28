@@ -1,4 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
+import { XyoDiviner } from '@xyo-network/diviner'
 import { Context, useEffect, useState } from 'react'
 
 import { ContextExProviderProps } from '../contextEx'
@@ -10,7 +11,12 @@ export interface DivinerProviderProps<D> extends ContextExProviderProps, WithChi
 }
 
 /** Exposes a resolved diviner */
-export const ResolvedDivinerProvider = <D,>({ diviner: divinerProp, required = false, children, context }: DivinerProviderProps<D>) => {
+export const ResolvedDivinerProvider = <D extends XyoDiviner>({
+  diviner: divinerProp,
+  required = false,
+  children,
+  context,
+}: DivinerProviderProps<D>) => {
   const [diviner, setDiviner] = useState<D | undefined>(divinerProp)
 
   useEffect(() => {
