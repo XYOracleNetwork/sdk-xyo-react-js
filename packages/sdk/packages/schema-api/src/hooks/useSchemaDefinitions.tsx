@@ -3,7 +3,7 @@ import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
-import { useDivineSchemaList } from '../../Diviners'
+import { useDivineSchemaList } from '../diviners'
 
 export const useSchemaDefinitions = (): XyoSchemaPayload[] | undefined => {
   const [schemaList] = useDivineSchemaList()

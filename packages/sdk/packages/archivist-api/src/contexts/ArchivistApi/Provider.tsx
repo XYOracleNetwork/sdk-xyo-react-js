@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
 import { useCallback, useEffect, useState } from 'react'
@@ -5,6 +7,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { ArchivistApiContext } from './Context'
 import { logWithMax } from './logWithMax'
 
+/** @deprecated if you believe this should not be the case, open a ticket: https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues */
 export interface ArchivistApiProviderProps extends XyoApiConfig {
   required?: boolean
   successHistoryMaxDepth?: number
@@ -14,6 +17,7 @@ export interface ArchivistApiProviderProps extends XyoApiConfig {
   onFailureCallback?: (statusCode?: number) => void
 }
 
+/** @deprecated if you believe this should not be the case, open a ticket: https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues */
 export const ArchivistApiProvider: React.FC<WithChildren<ArchivistApiProviderProps>> = ({
   required = false,
   successHistoryMaxDepth = 0,

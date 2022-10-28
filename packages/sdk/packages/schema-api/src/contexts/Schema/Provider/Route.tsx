@@ -1,9 +1,8 @@
 import { WithChildren } from '@xylabs/react-shared'
+import { SchemaContext, useSchema } from '@xyo-network/react-schema'
 import { useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { SchemaContext } from '../Context'
-import { useSchema } from '../use'
 import { SchemaMemoryProvider } from './Memory'
 import { SchemaProviderProps } from './Props'
 
