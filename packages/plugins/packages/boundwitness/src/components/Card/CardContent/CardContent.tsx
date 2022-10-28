@@ -1,4 +1,4 @@
-import { CardContent, CardContentProps, styled, Typography, TypographyProps, useTheme } from '@mui/material'
+import { CardContent, CardContentProps, styled, Typography, TypographyProps } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayload } from '@xyo-network/payload'
@@ -37,10 +37,11 @@ const CardContentFlex = styled(CardContent, { name: 'CardContentFlex' })(({ them
 }))
 
 const CardColumnsFlex = styled(FlexCol, { name: 'CardColumnsFlex' })(({ theme }) => ({
-  rowGap: theme.spacing(1),
-  [theme.breakpoints.up('xs')]: {
-    flexBasis: '50%',
+  ['@media only screen and (min-width: 333px)']: {
+    minWidth: '50%',
   },
+  minWidth: '100%',
+  rowGap: theme.spacing(1),
 }))
 
 const CardColumnTitle = styled(Typography, { name: 'CardColumnTitle' })(() => ({
