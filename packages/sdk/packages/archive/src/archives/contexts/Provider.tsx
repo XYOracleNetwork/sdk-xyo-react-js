@@ -6,15 +6,13 @@ import { ArchivesContext } from './Context'
 import { ArchiveListApiDivinerProvider, useDivineArchiveList } from './ListDiviner'
 
 export const ArchivesProviderInner: React.FC<WithChildren> = ({ children }) => {
-  const [archives, setArchives] = useState<XyoArchive[]>()
+  const [archives, setArchives] = useState<XyoArchive[]>([{ archive: 'temp' }])
 
   const [archiveList, error, refreshList] = useDivineArchiveList()
 
   useEffect(() => {
     if (archiveList?.length) {
       setArchives(archiveList.map((archive) => archive.archive))
-    } else {
-      setArchives([{ archive: 'temp' }])
     }
   }, [archiveList])
 

@@ -1,12 +1,12 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { ArchiveListApiDiviner } from '@xyo-network/api'
 import { useArchivistApi } from '@xyo-network/react-archivist-api'
+import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
 import { ArchiveListApiDivinerContext } from './Context'
 
-/** Builds the archivist list diviner module */
-export const ArchiveListApiDivinerProvider: React.FC<WithChildren> = ({ children }) => {
+export const ArchiveListApiDivinerProvider: React.FC<WithChildren<ContextExProviderProps>> = ({ children, required = false }) => {
   const { api } = useArchivistApi()
   const [diviner, setDiviner] = useState<ArchiveListApiDiviner>()
 
@@ -28,5 +28,9 @@ export const ArchiveListApiDivinerProvider: React.FC<WithChildren> = ({ children
     [api, setDiviner],
   )
 
-  return <ArchiveListApiDivinerContext.Provider value={{ diviner, provided: true, setDiviner }}>{children}</ArchiveListApiDivinerContext.Provider>
+  return (
+    <ArchiveListApiDivinerContext.Provider value={{ diviner, provided: true, setDiviner }}>
+      {diviner ? children : required ? null : children}
+    </ArchiveListApiDivinerContext.Provider>
+  )
 }
