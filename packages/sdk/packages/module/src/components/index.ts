@@ -1,4 +1,4 @@
-export * from './CardActionArea'
+export * from './CardActions'
 export * from './CardContent'
 export * from './CardHeader'
 export * from './DetailsBox'
