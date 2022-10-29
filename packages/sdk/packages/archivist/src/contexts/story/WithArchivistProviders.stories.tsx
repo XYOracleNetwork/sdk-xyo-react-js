@@ -1,8 +1,6 @@
 import { DecoratorFn } from '@storybook/react'
 import { WithChildren } from '@xylabs/react-shared'
-
-import { ApiProvider, useApi } from './ArchivistApi'
-import { RemoteArchivistProvider } from './RemoteArchivistProvider'
+import { ApiProvider, RemoteArchivistProvider, useApi } from '@xyo-network/react-api'
 
 const WithArchivist: React.FC<WithChildren> = ({ children }) => {
   return <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">{children}</ApiProvider>
