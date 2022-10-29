@@ -28,4 +28,5 @@ const CardHeaderHash = styled(CardHeader, { name: 'CardHeaderHash' })(({ theme }
     backgroundColor: theme.palette.info.main,
     color: theme.palette.info.contrastText,
   },
+  padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
 }))

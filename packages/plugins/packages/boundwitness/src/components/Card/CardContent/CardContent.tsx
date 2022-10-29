@@ -27,7 +27,7 @@ export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = (
   )
 }
 
-const CardColumnTitleH2: React.FC<TypographyProps> = (props) => <CardColumnTitle variant="h4" {...props} />
+const CardColumnTitleH2: React.FC<TypographyProps> = (props) => <CardColumnTitle {...props} />
 
 const CardContentFlex = styled(CardContent, { name: 'CardContentFlex' })(({ theme }) => ({
   display: 'flex',
@@ -44,6 +44,7 @@ const CardColumnsFlex = styled(FlexCol, { name: 'CardColumnsFlex' })(({ theme })
   rowGap: theme.spacing(1),
 }))
 
-const CardColumnTitle = styled(Typography, { name: 'CardColumnTitle' })(() => ({
+const CardColumnTitle = styled(Typography, { name: 'CardColumnTitle' })(({ theme }) => ({
+  color: theme.palette.text.primary,
   fontWeight: 500,
 }))
