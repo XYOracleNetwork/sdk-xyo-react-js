@@ -1,5 +1,5 @@
 import { TableCell, TableRow, Typography } from '@mui/material'
-import { XyoApiError, XyoApiResponse } from '@xyo-network/api'
+import { XyoApiError, XyoApiResponse } from '@xyo-network/api-models'
 
 export interface ApiCallEntryProps {
   call: XyoApiResponse | XyoApiError

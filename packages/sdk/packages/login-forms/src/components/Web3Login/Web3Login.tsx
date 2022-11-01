@@ -1,7 +1,7 @@
 import { Alert, AlertTitle, Typography } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { assertEx } from '@xylabs/sdk-js'
-import { XyoApiError } from '@xyo-network/api'
+import { XyoApiError } from '@xyo-network/api-models'
 import { useApi } from '@xyo-network/react-api'
 import { AuthActionType } from '@xyo-network/react-auth'
 import { useWalletService } from '@xyo-network/react-wallet-service'

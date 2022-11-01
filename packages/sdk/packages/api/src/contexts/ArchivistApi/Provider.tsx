@@ -1,5 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoApiConfig, XyoApiError, XyoApiResponse, XyoArchivistApi } from '@xyo-network/api'
+import { XyoArchivistApi } from '@xyo-network/api'
+import { XyoApiConfig, XyoApiError, XyoApiResponse } from '@xyo-network/api-models'
 import { useCallback, useEffect, useState } from 'react'
 
 import { ApiContext } from './Context'
