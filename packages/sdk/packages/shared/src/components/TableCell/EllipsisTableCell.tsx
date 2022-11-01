@@ -27,7 +27,7 @@ export interface EllipsisTableCellProps extends TableCellProps {
   value?: string
 }
 
-export const EllipsisTableCellInner: React.FC<WithChildren<EllipsisTableCellProps>> = forwardRef(({ children, href, to, value, ref, ...props }) => {
+export const EllipsisTableCellWithRef: React.FC<WithChildren<EllipsisTableCellProps>> = forwardRef(({ children, href, to, value, ...props }, ref) => {
   return (
     <EllipsisTableCellRoot ref={ref} {...props}>
       <EllipsizeBox>
@@ -45,5 +45,5 @@ export const EllipsisTableCellInner: React.FC<WithChildren<EllipsisTableCellProp
   )
 })
 
-EllipsisTableCellInner.displayName = 'EllipsisTableCell'
-export const EllipsisTableCell = EllipsisTableCellInner
+EllipsisTableCellWithRef.displayName = 'EllipsisTableCell'
+export const EllipsisTableCell = EllipsisTableCellWithRef
