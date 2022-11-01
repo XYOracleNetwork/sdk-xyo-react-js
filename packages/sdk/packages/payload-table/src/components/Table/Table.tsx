@@ -1,14 +1,14 @@
-import { Alert, styled, TableBody, TablePagination, TableRow, Typography } from '@mui/material'
+import { styled, TablePagination, TableRow } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
-import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
+import { XyoPayload } from '@xyo-network/payload'
 import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
 import { ComponentType, forwardRef, useEffect, useState } from 'react'
 
-import { PayloadTableColumnConfig, PayloadTableHeadProps } from './PayloadTableColumnConfig'
+import { PayloadTableColumnConfig } from './PayloadTableColumnConfig'
+import { PayloadTableBody } from './TableBody'
 import { PayloadTableHead } from './TableHead'
 import { TablePaginationActions } from './TablePagination'
-import { PayloadTableRow } from './TableRow'
+import { PayloadTableBodyProps, PayloadTableHeadProps } from './types'
 
 export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
@@ -18,7 +18,8 @@ export interface PayloadTableProps extends TableExProps {
   payloads?: XyoPayload[] | null
   loading?: boolean
   columns?: PayloadTableColumnConfig
-  TableHead?: ComponentType<PayloadTableHeadProps>
+  PayloadTableHeadComponent?: ComponentType<PayloadTableHeadProps>
+  PayloadTableBodyComponent?: ComponentType<PayloadTableBodyProps>
   /** External trigger to fetch more payloads */
   fetchMorePayloads?: () => void
   /** set number of schema parts to display starting from the end */
@@ -36,9 +37,9 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       fetchMorePayloads,
       rowsPerPage: rowsPerPageProp = 25,
       payloads,
-      children,
       columns,
-      TableHead = PayloadTableHead,
+      PayloadTableHeadComponent = PayloadTableHead,
+      PayloadTableBodyComponent = PayloadTableBody,
       maxSchemaDepth,
       count = 0,
       loading = false,
@@ -97,38 +98,15 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
 
     return breakPoint ? (
       <TableEx variant={variant} ref={ref} {...props}>
-        <TableHead breakPoint={breakPoint} columns={columns} />
-        <TableBody>
-          {visiblePayloads?.map((payload, index) => {
-            const wrapper = new PayloadWrapper(payload)
-            return (
-              <XyoApiThrownErrorBoundary
-                key={`${wrapper.hash}-${index}`}
-                errorComponent={(e: Error) => (
-                  <Alert severity="error">
-                    Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>
-                  </Alert>
-                )}
-              >
-                <PayloadTableRow
-                  maxSchemaDepth={maxSchemaDepth}
-                  archive={archive}
-                  onClick={
-                    onRowClick
-                      ? () => {
-                          onRowClick(payload)
-                        }
-                      : undefined
-                  }
-                  exploreDomain={exploreDomain}
-                  payload={payload}
-                />
-              </XyoApiThrownErrorBoundary>
-            )
-          })}
-          {children}
-          {emptyRows > 0 && Array(emptyRows).fill(<PayloadTableRow />)}
-        </TableBody>
+        <PayloadTableHeadComponent breakPoint={breakPoint} columns={columns} />
+        <PayloadTableBodyComponent
+          payloads={visiblePayloads}
+          exploreDomain={exploreDomain}
+          archive={archive}
+          maxSchemaDepth={maxSchemaDepth}
+          onRowClick={onRowClick}
+          emptyRows={emptyRows}
+        />
         <TableFooterEx variant={variant}>
           <TableRow>
             <StyledTablePagination

@@ -1,6 +1,7 @@
 import { TableCell, TableHead, TableRow, Typography } from '@mui/material'
 
-import { payloadColumnNames, payloadTableColumnConfigDefaults, PayloadTableHeadProps } from './PayloadTableColumnConfig'
+import { payloadColumnNames, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
+import { PayloadTableHeadProps } from './types'
 
 export const PayloadTableHead: React.FC<PayloadTableHeadProps> = ({ columns = payloadTableColumnConfigDefaults(), breakPoint, ...props }) => {
   return (

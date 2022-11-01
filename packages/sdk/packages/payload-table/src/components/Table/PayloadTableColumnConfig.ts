@@ -24,8 +24,3 @@ export const payloadTableColumnConfigDefaults = (): PayloadTableColumnConfig => 
   const xl: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
   return { lg, md, sm, xl, xs }
 }
-
-export interface PayloadTableHeadProps extends TableHeadProps {
-  breakPoint?: Breakpoint
-  columns?: PayloadTableColumnConfig
-}
