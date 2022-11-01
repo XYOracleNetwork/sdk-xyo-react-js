@@ -1,11 +1,12 @@
-import { Alert, styled, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography } from '@mui/material'
+import { Alert, styled, TableBody, TablePagination, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
-import { forwardRef, useEffect, useState } from 'react'
+import { ComponentType, forwardRef, useEffect, useState } from 'react'
 
-import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
+import { PayloadTableColumnConfig, PayloadTableHeadProps } from './PayloadTableColumnConfig'
+import { PayloadTableHead } from './TableHead'
 import { TablePaginationActions } from './TablePagination'
 import { PayloadTableRow } from './TableRow'
 
@@ -17,6 +18,7 @@ export interface PayloadTableProps extends TableExProps {
   payloads?: XyoPayload[] | null
   loading?: boolean
   columns?: PayloadTableColumnConfig
+  TableHead?: ComponentType<PayloadTableHeadProps>
   /** External trigger to fetch more payloads */
   fetchMorePayloads?: () => void
   /** set number of schema parts to display starting from the end */
@@ -35,7 +37,8 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       rowsPerPage: rowsPerPageProp = 25,
       payloads,
       children,
-      columns = payloadTableColumnConfigDefaults(),
+      columns,
+      TableHead = PayloadTableHead,
       maxSchemaDepth,
       count = 0,
       loading = false,
@@ -94,19 +97,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
 
     return breakPoint ? (
       <TableEx variant={variant} ref={ref} {...props}>
-        <TableHead>
-          <TableRow>
-            {columns[breakPoint]?.map((column, index) => {
-              return (
-                <TableCell key={index} width={index === 0 ? '100%' : undefined} align={index === 0 ? 'left' : 'center'}>
-                  <Typography variant="body2" noWrap>
-                    {payloadColumnNames[column]}
-                  </Typography>
-                </TableCell>
-              )
-            })}
-          </TableRow>
-        </TableHead>
+        <TableHead breakPoint={breakPoint} columns={columns} />
         <TableBody>
           {visiblePayloads?.map((payload, index) => {
             const wrapper = new PayloadWrapper(payload)
