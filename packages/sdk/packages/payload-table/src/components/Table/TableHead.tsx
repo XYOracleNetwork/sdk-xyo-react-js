@@ -1,9 +1,11 @@
 import { TableCell, TableHead, TableRow, Typography } from '@mui/material'
+import { useBreakpoint } from '@xylabs/react-shared'
 
 import { payloadColumnNames, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
 import { PayloadTableHeadProps } from './types'
 
-export const PayloadTableHead: React.FC<PayloadTableHeadProps> = ({ columns = payloadTableColumnConfigDefaults(), breakPoint, ...props }) => {
+export const PayloadTableHead: React.FC<PayloadTableHeadProps> = ({ columns = payloadTableColumnConfigDefaults(), ...props }) => {
+  const breakPoint = useBreakpoint()
   return (
     <TableHead {...props}>
       <TableRow>
