@@ -1,14 +1,13 @@
-import { styled, TablePagination, TableRow } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { XyoPayload } from '@xyo-network/payload'
-import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
+import { TableEx, TableExProps } from '@xyo-network/react-table'
 import { ComponentType, forwardRef, useEffect, useState } from 'react'
 
 import { PayloadTableColumnConfig } from './PayloadTableColumnConfig'
 import { PayloadTableBody } from './TableBody'
+import { PayloadTableFooter } from './TableFooter'
 import { PayloadTableHead } from './TableHead'
-import { TablePaginationActions } from './TablePagination'
-import { PayloadTableBodyProps, PayloadTableHeadProps } from './types'
+import { PayloadTableBodyProps, PayloadTableFooterProps, PayloadTableHeadProps } from './types'
 
 export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
@@ -20,6 +19,7 @@ export interface PayloadTableProps extends TableExProps {
   columns?: PayloadTableColumnConfig
   PayloadTableHeadComponent?: ComponentType<PayloadTableHeadProps>
   PayloadTableBodyComponent?: ComponentType<PayloadTableBodyProps>
+  PayloadTableFooterComponent?: ComponentType<PayloadTableFooterProps>
   /** External trigger to fetch more payloads */
   fetchMorePayloads?: () => void
   /** set number of schema parts to display starting from the end */
@@ -40,6 +40,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       columns,
       PayloadTableHeadComponent = PayloadTableHead,
       PayloadTableBodyComponent = PayloadTableBody,
+      PayloadTableFooterComponent = PayloadTableFooter,
       maxSchemaDepth,
       count = 0,
       loading = false,
@@ -48,7 +49,6 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
     },
     ref,
   ) => {
-    const breakPoint = useBreakpoint()
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
     const [visiblePayloads, setVisiblePayloads] = useState<XyoPayload[]>([])
@@ -86,7 +86,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       }
     }
 
-    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    const handleChangePage = (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
       handleAdditionalPayloads()
       setPage(newPage)
     }
@@ -96,9 +96,9 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       setPage(0)
     }
 
-    return breakPoint ? (
+    return (
       <TableEx variant={variant} ref={ref} {...props}>
-        <PayloadTableHeadComponent breakPoint={breakPoint} columns={columns} />
+        <PayloadTableHeadComponent columns={columns} />
         <PayloadTableBodyComponent
           payloads={visiblePayloads}
           exploreDomain={exploreDomain}
@@ -107,38 +107,20 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
           onRowClick={onRowClick}
           emptyRows={emptyRows}
         />
-        <TableFooterEx variant={variant}>
-          <TableRow>
-            <StyledTablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              count={count ?? 0}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!fetchMorePayloads} loading={loading} {...props} />}
-            />
-          </TableRow>
-        </TableFooterEx>
+        <PayloadTableFooterComponent
+          count={count}
+          variant={variant}
+          rowsPerPage={rowsPerPage}
+          handleChangePage={handleChangePage}
+          handleChangeRowsPerPage={handleChangeRowsPerPage}
+          fetchMorePayloads={fetchMorePayloads}
+          loading={loading}
+        />
       </TableEx>
-    ) : null
+    )
   },
 )
 
 PayloadTableWithRef.displayName = 'PayloadTable'
 
 export const PayloadTable = PayloadTableWithRef
-
-const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
-  '& > .MuiToolbar-root': {
-    paddingLeft: theme.spacing(1),
-  },
-  borderTop: '1px solid',
-  borderTopColor: theme.palette.divider,
-}))
