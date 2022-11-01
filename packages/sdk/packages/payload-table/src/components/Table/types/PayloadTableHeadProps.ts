@@ -1,7 +1,7 @@
 import { TableHeadProps } from '@mui/material'
 
-import { PayloadTableColumnConfig } from '../PayloadTableColumnConfig'
+import { PayloadTableColumnConfig, PayloadTableColumnSlug } from '../PayloadTableColumnConfig'
 
-export interface PayloadTableHeadProps extends TableHeadProps {
-  columns?: PayloadTableColumnConfig
+export interface PayloadTableHeadProps<T = PayloadTableColumnSlug> extends TableHeadProps {
+  columns?: PayloadTableColumnConfig<T>
 }

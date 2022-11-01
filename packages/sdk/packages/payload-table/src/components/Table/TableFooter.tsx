@@ -20,7 +20,7 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
         rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
         count={count ?? 0}
         rowsPerPage={rowsPerPage ?? 10}
-        page={page ?? 1}
+        page={page ?? 0}
         SelectProps={{
           inputProps: {
             'aria-label': 'rows per page',

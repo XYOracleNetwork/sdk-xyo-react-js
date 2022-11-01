@@ -1,13 +1,11 @@
-import { Breakpoint, TableHeadProps } from '@mui/material'
-
 export type PayloadTableColumnSlug = 'hash' | 'schema' | 'valid'
 
-export interface PayloadTableColumnConfig {
-  xs?: PayloadTableColumnSlug[]
-  sm?: PayloadTableColumnSlug[]
-  md?: PayloadTableColumnSlug[]
-  lg?: PayloadTableColumnSlug[]
-  xl?: PayloadTableColumnSlug[]
+export interface PayloadTableColumnConfig<T = PayloadTableColumnSlug> {
+  xs?: T[]
+  sm?: T[]
+  md?: T[]
+  lg?: T[]
+  xl?: T[]
 }
 
 export const payloadColumnNames: Record<PayloadTableColumnSlug, string> = {

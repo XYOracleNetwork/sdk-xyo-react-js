@@ -1,4 +1,3 @@
-import { useBreakpoint } from '@xylabs/react-shared'
 import { XyoPayload } from '@xyo-network/payload'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
 import { ComponentType, forwardRef, useEffect, useState } from 'react'
