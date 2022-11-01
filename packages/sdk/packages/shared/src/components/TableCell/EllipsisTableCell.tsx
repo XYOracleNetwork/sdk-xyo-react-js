@@ -1,6 +1,7 @@
 import { styled, TableCell, TableCellProps } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
 import { WithChildren } from '@xylabs/react-shared'
+import { forwardRef } from 'react'
 import { To } from 'react-router-dom'
 
 import { EllipsizeBox } from '../Ellipsize'
@@ -26,9 +27,9 @@ export interface EllipsisTableCellProps extends TableCellProps {
   value?: string
 }
 
-export const EllipsisTableCell: React.FC<WithChildren<EllipsisTableCellProps>> = ({ children, href, to, value, ...props }) => {
+export const EllipsisTableCellInner: React.FC<WithChildren<EllipsisTableCellProps>> = forwardRef(({ children, href, to, value, ref, ...props }) => {
   return (
-    <EllipsisTableCellRoot {...props}>
+    <EllipsisTableCellRoot ref={ref} {...props}>
       <EllipsizeBox>
         {children ? (
           children
@@ -42,4 +43,7 @@ export const EllipsisTableCell: React.FC<WithChildren<EllipsisTableCellProps>> =
       </EllipsizeBox>
     </EllipsisTableCellRoot>
   )
-}
+})
+
+EllipsisTableCellInner.displayName = 'EllipsisTableCell'
+export const EllipsisTableCell = EllipsisTableCellInner
