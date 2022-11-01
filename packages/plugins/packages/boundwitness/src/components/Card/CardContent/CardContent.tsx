@@ -30,6 +30,9 @@ export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = (
 const CardColumnTitleH2: React.FC<TypographyProps> = (props) => <CardColumnTitle {...props} />
 
 const CardContentFlex = styled(CardContent, { name: 'CardContentFlex' })(({ theme }) => ({
+  [':last-child']: {
+    paddingBottom: theme.spacing(1),
+  },
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
