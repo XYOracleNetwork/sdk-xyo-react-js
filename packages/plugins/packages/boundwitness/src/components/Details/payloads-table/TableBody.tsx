@@ -1,7 +1,7 @@
-import { TableBody, TableRow } from '@mui/material'
+import { TableBody, TableCell, TableRow } from '@mui/material'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { PayloadTableBodyProps } from '@xyo-network/react-payload-table'
-import { EllipsisTableCell, HashTableCell } from '@xyo-network/react-shared'
+import { HashTableCell } from '@xyo-network/react-shared'
 import { useRef } from 'react'
 
 interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps {
@@ -25,8 +25,8 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
         payloadHashes?.map((hash, index) => {
           return (
             <TableRow key={hash + index} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer', fontSize: 14 }}>
+              <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
               <HashTableCell title={hash}>{hash}</HashTableCell>
-              <EllipsisTableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</EllipsisTableCell>
             </TableRow>
           )
         })}
