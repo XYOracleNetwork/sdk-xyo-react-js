@@ -26,7 +26,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
         payloadSchemas &&
         payloadHashes?.map((hash, index) => {
           return (
-            <TableRow key={hash + index} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer', fontSize: 14 }}>
+            <TableRow key={hash + index} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
               <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
               <HashTableCell title={hash}>{hash}</HashTableCell>
             </TableRow>
