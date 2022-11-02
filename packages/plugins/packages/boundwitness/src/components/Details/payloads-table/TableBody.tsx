@@ -11,15 +11,17 @@ interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps {
 
 export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = ({ payloadHashes, payloadSchemas, ...props }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows, ...tableProps } = props
+  const { payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows, noResults, NoResultRowComponent, ...tableProps } = props
   const ref = useRef<HTMLTableSectionElement | null>(null)
   const [tableRef, dispatch] = useXyoEvent<HTMLTableSectionElement>(undefined, ref)
 
   const handleOnClick = (hash: string) => {
     dispatch('payload', 'click', hash)
   }
+
   return (
     <TableBody ref={tableRef} {...tableProps}>
+      {noResults && NoResultRowComponent ? <NoResultRowComponent /> : null}
       {payloadHashes &&
         payloadSchemas &&
         payloadHashes?.map((hash, index) => {

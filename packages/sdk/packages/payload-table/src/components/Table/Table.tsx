@@ -1,6 +1,6 @@
 import { XyoPayload } from '@xyo-network/payload'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
-import { ComponentType, forwardRef, useCallback, useEffect, useMemo, useState } from 'react'
+import { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
 
 import { PayloadTableColumnConfig } from './PayloadTableColumnConfig'
 import { PayloadTableBody } from './TableBody'

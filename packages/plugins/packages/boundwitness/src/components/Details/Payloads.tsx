@@ -19,7 +19,12 @@ export const BoundWitnessPayloads: React.FC<BoundWitnessPayloadsProps> = ({ payl
       <PayloadTable
         PayloadTableHeadComponent={(props) => <BoundWitnessPayloadTableHead {...props} />}
         PayloadTableBodyComponent={(props) => (
-          <BoundWitnessPayloadTableBody payloadHashes={boundwitness?.payload_hashes} payloadSchemas={boundwitness?.payload_schemas} {...props} />
+          <BoundWitnessPayloadTableBody
+            {...props}
+            noResults={boundwitness?.payload_hashes.length === 0}
+            payloadHashes={boundwitness?.payload_hashes}
+            payloadSchemas={boundwitness?.payload_schemas}
+          />
         )}
         {...payloadTableProps}
       />
