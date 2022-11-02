@@ -13,7 +13,13 @@ export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({ schemas, m
   const resolveSchemaToIcon = useCallback(
     (schema: string, index: number) => {
       const SchemaAvatar = resolver?.resolve({ schema })?.components.avatar.image
-      return SchemaAvatar ? <SchemaAvatar key={index + schema} /> : <Avatar title={schema}>{schema[0]}</Avatar>
+      return SchemaAvatar ? (
+        <SchemaAvatar key={index + schema} />
+      ) : (
+        <Avatar key={index + schema} title={schema}>
+          {schema[0]}
+        </Avatar>
+      )
     },
     [resolver],
   )

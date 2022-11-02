@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { XyoPayload } from '@xyo-network/payload'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
@@ -38,6 +39,18 @@ const Template: ComponentStory<typeof BoundWitnessDetails> = (args) => {
 const Default = Template.bind({})
 Default.args = {}
 
+const WithNoData = Template.bind({})
+WithNoData.args = {
+  payload: {
+    _signatures: [],
+    addresses: [],
+    payload_hashes: [],
+    payload_schemas: [],
+    previous_hashes: [],
+    schema: 'network.xyo.boundwitness',
+  } as XyoPayload,
+}
+
 const WithData = Template.bind({})
 WithData.args = { payload: sampleBlockWithPayloads }
 
@@ -59,7 +72,7 @@ WithPreviousHash.args = {
 const WithArchiveLinkPaper = Template.bind({})
 WithArchiveLinkPaper.args = { paper: true, payload: sampleBlockWithPayloads }
 
-export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithPreviousHash }
+export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithNoData, WithPreviousHash }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
