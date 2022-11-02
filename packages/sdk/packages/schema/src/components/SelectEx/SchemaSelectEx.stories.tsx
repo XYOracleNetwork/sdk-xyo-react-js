@@ -1,7 +1,7 @@
 /* eslint-disable import/no-internal-modules */
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+/*import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SelectExProps } from '@xylabs/react-common'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { ApiProvider } from '@xyo-network/react-api'
 import { authDecorator, WrappedArgs } from '@xyo-network/react-storybook'
 
 import { SchemaMemoryProvider } from '../../contexts'
@@ -39,11 +39,11 @@ const TemplateWithApi: ComponentStory<typeof SchemaSelectEx> = (args) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { authState, ...props } = combinedArgs
   return (
-    <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+    <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
       <SchemaMemoryProvider>
         <SchemaSelectEx {...props}></SchemaSelectEx>
       </SchemaMemoryProvider>
-    </ArchivistApiProvider>
+    </ApiProvider>
   )
 }
 
@@ -60,3 +60,4 @@ export { Default, WithApi, WithProvider }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
+*/

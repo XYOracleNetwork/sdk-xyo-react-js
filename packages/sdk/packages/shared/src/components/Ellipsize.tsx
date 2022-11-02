@@ -92,7 +92,7 @@ export const EllipsizeBoxInner: React.FC<WithChildren<EllipsizeBoxProps>> = forw
     return (
       <EllipsizeRoot beforeLineHeight={ref ? contentWrapHeight : undefined} ref={ref} {...props}>
         <EllipsizeInnerWrap>
-          <EllipsizeContentWrap ref={contentWrapRef} component={'span'} ellipsisPosition={ellipsisPosition} {...typographyProps}>
+          <EllipsizeContentWrap ref={contentWrapRef} component={'span'} ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
             {children}
           </EllipsizeContentWrap>
         </EllipsizeInnerWrap>

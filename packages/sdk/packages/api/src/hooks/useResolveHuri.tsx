@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoApiError } from '@xyo-network/api'
+import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { Huri, XyoPayload } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
 import { useEffect, useState } from 'react'
@@ -7,12 +7,12 @@ import { useEffect, useState } from 'react'
 import { FetchHuriHashOptions, findHuriNetwork } from './lib'
 import { UseHuriOrHash } from './ResolvePayloadArgs'
 
-const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?: FetchHuriHashOptions): UseHuriOrHash => {
+export const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?: FetchHuriHashOptions): UseHuriOrHash => {
   const { network, networks, setNetwork } = useNetwork()
   const [huriPayload, setHuriPayload] = useState<XyoPayload>()
   const [huriPayloadNotFound, setHuriPayloadNotFound] = useState<boolean>()
   const [huriNetworkNotFound, setHuriNetworkNotFound] = useState<boolean>()
-  const [huriApiError, setHuriApiError] = useState<XyoApiError>()
+  const [huriError, setHuriError] = useState<XyoError>()
 
   const { changeActiveNetwork } = options ?? {}
 
@@ -20,7 +20,7 @@ const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?:
   const reset = () => {
     setHuriPayload(undefined)
     setHuriPayloadNotFound(undefined)
-    setHuriApiError(undefined)
+    setHuriError(undefined)
   }
 
   useEffect(() => {
@@ -55,10 +55,11 @@ const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?:
               }
             }
           } catch (e) {
+            const error = e as Error
             if (mounted()) {
               setHuriPayloadNotFound(false)
               setHuriPayload(undefined)
-              setHuriApiError(e as XyoApiError)
+              setHuriError({ message: error.message, schema: XyoErrorSchema, sources: [] })
             }
           }
         } else {
@@ -69,7 +70,5 @@ const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?:
     [huriUri, network, networks, dependentNotFound, setNetwork, changeActiveNetwork],
   )
 
-  return [huriPayload, huriPayloadNotFound, huriApiError, huriNetworkNotFound]
+  return [huriPayload, huriPayloadNotFound, huriError, huriNetworkNotFound]
 }
-
-export { useResolveHuri }

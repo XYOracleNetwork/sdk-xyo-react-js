@@ -1,7 +1,7 @@
 import { Table, TableProps } from '@mui/material'
 import { forwardRef, PropsWithChildren } from 'react'
 
-import { TableExVariants } from './lib'
+import { TableExVariants } from './types'
 
 export interface TableExProps extends PropsWithChildren, TableProps {
   variant?: TableExVariants

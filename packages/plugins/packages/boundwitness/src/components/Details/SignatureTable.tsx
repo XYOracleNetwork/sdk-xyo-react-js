@@ -1,6 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
+import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow'
@@ -59,7 +60,8 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
           </TableRow>
         </TableHead>
         <TableBody>
-          {signatureData?.map((data, index) => {
+          {!signatureData || signatureData.length === 0 ? <TableRowNoData /> : null}
+          {signatureData.map((data, index) => {
             return (
               <BoundWitnessSignatureTableRow
                 key={`${data.signature}-${data.previous_hash}-${index}`}

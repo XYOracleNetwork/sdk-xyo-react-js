@@ -19,7 +19,7 @@ import {
 } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
-import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
+import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 import { useEffect, useState } from 'react'
 
 import { PayloadDynamicTableRow } from './DynamicTableRow'
@@ -128,7 +128,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
         {payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((payload, index) => {
           const wrapper = new PayloadWrapper(payload)
           return (
-            <XyoApiThrownErrorBoundary
+            <XyoThrownErrorBoundary
               key={`${wrapper.hash}-${index}`}
               errorComponent={(e) => (
                 <Alert severity="error">
@@ -148,7 +148,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
                 exploreDomain={exploreDomain}
                 payload={payload}
               />
-            </XyoApiThrownErrorBoundary>
+            </XyoThrownErrorBoundary>
           )
         })}
         {children}
