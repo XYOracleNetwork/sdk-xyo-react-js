@@ -12,15 +12,17 @@
   "dependencies": {
     "@xyo-network/react-payload-details": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.1"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
+    "@xylabs/sdk-js": "^2.6.9",
     "@xyo-network/archivist": "*",
     "@xyo-network/crypto-asset-payload-plugin": "*",
     "@xyo-network/diviner": "*",
+    "@xyo-network/module": "*",
     "@xyo-network/payload": "*",
     "@xyo-network/payload-plugin": "*",
     "@xyo-network/schema-payload-plugin": "*",
@@ -76,5 +78,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.38.19"
+  "version": "2.40.0"
 }

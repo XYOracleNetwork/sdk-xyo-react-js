@@ -1,4 +1,4 @@
-import { XyoApiError } from '@xyo-network/api'
+import { XyoApiError } from '@xyo-network/api-models'
 
 type AuthError = Error | XyoApiError
 

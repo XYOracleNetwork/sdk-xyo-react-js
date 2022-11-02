@@ -1,6 +1,6 @@
 import { Alert, TableBody, Typography } from '@mui/material'
 import { PayloadWrapper } from '@xyo-network/payload'
-import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
+import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 
 import { PayloadTableRow } from './TableRow'
 import { PayloadTableBodyProps } from './types'
@@ -23,7 +23,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
       {payloads?.map((payload, index) => {
         const wrapper = new PayloadWrapper(payload)
         return (
-          <XyoApiThrownErrorBoundary
+          <XyoThrownErrorBoundary
             key={`${wrapper.hash}-${index}`}
             errorComponent={(e: Error) => (
               <Alert severity="error">
@@ -44,7 +44,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
               exploreDomain={exploreDomain}
               payload={payload}
             />
-          </XyoApiThrownErrorBoundary>
+          </XyoThrownErrorBoundary>
         )
       })}
       {children}

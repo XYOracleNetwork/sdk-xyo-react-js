@@ -1,6 +1,6 @@
 import { Alert, Typography } from '@mui/material'
 import { BoundWitnessWrapper, XyoBoundWitness } from '@xyo-network/boundwitness'
-import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
+import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 
 import { BlockTableRow, BlockTableRowProps } from './TableRow'
 
@@ -16,7 +16,7 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
   return (
     <>
       {block ? (
-        <XyoApiThrownErrorBoundary
+        <XyoThrownErrorBoundary
           key={`${wrapper?.hash}-${index}`}
           errorComponent={(e: Error) => (
             <Alert severity="error">
@@ -37,7 +37,7 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
                 : undefined
             }
           />
-        </XyoApiThrownErrorBoundary>
+        </XyoThrownErrorBoundary>
       ) : null}
     </>
   )

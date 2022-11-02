@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { ResultLoader } from '@xyo-network/react-api'
-import { XyoApiErrorRender } from '@xyo-network/react-auth-service'
+import { XyoErrorSchema } from '@xyo-network/module'
+import { XyoErrorRender } from '@xyo-network/react-error'
 import { useParams, useSearchParams } from 'react-router-dom'
 
 import { useDivinePayload } from '../PayloadDiviner'
@@ -28,12 +28,12 @@ export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ 
 }
 
 export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children }) => {
-  const { payload, payloadError } = useDivinedPayload()
+  const { payloadError } = useDivinedPayload()
 
   return (
-    <ResultLoader searchResult={payload} apiError={payloadError} notFound={payload === null}>
-      <XyoApiErrorRender apiError={payloadError}>{children}</XyoApiErrorRender>
-    </ResultLoader>
+    <XyoErrorRender xyoError={payloadError ? { message: payloadError.message, schema: XyoErrorSchema, sources: [] } : undefined}>
+      <XyoErrorRender xyoError={{ message: payloadError?.message, schema: XyoErrorSchema, sources: [] }}>{children}</XyoErrorRender>
+    </XyoErrorRender>
   )
 }
 
