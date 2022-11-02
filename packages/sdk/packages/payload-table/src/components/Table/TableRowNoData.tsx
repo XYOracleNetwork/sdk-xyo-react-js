@@ -1,10 +1,16 @@
-import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
+import { TableCell, TableRow, TableRowProps, Typography, TypographyProps } from '@mui/material'
 
-export const TableRowNoData: React.FC<TableRowProps> = (props) => {
+export interface TableRowNoDataProps extends TableRowProps {
+  typographyProps?: TypographyProps
+}
+
+export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ typographyProps, ...props }) => {
   return (
     <TableRow {...props}>
       <TableCell sx={{ border: 'none' }}>
-        <Typography variant="body2">No Data To Display...</Typography>
+        <Typography variant="body2" {...typographyProps}>
+          No Data To Display...
+        </Typography>
       </TableCell>
     </TableRow>
   )
