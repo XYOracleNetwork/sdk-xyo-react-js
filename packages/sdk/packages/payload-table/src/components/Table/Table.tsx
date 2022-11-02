@@ -105,6 +105,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
           maxSchemaDepth={maxSchemaDepth}
           onRowClick={onRowClick}
           emptyRows={emptyRows}
+          loading={loading}
         />
         <PayloadTableFooterComponent
           count={count}

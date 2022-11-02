@@ -1,6 +1,7 @@
-import { TableBodyProps } from '@mui/material'
+import { TableBodyProps, TableRowProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
+import { ComponentType } from 'react'
 
 export interface PayloadTableBodyProps extends TableBodyProps, WithChildren {
   payloads?: XyoPayloads
@@ -9,4 +10,6 @@ export interface PayloadTableBodyProps extends TableBodyProps, WithChildren {
   onRowClick?: (value: XyoPayload) => void
   exploreDomain?: string
   emptyRows?: number
+  loading?: boolean
+  NoResultRowComponent?: ComponentType<TableRowProps>
 }
