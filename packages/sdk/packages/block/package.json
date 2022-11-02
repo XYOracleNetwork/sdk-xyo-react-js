@@ -10,12 +10,13 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xylabs/react-common": "^2.15.1",
     "@xylabs/react-flexbox": "^2.15.1",
     "@xylabs/react-shared": "^2.15.1",
     "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/diviner": "^2.38.23",
-    "@xyo-network/module": "^2.38.23",
-    "@xyo-network/react-auth-service": "workspace:^",
+    "@xyo-network/diviner": "^2.39.1",
+    "@xyo-network/module": "^2.39.1",
+    "@xyo-network/react-error": "workspace:^",
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
     "@xyo-network/react-payload-details": "workspace:^",
@@ -23,7 +24,7 @@
     "@xyo-network/react-property": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "lodash": "^4.17.21",
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.1"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
@@ -87,5 +88,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.38.19"
+  "version": "2.39.0"
 }

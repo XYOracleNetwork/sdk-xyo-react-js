@@ -1,7 +1,7 @@
 import { Alert, styled, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
-import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
+import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
 import { forwardRef, useEffect, useState } from 'react'
 
@@ -111,7 +111,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
           {visiblePayloads?.map((payload, index) => {
             const wrapper = new PayloadWrapper(payload)
             return (
-              <XyoApiThrownErrorBoundary
+              <XyoThrownErrorBoundary
                 key={`${wrapper.hash}-${index}`}
                 errorComponent={(e: Error) => (
                   <Alert severity="error">
@@ -132,7 +132,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
                   exploreDomain={exploreDomain}
                   payload={payload}
                 />
-              </XyoApiThrownErrorBoundary>
+              </XyoThrownErrorBoundary>
             )
           })}
           {children}

@@ -3,13 +3,13 @@ import { useCallback } from 'react'
 
 import { FetchHuriHashOptions } from './lib'
 import { UseHuriOrHash } from './ResolvePayloadArgs'
-import { useLoadPayload } from './useLoadPayload'
+import { useLoadPayloadViaApi } from './useLoadPayload'
 import { useResolveHuri } from './useResolveHuri'
 
 /**
  * Resolve a hash or a huri regardless of network
  */
-const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: FetchHuriHashOptions): UseHuriOrHash => {
+export const useHuriHashViaApi = (huriOrHash?: string | Huri, huriUri?: string, options?: FetchHuriHashOptions): UseHuriOrHash => {
   const hash = useCallback((huriOrHash?: string | Huri) => {
     if (huriOrHash) {
       if (typeof huriOrHash === 'string') {
@@ -26,7 +26,7 @@ const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: Fet
   //AT: TODO -> Talk about this pattern
 
   // Optimistically try to grab the has from the current network and archive
-  const [payload, notFound, apiError] = useLoadPayload(providedHash)
+  const [payload, notFound, apiError] = useLoadPayloadViaApi(providedHash)
 
   // if a huriUri was passed, we can safely override the notFound from the hash only query
   const notFoundOverride = huriUri ? true : notFound
@@ -36,5 +36,3 @@ const useHuriHash = (huriOrHash?: string | Huri, huriUri?: string, options?: Fet
 
   return [payload ?? huriPayload, huriPayloadNotFound, apiError ?? huriApiError, networkNotFound]
 }
-
-export { useHuriHash }

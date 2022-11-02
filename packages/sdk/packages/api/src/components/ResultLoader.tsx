@@ -1,5 +1,5 @@
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { XyoApiError } from '@xyo-network/api'
+import { XyoApiError } from '@xyo-network/api-models'
 import { XyoError } from '@xyo-network/module'
 import { NotFound } from '@xyo-network/react-shared'
 import { PropsWithChildren } from 'react'
