@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoApiResponse } from '@xyo-network/api'
+import { XyoApiResponse } from '@xyo-network/api-models'
 
 import { ApiCallEntry } from './ApiCallEntry'
 
