@@ -1,6 +1,6 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 
-export const TableRowError: React.FC<TableRowProps> = (props) => {
+export const TableRowNoData: React.FC<TableRowProps> = (props) => {
   return (
     <TableRow {...props}>
       <TableCell sx={{ border: 'none' }}>

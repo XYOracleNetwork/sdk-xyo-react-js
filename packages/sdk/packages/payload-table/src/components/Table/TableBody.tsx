@@ -3,7 +3,6 @@ import { PayloadWrapper } from '@xyo-network/payload'
 import { XyoApiThrownErrorBoundary } from '@xyo-network/react-auth-service'
 
 import { PayloadTableRow } from './TableRow'
-import { TableRowError } from './TableRowError'
 import { PayloadTableBodyProps } from './types'
 
 export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
@@ -14,17 +13,13 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   maxSchemaDepth,
   onRowClick,
   emptyRows,
-  loading,
-  NoResultRowComponent = TableRowError,
+  noResults,
+  NoResultRowComponent,
   ...props
 }) => {
-  const showError = () => {
-    return !loading && (!payloads || payloads.length === 0)
-  }
-
   return (
     <TableBody {...props}>
-      {showError() ? <NoResultRowComponent /> : null}
+      {noResults && NoResultRowComponent ? <NoResultRowComponent /> : null}
       {payloads?.map((payload, index) => {
         const wrapper = new PayloadWrapper(payload)
         return (

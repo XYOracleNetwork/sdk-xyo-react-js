@@ -10,6 +10,6 @@ export interface PayloadTableBodyProps extends TableBodyProps, WithChildren {
   onRowClick?: (value: XyoPayload) => void
   exploreDomain?: string
   emptyRows?: number
-  loading?: boolean
+  noResults?: boolean
   NoResultRowComponent?: ComponentType<TableRowProps>
 }
