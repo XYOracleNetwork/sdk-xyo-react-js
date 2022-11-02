@@ -13,10 +13,13 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   maxSchemaDepth,
   onRowClick,
   emptyRows,
+  noResults,
+  NoResultRowComponent,
   ...props
 }) => {
   return (
     <TableBody {...props}>
+      {noResults && NoResultRowComponent ? <NoResultRowComponent /> : null}
       {payloads?.map((payload, index) => {
         const wrapper = new PayloadWrapper(payload)
         return (

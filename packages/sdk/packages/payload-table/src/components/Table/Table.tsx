@@ -1,11 +1,12 @@
 import { XyoPayload } from '@xyo-network/payload'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
-import { ComponentType, forwardRef, useEffect, useState } from 'react'
+import { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
 
 import { PayloadTableColumnConfig } from './PayloadTableColumnConfig'
 import { PayloadTableBody } from './TableBody'
 import { PayloadTableFooter } from './TableFooter'
 import { PayloadTableHead } from './TableHead'
+import { TableRowNoData } from './TableRowNoData'
 import { PayloadTableBodyProps, PayloadTableFooterProps, PayloadTableHeadProps } from './types'
 
 export interface PayloadTableProps extends TableExProps {
@@ -95,6 +96,10 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       setPage(0)
     }
 
+    const noResults = useMemo(() => {
+      return !loading && (!payloads || payloads.length === 0)
+    }, [loading, payloads])
+
     return (
       <TableEx variant={variant} ref={ref} {...props}>
         <PayloadTableHeadComponent columns={columns} />
@@ -105,6 +110,8 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
           maxSchemaDepth={maxSchemaDepth}
           onRowClick={onRowClick}
           emptyRows={emptyRows}
+          noResults={noResults}
+          NoResultRowComponent={TableRowNoData}
         />
         <PayloadTableFooterComponent
           count={count}
