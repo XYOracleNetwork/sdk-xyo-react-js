@@ -8,14 +8,14 @@ import { useActiveBoundWitness } from '../../contexts'
 
 export interface AddressChainProps extends ListProps {
   addressHistory?: XyoBoundWitness[]
-  activeBoundWitness?: XyoBoundWitness
+  selectable?: boolean
   address?: string
   skeleton?: boolean
 }
 
-export const AddressHistory: React.FC<AddressChainProps> = ({ addressHistory, address, activeBoundWitness, skeleton = true, ...props }) => {
+export const AddressHistory: React.FC<AddressChainProps> = ({ addressHistory, address, selectable, skeleton = true, ...props }) => {
   const theme = useTheme()
-  const { setActiveBoundWitness } = useActiveBoundWitness(!!activeBoundWitness)
+  const { setActiveBoundWitness, activeBoundWitness } = useActiveBoundWitness(!!selectable)
 
   const handleClick = (bw: XyoBoundWitness) => {
     setActiveBoundWitness?.(bw)
@@ -40,7 +40,7 @@ export const AddressHistory: React.FC<AddressChainProps> = ({ addressHistory, ad
             <BoundWitnessRendererCard
               payload={bw}
               onClick={() => handleClick(bw)}
-              sx={{ cursor: activeBoundWitness ? 'pointer' : 'default' }}
+              sx={{ cursor: selectable ? 'pointer' : 'default' }}
               active={bw === activeBoundWitness}
             />
             {validPreviousHash(index) ? <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} /> : null}

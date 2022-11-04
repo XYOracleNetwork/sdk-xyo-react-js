@@ -20,7 +20,7 @@ const WithData = Template.bind({})
 WithData.args = { addressHistory: sampleAddressHistory }
 
 const WithDataActive = Template.bind({})
-WithDataActive.args = { activeBoundWitness: sampleAddressHistory[0], addressHistory: sampleAddressHistory }
+WithDataActive.args = { addressHistory: sampleAddressHistory, selectable: true }
 WithDataActive.decorators = [ActiveBWDecorator]
 
 export { Default, WithData, WithDataActive }
