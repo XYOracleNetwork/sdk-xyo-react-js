@@ -1,16 +1,7 @@
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 
-import { ActiveBoundWitnessProvider } from '../../contexts'
 import { ActiveBWFlexBox } from './ActiveBWFlexBox'
-import { sampleAddressHistory } from './sampleAddressHistory.stories'
-
-const ActiveBWDecorator: DecoratorFn = (Story, args) => {
-  return (
-    <ActiveBoundWitnessProvider activeBoundWitness={sampleAddressHistory[0]}>
-      <Story {...args} />
-    </ActiveBoundWitnessProvider>
-  )
-}
+import { ActiveBWDecorator } from './storybook'
 
 // eslint-disable-next-line import/no-default-export
 export default {

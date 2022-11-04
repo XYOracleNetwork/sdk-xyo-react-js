@@ -1,7 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
 
 import { AddressHistory } from './AddressHistory'
-import { sampleAddressHistory } from './sampleAddressHistory.stories'
+import { ActiveBWDecorator, sampleAddressHistory } from './storybook'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -19,4 +19,8 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { addressHistory: sampleAddressHistory }
 
-export { Default, WithData }
+const WithDataActive = Template.bind({})
+WithDataActive.args = { activeBoundWitness: sampleAddressHistory[0], addressHistory: sampleAddressHistory }
+WithDataActive.decorators = [ActiveBWDecorator]
+
+export { Default, WithData, WithDataActive }
