@@ -5,7 +5,7 @@ import { BoundWitnessDetails } from '@xyo-network/react-boundwitness-plugin'
 import { useActiveBoundWitness } from '../../contexts'
 
 export const ActiveBWFlexBox: React.FC<FlexBoxProps> = ({ ...props }) => {
-  const { activeBoundWitness } = useActiveBoundWitness()
+  const { activeBoundWitness } = useActiveBoundWitness(false)
   return (
     <FlexGrowCol overflow="scroll" justifyContent={activeBoundWitness ? 'start' : 'center'} {...props}>
       {activeBoundWitness ? (
