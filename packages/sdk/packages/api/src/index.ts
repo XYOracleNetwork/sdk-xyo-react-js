@@ -1,3 +1,4 @@
+export * from './address'
 export * from './archive'
 export * from './archives'
 export * from './components'

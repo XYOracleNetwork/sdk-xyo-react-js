@@ -1,1 +1,1 @@
-export * from './HistoryDiviner'
+export * from './ActiveBoundWitness'

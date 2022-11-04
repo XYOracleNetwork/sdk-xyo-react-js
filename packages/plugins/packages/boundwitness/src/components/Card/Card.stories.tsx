@@ -1,7 +1,7 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { ActiveBoundWitnessProvider } from '@xyo-network/react-address'
 import { sampleBlock } from '@xyo-network/react-storybook'
 
-import { ActiveBoundWitnessProvider } from '../../contexts'
 import { BoundWitnessRendererCard } from './Card'
 
 const ActiveBoundWitnessDecorator: DecoratorFn = (Story, args) => {

@@ -1,8 +1,8 @@
 import { Card, CardProps } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayload } from '@xyo-network/payload'
+import { useActiveBoundWitness } from '@xyo-network/react-address'
 
-import { useActiveBoundWitness } from '../../contexts'
 import { BoundWitnessCardContent } from './CardContent'
 import { BoundWitnessCardHeader } from './CardHeader'
 
@@ -15,7 +15,7 @@ export const BoundWitnessRendererCard: React.FC<BoundWitnessCardProps> = ({ payl
 
   return (
     <Card {...props}>
-      <BoundWitnessCardHeader payload={boundwitness} active={activeBoundWitness === payload} />
+      <BoundWitnessCardHeader payload={boundwitness} active={payload !== undefined ? activeBoundWitness === payload : undefined} />
       <BoundWitnessCardContent payload={boundwitness} />
     </Card>
   )
