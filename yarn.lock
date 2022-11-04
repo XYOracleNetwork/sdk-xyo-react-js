@@ -6751,9 +6751,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/react-address@workspace:^, @xyo-network/react-address@workspace:packages/sdk/packages/address":
+"@xyo-network/react-address-history@workspace:^, @xyo-network/react-address-history@workspace:packages/sdk/packages/address-history":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-address@workspace:packages/sdk/packages/address"
+  resolution: "@xyo-network/react-address-history@workspace:packages/sdk/packages/address-history"
   dependencies:
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -7133,7 +7133,6 @@ __metadata:
   dependencies:
     "@xylabs/react-flexbox": ^2.15.1
     "@xylabs/react-identicon": ^2.15.1
-    "@xyo-network/react-address": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -8048,7 +8047,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-sdk@workspace:packages/sdk"
   dependencies:
-    "@xyo-network/react-address": "workspace:^"
+    "@xyo-network/react-address-history": "workspace:^"
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"

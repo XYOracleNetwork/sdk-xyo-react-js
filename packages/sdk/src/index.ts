@@ -1,4 +1,4 @@
-export * from '@xyo-network/react-address'
+export * from '@xyo-network/react-address-history'
 export * from '@xyo-network/react-api'
 export * from '@xyo-network/react-app-settings'
 export * from '@xyo-network/react-appbar'
