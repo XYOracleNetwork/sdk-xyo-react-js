@@ -5,7 +5,14 @@ import { useLocation } from 'react-router-dom'
 import { XyoErrorAlert } from './ErrorAlert'
 import { XyoErrorRenderProps } from './Props'
 
-export const XyoErrorRender: React.FC<XyoErrorRenderProps> = ({ xyoError, noErrorDisplay = false, customError = null, children, ...props }) => {
+export const XyoErrorRender: React.FC<XyoErrorRenderProps> = ({
+  xyoError,
+  noErrorDisplay = false,
+  customError = null,
+  children,
+  errorContext,
+  ...props
+}) => {
   const location = useLocation()
   useEffect(() => {
     // ensure we end up at the same place we are now after logging in
@@ -23,7 +30,7 @@ export const XyoErrorRender: React.FC<XyoErrorRenderProps> = ({ xyoError, noErro
           customError
         ) : (
           <FlexCol alignItems="center" {...props}>
-            <XyoErrorAlert error={xyoError} />
+            <XyoErrorAlert error={xyoError} errorContext={errorContext} />
           </FlexCol>
         )}
       </FlexCol>

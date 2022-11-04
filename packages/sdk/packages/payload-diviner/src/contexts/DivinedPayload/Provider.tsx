@@ -31,7 +31,10 @@ export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children
   const { payloadError } = useDivinedPayload()
 
   return (
-    <XyoErrorRender xyoError={payloadError ? { message: payloadError.message, schema: XyoErrorSchema, sources: [] } : undefined}>
+    <XyoErrorRender
+      xyoError={payloadError ? { message: payloadError.message, schema: XyoErrorSchema, sources: [] } : undefined}
+      errorContext="Divined Payload Provider"
+    >
       {children}
     </XyoErrorRender>
   )
