@@ -17,8 +17,9 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
     <>
       {block ? (
         <XyoThrownErrorBoundary
+          boundaryName="BlockTableRow"
           key={`${wrapper?.hash}-${index}`}
-          errorComponent={(e: Error) => (
+          errorComponent={(e) => (
             <Alert severity="error">
               Error Loading Block: <Typography fontWeight="bold">{e.message}</Typography>
             </Alert>
