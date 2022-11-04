@@ -1,7 +1,16 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { sampleBlock } from '@xyo-network/react-storybook'
 
+import { ActiveBoundWitnessProvider } from '../../contexts'
 import { BoundWitnessRendererCard } from './Card'
+
+const ActiveBoundWitnessDecorator: DecoratorFn = (Story, args) => {
+  return (
+    <ActiveBoundWitnessProvider activeBoundWitness={sampleBlock}>
+      <Story {...args} />
+    </ActiveBoundWitnessProvider>
+  )
+}
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -16,4 +25,8 @@ const Template: ComponentStory<typeof BoundWitnessRendererCard> = (props) => {
 const Default = Template.bind({})
 Default.args = { payload: sampleBlock }
 
-export { Default }
+const WithActive = Template.bind({})
+WithActive.decorators = [ActiveBoundWitnessDecorator]
+WithActive.args = { payload: sampleBlock }
+
+export { Default, WithActive }
