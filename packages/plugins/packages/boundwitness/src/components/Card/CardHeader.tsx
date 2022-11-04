@@ -6,9 +6,10 @@ import { useEffect, useState } from 'react'
 
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   payload?: XyoPayload
+  active?: boolean
 }
 
-export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ payload, ...props }) => {
+export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ payload, active = false, ...props }) => {
   const boundwitness = payload as XyoPayload<XyoBoundWitness>
   const [hash, setHash] = useState('')
   useEffect(() => {
@@ -17,16 +18,32 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ 
     }
   }, [boundwitness])
 
-  return <CardHeaderHash title={<EllipsizeBox typographyProps={{ title: hash }}>{hash}</EllipsizeBox>} {...props} />
+  return (
+    <CardHeaderHash
+      active={active}
+      title={
+        <EllipsizeBox lineHeight={1} typographyProps={{ title: hash }}>
+          {hash}
+        </EllipsizeBox>
+      }
+      {...props}
+    />
+  )
 }
 
-const CardHeaderHash = styled(CardHeader, { name: 'CardHeaderHash' })(({ theme }) => ({
-  '& .MuiCardHeader-content': {
-    overflow: 'visible',
-  },
-  '&.MuiCardHeader-root': {
-    backgroundColor: theme.palette.info.main,
-    color: theme.palette.info.contrastText,
-  },
-  padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
-}))
+interface CardHeaderHashProps extends CardHeaderProps {
+  active?: boolean
+}
+
+const CardHeaderHash = styled(CardHeader, { name: 'CardHeaderHash', shouldForwardProp: (prop) => prop !== 'active' })<CardHeaderHashProps>(
+  ({ theme, active }) => ({
+    '& .MuiCardHeader-content': {
+      overflow: 'visible',
+    },
+    '&.MuiCardHeader-root': {
+      backgroundColor: active ? theme.palette.info.main : theme.palette.primary.main,
+      color: theme.palette.info.contrastText,
+    },
+    padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+  }),
+)
