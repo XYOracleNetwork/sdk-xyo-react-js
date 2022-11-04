@@ -10,7 +10,8 @@ export interface XyoErrorBoundaryProps {
   children: ReactNode
   rollbar?: Rollbar
   basePageProps?: BasePageProps
-  errorComponent?: (e: Error) => ReactNode
+  errorComponent?: (e: XyoError, boundaryName?: string) => ReactNode
+  boundaryName?: string
 }
 
 export interface XyoErrorBoundaryState {
@@ -26,9 +27,13 @@ export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, Xyo
     return ((error as XyoError).schema === XyoErrorSchema ? error : { message: error.message, schema: XyoErrorSchema, sources: [] }) as XyoError
   }
 
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, xyoError: XyoThrownErrorBoundary.normalizeError(error) } as XyoErrorBoundaryState
+  }
+
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     const { rethrow, rollbar } = this.props
-    const xyoError = XyoThrownErrorBoundary.normalizeError(error)
+    const { xyoError } = this.state
 
     rollbar?.error(error)
 
@@ -40,9 +45,12 @@ export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, Xyo
 
   public render() {
     const { xyoError } = this.state
-    const { children } = this.props
+    const { children, boundaryName, errorComponent } = this.props
     if (xyoError) {
-      return <XyoErrorRender xyoError={xyoError} />
+      if (errorComponent) {
+        return errorComponent(xyoError)
+      }
+      return <XyoErrorRender xyoError={xyoError} errorContext={`${boundaryName} Boundary`} />
     }
 
     return children

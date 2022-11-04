@@ -24,8 +24,9 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
         const wrapper = new PayloadWrapper(payload)
         return (
           <XyoThrownErrorBoundary
+            boundaryName="PayloadTableBody"
             key={`${wrapper.hash}-${index}`}
-            errorComponent={(e: Error) => (
+            errorComponent={(e) => (
               <Alert severity="error">
                 Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>
               </Alert>

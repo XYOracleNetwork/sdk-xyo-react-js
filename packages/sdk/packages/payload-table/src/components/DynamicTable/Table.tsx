@@ -129,6 +129,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
           const wrapper = new PayloadWrapper(payload)
           return (
             <XyoThrownErrorBoundary
+              boundaryName="PayloadTableBody"
               key={`${wrapper.hash}-${index}`}
               errorComponent={(e) => (
                 <Alert severity="error">
