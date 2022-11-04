@@ -13,7 +13,7 @@ export const AddressAvatarGroup: React.FC<AddressAvatarGroupProps> = ({ addresse
 
   useLayoutEffect(() => {
     if (ref.current) {
-      setSize(ref.current.clientWidth * 0.75)
+      setSize(ref.current.clientWidth * 0.65)
     }
   }, [addresses])
 
