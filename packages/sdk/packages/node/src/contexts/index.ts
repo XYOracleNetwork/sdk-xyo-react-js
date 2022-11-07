@@ -1,4 +1,5 @@
 export * from './Context'
+export * from './MemoryProvider'
 export * from './Provider'
 export * from './State'
 export * from './useArchivistModule'
