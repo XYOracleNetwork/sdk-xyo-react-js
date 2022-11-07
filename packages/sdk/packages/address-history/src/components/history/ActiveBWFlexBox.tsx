@@ -1,13 +1,14 @@
 import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { BoundWitnessDetails } from '@xyo-network/react-boundwitness-plugin'
+import { forwardRef } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
 
-export const ActiveBWFlexBox: React.FC<FlexBoxProps> = ({ ...props }) => {
+export const ActiveBWFlexBoxWithRef: React.FC<FlexBoxProps> = forwardRef(({ ...props }, ref) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   return (
-    <FlexGrowCol overflow="scroll" justifyContent={activeBoundWitness ? 'start' : 'center'} {...props}>
+    <FlexGrowCol overflow="scroll" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
       {activeBoundWitness ? (
         <BoundWitnessDetails width="100%" pt={3} paddingX={3} payload={activeBoundWitness} />
       ) : (
@@ -18,4 +19,7 @@ export const ActiveBWFlexBox: React.FC<FlexBoxProps> = ({ ...props }) => {
       )}
     </FlexGrowCol>
   )
-}
+})
+
+ActiveBWFlexBoxWithRef.displayName = 'ActiveBWFlexBox'
+export const ActiveBWFlexBox = ActiveBWFlexBoxWithRef
