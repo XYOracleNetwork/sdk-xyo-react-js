@@ -1,7 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
+import { ActiveBWDecorator, sampleAddressHistory } from '@xyo-network/react-storybook'
 
 import { AddressHistory } from './AddressHistory'
-import { sampleAddressHistory } from './sampleAddressHistory.stories'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -19,4 +19,8 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { addressHistory: sampleAddressHistory }
 
-export { Default, WithData }
+const WithDataActive = Template.bind({})
+WithDataActive.args = { addressHistory: sampleAddressHistory, selectable: true }
+WithDataActive.decorators = [ActiveBWDecorator]
+
+export { Default, WithData, WithDataActive }
