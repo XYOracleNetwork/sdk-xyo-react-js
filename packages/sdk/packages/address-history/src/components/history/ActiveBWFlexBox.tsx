@@ -22,4 +22,5 @@ export const ActiveBWFlexBoxWithRef: React.FC<FlexBoxProps> = forwardRef(({ ...p
 })
 
 ActiveBWFlexBoxWithRef.displayName = 'ActiveBWFlexBox'
+
 export const ActiveBWFlexBox = ActiveBWFlexBoxWithRef
