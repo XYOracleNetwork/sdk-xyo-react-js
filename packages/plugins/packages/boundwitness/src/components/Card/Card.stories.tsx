@@ -16,4 +16,7 @@ const Template: ComponentStory<typeof BoundWitnessRendererCard> = (props) => {
 const Default = Template.bind({})
 Default.args = { payload: sampleBlock }
 
-export { Default }
+const WithActive = Template.bind({})
+WithActive.args = { active: true, payload: sampleBlock }
+
+export { Default, WithActive }

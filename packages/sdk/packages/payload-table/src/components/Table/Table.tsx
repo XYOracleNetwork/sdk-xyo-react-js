@@ -1,13 +1,13 @@
-import { Alert, styled, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography } from '@mui/material'
-import { useBreakpoint } from '@xylabs/react-shared'
-import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
-import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
-import { TableEx, TableExProps, TableFooterEx } from '@xyo-network/react-table'
-import { forwardRef, useEffect, useState } from 'react'
+import { XyoPayload } from '@xyo-network/payload'
+import { TableEx, TableExProps } from '@xyo-network/react-table'
+import { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
 
-import { payloadColumnNames, PayloadTableColumnConfig, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig'
-import { TablePaginationActions } from './TablePagination'
-import { PayloadTableRow } from './TableRow'
+import { PayloadTableColumnConfig } from './PayloadTableColumnConfig'
+import { PayloadTableBody } from './TableBody'
+import { PayloadTableFooter } from './TableFooter'
+import { PayloadTableHead } from './TableHead'
+import { TableRowNoData } from './TableRowNoData'
+import { PayloadTableBodyProps, PayloadTableFooterProps, PayloadTableHeadProps } from './types'
 
 export interface PayloadTableProps extends TableExProps {
   exploreDomain?: string
@@ -17,6 +17,9 @@ export interface PayloadTableProps extends TableExProps {
   payloads?: XyoPayload[] | null
   loading?: boolean
   columns?: PayloadTableColumnConfig
+  PayloadTableHeadComponent?: ComponentType<PayloadTableHeadProps>
+  PayloadTableBodyComponent?: ComponentType<PayloadTableBodyProps>
+  PayloadTableFooterComponent?: ComponentType<PayloadTableFooterProps>
   /** External trigger to fetch more payloads */
   fetchMorePayloads?: () => void
   /** set number of schema parts to display starting from the end */
@@ -34,8 +37,10 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       fetchMorePayloads,
       rowsPerPage: rowsPerPageProp = 25,
       payloads,
-      children,
-      columns = payloadTableColumnConfigDefaults(),
+      columns,
+      PayloadTableHeadComponent = PayloadTableHead,
+      PayloadTableBodyComponent = PayloadTableBody,
+      PayloadTableFooterComponent = PayloadTableFooter,
       maxSchemaDepth,
       count = 0,
       loading = false,
@@ -44,7 +49,6 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
     },
     ref,
   ) => {
-    const breakPoint = useBreakpoint()
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
     const [visiblePayloads, setVisiblePayloads] = useState<XyoPayload[]>([])
@@ -82,7 +86,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       }
     }
 
-    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    const handleChangePage = (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
       handleAdditionalPayloads()
       setPage(newPage)
     }
@@ -92,84 +96,37 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
       setPage(0)
     }
 
-    return breakPoint ? (
+    const noResults = useMemo(() => {
+      return !loading && (!payloads || payloads.length === 0)
+    }, [loading, payloads])
+
+    return (
       <TableEx variant={variant} ref={ref} {...props}>
-        <TableHead>
-          <TableRow>
-            {columns[breakPoint]?.map((column, index) => {
-              return (
-                <TableCell key={index} width={index === 0 ? '100%' : undefined} align={index === 0 ? 'left' : 'center'}>
-                  <Typography variant="body2" noWrap>
-                    {payloadColumnNames[column]}
-                  </Typography>
-                </TableCell>
-              )
-            })}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {visiblePayloads?.map((payload, index) => {
-            const wrapper = new PayloadWrapper(payload)
-            return (
-              <XyoThrownErrorBoundary
-                key={`${wrapper.hash}-${index}`}
-                errorComponent={(e: Error) => (
-                  <Alert severity="error">
-                    Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>
-                  </Alert>
-                )}
-              >
-                <PayloadTableRow
-                  maxSchemaDepth={maxSchemaDepth}
-                  archive={archive}
-                  onClick={
-                    onRowClick
-                      ? () => {
-                          onRowClick(payload)
-                        }
-                      : undefined
-                  }
-                  exploreDomain={exploreDomain}
-                  payload={payload}
-                />
-              </XyoThrownErrorBoundary>
-            )
-          })}
-          {children}
-          {emptyRows > 0 && Array(emptyRows).fill(<PayloadTableRow />)}
-        </TableBody>
-        <TableFooterEx variant={variant}>
-          <TableRow>
-            <StyledTablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              count={count ?? 0}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!fetchMorePayloads} loading={loading} {...props} />}
-            />
-          </TableRow>
-        </TableFooterEx>
+        <PayloadTableHeadComponent columns={columns} />
+        <PayloadTableBodyComponent
+          payloads={visiblePayloads}
+          exploreDomain={exploreDomain}
+          archive={archive}
+          maxSchemaDepth={maxSchemaDepth}
+          onRowClick={onRowClick}
+          emptyRows={emptyRows}
+          noResults={noResults}
+          NoResultRowComponent={TableRowNoData}
+        />
+        <PayloadTableFooterComponent
+          count={count}
+          variant={variant}
+          rowsPerPage={rowsPerPage}
+          handleChangePage={handleChangePage}
+          handleChangeRowsPerPage={handleChangeRowsPerPage}
+          fetchMorePayloads={fetchMorePayloads}
+          loading={loading}
+        />
       </TableEx>
-    ) : null
+    )
   },
 )
 
 PayloadTableWithRef.displayName = 'PayloadTable'
 
 export const PayloadTable = PayloadTableWithRef
-
-const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
-  '& > .MuiToolbar-root': {
-    paddingLeft: theme.spacing(1),
-  },
-  borderTop: '1px solid',
-  borderTopColor: theme.palette.divider,
-}))

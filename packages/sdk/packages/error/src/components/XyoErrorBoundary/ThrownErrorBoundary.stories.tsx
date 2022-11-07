@@ -59,7 +59,7 @@ const Template: ComponentStory<typeof XyoThrownErrorBoundary> = ({ basePageProps
       <NetworkMemoryProvider>
         <ApiProvider apiDomain="http://localhost:8080">
           <ArchivesProvider>
-            <XyoThrownErrorBoundary basePageProps={basePageProps} errorComponent={errorComponent}>
+            <XyoThrownErrorBoundary basePageProps={basePageProps} errorComponent={errorComponent} boundaryName="StoryBook">
               <Alert severity="info">Use React Dev Tools to trigger and error within the boundary</Alert>
             </XyoThrownErrorBoundary>
           </ArchivesProvider>

@@ -1,6 +1,9 @@
+import { Chip } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { XyoPayload } from '@xyo-network/payload'
+import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadTable } from './Table'
@@ -16,11 +19,17 @@ const StorybookEntry = {
   title: 'payload/Table',
 } as ComponentMeta<typeof PayloadTable>
 
-const Template: ComponentStory<typeof PayloadTable> = (args) => (
-  <BrowserRouter>
-    <PayloadTable {...args}></PayloadTable>
-  </BrowserRouter>
-)
+const Template: ComponentStory<typeof PayloadTable> = (args) => {
+  const [eventData, setEventData] = useState<string | undefined>()
+  const [ref] = useXyoEvent<HTMLTableElement>((_noun, _verb, data) => setEventData(data))
+
+  return (
+    <BrowserRouter>
+      {eventData ? <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} /> : null}
+      <PayloadTable ref={ref} {...args}></PayloadTable>
+    </BrowserRouter>
+  )
+}
 
 const Default = Template.bind({})
 Default.args = {}
@@ -63,15 +72,21 @@ WithDataAndMaxSchemaDepth.args = {
 }
 WithDataAndMaxSchemaDepth.decorators = [useAppThemeDecorator]
 
-const WithError = Template.bind({})
+const WithInvalid = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { ...badPayload } = sampleIdPayload
+const { schema, ...badPayload } = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
-WithError.args = { payloads: [sampleIdPayload, badPayload] }
+WithInvalid.args = { payloads: [sampleIdPayload, badPayload] }
 
-export { Default, WithData, WithDataAndMaxSchemaDepth, WithError, WithOutStickyHeaderFooter }
+const WithNoResults = Template.bind({})
+WithNoResults.args = { payloads: [] }
+
+const WithLoading = Template.bind({})
+WithLoading.args = { loading: true, payloads: [] }
+
+export { Default, WithData, WithDataAndMaxSchemaDepth, WithInvalid, WithLoading, WithNoResults, WithOutStickyHeaderFooter }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
