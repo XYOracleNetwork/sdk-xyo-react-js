@@ -1,7 +1,7 @@
 import { DecoratorFn } from '@storybook/react'
-import { ActiveBoundWitnessProvider } from '@xyo-network/react-address-history'
+import { sampleAddressHistory } from '@xyo-network/react-storybook'
 
-import { sampleAddressHistory } from './sampleAddressHistory'
+import { ActiveBoundWitnessProvider } from '../../contexts'
 
 export const ActiveBWDecorator: DecoratorFn = (Story, args) => {
   return (
