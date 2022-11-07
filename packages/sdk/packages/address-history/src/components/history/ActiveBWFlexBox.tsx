@@ -5,7 +5,7 @@ import { forwardRef } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
 
-export const ActiveBWFlexBoxWithRef: React.FC<FlexBoxProps> = forwardRef(({ ...props }, ref) => {
+const ActiveBWFlexBox = forwardRef<HTMLDivElement, FlexBoxProps>(({ ...props }, ref) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   return (
     <FlexGrowCol overflow="scroll" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
@@ -21,6 +21,6 @@ export const ActiveBWFlexBoxWithRef: React.FC<FlexBoxProps> = forwardRef(({ ...p
   )
 })
 
-ActiveBWFlexBoxWithRef.displayName = 'ActiveBWFlexBox'
+ActiveBWFlexBox.displayName = 'ActiveBWFlexBox'
 
-export const ActiveBWFlexBox = ActiveBWFlexBoxWithRef
+export { ActiveBWFlexBox }
