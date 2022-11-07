@@ -1,7 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
+import { ActiveBWDecorator } from '@xyo-network/react-storybook'
 
 import { ActiveBWFlexBox } from './ActiveBWFlexBox'
-import { ActiveBWDecorator } from './storybook'
 
 // eslint-disable-next-line import/no-default-export
 export default {

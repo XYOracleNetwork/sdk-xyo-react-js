@@ -1,5 +1,6 @@
 import { Grid, styled } from '@mui/material'
-import { FlexGrowCol, WithChildren } from '@xylabs/sdk-react'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
+import { WithChildren } from '@xylabs/react-shared'
 
 const GridContainerWrap = styled(FlexGrowCol, { name: 'GridContainerWrap' })(({ theme }) => ({
   // Handles the negative margins used by the MUI grid system

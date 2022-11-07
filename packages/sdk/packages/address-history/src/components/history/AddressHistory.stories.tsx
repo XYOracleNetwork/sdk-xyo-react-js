@@ -1,7 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
+import { ActiveBWDecorator, sampleAddressHistory } from '@xyo-network/react-storybook'
 
 import { AddressHistory } from './AddressHistory'
-import { ActiveBWDecorator, sampleAddressHistory } from './storybook'
 
 // eslint-disable-next-line import/no-default-export
 export default {

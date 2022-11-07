@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { BoundWitnessDetails } from '@xyo-network/react-boundwitness-plugin'
 
 import { useActiveBoundWitness } from '../../contexts'

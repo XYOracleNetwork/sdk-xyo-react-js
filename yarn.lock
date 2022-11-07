@@ -6755,6 +6755,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-history@workspace:packages/sdk/packages/address-history"
   dependencies:
+    "@xylabs/react-flexbox": ^2.15.1
+    "@xylabs/react-shared": ^2.15.1
     "@xyo-network/react-boundwitness-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -6763,6 +6765,7 @@ __metadata:
     "@mui/material": ^5.10.10
     "@mui/styles": ^5.10.10
     "@xyo-network/boundwitness": ^2.39.6
+    "@xyo-network/payload": ^2.39.6
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8151,6 +8154,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.15.1
     "@xylabs/react-invertable-theme": ^2.15.1
     "@xylabs/react-shared": ^2.15.1
+    "@xyo-network/react-address-history": "workspace:^"
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-map": "workspace:^"
