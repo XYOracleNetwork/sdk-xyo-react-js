@@ -27,7 +27,7 @@ const Scrollable = styled(Paper, { name: 'Scrollable' })(({ theme }) => ({
 
 export const ScrollableGridColumnWithRef: React.FC<AddressHistoryColumnProps> = forwardRef(({ children, elevation, ...props }, ref) => {
   return (
-    <GridColumn {...props}>
+    <GridColumn ref={ref} {...props}>
       <Scrollable elevation={elevation}>{children}</Scrollable>
     </GridColumn>
   )
