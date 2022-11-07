@@ -6,6 +6,11 @@ import { forwardRef, Fragment } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
 
+const AddressChainList = styled(List, { name: 'AddressChainList' })(({ theme }) => ({
+  overflow: 'scroll',
+  padding: theme.spacing(3),
+}))
+
 export interface AddressChainProps extends ListProps {
   addressHistory?: XyoBoundWitness[]
   selectable?: boolean
@@ -13,7 +18,7 @@ export interface AddressChainProps extends ListProps {
   skeleton?: boolean
 }
 
-const AddressHistoryWithRef: React.FC<AddressChainProps> = forwardRef(({ addressHistory, address, selectable, skeleton = true, ...props }, ref) => {
+const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addressHistory, address, selectable, skeleton = true, ...props }, ref) => {
   const theme = useTheme()
   const { setActiveBoundWitness, activeBoundWitness } = useActiveBoundWitness(!!selectable)
 
@@ -53,10 +58,6 @@ const AddressHistoryWithRef: React.FC<AddressChainProps> = forwardRef(({ address
   )
 })
 
-AddressHistoryWithRef.displayName = 'AddressHistory'
-export const AddressHistory = AddressHistoryWithRef
+AddressHistory.displayName = 'AddressHistory'
 
-const AddressChainList = styled(List, { name: 'AddressChainList' })(({ theme }) => ({
-  overflow: 'scroll',
-  padding: theme.spacing(3),
-}))
+export { AddressHistory }
