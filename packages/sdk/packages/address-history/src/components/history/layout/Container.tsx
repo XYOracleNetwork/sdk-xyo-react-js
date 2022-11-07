@@ -22,7 +22,7 @@ interface WrappedContainerProps extends FlexBoxProps, WithChildren {
   spacing?: number
 }
 
-export const WrappedContainerWithRef: React.FC<WrappedContainerProps> = forwardRef(({ children, spacing, ...props }, ref) => (
+const WrappedContainer = forwardRef<HTMLDivElement, WrappedContainerProps>(({ children, spacing, ...props }, ref) => (
   <GridContainerWrap ref={ref} {...props}>
     <GridContainer container spacing={spacing}>
       {children}
@@ -30,6 +30,6 @@ export const WrappedContainerWithRef: React.FC<WrappedContainerProps> = forwardR
   </GridContainerWrap>
 ))
 
-WrappedContainerWithRef.displayName = 'WrappedContainerWithRef'
+WrappedContainer.displayName = 'WrappedContainerWithRef'
 
-export const WrappedContainer = WrappedContainerWithRef
+export { WrappedContainer }
