@@ -1,6 +1,7 @@
 import { Grid, styled } from '@mui/material'
-import { FlexGrowCol } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
+import { forwardRef } from 'react'
 
 const GridContainerWrap = styled(FlexGrowCol, { name: 'GridContainerWrap' })(({ theme }) => ({
   // Handles the negative margins used by the MUI grid system
@@ -17,14 +18,18 @@ const GridContainer = styled(Grid, { name: 'GridContainer' })(({ theme }) => ({
   overflow: 'hidden',
 }))
 
-interface WrappedContainerProps extends WithChildren {
+interface WrappedContainerProps extends FlexBoxProps, WithChildren {
   spacing?: number
 }
 
-export const WrappedContainer: React.FC<WrappedContainerProps> = ({ children, spacing }) => (
-  <GridContainerWrap>
+export const WrappedContainerWithRef: React.FC<WrappedContainerProps> = forwardRef(({ children, spacing, ...props }, ref) => (
+  <GridContainerWrap ref={ref} {...props}>
     <GridContainer container spacing={spacing}>
       {children}
     </GridContainer>
   </GridContainerWrap>
-)
+))
+
+WrappedContainerWithRef.displayName = 'WrappedContainerWithRef'
+
+export const WrappedContainer = WrappedContainerWithRef
