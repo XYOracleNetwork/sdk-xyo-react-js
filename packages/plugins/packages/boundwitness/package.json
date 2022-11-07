@@ -10,6 +10,8 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xylabs/react-flexbox": "^2.15.1",
+    "@xylabs/react-identicon": "^2.15.1",
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-payload-details": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
@@ -23,16 +25,12 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
-    "@xylabs/react-flexbox": "^2.15.1",
-    "@xylabs/react-identicon": "^2.15.1",
     "@xylabs/sdk-js": "^2.6.9",
     "@xyo-network/archivist": "*",
     "@xyo-network/boundwitness": "*",
     "@xyo-network/core": "*",
-    "@xyo-network/crypto-asset-payload-plugin": "*",
     "@xyo-network/diviner": "*",
     "@xyo-network/module": "*",
-    "@xyo-network/network": "*",
     "@xyo-network/payload": "*",
     "@xyo-network/payload-plugin": "*",
     "@xyo-network/schema-payload-plugin": "*",
@@ -44,10 +42,6 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.3.0"
-  },
-  "devDependencies": {
-    "@xylabs/react-flexbox": "^2.15.1",
-    "@xylabs/react-identicon": "^2.15.1"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
