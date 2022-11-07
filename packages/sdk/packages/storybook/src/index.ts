@@ -1,4 +1,3 @@
-export * from './ActiveBWDecorator'
 export * from './archivistApiDecorator'
 export * from './authDecorator'
 export * from './DeprecateStory'

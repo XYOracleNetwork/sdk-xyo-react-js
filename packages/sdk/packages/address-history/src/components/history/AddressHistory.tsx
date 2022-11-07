@@ -2,7 +2,7 @@ import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/mater
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper } from '@xyo-network/payload'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
-import { Fragment } from 'react'
+import { forwardRef, Fragment } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
 
@@ -13,7 +13,7 @@ export interface AddressChainProps extends ListProps {
   skeleton?: boolean
 }
 
-export const AddressHistory: React.FC<AddressChainProps> = ({ addressHistory, address, selectable, skeleton = true, ...props }) => {
+const AddressHistoryWithRef: React.FC<AddressChainProps> = forwardRef(({ addressHistory, address, selectable, skeleton = true, ...props }, ref) => {
   const theme = useTheme()
   const { setActiveBoundWitness, activeBoundWitness } = useActiveBoundWitness(!!selectable)
 
@@ -33,7 +33,7 @@ export const AddressHistory: React.FC<AddressChainProps> = ({ addressHistory, ad
   }
 
   return (
-    <AddressChainList {...props}>
+    <AddressChainList ref={ref} {...props}>
       {addressHistory ? (
         addressHistory.map((bw, index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
@@ -51,7 +51,10 @@ export const AddressHistory: React.FC<AddressChainProps> = ({ addressHistory, ad
       )}
     </AddressChainList>
   )
-}
+})
+
+AddressHistoryWithRef.displayName = 'AddressHistory'
+export const AddressHistory = AddressHistoryWithRef
 
 const AddressChainList = styled(List, { name: 'AddressChainList' })(({ theme }) => ({
   overflow: 'scroll',
