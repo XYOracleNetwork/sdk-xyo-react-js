@@ -18,7 +18,7 @@ export const MemoryArchivistProvider: React.FC<MemoryArchivistProviderProps> = (
   const { archivist } = useArchivist()
 
   //we set this every time, but it will only take if config VALUE changed
-  setConfig(config)
+  setConfig(configProp)
 
   const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper(archivist) : undefined), [archivist])
   const activeResolver: XyoModuleResolver | undefined = useMemo(
