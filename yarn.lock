@@ -6751,6 +6751,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address-history-api":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address-history-api"
+  dependencies:
+    "@xylabs/react-flexbox": ^2.15.1
+    "@xyo-network/react-api": "workspace:^"
+    "@xyo-network/react-archivist": "workspace:^"
+    "@xyo-network/react-error": "workspace:^"
+    "@xyo-network/react-event": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.1
+  peerDependencies:
+    "@mui/icons-material": ^5.10.9
+    "@mui/material": ^5.10.10
+    "@mui/styles": ^5.10.10
+    "@xylabs/react-common": "*"
+    "@xylabs/react-shared": "*"
+    "@xylabs/sdk-js": ^2.6.9
+    "@xyo-network/api": "*"
+    "@xyo-network/boundwitness": "*"
+    "@xyo-network/core": "*"
+    "@xyo-network/diviner": "*"
+    "@xyo-network/module": "*"
+    "@xyo-network/payload": "*"
+    "@xyo-network/payload-plugin": "*"
+    "@xyo-network/schema-payload-plugin": "*"
+    "@xyo-network/utils": "*"
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-icons: ^4.6.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-address-history@workspace:^, @xyo-network/react-address-history@workspace:packages/sdk/packages/address-history":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-history@workspace:packages/sdk/packages/address-history"
@@ -6940,6 +6974,14 @@ __metadata:
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
     "@xylabs/sdk-js": "*"
+    "@xyo-network/api": "*"
+    "@xyo-network/archivist": "*"
+    "@xyo-network/diviner": "*"
+    "@xyo-network/module": "*"
+    "@xyo-network/network": "*"
+    "@xyo-network/payload": "*"
+    "@xyo-network/utils": "*"
+    axios: ^1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.4.0
@@ -7029,6 +7071,7 @@ __metadata:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7331,6 +7374,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7916,6 +7960,7 @@ __metadata:
     "@xyo-network/payload": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8241,6 +8286,7 @@ __metadata:
     "@xyo-network/payload": "*"
     "@xyo-network/utils": "*"
     "@xyo-network/wallet": "*"
+    axios: ^1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.4.0
