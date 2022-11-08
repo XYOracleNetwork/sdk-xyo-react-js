@@ -1,4 +1,5 @@
 import { ComponentStory, Meta } from '@storybook/react'
+import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 
 import { ActiveBWDecorator } from './ActiveBWDecorator.stories'
@@ -11,7 +12,8 @@ export default {
 } as Meta
 
 const Template: ComponentStory<typeof AddressHistory> = (props) => {
-  return <AddressHistory sx={{ minHeight: '200px', minWidth: '100px' }} {...props} />
+  const [ref] = useXyoEvent<HTMLUListElement>((noun, verb, data) => console.log(noun, verb, data))
+  return <AddressHistory sx={{ minHeight: '200px', minWidth: '100px' }} ref={ref} {...props} />
 }
 
 const Default = Template.bind({})

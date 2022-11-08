@@ -2,6 +2,8 @@ import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/mater
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper } from '@xyo-network/payload'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
+import { useXyoEvent } from '@xyo-network/react-event'
+import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, Fragment } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
@@ -21,9 +23,12 @@ export interface AddressChainProps extends ListProps {
 const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addressHistory, address, selectable, skeleton = true, ...props }, ref) => {
   const theme = useTheme()
   const { setActiveBoundWitness, activeBoundWitness } = useActiveBoundWitness(!!selectable)
+  const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
+  const [ulRef, dispatch] = useXyoEvent<HTMLUListElement>(undefined, sharedRef)
 
   const handleClick = (bw: XyoBoundWitness) => {
     setActiveBoundWitness?.(bw)
+    dispatch('boundwitness', 'click', new PayloadWrapper(bw).hash)
   }
 
   const validPreviousHash = (index: number) => {
@@ -38,7 +43,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   }
 
   return (
-    <AddressChainList ref={ref} {...props}>
+    <AddressChainList ref={ulRef} {...props}>
       {addressHistory ? (
         addressHistory.map((bw, index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
