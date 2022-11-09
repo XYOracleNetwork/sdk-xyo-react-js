@@ -13,14 +13,16 @@ export const AddressHistoryDivinerProvider: React.FC<WithChildren<ContextExProvi
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const diviner = await XyoRemoteAddressHistoryDiviner.create({
-        api,
-        config: {
-          schema: XyoRemoteAddressHistoryDiviner.configSchema,
-        },
-      })
-      if (mounted()) {
-        setDiviner?.(diviner)
+      if (api) {
+        const diviner = await XyoRemoteAddressHistoryDiviner.create({
+          api,
+          config: {
+            schema: XyoRemoteAddressHistoryDiviner.configSchema,
+          },
+        })
+        if (mounted()) {
+          setDiviner?.(diviner)
+        }
       }
     },
     [api, setDiviner],
