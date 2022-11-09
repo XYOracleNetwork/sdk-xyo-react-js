@@ -23,8 +23,10 @@ export const useArchivistInsert = (payloads: XyoPayload[], required = false) => 
           }
         }
       } catch (ex) {
-        setResultPayloads(undefined)
-        setError(ex as Error)
+        if (mounted()) {
+          setResultPayloads(undefined)
+          setError(ex as Error)
+        }
       }
     },
     [archivist, refresh, payloads, setError, setResultPayloads, resultPayloads, refreshCount, error],
