@@ -18,6 +18,10 @@ export const ActiveBWDecorator: DecoratorFn = (Story, args) => {
 }
 
 const ActiveBWDecoratorInner: React.FC<WithChildren> = ({ children }) => {
-  useArchivistInsert(sampleAddressHistory, true)
-  return <ActiveBoundWitnessProvider activeBoundWitnessHash={new PayloadWrapper(sampleAddressHistory[0]).hash}>{children}</ActiveBoundWitnessProvider>
+  const [result] = useArchivistInsert(sampleAddressHistory, true)
+  return (
+    <ActiveBoundWitnessProvider activeBoundWitnessHash={new PayloadWrapper(sampleAddressHistory[0]).hash}>
+      {result ? children : undefined}
+    </ActiveBoundWitnessProvider>
+  )
 }
