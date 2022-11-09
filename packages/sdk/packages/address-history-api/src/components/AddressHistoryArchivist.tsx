@@ -5,11 +5,17 @@ import { StorageArchivistProvider, useArchivistInsert } from '@xyo-network/react
 import { XyoErrorRender } from '@xyo-network/react-error'
 import { useParams } from 'react-router-dom'
 
-const AddressHistoryArchivistInner: React.FC<WithChildren> = ({ children }) => {
-  const { address } = useParams()
-  const [addressHistory, error] = useDivineAddressHistory(address)
+export interface AddressHistoryArchivistProps extends WithChildren {
+  required?: boolean
+  defaultAddress?: string
+}
 
-  useArchivistInsert(addressHistory ?? [])
+const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ children, defaultAddress, required = true }) => {
+  const { address: addressFromParams } = useParams()
+  const resolvedAddress = defaultAddress ?? addressFromParams
+  const [addressHistory, error] = useDivineAddressHistory(resolvedAddress)
+
+  useArchivistInsert(addressHistory ?? [], required)
 
   return (
     <XyoErrorRender xyoError={error}>
@@ -20,10 +26,10 @@ const AddressHistoryArchivistInner: React.FC<WithChildren> = ({ children }) => {
   )
 }
 
-export const AddressHistoryArchivist: React.FC<WithChildren> = ({ children }) => {
+export const AddressHistoryArchivist: React.FC<AddressHistoryArchivistProps> = ({ children, ...props }) => {
   return (
     <StorageArchivistProvider config={{ namespace: 'AddressHistory', schema: XyoStorageArchivistConfigSchema, type: 'local' }}>
-      <AddressHistoryArchivistInner>{children}</AddressHistoryArchivistInner>
+      <AddressHistoryArchivistInner {...props}>{children}</AddressHistoryArchivistInner>
     </StorageArchivistProvider>
   )
 }

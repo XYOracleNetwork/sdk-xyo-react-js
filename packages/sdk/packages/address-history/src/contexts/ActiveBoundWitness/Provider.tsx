@@ -15,7 +15,6 @@ export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProp
 }) => {
   const [activeBoundWitnessHash, setActiveBoundWitnessHash] = useState<string>()
   const [payload] = useArchivistGet(activeBoundWitnessHash ? [activeBoundWitnessHash] : undefined)
-
   useEffect(() => {
     setActiveBoundWitnessHash(activeBoundWitnessHashProp)
   }, [activeBoundWitnessHashProp])
