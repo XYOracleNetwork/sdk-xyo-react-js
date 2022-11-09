@@ -1,16 +1,7 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
-import { useEffect, useMemo, useReducer } from 'react'
-
-type PromiseOrFunction<T> = Promise<T> | (() => Promise<T>)
-
-const resolvePromise = <T,>(promise: PromiseOrFunction<T>) => {
-  if (typeof promise === 'function') {
-    return promise()
-  }
-
-  return promise
-}
+import { useAsyncEffect } from '@xylabs/react-shared'
+import { useReducer } from 'react'
 
 enum State {
   pending = 'pending',
@@ -58,43 +49,46 @@ const reducer = (_state: PromiseState, action: Action) => {
   }
 }
 
-export const usePromise = <T,>(promiseArg: PromiseOrFunction<T>, inputs: unknown[] = []) => {
+/**
+ * usePromise -
+ */
+export const usePromise = <D, T extends Promise<D> | D>(promise?: T, dependencies: unknown[] = []) => {
   const [{ error, result, state }, dispatch] = useReducer(reducer, defaultState)
 
-  const dependencies = useMemo(() => [promiseArg, ...inputs], [inputs, promiseArg])
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      if (!promise) {
+        return
+      }
 
-  useEffect(() => {
-    const promise = resolvePromise<T>(promiseArg)
+      let canceled = false
 
-    if (!promise) {
-      return
-    }
+      dispatch({ type: State.pending })
 
-    let canceled = false
+      const result = await promise
+      !canceled
+        ? dispatch({
+            payload: result,
+            type: State.resolved,
+          })
+        : undefined
 
-    dispatch({ type: State.pending })
+      !canceled
+        ? dispatch({
+            payload: error,
+            type: State.rejected,
+          })
+        : undefined
 
-    promise.then(
-      (result) =>
-        !canceled &&
-        dispatch({
-          payload: result,
-          type: State.resolved,
-        }),
-      (error) =>
-        !canceled &&
-        dispatch({
-          payload: error,
-          type: State.rejected,
-        }),
-    )
-
-    return () => {
-      canceled = true
-    }
+      return () => {
+        canceled = true
+      }
+    },
     // eslint can't inspect the array to verify dependencies are missing
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, dependencies)
+    dependencies,
+  )
 
   return [result, error, state]
 }

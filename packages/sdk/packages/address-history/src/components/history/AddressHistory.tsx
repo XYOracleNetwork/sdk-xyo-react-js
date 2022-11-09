@@ -22,12 +22,12 @@ export interface AddressChainProps extends ListProps {
 
 const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addressHistory, address, selectable, skeleton = true, ...props }, ref) => {
   const theme = useTheme()
-  const { setActiveBoundWitness, activeBoundWitness } = useActiveBoundWitness(!!selectable)
+  const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
   const [ulRef, dispatch] = useXyoEvent<HTMLUListElement>(undefined, sharedRef)
 
   const handleClick = (bw: XyoBoundWitness) => {
-    setActiveBoundWitness?.(bw)
+    setActiveBoundWitnessHash?.(new PayloadWrapper(bw).hash)
     dispatch('boundwitness', 'click', new PayloadWrapper(bw).hash)
   }
 
@@ -51,7 +51,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
               payload={bw}
               onClick={() => handleClick(bw)}
               sx={{ cursor: selectable ? 'pointer' : 'default' }}
-              active={bw === activeBoundWitness}
+              active={activeBoundWitnessHash ? new PayloadWrapper(bw).hash === activeBoundWitnessHash : false}
             />
             {validPreviousHash(index) ? <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} /> : null}
           </Fragment>
