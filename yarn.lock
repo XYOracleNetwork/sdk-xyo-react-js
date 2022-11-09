@@ -6751,7 +6751,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address-history-api":
+"@xyo-network/react-address-history-api@workspace:^, @xyo-network/react-address-history-api@workspace:packages/sdk/packages/address-history-api":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address-history-api"
   dependencies:
@@ -6759,8 +6759,6 @@ __metadata:
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
-    "@xyo-network/react-event": "workspace:^"
-    "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.9
@@ -6770,6 +6768,7 @@ __metadata:
     "@xylabs/react-shared": "*"
     "@xylabs/sdk-js": ^2.6.9
     "@xyo-network/api": "*"
+    "@xyo-network/archivist": "*"
     "@xyo-network/boundwitness": "*"
     "@xyo-network/core": "*"
     "@xyo-network/diviner": "*"
@@ -8028,6 +8027,7 @@ __metadata:
   resolution: "@xyo-network/react-sdk@workspace:packages/sdk"
   dependencies:
     "@xyo-network/react-address-history": "workspace:^"
+    "@xyo-network/react-address-history-api": "workspace:^"
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"
