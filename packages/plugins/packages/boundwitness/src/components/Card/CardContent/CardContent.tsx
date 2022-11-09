@@ -39,7 +39,7 @@ const CardContentFlex = styled(CardContent, { name: 'CardContentFlex', shouldFor
     [':last-child']: {
       paddingBottom: theme.spacing(1),
     },
-    ...(active && { background: alpha(theme.palette.secondary.dark, 7) }),
+    ...(active && { background: alpha(theme.palette.secondary.dark, 0.33) }),
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
