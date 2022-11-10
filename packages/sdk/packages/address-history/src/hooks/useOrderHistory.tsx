@@ -18,6 +18,7 @@ const findParent = (hashes: string[], addressHistory: XyoBoundWitness[], current
   return addressHistory[nextParentIndex]
 }
 
+// Note: Assumes there are no orphaned record in the history.
 export const useOrderedHistory = () => {
   const run = useCallback((addressHistory?: XyoBoundWitness[]) => {
     if (addressHistory?.length) {
@@ -31,6 +32,8 @@ export const useOrderedHistory = () => {
         let currentChild = youngestBW
         // once currentChild has a previous hash of null, there are no more parents
         while (currentChild.previous_hashes[0] !== null) {
+          // Note: Potential optimization to remove already placed items in the stack from address history
+          // and pass the remaining items to findParent
           const parent = findParent(hashes, addressHistory, currentChild)
           currentChild = parent
           stack.push(parent)
