@@ -30,13 +30,18 @@ export const useOrderedHistory = () => {
         // stack starts with you youngest bw and works back up from its previous_hashes[0]
         stack.unshift(youngestBW)
         let currentChild = youngestBW
+        let noParent = false
         // once currentChild has a previous hash of null, there are no more parents
-        while (currentChild.previous_hashes[0] !== null) {
+        while (!noParent) {
           // Note: Potential optimization to remove already placed items in the stack from address history
           // and pass the remaining items to findParent
           const parent = findParent(hashes, addressHistory, currentChild)
-          currentChild = parent
-          stack.push(parent)
+          if (!parent) {
+            noParent = true
+          } else {
+            currentChild = parent
+            stack.push(parent)
+          }
         }
 
         return addressHistory?.length ? stack : undefined
