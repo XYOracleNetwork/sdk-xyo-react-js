@@ -1,5 +1,4 @@
 import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/material'
-import { FlexCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper } from '@xyo-network/payload'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
@@ -41,30 +40,12 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
     }
   }, [addressHistory, orderHistoryFn])
 
-  const validPreviousHash = (index: number) => {
-    // ensure valid address chain and not initial item in the chain
-    if (!addressHistory || addressHistory.length === 0 || index === addressHistory?.length) {
-      return false
-    }
-
-    const currentHash = new PayloadWrapper(addressHistory[index]).hash
-    return addressHistory.some((bw) => bw.previous_hashes.some((hash) => hash === currentHash))
-  }
-
   return (
     <AddressChainList ref={ulRef} {...props}>
       {orderedAddressHistory ? (
         orderedAddressHistory.map((bw, index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
-            {index !== 0 ? (
-              <>
-                {validPreviousHash(index) ? (
-                  <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} />
-                ) : (
-                  <FlexCol minHeight={theme.spacing(4)} />
-                )}
-              </>
-            ) : null}
+            {index !== 0 ? <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} /> : null}
             <BoundWitnessRendererCard
               payload={bw}
               onClick={() => handleClick(bw)}
