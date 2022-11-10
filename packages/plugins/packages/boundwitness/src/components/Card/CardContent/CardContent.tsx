@@ -43,6 +43,7 @@ const CardContentFlex = styled(CardContent, { name: 'CardContentFlex', shouldFor
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'center',
     rowGap: theme.spacing(1),
   }),
 )
