@@ -9,7 +9,7 @@ import compact from 'lodash/compact'
 import { forwardRef, Fragment, useEffect, useState } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
-import { useOrderHistory } from '../../hooks'
+import { useOrderedHistory } from '../../hooks'
 
 const AddressChainList = styled(List, { name: 'AddressChainList' })(({ theme }) => ({
   overflow: 'scroll',
@@ -29,7 +29,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
   const [ulRef, dispatch] = useXyoEvent<HTMLUListElement>(undefined, sharedRef)
   const [orderedAddressHistory, setOrderedAddressHistory] = useState<(XyoBoundWitness | undefined)[]>()
-  const orderHistoryFn = useOrderHistory()
+  const orderHistoryFn = useOrderedHistory()
 
   const handleClick = (bw: XyoBoundWitness) => {
     setActiveBoundWitnessHash?.(new PayloadWrapper(bw).hash)
