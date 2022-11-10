@@ -22,7 +22,7 @@ const findParent = (hashes: string[], addressHistory: XyoBoundWitness[], current
 export const useOrderedHistory = () => {
   const run = useCallback((addressHistory?: XyoBoundWitness[]) => {
     if (addressHistory?.length) {
-      const stack: (XyoBoundWitness | undefined)[] = []
+      const stack: XyoBoundWitness[] = []
       const hashes = addressHistory?.map((bw) => new PayloadWrapper(bw).hash)
       const youngestBW = findYoungestBW(addressHistory)
 

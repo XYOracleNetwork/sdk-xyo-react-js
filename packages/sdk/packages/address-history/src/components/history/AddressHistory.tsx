@@ -28,7 +28,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
   const [ulRef, dispatch] = useXyoEvent<HTMLUListElement>(undefined, sharedRef)
-  const [orderedAddressHistory, setOrderedAddressHistory] = useState<(XyoBoundWitness | undefined)[]>()
+  const [orderedAddressHistory, setOrderedAddressHistory] = useState<XyoBoundWitness[]>()
   const orderHistoryFn = useOrderedHistory()
 
   const handleClick = (bw: XyoBoundWitness) => {
