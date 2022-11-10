@@ -5,7 +5,6 @@ import { PayloadWrapper } from '@xyo-network/payload'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
-import compact from 'lodash/compact'
 import { forwardRef, Fragment, useEffect, useState } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
@@ -55,7 +54,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   return (
     <AddressChainList ref={ulRef} {...props}>
       {orderedAddressHistory ? (
-        compact(orderedAddressHistory).map((bw, index) => (
+        orderedAddressHistory.map((bw, index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
             {index !== 0 ? (
               <>
