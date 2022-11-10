@@ -1,6 +1,6 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
-import { sampleAddressHistory } from '@xyo-network/react-storybook'
+import { randomizedSampleAddressHistory, sampleAddressHistory } from '@xyo-network/react-storybook'
 
 import { ActiveBWDecorator } from './ActiveBWDecorator.stories'
 import { AddressHistory } from './AddressHistory'
@@ -22,8 +22,12 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { addressHistory: sampleAddressHistory }
 
+const WithDataOrdering = Template.bind({})
+WithDataOrdering.args = { addressHistory: randomizedSampleAddressHistory, selectable: true }
+WithDataOrdering.decorators = [ActiveBWDecorator]
+
 const WithDataActive = Template.bind({})
 WithDataActive.args = { addressHistory: sampleAddressHistory, selectable: true }
 WithDataActive.decorators = [ActiveBWDecorator]
 
-export { Default, WithData, WithDataActive }
+export { Default, WithData, WithDataActive, WithDataOrdering }
