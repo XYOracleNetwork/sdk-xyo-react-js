@@ -35,9 +35,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   }
 
   useEffect(() => {
-    if (addressHistory?.length) {
-      setOrderedAddressHistory(orderHistoryFn(addressHistory))
-    }
+    setOrderedAddressHistory(orderHistoryFn(addressHistory))
   }, [addressHistory, orderHistoryFn])
 
   return (
@@ -62,5 +60,4 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
 })
 
 AddressHistory.displayName = 'AddressHistory'
-
 export { AddressHistory }
