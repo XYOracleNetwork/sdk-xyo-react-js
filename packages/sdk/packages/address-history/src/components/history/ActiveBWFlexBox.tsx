@@ -10,7 +10,7 @@ const ActiveBWFlexBox = forwardRef<HTMLDivElement, FlexBoxProps>(({ ...props }, 
   return (
     <FlexGrowCol alignItems="stretch" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
       {activeBoundWitness ? (
-        <BoundWitnessDetails paddingX={3} payload={activeBoundWitness} />
+        <BoundWitnessDetails payload={activeBoundWitness} />
       ) : (
         <FlexCol justifyContent="center">
           <Typography variant="h2">No Block Selected</Typography>
