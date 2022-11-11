@@ -8,9 +8,9 @@ import { useActiveBoundWitness } from '../../contexts'
 const ActiveBWFlexBox = forwardRef<HTMLDivElement, FlexBoxProps>(({ ...props }, ref) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   return (
-    <FlexGrowCol overflow="scroll" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
+    <FlexGrowCol alignItems="stretch" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
       {activeBoundWitness ? (
-        <BoundWitnessDetails width="100%" pt={3} paddingX={3} payload={activeBoundWitness} />
+        <BoundWitnessDetails paddingX={3} payload={activeBoundWitness} />
       ) : (
         <FlexCol justifyContent="center">
           <Typography variant="h2">No Block Selected</Typography>
