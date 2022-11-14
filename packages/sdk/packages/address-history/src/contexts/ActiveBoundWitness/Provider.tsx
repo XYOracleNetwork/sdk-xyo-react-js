@@ -16,16 +16,25 @@ export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProp
 }) => {
   const { boundwitness: boundwitnessHashFromParam } = useParams()
   const [activeBoundWitnessHash, setActiveBoundWitnessHash] = useState<string>()
+  const [activeBoundWitness, setActiveBoundWitness] = useState<XyoBoundWitness>()
   const [payload] = useArchivistGet(activeBoundWitnessHash ? [activeBoundWitnessHash] : undefined)
 
   useEffect(() => {
     setActiveBoundWitnessHash(activeBoundWitnessHashProp ?? boundwitnessHashFromParam)
   }, [activeBoundWitnessHashProp, boundwitnessHashFromParam])
 
+  useEffect(() => {
+    if (activeBoundWitnessHash === undefined) {
+      setActiveBoundWitness(undefined)
+    } else {
+      setActiveBoundWitness(payload?.[0] as XyoBoundWitness)
+    }
+  }, [payload, activeBoundWitnessHash])
+
   return (
     <ActiveBoundWitnessContext.Provider
       value={{
-        activeBoundWitness: payload?.[0] as XyoBoundWitness,
+        activeBoundWitness,
         activeBoundWitnessHash,
         provided: true,
         setActiveBoundWitnessHash,

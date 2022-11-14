@@ -1,6 +1,8 @@
+import { Button } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 
+import { useActiveBoundWitness } from '../../contexts'
 import { ActiveBWDecorator } from './ActiveBWDecorator.stories'
 import { ActiveBWFlexBox } from './ActiveBWFlexBox'
 
@@ -10,15 +12,27 @@ const WithRefDecorator: DecoratorFn = (Story, args) => {
   return <Story {...args} />
 }
 
+const WithResetDecorator: DecoratorFn = (Story, args) => {
+  const { activeBoundWitness, setActiveBoundWitnessHash } = useActiveBoundWitness()
+  return (
+    <>
+      {activeBoundWitness ? (
+        <Button variant="contained" onClick={() => setActiveBoundWitnessHash?.(undefined)}>
+          Reset Active BW
+        </Button>
+      ) : null}
+      <Story {...args} />
+    </>
+  )
+}
+
 // eslint-disable-next-line import/no-default-export
 export default {
   component: ActiveBWFlexBox,
   title: 'addressHistory/ActiveBWFlexBox',
 } as Meta
 
-const Template: ComponentStory<typeof ActiveBWFlexBox> = (props) => {
-  return <ActiveBWFlexBox {...props} />
-}
+const Template: ComponentStory<typeof ActiveBWFlexBox> = (props) => <ActiveBWFlexBox {...props} />
 
 const Default = Template.bind({})
 Default.args = {}
@@ -31,4 +45,8 @@ const WithActiveBWRef = Template.bind({})
 WithActiveBWRef.args = {}
 WithActiveBWRef.decorators = [ActiveBWDecorator, WithRefDecorator]
 
-export { Default, WithActiveBW, WithActiveBWRef }
+const WithActiveBWReset = Template.bind({})
+WithActiveBWReset.args = {}
+WithActiveBWReset.decorators = [WithResetDecorator, ActiveBWDecorator]
+
+export { Default, WithActiveBW, WithActiveBWRef, WithActiveBWReset }
