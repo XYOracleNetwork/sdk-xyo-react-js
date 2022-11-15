@@ -16,13 +16,14 @@ export interface BoundWitnessRendererCardExpandedProps extends CardProps {
 const BoundWitnessRendererCardExpanded = forwardRef<HTMLDivElement, BoundWitnessRendererCardExpandedProps>(({ payload, active, ...props }, ref) => {
   const boundwitness = payload as XyoPayload<XyoBoundWitness>
   const [activeTab, setActiveTab] = useState(0)
+  const noOpFooterProp = { PayloadTableFooterComponent: () => <></> }
   return (
     <Card ref={ref} {...props}>
       <BoundWitnessCardHeader payload={boundwitness} active={active} />
       <FlexGrowCol alignItems="stretch">
         <CardContentEx removePadding variant="scrollable">
-          {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} /> : null}
-          {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} /> : null}
+          {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} {...noOpFooterProp} /> : null}
+          {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} {...noOpFooterProp} /> : null}
           {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} /> : null}
         </CardContentEx>
         <BoundWitnessCardBottomNavigation boundWitness={boundwitness} activeTab={activeTab} setActiveTab={setActiveTab} />
