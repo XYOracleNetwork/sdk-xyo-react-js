@@ -1,4 +1,4 @@
-import { BottomNavigation, BottomNavigationAction, Paper, PaperProps } from '@mui/material'
+import { BottomNavigation, BottomNavigationAction, Paper, PaperProps, styled } from '@mui/material'
 import { useState } from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
@@ -6,7 +6,7 @@ import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 export const BoundWitnessCardBottomNavigation: React.FC<PaperProps> = (props) => {
   const [value, setValue] = useState(0)
   return (
-    <Paper sx={{ bottom: 0, left: 0, position: 'fixed', right: 0 }} elevation={3} {...props}>
+    <PaperNavWrapper elevation={3} {...props}>
       <BottomNavigation
         showLabels
         value={value}
@@ -18,6 +18,15 @@ export const BoundWitnessCardBottomNavigation: React.FC<PaperProps> = (props) =>
         <BottomNavigationAction label="Bound Witnesses" icon={<VscSymbolMethod />} />
         <BottomNavigationAction label="Signatures" icon={<FaSignature />} />
       </BottomNavigation>
-    </Paper>
+    </PaperNavWrapper>
   )
 }
+
+const PaperNavWrapper = styled(Paper, { name: 'PaperNavWrapper' })(({ theme }) => ({
+  borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
+  bottom: 0,
+  left: 0,
+  overflow: 'hidden',
+  position: 'absolute',
+  right: 0,
+}))
