@@ -1,6 +1,6 @@
 import { BottomNavigation, BottomNavigationAction, Paper, PaperProps, styled } from '@mui/material'
 import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness'
-import { useState } from 'react'
+import { forwardRef, useState } from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
@@ -8,7 +8,7 @@ export interface BoundWitnessCardBottomNavigationProps extends PaperProps {
   boundWitness?: XyoBoundWitness
 }
 
-export const BoundWitnessCardBottomNavigation: React.FC<BoundWitnessCardBottomNavigationProps> = ({ boundWitness, ...props }) => {
+const BoundWitnessCardBottomNavigation = forwardRef<HTMLDivElement, BoundWitnessCardBottomNavigationProps>(({ boundWitness, ...props }, ref) => {
   const [value, setValue] = useState(0)
 
   const payloadCount = boundWitness?.payload_schemas.filter((schema) => schema !== XyoBoundWitnessSchema).length ?? 0
@@ -16,7 +16,7 @@ export const BoundWitnessCardBottomNavigation: React.FC<BoundWitnessCardBottomNa
   const signers = boundWitness?.addresses.length ?? 0
 
   return (
-    <PaperNavWrapper elevation={3} {...props}>
+    <PaperNavWrapper elevation={3} ref={ref} {...props}>
       <BottomNavigation
         showLabels
         value={value}
@@ -30,13 +30,11 @@ export const BoundWitnessCardBottomNavigation: React.FC<BoundWitnessCardBottomNa
       </BottomNavigation>
     </PaperNavWrapper>
   )
-}
+})
+
+BoundWitnessCardBottomNavigation.displayName = 'BoundWitnessCardBottomNavigation'
+export { BoundWitnessCardBottomNavigation }
 
 const PaperNavWrapper = styled(Paper, { name: 'PaperNavWrapper' })(({ theme }) => ({
   borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
-  bottom: 0,
-  left: 0,
-  overflow: 'hidden',
-  position: 'absolute',
-  right: 0,
 }))
