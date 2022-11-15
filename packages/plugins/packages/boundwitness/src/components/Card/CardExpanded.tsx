@@ -1,7 +1,8 @@
-import { Card, CardContent, CardProps } from '@mui/material'
+import { Card, CardProps } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayload } from '@xyo-network/payload'
+import { CardContentEx } from '@xyo-network/react-card'
 import { forwardRef, useState } from 'react'
 
 import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../_shared'
@@ -19,11 +20,11 @@ const BoundWitnessRendererCardExpanded = forwardRef<HTMLDivElement, BoundWitness
     <Card ref={ref} {...props}>
       <BoundWitnessCardHeader payload={boundwitness} active={active} />
       <FlexGrowCol alignItems="stretch">
-        <CardContent sx={{ p: 0 }}>
+        <CardContentEx removePadding variant="scrollable">
           {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} /> : null}
           {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} /> : null}
           {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} /> : null}
-        </CardContent>
+        </CardContentEx>
         <BoundWitnessCardBottomNavigation boundWitness={boundwitness} activeTab={activeTab} setActiveTab={setActiveTab} />
       </FlexGrowCol>
     </Card>
