@@ -1,5 +1,5 @@
 import { ComponentStory, Meta } from '@storybook/react'
-import { sampleBlock } from '@xyo-network/react-storybook'
+import { sampleBlockWithBoundWitnessPayload } from '@xyo-network/react-storybook'
 
 import { BoundWitnessRendererCardExpanded } from './CardExpanded'
 
@@ -12,6 +12,6 @@ export default {
 const Template: ComponentStory<typeof BoundWitnessRendererCardExpanded> = (props) => <BoundWitnessRendererCardExpanded {...props} />
 
 const Default = Template.bind({})
-Default.args = { payload: sampleBlock }
+Default.args = { payload: sampleBlockWithBoundWitnessPayload }
 
 export { Default }

@@ -4,7 +4,7 @@ import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayload } from '@xyo-network/payload'
 import { forwardRef, useState } from 'react'
 
-import { BoundWitnessPayloadsTable } from '../_shared'
+import { BoundWitnessPayloadsTable, BoundWitnessSignatureTable } from '../_shared'
 import { CardColumnTitleH2 } from './CardContent'
 import { BoundWitnessCardHeader } from './CardHeader'
 import { BoundWitnessCardBottomNavigation } from './Navigation'
@@ -23,7 +23,7 @@ const BoundWitnessRendererCardExpanded = forwardRef<HTMLDivElement, BoundWitness
         <CardContent sx={{ p: 0 }}>
           {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} /> : null}
           {activeTab === 1 ? <CardColumnTitleH2>Bound Witnesses</CardColumnTitleH2> : null}
-          {/* {activeTab === 2 ? < block={boundwitness} /> : null} */}
+          {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} /> : null}
         </CardContent>
         <BoundWitnessCardBottomNavigation boundWitness={boundwitness} activeTab={activeTab} setActiveTab={setActiveTab} />
       </FlexGrowCol>
