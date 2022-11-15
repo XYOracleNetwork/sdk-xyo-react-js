@@ -25,5 +25,5 @@ export const BoundWitnessPayloadTableBodyForBWs: React.FC<BoundWitnessPayloadTab
       )
     }
   }, [payloadHashes, payloadSchemas])
-  return <BoundWitnessPayloadTableBody payloadHashes={bwPayloadHashes} payloadSchemas={bwPayloadSchemas} {...props} />
+  return <BoundWitnessPayloadTableBody payloadHashes={bwPayloadHashes} payloadSchemas={bwPayloadSchemas} eventNoun="boundwitness" {...props} />
 }

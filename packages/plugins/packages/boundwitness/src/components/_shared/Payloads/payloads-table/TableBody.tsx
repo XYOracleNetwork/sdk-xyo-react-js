@@ -6,7 +6,12 @@ import { useLayoutEffect, useRef } from 'react'
 
 import { BoundWitnessPayloadTableBodyProps } from './lib'
 
-export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = ({ payloadHashes, payloadSchemas, ...props }) => {
+export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = ({
+  payloadHashes,
+  payloadSchemas,
+  eventNoun = 'payload',
+  ...props
+}) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows, noResults, NoResultRowComponent, ...tableProps } = props
   const ref = useRef<HTMLTableSectionElement | null>(null)
@@ -16,7 +21,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
   const tableRowRef = useRef<HTMLTableRowElement | null>(null)
 
   const handleOnClick = (hash: string) => {
-    dispatch('payload', 'click', hash)
+    dispatch(eventNoun, 'click', hash)
   }
 
   useLayoutEffect(() => {
