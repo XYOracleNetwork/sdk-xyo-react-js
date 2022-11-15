@@ -1,4 +1,4 @@
-import { BottomNavigation, BottomNavigationAction, BottomNavigationProps, styled } from '@mui/material'
+import { BottomNavigation, BottomNavigationAction, BottomNavigationProps } from '@mui/material'
 import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness'
 import { Dispatch, forwardRef, SetStateAction } from 'react'
 import { FaSignature } from 'react-icons/fa'
@@ -17,7 +17,7 @@ const BoundWitnessCardBottomNavigation = forwardRef<HTMLDivElement, BoundWitness
     const signers = boundWitness?.addresses.length ?? 0
 
     return (
-      <BottomNavigationStyled
+      <BottomNavigation
         showLabels
         value={activeTab}
         onChange={(_event, newValue) => {
@@ -29,14 +29,10 @@ const BoundWitnessCardBottomNavigation = forwardRef<HTMLDivElement, BoundWitness
         <BottomNavigationAction label={`Payloads - ${payloadCount}`} icon={<VscSymbolNamespace />} />
         <BottomNavigationAction label={`Bound Witnesses - ${boundWitnessCount}`} icon={<VscSymbolMethod />} />
         <BottomNavigationAction label={`Signatures - ${signers}`} icon={<FaSignature />} />
-      </BottomNavigationStyled>
+      </BottomNavigation>
     )
   },
 )
 
 BoundWitnessCardBottomNavigation.displayName = 'BoundWitnessCardBottomNavigation'
 export { BoundWitnessCardBottomNavigation }
-
-const BottomNavigationStyled = styled(BottomNavigation, { name: 'BottomNavigationStyled' })(({ theme }) => ({
-  borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
-}))
