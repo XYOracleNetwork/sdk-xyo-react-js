@@ -4,7 +4,7 @@ import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import { forwardRef } from 'react'
 
-import { BoundWitnessPayloads } from './Payloads'
+import { BoundWitnessPayloads } from '../_shared'
 import { BoundWitnessSignatureDetails } from './SignatureDetails'
 import { BoundWitnessValidationDetails } from './ValidationDetails'
 
