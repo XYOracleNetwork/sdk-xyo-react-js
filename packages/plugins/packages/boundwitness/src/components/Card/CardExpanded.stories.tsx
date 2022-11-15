@@ -14,4 +14,7 @@ const Template: ComponentStory<typeof BoundWitnessRendererCardExpanded> = (props
 const Default = Template.bind({})
 Default.args = { payload: sampleBlockWithBoundWitnessPayload }
 
-export { Default }
+const WithVisibleRows = Template.bind({})
+WithVisibleRows.args = { payload: sampleBlockWithBoundWitnessPayload, visibleRows: 4 }
+
+export { Default, WithVisibleRows }
