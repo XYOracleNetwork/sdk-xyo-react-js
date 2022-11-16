@@ -1,4 +1,4 @@
-import { AvatarProps, CardActionAreaProps, CardContentProps, CardHeaderProps, TableCellProps } from '@mui/material'
+import { AvatarProps, CardActionAreaProps, CardContentProps, CardHeaderProps, CardProps, TableCellProps } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload'
 import { ListMode } from '@xyo-network/react-shared'
@@ -10,6 +10,8 @@ export interface XyoPayloadRenderProps<T extends XyoPayload = XyoPayload> {
 
 export interface XyoPayloadDetailsRenderProps extends XyoPayloadRenderProps {
   listMode?: ListMode
+  active?: boolean
+  visibleRows?: number
 }
 
 export interface XyoPayloadEditorRenderProps extends XyoPayloadDetailsRenderProps {
@@ -37,7 +39,10 @@ export interface XyoPayloadRenderPluginTableComponents {
 
 export interface XyoPayloadRenderPluginBoxComponents {
   listModes?: ListMode[]
-  details: ComponentType<XyoPayloadDetailsRenderProps & FlexBoxProps>
+  /** @deprecated - use detailsBox  */
+  details?: ComponentType<XyoPayloadDetailsRenderProps & FlexBoxProps>
+  detailsBox: ComponentType<XyoPayloadDetailsRenderProps & FlexBoxProps>
+  detailsCard?: ComponentType<XyoPayloadDetailsRenderProps & CardProps>
   editor: ComponentType<XyoPayloadEditorRenderProps & FlexBoxProps>
 }
 

@@ -24,7 +24,7 @@ export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
         </FlexGrowRow>
       ) : null}
       <CardContent sx={{ height: '100%' }}>
-        {ActivePlugin ? <ActivePlugin.components.box.details payload={payload} {...(supportsListMode && { listMode })} /> : null}
+        {ActivePlugin ? <ActivePlugin.components.box.detailsBox payload={payload} {...(supportsListMode && { listMode })} /> : null}
       </CardContent>
     </BusyCard>
   )
