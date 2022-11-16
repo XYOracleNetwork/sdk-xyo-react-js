@@ -7,7 +7,7 @@ import { BoundWitnessBottomNavigation } from './BottomNavigation'
 // eslint-disable-next-line import/no-default-export
 export default {
   component: BoundWitnessBottomNavigation,
-  title: 'plugin/boundwitness/CardExpanded/BottomNavigation',
+  title: 'plugin/boundwitness/BottomNavigation',
 } as Meta
 
 const Template: ComponentStory<typeof BoundWitnessBottomNavigation> = (props) => {
