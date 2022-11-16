@@ -7151,6 +7151,7 @@ __metadata:
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-payload-plugin-resolver": "workspace:^"
     "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7661,9 +7662,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-payload-details@workspace:^, @xyo-network/react-payload-details@workspace:packages/sdk/packages/payload-details":
+"@xyo-network/react-payload-context@workspace:^, @xyo-network/react-payload-context@workspace:packages/sdk/packages/payload/packages/payload-context":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-payload-details@workspace:packages/sdk/packages/payload-details"
+  resolution: "@xyo-network/react-payload-context@workspace:packages/sdk/packages/payload/packages/payload-context"
+  dependencies:
+    "@xylabs/react-shared": ^2.15.1
+    "@xyo-network/react-archivist": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.1
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xyo-network/archivist": "*"
+    "@xyo-network/payload": "*"
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-payload-details@workspace:^, @xyo-network/react-payload-details@workspace:packages/sdk/packages/payload/packages/payload-details":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-payload-details@workspace:packages/sdk/packages/payload/packages/payload-details"
   dependencies:
     "@xylabs/react-button": ^2.15.1
     "@xylabs/react-flexbox": ^2.15.1
@@ -7690,9 +7711,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-payload-diviner@workspace:^, @xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload-diviner":
+"@xyo-network/react-payload-diviner@workspace:^, @xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload/packages/payload-diviner":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload-diviner"
+  resolution: "@xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload/packages/payload-diviner"
   dependencies:
     "@xylabs/react-common": ^2.15.1
     "@xylabs/react-flexbox": ^2.15.1
@@ -7716,9 +7737,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload-plugin-resolver":
+"@xyo-network/react-payload-plugin-resolver@workspace:^, @xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload/packages/payload-plugin-resolver":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload-plugin-resolver"
+  resolution: "@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload/packages/payload-plugin-resolver"
   dependencies:
     "@xylabs/sdk-js": ^2.6.9
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7732,6 +7753,7 @@ __metadata:
     "@xyo-network/module": "*"
     "@xyo-network/payload": "*"
     "@xyo-network/payload-plugin": "*"
+    "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7739,9 +7761,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-payload-plugin@workspace:^, @xyo-network/react-payload-plugin@workspace:packages/sdk/packages/payload-plugin":
+"@xyo-network/react-payload-plugin@workspace:^, @xyo-network/react-payload-plugin@workspace:packages/sdk/packages/payload/packages/payload-plugin":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-payload-plugin@workspace:packages/sdk/packages/payload-plugin"
+  resolution: "@xyo-network/react-payload-plugin@workspace:packages/sdk/packages/payload/packages/payload-plugin"
   dependencies:
     "@xylabs/react-flexbox": ^2.15.1
     "@xylabs/react-identicon": ^2.15.1
@@ -7766,9 +7788,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-payload-table@workspace:^, @xyo-network/react-payload-table@workspace:packages/sdk/packages/payload-table":
+"@xyo-network/react-payload-table@workspace:^, @xyo-network/react-payload-table@workspace:packages/sdk/packages/payload/packages/payload-table":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-payload-table@workspace:packages/sdk/packages/payload-table"
+  resolution: "@xyo-network/react-payload-table@workspace:packages/sdk/packages/payload/packages/payload-table"
   dependencies:
     "@xylabs/react-common": ^2.15.1
     "@xylabs/react-flexbox": ^2.15.1
@@ -7777,6 +7799,7 @@ __metadata:
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-payload-plugin-resolver": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
     tslib: ^2.4.1
@@ -7800,19 +7823,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload@workspace:packages/sdk/packages/payload"
   dependencies:
-    "@xylabs/react-shared": ^2.15.1
-    "@xyo-network/react-archivist": "workspace:^"
-    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-payload-context": "workspace:^"
+    "@xyo-network/react-payload-details": "workspace:^"
+    "@xyo-network/react-payload-diviner": "workspace:^"
+    "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-payload-plugin-resolver": "workspace:^"
+    "@xyo-network/react-payload-table": "workspace:^"
     tslib: ^2.4.1
   peerDependencies:
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.3
-    "@mui/styles": ^5.10.3
-    "@xyo-network/archivist": "*"
-    "@xyo-network/payload": "*"
+    "@mui/icons-material": ^5.10.14
+    "@mui/material": ^5.10.14
+    "@mui/styles": ^5.10.14
+    "@xylabs/sdk-js": ^2.6.9
+    "@xyo-network/archivist": ^2.41.3
+    "@xyo-network/diviner": ^2.41.3
+    "@xyo-network/module": ^2.41.3
+    "@xyo-network/network": ^2.41.3
+    "@xyo-network/payload": ^2.41.3
+    "@xyo-network/payload-plugin": ^2.41.3
+    "@xyo-network/schema-payload-plugin": ^2.41.3
+    "@xyo-network/utils": ^2.41.3
+    lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-router-dom: ^6.3.0
+    react-router-dom: ^6.4.3
   languageName: unknown
   linkType: soft
 
@@ -8043,10 +8077,6 @@ __metadata:
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-panel": "workspace:^"
     "@xyo-network/react-payload": "workspace:^"
-    "@xyo-network/react-payload-details": "workspace:^"
-    "@xyo-network/react-payload-diviner": "workspace:^"
-    "@xyo-network/react-payload-plugin": "workspace:^"
-    "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-schema-api": "workspace:^"

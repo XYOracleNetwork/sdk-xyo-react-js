@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-payload-plugin-resolver",
+  "name": "@xyo-network/react-payload-context",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,8 +10,8 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/react-payload-plugin": "workspace:^",
+    "@xylabs/react-shared": "^2.15.1",
+    "@xyo-network/react-archivist": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "tslib": "^2.4.1"
   },
@@ -19,11 +19,8 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
-    "@xyo-network/diviner": "*",
-    "@xyo-network/module": "*",
+    "@xyo-network/archivist": "*",
     "@xyo-network/payload": "*",
-    "@xyo-network/payload-plugin": "*",
-    "@xyo-network/utils": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"

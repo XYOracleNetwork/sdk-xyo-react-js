@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-payload",
+  "name": "@xyo-network/react-payload-plugin-resolver",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,31 +10,24 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-payload-context": "workspace:^",
-    "@xyo-network/react-payload-details": "workspace:^",
-    "@xyo-network/react-payload-diviner": "workspace:^",
+    "@xylabs/sdk-js": "^2.6.9",
     "@xyo-network/react-payload-plugin": "workspace:^",
-    "@xyo-network/react-payload-plugin-resolver": "workspace:^",
-    "@xyo-network/react-payload-table": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^",
     "tslib": "^2.4.1"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.10.14",
-    "@mui/material": "^5.10.14",
-    "@mui/styles": "^5.10.14",
-    "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/archivist": "^2.41.3",
-    "@xyo-network/diviner": "^2.41.3",
-    "@xyo-network/module": "^2.41.3",
-    "@xyo-network/network": "^2.41.3",
-    "@xyo-network/payload": "^2.41.3",
-    "@xyo-network/payload-plugin": "^2.41.3",
-    "@xyo-network/schema-payload-plugin": "^2.41.3",
-    "@xyo-network/utils": "^2.41.3",
-    "lodash": "^4.17.21",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "@mui/styles": "^5.10.3",
+    "@xyo-network/diviner": "*",
+    "@xyo-network/module": "*",
+    "@xyo-network/payload": "*",
+    "@xyo-network/payload-plugin": "*",
+    "@xyo-network/schema-payload-plugin": "*",
+    "@xyo-network/utils": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.3"
+    "react-router-dom": "^6.3.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",

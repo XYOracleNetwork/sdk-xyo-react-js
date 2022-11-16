@@ -5,7 +5,8 @@ import { AvatarProps, TableCell, TableCellProps, TableRow, TableRowProps, Typogr
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadValidator, PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { useNetwork } from '@xyo-network/react-network'
-import { usePayloadRenderPluginResolver, XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
+import { XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
+import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import { HashTableCell, HashTableCellProps } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 
