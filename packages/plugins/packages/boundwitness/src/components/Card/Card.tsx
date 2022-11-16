@@ -2,8 +2,8 @@ import { Card, CardProps } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayload } from '@xyo-network/payload'
 
+import { BoundWitnessCardHeader } from '../_shared'
 import { BoundWitnessCardContent } from './CardContent'
-import { BoundWitnessCardHeader } from './CardHeader'
 
 export interface BoundWitnessCardProps extends CardProps {
   payload?: XyoPayload
