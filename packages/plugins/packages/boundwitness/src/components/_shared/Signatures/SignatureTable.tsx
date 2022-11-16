@@ -70,6 +70,7 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
                 previousHash={data.previous_hash}
                 hash={hash}
                 signature={data.signature}
+                clickableFields={['address']}
               />
             )
           })}
