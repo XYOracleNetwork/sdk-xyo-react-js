@@ -3,11 +3,11 @@ import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
-import { TableEx } from '@xyo-network/react-table'
+import { TableEx, TableExProps } from '@xyo-network/react-table'
 
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow'
 
-export interface BoundWitnessSignatureTableProps extends TableProps {
+export interface BoundWitnessSignatureTableProps extends TableExProps {
   block?: XyoBoundWitness
 }
 
