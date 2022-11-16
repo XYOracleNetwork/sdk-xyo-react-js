@@ -17,7 +17,7 @@ export const ExpandedCardContent: React.FC<ExpandedCardContentProps> = ({ active
     <CardContentEx removePadding variant="scrollable" sx={{ height: height !== undefined ? height : 'auto' }}>
       {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} {...noOpFooterProp} /> : null}
       {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} {...noOpFooterProp} /> : null}
-      {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} /> : null}
+      {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} stickyHeader /> : null}
     </CardContentEx>
   )
 }

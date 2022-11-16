@@ -1,8 +1,9 @@
-import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
+import { TableEx } from '@xyo-network/react-table'
 
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow'
 
@@ -34,7 +35,7 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
 
   return (
     <ScrollTableOnSm>
-      <Table {...props}>
+      <TableEx {...props}>
         <TableHead>
           <TableRow>
             <TableCell align="left">
@@ -73,7 +74,7 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
             )
           })}
         </TableBody>
-      </Table>
+      </TableEx>
     </ScrollTableOnSm>
   )
 }
