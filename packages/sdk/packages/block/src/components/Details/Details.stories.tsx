@@ -29,8 +29,8 @@ const Template: ComponentStory<typeof BlockDetails> = (args) => {
 
   return (
     <BrowserRouter>
+      <DeprecateStory />
       <Routes>
-        <DeprecateStory />
         <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
         <Route path="*" element={<BlockDetails ref={sharedRef} {...args} />} />
       </Routes>

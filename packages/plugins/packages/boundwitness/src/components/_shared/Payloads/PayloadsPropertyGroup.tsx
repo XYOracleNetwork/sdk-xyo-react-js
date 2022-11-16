@@ -1,8 +1,8 @@
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload-table'
+import { PayloadTableProps } from '@xyo-network/react-payload-table'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
-import { BoundWitnessPayloadTableBody, BoundWitnessPayloadTableHead } from './payloads-table'
+import { BoundWitnessPayloadsTable } from './PayloadsTable'
 
 export type BoundWitnessPayloadsProps = PropertyGroupProps & {
   payload?: XyoBoundWitness
@@ -16,18 +16,7 @@ export const BoundWitnessPayloads: React.FC<BoundWitnessPayloadsProps> = ({ payl
   }
   return (
     <PropertyGroup titleProps={{ elevation }} title="Payloads" tip="The hash and schema for each payload witnessed" {...props}>
-      <PayloadTable
-        PayloadTableHeadComponent={(props) => <BoundWitnessPayloadTableHead {...props} />}
-        PayloadTableBodyComponent={(props) => (
-          <BoundWitnessPayloadTableBody
-            {...props}
-            noResults={boundwitness?.payload_hashes.length === 0}
-            payloadHashes={boundwitness?.payload_hashes}
-            payloadSchemas={boundwitness?.payload_schemas}
-          />
-        )}
-        {...payloadTableProps}
-      />
+      <BoundWitnessPayloadsTable boundwitness={boundwitness} {...payloadTableProps} />
     </PropertyGroup>
   )
 }

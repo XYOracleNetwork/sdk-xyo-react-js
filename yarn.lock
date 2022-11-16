@@ -7148,6 +7148,7 @@ __metadata:
   dependencies:
     "@xylabs/react-flexbox": ^2.15.1
     "@xylabs/react-identicon": ^2.15.1
+    "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7155,6 +7156,7 @@ __metadata:
     "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-table": "workspace:^"
     lodash: ^4.17.21
     tslib: ^2.4.1
   peerDependencies:
@@ -8197,11 +8199,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-table@workspace:packages/sdk/packages/table"
   dependencies:
+    "@xylabs/react-shared": ^2.15.1
+    "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
   peerDependencies:
+    "@mui/icons-material": ^5.10.14
     "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-router-dom: ^6.4.3
   languageName: unknown
   linkType: soft
 
