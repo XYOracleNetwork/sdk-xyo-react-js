@@ -5,4 +5,6 @@ export interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps
   payloadHashes?: string[]
   payloadSchemas?: string[]
   eventNoun?: XyoEventNoun
+  schemaFilter?: string
+  filterType?: 'equal' | 'notEqual'
 }
