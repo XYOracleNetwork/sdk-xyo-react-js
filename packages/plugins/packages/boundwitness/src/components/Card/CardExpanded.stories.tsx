@@ -29,6 +29,6 @@ WithRef.decorators = [WithEventDecorator]
 WithRef.args = { payload: sampleBlockWithBoundWitnessPayload }
 
 const WithVisibleRows = Template.bind({})
-WithVisibleRows.args = { payload: sampleBlockWithBoundWitnessPayload, visibleRows: 4 }
+WithVisibleRows.args = { payload: sampleBlockWithBoundWitnessPayload, visibleRows: 3 }
 
 export { Default, WithRef, WithVisibleRows }

@@ -23,7 +23,7 @@ const BoundWitnessRendererCardExpanded = forwardRef<HTMLDivElement, BoundWitness
       <Card ref={ref} {...props}>
         <BoundWitnessCardHeader payload={boundwitness} active={active} />
         <FlexGrowCol alignItems="stretch">
-          <TableHeightProvider defaultVisibleRows={visibleRows}>
+          <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
             <ExpandedCardContent activeTab={activeTab} boundwitness={boundwitness} />
           </TableHeightProvider>
           <BoundWitnessCardBottomNavigation boundWitness={boundwitness} activeTab={activeTab} setActiveTab={setActiveTab} />
