@@ -28,7 +28,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
     if (tableRowRef.current) {
       setRowHeight?.(tableRowRef.current.offsetHeight)
     }
-  }, [setRowHeight])
+  })
 
   return (
     <TableBody ref={tableRef} {...tableProps}>
