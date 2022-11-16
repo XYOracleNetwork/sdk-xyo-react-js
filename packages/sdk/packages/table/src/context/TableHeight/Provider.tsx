@@ -7,9 +7,16 @@ import { TableHeightContext } from './Context'
 export interface TableHeightProviderProps extends ContextExProviderProps, WithChildren {
   defaultVisibleRows?: number
   heightFormat?: string
+  /** @field Account for optional header and footer rows */
+  additionalRows?: number
 }
 
-export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({ children, defaultVisibleRows, heightFormat = 'px' }) => {
+export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({
+  children,
+  additionalRows = 0,
+  defaultVisibleRows,
+  heightFormat = 'px',
+}) => {
   const [visibleRows, setVisibleRows] = useState(defaultVisibleRows)
   const [height, setHeight] = useState<number | undefined>()
   const [rowHeight, setRowHeight] = useState<number | undefined>()
@@ -22,9 +29,9 @@ export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({ childr
 
   useEffect(() => {
     if (rowHeight !== undefined && visibleRows !== undefined) {
-      setHeight(rowHeight * visibleRows)
+      setHeight(rowHeight * (visibleRows + additionalRows))
     }
-  }, [defaultVisibleRows, rowHeight, visibleRows])
+  }, [defaultVisibleRows, rowHeight, visibleRows, additionalRows])
 
   return (
     <TableHeightContext.Provider value={{ height: formattedHeight, provided: true, rowHeight, setRowHeight, setVisibleRows, visibleRows }}>
