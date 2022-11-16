@@ -1,10 +1,15 @@
 import { TableBody, TableCell, TableRow } from '@mui/material'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useXyoEvent, XyoEventNoun } from '@xyo-network/react-event'
+import { PayloadTableBodyProps } from '@xyo-network/react-payload-table'
 import { HashTableCell } from '@xyo-network/react-shared'
 import { useTableHeight } from '@xyo-network/react-table'
 import { useLayoutEffect, useRef } from 'react'
 
-import { BoundWitnessPayloadTableBodyProps } from './lib'
+export interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps {
+  payloadHashes?: string[]
+  payloadSchemas?: string[]
+  eventNoun?: XyoEventNoun
+}
 
 export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = ({
   payloadHashes,

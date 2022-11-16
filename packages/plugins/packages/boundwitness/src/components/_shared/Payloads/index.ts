@@ -1,2 +1,2 @@
-export * from './Payloads'
+export * from './PayloadsPropertyGroup'
 export * from './PayloadsTable'

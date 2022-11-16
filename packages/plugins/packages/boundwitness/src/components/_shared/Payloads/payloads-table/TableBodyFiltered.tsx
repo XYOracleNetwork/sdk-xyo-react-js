@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
 
-import { BoundWitnessPayloadTableBodyProps } from './lib'
-import { BoundWitnessPayloadTableBody } from './TableBody'
+import { BoundWitnessPayloadTableBody, BoundWitnessPayloadTableBodyProps } from './TableBody'
 
-export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = ({
+export interface BoundWitnessFilteredPayloadTableBodyProps extends BoundWitnessPayloadTableBodyProps {
+  schemaFilter?: string
+  filterType?: 'equal' | 'notEqual'
+}
+
+export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFilteredPayloadTableBodyProps> = ({
   payloadHashes,
   payloadSchemas,
   schemaFilter,
@@ -38,5 +42,3 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessPayloadT
   }, [filterType, payloadHashes, payloadSchemas, schemaFilter])
   return <BoundWitnessPayloadTableBody payloadHashes={bwPayloadHashes} payloadSchemas={bwPayloadSchemas} eventNoun="boundwitness" {...props} />
 }
-
-// export second version that is only for payloads??
