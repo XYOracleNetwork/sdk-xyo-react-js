@@ -24,7 +24,7 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetails
 
   return (
     <FlexCol alignItems="stretch" ref={ref} {...props}>
-      <FlexCol alignItems="stretch" height={height !== undefined ? height : 'auto'}>
+      <FlexCol alignItems="stretch" justifyContent="start" height={height !== undefined ? height : 'auto'} overflow="scroll">
         {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" /> : null}
         {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} variant="scrollable" /> : null}
         {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} variant="scrollable" /> : null}
