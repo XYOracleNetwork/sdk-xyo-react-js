@@ -1,4 +1,4 @@
-import { TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
