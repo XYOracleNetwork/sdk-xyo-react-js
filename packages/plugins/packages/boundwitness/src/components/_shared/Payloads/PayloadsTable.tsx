@@ -12,6 +12,7 @@ export interface BoundWitnessPayloadTableProps extends PayloadTableProps {
 export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> = ({ boundwitness, ...props }) => (
   <BoundWitnessPayloadsTableInner {...props}>
     <BoundWitnessFilteredPayloadTableBody
+      eventNoun="payload"
       schemaFilter={XyoBoundWitnessSchema}
       filterType="notEqual"
       noResults={boundwitness?.payload_hashes.length === 0}
@@ -24,6 +25,7 @@ export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> 
 export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableProps> = ({ boundwitness, ...props }) => (
   <BoundWitnessPayloadsTableInner {...props}>
     <BoundWitnessFilteredPayloadTableBody
+      eventNoun="boundwitness"
       schemaFilter={XyoBoundWitnessSchema}
       noResults={boundwitness?.payload_hashes.length === 0}
       payloadHashes={boundwitness?.payload_hashes}

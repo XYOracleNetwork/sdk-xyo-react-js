@@ -12,6 +12,7 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
   payloadSchemas,
   schemaFilter,
   filterType = 'equal',
+  eventNoun = 'payload',
   ...props
 }) => {
   const [bwPayloadHashes, setBWPayloadHashes] = useState<string[]>([])
@@ -40,5 +41,5 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
       )
     }
   }, [filterType, payloadHashes, payloadSchemas, schemaFilter])
-  return <BoundWitnessPayloadTableBody payloadHashes={bwPayloadHashes} payloadSchemas={bwPayloadSchemas} eventNoun="boundwitness" {...props} />
+  return <BoundWitnessPayloadTableBody payloadHashes={bwPayloadHashes} payloadSchemas={bwPayloadSchemas} eventNoun={eventNoun} {...props} />
 }
