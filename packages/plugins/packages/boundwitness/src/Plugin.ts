@@ -1,7 +1,8 @@
 import { XyoPayload } from '@xyo-network/payload'
 import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { BoundWitnessCardContent, BoundWitnessCardHeader, BoundWitnessDetailsBox } from './components'
+import { BoundWitnessCardContent, BoundWitnessDetailsBox } from './components'
+import { BoundWitnessCardHeader } from './components/_shared'
 
 export const BoundWitnessRenderPlugin: XyoPayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
