@@ -14,9 +14,16 @@ export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   payload?: XyoPayload
   active?: boolean
   hideJSONButton?: boolean
+  hideValidation?: boolean
 }
 
-export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ payload, active = false, hideJSONButton = false, ...props }) => {
+export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
+  payload,
+  active = false,
+  hideJSONButton = false,
+  hideValidation = false,
+  ...props
+}) => {
   const boundwitness = payload as XyoPayload<XyoBoundWitness>
   const theme = useTheme()
   const [hash, setHash] = useState('')
@@ -45,9 +52,11 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ 
       action={
         <FlexRow>
           {hideJSONButton ? null : <BWVerification boundwitness={boundwitness} />}
-          <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`}>
-            <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
-          </QuickTipButton>
+          {hideValidation ? null : (
+            <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`}>
+              <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
+            </QuickTipButton>
+          )}
         </FlexRow>
       }
       {...props}
