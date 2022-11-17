@@ -44,7 +44,7 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ 
       }
       action={
         <FlexRow>
-          <BWVerification boundwitness={boundwitness} />
+          {hideJSONButton ? null : <BWVerification boundwitness={boundwitness} />}
           <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`}>
             <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
           </QuickTipButton>
