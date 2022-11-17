@@ -1,13 +1,13 @@
-import { TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
+import { TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
-import { TableEx } from '@xyo-network/react-table'
+import { TableEx, TableExProps } from '@xyo-network/react-table'
 
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow'
 
-export interface BoundWitnessSignatureTableProps extends TableProps {
+export interface BoundWitnessSignatureTableProps extends TableExProps {
   block?: XyoBoundWitness
 }
 
@@ -70,6 +70,7 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
                 previousHash={data.previous_hash}
                 hash={hash}
                 signature={data.signature}
+                clickableFields={['address']}
               />
             )
           })}

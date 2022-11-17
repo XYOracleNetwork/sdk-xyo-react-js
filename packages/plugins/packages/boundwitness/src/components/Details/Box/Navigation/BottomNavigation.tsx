@@ -4,13 +4,13 @@ import { Dispatch, forwardRef, SetStateAction } from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
-export interface BoundWitnessCardBottomNavigationProps extends BottomNavigationProps {
+export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps {
   boundWitness?: XyoBoundWitness
   activeTab?: number
   setActiveTab?: Dispatch<SetStateAction<number>>
 }
 
-const BoundWitnessCardBottomNavigation = forwardRef<HTMLDivElement, BoundWitnessCardBottomNavigationProps>(
+const BoundWitnessBottomNavigation = forwardRef<HTMLDivElement, BoundWitnessBottomNavigationProps>(
   ({ activeTab = 0, setActiveTab, boundWitness, ...props }, ref) => {
     const payloadCount = boundWitness?.payload_schemas.filter((schema) => schema !== XyoBoundWitnessSchema).length ?? 0
     const boundWitnessCount = boundWitness?.payload_schemas.filter((schema) => schema === XyoBoundWitnessSchema).length ?? 0
@@ -34,5 +34,5 @@ const BoundWitnessCardBottomNavigation = forwardRef<HTMLDivElement, BoundWitness
   },
 )
 
-BoundWitnessCardBottomNavigation.displayName = 'BoundWitnessCardBottomNavigation'
-export { BoundWitnessCardBottomNavigation }
+BoundWitnessBottomNavigation.displayName = 'BoundWitnessBottomNavigation'
+export { BoundWitnessBottomNavigation }

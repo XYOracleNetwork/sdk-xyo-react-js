@@ -3,7 +3,7 @@ import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleBlockWithBoundWitnessPayload } from '@xyo-network/react-storybook'
 import { useRef } from 'react'
 
-import { BoundWitnessRendererCardExpanded } from './CardExpanded'
+import { BoundWitnessDetailsCard } from './DetailsCard'
 
 const WithEventDecorator: DecoratorFn = (Story, args) => {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -15,11 +15,11 @@ const WithEventDecorator: DecoratorFn = (Story, args) => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: BoundWitnessRendererCardExpanded,
-  title: 'plugin/boundwitness/CardExpanded/Renderer',
+  component: BoundWitnessDetailsCard,
+  title: 'plugin/boundwitness/DetailsCard',
 } as Meta
 
-const Template: ComponentStory<typeof BoundWitnessRendererCardExpanded> = (props) => <BoundWitnessRendererCardExpanded {...props} />
+const Template: ComponentStory<typeof BoundWitnessDetailsCard> = (props) => <BoundWitnessDetailsCard {...props} />
 
 const Default = Template.bind({})
 Default.args = { payload: sampleBlockWithBoundWitnessPayload }

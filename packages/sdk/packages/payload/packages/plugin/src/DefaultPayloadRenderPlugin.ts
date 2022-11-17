@@ -20,7 +20,7 @@ export const DefaultPayloadRenderPlugin: XyoPayloadRenderPlugin = {
       image: XyoPayloadAvatar,
     },
     box: {
-      details: XyoPayloadDetailsBox,
+      detailsBox: XyoPayloadDetailsBox,
       editor: XyoPayloadEditorBox,
     },
     card: {

@@ -2,18 +2,18 @@ import { ComponentStory, Meta } from '@storybook/react'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { sampleBlock } from '@xyo-network/react-storybook'
 
-import { BoundWitnessCardBottomNavigation } from './BottomNavigation'
+import { BoundWitnessBottomNavigation } from './BottomNavigation'
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: BoundWitnessCardBottomNavigation,
-  title: 'plugin/boundwitness/CardExpanded/BottomNavigation',
+  component: BoundWitnessBottomNavigation,
+  title: 'plugin/boundwitness/BottomNavigation',
 } as Meta
 
-const Template: ComponentStory<typeof BoundWitnessCardBottomNavigation> = (props) => {
+const Template: ComponentStory<typeof BoundWitnessBottomNavigation> = (props) => {
   return (
     <FlexGrowRow height="calc(100vh - 20px)">
-      <BoundWitnessCardBottomNavigation {...props} />
+      <BoundWitnessBottomNavigation {...props} />
     </FlexGrowRow>
   )
 }
