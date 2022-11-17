@@ -1,5 +1,5 @@
 import { Avatar, AvatarGroup, AvatarGroupProps } from '@mui/material'
-import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin'
+import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import { useCallback } from 'react'
 
 interface SchemaAvatarGroupProps extends AvatarGroupProps {

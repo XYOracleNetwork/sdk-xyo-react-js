@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import {} from '@xyo-network/node'
+import { NodeConfigSchema } from '@xyo-network/node'
 
-import { NodeProvider } from '../contexts'
+import { MemoryNodeProvider } from '../contexts'
 import { NodeBox } from './Node'
 
 const StorybookEntry = {
@@ -21,9 +21,9 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof NodeBox> = (args) => {
   return (
-    <NodeProvider>
+    <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
       <NodeBox {...args}></NodeBox>
-    </NodeProvider>
+    </MemoryNodeProvider>
   )
 }
 
