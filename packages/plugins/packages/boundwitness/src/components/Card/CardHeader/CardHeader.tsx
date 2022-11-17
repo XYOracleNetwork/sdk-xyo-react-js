@@ -8,6 +8,8 @@ import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
+import { BWVerification } from './Verification'
+
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   payload?: XyoPayload
   active?: boolean
@@ -41,9 +43,12 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({ 
         </FlexRow>
       }
       action={
-        <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`}>
-          <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
-        </QuickTipButton>
+        <FlexRow>
+          <BWVerification boundwitness={boundwitness} />
+          <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`}>
+            <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
+          </QuickTipButton>
+        </FlexRow>
       }
       {...props}
     />
