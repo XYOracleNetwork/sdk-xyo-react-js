@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-plugin'
-import { DefaultPayloadRenderPlugin, PayloadRenderPluginResolverProvider, XyoPayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin'
+import { DefaultPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import { PayloadRenderPluginResolverProvider, XyoPayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import {
   sampleCoinGeckoPayload,
   sampleIdPayload,
