@@ -5,9 +5,10 @@ import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchivist } from '@xyo-network/react-archivist'
+import { useNode } from '@xyo-network/react-node'
 import { useAccount } from '@xyo-network/react-wallet'
 import { XyoWitnessWrapper } from '@xyo-network/witness'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { PanelContext } from './Context'
 import { PanelReportProgress, ReportStatus } from './State'
@@ -33,7 +34,14 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   const { account } = useAccount()
-  const resolver = new XyoModuleResolver().add(witnesses).add(archivist ? new XyoArchivistWrapper(archivist) : undefined)
+  const [node] = useNode()
+
+  const resolver = useMemo(() => {
+    if (node && node.resolver) {
+      return node.resolver
+    }
+    return new XyoModuleResolver().add(witnesses).add(archivist ? new XyoArchivistWrapper(archivist) : undefined)
+  }, [archivist, node, witnesses])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
