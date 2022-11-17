@@ -71,6 +71,7 @@ interface CardHeaderHashProps extends CardHeaderProps {
 const CardHeaderHash = styled(CardHeader, { name: 'CardHeaderHash', shouldForwardProp: (prop) => prop !== 'active' })<CardHeaderHashProps>(
   ({ theme, active }) => ({
     '& .MuiCardHeader-action': {
+      marginBottom: 0,
       marginTop: 0,
     },
     '& .MuiCardHeader-content': {
