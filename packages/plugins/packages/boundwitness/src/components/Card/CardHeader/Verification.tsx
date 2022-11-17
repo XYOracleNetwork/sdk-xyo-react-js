@@ -6,7 +6,6 @@ import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-but
 import { BoundWitnessValidator, XyoBoundWitness } from '@xyo-network/boundwitness'
 
 const InvalidIcon = (props: SvgIconProps) => <CancelRoundedIcon color={'error'} {...props} />
-const ValidIcon = (props: SvgIconProps) => <CheckRoundedIcon color={'success'} {...props} />
 
 export interface BWVerification extends QuickTipButtonProps {
   boundwitness?: XyoBoundWitness
@@ -18,7 +17,7 @@ export const BWVerification: React.FC<BWVerification> = ({ boundwitness }) => {
   const errors = validator?.validate() ?? []
 
   return (
-    <QuickTipButton Icon={errors.length ? InvalidIcon : ValidIcon}>
+    <QuickTipButton Icon={errors.length ? InvalidIcon : CheckRoundedIcon}>
       {errors.length > 0 ? (
         <FlexCol flexWrap="wrap" alignItems="start">
           {errors.map((error, index) => {
