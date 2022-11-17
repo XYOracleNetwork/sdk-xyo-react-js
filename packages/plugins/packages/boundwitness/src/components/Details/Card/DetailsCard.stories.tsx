@@ -16,7 +16,7 @@ const WithEventDecorator: DecoratorFn = (Story, args) => {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: BoundWitnessDetailsCard,
-  title: 'plugin/boundwitness/BoundWitnessDetailsCard',
+  title: 'plugin/boundwitness/DetailsCard',
 } as Meta
 
 const Template: ComponentStory<typeof BoundWitnessDetailsCard> = (props) => <BoundWitnessDetailsCard {...props} />

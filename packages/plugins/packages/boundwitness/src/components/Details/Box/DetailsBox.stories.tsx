@@ -14,7 +14,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'plugin/boundwitness/BoundWitnessDetailsBox',
+  title: 'plugin/boundwitness/DetailsBox',
 } as ComponentMeta<typeof BoundWitnessDetailsBox>
 
 const Template: ComponentStory<typeof BoundWitnessDetailsBox> = (args) => {
