@@ -7,7 +7,7 @@ export const NodeBox: React.FC<FlexBoxProps> = (props) => {
   const [node] = useNode()
   return (
     <FlexCol {...props}>
-      <Typography>{JSON.stringify(node?.registered())}</Typography>
+      <Typography>{JSON.stringify(node?.description(), null, 2)}</Typography>
     </FlexCol>
   )
 }
