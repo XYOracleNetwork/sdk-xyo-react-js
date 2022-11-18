@@ -1,4 +1,4 @@
-import { useContextEx } from '@xyo-network/react-sdk'
+import { useContextEx } from '@xyo-network/react-shared'
 
 import { NodeDrawerContext } from './Context'
 

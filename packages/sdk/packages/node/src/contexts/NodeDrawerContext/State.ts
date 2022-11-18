@@ -1,4 +1,4 @@
-import { ContextExState } from '@xyo-network/react-sdk'
+import { ContextExState } from '@xyo-network/react-shared'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface NodeDrawerState extends ContextExState {

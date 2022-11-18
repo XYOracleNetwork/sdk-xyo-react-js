@@ -1,4 +1,4 @@
-import { createContextEx } from '@xyo-network/react-sdk'
+import { createContextEx } from '@xyo-network/react-shared'
 
 import { NodeDrawerState } from './State'
 
