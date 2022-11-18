@@ -40,7 +40,8 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
     if (node && node.resolver) {
       return node.resolver
     }
-    return new XyoModuleResolver().add(witnesses).add(archivist ? new XyoArchivistWrapper(archivist) : undefined)
+    const resolver = new XyoModuleResolver().add(witnesses)
+    return archivist ? resolver.add(new XyoArchivistWrapper(archivist)) : resolver
   }, [archivist, node, witnesses])
 
   useAsyncEffect(
