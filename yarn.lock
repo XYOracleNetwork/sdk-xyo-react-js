@@ -7165,7 +7165,6 @@ __metadata:
     "@xylabs/react-identicon": ^2.15.1
     "@xylabs/react-quick-tip-button": ^2.15.1
     "@xylabs/react-shared": ^2.15.1
-    "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7635,9 +7634,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-node@workspace:packages/sdk/packages/node"
   dependencies:
+    "@mui/lab": ^5.0.0-alpha.108
     "@xylabs/react-flexbox": ^2.15.1
     "@xylabs/react-shared": ^2.15.1
     "@xyo-network/react-shared": "workspace:^"
+    lodash: ^4.17.21
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
@@ -7672,7 +7673,9 @@ __metadata:
     "@xylabs/sdk-js": ^2.6.7
     "@xyo-network/archivist": "*"
     "@xyo-network/boundwitness": "*"
+    "@xyo-network/diviner": "*"
     "@xyo-network/module": "*"
+    "@xyo-network/node": "*"
     "@xyo-network/panel": "*"
     "@xyo-network/payload": "*"
     "@xyo-network/witness": "*"
@@ -7843,17 +7846,32 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload@workspace:packages/sdk/packages/payload"
   dependencies:
+    "@xylabs/react-button": ^2.15.1
+    "@xylabs/react-flexbox": ^2.15.1
+    "@xylabs/react-identicon": ^2.15.1
+    "@xylabs/react-quick-tip-button": ^2.15.1
+    "@xylabs/react-shared": ^2.15.1
+    "@xyo-network/react-archivist": "workspace:^"
+    "@xyo-network/react-error": "workspace:^"
+    "@xyo-network/react-event": "workspace:^"
+    "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-payload-context": "workspace:^"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-diviner": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin-resolver": "workspace:^"
     "@xyo-network/react-payload-table": "workspace:^"
+    "@xyo-network/react-property": "workspace:^"
+    "@xyo-network/react-schema": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-table": "workspace:^"
+    react-json-view: ^1.21.3
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.14
     "@mui/material": ^5.10.14
     "@mui/styles": ^5.10.14
+    "@xylabs/react-common": ^2.15.1
     "@xylabs/sdk-js": ^2.6.9
     "@xyo-network/archivist": ^2.41.3
     "@xyo-network/diviner": ^2.41.3
