@@ -1,6 +1,6 @@
 import { TableBody, TableCell, TableRow } from '@mui/material'
 import { useXyoEvent, XyoEventNoun } from '@xyo-network/react-event'
-import { PayloadTableBodyProps } from '@xyo-network/react-payload-table'
+import { PayloadTableBodyProps, TableRowNoData } from '@xyo-network/react-payload-table'
 import { HashTableCell } from '@xyo-network/react-shared'
 import { useTableHeight } from '@xyo-network/react-table'
 import { useLayoutEffect, useRef } from 'react'
@@ -38,8 +38,9 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
   return (
     <TableBody ref={tableRef} {...tableProps}>
       {noResults && NoResultRowComponent ? <NoResultRowComponent /> : null}
-      {payloadHashes &&
+      {(payloadHashes &&
         payloadSchemas &&
+        payloadHashes.length > 0 &&
         payloadHashes?.map((hash, index) => {
           return (
             <TableRow ref={tableRowRef} key={hash + index} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
@@ -47,7 +48,11 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
               <HashTableCell title={hash}>{hash}</HashTableCell>
             </TableRow>
           )
-        })}
+        })) || (
+        <>
+          <TableRowNoData />
+        </>
+      )}
     </TableBody>
   )
 }
