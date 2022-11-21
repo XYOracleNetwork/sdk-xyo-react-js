@@ -2,6 +2,7 @@ import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { ellipsize } from '@xylabs/sdk-js'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { PayloadWrapper } from '@xyo-network/payload'
 
 import { BWVerification } from './Verification'
 
@@ -11,9 +12,10 @@ export interface BWActionsProps extends FlexBoxProps {
   boundwitness?: XyoBoundWitness
 }
 
-export const BWActions: React.FC<BWActionsProps> = ({ hideJSONButton, hideValidation, boundwitness }) => {
+export const BWActions: React.FC<BWActionsProps> = ({ hideJSONButton, hideValidation, boundwitness, ...props }) => {
+  const { hash } = boundwitness ? new PayloadWrapper(boundwitness) : { hash: '' }
   return (
-    <FlexRow>
+    <FlexRow {...props}>
       {hideJSONButton ? null : <BWVerification boundwitness={boundwitness} />}
       {hideValidation ? null : (
         <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`}>
