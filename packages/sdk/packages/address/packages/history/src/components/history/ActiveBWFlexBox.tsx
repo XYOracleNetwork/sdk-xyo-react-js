@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
-import { BoundWitnessDetails } from '@xyo-network/react-boundwitness-plugin'
+import { BoundWitnessDetailsBox } from '@xyo-network/react-boundwitness-plugin'
 import { forwardRef } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
@@ -10,7 +10,7 @@ const ActiveBWFlexBox = forwardRef<HTMLDivElement, FlexBoxProps>(({ ...props }, 
   return (
     <FlexGrowCol alignItems="stretch" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
       {activeBoundWitness ? (
-        <BoundWitnessDetails payload={activeBoundWitness} />
+        <BoundWitnessDetailsBox payload={activeBoundWitness} />
       ) : (
         <FlexCol justifyContent="center">
           <Typography variant="h2">No Block Selected</Typography>
