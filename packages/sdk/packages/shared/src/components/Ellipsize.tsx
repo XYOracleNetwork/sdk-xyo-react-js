@@ -1,4 +1,4 @@
-import { Box, BoxProps, styled, Typography, TypographyProps } from '@mui/material'
+import { Box, BoxProps, experimental_sx as sx, styled, Typography, TypographyProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import React, { ElementType, forwardRef, useCallback, useState } from 'react'
 
@@ -43,9 +43,9 @@ const EllipsizeContentWrap = styled(Typography, {
   name: ComponentName,
   shouldForwardProp: (prop) => prop !== 'ellipsisPosition',
   slot: 'contentWrap',
-})<TypographyWithComponentProps>(({ ellipsisPosition }) => {
-  return {
-    fontFamily: 'monospace',
+})<TypographyWithComponentProps>(({ ellipsisPosition, fontFamily }) => {
+  return sx({
+    fontFamily: fontFamily ?? 'monospace',
     left: 0,
     overflow: 'hidden',
     position: 'absolute',
@@ -58,7 +58,7 @@ const EllipsizeContentWrap = styled(Typography, {
           textAlign: 'left',
         }
       : {}),
-  }
+  })
 })
 
 const useClientHeight = () => {

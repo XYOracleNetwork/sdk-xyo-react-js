@@ -1,14 +1,12 @@
 import { CardHeader, CardHeaderProps, styled, useTheme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
-import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { ellipsize } from '@xylabs/sdk-js'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
-import { BWVerification } from './Verification'
+import { BWActions } from '../../_shared'
 
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   payload?: XyoPayload
@@ -49,16 +47,7 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
           </EllipsizeBox>
         </FlexRow>
       }
-      action={
-        <FlexRow>
-          {hideJSONButton ? null : <BWVerification boundwitness={boundwitness} />}
-          {hideValidation ? null : (
-            <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`}>
-              <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
-            </QuickTipButton>
-          )}
-        </FlexRow>
-      }
+      action={<BWActions hideJSONButton={hideJSONButton} hideValidation={hideValidation} boundwitness={boundwitness} />}
       {...props}
     />
   )
