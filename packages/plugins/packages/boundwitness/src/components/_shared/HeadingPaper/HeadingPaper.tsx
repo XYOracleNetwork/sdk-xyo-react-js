@@ -51,17 +51,18 @@ interface StyledHeadingPaperProps extends PaperProps {
   hasAdornmentEnd?: boolean
 }
 
-const StyledHeadingPaper = styled(Paper, { name: 'StyledHeadingPaper' })<StyledHeadingPaperProps>(
-  ({ theme, hasAdornmentEnd, hasAdornmentStart }) => ({
-    alignItems: 'center',
-    columnGap: theme.spacing(2),
-    display: 'flex',
-    flexDirection: 'row',
-    overflow: 'hidden',
-    padding: theme.spacing(1),
-    ...(hasAdornmentStart && { paddingLeft: 0 }),
-    ...(hasAdornmentEnd && { paddingRight: 0 }),
-    ...((hasAdornmentStart || hasAdornmentEnd) && { paddingBottom: 0, paddingTop: 0 }),
-    paddingRight: theme.spacing(1),
-  }),
-)
+const StyledHeadingPaper = styled(Paper, {
+  name: 'StyledHeadingPaper',
+  shouldForwardProp: (prop) => !['hasAdornmentEnd', 'hasAdornmentStart'].includes(prop as string),
+})<StyledHeadingPaperProps>(({ theme, hasAdornmentEnd, hasAdornmentStart }) => ({
+  alignItems: 'center',
+  columnGap: theme.spacing(2),
+  display: 'flex',
+  flexDirection: 'row',
+  overflow: 'hidden',
+  padding: theme.spacing(1),
+  ...(hasAdornmentStart && { paddingLeft: 0 }),
+  ...(hasAdornmentEnd && { paddingRight: 0 }),
+  ...((hasAdornmentStart || hasAdornmentEnd) && { paddingBottom: 0, paddingTop: 0 }),
+  paddingRight: theme.spacing(1),
+}))

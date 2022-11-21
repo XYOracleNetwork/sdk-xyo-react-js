@@ -17,7 +17,7 @@ export const globalTypes = {
       // Array of plain string values or MenuItem shape (see below)
       items: ['Theme', 'AppTheme', 'WebTheme'],
       // Property that specifies if the name of the item will be displayed
-      showName: true,
+      title: true,
       // Change title based on selected value
       dynamicTitle: true,
     },
