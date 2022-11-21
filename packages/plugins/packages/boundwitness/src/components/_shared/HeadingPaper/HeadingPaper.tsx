@@ -1,4 +1,4 @@
-import { Paper, PaperProps, styled, TypographyVariant } from '@mui/material'
+import { Paper, PaperProps, styled, TypographyProps, TypographyVariant } from '@mui/material'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import { forwardRef, ReactNode, useRef } from 'react'
 
@@ -11,10 +11,11 @@ export interface HeadingPaperProps extends PaperProps {
   AdornmentEnd?: ReactNode
   fallbackText?: string
   IconComponent?: ReactNode
+  headingProps?: TypographyProps
 }
 
 const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>(
-  ({ heading, AdornmentStart, AdornmentEnd, IconComponent, size = 'medium', fallbackText = 'No heading Provided', ...props }, ref) => {
+  ({ heading, AdornmentStart, AdornmentEnd, IconComponent, size = 'medium', fallbackText = 'No heading Provided', headingProps, ...props }, ref) => {
     const ellipsizeRef = useRef<HTMLDivElement | null>(null)
     const sizeParser = (size: TextSizes) => {
       const map: Record<TextSizes, TypographyVariant> = {
@@ -32,7 +33,7 @@ const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>(
       <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...props}>
         {AdornmentStart}
         {IconComponent}
-        <EllipsizeBox width="100%" typographyProps={{ variant: sizeParser(size) }} ref={ellipsizeRef}>
+        <EllipsizeBox width="100%" typographyProps={{ variant: sizeParser(size), ...headingProps }} ref={ellipsizeRef}>
           {heading ? heading : fallbackText}
         </EllipsizeBox>
         {AdornmentEnd}
