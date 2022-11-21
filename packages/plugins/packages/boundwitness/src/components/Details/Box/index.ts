@@ -1,2 +1,2 @@
+export * from '../Card/Navigation'
 export * from './DetailsBox'
-export * from './Navigation'
