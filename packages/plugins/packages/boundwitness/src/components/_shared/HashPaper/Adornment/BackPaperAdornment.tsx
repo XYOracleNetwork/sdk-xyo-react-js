@@ -1,5 +1,5 @@
 import BackArrow from '@mui/icons-material/ArrowBackRounded'
-import { IconButton, IconButtonProps, styled } from '@mui/material'
+import { IconButtonProps } from '@mui/material'
 
 import { PaperAdornmentIconButton } from './PaperAdornmentIconButton'
 
