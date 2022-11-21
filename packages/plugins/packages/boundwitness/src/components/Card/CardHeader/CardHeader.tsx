@@ -1,9 +1,7 @@
 import { CardHeader, CardHeaderProps, styled, useTheme } from '@mui/material'
-import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
-import { EllipsizeBox } from '@xyo-network/react-shared'
 import { ReactNode, useEffect, useState } from 'react'
 
 import { BWActions, BWHeading } from '../../_shared'
