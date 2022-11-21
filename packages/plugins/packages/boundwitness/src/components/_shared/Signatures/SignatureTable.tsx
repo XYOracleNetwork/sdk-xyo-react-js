@@ -2,7 +2,6 @@ import { TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/mate
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
-import { ScrollTableOnSm } from '@xyo-network/react-shared'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
 
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow'
@@ -34,48 +33,46 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
   const hash = block ? new Hasher(block).hash : undefined
 
   return (
-    <ScrollTableOnSm>
-      <TableEx {...props}>
-        <TableHead>
-          <TableRow>
-            <TableCell align="left">
-              <Typography variant="caption">
-                <strong>Address</strong>
-              </Typography>
-            </TableCell>
-            <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center" width="10px">
-              <Typography variant="caption">
-                <strong>Previous</strong>
-              </Typography>
-            </TableCell>
-            <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center" width="10px">
-              <Typography variant="caption">
-                <strong>Signature</strong>
-              </Typography>
-            </TableCell>
-            <TableCell align="center" width="10px">
-              <Typography variant="caption">
-                <strong>Valid</strong>
-              </Typography>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {!signatureData || signatureData.length === 0 ? <TableRowNoData /> : null}
-          {signatureData.map((data, index) => {
-            return (
-              <BoundWitnessSignatureTableRow
-                key={`${data.signature}-${data.previous_hash}-${index}`}
-                address={data.address}
-                previousHash={data.previous_hash}
-                hash={hash}
-                signature={data.signature}
-                clickableFields={['address']}
-              />
-            )
-          })}
-        </TableBody>
-      </TableEx>
-    </ScrollTableOnSm>
+    <TableEx {...props}>
+      <TableHead>
+        <TableRow>
+          <TableCell align="left">
+            <Typography variant="caption">
+              <strong>Address</strong>
+            </Typography>
+          </TableCell>
+          <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center" width="10px">
+            <Typography variant="caption">
+              <strong>Previous</strong>
+            </Typography>
+          </TableCell>
+          <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center" width="10px">
+            <Typography variant="caption">
+              <strong>Signature</strong>
+            </Typography>
+          </TableCell>
+          <TableCell align="center" width="10px">
+            <Typography variant="caption">
+              <strong>Valid</strong>
+            </Typography>
+          </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {!signatureData || signatureData.length === 0 ? <TableRowNoData /> : null}
+        {signatureData.map((data, index) => {
+          return (
+            <BoundWitnessSignatureTableRow
+              key={`${data.signature}-${data.previous_hash}-${index}`}
+              address={data.address}
+              previousHash={data.previous_hash}
+              hash={hash}
+              signature={data.signature}
+              clickableFields={['address']}
+            />
+          )
+        })}
+      </TableBody>
+    </TableEx>
   )
 }
