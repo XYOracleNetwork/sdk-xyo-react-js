@@ -7,7 +7,7 @@ import { forwardRef, useState } from 'react'
 
 import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../../_shared'
 import { BoundWitnessCardHeader } from '../../Card'
-import { BoundWitnessBottomNavigation } from '../Box'
+import { BoundWitnessBottomNavigation } from './Navigation'
 
 const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps>(({ visibleRows, ...props }, ref) => {
   return (
