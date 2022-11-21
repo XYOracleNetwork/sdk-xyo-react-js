@@ -26,14 +26,18 @@ const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRende
 
 BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
-const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps>(({ payload, ...props }, ref) => {
+const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
   const boundwitness = payload as XyoBoundWitness
   const { hash } = payload ? new PayloadWrapper(payload) : { hash: '' }
-  console.log(props)
 
   return (
     <FlexCol alignItems="stretch" rowGap={3} ref={ref} {...props}>
-      <HashPaper hash={hash} sx={{ bgcolor: 'primary.dark', p: 2 }} AdornmentEnd={<BWActions boundwitness={boundwitness} />} />
+      <HashPaper
+        hash={hash}
+        sx={{ bgcolor: 'primary.dark', p: 2 }}
+        AdornmentEnd={<BWActions boundwitness={boundwitness} />}
+        identiconProps={{ p: 0.75, size: 24 }}
+      />
       <FlexCol alignItems="stretch" rowGap={1}>
         <HeadingPaper IconComponent={<VscSymbolNamespace />} heading={'Payloads'} />
         <BoundWitnessPayloadsTable boundwitness={boundwitness} />
