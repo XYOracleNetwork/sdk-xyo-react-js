@@ -1,46 +1,18 @@
-import { Paper, PaperProps, styled, TypographyProps, TypographyVariant } from '@mui/material'
-import { EllipsizeBox } from '@xyo-network/react-shared'
-import { forwardRef, ReactNode, useRef } from 'react'
+import { Paper, PaperProps, styled } from '@mui/material'
+import { forwardRef } from 'react'
 
-type TextSizes = 'small' | 'medium' | 'large'
+import { BWHeading, BWHeadingProps } from '../Heading'
 
-export interface HeadingPaperProps extends PaperProps {
-  heading?: string
-  size?: TextSizes
-  AdornmentStart?: ReactNode
-  AdornmentEnd?: ReactNode
-  fallbackText?: string
-  IconComponent?: ReactNode
-  headingProps?: TypographyProps
-}
+export interface HeadingPaperProps extends BWHeadingProps, PaperProps {}
 
-const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>(
-  ({ heading, AdornmentStart, AdornmentEnd, IconComponent, size = 'medium', fallbackText = 'No heading Provided', headingProps, ...props }, ref) => {
-    const ellipsizeRef = useRef<HTMLDivElement | null>(null)
-    const sizeParser = (size: TextSizes) => {
-      const map: Record<TextSizes, TypographyVariant> = {
-        large: 'h4',
-        medium: 'body1',
-        small: 'caption',
-      }
-      const mappedSize = map[size]
-      if (mappedSize === undefined) {
-        throw Error(`${size} is not a recognized TextSize`)
-      }
-      return mappedSize
-    }
-    return (
-      <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...props}>
-        {AdornmentStart}
-        {IconComponent}
-        <EllipsizeBox width="100%" typographyProps={{ variant: sizeParser(size), ...headingProps }} ref={ellipsizeRef}>
-          {heading ? heading : fallbackText}
-        </EllipsizeBox>
-        {AdornmentEnd}
-      </StyledHeadingPaper>
-    )
-  },
-)
+const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>((props, ref) => {
+  const { AdornmentStart, AdornmentEnd } = props
+  return (
+    <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...props}>
+      <BWHeading {...props} />
+    </StyledHeadingPaper>
+  )
+})
 
 HeadingPaper.displayName = 'HeadingPaper'
 
