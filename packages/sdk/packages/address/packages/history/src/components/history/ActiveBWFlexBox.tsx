@@ -1,16 +1,21 @@
 import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
-import { BoundWitnessDetails } from '@xyo-network/react-boundwitness-plugin'
+import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
+import { TableHeightState } from '@xyo-network/react-table'
 import { forwardRef } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
 
-const ActiveBWFlexBox = forwardRef<HTMLDivElement, FlexBoxProps>(({ ...props }, ref) => {
+export interface ActiveBWFlexBoxProps extends FlexBoxProps {
+  visibleRows?: TableHeightState['visibleRows']
+}
+
+const ActiveBWFlexBox = forwardRef<HTMLDivElement, ActiveBWFlexBoxProps>(({ visibleRows = 3, ...props }, ref) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   return (
     <FlexGrowCol alignItems="stretch" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
       {activeBoundWitness ? (
-        <BoundWitnessDetails payload={activeBoundWitness} />
+        <BoundWitnessDetailsCard visibleRows={visibleRows} payload={activeBoundWitness} />
       ) : (
         <FlexCol justifyContent="center">
           <Typography variant="h2">No Block Selected</Typography>

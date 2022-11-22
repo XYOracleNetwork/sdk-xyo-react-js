@@ -1,15 +1,15 @@
 import { ComponentStory, Meta } from '@storybook/react'
 
 import { BackPaperAdornment } from './Adornment'
-import { HashPaper } from './HashPaper'
+import { HashHeadingPaper } from './HashHeadingPaper'
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: HashPaper,
-  title: 'plugin/boundwitness/HashPaper',
+  component: HashHeadingPaper,
+  title: 'plugin/boundwitness/HashHeadingPaper',
 } as Meta
 
-const Template: ComponentStory<typeof HashPaper> = (props) => <HashPaper {...props} />
+const Template: ComponentStory<typeof HashHeadingPaper> = (props) => <HashHeadingPaper {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

@@ -12,7 +12,7 @@ import {
   BoundWitnessPayloadsTableForBWs,
   BoundWitnessSignatureTable,
   BWActions,
-  HashPaper,
+  HashHeadingPaper,
   HeadingPaper,
 } from '../../_shared'
 
@@ -32,7 +32,7 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetails
 
   return (
     <FlexCol alignItems="stretch" rowGap={3} ref={ref} {...props}>
-      <HashPaper
+      <HashHeadingPaper
         hash={hash}
         sx={{ bgcolor: 'primary.dark', p: 2 }}
         AdornmentEnd={<BWActions boundwitness={boundwitness} />}

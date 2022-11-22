@@ -1,23 +1,25 @@
 import { CardHeader, CardHeaderProps, styled, useTheme } from '@mui/material'
-import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper, XyoPayload } from '@xyo-network/payload'
-import { EllipsizeBox } from '@xyo-network/react-shared'
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 
-import { BWActions } from '../../_shared'
+import { BWActions, BWHeading } from '../../_shared'
 
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   payload?: XyoPayload
   active?: boolean
+  activeBgColor?: boolean
   hideJSONButton?: boolean
   hideValidation?: boolean
+  additionalActions?: ReactNode
 }
 
 export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
   payload,
   active = false,
+  activeBgColor = true,
+  additionalActions,
   hideJSONButton = false,
   hideValidation = false,
   ...props
@@ -25,6 +27,7 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
   const boundwitness = payload as XyoPayload<XyoBoundWitness>
   const theme = useTheme()
   const [hash, setHash] = useState('')
+
   useEffect(() => {
     if (boundwitness) {
       setHash(new PayloadWrapper(boundwitness).hash)
@@ -34,20 +37,28 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
   return (
     <CardHeaderHash
       active={active}
+      activeBgColor={activeBgColor}
       title={
-        <FlexRow columnGap={1}>
-          <Identicon
-            size={parseInt(theme.spacing(1.75).replace('px', ''))}
-            p={0.25}
-            value={hash}
-            sx={{ background: theme.palette.background.paper }}
-          />
-          <EllipsizeBox flexGrow={1} lineHeight={1} typographyProps={{ title: hash }}>
-            {hash}
-          </EllipsizeBox>
-        </FlexRow>
+        <BWHeading
+          heading={hash}
+          IconComponent={
+            <Identicon
+              size={parseInt(theme.spacing(1.75).replace('px', ''))}
+              p={0.25}
+              value={hash}
+              sx={{ background: theme.palette.background.paper }}
+            />
+          }
+        />
       }
-      action={<BWActions hideJSONButton={hideJSONButton} hideValidation={hideValidation} boundwitness={boundwitness} />}
+      action={
+        <BWActions
+          hideJSONButton={hideJSONButton}
+          hideValidation={hideValidation}
+          boundwitness={boundwitness}
+          additionalActions={additionalActions}
+        />
+      }
       {...props}
     />
   )
@@ -55,21 +66,23 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
 
 interface CardHeaderHashProps extends CardHeaderProps {
   active?: boolean
+  activeBgColor?: boolean
 }
 
-const CardHeaderHash = styled(CardHeader, { name: 'CardHeaderHash', shouldForwardProp: (prop) => prop !== 'active' })<CardHeaderHashProps>(
-  ({ theme, active }) => ({
-    '& .MuiCardHeader-action': {
-      marginBottom: 0,
-      marginTop: 0,
-    },
-    '& .MuiCardHeader-content': {
-      overflow: 'visible',
-    },
-    '&.MuiCardHeader-root': {
-      backgroundColor: active ? theme.palette.info.main : theme.palette.primary.main,
-      color: theme.palette.info.contrastText,
-    },
-    padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
-  }),
-)
+const CardHeaderHash = styled(CardHeader, {
+  name: 'CardHeaderHash',
+  shouldForwardProp: (prop) => !['active', 'activeBgColor'].includes(prop as string),
+})<CardHeaderHashProps>(({ theme, active, activeBgColor }) => ({
+  '& .MuiCardHeader-action': {
+    marginBottom: 0,
+    marginTop: 0,
+  },
+  '& .MuiCardHeader-content': {
+    overflow: 'visible',
+  },
+  '&.MuiCardHeader-root': {
+    backgroundColor: active && activeBgColor ? theme.palette.info.main : theme.palette.primary.main,
+    color: theme.palette.info.contrastText,
+  },
+  padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+}))
