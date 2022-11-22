@@ -6035,6 +6035,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-appbar@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "@xylabs/react-appbar@npm:2.15.2"
+  dependencies:
+    "@emotion/react": ^11.10.4
+    "@emotion/styled": ^11.10.4
+    "@mui/material": ^5.10.4
+    "@xylabs/react-flexbox": ^2.15.2
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: a82c0126e50ea0dfcd5fc33e0b6d45f05e2b21af2af8e27cc29d0eee020f8996e50ffadfae7d1a744aed565769da54443abcbea939d964243bc56661ffb5b31e
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-button@npm:^2.15.1":
   version: 2.15.1
   resolution: "@xylabs/react-button@npm:2.15.1"
@@ -6050,26 +6064,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-button@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "@xylabs/react-button@npm:2.15.2"
+  dependencies:
+    "@emotion/react": ^11.10.4
+    "@emotion/styled": ^11.10.4
+    "@mui/material": ^5.10.4
+    "@xylabs/react-shared": ^2.15.2
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  checksum: ecee94a8453aca3b0101b60fecf9940eb885eebab8c33560cd5538aa24e3db3f13e291153c63f00f43a51c36b88f7d62f1786e48766fac5d7f172b86fcbcaef2
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-common@npm:^2.15.1":
-  version: 2.15.1
-  resolution: "@xylabs/react-common@npm:2.15.1"
+  version: 2.15.2
+  resolution: "@xylabs/react-common@npm:2.15.2"
   dependencies:
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.4
-    "@xylabs/react-appbar": ^2.15.1
-    "@xylabs/react-cookie-consent": ^2.15.1
-    "@xylabs/react-flexbox": ^2.15.1
-    "@xylabs/react-invertable-theme": ^2.15.1
-    "@xylabs/react-scroll-to-top": ^2.15.1
+    "@xylabs/react-appbar": ^2.15.2
+    "@xylabs/react-cookie-consent": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-invertable-theme": ^2.15.2
+    "@xylabs/react-scroll-to-top": ^2.15.2
     "@xylabs/sdk-js": ^2.6.7
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
     react-helmet: ^6.1.0
     react-router-dom: ^6.3.0
-  checksum: 150f846f445211729328430b3daa482d344439687c969bb55f72a5113169814922912f8586cfe3dbb71070c38f4da6eb76aed2c5a8cd47f60ba21bb34031154d
+  checksum: a05a07fc49dfdf1836aae2866aa9643f566dfd12a4ba28a2f557c3abf4b8967520b143948857e8a815caa1f0bd37931761b07fe8bfd643d24213f968797d0970
   languageName: node
   linkType: hard
 
@@ -6086,6 +6115,22 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
   checksum: 23378ac232cd74941c594b244533738f1225908374eff3d9ee34fe0e09c418eb6f4270d9a0c7f266669c88788cb84167bd95556949e70a9b7baae24a46c73b0d
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-cookie-consent@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "@xylabs/react-cookie-consent@npm:2.15.2"
+  dependencies:
+    "@emotion/react": ^11.10.4
+    "@emotion/styled": ^11.10.4
+    "@mui/material": ^5.10.4
+    "@xylabs/react-button": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-shared": ^2.15.2
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: fe63498bfaf69ceab9a2731e55c32d5a6209950a089779c580fdc829dba56c77d7b3204faa5b2212895af4d75c2a5674918641f01f87d28d91081855e99e3f3b
   languageName: node
   linkType: hard
 
@@ -6161,6 +6206,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-flexbox@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "@xylabs/react-flexbox@npm:2.15.2"
+  dependencies:
+    "@emotion/react": ^11.10.4
+    "@emotion/styled": ^11.10.4
+    "@mui/material": ^5.10.4
+    "@mui/styles": ^5.10.3
+    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/sdk-js": ^2.6.7
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: a613474cea4def69a6aa987d259d0d385b2d366cbdf53a17b39b208a21ad3c2a7356a61317dcfacb5a3e17660702e7be8990541fbdca790c3af3850567ed6f41
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-identicon@npm:^2.15.1":
   version: 2.15.1
   resolution: "@xylabs/react-identicon@npm:2.15.1"
@@ -6183,6 +6244,20 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
   checksum: be441d67dc1a32986490c8d3b1a35d196318762f97de797902fb06c9287ceb212d8cd720089cac1002170b2f3dfd1f6491fb38a113f74c3acd5d208e70796171
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-invertable-theme@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "@xylabs/react-invertable-theme@npm:2.15.2"
+  dependencies:
+    "@emotion/react": ^11.10.4
+    "@emotion/styled": ^11.10.4
+    "@mui/material": ^5.10.4
+    lodash: ^4.17.21
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 223baae71d092781f602b212318fa84f0176aab6da6881e35b26e4fe4f2e95d4385d4b89644474f78bda7280b50ec872f94efa8cca4489df99135b1ad5446c09
   languageName: node
   linkType: hard
 
@@ -6285,6 +6360,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-scroll-to-top@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "@xylabs/react-scroll-to-top@npm:2.15.2"
+  dependencies:
+    "@emotion/react": ^11.10.4
+    "@emotion/styled": ^11.10.4
+    "@mui/material": ^5.10.4
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  checksum: 14c1eb2f85f0abe480351ee6a14d318ebe1b71146bd2598a07d19e05a7981abd2a43b056618b42a7b2fe912edb9e46c87d8bb7a703fd02aaf50524ef344fc789
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-shared@npm:^2.15.1":
   version: 2.15.1
   resolution: "@xylabs/react-shared@npm:2.15.1"
@@ -6296,6 +6385,20 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
   checksum: 88132ec11157ff60ddf04309c111e507ecf3c78c595592b862d2943d47e05a7e64591e1b82b7eb0e9581a3c97be94a098704d29bc2561620a34d95be60b8ca7a
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-shared@npm:^2.15.2":
+  version: 2.15.2
+  resolution: "@xylabs/react-shared@npm:2.15.2"
+  dependencies:
+    "@emotion/react": ^11.10.4
+    "@emotion/styled": ^11.10.4
+    "@mui/material": ^5.10.4
+    "@xylabs/sdk-js": ^2.6.7
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 68e8c9dd0d7c0035ff75a71f537161ffd6611a1ca0cdb9e66f28b613b4f7f2d950eadc02ab1f2dee3272c5255d3cb31403d413caaabc4748c09e290ca3e4aa23
   languageName: node
   linkType: hard
 
