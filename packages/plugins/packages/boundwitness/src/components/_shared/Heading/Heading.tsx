@@ -13,6 +13,7 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
   IconComponent,
   size = 'medium',
   fallbackText = 'No heading Provided',
+  ...props
 }) => {
   const ellipsizeRef = useRef<HTMLDivElement | null>(null)
 
@@ -30,7 +31,7 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
   }
 
   return (
-    <FlexGrowRow columnGap={2}>
+    <FlexGrowRow columnGap={2} {...props}>
       {AdornmentStart}
       {IconComponent}
       <EllipsizeBox width="100%" typographyProps={{ variant: sizeParser(size), ...headingProps }} ref={ellipsizeRef}>
