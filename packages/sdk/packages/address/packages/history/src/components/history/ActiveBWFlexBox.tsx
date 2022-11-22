@@ -6,7 +6,7 @@ import { forwardRef } from 'react'
 
 import { useActiveBoundWitness } from '../../contexts'
 
-interface ActiveBWFlexBoxProps extends FlexBoxProps {
+export interface ActiveBWFlexBoxProps extends FlexBoxProps {
   visibleRows?: TableHeightState['visibleRows']
 }
 
