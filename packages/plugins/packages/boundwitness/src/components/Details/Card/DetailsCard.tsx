@@ -39,6 +39,8 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, XyoPayloadDetail
         payload={payload}
         active={activeProp}
         activeBgColor={false}
+        hideJSONButton={false}
+        hideValidation={false}
         additionalActions={
           <IconButton onClick={() => setCollapsed(!collapsed)}>{collapsed ? <ExpandMoreRoundedIcon /> : <ExpandLessRoundedIcon />}</IconButton>
         }
