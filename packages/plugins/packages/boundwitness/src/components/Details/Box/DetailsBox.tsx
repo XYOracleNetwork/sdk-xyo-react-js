@@ -34,7 +34,7 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetails
     <FlexCol alignItems="stretch" rowGap={3} ref={ref} {...props}>
       <HashHeadingPaper
         hash={hash}
-        sx={{ bgcolor: 'primary.dark', p: 2 }}
+        paperProps={{ sx: { bgcolor: 'primary.dark', p: 2 } }}
         AdornmentEnd={<BWActions boundwitness={boundwitness} />}
         identiconProps={{ p: 0.75, size: 24 }}
       />

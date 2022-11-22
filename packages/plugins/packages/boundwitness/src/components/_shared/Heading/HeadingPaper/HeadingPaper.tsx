@@ -4,12 +4,14 @@ import { forwardRef } from 'react'
 import { BWHeading } from '../Heading'
 import { BWHeadingProps } from '../HeadingProps'
 
-export interface HeadingPaperProps extends BWHeadingProps, PaperProps {}
+export interface HeadingPaperProps extends BWHeadingProps {
+  paperProps?: PaperProps
+}
 
 const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>((props, ref) => {
-  const { AdornmentStart, AdornmentEnd } = props
+  const { AdornmentStart, AdornmentEnd, paperProps } = props
   return (
-    <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...props}>
+    <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...paperProps}>
       <BWHeading {...props} />
     </StyledHeadingPaper>
   )
@@ -26,7 +28,7 @@ interface StyledHeadingPaperProps extends PaperProps {
 
 const StyledHeadingPaper = styled(Paper, {
   name: 'StyledHeadingPaper',
-  shouldForwardProp: (prop) => !['hasAdornmentEnd', 'hasAdornmentStart'].includes(prop as string),
+  shouldForwardProp: (prop) => !['hasAdornmentEnd', 'hasAdornmentStart', 'paperProps'].includes(prop as string),
 })<StyledHeadingPaperProps>(({ theme, hasAdornmentEnd, hasAdornmentStart }) => ({
   alignItems: 'center',
   columnGap: theme.spacing(2),

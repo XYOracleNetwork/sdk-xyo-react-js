@@ -20,8 +20,8 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
   active = false,
   activeBgColor = true,
   additionalActions,
-  hideJSONButton = false,
-  hideValidation = false,
+  hideJSONButton = true,
+  hideValidation = true,
   ...props
 }) => {
   const boundwitness = payload as XyoPayload<XyoBoundWitness>

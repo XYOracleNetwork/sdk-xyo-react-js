@@ -1,9 +1,10 @@
 import { TypographyProps } from '@mui/material'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ReactNode } from 'react'
 
 export type HeadingTextSizes = 'small' | 'medium' | 'large'
 
-export interface BWHeadingProps {
+export interface BWHeadingProps extends FlexBoxProps {
   heading?: string
   size?: HeadingTextSizes
   AdornmentStart?: ReactNode
