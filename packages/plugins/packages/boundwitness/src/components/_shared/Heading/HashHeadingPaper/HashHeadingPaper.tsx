@@ -3,12 +3,13 @@ import { Identicon, IdenticonProps } from '@xylabs/react-identicon'
 import { forwardRef } from 'react'
 
 import { HeadingPaper, HeadingPaperProps } from '../HeadingPaper'
-export interface HashPaperProps extends HeadingPaperProps {
+
+export interface HashHeadingPaperProps extends HeadingPaperProps {
   hash?: string
   identiconProps?: IdenticonProps
 }
 
-const HashPaper = forwardRef<HTMLDivElement, HashPaperProps>(({ hash, identiconProps, ...props }, ref) => {
+const HashHeadingPaper = forwardRef<HTMLDivElement, HashHeadingPaperProps>(({ hash, identiconProps, ...props }, ref) => {
   const theme = useTheme()
 
   return (
@@ -33,6 +34,6 @@ const HashPaper = forwardRef<HTMLDivElement, HashPaperProps>(({ hash, identiconP
   )
 })
 
-HashPaper.displayName = 'HashPaper'
+HashHeadingPaper.displayName = 'HashHeadingPaper'
 
-export { HashPaper }
+export { HashHeadingPaper }

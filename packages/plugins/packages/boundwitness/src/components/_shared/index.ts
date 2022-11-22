@@ -1,5 +1,4 @@
 export * from './Actions'
-export * from './HashPaper'
-export * from './HeadingPaper'
+export * from './Heading'
 export * from './Payloads'
 export * from './Signatures'
