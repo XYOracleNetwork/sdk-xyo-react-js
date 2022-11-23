@@ -1,1 +1,1 @@
-export * from './ActiveBWDecorator.stories'
+export * from './ActiveBWDecorator'
