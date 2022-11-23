@@ -1,2 +1,3 @@
+export * from './AddressHistory'
 export * from './BoundWitnessesBox'
-export * from './history'
+export * from './layout'

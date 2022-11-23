@@ -3,7 +3,7 @@ import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import { TableHeightState } from '@xyo-network/react-table'
 import { forwardRef } from 'react'
 
-import { useActiveBoundWitness } from '../../contexts'
+import { useActiveBoundWitness } from '../../../contexts'
 import { NoBlockSelectedBox } from './NoBlockSelectedBox'
 
 export interface ActiveBWFlexBoxProps extends FlexBoxProps {

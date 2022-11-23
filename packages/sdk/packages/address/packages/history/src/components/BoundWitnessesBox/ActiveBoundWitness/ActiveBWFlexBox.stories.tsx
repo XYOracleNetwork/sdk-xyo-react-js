@@ -2,8 +2,8 @@ import { Button } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 
-import { useActiveBoundWitness } from '../../contexts'
-import { ActiveBWDecorator } from './ActiveBWDecorator.stories'
+import { useActiveBoundWitness } from '../../../contexts'
+import { ActiveBWDecorator } from '../../story'
 import { ActiveBWFlexBox } from './ActiveBWFlexBox'
 
 const WithRefDecorator: DecoratorFn = (Story, args) => {

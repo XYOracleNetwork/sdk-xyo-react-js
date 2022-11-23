@@ -4,9 +4,9 @@ import { useXyoEvent } from '@xyo-network/react-event'
 import { forwardRef } from 'react'
 
 import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../contexts'
-import { ActiveBWFlexBox } from '../history'
+import { ActiveBWFlexBox } from './ActiveBoundWitness'
 import { useBoundWitnessClickHandler } from './hooks'
-import { NestedBoundWitnesses } from './NestedBoundWitnesses'
+import { NestedBoundWitnessesBox } from './NestedBoundWitnesses'
 
 export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
   const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness()
@@ -28,7 +28,7 @@ export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props
         {...props}
       >
         {loading ? <LinearProgress sx={{ minHeight: '10px' }} /> : null}
-        <NestedBoundWitnesses />
+        <NestedBoundWitnessesBox />
         {!activeBoundWitness ? <ActiveBWFlexBox /> : null}
         <Slide direction="down" in={!!activeBoundWitness}>
           <ActiveBWFlexBox ref={activeBWref} />
