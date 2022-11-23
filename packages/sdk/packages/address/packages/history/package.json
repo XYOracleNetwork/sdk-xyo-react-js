@@ -17,13 +17,19 @@
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "@xyo-network/react-table": "workspace:^",
+    "lodash": "^4.17.21",
     "tslib": "^2.4.1"
+  },
+  "devDependencies": {
+    "@storybook/react": "^6.5.13",
+    "@xyo-network/react-storybook": "workspace:^"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.10",
     "@mui/styles": "^5.10.10",
     "@xylabs/sdk-js": "^2.6.9",
+    "@xyo-network/archivist": "*",
     "@xyo-network/boundwitness": "*",
     "@xyo-network/core": "*",
     "@xyo-network/diviner": "*",

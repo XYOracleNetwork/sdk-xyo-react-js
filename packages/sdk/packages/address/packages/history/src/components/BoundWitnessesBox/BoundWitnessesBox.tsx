@@ -1,5 +1,5 @@
 import { LinearProgress, Slide } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/sdk-react'
+import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { forwardRef } from 'react'
 
