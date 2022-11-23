@@ -1,6 +1,6 @@
 import { StyledComponentProps } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { BoundWitnessDetailsCard } from '@xyo-network/react-plugins'
+import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import { forwardRef, useEffect, useLayoutEffect, useRef } from 'react'
 
 import { useNestedBoundWitnesses } from '../../../contexts'
