@@ -4,8 +4,8 @@ import { forwardRef } from 'react'
 
 import { XyoPayloadRenderProps } from '../XyoPayloadRenderPlugin'
 
-const XyoPayloadDetailsBox = forwardRef<HTMLDivElement, XyoPayloadRenderProps & FlexBoxProps>((props) => {
-  return <PayloadDetails {...props} />
+const XyoPayloadDetailsBox = forwardRef<HTMLDivElement, XyoPayloadRenderProps & FlexBoxProps>((props, ref) => {
+  return <PayloadDetails ref={ref} {...props} />
 })
 
 XyoPayloadDetailsBox.displayName = 'XyoPayloadDetailsBox'
