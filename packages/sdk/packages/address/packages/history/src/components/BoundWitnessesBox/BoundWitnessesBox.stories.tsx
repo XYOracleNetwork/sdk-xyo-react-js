@@ -1,7 +1,7 @@
 import { ComponentStoryFn, Meta } from '@storybook/react'
+import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../story'
 import { BoundWitnessesBox } from './BoundWitnessesBox'
 
 // eslint-disable-next-line import/no-default-export
