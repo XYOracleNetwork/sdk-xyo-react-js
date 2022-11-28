@@ -7,8 +7,8 @@ import { BoundwitnessClickType } from '../lib'
 
 export const useBoundWitnessClickHandler = () => {
   const mounted = useMounted()
-  const { hashSelectionHistory, fetchFromHash, addSelection, clearHistory } = useHashSelectionHistory()
-  const { setClickedExistingHash, setLoading } = useNestedBoundWitnesses()
+  const { hashSelectionHistory, fetchFromHash, addSelection, clearHistory } = useHashSelectionHistory(false)
+  const { setClickedExistingHash, setLoading } = useNestedBoundWitnesses(false)
   const boundwitnessClick = useCallback(
     (noun: XyoEventNoun, data?: string, clickType?: BoundwitnessClickType) => {
       void (async () => {

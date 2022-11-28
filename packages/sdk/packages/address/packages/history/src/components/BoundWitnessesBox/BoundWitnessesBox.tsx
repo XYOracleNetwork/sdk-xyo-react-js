@@ -9,9 +9,9 @@ import { useBoundWitnessClickHandler } from './hooks'
 import { NestedBoundWitnessesBox } from './NestedBoundWitnesses'
 
 export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
-  const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness()
+  const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
-  const { loading } = useNestedBoundWitnesses()
+  const { loading } = useNestedBoundWitnesses(false)
 
   const [activeBWref] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => boundwitnessClick(noun, data, 'activeBoundWitness'))
 

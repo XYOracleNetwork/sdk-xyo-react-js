@@ -11,7 +11,7 @@ import { NestedBoundWitnessBox } from './NestedBoundWitnessBox'
 export type NestedBoundWitnessesProps = FlexBoxProps
 
 export const NestedBoundWitnessesBox: React.FC<NestedBoundWitnessesProps> = (props) => {
-  const { nestedBoundWitnesses, hashSelectionHistory } = useHashSelectionHistory()
+  const { nestedBoundWitnesses, hashSelectionHistory } = useHashSelectionHistory(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
   const [nestedBWRef] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => boundwitnessClick(noun, data, 'nestedBoundWitnesses'))
 
