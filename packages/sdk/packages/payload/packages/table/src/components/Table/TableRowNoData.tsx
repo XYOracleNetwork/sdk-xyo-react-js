@@ -21,6 +21,9 @@ interface StyledTableCellProps {
   hideBorder?: boolean
 }
 
-const StyledTableCell = styled(TableCell, { name: 'StyledTableCell' })<StyledTableCellProps>(({ hideBorder }) => ({
+const StyledTableCell = styled(TableCell, {
+  name: 'StyledTableCell',
+  shouldForwardProp: (prop: string) => prop !== 'hideBorder',
+})<StyledTableCellProps>(({ hideBorder }) => ({
   ...(hideBorder && { border: 'none' }),
 }))
