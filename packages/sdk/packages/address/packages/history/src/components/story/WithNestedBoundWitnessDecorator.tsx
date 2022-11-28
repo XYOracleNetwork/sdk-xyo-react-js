@@ -1,5 +1,6 @@
 import { DecoratorFn } from '@storybook/react'
-import { NestedBoundWitnessesProvider } from '@xyo-network/react-address-history'
+
+import { NestedBoundWitnessesProvider } from '../../contexts'
 
 export const WithNestedBoundWitnessesDecorator: DecoratorFn = (Story, args) => (
   <NestedBoundWitnessesProvider>

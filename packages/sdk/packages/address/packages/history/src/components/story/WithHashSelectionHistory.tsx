@@ -1,8 +1,8 @@
 import { DecoratorFn } from '@storybook/react'
 import { PayloadWrapper } from '@xyo-network/payload'
-import { HashSelectionHistoryProvider } from '@xyo-network/react-address-history'
+import { sampleBlock } from '@xyo-network/react-storybook'
 
-import { sampleBlock } from '../sampleBlock'
+import { HashSelectionHistoryProvider } from '../../contexts'
 
 export const WithHashSelectionHistory: DecoratorFn = (Story, args) => {
   const hash = new PayloadWrapper(sampleBlock).hash
