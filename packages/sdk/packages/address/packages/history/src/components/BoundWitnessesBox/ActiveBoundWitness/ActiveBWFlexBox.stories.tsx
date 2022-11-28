@@ -2,8 +2,8 @@ import { Button } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 
-import { useActiveBoundWitness } from '../../contexts'
-import { ActiveBWDecorator } from './ActiveBWDecorator.stories'
+import { useActiveBoundWitness } from '../../../contexts'
+import { ActiveBWDecorator } from '../../story'
 import { ActiveBWFlexBox } from './ActiveBWFlexBox'
 
 const WithRefDecorator: DecoratorFn = (Story, args) => {
@@ -29,7 +29,7 @@ const WithResetDecorator: DecoratorFn = (Story, args) => {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: ActiveBWFlexBox,
-  title: 'addressHistory/ActiveBWFlexBox',
+  title: 'address/history/ActiveBWFlexBox',
 } as Meta
 
 const Template: ComponentStory<typeof ActiveBWFlexBox> = (props) => <ActiveBWFlexBox {...props} />

@@ -20,7 +20,7 @@ export const BWActions: React.FC<BWActionsProps> = ({ additionalActions, hideJSO
     <FlexRow {...props}>
       {hideJSONButton ? null : <BWVerification boundwitness={boundwitness} />}
       {hideValidation ? null : (
-        <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`}>
+        <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
           <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
         </QuickTipButton>
       )}

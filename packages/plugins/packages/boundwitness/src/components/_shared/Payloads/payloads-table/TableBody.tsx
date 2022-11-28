@@ -50,7 +50,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
           )
         })) || (
         <>
-          <TableRowNoData />
+          <TableRowNoData additionalCells={1} />
         </>
       )}
     </TableBody>
