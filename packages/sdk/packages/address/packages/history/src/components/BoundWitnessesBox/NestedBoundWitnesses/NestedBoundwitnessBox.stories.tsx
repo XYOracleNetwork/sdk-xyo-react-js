@@ -1,15 +1,9 @@
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 import { PayloadWrapper } from '@xyo-network/payload'
 import { sampleBlock } from '@xyo-network/react-storybook'
 
-import { NestedBoundWitnessesProvider } from '../../../contexts'
+import { WithNestedBoundWitnessesDecorator } from '../../story'
 import { NestedBoundWitnessBox } from './NestedBoundWitnessBox'
-
-const WithNestedBoundWitnessesDecorator: DecoratorFn = (Story, args) => (
-  <NestedBoundWitnessesProvider>
-    <Story {...args} />
-  </NestedBoundWitnessesProvider>
-)
 
 // eslint-disable-next-line import/no-default-export
 export default {
