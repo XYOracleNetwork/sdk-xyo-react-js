@@ -2,11 +2,11 @@ import { DecoratorFn } from '@storybook/react'
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoStorageArchivistConfigSchema } from '@xyo-network/archivist'
 import { PayloadWrapper } from '@xyo-network/payload'
+import { ActiveBoundWitnessProvider } from '@xyo-network/react-address-history'
 import { StorageArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { usePromise } from '@xyo-network/react-shared'
-import { sampleAddressHistory } from '@xyo-network/react-storybook'
 
-import { ActiveBoundWitnessProvider } from '../../contexts'
+import { sampleAddressHistory } from './sampleAddressHistory'
 
 export const ActiveBWDecorator: DecoratorFn = (Story, args) => {
   return (
