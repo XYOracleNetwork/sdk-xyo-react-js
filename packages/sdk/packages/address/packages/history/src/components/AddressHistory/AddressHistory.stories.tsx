@@ -8,7 +8,7 @@ import { AddressHistory } from './AddressHistory'
 // eslint-disable-next-line import/no-default-export
 export default {
   component: AddressHistory,
-  title: 'addressHistory/AddressHistory',
+  title: 'address/history/AddressHistory',
 } as Meta
 
 const Template: ComponentStory<typeof AddressHistory> = (props) => {

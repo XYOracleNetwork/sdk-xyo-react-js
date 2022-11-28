@@ -29,7 +29,7 @@ const WithResetDecorator: DecoratorFn = (Story, args) => {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: ActiveBWFlexBox,
-  title: 'addressHistory/ActiveBWFlexBox',
+  title: 'address/history/ActiveBWFlexBox',
 } as Meta
 
 const Template: ComponentStory<typeof ActiveBWFlexBox> = (props) => <ActiveBWFlexBox {...props} />
