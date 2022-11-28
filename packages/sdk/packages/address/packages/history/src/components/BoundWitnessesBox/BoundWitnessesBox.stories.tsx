@@ -1,4 +1,5 @@
 import { ComponentStoryFn, Meta } from '@storybook/react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../story'
 import { BoundWitnessesBox } from './BoundWitnessesBox'
@@ -10,7 +11,11 @@ export default {
 } as Meta
 
 const Template: ComponentStoryFn<typeof BoundWitnessesBox> = (props) => {
-  return <BoundWitnessesBox {...props} />
+  return (
+    <BrowserRouter>
+      <BoundWitnessesBox {...props} />
+    </BrowserRouter>
+  )
 }
 
 const Default = Template.bind({})

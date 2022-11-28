@@ -1,5 +1,6 @@
 import { useMounted, WithChildren } from '@xylabs/react-shared'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoError } from '@xyo-network/module'
 import { PayloadWrapper } from '@xyo-network/payload'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
@@ -25,6 +26,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
   const mounted = useMounted()
   const [hashSelectionHistory, setHashSelectionHistory] = useState<string[]>(defaultHashSelectionHistory)
   const [nestedBoundWitnesses, setNestedBoundWitnesses] = useState<NestedBoundWitnesses>(defaultNestedBoundWitnesses)
+  const [error, setError] = useState<XyoError>()
 
   const clearHistory = useCallback(() => {
     setHashSelectionHistory([])
@@ -62,8 +64,13 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
     if (archivist === undefined || hash === undefined) {
       return null
     }
-    const [result] = await archivist.get([hash])
-    return result as XyoBoundWitness
+    try {
+      const [result] = await archivist.get([hash])
+      return result as XyoBoundWitness
+    } catch (e) {
+      setError(e as XyoError)
+      return undefined
+    }
   }
 
   return (
@@ -71,6 +78,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
       value={{
         addSelection,
         clearHistory,
+        error,
         fetchFromHash,
         hashSelectionHistory,
         nestedBoundWitnesses,
