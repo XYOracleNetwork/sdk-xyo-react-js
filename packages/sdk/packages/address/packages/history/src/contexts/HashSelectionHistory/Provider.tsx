@@ -9,14 +9,22 @@ import { useActiveBoundWitness } from '../ActiveBoundWitness'
 import { HashSelectionHistoryContext } from './Context'
 import { NestedBoundWitnesses } from './State'
 
-export interface HashSelectionHistoryProviderProps extends WithChildren, ContextExProviderProps {}
+export interface HashSelectionHistoryProviderProps extends WithChildren, ContextExProviderProps {
+  defaultHashSelectionHistory?: string[]
+  defaultNestedBoundWitnesses?: NestedBoundWitnesses
+}
 
-export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProviderProps> = ({ children, required = true }) => {
+export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProviderProps> = ({
+  children,
+  defaultHashSelectionHistory = [],
+  defaultNestedBoundWitnesses = {},
+  required = true,
+}) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   const { archivist } = useArchivist(required)
   const mounted = useMounted()
-  const [hashSelectionHistory, setHashSelectionHistory] = useState<string[]>([])
-  const [nestedBoundWitnesses, setNestedBoundWitnesses] = useState<NestedBoundWitnesses>({})
+  const [hashSelectionHistory, setHashSelectionHistory] = useState<string[]>(defaultHashSelectionHistory)
+  const [nestedBoundWitnesses, setNestedBoundWitnesses] = useState<NestedBoundWitnesses>(defaultNestedBoundWitnesses)
 
   const clearHistory = useCallback(() => {
     setHashSelectionHistory([])
