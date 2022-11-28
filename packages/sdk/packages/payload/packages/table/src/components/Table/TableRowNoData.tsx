@@ -3,9 +3,10 @@ import { styled, TableCell, TableRow, TableRowProps, Typography, TypographyProps
 export interface TableRowNoDataProps extends TableRowProps {
   typographyProps?: TypographyProps
   hideBorder?: boolean
+  additionalCells?: number
 }
 
-export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ hideBorder = false, typographyProps, ...props }) => {
+export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ hideBorder = false, typographyProps, additionalCells, ...props }) => {
   return (
     <TableRow {...props}>
       <StyledTableCell hideBorder={hideBorder}>
@@ -13,6 +14,11 @@ export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ hideBorder = fal
           No Data To Display...
         </Typography>
       </StyledTableCell>
+      {additionalCells
+        ? Array(additionalCells)
+            .fill(undefined)
+            .map((_fill, index) => <StyledTableCell key={index} hideBorder={hideBorder} />)
+        : null}
     </TableRow>
   )
 }
