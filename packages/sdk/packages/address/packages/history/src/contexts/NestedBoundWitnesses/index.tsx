@@ -22,4 +22,4 @@ export const NestedBoundWitnessesProvider: React.FC<WithChildren> = ({ children 
   )
 }
 
-export const useNestedBoundWitnesses = (required = true) => useContextEx(NestedBoundWitnessesContext, 'NestedBoundWitnesses', required)
+export const useNestedBoundWitnesses = (required = false) => useContextEx(NestedBoundWitnessesContext, 'NestedBoundWitnesses', required)
