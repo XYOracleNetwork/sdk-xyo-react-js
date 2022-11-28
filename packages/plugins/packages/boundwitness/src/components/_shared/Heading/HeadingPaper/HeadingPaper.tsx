@@ -10,9 +10,11 @@ export interface HeadingPaperProps extends BWHeadingProps {
 
 const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>((props, ref) => {
   const { AdornmentStart, AdornmentEnd, paperProps } = props
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { paperProps: excludedPaperProps, ...bwHeadingProps } = props
   return (
     <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...paperProps}>
-      <BWHeading {...props} />
+      <BWHeading {...bwHeadingProps} />
     </StyledHeadingPaper>
   )
 })

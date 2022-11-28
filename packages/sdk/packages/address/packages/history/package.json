@@ -10,13 +10,16 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xylabs/react-common": "^2.15.2",
     "@xylabs/react-flexbox": "^2.15.2",
     "@xylabs/react-shared": "^2.15.2",
     "@xyo-network/react-archivist": "workspace:^",
     "@xyo-network/react-boundwitness-plugin": "workspace:^",
+    "@xyo-network/react-error": "workspace:^",
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "@xyo-network/react-table": "workspace:^",
+    "lodash": "^4.17.21",
     "tslib": "^2.4.1"
   },
   "peerDependencies": {
@@ -24,12 +27,15 @@
     "@mui/material": "^5.10.10",
     "@mui/styles": "^5.10.10",
     "@xylabs/sdk-js": "^2.6.9",
+    "@xyo-network/archivist": "*",
     "@xyo-network/boundwitness": "*",
     "@xyo-network/core": "*",
     "@xyo-network/diviner": "*",
     "@xyo-network/module": "*",
+    "@xyo-network/network": "*",
     "@xyo-network/payload": "*",
     "@xyo-network/payload-plugin": "*",
+    "@xyo-network/protocol": "*",
     "@xyo-network/schema-payload-plugin": "*",
     "@xyo-network/utils": "*",
     "react": "^18.2.0",
