@@ -1,7 +1,7 @@
-import { XyoPayloadDiviner } from '@xyo-network/diviner'
+import { AbstractPayloadDiviner } from '@xyo-network/diviner'
 import { Dispatch } from 'react'
 
 export interface PayloadDivinerState {
-  diviner?: XyoPayloadDiviner
-  setDiviner?: Dispatch<XyoPayloadDiviner>
+  diviner?: AbstractPayloadDiviner
+  setDiviner?: Dispatch<AbstractPayloadDiviner>
 }
