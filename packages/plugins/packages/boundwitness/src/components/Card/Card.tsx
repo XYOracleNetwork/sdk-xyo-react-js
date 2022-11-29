@@ -14,7 +14,7 @@ export const BoundWitnessRendererCard: React.FC<BoundWitnessCardProps> = ({ payl
 
   return (
     <Card {...props}>
-      <BoundWitnessCardHeader payload={boundwitness} active={active} />
+      <BoundWitnessCardHeader payload={boundwitness} active={active} hideJSONButton hidePreviousHash hideValidation />
       <BoundWitnessCardContent payload={boundwitness} active={active} />
     </Card>
   )

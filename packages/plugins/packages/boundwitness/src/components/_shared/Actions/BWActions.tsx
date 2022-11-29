@@ -32,9 +32,7 @@ export const BWActions: React.FC<BWActionsProps> = ({
   return (
     <FlexRow {...props}>
       {hideTimestamp || boundwitness?.timestamp === undefined ? null : (
-        <>
-          <Chip sx={{ mr: 1 }} label={new Date(boundwitness.timestamp).toLocaleString()} />
-        </>
+        <Chip sx={{ mr: 1 }} label={new Date(boundwitness.timestamp).toLocaleString()} />
       )}
       {hidePreviousHash || boundwitness?.previous_hashes.length === 0 ? null : <BWPreviousHashQuickTipButton boundwitness={boundwitness} />}
       {hideJSONButton ? null : <BWVerification boundwitness={boundwitness} />}
