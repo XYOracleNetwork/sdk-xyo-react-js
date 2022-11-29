@@ -1,18 +1,14 @@
-import { StyledComponentProps } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
-import { forwardRef, useEffect, useLayoutEffect, useRef } from 'react'
+import { WithChildren } from '@xylabs/react-shared'
+import { DetailedHTMLProps, forwardRef, HTMLAttributes, useEffect, useLayoutEffect, useRef } from 'react'
 
 import { useNestedBoundWitnesses } from '../../../contexts'
-import { StyledGlowingDiv } from './layout'
+import { StyledGlowingDiv } from './StyledGlowingDiv'
 
-export interface NestedBoundWitnessProps extends StyledComponentProps<'div'> {
-  boundwitness?: XyoBoundWitness
-  index?: number
+export interface GlowingDivProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, WithChildren {
   hash?: string
 }
 
-export const NestedBoundWitnessBox = forwardRef<HTMLDivElement, NestedBoundWitnessProps>(({ boundwitness, hash, index, ...props }, ref) => {
+export const GlowingDiv = forwardRef<HTMLDivElement, GlowingDivProps>(({ hash, children, ...props }, ref) => {
   const { clickedExistingHash, setClickedExistingHash } = useNestedBoundWitnesses()
   const internalRef = useRef<HTMLDivElement | null>(null)
 
@@ -24,7 +20,7 @@ export const NestedBoundWitnessBox = forwardRef<HTMLDivElement, NestedBoundWitne
   })
 
   useEffect(() => {
-    if (internalRef?.current) {
+    if (internalRef?.current && hash) {
       if (clickedExistingHash === hash) {
         // update classes when we have a match
         internalRef.current.classList.remove('no-glow')
@@ -44,9 +40,9 @@ export const NestedBoundWitnessBox = forwardRef<HTMLDivElement, NestedBoundWitne
 
   return (
     <StyledGlowingDiv {...props} ref={internalRef}>
-      <BoundWitnessDetailsCard payload={boundwitness} active={index !== 0} />
+      {children}
     </StyledGlowingDiv>
   )
 })
 
-NestedBoundWitnessBox.displayName = 'NestedBoundWitnessBox'
+GlowingDiv.displayName = 'GlowingDiv'

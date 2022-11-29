@@ -1,12 +1,13 @@
 import { Slide } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import { useXyoEvent } from '@xyo-network/react-event'
 import isEmpty from 'lodash/isEmpty'
 import { Fragment } from 'react'
 
 import { useHashSelectionHistory } from '../../../contexts'
 import { useBoundWitnessClickHandler } from '../hooks'
-import { NestedBoundWitnessBox } from './NestedBoundWitnessBox'
+import { GlowingDiv } from '../layout'
 
 export type NestedBoundWitnessesProps = FlexBoxProps
 
@@ -20,7 +21,9 @@ export const NestedBoundWitnessesBox: React.FC<NestedBoundWitnessesProps> = (pro
       {hashSelectionHistory?.map((hash, index) => (
         <Fragment key={hash}>
           <Slide direction="down" in={!!nestedBoundWitnesses[hash]}>
-            <NestedBoundWitnessBox boundwitness={nestedBoundWitnesses[hash]} index={index} hash={hash} />
+            <GlowingDiv hash={hash}>
+              <BoundWitnessDetailsCard payload={nestedBoundWitnesses[hash]} active={index !== 0} />
+            </GlowingDiv>
           </Slide>
         </Fragment>
       ))}
