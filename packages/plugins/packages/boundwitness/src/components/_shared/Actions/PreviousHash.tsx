@@ -24,7 +24,7 @@ export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButton
   }
 
   return (
-    <QuickTipButton Icon={LinkRoundedIcon} hoverText={formattedPreviousHash} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
+    <QuickTipButton Icon={LinkRoundedIcon} hoverText={formattedPreviousHash} dialogProps={{ fullWidth: true, maxWidth: 'md' }} {...props}>
       <FlexGrowRow columnGap={2}>
         <pre style={{ textAlign: 'center', wordBreak: 'break-all' }}>{boundwitness?.previous_hashes.join(',')}</pre>
         {formattedPreviousHash !== 'none' ? <ContentCopyIcon sx={{ cursor: 'pointer' }} onClick={onCopy} /> : null}

@@ -12,6 +12,7 @@ export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   activeBgColor?: boolean
   hideJSONButton?: boolean
   hideValidation?: boolean
+  hidePreviousHash?: boolean
   additionalActions?: ReactNode
 }
 
@@ -22,6 +23,7 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
   additionalActions,
   hideJSONButton = true,
   hideValidation = true,
+  hidePreviousHash = true,
   ...props
 }) => {
   const boundwitness = payload as XyoPayload<XyoBoundWitness>
@@ -55,6 +57,7 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
         <BWActions
           hideJSONButton={hideJSONButton}
           hideValidation={hideValidation}
+          hidePreviousHash={hidePreviousHash}
           boundwitness={boundwitness}
           additionalActions={additionalActions}
         />

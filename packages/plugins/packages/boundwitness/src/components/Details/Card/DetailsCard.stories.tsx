@@ -1,6 +1,6 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
-import { sampleBlockWithBoundWitnessPayload } from '@xyo-network/react-storybook'
+import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { useRef } from 'react'
 
 import { BoundWitnessDetailsCard } from './DetailsCard'
@@ -22,13 +22,13 @@ export default {
 const Template: ComponentStory<typeof BoundWitnessDetailsCard> = (props) => <BoundWitnessDetailsCard {...props} />
 
 const Default = Template.bind({})
-Default.args = { payload: sampleBlockWithBoundWitnessPayload }
+Default.args = { payload: sampleAddressHistory[1] }
 
 const WithRef = Template.bind({})
 WithRef.decorators = [WithEventDecorator]
-WithRef.args = { payload: sampleBlockWithBoundWitnessPayload }
+WithRef.args = { payload: sampleAddressHistory[1] }
 
 const WithVisibleRows = Template.bind({})
-WithVisibleRows.args = { payload: sampleBlockWithBoundWitnessPayload, visibleRows: 3 }
+WithVisibleRows.args = { payload: sampleAddressHistory[1], visibleRows: 3 }
 
 export { Default, WithRef, WithVisibleRows }
