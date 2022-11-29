@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { XyoPayload } from '@xyo-network/payload'
 import { useXyoEvent } from '@xyo-network/react-event'
-import { sampleBlockWithPayloads } from '@xyo-network/react-storybook'
+import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
 
 import { BoundWitnessDetailsBox } from './DetailsBox'
@@ -42,7 +42,7 @@ WithNoData.args = {
 }
 
 const WithData = Template.bind({})
-WithData.args = { payload: sampleBlockWithPayloads }
+WithData.args = { payload: sampleAddressHistory[1] }
 
 export { Default, WithData, WithNoData }
 

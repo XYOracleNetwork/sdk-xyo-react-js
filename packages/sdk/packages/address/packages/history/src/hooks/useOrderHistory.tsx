@@ -20,7 +20,7 @@ const findParent = (hashes: string[], addressHistory: XyoBoundWitness[], current
 
 // Note: Assumes there are no orphaned record in the history.
 export const useOrderedHistory = () => {
-  const run = useCallback((addressHistory?: XyoBoundWitness[]) => {
+  const run = useCallback((addressHistory?: XyoBoundWitness[], order: 'asc' | 'desc' = 'asc') => {
     if (addressHistory?.length) {
       const stack: XyoBoundWitness[] = []
       const hashes = addressHistory?.map((bw) => new PayloadWrapper(bw).hash)
@@ -44,7 +44,9 @@ export const useOrderedHistory = () => {
           }
         }
 
-        return addressHistory?.length ? stack : undefined
+        const orderedStack = order === 'desc' ? stack.reverse() : stack
+
+        return addressHistory?.length ? orderedStack : undefined
       }
     }
     return []

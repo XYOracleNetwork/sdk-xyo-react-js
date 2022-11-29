@@ -6782,6 +6782,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-history@workspace:packages/sdk/packages/address/packages/history"
   dependencies:
+    "@storybook/react": ^6.5.13
     "@xylabs/react-common": ^2.15.2
     "@xylabs/react-flexbox": ^2.15.2
     "@xylabs/react-shared": ^2.15.2
@@ -6790,6 +6791,7 @@ __metadata:
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": ^2.40.30
     "@xyo-network/react-table": "workspace:^"
     lodash: ^4.17.21
     tslib: ^2.4.1
@@ -6813,6 +6815,11 @@ __metadata:
     react-dom: ^18.2.0
     react-icons: ^4.6.0
     react-router-dom: ^6.3.0
+  peerDependenciesMeta:
+    "@xyo-network/wallet":
+      optional: true
+    require-from-string:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -8208,7 +8215,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-storybook@workspace:packages/sdk/packages/storybook":
+"@xyo-network/react-storybook@^2.40.30, @xyo-network/react-storybook@workspace:packages/sdk/packages/storybook":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-storybook@workspace:packages/sdk/packages/storybook"
   dependencies:

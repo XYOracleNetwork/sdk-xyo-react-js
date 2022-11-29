@@ -1,5 +1,5 @@
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded'
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded'
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded'
 import { SvgIconProps, Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
@@ -19,7 +19,7 @@ export const BWVerification: React.FC<BWVerification> = ({ boundwitness }) => {
   const errors = validator?.validate() ?? []
 
   return (
-    <QuickTipButton Icon={errors.length ? InvalidIcon : CheckRoundedIcon}>
+    <QuickTipButton Icon={errors.length ? InvalidIcon : CheckCircleOutlineRoundedIcon} hoverText={errors.length ? 'Invalid Hash' : 'Valid Hash'}>
       {errors.length > 0 ? (
         <FlexCol flexWrap="wrap" alignItems="start">
           {errors.map((error, index) => {
