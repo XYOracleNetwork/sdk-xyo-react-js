@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistWrapper } from '@xyo-network/archivist'
 
 import { useArchivistStates } from './useArchivistStates'
 
@@ -10,7 +10,7 @@ export const useArchivistClear = (required = false) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
+        const wrapper = archivist ? new ArchivistWrapper(archivist) : undefined
         await wrapper?.clear()
         if (mounted()) {
           setError(undefined)

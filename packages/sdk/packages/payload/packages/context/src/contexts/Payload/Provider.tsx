@@ -1,5 +1,5 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
-import { XyoArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistWrapper } from '@xyo-network/archivist'
 import { XyoPayload } from '@xyo-network/payload'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useState } from 'react'
@@ -19,7 +19,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (payload === undefined && hash) {
-        const wrapper = archivist ? new XyoArchivistWrapper(archivist) : undefined
+        const wrapper = archivist ? new ArchivistWrapper(archivist) : undefined
         const loadedPayloads = (await wrapper?.get([hash])) ?? []
         if (mounted()) {
           setPayload(loadedPayloads?.pop() ?? null)

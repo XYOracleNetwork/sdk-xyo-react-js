@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoArchivistWrapper, XyoCookieArchivist, XyoCookieArchivistConfig } from '@xyo-network/archivist'
+import { ArchivistWrapper, CookieArchivist, CookieArchivistConfig } from '@xyo-network/archivist'
 import { XyoModuleResolver } from '@xyo-network/module'
 import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
@@ -9,7 +9,7 @@ import { useArchivist } from '../use'
 import { ArchivistProvider } from './Provider'
 
 export type CookieArchivistProviderProps = ContextExProviderProps<{
-  config: XyoCookieArchivistConfig
+  config: CookieArchivistConfig
   resolver?: XyoModuleResolver
 }>
 
@@ -20,21 +20,21 @@ export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = (
   //we set this every time, but it will only take if config VALUE changed
   setConfig(configProp)
 
-  const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper(archivist) : undefined), [archivist])
+  const wrapper = useMemo(() => (archivist ? new ArchivistWrapper(archivist) : undefined), [archivist])
   const activeResolver: XyoModuleResolver | undefined = useMemo(
     () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),
     [resolver, wrapper],
   )
   if (archivist) {
-    activeResolver?.add(new XyoArchivistWrapper(archivist))
+    activeResolver?.add(new ArchivistWrapper(archivist))
   }
 
-  const [activeArchivist, setActiveArchivist] = useState<XyoCookieArchivist>()
+  const [activeArchivist, setActiveArchivist] = useState<CookieArchivist>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const activeArchivist = await XyoCookieArchivist.create({
+      const activeArchivist = await CookieArchivist.create({
         config: merge(
           {},
           config,

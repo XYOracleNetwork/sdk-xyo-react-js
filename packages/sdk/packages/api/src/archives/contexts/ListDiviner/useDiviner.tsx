@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchiveList } from '@xyo-network/api'
-import { XyoDivinerWrapper } from '@xyo-network/diviner'
+import { DivinerWrapper } from '@xyo-network/diviner'
 import { useState } from 'react'
 
 import { useArchiveListApiDiviner } from './use'
@@ -18,7 +18,7 @@ export const useDivineArchiveList = (): [ArchiveList[] | undefined, Error | unde
     async (mounted) => {
       if (diviner) {
         try {
-          const result = (await new XyoDivinerWrapper(diviner).divine()) as ArchiveList[]
+          const result = (await new DivinerWrapper(diviner).divine()) as ArchiveList[]
           if (mounted() && result) {
             setArchiveList(result)
           }

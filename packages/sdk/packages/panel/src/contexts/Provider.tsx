@@ -1,13 +1,13 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
-import { PayloadArchivist, XyoArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useNode } from '@xyo-network/react-node'
 import { useAccount } from '@xyo-network/react-wallet'
-import { XyoWitnessWrapper } from '@xyo-network/witness'
+import { WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useMemo, useState } from 'react'
 
 import { PanelContext } from './Context'
@@ -15,7 +15,7 @@ import { PanelReportProgress, ReportStatus } from './State'
 
 export interface PanelProviderProps {
   archivist?: PayloadArchivist
-  witnesses?: XyoWitnessWrapper[]
+  witnesses?: WitnessWrapper[]
   required?: boolean
   archive?: string
 }
@@ -41,14 +41,14 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
       return node.resolver
     }
     const resolver = new XyoModuleResolver().add(witnesses)
-    return archivist ? resolver.add(new XyoArchivistWrapper(archivist)) : resolver
+    return archivist ? resolver.add(new ArchivistWrapper(archivist)) : resolver
   }, [archivist, node, witnesses])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const activeArchivist: PayloadArchivist | undefined = archivistProp ?? archivist
-      const archivistWrapper = activeArchivist ? new XyoArchivistWrapper(activeArchivist) : undefined
+      const archivistWrapper = activeArchivist ? new ArchivistWrapper(activeArchivist) : undefined
       const panel = archivistWrapper
         ? await XyoPanel.create({
             config: {
@@ -69,7 +69,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
                   setStatus(ReportStatus.Started)
                 }
               },
-              onWitnessReportEnd: (witness: XyoWitnessWrapper, error?: Error) => {
+              onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
                 const witnesses = progress.witnesses ?? {}
                 witnesses[witness.address] = {
                   status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
@@ -82,7 +82,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
                   })
                 }
               },
-              onWitnessReportStart: (witness: XyoWitnessWrapper) => {
+              onWitnessReportStart: (witness: WitnessWrapper) => {
                 const witnesses = progress.witnesses ?? {}
                 witnesses[witness.address] = {
                   status: ReportStatus.Started,
