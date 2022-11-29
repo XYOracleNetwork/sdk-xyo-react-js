@@ -1,4 +1,3 @@
-import LinkRoundedIcon from '@mui/icons-material/LinkRounded'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { ellipsize } from '@xylabs/sdk-js'
@@ -6,6 +5,7 @@ import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper } from '@xyo-network/payload'
 import { ReactNode } from 'react'
 
+import { BWPreviousHashQuickTipButton } from './PreviousHash'
 import { BWVerification } from './Verification'
 
 export interface BWActionsProps extends FlexBoxProps {
@@ -25,13 +25,9 @@ export const BWActions: React.FC<BWActionsProps> = ({
   ...props
 }) => {
   const { hash } = boundwitness ? new PayloadWrapper(boundwitness) : { hash: '' }
-  const previousHash = boundwitness?.previous_hashes[0] ?? null
-  const formattedPreviousHash = previousHash === null ? 'No Previous Hash' : `Previous Hash - ${ellipsize(previousHash, 8)}`
   return (
     <FlexRow {...props}>
-      {hidePreviousHash && boundwitness?.previous_hashes.length ? null : (
-        <QuickTipButton Icon={LinkRoundedIcon} disableDialog hoverText={formattedPreviousHash} />
-      )}
+      {hidePreviousHash && boundwitness?.previous_hashes.length === 0 ? null : <BWPreviousHashQuickTipButton boundwitness={boundwitness} />}
       {hideJSONButton ? null : <BWVerification boundwitness={boundwitness} />}
       {hideValidation ? null : (
         <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
