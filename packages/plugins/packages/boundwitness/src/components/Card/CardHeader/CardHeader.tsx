@@ -45,8 +45,8 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
           heading={hash}
           IconComponent={
             <Identicon
-              size={parseInt(theme.spacing(1.75).replace('px', ''))}
-              p={0.25}
+              size={parseInt(theme.spacing(2.5).replace('px', ''))}
+              p={0.5}
               value={hash}
               sx={{ background: theme.palette.background.paper }}
             />
