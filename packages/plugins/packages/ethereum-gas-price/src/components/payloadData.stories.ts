@@ -16,8 +16,9 @@ export const payloadData = {
   timestamp: 1669819808305,
 }
 
-export const payloadDataMissingPairs = {
-  pairs: [],
-  schema: 'network.xyo.crypto.market.uniswap',
+export const payloadDataMissingFees = {
+  feePerGas: {},
+  priorityFeePerGas: {},
+  schema: 'network.xyo.blockchain.ethereum.gas',
   timestamp: 1659071465718,
 }

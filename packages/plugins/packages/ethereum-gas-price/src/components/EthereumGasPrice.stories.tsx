@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { EthereumGasPriceRender } from './EthereumGasPriceRender'
-import { payloadData } from './payloadData.stories'
+import { payloadData, payloadDataMissingFees } from './payloadData.stories'
 
 const StorybookEntry = {
   argTypes: {},
@@ -22,7 +22,10 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { payload: payloadData }
 
-export { Default, WithData }
+const WithMissingData = Template.bind({})
+WithMissingData.args = { payload: payloadDataMissingFees }
+
+export { Default, WithData, WithMissingData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
