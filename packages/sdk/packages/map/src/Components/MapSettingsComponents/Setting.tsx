@@ -4,9 +4,10 @@ import { useMapSettings } from '../../Contexts'
 
 export interface MapSettingSwitchProps extends SwitchProps {
   field: string
+  developerMode?: boolean
 }
 
-export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({ field, ...props }) => {
+export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({ field, developerMode, ...props }) => {
   const { mapSettings, setMapSettings } = useMapSettings()
   const setting = mapSettings?.[field]
 
@@ -19,7 +20,7 @@ export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({ field, ...pr
     }
   }
 
-  if (setting?.devMode) {
+  if (setting?.devMode && developerMode === false) {
     return null
   }
 
