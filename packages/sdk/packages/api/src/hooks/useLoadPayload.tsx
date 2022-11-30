@@ -1,23 +1,23 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoApiError } from '@xyo-network/api'
+import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload'
-import { useArchive } from '@xyo-network/react-archive'
-import { useArchivistApi } from '@xyo-network/react-archivist-api'
 import { useEffect, useState } from 'react'
 
+import { useArchive } from '../archive'
+import { useApi } from '../contexts'
 import { UsePayload } from './ResolvePayloadArgs'
 
-export const useLoadPayload = (hash?: string): UsePayload => {
-  const { api } = useArchivistApi()
+export const useLoadPayloadViaApi = (hash?: string): UsePayload => {
+  const { api } = useApi()
   const { archive } = useArchive()
   const [localHash, setLocalHash] = useState<string>()
   const [notFound, setNotFound] = useState<boolean>()
-  const [apiError, setApiError] = useState<XyoApiError>()
+  const [xyoError, setXyoError] = useState<XyoError>()
   const [payload, setPayload] = useState<XyoPayload>()
 
   const reset = () => {
     setPayload(undefined)
-    setApiError(undefined)
+    setXyoError(undefined)
     setNotFound(undefined)
   }
 
@@ -46,14 +46,15 @@ export const useLoadPayload = (hash?: string): UsePayload => {
             }
           }
         } catch (e) {
+          const error = e as Error
           reset()
           setNotFound(false)
-          setApiError(e as XyoApiError)
+          setXyoError({ message: error.message, schema: XyoErrorSchema, sources: [] })
           console.error(e)
         }
       }
     },
     [hash, api, archive, payload, notFound, localHash],
   )
-  return [payload, notFound, apiError]
+  return [payload, notFound, xyoError]
 }

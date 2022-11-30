@@ -1,9 +1,11 @@
 import { Alert, AlertTitle } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import { useArchivistGet } from '@xyo-network/react-archivist'
 import { Feature, Polygon } from 'geojson'
 
 import { AnimatedHeatMapSettings } from '../AnimatedHeatMapSettings'
-import { useFetchPayloads, useFindHashes, useHeatMapColors } from '../hooks'
+import { useFindHashes, useHeatMapColors, useQuadKeyPayloadsToFeatures } from '../hooks'
+import { NetworkXyoLocationHeatmapQuadkeyAnswerPayload } from '../types'
 import { AnimatedHeatMap } from './AnimatedHeatMap'
 import { AnimatedHeatMapLegend } from './Legend'
 
@@ -13,7 +15,8 @@ export interface AnimatedHeatMapLoadedProps extends FlexBoxProps {
 
 export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ accessToken, ...props }) => {
   const hashes = useFindHashes()
-  const { multipleFeatureSets, apiError } = useFetchPayloads(hashes)
+  const [payloads, xyoError] = useArchivistGet<NetworkXyoLocationHeatmapQuadkeyAnswerPayload>(hashes)
+  const { multipleFeatureSets } = useQuadKeyPayloadsToFeatures(payloads)
   const { heatMapColorProps, legendProps } = useHeatMapColors()
 
   const MapBoxHeatProps = {
@@ -21,17 +24,15 @@ export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ ac
     legend: legendProps ? <AnimatedHeatMapLegend {...legendProps} /> : null,
   }
 
-  if (apiError) {
-    return (
-      <Alert sx={{ mt: 2 }}>
-        <AlertTitle>Error Loading Map</AlertTitle>
-        You might try authenticating again.
-      </Alert>
-    )
-  }
-
   return (
     <FlexCol alignItems="stretch" {...props}>
+      {xyoError ? (
+        <Alert sx={{ mt: 2 }}>
+          <AlertTitle>Error Loading Map</AlertTitle>
+          {xyoError.message ? `Error: ${xyoError.message}` : null}
+          You might try authenticating again.
+        </Alert>
+      ) : null}
       {hashes !== undefined ? (
         <AnimatedHeatMap
           accessToken={accessToken}

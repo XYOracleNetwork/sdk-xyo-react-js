@@ -1,0 +1,93 @@
+{
+  "name": "@xyo-network/react-test",
+  "author": {
+    "email": "support@xyo.network",
+    "name": "XYO Development Team",
+    "url": "https://xyo.network"
+  },
+  "bugs": {
+    "email": "support@xyo.network",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.10.16",
+    "@mui/lab": "^5.0.0-alpha.110",
+    "@mui/material": "^5.10.16",
+    "@mui/styles": "^5.10.16",
+    "@xylabs/react-common": "^2.15.2",
+    "@xylabs/react-flexbox": "^2.15.2",
+    "@xylabs/react-shared": "^2.15.2",
+    "@xylabs/sdk-js": "^2.6.9",
+    "@xyo-network/api": "^2.41.11",
+    "@xyo-network/archivist": "^2.41.11",
+    "@xyo-network/boundwitness": "^2.41.11",
+    "@xyo-network/core": "^2.41.11",
+    "@xyo-network/diviner": "^2.41.11",
+    "@xyo-network/module": "^2.41.11",
+    "@xyo-network/network": "^2.41.11",
+    "@xyo-network/node": "^2.41.11",
+    "@xyo-network/panel": "^2.41.11",
+    "@xyo-network/payload": "^2.41.11",
+    "@xyo-network/payload-plugin": "^2.41.11",
+    "@xyo-network/protocol": "^2.41.11",
+    "@xyo-network/react-sdk": "workspace:^",
+    "@xyo-network/schema-payload-plugin": "^2.41.11",
+    "@xyo-network/utils": "^2.41.11",
+    "@xyo-network/wallet": "^2.41.11",
+    "@xyo-network/witness": "^2.41.11",
+    "axios": "^1.2.0",
+    "pako": "^2.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.4.3",
+    "tslib": "^2.4.1"
+  },
+  "peerDependencies": {
+    "@xylabs/assert": "^2.6.9"
+  },
+  "description": "Common React library for all XYO projects that use React",
+  "browser": "dist/esm/index.js",
+  "docs": "dist/docs.json",
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js"
+      },
+      "browser": {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js"
+      },
+      "default": "./dist/esm/index.js"
+    },
+    "./dist/docs.json": {
+      "default": "./dist/docs.json"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "homepage": "https://xyo.network",
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
+  ],
+  "license": "LGPL-3.0",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "scripts": {
+    "lint-pkg": "npmPkgJsonLint .",
+    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
+  },
+  "sideEffects": false,
+  "types": "dist/esm/index.d.ts",
+  "version": "2.40.31"
+}

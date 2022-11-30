@@ -1,13 +1,16 @@
+/* eslint-disable deprecation/deprecation */
 import { Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export type PreviousBlockDetailsProps = PropertyGroupProps & {
   value?: XyoBoundWitness
 }
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, ...props }) => {
   let elevation = 2
   if (props.paper) {

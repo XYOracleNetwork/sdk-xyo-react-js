@@ -1,3 +1,5 @@
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
@@ -5,6 +7,7 @@ import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
 import { BlockSignatureTableRow } from './SignatureTableRow'
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockSignatureTableProps extends TableProps {
   block?: XyoBoundWitness
 }
@@ -15,6 +18,7 @@ interface SignatureData {
   signature?: string
 }
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitness) => {
   const result: SignatureData[] = []
   for (let i = 0; i < boundWitness.addresses.length; i++) {
@@ -27,6 +31,7 @@ const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitness) => {
   return result
 }
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
   const hash = block ? new Hasher(block).hash : undefined

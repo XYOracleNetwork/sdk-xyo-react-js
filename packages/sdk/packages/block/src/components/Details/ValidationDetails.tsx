@@ -1,12 +1,15 @@
+/* eslint-disable deprecation/deprecation */
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitnessValidator, XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export type BlockValidationDetailsProps = PropertyGroupProps & {
   value?: XyoBoundWitness
 }
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ value, ...props }) => {
   const validator = value ? new BoundWitnessValidator(value) : undefined
 

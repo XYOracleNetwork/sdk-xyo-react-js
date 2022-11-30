@@ -1,25 +1,26 @@
 const generateJestConfig = ({ esModules }) => {
-  const esModuleslist = Array.isArray(esModules) ? esModules.join('|') : esModules
+  const esModulesList = Array.isArray(esModules) ? esModules.join('|') : esModules
   return {
-    globals: {
-      'ts-jest': {
-        tsconfig: 'tsconfig.test.json',
-      },
-    },
     moduleNameMapper: {
       '^(\\.{1,2}/.*)\\.js$': '$1',
     },
     preset: 'ts-jest/presets/default-esm',
     setupFiles: ['dotenv/config'],
-    setupFilesAfterEnv: ['jest-sorted'],
+    setupFilesAfterEnv: ['jest-sorted', 'jest-extended/all'],
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
     testTimeout: 20000,
     transform: {
-      [`(${esModuleslist}).+\\.js$`]: 'babel-jest',
-      '^.+\\.tsx?$': 'ts-jest/legacy',
+      [`(${esModulesList}).+\\.js$`]: 'babel-jest',
+      '^.+\\.tsx?$': [
+        'ts-jest',
+        {
+          tsconfig: 'tsconfig.test.json',
+        },
+      ],
     },
-    transformIgnorePatterns: [`./node_modules/(?!${esModuleslist})`],
+    transformIgnorePatterns: [`./node_modules/(?!${esModulesList})`],
   }
 }
 
-module.exports = generateJestConfig({ esModules: ['is-ip', 'ip-regex', 'lodash-es'] })
+// eslint-disable-next-line no-undef
+module.exports = generateJestConfig({ esModules: ['is-ip', 'ip-regex', 'lodash-es', 'uuid'] })

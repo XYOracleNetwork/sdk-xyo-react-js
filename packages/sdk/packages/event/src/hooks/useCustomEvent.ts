@@ -6,8 +6,9 @@ export type CustomEventDispatch<T = unknown> = (detail: T) => boolean | void
 export const useCustomEvent = <TElement extends HTMLElement, TDetail = unknown>(
   type: string,
   listener?: CustomEventDispatch<TDetail>,
+  customRef?: RefObject<TElement>,
 ): [RefObject<TElement>, CustomEventDispatch<TDetail>] => {
-  const ref = createRef<TElement>()
+  const ref = customRef ?? createRef<TElement>()
   useEffect(() => {
     const element = ref?.current
     const currentListener = listener
@@ -26,7 +27,7 @@ export const useCustomEvent = <TElement extends HTMLElement, TDetail = unknown>(
     }
     return () => {
       if (handler && element) {
-        element?.removeEventListener('xyo', handler)
+        element?.removeEventListener(type, handler)
       }
     }
   })

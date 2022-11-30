@@ -1,4 +1,4 @@
-import { XyoApiError } from '@xyo-network/api'
+import { XyoApiError } from '@xyo-network/api-models'
 
 import { AuthActionType } from '../ActionType'
 import { AuthService, AuthServiceId } from './Service'

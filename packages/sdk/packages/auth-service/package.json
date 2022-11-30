@@ -10,27 +10,41 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-button": "^2.15.1",
-    "@xylabs/react-common": "^2.15.1",
-    "@xylabs/react-flexbox": "^2.15.1",
-    "@xylabs/react-shared": "^2.15.1",
+    "@xylabs/react-button": "^2.15.2",
+    "@xylabs/react-flexbox": "^2.15.2",
     "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/react-api": "workspace:^",
-    "@xyo-network/react-archivist-api": "workspace:^",
     "@xyo-network/react-auth": "workspace:^",
     "@xyo-network/react-login-forms": "workspace:^",
-    "@xyo-network/react-theme": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
-    "rollbar": "^2.25.2",
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.1"
+  },
+  "devDependencies": {
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.16",
+    "@mui/styles": "^5.10.16",
+    "@xyo-network/api": "^2.41.11",
+    "@xyo-network/archivist": "^2.41.11",
+    "@xyo-network/diviner": "^2.41.11",
+    "@xyo-network/module": "^2.41.11",
+    "@xyo-network/network": "^2.41.11",
+    "@xyo-network/payload": "^2.41.11",
+    "@xyo-network/utils": "^2.41.11",
+    "axios": "^1.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
     "@xyo-network/api": "*",
+    "@xyo-network/archivist": "*",
+    "@xyo-network/diviner": "*",
+    "@xyo-network/module": "*",
     "@xyo-network/network": "*",
     "@xyo-network/payload": "*",
+    "@xyo-network/utils": "*",
     "axios": "^0.27.2",
     "pako": "^2.0.4",
     "react": "^18.2.0",
@@ -38,11 +52,6 @@
     "react-router-dom": "^6.3.0"
   },
   "description": "Common React library for all XYO projects that use React",
-  "devDependencies": {
-    "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/api": "^2.36.9",
-    "axios": "^0.27.2"
-  },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {
@@ -85,5 +94,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.37.20"
+  "version": "2.40.31"
 }

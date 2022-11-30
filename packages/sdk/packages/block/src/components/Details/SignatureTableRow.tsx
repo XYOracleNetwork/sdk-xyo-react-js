@@ -1,9 +1,11 @@
+/* eslint-disable deprecation/deprecation */
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { ellipsize } from '@xylabs/sdk-js'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness'
 import { AddressTableCell } from '@xyo-network/react-shared'
 import { MdClear, MdDone } from 'react-icons/md'
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockSignatureTableRowProps extends TableRowProps {
   address?: string
   archive?: string
@@ -12,6 +14,7 @@ export interface BlockSignatureTableRowProps extends TableRowProps {
   signature?: string
 }
 
+/** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ hash, address, previousHash, signature, archive, ...props }) => {
   const errors = hash && address ? BoundWitnessValidator.validateSignature(hash, address, signature) : []
 

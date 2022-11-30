@@ -1,6 +1,6 @@
 import { Alert, Snackbar, SnackbarProps } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { XyoApiError } from '@xyo-network/api'
+import { XyoApiError } from '@xyo-network/api-models'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 import { AuthError, AuthErrorHelpers, FormattedAuthError } from './authInterceptors'

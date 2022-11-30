@@ -1,12 +1,8 @@
-import { XyoDivinerDivineQuerySchema, XyoDivinerWrapper } from '@xyo-network/diviner'
-import compact from 'lodash/compact'
+import { DivinerWrapper, XyoDivinerDivineQuerySchema } from '@xyo-network/diviner'
 
 import { useModules } from './useModules'
 
 export const useDivinerModules = () => {
-  const modules = useModules()
-
-  return compact(modules?.filter((module) => module?.queryable(XyoDivinerDivineQuerySchema))).map((module) =>
-    module ? new XyoDivinerWrapper(module) : undefined,
-  )
+  const modules = useModules({ query: [[XyoDivinerDivineQuerySchema]] })
+  return modules?.map((module) => new DivinerWrapper(module))
 }

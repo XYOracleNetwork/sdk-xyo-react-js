@@ -23,7 +23,7 @@
 
 ## Description
 
-Common React code that is used throughtout XYO projects that use React.
+Common React code that is used throughout XYO projects that use React.
 
 ## Install
 

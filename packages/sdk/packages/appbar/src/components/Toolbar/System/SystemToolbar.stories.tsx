@@ -1,8 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { List } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { ApiProvider, ArchiveProvider, ArchivesProvider } from '@xyo-network/react-api'
 import { AuthProvider, AuthState } from '@xyo-network/react-auth'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { TypographyEx } from '@xyo-network/react-shared'
@@ -36,7 +35,7 @@ const StorybookEntry: Meta = {
 }
 
 const Template: ComponentStory<typeof SystemToolbar> = (args) => (
-  <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+  <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
     <ArchivesProvider>
       <BrowserRouter>
         <NetworkMemoryProvider>
@@ -46,12 +45,12 @@ const Template: ComponentStory<typeof SystemToolbar> = (args) => (
         </NetworkMemoryProvider>
       </BrowserRouter>
     </ArchivesProvider>
-  </ArchivistApiProvider>
+  </ApiProvider>
 )
 
 const TemplateWithAuthContext: ComponentStory<WrappedAuthComponent> = ({ authState }) => (
   <AuthProvider authState={authState as AuthState}>
-    <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+    <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
       <ArchivesProvider>
         <BrowserRouter>
           <NetworkMemoryProvider>
@@ -61,7 +60,7 @@ const TemplateWithAuthContext: ComponentStory<WrappedAuthComponent> = ({ authSta
           </NetworkMemoryProvider>
         </BrowserRouter>
       </ArchivesProvider>
-    </ArchivistApiProvider>
+    </ApiProvider>
   </AuthProvider>
 )
 

@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { useArchivistApi } from '@xyo-network/react-archivist-api'
+import { useApi } from '@xyo-network/react-api'
 import { AuthActionType } from '@xyo-network/react-auth'
 import { FormEvent, memo, useEffect, useState } from 'react'
 
@@ -19,7 +19,7 @@ const EmailPasswordComponent: React.FC<EmailPasswordComponentProps> = ({ dispatc
   const [isLoading, setIsLoading] = useState(false)
   const [token, setToken] = useState('')
 
-  const { api } = useArchivistApi()
+  const { api } = useApi()
 
   useEffect(() => {
     if (!isLoading && token && !loggedInAccount) {

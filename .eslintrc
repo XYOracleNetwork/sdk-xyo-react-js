@@ -1,7 +1,7 @@
 {
   "root": true,
   "extends": [
-    "@xylabs/react"
+    "@xylabs", "@xylabs/react"
   ],
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -9,6 +9,14 @@
   "ignorePatterns": ["node_modules", "build", "dist", "bin", "storybook-static", ".yarn"],
   "rules": {
     "import/no-default-export": "warn",
+    "import/no-restricted-paths": [
+      "warn",
+      {
+        "zones": [
+          { "target": "./packages/", "from": "./node_modules/@storybook/addons/**/*", "message": "React items imported from @storybook/addons are usually accidental" }
+        ]
+      }
+    ],
     "import/no-internal-modules": ["warn", {"allow": [
       "**/*.jpg",
       "**/*.png",

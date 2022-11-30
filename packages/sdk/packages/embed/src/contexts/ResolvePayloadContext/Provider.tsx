@@ -1,6 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
-import { XyoApiError } from '@xyo-network/api'
+import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { Huri, XyoPayload } from '@xyo-network/payload'
 import { useEffect, useState } from 'react'
 
@@ -24,7 +24,7 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
   }, [huriPayload, setRefreshPayload])
 
   const [notFound, setNotFound] = useState<boolean>()
-  const [huriApiError, setHuriApiError] = useState<XyoApiError>()
+  const [huriError, setHuriError] = useState<XyoError>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,7 +42,8 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
             setRefreshPayload?.(true)
           }
         } catch (e) {
-          setHuriApiError(e as XyoApiError)
+          const error = e as Error
+          setHuriError({ message: error.message, schema: XyoErrorSchema, sources: [] })
         }
       }
     },
@@ -57,7 +58,7 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
   }
 
   return (
-    <ResolvePayloadContext.Provider value={{ huri, huriApiError, notFound, payload, provided: true, refreshHuri, setPayload }}>
+    <ResolvePayloadContext.Provider value={{ huri, huriError, notFound, payload, provided: true, refreshHuri, setPayload }}>
       {children}
     </ResolvePayloadContext.Provider>
   )

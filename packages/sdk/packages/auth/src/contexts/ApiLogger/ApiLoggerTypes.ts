@@ -1,4 +1,4 @@
-import { XyoApiError, XyoApiResponse } from '@xyo-network/api'
+import { XyoApiError, XyoApiResponse } from '@xyo-network/api-models'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface XyoApiLoggedResponse extends XyoApiResponse {

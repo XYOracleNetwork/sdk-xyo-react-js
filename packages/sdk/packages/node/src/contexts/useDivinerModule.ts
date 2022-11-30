@@ -1,8 +1,9 @@
-import { XyoDivinerWrapper } from '@xyo-network/diviner'
+import { DivinerWrapper } from '@xyo-network/diviner'
 
-import { useModule } from './useModule'
+import { useModules } from './useModules'
 
 export const useDivinerModule = (address?: string) => {
-  const module = useModule(address)
-  return module ? new XyoDivinerWrapper(module) : undefined
+  const modules = useModules({ address: address ? [address] : undefined })
+  const foundModule = modules?.shift()
+  return foundModule ? new DivinerWrapper(foundModule) : undefined
 }

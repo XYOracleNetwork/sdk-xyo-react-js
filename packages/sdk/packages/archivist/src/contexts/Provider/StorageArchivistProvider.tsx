@@ -1,47 +1,62 @@
-import { XyoArchivistWrapper, XyoStorageArchivist, XyoStorageArchivistConfig } from '@xyo-network/archivist'
-import { XyoModuleResolverFunc } from '@xyo-network/module'
-import { ContextExProviderProps } from '@xyo-network/react-shared'
+import { ArchivistWrapper, StorageArchivistConfig, XyoStorageArchivist } from '@xyo-network/archivist'
+import { XyoModuleResolver } from '@xyo-network/module'
+import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 
 import { useArchivist } from '../use'
 import { ArchivistProvider } from './Provider'
 
 export type StorageArchivistProviderProps = ContextExProviderProps<{
-  config: XyoStorageArchivistConfig
-  resolver?: XyoModuleResolverFunc
+  config: StorageArchivistConfig
+  resolver?: XyoModuleResolver
 }>
 
-export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config, resolver, ...props }) => {
+import { useAsyncEffect } from '@xylabs/react-shared'
+import { useMemo, useState } from 'react'
+
+export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config: configProp, resolver, ...props }) => {
+  const [config, setConfig] = useDataState(configProp)
   const { archivist } = useArchivist()
-  const activeResolver: XyoModuleResolverFunc = (address: string) => {
-    if (archivist && address === archivist?.address) {
-      return new XyoArchivistWrapper(archivist)
-    }
-    return resolver?.(address) ?? null
+
+  //we set this every time, but it will only take if config VALUE changed
+  setConfig(configProp)
+
+  const wrapper = useMemo(() => (archivist ? new ArchivistWrapper(archivist) : undefined), [archivist])
+  const activeResolver: XyoModuleResolver | undefined = useMemo(
+    () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),
+    [resolver, wrapper],
+  )
+  if (archivist) {
+    activeResolver?.add(new ArchivistWrapper(archivist))
   }
 
-  return (
-    <ArchivistProvider
-      archivist={
-        new XyoStorageArchivist(
-          merge(
-            {},
-            config,
-            archivist
-              ? {
-                  parents: {
-                    commit: [archivist.address],
-                    read: [archivist.address],
-                    write: [archivist.address],
-                  },
-                }
-              : undefined,
-          ),
-          undefined,
-          activeResolver,
-        )
+  const [activeArchivist, setActiveArchivist] = useState<XyoStorageArchivist>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      const activeArchivist = await new XyoStorageArchivist({
+        config: merge(
+          {},
+          config,
+          archivist
+            ? {
+                parents: {
+                  commit: [archivist.address],
+                  read: [archivist.address],
+                  write: [archivist.address],
+                },
+              }
+            : undefined,
+        ),
+        resolver: activeResolver,
+      }).start()
+      if (mounted()) {
+        setActiveArchivist(activeArchivist)
       }
-      {...props}
-    />
+    },
+    [activeResolver, archivist, config],
   )
+
+  return <ArchivistProvider archivist={activeArchivist} {...props} />
 }

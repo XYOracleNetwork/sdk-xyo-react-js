@@ -2,8 +2,7 @@
 import { List, Paper } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { ArchiveProvider, ArchivesProvider } from '@xyo-network/react-archive'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
+import { ApiProvider, ArchiveProvider, ArchivesProvider } from '@xyo-network/react-api'
 import { AuthProvider } from '@xyo-network/react-auth'
 import { AuthSetsProvider } from '@xyo-network/react-auth-sets'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
@@ -32,7 +31,7 @@ const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
     <AuthProvider authState={{}}>
       <AuthSetsProvider>
         <BrowserRouter>
-          <ArchivistApiProvider apiDomain="https://beta.api.archivist.xyo.network">
+          <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
             <NetworkMemoryProvider>
               <ArchivesProvider>
                 <ArchiveProvider>
@@ -51,7 +50,7 @@ const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
                 </ArchiveProvider>
               </ArchivesProvider>
             </NetworkMemoryProvider>
-          </ArchivistApiProvider>
+          </ApiProvider>
         </BrowserRouter>
       </AuthSetsProvider>
     </AuthProvider>

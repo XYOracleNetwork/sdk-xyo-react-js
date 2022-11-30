@@ -2,10 +2,10 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { ArchivistApiProvider, useArchivistApi } from '@xyo-network/react-archivist-api'
 import { lazy, Suspense, useState } from 'react'
 
-import { useLoadPayload } from './useLoadPayload'
+import { ApiProvider, useApi } from '../contexts'
+import { useLoadPayloadViaApi } from './useLoadPayload'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
@@ -13,15 +13,15 @@ const apiDomain = 'https://beta.api.archivist.xyo.network'
 const hash = '5605fabad11b10bb5fb86b309ca0970894eda8f22362dda1a489817723bca992'
 
 const Wrapper: React.FC<{ hash?: string }> = ({ hash }) => (
-  <ArchivistApiProvider apiDomain={apiDomain}>
+  <ApiProvider apiDomain={apiDomain}>
     <UsePayloadComponent hash={hash} />
-  </ArchivistApiProvider>
+  </ApiProvider>
 )
 
 const UsePayloadComponent: React.FC<{ hash?: string }> = ({ hash }) => {
-  const { api } = useArchivistApi()
+  const { api } = useApi()
   const [trigger, setTrigger] = useState<string>()
-  const [payload, notFound] = useLoadPayload(trigger)
+  const [payload, notFound] = useLoadPayloadViaApi(trigger)
 
   return (
     <>

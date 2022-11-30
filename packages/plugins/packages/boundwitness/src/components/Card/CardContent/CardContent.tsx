@@ -1,0 +1,29 @@
+import { CardContentProps } from '@mui/material'
+import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoPayload } from '@xyo-network/payload'
+
+import { AddressAvatarGroup } from './AddressAvatarGroup'
+import { CardColumnsFlex, CardColumnTitleH2, CardContentFlex } from './layout'
+import { SchemaAvatarGroup } from './SchemaAvatarGroup'
+
+export interface BoundWitnessCardContentProps extends CardContentProps {
+  payload?: XyoPayload
+  active?: boolean
+}
+
+export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = ({ payload, active, ...props }) => {
+  const boundwitness = payload as XyoPayload<XyoBoundWitness>
+
+  return (
+    <CardContentFlex active={active} {...props}>
+      <CardColumnsFlex>
+        <CardColumnTitleH2>Payloads</CardColumnTitleH2>
+        <SchemaAvatarGroup schemas={boundwitness?.payload_schemas} />
+      </CardColumnsFlex>
+      <CardColumnsFlex>
+        <CardColumnTitleH2>Signers</CardColumnTitleH2>
+        <AddressAvatarGroup addresses={boundwitness?.addresses} />
+      </CardColumnsFlex>
+    </CardContentFlex>
+  )
+}

@@ -1,8 +1,9 @@
-import { XyoArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistWrapper } from '@xyo-network/archivist'
 
-import { useModule } from './useModule'
+import { useModules } from './useModules'
 
 export const useArchivistModule = (address?: string) => {
-  const module = useModule(address)
-  return module ? new XyoArchivistWrapper(module) : undefined
+  const modules = useModules({ address: address ? [address] : undefined })
+  const foundModule = modules?.shift()
+  return foundModule ? new ArchivistWrapper(foundModule) : undefined
 }

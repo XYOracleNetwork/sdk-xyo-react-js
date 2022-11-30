@@ -10,25 +10,32 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-appbar": "^2.15.1",
-    "@xylabs/react-button": "^2.15.1",
-    "@xylabs/react-common": "^2.15.1",
-    "@xylabs/react-flexbox": "^2.15.1",
-    "@xylabs/react-link": "^2.15.1",
-    "@xylabs/react-shared": "^2.15.1",
+    "@xylabs/react-appbar": "^2.15.2",
+    "@xylabs/react-button": "^2.15.2",
+    "@xylabs/react-common": "^2.15.2",
+    "@xylabs/react-flexbox": "^2.15.2",
+    "@xylabs/react-link": "^2.15.2",
+    "@xylabs/react-shared": "^2.15.2",
+    "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-app-settings": "workspace:^",
-    "@xyo-network/react-archive": "workspace:^",
     "@xyo-network/react-auth-sets": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.1"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
+    "@xylabs/sdk-js": "*",
     "@xyo-network/api": "*",
+    "@xyo-network/archivist": "*",
+    "@xyo-network/diviner": "*",
+    "@xyo-network/module": "*",
+    "@xyo-network/network": "*",
     "@xyo-network/payload": "*",
+    "@xyo-network/utils": "*",
+    "axios": "^1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
@@ -77,5 +84,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.37.20"
+  "version": "2.40.31"
 }

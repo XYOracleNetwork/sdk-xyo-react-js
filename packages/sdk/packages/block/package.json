@@ -10,10 +10,13 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-flexbox": "^2.15.1",
-    "@xylabs/react-shared": "^2.15.1",
+    "@xylabs/react-common": "^2.15.2",
+    "@xylabs/react-flexbox": "^2.15.2",
+    "@xylabs/react-shared": "^2.15.2",
     "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/react-auth-service": "workspace:^",
+    "@xyo-network/diviner": "^2.41.11",
+    "@xyo-network/module": "^2.41.11",
+    "@xyo-network/react-error": "workspace:^",
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
     "@xyo-network/react-payload-details": "workspace:^",
@@ -21,13 +24,12 @@
     "@xyo-network/react-property": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "lodash": "^4.17.21",
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.1"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
-    "@xyo-network/api": "*",
     "@xyo-network/boundwitness": "*",
     "@xyo-network/core": "*",
     "@xyo-network/network": "*",
@@ -36,8 +38,6 @@
     "@xyo-network/react-table": "workspace:^",
     "@xyo-network/schema-payload-plugin": "*",
     "@xyo-network/utils": "*",
-    "axios": "^0.27.2",
-    "pako": "^2.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
@@ -86,5 +86,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.37.20"
+  "version": "2.40.31"
 }

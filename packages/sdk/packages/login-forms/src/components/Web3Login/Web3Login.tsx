@@ -1,8 +1,8 @@
 import { Alert, AlertTitle, Typography } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { assertEx } from '@xylabs/sdk-js'
-import { XyoApiError } from '@xyo-network/api'
-import { useArchivistApi } from '@xyo-network/react-archivist-api'
+import { XyoApiError } from '@xyo-network/api-models'
+import { useApi } from '@xyo-network/react-api'
 import { AuthActionType } from '@xyo-network/react-auth'
 import { useWalletService } from '@xyo-network/react-wallet-service'
 import { useEffect, useState } from 'react'
@@ -17,7 +17,7 @@ import { MetaMaskError } from './MetaMaskError'
 const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }) => {
   const { handleReturnUrl } = useHandleReturnUrl()
   const [checkedWallet, setCheckedWallet] = useState(false)
-  const { api } = useArchivistApi()
+  const { api } = useApi()
   const { metaMaskWallet } = useWalletService()
   const [token, setToken] = useState('')
   const [metaMaskError, setMetaMaskError] = useState<MetaMaskError>()

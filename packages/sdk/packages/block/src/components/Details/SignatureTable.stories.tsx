@@ -1,5 +1,8 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
+
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { sampleBlock, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { DeprecateStory, sampleBlock, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { BlockSignatureTable } from './SignatureTable'
@@ -17,6 +20,7 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof BlockSignatureTable> = (args) => (
   <BrowserRouter>
+    <DeprecateStory />
     <BlockSignatureTable {...args}></BlockSignatureTable>
   </BrowserRouter>
 )

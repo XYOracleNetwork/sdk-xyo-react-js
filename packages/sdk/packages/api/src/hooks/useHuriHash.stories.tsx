@@ -4,13 +4,13 @@ import { ComponentStory, Meta } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { Huri } from '@xyo-network/payload'
-import { ArchivistApiProvider } from '@xyo-network/react-archivist-api'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { lazy, Suspense, useState } from 'react'
 
+import { ApiProvider } from '../contexts'
 import { FetchHuriHashOptions } from './lib'
-import { useHuriHash } from './useHuriHash'
+import { useHuriHashViaApi } from './useHuriHash'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
@@ -30,15 +30,15 @@ const mainHash = 'd3a3936e31ba1d835c528784ab77c1eaaeedd6e16b7aad68a88241ce539853
 
 const Wrapper: React.FC<UseHuriHashComponentProps> = (props) => (
   <NetworkMemoryProvider>
-    <ArchivistApiProvider apiDomain={apiDomain}>
+    <ApiProvider apiDomain={apiDomain}>
       <UseHuriHashComponent {...props} />
-    </ArchivistApiProvider>
+    </ApiProvider>
   </NetworkMemoryProvider>
 )
 
 const UseHuriHashComponent: React.FC<UseHuriHashComponentProps> = ({ huriOrHash, huriUri, options, reTestable }) => {
   const [trigger, setTrigger] = useState<string | Huri>(huriOrHash)
-  const [payload, notFound, , networkNotFound] = useHuriHash(trigger, huriUri, options)
+  const [payload, notFound, , networkNotFound] = useHuriHashViaApi(trigger, huriUri, options)
 
   return (
     <>
