@@ -59,7 +59,7 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
         </TableRow>
       </TableHead>
       <TableBody>
-        {!signatureData || signatureData.length === 0 ? <TableRowNoData /> : null}
+        {!signatureData || signatureData.length === 0 ? <TableRowNoData additionalCells={3} /> : null}
         {signatureData.map((data, index) => {
           return (
             <BoundWitnessSignatureTableRow
