@@ -7329,7 +7329,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-default-plugin@workspace:packages/plugins/packages/default":
+"@xyo-network/react-default-plugin@workspace:^, @xyo-network/react-default-plugin@workspace:packages/plugins/packages/default":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-default-plugin@workspace:packages/plugins/packages/default"
   dependencies:
@@ -7359,7 +7359,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-details-plugin@workspace:^, @xyo-network/react-details-plugin@workspace:packages/plugins/packages/details":
+"@xyo-network/react-details-plugin@workspace:packages/plugins/packages/details":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-details-plugin@workspace:packages/plugins/packages/details"
   dependencies:
@@ -7399,6 +7399,7 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/sdk-geo": ^2.7.0
     geojson: ^0.5.0
+    mapbox-gl: ^2.11.0
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
@@ -7937,7 +7938,7 @@ __metadata:
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-crypto-prices-plugin": "workspace:^"
-    "@xyo-network/react-details-plugin": "workspace:^"
+    "@xyo-network/react-default-plugin": "workspace:^"
     "@xyo-network/react-elevation-map-quadkey-plugin": "workspace:^"
     "@xyo-network/react-location-heatmap-quadkey-plugin": "workspace:^"
     "@xyo-network/react-location-points-map-plugin": "workspace:^"
