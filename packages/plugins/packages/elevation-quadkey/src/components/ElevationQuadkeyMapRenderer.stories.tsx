@@ -1,9 +1,8 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
-import { quadKeyHeatMapPayload } from './payload.stories'
-import { QuadkeyHeatMapWithSettingsRenderer } from './QuadkeyHeatMapRenderer'
-import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
+import { ElevationQuadkeyMapWithSettingsRenderer } from './ElevationQuadkeyMap'
+import { elevationQuadKeyMapPayload } from './payload.stories'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -13,18 +12,18 @@ export default {
       defaultValue: 'calc(100vh - 2rem)',
     },
   },
-  component: QuadkeyHeatMapWithSettingsRenderer,
+  component: ElevationQuadkeyMapWithSettingsRenderer,
   decorators: [WithMapboxSetup],
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'plugin/heat-map/HeatMapWithSettings',
+  title: 'plugin/elevation-map/ElevationQuadkeyMap',
 } as Meta
 
-const Template: ComponentStory<typeof QuadkeyHeatMapWithSettingsRenderer> = (args) => {
-  return <QuadkeyHeatMapWithSettingsRenderer {...args} />
+const Template: ComponentStory<typeof ElevationQuadkeyMapWithSettingsRenderer> = (args) => {
+  return <ElevationQuadkeyMapWithSettingsRenderer {...args} />
 }
 
 const Default = Template.bind({})
@@ -32,16 +31,13 @@ Default.args = {}
 
 const WithData = Template.bind({})
 WithData.args = {
-  payload: quadKeyHeatMapPayload,
+  payload: elevationQuadKeyMapPayload,
 }
 
 const WithDevMode = Template.bind({})
-const settings = QuadkeyHeatMapSettings()
-settings.debugLayer.value = true
 WithDevMode.args = {
   developerMode: true,
-  payload: quadKeyHeatMapPayload,
-  settings,
+  payload: elevationQuadKeyMapPayload,
 }
 
 export { Default, WithData, WithDevMode }
