@@ -28,7 +28,7 @@ export const BWActions: React.FC<BWActionsProps> = ({
   ...props
 }) => {
   const { hash } = boundwitness ? new PayloadWrapper(boundwitness) : { hash: '' }
-  console.log(boundwitness?.timestamp)
+
   return (
     <FlexRow {...props}>
       {hideTimestamp || boundwitness?.timestamp === undefined ? null : (
