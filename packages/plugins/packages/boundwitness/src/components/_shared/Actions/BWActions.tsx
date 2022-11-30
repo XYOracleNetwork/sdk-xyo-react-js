@@ -1,3 +1,4 @@
+import DataObjectIcon from '@mui/icons-material/DataObject'
 import { Chip } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
@@ -35,9 +36,9 @@ export const BWActions: React.FC<BWActionsProps> = ({
         <Chip sx={{ mr: 1 }} label={new Date(boundwitness.timestamp).toLocaleString()} />
       )}
       {hidePreviousHash || boundwitness?.previous_hashes.length === 0 ? null : <BWPreviousHashQuickTipButton boundwitness={boundwitness} />}
-      {hideJSONButton ? null : <BWVerification boundwitness={boundwitness} />}
-      {hideValidation ? null : (
-        <QuickTipButton title={`JSON for ${ellipsize(hash, 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
+      {hideValidation ? null : <BWVerification boundwitness={boundwitness} />}
+      {hideJSONButton ? null : (
+        <QuickTipButton Icon={DataObjectIcon} title={`JSON for ${ellipsize(hash, 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
           <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
         </QuickTipButton>
       )}

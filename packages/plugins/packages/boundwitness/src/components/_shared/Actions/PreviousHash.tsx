@@ -5,6 +5,7 @@ import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
 import { ellipsize } from '@xylabs/sdk-js'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { EllipsizeBox } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
 export interface BWPreviousHashQuickTipButtonProps extends QuickTipButtonProps {
@@ -35,8 +36,10 @@ export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButton
       {previousHash !== null ? (
         <>
           <FlexGrowRow columnGap={2}>
-            <pre style={{ textAlign: 'center', wordBreak: 'break-all' }}>{boundwitness?.previous_hashes.join(',')}</pre>
             <ContentCopyIcon sx={{ cursor: 'pointer' }} onClick={onCopy} />
+            <EllipsizeBox flexGrow="1" typographyProps={{ variant: 'body1' }}>
+              {boundwitness?.previous_hashes.join(',')}
+            </EllipsizeBox>
           </FlexGrowRow>
           <FlexRow>
             <Collapse in={copied} unmountOnExit>
