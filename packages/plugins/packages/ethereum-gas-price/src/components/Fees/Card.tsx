@@ -19,7 +19,7 @@ export const GasFeeCard: React.FC<GasFeeCardProps> = ({ gasPrice, priorityFee, s
       <CardContentEx removePadding variant="scrollable" sx={{ flexDirection: 'column', flexGrow: 1, p: 0, rowGap: 2 }}>
         <FlexGrowCol bgcolor={'secondary.dark'} alignItems="start" p={2} rowGap={1.5}>
           <FlexRow columnGap={1.5} rowGap={1.5} alignItems="end">
-            <TypographyEx lineHeight={1} fontWeight="bold" fontSize={theme.spacing(6)}>
+            <TypographyEx lineHeight={1} fontWeight="bold" fontSize={theme.spacing(6)} title={gasPrice?.toString() ?? ''}>
               {gasPrice?.toFixed(2)}
             </TypographyEx>
             <GweiLabel fontSize={theme.spacing(2)} />
@@ -27,7 +27,7 @@ export const GasFeeCard: React.FC<GasFeeCardProps> = ({ gasPrice, priorityFee, s
           <FlexGrowRow width="100%" justifyContent="space-between" alignItems="end">
             <FlexCol alignItems="start">
               <TypographyEx>Priority Fee</TypographyEx>
-              <TypographyEx>
+              <TypographyEx title={priorityFee?.toString() ?? ''}>
                 {priorityFee?.toFixed(2)} <GweiLabel fontSize={theme.spacing(1)} />
               </TypographyEx>
             </FlexCol>
