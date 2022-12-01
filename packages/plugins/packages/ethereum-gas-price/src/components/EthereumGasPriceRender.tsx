@@ -26,8 +26,8 @@ export const EthereumGasPriceRender: React.FC<XyoPayloadDetailsRenderProps & Fle
           Gas Fee Estimate <img height={theme.spacing(4)} src={ethData.icon} />
         </TypographyEx>
         <FlexRow columnGap={1}>
-          {gasPricePayload?.timestamp ? <Chip label={gasPricePayload.timestamp} /> : null}
-          {gasPricePayload?.baseFee ? <Chip label={`Base Fee - ${gasPricePayload.baseFee}`} /> : null}
+          {gasPricePayload?.timestamp ? <Chip label={new Date(gasPricePayload.timestamp).toLocaleString()} /> : null}
+          {gasPricePayload?.baseFee ? <Chip label={`Base Fee - ${gasPricePayload.baseFee.toFixed(2)}`} /> : null}
         </FlexRow>
       </FlexRow>
       <FlexRow columnGap={2} flexWrap="wrap" rowGap={2} width="100%" justifyContent="space-between">
