@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { AddressHistoryQuerySchema, XyoDivinerWrapper } from '@xyo-network/diviner'
+import { AddressHistoryQuerySchema, DivinerWrapper } from '@xyo-network/diviner'
 import { XyoError } from '@xyo-network/module'
 import { XyoPayloadBuilder } from '@xyo-network/payload'
 import { useState } from 'react'
@@ -21,7 +21,7 @@ export const useDivineAddressHistory = (address?: string): [XyoBoundWitness[] | 
       if (diviner && address) {
         try {
           const source = new XyoPayloadBuilder({ schema: AddressHistoryQuerySchema }).fields({ address }).build()
-          const result = (await new XyoDivinerWrapper(diviner).divine([source])) as XyoBoundWitness[]
+          const result = (await new DivinerWrapper(diviner).divine([source])) as XyoBoundWitness[]
           if (mounted() && result) {
             setBlocks(result)
           }

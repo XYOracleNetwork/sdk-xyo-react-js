@@ -20,7 +20,7 @@ const HashHeadingPaper = forwardRef<HTMLDivElement, HashHeadingPaperProps>(({ ha
       IconComponent={
         hash ? (
           <Identicon
-            size={parseInt(theme.spacing(1.75).replace('px', ''))}
+            size={parseInt(theme.spacing(3).replace('px', ''))}
             p={0.25}
             value={hash}
             sx={{ background: theme.palette.background.paper }}

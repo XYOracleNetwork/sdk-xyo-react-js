@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { SchemaStats } from '@xyo-network/api'
-import { XyoDivinerWrapper } from '@xyo-network/diviner'
+import { DivinerWrapper } from '@xyo-network/diviner'
 import { useState } from 'react'
 
 import { useSchemaStatsApiDiviner } from './use'
@@ -18,7 +18,7 @@ export const useDivineSchemaStats = (): [SchemaStats | undefined, Error | undefi
     async (mounted) => {
       if (diviner) {
         try {
-          const result = (await new XyoDivinerWrapper(diviner).divine()) as SchemaStats[]
+          const result = (await new DivinerWrapper(diviner).divine()) as SchemaStats[]
           if (mounted()) {
             setStats(result[0])
           }

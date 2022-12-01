@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoStorageArchivistConfigSchema } from '@xyo-network/archivist'
+import { StorageArchivistConfigSchema } from '@xyo-network/archivist'
 import { ResultLoader, useDivineAddressHistory } from '@xyo-network/react-api'
 import { StorageArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { XyoErrorRender } from '@xyo-network/react-error'
@@ -32,7 +32,7 @@ export const AddressHistoryArchivist: React.FC<AddressHistoryArchivistProps> = (
   const namespace = `AddressHistory.${resolvedAddress}`
 
   return (
-    <StorageArchivistProvider config={{ namespace, schema: XyoStorageArchivistConfigSchema, type: 'local' }}>
+    <StorageArchivistProvider config={{ namespace, schema: StorageArchivistConfigSchema, type: 'local' }}>
       <AddressHistoryArchivistInner address={resolvedAddress} {...props}>
         {children}
       </AddressHistoryArchivistInner>

@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { PayloadArchivist, XyoMemoryArchivist, XyoMemoryArchivistConfigSchema } from '@xyo-network/archivist'
+import { MemoryArchivist, MemoryArchivistConfigSchema, PayloadArchivist } from '@xyo-network/archivist'
 import { useState } from 'react'
 
 import { ArchivistCard } from './ArchivistCard'
@@ -28,11 +28,11 @@ const Template: ComponentStory<typeof ArchivistCard> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (!module) {
-        const newParentModule = await XyoMemoryArchivist.create()
-        const newModule = await XyoMemoryArchivist.create({
+        const newParentModule = await MemoryArchivist.create()
+        const newModule = await MemoryArchivist.create({
           config: {
             parents: { commit: [newParentModule.address], read: [newParentModule.address], write: [newParentModule.address] },
-            schema: XyoMemoryArchivistConfigSchema,
+            schema: MemoryArchivistConfigSchema,
           },
         })
         if (mounted()) {

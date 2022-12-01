@@ -1,6 +1,6 @@
 /* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistWrapper } from '@xyo-network/archivist'
 import { WrapperError, XyoError } from '@xyo-network/module'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useState } from 'react'
@@ -22,7 +22,7 @@ const useFetchPayloads = (hashes?: string[]) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (archivist && payloads === undefined && hashes?.length && !inFlight) {
-        const archivistWrapper = new XyoArchivistWrapper(archivist)
+        const archivistWrapper = new ArchivistWrapper(archivist)
         try {
           setInFlight(true)
           const payloads = await archivistWrapper.get(hashes)

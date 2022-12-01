@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoStorageArchivistConfigSchema } from '@xyo-network/archivist'
+import { StorageArchivistConfigSchema } from '@xyo-network/archivist'
 import { XyoPayload } from '@xyo-network/payload'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
@@ -72,7 +72,7 @@ const Template: ComponentStory<typeof StorageArchivistProvider> = (args) => (
 )
 
 const Default = Template.bind({})
-Default.args = { config: { schema: XyoStorageArchivistConfigSchema, writeThrough: 'true' } }
+Default.args = { config: { schema: StorageArchivistConfigSchema, writeThrough: 'true' } }
 Default.decorators = [useAppThemeDecorator]
 
 export { Default }

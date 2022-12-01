@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoMemoryArchivist } from '@xyo-network/archivist'
+import { MemoryArchivist } from '@xyo-network/archivist'
 import { Module } from '@xyo-network/module'
 import { useState } from 'react'
 
@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof ModuleCard> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (!module) {
-        const newModule = await XyoMemoryArchivist.create()
+        const newModule = await MemoryArchivist.create()
         if (mounted()) {
           setModule(newModule)
         }
