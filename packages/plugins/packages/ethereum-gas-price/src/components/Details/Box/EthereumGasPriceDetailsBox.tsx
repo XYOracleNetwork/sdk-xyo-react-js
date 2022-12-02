@@ -5,9 +5,9 @@ import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
 
-import { GasFeeCard } from './Fees'
-import { GasPriceEstimateHeaderBox } from './Header'
-import { FeeDataPayload, FeePerGasValues } from './lib'
+import { GasFeeCard } from '../../_shared'
+import { FeeDataPayload, FeePerGasValues } from '../../lib'
+import { GasPriceEstimateHeaderBox } from './components'
 
 export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
