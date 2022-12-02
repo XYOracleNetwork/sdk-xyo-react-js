@@ -7,7 +7,7 @@ const CardContentExRoot = styled(CardContent, {
   shouldForwardProp: (prop: string) => !['variant', 'removePadding'].includes(prop),
   slot: 'Root',
 })<CardContentExProps>(({ variant, removePadding }) => ({
-  ...(variant === 'scrollable' && {
+  ...((variant === 'scrollable' || removePadding) && {
     [':last-child']: {
       paddingBottom: 0,
     },

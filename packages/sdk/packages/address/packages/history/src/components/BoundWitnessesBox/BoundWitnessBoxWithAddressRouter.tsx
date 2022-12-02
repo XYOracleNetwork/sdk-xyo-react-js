@@ -2,7 +2,7 @@ import { useXyoEvent } from '@xyo-network/react-event'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useHashSelectionHistory } from '../../contexts'
+import { useHashSelectionHistory } from '../../hooks'
 import { BoundWitnessesBox } from './BoundWitnessesBox'
 
 export const BoundWitnessBoxWithAddressRouter = () => {
