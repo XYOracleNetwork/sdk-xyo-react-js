@@ -13,7 +13,12 @@ export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, XyoPayload
         {gasPricePayload &&
           FeePerGasValues.map((value) => (
             <Grid key={value} item xs={12} sm={6} lg={3}>
-              <GasFeeCard gasPrice={gasPricePayload?.feePerGas[value]} priorityFee={gasPricePayload.priorityFeePerGas[value]} speed={value} />
+              <GasFeeCard
+                speedPaperElevation={4}
+                gasPrice={gasPricePayload?.feePerGas[value]}
+                priorityFee={gasPricePayload.priorityFeePerGas[value]}
+                speed={value}
+              />
             </Grid>
           ))}
       </Grid>
