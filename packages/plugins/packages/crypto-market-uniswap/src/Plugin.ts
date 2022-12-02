@@ -8,7 +8,7 @@ export const UniswapPairsRenderPlugin: XyoPayloadRenderPlugin = {
     canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.crypto.market.uniswap',
     components: {
       box: {
-        details: UniswapDetailsRender,
+        detailsBox: UniswapDetailsRender,
         listModes: ['table', 'grid'],
       },
       table: {
