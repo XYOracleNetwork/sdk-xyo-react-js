@@ -11,7 +11,7 @@ export const EthereumGasPricePlugin: XyoPayloadRenderPlugin = {
         image: EthereumGasPriceAvatar,
       },
       box: {
-        details: EthereumGasPriceDetailsBox,
+        detailsBox: EthereumGasPriceDetailsBox,
       },
       card: {
         content: EthereumGasPriceCardContent,

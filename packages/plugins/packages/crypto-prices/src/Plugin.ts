@@ -8,7 +8,7 @@ export const CryptoPricesRenderPlugin = {
     canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.crypto.market',
     components: {
       box: {
-        details: CryptoPricesRenderer,
+        detailsBox: CryptoPricesRenderer,
       },
     },
     name: 'Crypto Prices',

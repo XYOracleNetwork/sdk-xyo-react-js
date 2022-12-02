@@ -8,7 +8,7 @@ export const PointsMapRenderPlugin: XyoPayloadRenderPlugin = {
     canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.location.range.answer',
     components: {
       box: {
-        details: PointsMapWithSettingsRenderer,
+        detailsBox: PointsMapWithSettingsRenderer,
       },
     },
     name: 'Points Map',
