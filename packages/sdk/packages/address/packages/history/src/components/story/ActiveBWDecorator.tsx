@@ -6,7 +6,7 @@ import { StorageArchivistProvider, useArchivist } from '@xyo-network/react-archi
 import { usePromise } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 
-import { ActiveBoundWitnessProvider } from '../../contexts'
+import { ActiveBoundWitnessProvider } from '../../providers'
 
 export const ActiveBWDecorator: DecoratorFn = (Story, args) => {
   return (

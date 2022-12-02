@@ -6,8 +6,7 @@ import { useXyoEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, Fragment, useEffect, useState } from 'react'
 
-import { useActiveBoundWitness } from '../../contexts'
-import { useOrderedHistory } from '../../hooks'
+import { useActiveBoundWitness, useOrderedHistory } from '../../hooks'
 
 const AddressChainList = styled(List, { name: 'AddressChainList' })(({ theme }) => ({
   overflow: 'scroll',
