@@ -1,20 +1,20 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { EthereumGasPriceRender } from './EthereumGasPriceRender'
-import { payloadData, payloadDataMissingFees } from './payloadData.stories'
+import { payloadData, payloadDataMissingFees } from '../../payloadData.stories'
+import { EthereumGasPriceDetailsBox } from './EthereumGasPriceDetailsBox'
 
 const StorybookEntry = {
   argTypes: {},
-  component: EthereumGasPriceRender,
+  component: EthereumGasPriceDetailsBox,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'plugin/blockchain/EthereumGasPriceRender',
-} as ComponentMeta<typeof EthereumGasPriceRender>
+  title: 'plugin/blockchain/EthereumGasPriceDetailsBox',
+} as ComponentMeta<typeof EthereumGasPriceDetailsBox>
 
-const Template: ComponentStory<typeof EthereumGasPriceRender> = (args) => <EthereumGasPriceRender {...args} />
+const Template: ComponentStory<typeof EthereumGasPriceDetailsBox> = (args) => <EthereumGasPriceDetailsBox {...args} />
 
 const Default = Template.bind({})
 Default.args = {}

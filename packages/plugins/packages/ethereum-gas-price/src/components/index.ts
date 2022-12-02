@@ -1,1 +1,1 @@
-export * from './EthereumGasPriceRender'
+export * from './Details'
