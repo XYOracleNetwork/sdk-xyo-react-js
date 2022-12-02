@@ -4,7 +4,7 @@ import { useRollbar, XyoThrownErrorBoundary } from '@xyo-network/react-error'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { forwardRef } from 'react'
 
-import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../contexts'
+import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks'
 import { ActiveBWFlexBox } from './ActiveBoundWitness'
 import { BWErrorAlert } from './Errors'
 import { useBoundWitnessClickHandler } from './hooks'
