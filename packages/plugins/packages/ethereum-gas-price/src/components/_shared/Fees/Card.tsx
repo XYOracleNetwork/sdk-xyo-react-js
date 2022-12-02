@@ -4,7 +4,7 @@ import { FlexCol, FlexGrowCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbo
 import { CardContentEx } from '@xyo-network/react-card'
 import { TypographyEx, TypographyExProps } from '@xyo-network/react-shared'
 
-import { FeePerGasToSpeed, FeePerGasValue } from '../lib'
+import { FeePerGasToSpeed, FeePerGasValue } from '../../lib'
 
 export interface GasFeeCardProps extends CardProps {
   gasPrice?: number
