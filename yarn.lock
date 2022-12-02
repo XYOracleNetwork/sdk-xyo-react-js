@@ -6503,6 +6503,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/blocknative-ethereum-gas-payload-plugin@npm:^2.41.11":
+  version: 2.41.11
+  resolution: "@xyo-network/blocknative-ethereum-gas-payload-plugin@npm:2.41.11"
+  dependencies:
+    "@xyo-network/module": ^2.41.11
+    "@xyo-network/payload": ^2.41.11
+    "@xyo-network/payload-plugin": ^2.41.11
+    "@xyo-network/witness": ^2.41.11
+    axios: ~1.1.3
+    tslib: ^2.4.1
+  checksum: d4c95f3c861a346c6c05d44bbc7a63ad4439c7ef032fd5613a9c7f441e7aecd68860c6e5c94b6e2fca0da5434124f1c42dfcde7216a119f821641ba928483e43
+  languageName: node
+  linkType: hard
+
 "@xyo-network/boundwitness@npm:^2.41.11":
   version: 2.41.11
   resolution: "@xyo-network/boundwitness@npm:2.41.11"
@@ -6616,6 +6630,122 @@ __metadata:
     axios: ~1.1.3
     pako: ^2.1.0
   checksum: 273a80c4ddca6de1a02ebb6d70e70efe71b84b97aed1c291799eb61c576a2a95c55ad4926945023b891295da6289532cac66d078ae9d433827f210096774f488
+  languageName: node
+  linkType: hard
+
+"@xyo-network/etherchain-ethereum-gas-v1-payload-plugin@npm:^2.41.11":
+  version: 2.41.11
+  resolution: "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin@npm:2.41.11"
+  dependencies:
+    "@xyo-network/module": ^2.41.11
+    "@xyo-network/payload": ^2.41.11
+    "@xyo-network/payload-plugin": ^2.41.11
+    "@xyo-network/witness": ^2.41.11
+    axios: ~1.1.3
+    tslib: ^2.4.1
+  checksum: bd0a4c038a4cd07f2e812dec39077f4dfbdfd10e97e75d241c071e5d4d04767afdd909f66333157ab23c823faabf9683f9101762233b6d2b9c319ca5b296e4fc
+  languageName: node
+  linkType: hard
+
+"@xyo-network/etherchain-ethereum-gas-v2-payload-plugin@npm:^2.41.11":
+  version: 2.41.11
+  resolution: "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin@npm:2.41.11"
+  dependencies:
+    "@xyo-network/module": ^2.41.11
+    "@xyo-network/payload": ^2.41.11
+    "@xyo-network/payload-plugin": ^2.41.11
+    "@xyo-network/witness": ^2.41.11
+    axios: ~1.1.3
+    tslib: ^2.4.1
+  checksum: 80ec92004bb9ef3f0b629224b6f42c284c9220242ef33dfa430719232f9bd7dfd91383449380c5f03abc555badf108ee6c15e8d0f8af090b3130d0a6be2d3e1c
+  languageName: node
+  linkType: hard
+
+"@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins@npm:^2.41.11":
+  version: 2.41.11
+  resolution: "@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins@npm:2.41.11"
+  dependencies:
+    "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": ^2.41.11
+    "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": ^2.41.11
+    "@xyo-network/payload-plugin": ^2.41.11
+    tslib: ^2.4.1
+  checksum: 5459d095cda5c82186ef2f65ceb8cd336437bee518854dc3e7611daedc9cce8f2af3223a9ca5c3b0706b29a57e5c5d71c23d97717626d93741154e80129f6ae0
+  languageName: node
+  linkType: hard
+
+"@xyo-network/ethers-ethereum-gas-payload-plugin@npm:^2.41.11":
+  version: 2.41.11
+  resolution: "@xyo-network/ethers-ethereum-gas-payload-plugin@npm:2.41.11"
+  dependencies:
+    "@ethersproject/providers": ^5.7.2
+    "@xylabs/assert": ^2.6.9
+    "@xyo-network/module": ^2.41.11
+    "@xyo-network/payload": ^2.41.11
+    "@xyo-network/payload-plugin": ^2.41.11
+    "@xyo-network/witness": ^2.41.11
+    tslib: ^2.4.1
+  checksum: dd259853c72caea8f4d7c4f80ec65c4b3a5ee515facc78b721a266a6a6b60ad201e331dcca9d201b6332a5c6865ab20952e67ca68dc0a42db06da60050d68cf5
+  languageName: node
+  linkType: hard
+
+"@xyo-network/etherscan-ethereum-gas-payload-plugin@npm:^2.41.11":
+  version: 2.41.11
+  resolution: "@xyo-network/etherscan-ethereum-gas-payload-plugin@npm:2.41.11"
+  dependencies:
+    "@xylabs/assert": ^2.6.9
+    "@xyo-network/module": ^2.41.11
+    "@xyo-network/payload": ^2.41.11
+    "@xyo-network/payload-plugin": ^2.41.11
+    "@xyo-network/witness": ^2.41.11
+    axios: ~1.1.3
+    tslib: ^2.4.1
+  checksum: 7aa48f2f52b261795e4aec9b7765fad9e0e581a0b8afec86bf28a2845bf152a82c5504cc639993d05f5c2755a9c01bb13559c6e096e9bd14c45550dc2c889cb6
+  languageName: node
+  linkType: hard
+
+"@xyo-network/ethgasstation-ethereum-gas-payload-plugin@npm:^2.41.11":
+  version: 2.41.11
+  resolution: "@xyo-network/ethgasstation-ethereum-gas-payload-plugin@npm:2.41.11"
+  dependencies:
+    "@xyo-network/module": ^2.41.11
+    "@xyo-network/payload": ^2.41.11
+    "@xyo-network/payload-plugin": ^2.41.11
+    "@xyo-network/witness": ^2.41.11
+    axios: ~1.1.3
+    tslib: ^2.4.1
+  checksum: 2301ad85fbca671ec1dba6e674fc134eb8a9284735c90c514dfb984c034ba21316677a02708dc54bfb6795189158ee3e1398fa1ab33556c73b7e646f26229000
+  languageName: node
+  linkType: hard
+
+"@xyo-network/gas-price-payload-plugin@npm:^2.41.10":
+  version: 2.41.10
+  resolution: "@xyo-network/gas-price-payload-plugin@npm:2.41.10"
+  dependencies:
+    "@xylabs/exists": ^2.6.9
+    "@xyo-network/blocknative-ethereum-gas-payload-plugin": ^2.41.11
+    "@xyo-network/diviner": ^2.41.11
+    "@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins": ^2.41.11
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": ^2.41.11
+    "@xyo-network/etherscan-ethereum-gas-payload-plugin": ^2.41.11
+    "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": ^2.41.11
+    "@xyo-network/module": ^2.41.11
+    "@xyo-network/payload": ^2.41.11
+    "@xyo-network/payload-plugin": ^2.41.11
+    "@xyo-network/promise": ^2.41.11
+    regression: ^2.0.1
+    tslib: ^2.4.1
+  peerDependencies:
+    "@ethersproject/address": ^5.7.0
+    "@ethersproject/contracts": ^5.7.0
+    "@ethersproject/networks": ^5.7.0
+    "@ethersproject/providers": ^5.7.0
+    "@ethersproject/solidity": ^5.7.0
+    "@uniswap/sdk": ^3.0.3
+    "@uniswap/sdk-core": ^3.1.0
+    "@uniswap/v3-sdk": ^3.9.0
+    "@xyo-network/typechain": ^2.0.3
+    "@xyo-network/uniswap-typechain": ^2.0.3
+  checksum: 213917d437069c3e7859d96c2b34cda6aa13f6ccded3add1ca8b4aa8fbeb23415c693d3faf71f51acd93d120b47960924cdcaef72e882a86b100be1516eda40c
   languageName: node
   linkType: hard
 
@@ -7474,6 +7604,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-ethereum-gas-price-plugin@workspace:^, @xyo-network/react-ethereum-gas-price-plugin@workspace:packages/plugins/packages/ethereum-gas-price":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-ethereum-gas-price-plugin@workspace:packages/plugins/packages/ethereum-gas-price"
+  dependencies:
+    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-quick-tip-button": ^2.15.2
+    "@xyo-network/react-card": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    tslib: ^2.4.1
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.16
+    "@xyo-network/gas-price-payload-plugin": ^2.41.10
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-event@workspace:^, @xyo-network/react-event@workspace:packages/sdk/packages/event":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-event@workspace:packages/sdk/packages/event"
@@ -7942,6 +8092,7 @@ __metadata:
     "@xyo-network/react-crypto-prices-plugin": "workspace:^"
     "@xyo-network/react-default-plugin": "workspace:^"
     "@xyo-network/react-elevation-map-quadkey-plugin": "workspace:^"
+    "@xyo-network/react-ethereum-gas-price-plugin": "workspace:^"
     "@xyo-network/react-location-heatmap-quadkey-plugin": "workspace:^"
     "@xyo-network/react-location-points-map-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7962,10 +8113,11 @@ __metadata:
     "@xylabs/sdk-js": ~2
     "@xyo-network/archivist": ~2
     "@xyo-network/boundwitness": ~2
-    "@xyo-network/coingecko-crypto-market-payload-plugin": "*"
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ~2
     "@xyo-network/core": ~2
-    "@xyo-network/crypto-asset-payload-plugin": "*"
+    "@xyo-network/crypto-asset-payload-plugin": ~2
     "@xyo-network/diviner": ~2
+    "@xyo-network/gas-price-payload-plugin": ~2
     "@xyo-network/module": ~2
     "@xyo-network/network": ~2
     "@xyo-network/payload": ~2
@@ -8519,6 +8671,7 @@ __metadata:
     "@xyo-network/boundwitness": ^2.41.11
     "@xyo-network/core": ^2.41.11
     "@xyo-network/diviner": ^2.41.11
+    "@xyo-network/gas-price-payload-plugin": ^2.41.10
     "@xyo-network/module": ^2.41.11
     "@xyo-network/network": ^2.41.11
     "@xyo-network/node": ^2.41.11
@@ -20229,6 +20382,13 @@ __metadata:
   bin:
     regjsparser: bin/parser
   checksum: 5e1b76afe8f1d03c3beaf9e0d935dd467589c3625f6d65fb8ffa14f224d783a0fed4bf49c2c1b8211043ef92b6117313419edf055a098ed8342e340586741afc
+  languageName: node
+  linkType: hard
+
+"regression@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "regression@npm:2.0.1"
+  checksum: 2afb76ed65c87f22ef25dffb19fa95d70cded586ee9fcd5239f61d40993f5904bab0aae8fece73a8dddd35e19956a027004e727385ee4b4e7f800229a50edfb5
   languageName: node
   linkType: hard
 
