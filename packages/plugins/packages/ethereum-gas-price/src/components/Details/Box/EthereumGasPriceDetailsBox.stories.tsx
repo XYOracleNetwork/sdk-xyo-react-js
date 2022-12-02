@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { sampleEthereumGasDivinerPayload, sampleEthereumGasDivinerPayloadMissingFees } from '@xyo-network/react-storybook'
 
-import { payloadData, payloadDataMissingFees } from '../../payloadData.stories'
 import { EthereumGasPriceDetailsBox } from './EthereumGasPriceDetailsBox'
 
 const StorybookEntry = {
@@ -20,10 +20,10 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { payload: payloadData }
+WithData.args = { payload: sampleEthereumGasDivinerPayload }
 
 const WithMissingData = Template.bind({})
-WithMissingData.args = { payload: payloadDataMissingFees }
+WithMissingData.args = { payload: sampleEthereumGasDivinerPayloadMissingFees }
 
 export { Default, WithData, WithMissingData }
 

@@ -1,4 +1,4 @@
-export const payloadData = {
+export const sampleEthereumGasDivinerPayload = {
   baseFee: 13.3646505198,
   feePerGas: {
     high: 17.3060964302,
@@ -16,7 +16,7 @@ export const payloadData = {
   timestamp: 1669819808305,
 }
 
-export const payloadDataMissingFees = {
+export const sampleEthereumGasDivinerPayloadMissingFees = {
   feePerGas: {},
   priorityFeePerGas: {},
   schema: 'network.xyo.blockchain.ethereum.gas',
