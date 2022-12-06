@@ -6,9 +6,8 @@ import { useArchivist } from '@xyo-network/react-archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useCallback, useEffect, useState } from 'react'
 
-import { useActiveBoundWitness } from '../ActiveBoundWitness'
-import { HashSelectionHistoryContext } from './Context'
-import { NestedBoundWitnesses } from './State'
+import { HashSelectionHistoryContext, NestedBoundWitnesses } from '../../contexts'
+import { useActiveBoundWitness } from '../../hooks'
 
 export interface HashSelectionHistoryProviderProps extends WithChildren, ContextExProviderProps {
   defaultHashSelectionHistory?: string[]

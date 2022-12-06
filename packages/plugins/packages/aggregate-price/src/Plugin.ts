@@ -8,7 +8,7 @@ export const CryptoAssetRenderPlugin: XyoPayloadRenderPlugin = {
     canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.crypto.asset',
     components: {
       box: {
-        details: CryptoAssetRenderer,
+        detailsBox: CryptoAssetRenderer,
       },
     },
     name: 'Aggregate Price',

@@ -5,7 +5,7 @@ import { useXyoEvent } from '@xyo-network/react-event'
 import isEmpty from 'lodash/isEmpty'
 import { Fragment } from 'react'
 
-import { useHashSelectionHistory } from '../../../contexts'
+import { useHashSelectionHistory } from '../../../hooks'
 import { useBoundWitnessClickHandler } from '../hooks'
 import { GlowingDiv } from '../layout'
 

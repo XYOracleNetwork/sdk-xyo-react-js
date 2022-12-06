@@ -2,7 +2,7 @@ import { ButtonGroup, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { PayloadArchivist, XyoArchivistClearQuerySchema, XyoArchivistCommitQuerySchema, XyoArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistWrapper, PayloadArchivist, XyoArchivistClearQuerySchema, XyoArchivistCommitQuerySchema } from '@xyo-network/archivist'
 import { XyoPayload } from '@xyo-network/payload'
 import { useEffect, useState } from 'react'
 
@@ -16,10 +16,10 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ archivist: archiv
   const { archivist = archivistProp } = useArchivist()
   const [payloads, setPayloads] = useState<XyoPayload[]>()
   const [refresh, setRefresh] = useState(0)
-  const [wrapper, setWrapper] = useState<XyoArchivistWrapper>()
+  const [wrapper, setWrapper] = useState<ArchivistWrapper>()
 
   useEffect(() => {
-    setWrapper(archivist ? new XyoArchivistWrapper(archivist) : undefined)
+    setWrapper(archivist ? new ArchivistWrapper(archivist) : undefined)
   }, [archivist])
 
   useAsyncEffect(

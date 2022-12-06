@@ -8,7 +8,7 @@ export const CoinGeckoPricesRenderPlugin: XyoPayloadRenderPlugin = {
     canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.crypto.market.coingecko',
     components: {
       box: {
-        details: CoinGeckoPricesRenderer,
+        detailsBox: CoinGeckoPricesRenderer,
       },
     },
     name: 'CoinGecko Prices',

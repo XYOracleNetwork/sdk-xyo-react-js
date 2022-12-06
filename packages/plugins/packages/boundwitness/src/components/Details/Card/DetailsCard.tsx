@@ -43,12 +43,14 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, XyoPayloadDetail
           activeBgColor={false}
           hideJSONButton={false}
           hideValidation={false}
+          hidePreviousHash={false}
           additionalActions={
             <>
               <Divider flexItem orientation={'vertical'} sx={{ ml: 2, mr: 1 }} />
               <IconButton onClick={() => setCollapsed(!collapsed)}>{collapsed ? <ExpandMoreRoundedIcon /> : <ExpandLessRoundedIcon />}</IconButton>
             </>
           }
+          sx={{ columnGap: 2 }}
         />
         <FlexCol alignItems="stretch" ref={ref} {...props}>
           <Collapse in={collapsed}>

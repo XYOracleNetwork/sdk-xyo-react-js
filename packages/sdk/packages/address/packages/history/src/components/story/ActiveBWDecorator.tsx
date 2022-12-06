@@ -1,16 +1,16 @@
 import { DecoratorFn } from '@storybook/react'
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoStorageArchivistConfigSchema } from '@xyo-network/archivist'
+import { StorageArchivistConfigSchema } from '@xyo-network/archivist'
 import { PayloadWrapper } from '@xyo-network/payload'
 import { StorageArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { usePromise } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 
-import { ActiveBoundWitnessProvider } from '../../contexts'
+import { ActiveBoundWitnessProvider } from '../../providers'
 
 export const ActiveBWDecorator: DecoratorFn = (Story, args) => {
   return (
-    <StorageArchivistProvider config={{ namespace: 'AddressHistory', schema: XyoStorageArchivistConfigSchema, type: 'local' }}>
+    <StorageArchivistProvider config={{ namespace: 'AddressHistory', schema: StorageArchivistConfigSchema, type: 'local' }}>
       <ActiveBWDecoratorInner>
         <Story {...args} />
       </ActiveBWDecoratorInner>

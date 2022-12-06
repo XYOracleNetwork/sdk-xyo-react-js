@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistApi, XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
-import { XyoArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistWrapper } from '@xyo-network/archivist'
 import { XyoModuleResolver } from '@xyo-network/module'
 import { ArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
@@ -20,7 +20,7 @@ export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = (
   //we set this every time, but it will only take if config VALUE changed
   setConfig(configProp)
 
-  const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper(archivist) : undefined), [archivist])
+  const wrapper = useMemo(() => (archivist ? new ArchivistWrapper(archivist) : undefined), [archivist])
   const activeResolver: XyoModuleResolver | undefined = useMemo(
     () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),
     [resolver, wrapper],
@@ -30,7 +30,7 @@ export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = (
   const activeApi = api ?? config?.api
 
   if (archivist) {
-    activeResolver?.add(new XyoArchivistWrapper(archivist))
+    activeResolver?.add(new ArchivistWrapper(archivist))
   }
 
   const [activeArchivist, setActiveArchivist] = useState<XyoRemoteArchivist>()

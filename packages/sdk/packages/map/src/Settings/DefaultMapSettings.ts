@@ -11,6 +11,7 @@ export const DefaultMapSettings: () => MapSetting = () => ({
   debugLogging: {
     devMode: true,
     field: 'debugLogging',
+    hidden: true,
     label: 'Debug Logging',
     value: false,
   },
@@ -24,6 +25,7 @@ export const DefaultMapSettings: () => MapSetting = () => ({
   enableControls: {
     devMode: true,
     field: 'enableControls',
+    hidden: true,
     label: 'Map Controls',
     value: false,
   },
@@ -44,6 +46,7 @@ export const DefaultMapSettings: () => MapSetting = () => ({
   scrollToZoom: {
     devMode: true,
     field: 'scrollToZoom',
+    hidden: true,
     label: 'Scroll To Zoom',
     value: false,
   },
