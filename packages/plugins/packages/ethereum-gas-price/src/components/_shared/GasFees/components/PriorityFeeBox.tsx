@@ -7,15 +7,16 @@ import { GweiLabelTypography } from './GweiLabelTypography'
 
 export interface PriorityFeeBoxProps extends FlexBoxProps {
   priorityFee?: number
+  priorityFeeLabel?: string
 }
 
-export const PriorityFeeBox: React.FC<PriorityFeeBoxProps> = ({ priorityFee, ...props }) => {
+export const PriorityFeeBox: React.FC<PriorityFeeBoxProps> = ({ priorityFee, priorityFeeLabel = 'Priority Fee', ...props }) => {
   const theme = useTheme()
 
   return (
     <FlexGrowRow width="100%" justifyContent="space-between" alignItems="end" {...props}>
       <FlexCol alignItems="start">
-        <TypographyEx>Priority Fee</TypographyEx>
+        <TypographyEx>{priorityFeeLabel}</TypographyEx>
         <TypographyEx title={priorityFee?.toString() ?? ''}>
           {priorityFee?.toFixed(2)} <GweiLabelTypography fontSize={theme.spacing(1)} />
         </TypographyEx>

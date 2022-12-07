@@ -9,7 +9,7 @@ export const EthereumGasPriceCardHeader = forwardRef<HTMLDivElement, XyoPayloadR
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined
   return (
     <CardHeader
-      title={<GasPriceEstimateHeadingTypography />}
+      title={<GasPriceEstimateHeadingTypography heading="Gas Fee Estimate" />}
       action={<GasPriceHeaderActionsBox timestamp={gasPricePayload?.timestamp} baseFee={gasPricePayload?.baseFee} />}
     />
   )

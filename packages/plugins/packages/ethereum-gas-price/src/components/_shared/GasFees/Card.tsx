@@ -8,11 +8,12 @@ import { GasPriceBox, PriorityFeeBox, SpeedBox } from './components'
 export interface GasFeeCardProps extends CardProps {
   gasPrice?: number
   priorityFee?: number
-  speed?: FeePerGasValue
+  priorityFeeLabel?: string
+  speed?: FeePerGasValue | string
   speedPaperElevation?: number
 }
 
-export const GasFeeCard: React.FC<GasFeeCardProps> = ({ gasPrice, speedPaperElevation, priorityFee, speed = 'low', ...props }) => {
+export const GasFeeCard: React.FC<GasFeeCardProps> = ({ gasPrice, speedPaperElevation, priorityFee, priorityFeeLabel, speed = 'low', ...props }) => {
   const theme = useTheme()
 
   return (
@@ -20,7 +21,7 @@ export const GasFeeCard: React.FC<GasFeeCardProps> = ({ gasPrice, speedPaperElev
       <CardContentEx removePadding sx={{ flexDirection: 'column', flexGrow: 1, p: 0, rowGap: 2 }}>
         <FlexGrowCol bgcolor={'secondary.dark'} alignItems="start" p={2} rowGap={1.5}>
           <GasPriceBox gasPrice={gasPrice} />
-          <PriorityFeeBox priorityFee={priorityFee} />
+          <PriorityFeeBox priorityFee={priorityFee} priorityFeeLabel={priorityFeeLabel} />
         </FlexGrowCol>
         <Paper elevation={speedPaperElevation} sx={{ borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px` }}>
           <SpeedBox speed={speed} />

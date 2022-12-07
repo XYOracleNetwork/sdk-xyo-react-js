@@ -5,7 +5,7 @@ import { TypographyEx } from '@xyo-network/react-shared'
 import { FeePerGasToSpeed, FeePerGasValue } from '../../../lib'
 
 export interface SpeedBoxProps extends FlexBoxProps {
-  speed?: FeePerGasValue
+  speed?: FeePerGasValue | string
 }
 
 export const SpeedBox: React.FC<SpeedBoxProps> = ({ speed, ...props }) => {

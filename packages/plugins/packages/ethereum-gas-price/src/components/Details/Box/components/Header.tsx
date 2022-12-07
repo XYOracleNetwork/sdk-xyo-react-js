@@ -19,7 +19,7 @@ export const GasPriceEstimateHeaderBox: React.FC<GasPriceEstimateHeaderBoxProps>
       justifyContent="space-between"
       {...props}
     >
-      <GasPriceEstimateHeadingTypography />
+      <GasPriceEstimateHeadingTypography heading="Gas Fee Estimate" />
       <GasPriceHeaderActionsBox timestamp={timestamp} baseFee={baseFee} />
     </FlexRow>
   )
