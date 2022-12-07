@@ -1,2 +1,3 @@
 export * from './Actions'
-export * from './Heading'
+export * from './Header'
+export * from './HeadingComponents'

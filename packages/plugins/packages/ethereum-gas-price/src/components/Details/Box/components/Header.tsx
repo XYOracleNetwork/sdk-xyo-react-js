@@ -1,6 +1,6 @@
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 
-import { GasPriceEstimateHeadingTypography, GasPriceHeaderActionsBox } from '../../../_shared'
+import { GasPriceEstimateHeaderTypography, GasPriceHeaderActionsBox } from '../../../_shared'
 
 export interface GasPriceEstimateHeaderBoxProps extends FlexBoxProps {
   timestamp?: number
@@ -19,7 +19,7 @@ export const GasPriceEstimateHeaderBox: React.FC<GasPriceEstimateHeaderBoxProps>
       justifyContent="space-between"
       {...props}
     >
-      <GasPriceEstimateHeadingTypography heading="Gas Fee Estimate" />
+      <GasPriceEstimateHeaderTypography heading="Gas Fee Estimate" />
       <GasPriceHeaderActionsBox timestamp={timestamp} baseFee={baseFee} />
     </FlexRow>
   )
