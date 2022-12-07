@@ -1,11 +1,11 @@
 import { Grid } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import { GasFeeCard } from '@xyo-network/react-gas-price'
 import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
 
-import { GasFeeCard } from '../../_shared'
 import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../../lib'
 import { GasPriceEstimateHeaderBox } from './components'
 

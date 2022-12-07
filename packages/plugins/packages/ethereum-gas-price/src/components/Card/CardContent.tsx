@@ -1,8 +1,8 @@
 import { CardContent, CardContentProps, Grid } from '@mui/material'
+import { GasFeeCard } from '@xyo-network/react-gas-price'
 import { XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { forwardRef } from 'react'
 
-import { GasFeeCard } from '../_shared'
 import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../lib'
 
 export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, XyoPayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {

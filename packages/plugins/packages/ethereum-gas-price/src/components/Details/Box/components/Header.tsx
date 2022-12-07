@@ -1,6 +1,5 @@
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
-
-import { GasPriceEstimateHeaderTypography, GasPriceHeaderActionsBox } from '../../../_shared'
+import { GasPriceEstimateHeaderTypography, GasPriceHeaderActionsBox } from '@xyo-network/react-gas-price'
 
 export interface GasPriceEstimateHeaderBoxProps extends FlexBoxProps {
   timestamp?: number

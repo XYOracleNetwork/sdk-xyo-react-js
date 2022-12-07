@@ -1,8 +1,8 @@
 import { CardHeader, CardHeaderProps } from '@mui/material'
+import { GasPriceEstimateHeaderTypography, GasPriceHeaderActionsBox } from '@xyo-network/react-gas-price'
 import { XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { forwardRef } from 'react'
 
-import { GasPriceEstimateHeaderTypography, GasPriceHeaderActionsBox } from '../_shared'
 import { FeeDataPayload } from '../lib'
 
 export const EthereumGasPriceCardHeader = forwardRef<HTMLDivElement, XyoPayloadRenderProps & CardHeaderProps>(({ payload }) => {

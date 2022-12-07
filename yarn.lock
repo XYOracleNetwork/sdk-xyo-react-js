@@ -7637,6 +7637,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.15.2
     "@xylabs/react-quick-tip-button": ^2.15.2
     "@xyo-network/react-card": "workspace:^"
+    "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
@@ -7686,11 +7687,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-gas-price@workspace:packages/sdk/packages/gas-price":
+"@xyo-network/react-gas-price@workspace:^, @xyo-network/react-gas-price@workspace:packages/sdk/packages/gas-price":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-gas-price@workspace:packages/sdk/packages/gas-price"
   dependencies:
     "@xylabs/react-shared": ^2.15.2
+    "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
   peerDependencies:
