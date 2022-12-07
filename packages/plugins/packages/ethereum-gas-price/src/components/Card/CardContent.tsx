@@ -3,7 +3,7 @@ import { XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { forwardRef } from 'react'
 
 import { GasFeeCard } from '../_shared'
-import { FeeDataPayload, FeePerGasValues } from '../lib'
+import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../lib'
 
 export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, XyoPayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined
@@ -17,7 +17,7 @@ export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, XyoPayload
                 speedPaperElevation={4}
                 gasPrice={gasPricePayload?.feePerGas[value]}
                 priorityFee={gasPricePayload.priorityFeePerGas[value]}
-                speed={value}
+                speed={FeePerGasToSpeed[value]}
               />
             </Grid>
           ))}
