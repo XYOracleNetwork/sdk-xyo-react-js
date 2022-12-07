@@ -1,5 +1,7 @@
 // Payload for common fields across Gas Price Witnesses
 export interface GasPriceWitnessUIBasePayload {
+  // @field website for the company
+  website?: string
   timestamp?: number
   schema?: string
   blockNumber?: UIField
