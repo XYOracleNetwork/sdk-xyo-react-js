@@ -1,1 +1,1 @@
-export const RenderTitle = 'Ethers Gas Tracker'
+export const RenderTitle = 'Eth Gas Station Gas Tracker'
