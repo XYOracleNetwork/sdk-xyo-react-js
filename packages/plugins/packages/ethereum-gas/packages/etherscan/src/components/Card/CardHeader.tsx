@@ -18,6 +18,8 @@ export const EtherscanGasPriceCardHeader = forwardRef<HTMLDivElement, XyoPayload
           timestamp={parsedPayload?.timestamp}
           baseFee={parsedPayload?.baseFee?.value}
           baseFeeLabel={parsedPayload?.baseFee?.label}
+          blockNumber={parsedPayload?.blockNumber?.value}
+          blockNumberLabel={parsedPayload?.blockNumber?.label}
         />
       }
     />
