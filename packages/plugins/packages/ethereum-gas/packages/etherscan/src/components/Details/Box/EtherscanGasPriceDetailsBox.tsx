@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoEthereumGasEtherscanPayload } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
-import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
+import { GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
@@ -9,7 +9,6 @@ import { forwardRef } from 'react'
 
 import { useEtherscanTransformer } from '../../hooks'
 import { RenderTitle } from '../../lib'
-import { GasPriceEtherscanHeaderBox } from './components'
 
 export const EtherscanGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -23,12 +22,7 @@ export const EtherscanGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayload
 
     return (
       <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
-        <GasPriceEtherscanHeaderBox
-          heading={RenderTitle}
-          timestamp={parsedPayload?.timestamp}
-          baseFee={parsedPayload?.baseFee?.value}
-          baseFeeLabel={parsedPayload?.baseFee?.label}
-        />
+        <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
         <Grid container spacing={3}>
           {parsedPayload &&
             parsedPayload?.gasPrice?.map(({ price }) => (

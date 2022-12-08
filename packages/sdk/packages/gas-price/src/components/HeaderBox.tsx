@@ -1,35 +1,24 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 
+import { GasPriceWitnessUIBasePayload } from '../types'
 import { GasPriceHeaderActionsBox, GasPriceHeaderTypography } from './HeaderComponents'
 import { StyledGasPriceHeaderBox } from './layout'
 
 export interface GasPriceWitnessHeaderBoxProps extends FlexBoxProps {
-  baseFee?: number
-  baseFeeLabel?: string
-  blockNumber?: number
-  blockNumberLabel?: string
+  parsedPayload?: GasPriceWitnessUIBasePayload
   heading?: string
-  timestamp?: number
 }
 
-export const GasPriceWitnessHeaderBox: React.FC<GasPriceWitnessHeaderBoxProps> = ({
-  timestamp,
-  baseFee,
-  baseFeeLabel,
-  blockNumber,
-  blockNumberLabel,
-  heading,
-  ...props
-}) => {
+export const GasPriceWitnessHeaderBox: React.FC<GasPriceWitnessHeaderBoxProps> = ({ heading, parsedPayload, ...props }) => {
   return (
     <StyledGasPriceHeaderBox {...props}>
       <GasPriceHeaderTypography heading={heading} />
       <GasPriceHeaderActionsBox
-        timestamp={timestamp}
-        baseFee={baseFee}
-        baseFeeLabel={baseFeeLabel}
-        blockNumber={blockNumber}
-        blockNumberLabel={blockNumberLabel}
+        timestamp={parsedPayload?.timestamp}
+        baseFee={parsedPayload?.baseFee?.value}
+        baseFeeLabel={parsedPayload?.baseFee?.label}
+        blockNumber={parsedPayload?.blockNumber?.value}
+        blockNumberLabel={parsedPayload?.blockNumber?.label}
       />
     </StyledGasPriceHeaderBox>
   )
