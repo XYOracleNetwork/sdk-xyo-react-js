@@ -1,7 +1,7 @@
-import { EthereumGasPriceEthersPlugin } from './Plugin'
+import { EthereumGasPriceEthgasstationPlugin } from './Plugin'
 
 export * from './components'
 export * from './Plugin'
 
 // eslint-disable-next-line import/no-default-export
-export default EthereumGasPriceEthersPlugin
+export default EthereumGasPriceEthgasstationPlugin
