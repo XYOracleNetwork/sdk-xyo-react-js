@@ -38,7 +38,7 @@ const WithLabel = Template.bind({})
 WithLabel.args = {
   ...DefaultArgs,
   priorityFeeLabel: 'CustomPriorityFeeLabel',
-  speed: 'CustomSpeedLabel'
+  speed: 'CustomSpeedLabel',
 }
 
 export { Contained, Default, WithData, WithLabel }
