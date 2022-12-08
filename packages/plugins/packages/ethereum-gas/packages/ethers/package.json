@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-ethereum-gas-price-payload-plugins",
+  "name": "@xyo-network/react-ethereum-gas-price-ethers-plugin",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,18 +10,19 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-ethereum-gas-price-ethers-plugin": "workspace:^",
-    "@xyo-network/react-ethereum-gas-price-etherscan-plugin": "workspace:^",
-    "@xyo-network/react-ethereum-gas-price-plugin": "workspace:^",
-    "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xylabs/react-flexbox": "^2.15.2",
+    "@xyo-network/react-gas-price": "workspace:^",
+    "@xyo-network/react-payload-plugin": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^",
+    "lodash": "^4.17.21",
+    "tslib": "^2.4.1"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.16",
     "@xyo-network/diviner": "*",
-    "@xyo-network/ethers-ethereum-gas-payload-plugin": "*",
-    "@xyo-network/etherscan-ethereum-gas-payload-plugin": "*",
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^2.41.12",
     "@xyo-network/gas-price-payload-plugin": "*",
     "@xyo-network/module": "*",
     "@xyo-network/payload": "*",
