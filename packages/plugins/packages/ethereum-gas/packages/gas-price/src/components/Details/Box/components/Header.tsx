@@ -1,25 +1,21 @@
-import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
-import { GasPriceEstimateHeaderTypography, GasPriceHeaderActionsBox } from '@xyo-network/react-gas-price'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
+import { GasPriceHeaderActionsBox, GasPriceHeaderTypography, StyledGasPriceHeaderBox } from '@xyo-network/react-gas-price'
 
-export interface GasPriceEstimateHeaderBoxProps extends FlexBoxProps {
-  timestamp?: number
+import { DescriptionQuickTip } from './DescriptionQuickTip'
+
+export interface GasPriceHeaderBoxProps extends FlexBoxProps {
   baseFee?: number
+  heading?: string
+  timestamp?: number
 }
 
-export const GasPriceEstimateHeaderBox: React.FC<GasPriceEstimateHeaderBoxProps> = ({ timestamp, baseFee, ...props }) => {
+export const GasPriceHeaderBox: React.FC<GasPriceHeaderBoxProps> = ({ timestamp, baseFee, heading, ...props }) => {
   return (
-    <FlexRow
-      justifyItems="space-between"
-      alignItems="end"
-      columnGap={2}
-      rowGap={2}
-      flexWrap="wrap"
-      width="100%"
-      justifyContent="space-between"
-      {...props}
-    >
-      <GasPriceEstimateHeaderTypography heading="Gas Fee Estimate" />
+    <StyledGasPriceHeaderBox {...props}>
+      <GasPriceHeaderTypography heading={heading}>
+        <DescriptionQuickTip />
+      </GasPriceHeaderTypography>
       <GasPriceHeaderActionsBox timestamp={timestamp} baseFee={baseFee} />
-    </FlexRow>
+    </StyledGasPriceHeaderBox>
   )
 }

@@ -7,7 +7,7 @@ import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
 
 import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../../lib'
-import { GasPriceEstimateHeaderBox } from './components'
+import { GasPriceHeaderBox } from './components'
 
 export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -20,7 +20,7 @@ export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadD
 
     return (
       <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
-        <GasPriceEstimateHeaderBox timestamp={gasPricePayload?.timestamp} baseFee={gasPricePayload?.baseFee} />
+        <GasPriceHeaderBox heading={'Gas Fee Estimate'} timestamp={gasPricePayload?.timestamp} baseFee={gasPricePayload?.baseFee} />
         <Grid container spacing={3}>
           {gasPricePayload &&
             FeePerGasValues.map((value) => (
