@@ -31,9 +31,9 @@ export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDet
         />
         <Grid container spacing={3}>
           {parsedPayload &&
-            parsedPayload?.gasPrice?.map(({ price }) => (
+            parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
               <Grid key={price?.label} item xs={12} sm={6} lg={4}>
-                <GasFeeCard gasPrice={price?.value} speed={price?.label} />
+                <GasFeeCard gasPrice={price?.value} speed={price?.label} priorityFee={priorityFee?.value} priorityFeeLabel={priorityFee?.label} />
               </Grid>
             ))}
         </Grid>
