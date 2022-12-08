@@ -16,7 +16,7 @@ export const EtherscanGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayload
     const gasPricePayload = payload ? (payload as XyoEthereumGasEtherscanPayload) : undefined
     const parsedPayload = useEtherscanTransformer(gasPricePayload)
 
-    if (isEmpty(gasPricePayload) || gasPricePayload.status !== 'OK') {
+    if (isEmpty(gasPricePayload) || gasPricePayload.status !== '1') {
       return <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
     }
 
@@ -31,12 +31,12 @@ export const EtherscanGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayload
         <Grid container spacing={3}>
           {parsedPayload &&
             parsedPayload?.gasPrice?.map(({ price }) => (
-              <Grid key={price?.label} item xs={12} sm={6} lg={3}>
+              <Grid key={price?.label} item xs={12} sm={6} lg={4}>
                 <GasFeeCard gasPrice={price?.value} speed={price?.label} />
               </Grid>
             ))}
         </Grid>
-        <ToggleRawPayloadBox gasPricePayload={gasPricePayload} />
+        <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
       </FlexCol>
     )
   },

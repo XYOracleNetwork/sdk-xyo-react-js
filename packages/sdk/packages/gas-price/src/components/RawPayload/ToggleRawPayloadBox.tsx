@@ -10,8 +10,8 @@ export const ToggleRawPayloadBox: React.FC<ToggleRawPayloadBoxProps> = ({ gasPri
   const [collapse, setCollapse] = useState(false)
   return (
     <FlexCol rowGap={1} {...props}>
-      <Button variant="contained" onClick={() => setCollapse(!collapse)}>
-        Toggle Raw Payload
+      <Button color="secondary" sx={{ bgcolor: 'secondary.dark', color: 'white' }} variant="contained" onClick={() => setCollapse(!collapse)}>
+        Raw Payload
       </Button>
       <Collapse in={collapse}>
         <Paper elevation={3} sx={{ p: 2 }}>
