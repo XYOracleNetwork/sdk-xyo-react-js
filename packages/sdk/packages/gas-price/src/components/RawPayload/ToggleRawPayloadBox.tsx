@@ -14,7 +14,7 @@ export const ToggleRawPayloadBox: React.FC<ToggleRawPayloadBoxProps> = ({ gasPri
         Raw Payload
       </Button>
       <Collapse in={collapse}>
-        <Paper elevation={3} sx={{ p: 2 }}>
+        <Paper elevation={4} sx={{ p: 2 }}>
           <pre>{JSON.stringify(gasPricePayload, null, 2)}</pre>
         </Paper>
       </Collapse>
