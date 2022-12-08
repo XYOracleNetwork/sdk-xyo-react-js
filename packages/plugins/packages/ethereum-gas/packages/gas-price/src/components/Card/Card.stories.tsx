@@ -11,7 +11,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'plugin/blockchain/EthereumGasPriceCard',
+  title: 'plugin/blockchain/EthereumGasPrice/Card',
 } as ComponentMeta<typeof EthereumGasPriceCard>
 
 const Template: ComponentStory<typeof EthereumGasPriceCard> = (args) => <EthereumGasPriceCard {...args} />

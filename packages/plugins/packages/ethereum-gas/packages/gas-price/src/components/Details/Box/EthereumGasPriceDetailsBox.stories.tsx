@@ -11,7 +11,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'plugin/blockchain/EthereumGasPriceDetailsBox',
+  title: 'plugin/blockchain/EthereumGasPrice/DetailsBox',
 } as ComponentMeta<typeof EthereumGasPriceDetailsBox>
 
 const Template: ComponentStory<typeof EthereumGasPriceDetailsBox> = (args) => <EthereumGasPriceDetailsBox {...args} />

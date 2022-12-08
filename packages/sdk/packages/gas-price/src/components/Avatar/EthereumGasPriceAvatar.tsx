@@ -1,10 +1,10 @@
-import LocalGasStationOutlinedIcon from '@mui/icons-material/LocalGasStationOutlined'
+import LocalGasStationRoundedIcon from '@mui/icons-material/LocalGasStationRounded'
 import { Avatar, AvatarProps } from '@mui/material'
 
 export const EthereumGasPriceAvatar: React.FC<AvatarProps> = ({ ...props }) => {
   return (
     <Avatar {...props}>
-      <LocalGasStationOutlinedIcon />
+      <LocalGasStationRoundedIcon />
     </Avatar>
   )
 }
