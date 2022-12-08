@@ -11,7 +11,7 @@ const DefaultArgs = {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: GasFeeCard,
-  title: 'plugin/blockchain/EthereumGasPrice/GasFeeCard',
+  title: 'plugin/blockchain/GasPrice/GasFeeCard',
 } as Meta
 
 const Template: ComponentStory<typeof GasFeeCard> = (props) => {
@@ -34,4 +34,11 @@ Contained.decorators = [
 const WithData = Template.bind({})
 WithData.args = DefaultArgs
 
-export { Contained, Default, WithData }
+const WithLabel = Template.bind({})
+WithLabel.args = {
+  ...DefaultArgs,
+  priorityFeeLabel: 'CustomPriorityFeeLabel',
+  speed: 'CustomSpeedLabel'
+}
+
+export { Contained, Default, WithData, WithLabel }
