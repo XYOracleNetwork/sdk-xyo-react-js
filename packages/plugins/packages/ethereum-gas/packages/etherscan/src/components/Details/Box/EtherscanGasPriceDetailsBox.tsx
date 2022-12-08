@@ -7,7 +7,8 @@ import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
 
-import { useEtherscanTransformer } from '../hooks'
+import { useEtherscanTransformer } from '../../hooks'
+import { RenderTitle } from '../../lib'
 import { GasPriceEtherscanHeaderBox } from './components'
 
 export const EtherscanGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(
@@ -23,7 +24,7 @@ export const EtherscanGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayload
     return (
       <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
         <GasPriceEtherscanHeaderBox
-          heading={'Etherscan Gas Tracker'}
+          heading={RenderTitle}
           timestamp={parsedPayload?.timestamp}
           baseFee={parsedPayload?.baseFee?.value}
           baseFeeLabel={parsedPayload?.baseFee?.label}
