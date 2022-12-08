@@ -7630,9 +7630,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-ethereum-ethers-gas-price-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherscan":
+"@xyo-network/react-ethereum-gas-price-ethers-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherscan":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-ethereum-ethers-gas-price-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherscan"
+  resolution: "@xyo-network/react-ethereum-gas-price-ethers-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherscan"
   dependencies:
     "@xylabs/react-flexbox": ^2.15.2
     "@xyo-network/react-gas-price": "workspace:^"
@@ -7645,6 +7645,7 @@ __metadata:
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.16
     "@xyo-network/diviner": "*"
+    "@xyo-network/etherscan-ethereum-gas-payload-plugin": ^2.41.12
     "@xyo-network/gas-price-payload-plugin": "*"
     "@xyo-network/module": "*"
     "@xyo-network/payload": "*"
@@ -7662,6 +7663,7 @@ __metadata:
   resolution: "@xyo-network/react-ethereum-gas-price-payload-plugins@workspace:packages/plugins/packages/ethereum-gas"
   dependencies:
     "@xyo-network/react-ethereum-gas-price-plugin": "workspace:^"
+    "@xyo-network/react-payload-plugin": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
