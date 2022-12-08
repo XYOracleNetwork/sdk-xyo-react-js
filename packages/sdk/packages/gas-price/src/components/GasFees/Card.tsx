@@ -20,7 +20,7 @@ export const GasFeeCard: React.FC<GasFeeCardProps> = ({ gasPrice, speedPaperElev
       <CardContentEx removePadding sx={{ flexDirection: 'column', flexGrow: 1, p: 0, rowGap: 2 }}>
         <FlexGrowCol bgcolor={'secondary.dark'} alignItems="start" p={2} rowGap={1.5}>
           <GasPriceBox gasPrice={gasPrice} />
-          <PriorityFeeBox priorityFee={priorityFee} priorityFeeLabel={priorityFeeLabel} />
+          {priorityFee ? <PriorityFeeBox priorityFee={priorityFee} priorityFeeLabel={priorityFeeLabel} /> : null}
         </FlexGrowCol>
         <Paper elevation={speedPaperElevation} sx={{ borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px` }}>
           <SpeedBox speed={speed} />

@@ -28,7 +28,7 @@ export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadD
                 <GasFeeCard
                   gasPrice={gasPricePayload?.feePerGas[value]}
                   priorityFee={gasPricePayload.priorityFeePerGas[value]}
-                  speed={FeePerGasToSpeed[value]}
+                  speed={FeePerGasToSpeed[value].toUpperCase()}
                 />
               </Grid>
             ))}

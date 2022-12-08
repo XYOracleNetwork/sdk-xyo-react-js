@@ -9,13 +9,11 @@ export interface SpeedBoxProps extends FlexBoxProps {
 export const SpeedBox: React.FC<SpeedBoxProps> = ({ speed, ...props }) => {
   const theme = useTheme()
 
-  return (
+  return speed ? (
     <FlexGrowCol {...props}>
-      {speed && (
-        <TypographyEx fontSize={theme.spacing(3)} p={1}>
-          {speed?.toUpperCase()}
-        </TypographyEx>
-      )}
+      <TypographyEx fontSize={theme.spacing(3)} p={1}>
+        {speed}
+      </TypographyEx>
     </FlexGrowCol>
-  )
+  ) : null
 }

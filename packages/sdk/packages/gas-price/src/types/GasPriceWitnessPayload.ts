@@ -5,7 +5,7 @@ export interface GasPriceWitnessUIBasePayload {
   timestamp?: number
   schema?: string
   blockNumber?: UIField
-  gasPrice: GasPrice[]
+  gasPrice?: GasPrice[]
   baseFee?: UIField
 }
 
