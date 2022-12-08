@@ -6,30 +6,30 @@ export const useEtherscanTransformer = (payload?: XyoEthereumGasEtherscanPayload
     return {
       baseFee: {
         label: 'suggestBaseFee',
-        value: parseFloat(payload.result.suggestBaseFee),
+        value: payload.result?.suggestBaseFee ? parseFloat(payload.result?.suggestBaseFee) : undefined,
       },
       blockNumber: {
         label: 'LastBlock',
-        value: parseFloat(payload.result.LastBlock),
+        value: payload.result?.LastBlock ? parseFloat(payload.result?.LastBlock) : undefined,
       },
       gasPrice: [
         {
           price: {
             label: 'ProposeGasPrice',
-            value: parseFloat(payload.result.ProposeGasPrice),
+            value: payload.result?.ProposeGasPrice ? parseFloat(payload.result?.ProposeGasPrice) : undefined,
           },
           // No distinct priority fee
         },
         {
           price: {
             label: 'SafeGasPrice',
-            value: parseFloat(payload.result.SafeGasPrice),
+            value: payload.result?.SafeGasPrice ? parseFloat(payload.result?.SafeGasPrice) : undefined,
           },
         },
         {
           price: {
             label: 'FastGasPrice',
-            value: parseFloat(payload.result.FastGasPrice),
+            value: payload.result?.FastGasPrice ? parseFloat(payload.result?.FastGasPrice) : undefined,
           },
         },
       ],
