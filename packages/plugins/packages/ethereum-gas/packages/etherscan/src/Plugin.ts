@@ -3,7 +3,7 @@ import { XyoPayload } from '@xyo-network/payload'
 import { EthereumGasPriceAvatar } from '@xyo-network/react-gas-price'
 import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { EtherscanGasPriceCard, EtherscanGasPriceCardContent, EtherscanGasPriceDetailsBox } from './components'
+import { EtherscanGasPriceCardContent, EtherscanGasPriceCardHeader, EtherscanGasPriceDetailsBox } from './components'
 
 export const EthereumGasPriceEtherscanPlugin: XyoPayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
@@ -17,7 +17,7 @@ export const EthereumGasPriceEtherscanPlugin: XyoPayloadRenderPlugin = {
       },
       card: {
         content: EtherscanGasPriceCardContent,
-        header: EtherscanGasPriceCard,
+        header: EtherscanGasPriceCardHeader,
       },
     },
     name: 'Ethereum Gas Price Etherscan',
