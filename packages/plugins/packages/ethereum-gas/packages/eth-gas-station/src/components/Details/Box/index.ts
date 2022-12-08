@@ -1,1 +1,1 @@
-export * from './EthersGasPriceDetailsBox'
+export * from './EthgasstationGasPriceDetailsBox'
