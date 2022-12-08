@@ -1,30 +1,30 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoEthereumGasEthersSchema } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
-import { sampleEthersGasPricePayload } from '@xyo-network/react-storybook'
+import { XyoEthereumGasEthgasstationSchema } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
+import { sampleEthGasStationGasPricePayload } from '@xyo-network/react-storybook'
 
-import { EthersGasPriceCard } from './Card'
+import { EthgasstationGasPriceCard } from './Card'
 
 const StorybookEntry = {
   argTypes: {},
-  component: EthersGasPriceCard,
+  component: EthgasstationGasPriceCard,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'plugin/blockchain/EthersGasPrice/Card',
-} as ComponentMeta<typeof EthersGasPriceCard>
+  title: 'plugin/blockchain/EthgasstationGasPrice/Card',
+} as ComponentMeta<typeof EthgasstationGasPriceCard>
 
-const Template: ComponentStory<typeof EthersGasPriceCard> = (args) => <EthersGasPriceCard {...args} />
+const Template: ComponentStory<typeof EthgasstationGasPriceCard> = (args) => <EthgasstationGasPriceCard {...args} />
 
 const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { payload: sampleEthersGasPricePayload }
+WithData.args = { payload: sampleEthGasStationGasPricePayload }
 
 const WithMissingData = Template.bind({})
-WithMissingData.args = { payload: { schema: XyoEthereumGasEthersSchema } }
+WithMissingData.args = { payload: { schema: XyoEthereumGasEthgasstationSchema } }
 
 export { Default, WithData, WithMissingData }
 
