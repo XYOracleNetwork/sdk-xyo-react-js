@@ -12,16 +12,19 @@
   "dependencies": {
     "@xyo-network/react-aggregate-price-plugin": "workspace:^",
     "@xyo-network/react-boundwitness-plugin": "workspace:^",
+    "@xyo-network/react-card": "workspace:^",
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^",
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^",
     "@xyo-network/react-crypto-prices-plugin": "workspace:^",
     "@xyo-network/react-default-plugin": "workspace:^",
     "@xyo-network/react-elevation-map-quadkey-plugin": "workspace:^",
-    "@xyo-network/react-ethereum-gas-price-plugin": "workspace:^",
+    "@xyo-network/react-ethereum-gas-price-payload-plugins": "workspace:^",
     "@xyo-network/react-location-heatmap-quadkey-plugin": "workspace:^",
     "@xyo-network/react-location-points-map-plugin": "workspace:^",
+    "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-pointer-plugin": "workspace:^",
     "@xyo-network/react-schema-plugin": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^",
     "lodash": "^4.17.21",
     "tslib": "^2.4.1"
   },
@@ -32,8 +35,10 @@
     "@uniswap/sdk": "^3.0.3",
     "@uniswap/sdk-core": "^3.1.0",
     "@uniswap/v3-sdk": "^3.9.0",
+    "@xylabs/react-card": "~2",
     "@xylabs/react-flexbox": "~2",
     "@xylabs/react-identicon": "~2",
+    "@xylabs/react-quick-tip-button": "~2",
     "@xylabs/react-shared": "~2",
     "@xylabs/sdk-js": "~2",
     "@xyo-network/archivist": "~2",
@@ -42,6 +47,11 @@
     "@xyo-network/core": "~2",
     "@xyo-network/crypto-asset-payload-plugin": "~2",
     "@xyo-network/diviner": "~2",
+    "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": "~2",
+    "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "~2",
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": "~2",
+    "@xyo-network/etherscan-ethereum-gas-payload-plugin": "~2",
+    "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "~2",
     "@xyo-network/gas-price-payload-plugin": "~2",
     "@xyo-network/module": "~2",
     "@xyo-network/network": "~2",
@@ -89,6 +99,9 @@
       "optional": true
     }
   },
+  "devDependencies": {
+    "@xylabs/react-quick-tip-button": "~2.15.2"
+  },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
@@ -132,5 +145,5 @@
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
-  "version": "2.40.36"
+  "version": "2.41.0"
 }
