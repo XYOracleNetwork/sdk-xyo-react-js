@@ -1,3 +1,4 @@
+import { EthereumGasPriceEtherchainPlugins } from '@xyo-network/react-ethereum-gas-price-etherchain-plugins'
 import { EthereumGasPriceEthersPlugin } from '@xyo-network/react-ethereum-gas-price-ethers-plugin'
 import { EthereumGasPriceEtherscanPlugin } from '@xyo-network/react-ethereum-gas-price-etherscan-plugin'
 import { EthereumGasPriceEthgasstationPlugin } from '@xyo-network/react-ethereum-gas-price-ethgasstation-plugin'
@@ -9,6 +10,7 @@ export const EthereumGasPricePayloadPlugins: XyoPayloadRenderPlugin[] = [
   EthereumGasPriceEtherscanPlugin,
   EthereumGasPriceEthersPlugin,
   EthereumGasPriceEthgasstationPlugin,
+  ...EthereumGasPriceEtherchainPlugins,
 ]
 
 // eslint-disable-next-line import/no-default-export
