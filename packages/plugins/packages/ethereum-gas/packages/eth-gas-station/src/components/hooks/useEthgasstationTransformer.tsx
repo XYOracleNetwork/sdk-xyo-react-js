@@ -15,6 +15,16 @@ export const useEthgasstationTransformer = (payload?: XyoEthereumGasEthgasstatio
       gasPrice: [
         {
           price: {
+            label: 'standard',
+            value: payload.gasPrice?.standard,
+          },
+          priorityFee: {
+            label: 'priorityFee',
+            value: payload.priorityFee?.standard,
+          },
+        },
+        {
+          price: {
             label: 'fast',
             value: payload.gasPrice?.fast,
           },
@@ -31,16 +41,6 @@ export const useEthgasstationTransformer = (payload?: XyoEthereumGasEthgasstatio
           priorityFee: {
             label: 'priorityFee',
             value: payload.priorityFee?.instant,
-          },
-        },
-        {
-          price: {
-            label: 'standard',
-            value: payload.gasPrice?.standard,
-          },
-          priorityFee: {
-            label: 'priorityFee',
-            value: payload.priorityFee?.standard,
           },
         },
       ],
