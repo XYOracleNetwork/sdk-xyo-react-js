@@ -1,4 +1,4 @@
-export const sampleBlockNativeGasPricePayload = {
+export const sampleBlocknativeGasPricePayload = {
   blockPrices: [
     {
       baseFeePerGas: 26.32847478,

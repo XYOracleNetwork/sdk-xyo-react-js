@@ -1,4 +1,4 @@
-export * from './blockNative'
+export * from './blocknative'
 export * from './etherchainV1'
 export * from './etherchainV2'
 export * from './ethers'
