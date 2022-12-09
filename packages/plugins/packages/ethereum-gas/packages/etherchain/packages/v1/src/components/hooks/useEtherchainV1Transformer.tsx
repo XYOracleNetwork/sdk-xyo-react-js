@@ -11,14 +11,8 @@ export const useEtherchainV1Transformer = (payload?: XyoEthereumGasEtherchainV1P
       gasPrice: [
         {
           price: {
-            label: 'fast',
-            value: payload.fast,
-          },
-        },
-        {
-          price: {
-            label: 'fastest',
-            value: payload.fastest,
+            label: 'safeLow',
+            value: payload.safeLow,
           },
         },
         {
@@ -29,8 +23,14 @@ export const useEtherchainV1Transformer = (payload?: XyoEthereumGasEtherchainV1P
         },
         {
           price: {
-            label: 'safeLow',
-            value: payload.safeLow,
+            label: 'fast',
+            value: payload.fast,
+          },
+        },
+        {
+          price: {
+            label: 'fastest',
+            value: payload.fastest,
           },
         },
       ],

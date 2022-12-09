@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-ethereum-gas-price-etherchain-plugins",
+  "name": "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,15 +10,18 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-ethereum-gas-price-etherchain-v1-plugin": "workspace:^",
-    "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin": "workspace:^"
+    "@xylabs/react-flexbox": "^2.15.2",
+    "@xyo-network/react-gas-price": "workspace:^",
+    "@xyo-network/react-payload-plugin": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^",
+    "lodash": "^4.17.21",
+    "tslib": "^2.4.1"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.16",
     "@xyo-network/diviner": "*",
-    "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": "*",
     "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "*",
     "@xyo-network/gas-price-payload-plugin": "*",
     "@xyo-network/module": "*",

@@ -15,16 +15,16 @@ export const useEtherscanTransformer = (payload?: XyoEthereumGasEtherscanPayload
       gasPrice: [
         {
           price: {
+            label: 'SafeGasPrice',
+            value: payload.result?.SafeGasPrice ? parseFloat(payload.result?.SafeGasPrice) : undefined,
+          },
+        },
+        {
+          price: {
             label: 'ProposeGasPrice',
             value: payload.result?.ProposeGasPrice ? parseFloat(payload.result?.ProposeGasPrice) : undefined,
           },
           // No distinct priority fee
-        },
-        {
-          price: {
-            label: 'SafeGasPrice',
-            value: payload.result?.SafeGasPrice ? parseFloat(payload.result?.SafeGasPrice) : undefined,
-          },
         },
         {
           price: {

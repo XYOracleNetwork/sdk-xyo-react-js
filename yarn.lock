@@ -7635,12 +7635,14 @@ __metadata:
   resolution: "@xyo-network/react-ethereum-gas-price-etherchain-plugins@workspace:packages/plugins/packages/ethereum-gas/packages/etherchain"
   dependencies:
     "@xyo-network/react-ethereum-gas-price-etherchain-v1-plugin": "workspace:^"
+    "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.16
     "@xyo-network/diviner": "*"
     "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": "*"
+    "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "*"
     "@xyo-network/gas-price-payload-plugin": "*"
     "@xyo-network/module": "*"
     "@xyo-network/payload": "*"
@@ -7669,6 +7671,34 @@ __metadata:
     "@mui/styles": ^5.10.16
     "@xyo-network/diviner": "*"
     "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": "*"
+    "@xyo-network/gas-price-payload-plugin": "*"
+    "@xyo-network/module": "*"
+    "@xyo-network/payload": "*"
+    "@xyo-network/payload-plugin": "*"
+    "@xyo-network/schema-payload-plugin": "*"
+    "@xyo-network/utils": "*"
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin@workspace:^, @xyo-network/react-ethereum-gas-price-etherchain-v2-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherchain/packages/v2":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherchain/packages/v2"
+  dependencies:
+    "@xylabs/react-flexbox": ^2.15.2
+    "@xyo-network/react-gas-price": "workspace:^"
+    "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    lodash: ^4.17.21
+    tslib: ^2.4.1
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.16
+    "@xyo-network/diviner": "*"
+    "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "*"
     "@xyo-network/gas-price-payload-plugin": "*"
     "@xyo-network/module": "*"
     "@xyo-network/payload": "*"
@@ -7781,6 +7811,7 @@ __metadata:
     "@mui/styles": ^5.10.16
     "@xyo-network/diviner": "*"
     "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": "*"
+    "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "*"
     "@xyo-network/ethers-ethereum-gas-payload-plugin": "*"
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": "*"
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "*"
@@ -8337,6 +8368,7 @@ __metadata:
     "@xyo-network/crypto-asset-payload-plugin": ~2
     "@xyo-network/diviner": ~2
     "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": ~2
+    "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": ~2
     "@xyo-network/ethers-ethereum-gas-payload-plugin": ~2
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": ~2
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": ~2
