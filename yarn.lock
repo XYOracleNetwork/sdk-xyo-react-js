@@ -7644,7 +7644,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-ethereum-gas-price-blocknative-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/blocknative":
+"@xyo-network/react-ethereum-gas-price-blocknative-plugin@workspace:^, @xyo-network/react-ethereum-gas-price-blocknative-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/blocknative":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-blocknative-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/blocknative"
   dependencies:
@@ -7845,6 +7845,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-payload-plugins@workspace:packages/plugins/packages/ethereum-gas"
   dependencies:
+    "@xyo-network/react-ethereum-gas-price-blocknative-plugin": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-etherchain-plugins": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-ethers-plugin": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-etherscan-plugin": "workspace:^"
@@ -7855,6 +7856,7 @@ __metadata:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.16
+    "@xyo-network/blocknative-ethereum-gas-payload-plugin": "*"
     "@xyo-network/diviner": "*"
     "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": "*"
     "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "*"
@@ -8414,6 +8416,7 @@ __metadata:
     "@xylabs/react-shared": ~2
     "@xylabs/sdk-js": ~2
     "@xyo-network/archivist": ~2
+    "@xyo-network/blocknative-ethereum-gas-payload-plugin": ~2
     "@xyo-network/boundwitness": ~2
     "@xyo-network/coingecko-crypto-market-payload-plugin": ~2
     "@xyo-network/core": ~2
