@@ -12,7 +12,7 @@ export const EthersGasPriceCardContent = forwardRef<HTMLDivElement, XyoPayloadRe
   const gasPricePayload = payload ? (payload as XyoEthereumGasEthersPayload) : undefined
   const parsedPayload = useEthersTransformer(gasPricePayload)
 
-  if (isEmpty(gasPricePayload) || !gasPricePayload.maxFeePerGas) {
+  if (isEmpty(gasPricePayload) || !gasPricePayload.gasPrice) {
     return <PayloadDataMissing alertBody="Payload is missing valid gas fee data." sx={{ m: 1 }} />
   }
 
