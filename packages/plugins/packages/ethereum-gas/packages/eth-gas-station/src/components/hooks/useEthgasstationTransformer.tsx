@@ -1,14 +1,6 @@
 import { XyoEthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
 import { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
-const calculateGasPrice = (gasPrice?: number, baseFee?: number, priorityFee?: number) => {
-  if (!gasPrice || !baseFee || !priorityFee) {
-    return
-  }
-
-  return gasPrice - baseFee - priorityFee
-}
-
 export const useEthgasstationTransformer = (payload?: XyoEthereumGasEthgasstationPayload): GasPriceWitnessUIBasePayload | undefined => {
   if (payload) {
     return {
@@ -24,7 +16,7 @@ export const useEthgasstationTransformer = (payload?: XyoEthereumGasEthgasstatio
         {
           price: {
             label: 'fast',
-            value: calculateGasPrice(payload.gasPrice?.fast, payload?.baseFee, payload.priorityFee?.fast),
+            value: payload.gasPrice?.fast,
           },
           priorityFee: {
             label: 'priorityFee',
@@ -34,7 +26,7 @@ export const useEthgasstationTransformer = (payload?: XyoEthereumGasEthgasstatio
         {
           price: {
             label: 'instant',
-            value: calculateGasPrice(payload.gasPrice?.instant, payload?.baseFee, payload.priorityFee?.instant),
+            value: payload.gasPrice?.instant,
           },
           priorityFee: {
             label: 'priorityFee',
@@ -44,7 +36,7 @@ export const useEthgasstationTransformer = (payload?: XyoEthereumGasEthgasstatio
         {
           price: {
             label: 'standard',
-            value: calculateGasPrice(payload.gasPrice?.standard, payload?.baseFee, payload.priorityFee?.standard),
+            value: payload.gasPrice?.standard,
           },
           priorityFee: {
             label: 'priorityFee',
