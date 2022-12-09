@@ -21,6 +21,7 @@ export const GasPriceWitnessCardHeader = forwardRef<HTMLDivElement, GasPriceCard
         blockNumberLabel={parsedPayload?.blockNumber?.label}
       />
     }
+    ref={ref}
     {...props}
   />
 ))
