@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { XyoEthereumGasBlocknativeSchema } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
-import { sampleBlockNativeGasPricePayload } from '@xyo-network/react-storybook'
+import { sampleBlocknativeGasPricePayload } from '@xyo-network/react-storybook'
 
 import { BlocknativeGasPriceCard } from './Card'
 
@@ -21,7 +21,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { payload: sampleBlockNativeGasPricePayload }
+WithData.args = { payload: sampleBlocknativeGasPricePayload }
 
 const WithMissingData = Template.bind({})
 WithMissingData.args = { payload: { schema: XyoEthereumGasBlocknativeSchema } }
