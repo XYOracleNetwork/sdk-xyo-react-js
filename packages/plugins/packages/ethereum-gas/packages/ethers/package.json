@@ -22,7 +22,7 @@
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.16",
     "@xyo-network/diviner": "*",
-    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^2.41.12",
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": "*",
     "@xyo-network/gas-price-payload-plugin": "*",
     "@xyo-network/module": "*",
     "@xyo-network/payload": "*",
@@ -32,6 +32,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^2.42.1"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
