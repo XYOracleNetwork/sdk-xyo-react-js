@@ -7,10 +7,10 @@ import { forwardRef } from 'react'
 import { useEthersTransformer } from '../hooks'
 import { RenderTitle } from '../lib'
 
-export const EthersGasPriceCardHeader = forwardRef<HTMLDivElement, XyoPayloadRenderProps & CardHeaderProps>(({ payload }) => {
+export const EthersGasPriceCardHeader = forwardRef<HTMLDivElement, XyoPayloadRenderProps & CardHeaderProps>(({ payload }, ref) => {
   const gasPricePayload = payload ? (payload as XyoEthereumGasEthersPayload) : undefined
   const parsedPayload = useEthersTransformer(gasPricePayload)
-  return <GasPriceWitnessCardHeader title={RenderTitle} parsedPayload={parsedPayload} />
+  return <GasPriceWitnessCardHeader title={RenderTitle} parsedPayload={parsedPayload} ref={ref} />
 })
 
 EthersGasPriceCardHeader.displayName = 'EthersGasPriceCardHeader'
