@@ -1,14 +1,6 @@
 import { XyoEthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
 import { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
-const calculateGasPrice = (maxFeePerGas?: number | null, lastBaseFeePerGas?: number | null, maxPriorityFeePerGas?: number | null) => {
-  if (!maxFeePerGas || !lastBaseFeePerGas || !maxPriorityFeePerGas) {
-    return
-  }
-
-  return (maxFeePerGas - lastBaseFeePerGas - maxPriorityFeePerGas) / 1_000_000_000
-}
-
 export const useEthersTransformer = (payload?: XyoEthereumGasEthersPayload): GasPriceWitnessUIBasePayload | undefined => {
   if (payload) {
     return {
@@ -19,8 +11,8 @@ export const useEthersTransformer = (payload?: XyoEthereumGasEthersPayload): Gas
       gasPrice: [
         {
           price: {
-            label: 'maxFeePerGas - baseFee',
-            value: calculateGasPrice(payload?.maxFeePerGas, payload?.lastBaseFeePerGas, payload?.maxPriorityFeePerGas),
+            label: 'maxFeePerGas',
+            value: payload.maxFeePerGas ? payload.maxFeePerGas / 1_000_000 : undefined,
           },
           priorityFee: {
             label: 'maxPriorityFeePerGas',

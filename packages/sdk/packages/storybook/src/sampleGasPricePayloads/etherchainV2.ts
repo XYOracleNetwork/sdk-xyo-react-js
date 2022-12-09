@@ -1,4 +1,4 @@
-export const sampleEtherChainV2GasPricePayload = {
+export const sampleEtherchainV2GasPricePayload = {
   code: 200,
   data: {
     fast: 26423463713,

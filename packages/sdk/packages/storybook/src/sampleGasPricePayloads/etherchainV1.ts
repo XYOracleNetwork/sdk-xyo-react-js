@@ -1,4 +1,4 @@
-export const sampleEtherChainV1GasPricePayload = {
+export const sampleEtherchainV1GasPricePayload = {
   currentBaseFee: 28.3,
   fast: 0.9,
   fastest: 1.5,
