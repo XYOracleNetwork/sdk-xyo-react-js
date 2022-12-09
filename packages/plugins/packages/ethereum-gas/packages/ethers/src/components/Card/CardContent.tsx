@@ -17,15 +17,11 @@ export const EthersGasPriceCardContent = forwardRef<HTMLDivElement, XyoPayloadRe
   }
 
   return (
-    <CardContent ref={ref} sx={{ display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
-      <Grid container spacing={3}>
-        {parsedPayload &&
-          parsedPayload?.gasPrice?.map(({ price }) => (
-            <Grid key={price?.label} item xs={12} sm={6} lg={4}>
-              <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
-            </Grid>
-          ))}
-      </Grid>
+    <CardContent ref={ref} sx={{ alignItems: 'start', display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
+      {parsedPayload &&
+        parsedPayload?.gasPrice?.map(({ price }) => (
+          <GasFeeCard key={price?.label} gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
+        ))}
       <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" pr={1} />
     </CardContent>
   )
