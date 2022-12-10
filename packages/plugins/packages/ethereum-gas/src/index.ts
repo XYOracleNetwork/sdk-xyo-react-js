@@ -12,7 +12,6 @@ export * from '@xyo-network/react-ethereum-gas-price-ethers-plugin'
 export * from '@xyo-network/react-ethereum-gas-price-etherscan-plugin'
 export * from '@xyo-network/react-ethereum-gas-price-ethgasstation-plugin'
 export * from '@xyo-network/react-ethereum-gas-price-plugin'
-export * from '@xyo-network/react-payload-plugin'
 
 export const EthereumGasPricePayloadPlugins: XyoPayloadRenderPlugin[] = [
   EthereumGasPricePlugin,
