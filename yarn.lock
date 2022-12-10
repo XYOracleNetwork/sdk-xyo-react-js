@@ -6238,7 +6238,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-quick-tip-button@npm:^2.15.2, @xylabs/react-quick-tip-button@npm:~2.15.2":
+"@xylabs/react-quick-tip-button@npm:^2.15.2":
   version: 2.15.2
   resolution: "@xylabs/react-quick-tip-button@npm:2.15.2"
   dependencies:
@@ -6642,18 +6642,6 @@ __metadata:
     "@xyo-network/payload-plugin": ^2.42.3
     tslib: ^2.4.1
   checksum: 94e195fe77299ab73fc36121a045804f88a9d04f17e9d31ff1938e8807ba223183be7d411f666f891b6dec44174929be7863e10dd8f9632131c658f0ec7481b7
-  languageName: node
-  linkType: hard
-
-"@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins@npm:^2.42.3":
-  version: 2.42.3
-  resolution: "@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins@npm:2.42.3"
-  dependencies:
-    "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": ^2.42.3
-    "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": ^2.42.3
-    "@xyo-network/payload-plugin": ^2.42.3
-    tslib: ^2.4.1
-  checksum: 8a425b67ebdb66958a7849b7a0060a6a1affb5049f8862a735e78d6eb48941f619fc1e92f565a16f14dac27533934c25f92e869d32d3de616ae445d96d754c64
   languageName: node
   linkType: hard
 
@@ -8317,10 +8305,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-plugins@workspace:packages/plugins"
   dependencies:
-    "@xylabs/react-quick-tip-button": ~2.15.2
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
     "@xyo-network/react-boundwitness-plugin": "workspace:^"
-    "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-crypto-prices-plugin": "workspace:^"
@@ -8329,10 +8315,8 @@ __metadata:
     "@xyo-network/react-ethereum-gas-price-payload-plugins": "workspace:^"
     "@xyo-network/react-location-heatmap-quadkey-plugin": "workspace:^"
     "@xyo-network/react-location-points-map-plugin": "workspace:^"
-    "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-pointer-plugin": "workspace:^"
     "@xyo-network/react-schema-plugin": "workspace:^"
-    "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
     tslib: ^2.4.1
   peerDependencies:
@@ -8907,6 +8891,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.15.2
     "@xylabs/react-identicon": ^2.15.2
     "@xylabs/react-invertable-theme": ^2.15.2
+    "@xylabs/react-quick-tip-button": ^2.15.2
     "@xylabs/react-shared": ^2.15.2
     "@xylabs/sdk-js": ^2.6.9
     "@xylabs/ts-scripts-yarn3": 2.7.27
@@ -8918,7 +8903,6 @@ __metadata:
     "@xyo-network/diviner": ^2.42.3
     "@xyo-network/etherchain-ethereum-gas-v1-payload-plugin": ^2.42.3
     "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": ^2.42.3
-    "@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins": ^2.42.3
     "@xyo-network/ethers-ethereum-gas-payload-plugin": ^2.42.3
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": ^2.42.3
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": ^2.42.3

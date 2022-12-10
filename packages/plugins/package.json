@@ -12,7 +12,6 @@
   "dependencies": {
     "@xyo-network/react-aggregate-price-plugin": "workspace:^",
     "@xyo-network/react-boundwitness-plugin": "workspace:^",
-    "@xyo-network/react-card": "workspace:^",
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^",
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^",
     "@xyo-network/react-crypto-prices-plugin": "workspace:^",
@@ -21,10 +20,8 @@
     "@xyo-network/react-ethereum-gas-price-payload-plugins": "workspace:^",
     "@xyo-network/react-location-heatmap-quadkey-plugin": "workspace:^",
     "@xyo-network/react-location-points-map-plugin": "workspace:^",
-    "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-pointer-plugin": "workspace:^",
     "@xyo-network/react-schema-plugin": "workspace:^",
-    "@xyo-network/react-shared": "workspace:^",
     "lodash": "^4.17.21",
     "tslib": "^2.4.1"
   },
@@ -100,9 +97,6 @@
     "@xyo-network/uniswap-typechain": {
       "optional": true
     }
-  },
-  "devDependencies": {
-    "@xylabs/react-quick-tip-button": "~2.15.2"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
