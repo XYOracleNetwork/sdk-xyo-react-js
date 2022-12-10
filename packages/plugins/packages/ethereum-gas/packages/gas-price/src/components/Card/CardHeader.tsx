@@ -5,7 +5,7 @@ import { forwardRef } from 'react'
 
 import { FeeDataPayload } from '../lib'
 
-export const EthereumGasPriceCardHeader = forwardRef<HTMLDivElement, XyoPayloadRenderProps & CardHeaderProps>(({ payload }) => {
+export const EthereumGasPriceCardHeader = forwardRef<HTMLDivElement, XyoPayloadRenderProps & CardHeaderProps>(({ payload }, ref) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined
 
   return (
@@ -18,6 +18,7 @@ export const EthereumGasPriceCardHeader = forwardRef<HTMLDivElement, XyoPayloadR
           blockNumber={gasPricePayload?.blockNumber ? parseInt(gasPricePayload?.blockNumber) : undefined}
         />
       }
+      ref={ref}
     />
   )
 })
