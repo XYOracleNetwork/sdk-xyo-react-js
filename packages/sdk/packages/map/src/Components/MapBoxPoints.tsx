@@ -1,6 +1,7 @@
 import { Alert } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { Feature, Point } from 'geojson'
+import { FitBoundsOptions } from 'mapbox-gl'
 import { useCallback, useEffect, useState } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts'
@@ -26,6 +27,19 @@ export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
   const { mapSettings } = useMapSettings()
   const { map, mapInitialized } = useMapBoxInstance()
 
+  /**
+   * Needed because of a bug in mapbox taking undefined values for the config options of fitToBounds
+   * see - https://github.com/mapbox/mapbox-gl-js/issues/10013
+   */
+  const customFitToBoundsOptions = (zoom?: number): FitBoundsOptions => {
+    if (zoom !== undefined) {
+      return {
+        maxZoom: zoom,
+      }
+    }
+    return {}
+  }
+
   const updateFeatures = useCallback(() => {
     if (MapPoints?.isMapReady && features?.length) {
       layers?.forEach((layer) => {
@@ -39,15 +53,15 @@ export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
 
     if (MapPoints && map) {
       if (fitToPoints?.value === true) {
-        MapPoints.initialMapPositioning({ padding: fitToPointsPadding })
+        MapPoints.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
       }
     }
-  }, [MapPoints, map, mapSettings, fitToPointsPadding])
+  }, [mapSettings, MapPoints, map, fitToPointsPadding, zoom])
 
   const reInitializeMap = useCallback(() => {
-    MapPoints?.initialMapPositioning({ padding: fitToPointsPadding })
+    MapPoints?.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
     updateFeatures()
-  }, [MapPoints, fitToPointsPadding, updateFeatures])
+  }, [MapPoints, fitToPointsPadding, updateFeatures, zoom])
 
   useEffect(() => {
     if (map && features?.length) {
