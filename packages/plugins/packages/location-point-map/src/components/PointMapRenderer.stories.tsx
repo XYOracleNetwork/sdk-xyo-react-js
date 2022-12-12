@@ -2,7 +2,7 @@ import { ComponentStory, Meta } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
 import { locationPayload } from './payload.stories'
-import { PointMapRenderer } from './PointMapRenderer'
+import { PointMapWithSettingsRenderer } from './PointMapRenderer'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -12,7 +12,7 @@ export default {
       defaultValue: 'calc(100vh - 2rem)',
     },
   },
-  component: PointMapRenderer,
+  component: PointMapWithSettingsRenderer,
   decorators: [WithMapboxSetup],
   parameters: {
     docs: {
@@ -22,8 +22,8 @@ export default {
   title: 'plugin/point-map/PointMap',
 } as Meta
 
-const Template: ComponentStory<typeof PointMapRenderer> = (args) => {
-  return <PointMapRenderer {...args} />
+const Template: ComponentStory<typeof PointMapWithSettingsRenderer> = (args) => {
+  return <PointMapWithSettingsRenderer {...args} />
 }
 
 const Default = Template.bind({})

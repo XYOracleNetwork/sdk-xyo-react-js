@@ -28,6 +28,7 @@ const PointMapInner: React.FC<PointMapInnerProps> = ({ payload, accessToken, ...
 
   useEffect(() => {
     if (locationPayload) {
+      // convert location payload to geojson to reuse mapbox map render components
       setFeature({
         geometry: {
           coordinates: [locationPayload?.longitude, locationPayload?.latitude],
@@ -54,6 +55,7 @@ const PointMapInner: React.FC<PointMapInnerProps> = ({ payload, accessToken, ...
       features={feature ? [feature] : []}
       layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
       height="100%"
+      zoom={9}
       {...props}
     />
   ) : (
