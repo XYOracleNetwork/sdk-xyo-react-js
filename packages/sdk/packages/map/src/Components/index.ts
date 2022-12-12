@@ -1,5 +1,5 @@
 export * from './AnimatedHeatMap'
-export * from './AnimatedHetaMapLoaded'
+export * from './AnimatedHeatMapLoaded'
 export * from './FeaturesToLayersMap'
 export * from './HeatMapSettings'
 export * from './LayerAnimator'

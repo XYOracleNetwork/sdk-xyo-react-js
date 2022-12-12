@@ -6689,6 +6689,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/location-payload-plugin@npm:^2.42.3":
+  version: 2.42.3
+  resolution: "@xyo-network/location-payload-plugin@npm:2.42.3"
+  dependencies:
+    "@xyo-network/payload": ^2.42.3
+    "@xyo-network/payload-plugin": ^2.42.3
+    tslib: ^2.4.1
+  checksum: ebdfcfcb52cc3486c56f98b13cb9ff909a3ab0606251f1d99f1c57052a74aaee017a9f2e6d1379e81c135f3770848e260a068c9347a9855652127ba7c0c8acec
+  languageName: node
+  linkType: hard
+
 "@xyo-network/module@npm:^2.42.3":
   version: 2.42.3
   resolution: "@xyo-network/module@npm:2.42.3"
@@ -7898,6 +7909,37 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-location-point-map-plugin@workspace:^, @xyo-network/react-location-point-map-plugin@workspace:packages/plugins/packages/location-point-map":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-location-point-map-plugin@workspace:packages/plugins/packages/location-point-map"
+  dependencies:
+    "@xylabs/sdk-react": ^2.15.2
+    "@xyo-network/react-map": "workspace:^"
+    "@xyo-network/react-payload-plugin": "workspace:^"
+    geojson: 0.5.0
+    tslib: ^2.4.1
+  peerDependencies:
+    "@mui/icons-material": ^5.10.3
+    "@mui/material": ^5.10.3
+    "@mui/styles": ^5.10.3
+    "@xylabs/sdk-js": ^2.6.7
+    "@xyo-network/archivist": "*"
+    "@xyo-network/diviner": "*"
+    "@xyo-network/location-payload-plugin": ^2.42.3
+    "@xyo-network/module": "*"
+    "@xyo-network/payload": "*"
+    "@xyo-network/payload-plugin": "*"
+    "@xyo-network/schema-payload-plugin": "*"
+    "@xyo-network/utils": "*"
+    axios: ^1.1.3
+    lodash: ^4.17.21
+    pako: ^2.0.4
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.3.0
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-location-points-map-plugin@workspace:^, @xyo-network/react-location-points-map-plugin@workspace:packages/plugins/packages/location-points-map":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-location-points-map-plugin@workspace:packages/plugins/packages/location-points-map"
@@ -8314,6 +8356,7 @@ __metadata:
     "@xyo-network/react-elevation-map-quadkey-plugin": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-payload-plugins": "workspace:^"
     "@xyo-network/react-location-heatmap-quadkey-plugin": "workspace:^"
+    "@xyo-network/react-location-point-map-plugin": "workspace:^"
     "@xyo-network/react-location-points-map-plugin": "workspace:^"
     "@xyo-network/react-pointer-plugin": "workspace:^"
     "@xyo-network/react-schema-plugin": "workspace:^"
@@ -8328,7 +8371,6 @@ __metadata:
     "@uniswap/v3-sdk": ^3.9.0
     "@xylabs/react-flexbox": ~2
     "@xylabs/react-identicon": ~2
-    "@xylabs/react-quick-tip-button": ~2
     "@xylabs/react-shared": ~2
     "@xylabs/sdk-js": ~2
     "@xyo-network/archivist": ~2
@@ -8344,6 +8386,7 @@ __metadata:
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": ~2
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": ~2
     "@xyo-network/gas-price-payload-plugin": ~2
+    "@xyo-network/location-payload-plugin": ~2
     "@xyo-network/module": ~2
     "@xyo-network/network": ~2
     "@xyo-network/payload": ~2
@@ -8906,6 +8949,7 @@ __metadata:
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": ^2.42.3
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": ^2.42.3
     "@xyo-network/gas-price-payload-plugin": ^2.42.3
+    "@xyo-network/location-payload-plugin": ^2.42.3
     "@xyo-network/module": ^2.42.3
     "@xyo-network/network": ^2.42.3
     "@xyo-network/node": ^2.42.3
@@ -8955,6 +8999,7 @@ __metadata:
     "@xyo-network/ethers-ethereum-gas-payload-plugin": "*"
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": "*"
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "*"
+    "@xyo-network/location-payload-plugin": "*"
     "@xyo-network/module": "*"
     "@xyo-network/network": "*"
     "@xyo-network/node": "*"
@@ -13853,7 +13898,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"geojson@npm:^0.5.0":
+"geojson@npm:0.5.0, geojson@npm:^0.5.0":
   version: 0.5.0
   resolution: "geojson@npm:0.5.0"
   checksum: 44fbf916dc66d17f1561fb56fd2741f21e26da5dd7daf842a794119c841c7f6d611ccc21d9797c9c62a78c41a0f841c0648042989a5a5a05045835c6ada8612f
