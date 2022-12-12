@@ -27,6 +27,10 @@ export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
   const { mapSettings } = useMapSettings()
   const { map, mapInitialized } = useMapBoxInstance()
 
+  /**
+   * Needed because of a bug in mapbox taking undefined values for the config options of fitToBounds
+   * see - https://github.com/mapbox/mapbox-gl-js/issues/10013
+   */
   const customFitToBoundsOptions = (zoom?: number): FitBoundsOptions => {
     if (zoom !== undefined) {
       return {
