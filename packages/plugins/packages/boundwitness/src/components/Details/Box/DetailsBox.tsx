@@ -1,3 +1,4 @@
+import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper } from '@xyo-network/payload'
@@ -28,13 +29,16 @@ BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
 const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
   const boundwitness = payload as XyoBoundWitness
+  const theme = useTheme()
   const { hash } = payload ? new PayloadWrapper(payload) : { hash: '' }
 
   return (
     <FlexCol alignItems="stretch" rowGap={3} ref={ref} {...props}>
       <HashHeadingPaper
         hash={hash}
-        paperProps={{ sx: { bgcolor: 'primary.dark', p: 2 } }}
+        paperProps={{
+          sx: { p: 2 },
+        }}
         AdornmentEnd={<BWActions boundwitness={boundwitness} />}
         identiconProps={{ p: 0.75, size: 24 }}
       />
