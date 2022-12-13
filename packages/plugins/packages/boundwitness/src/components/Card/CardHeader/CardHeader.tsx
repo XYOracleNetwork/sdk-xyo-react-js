@@ -87,7 +87,7 @@ const CardHeaderHash = styled(CardHeader, {
     overflow: 'visible',
   },
   '&.MuiCardHeader-root': {
-    backgroundColor: active && activeBgColor ? theme.palette.info.main : theme.palette.primary.main,
+    backgroundColor: active && activeBgColor ? theme.palette.info.dark : theme.palette.primary.dark,
     color: theme.palette.info.contrastText,
   },
   padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,

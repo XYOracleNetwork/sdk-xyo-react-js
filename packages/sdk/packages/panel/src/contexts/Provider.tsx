@@ -2,7 +2,7 @@ import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { delay } from '@xylabs/sdk-js'
 import { ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { XyoModuleResolver } from '@xyo-network/module'
+import { SimpleModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useNode } from '@xyo-network/react-node'
@@ -40,7 +40,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
     if (node && node.resolver) {
       return node.resolver
     }
-    const resolver = new XyoModuleResolver().add(witnesses)
+    const resolver = new SimpleModuleResolver().add(witnesses)
     return archivist ? resolver.add(new ArchivistWrapper(archivist)) : resolver
   }, [archivist, node, witnesses])
 

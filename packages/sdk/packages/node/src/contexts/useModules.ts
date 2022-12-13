@@ -1,12 +1,12 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { ModuleFilter, XyoModule } from '@xyo-network/module'
+import { Module, ModuleFilter } from '@xyo-network/module'
 import { useState } from 'react'
 
 import { useNode } from './useNode'
 
 export const useModules = (filter?: ModuleFilter) => {
   const [node] = useNode()
-  const [modules, setModules] = useState<XyoModule[]>()
+  const [modules, setModules] = useState<Module[]>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
