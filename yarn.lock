@@ -1568,7 +1568,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7":
   version: 7.20.6
   resolution: "@babel/runtime@npm:7.20.6"
   dependencies:
@@ -1799,7 +1799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.10.4":
+"@emotion/react@npm:^11.10.5":
   version: 11.10.5
   resolution: "@emotion/react@npm:11.10.5"
   dependencies:
@@ -1843,7 +1843,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.10.4":
+"@emotion/styled@npm:^11.10.5":
   version: 11.10.5
   resolution: "@emotion/styled@npm:11.10.5"
   dependencies:
@@ -2140,7 +2140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/providers@npm:5.7.2, @ethersproject/providers@npm:^5.7.0, @ethersproject/providers@npm:^5.7.2":
+"@ethersproject/providers@npm:5.7.2, @ethersproject/providers@npm:^5.7.2":
   version: 5.7.2
   resolution: "@ethersproject/providers@npm:5.7.2"
   dependencies:
@@ -2865,26 +2865,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@metamask/providers@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "@metamask/providers@npm:9.1.0"
-  dependencies:
-    "@metamask/object-multiplex": ^1.1.0
-    "@metamask/safe-event-emitter": ^2.0.0
-    "@types/chrome": ^0.0.136
-    detect-browser: ^5.2.0
-    eth-rpc-errors: ^4.0.2
-    extension-port-stream: ^2.0.1
-    fast-deep-equal: ^2.0.1
-    is-stream: ^2.0.0
-    json-rpc-engine: ^6.1.0
-    json-rpc-middleware-stream: ^3.0.0
-    pump: ^3.0.0
-    webextension-polyfill-ts: ^0.25.0
-  checksum: b36fdd3eb6b7dd64eb8017fc32cc485327cd70f8448be1fa87109862db4ffe391a5936e78f1204ef6ff6a381436e185eafa3cfebdb499f0955fc724bde82a881
-  languageName: node
-  linkType: hard
-
 "@metamask/safe-event-emitter@npm:^2.0.0":
   version: 2.0.0
   resolution: "@metamask/safe-event-emitter@npm:2.0.0"
@@ -2902,14 +2882,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/base@npm:5.0.0-alpha.109":
-  version: 5.0.0-alpha.109
-  resolution: "@mui/base@npm:5.0.0-alpha.109"
+"@mui/base@npm:5.0.0-alpha.110":
+  version: 5.0.0-alpha.110
+  resolution: "@mui/base@npm:5.0.0-alpha.110"
   dependencies:
-    "@babel/runtime": ^7.20.1
+    "@babel/runtime": ^7.20.6
     "@emotion/is-prop-valid": ^1.2.0
-    "@mui/types": ^7.2.2
-    "@mui/utils": ^5.10.16
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.0
     "@popperjs/core": ^2.11.6
     clsx: ^1.2.1
     prop-types: ^15.8.1
@@ -2921,22 +2901,22 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: b19d4ca5b98f73773d05b46c3609b617ccd41be56145b8f55e6c67dede6dcdcc0bcc4c1e873e1c584b2b32baaed4c1d120978abdf380756eaf9d95527efc93d1
+  checksum: b1342de322fed691a5f60b794cd63b220d30ac1c5b151861562f6c796b406e7b74b6be65115db6d5763c4b32a92034b3b5641db6f110ad50da7cb53680dbcfcb
   languageName: node
   linkType: hard
 
-"@mui/core-downloads-tracker@npm:^5.10.17":
-  version: 5.10.17
-  resolution: "@mui/core-downloads-tracker@npm:5.10.17"
-  checksum: 47b67b1ed50f739352d5cc6eeab556a927cc898e3fb18c8a9686dc8f9299b42875d5c4302000f2ef259c34c751ba16d670fc6118cd7eed131b558f5d3cc0d758
+"@mui/core-downloads-tracker@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "@mui/core-downloads-tracker@npm:5.11.0"
+  checksum: 3b26cdd534f088030434c13a4895705d4f2da7155561769b0eedb11579cd6662e221d718dcfc8f1a6223f855232e9545f25b673fc71dd5d4142fa0607ef483d7
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^5.10.16, @mui/icons-material@npm:^5.10.3":
-  version: 5.10.16
-  resolution: "@mui/icons-material@npm:5.10.16"
+"@mui/icons-material@npm:^5.10.16, @mui/icons-material@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "@mui/icons-material@npm:5.11.0"
   dependencies:
-    "@babel/runtime": ^7.20.1
+    "@babel/runtime": ^7.20.6
   peerDependencies:
     "@mui/material": ^5.0.0
     "@types/react": ^17.0.0 || ^18.0.0
@@ -2944,19 +2924,19 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 00cf9cdbb76a5806307d9cccb647cbd8e45d18a1be7e252727c789cd5a29103abf7fdbe724553425bcdff8daf58ec612e5a8c08c3c7a5a6e28efb14b86507687
+  checksum: 764c1185b3432f0228f3c5217b0e218b10f106fa96d305dfc62c0ef5afd2a7a087b0d664fd0a8171282e195c18d3ee073d5f037901a2bed1a1519a70fbb0501c
   languageName: node
   linkType: hard
 
-"@mui/lab@npm:^5.0.0-alpha.111":
-  version: 5.0.0-alpha.111
-  resolution: "@mui/lab@npm:5.0.0-alpha.111"
+"@mui/lab@npm:^5.0.0-alpha.112":
+  version: 5.0.0-alpha.112
+  resolution: "@mui/lab@npm:5.0.0-alpha.112"
   dependencies:
-    "@babel/runtime": ^7.20.1
-    "@mui/base": 5.0.0-alpha.109
-    "@mui/system": ^5.10.17
-    "@mui/types": ^7.2.2
-    "@mui/utils": ^5.10.16
+    "@babel/runtime": ^7.20.6
+    "@mui/base": 5.0.0-alpha.110
+    "@mui/system": ^5.11.0
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.0
     clsx: ^1.2.1
     prop-types: ^15.8.1
     react-is: ^18.2.0
@@ -2974,20 +2954,20 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 671cd2bc7e9bebf526dd4e0ec4dec464a61d37fb28391485a22289d93ccbcae3b6ba79293fbfab9a0b34e82ea21cd15e3139f7dc6dc39f22fd125cc8c96f6249
+  checksum: 371ad5ff9c6d29fd6f58a140455182f24506c65b60e8da900a9e294a6efe55da652a67064f07f4f3d32415a661b824d2ce2f3fd8216182e333378779d7b34333
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.10.17, @mui/material@npm:^5.10.4":
-  version: 5.10.17
-  resolution: "@mui/material@npm:5.10.17"
+"@mui/material@npm:^5.10.17, @mui/material@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "@mui/material@npm:5.11.0"
   dependencies:
-    "@babel/runtime": ^7.20.1
-    "@mui/base": 5.0.0-alpha.109
-    "@mui/core-downloads-tracker": ^5.10.17
-    "@mui/system": ^5.10.17
-    "@mui/types": ^7.2.2
-    "@mui/utils": ^5.10.16
+    "@babel/runtime": ^7.20.6
+    "@mui/base": 5.0.0-alpha.110
+    "@mui/core-downloads-tracker": ^5.11.0
+    "@mui/system": ^5.11.0
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.0
     "@types/react-transition-group": ^4.4.5
     clsx: ^1.2.1
     csstype: ^3.1.1
@@ -3007,16 +2987,16 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: ab7f9f25e311e3d3621c690a0d2620013c0ad690055ff821e93b1826d12855ce5c0e271030578e327472749e66dfeecbd1f2ce520fc3d240c4b3e39911a16971
+  checksum: 8a38b657202f93f3a746916714479b768e72359fb4534786da363ac8dc1409aeb83e08d404bdf89f45e4102178ac4a93f73dd3ae51c9a7d2487eae6b854b1673
   languageName: node
   linkType: hard
 
-"@mui/private-theming@npm:^5.10.16":
-  version: 5.10.16
-  resolution: "@mui/private-theming@npm:5.10.16"
+"@mui/private-theming@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "@mui/private-theming@npm:5.11.0"
   dependencies:
-    "@babel/runtime": ^7.20.1
-    "@mui/utils": ^5.10.16
+    "@babel/runtime": ^7.20.6
+    "@mui/utils": ^5.11.0
     prop-types: ^15.8.1
   peerDependencies:
     "@types/react": ^17.0.0 || ^18.0.0
@@ -3024,15 +3004,15 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 81fe5ed89ef0df81f92e3d33d5fb3c3e46a7fdbec7c50315874adac23b6bfa8946c2242aa9352a051ed6419f2641982cae9a7499d10d01d3ff8e58b901494917
+  checksum: 935bffb5694d29091d0e0a85ea93ccec340f5f8cb8a8ae19136e997d850aa29dcc2e740896d68500f7ad0b3828c23c68c31c9f963c2af4cc9e4f3c33495351a1
   languageName: node
   linkType: hard
 
-"@mui/styled-engine@npm:^5.10.16":
-  version: 5.10.16
-  resolution: "@mui/styled-engine@npm:5.10.16"
+"@mui/styled-engine@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "@mui/styled-engine@npm:5.11.0"
   dependencies:
-    "@babel/runtime": ^7.20.1
+    "@babel/runtime": ^7.20.6
     "@emotion/cache": ^11.10.5
     csstype: ^3.1.1
     prop-types: ^15.8.1
@@ -3045,19 +3025,19 @@ __metadata:
       optional: true
     "@emotion/styled":
       optional: true
-  checksum: ee55de7b3de4a875a6dec7ae1bad65d6826adf4ee417158a5d3e1cd868c41c46b4f4c6c5975e706650340280f10875e15c45673be7bd5295cdc3448f2709b372
+  checksum: ddc486bc5e0e8e7b683e4c3bffecd11c2ce1e6c67a485354c5fc5a6fe04ed5ce76db737609a2ae04779e9d5f57c7936174d458a3795eab62291c2d7681184062
   languageName: node
   linkType: hard
 
-"@mui/styles@npm:^5.10.16, @mui/styles@npm:^5.10.3":
-  version: 5.10.16
-  resolution: "@mui/styles@npm:5.10.16"
+"@mui/styles@npm:^5.10.16, @mui/styles@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "@mui/styles@npm:5.11.0"
   dependencies:
-    "@babel/runtime": ^7.20.1
+    "@babel/runtime": ^7.20.6
     "@emotion/hash": ^0.9.0
-    "@mui/private-theming": ^5.10.16
-    "@mui/types": ^7.2.2
-    "@mui/utils": ^5.10.16
+    "@mui/private-theming": ^5.11.0
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.0
     clsx: ^1.2.1
     csstype: ^3.1.1
     hoist-non-react-statics: ^3.3.2
@@ -3076,19 +3056,19 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 2e953cabe531d69a597bc55876a68ebf55637fcd2a7a6b229f98de0d4d52a305c10a1f6f231853da87b2926c2abdf0acaac27fc9cfb041be909137d69046251b
+  checksum: 5ad59151b3a99c945b3e4978461c0306b425210bb3e8a59eeab153f1fa0030d77df4c5f6d32aa036a58608a2b51925dbbb87e448f2d6342a70e433095ec2128f
   languageName: node
   linkType: hard
 
-"@mui/system@npm:^5.10.17":
-  version: 5.10.17
-  resolution: "@mui/system@npm:5.10.17"
+"@mui/system@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "@mui/system@npm:5.11.0"
   dependencies:
-    "@babel/runtime": ^7.20.1
-    "@mui/private-theming": ^5.10.16
-    "@mui/styled-engine": ^5.10.16
-    "@mui/types": ^7.2.2
-    "@mui/utils": ^5.10.16
+    "@babel/runtime": ^7.20.6
+    "@mui/private-theming": ^5.11.0
+    "@mui/styled-engine": ^5.11.0
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.0
     clsx: ^1.2.1
     csstype: ^3.1.1
     prop-types: ^15.8.1
@@ -3104,34 +3084,34 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 50c6259ce5329d7a4bd498264433fe6eb633670082013d15d45217757955cd45708b92858a78ba18343d6d0d890eab9826a20b950e17cad179e1538696203245
+  checksum: b03715d18a2ec0eb23616f88c655223a7ea89e5e80446d4086ef3d3f961dd7150ec2ea917927803cf2fc15dc28910ed9a21025563c0b90f3bec6a9aea4b80448
   languageName: node
   linkType: hard
 
-"@mui/types@npm:^7.2.2":
-  version: 7.2.2
-  resolution: "@mui/types@npm:7.2.2"
+"@mui/types@npm:^7.2.3":
+  version: 7.2.3
+  resolution: "@mui/types@npm:7.2.3"
   peerDependencies:
     "@types/react": "*"
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: bda8d778cfd33190eacc7a2275948b78fda2d4ea0e82084d3a281b4ff4c787d2ef3d515c4b7f89b52dd65f59ad2bebb502a1fc49c3fdfaf496a6ab019af01054
+  checksum: b8511cb78f8df25c8978317ad3fd585c782116b657f2d32233352c09d415c77040e532f41bbe96de6ad46be87138767d3129a9f0de3561900a9a64db7693bce4
   languageName: node
   linkType: hard
 
-"@mui/utils@npm:^5.10.16":
-  version: 5.10.16
-  resolution: "@mui/utils@npm:5.10.16"
+"@mui/utils@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "@mui/utils@npm:5.11.0"
   dependencies:
-    "@babel/runtime": ^7.20.1
+    "@babel/runtime": ^7.20.6
     "@types/prop-types": ^15.7.5
     "@types/react-is": ^16.7.1 || ^17.0.0
     prop-types: ^15.8.1
     react-is: ^18.2.0
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
-  checksum: 2db4ac76544fe19856b5d456b2ddfb55baf505ce24f27f1d06900758d61067b74ceb94069d34cb82467e4be5fa33d613a0f2f947fc7b29315317090ac8cacbeb
+  checksum: de0dd7403d99735a93fe11581311cc14e498d87234c95bebae21a0b728fc9d36fdaa9a3d77e90eb034fb776a48088c69302546e3f1a9653892c538d5bab7a7c6
   languageName: node
   linkType: hard
 
@@ -3264,11 +3244,11 @@ __metadata:
   linkType: hard
 
 "@npmcli/promise-spawn@npm:^6.0.0, @npmcli/promise-spawn@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "@npmcli/promise-spawn@npm:6.0.1"
+  version: 6.0.2
+  resolution: "@npmcli/promise-spawn@npm:6.0.2"
   dependencies:
     which: ^3.0.0
-  checksum: c4bfdf2e85a0556ba4c0b1013118593f36ed1000906569ea5962a7808807ca78362208404d951cc8d3b4163818e50c349c6d7065785378fb09234e0b3b3406e3
+  checksum: aa725780c13e1f97ab32ed7bcb5a207a3fb988e1d7ecdc3d22a549a22c8034740366b351c4dde4b011bcffcd8c4a7be6083d9cf7bc7e897b88837150de018528
   languageName: node
   linkType: hard
 
@@ -5121,9 +5101,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:^18.11.11":
-  version: 18.11.12
-  resolution: "@types/node@npm:18.11.12"
-  checksum: 6c67f0998a9ad8ef0f357fcc0d72841c579576c746cfbac67c9d0229e1cd219d3b96297c2caaeaa4084ba7e9ad112b412e64af4066e522faa0be4ef9ad0a613a
+  version: 18.11.13
+  resolution: "@types/node@npm:18.11.13"
+  checksum: b0c1aa3bd2f5df8240e61096a49d6d4be600109b824d23408ec4ba1ec057dc0c60588e09f73b8a60455ad26d367e9c5562fad8403099f885cbc7b4cace83ec4c
   languageName: node
   linkType: hard
 
@@ -5135,9 +5115,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0":
-  version: 16.18.7
-  resolution: "@types/node@npm:16.18.7"
-  checksum: a7fbc536d433c08adebcd788c2b2b28b4bec9b4cc493d3ed5fd98097bda7760893bacc06f97f45514a7f013f4fc952cbb3068166b6e9e7eebfe08e8e813f8f1c
+  version: 16.18.8
+  resolution: "@types/node@npm:16.18.8"
+  checksum: 149f6a6d010a0c8842800b4b7e0e9db842d3133b9461e48224c769cfc8e1960ecb2791596ad18295a7318b3189475c88d007dee122be0b77bf54db025465cf21
   languageName: node
   linkType: hard
 
@@ -5360,12 +5340,12 @@ __metadata:
   linkType: hard
 
 "@typescript-eslint/eslint-plugin@npm:^5.45.1, @typescript-eslint/eslint-plugin@npm:^5.5.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/eslint-plugin@npm:5.46.0"
+  version: 5.46.1
+  resolution: "@typescript-eslint/eslint-plugin@npm:5.46.1"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.46.0
-    "@typescript-eslint/type-utils": 5.46.0
-    "@typescript-eslint/utils": 5.46.0
+    "@typescript-eslint/scope-manager": 5.46.1
+    "@typescript-eslint/type-utils": 5.46.1
+    "@typescript-eslint/utils": 5.46.1
     debug: ^4.3.4
     ignore: ^5.2.0
     natural-compare-lite: ^1.4.0
@@ -5378,54 +5358,54 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 5b7dde66a3db3d3009c9da5c1357d72c19b94d75474d8f51b6ac765962aa181bf8fe88fcca02a70faaceb2ed5739f790313d1d521d77149cab94ab5e3a987cf3
+  checksum: 4ea4af5faa5c509113d575bf6ea1f76989f253b4839bb98bcda28450be7fc8a87788169e822b0f6d739aee67e32e824440ef00cebc294d4212ffb3fed1f0756a
   languageName: node
   linkType: hard
 
 "@typescript-eslint/experimental-utils@npm:^5.0.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/experimental-utils@npm:5.46.0"
+  version: 5.46.1
+  resolution: "@typescript-eslint/experimental-utils@npm:5.46.1"
   dependencies:
-    "@typescript-eslint/utils": 5.46.0
+    "@typescript-eslint/utils": 5.46.1
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: c426e0da9cb15ff1956ab4c622ce2011be7d93132af1b3021aaa71dad8777fd6c222542ef6e4d7f778e825cc5603c9a9478e83ea4aa5d877d489862fc5a7838e
+  checksum: 3c050d8a20afae536b884e371d7019b5a2f15d21eb42ee63913be4afd32a46d6df8196d13a8e6016f4648b94609ff7deced60ba5e17cee209e291486403195c5
   languageName: node
   linkType: hard
 
 "@typescript-eslint/parser@npm:^5.45.1, @typescript-eslint/parser@npm:^5.5.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/parser@npm:5.46.0"
+  version: 5.46.1
+  resolution: "@typescript-eslint/parser@npm:5.46.1"
   dependencies:
-    "@typescript-eslint/scope-manager": 5.46.0
-    "@typescript-eslint/types": 5.46.0
-    "@typescript-eslint/typescript-estree": 5.46.0
+    "@typescript-eslint/scope-manager": 5.46.1
+    "@typescript-eslint/types": 5.46.1
+    "@typescript-eslint/typescript-estree": 5.46.1
     debug: ^4.3.4
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 34e2e8fb35050ac119ed2696293ecd9a1b40c3ccc915d06b8d48880c6656e8f40665b969807b76058eb9198227481653f1d1465a89a4ac6a98bc7ab9850ada1f
+  checksum: 784fe3ae688da85784b271c10d1e0b807583f4c370e32aa7a09b2584d0f7b92316a93cccbd9458bdf08f169b220097a4b0456bc5f62a210607a13a5fae84c972
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:5.46.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/scope-manager@npm:5.46.0"
+"@typescript-eslint/scope-manager@npm:5.46.1":
+  version: 5.46.1
+  resolution: "@typescript-eslint/scope-manager@npm:5.46.1"
   dependencies:
-    "@typescript-eslint/types": 5.46.0
-    "@typescript-eslint/visitor-keys": 5.46.0
-  checksum: 10d992a6f9bbe747a8fb5f8b02732e3a289d2667e32ea835de825efe7a841688e683ae1d15d250df84c2ada313b9a3f41c9c9b5ae924c3d9b90d73f23241ae7f
+    "@typescript-eslint/types": 5.46.1
+    "@typescript-eslint/visitor-keys": 5.46.1
+  checksum: bf934603dc9c7da71eb26f415d13018f2a96dbba193a773bc440a5c93828365f09bb3db9be55189dfbbace414c6c48d7fad246c0d9717dab4676d0d79d6d8676
   languageName: node
   linkType: hard
 
-"@typescript-eslint/type-utils@npm:5.46.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/type-utils@npm:5.46.0"
+"@typescript-eslint/type-utils@npm:5.46.1":
+  version: 5.46.1
+  resolution: "@typescript-eslint/type-utils@npm:5.46.1"
   dependencies:
-    "@typescript-eslint/typescript-estree": 5.46.0
-    "@typescript-eslint/utils": 5.46.0
+    "@typescript-eslint/typescript-estree": 5.46.1
+    "@typescript-eslint/utils": 5.46.1
     debug: ^4.3.4
     tsutils: ^3.21.0
   peerDependencies:
@@ -5433,23 +5413,23 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 96feae3b67b78bc74b916bb7c3c654c13c6f000fc1f6945709764010fb6644e7cbf7749faa6ab0562255197b49fbf7c28c9a5b558378fa74e2cd38aeddc459cb
+  checksum: a47f1b73ac773a7f33421a8e8f9bc6e047f55236e3257b2c9eaa04d18595ab6505129ffdab86685e9c3bef564091315a2347150cd6e61a511cc2160667458014
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:5.46.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/types@npm:5.46.0"
-  checksum: 162e2e7841369598d3018f315545e85b79e57cc2f9033770397dbbdab0c80d72a8ee791710d10570b70624b5f343f7f8fc7ffabaec62f708cd7bfc5b432ad595
+"@typescript-eslint/types@npm:5.46.1":
+  version: 5.46.1
+  resolution: "@typescript-eslint/types@npm:5.46.1"
+  checksum: 91143d3304b8c70d69d9c8e5b7428cce3a222eacfbeb99e592d278668bcf998760731deae064a76157b9a0fc4911fe3178aa24e4ea6fe2ba68dd37113834c924
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:5.46.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/typescript-estree@npm:5.46.0"
+"@typescript-eslint/typescript-estree@npm:5.46.1":
+  version: 5.46.1
+  resolution: "@typescript-eslint/typescript-estree@npm:5.46.1"
   dependencies:
-    "@typescript-eslint/types": 5.46.0
-    "@typescript-eslint/visitor-keys": 5.46.0
+    "@typescript-eslint/types": 5.46.1
+    "@typescript-eslint/visitor-keys": 5.46.1
     debug: ^4.3.4
     globby: ^11.1.0
     is-glob: ^4.0.3
@@ -5458,35 +5438,35 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 645f9fd65836019073fd7af5bfa0e4c3d47303deda0917c4d8fb6ed6790bebaaeb7020a7a104b96c5fda707eb20e248c38fc711cdc83439775c563ef9f169746
+  checksum: 21499b927b4118cd51e841b2e1b7e55621135f923f461b75dc8ca8442de38a82da5a0232dce5229e0266b6fc12d70696e0e912fcf1483d4c44f02e4cad39ed98
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.46.0, @typescript-eslint/utils@npm:^5.13.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/utils@npm:5.46.0"
+"@typescript-eslint/utils@npm:5.46.1, @typescript-eslint/utils@npm:^5.13.0":
+  version: 5.46.1
+  resolution: "@typescript-eslint/utils@npm:5.46.1"
   dependencies:
     "@types/json-schema": ^7.0.9
     "@types/semver": ^7.3.12
-    "@typescript-eslint/scope-manager": 5.46.0
-    "@typescript-eslint/types": 5.46.0
-    "@typescript-eslint/typescript-estree": 5.46.0
+    "@typescript-eslint/scope-manager": 5.46.1
+    "@typescript-eslint/types": 5.46.1
+    "@typescript-eslint/typescript-estree": 5.46.1
     eslint-scope: ^5.1.1
     eslint-utils: ^3.0.0
     semver: ^7.3.7
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: f4962a7d34f55c44b238df550d45aacbc7b8fcba7d172fd96ee17eb5ce964481e3e68376205598146f4f3aa69df7627686a9bd16022b51246d6e9fe94ffb2bb8
+  checksum: db9fd1dfb2390e66041f9529d564f38ccf74042de68e0e1e3d319ba4d02d7cd969d75dc056f938b98acab53ad7c1e36c68eabb15c0b2e2296b081652fa8d3820
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:5.46.0":
-  version: 5.46.0
-  resolution: "@typescript-eslint/visitor-keys@npm:5.46.0"
+"@typescript-eslint/visitor-keys@npm:5.46.1":
+  version: 5.46.1
+  resolution: "@typescript-eslint/visitor-keys@npm:5.46.1"
   dependencies:
-    "@typescript-eslint/types": 5.46.0
+    "@typescript-eslint/types": 5.46.1
     eslint-visitor-keys: ^3.3.0
-  checksum: 83ec2514b2469db395f006576c934bd60b21e74e2e67c183f8d9249954119c56074de286ce8c55d42e20b06d0083d4665f3baf0eed720712203796be488f0944
+  checksum: 952cf20e29a040e0820e52d6815097abf042ea8e1fd5d013c0a319284ea0e2e29e0ca9ef244717450a6eb9d32ebf7fa9ed91185675a27adc35c9ad070d561b7c
   languageName: node
   linkType: hard
 
@@ -5856,44 +5836,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/assert@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xylabs/assert@npm:2.6.9"
-  checksum: 7e99eff0aebab90d51b200750e19146630cf1290cd65bf3565d35d74738b50abc1c427f4dacd5bdff2281cf35202ed1c507854e773c69629fb1b816b5aea7857
+"@xylabs/assert@npm:^2.6.10, @xylabs/assert@npm:^2.6.9":
+  version: 2.6.10
+  resolution: "@xylabs/assert@npm:2.6.10"
+  checksum: df5233794749bd88187b520c7ee69687c7b5f344c2ff403f65a074ffa6e481c93ab64559c63eef8c41e7a8dd0645d89853648bff0d12a7bf44df3834c5b4625b
   languageName: node
   linkType: hard
 
-"@xylabs/bignumber@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xylabs/bignumber@npm:2.6.9"
+"@xylabs/bignumber@npm:^2.6.10, @xylabs/bignumber@npm:^2.6.9":
+  version: 2.6.10
+  resolution: "@xylabs/bignumber@npm:2.6.10"
   dependencies:
     bn.js: ^5.2.1
-    tslib: ^2.4.0
-  checksum: 142f3897e020958e388b087f263b44294e704300666aec0e8a48877a9f95f281bff90e5a1dba4e8af16d0253b79a9c0d490c12d324f0e531245455b1126f3c4e
+    tslib: ^2.4.1
+  checksum: d742dc4f073b6774e7a91f66653e379a3cc24cc560968dfbc779ffa0a2b7bfd272a09d3f9f641be803ab57c6d2c64e11a14064d9a13acd9b7befd6c964a6ce25
   languageName: node
   linkType: hard
 
 "@xylabs/buffer@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xylabs/buffer@npm:2.6.9"
+  version: 2.6.10
+  resolution: "@xylabs/buffer@npm:2.6.10"
   dependencies:
     buffer: ^6.0.3
-    tslib: ^2.4.0
-  checksum: 8d2c1ab5a921c3a452075675300d3015c99829c0cced017dc280470e2d64f579ff2b8326e10ce70025cc316f0106679a5b93d488486c85159899ec0d2d28a117
+    tslib: ^2.4.1
+  checksum: fffb6cb6a604076b71f2beb9f30972e8104cf496a21826d011c0cf9a14bf32a74dfce24083e9ce558da146e990baa0b295f9ee7d18a1c9f563e5211436e304bc
   languageName: node
   linkType: hard
 
-"@xylabs/decimal-precision@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xylabs/decimal-precision@npm:2.6.9"
-  checksum: 6bdc775d0519f6e9abd52cb344ae5d78df7136f3ae439757c191f7c273e6c552f45d1753bd0012a4bfec12aeaabc780b778c66b03a1879a23f95f08cdf73681b
+"@xylabs/decimal-precision@npm:^2.6.10":
+  version: 2.6.10
+  resolution: "@xylabs/decimal-precision@npm:2.6.10"
+  checksum: 5dd747454195855f6b21bc1b9c9f24c3d4afa12f320f77730bd75d5348a1563a14879946d5683bb520fd022c3b063b09e0c38f4546b1a514c2d38886a86ca294
   languageName: node
   linkType: hard
 
-"@xylabs/delay@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xylabs/delay@npm:2.6.9"
-  checksum: ad2cbdbbae4f2e7aee4e1bc29277bf99db0f9f99fafe0f470a96d3d53d8e212d9ad9b34548505338909bff1cd3591d3b3ece0a1e4adeb8bff91965a687d0ae4f
+"@xylabs/delay@npm:^2.6.10, @xylabs/delay@npm:^2.6.9":
+  version: 2.6.10
+  resolution: "@xylabs/delay@npm:2.6.10"
+  checksum: 41638db38e15d8dbbb7f08de5f479cf1c122905d13d1bf88a56b79ed5fa4ca60605fa39e275e419b9c88ceecf09770e26ca2ed9b740edf83a8ed220351dfbf3a
   languageName: node
   linkType: hard
 
@@ -5963,377 +5943,450 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/exists@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xylabs/exists@npm:2.6.9"
-  checksum: 53b997f48825b5576d04fadf28d4706af9bdbcdccd0736cf6f8e19c108a2d0d2885433f109e423461b87a8f8495d642ac5f88eda9ee3504bd8cd7b7621cdd1d2
+"@xylabs/exists@npm:^2.6.10":
+  version: 2.6.10
+  resolution: "@xylabs/exists@npm:2.6.10"
+  checksum: 615188c5ab2c6bc83e0189c5e671619ed5d874d84f356dbb4486311502267fd8505b3f186f482c0a94a6d7b05ba16e257312506ac5a6d2e6ae0dd02eb0891a24
   languageName: node
   linkType: hard
 
-"@xylabs/forget@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xylabs/forget@npm:2.6.9"
+"@xylabs/forget@npm:^2.6.10":
+  version: 2.6.10
+  resolution: "@xylabs/forget@npm:2.6.10"
   dependencies:
-    "@xylabs/delay": ^2.6.9
-    tslib: ^2.4.0
-  checksum: a3c81639b3434b001c471e9a8f2adb47ed894d56de52839d5c3ed500795b0d8d81de621d916804967f3f08fcba5e03840be68a49aaef52d8ede2ebec241ecb12
+    "@xylabs/delay": ^2.6.10
+    tslib: ^2.4.1
+  checksum: 2f3c1217cd317eb2b6dd1ced8dcdfb3fd98042bbbe35006c325a50701ed12b84d2beaa4890ea891ffa197274bd7b1ec91a9f3f4167c3933f880f956abdf02af5
   languageName: node
   linkType: hard
 
-"@xylabs/pixel@npm:^1.4.5":
-  version: 1.4.5
-  resolution: "@xylabs/pixel@npm:1.4.5"
+"@xylabs/pixel@npm:^1.4.6":
+  version: 1.4.6
+  resolution: "@xylabs/pixel@npm:1.4.6"
   dependencies:
-    "@xylabs/sdk-js": ^2.6.2
-    async-mutex: ^0.3.2
-    axios: ^0.27.2
+    "@xylabs/sdk-js": ^2.6.10
+    async-mutex: ^0.4.0
     bowser: ^2.11.0
     js-cookie: ^3.0.1
     lodash: ^4.17.21
     md5: ^2.3.0
     randombytes: ^2.1.0
-  checksum: cb1b7a13b93ef70357537b84215f4ab82169cb64793cb60816278021f2aead927c85ab99a62fa6fe6bc731979df167c0816a8e8cd0ea9d15732493d678324dbe
+  peerDependencies:
+    axios: ^1.2.1
+  checksum: e1a63d3bccc3528f05ca20f90ce8810c65e019f391b43748aff01e96ac74c56544b733eb748d9a467e2ed615bd91aa3d740db545acfbccd89efbdb40b5d080c5
   languageName: node
   linkType: hard
 
-"@xylabs/react-accordion@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-accordion@npm:2.15.2"
+"@xylabs/react-accordion@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-accordion@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.4
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/icons-material": ^5.10.16
+    "@mui/material": ^5.10.17
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 6bcadc77b37da236a358ce4f4ab58e1097bdcb4e937f5aa9239152ba275aaf3b3e88f85d9f8197c56f2e5d9732e88272a86a9a8828fb841cb56ee75a57c05254
-  languageName: node
-  linkType: hard
-
-"@xylabs/react-appbar@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-appbar@npm:2.15.2"
-  dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/react-flexbox": ^2.15.2
+  peerDependencies:
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: a82c0126e50ea0dfcd5fc33e0b6d45f05e2b21af2af8e27cc29d0eee020f8996e50ffadfae7d1a744aed565769da54443abcbea939d964243bc56661ffb5b31e
+  checksum: c78da4e0c6f07c01f9333cf9463b8eaef8cdf181aaff89b85c29be847c27d36e153d1b776856cb61e0a1612ebdb0a6cb7ac55085c838055a18b3d46052e6ffed
   languageName: node
   linkType: hard
 
-"@xylabs/react-button@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-button@npm:2.15.2"
+"@xylabs/react-appbar@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-appbar@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/react-shared": ^2.15.2
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/react-flexbox": ^2.15.4
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-router-dom: ^6.3.0
-  checksum: ecee94a8453aca3b0101b60fecf9940eb885eebab8c33560cd5538aa24e3db3f13e291153c63f00f43a51c36b88f7d62f1786e48766fac5d7f172b86fcbcaef2
+  peerDependencies:
+    axios: ^1.2.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 117236d66abce37ba7fe839aa460bd2a8f9e83491cafb9c5516133dc6ac2b1917e38eaf1077fd78d4144db13377c75aa46dfa07b2cdba822fe22a5f695f766a7
   languageName: node
   linkType: hard
 
-"@xylabs/react-common@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-common@npm:2.15.2"
+"@xylabs/react-button@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-button@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.4
-    "@xylabs/react-appbar": ^2.15.2
-    "@xylabs/react-cookie-consent": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-invertable-theme": ^2.15.2
-    "@xylabs/react-scroll-to-top": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.7
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/react-shared": ^2.15.4
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.4.5
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 0e6385e83828de7c7ae1fe3d240e362a0383b82d70551b54f6e9aa157d9ddd9114e36b07a7e5b27d8d7f1c8b3f713db2b65d267640593c9082d50f2579c0d506
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-common@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-common@npm:2.15.4"
+  dependencies:
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/icons-material": ^5.10.16
+    "@mui/material": ^5.10.17
+    "@xylabs/react-appbar": ^2.15.4
+    "@xylabs/react-cookie-consent": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-invertable-theme": ^2.15.4
+    "@xylabs/react-scroll-to-top": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
     react-helmet: ^6.1.0
-    react-router-dom: ^6.3.0
-  checksum: a05a07fc49dfdf1836aae2866aa9643f566dfd12a4ba28a2f557c3abf4b8967520b143948857e8a815caa1f0bd37931761b07fe8bfd643d24213f968797d0970
-  languageName: node
-  linkType: hard
-
-"@xylabs/react-cookie-consent@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-cookie-consent@npm:2.15.2"
-  dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    react-router-dom: ^6.4.5
+  peerDependencies:
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: fe63498bfaf69ceab9a2731e55c32d5a6209950a089779c580fdc829dba56c77d7b3204faa5b2212895af4d75c2a5674918641f01f87d28d91081855e99e3f3b
+  checksum: fdac7541eb8001e6ccbe7184ae87cd2b645e1d27bd6109c2e089fc32c48548c1ec49a15966c4b9d08f9360f6d722fe1b390a61c5328465cd6751f5a5cb1ed725
   languageName: node
   linkType: hard
 
-"@xylabs/react-crypto@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-crypto@npm:2.15.2"
+"@xylabs/react-cookie-consent@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-cookie-consent@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  peerDependencies:
+    axios: ^1.2.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: edf2993ffb1341a3504569e5d9c024785bdfc65cbbb953820f915ad12552da4f12678c6963bea7377e8af2ef5f5fdda470ac6eaee3b4027067c30cd8704fe78b
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-crypto@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-crypto@npm:2.15.4"
+  dependencies:
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
     "@ethersproject/abstract-signer": ^5.7.0
-    "@ethersproject/providers": ^5.7.0
-    "@metamask/providers": ^9.1.0
-    "@mui/material": ^5.10.4
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.7
+    "@ethersproject/providers": ^5.7.2
+    "@metamask/providers": ^10.2.1
+    "@mui/material": ^5.10.17
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-router-dom: ^6.3.0
-  checksum: 9f6fd347b067843be665ea58f61cb8ebe3c58d06af0e1174ffa1d1079dcd1005a1a72e02a8bb81c6337abe628539291d2a3c9d22e41961e826480cfdb7e39883
+    react-router-dom: ^6.4.5
+  peerDependencies:
+    axios: ^1.2.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 7559f0e41971c80492d12e8fbf255c6e51aea1fb0ea8772745264ef822851957ea3da5a101649a11ab0863add6a888e1573627008177c6aacf158cdbcc47248d
   languageName: node
   linkType: hard
 
-"@xylabs/react-dialogs@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-dialogs@npm:2.15.2"
+"@xylabs/react-dialogs@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-dialogs@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    axios: ^0.27.2
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 6ea0cdb98c104f320192b68a7626d90c229060b643216270d08a56c789424f0c39e4b1e53666c101ef1d0d2f3a044bd33ba96a626856b2a9dc3c55ecdbd6879f
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 4cb47bda3131e0fd3a68f2e80d625bf49921f5112fff6f9a1b9f2e348d76a26db8b4029ccab4fa7e0e94ab147781fa6cf00b23a7edb1c61136f4b46e9ce5622a
   languageName: node
   linkType: hard
 
-"@xylabs/react-experiments@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-experiments@npm:2.15.2"
+"@xylabs/react-experiments@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-experiments@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/pixel": ^1.4.5
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-pixel": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.7
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/pixel": ^1.4.6
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-pixel": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 26754a00f93667d303bf4237e964125a05cb229a6f393a687188c19f7a59face888db4479e32a102401e56ac02043b6e9ac0f718b34620cb977dbeca7843c473
+  peerDependencies:
+    axios: ^1.2.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: bafb4d701b9dae1ac171920ba2e6aaedd565ac2d9808cbffc0f186cd1923bb6acc317368fdd9ce1eaa723f78adc320147ac84d09d1e9be287777dc0909ed7343
   languageName: node
   linkType: hard
 
-"@xylabs/react-flexbox@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-flexbox@npm:2.15.2"
+"@xylabs/react-flexbox@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-flexbox@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@mui/styles": ^5.10.3
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.7
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@mui/styles": ^5.10.16
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: a613474cea4def69a6aa987d259d0d385b2d366cbdf53a17b39b208a21ad3c2a7356a61317dcfacb5a3e17660702e7be8990541fbdca790c3af3850567ed6f41
+  peerDependencies:
+    axios: ^1.2.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: b758e01d9888db6aedaa1c36815d3be2c9a355f8c59f5e15950c9e9ddb3577e05438d99047caf7db0f0141dd2648f9bd279601aec1d9cbd043589b5700eb77b2
   languageName: node
   linkType: hard
 
-"@xylabs/react-identicon@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-identicon@npm:2.15.2"
+"@xylabs/react-identicon@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-identicon@npm:2.15.4"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     md5: ^2.3.0
     react: ^18.2.0
-  checksum: fb8c92a882d1c531ee7f7bd92e2c3ac64dd415f43156068f4b8378b11d4519d3934d4786457bc8562fa552b0b0df1e980ad7db6c5c4cbbb6dced6a62f179d0e9
+  peerDependencies:
+    axios: ^1.2.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 9127e124f63f115e4283010dc364f1685e5ca22230314f5798c5f6b63d051d85c756eb64fcb2e7b3904d5a974d727eb8cb01bd59b058a002964ef4ecd3c2ddbd
   languageName: node
   linkType: hard
 
-"@xylabs/react-invertable-theme@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-invertable-theme@npm:2.15.2"
+"@xylabs/react-invertable-theme@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-invertable-theme@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 223baae71d092781f602b212318fa84f0176aab6da6881e35b26e4fe4f2e95d4385d4b89644474f78bda7280b50ec872f94efa8cca4489df99135b1ad5446c09
-  languageName: node
-  linkType: hard
-
-"@xylabs/react-link@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-link@npm:2.15.2"
-  dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
+  peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-router-dom: ^6.3.0
-  checksum: 75468490b5b560167149987bd051f01f663085c6fe7fecb6f62a4ec428cbdec054b06b2e7d063efc91ecd43890b1d39e7a1058ba5bad69aa376df61b25a0d455
+  checksum: 90e357ce1d54329ab18b670fc77c42b43297f9d0900904f90b8bced203f36aa4c7fe3994ee6afbfa6ccad89da22e685cb6a5340736753c254768ac934d11ee51
   languageName: node
   linkType: hard
 
-"@xylabs/react-number-status@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-number-status@npm:2.15.2"
+"@xylabs/react-link@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-link@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.4.5
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 932831b66da0dd7cbcf85affc97ad08c8fda9ad121fe287e19f8b1cbb96a3c63f526437fe34c6a7b6777bd6e5f87854dcc7708b919d6b9e3c7abd33a42987547
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-number-status@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-number-status@npm:2.15.4"
+  dependencies:
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
     numeral: ^2.0.6
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: fc253d2aef3fca51832af363f522d59f73daf9a0b427e45e33eb3b0a0fa994546048f3a55226f3ff5303dd65e72058c489a6fab1287532842b3eea2fcac04f27
-  languageName: node
-  linkType: hard
-
-"@xylabs/react-pixel-debugger@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-pixel-debugger@npm:2.15.2"
-  dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/pixel": ^1.4.5
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-pixel": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+  peerDependencies:
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 994d4c17843476b20387b60ff967205c39a7677d090ee14c6ff9f985db5c93b168adbf64b868c8bc100bae808891e4056a2b9616c711a33776d5f4ff05ae3c67
+  checksum: 83e0bd4669b3a960c5538550db05a2f9300c764a5306f8d02402a8075a9410873d07adb8c5012046902b3364d410a8ef566883bfe45c40a5c9c8272f7b80931f
   languageName: node
   linkType: hard
 
-"@xylabs/react-pixel@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-pixel@npm:2.15.2"
+"@xylabs/react-pixel-debugger@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-pixel-debugger@npm:2.15.4"
   dependencies:
-    "@xylabs/pixel": ^1.4.5
-    "@xylabs/sdk-js": ^2.6.7
-    query-string: ^7.1.1
-    react: ^18.2.0
-  checksum: 65dd7beae949c17ba45515fe738a50449611ecef7fc281f8fcce19644c70980e2f5e139b5bb283fb8b55e7c1db35b65aa3b8d93c190d6fd1d9d490a959df647f
-  languageName: node
-  linkType: hard
-
-"@xylabs/react-quick-tip-button@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-quick-tip-button@npm:2.15.2"
-  dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/icons-material": ^5.10.3
-    "@mui/material": ^5.10.4
-    "@xylabs/react-dialogs": ^2.15.2
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/pixel": ^1.4.6
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-pixel": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: e274dedb283cba37baf84fcac3dae862e8673df879a29d60ba9d2fded932712670095c8dc4c0b4e795dbead6cb9fc441fd1eb1d3002ca1ffd8876edf8c3feb5b
-  languageName: node
-  linkType: hard
-
-"@xylabs/react-rich-result@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-rich-result@npm:2.15.2"
-  dependencies:
-    react: ^18.2.0
-  checksum: 23432a345a39f19b678fbaa9b8aee1ba1abe2d4af1754aeb63d798775bd37a4a864bd220cfe620fafc0af0006c0a8cc7539a291fb64b7a3b98cf2040fd7a25ae
-  languageName: node
-  linkType: hard
-
-"@xylabs/react-scroll-to-top@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-scroll-to-top@npm:2.15.2"
-  dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
+  peerDependencies:
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-router-dom: ^6.3.0
-  checksum: 14c1eb2f85f0abe480351ee6a14d318ebe1b71146bd2598a07d19e05a7981abd2a43b056618b42a7b2fe912edb9e46c87d8bb7a703fd02aaf50524ef344fc789
+  checksum: e47617af78dbe31bf3cdade128fa5af04d98ff8b37d7a62409ecb8c798707195832b2d5a217eac63812fd8a7d94ab3b95255227cdaecae22220c6c13b4e5067b
   languageName: node
   linkType: hard
 
-"@xylabs/react-shared@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/react-shared@npm:2.15.2"
+"@xylabs/react-pixel@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-pixel@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/sdk-js": ^2.6.7
+    "@xylabs/pixel": ^1.4.6
+    "@xylabs/sdk-js": ^2.6.10
+    query-string: ^7
+    react: ^18.2.0
+  peerDependencies:
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 68e8c9dd0d7c0035ff75a71f537161ffd6611a1ca0cdb9e66f28b613b4f7f2d950eadc02ab1f2dee3272c5255d3cb31403d413caaabc4748c09e290ca3e4aa23
+  checksum: aba7cad1c0fb306ccb87781f3704fec6879c6b7ad755f9183a440d9041a890b2d927a3c678dcc2d6b23fed1d9b30adaaa67ab1e1b1bb83cdec55b2ec49bcebff
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:^2.6.2, @xylabs/sdk-js@npm:^2.6.7, @xylabs/sdk-js@npm:^2.6.9":
-  version: 2.6.9
-  resolution: "@xylabs/sdk-js@npm:2.6.9"
+"@xylabs/react-quick-tip-button@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-quick-tip-button@npm:2.15.4"
   dependencies:
-    "@xylabs/assert": ^2.6.9
-    "@xylabs/bignumber": ^2.6.9
-    "@xylabs/delay": ^2.6.9
-    "@xylabs/exists": ^2.6.9
-    "@xylabs/forget": ^2.6.9
-    axios: ^0.27.2
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/icons-material": ^5.10.16
+    "@mui/material": ^5.10.17
+    "@xylabs/react-dialogs": ^2.15.4
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 9b479b5d3e716b95e95d8dbe8ccb19eab334ea952faa42f2735a212eafa70dc810e5a1b3ea178be0cdeea56449a8cfeeece14ebc2058eb44d639f99d74017f80
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-rich-result@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-rich-result@npm:2.15.4"
+  dependencies:
+    react: ^18.2.0
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 1c8e252ec108abbbd807c69f610268db40bf7ce3bf1c1288376f20c5e2c2f7615aa8897f0830e5f6c985805d38e7593a937d6cc178c80309a34f06b028222ea8
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-scroll-to-top@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-scroll-to-top@npm:2.15.4"
+  dependencies:
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-router-dom: ^6.4.5
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 3c2412764e21799e9d97e017704b1bbee5489e9715cd5fdb92e7e1fd1d46aec20f8672dcae550b0b71d4635f405bc302ed0d53f4439905868ffefa8ac94abee5
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-shared@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/react-shared@npm:2.15.4"
+  dependencies:
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/sdk-js": ^2.6.10
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  peerDependencies:
+    axios: ^1.2.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: d01cfbe8fb103bece97e6b0382f6f4f63b595e34cca6fa53f805438c4c9fde8b7b81192df991c2a7daaed24b5ba0a070601250ec9ab2bfb0d1cedefb04f242d8
+  languageName: node
+  linkType: hard
+
+"@xylabs/sdk-js@npm:^2.6.10, @xylabs/sdk-js@npm:^2.6.9":
+  version: 2.6.10
+  resolution: "@xylabs/sdk-js@npm:2.6.10"
+  dependencies:
+    "@xylabs/assert": ^2.6.10
+    "@xylabs/bignumber": ^2.6.10
+    "@xylabs/delay": ^2.6.10
+    "@xylabs/exists": ^2.6.10
+    "@xylabs/forget": ^2.6.10
     rollbar: ^2.25.2
-  checksum: 265b67eb3ed02accad9bc5dbbf4aa8211d8fed1c3f4eff2e3526634d8f8dba2c774c0e3a582ac858e7680a2f849d387bcf9ecc75a08b6851441b16a5fcc71e29
+  peerDependencies:
+    axios: ^1.2.1
+  checksum: 83e75a4a83d05be219d6b56b392a1d2a72b23a47bb59ced94fdb7b7b394c2ef629d1267bbdd9bf4df1df221df689b406475aa7fb8ac68ac625d933f40555cb3b
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-react@npm:^2.15.2":
-  version: 2.15.2
-  resolution: "@xylabs/sdk-react@npm:2.15.2"
+"@xylabs/sdk-react@npm:^2.15.4":
+  version: 2.15.4
+  resolution: "@xylabs/sdk-react@npm:2.15.4"
   dependencies:
-    "@emotion/react": ^11.10.4
-    "@emotion/styled": ^11.10.4
-    "@mui/material": ^5.10.4
-    "@xylabs/react-accordion": ^2.15.2
-    "@xylabs/react-appbar": ^2.15.2
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-cookie-consent": ^2.15.2
-    "@xylabs/react-crypto": ^2.15.2
-    "@xylabs/react-dialogs": ^2.15.2
-    "@xylabs/react-experiments": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/react-invertable-theme": ^2.15.2
-    "@xylabs/react-link": ^2.15.2
-    "@xylabs/react-number-status": ^2.15.2
-    "@xylabs/react-pixel": ^2.15.2
-    "@xylabs/react-pixel-debugger": ^2.15.2
-    "@xylabs/react-quick-tip-button": ^2.15.2
-    "@xylabs/react-rich-result": ^2.15.2
-    "@xylabs/react-scroll-to-top": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@emotion/react": ^11.10.5
+    "@emotion/styled": ^11.10.5
+    "@mui/material": ^5.10.17
+    "@xylabs/react-accordion": ^2.15.4
+    "@xylabs/react-appbar": ^2.15.4
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-cookie-consent": ^2.15.4
+    "@xylabs/react-crypto": ^2.15.4
+    "@xylabs/react-dialogs": ^2.15.4
+    "@xylabs/react-experiments": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/react-invertable-theme": ^2.15.4
+    "@xylabs/react-link": ^2.15.4
+    "@xylabs/react-number-status": ^2.15.4
+    "@xylabs/react-pixel": ^2.15.4
+    "@xylabs/react-pixel-debugger": ^2.15.4
+    "@xylabs/react-quick-tip-button": ^2.15.4
+    "@xylabs/react-rich-result": ^2.15.4
+    "@xylabs/react-scroll-to-top": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+  peerDependencies:
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 31674a36d90003de0ada4986028a89352f5b06621c87ed6c2b5e0c5ae3a950d933fa89b1d7605b3437567b3b99c69df93dec36efb0250b68dd2937ec1267b311
+  checksum: 5cb176e19802c5fdcc210206d8bbfcdf770bd60b15517cb296cc9cb9c961b425f0beadde3eb3625301ae083fee45225382faa897e1bb84457ade8c27087ec54f
   languageName: node
   linkType: hard
 
@@ -6835,7 +6888,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address/packages/history-api"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
@@ -6859,7 +6912,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
-    axios: ^1.1.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.6.0
@@ -6872,9 +6925,9 @@ __metadata:
   resolution: "@xyo-network/react-address-history@workspace:packages/sdk/packages/address/packages/history"
   dependencies:
     "@storybook/react": ^6.5.14
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-boundwitness-plugin": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
@@ -6901,6 +6954,7 @@ __metadata:
     "@xyo-network/protocol": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.6.0
@@ -6955,9 +7009,9 @@ __metadata:
     "@uniswap/sdk": ^3.0.3
     "@uniswap/sdk-core": ^3.1.0
     "@uniswap/v3-sdk": ^3.9.0
-    "@xylabs/decimal-precision": ^2.6.9
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-quick-tip-button": ^2.15.2
+    "@xylabs/decimal-precision": ^2.6.10
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-quick-tip-button": ^2.15.4
     "@xyo-network/crypto-asset-payload-plugin": ^2.42.3
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7014,15 +7068,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-api@workspace:packages/sdk/packages/api"
   dependencies:
-    "@mui/icons-material": ^5.10.16
-    "@mui/material": ^5.10.17
-    "@mui/styles": ^5.10.16
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-dialogs": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@mui/icons-material": ^5.11.0
+    "@mui/material": ^5.11.0
+    "@mui/styles": ^5.11.0
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-dialogs": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/api": ^2.42.3
     "@xyo-network/api-models": ^2.42.3
     "@xyo-network/archivist": ^2.42.3
@@ -7072,14 +7126,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-app-settings@workspace:packages/sdk/packages/app-settings"
   dependencies:
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7090,12 +7145,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-appbar@workspace:packages/sdk/packages/appbar"
   dependencies:
-    "@xylabs/react-appbar": ^2.15.2
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-link": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-appbar": ^2.15.4
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-link": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-auth-sets": "workspace:^"
@@ -7127,9 +7182,9 @@ __metadata:
   resolution: "@xyo-network/react-archivist@workspace:packages/sdk/packages/archivist"
   dependencies:
     "@types/lodash": ^4.14.191
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/archivist": ^2.42.3
     "@xyo-network/module": ^2.42.3
     "@xyo-network/payload": ^2.42.3
@@ -7140,6 +7195,7 @@ __metadata:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7150,12 +7206,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-auth-service@workspace:packages/sdk/packages/auth-service"
   dependencies:
-    "@mui/icons-material": ^5.10.16
-    "@mui/material": ^5.10.17
-    "@mui/styles": ^5.10.16
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@mui/icons-material": ^5.11.0
+    "@mui/material": ^5.11.0
+    "@mui/styles": ^5.11.0
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/api": ^2.42.3
     "@xyo-network/archivist": ^2.42.3
     "@xyo-network/diviner": ^2.42.3
@@ -7194,9 +7250,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-auth-sets@workspace:packages/sdk/packages/auth-sets"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -7215,14 +7271,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-auth@workspace:packages/sdk/packages/auth"
   dependencies:
-    "@mui/icons-material": ^5.10.16
-    "@mui/material": ^5.10.17
+    "@mui/icons-material": ^5.11.0
+    "@mui/material": ^5.11.0
     "@types/lodash": ^4.14.191
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/react-invertable-theme": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/react-invertable-theme": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/api-models": ^2.42.3
     axios: ^1.2.1
     lodash: ^4.17.21
@@ -7244,10 +7300,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-block@workspace:packages/sdk/packages/block"
   dependencies:
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/diviner": ^2.42.3
     "@xyo-network/module": ^2.42.3
     "@xyo-network/react-error": "workspace:^"
@@ -7272,6 +7328,7 @@ __metadata:
     "@xyo-network/react-table": "workspace:^"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.4.0
@@ -7283,10 +7340,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-boundwitness-plugin@workspace:packages/plugins/packages/boundwitness"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/react-quick-tip-button": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/react-quick-tip-button": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7311,6 +7368,7 @@ __metadata:
     "@xyo-network/payloadset-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.6.0
@@ -7322,13 +7380,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-card@workspace:packages/sdk/packages/card"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7368,8 +7427,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-crypto-market-uniswap-plugin@workspace:packages/plugins/packages/crypto-market-uniswap"
   dependencies:
-    "@xylabs/decimal-precision": ^2.6.9
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/decimal-precision": ^2.6.10
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -7401,7 +7460,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-crypto-prices-plugin@workspace:packages/plugins/packages/crypto-prices"
   dependencies:
-    "@xylabs/sdk-react": ^2.15.2
+    "@xylabs/sdk-react": ^2.15.4
     "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.42.3
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7492,8 +7551,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-elevation-map-quadkey-plugin@workspace:packages/plugins/packages/elevation-quadkey"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/sdk-geo": ^2.7.0
@@ -7523,10 +7582,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-embed@workspace:packages/sdk/packages/embed"
   dependencies:
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7577,7 +7636,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-blocknative-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/blocknative"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7595,6 +7654,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7608,6 +7668,7 @@ __metadata:
     "@xyo-network/react-ethereum-gas-price-etherchain-v1-plugin": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
+    tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
@@ -7621,6 +7682,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7631,7 +7693,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-etherchain-v1-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherchain/packages/v1"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7649,6 +7711,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7659,7 +7722,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherchain/packages/v2"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7677,6 +7740,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7687,7 +7751,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-ethers-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/ethers"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/ethers-ethereum-gas-payload-plugin": ^2.42.3
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7706,6 +7770,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7716,7 +7781,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-etherscan-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/etherscan"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": ^2.42.3
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7735,6 +7800,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7745,7 +7811,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-ethgasstation-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/eth-gas-station"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": ^2.42.3
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7764,6 +7830,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7781,6 +7848,7 @@ __metadata:
     "@xyo-network/react-ethereum-gas-price-ethgasstation-plugin": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
+    tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
@@ -7798,6 +7866,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7808,8 +7877,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-plugin@workspace:packages/plugins/packages/ethereum-gas/packages/gas-price"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-quick-tip-button": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-quick-tip-button": ^2.15.4
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7826,6 +7895,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -7836,7 +7906,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-event@workspace:packages/sdk/packages/event"
   dependencies:
-    "@xylabs/assert": ^2.6.9
+    "@xylabs/assert": ^2.6.10
     tslib: ^2.4.1
   peerDependencies:
     react: ^18.2.0
@@ -7847,13 +7917,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-footer@workspace:packages/sdk/packages/footer"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-link": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-link": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.4.0
@@ -7864,8 +7935,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-gas-price@workspace:packages/sdk/packages/gas-price"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -7873,6 +7944,7 @@ __metadata:
     "@mui/icons-material": ^5.10.14
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.4.3
@@ -7883,7 +7955,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-location-heatmap-quadkey-plugin@workspace:packages/plugins/packages/location-heatmap-quadkey"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     geojson: ^0.5.0
@@ -7913,7 +7985,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-location-point-map-plugin@workspace:packages/plugins/packages/location-point-map"
   dependencies:
-    "@xylabs/sdk-react": ^2.15.2
+    "@xylabs/sdk-react": ^2.15.4
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     geojson: 0.5.0
@@ -7944,7 +8016,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-location-points-map-plugin@workspace:packages/plugins/packages/location-points-map"
   dependencies:
-    "@xylabs/sdk-react": ^2.15.2
+    "@xylabs/sdk-react": ^2.15.4
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     tslib: ^2.4.1
@@ -7973,14 +8045,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-login-forms@workspace:packages/sdk/packages/login-forms"
   dependencies:
-    "@mui/icons-material": ^5.10.16
-    "@mui/material": ^5.10.17
-    "@mui/styles": ^5.10.16
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@mui/icons-material": ^5.11.0
+    "@mui/material": ^5.11.0
+    "@mui/styles": ^5.11.0
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/api": ^2.42.3
     "@xyo-network/api-models": ^2.42.3
     "@xyo-network/archivist": ^2.42.3
@@ -8021,8 +8093,8 @@ __metadata:
   resolution: "@xyo-network/react-map@workspace:packages/sdk/packages/map"
   dependencies:
     "@types/mapbox-gl": ^2.7.10
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
@@ -8039,6 +8111,7 @@ __metadata:
     "@xyo-network/archivist": "*"
     "@xyo-network/module": "*"
     "@xyo-network/payload": "*"
+    axios: ^1.2.1
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8050,9 +8123,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-module@workspace:packages/sdk/packages/module"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
@@ -8078,9 +8151,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-network@workspace:packages/sdk/packages/network"
   dependencies:
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/network": ^2.42.3
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -8088,6 +8161,7 @@ __metadata:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8098,9 +8172,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-node@workspace:packages/sdk/packages/node"
   dependencies:
-    "@mui/lab": ^5.0.0-alpha.111
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@mui/lab": ^5.0.0-alpha.112
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
     tslib: ^2.4.1
@@ -8115,6 +8189,7 @@ __metadata:
     "@xyo-network/module": "*"
     "@xyo-network/node": "*"
     "@xyo-network/witness": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8125,7 +8200,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-panel@workspace:packages/sdk/packages/panel"
   dependencies:
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -8145,6 +8220,7 @@ __metadata:
     "@xyo-network/panel": "*"
     "@xyo-network/payload": "*"
     "@xyo-network/witness": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8155,7 +8231,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-context@workspace:packages/sdk/packages/payload/packages/context"
   dependencies:
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -8165,6 +8241,7 @@ __metadata:
     "@mui/styles": ^5.10.3
     "@xyo-network/archivist": "*"
     "@xyo-network/payload": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8175,9 +8252,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-details@workspace:packages/sdk/packages/payload/packages/details"
   dependencies:
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-quick-tip-button": ^2.15.2
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-quick-tip-button": ^2.15.4
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -8193,6 +8270,7 @@ __metadata:
     "@xyo-network/payload": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8204,9 +8282,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload/packages/diviner"
   dependencies:
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -8220,6 +8298,7 @@ __metadata:
     "@xyo-network/module": "*"
     "@xyo-network/network": "*"
     "@xyo-network/payload": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8230,7 +8309,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-plugin-resolver@workspace:packages/sdk/packages/payload/packages/plugin-resolver"
   dependencies:
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -8245,6 +8324,7 @@ __metadata:
     "@xyo-network/payloadset-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8255,9 +8335,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-plugin@workspace:packages/sdk/packages/payload/packages/plugin"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
@@ -8272,6 +8352,7 @@ __metadata:
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8282,9 +8363,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-table@workspace:packages/sdk/packages/payload/packages/table"
   dependencies:
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
@@ -8304,6 +8385,7 @@ __metadata:
     "@xyo-network/payloadset-plugin": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8336,6 +8418,7 @@ __metadata:
     "@xyo-network/payloadset-plugin": "*"
     "@xyo-network/schema-payload-plugin": ^2.41.3
     "@xyo-network/utils": ^2.41.3
+    axios: ^1.2.1
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8349,6 +8432,7 @@ __metadata:
   dependencies:
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
     "@xyo-network/react-boundwitness-plugin": "workspace:^"
+    "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^"
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-crypto-prices-plugin": "workspace:^"
@@ -8358,8 +8442,10 @@ __metadata:
     "@xyo-network/react-location-heatmap-quadkey-plugin": "workspace:^"
     "@xyo-network/react-location-point-map-plugin": "workspace:^"
     "@xyo-network/react-location-points-map-plugin": "workspace:^"
+    "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-pointer-plugin": "workspace:^"
     "@xyo-network/react-schema-plugin": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
     tslib: ^2.4.1
   peerDependencies:
@@ -8369,8 +8455,10 @@ __metadata:
     "@uniswap/sdk": ^3.0.3
     "@uniswap/sdk-core": ^3.1.0
     "@uniswap/v3-sdk": ^3.9.0
+    "@xylabs/react-card": ~2
     "@xylabs/react-flexbox": ~2
     "@xylabs/react-identicon": ~2
+    "@xylabs/react-quick-tip-button": ~2
     "@xylabs/react-shared": ~2
     "@xylabs/sdk-js": ~2
     "@xyo-network/archivist": ~2
@@ -8431,7 +8519,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-pointer-plugin@workspace:packages/plugins/packages/pointer"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     lodash: ^4.17.21
@@ -8459,17 +8547,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-property@workspace:packages/sdk/packages/property"
   dependencies:
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/react-quick-tip-button": ^2.15.2
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/react-quick-tip-button": ^2.15.4
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/typeof": ^2.42.3
+    axios: ^1.2.1
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8480,7 +8570,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-schema-api@workspace:packages/sdk/packages/schema-api"
   dependencies:
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -8511,7 +8601,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-schema-plugin@workspace:packages/plugins/packages/schema"
   dependencies:
-    "@xylabs/react-flexbox": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     tslib: ^2.4.1
@@ -8539,9 +8629,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-schema@workspace:packages/sdk/packages/schema"
   dependencies:
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-link": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-link": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
@@ -8554,6 +8644,7 @@ __metadata:
     "@xyo-network/payload": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8641,18 +8732,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-shared@workspace:packages/sdk/packages/shared"
   dependencies:
-    "@xylabs/pixel": ^1.4.5
-    "@xylabs/react-appbar": ^2.15.2
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-link": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/pixel": ^1.4.6
+    "@xylabs/react-appbar": ^2.15.4
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-link": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-event": "workspace:^"
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8665,14 +8757,15 @@ __metadata:
   dependencies:
     "@storybook/react": ^6.5.14
     "@types/lodash": ^4.14.191
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-invertable-theme": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-invertable-theme": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
+    axios: ^1.2.1
     lodash: ^4.17.21
     require-from-string: ^2.0.2
     storybook-dark-mode: ^2.0.4
@@ -8695,6 +8788,7 @@ __metadata:
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
     "@xyo-network/wallet": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.6.0
@@ -8709,13 +8803,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-table@workspace:packages/sdk/packages/table"
   dependencies:
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-shared": "workspace:^"
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.14
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.4.3
@@ -8726,14 +8821,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-test@workspace:packages/test"
   dependencies:
-    "@mui/icons-material": ^5.10.16
-    "@mui/lab": ^5.0.0-alpha.111
-    "@mui/material": ^5.10.17
-    "@mui/styles": ^5.10.16
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@mui/icons-material": ^5.11.0
+    "@mui/lab": ^5.0.0-alpha.112
+    "@mui/material": ^5.11.0
+    "@mui/styles": ^5.11.0
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/api": ^2.42.3
     "@xyo-network/archivist": ^2.42.3
     "@xyo-network/boundwitness": ^2.42.3
@@ -8782,17 +8877,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-typedoc@workspace:packages/sdk/packages/typedoc"
   dependencies:
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
+    axios: ^1.2.1
     react-json-view: ^1.21.3
     tslib: ^2.4.1
-    typedoc: ^0.23.21
+    typedoc: ^0.23.22
     typescript: ^4.9.4
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/lab": ^5.0.0-alpha.111
     "@mui/material": ^5.10.3
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8803,15 +8900,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet-service@workspace:packages/sdk/packages/wallet-service"
   dependencies:
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/react-shared": "workspace:^"
+    axios: ^1.2.1
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
     "@xyo-network/utils": "*"
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8822,23 +8921,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet@workspace:packages/sdk/packages/wallet"
   dependencies:
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-crypto": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/react-number-status": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-crypto": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/react-number-status": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xyo-network/account": ^2.42.3
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/wallet": ^2.42.3
+    axios: ^1.2.1
     tslib: ^2.4.1
   peerDependencies:
     "@mui/icons-material": ^5.10.3
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
     "@xylabs/assert": ^2.6.9
+    axios: ^1.2.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.3.0
@@ -8850,10 +8951,10 @@ __metadata:
   resolution: "@xyo-network/react-webapp@workspace:packages/sdk/packages/webapp"
   dependencies:
     "@types/react-helmet": ^6.1.6
-    "@xylabs/react-button": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-pixel": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
+    "@xylabs/react-button": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-pixel": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
@@ -8908,10 +9009,10 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.5
     "@babel/preset-env": ^7.20.2
-    "@mui/icons-material": ^5.10.16
-    "@mui/lab": ^5.0.0-alpha.111
-    "@mui/material": ^5.10.17
-    "@mui/styles": ^5.10.16
+    "@mui/icons-material": ^5.11.0
+    "@mui/lab": ^5.0.0-alpha.112
+    "@mui/material": ^5.11.0
+    "@mui/styles": ^5.11.0
     "@storybook/addon-actions": ^6.5.14
     "@storybook/addon-controls": ^6.5.14
     "@storybook/addon-essentials": ^6.5.14
@@ -8929,13 +9030,13 @@ __metadata:
     "@storybook/theming": ^6.5.14
     "@xylabs/eslint-config": 2.7.27
     "@xylabs/eslint-config-react": 2.7.27
-    "@xylabs/react-common": ^2.15.2
-    "@xylabs/react-flexbox": ^2.15.2
-    "@xylabs/react-identicon": ^2.15.2
-    "@xylabs/react-invertable-theme": ^2.15.2
-    "@xylabs/react-quick-tip-button": ^2.15.2
-    "@xylabs/react-shared": ^2.15.2
-    "@xylabs/sdk-js": ^2.6.9
+    "@xylabs/react-common": ^2.15.4
+    "@xylabs/react-flexbox": ^2.15.4
+    "@xylabs/react-identicon": ^2.15.4
+    "@xylabs/react-invertable-theme": ^2.15.4
+    "@xylabs/react-quick-tip-button": ^2.15.4
+    "@xylabs/react-shared": ^2.15.4
+    "@xylabs/sdk-js": ^2.6.10
     "@xylabs/ts-scripts-yarn3": 2.7.27
     "@xylabs/tsconfig-dom": 2.7.27
     "@xyo-network/archivist": ^2.42.3
@@ -8987,6 +9088,7 @@ __metadata:
     "@mui/material": ^5.10.3
     "@mui/styles": ^5.10.3
     "@xylabs/assert": ^2.6.9
+    "@xylabs/react-card": ^2.15.1
     "@xylabs/react-common": ^2.15.1
     "@xylabs/react-flexbox": ^2.15.1
     "@xylabs/react-identicon": ^2.15.1
@@ -9750,12 +9852,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async-mutex@npm:^0.3.2":
-  version: 0.3.2
-  resolution: "async-mutex@npm:0.3.2"
+"async-mutex@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "async-mutex@npm:0.4.0"
   dependencies:
-    tslib: ^2.3.1
-  checksum: 620b771dfdea1cad0a6b712915c31a1e3ca880a8cf1eae92b4590f435995e0260929c6ebaae0b9126b1456790ea498064b5bb9a506948cda760f48d3d0dcc4c8
+    tslib: ^2.4.0
+  checksum: 813a71728b35a4fbfd64dba719f04726d9133c67b577fcd951b7028c4a675a13ee34e69beb82d621f87bf81f5d4f135c4c44be0448550c7db728547244ef71fc
   languageName: node
   linkType: hard
 
@@ -9814,19 +9916,9 @@ __metadata:
   linkType: hard
 
 "axe-core@npm:^4.4.3":
-  version: 4.5.2
-  resolution: "axe-core@npm:4.5.2"
-  checksum: 4068f183b2ef1db7e5a75606032c238781abfaa34ab4c23177e17f7dff8cc83f175e887b52689d20d88d2d4f001cbf632bd98925850026fe1d9abc739cabcf16
-  languageName: node
-  linkType: hard
-
-"axios@npm:^0.27.2":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
-  dependencies:
-    follow-redirects: ^1.14.9
-    form-data: ^4.0.0
-  checksum: 38cb7540465fe8c4102850c4368053c21683af85c5fdf0ea619f9628abbcb59415d1e22ebc8a6390d2bbc9b58a9806c874f139767389c862ec9b772235f06854
+  version: 4.6.0
+  resolution: "axe-core@npm:4.6.0"
+  checksum: ed112f76bbb2e2ab52dda623fc4baf882b2d00045a55b2cc15358e891f7f164d674be1a2fbcfd49e11d064b146c387c5c9c3c29d7d59c9de6c22c65b86eb68ac
   languageName: node
   linkType: hard
 
@@ -13605,7 +13697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.15.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -14121,11 +14213,11 @@ __metadata:
   linkType: hard
 
 "globals@npm:^13.15.0":
-  version: 13.18.0
-  resolution: "globals@npm:13.18.0"
+  version: 13.19.0
+  resolution: "globals@npm:13.19.0"
   dependencies:
     type-fest: ^0.20.2
-  checksum: 9fdaa74cfd5d4ac91319662f512c29b11d1d2deb9c8a20d3998097671deba83d195f20730b2345887de3ddab958a6fa68952feed9ae836ee4594a82ace62fdb4
+  checksum: a000dbd00bcf28f0941d8a29c3522b1c3b8e4bfe4e60e262c477a550c3cbbe8dbe2925a6905f037acd40f9a93c039242e1f7079c76b0fd184bc41dcc3b5c8e2e
   languageName: node
   linkType: hard
 
@@ -14160,15 +14252,15 @@ __metadata:
   linkType: hard
 
 "globby@npm:^13.1.2":
-  version: 13.1.2
-  resolution: "globby@npm:13.1.2"
+  version: 13.1.3
+  resolution: "globby@npm:13.1.3"
   dependencies:
     dir-glob: ^3.0.1
     fast-glob: ^3.2.11
     ignore: ^5.2.0
     merge2: ^1.4.1
     slash: ^4.0.0
-  checksum: c148fcda0c981f00fb434bb94ca258f0a9d23cedbde6fb3f37098e1abde5b065019e2c63fe2aa2fad4daf2b54bf360b4d0423d85fb3a63d09ed75a2837d4de0f
+  checksum: 93f06e02002cdf368f7e3d55bd59e7b00784c7cc8fe92c7ee5082cc7171ff6109fda45e1c97a80bb48bc811dedaf7843c7c9186f5f84bde4883ab630e13c43df
   languageName: node
   linkType: hard
 
@@ -16544,16 +16636,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-rpc-middleware-stream@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "json-rpc-middleware-stream@npm:3.0.0"
-  dependencies:
-    "@metamask/safe-event-emitter": ^2.0.0
-    readable-stream: ^2.3.3
-  checksum: 9ff56cd40a6ba0a6f3d0226ea100921635120154c602822f0f4fdfa6bf7c61367d1e8cd055b6e7a7639aa19ed51a9ce7fbf2932a2d348b2404c060f75bc1231f
-  languageName: node
-  linkType: hard
-
 "json-rpc-middleware-stream@npm:^4.2.1":
   version: 4.2.1
   resolution: "json-rpc-middleware-stream@npm:4.2.1"
@@ -18502,8 +18584,8 @@ __metadata:
   linkType: hard
 
 "npm-check-updates@npm:^16.5.1":
-  version: 16.5.3
-  resolution: "npm-check-updates@npm:16.5.3"
+  version: 16.5.6
+  resolution: "npm-check-updates@npm:16.5.6"
   dependencies:
     chalk: ^5.1.2
     cli-table: ^0.3.11
@@ -18537,7 +18619,7 @@ __metadata:
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: 7f9dedf387d5f5c6d2914efdc80f19b72a70bb8b1a2175d0bd5b5de05f3d02e2fa231dd0c33aaf204b80c8c318c26e2a4f1ce0e484d442a533985cd18a0e95af
+  checksum: 5340f0854ecdf04f4de30c61228b2d68cc0878cbbffccdc83f2319f0d6eda984035fda9b839ba4859452c575230f2eb15f644c1a4260ff4afb06d2bb74a06963
   languageName: node
   linkType: hard
 
@@ -19691,13 +19773,13 @@ __metadata:
   linkType: hard
 
 "postcss@npm:^8.1.10, postcss@npm:^8.2.15":
-  version: 8.4.19
-  resolution: "postcss@npm:8.4.19"
+  version: 8.4.20
+  resolution: "postcss@npm:8.4.20"
   dependencies:
     nanoid: ^3.3.4
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
-  checksum: 62782723a385f92b7525f66d29614624de7c5643855423db3a5efd9287e677650300192749adddbbb6734cea9b1d5f5fd4f6ea00ca3f9a95dbbb88f835f5ca64
+  checksum: 1a5609ea1c1b204f9c2974a0019ae9eef2d99bf645c2c9aac675166c4cb1005be7b5e2ba196160bc771f5d9ac896ed883f236f888c891e835e59d28fff6651aa
   languageName: node
   linkType: hard
 
@@ -20005,15 +20087,16 @@ __metadata:
   linkType: hard
 
 "query-ast@npm:^1.0.3":
-  version: 1.0.4
-  resolution: "query-ast@npm:1.0.4"
+  version: 1.0.5
+  resolution: "query-ast@npm:1.0.5"
   dependencies:
     invariant: 2.2.4
-  checksum: fed7983738d690437e24d113e74c39e51a33da893c58e46286007f26dc283c8dd5b25a854ec91864ae60e8398b0bac8667c2588b532b8b20503cc05fc25d10ed
+    lodash: ^4.17.21
+  checksum: 4b7ae79bc907d0614c8d306d77fc82a19d40f5900bace286943839b875d84a52aa4993a73fdb8f4e989461b88474c47a60a48c7a42964b53253d5abe1452e9ad
   languageName: node
   linkType: hard
 
-"query-string@npm:^7.1.1":
+"query-string@npm:^7":
   version: 7.1.3
   resolution: "query-string@npm:7.1.3"
   dependencies:
@@ -20300,7 +20383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.3.0, react-router-dom@npm:^6.4.5":
+"react-router-dom@npm:^6.4.5":
   version: 6.4.5
   resolution: "react-router-dom@npm:6.4.5"
   dependencies:
@@ -24183,9 +24266,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.21":
-  version: 0.23.21
-  resolution: "typedoc@npm:0.23.21"
+"typedoc@npm:^0.23.21, typedoc@npm:^0.23.22":
+  version: 0.23.22
+  resolution: "typedoc@npm:0.23.22"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.0.19
@@ -24195,7 +24278,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x
   bin:
     typedoc: bin/typedoc
-  checksum: 931520b21ae25ba8ea86111ea7c66f474468bb83cbe1d04c0ea19490f130ea44ba58b7ee4d12f7f02368cfe053ed1fa291c8843c466c8af383ef956de177360d
+  checksum: ac3a015e72d5e2dc6a3a2cca64572932a6d9d0ea26ee08e87c05e2244795087371a12b103f5f4c4f72d006f8893cd4dccd9addfbbce18577e2fb36c9c1d71be4
   languageName: node
   linkType: hard
 

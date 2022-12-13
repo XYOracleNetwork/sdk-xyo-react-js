@@ -1,4 +1,4 @@
-import { Breakpoint, experimental_sx as sx, styled } from '@mui/material'
+import { Breakpoint, styled } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { ReactNode } from 'react'
 
@@ -16,7 +16,7 @@ const WebAppBodyRoot = styled(FlexGrowCol, {
   slot: 'Root',
 })<WebAppBodyProps>(({ spacing, theme, mobileScrollingBreakpoint = 'sm', variant }) => {
   const scrollable = variant === 'scrollable'
-  return sx({
+  return theme.unstable_sx({
     alignItems: 'stretch',
     gap: 1,
     justifyContent: 'flex-start',
@@ -32,8 +32,8 @@ const WebAppBodyBreadcrumb = styled(FlexRow, {
   ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Breadcrumb',
-})<WebAppBodyProps>(({ disableBreadcrumbGutter, spacing }) =>
-  sx({
+})<WebAppBodyProps>(({ theme, disableBreadcrumbGutter, spacing }) =>
+  theme.unstable_sx({
     justifyContent: 'start',
     marginX: disableBreadcrumbGutter ? 0 : spacing,
   }),

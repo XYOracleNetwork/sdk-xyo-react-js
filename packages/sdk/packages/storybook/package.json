@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@storybook/react": "^6.5.14",
-    "@xylabs/react-flexbox": "^2.15.2",
-    "@xylabs/react-invertable-theme": "^2.15.2",
-    "@xylabs/react-shared": "^2.15.2",
+    "@xylabs/react-flexbox": "^2.15.4",
+    "@xylabs/react-invertable-theme": "^2.15.4",
+    "@xylabs/react-shared": "^2.15.4",
     "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-auth": "workspace:^",
     "@xyo-network/react-map": "workspace:^",
@@ -42,6 +42,7 @@
     "@xyo-network/schema-payload-plugin": "*",
     "@xyo-network/utils": "*",
     "@xyo-network/wallet": "*",
+    "axios": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
@@ -54,7 +55,8 @@
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@types/lodash": "^4.14.191"
+    "@types/lodash": "^4.14.191",
+    "axios": "^1.2.1"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
