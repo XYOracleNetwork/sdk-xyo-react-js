@@ -1,5 +1,5 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
-import { XyoModuleParams } from '@xyo-network/module'
+import { ModuleParams } from '@xyo-network/module'
 import { MemoryNode, NodeConfig } from '@xyo-network/node'
 import { useDataState } from '@xyo-network/react-shared'
 import { useState } from 'react'
@@ -9,11 +9,11 @@ import { NodeProvider } from './Provider'
 export type MemoryNodeProviderProps = WithChildren<{
   required?: boolean
 }> &
-  XyoModuleParams<NodeConfig>
+  ModuleParams<NodeConfig>
 
 export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({ children, required = false, ...params }) => {
   const [node, setNode] = useState<MemoryNode>()
-  const [config, setConfig] = useDataState<XyoModuleParams<NodeConfig>>(params)
+  const [config, setConfig] = useDataState<ModuleParams<NodeConfig>>(params)
   setConfig(params)
 
   useAsyncEffect(

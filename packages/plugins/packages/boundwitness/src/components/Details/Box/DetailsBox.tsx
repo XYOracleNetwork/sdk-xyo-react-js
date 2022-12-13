@@ -29,7 +29,6 @@ BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
 const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
   const boundwitness = payload as XyoBoundWitness
-  const theme = useTheme()
   const { hash } = payload ? new PayloadWrapper(payload) : { hash: '' }
 
   return (

@@ -2,7 +2,7 @@ import { ButtonGroup, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { ArchivistWrapper, PayloadArchivist, XyoArchivistClearQuerySchema, XyoArchivistCommitQuerySchema } from '@xyo-network/archivist'
+import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema, ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
 import { XyoPayload } from '@xyo-network/payload'
 import { useEffect, useState } from 'react'
 
@@ -38,12 +38,12 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ archivist: archiv
       <Typography>{`Payloads: ${payloads ? payloads.length : '-'}`}</Typography>
       <ButtonGroup>
         <ButtonEx
-          disabled={payloads?.length === 0 || !archivist || !archivist?.queryable(XyoArchivistCommitQuerySchema)}
+          disabled={payloads?.length === 0 || !archivist || !archivist?.queryable(ArchivistCommitQuerySchema)}
           onClick={() => wrapper?.commit()}
         >
           Commit
         </ButtonEx>
-        <ButtonEx disabled={!archivist || archivist?.queryable(XyoArchivistClearQuerySchema)} onClick={() => wrapper?.clear()}>
+        <ButtonEx disabled={!archivist || archivist?.queryable(ArchivistClearQuerySchema)} onClick={() => wrapper?.clear()}>
           Clear
         </ButtonEx>
         <ButtonEx
