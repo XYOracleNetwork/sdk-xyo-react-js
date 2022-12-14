@@ -9,12 +9,14 @@ export interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps
   payloadHashes?: string[]
   payloadSchemas?: string[]
   eventNoun?: XyoEventNoun
+  boundwitnessHash?: string
 }
 
 export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = ({
   payloadHashes,
   payloadSchemas,
   eventNoun = 'payload',
+  boundwitnessHash,
   ...props
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -43,7 +45,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
         payloadHashes.length > 0 &&
         payloadHashes?.map((hash, index) => {
           return (
-            <TableRow ref={tableRowRef} key={hash + index} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
+            <TableRow ref={tableRowRef} key={boundwitnessHash + hash} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
               <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
               <HashTableCell title={hash}>{hash}</HashTableCell>
             </TableRow>
