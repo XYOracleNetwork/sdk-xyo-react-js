@@ -52,16 +52,18 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, XyoPayloadDetail
           }
           sx={{ columnGap: 2 }}
         />
-        <Collapse in={collapsed}>
-          <FlexRow alignItems="stretch" height={height !== undefined && !collapsed ? height : 'auto'} ref={ref} {...props}>
-            <BWNavigationTabs value={activeTab} setValue={setActiveTab} boundWitness={boundwitness} />
-            <FlexGrowCol justifyContent="start" overflow="scroll" sx={{ borderLeft: '1px solid', borderLeftColor: 'divider' }}>
-              {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" /> : null}
-              {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} variant="scrollable" /> : null}
-              {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} variant="scrollable" /> : null}
-            </FlexGrowCol>
-          </FlexRow>
-        </Collapse>
+        <FlexGrowCol alignItems="stretch" height={height !== undefined && collapsed ? height : 'auto'}>
+          <Collapse in={collapsed}>
+            <FlexRow alignItems="stretch" height={height !== undefined && collapsed ? height : 'auto'} ref={ref} {...props}>
+              <BWNavigationTabs value={activeTab} setValue={setActiveTab} boundWitness={boundwitness} />
+              <FlexGrowCol justifyContent="start" overflow="scroll" sx={{ borderLeft: '1px solid', borderLeftColor: 'divider' }}>
+                {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" /> : null}
+                {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} variant="scrollable" /> : null}
+                {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} variant="scrollable" /> : null}
+              </FlexGrowCol>
+            </FlexRow>
+          </Collapse>
+        </FlexGrowCol>
         <Collapse in={!collapsed} unmountOnExit>
           <BoundWitnessBottomNavigation
             onClick={() => setCollapsed(true)}
