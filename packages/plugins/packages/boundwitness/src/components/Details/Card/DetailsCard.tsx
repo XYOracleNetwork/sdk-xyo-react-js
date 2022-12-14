@@ -1,6 +1,6 @@
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded'
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded'
-import { Card, CardProps, Collapse, Divider, IconButton } from '@mui/material'
+import { Card, CardProps, Collapse, Divider, Fade, IconButton } from '@mui/material'
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
@@ -62,14 +62,14 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, XyoPayloadDetail
             </FlexGrowCol>
           </FlexRow>
         </Collapse>
-        {!collapsed ? (
+        <Collapse in={!collapsed} unmountOnExit>
           <BoundWitnessBottomNavigation
             onClick={() => setCollapsed(true)}
             activeTab={activeTab}
             setActiveTab={setActiveTab}
             boundWitness={boundwitness}
           />
-        ) : null}
+        </Collapse>
       </Card>
     )
   },
