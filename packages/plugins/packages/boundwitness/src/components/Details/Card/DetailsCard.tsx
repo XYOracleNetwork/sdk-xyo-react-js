@@ -1,7 +1,7 @@
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded'
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded'
-import { Card, CardProps, Collapse, Divider, IconButton } from '@mui/material'
-import { FlexCol } from '@xylabs/react-flexbox'
+import { Card, CardProps, Collapse, Divider, IconButton, Paper } from '@mui/material'
+import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider, useTableHeight } from '@xyo-network/react-table'
@@ -9,7 +9,7 @@ import { forwardRef, useEffect, useState } from 'react'
 
 import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../../_shared'
 import { BoundWitnessCardHeader } from '../../Card'
-import { BoundWitnessBottomNavigation } from './Navigation'
+import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation'
 
 const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & CardProps>(({ visibleRows, ...props }, ref) => {
   return (
@@ -52,21 +52,30 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, XyoPayloadDetail
           }
           sx={{ columnGap: 2 }}
         />
-        <FlexCol alignItems="stretch" ref={ref} {...props}>
-          <Collapse in={collapsed}>
-            <FlexCol alignItems="stretch" justifyContent="start" height={height !== undefined ? height : 'auto'} overflow="scroll">
-              {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" /> : null}
-              {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} variant="scrollable" /> : null}
-              {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} variant="scrollable" /> : null}
-            </FlexCol>
-          </Collapse>
-          <BoundWitnessBottomNavigation
-            onClick={() => setCollapsed(true)}
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-            boundWitness={boundwitness}
-          />
-        </FlexCol>
+        <FlexRow alignItems={collapsed ? 'start' : 'stretch'} flexDirection={collapsed ? 'row' : 'column'} ref={ref} {...props}>
+          {collapsed ? (
+            <Paper elevation={4} sx={{ borderRadius: 0 }}>
+              <BWNavigationTabs value={activeTab} setValue={setActiveTab} boundWitness={boundwitness} />
+            </Paper>
+          ) : null}
+          <FlexGrowCol alignItems="stretch">
+            <Collapse in={collapsed}>
+              <FlexCol alignItems="stretch" justifyContent="start" height={height !== undefined ? height : 'auto'} overflow="scroll">
+                {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" /> : null}
+                {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} variant="scrollable" /> : null}
+                {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} variant="scrollable" /> : null}
+              </FlexCol>
+            </Collapse>
+          </FlexGrowCol>
+          {!collapsed ? (
+            <BoundWitnessBottomNavigation
+              onClick={() => setCollapsed(true)}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              boundWitness={boundwitness}
+            />
+          ) : null}
+        </FlexRow>
       </Card>
     )
   },
