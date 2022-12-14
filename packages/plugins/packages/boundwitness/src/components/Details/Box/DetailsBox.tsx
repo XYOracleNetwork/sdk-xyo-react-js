@@ -1,4 +1,4 @@
-import { useTheme } from '@mui/material'
+import { Divider } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { PayloadWrapper } from '@xyo-network/payload'
@@ -32,7 +32,7 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetails
   const { hash } = payload ? new PayloadWrapper(payload) : { hash: '' }
 
   return (
-    <FlexCol alignItems="stretch" rowGap={3} ref={ref} {...props}>
+    <FlexCol alignItems="stretch" rowGap={4} ref={ref} {...props}>
       <HashHeadingPaper
         hash={hash}
         paperProps={{
@@ -41,15 +41,16 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetails
         AdornmentEnd={<BWActions boundwitness={boundwitness} />}
         identiconProps={{ p: 0.75, size: 24 }}
       />
-      <FlexCol alignItems="stretch" rowGap={1}>
+      <Divider flexItem />
+      <FlexCol alignItems="stretch" rowGap={1} mb={1}>
         <HeadingPaper IconComponent={<VscSymbolNamespace />} heading={'Payloads'} />
         <BoundWitnessPayloadsTable boundwitness={boundwitness} />
       </FlexCol>
-      <FlexCol alignItems="stretch" rowGap={1}>
+      <FlexCol alignItems="stretch" rowGap={1} mb={1}>
         <HeadingPaper IconComponent={<VscSymbolMethod />} heading={'Bound Witnesses'} />
         <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} />
       </FlexCol>
-      <FlexCol alignItems="stretch" rowGap={1}>
+      <FlexCol alignItems="stretch" rowGap={1} mb={1}>
         <HeadingPaper IconComponent={<FaSignature />} heading={'Signatures'} />
         <BoundWitnessSignatureTable block={boundwitness} />
       </FlexCol>
