@@ -53,14 +53,16 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, XyoPayloadDetail
           sx={{ columnGap: 2 }}
         />
         <FlexRow alignItems={collapsed ? 'start' : 'stretch'} flexDirection={collapsed ? 'row' : 'column'} ref={ref} {...props}>
-          {collapsed ? (
-            <Paper elevation={4} sx={{ borderRadius: 0 }}>
-              <BWNavigationTabs value={activeTab} setValue={setActiveTab} boundWitness={boundwitness} />
-            </Paper>
-          ) : null}
+          {collapsed ? <BWNavigationTabs value={activeTab} setValue={setActiveTab} boundWitness={boundwitness} /> : null}
           <FlexGrowCol alignItems="stretch">
             <Collapse in={collapsed}>
-              <FlexCol alignItems="stretch" justifyContent="start" height={height !== undefined ? height : 'auto'} overflow="scroll">
+              <FlexCol
+                alignItems="stretch"
+                justifyContent="start"
+                height={height !== undefined ? height : 'auto'}
+                overflow="scroll"
+                sx={{ borderLeftColor: 'divider', borderLeftStyle: 'solid', borderLeftWidth: '1px' }}
+              >
                 {activeTab === 0 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" /> : null}
                 {activeTab === 1 ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} variant="scrollable" /> : null}
                 {activeTab === 2 ? <BoundWitnessSignatureTable block={boundwitness} variant="scrollable" /> : null}
