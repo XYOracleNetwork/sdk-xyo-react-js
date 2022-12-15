@@ -12,7 +12,7 @@ export const useEthersTransformer = (payload?: XyoEthereumGasEthersPayload): Gas
         {
           price: {
             label: 'gasPrice',
-            value: payload.gasPrice ? payload.gasPrice / 1_000_000 : undefined,
+            value: payload.gasPrice ? payload.gasPrice / 1_000_000_000 : undefined,
           },
           priorityFee: {
             label: 'maxPriorityFeePerGas',
