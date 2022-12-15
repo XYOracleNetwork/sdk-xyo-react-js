@@ -8,21 +8,15 @@ export interface AddressHistoryColumnProps extends GridProps, WithChildren {
 }
 
 const GridColumn = styled(Grid, { name: 'GridColumn' })(() => ({
-  overflow: 'hidden',
   position: 'relative',
 }))
 
 const Scrollable = styled(FlexCol, { name: 'Scrollable' })(({ theme }) => ({
   alignItems: 'stretch',
-  bottom: 0,
+  inset: 0,
   justifyContent: 'start',
-  // account for negative grid margins
-  left: theme.spacing(3),
-  overflowY: 'scroll',
+  overflow: 'scroll',
   position: 'absolute',
-  right: 0,
-  // account for negative grid margins
-  top: theme.spacing(3),
   [theme.breakpoints.down('sm')]: {
     inset: 'unset',
     position: 'relative',
