@@ -5,8 +5,6 @@ import { forwardRef } from 'react'
 
 const GridContainerWrap = styled(FlexGrowCol, { name: 'GridContainerWrap' })(({ theme }) => ({
   // Handles the negative margins used by the MUI grid system
-  paddingBottom: theme.spacing(1),
-  paddingLeft: theme.spacing(4),
   paddingRight: theme.spacing(1),
   paddingTop: theme.spacing(4),
 }))
