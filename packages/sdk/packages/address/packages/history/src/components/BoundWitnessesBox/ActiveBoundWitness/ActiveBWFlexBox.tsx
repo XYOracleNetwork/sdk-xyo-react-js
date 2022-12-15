@@ -10,7 +10,7 @@ export interface ActiveBWFlexBoxProps extends FlexBoxProps {
   visibleRows?: TableHeightState['visibleRows']
 }
 
-const ActiveBWFlexBox = forwardRef<HTMLDivElement, ActiveBWFlexBoxProps>(({ visibleRows = 3, ...props }, ref) => {
+const ActiveBWFlexBox = forwardRef<HTMLDivElement, ActiveBWFlexBoxProps>(({ visibleRows, ...props }, ref) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   return (
     <FlexGrowCol alignItems="stretch" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
