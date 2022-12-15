@@ -1,5 +1,6 @@
-import { styled, TableCell, TableHead, TableRow, Typography } from '@mui/material'
+import { styled, TableHead, TableRow, Typography } from '@mui/material'
 import { PayloadTableHeadProps } from '@xyo-network/react-payload-table'
+import { TableCellEx } from '@xyo-network/react-table'
 
 export const BoundWitnessPayloadTableHead: React.FC<PayloadTableHeadProps> = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -7,12 +8,12 @@ export const BoundWitnessPayloadTableHead: React.FC<PayloadTableHeadProps> = (pr
   return (
     <TableHead {...tableHeadProps}>
       <TableRow>
-        <TableCell>
+        <TableCellEx>
           <TableCellTypography variant="caption">Schema</TableCellTypography>
-        </TableCell>
-        <TableCell>
+        </TableCellEx>
+        <TableCellEx>
           <TableCellTypography variant="caption">Hash</TableCellTypography>
-        </TableCell>
+        </TableCellEx>
       </TableRow>
     </TableHead>
   )
