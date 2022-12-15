@@ -11,7 +11,7 @@ export const SpeedBox: React.FC<SpeedBoxProps> = ({ speed, ...props }) => {
 
   return speed ? (
     <FlexGrowCol {...props}>
-      <TypographyEx fontSize={theme.spacing(3)} p={1}>
+      <TypographyEx fontSize={theme.spacing(3)} fontWeight="200" p={1}>
         {speed}
       </TypographyEx>
     </FlexGrowCol>
