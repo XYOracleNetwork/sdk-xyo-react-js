@@ -12,7 +12,7 @@ export const GasPriceBox: React.FC<GasPriceBoxProps> = ({ gasPrice, ...props }) 
   const theme = useTheme()
   return (
     <FlexRow columnGap={1.5} rowGap={1.5} alignItems="end" {...props}>
-      <TypographyEx lineHeight={1} fontWeight="bold" fontSize={theme.spacing(6)} title={gasPrice?.toString() ?? ''}>
+      <TypographyEx lineHeight={1} fontWeight="200" fontSize={theme.spacing(6)} title={gasPrice?.toString() ?? ''}>
         {gasPrice?.toFixed(2)}
       </TypographyEx>
       <GweiLabelTypography fontSize={theme.spacing(2)} />

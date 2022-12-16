@@ -1,8 +1,8 @@
-import { TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
+import { TableBody, TableHead, TableRow, Typography } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { Hasher } from '@xyo-network/core'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
-import { TableEx, TableExProps } from '@xyo-network/react-table'
+import { TableCellEx, TableEx, TableExProps } from '@xyo-network/react-table'
 
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow'
 
@@ -36,26 +36,26 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
     <TableEx {...props}>
       <TableHead>
         <TableRow>
-          <TableCell align="left">
+          <TableCellEx align="left">
             <Typography variant="caption">
               <strong>Address</strong>
             </Typography>
-          </TableCell>
-          <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center" width="10px">
+          </TableCellEx>
+          <TableCellEx sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center" width="10px">
             <Typography variant="caption">
               <strong>Previous</strong>
             </Typography>
-          </TableCell>
-          <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center" width="10px">
+          </TableCellEx>
+          <TableCellEx sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center" width="10px">
             <Typography variant="caption">
               <strong>Signature</strong>
             </Typography>
-          </TableCell>
-          <TableCell align="center" width="10px">
+          </TableCellEx>
+          <TableCellEx align="center" width="10px">
             <Typography variant="caption">
               <strong>Valid</strong>
             </Typography>
-          </TableCell>
+          </TableCellEx>
         </TableRow>
       </TableHead>
       <TableBody>

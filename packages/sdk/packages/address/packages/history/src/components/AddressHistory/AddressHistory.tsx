@@ -8,9 +8,9 @@ import { forwardRef, Fragment, useEffect, useState } from 'react'
 
 import { useActiveBoundWitness, useOrderedHistory } from '../../hooks'
 
-const AddressChainList = styled(List, { name: 'AddressChainList' })(({ theme }) => ({
+const AddressChainList = styled(List, { name: 'AddressChainList' })(() => ({
   overflow: 'scroll',
-  padding: theme.spacing(3),
+  padding: 0,
 }))
 
 export interface AddressChainProps extends ListProps {
