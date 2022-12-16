@@ -53,9 +53,8 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
             pr: 2,
             pt: 2,
           }}
-          sx={{ alignItems: 'start' }}
         >
-          <BoundWitnessesBox />
+          <BoundWitnessesBox pb={2} />
         </ScrollableGridColumn>
       </WrappedContainer>
     </BrowserRouter>

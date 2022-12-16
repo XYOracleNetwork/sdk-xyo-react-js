@@ -8,6 +8,12 @@ export interface AddressHistoryColumnProps extends GridProps, WithChildren {
   heading?: ReactNode
 }
 
+const GridColumn = styled(Grid, { name: 'GridColumn' })(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'relative',
+}))
+
 const Scrollable = styled(FlexCol, { name: 'Scrollable' })(({ theme }) => ({
   alignItems: 'stretch',
   inset: 0,
@@ -22,12 +28,12 @@ const Scrollable = styled(FlexCol, { name: 'Scrollable' })(({ theme }) => ({
 
 const ScrollableGridColumn = forwardRef<HTMLDivElement, AddressHistoryColumnProps>(({ children, heading, scrollableProps, ...props }, ref) => {
   return (
-    <Grid ref={ref} {...props}>
+    <GridColumn ref={ref} {...props}>
       {heading}
       <FlexCol height="100%" width="100%">
         <Scrollable {...scrollableProps}>{children}</Scrollable>
       </FlexCol>
-    </Grid>
+    </GridColumn>
   )
 })
 
