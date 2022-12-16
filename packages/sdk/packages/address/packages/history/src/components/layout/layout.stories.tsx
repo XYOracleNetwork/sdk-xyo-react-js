@@ -49,7 +49,7 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
           scrollableProps={{
             // account for negative grid margins hiding the glow
             left: 3,
-            pl: 2,
+            pl: 1,
             pr: 2,
             pt: 2,
           }}
