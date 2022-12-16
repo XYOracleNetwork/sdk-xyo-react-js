@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
       <WrappedContainer height="calc(100vh - 2rem)" spacing={3} {...props}>
         <ScrollableGridColumn
           heading={
-            <ColumnHeadingTypography>
+            <ColumnHeadingTypography mr={2}>
               Blocks <BlocksQuickTipButton fontSize="inherit" address="098765432" />
             </ColumnHeadingTypography>
           }
@@ -33,7 +33,7 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
           sm={4}
           xs={12}
         >
-          <AddressHistory addressHistory={sampleAddressHistory} sx={{ py: 2 }} />
+          <AddressHistory addressHistory={sampleAddressHistory} sx={{ pr: 2, py: 2 }} />
         </ScrollableGridColumn>
         <ScrollableGridColumn
           heading={
