@@ -37,7 +37,7 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
         </ScrollableGridColumn>
         <ScrollableGridColumn
           heading={
-            <ColumnHeadingTypography ml={2}>
+            <ColumnHeadingTypography ml={2} mr={2}>
               Active Block History <SelectedBlockQuickTipButton fontSize="inherit" boundwitnessHash="12345678" />
             </ColumnHeadingTypography>
           }
