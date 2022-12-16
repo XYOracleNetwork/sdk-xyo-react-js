@@ -20,14 +20,7 @@ export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props
 
   return (
     <XyoThrownErrorBoundary rollbar={rollbar} boundaryName={'BoundWitness Scrolling List'}>
-      <FlexGrowCol
-        alignItems="stretch"
-        rowGap={3}
-        justifyContent={activeBoundWitnessHash ? 'start' : 'center'}
-        ref={ref}
-        {...{ overflowX: 'visible', overflowY: 'scroll' }}
-        {...props}
-      >
+      <FlexGrowCol alignItems="stretch" rowGap={3} justifyContent={activeBoundWitnessHash ? 'start' : 'center'} ref={ref} {...props}>
         {loading ? <LinearProgress sx={{ minHeight: '10px' }} /> : null}
         <BWErrorAlert />
         <NestedBoundWitnessesBox />
