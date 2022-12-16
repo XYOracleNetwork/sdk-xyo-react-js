@@ -6,6 +6,7 @@ import { AddressHistory } from '../AddressHistory'
 import { BoundWitnessesBox } from '../BoundWitnessesBox'
 import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../story'
 import { ScrollableGridColumn } from './Column'
+import { ColumnHeadingTypography } from './ColumnHeading'
 import { WrappedContainer } from './Container'
 
 // eslint-disable-next-line import/no-default-export
@@ -19,20 +20,11 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
   return (
     <BrowserRouter>
       <WrappedContainer height="calc(100vh - 2rem)" spacing={3} {...props}>
-        <ScrollableGridColumn
-          item
-          lg={3}
-          md={4}
-          sm={4}
-          xs={12}
-          scrollableProps={{
-            pl: 2,
-            pt: 2,
-          }}
-        >
-          <AddressHistory addressHistory={sampleAddressHistory} />
+        <ScrollableGridColumn heading={<ColumnHeadingTypography>Blocks</ColumnHeadingTypography>} item lg={3} md={4} sm={4} xs={12}>
+          <AddressHistory addressHistory={sampleAddressHistory} sx={{ pt: 2 }} />
         </ScrollableGridColumn>
         <ScrollableGridColumn
+          heading={<ColumnHeadingTypography ml={2}>Active Block History</ColumnHeadingTypography>}
           item
           lg={9}
           md={8}
@@ -41,11 +33,11 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
           scrollableProps={{
             // account for negative grid margins hiding the glow
             left: 3,
-            pl: 3,
+            pl: 2,
             pr: 2,
             pt: 2,
           }}
-          sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}
+          sx={{ alignItems: 'start' }}
         >
           <BoundWitnessesBox />
         </ScrollableGridColumn>
