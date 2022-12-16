@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
         <ScrollableGridColumn
           heading={
             <ColumnHeadingTypography>
-              Blocks <BlocksQuickTipButton fontSize="inherit" sx={{ top: '-5px' }} address="098765432" />
+              Blocks <BlocksQuickTipButton fontSize="inherit" address="098765432" />
             </ColumnHeadingTypography>
           }
           item
@@ -38,7 +38,7 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
         <ScrollableGridColumn
           heading={
             <ColumnHeadingTypography ml={2}>
-              Active Block History <SelectedBlockQuickTipButton fontSize="inherit" sx={{ top: '-5px' }} boundwitnessHash="12345678" />
+              Active Block History <SelectedBlockQuickTipButton fontSize="inherit" boundwitnessHash="12345678" />
             </ColumnHeadingTypography>
           }
           item

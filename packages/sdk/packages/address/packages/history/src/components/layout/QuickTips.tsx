@@ -29,5 +29,6 @@ const StyledQuickTipButton = styled(QuickTipButton, {
   name: 'StyledQuickTipButton',
   shouldForwardProp: (propName) => propName !== 'superScriptIcon',
 })<StyledQuickTipButtonProps>(({ superScriptIcon, theme }) => ({
-  ...(superScriptIcon && { top: theme.spacing(0.75) }),
+  // less than ideal but tough to get a negative value from a theme value that returns in px
+  ...(superScriptIcon && { top: -Math.abs(parseInt(theme.spacing(0.75).replace('px', ''))) }),
 }))
