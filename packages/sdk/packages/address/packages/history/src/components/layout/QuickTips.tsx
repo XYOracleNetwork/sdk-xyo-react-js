@@ -1,4 +1,4 @@
-import { styled } from '@mui/material'
+import { styled, Typography } from '@mui/material'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
 
 export interface BlocksQuickTipButtonProps extends QuickTipButtonProps {
@@ -7,7 +7,9 @@ export interface BlocksQuickTipButtonProps extends QuickTipButtonProps {
 
 export const BlocksQuickTipButton: React.FC<BlocksQuickTipButtonProps> = ({ address, ...props }) => (
   <StyledQuickTipButton superScriptIcon {...props}>
-    Blockchain history for the current address: {address}
+    <Typography>
+      Blockchain history for the current address: <span style={{ fontFamily: 'monospace' }}>{address}</span>
+    </Typography>
   </StyledQuickTipButton>
 )
 
@@ -17,7 +19,10 @@ export interface SelectedBlockQuickTipButtonProps extends QuickTipButtonProps {
 
 export const SelectedBlockQuickTipButton: React.FC<SelectedBlockQuickTipButtonProps> = ({ boundwitnessHash, ...props }) => (
   <StyledQuickTipButton superScriptIcon {...props}>
-    Browse the history for the selected block: {boundwitnessHash}. Click on hashes in the Bound Witness tab to load related blocks.
+    <Typography>
+      Browse the history for the selected block: <span style={{ fontFamily: 'monospace' }}>{boundwitnessHash}</span>. Click on hashes in the Bound
+      Witness tab to load related blocks.
+    </Typography>
   </StyledQuickTipButton>
 )
 
