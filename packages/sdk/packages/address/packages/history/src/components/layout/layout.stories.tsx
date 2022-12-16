@@ -8,6 +8,7 @@ import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDe
 import { ScrollableGridColumn } from './Column'
 import { ColumnHeadingTypography } from './ColumnHeading'
 import { WrappedContainer } from './Container'
+import { BlocksQuickTipButton, SelectedBlockQuickTipButton } from './QuickTips'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -20,11 +21,26 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
   return (
     <BrowserRouter>
       <WrappedContainer height="calc(100vh - 2rem)" spacing={3} {...props}>
-        <ScrollableGridColumn heading={<ColumnHeadingTypography>Blocks</ColumnHeadingTypography>} item lg={3} md={4} sm={4} xs={12}>
-          <AddressHistory addressHistory={sampleAddressHistory} sx={{ pt: 2 }} />
+        <ScrollableGridColumn
+          heading={
+            <ColumnHeadingTypography>
+              Blocks <BlocksQuickTipButton fontSize="inherit" sx={{ top: '-5px' }} address="098765432" />
+            </ColumnHeadingTypography>
+          }
+          item
+          lg={3}
+          md={4}
+          sm={4}
+          xs={12}
+        >
+          <AddressHistory addressHistory={sampleAddressHistory} sx={{ py: 2 }} />
         </ScrollableGridColumn>
         <ScrollableGridColumn
-          heading={<ColumnHeadingTypography ml={2}>Active Block History</ColumnHeadingTypography>}
+          heading={
+            <ColumnHeadingTypography ml={2}>
+              Active Block History <SelectedBlockQuickTipButton fontSize="inherit" sx={{ top: '-5px' }} boundwitnessHash="12345678" />
+            </ColumnHeadingTypography>
+          }
           item
           lg={9}
           md={8}
