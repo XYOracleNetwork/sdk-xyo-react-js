@@ -1,13 +1,16 @@
 import { Grid, GridProps, styled } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { forwardRef } from 'react'
+import { forwardRef, ReactNode } from 'react'
 
 export interface AddressHistoryColumnProps extends GridProps, WithChildren {
   scrollableProps?: FlexBoxProps
+  heading?: ReactNode
 }
 
 const GridColumn = styled(Grid, { name: 'GridColumn' })(() => ({
+  display: 'flex',
+  flexDirection: 'column',
   position: 'relative',
 }))
 
@@ -23,10 +26,13 @@ const Scrollable = styled(FlexCol, { name: 'Scrollable' })(({ theme }) => ({
   },
 }))
 
-const ScrollableGridColumn = forwardRef<HTMLDivElement, AddressHistoryColumnProps>(({ children, scrollableProps, ...props }, ref) => {
+const ScrollableGridColumn = forwardRef<HTMLDivElement, AddressHistoryColumnProps>(({ children, heading, scrollableProps, ...props }, ref) => {
   return (
     <GridColumn ref={ref} {...props}>
-      <Scrollable {...scrollableProps}>{children}</Scrollable>
+      {heading}
+      <FlexCol height="100%" width="100%">
+        <Scrollable {...scrollableProps}>{children}</Scrollable>
+      </FlexCol>
     </GridColumn>
   )
 })

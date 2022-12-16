@@ -6,7 +6,9 @@ import { AddressHistory } from '../AddressHistory'
 import { BoundWitnessesBox } from '../BoundWitnessesBox'
 import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../story'
 import { ScrollableGridColumn } from './Column'
+import { ColumnHeadingTypography } from './ColumnHeading'
 import { WrappedContainer } from './Container'
+import { BlocksQuickTipButton, SelectedBlockQuickTipButton } from './QuickTips'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -20,19 +22,25 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
     <BrowserRouter>
       <WrappedContainer height="calc(100vh - 2rem)" spacing={3} {...props}>
         <ScrollableGridColumn
+          heading={
+            <ColumnHeadingTypography mr={2}>
+              Blocks <BlocksQuickTipButton fontSize="inherit" address="098765432" />
+            </ColumnHeadingTypography>
+          }
           item
           lg={3}
           md={4}
           sm={4}
           xs={12}
-          scrollableProps={{
-            pl: 2,
-            pt: 2,
-          }}
         >
-          <AddressHistory addressHistory={sampleAddressHistory} />
+          <AddressHistory addressHistory={sampleAddressHistory} sx={{ pr: 2, py: 2 }} />
         </ScrollableGridColumn>
         <ScrollableGridColumn
+          heading={
+            <ColumnHeadingTypography ml={2} mr={2}>
+              Active Block History <SelectedBlockQuickTipButton fontSize="inherit" boundwitnessHash="12345678" />
+            </ColumnHeadingTypography>
+          }
           item
           lg={9}
           md={8}
@@ -41,13 +49,12 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
           scrollableProps={{
             // account for negative grid margins hiding the glow
             left: 3,
-            pl: 3,
+            pl: 2,
             pr: 2,
             pt: 2,
           }}
-          sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}
         >
-          <BoundWitnessesBox />
+          <BoundWitnessesBox pb={2} />
         </ScrollableGridColumn>
       </WrappedContainer>
     </BrowserRouter>
