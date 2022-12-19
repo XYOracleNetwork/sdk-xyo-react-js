@@ -9,12 +9,21 @@ module.exports = {
     "@storybook/addon-interactions",
     "storybook-dark-mode"
   ],
-  features: { modernInlineRendering: true },
   framework: {
     name: '@storybook/react-webpack5',
-    options: { fastRefresh: true },
+    options: {},
   },
   typescript: {
     check: true,
+  },
+  webpackFinal: (config, mode) => {
+    config.module.rules[2].use[0].options.presets.push([
+      './node_modules/@babel/preset-typescript/lib/index.js',
+      { isTSX: true, allExtensions: true}
+    ])
+    console.log('=================')
+    console.log(config.module.rules[2].use[0].options.presets)
+    console.log('=================')
+    return config
   }
 }
