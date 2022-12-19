@@ -128,7 +128,7 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.5.0",
     "require-from-string": "^2.0.2",
-    "storybook-dark-mode": "^2.0.4",
+    "storybook": "next",
     "ts-jest": "^29.0.3",
     "typescript": "^4.9.4"
   },
@@ -176,9 +176,9 @@
   },
   "scripts": {
     "compile:stories": "echo Building Stories... && tsc -p tsconfig.build.stories.json",
-    "build-storybook": "build-storybook ./src",
+    "build-storybook": "storybook build ./src",
     "lint-pkg": "npmPkgJsonLint .",
-    "start": "start-storybook -p 6006"
+    "start": "storybook dev -p 6006"
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
