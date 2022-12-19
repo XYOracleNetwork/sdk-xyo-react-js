@@ -1,9 +1,5 @@
-const path = require('path');
 
 module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
   stories: [
     "../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)",
   ],
