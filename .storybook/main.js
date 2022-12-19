@@ -14,6 +14,10 @@ module.exports = {
     "storybook-dark-mode"
   ],
   features: { modernInlineRendering: true },
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: { fastRefresh: true },
+  },
   typescript: {
     check: true,
   }
