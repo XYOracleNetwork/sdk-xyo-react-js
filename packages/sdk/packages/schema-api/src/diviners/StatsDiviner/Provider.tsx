@@ -1,9 +1,12 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { SchemaStatsApiDiviner } from '@xyo-network/api'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
 import { SchemaStatsApiDivinerContext } from './Context'
 
+/** @deprecated - get stats from querying the module on the node directly */
 export type SchemaStatsApiDivinerProps = ContextExProviderProps<{
   diviner?: SchemaStatsApiDiviner
 }>
