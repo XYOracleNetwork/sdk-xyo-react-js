@@ -1,7 +1,7 @@
 import { InvertableThemeProvider } from '@xylabs/react-invertable-theme'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { CssBaseline } from '@mui/material';
-import { useDarkMode } from 'storybook-dark-mode';
+// import { useDarkMode } from 'storybook-dark-mode';
 import { partialDarkThemeOptions, partialAppLightThemeOptions, themeOptions, appThemeOptions, webThemeOptions } from '@xyo-network/react-theme'
 import { AppSettingsProvider } from '@xyo-network/react-app-settings'
 import React from 'react';
@@ -53,7 +53,9 @@ const withThemeProvider: DecoratorFn = (Story, context) => {
   // Clear the auth state with each story
   localStorage.setItem('AuthState', '')
 
-  const darkMode = useDarkMode()
+  // Bring back once dark mode is upgraded to 7.0 compatibility
+  // const darkMode = useDarkMode()
+  const darkMode = true
   const themeOptions = getTheme(context.globals.theme)
 
   return (
