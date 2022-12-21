@@ -2,6 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { AddressHistoryQuerySchema, DivinerWrapper } from '@xyo-network/diviner'
 import { XyoError } from '@xyo-network/module'
+import { MemoryNode } from '@xyo-network/node'
 import { XyoPayloadBuilder } from '@xyo-network/payload'
 import { useNode } from '@xyo-network/react-node'
 import { useState } from 'react'
@@ -13,7 +14,7 @@ export const useAddressHistory = (address?: string): [XyoBoundWitness[] | undefi
 
   const refreshHistory = () => setRefresh((previous) => previous + 1)
 
-  const [node] = useNode()
+  const [node] = useNode<MemoryNode>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
