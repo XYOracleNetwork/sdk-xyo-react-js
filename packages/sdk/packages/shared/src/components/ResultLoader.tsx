@@ -1,8 +1,9 @@
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { XyoApiError } from '@xyo-network/api-models'
 import { XyoError } from '@xyo-network/module'
-import { NotFound } from '@xyo-network/react-shared'
 import { PropsWithChildren } from 'react'
+
+import { NotFound } from './NotFound'
 
 export interface HandleItemDetailLoadingProps<T> {
   apiError: Error | XyoApiError | XyoError | undefined
@@ -10,7 +11,6 @@ export interface HandleItemDetailLoadingProps<T> {
   searchResult: T | undefined
 }
 
-/** @deprecated - moved to @xyo-network/react-shared */
 export function ResultLoader<T>(props: PropsWithChildren<HandleItemDetailLoadingProps<T>>) {
   const { notFound, apiError, searchResult, children } = props
   if (notFound) {
