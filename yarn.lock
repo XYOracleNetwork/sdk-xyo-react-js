@@ -7107,6 +7107,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/node-core-model@npm:^2.42.16":
+  version: 2.42.16
+  resolution: "@xyo-network/node-core-model@npm:2.42.16"
+  dependencies:
+    "@xylabs/assert": ^2.6.12
+    "@xyo-network/account": ^2.42.16
+    "@xyo-network/api": ^2.42.16
+    "@xyo-network/archivist": ^2.42.16
+    "@xyo-network/boundwitness-model": ^2.42.16
+    "@xyo-network/core": ^2.42.16
+    "@xyo-network/diviner": ^2.42.16
+    "@xyo-network/huri": ^2.42.15
+    "@xyo-network/module": ^2.42.16
+    "@xyo-network/module-model": ^2.42.16
+    "@xyo-network/payload-model": ^2.42.15
+    "@xyo-network/payload-wrapper": ^2.42.15
+    "@xyo-network/shared": ^2.42.16
+    ajv: ^8.11.2
+  peerDependencies:
+    axios: ~1.2.1
+    pako: ^2.1.0
+  checksum: b121d883ccb8a4fd9e7e159c22f43ab13f955ed8c11a295d7badef455748775472d4baa4e48068dccb436b60b3b74e622b8011e346cf250f4a6c236a7722b607
+  languageName: node
+  linkType: hard
+
+"@xyo-network/node-core-types@npm:^2.42.16":
+  version: 2.42.16
+  resolution: "@xyo-network/node-core-types@npm:2.42.16"
+  checksum: 882c953a18bdaf10dbcd5643f42eea2dad1be3ca9afcc455b1bda7e7875160dd78b85856150f340e053dd951de261ed71aee99a68530a852bb7ff7dcb76027b9
+  languageName: node
+  linkType: hard
+
 "@xyo-network/node@npm:^2.42.16":
   version: 2.42.16
   resolution: "@xyo-network/node@npm:2.42.16"
@@ -9020,6 +9052,7 @@ __metadata:
     "@xylabs/react-link": ^2.15.6
     "@xylabs/react-shared": ^2.15.6
     "@xylabs/ts-scripts-yarn3": 2.10.25
+    "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
   peerDependencies:
@@ -9028,6 +9061,9 @@ __metadata:
     "@mui/styles": ^5.10.3
     "@xylabs/sdk-js": ^2.6.9
     "@xyo-network/module": "*"
+    "@xyo-network/node": "*"
+    "@xyo-network/node-core-model": "*"
+    "@xyo-network/node-core-types": "*"
     "@xyo-network/payload": "*"
     "@xyo-network/schema-payload-plugin": "*"
     "@xyo-network/utils": "*"
@@ -9227,6 +9263,8 @@ __metadata:
     "@xyo-network/module": ^2.42.16
     "@xyo-network/network": ^2.42.16
     "@xyo-network/node": ^2.42.16
+    "@xyo-network/node-core-model": ^2.42.16
+    "@xyo-network/node-core-types": ^2.42.16
     "@xyo-network/panel": ^2.42.16
     "@xyo-network/payload": ^2.42.16
     "@xyo-network/payload-plugin": ^2.42.16
@@ -9443,6 +9481,8 @@ __metadata:
     "@xyo-network/module": ^2.42.16
     "@xyo-network/network": ^2.42.16
     "@xyo-network/node": ^2.42.16
+    "@xyo-network/node-core-model": ^2.42.16
+    "@xyo-network/node-core-types": ^2.42.16
     "@xyo-network/panel": ^2.42.16
     "@xyo-network/payload": ^2.42.16
     "@xyo-network/payload-plugin": ^2.42.16
