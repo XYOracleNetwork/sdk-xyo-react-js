@@ -11,7 +11,7 @@ export const useSchemaList = (archive?: string): [SchemaList[] | undefined, Erro
   const refreshHistory = () => setRefresh((previous) => previous + 1)
 
   const [query, setQuery] = useState<XyoPayload>()
-  const [schemaStats, error] = useNodeQueryDiviner(TYPES.SchemaStatsDiviner.description ?? '', query)
+  const [schemaStats, error] = useNodeQueryDiviner(TYPES.SchemaStatsDiviner.description, query)
 
   const [schemaList, setSchemaList] = useState<SchemaList[]>()
 
