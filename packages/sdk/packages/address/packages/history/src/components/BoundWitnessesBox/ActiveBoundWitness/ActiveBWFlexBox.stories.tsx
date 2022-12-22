@@ -1,7 +1,7 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 
-import { ActiveBWDecorator, WithResetDecorator } from '../../story'
+import { ActiveBWDecorator, WithResetDecorator } from '../../stories'
 import { ActiveBWFlexBox } from './ActiveBWFlexBox'
 
 const WithRefDecorator: DecoratorFn = (Story, args) => {

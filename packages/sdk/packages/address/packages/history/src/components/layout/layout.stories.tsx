@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { AddressHistory } from '../AddressHistory'
 import { BoundWitnessesBox } from '../BoundWitnessesBox'
-import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../story'
+import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories'
 import { ScrollableGridColumn } from './Column'
 import { ColumnHeadingTypography } from './ColumnHeading'
 import { WrappedContainer } from './Container'
