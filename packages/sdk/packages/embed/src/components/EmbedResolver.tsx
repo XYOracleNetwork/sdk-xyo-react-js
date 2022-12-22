@@ -7,7 +7,7 @@ export const EmbedResolver: React.FC<WithChildren> = ({ children }) => {
   const { payload, notFound, huriError } = useResolvePayload()
 
   return (
-    <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriError}>
+    <ResultLoader searchResult={payload} notFound={!!notFound} error={!!huriError}>
       {children}
     </ResultLoader>
   )

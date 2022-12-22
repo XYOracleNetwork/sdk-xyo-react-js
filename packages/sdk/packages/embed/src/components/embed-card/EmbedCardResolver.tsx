@@ -12,7 +12,7 @@ export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({
   const theme = useTheme()
 
   return (
-    <ResultLoader searchResult={payload} notFound={!!notFound} apiError={huriError}>
+    <ResultLoader searchResult={payload} notFound={!!notFound} error={!!huriError}>
       <EmbedCardApiErrorRenderer xyoError={huriError}>
         <FlexCol
           id="embed-outer-wrap"
