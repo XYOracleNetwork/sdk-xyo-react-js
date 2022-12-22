@@ -7273,7 +7273,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/react-address-history-api@workspace:^, @xyo-network/react-address-history-api@workspace:packages/sdk/packages/address/packages/history-api":
+"@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address/packages/history-api":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address/packages/history-api"
   dependencies:
@@ -7323,6 +7323,7 @@ __metadata:
     "@xyo-network/react-boundwitness-plugin": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
+    "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": ^2.41.13
     "@xyo-network/react-table": "workspace:^"
@@ -7338,6 +7339,7 @@ __metadata:
     "@xyo-network/diviner": "*"
     "@xyo-network/module": "*"
     "@xyo-network/network": "*"
+    "@xyo-network/node": "*"
     "@xyo-network/payload": "*"
     "@xyo-network/payload-plugin": "*"
     "@xyo-network/payloadset-plugin": "*"
@@ -7363,7 +7365,6 @@ __metadata:
   dependencies:
     "@xylabs/ts-scripts-yarn3": 2.10.25
     "@xyo-network/react-address-history": "workspace:^"
-    "@xyo-network/react-address-history-api": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5.10.14
     "@mui/material": ^5.10.14

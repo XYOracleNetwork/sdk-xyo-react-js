@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 export const useAddressHistory = (address?: string): [XyoBoundWitness[] | undefined, Error | undefined, () => void] => {
   const [query, setQuery] = useState<XyoPayload>()
   const [refresh, setRefresh] = useState(1)
-  const [blocks, error] = useNodeQueryDiviner(AddressHistoryQuerySchema, query)
+  const [blocks, error] = useNodeQueryDiviner('AddressHistoryDiviner', query)
   const refreshHistory = () => setRefresh((previous) => previous + 1)
 
   useEffect(() => {
