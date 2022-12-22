@@ -1,3 +1,5 @@
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { SchemaList } from '@xyo-network/api'
 import { DivinerWrapper } from '@xyo-network/diviner'
