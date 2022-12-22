@@ -1,7 +1,7 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { NodeConfigSchema } from '@xyo-network/node'
 
-import { MemoryNodeProvider, useAddNamedModules, useNode } from '../contexts'
+import { MemoryNodeProvider, useAddNamedModules } from '../contexts'
 import { NodeBox } from './Node'
 
 const NodeBoxDecorator: DecoratorFn = (Story, args) => {
@@ -12,6 +12,12 @@ const NodeBoxDecorator: DecoratorFn = (Story, args) => {
   )
 }
 
+const AddModulesDecorator: DecoratorFn = (Story, args) => {
+  const list = { AddressHistoryDiviner: Symbol('AddressHistoryDiviner') }
+  useAddNamedModules(list, { apiDomain: 'http://localhost:8080' })
+  return <Story {...args} />
+}
+
 // eslint-disable-next-line import/no-default-export
 export default {
   component: NodeBox,
@@ -20,17 +26,12 @@ export default {
 } as Meta
 
 const Template: ComponentStory<typeof NodeBox> = (props) => <NodeBox {...props} />
-const TemplateWithModules: ComponentStory<typeof NodeBox> = (props) => {
-  const list = { AddressHistoryDiviner: Symbol('AddressHistoryDiviner') }
-  useAddNamedModules(list, { apiDomain: 'http://localhost:8080' })
-
-  return <NodeBox {...props} />
-}
 
 const Default = Template.bind({})
 Default.args = {}
 
-const WithModules = TemplateWithModules.bind({})
+const WithModules = Template.bind({})
+WithModules.decorators = [AddModulesDecorator]
 WithModules.argTypes = {}
 
 export { Default, WithModules }
