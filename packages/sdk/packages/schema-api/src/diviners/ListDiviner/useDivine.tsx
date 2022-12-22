@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 import { useSchemaListApiDiviner } from './use'
 
+/** @deprecated - get stats from querying the module on the node directly */
 export const useDivineSchemaList = (): [SchemaList[] | undefined, Error | undefined, () => void] => {
   const [list, setList] = useState<SchemaList[]>()
   const [error, setError] = useState<Error>()
