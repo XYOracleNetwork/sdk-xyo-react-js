@@ -43,7 +43,7 @@ export const useAddNamedModules = (moduleList?: ModuleList, apiConfig?: ApiConfi
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (moduleList && apiConfig && node) {
+      if (moduleList && apiConfig && node && !complete) {
         const localNode = await resolveNode(node, reset)
         await Promise.allSettled(
           Object.entries(moduleList).map(async ([_key, { description }]) => {
@@ -66,7 +66,7 @@ export const useAddNamedModules = (moduleList?: ModuleList, apiConfig?: ApiConfi
         )
       }
     },
-    [apiConfig, moduleList, node, reset, setNode],
+    [apiConfig, complete, moduleList, node, reset, setNode],
   )
   return complete
 }
