@@ -1,5 +1,5 @@
-import { SchemaList, SchemaStats } from '@xyo-network/api'
-import { SchemaStatsQuerySchema } from '@xyo-network/node-core-model'
+import { SchemaList } from '@xyo-network/api'
+import { SchemaStatsPayload, SchemaStatsQuerySchema } from '@xyo-network/node-core-model'
 import { TYPES } from '@xyo-network/node-core-types'
 import { XyoPayload, XyoPayloadBuilder } from '@xyo-network/payload'
 import { useNodeQueryDiviner } from '@xyo-network/react-node'
@@ -23,7 +23,7 @@ export const useSchemaList = (archive?: string): [SchemaList[] | undefined, Erro
 
   useEffect(() => {
     if (schemaStats) {
-      const schemaStatsCounts = (schemaStats[0] as SchemaStats).counts
+      const schemaStatsCounts = (schemaStats[0] as SchemaStatsPayload).count
       setSchemaList(
         Object.keys(schemaStatsCounts).map((schema) => ({
           name: schema,
