@@ -11,7 +11,9 @@ export const useAddressHistory = (address?: string): [XyoBoundWitness[] | undefi
   const refreshHistory = () => setRefresh((previous) => previous + 1)
 
   useEffect(() => {
-    setQuery(new XyoPayloadBuilder({ schema: AddressHistoryQuerySchema }).fields({ address }).build())
+    if (address) {
+      setQuery(new XyoPayloadBuilder({ schema: AddressHistoryQuerySchema }).fields({ address }).build())
+    }
   }, [address, refresh])
 
   return [blocks as XyoBoundWitness[], error, refreshHistory]
