@@ -4,7 +4,7 @@ import { ArchivistWrapper } from '@xyo-network/archivist'
 import { DivinerWrapper } from '@xyo-network/diviner'
 import { HttpProxyModule } from '@xyo-network/http-proxy-module'
 import { AbstractModuleConfigSchema, Module, ModuleWrapper } from '@xyo-network/module'
-import { MemoryNode, NodeWrapper } from '@xyo-network/node'
+import { MemoryNode } from '@xyo-network/node'
 import { useState } from 'react'
 
 import { useNode } from './useNode'
@@ -28,6 +28,14 @@ const addToNode = (remoteModule: Module, name: string, memoryNode: MemoryNode) =
   console.log('attached:', name)
 }
 
+const resolveNode = async (node: MemoryNode, reset?: boolean) => {
+  let localNode = node
+  if (reset) {
+    localNode = await MemoryNode.create()
+  }
+  return localNode
+}
+
 export const useAddNamedModules = (moduleList?: ModuleList, apiConfig?: ApiConfig, reset = false) => {
   const [node, setNode] = useNode<MemoryNode>()
   const [complete, setComplete] = useState(false)
@@ -36,10 +44,7 @@ export const useAddNamedModules = (moduleList?: ModuleList, apiConfig?: ApiConfi
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (moduleList && apiConfig && node) {
-        let localNode = node
-        if (reset) {
-          localNode = await MemoryNode.create()
-        }
+        const localNode = await resolveNode(node, reset)
         await Promise.allSettled(
           Object.entries(moduleList).map(async ([_key, { description }]) => {
             try {
@@ -51,9 +56,8 @@ export const useAddNamedModules = (moduleList?: ModuleList, apiConfig?: ApiConfi
 
               addToNode(remoteModule, description ?? 'unknown', localNode)
               // using .assign instead of spread because we need to keep the prototype chain intact for root node / module methods
-              // const abstractNode = Object.assign(Object.create(Object.getPrototypeOf(node)), node)
-              const wrappedNode = new NodeWrapper(localNode)
-              setNode?.(wrappedNode)
+              const newNode = Object.assign(Object.create(Object.getPrototypeOf(node)), node)
+              setNode?.(newNode)
               setComplete(true)
             } catch (error) {
               console.log(error)
