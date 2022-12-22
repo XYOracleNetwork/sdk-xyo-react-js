@@ -4,9 +4,9 @@ import { TYPES } from '@xyo-network/node-core-types'
 import { XyoPayload, XyoPayloadBuilder } from '@xyo-network/payload'
 import { useNodeQueryDiviner } from '@xyo-network/react-node'
 import { XyoSchemaSchema } from '@xyo-network/schema-payload-plugin'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
-export const useSchemaList = (archive?: string): [SchemaList[] | undefined, Error | undefined, () => void] => {
+export const useSchemaList = (archive?: string): [SchemaList[] | undefined, Error | undefined, Dispatch<SetStateAction<number>>] => {
   const [refresh, setRefresh] = useState(1)
   const refreshHistory = () => setRefresh((previous) => previous + 1)
 
