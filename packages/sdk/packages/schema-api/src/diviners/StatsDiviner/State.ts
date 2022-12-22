@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { SchemaStatsApiDiviner } from '@xyo-network/api'
 import { Dispatch } from 'react'
 

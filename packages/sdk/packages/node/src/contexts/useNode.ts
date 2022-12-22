@@ -1,4 +1,4 @@
-import { AbstractNode, NodeModule } from '@xyo-network/node'
+import { NodeModule } from '@xyo-network/node'
 import { useContextEx } from '@xyo-network/react-shared'
 import { Dispatch } from 'react'
 
