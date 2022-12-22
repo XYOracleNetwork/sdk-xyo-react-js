@@ -13,10 +13,10 @@ type ModuleList = Record<string, symbol>
 
 const addWrapper = (remoteModule: Module) => {
   let wrapper: ModuleWrapper | undefined
-  if (remoteModule.config.schema.includes('archivist')) {
-    wrapper = new ArchivistWrapper(remoteModule)
-  } else if (remoteModule.config.schema.includes('divine')) {
+  if (remoteModule.config.schema.includes('divine')) {
     wrapper = new DivinerWrapper(remoteModule)
+  } else if (remoteModule.config.schema.includes('archivist')) {
+    wrapper = new ArchivistWrapper(remoteModule)
   }
   return wrapper
 }
