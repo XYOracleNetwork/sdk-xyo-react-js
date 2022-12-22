@@ -1,13 +1,13 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { DivinerWrapper } from '@xyo-network/diviner'
 import { MemoryNode } from '@xyo-network/node'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
 import { useState } from 'react'
 
 import { useNode } from './useNode'
 
-export const useNodeQueryDiviner = (moduleIdentifier?: string, query?: XyoPayload) => {
-  const [result, setResult] = useState<XyoPayload[]>()
+export const useNodeQueryDiviner = (moduleIdentifier?: string, query?: XyoPayload): [XyoPayloads | undefined, Error | undefined] => {
+  const [result, setResult] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
   const [node] = useNode<MemoryNode>()
 
@@ -17,7 +17,6 @@ export const useNodeQueryDiviner = (moduleIdentifier?: string, query?: XyoPayloa
       if (moduleIdentifier && query) {
         try {
           const diviner = (await node?.tryResolve({ name: [moduleIdentifier] }))?.[0] as DivinerWrapper
-          console.log('diviner', diviner)
           const result = await diviner?.divine([query])
           setResult(result)
           setError(undefined)
