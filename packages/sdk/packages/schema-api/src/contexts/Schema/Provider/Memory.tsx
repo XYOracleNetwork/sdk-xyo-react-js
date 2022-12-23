@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { WithChildren } from '@xylabs/react-shared'
 import { SchemaContext, useSchemaList } from '@xyo-network/react-schema'
 import { useEffect, useState } from 'react'
