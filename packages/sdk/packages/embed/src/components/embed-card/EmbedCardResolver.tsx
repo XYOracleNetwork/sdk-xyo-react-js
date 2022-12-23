@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { ResultLoader } from '@xyo-network/react-shared'
+import { LoadResult } from '@xyo-network/react-shared'
 
 import { useRefreshPayload, useResolvePayload } from '../../contexts'
 import { EmbedCardApiErrorRenderer } from './error-handling'
@@ -12,7 +12,7 @@ export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({
   const theme = useTheme()
 
   return (
-    <ResultLoader searchResult={payload} notFound={!!notFound} error={!!huriError}>
+    <LoadResult searchResult={payload} notFound={!!notFound} error={!!huriError}>
       <EmbedCardApiErrorRenderer xyoError={huriError}>
         <FlexCol
           id="embed-outer-wrap"
@@ -25,6 +25,6 @@ export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({
           {children}
         </FlexCol>
       </EmbedCardApiErrorRenderer>
-    </ResultLoader>
+    </LoadResult>
   )
 }

@@ -2,7 +2,7 @@ import { WithChildren } from '@xylabs/react-shared'
 import { StorageArchivistConfigSchema } from '@xyo-network/archivist'
 import { StorageArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { XyoErrorRender } from '@xyo-network/react-error'
-import { ResultLoader, usePromise } from '@xyo-network/react-shared'
+import { LoadResult, usePromise } from '@xyo-network/react-shared'
 import { useParams } from 'react-router-dom'
 
 import { useAddressHistory } from '../../hooks'
@@ -20,9 +20,9 @@ const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ 
   console.log(addressHistory)
   return (
     <XyoErrorRender xyoError={error ?? insertError}>
-      <ResultLoader notFound={addressHistory === null} searchResult={addressHistory} apiError={error || insertError}>
+      <LoadResult notFound={addressHistory === null} searchResult={addressHistory} apiError={error || insertError}>
         {children}
-      </ResultLoader>
+      </LoadResult>
     </XyoErrorRender>
   )
 }
