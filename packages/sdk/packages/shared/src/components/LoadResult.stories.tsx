@@ -1,22 +1,21 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentStory, Meta } from '@storybook/react'
-import { AxiosError } from 'axios'
 
-import { ResultLoader } from './ResultLoader'
+import { LoadResult } from './LoadResult'
 
 const StorybookEntry: Meta = {
   argTypes: {},
-  component: ResultLoader,
+  component: LoadResult,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'webapp/ResultLoader',
+  title: 'webapp/LoadResult',
 }
 
-const Template: ComponentStory<typeof ResultLoader> = (props) => {
-  return <ResultLoader {...props} />
+const Template: ComponentStory<typeof LoadResult> = (props) => {
+  return <LoadResult {...props} />
 }
 
 const Default = Template.bind({})
@@ -26,7 +25,7 @@ const NotFound = Template.bind({})
 NotFound.args = { notFound: true }
 
 const ApiError = Template.bind({})
-ApiError.args = { apiError: new AxiosError(), children: <h1>Shown in case of error</h1> }
+ApiError.args = { children: <h1>Shown in case of error</h1>, error: true }
 
 const SearchResult = Template.bind({})
 SearchResult.args = { children: <h1>Shown when there is a valid result</h1>, searchResult: 'foo' }

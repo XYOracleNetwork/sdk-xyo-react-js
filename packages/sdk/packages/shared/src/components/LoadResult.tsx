@@ -3,8 +3,8 @@ import { PropsWithChildren } from 'react'
 
 import { NotFound } from './NotFound'
 
-export interface HandleItemDetailLoadingProps<T> {
-  /** @deprecated - use error */
+export interface LoadResultProps<T> {
+  /** @deprecated - use error prop */
   apiError?: Error
   /** Defer error handling to the children and load them */
   error?: boolean
@@ -12,7 +12,7 @@ export interface HandleItemDetailLoadingProps<T> {
   searchResult: T | undefined
 }
 
-export function ResultLoader<T>(props: PropsWithChildren<HandleItemDetailLoadingProps<T>>) {
+export function LoadResult<T>(props: PropsWithChildren<LoadResultProps<T>>) {
   const { notFound, error, searchResult, children } = props
   if (notFound) {
     return <NotFound />
