@@ -1,4 +1,4 @@
-import { DivinerWrapper } from '@xyo-network/diviner'
+import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
 import { ModuleFilter } from '@xyo-network/module'
 
 import { useModules } from './useModules'
