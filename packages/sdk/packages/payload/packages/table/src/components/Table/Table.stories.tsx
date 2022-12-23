@@ -1,6 +1,6 @@
 import { Chip } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'

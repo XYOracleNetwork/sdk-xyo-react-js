@@ -1,5 +1,5 @@
 import { ComponentStory, Meta } from '@storybook/react'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { sampleIdPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 

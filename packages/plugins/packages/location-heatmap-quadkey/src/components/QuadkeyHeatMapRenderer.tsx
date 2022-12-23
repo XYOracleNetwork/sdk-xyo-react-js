@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,

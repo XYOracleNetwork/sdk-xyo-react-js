@@ -1,5 +1,5 @@
 import { assertEx } from '@xylabs/sdk-js'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 export class XyoPayloadRenderPluginResolver {

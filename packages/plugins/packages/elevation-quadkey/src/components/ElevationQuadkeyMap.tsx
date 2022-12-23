@@ -1,7 +1,7 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import {
   HeatMapInitializerProvider,
   MapBoxInstanceProvider,

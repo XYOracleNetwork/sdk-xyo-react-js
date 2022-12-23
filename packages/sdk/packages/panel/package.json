@@ -11,10 +11,15 @@
   },
   "dependencies": {
     "@xylabs/react-shared": "^2.15.6",
+    "@xyo-network/archivist": "^2.43.0",
+    "@xyo-network/boundwitness": "^2.43.0",
+    "@xyo-network/module": "^2.43.0",
+    "@xyo-network/panel": "^2.43.0",
     "@xyo-network/react-archivist": "workspace:^",
     "@xyo-network/react-node": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/react-wallet": "workspace:^"
+    "@xyo-network/react-wallet": "workspace:^",
+    "@xyo-network/witness": "^2.43.0"
   },
   "devDependencies": {
     "@xylabs/ts-scripts-yarn3": "2.11.16"
@@ -25,16 +30,8 @@
     "@mui/styles": "^5.10.3",
     "@xylabs/assert": "^2.6.9",
     "@xylabs/sdk-js": "^2.6.7",
-    "@xyo-network/archivist": "*",
-    "@xyo-network/boundwitness": "*",
-    "@xyo-network/diviner": "*",
-    "@xyo-network/http-proxy-module": "*",
-    "@xyo-network/module": "*",
-    "@xyo-network/node": "*",
-    "@xyo-network/panel": "*",
-    "@xyo-network/payload": "*",
-    "@xyo-network/witness": "*",
     "axios": "^1.2.1",
+    "pako": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"

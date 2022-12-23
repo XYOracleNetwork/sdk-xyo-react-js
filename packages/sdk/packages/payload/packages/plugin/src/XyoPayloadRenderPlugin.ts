@@ -1,6 +1,6 @@
 import { AvatarProps, CardActionAreaProps, CardContentProps, CardHeaderProps, CardProps, TableCellProps } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { ListMode } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 

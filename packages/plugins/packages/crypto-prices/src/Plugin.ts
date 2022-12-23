@@ -1,4 +1,4 @@
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { CryptoPricesRenderer } from './components'
