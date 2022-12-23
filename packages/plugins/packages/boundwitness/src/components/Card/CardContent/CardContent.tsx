@@ -1,6 +1,6 @@
 import { CardContentProps } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 
 import { AddressAvatarGroup } from './AddressAvatarGroup'
 import { CardColumnsFlex, CardColumnTitleH2, CardContentFlex } from './layout'

@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { DivinerWrapper, XyoHuriPayload, XyoHuriSchema } from '@xyo-network/diviner'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
 import { Dispatch, useEffect, useState } from 'react'

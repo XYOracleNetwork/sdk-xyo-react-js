@@ -11,9 +11,13 @@
   },
   "dependencies": {
     "@xylabs/react-shared": "^2.15.6",
+    "@xyo-network/api": "^2.43.0",
+    "@xyo-network/diviner": "^2.43.0",
     "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-schema": "workspace:^",
-    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^",
+    "@xyo-network/schema-payload-plugin": "^2.43.0",
+    "@xyo-network/utils": "^2.43.0"
   },
   "devDependencies": {
     "@xylabs/ts-scripts-yarn3": "2.11.16"
@@ -24,16 +28,9 @@
     "@mui/styles": "^5.10.3",
     "@xylabs/react-common": "^2.15.1",
     "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/api": "*",
-    "@xyo-network/archivist": "*",
-    "@xyo-network/diviner": "*",
-    "@xyo-network/module": "*",
-    "@xyo-network/network": "*",
-    "@xyo-network/payload": "*",
-    "@xyo-network/schema-payload-plugin": "*",
-    "@xyo-network/utils": "*",
     "axios": "^1",
     "lodash": "^4.17.21",
+    "pako": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"

@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 
 import { useArchivistStates } from './useArchivistStates'
 

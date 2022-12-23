@@ -1,5 +1,5 @@
 /* eslint-disable deprecation/deprecation */
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload-table'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 

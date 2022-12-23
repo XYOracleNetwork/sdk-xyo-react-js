@@ -1,6 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { ArchivistWrapper } from '@xyo-network/archivist'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useState } from 'react'
 

@@ -1,5 +1,5 @@
 import { ArchivistWrapper } from '@xyo-network/archivist'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
 import { useArchivist } from './use'

@@ -1,7 +1,7 @@
 import { Button, Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { delay } from '@xylabs/sdk-js'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'

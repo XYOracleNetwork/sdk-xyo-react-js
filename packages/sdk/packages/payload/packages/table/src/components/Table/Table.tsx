@@ -1,4 +1,4 @@
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
 import { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
 

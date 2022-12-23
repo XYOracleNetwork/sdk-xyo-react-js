@@ -1,5 +1,5 @@
 import { LocationSchema } from '@xyo-network/location-payload-plugin'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { PointMapWithSettingsRenderer } from './components'
