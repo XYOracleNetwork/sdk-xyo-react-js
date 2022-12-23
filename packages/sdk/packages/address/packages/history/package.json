@@ -10,16 +10,17 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-common": "^2.15.7",
     "@xylabs/react-flexbox": "^2.15.7",
     "@xylabs/react-quick-tip-button": "^2.15.7",
     "@xylabs/react-shared": "^2.15.7",
-    "@xyo-network/archivist": "^2.43.2",
-    "@xyo-network/boundwitness": "^2.43.2",
-    "@xyo-network/diviner": "^2.43.2",
-    "@xyo-network/module": "^2.43.2",
-    "@xyo-network/node-core-types": "^2.43.2",
-    "@xyo-network/payload": "^2.43.2",
+    "@xyo-network/archivist": "^2.43.3",
+    "@xyo-network/boundwitness": "^2.43.3",
+    "@xyo-network/diviner": "^2.43.3",
+    "@xyo-network/module": "^2.43.3",
+    "@xyo-network/node-core-types": "^2.43.3",
+    "@xyo-network/payload-builder": "^2.43.3",
+    "@xyo-network/payload-model": "^2.43.3",
+    "@xyo-network/payload-wrapper": "^2.43.3",
     "@xyo-network/react-archivist": "workspace:^",
     "@xyo-network/react-boundwitness-plugin": "workspace:^",
     "@xyo-network/react-error": "workspace:^",
@@ -32,27 +33,17 @@
   "devDependencies": {
     "@storybook/react": "^6.5.15",
     "@xylabs/ts-scripts-yarn3": "2.11.16",
-    "@xyo-network/react-storybook": "^2.41.16"
+    "@xyo-network/react-storybook": "^2.41.16",
+    "require-from-string": "^2.0.2"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.10",
     "@mui/styles": "^5.10.10",
-    "@xylabs/sdk-js": "^2.6.9",
-    "axios": "^1.2.1",
-    "pako": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.3.0"
-  },
-  "peerDependenciesMeta": {
-    "@xyo-network/wallet": {
-      "optional": true
-    },
-    "require-from-string": {
-      "optional": true
-    }
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",

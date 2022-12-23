@@ -11,16 +11,9 @@
   },
   "dependencies": {
     "@mui/icons-material": "^5.11.0",
-    "@mui/lab": "^5.0.0-alpha.113",
     "@mui/material": "^5.11.1",
     "@mui/styles": "^5.11.1",
-    "@xylabs/react-common": "^2.15.7",
-    "@xylabs/react-flexbox": "^2.15.7",
-    "@xylabs/react-shared": "^2.15.7",
-    "@xylabs/sdk-js": "^2.6.14",
     "@xyo-network/react-sdk": "workspace:^",
-    "axios": "^1.2.1",
-    "pako": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
@@ -28,9 +21,6 @@
   },
   "devDependencies": {
     "@xylabs/ts-scripts-yarn3": "2.11.16"
-  },
-  "peerDependencies": {
-    "@xylabs/assert": "^2.6.9"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",

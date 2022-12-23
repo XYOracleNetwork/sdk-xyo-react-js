@@ -1,6 +1,6 @@
+import { assertEx } from '@xylabs/assert'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { assertEx } from '@xylabs/sdk-js'
 import { AuthDispatch, AuthServiceId, AuthState, useAuthService } from '@xyo-network/react-auth'
 import { LoginForm } from '@xyo-network/react-login-forms'
 import { WalletServiceProvider } from '@xyo-network/react-wallet-service'

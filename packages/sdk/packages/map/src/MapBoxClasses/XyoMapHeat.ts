@@ -1,4 +1,6 @@
-import { assertEx, delay, forget } from '@xylabs/sdk-js'
+import { assertEx } from '@xylabs/assert'
+import { delay } from '@xylabs/delay'
+import { forget } from '@xylabs/forget'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Polygon } from 'geojson'
 import { FitBoundsOptions, GeoJSONSource, GeoJSONSourceRaw, LngLatBounds, Map } from 'mapbox-gl'

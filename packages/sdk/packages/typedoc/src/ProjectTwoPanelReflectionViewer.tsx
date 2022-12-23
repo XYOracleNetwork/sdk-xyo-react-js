@@ -1,4 +1,4 @@
-import { assertEx } from '@xylabs/sdk-js'
+import { assertEx } from '@xylabs/assert'
 import { ProjectReflection } from 'typedoc'
 
 import { ContainerReflectionViewerProps, DeclarationContainerReflectionViewer } from './ReflectionViewer'

@@ -1,5 +1,5 @@
+import { forget } from '@xylabs/forget'
 import { WithChildren } from '@xylabs/react-shared'
-import { forget } from '@xylabs/sdk-js'
 import { Feature, Polygon } from 'geojson'
 import { useEffect, useState } from 'react'
 

@@ -1,5 +1,5 @@
 import { Alert, TableBody, Typography } from '@mui/material'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 
 import { PayloadTableRow } from './TableRow'

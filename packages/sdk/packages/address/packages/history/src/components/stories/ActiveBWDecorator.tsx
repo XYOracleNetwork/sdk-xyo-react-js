@@ -1,7 +1,7 @@
 import { DecoratorFn } from '@storybook/react'
 import { WithChildren } from '@xylabs/react-shared'
 import { StorageArchivistConfigSchema } from '@xyo-network/archivist'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { StorageArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { usePromise } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { sampleBlockWithPayloads } from '@xyo-network/react-storybook'
 
 import { PropertyValue } from './Value'

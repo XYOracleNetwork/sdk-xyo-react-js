@@ -1,6 +1,6 @@
 import { CardHeader, CardHeaderProps } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 
 import { XyoPayloadRenderProps } from '../XyoPayloadRenderPlugin'
 

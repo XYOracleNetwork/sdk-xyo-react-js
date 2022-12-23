@@ -1,6 +1,6 @@
 import { TableCell, TableCellProps } from '@mui/material'
-import { EthAddress } from '@xylabs/sdk-js'
-import { EthAccountBox } from '@xylabs/sdk-react'
+import { EthAddress } from '@xylabs/eth-address'
+import { EthAccountBox } from '@xylabs/react-crypto'
 import { ModuleWrapper } from '@xyo-network/module'
 
 import { ModuleRenderProps } from '../ModuleRenderProps'

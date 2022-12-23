@@ -1,6 +1,6 @@
 /* eslint-disable deprecation/deprecation */
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
-import { ellipsize } from '@xylabs/sdk-js'
+import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness'
 import { AddressTableCell } from '@xyo-network/react-shared'
 import { MdClear, MdDone } from 'react-icons/md'

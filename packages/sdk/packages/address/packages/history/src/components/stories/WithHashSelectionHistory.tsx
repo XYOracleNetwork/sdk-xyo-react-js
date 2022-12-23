@@ -1,5 +1,5 @@
 import { DecoratorFn } from '@storybook/react'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { sampleBlock } from '@xyo-network/react-storybook'
 
 import { HashSelectionHistoryProvider } from '../../providers'

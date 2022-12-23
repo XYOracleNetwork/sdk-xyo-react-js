@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+import { axios, AxiosResponse } from '@xyo-network/axios'
 
 import { LatLngTuple, LookupPostRequest, LookupResponse } from './types'
 

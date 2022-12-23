@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { PayloadTableProps } from '@xyo-network/react-payload-table'
 import { TableEx } from '@xyo-network/react-table'
 

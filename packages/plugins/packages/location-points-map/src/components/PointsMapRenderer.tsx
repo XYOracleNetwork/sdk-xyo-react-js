@@ -1,5 +1,5 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/sdk-react'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { XyoPayload } from '@xyo-network/payload-model'
 import {
   LocationPointsMapLayerBuilder,

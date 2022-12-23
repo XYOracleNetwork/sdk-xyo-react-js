@@ -1,7 +1,7 @@
+import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountButton } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { NumberStatus } from '@xylabs/react-number-status'
-import { EthAddress } from '@xylabs/sdk-js'
 import { Account } from '@xyo-network/account'
 import { useNetwork } from '@xyo-network/react-network'
 

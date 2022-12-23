@@ -1,5 +1,5 @@
+import { Huri } from '@xyo-network/huri'
 import { XyoNetworkPayload } from '@xyo-network/network'
-import { Huri } from '@xyo-network/payload'
 
 export const findHuriNetwork = (huriInstance: Huri, networks?: XyoNetworkPayload[]) => {
   // see if huri archivist matches any archivist in the network configs

@@ -14,14 +14,14 @@
     "@xylabs/react-flexbox": "^2.15.7",
     "@xylabs/react-invertable-theme": "^2.15.7",
     "@xylabs/react-shared": "^2.15.7",
-    "@xyo-network/boundwitness": "^2.43.2",
-    "@xyo-network/payload": "^2.43.2",
+    "@xyo-network/boundwitness": "^2.43.3",
+    "@xyo-network/payload-builder": "^2.43.3",
+    "@xyo-network/payload-model": "^2.43.3",
     "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-auth": "workspace:^",
     "@xyo-network/react-map": "workspace:^",
     "@xyo-network/react-theme": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
-    "@xyo-network/utils": "^2.43.2",
     "lodash": "^4.17.21",
     "require-from-string": "^2.0.2",
     "storybook-dark-mode": "^2.0.4"
@@ -30,10 +30,6 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
-    "@xylabs/react-common": "^2.15.1",
-    "@xylabs/sdk-js": "^2.6.7",
-    "axios": "^1.2.1",
-    "pako": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
@@ -47,8 +43,7 @@
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@types/lodash": "^4.14.191",
-    "@xylabs/ts-scripts-yarn3": "2.11.16",
-    "axios": "^1.2.1"
+    "@xylabs/ts-scripts-yarn3": "2.11.16"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",

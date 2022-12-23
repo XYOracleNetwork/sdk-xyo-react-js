@@ -1,9 +1,9 @@
 import { MenuItem, SelectProps } from '@mui/material'
+import { EthAddress } from '@xylabs/eth-address'
 import { SelectEx } from '@xylabs/react-common'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
-import { EthAddress } from '@xylabs/sdk-js'
 
 import { useWallet } from '../../contexts'
 
