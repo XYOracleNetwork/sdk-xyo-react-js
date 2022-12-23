@@ -3,6 +3,7 @@ import { delay } from '@xylabs/sdk-js'
 import { ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { SimpleModuleResolver } from '@xyo-network/module'
+import { AbstractNode } from '@xyo-network/node'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useNode } from '@xyo-network/react-node'
@@ -34,7 +35,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   const { account } = useAccount()
-  const [node] = useNode()
+  const [node] = useNode<AbstractNode>()
 
   const resolver = useMemo(() => {
     if (node && node.resolver) {

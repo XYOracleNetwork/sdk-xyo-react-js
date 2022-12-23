@@ -1,7 +1,7 @@
 import { ComponentStoryFn, Meta } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../story'
+import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories'
 import { BoundWitnessesBox } from './BoundWitnessesBox'
 
 // eslint-disable-next-line import/no-default-export

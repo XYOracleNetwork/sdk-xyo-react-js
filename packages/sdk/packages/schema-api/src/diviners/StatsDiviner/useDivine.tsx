@@ -1,13 +1,17 @@
+/* eslint-disable import/no-deprecated */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { SchemaStats } from '@xyo-network/api'
 import { DivinerWrapper } from '@xyo-network/diviner'
 import { useState } from 'react'
 
+// eslint-disable-next-line import/no-deprecated
 import { useSchemaStatsApiDiviner } from './use'
 
+/** @deprecated - get stats from querying the module on the node directly */
 export const useDivineSchemaStats = (): [SchemaStats | undefined, Error | undefined, () => void] => {
   const [stats, setStats] = useState<SchemaStats>()
   const [error, setError] = useState<Error>()
+  // eslint-disable-next-line deprecation/deprecation
   const { diviner } = useSchemaStatsApiDiviner()
   const [refresh, setRefresh] = useState(1)
 

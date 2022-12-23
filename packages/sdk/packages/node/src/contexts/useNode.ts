@@ -1,11 +1,11 @@
-import { AbstractNode } from '@xyo-network/node'
+import { NodeModule } from '@xyo-network/node'
 import { useContextEx } from '@xyo-network/react-shared'
 import { Dispatch } from 'react'
 
 import { NodeContext } from './Context'
 
-export const useNode = (): [AbstractNode | undefined, Dispatch<AbstractNode> | undefined] => {
-  const { node, setNode } = useContextEx(NodeContext, 'XyoNode')
+export const useNode = <T extends NodeModule = NodeModule>(): [T | undefined, Dispatch<NodeModule> | undefined] => {
+  const { node, setNode } = useContextEx(NodeContext, 'Node')
 
-  return [node, setNode]
+  return [node as T, setNode]
 }

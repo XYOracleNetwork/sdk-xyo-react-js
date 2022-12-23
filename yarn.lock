@@ -6988,6 +6988,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/http-proxy-module@npm:^2.43.0":
+  version: 2.43.0
+  resolution: "@xyo-network/http-proxy-module@npm:2.43.0"
+  dependencies:
+    "@xylabs/assert": ^2.6.12
+    "@xyo-network/api": ^2.43.0
+    "@xyo-network/api-models": ^2.43.0
+    "@xyo-network/module": ^2.43.0
+    "@xyo-network/module-model": ^2.43.0
+    "@xyo-network/node": ^2.43.0
+    "@xyo-network/payload-model": ^2.43.0
+  checksum: c3c7052927645730c84821a9ec385fd14acd4ea1ad725c49e6c12a4b0a328443fb0eb8c9c3acc60a0b87a3fb301c7a8be8ef8c4258d4e4ec1176524bf8d5729a
+  languageName: node
+  linkType: hard
+
 "@xyo-network/huri@npm:^2.43.0":
   version: 2.43.0
   resolution: "@xyo-network/huri@npm:2.43.0"
@@ -7055,6 +7070,39 @@ __metadata:
     "@xyo-network/payload-model": ^2.43.0
     "@xyo-network/payload-wrapper": ^2.43.0
   checksum: 944e85011889fefb7ef8449e5f8e0ff6ba7d70dffa0ef21cb76255ded7ba56850d25620c4d3c59472574aaf69110bb05c90e2eb0106b1b5777897e3926606110
+  languageName: node
+  linkType: hard
+
+"@xyo-network/node-core-model@npm:^2.43.0":
+  version: 2.43.0
+  resolution: "@xyo-network/node-core-model@npm:2.43.0"
+  dependencies:
+    "@xylabs/assert": ^2.6.12
+    "@xyo-network/account": ^2.43.0
+    "@xyo-network/api": ^2.43.0
+    "@xyo-network/archivist": ^2.43.0
+    "@xyo-network/boundwitness-model": ^2.43.0
+    "@xyo-network/core": ^2.43.0
+    "@xyo-network/diviner": ^2.43.0
+    "@xyo-network/huri": ^2.43.0
+    "@xyo-network/module": ^2.43.0
+    "@xyo-network/module-model": ^2.43.0
+    "@xyo-network/payload-model": ^2.43.0
+    "@xyo-network/payload-wrapper": ^2.43.0
+    "@xyo-network/promise": ^2.43.0
+    "@xyo-network/shared": ^2.43.0
+    ajv: ^8.11.2
+  peerDependencies:
+    axios: ~1.2.1
+    pako: ^2.1.0
+  checksum: e896f8f0ff42ecfaf444ebeed6211b275c9471c79801d4578caee32c6167c3685f1b861b01776c0ef7dc7a614f99daaf3aa56eee1a60d53a9f7bf77ba1feb7fa
+  languageName: node
+  linkType: hard
+
+"@xyo-network/node-core-types@npm:^2.43.0":
+  version: 2.43.0
+  resolution: "@xyo-network/node-core-types@npm:2.43.0"
+  checksum: 10c52c2ef552b3118e675eccb057c176f1ab257fa55e040e56fcfe46d98dfaa6e81d9db7d80b3e4073ba117182c25631067bc5c7645c6dd1f920ee636eefe5f0
   languageName: node
   linkType: hard
 
@@ -7218,7 +7266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/react-address-history-api@workspace:^, @xyo-network/react-address-history-api@workspace:packages/sdk/packages/address/packages/history-api":
+"@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address/packages/history-api":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-history-api@workspace:packages/sdk/packages/address/packages/history-api"
   dependencies:
@@ -7259,11 +7307,13 @@ __metadata:
     "@xyo-network/archivist": ^2.43.0
     "@xyo-network/boundwitness": ^2.43.0
     "@xyo-network/module": ^2.43.0
+    "@xyo-network/node-core-types": ^2.43.0
     "@xyo-network/payload": ^2.43.0
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-boundwitness-plugin": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
+    "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": ^2.41.13
     "@xyo-network/react-table": "workspace:^"
@@ -7293,7 +7343,6 @@ __metadata:
   dependencies:
     "@xylabs/ts-scripts-yarn3": 2.11.16
     "@xyo-network/react-address-history": "workspace:^"
-    "@xyo-network/react-address-history-api": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5.10.14
     "@mui/material": ^5.10.14
@@ -7581,10 +7630,8 @@ __metadata:
     "@xylabs/react-shared": ^2.15.6
     "@xylabs/sdk-js": ^2.6.12
     "@xylabs/ts-scripts-yarn3": 2.11.16
-    "@xyo-network/boundwitness": ^2.43.0
     "@xyo-network/core": ^2.43.0
     "@xyo-network/module": ^2.43.0
-    "@xyo-network/payload-model": ^2.43.0
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
@@ -8374,6 +8421,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": 2.11.16
     "@xyo-network/archivist": ^2.43.0
     "@xyo-network/diviner": ^2.43.0
+    "@xyo-network/http-proxy-module": ^2.43.0
     "@xyo-network/module": ^2.43.0
     "@xyo-network/node": ^2.43.0
     "@xyo-network/react-shared": "workspace:^"
@@ -8804,7 +8852,10 @@ __metadata:
     "@xylabs/react-link": ^2.15.6
     "@xylabs/react-shared": ^2.15.6
     "@xylabs/ts-scripts-yarn3": 2.11.16
+    "@xyo-network/api": ^2.43.0
     "@xyo-network/module": ^2.43.0
+    "@xyo-network/node-core-model": ^2.43.0
+    "@xyo-network/node-core-types": ^2.43.0
     "@xyo-network/payload": ^2.43.0
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"

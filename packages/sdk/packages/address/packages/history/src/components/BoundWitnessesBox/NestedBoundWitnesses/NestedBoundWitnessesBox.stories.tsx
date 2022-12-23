@@ -1,6 +1,6 @@
 import { ComponentStory, Meta } from '@storybook/react'
 
-import { WithHashSelectionHistory } from '../../story'
+import { WithHashSelectionHistory } from '../../stories'
 import { NestedBoundWitnessesBox } from './NestedBoundWitnessesBox'
 
 // eslint-disable-next-line import/no-default-export
