@@ -1,4 +1,5 @@
-import { DivinerWrapper, XyoDivinerDivineQuerySchema } from '@xyo-network/diviner'
+import { XyoDivinerDivineQuerySchema } from '@xyo-network/diviner-model'
+import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
 
 import { useModules } from './useModules'
 
