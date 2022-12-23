@@ -1,3 +1,4 @@
+/* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
 import { WithChildren } from '@xylabs/react-shared'
 import { StorageArchivistConfigSchema } from '@xyo-network/archivist'
