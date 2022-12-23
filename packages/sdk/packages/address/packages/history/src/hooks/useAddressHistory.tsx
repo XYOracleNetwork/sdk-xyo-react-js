@@ -1,7 +1,8 @@
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { AddressHistoryQuerySchema } from '@xyo-network/diviner'
 import { TYPES } from '@xyo-network/node-core-types'
-import { XyoPayload, XyoPayloadBuilder } from '@xyo-network/payload'
+import { XyoPayloadBuilder } from '@xyo-network/payload-builder'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useNodeQueryDiviner } from '@xyo-network/react-node'
 import { useEffect, useState } from 'react'
 

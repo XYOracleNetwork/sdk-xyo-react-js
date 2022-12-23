@@ -2,7 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { AddressHistoryQuerySchema, DivinerWrapper } from '@xyo-network/diviner'
 import { XyoError } from '@xyo-network/module'
-import { XyoPayloadBuilder } from '@xyo-network/payload'
+import { XyoPayloadBuilder } from '@xyo-network/payload-builder'
 import { useState } from 'react'
 
 import { useAddressHistoryDiviner } from './use'

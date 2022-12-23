@@ -1,4 +1,4 @@
-import { Huri } from '@xyo-network/payload'
+import { Huri } from '@xyo-network/huri'
 import { useCallback } from 'react'
 
 import { FetchHuriHashOptions } from './lib'

@@ -1,10 +1,10 @@
 import DataObjectIcon from '@mui/icons-material/DataObject'
 import { Chip } from '@mui/material'
+import { ellipsize } from '@xylabs/eth-address'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { ellipsize } from '@xylabs/sdk-js'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { ReactNode } from 'react'
 
 import { BWPreviousHashQuickTipButton } from './PreviousHash'

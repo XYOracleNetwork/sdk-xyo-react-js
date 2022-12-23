@@ -1,7 +1,7 @@
 import { Divider } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import { forwardRef } from 'react'

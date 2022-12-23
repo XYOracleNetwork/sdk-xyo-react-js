@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
-import { XyoPayloadBuilder } from '@xyo-network/payload'
+import { XyoPayloadBuilder } from '@xyo-network/payload-builder'
 import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { XyoSchemaCache, XyoSchemaCacheEntry } from '@xyo-network/utils'
 import { useState } from 'react'

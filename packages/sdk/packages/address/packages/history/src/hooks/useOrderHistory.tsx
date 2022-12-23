@@ -1,5 +1,5 @@
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { useCallback } from 'react'
 
 // If a boundwitness hash is not found in any other previous_hashes in the history,

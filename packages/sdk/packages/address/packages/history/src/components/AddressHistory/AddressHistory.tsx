@@ -1,6 +1,6 @@
 import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/material'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'

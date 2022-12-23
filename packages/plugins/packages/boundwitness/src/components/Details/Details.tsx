@@ -1,6 +1,6 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
+import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import { forwardRef } from 'react'
 

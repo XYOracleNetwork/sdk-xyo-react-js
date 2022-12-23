@@ -1,6 +1,6 @@
+import { EthAddress } from '@xylabs/eth-address'
+import { EthAccountBox } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { EthAddress } from '@xylabs/sdk-js'
-import { EthAccountBox } from '@xylabs/sdk-react'
 import { ModuleWrapper } from '@xyo-network/module'
 
 import { ModuleRenderProps } from '../ModuleRenderProps'

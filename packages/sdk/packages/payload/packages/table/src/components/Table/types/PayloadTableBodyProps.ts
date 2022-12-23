@@ -1,6 +1,6 @@
 import { TableBodyProps, TableRowProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
+import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
 import { ComponentType } from 'react'
 
 export interface PayloadTableBodyProps extends TableBodyProps, WithChildren {

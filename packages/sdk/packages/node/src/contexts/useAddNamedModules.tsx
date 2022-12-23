@@ -1,5 +1,5 @@
+import { ApiConfig } from '@xylabs/api'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { ApiConfig } from '@xylabs/sdk-js'
 import { ArchivistWrapper } from '@xyo-network/archivist'
 import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
 import { HttpProxyModule } from '@xyo-network/http-proxy-module'

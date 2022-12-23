@@ -1,5 +1,5 @@
+import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
-import { delay } from '@xylabs/sdk-js'
 import { ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness'
 import { SimpleModuleResolver } from '@xyo-network/module'

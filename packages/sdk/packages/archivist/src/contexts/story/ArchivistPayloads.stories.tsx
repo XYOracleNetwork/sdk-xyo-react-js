@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, CardHeader } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoPayloads } from '@xyo-network/payload'
+import { XyoPayloads } from '@xyo-network/payload-model'
 
 export interface ArchivistPayloadsProps {
   refresh?: () => void

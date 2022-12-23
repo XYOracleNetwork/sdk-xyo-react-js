@@ -1,5 +1,5 @@
 import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
-import { ModuleFilter } from '@xyo-network/module'
+import { ModuleFilter } from '@xyo-network/module-model'
 
 import { useModules } from './useModules'
 

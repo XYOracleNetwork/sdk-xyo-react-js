@@ -2,7 +2,7 @@ import ReplayIcon from '@mui/icons-material/Replay'
 import { TextField } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { PayloadWrapper } from '@xyo-network/payload'
+import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 
 import { Property } from './Property'
