@@ -33,7 +33,7 @@ const Template: ComponentStory<React.FC> = () => {
   XyoSchemaCache.instance.proxy = `${apiDomain}/domain`
   const [schemaStats] = useSchemaStats('temp')
   const [schemaList] = useSchemaList('temp')
-  const schemaDefinitions = useSchemaDefinitions('temp')
+  const schemaDefinitions = useSchemaDefinitions(schemaList)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
