@@ -5878,10 +5878,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/api@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "@xylabs/api@npm:2.6.14"
+  dependencies:
+    axios: ^1
+  checksum: bfec2639e91d8353839c383182b5c20b4ea741527369a316ead5c0bf56667188138d9b133ca76da6f9831674e8332d29d84e2fa4600a924bbb6bd0115f64a84f
+  languageName: node
+  linkType: hard
+
 "@xylabs/assert@npm:^2.6.12":
   version: 2.6.12
   resolution: "@xylabs/assert@npm:2.6.12"
   checksum: 15a7a8ccdcb8824aed7eaecc80e0622eec44e0a86596283e1ea13943851cab63bb2b8bda9c2499411cda98839ddb28672dd1783b954f73d045286c42055115ad
+  languageName: node
+  linkType: hard
+
+"@xylabs/assert@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "@xylabs/assert@npm:2.6.14"
+  checksum: 931af5d54dad50c542a9c580fc29808201848a40b80f1929dbb5703e959813199b8b46201aaa4c4abf8d22b831c142e51a4ca46140cd5343037a44285789d08f
   languageName: node
   linkType: hard
 
@@ -5891,6 +5907,15 @@ __metadata:
   dependencies:
     bn.js: ^5.2.1
   checksum: f2ab945ef8879c6d1d5fbabf1e899ea326041b76af04e56cbb791bda1333048766c6ac592df95f810d300fd071a732fdbb69058ba0226899bcbaaa333b72761b
+  languageName: node
+  linkType: hard
+
+"@xylabs/bignumber@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "@xylabs/bignumber@npm:2.6.14"
+  dependencies:
+    bn.js: ^5.2.1
+  checksum: 2e38f0e06028b84e54fd54c8b9ee54747676a9873e2e5b28908750c8c678cf44db89e33fb590f9c4d10997e5deabd82e35791afc13aae4fdb2879d3773e9197c
   languageName: node
   linkType: hard
 
@@ -5914,6 +5939,13 @@ __metadata:
   version: 2.6.12
   resolution: "@xylabs/delay@npm:2.6.12"
   checksum: b3cc9a62c4a639f62144a3af90cffca92bebeb715ce9e530e578774dc537c302412dce4db5d9918789b24c4cc0d43ceb52c3cc9f072714ba0b1d01ed47e37c5d
+  languageName: node
+  linkType: hard
+
+"@xylabs/delay@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "@xylabs/delay@npm:2.6.14"
+  checksum: ddeee9d1c4421f688abe8d9151b19fd4f96291cf454e3e38c121b2f571b279d1e6b29ccc80f5886b2d1b29ea6249bbe5c795349d71b25ae6018bc99339288026
   languageName: node
   linkType: hard
 
@@ -5983,19 +6015,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/exists@npm:^2.6.12":
-  version: 2.6.12
-  resolution: "@xylabs/exists@npm:2.6.12"
-  checksum: e2b3e58e3d48bd98b8378a20b7bc22de02e71761c6ad102f75258471082ae76292249cdcb6fa161d3097ce919b527d2d4f8a020da7e2f5e5fe9691c7c98798c0
+"@xylabs/eth-address@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "@xylabs/eth-address@npm:2.6.14"
+  dependencies:
+    "@xylabs/assert": ^2.6.14
+    "@xylabs/bignumber": ^2.6.14
+  checksum: b65b66d6b57f29d86d6435d9988516aa8b22b130188c080a880ebd102264668c0ba9bed3e31b9c602fcaeb46620a8b097d76d7ebfcbaec289c2fea9c52d3311e
   languageName: node
   linkType: hard
 
-"@xylabs/forget@npm:^2.6.12":
-  version: 2.6.12
-  resolution: "@xylabs/forget@npm:2.6.12"
+"@xylabs/exists@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "@xylabs/exists@npm:2.6.14"
+  checksum: f003378e688ab4e03cf4f312de4a1717bfd3ab24542e4fd606ea9d7d67a3d85e89f9c8d9643fa169d7b6118b835fe80fc1d0b8c45d8d968ff17bfcbb4ccc43d9
+  languageName: node
+  linkType: hard
+
+"@xylabs/forget@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "@xylabs/forget@npm:2.6.14"
   dependencies:
-    "@xylabs/delay": ^2.6.12
-  checksum: feaf18853cd24de7ed485bc2e056f7d48dd4484871b1153e53d6083f8fdf72197b03b257ef6508c4d7327b829853ffeb0432a8c145f55a4a29785cd95f32c172
+    "@xylabs/delay": ^2.6.14
+  checksum: 56a1c7ad91bfb759d56c4549905d6034f4f81605f47a6030c19019069c11b62ffa0e361b247733efa142072997a1ba98b5db629325eab34ff1b692897cbc7d95
+  languageName: node
+  linkType: hard
+
+"@xylabs/log@npm:^2.6.14":
+  version: 2.6.14
+  resolution: "@xylabs/log@npm:2.6.14"
+  dependencies:
+    rollbar: ^2.26.0
+  checksum: b6a513839354e91a7b265bb2b01ed2439373d036d31dfc5d8e290cbb39cfce87d5d44f3ec64608aced5fff2b93c5ac7b9c8b102bf56c8b5856d52d2fe2a37be7
   languageName: node
   linkType: hard
 
@@ -6381,18 +6432,18 @@ __metadata:
   linkType: hard
 
 "@xylabs/sdk-js@npm:^2.6.10, @xylabs/sdk-js@npm:^2.6.12":
-  version: 2.6.12
-  resolution: "@xylabs/sdk-js@npm:2.6.12"
+  version: 2.6.14
+  resolution: "@xylabs/sdk-js@npm:2.6.14"
   dependencies:
-    "@xylabs/assert": ^2.6.12
-    "@xylabs/bignumber": ^2.6.12
-    "@xylabs/delay": ^2.6.12
-    "@xylabs/exists": ^2.6.12
-    "@xylabs/forget": ^2.6.12
-    rollbar: ^2.26.0
-  peerDependencies:
-    axios: ^1.2.1
-  checksum: 90369dcbcacbe2f758a98edf645fa212fa89607817943b34889d453f66e25a2c3d2f78e017a81bf46452366f62b50e426767810821f6fd4a2a443e0434a6717b
+    "@xylabs/api": ^2.6.14
+    "@xylabs/assert": ^2.6.14
+    "@xylabs/bignumber": ^2.6.14
+    "@xylabs/delay": ^2.6.14
+    "@xylabs/eth-address": ^2.6.14
+    "@xylabs/exists": ^2.6.14
+    "@xylabs/forget": ^2.6.14
+    "@xylabs/log": ^2.6.14
+  checksum: 7efa328e5e1926f2fd0eef0f84d0691f53780ceeac5145b32232109ff8bc1130e8ecd78c8f293f4e8ff7821654a31f7140174452f6bfd0a3434dd6636dd511f4
   languageName: node
   linkType: hard
 
@@ -9923,7 +9974,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.2.1":
+"axios@npm:^1, axios@npm:^1.2.1":
   version: 1.2.1
   resolution: "axios@npm:1.2.1"
   dependencies:
