@@ -1,13 +1,11 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { useArchive } from '@xyo-network/react-api'
-import { useSchemaList } from '@xyo-network/react-schema'
 import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
-/** @deprecated - moved to @xyo-network/react-schema package */
-export const useSchemaDefinitions = (): XyoSchemaPayload[] | undefined => {
-  const { archive } = useArchive()
+import { useSchemaList } from './useSchemaList'
+
+export const useSchemaDefinitions = (archive?: string): XyoSchemaPayload[] | undefined => {
   const [schemaList] = useSchemaList(archive)
   const [schemaPayloads, setSchemaPayloads] = useState<XyoSchemaPayload[]>()
   useAsyncEffect(
