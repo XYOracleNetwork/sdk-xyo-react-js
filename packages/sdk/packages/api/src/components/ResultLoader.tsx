@@ -10,6 +10,7 @@ export interface HandleItemDetailLoadingProps<T> {
   searchResult: T | undefined
 }
 
+/** @deprecated - moved to @xyo-network/react-shared as LoadResult */
 export function ResultLoader<T>(props: PropsWithChildren<HandleItemDetailLoadingProps<T>>) {
   const { notFound, apiError, searchResult, children } = props
   if (notFound) {

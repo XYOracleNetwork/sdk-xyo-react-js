@@ -10,6 +10,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xyo-network/module": "~2.43.0",
     "@xyo-network/react-address": "workspace:^",
     "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-app-settings": "workspace:^",
@@ -41,11 +42,11 @@
     "@xyo-network/react-wallet": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
     "@xyo-network/react-webapp": "workspace:^",
-    "lodash": "^4.17.21",
-    "tslib": "^2.4.1"
+    "@xyo-network/utils": "~2.43.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "2.9.0"
+    "@xylabs/ts-scripts-yarn3": "2.11.16"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
@@ -57,23 +58,6 @@
     "@xylabs/react-flexbox": "~2",
     "@xylabs/react-shared": "^2.15.1",
     "@xylabs/sdk-js": "~2",
-    "@xyo-network/api": "*",
-    "@xyo-network/archivist": "~2",
-    "@xyo-network/boundwitness": "~2",
-    "@xyo-network/core": "~2",
-    "@xyo-network/diviner": "~2",
-    "@xyo-network/module": "~2",
-    "@xyo-network/network": "~2",
-    "@xyo-network/node": "~2",
-    "@xyo-network/panel": "~2",
-    "@xyo-network/payload": "~2",
-    "@xyo-network/payload-plugin": "~2",
-    "@xyo-network/payloadset-plugin": "*",
-    "@xyo-network/protocol": "~2",
-    "@xyo-network/schema-payload-plugin": "~2",
-    "@xyo-network/utils": "~2",
-    "@xyo-network/wallet": "~2",
-    "@xyo-network/witness": "~2",
     "axios": "^1.1.3",
     "pako": "^2.0.4",
     "react": "^18.2.0",

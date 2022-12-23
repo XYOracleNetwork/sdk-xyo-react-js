@@ -10,13 +10,14 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-flexbox": "^2.15.5",
-    "@xylabs/react-identicon": "^2.15.5",
-    "@xylabs/sdk-js": "^2.6.11",
-    "tslib": "^2.4.1"
+    "@xylabs/react-flexbox": "^2.15.6",
+    "@xylabs/react-identicon": "^2.15.6",
+    "@xylabs/sdk-js": "^2.6.12",
+    "@xyo-network/archivist": "^2.43.0",
+    "@xyo-network/module": "^2.43.0"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "2.9.0"
+    "@xylabs/ts-scripts-yarn3": "2.11.16"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
@@ -25,13 +26,8 @@
     "@xylabs/react-button": "^2.15.1",
     "@xylabs/react-shared": "^2.15.1",
     "@xylabs/sdk-react": "^2.15.1",
-    "@xyo-network/archivist": "*",
-    "@xyo-network/diviner": "*",
-    "@xyo-network/module": "*",
-    "@xyo-network/payload": "*",
-    "@xyo-network/payload-plugin": "*",
-    "@xyo-network/schema-payload-plugin": "*",
-    "@xyo-network/utils": "*",
+    "axios": "^1.2.1",
+    "pako": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0"

@@ -1,5 +1,5 @@
 import { XyoError } from '@xyo-network/module'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { ContextExState } from '@xyo-network/react-shared'
 import { Dispatch, SetStateAction } from 'react'
 

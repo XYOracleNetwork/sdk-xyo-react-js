@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
 import { useArchive } from '../archive'

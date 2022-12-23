@@ -10,31 +10,23 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-button": "^2.15.5",
-    "@xylabs/react-flexbox": "^2.15.5",
-    "@xylabs/react-pixel": "^2.15.5",
-    "@xylabs/react-shared": "^2.15.5",
+    "@xylabs/react-button": "^2.15.6",
+    "@xylabs/react-flexbox": "^2.15.6",
+    "@xylabs/react-pixel": "^2.15.6",
+    "@xylabs/react-shared": "^2.15.6",
     "@xyo-network/react-app-settings": "workspace:^",
     "@xyo-network/react-appbar": "workspace:^",
     "@xyo-network/react-footer": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "react-helmet": "^6.1.0",
-    "tslib": "^2.4.1"
+    "react-helmet": "^6.1.0"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.3",
     "@mui/styles": "^5.10.3",
     "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/api": "*",
-    "@xyo-network/archivist": "*",
-    "@xyo-network/diviner": "*",
-    "@xyo-network/module": "*",
-    "@xyo-network/network": "*",
-    "@xyo-network/payload": "*",
-    "@xyo-network/utils": "*",
-    "@xyo-network/wallet": "*",
     "axios": "^1",
+    "pako": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
@@ -42,7 +34,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.6",
-    "@xylabs/ts-scripts-yarn3": "2.9.0"
+    "@xylabs/ts-scripts-yarn3": "2.11.16"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
