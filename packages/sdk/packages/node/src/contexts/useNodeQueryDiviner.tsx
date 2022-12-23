@@ -1,7 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { DivinerWrapper } from '@xyo-network/diviner'
+import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
 import { MemoryNode } from '@xyo-network/node'
-import { XyoPayload, XyoPayloads } from '@xyo-network/payload'
+import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
 import { useState } from 'react'
 
 import { useNode } from './useNode'
