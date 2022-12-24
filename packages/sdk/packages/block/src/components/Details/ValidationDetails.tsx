@@ -1,7 +1,8 @@
 /* eslint-disable deprecation/deprecation */
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { BoundWitnessValidator, XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */

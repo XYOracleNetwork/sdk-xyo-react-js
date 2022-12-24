@@ -1,5 +1,5 @@
 import { AbstractArchivist } from '@xyo-network/archivist'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { XyoPanel } from '@xyo-network/panel'
 import { WitnessWrapper } from '@xyo-network/witness'
 

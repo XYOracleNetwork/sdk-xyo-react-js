@@ -1,5 +1,5 @@
 import { TableBody, TableHead, TableRow, Typography } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { Hasher } from '@xyo-network/core'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { TableCellEx, TableEx, TableExProps } from '@xyo-network/react-table'

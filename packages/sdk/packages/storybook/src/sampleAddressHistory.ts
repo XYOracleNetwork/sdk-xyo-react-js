@@ -1,4 +1,4 @@
-import { XyoBoundWitnessSchema } from '@xyo-network/boundwitness'
+import { XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
 
 export const sampleAddressHistory = [
   {

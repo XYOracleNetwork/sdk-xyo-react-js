@@ -1,7 +1,7 @@
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded'
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded'
 import { Card, CardProps, Divider, IconButton } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import { forwardRef, useEffect, useState } from 'react'

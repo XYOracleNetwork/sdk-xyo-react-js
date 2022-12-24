@@ -1,5 +1,5 @@
 import { useMounted, WithChildren } from '@xylabs/react-shared'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { XyoError } from '@xyo-network/module'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { useArchivist } from '@xyo-network/react-archivist'

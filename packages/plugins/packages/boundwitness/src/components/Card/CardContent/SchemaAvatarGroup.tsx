@@ -1,5 +1,5 @@
 import { Avatar, AvatarGroup, AvatarGroupProps } from '@mui/material'
-import { XyoBoundWitnessSchema } from '@xyo-network/boundwitness'
+import { XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import { useCallback } from 'react'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'

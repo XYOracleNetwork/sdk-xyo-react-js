@@ -1,6 +1,6 @@
 import { Collapse } from '@mui/material'
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { CardContentEx, CardContentExProps } from '@xyo-network/react-card'
 import { useTableHeight } from '@xyo-network/react-table'
 import { Dispatch, forwardRef, SetStateAction, useState } from 'react'

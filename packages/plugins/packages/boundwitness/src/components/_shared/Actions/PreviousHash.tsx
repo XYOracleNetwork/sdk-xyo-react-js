@@ -4,7 +4,7 @@ import { Alert, AlertTitle, Collapse } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import { useState } from 'react'
 

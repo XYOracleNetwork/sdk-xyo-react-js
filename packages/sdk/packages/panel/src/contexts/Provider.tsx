@@ -1,7 +1,7 @@
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { SimpleModuleResolver } from '@xyo-network/module'
 import { AbstractNode } from '@xyo-network/node'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
