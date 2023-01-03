@@ -5,7 +5,7 @@ import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
 import { HttpProxyModule } from '@xyo-network/http-proxy-module'
 import { AbstractModuleConfigSchema, Module, ModuleWrapper } from '@xyo-network/module'
 import { MemoryNode } from '@xyo-network/node'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useNode } from './useNode'
 
@@ -71,6 +71,11 @@ export const useAddNamedModules = (moduleList?: ModuleList, apiConfig?: ApiConfi
     }
   }
 
+  useEffect(() => {
+    // whenever the api config changes, assume we need to rebuild the memory node
+    setComplete(false)
+  }, [apiConfig])
+
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
@@ -87,5 +92,6 @@ export const useAddNamedModules = (moduleList?: ModuleList, apiConfig?: ApiConfi
     },
     [apiConfig, complete, moduleList, node, reset, setNode, updateNode],
   )
+
   return complete
 }
