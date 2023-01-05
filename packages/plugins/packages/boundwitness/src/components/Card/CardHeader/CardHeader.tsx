@@ -1,6 +1,6 @@
 import { CardHeader, CardHeaderProps, styled, useTheme } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { XyoPayload } from '@xyo-network/payload-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { ReactNode, useEffect, useState } from 'react'

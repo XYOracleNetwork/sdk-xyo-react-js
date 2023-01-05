@@ -1,4 +1,4 @@
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { useCallback } from 'react'
 

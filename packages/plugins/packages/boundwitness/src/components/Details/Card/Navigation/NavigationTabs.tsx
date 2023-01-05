@@ -1,5 +1,5 @@
 import { Paper, Tab, TabProps, Tabs, TabsProps, useTheme } from '@mui/material'
-import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness'
+import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { Dispatch, SetStateAction, SyntheticEvent } from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'

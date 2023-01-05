@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@storybook/react": "^6.5.15",
-    "@xylabs/react-flexbox": "^2.15.7",
-    "@xylabs/react-invertable-theme": "^2.15.7",
-    "@xylabs/react-shared": "^2.15.7",
-    "@xyo-network/boundwitness": "^2.43.3",
-    "@xyo-network/payload-builder": "^2.43.3",
-    "@xyo-network/payload-model": "^2.43.3",
+    "@xylabs/react-flexbox": "^2.15.8",
+    "@xylabs/react-invertable-theme": "^2.15.8",
+    "@xylabs/react-shared": "^2.15.8",
+    "@xyo-network/boundwitness-model": "^2.43.5",
+    "@xyo-network/payload-builder": "^2.43.5",
+    "@xyo-network/payload-model": "^2.43.5",
     "@xyo-network/react-api": "workspace:^",
     "@xyo-network/react-auth": "workspace:^",
     "@xyo-network/react-map": "workspace:^",
@@ -24,12 +24,12 @@
     "@xyo-network/react-wallet-service": "workspace:^",
     "lodash": "^4.17.21",
     "require-from-string": "^2.0.2",
-    "storybook-dark-mode": "^2.0.4"
+    "storybook-dark-mode": "^2.0.5"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
-    "@mui/styles": "^5.10.3",
+    "@mui/icons-material": "5.11.0",
+    "@mui/material": "5.11.2",
+    "@mui/styles": "5.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
@@ -43,7 +43,7 @@
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@types/lodash": "^4.14.191",
-    "@xylabs/ts-scripts-yarn3": "2.11.16"
+    "@xylabs/ts-scripts-yarn3": "2.12.0"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",

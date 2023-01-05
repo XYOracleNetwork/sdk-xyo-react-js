@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { AddressHistoryQuerySchema, DivinerWrapper } from '@xyo-network/diviner'
 import { XyoError } from '@xyo-network/module'
 import { XyoPayloadBuilder } from '@xyo-network/payload-builder'

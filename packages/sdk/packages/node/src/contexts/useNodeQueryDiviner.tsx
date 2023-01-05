@@ -2,6 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
 import { MemoryNode } from '@xyo-network/node'
 import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
+import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
 import { useNode } from './useNode'
@@ -16,7 +17,9 @@ export const useNodeQueryDiviner = (moduleIdentifier?: string, query?: XyoPayloa
     async () => {
       if (moduleIdentifier && query) {
         try {
-          const diviner = (await node?.tryResolve({ name: [moduleIdentifier] }))?.[0] as DivinerWrapper
+          const divinerWrapper = (await node?.tryResolveWrapped(DivinerWrapper, { name: [moduleIdentifier] }))?.[0]
+          const diviner = assertDefinedEx(divinerWrapper, `Unable to find moduleIdentifier: ${moduleIdentifier}`)
+
           const result = await diviner?.divine([query])
           setResult(result)
           setError(undefined)

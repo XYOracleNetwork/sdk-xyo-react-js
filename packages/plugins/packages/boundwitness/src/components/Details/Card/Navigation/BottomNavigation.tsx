@@ -1,5 +1,5 @@
 import { BottomNavigation, BottomNavigationAction, BottomNavigationProps, styled } from '@mui/material'
-import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness'
+import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { Dispatch, forwardRef, SetStateAction } from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'

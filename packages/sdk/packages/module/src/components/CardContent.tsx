@@ -1,7 +1,7 @@
 import { CardContent, CardContentProps, Typography } from '@mui/material'
 import { EthAddress } from '@xylabs/eth-address'
-import { useAsyncEffect } from '@xylabs/react-shared'
 import { EthAccountBox } from '@xylabs/react-crypto'
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { AbstractModuleConfig, ModuleWrapper } from '@xyo-network/module'
 import { useState } from 'react'
 

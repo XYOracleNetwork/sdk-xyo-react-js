@@ -3,7 +3,8 @@ import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlin
 import { SvgIconProps, Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
-import { BoundWitnessValidator, XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { forwardRef } from 'react'
 
 const InvalidIcon = forwardRef<SVGSVGElement, SvgIconProps>((props, ref) => <CancelRoundedIcon color={'error'} ref={ref} {...props} />)

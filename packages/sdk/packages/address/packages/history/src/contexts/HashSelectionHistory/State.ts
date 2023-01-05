@@ -1,4 +1,4 @@
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { XyoError } from '@xyo-network/module'
 import { ContextExState } from '@xyo-network/react-shared'
 

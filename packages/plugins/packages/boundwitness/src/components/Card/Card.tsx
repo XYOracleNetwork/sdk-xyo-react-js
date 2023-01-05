@@ -1,5 +1,5 @@
 import { Card, CardProps } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { XyoPayload } from '@xyo-network/payload-model'
 
 import { BoundWitnessCardContent } from './CardContent'

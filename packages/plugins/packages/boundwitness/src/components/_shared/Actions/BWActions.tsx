@@ -3,7 +3,7 @@ import { Chip } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { ReactNode } from 'react'
 

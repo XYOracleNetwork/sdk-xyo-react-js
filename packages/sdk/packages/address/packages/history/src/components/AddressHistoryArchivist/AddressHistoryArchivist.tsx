@@ -17,7 +17,7 @@ const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ 
   const { archivist } = useArchivist(required)
 
   const [, insertError] = usePromise(addressHistory ? archivist?.insert(addressHistory) : Promise.resolve(undefined), [archivist])
-  console.log(addressHistory)
+
   return (
     <XyoErrorRender xyoError={error ?? insertError}>
       <LoadResult notFound={addressHistory === null} searchResult={addressHistory} apiError={error || insertError}>
