@@ -15,12 +15,12 @@ export const useNodeQueryDiviner = (moduleIdentifier?: string, query?: XyoPayloa
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (moduleIdentifier && query) {
+      if (moduleIdentifier && query && node?.resolver) {
         try {
-          const divinerWrapper = (await node?.tryResolveWrapped(DivinerWrapper, { name: [moduleIdentifier] }))?.[0]
-          const diviner = assertDefinedEx(divinerWrapper, `Unable to find moduleIdentifier: ${moduleIdentifier}`)
+          const diviner = await node.tryResolveWrapped(DivinerWrapper, { name: [moduleIdentifier] })
+          assertDefinedEx(diviner?.[0], `Unable to find moduleIdentifier: ${moduleIdentifier}`)
 
-          const result = await diviner?.divine([query])
+          const result = await diviner?.[0]?.divine([query])
           setResult(result)
           setError(undefined)
         } catch (e) {
