@@ -17,9 +17,8 @@ export const useNodeQueryDiviner = (moduleIdentifier?: string, query?: XyoPayloa
     async () => {
       if (moduleIdentifier && query) {
         try {
-          const mod = (await node?.tryResolve({ name: [moduleIdentifier] }))?.[0]
-          const foundModule = assertDefinedEx(mod, `Unable to find moduleIdentifier: ${moduleIdentifier}`)
-          const diviner = new DivinerWrapper(foundModule)
+          const divinerWrapper = (await node?.tryResolveWrapped(DivinerWrapper, { name: [moduleIdentifier] }))?.[0]
+          const diviner = assertDefinedEx(divinerWrapper, `Unable to find moduleIdentifier: ${moduleIdentifier}`)
 
           const result = await diviner?.divine([query])
           setResult(result)
