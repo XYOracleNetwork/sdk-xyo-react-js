@@ -1,36 +1,30 @@
 import { Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { RemoteModuleResolver } from '@xyo-network/http-proxy-module'
 import { NodeConfigSchema } from '@xyo-network/node'
-import { TYPES } from '@xyo-network/node-core-types'
-import { MemoryNodeProvider, useAddNamedModules } from '@xyo-network/react-node'
+import { MemoryNodeProvider } from '@xyo-network/react-node'
 import { XyoSchemaCache } from '@xyo-network/utils'
 
 import { useSchemaDefinitions } from '../useSchemaDefinitions'
 import { useSchemaList } from '../useSchemaList'
 import { useSchemaStats } from '../useSchemaStats'
 
-const apiDomain = 'https://beta.api.archivist.xyo.network'
+const apiConfig = { apiDomain: 'https://beta.api.archivist.xyo.network' }
 
 const MemoryNodeDecorator: DecoratorFn = (Story, args) => (
-  <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
+  <MemoryNodeProvider config={{ schema: NodeConfigSchema }} resolver={new RemoteModuleResolver(apiConfig)}>
     <Story {...args} />
   </MemoryNodeProvider>
 )
 
-const AddModulesDecorator: DecoratorFn = (Story, args) => {
-  const list = { SchemaStatsDiviner: TYPES.SchemaStatsDiviner }
-  useAddNamedModules(list, { apiDomain })
-  return <Story {...args} />
-}
-
 // eslint-disable-next-line import/no-default-export
 export default {
-  decorators: [AddModulesDecorator, MemoryNodeDecorator],
+  decorators: [MemoryNodeDecorator],
   title: 'schema/Hooks',
 } as Meta
 
 const Template: ComponentStory<React.FC> = () => {
-  XyoSchemaCache.instance.proxy = `${apiDomain}/domain`
+  XyoSchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
   const [schemaStats] = useSchemaStats('temp')
   const [schemaList] = useSchemaList('temp')
   const schemaDefinitions = useSchemaDefinitions(schemaList)
