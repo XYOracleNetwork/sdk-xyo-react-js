@@ -1,5 +1,6 @@
 export * from './Context'
 export * from './MemoryProvider'
+export * from './ModuleRepository'
 export * from './NodeDrawerContext'
 export * from './Provider'
 export * from './State'
