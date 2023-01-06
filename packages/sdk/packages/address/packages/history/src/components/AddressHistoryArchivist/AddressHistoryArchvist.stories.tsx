@@ -2,7 +2,7 @@ import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { RemoteModuleResolver } from '@xyo-network/http-proxy-module'
 import { NodeConfigSchema } from '@xyo-network/node'
 import { useArchivist } from '@xyo-network/react-archivist'
-import { MemoryNodeProvider } from '@xyo-network/react-node'
+import { MemoryNodeProvider, ModuleRepositoryProvider, useModuleRepository } from '@xyo-network/react-node'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -10,11 +10,22 @@ import { AddressHistoryArchivist } from './AddressHistoryArchivist'
 
 const apiConfig = { apiDomain: 'http://localhost:8080' }
 
-const MemoryNodeDecorator: DecoratorFn = (Story, args) => (
-  <MemoryNodeProvider config={{ schema: NodeConfigSchema }} resolver={new RemoteModuleResolver(apiConfig)}>
-    <Story {...args} />
-  </MemoryNodeProvider>
-)
+const ModuleRepositoryDecorator: DecoratorFn = (Story, args) => {
+  return (
+    <ModuleRepositoryProvider defaultResolvers={{ beta: new RemoteModuleResolver(apiConfig) }}>
+      <Story {...args} />
+    </ModuleRepositoryProvider>
+  )
+}
+
+const MemoryNodeResolverDecorator: DecoratorFn = (Story, args) => {
+  const { resolvers } = useModuleRepository(true)
+  return (
+    <MemoryNodeProvider config={{ schema: NodeConfigSchema }} resolver={resolvers?.beta}>
+      <Story {...args} />
+    </MemoryNodeProvider>
+  )
+}
 
 const Result: React.FC = () => {
   const { archivist } = useArchivist()
@@ -25,7 +36,7 @@ const Result: React.FC = () => {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: AddressHistoryArchivist,
-  decorators: [MemoryNodeDecorator],
+  decorators: [MemoryNodeResolverDecorator, ModuleRepositoryDecorator],
   title: 'address/history/Archivist',
 } as Meta
 

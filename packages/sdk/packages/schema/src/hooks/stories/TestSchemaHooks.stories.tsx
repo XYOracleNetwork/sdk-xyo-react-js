@@ -1,11 +1,9 @@
 import { Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { RemoteModuleResolver } from '@xyo-network/http-proxy-module'
-import { ModuleResolver } from '@xyo-network/module'
 import { NodeConfigSchema } from '@xyo-network/node'
-import { MemoryNodeProvider } from '@xyo-network/react-node'
+import { MemoryNodeProvider, ModuleRepositoryProvider, useModuleRepository } from '@xyo-network/react-node'
 import { XyoSchemaCache } from '@xyo-network/utils'
-import { useState } from 'react'
 
 import { useSchemaDefinitions } from '../useSchemaDefinitions'
 import { useSchemaList } from '../useSchemaList'
@@ -13,14 +11,18 @@ import { useSchemaStats } from '../useSchemaStats'
 
 const apiConfig = { apiDomain: 'https://beta.api.archivist.xyo.network' }
 
-const MemoryNodeResolverDecorator: DecoratorFn = (Story, args) => {
-  const [resolver, setResolver] = useState<ModuleResolver>()
-  // simulate async update of apiConfig
-  setTimeout(() => {
-    setResolver(new RemoteModuleResolver(apiConfig))
-  }, 1000)
+const ModuleRepositoryDecorator: DecoratorFn = (Story, args) => {
   return (
-    <MemoryNodeProvider config={{ schema: NodeConfigSchema }} resolver={resolver}>
+    <ModuleRepositoryProvider defaultResolvers={{ beta: new RemoteModuleResolver(apiConfig) }}>
+      <Story {...args} />
+    </ModuleRepositoryProvider>
+  )
+}
+
+const MemoryNodeResolverDecorator: DecoratorFn = (Story, args) => {
+  const { resolvers } = useModuleRepository(true)
+  return (
+    <MemoryNodeProvider config={{ schema: NodeConfigSchema }} resolver={resolvers?.beta}>
       <Story {...args} />
     </MemoryNodeProvider>
   )
@@ -60,6 +62,6 @@ Default.decorators = [MemoryNodeDecorator]
 Default.args = {}
 
 const WithApiConfig = Template.bind({})
-WithApiConfig.decorators = [MemoryNodeResolverDecorator]
+WithApiConfig.decorators = [MemoryNodeResolverDecorator, ModuleRepositoryDecorator]
 
 export { Default, WithApiConfig }
