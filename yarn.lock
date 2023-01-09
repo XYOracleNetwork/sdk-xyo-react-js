@@ -2845,10 +2845,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/core-downloads-tracker@npm:^5.11.2":
-  version: 5.11.3
-  resolution: "@mui/core-downloads-tracker@npm:5.11.3"
-  checksum: 0bc6ad3e2bc9170cf2fc1de749c12c1255ccf6fe17b9df047fa6a69d3a1965413a891b01dfef2939f0af7273693479b08ebd85ef3cc2e7c5e5750eced6ae15d7
+"@mui/base@npm:5.0.0-alpha.113":
+  version: 5.0.0-alpha.113
+  resolution: "@mui/base@npm:5.0.0-alpha.113"
+  dependencies:
+    "@babel/runtime": ^7.20.7
+    "@emotion/is-prop-valid": ^1.2.0
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.2
+    "@popperjs/core": ^2.11.6
+    clsx: ^1.2.1
+    prop-types: ^15.8.1
+    react-is: ^18.2.0
+  peerDependencies:
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 787905a89b9ff88915b0e206617b2ecc10d06a9ee24d852ff19dc442708f2812e35cec94c2d2d5c832c2685e5625a4171ce63935837316bd9214809d3c4734b3
+  languageName: node
+  linkType: hard
+
+"@mui/core-downloads-tracker@npm:^5.11.4":
+  version: 5.11.4
+  resolution: "@mui/core-downloads-tracker@npm:5.11.4"
+  checksum: 4ee982654d1d519c5d136c803dfc47d35e38427985f723de233c7ef5b273c0a04a37a4728f4cbab9e39eacf1c79e1feef8f621c77f4bb259d841638692693bd0
   languageName: node
   linkType: hard
 
@@ -2898,14 +2921,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:5.11.2":
-  version: 5.11.2
-  resolution: "@mui/material@npm:5.11.2"
+"@mui/material@npm:5.11.4, @mui/material@npm:^5.11.1, @mui/material@npm:^5.11.4":
+  version: 5.11.4
+  resolution: "@mui/material@npm:5.11.4"
   dependencies:
     "@babel/runtime": ^7.20.7
-    "@mui/base": 5.0.0-alpha.112
-    "@mui/core-downloads-tracker": ^5.11.2
-    "@mui/system": ^5.11.2
+    "@mui/base": 5.0.0-alpha.113
+    "@mui/core-downloads-tracker": ^5.11.4
+    "@mui/system": ^5.11.4
     "@mui/types": ^7.2.3
     "@mui/utils": ^5.11.2
     "@types/react-transition-group": ^4.4.5
@@ -2927,7 +2950,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 4f2baa4b4d8f7842b081e9e919172020f7055e33c24af36c5a458eac1a76ff3e896651fdf21daa523a68ac0bfb3670864c1b4dec9fae6d8fadf2b602f14f95ea
+  checksum: 6c9522a542182c21ab82cf87211751f7e13e6fc1a1c0105d4f0b5dbd36ab34719444d1d5df9155670a1c902b55060e6724fb66831273108cb5c77705a8e84ce2
   languageName: node
   linkType: hard
 
@@ -2969,7 +2992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/styles@npm:5.11.2":
+"@mui/styles@npm:5.11.2, @mui/styles@npm:^5.11.0, @mui/styles@npm:^5.11.1":
   version: 5.11.2
   resolution: "@mui/styles@npm:5.11.2"
   dependencies:
@@ -3025,6 +3048,34 @@ __metadata:
     "@types/react":
       optional: true
   checksum: d6b136464ec48cbc270f0cb91eb83f10f6b6801c143cc320ef5c6ec71655f9b3ceda98ab38fde537d1c0a7669defcb9af6f4940c78101603f8b6800854d0133d
+  languageName: node
+  linkType: hard
+
+"@mui/system@npm:^5.11.4":
+  version: 5.11.4
+  resolution: "@mui/system@npm:5.11.4"
+  dependencies:
+    "@babel/runtime": ^7.20.7
+    "@mui/private-theming": ^5.11.2
+    "@mui/styled-engine": ^5.11.0
+    "@mui/types": ^7.2.3
+    "@mui/utils": ^5.11.2
+    clsx: ^1.2.1
+    csstype: ^3.1.1
+    prop-types: ^15.8.1
+  peerDependencies:
+    "@emotion/react": ^11.5.0
+    "@emotion/styled": ^11.3.0
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@emotion/react":
+      optional: true
+    "@emotion/styled":
+      optional: true
+    "@types/react":
+      optional: true
+  checksum: f86f35f6ea432204cbeb94edd0a0d0fe12f3ad6d82f85262293e9240fe43c64512aad14a11c5f7291e5e2c3ea2b8864dee76f70071f6af8942f494987d7a498e
   languageName: node
   linkType: hard
 
@@ -7158,7 +7209,7 @@ __metadata:
   resolution: "@xyo-network/react-api@workspace:packages/sdk/packages/api"
   dependencies:
     "@mui/icons-material": 5.11.0
-    "@mui/material": 5.11.2
+    "@mui/material": 5.11.4
     "@mui/styles": 5.11.2
     "@xylabs/react-button": ^2.15.8
     "@xylabs/react-common": ^2.15.8
@@ -7275,7 +7326,7 @@ __metadata:
   resolution: "@xyo-network/react-auth-service@workspace:packages/sdk/packages/auth-service"
   dependencies:
     "@mui/icons-material": 5.11.0
-    "@mui/material": 5.11.2
+    "@mui/material": 5.11.4
     "@mui/styles": 5.11.2
     "@xylabs/assert": ^2.6.15
     "@xylabs/react-button": ^2.15.8
@@ -7322,7 +7373,7 @@ __metadata:
   resolution: "@xyo-network/react-auth@workspace:packages/sdk/packages/auth"
   dependencies:
     "@mui/icons-material": 5.11.0
-    "@mui/material": 5.11.2
+    "@mui/material": 5.11.4
     "@types/lodash": ^4.14.191
     "@xylabs/react-button": ^2.15.8
     "@xylabs/react-flexbox": ^2.15.8
@@ -7913,7 +7964,7 @@ __metadata:
   resolution: "@xyo-network/react-login-forms@workspace:packages/sdk/packages/login-forms"
   dependencies:
     "@mui/icons-material": 5.11.0
-    "@mui/material": 5.11.2
+    "@mui/material": 5.11.4
     "@mui/styles": 5.11.2
     "@xylabs/assert": ^2.6.15
     "@xylabs/react-button": ^2.15.8
@@ -8525,7 +8576,7 @@ __metadata:
   resolution: "@xyo-network/react-test@workspace:packages/test"
   dependencies:
     "@mui/icons-material": 5.11.0
-    "@mui/material": 5.11.2
+    "@mui/material": 5.11.4
     "@mui/styles": 5.11.2
     "@xylabs/ts-scripts-yarn3": 2.12.0
     "@xyo-network/react-sdk": "workspace:^"
@@ -8668,9 +8719,9 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.12
     "@babel/preset-env": ^7.20.2
-    "@mui/icons-material": 5.11.0
-    "@mui/material": 5.11.2
-    "@mui/styles": 5.11.2
+    "@mui/icons-material": ^5.11.0
+    "@mui/material": ^5.11.4
+    "@mui/styles": ^5.11.0
     "@storybook/addon-actions": ^6.5.15
     "@storybook/addon-controls": ^6.5.15
     "@storybook/addon-essentials": ^6.5.15
@@ -8711,9 +8762,9 @@ __metadata:
     ts-jest: ^29.0.3
     typescript: ^4.9.4
   peerDependencies:
-    "@mui/icons-material": 5.11.0
-    "@mui/material": 5.11.2
-    "@mui/styles": 5.11.2
+    "@mui/icons-material": ^5.11.0
+    "@mui/material": ^5.11.4
+    "@mui/styles": ^5.11.0
     geojson: ^0.5.0
     mapbox-gl: ^2.11.0
     react: ^18.2.0
