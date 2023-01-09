@@ -10,7 +10,7 @@ export interface ArchiveProviderProps {
 
 export const ArchiveProvider: React.FC<WithChildren<ArchiveProviderProps>> = ({ defaultArchive, ...props }) => {
   const [archive, setArchive] = useState<string | undefined>(defaultArchive)
-  const { archivePayloadArchivist, archiveBoundWitnessArchivist } = useArchiveArchivists(archive)
+  const { archivePayloadArchivist, archiveBoundWitnessArchivist } = useArchiveArchivists(archive, false)
 
   return (
     <ArchiveContext.Provider
