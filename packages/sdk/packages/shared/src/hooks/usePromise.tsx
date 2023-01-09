@@ -66,20 +66,22 @@ export const usePromise = <D, T extends Promise<D> | D>(promise?: T, dependencie
 
       dispatch({ type: State.pending })
 
-      const result = await promise
-      !canceled
-        ? dispatch({
-            payload: result,
-            type: State.resolved,
-          })
-        : undefined
-
-      !canceled
-        ? dispatch({
-            payload: error,
-            type: State.rejected,
-          })
-        : undefined
+      try {
+        const result = await promise
+        !canceled
+          ? dispatch({
+              payload: result,
+              type: State.resolved,
+            })
+          : undefined
+      } catch (e) {
+        !canceled
+          ? dispatch({
+              payload: error,
+              type: State.rejected,
+            })
+          : undefined
+      }
 
       return () => {
         canceled = true
