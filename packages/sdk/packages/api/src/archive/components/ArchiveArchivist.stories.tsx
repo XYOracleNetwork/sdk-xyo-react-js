@@ -68,7 +68,7 @@ const Template: ComponentStory<typeof ArchiveSelectEx> = () => {
         placeholder={`payload hash in ${archive} on ${apiConfig.apiDomain}`}
         onChange={(e) => setPayloadHash(e.target.value)}
       />
-      <Typography>Payload Result:</Typography>
+      <Typography>Payload from Archive Archivist Module:</Typography>
       <pre>{JSON.stringify(payloadResult?.shift(), null, 2)}</pre>
       <TextField
         fullWidth
@@ -76,7 +76,7 @@ const Template: ComponentStory<typeof ArchiveSelectEx> = () => {
         placeholder={`boundwitness hash in ${archive} on ${apiConfig.apiDomain}`}
         onChange={(e) => setBoundwitnessHash(e.target.value)}
       />
-      <Typography>Bound Witness Result:</Typography>
+      <Typography>Bound Witness from Archive Archivist Module:</Typography>
       <pre style={{ whiteSpace: 'break-spaces', wordBreak: 'break-all' }}>{JSON.stringify(boundwitnessResult?.shift(), null, 2)}</pre>
     </FlexCol>
   )
