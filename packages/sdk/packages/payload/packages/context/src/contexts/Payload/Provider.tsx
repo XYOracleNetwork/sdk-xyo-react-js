@@ -18,14 +18,12 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ 
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    async (mounted) => {
+    async () => {
       if (payload === undefined && hash && archivePayloadWrapper) {
         try {
           const [loadedPayloads] = await archivePayloadWrapper.get([hash])
-          if (mounted()) {
-            setPayload(loadedPayloads)
-            setPayloadError(undefined)
-          }
+          setPayload(loadedPayloads)
+          setPayloadError(undefined)
         } catch (e) {
           setPayload(undefined)
           setPayloadError(e as Error)
