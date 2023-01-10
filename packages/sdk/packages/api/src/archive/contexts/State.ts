@@ -4,7 +4,7 @@ import { Dispatch } from 'react'
 
 export interface ArchiveContextState extends ContextExState {
   archive?: string
-  archivePayloadArchivist?: ArchivistWrapper
-  archiveBoundWitnessArchivist?: ArchivistWrapper
+  archivePayloadWrapper?: ArchivistWrapper
+  archiveBoundWitnessWrapper?: ArchivistWrapper
   setArchive?: Dispatch<string>
 }
