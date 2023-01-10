@@ -5,7 +5,12 @@ import { useMemo } from 'react'
 
 import { useNode } from './useNode'
 
-export const useArchiveArchivists = (archiveName?: string, required?: boolean) => {
+interface UseArchiveArchivists {
+  archivePayloadArchivist?: ArchivistWrapper
+  archiveBoundWitnessArchivist?: ArchivistWrapper
+}
+
+export const useArchiveArchivists = (archiveName?: string, required?: boolean): UseArchiveArchivists => {
   const [node] = useNode<MemoryNode>(required)
 
   const payloadArchivistReq = useMemo(
