@@ -4,7 +4,7 @@ import { ComponentStory, DecoratorFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { RemoteModuleResolver } from '@xyo-network/http-proxy-module'
 import { NodeConfigSchema } from '@xyo-network/node'
-import { MemoryNodeProvider, ModuleRepositoryProvider, useModuleRepository } from '@xyo-network/react-node'
+import { MemoryNodeProvider, ModuleRepositoryProvider, useArchiveArchivists, useModuleRepository } from '@xyo-network/react-node'
 import { usePromise } from '@xyo-network/react-shared'
 import { useMemo, useState } from 'react'
 
@@ -50,21 +50,22 @@ const StorybookEntry = {
 }
 
 const Template: ComponentStory<typeof ArchiveSelectEx> = () => {
-  const { archivePayloadArchivist, archiveBoundWitnessArchivist, archive } = useArchive()
+  const { archive } = useArchive()
+  const { archiveBoundWitnessWrapper, archivePayloadWrapper } = useArchiveArchivists()
   const [payloadHash, setPayloadHash] = useState<string>('')
   const [boundwitnessHash, setBoundwitnessHash] = useState<string>('')
 
   const payloadRequest = useMemo(
-    () => (archivePayloadArchivist && payloadHash ? archivePayloadArchivist?.get([payloadHash]) : undefined),
-    [payloadHash, archivePayloadArchivist],
+    () => (archivePayloadWrapper && payloadHash ? archivePayloadWrapper?.get([payloadHash]) : undefined),
+    [payloadHash, archivePayloadWrapper],
   )
-  const boundwitnessHashRequest = useMemo(
-    () => (archiveBoundWitnessArchivist && boundwitnessHash ? archiveBoundWitnessArchivist?.get([boundwitnessHash]) : undefined),
-    [archiveBoundWitnessArchivist, boundwitnessHash],
+  const boundwitnessRequest = useMemo(
+    () => (archiveBoundWitnessWrapper && boundwitnessHash ? archiveBoundWitnessWrapper?.get([boundwitnessHash]) : undefined),
+    [archiveBoundWitnessWrapper, boundwitnessHash],
   )
 
-  const [payloadResult] = usePromise(payloadRequest, [archivePayloadArchivist, payloadHash])
-  const [boundwitnessResult] = usePromise(boundwitnessHashRequest, [archivePayloadArchivist, boundwitnessHash])
+  const [payloadResult] = usePromise(payloadRequest, [archivePayloadWrapper, payloadHash])
+  const [boundwitnessResult] = usePromise(boundwitnessRequest, [archiveBoundWitnessWrapper, boundwitnessHash])
 
   return (
     <FlexCol rowGap={3} width={'100%'}>

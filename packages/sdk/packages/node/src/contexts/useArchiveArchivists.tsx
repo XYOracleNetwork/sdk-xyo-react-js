@@ -6,8 +6,8 @@ import { useMemo } from 'react'
 import { useNode } from './useNode'
 
 interface UseArchiveArchivists {
-  archivePayloadArchivist?: ArchivistWrapper
-  archiveBoundWitnessArchivist?: ArchivistWrapper
+  archivePayloadWrapper?: ArchivistWrapper
+  archiveBoundWitnessWrapper?: ArchivistWrapper
 }
 
 export const useArchiveArchivists = (archiveName?: string, required?: boolean): UseArchiveArchivists => {
@@ -22,8 +22,8 @@ export const useArchiveArchivists = (archiveName?: string, required?: boolean): 
     [archiveName, node],
   )
 
-  const [archivePayloadArchivist] = usePromise(payloadArchivistReq, [payloadArchivistReq])
-  const [archiveBoundWitnessArchivist] = usePromise(boundWitnessArchivistReq, [boundWitnessArchivistReq])
+  const [archivePayloadWrapper] = usePromise(payloadArchivistReq, [payloadArchivistReq])
+  const [archiveBoundWitnessWrapper] = usePromise(boundWitnessArchivistReq, [boundWitnessArchivistReq])
 
-  return { archiveBoundWitnessArchivist: archiveBoundWitnessArchivist?.shift(), archivePayloadArchivist: archivePayloadArchivist?.shift() }
+  return { archiveBoundWitnessWrapper: archiveBoundWitnessWrapper?.shift(), archivePayloadWrapper: archivePayloadWrapper?.shift() }
 }

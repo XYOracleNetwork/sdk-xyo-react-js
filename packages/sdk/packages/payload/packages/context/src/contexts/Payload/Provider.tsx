@@ -12,16 +12,16 @@ export interface PayloadProviderProps {
 }
 
 export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ required = false, archive = 'temp', hash, children }) => {
-  const { archivePayloadArchivist } = useArchiveArchivists(archive)
+  const { archivePayloadWrapper } = useArchiveArchivists(archive)
   const [payload, setPayload] = useState<XyoPayload | null>()
   const [payloadError, setPayloadError] = useState<Error>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (payload === undefined && hash && archivePayloadArchivist) {
+      if (payload === undefined && hash && archivePayloadWrapper) {
         try {
-          const [loadedPayloads] = await archivePayloadArchivist.get([hash])
+          const [loadedPayloads] = await archivePayloadWrapper.get([hash])
           if (mounted()) {
             setPayload(loadedPayloads)
             setPayloadError(undefined)
@@ -32,7 +32,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ 
         }
       }
     },
-    [payload, hash, archivePayloadArchivist],
+    [payload, hash, archivePayloadWrapper],
   )
 
   return (
