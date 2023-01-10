@@ -1,8 +1,11 @@
 import { XyoPayload } from '@xyo-network/payload-model'
 import { ContextExState } from '@xyo-network/react-shared'
-import { Dispatch } from 'react'
+import { Dispatch, SetStateAction } from 'react'
+
+type PayloadFromHash = XyoPayload | null | undefined
 
 export interface PayloadContextState extends ContextExState {
-  payload?: XyoPayload | null
-  setPayload?: Dispatch<XyoPayload>
+  payload?: PayloadFromHash
+  setPayload?: Dispatch<SetStateAction<PayloadFromHash>>
+  payloadError?: Error
 }
