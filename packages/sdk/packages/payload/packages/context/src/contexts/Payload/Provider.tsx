@@ -1,6 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { XyoPayload } from '@xyo-network/payload-model'
-import { useArchiveArchivists } from '@xyo-network/react-node'
 import { useState } from 'react'
 
 import { PayloadContext } from './Context'
@@ -9,10 +9,10 @@ export interface PayloadProviderProps {
   required?: boolean
   hash?: string
   archive?: string
+  archivePayloadWrapper?: ArchivistWrapper
 }
 
-export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ required = false, archive = 'temp', hash, children }) => {
-  const { archivePayloadWrapper } = useArchiveArchivists(archive)
+export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ required = false, hash, children, archivePayloadWrapper }) => {
   const [payload, setPayload] = useState<XyoPayload | null>()
   const [payloadError, setPayloadError] = useState<Error>()
 
