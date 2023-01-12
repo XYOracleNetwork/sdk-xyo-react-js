@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useNode } from '../contexts'
 
 export const NodeBox: React.FC<FlexBoxProps> = (props) => {
-  const [node] = useNode()
+  const [node] = useNode(false)
   const [description, setDescription] = useState<string>()
 
   useAsyncEffect(

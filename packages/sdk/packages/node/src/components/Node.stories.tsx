@@ -1,10 +1,14 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
-import { NodeConfigSchema } from '@xyo-network/node'
+import { useAsyncEffect } from '@xylabs/react-shared'
+import { AbstractModule } from '@xyo-network/module'
+import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
+import { useState } from 'react'
 
-import { MemoryNodeProvider, useAddNamedModules } from '../contexts'
-import { NodeBox } from './Node'
+import { MemoryNodeProvider, useNode } from '../contexts'
 
-const NodeBoxDecorator: DecoratorFn = (Story, args) => {
+class TestModule extends AbstractModule {}
+
+const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
   return (
     <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
       <Story {...args} />
@@ -12,26 +16,44 @@ const NodeBoxDecorator: DecoratorFn = (Story, args) => {
   )
 }
 
-const AddModulesDecorator: DecoratorFn = (Story, args) => {
-  const list = { AddressHistoryDiviner: Symbol('AddressHistoryDiviner') }
-  useAddNamedModules(list, { apiDomain: 'http://localhost:8080' })
-  return <Story {...args} />
-}
-
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: NodeBox,
-  decorators: [NodeBoxDecorator],
   title: 'node/NodeBox',
 } as Meta
 
-const Template: ComponentStory<typeof NodeBox> = (props) => <NodeBox {...props} />
+const Template: ComponentStory<React.FC> = (props) => {
+  const [node] = useNode<MemoryNode>(false)
+  const [description, setDescription] = useState<string>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      if (node) {
+        try {
+          const mod = await TestModule.create({ config: { schema: 'network.xyo.test.module' } })
+          node?.register(mod)
+          node?.attach(mod.address)
+          setDescription(JSON.stringify(await node?.description(), null, 2))
+        } catch (e) {
+          console.error(e)
+        }
+      }
+    },
+    [node],
+  )
+
+  return (
+    <div {...props}>
+      <pre>{description}</pre>
+    </div>
+  )
+}
 
 const Default = Template.bind({})
 Default.args = {}
 
 const WithModules = Template.bind({})
-WithModules.decorators = [AddModulesDecorator]
 WithModules.argTypes = {}
+WithModules.decorators = [MemoryNodeDecorator]
 
 export { Default, WithModules }
