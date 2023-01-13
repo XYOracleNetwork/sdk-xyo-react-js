@@ -7,6 +7,7 @@ import { useArchive } from '../archive'
 import { useApi } from '../contexts'
 import { UsePayload } from './ResolvePayloadArgs'
 
+/** @deprecated - use a node query instead */
 export const useLoadPayloadViaApi = (hash?: string): UsePayload => {
   const { api } = useApi()
   const { archive } = useArchive()

@@ -6,6 +6,7 @@ import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { Huri } from '@xyo-network/huri'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
+import { DeprecateStory } from '@xyo-network/react-storybook'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { lazy, Suspense, useState } from 'react'
 
@@ -43,6 +44,7 @@ const UseHuriHashComponent: React.FC<UseHuriHashComponentProps> = ({ huriOrHash,
 
   return (
     <>
+      <DeprecateStory />
       <Typography variant="body1" fontWeight="bold">
         Fetches the payload for a huriOrHash.
       </Typography>
