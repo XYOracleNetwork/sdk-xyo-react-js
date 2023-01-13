@@ -4,7 +4,7 @@ import { useBuildHuri } from './useBuildHuri'
 
 export type RouteOptions = 'routeParam' | 'searchParam' | 'any'
 
-export const usePayloadHuriFromRoute = (routeOption: RouteOptions = 'any') => {
+export const useParseHuriFromRoute = (routeOption: RouteOptions = 'any') => {
   const { hash: hashParam } = useParams()
 
   const huriFromHashParam = useBuildHuri(hashParam)

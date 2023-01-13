@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { Huri } from '@xyo-network/huri'
 import { useCallback } from 'react'
 
