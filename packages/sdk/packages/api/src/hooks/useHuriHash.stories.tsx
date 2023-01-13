@@ -1,4 +1,5 @@
-/* eslint-disable import/no-internal-modules */
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { Alert, Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
