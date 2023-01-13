@@ -1,27 +1,15 @@
 import { Huri } from '@xyo-network/huri'
-import { useCallback } from 'react'
+import { useHuriOrHash } from '@xyo-network/react-payload-huri'
 
 import { FetchHuriHashOptions } from './lib'
 import { UseHuriOrHash } from './ResolvePayloadArgs'
 import { useLoadPayloadViaApi } from './useLoadPayload'
 import { useResolveHuri } from './useResolveHuri'
-
 /**
  * Resolve a hash or a huri regardless of network
  */
 export const useHuriHashViaApi = (huriOrHash?: string | Huri, huriUri?: string, options?: FetchHuriHashOptions): UseHuriOrHash => {
-  const hash = useCallback((huriOrHash?: string | Huri) => {
-    if (huriOrHash) {
-      if (typeof huriOrHash === 'string') {
-        return huriOrHash
-      }
-      if (huriOrHash instanceof Huri) {
-        return huriOrHash.hash
-      }
-    }
-  }, [])
-
-  const providedHash = hash(huriOrHash)
+  const providedHash = useHuriOrHash(huriOrHash)
 
   //AT: TODO -> Talk about this pattern
 
