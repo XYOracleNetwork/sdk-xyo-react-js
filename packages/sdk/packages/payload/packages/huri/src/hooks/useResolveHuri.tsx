@@ -3,19 +3,16 @@ import { Huri } from '@xyo-network/huri'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload-model'
 import { useNetwork } from '@xyo-network/react-network'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { FetchHuriHashOptions, findHuriNetwork } from './lib'
-import { UseHuriOrHash } from './ResolvePayloadArgs'
+import { findHuriNetwork, UseHuriOrHash } from './lib'
 
-export const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, options?: FetchHuriHashOptions): UseHuriOrHash => {
+export const useResolveHuri = (huriUri?: string, changeActiveNetwork?: boolean): UseHuriOrHash => {
   const { network, networks, setNetwork } = useNetwork()
   const [huriPayload, setHuriPayload] = useState<XyoPayload>()
   const [huriPayloadNotFound, setHuriPayloadNotFound] = useState<boolean>()
   const [huriNetworkNotFound, setHuriNetworkNotFound] = useState<boolean>()
   const [huriError, setHuriError] = useState<XyoError>()
-
-  const { changeActiveNetwork } = options ?? {}
 
   //AT: TODO -> Talk about this pattern
   const reset = () => {
@@ -24,16 +21,10 @@ export const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, op
     setHuriError(undefined)
   }
 
-  useEffect(() => {
-    // Initially, sync local not found with dependent's status
-    setHuriPayloadNotFound(dependentNotFound)
-  }, [dependentNotFound])
-
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      // if dependent value is resolved, don't do anything, if not resolved, try to resolve huriUri
-      if (dependentNotFound && huriUri) {
+      if (huriUri) {
         reset()
         const huriInstance = new Huri(huriUri)
 
@@ -68,7 +59,7 @@ export const useResolveHuri = (huriUri?: string, dependentNotFound?: boolean, op
         }
       }
     },
-    [huriUri, network, networks, dependentNotFound, setNetwork, changeActiveNetwork],
+    [changeActiveNetwork, huriUri, network, networks, setNetwork],
   )
 
   return [huriPayload, huriPayloadNotFound, huriError, huriNetworkNotFound]
