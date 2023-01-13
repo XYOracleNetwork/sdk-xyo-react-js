@@ -2,9 +2,9 @@ import { useParams, useSearchParams } from 'react-router-dom'
 
 import { useBuildHuri } from './useBuildHuri'
 
-export type RouteOptions = 'routeParam' | 'searchParam'
+export type RouteOptions = 'routeParam' | 'searchParam' | 'any'
 
-export const usePayloadHuriFromRoute = (routeOption: RouteOptions = 'routeParam') => {
+export const usePayloadHuriFromRoute = (routeOption: RouteOptions = 'any') => {
   const { hash: hashParam } = useParams()
 
   const huriFromHashParam = useBuildHuri(hashParam)
@@ -21,7 +21,7 @@ export const usePayloadHuriFromRoute = (routeOption: RouteOptions = 'routeParam'
       return decodedHuriParam
     }
     default: {
-      return
+      return huriFromHashParam || decodedHuriParam
     }
   }
 }
