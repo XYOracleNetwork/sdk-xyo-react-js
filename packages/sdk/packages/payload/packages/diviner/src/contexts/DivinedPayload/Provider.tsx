@@ -1,11 +1,11 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoErrorSchema } from '@xyo-network/module'
 import { XyoErrorRender } from '@xyo-network/react-error'
+import { useBuildHuri } from '@xyo-network/react-payload-huri'
 import { useParams, useSearchParams } from 'react-router-dom'
 
 import { useDivinePayload } from '../PayloadDiviner'
 import { DivinedPayloadContext } from './Context'
-import { useBuildHuri } from './hooks'
 import { useDivinedPayload } from './use'
 
 interface DivinedPayloadProviderProps extends WithChildren {
