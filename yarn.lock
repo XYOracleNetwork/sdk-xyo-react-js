@@ -6773,6 +6773,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/http-proxy-module@npm:^2.43.7":
+  version: 2.43.7
+  resolution: "@xyo-network/http-proxy-module@npm:2.43.7"
+  dependencies:
+    "@xylabs/assert": ^2.6.15
+    "@xylabs/promise": ^2.6.15
+    "@xyo-network/api": ^2.43.7
+    "@xyo-network/api-models": ^2.43.7
+    "@xyo-network/module": ^2.43.7
+    "@xyo-network/module-model": ^2.43.7
+    "@xyo-network/node": ^2.43.7
+    "@xyo-network/payload-model": ^2.43.7
+  checksum: 00e940aa37bece2ea7cd4befcfaf810310548ee2097b62ee5435927c1a66509c6b3abe30a23df22cf978f8aaf5c1ae532cdcb379eee7986ed55a1f85e27b91c6
+  languageName: node
+  linkType: hard
+
 "@xyo-network/huri@npm:^2.43.7":
   version: 2.43.7
   resolution: "@xyo-network/huri@npm:2.43.7"
@@ -7034,6 +7050,7 @@ __metadata:
     "@xyo-network/archivist": ^2.43.7
     "@xyo-network/boundwitness-model": ^2.43.7
     "@xyo-network/diviner": ^2.43.7
+    "@xyo-network/http-proxy-module": ^2.43.7
     "@xyo-network/module": ^2.43.7
     "@xyo-network/node-core-types": ^2.43.7
     "@xyo-network/payload-builder": ^2.43.7
@@ -7153,9 +7170,11 @@ __metadata:
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": ^2.41.28
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-icons: ^4.7.1
     react-json-view: ^1.21.3
     react-router-dom: ^6.6.2
     rollbar: ^2.26.1
@@ -8051,6 +8070,7 @@ __metadata:
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.0
     "@xyo-network/archivist-wrapper": ^2.43.7
+    "@xyo-network/http-proxy-module": ^2.43.7
     "@xyo-network/payload-model": ^2.43.7
     "@xyo-network/react-shared": "workspace:^"
   peerDependencies:
@@ -8369,6 +8389,7 @@ __metadata:
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.0
     "@xyo-network/api": ^2.43.7
+    "@xyo-network/http-proxy-module": ^2.43.7
     "@xyo-network/module": ^2.43.7
     "@xyo-network/node-core-model": ^2.43.7
     "@xyo-network/node-core-types": ^2.43.7
