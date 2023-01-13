@@ -1,10 +1,10 @@
 import { Huri } from '@xyo-network/huri'
-import { useResolveHuri } from '@xyo-network/react-payload-huri'
 import { useCallback } from 'react'
 
 import { FetchHuriHashOptions } from './lib'
 import { UseHuriOrHash } from './ResolvePayloadArgs'
 import { useLoadPayloadViaApi } from './useLoadPayload'
+import { useResolveHuri } from './useResolveHuri'
 
 /**
  * Resolve a hash or a huri regardless of network
@@ -33,9 +33,6 @@ export const useHuriHashViaApi = (huriOrHash?: string | Huri, huriUri?: string, 
   const notFoundOverride = huriUri ? true : notFound
 
   // If payload isn't found, fallback to the huriUri
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   const [huriPayload, huriPayloadNotFound, huriApiError, networkNotFound] = useResolveHuri(huriUri, notFoundOverride, options)
 
   return [payload ?? huriPayload, huriPayloadNotFound, apiError ?? huriApiError, networkNotFound]
