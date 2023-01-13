@@ -20,7 +20,7 @@ export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ 
   const [params] = useSearchParams()
   const huriSearchParameter = params.get('huri')
   const decodedHuriParam = decodeURIComponent(huriSearchParameter ?? '')
-  const huriUri = hash ?? decodedHuriParam ? decodedHuriParam : huriFromHashParam
+  const huriUri = hash ?? (decodedHuriParam ? decodedHuriParam : huriFromHashParam)
 
   const [payload, setPayload, payloadError] = useDivinePayload(huriUri)
 
