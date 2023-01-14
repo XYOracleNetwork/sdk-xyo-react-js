@@ -14,11 +14,12 @@ export const useArchiveArchivists = (archiveName?: string, required?: boolean): 
   const [node] = useNode<MemoryNode>(required)
 
   const payloadArchivistReq = useMemo(
-    () => (archiveName && node ? node?.tryResolveWrapped(ArchivistWrapper, { name: [`${archiveName}[payload]`] }) : undefined),
+    () => (archiveName && node ? node?.tryResolveWrapped(ArchivistWrapper, { name: [encodeURIComponent(`${archiveName}[payload]`)] }) : undefined),
     [archiveName, node],
   )
   const boundWitnessArchivistReq = useMemo(
-    () => (archiveName && node ? node?.tryResolveWrapped(ArchivistWrapper, { name: [`${archiveName}[boundwitness]`] }) : undefined),
+    () =>
+      archiveName && node ? node?.tryResolveWrapped(ArchivistWrapper, { name: [encodeURIComponent(`${archiveName}[boundwitness]`)] }) : undefined,
     [archiveName, node],
   )
 
