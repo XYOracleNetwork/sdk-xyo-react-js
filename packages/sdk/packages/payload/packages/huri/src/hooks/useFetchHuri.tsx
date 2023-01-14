@@ -4,8 +4,8 @@ import { useMemo } from 'react'
 
 import { useBuildHuri } from './useBuildHuri'
 
-export const useFetchHuri = (hash?: string, diviner?: DivinerWrapper) => {
-  const huri = useBuildHuri(hash) ?? ''
+export const useFetchHuri = (hashOrHuri?: string, diviner?: DivinerWrapper) => {
+  const huri = useBuildHuri(hashOrHuri)
   const huriPayload: XyoHuriPayload | undefined = useMemo(() => (huri ? { huri: [huri], schema: XyoHuriSchema } : undefined), [huri])
 
   const divinerReq = useMemo(() => (diviner && huriPayload ? diviner.divine([huriPayload]) : undefined), [diviner, huriPayload])

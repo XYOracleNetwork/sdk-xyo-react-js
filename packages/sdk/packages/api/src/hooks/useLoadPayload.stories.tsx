@@ -1,7 +1,10 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 /* eslint-disable import/no-internal-modules */
 import { ComponentStory, Meta } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { DeprecateStory } from '@xyo-network/react-storybook'
 import { lazy, Suspense, useState } from 'react'
 
 import { ApiProvider, useApi } from '../contexts'
@@ -25,6 +28,7 @@ const UsePayloadComponent: React.FC<{ hash?: string }> = ({ hash }) => {
 
   return (
     <>
+      <DeprecateStory />
       {api ? (
         <>
           <ButtonEx variant="contained" marginBottom={2} onClick={() => setTrigger(hash)}>

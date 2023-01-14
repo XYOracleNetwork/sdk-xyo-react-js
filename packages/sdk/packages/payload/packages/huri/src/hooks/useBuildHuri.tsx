@@ -4,7 +4,7 @@ export const useBuildHuri = (hash?: string) => {
   const { network } = useNetwork()
   const networkUri = network?.nodes?.find((node) => node.type === 'archivist')?.uri
 
-  if (!hash) {
+  if (!hash || hash.startsWith('http')) {
     return
   }
 
