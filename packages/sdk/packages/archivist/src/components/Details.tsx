@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema, PayloadArchivist } from '@xyo-network/archivist'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
-import { QueryBoundWitnessBuilder, XyoQueryBoundWitnessSchema } from '@xyo-network/module'
+import { QueryBoundWitnessBuilder } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
