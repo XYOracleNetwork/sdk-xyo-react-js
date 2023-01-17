@@ -3,6 +3,7 @@ import { MemoryNode } from '@xyo-network/node'
 import { usePromise } from '@xyo-network/react-shared'
 import { useMemo } from 'react'
 
+import { useMemoryNodeUpdates } from './hooks'
 import { useNode } from './useNode'
 
 interface UseArchiveArchivists {
@@ -10,7 +11,9 @@ interface UseArchiveArchivists {
   archiveBoundWitnessWrapper?: ArchivistWrapper
 }
 
-export const useArchiveArchivists = (archiveName?: string, required?: boolean): UseArchiveArchivists => {
+type HookParams = Parameters<typeof useArchiveArchivistsRaw>
+
+export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean, refresher?: unknown): UseArchiveArchivists => {
   const [node] = useNode<MemoryNode>(required)
 
   const payloadArchivistReq = useMemo(
@@ -23,8 +26,15 @@ export const useArchiveArchivists = (archiveName?: string, required?: boolean): 
     [archiveName, node],
   )
 
-  const [archivePayloadWrapper] = usePromise(payloadArchivistReq, [payloadArchivistReq])
-  const [archiveBoundWitnessWrapper] = usePromise(boundWitnessArchivistReq, [boundWitnessArchivistReq])
+  const [archivePayloadWrapper] = usePromise(payloadArchivistReq, [payloadArchivistReq, refresher])
+  const [archiveBoundWitnessWrapper] = usePromise(boundWitnessArchivistReq, [boundWitnessArchivistReq, refresher])
 
   return { archiveBoundWitnessWrapper: archiveBoundWitnessWrapper?.shift(), archivePayloadWrapper: archivePayloadWrapper?.shift() }
+}
+
+export const useArchiveArchivists = (...[archive, required, refresher]: HookParams) => {
+  const { resolver } = useMemoryNodeUpdates()
+  const { archiveBoundWitnessWrapper, archivePayloadWrapper } = useArchiveArchivistsRaw(archive, required, refresher ?? resolver)
+
+  return { archiveBoundWitnessWrapper, archivePayloadWrapper }
 }

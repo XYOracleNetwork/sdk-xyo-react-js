@@ -5,9 +5,16 @@ import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
+import { useMemoryNodeUpdates } from './hooks'
 import { useNode } from './useNode'
 
-export const useNodeQueryDiviner = (moduleIdentifier?: string, query?: XyoPayload): [XyoPayloads | undefined, Error | undefined] => {
+type HookParams = Parameters<typeof useNodeQueryDivinerRaw>
+
+export const useNodeQueryDivinerRaw = (
+  moduleIdentifier?: string,
+  query?: XyoPayload,
+  refresher?: unknown,
+): [XyoPayloads | undefined, Error | undefined] => {
   const [result, setResult] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
   const [node] = useNode<MemoryNode>()
@@ -30,8 +37,15 @@ export const useNodeQueryDiviner = (moduleIdentifier?: string, query?: XyoPayloa
         }
       }
     },
-    [moduleIdentifier, node, query],
+    [moduleIdentifier, node, query, refresher],
   )
+
+  return [result, error]
+}
+
+export const useNodeQueryDiviner = (...[moduleIdentifier, query, refresher]: HookParams): ReturnType<typeof useNodeQueryDivinerRaw> => {
+  const { resolver } = useMemoryNodeUpdates()
+  const [result, error] = useNodeQueryDivinerRaw(moduleIdentifier, query, refresher ?? resolver)
 
   return [result, error]
 }
