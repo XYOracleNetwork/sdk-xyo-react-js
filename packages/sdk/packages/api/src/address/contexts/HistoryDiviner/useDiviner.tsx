@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { AddressHistoryQuerySchema, DivinerWrapper } from '@xyo-network/diviner'
@@ -7,6 +9,7 @@ import { useState } from 'react'
 
 import { useAddressHistoryDiviner } from './use'
 
+/** @deprecated - use useAddressHistory in @xyo-network/react-address-history */
 export const useDivineAddressHistory = (address?: string): [XyoBoundWitness[] | undefined, XyoError | undefined, () => void] => {
   const [blocks, setBlocks] = useState<XyoBoundWitness[]>()
   const [error, setError] = useState<XyoError>()
