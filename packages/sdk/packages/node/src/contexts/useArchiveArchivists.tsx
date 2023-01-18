@@ -1,40 +1,52 @@
 import { ArchivistWrapper } from '@xyo-network/archivist'
 import { MemoryNode } from '@xyo-network/node'
 import { usePromise } from '@xyo-network/react-shared'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
-import { useMemoryNodeUpdates } from './hooks'
+import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
 import { useNode } from './useNode'
 
 interface UseArchiveArchivists {
-  archivePayloadWrapper?: ArchivistWrapper
-  archiveBoundWitnessWrapper?: ArchivistWrapper
+  archivePayloadWrapper: ArchivistWrapper
+  archiveBoundWitnessWrapper: ArchivistWrapper
 }
 
 type HookParams = Parameters<typeof useArchiveArchivistsRaw>
 
-export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean, refresher?: unknown): UseArchiveArchivists => {
+export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean, refresher?: unknown): UseArchiveArchivists | undefined => {
   const [node] = useNode<MemoryNode>(required)
 
-  const payloadArchivistReq = useMemo(
-    () => (archiveName && node ? node?.tryResolveWrapped(ArchivistWrapper, { name: [encodeURIComponent(`${archiveName}[payload]`)] }) : undefined),
-    [archiveName, node],
-  )
-  const boundWitnessArchivistReq = useMemo(
-    () =>
-      archiveName && node ? node?.tryResolveWrapped(ArchivistWrapper, { name: [encodeURIComponent(`${archiveName}[boundwitness]`)] }) : undefined,
-    [archiveName, node],
+  const buildReq = useCallback(
+    (type: 'payload' | 'boundwitness') =>
+      (archiveName && node) || refresher
+        ? node?.tryResolveWrapped(ArchivistWrapper, { name: [encodeURIComponent(`${archiveName}[${type}]`)] })
+        : undefined,
+    [archiveName, node, refresher],
   )
 
-  const [archivePayloadWrapper] = usePromise(payloadArchivistReq, [payloadArchivistReq, refresher])
-  const [archiveBoundWitnessWrapper] = usePromise(boundWitnessArchivistReq, [boundWitnessArchivistReq, refresher])
+  const payloadArchivistReq = useMemo(() => buildReq('payload'), [buildReq])
+  const boundWitnessArchivistReq = useMemo(() => buildReq('boundwitness'), [buildReq])
 
-  return { archiveBoundWitnessWrapper: archiveBoundWitnessWrapper?.shift(), archivePayloadWrapper: archivePayloadWrapper?.shift() }
+  const [archivePayloadWrapper] = usePromise(payloadArchivistReq, [payloadArchivistReq])
+  const [archiveBoundWitnessWrapper] = usePromise(boundWitnessArchivistReq, [boundWitnessArchivistReq])
+
+  const archivists = useMemo(() => {
+    if (archiveBoundWitnessWrapper?.[0] && archivePayloadWrapper?.[0]) {
+      return {
+        archiveBoundWitnessWrapper: archiveBoundWitnessWrapper[0] as ArchivistWrapper,
+        archivePayloadWrapper: archivePayloadWrapper[0] as ArchivistWrapper,
+      }
+    } else {
+      return
+    }
+  }, [archiveBoundWitnessWrapper, archivePayloadWrapper])
+
+  return archivists
 }
 
 export const useArchiveArchivists = (...[archive, required, refresher]: HookParams) => {
   const { resolver } = useMemoryNodeUpdates()
-  const { archiveBoundWitnessWrapper, archivePayloadWrapper } = useArchiveArchivistsRaw(archive, required, refresher ?? resolver)
+  const archivists = useArchiveArchivistsRaw(archive, required, refresher ?? resolver)
 
-  return { archiveBoundWitnessWrapper, archivePayloadWrapper }
+  return archivists
 }

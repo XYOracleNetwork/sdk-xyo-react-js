@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { XyoRemoteAddressHistoryDiviner } from '@xyo-network/api'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
@@ -6,6 +8,7 @@ import { useState } from 'react'
 import { useApi } from '../../../contexts'
 import { AddressHistoryDivinerContext } from './Context'
 
+/** @deprecated - use useAddressHistory in @xyo-network/react-address-history */
 export const AddressHistoryDivinerProvider: React.FC<WithChildren<ContextExProviderProps>> = ({ required = false, children }) => {
   const [diviner, setDiviner] = useState<XyoRemoteAddressHistoryDiviner | undefined>()
   const { api } = useApi()

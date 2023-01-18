@@ -5,7 +5,7 @@ import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
-import { useMemoryNodeUpdates } from './hooks'
+import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
 import { useNode } from './useNode'
 
 type HookParams = Parameters<typeof useNodeQueryDivinerRaw>
