@@ -10,9 +10,16 @@ export interface PayloadProviderProps {
   hash?: string
   archive?: string
   archivePayloadWrapper?: ArchivistWrapper
+  cachePayload?: boolean
 }
 
-export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ required = false, hash, children, archivePayloadWrapper }) => {
+export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
+  required = false,
+  hash,
+  children,
+  archivePayloadWrapper,
+  cachePayload = true,
+}) => {
   const [payload, setPayload] = useState<XyoPayload | null>()
   const [payloadError, setPayloadError] = useState<Error>()
 
@@ -31,6 +38,16 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({ 
       }
     },
     [payload, hash, archivePayloadWrapper],
+  )
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      if (cachePayload && archivePayloadWrapper && payload) {
+        await archivePayloadWrapper.insert([payload])
+      }
+    },
+    [archivePayloadWrapper, cachePayload, payload],
   )
 
   return (
