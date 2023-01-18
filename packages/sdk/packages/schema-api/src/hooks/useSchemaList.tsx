@@ -2,7 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { useApi, useArchive } from '@xyo-network/react-api'
 import { Dispatch, useState } from 'react'
 
-/** @deprecated - use schema list api diviner */
+/** @deprecated - use module query version in @xyo-network/react-schema */
 export const useSchemaList = (knownSchemaList?: string[]): [string[] | undefined, Dispatch<string[]>] => {
   const { api } = useApi(false)
   const { archive = 'temp' } = useArchive(false)
