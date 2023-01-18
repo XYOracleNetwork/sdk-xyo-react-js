@@ -3,7 +3,7 @@ import { MemoryNode } from '@xyo-network/node'
 import { usePromise } from '@xyo-network/react-shared'
 import { useMemo } from 'react'
 
-import { useMemoryNodeUpdates } from './hooks'
+import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
 import { useNode } from './useNode'
 
 interface UseArchiveArchivists {
