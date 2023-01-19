@@ -8132,6 +8132,7 @@ __metadata:
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     react-json-view: ^1.21.3
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8428,12 +8429,14 @@ __metadata:
   resolution: "@xyo-network/react-schema@workspace:packages/sdk/packages/schema"
   dependencies:
     "@xylabs/react-common": ^2.15.8
+    "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/react-link": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.8
     "@xyo-network/api": ^2.43.8
     "@xyo-network/http-proxy-module": ^2.43.8
     "@xyo-network/module": ^2.43.8
+    "@xyo-network/node": ^2.43.8
     "@xyo-network/node-core-model": ^2.43.8
     "@xyo-network/node-core-types": ^2.43.8
     "@xyo-network/payload-builder": ^2.43.8
@@ -8441,8 +8444,10 @@ __metadata:
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/schema-payload-plugin": ^2.43.8
     "@xyo-network/utils": ^2.43.8
+    react-json-view: ^1.21.3
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -8535,15 +8540,17 @@ __metadata:
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.8
     "@xyo-network/boundwitness-model": ^2.43.8
+    "@xyo-network/http-proxy-module": ^2.43.8
+    "@xyo-network/node": ^2.43.8
     "@xyo-network/payload-builder": ^2.43.8
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-map": "workspace:^"
+    "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     lodash: ^4.17.21
-    react-icons: ^4.6.0
     require-from-string: ^2.0.2
     storybook-dark-mode: ^2.0.5
   peerDependencies:
@@ -8566,6 +8573,7 @@ __metadata:
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.8
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -20453,7 +20461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-icons@npm:^4.6.0, react-icons@npm:^4.7.1":
+"react-icons@npm:^4.7.1":
   version: 4.7.1
   resolution: "react-icons@npm:4.7.1"
   peerDependencies:

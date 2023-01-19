@@ -23,7 +23,6 @@
     "@xyo-network/react-theme": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
     "lodash": "^4.17.21",
-    "react-icons": "^4.6.0",
     "require-from-string": "^2.0.2",
     "storybook-dark-mode": "^2.0.5"
   },
@@ -43,7 +42,10 @@
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@types/lodash": "^4.14.191",
-    "@xylabs/ts-scripts-yarn3": "2.12.8"
+    "@xylabs/ts-scripts-yarn3": "2.12.8",
+    "@xyo-network/http-proxy-module": "^2.43.8",
+    "@xyo-network/node": "^2.43.8",
+    "@xyo-network/react-node": "workspace:^"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
