@@ -9,40 +9,40 @@ jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: 16
       - name: install
         run: yarn install
       - name: build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=8092"
         run: yarn build
       - name: cycle
         run: yarn cycle
       - name: build-storybook
         run: yarn build-storybook
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
   build-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: 16
       - name: windows-defender
         run: powershell -Command Add-MpPreference -ExclusionPath "."
       - name: install
         run: yarn install --network-timeout 1000000
       - name: build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=8092"
         run: yarn build
       - name: cycle
         run: yarn cycle
@@ -51,16 +51,18 @@ jobs:
   build-macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: 16
       - name: install
         run: yarn install
       - name: build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=8092"
         run: yarn build
       - name: cycle
         run: yarn cycle
