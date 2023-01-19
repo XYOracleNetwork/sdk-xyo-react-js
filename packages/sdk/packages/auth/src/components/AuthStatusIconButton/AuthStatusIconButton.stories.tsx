@@ -1,27 +1,23 @@
 /* eslint-disable import/no-internal-modules */
 import { Toolbar } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
-import { authDecorator, WrappedAuthComponent } from '@xyo-network/react-storybook'
+import { ComponentStory, Meta } from '@storybook/react'
 
-import { AuthProvider } from '../../contexts'
+import { AuthProvider, AuthState } from '../../contexts'
 import { AuthStatusIconButton } from './AuthStatusIconButton'
 
 const StorybookEntry = {
   argTypes: {
     authServiceList: [],
   },
-  component: AuthServiceWrapper,
-  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
     },
   },
   title: 'Auth/AuthStatusIconButton',
-} as ComponentMeta<WrappedAuthComponent>
+} as Meta
 
-const Template: ComponentStory<WrappedAuthComponent> = (args) => {
+const Template: ComponentStory<React.FC<{ authState: Partial<AuthState> }>> = (args) => {
   const { authState } = args
   return (
     <AuthProvider authState={authState ?? {}}>

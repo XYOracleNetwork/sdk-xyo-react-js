@@ -1,9 +1,8 @@
 /* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-internal-modules */
-import { Button } from '@mui/material'
+import { Alert, AlertTitle, Button } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { authDecorator, DeprecateStory } from '@xyo-network/react-storybook'
 import axios from 'axios'
 
 import { AuthErrorsWrapper } from './AuthErrorsWrapper'
@@ -11,7 +10,6 @@ import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 const StorybookEntry = {
   argTypes: {},
   component: AuthErrorsWrapper,
-  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
@@ -34,7 +32,9 @@ const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
 
   return (
     <>
-      <DeprecateStory />
+      <Alert severity="error" sx={{ marginBottom: '24px' }}>
+        <AlertTitle>Story has been Deprecated</AlertTitle>
+      </Alert>
       <Button sx={{ marginBottom: '24px' }} variant="contained" onClick={() => create403()}>
         Trigger API Error - 403
       </Button>
