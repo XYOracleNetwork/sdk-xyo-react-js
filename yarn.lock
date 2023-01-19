@@ -7570,6 +7570,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-embed@workspace:packages/sdk/packages/embed"
   dependencies:
+    "@uniswap/sdk": ^3.0.3
+    "@uniswap/sdk-core": ^3.1.1
+    "@uniswap/v3-sdk": ^3.9.0
     "@xylabs/delay": ^2.6.15
     "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
@@ -8229,12 +8232,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-table@workspace:packages/sdk/packages/payload/packages/table"
   dependencies:
+    "@uniswap/sdk": ^3.0.3
+    "@uniswap/sdk-core": ^3.1.1
+    "@uniswap/v3-sdk": ^3.9.0
     "@xylabs/delay": ^2.6.15
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.8
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/payload-validator": ^2.43.8
     "@xyo-network/payload-wrapper": ^2.43.8
+    "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
@@ -8357,7 +8364,9 @@ __metadata:
     "@xylabs/react-identicon": ^2.15.8
     "@xylabs/react-quick-tip-button": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.8
+    "@xyo-network/payload-wrapper": ^2.43.8
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/typeof": ^2.43.8
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8501,6 +8510,7 @@ __metadata:
     "@xylabs/react-button": ^2.15.8
     "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/react-link": ^2.15.8
+    "@xylabs/react-quick-tip-button": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.8
     "@xyo-network/react-event": "workspace:^"
