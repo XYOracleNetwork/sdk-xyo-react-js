@@ -19,8 +19,6 @@ jobs:
           cache: yarn
       - name: windows-defender
         run: powershell -Command Add-MpPreference -ExclusionPath "."
-      - name: heap-size
-        run: powershell $env:NODE_OPTIONS="--max-old-space-size=4096"
       - name: install
         run: yarn install --network-timeout 1000000
       - name: build
