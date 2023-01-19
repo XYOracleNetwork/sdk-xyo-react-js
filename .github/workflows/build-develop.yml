@@ -6,26 +6,6 @@ on:
       - develop
 
 jobs:
-  build-ubuntu:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: install
-        run: yarn install
-      - name: build
-        env:
-          NODE_OPTIONS: "--max_old_space_size=8092"
-        run: yarn build
-      - name: cycle
-        run: yarn cycle
-      - name: build-storybook
-        run: yarn build-storybook
   build-windows:
     runs-on: windows-latest
     steps:
@@ -35,7 +15,8 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
+          cache: yarn
       - name: windows-defender
         run: powershell -Command Add-MpPreference -ExclusionPath "."
       - name: install
@@ -43,27 +24,7 @@ jobs:
       - name: build
         env:
           NODE_OPTIONS: "--max_old_space_size=8092"
-        run: yarn build
-      - name: cycle
-        run: yarn cycle
-      - name: build-storybook
-        run: yarn build-storybook
-  build-macos:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: install
-        run: yarn install
-      - name: build
-        env:
-          NODE_OPTIONS: "--max_old_space_size=8092"
-        run: yarn build
+        run: set NODE_OPTIONS=--max_old_space_size=8092 && yarn build
       - name: cycle
         run: yarn cycle
       - name: build-storybook
