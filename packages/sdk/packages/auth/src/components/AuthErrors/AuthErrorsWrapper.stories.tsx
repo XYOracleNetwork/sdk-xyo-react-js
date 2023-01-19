@@ -19,7 +19,7 @@ const StorybookEntry = {
   /* eslint-disable deprecation/deprecation */
 } as ComponentMeta<typeof AuthErrorsWrapper>
 
-const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
+const Template: ComponentStory<typeof AuthErrorsWrapper> = () => {
   const create403 = () => {
     const request = axios.get('http://localhost:8081/archive/foo123890/block/recent/20')
     request.then().catch((error) => console.error(error))
