@@ -24,7 +24,7 @@ jobs:
       - name: build
         env:
           NODE_OPTIONS: "--max_old_space_size=8092"
-        run: set NODE_OPTIONS=--max_old_space_size=8092 && yarn build
+        run: yarn build
       - name: cycle
         run: yarn cycle
       - name: build-storybook
