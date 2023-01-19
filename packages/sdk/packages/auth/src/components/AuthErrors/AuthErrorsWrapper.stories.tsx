@@ -3,7 +3,6 @@
 /* eslint-disable import/no-internal-modules */
 import { Button } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { authDecorator, DeprecateStory } from '@xyo-network/react-storybook'
 import axios from 'axios'
 
@@ -42,9 +41,10 @@ const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
       <Button variant="contained" onClick={() => create401()}>
         Trigger API Error - 401
       </Button>
-      <AuthErrorsWrapper {...props}>
+      {/* Prevent circular dependency with react-auth-service */}
+      {/* <AuthErrorsWrapper {...props}>
         <AuthServiceWrapper />
-      </AuthErrorsWrapper>
+      </AuthErrorsWrapper> */}
     </>
   )
 }
