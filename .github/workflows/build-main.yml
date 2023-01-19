@@ -15,7 +15,8 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
+          cache: yarn
       - name: install
         run: yarn install
       - name: build
@@ -35,7 +36,8 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
+          cache: yarn
       - name: windows-defender
         run: powershell -Command Add-MpPreference -ExclusionPath "."
       - name: install
@@ -57,7 +59,8 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
+          cache: yarn
       - name: install
         run: yarn install
       - name: build
