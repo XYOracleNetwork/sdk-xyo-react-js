@@ -6018,19 +6018,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/pixel@npm:^1.4.8":
-  version: 1.4.8
-  resolution: "@xylabs/pixel@npm:1.4.8"
-  dependencies:
+"@xylabs/pixel@npm:^1.4.8, @xylabs/pixel@npm:^1.4.9":
+  version: 1.4.9
+  resolution: "@xylabs/pixel@npm:1.4.9"
+  peerDependencies:
     "@xylabs/assert": ^2.6.14
     async-mutex: ^0.4.0
-    axios: ^1.2.1
+    axios: ^1.2
     bowser: ^2.11.0
     js-cookie: ^3.0.1
     lodash: ^4.17.21
     md5: ^2.3.0
     randombytes: ^2.1.0
-  checksum: 73fbdca4edf739156259fd2d59a79cccf4ccf441ec300a816750b28f35a4e7951aa28e89ba8a1874fc06c8d7b9c9ae8044f6ea432f6a2c4e123c42718763dd28
+  checksum: fbdbf0172a7d34e3e437d1755dc7083b0a395b598460d44f9b53d37e21e02b32cb26d61097dd6f301ad0723d620c1da58df67a9a7a05001c2c6ecbd1e3a3423d
   languageName: node
   linkType: hard
 
@@ -7050,6 +7050,7 @@ __metadata:
     "@xyo-network/diviner": ^2.43.8
     "@xyo-network/http-proxy-module": ^2.43.8
     "@xyo-network/module": ^2.43.8
+    "@xyo-network/node": ^2.43.8
     "@xyo-network/node-core-types": ^2.43.8
     "@xyo-network/payload-builder": ^2.43.8
     "@xyo-network/payload-model": ^2.43.8
@@ -7169,6 +7170,7 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": ^2.41.33
+    "@xyo-network/utils": ^2.43.8
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7221,9 +7223,13 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-app-settings": "workspace:^"
+    "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-auth-sets": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
+    "@xyo-network/react-wallet": "workspace:^"
+    "@xyo-network/wallet": ^2.43.8
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -7248,7 +7254,9 @@ __metadata:
     "@xyo-network/archivist-wrapper": ^2.43.8
     "@xyo-network/module": ^2.43.8
     "@xyo-network/payload-model": ^2.43.8
+    "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7273,6 +7281,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-login-forms": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7320,7 +7329,9 @@ __metadata:
     "@xylabs/react-invertable-theme": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
+    "@xyo-network/api": ^2.43.8
     "@xyo-network/api-models": ^2.43.8
+    axios: ^1.2.3
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7339,6 +7350,7 @@ __metadata:
   resolution: "@xyo-network/react-block@workspace:packages/sdk/packages/block"
   dependencies:
     "@xylabs/eth-address": ^2.6.15
+    "@xylabs/react-button": ^2.15.8
     "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
@@ -7354,6 +7366,7 @@ __metadata:
     "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
@@ -7390,6 +7403,7 @@ __metadata:
     "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
@@ -7410,6 +7424,7 @@ __metadata:
     "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -7475,6 +7490,7 @@ __metadata:
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.43.8
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7533,6 +7549,7 @@ __metadata:
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/sdk-geo": ^2.7.0
     geojson: ^0.5.0
     mapbox-gl: ^2.12.0
@@ -7551,6 +7568,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-embed@workspace:packages/sdk/packages/embed"
   dependencies:
+    "@uniswap/sdk": ^3.0.3
+    "@uniswap/sdk-core": ^3.1.1
+    "@uniswap/v3-sdk": ^3.9.0
     "@xylabs/delay": ^2.6.15
     "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
@@ -7558,6 +7578,8 @@ __metadata:
     "@xyo-network/huri": ^2.43.8
     "@xyo-network/module": ^2.43.8
     "@xyo-network/payload-model": ^2.43.8
+    "@xyo-network/react-aggregate-price-plugin": "workspace:^"
+    "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7606,6 +7628,7 @@ __metadata:
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7646,6 +7669,7 @@ __metadata:
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7668,6 +7692,7 @@ __metadata:
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7690,6 +7715,7 @@ __metadata:
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7712,6 +7738,7 @@ __metadata:
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7734,6 +7761,7 @@ __metadata:
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7779,6 +7807,7 @@ __metadata:
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7847,6 +7876,7 @@ __metadata:
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     geojson: ^0.5.0
     lodash: ^4.17.21
   peerDependencies:
@@ -7869,6 +7899,7 @@ __metadata:
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     geojson: 0.5.0
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7890,6 +7921,7 @@ __metadata:
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -7908,6 +7940,7 @@ __metadata:
     "@mui/icons-material": ^5.11.0
     "@mui/material": ^5.11.5
     "@mui/styles": ^5.11.2
+    "@storybook/testing-library": ^0.0.13
     "@xylabs/assert": ^2.6.15
     "@xylabs/react-button": ^2.15.8
     "@xylabs/react-flexbox": ^2.15.8
@@ -7916,6 +7949,7 @@ __metadata:
     "@xyo-network/api-models": ^2.43.8
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-auth": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/utils": ^2.43.8
     react: ^18.2.0
@@ -7992,6 +8026,7 @@ __metadata:
   dependencies:
     "@xylabs/assert": ^2.6.15
     "@xylabs/react-common": ^2.15.8
+    "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/network": ^2.43.8
@@ -8069,7 +8104,9 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/archivist-wrapper": ^2.43.8
     "@xyo-network/http-proxy-module": ^2.43.8
+    "@xyo-network/node": ^2.43.8
     "@xyo-network/payload-model": ^2.43.8
+    "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8095,6 +8132,7 @@ __metadata:
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     react-json-view: ^1.21.3
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8195,17 +8233,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-table@workspace:packages/sdk/packages/payload/packages/table"
   dependencies:
+    "@uniswap/sdk": ^3.0.3
+    "@uniswap/sdk-core": ^3.1.1
+    "@uniswap/v3-sdk": ^3.9.0
+    "@xylabs/delay": ^2.6.15
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/payload-validator": ^2.43.8
     "@xyo-network/payload-wrapper": ^2.43.8
+    "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin-resolver": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8321,7 +8365,9 @@ __metadata:
     "@xylabs/react-identicon": ^2.15.8
     "@xylabs/react-quick-tip-button": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
+    "@xyo-network/payload-wrapper": ^2.43.8
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/typeof": ^2.43.8
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8383,12 +8429,14 @@ __metadata:
   resolution: "@xyo-network/react-schema@workspace:packages/sdk/packages/schema"
   dependencies:
     "@xylabs/react-common": ^2.15.8
+    "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/react-link": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/api": ^2.43.8
     "@xyo-network/http-proxy-module": ^2.43.8
     "@xyo-network/module": ^2.43.8
+    "@xyo-network/node": ^2.43.8
     "@xyo-network/node-core-model": ^2.43.8
     "@xyo-network/node-core-types": ^2.43.8
     "@xyo-network/payload-builder": ^2.43.8
@@ -8396,8 +8444,10 @@ __metadata:
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/schema-payload-plugin": ^2.43.8
     "@xyo-network/utils": ^2.43.8
+    react-json-view: ^1.21.3
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -8460,11 +8510,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-shared@workspace:packages/sdk/packages/shared"
   dependencies:
-    "@xylabs/pixel": ^1.4.8
+    "@xylabs/pixel": ^1.4.9
     "@xylabs/react-appbar": ^2.15.8
     "@xylabs/react-button": ^2.15.8
     "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/react-link": ^2.15.8
+    "@xylabs/react-quick-tip-button": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/react-event": "workspace:^"
@@ -8478,7 +8529,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-storybook@^2.41.33, @xyo-network/react-storybook@workspace:packages/sdk/packages/storybook":
+"@xyo-network/react-storybook@^2.41.33, @xyo-network/react-storybook@workspace:^, @xyo-network/react-storybook@workspace:packages/sdk/packages/storybook":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-storybook@workspace:packages/sdk/packages/storybook"
   dependencies:
@@ -8505,7 +8556,6 @@ __metadata:
     "@mui/styles": ^5
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-icons: ^4.6.0
     react-router-dom: ^6.3.0
   peerDependenciesMeta:
     "@xyo-network/api":
@@ -8520,6 +8570,7 @@ __metadata:
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -8569,6 +8620,7 @@ __metadata:
     "@xylabs/react-button": ^2.15.8
     "@xylabs/react-flexbox": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
+    "@xyo-network/core": ^2.43.8
     react-json-view: ^1.21.3
     typedoc: ^0.23.24
     typescript: ^4.9.4
@@ -8633,6 +8685,7 @@ __metadata:
     "@types/react-helmet": ^6.1.6
     "@xylabs/react-button": ^2.15.8
     "@xylabs/react-flexbox": ^2.15.8
+    "@xylabs/react-link": ^2.15.8
     "@xylabs/react-pixel": ^2.15.8
     "@xylabs/react-shared": ^2.15.8
     "@xylabs/ts-scripts-yarn3": 2.12.18
@@ -9515,15 +9568,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async-mutex@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "async-mutex@npm:0.4.0"
-  dependencies:
-    tslib: ^2.4.0
-  checksum: 813a71728b35a4fbfd64dba719f04726d9133c67b577fcd951b7028c4a675a13ee34e69beb82d621f87bf81f5d4f135c4c44be0448550c7db728547244ef71fc
-  languageName: node
-  linkType: hard
-
 "async@npm:^3.2.0, async@npm:~3.2.3":
   version: 3.2.4
   resolution: "async@npm:3.2.4"
@@ -9585,7 +9629,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1, axios@npm:^1.2.1, axios@npm:~1.2.3":
+"axios@npm:^1, axios@npm:^1.2.1, axios@npm:^1.2.3, axios@npm:~1.2.3":
   version: 1.2.3
   resolution: "axios@npm:1.2.3"
   dependencies:
@@ -9987,13 +10031,6 @@ __metadata:
   version: 1.0.0
   resolution: "boolbase@npm:1.0.0"
   checksum: 3e25c80ef626c3a3487c73dbfc70ac322ec830666c9ad915d11b701142fab25ec1e63eff2c450c74347acfd2de854ccde865cd79ef4db1683f7c7b046ea43bb0
-  languageName: node
-  linkType: hard
-
-"bowser@npm:^2.11.0":
-  version: 2.11.0
-  resolution: "bowser@npm:2.11.0"
-  checksum: 29c3f01f22e703fa6644fc3b684307442df4240b6e10f6cfe1b61c6ca5721073189ca97cdeedb376081148c8518e33b1d818a57f781d70b0b70e1f31fb48814f
   languageName: node
   linkType: hard
 

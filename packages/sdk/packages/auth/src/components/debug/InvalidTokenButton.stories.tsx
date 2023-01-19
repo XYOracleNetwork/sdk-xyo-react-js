@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
-import { WrappedAuthComponent } from '@xyo-network/react-storybook'
+import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 
 import { AuthProvider, defaultState, useAuthState } from '../../contexts'
 import { InvalidTokenButton } from './InvalidTokenButton'
@@ -22,9 +21,9 @@ const StorybookEntry = {
     },
   },
   title: 'Auth/InvalidTokenButton',
-} as ComponentMeta<WrappedAuthComponent>
+} as Meta
 
-const Template: ComponentStory<WrappedAuthComponent> = () => {
+const Template: ComponentStory<React.FC<{ authState: { loggedInAccount: string } }>> = () => {
   const { state } = useAuthState()
   return (
     <>

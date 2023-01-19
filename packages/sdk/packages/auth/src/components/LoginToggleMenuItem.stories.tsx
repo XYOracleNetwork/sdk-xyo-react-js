@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { authDecorator, WrappedAuthComponent } from '@xyo-network/react-storybook'
+import { ComponentStory, Meta } from '@storybook/react'
 
 import { LoginToggleMenuItem, LoginToggleMenuItemProps } from './LoginToggleMenuItem'
 
@@ -8,16 +7,15 @@ const StorybookEntry = {
     authServiceList: [],
   },
   component: LoginToggleMenuItem,
-  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
     },
   },
   title: 'Auth/LoginToggleMenuItem',
-} as ComponentMeta<WrappedAuthComponent & LoginToggleMenuItemProps>
+} as Meta
 
-const Template: ComponentStory<WrappedAuthComponent & LoginToggleMenuItemProps> = () => {
+const Template: ComponentStory<React.FC<LoginToggleMenuItemProps & { authState?: { loggedInAccount?: string } }>> = () => {
   return <LoginToggleMenuItem handleClose={() => alert('handled the click')}></LoginToggleMenuItem>
 }
 
