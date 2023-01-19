@@ -7169,9 +7169,12 @@ __metadata:
     "@xyo-network/payload-builder": ^2.43.8
     "@xyo-network/payload-model": ^2.43.8
     "@xyo-network/react-archivist": "workspace:^"
+    "@xyo-network/react-auth-service": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": ^2.41.33
+    "@xyo-network/utils": ^2.43.8
+    axios: ^1.2.3
     lodash: ^4.17.21
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7224,9 +7227,13 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": 2.12.8
     "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-app-settings": "workspace:^"
+    "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-auth-sets": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
+    "@xyo-network/react-wallet": "workspace:^"
+    "@xyo-network/wallet": ^2.43.8
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -7251,7 +7258,9 @@ __metadata:
     "@xyo-network/archivist-wrapper": ^2.43.8
     "@xyo-network/module": ^2.43.8
     "@xyo-network/payload-model": ^2.43.8
+    "@xyo-network/react-api": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7276,6 +7285,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": 2.12.8
     "@xyo-network/react-auth": "workspace:^"
     "@xyo-network/react-login-forms": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7564,6 +7574,8 @@ __metadata:
     "@xyo-network/huri": ^2.43.8
     "@xyo-network/module": ^2.43.8
     "@xyo-network/payload-model": ^2.43.8
+    "@xyo-network/react-aggregate-price-plugin": "workspace:^"
+    "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -9604,7 +9616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1, axios@npm:^1.2.1, axios@npm:~1.2.3":
+"axios@npm:^1, axios@npm:^1.2.1, axios@npm:^1.2.3, axios@npm:~1.2.3":
   version: 1.2.3
   resolution: "axios@npm:1.2.3"
   dependencies:
