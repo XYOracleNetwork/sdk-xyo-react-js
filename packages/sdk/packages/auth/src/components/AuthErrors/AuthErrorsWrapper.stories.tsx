@@ -1,10 +1,8 @@
 /* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-internal-modules */
-import { Button } from '@mui/material'
+import { Alert, AlertTitle, Button } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
-import { authDecorator, DeprecateStory } from '@xyo-network/react-storybook'
 import axios from 'axios'
 
 import { AuthErrorsWrapper } from './AuthErrorsWrapper'
@@ -12,7 +10,6 @@ import { AuthErrorsWrapper } from './AuthErrorsWrapper'
 const StorybookEntry = {
   argTypes: {},
   component: AuthErrorsWrapper,
-  decorators: [authDecorator],
   parameters: {
     docs: {
       page: null,
@@ -22,7 +19,7 @@ const StorybookEntry = {
   /* eslint-disable deprecation/deprecation */
 } as ComponentMeta<typeof AuthErrorsWrapper>
 
-const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
+const Template: ComponentStory<typeof AuthErrorsWrapper> = () => {
   const create403 = () => {
     const request = axios.get('http://localhost:8081/archive/foo123890/block/recent/20')
     request.then().catch((error) => console.error(error))
@@ -35,16 +32,19 @@ const Template: ComponentStory<typeof AuthErrorsWrapper> = (props) => {
 
   return (
     <>
-      <DeprecateStory />
+      <Alert severity="error" sx={{ marginBottom: '24px' }}>
+        <AlertTitle>Story has been Deprecated</AlertTitle>
+      </Alert>
       <Button sx={{ marginBottom: '24px' }} variant="contained" onClick={() => create403()}>
         Trigger API Error - 403
       </Button>
       <Button variant="contained" onClick={() => create401()}>
         Trigger API Error - 401
       </Button>
-      <AuthErrorsWrapper {...props}>
+      {/* Prevent circular dependency with react-auth-service */}
+      {/* <AuthErrorsWrapper {...props}>
         <AuthServiceWrapper />
-      </AuthErrorsWrapper>
+      </AuthErrorsWrapper> */}
     </>
   )
 }

@@ -3,10 +3,8 @@ import { Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchive } from '@xyo-network/api'
-import { useAuthState } from '@xyo-network/react-auth'
-import { AuthServiceWrapper } from '@xyo-network/react-auth-service'
 import { authDecorator, WrappedAuthComponent } from '@xyo-network/react-storybook'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { ApiProvider } from './Provider'
 import { useApi } from './use'
@@ -28,38 +26,32 @@ const StorybookEntry = {
 
 const DemoArchiveFetcher = () => {
   const [myArchives, setMyArchives] = useState<XyoArchive[]>([])
-  const { api, currentToken, responseHistory } = useApi()
-  const { state } = useAuthState()
+  const { api, responseHistory } = useApi()
   const [successfulCall, setSuccessfulCall] = useState(false)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (state?.jwtToken && currentToken && state?.loggedInAccount) {
+      try {
         const archives = await api?.archives?.get()
         if (archives && mounted()) {
           setMyArchives(archives)
           setSuccessfulCall(true)
         }
+      } catch (e) {
+        setMyArchives([])
+        setSuccessfulCall(false)
       }
     },
-    [api, state?.jwtToken, currentToken, state?.loggedInAccount, setSuccessfulCall],
+    [api],
   )
-
-  useEffect(() => {
-    if (!state?.loggedInAccount) {
-      setMyArchives([])
-      setSuccessfulCall(false)
-    }
-  }, [state?.loggedInAccount])
 
   return (
     <>
-      <AuthServiceWrapper />
-      <p>My Archives</p>
+      <p>Archives</p>
       {successfulCall && (
         <Typography color="success.main" variant="body1">
-          Successfully made authenticated request!!
+          Successfully made request!!
         </Typography>
       )}
       <ul>
@@ -78,8 +70,6 @@ const DemoArchiveFetcher = () => {
 }
 
 const Template: ComponentStory<WrappedAuthComponent> = () => {
-  const { state } = useAuthState()
-  const jwtToken = state?.jwtToken
   return (
     <ApiProvider
       errorHistoryMaxDepth={10}
@@ -87,7 +77,6 @@ const Template: ComponentStory<WrappedAuthComponent> = () => {
       failureHistoryMaxDepth={10}
       responseHistoryMaxDepth={10}
       apiDomain="https://beta.api.archivist.xyo.network"
-      jwtToken={jwtToken}
     >
       <DemoArchiveFetcher />
     </ApiProvider>
