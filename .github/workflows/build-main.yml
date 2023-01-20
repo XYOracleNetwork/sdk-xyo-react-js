@@ -20,8 +20,6 @@ jobs:
       - name: install
         run: yarn install
       - name: build
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
         run: yarn build
       - name: cycle
         run: yarn cycle
@@ -43,8 +41,6 @@ jobs:
       - name: install
         run: yarn install --network-timeout 1000000
       - name: build
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
         run: yarn build
       - name: cycle
         run: yarn cycle
@@ -64,8 +60,6 @@ jobs:
       - name: install
         run: yarn install
       - name: build
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
         run: yarn build
       - name: cycle
         run: yarn cycle
