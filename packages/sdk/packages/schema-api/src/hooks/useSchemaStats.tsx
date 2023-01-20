@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistArchivePayloadSchemaStats } from '@xyo-network/api'
 import { useApi, useArchive } from '@xyo-network/react-api'

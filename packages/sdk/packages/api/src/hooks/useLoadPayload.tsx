@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload-model'
