@@ -14,10 +14,13 @@ jobs:
         node: [18]
     runs-on: ${{ matrix.os }}
     steps:
-      # Make sure Windows does not use CR/LF
-      - if: runner.os == 'Windows'
-        name: git config
-        run: git config --global core.autocrlf false | git config --global core.eol lf
+      # Required to prevent windows from using crlf instead of lf
+      - name: Git Attributes
+        run: |
+          echo "" > .gitattributes
+          echo "[core]" >> .gitattributes
+          echo "autocrlf=false" >> .gitattributes
+          echo "eol=lf" >> .gitattributes
 
       - uses: actions/checkout@v3
         with:
