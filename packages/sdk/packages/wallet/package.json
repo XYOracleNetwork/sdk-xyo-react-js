@@ -30,9 +30,11 @@
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
+    "@storybook/react": "^6.5.15",
     "@xylabs/ts-scripts-yarn3": "2.12.23",
     "@xyo-network/account": "^2.43.9",
-    "@xyo-network/wallet": "^2.43.9"
+    "@xyo-network/wallet": "^2.43.9",
+    "require-from-string": "^2.0.2"
   },
   "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
