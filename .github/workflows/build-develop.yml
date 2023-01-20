@@ -10,13 +10,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: git autocrlf config
-        run: git config core.autocrlf false
+        run: git config --global core.autocrlf false
       - name: git eol config
-        run: git config core.eol lf
+        run: git config --global core.eol lf
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: 18
