@@ -97,8 +97,8 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
     }
 
     const noResults = useMemo(() => {
-      return !loading && (!payloads || payloads.length === 0)
-    }, [loading, payloads])
+      return !loading && (!visiblePayloads || visiblePayloads.length === 0)
+    }, [loading, visiblePayloads])
 
     return (
       <TableEx variant={variant} ref={ref} {...props}>
@@ -121,6 +121,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
           handleChangeRowsPerPage={handleChangeRowsPerPage}
           fetchMorePayloads={fetchMorePayloads}
           loading={loading}
+          page={page}
         />
       </TableEx>
     )
