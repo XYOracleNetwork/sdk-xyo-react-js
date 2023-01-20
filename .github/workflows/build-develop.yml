@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.13.0
+          node-version: 14
           cache: yarn
       - name: windows-defender
         run: powershell -Command Add-MpPreference -ExclusionPath "."
@@ -23,7 +23,7 @@ jobs:
         run: yarn install --network-timeout 1000000
       - name: build
         env:
-          NODE_OPTIONS: "--max_old_space_size=1024"
+          NODE_OPTIONS: "--max_old_space_size=4096"
         run: yarn xy build -v
       - name: cycle
         run: yarn cycle
