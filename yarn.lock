@@ -4913,12 +4913,12 @@ __metadata:
   linkType: hard
 
 "@types/glob@npm:*":
-  version: 8.0.0
-  resolution: "@types/glob@npm:8.0.0"
+  version: 8.0.1
+  resolution: "@types/glob@npm:8.0.1"
   dependencies:
-    "@types/minimatch": "*"
+    "@types/minimatch": ^5.1.2
     "@types/node": "*"
-  checksum: 1817b05f5a8aed851d102a65b5e926d5c777bef927ea62b36d635860eef5364f2046bb5a692d135b6f2b28f34e4a9d44ade9396122c0845bcc7636d35f624747
+  checksum: 98f3d0403c09638348a2f3b30aac2a3d6bdc306bce3ceb868f4794fef4f02727ccdf0dab0c7b7d65fd38a1afa1e48f02de56d29d2babe94ee9b204ca54acb31f
   languageName: node
   linkType: hard
 
@@ -5079,7 +5079,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimatch@npm:*":
+"@types/minimatch@npm:*, @types/minimatch@npm:^5.1.2":
   version: 5.1.2
   resolution: "@types/minimatch@npm:5.1.2"
   checksum: 0391a282860c7cb6fe262c12b99564732401bdaa5e395bee9ca323c312c1a0f45efbf34dce974682036e857db59a5c9b1da522f3d6055aeead7097264c8705a8
@@ -8573,6 +8573,7 @@ __metadata:
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/react-webapp": "workspace:^"
+    react-helmet: ^6.1.0
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -8823,6 +8824,7 @@ __metadata:
     lodash: ^4.17.21
     md5: ^2.3.0
     randombytes: ^2.1.0
+    react-helmet: ^6.1.0
     require-from-string: ^2.0.2
   peerDependencies:
     "@mui/icons-material": ^5
@@ -13930,13 +13932,13 @@ __metadata:
   linkType: hard
 
 "get-intrinsic@npm:^1.0.2, get-intrinsic@npm:^1.1.1, get-intrinsic@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "get-intrinsic@npm:1.1.3"
+  version: 1.2.0
+  resolution: "get-intrinsic@npm:1.2.0"
   dependencies:
     function-bind: ^1.1.1
     has: ^1.0.3
     has-symbols: ^1.0.3
-  checksum: 152d79e87251d536cf880ba75cfc3d6c6c50e12b3a64e1ea960e73a3752b47c69f46034456eae1b0894359ce3bc64c55c186f2811f8a788b75b638b06fab228a
+  checksum: 78fc0487b783f5c58cf2dccafc3ae656ee8d2d8062a8831ce4a95e7057af4587a1d4882246c033aca0a7b4965276f4802b45cc300338d1b77a73d3e3e3f4877d
   languageName: node
   linkType: hard
 
@@ -15071,9 +15073,9 @@ __metadata:
   linkType: hard
 
 "irregular-plurals@npm:^3.2.0":
-  version: 3.3.0
-  resolution: "irregular-plurals@npm:3.3.0"
-  checksum: 1282d8adfb00a9718655ce21e5b096d4b31d2115c817a30e1e3254648ae4ac0f84d706cd0cad2a93c64f4bb5c5572ea8f63fcc9766f005a5362031c56d9e77b5
+  version: 3.4.0
+  resolution: "irregular-plurals@npm:3.4.0"
+  checksum: bb7086672703bd84f3fb17f62168fe5b664d211fc0ff55c9eaf395d1df058436a2ac6e28168e00d8b611aa9149d1d46c19361b9396c1202655ff7ae66853dd7e
   languageName: node
   linkType: hard
 
@@ -16452,9 +16454,9 @@ __metadata:
   linkType: hard
 
 "js-sdsl@npm:^4.1.4":
-  version: 4.2.0
-  resolution: "js-sdsl@npm:4.2.0"
-  checksum: 2cd0885f7212afb355929d72ca105cb37de7e95ad6031e6a32619eaefa46735a7d0fb682641a0ba666e1519cb138fe76abc1eea8a34e224140c9d94c995171f1
+  version: 4.3.0
+  resolution: "js-sdsl@npm:4.3.0"
+  checksum: ce908257cf6909e213af580af3a691a736f5ee8b16315454768f917a682a4ea0c11bde1b241bbfaecedc0eb67b72101b2c2df2ffaed32aed5d539fca816f054e
   languageName: node
   linkType: hard
 
@@ -23933,9 +23935,9 @@ __metadata:
   linkType: hard
 
 "synchronous-promise@npm:^2.0.15":
-  version: 2.0.16
-  resolution: "synchronous-promise@npm:2.0.16"
-  checksum: 1a3e5dfa9e3b913452366e182d4cae5c2ffb9de8c9753ecb602539a298e82ab82de951a0b0ecd86b2e2e237b1236eb5e82964c8ce13b2d23f7ecd52767a2b74d
+  version: 2.0.17
+  resolution: "synchronous-promise@npm:2.0.17"
+  checksum: 7b1342c93741f3f92ebde1edf5d6ce8dde2278de948d84e9bd85e232c16c0d77c90c4940f9975be3effcb20f047cfb0f16fa311c3b4e092c22f3bf2889fb0fb4
   languageName: node
   linkType: hard
 
@@ -24552,9 +24554,9 @@ __metadata:
   linkType: hard
 
 "type-fest@npm:^3.2.0":
-  version: 3.5.2
-  resolution: "type-fest@npm:3.5.2"
-  checksum: 39411ad25610fd5542b3bc1a3381bfc24a7cd3d422f52e5aa9a0580fd7c8a60140c332ef585637e05117f3e0b7267dbd510e15e13f3dd8ce98fd29fba9c3479f
+  version: 3.5.3
+  resolution: "type-fest@npm:3.5.3"
+  checksum: ac52b1a1c695cbbc5e18edf9b15b27d9135611b4be7a50a41ac07bed9687f79a8cad759aa4e17ef74f2ef5a72c503012de6f1a960a132040798ebc588f574f5c
   languageName: node
   linkType: hard
 
@@ -24616,11 +24618,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
   version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=d73830"
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 37f6e2c3c5e2aa5934b85b0fddbf32eeac8b1bacf3a5b51d01946936d03f5377fe86255d4e5a4ae628fd0cd553386355ad362c57f13b4635064400f3e8e05b9d
+  checksum: 1caaea6cb7f813e64345190fddc4e6c924d0b698ab81189b503763c4a18f7f5501c69362979d36e19c042d89d936443e768a78b0675690b35eb663d19e0eae71
   languageName: node
   linkType: hard
 
