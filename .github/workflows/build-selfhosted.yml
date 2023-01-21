@@ -17,11 +17,6 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      # Turn off windows-defender for this folder to speed up compile
-      - if: runner.os == 'Windows'
-        name: windows-defender
-        run: powershell -Command Add-MpPreference -ExclusionPath "."
-
       - name: install
         run: yarn install --network-timeout 1000000
 
