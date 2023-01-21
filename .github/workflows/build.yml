@@ -42,7 +42,7 @@ jobs:
         run: yarn xy deps
 
       - name: cycle
-        run: yarn cycle
+        run: yarn xy cycle
 
       - name: build-storybook
         run: yarn build-storybook
