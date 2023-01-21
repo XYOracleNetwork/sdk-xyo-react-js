@@ -3,25 +3,19 @@ name: Build
 on:
   push:
     branches:
-      - main
-      - next
+      - develop
 
 jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [self-hosted]
         node: [18]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: yarn
 
       # Turn off windows-defender for this folder to speed up compile
       - if: runner.os == 'Windows'
