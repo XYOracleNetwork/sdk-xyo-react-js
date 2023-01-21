@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { useApi, useArchive } from '@xyo-network/react-api'
 import { Dispatch, useState } from 'react'

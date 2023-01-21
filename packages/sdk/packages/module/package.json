@@ -10,17 +10,19 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/eth-address": "^2.6.15",
-    "@xylabs/react-button": "^2.15.9",
-    "@xylabs/react-crypto": "^2.15.9",
-    "@xylabs/react-flexbox": "^2.15.9",
-    "@xylabs/react-identicon": "^2.15.9",
-    "@xylabs/react-shared": "^2.15.9",
-    "@xyo-network/archivist": "^2.43.9",
-    "@xyo-network/module": "^2.43.9"
+    "@xylabs/eth-address": "^2.6.16",
+    "@xylabs/react-button": "^2.15.11",
+    "@xylabs/react-crypto": "^2.15.11",
+    "@xylabs/react-flexbox": "^2.15.11",
+    "@xylabs/react-identicon": "^2.15.11",
+    "@xylabs/react-shared": "^2.15.11",
+    "@xyo-network/archivist": "^2.43.10",
+    "@xyo-network/module": "^2.43.10"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "2.12.21"
+    "@storybook/react": "^6.5.15",
+    "@xylabs/ts-scripts-yarn3": "2.12.25",
+    "require-from-string": "^2.0.2"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
@@ -72,6 +74,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "version": "2.41.34"
 }

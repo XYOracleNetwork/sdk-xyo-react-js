@@ -4,9 +4,12 @@ import { useMemo } from 'react'
 
 import { useBuildHuri } from './useBuildHuri'
 
-export const useFetchHuri = (hashOrHuri?: string, diviner?: DivinerWrapper) => {
+export const useFetchHuri = (hashOrHuri?: string, diviner?: DivinerWrapper, token?: string) => {
   const huri = useBuildHuri(hashOrHuri) ?? hashOrHuri
-  const huriPayload: XyoHuriPayload | undefined = useMemo(() => (huri ? { huri: [huri], schema: XyoHuriSchema } : undefined), [huri])
+  const huriPayload: XyoHuriPayload | undefined = useMemo(
+    () => (huri ? { huri: [huri], schema: XyoHuriSchema, tokens: token ? [token] : undefined } : undefined),
+    [huri, token],
+  )
 
   const divinerReq = useMemo(() => (diviner && huriPayload ? diviner.divine([huriPayload]) : undefined), [diviner, huriPayload])
 

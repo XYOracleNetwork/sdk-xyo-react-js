@@ -39,16 +39,28 @@
     "@xyo-network/react-typedoc": "workspace:^",
     "@xyo-network/react-wallet": "workspace:^",
     "@xyo-network/react-wallet-service": "workspace:^",
-    "@xyo-network/react-webapp": "workspace:^",
-    "lodash": "^4.17.21"
+    "@xyo-network/react-webapp": "workspace:^"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "2.12.21"
+    "@xylabs/ts-scripts-yarn3": "2.12.25",
+    "react-helmet": "^6.1.0"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
     "@mui/styles": "^5",
+    "@xylabs/assert": "^2.6.15",
+    "@xylabs/pixel": "^1.4.9",
+    "@xylabs/react-button": "^2.15.9",
+    "@xylabs/react-flexbox": "^2.15.9",
+    "@xylabs/react-shared": "^2.15.9",
+    "async-mutex": "^0.4.0",
+    "axios": "^1.2.3",
+    "bowser": "^2.11.0",
+    "js-cookie": "^3.0.1",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "randombytes": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
@@ -97,6 +109,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "version": "2.41.34"
 }

@@ -10,28 +10,30 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-common": "^2.15.9",
-    "@xylabs/react-link": "^2.15.9",
-    "@xylabs/react-shared": "^2.15.9",
-    "@xyo-network/api": "^2.43.9",
-    "@xyo-network/module": "^2.43.9",
-    "@xyo-network/node-core-model": "^2.43.9",
-    "@xyo-network/node-core-types": "^2.43.9",
-    "@xyo-network/payload-builder": "^2.43.9",
-    "@xyo-network/payload-model": "^2.43.9",
+    "@xylabs/react-common": "^2.15.11",
+    "@xylabs/react-link": "^2.15.11",
+    "@xylabs/react-shared": "^2.15.11",
+    "@xyo-network/api": "^2.43.10",
+    "@xyo-network/module": "^2.43.10",
+    "@xyo-network/node-core-model": "^2.43.10",
+    "@xyo-network/node-core-types": "^2.43.10",
+    "@xyo-network/payload-builder": "^2.43.10",
+    "@xyo-network/payload-model": "^2.43.10",
     "@xyo-network/react-node": "workspace:^",
     "@xyo-network/react-property": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/schema-payload-plugin": "^2.43.9",
-    "@xyo-network/utils": "^2.43.9"
+    "@xyo-network/schema-payload-plugin": "^2.43.10",
+    "@xyo-network/utils": "^2.43.10"
   },
   "devDependencies": {
-    "@xylabs/react-flexbox": "^2.15.9",
-    "@xylabs/ts-scripts-yarn3": "2.12.21",
-    "@xyo-network/http-proxy-module": "^2.43.9",
-    "@xyo-network/node": "^2.43.9",
+    "@storybook/react": "^6.5.15",
+    "@xylabs/react-flexbox": "^2.15.11",
+    "@xylabs/ts-scripts-yarn3": "2.12.25",
+    "@xyo-network/http-proxy-module": "^2.43.10",
+    "@xyo-network/node": "^2.43.10",
     "@xyo-network/react-storybook": "workspace:^",
-    "react-json-view": "^1.21.3"
+    "react-json-view": "^1.21.3",
+    "require-from-string": "^2.0.2"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
@@ -84,6 +86,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "version": "2.41.34"
 }

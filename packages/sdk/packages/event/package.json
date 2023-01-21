@@ -10,13 +10,14 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/assert": "^2.6.15"
+    "@xylabs/assert": "^2.6.16"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "2.12.21"
+    "@xylabs/ts-scripts-yarn3": "2.12.25"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
@@ -60,6 +61,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "version": "2.41.34"
 }

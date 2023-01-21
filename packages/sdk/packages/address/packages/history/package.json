@@ -10,17 +10,17 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-flexbox": "^2.15.9",
-    "@xylabs/react-quick-tip-button": "^2.15.9",
-    "@xylabs/react-shared": "^2.15.9",
-    "@xyo-network/archivist": "^2.43.9",
-    "@xyo-network/boundwitness-model": "^2.43.9",
-    "@xyo-network/diviner": "^2.43.9",
-    "@xyo-network/module": "^2.43.9",
-    "@xyo-network/node-core-types": "^2.43.9",
-    "@xyo-network/payload-builder": "^2.43.9",
-    "@xyo-network/payload-model": "^2.43.9",
-    "@xyo-network/payload-wrapper": "^2.43.9",
+    "@xylabs/react-flexbox": "^2.15.11",
+    "@xylabs/react-quick-tip-button": "^2.15.11",
+    "@xylabs/react-shared": "^2.15.11",
+    "@xyo-network/archivist": "^2.43.10",
+    "@xyo-network/boundwitness-model": "^2.43.10",
+    "@xyo-network/diviner": "^2.43.10",
+    "@xyo-network/module": "^2.43.10",
+    "@xyo-network/node-core-types": "^2.43.10",
+    "@xyo-network/payload-builder": "^2.43.10",
+    "@xyo-network/payload-model": "^2.43.10",
+    "@xyo-network/payload-wrapper": "^2.43.10",
     "@xyo-network/react-archivist": "workspace:^",
     "@xyo-network/react-boundwitness-plugin": "workspace:^",
     "@xyo-network/react-error": "workspace:^",
@@ -32,9 +32,9 @@
   },
   "devDependencies": {
     "@storybook/react": "^6.5.15",
-    "@xylabs/ts-scripts-yarn3": "2.12.21",
-    "@xyo-network/http-proxy-module": "^2.43.9",
-    "@xyo-network/node": "^2.43.9",
+    "@xylabs/ts-scripts-yarn3": "2.12.25",
+    "@xyo-network/http-proxy-module": "^2.43.10",
+    "@xyo-network/node": "^2.43.10",
     "@xyo-network/react-storybook": "workspace:^",
     "require-from-string": "^2.0.2"
   },
@@ -89,6 +89,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "version": "2.41.34"
 }
