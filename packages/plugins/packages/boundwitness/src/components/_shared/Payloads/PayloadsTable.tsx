@@ -15,7 +15,7 @@ export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> 
     <BoundWitnessFilteredPayloadTableBody
       eventNoun="payload"
       schemaFilter={XyoBoundWitnessSchema}
-      filterType="notEqual"
+      bwFilterType="notEqual"
       noResults={boundwitness?.payload_hashes.length === 0}
       payloadHashes={boundwitness?.payload_hashes}
       payloadSchemas={boundwitness?.payload_schemas}

@@ -4,14 +4,14 @@ import { BoundWitnessPayloadTableBody, BoundWitnessPayloadTableBodyProps } from 
 
 export interface BoundWitnessFilteredPayloadTableBodyProps extends BoundWitnessPayloadTableBodyProps {
   schemaFilter?: string
-  filterType?: 'equal' | 'notEqual'
+  bwFilterType?: 'equal' | 'notEqual'
 }
 
 export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFilteredPayloadTableBodyProps> = ({
-  payloadHashes,
-  payloadSchemas,
+  payloadHashes = [],
+  payloadSchemas = [],
   schemaFilter,
-  filterType = 'equal',
+  bwFilterType = 'equal',
   eventNoun = 'payload',
   ...props
 }) => {
@@ -19,7 +19,8 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
   const [bwPayloadSchemas, setBWPayloadSchemas] = useState<string[]>([])
 
   useEffect(() => {
-    if (!schemaFilter && payloadHashes && payloadSchemas) {
+    // if no filter, display all hashes and schemas
+    if (!schemaFilter) {
       setBWPayloadHashes(payloadHashes)
       setBWPayloadSchemas(payloadSchemas)
     }
@@ -28,18 +29,19 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
   useEffect(() => {
     if (payloadHashes && payloadSchemas && schemaFilter) {
       setBWPayloadSchemas(
-        payloadSchemas?.filter((schema, index) => {
-          const filter = filterType === 'equal' ? schema === schemaFilter : schema !== schemaFilter
-          if (filter) {
-            setBWPayloadHashes((previous) => {
-              return [...previous, payloadHashes[index]]
-            })
-            return true
-          }
-          return false
+        payloadSchemas.filter((schema) => {
+          return bwFilterType === 'equal' ? schema === schemaFilter : schema !== schemaFilter
         }),
       )
+      setBWPayloadHashes(() => {
+        return payloadSchemas.reduce((acc, schema, index) => {
+          if (bwFilterType === 'equal' ? schema === schemaFilter : schema !== schemaFilter) {
+            acc[index] = payloadHashes[index]
+          }
+          return acc
+        }, [] as string[])
+      })
     }
-  }, [filterType, payloadHashes, payloadSchemas, schemaFilter])
+  }, [bwFilterType, payloadHashes, payloadSchemas, schemaFilter])
   return <BoundWitnessPayloadTableBody payloadHashes={bwPayloadHashes} payloadSchemas={bwPayloadSchemas} eventNoun={eventNoun} {...props} />
 }
