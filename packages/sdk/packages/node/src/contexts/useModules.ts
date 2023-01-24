@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import { useNode } from './useNode'
 
-export const useModules = (filter?: ModuleFilter) => {
+export const useModules = (filter?: ModuleFilter, refresher?: unknown) => {
   const [node] = useNode<AbstractNode>()
   const [modules, setModules] = useState<Module[]>()
 
@@ -17,7 +17,7 @@ export const useModules = (filter?: ModuleFilter) => {
         setModules(modules)
       }
     },
-    [filter, node],
+    [filter, node, refresher],
   )
 
   return modules
