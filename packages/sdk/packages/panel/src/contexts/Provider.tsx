@@ -3,10 +3,8 @@ import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { SimpleModuleResolver } from '@xyo-network/module'
-import { AbstractNode } from '@xyo-network/node'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
 import { useArchivist } from '@xyo-network/react-archivist'
-import { useNode } from '@xyo-network/react-node'
 import { useAccount } from '@xyo-network/react-wallet'
 import { WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useMemo, useState } from 'react'
@@ -18,6 +16,7 @@ export interface PanelProviderProps {
   archivist?: PayloadArchivist
   witnesses?: WitnessWrapper[]
   required?: boolean
+  /** @deprecated - panel no longer uses archive but relies on an archivist */
   archive?: string
 }
 
@@ -35,15 +34,11 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   const { account } = useAccount()
-  const [node] = useNode<AbstractNode>()
 
   const resolver = useMemo(() => {
-    if (node && node.resolver) {
-      return node.resolver
-    }
     const resolver = new SimpleModuleResolver().add(witnesses)
     return archivist ? resolver.add(new ArchivistWrapper(archivist)) : resolver
-  }, [archivist, node, witnesses])
+  }, [archivist, witnesses])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
