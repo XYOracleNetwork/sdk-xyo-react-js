@@ -6,8 +6,8 @@ import { ContextToolbar, SystemToolbar } from '../Toolbar'
 
 export interface ApplicationAppBarProps extends AppBarExProps {
   contextToolbar?: ReactElement<ToolbarProps>
-  systemToolbar?: ReactElement<ToolbarProps>
   responsive?: boolean
+  systemToolbar?: ReactElement<ToolbarProps>
 }
 
 export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({ systemToolbar, contextToolbar, responsive = true, ...props }) => {

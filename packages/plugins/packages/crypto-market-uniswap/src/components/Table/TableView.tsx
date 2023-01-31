@@ -27,11 +27,11 @@ function getComparator<Key extends string>(
 }
 
 interface HeadCell {
+  align: TableCellProps['align']
   disablePadding: boolean
   id: string
   label: string
   numeric: boolean
-  align: TableCellProps['align']
 }
 
 const headCells: readonly HeadCell[] = [

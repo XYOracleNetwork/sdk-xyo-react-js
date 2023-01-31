@@ -9,6 +9,7 @@ export interface OpenElevationApiClientConfig {
 
 export class OpenElevationApiClient {
   private version = 'v1'
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   private apiDomain = `https://api.open-elevation.com/api/${this.version}`
 
   constructor(config?: OpenElevationApiClientConfig) {

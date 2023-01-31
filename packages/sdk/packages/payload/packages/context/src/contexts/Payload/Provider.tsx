@@ -6,19 +6,19 @@ import { useState } from 'react'
 import { PayloadContext } from './Context'
 
 export interface PayloadProviderProps {
-  required?: boolean
-  hash?: string
   archive?: string
   archivePayloadWrapper?: ArchivistWrapper
   cachePayload?: boolean
+  hash?: string
+  required?: boolean
 }
 
 export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
-  required = false,
-  hash,
-  children,
   archivePayloadWrapper,
   cachePayload = true,
+  children,
+  hash,
+  required = false,
 }) => {
   const [payload, setPayload] = useState<XyoPayload | null>()
   const [payloadError, setPayloadError] = useState<Error>()

@@ -23,7 +23,7 @@ const defaultState: PromiseState = {
 
 // Since the resolved promise value can be anything, any seems appropriate
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Action = { type: State; payload?: any }
+type Action = { payload?: any; type: State }
 
 const reducer = (_state: PromiseState, action: Action) => {
   switch (action.type) {

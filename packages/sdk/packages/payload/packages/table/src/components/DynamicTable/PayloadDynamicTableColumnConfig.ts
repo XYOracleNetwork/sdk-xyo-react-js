@@ -1,16 +1,19 @@
 export type PayloadDynamicTableColumnSlug = 'hash' | 'schema' | 'valid' | 'details' | 'render' | 'icon'
 
 export interface PayloadDynamicTableColumnHeadData {
-  slug?: 'hash' | 'schema' | 'valid' | 'details' | 'render' | 'icon'
   alignment?: 'left' | 'center' | 'right'
-  width?: string | number
   name?: string
+  slug?: 'hash' | 'schema' | 'valid' | 'details' | 'render' | 'icon'
+  width?: string | number
 }
 
 export interface PayloadDynamicTableColumnConfig {
   xs?: PayloadDynamicTableColumnHeadData[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   sm?: PayloadDynamicTableColumnHeadData[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   md?: PayloadDynamicTableColumnHeadData[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   lg?: PayloadDynamicTableColumnHeadData[]
   xl?: PayloadDynamicTableColumnHeadData[]
 }

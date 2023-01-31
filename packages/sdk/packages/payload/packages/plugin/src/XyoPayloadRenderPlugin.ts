@@ -9,8 +9,8 @@ export interface XyoPayloadRenderProps<T extends XyoPayload = XyoPayload> {
 }
 
 export interface XyoPayloadDetailsRenderProps extends XyoPayloadRenderProps {
-  listMode?: ListMode
   active?: boolean
+  listMode?: ListMode
   visibleRows?: number
 }
 
@@ -19,14 +19,14 @@ export interface XyoPayloadEditorRenderProps extends XyoPayloadDetailsRenderProp
 }
 
 export interface XyoPayloadRenderPluginBase {
-  name: string
   canRender: (payload?: XyoPayload) => boolean
+  name: string
 }
 
 export interface XyoPayloadRenderPluginCardComponents {
-  header: ComponentType<XyoPayloadRenderProps & CardHeaderProps>
-  content: ComponentType<XyoPayloadRenderProps & CardContentProps>
   actionArea: ComponentType<XyoPayloadRenderProps & CardActionAreaProps>
+  content: ComponentType<XyoPayloadRenderProps & CardContentProps>
+  header: ComponentType<XyoPayloadRenderProps & CardHeaderProps>
 }
 
 export interface XyoPayloadRenderPluginAvatarComponents {
@@ -38,26 +38,26 @@ export interface XyoPayloadRenderPluginTableComponents {
 }
 
 export interface XyoPayloadRenderPluginBoxComponents {
-  listModes?: ListMode[]
   /** @deprecated - use detailsBox  */
   details?: ComponentType<XyoPayloadDetailsRenderProps & FlexBoxProps>
   detailsBox: ComponentType<XyoPayloadDetailsRenderProps & FlexBoxProps>
   detailsCard?: ComponentType<XyoPayloadDetailsRenderProps & CardProps>
   editor: ComponentType<XyoPayloadEditorRenderProps & FlexBoxProps>
+  listModes?: ListMode[]
 }
 
 export interface XyoPayloadRenderPluginComponents {
+  avatar: XyoPayloadRenderPluginAvatarComponents
+  box: XyoPayloadRenderPluginBoxComponents
   card: XyoPayloadRenderPluginCardComponents
   table: XyoPayloadRenderPluginTableComponents
-  box: XyoPayloadRenderPluginBoxComponents
-  avatar: XyoPayloadRenderPluginAvatarComponents
 }
 
 export interface XyoPayloadRenderPluginComponentsConfig {
+  avatar?: Partial<XyoPayloadRenderPluginAvatarComponents>
+  box?: Partial<XyoPayloadRenderPluginBoxComponents>
   card?: Partial<XyoPayloadRenderPluginCardComponents>
   table?: Partial<XyoPayloadRenderPluginTableComponents>
-  box?: Partial<XyoPayloadRenderPluginBoxComponents>
-  avatar?: Partial<XyoPayloadRenderPluginAvatarComponents>
 }
 
 export interface XyoPayloadRenderPlugin extends XyoPayloadRenderPluginBase {

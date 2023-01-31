@@ -15,6 +15,10 @@ const EllipsisTableCellRoot = styled(TableCell, {
 }))
 
 export interface EllipsisTableCellProps extends TableCellProps {
+  href?: string
+  link?: boolean
+  to?: To
+  value?: string
   /**
    * Width of the table cell.
    *
@@ -22,10 +26,6 @@ export interface EllipsisTableCellProps extends TableCellProps {
    * if used on a cell that is not the first cell in the first row.
    */
   width?: string | number
-  href?: string
-  to?: To
-  link?: boolean
-  value?: string
 }
 
 export const EllipsisTableCellWithRef: React.FC<WithChildren<EllipsisTableCellProps>> = forwardRef(

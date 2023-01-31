@@ -6,13 +6,13 @@ import { MetaMaskError } from './MetaMaskError'
 import { MetaMaskSVG } from './MetaMaskSVG'
 
 interface ConnectWalletProps extends ButtonProps {
-  setCheckedWallet: Dispatch<SetStateAction<boolean>>
   checkedWallet?: boolean
   metaMaskWallet: XyoMetaMaskConnector
+  setCheckedWallet: Dispatch<SetStateAction<boolean>>
   setMetaMaskError: Dispatch<SetStateAction<MetaMaskError | undefined>>
 }
 
-const ConnectWallet: React.FC<ConnectWalletProps> = ({ setCheckedWallet, checkedWallet, metaMaskWallet, setMetaMaskError, ...props }) => {
+const ConnectWallet: React.FC<ConnectWalletProps> = ({ checkedWallet, metaMaskWallet, setCheckedWallet, setMetaMaskError, ...props }) => {
   const connectWallet = async () => {
     if (!metaMaskWallet.currentAccount) {
       try {

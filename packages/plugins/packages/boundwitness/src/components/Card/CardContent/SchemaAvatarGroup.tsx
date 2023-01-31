@@ -5,8 +5,8 @@ import { useCallback } from 'react'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 interface SchemaAvatarGroupProps extends AvatarGroupProps {
-  schemas?: string[]
   maxAvatars?: number
+  schemas?: string[]
 }
 
 export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({ schemas, maxAvatars = 4, ...props }) => {

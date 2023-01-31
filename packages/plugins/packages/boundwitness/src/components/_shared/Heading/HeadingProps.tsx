@@ -5,11 +5,11 @@ import { ReactNode } from 'react'
 export type HeadingTextSizes = 'small' | 'medium' | 'large'
 
 export interface BWHeadingProps extends FlexBoxProps {
-  heading?: string
-  size?: HeadingTextSizes
-  AdornmentStart?: ReactNode
   AdornmentEnd?: ReactNode
-  fallbackText?: string
+  AdornmentStart?: ReactNode
   IconComponent?: ReactNode
+  fallbackText?: string
+  heading?: string
   headingProps?: TypographyProps
+  size?: HeadingTextSizes
 }

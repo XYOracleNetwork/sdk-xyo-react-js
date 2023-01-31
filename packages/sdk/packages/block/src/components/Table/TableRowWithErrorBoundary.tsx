@@ -6,9 +6,9 @@ import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 import { BlockTableRow, BlockTableRowProps } from './TableRow'
 
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
-  index: number
-  exploreDomain?: string
   archive?: string
+  exploreDomain?: string
+  index: number
   onRowClick?: (value: XyoBoundWitness) => void
 }
 

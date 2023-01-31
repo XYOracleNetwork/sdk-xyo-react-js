@@ -11,9 +11,9 @@ import { useState } from 'react'
 import { PayloadHashSourceDetails } from './HashSourceDetails'
 
 export type PayloadDataDetailsProps = PropertyProps & {
+  badge?: boolean
   payload?: XyoPayload
   size?: SizeProp
-  badge?: boolean
 }
 
 export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, badge, payload, ...props }) => {

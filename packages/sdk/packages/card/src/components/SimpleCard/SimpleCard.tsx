@@ -8,28 +8,28 @@ import { To, useNavigate } from 'react-router-dom'
 import { CardEx, CardExProps } from '../CardEx'
 
 export interface SimpleCardProps extends CardExProps {
-  headline?: ReactNode
   desc?: ReactNode
+  headline?: ReactNode
   href?: string
-  to?: To
-  media?: string
-  small?: boolean
   iconImage?: string
   interactionVariant?: 'button' | 'card'
+  media?: string
+  small?: boolean
   subtitle?: string
+  to?: To
 }
 
 export const SimpleCard: React.FC<SimpleCardProps> = ({
-  iconImage,
-  subtitle,
-  headline,
-  small,
   desc,
-  href,
-  to,
+  iconImage,
   interactionVariant = 'card',
+  headline,
+  href,
   media,
+  small,
+  subtitle,
   sx,
+  to,
   ...props
 }) => {
   const theme = useTheme()

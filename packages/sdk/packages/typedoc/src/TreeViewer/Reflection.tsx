@@ -9,9 +9,9 @@ import { ReflectionLookup } from '../ReflectionLookup'
 import { FlagFilter } from '../ReflectionViewer'
 
 export interface ReflectionTreeViewerProps<T extends Reflection = ContainerReflection> extends FlexBoxProps {
-  reflection: T
-  lookup?: ReflectionLookup
   hiddenFlags?: FlagFilter[]
+  lookup?: ReflectionLookup
+  reflection: T
   searchTerm?: string
 }
 

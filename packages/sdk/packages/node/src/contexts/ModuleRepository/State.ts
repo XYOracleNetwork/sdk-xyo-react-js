@@ -6,7 +6,7 @@ export interface ResolverEntries {
 }
 
 export interface ModuleRepositoryContextState extends ContextExState {
-  resolvers?: ResolverEntries
   removeResolvers?: (names?: string[]) => boolean
+  resolvers?: ResolverEntries
   updateResolvers?: (resolvers: ResolverEntries) => boolean
 }

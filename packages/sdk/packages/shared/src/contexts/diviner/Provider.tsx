@@ -5,8 +5,8 @@ import { ContextExProviderProps } from '../contextEx'
 import { ResolvedDivinerState } from './State'
 
 export interface DivinerProviderProps<D> extends ContextExProviderProps, WithChildren {
-  diviner?: D
   context: Context<ResolvedDivinerState<D>>
+  diviner?: D
 }
 
 /** Exposes a resolved diviner */

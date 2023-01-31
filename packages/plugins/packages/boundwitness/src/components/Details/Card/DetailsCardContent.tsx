@@ -9,8 +9,8 @@ import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnes
 import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation'
 
 export interface DetailsCardContentProps extends CardContentExProps {
-  collapsed?: boolean
   boundwitness?: XyoBoundWitness
+  collapsed?: boolean
   setCollapsed?: Dispatch<SetStateAction<boolean>>
 }
 

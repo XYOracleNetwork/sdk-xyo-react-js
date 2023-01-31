@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { RefreshPayloadContext } from './Context'
 
 export interface RefreshPayloadProps {
-  refreshPayload?: boolean
   onRefresh?: () => void
+  refreshPayload?: boolean
 }
 
 export const RefreshPayloadProvider: React.FC<WithChildren<RefreshPayloadProps>> = ({ children, onRefresh, refreshPayload }) => {

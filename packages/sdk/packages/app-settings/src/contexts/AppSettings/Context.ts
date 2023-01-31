@@ -4,14 +4,14 @@ import { WebAppNavigationType } from '../../WebAppNavigationType'
 import { appSettingDefault } from './appSettingDefault'
 
 export interface AppSettingsContextProps {
+  changeNavigationCollapsed?: (value: boolean) => void
+  changeNavigationType?: (value: WebAppNavigationType) => void
   darkMode?: boolean
   developerMode?: boolean
   enableDarkMode?: (value: boolean) => void
   enableDeveloperMode?: (value: boolean) => void
-  changeNavigationType?: (value: WebAppNavigationType) => void
-  changeNavigationCollapsed?: (value: boolean) => void
-  navigationType?: WebAppNavigationType
   navigationCollapsed?: boolean
+  navigationType?: WebAppNavigationType
 }
 
 export const AppSettingsContext = createContext<AppSettingsContextProps>(appSettingDefault())

@@ -12,19 +12,19 @@ import { MdClear, MdDone } from 'react-icons/md'
 import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 
 export interface BlockTableRowProps extends TableRowProps {
-  block?: XyoBoundWitness
   archive?: string
-  exploreDomain?: string
+  block?: XyoBoundWitness
   columns?: BlockTableColumnConfig
+  exploreDomain?: string
   network?: string
 }
 
 export const BlockTableRow: React.FC<BlockTableRowProps> = ({
-  network: networkProp,
-  exploreDomain,
-  block,
   archive,
+  block,
   columns = blockTableColumnConfigDefaults(),
+  exploreDomain,
+  network: networkProp,
   ...props
 }) => {
   const breakPoint = useBreakpoint()

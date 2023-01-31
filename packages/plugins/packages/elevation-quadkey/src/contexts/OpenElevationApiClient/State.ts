@@ -5,6 +5,6 @@ import { OpenElevationApiClient } from '../../classes'
 
 export interface OpenElevationApiClientState extends ContextExState {
   client?: OpenElevationApiClient
-  setClient?: Dispatch<SetStateAction<OpenElevationApiClient>>
   lookupLocations?: OpenElevationApiClient['lookupPost']
+  setClient?: Dispatch<SetStateAction<OpenElevationApiClient>>
 }

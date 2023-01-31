@@ -11,19 +11,19 @@ import { MapSetting } from '../Settings'
 import { XyoMapboxHeatFlexBox } from './MapBoxHeat'
 
 export interface AnimatedHeatMapProps {
+  accessToken: string
   animatedFeatureSets: Feature<Polygon>[][]
-  staticFeatureSet: Feature<Polygon>[]
   defaultMapSettings?: MapSetting
   heatMapColorProps: XyoAnimatedHeatMapColorProps
-  accessToken: string
+  staticFeatureSet: Feature<Polygon>[]
 }
 
 export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
   accessToken,
   animatedFeatureSets,
   defaultMapSettings,
-  staticFeatureSet,
   heatMapColorProps,
+  staticFeatureSet,
   ...props
 }) => {
   const theme = useTheme()

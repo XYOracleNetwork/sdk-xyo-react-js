@@ -8,9 +8,9 @@ import { ReactElement } from 'react'
 export type NetworkComponentSlug = 'sentinel' | 'bridge' | 'archivist' | 'diviner'
 
 export interface NetworkComponentDetails {
+  icon: (props?: SvgIconProps) => ReactElement
   name: string
   slug: NetworkComponentSlug
-  icon: (props?: SvgIconProps) => ReactElement
 }
 
 export const networkComponents: NetworkComponentDetails[] = [

@@ -4,11 +4,11 @@ import { ModuleDescription } from '@xyo-network/module'
 import { MutableRefObject } from 'react'
 
 interface RenderModuleProps {
-  module: ModuleDescription
   idRef: MutableRefObject<{
     idIncrementor: number
     ids: string[]
   }>
+  module: ModuleDescription
 }
 
 export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => {

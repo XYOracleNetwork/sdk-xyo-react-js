@@ -10,19 +10,19 @@ type clickableFields = 'address' | 'signature'
 export interface BoundWitnessSignatureTableRowProps extends TableRowProps {
   address?: string
   archive?: string
+  clickableFields?: clickableFields[]
   hash?: string
   previousHash?: string | null
   signature?: string
-  clickableFields?: clickableFields[]
 }
 
 export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableRowProps> = ({
-  hash,
   address,
-  previousHash,
-  signature,
   archive,
   clickableFields = [],
+  hash,
+  previousHash,
+  signature,
   ...props
 }) => {
   const errors = hash && address ? BoundWitnessValidator.validateSignature(hash, address, signature) : []

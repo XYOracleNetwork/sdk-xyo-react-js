@@ -13,17 +13,17 @@ const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-jso
 
 export interface JsonFromPromiseProps extends FlexBoxProps {
   callback?: () => Promise<object | undefined>
+  jsonViewProps?: ReactJsonViewProps
   noBackButton?: boolean
   noJsonButton?: boolean
-  jsonViewProps?: ReactJsonViewProps
 }
 
 export const JsonRouteWrapper: React.FC<JsonFromPromiseProps> = ({
   callback,
   children,
+  jsonViewProps,
   noBackButton = false,
   noJsonButton = false,
-  jsonViewProps,
   ...props
 }) => {
   const [apiResponse, setApiResponse] = useState<object>()

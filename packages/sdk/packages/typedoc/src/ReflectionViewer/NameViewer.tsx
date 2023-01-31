@@ -9,8 +9,8 @@ import { SomeTypeViewer } from './SomeTypeViewer'
 
 export interface NameViewerProps extends FlexBoxProps {
   reflection: SomeReflection
-  variant?: TypographyVariant
   reflectionViewer: React.FC<ReflectionViewerProps>
+  variant?: TypographyVariant
 }
 
 export const NameViewer: React.FC<NameViewerProps> = ({ reflectionViewer, variant, reflection, ...props }) => {

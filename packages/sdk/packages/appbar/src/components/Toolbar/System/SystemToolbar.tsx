@@ -10,29 +10,29 @@ import { ReactNode } from 'react'
 import { SiteMenu, SiteMenuProps } from '../../SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
-  networkSelectProps?: NetworkSelectExProps
   archiveSelectProps?: SelectExProps<string>
-  hideNetworkSelect?: boolean
-  hideArchiveSelect?: boolean
-  darkModeButton?: boolean
   authButton?: boolean
-  menuItems?: ReactNode
-  precedingChildren?: ReactNode
+  darkModeButton?: boolean
   developerMode?: boolean
+  hideArchiveSelect?: boolean
+  hideNetworkSelect?: boolean
+  menuItems?: ReactNode
+  networkSelectProps?: NetworkSelectExProps
   onMenuToggle?: SiteMenuProps['onMenuToggle']
+  precedingChildren?: ReactNode
 }
 
 export const SystemToolbar: React.FC<SystemToolbarProps> = ({
-  children,
-  precedingChildren,
-  networkSelectProps,
   archiveSelectProps,
+  authButton = false,
+  children,
+  darkModeButton = false,
   hideNetworkSelect,
   hideArchiveSelect,
-  darkModeButton = false,
-  authButton = false,
   menuItems,
+  networkSelectProps,
   onMenuToggle,
+  precedingChildren,
   ...props
 }) => {
   return (

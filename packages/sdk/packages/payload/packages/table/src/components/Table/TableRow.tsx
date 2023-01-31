@@ -12,21 +12,21 @@ import { HashTableCell } from '@xyo-network/react-shared'
 import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig'
 
 export interface PayloadTableRowProps extends TableRowProps {
-  payload?: XyoPayload
   archive?: string
-  exploreDomain?: string
   columns?: PayloadTableColumnConfig
-  network?: string
+  exploreDomain?: string
   maxSchemaDepth?: number
+  network?: string
+  payload?: XyoPayload
 }
 
 export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
+  archive,
+  columns = payloadTableColumnConfigDefaults(),
   exploreDomain,
+  maxSchemaDepth,
   network: networkProp,
   payload,
-  archive,
-  maxSchemaDepth,
-  columns = payloadTableColumnConfigDefaults(),
   ...props
 }) => {
   const breakPoint = useBreakpoint()

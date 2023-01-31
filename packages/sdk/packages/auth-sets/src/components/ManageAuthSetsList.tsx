@@ -5,10 +5,10 @@ import { AuthSetsState } from '../contexts'
 import { AuthSetListItem } from './AuthSet'
 
 export interface ManageAuthSetsListProps extends ListProps {
-  authSets?: AuthSetsState['authSets']
   activeAuthSet?: AuthSetsState['activeAuthSet']
-  removeAuthSet?: AuthSetsState['removeAuthSet']
+  authSets?: AuthSetsState['authSets']
   reAuthIssuer?: string
+  removeAuthSet?: AuthSetsState['removeAuthSet']
 }
 
 export const ManageAuthSetsList: React.FC<ManageAuthSetsListProps> = ({ authSets, activeAuthSet, removeAuthSet, reAuthIssuer, ...props }) => {

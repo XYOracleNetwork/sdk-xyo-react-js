@@ -10,13 +10,13 @@ import { PaginationNouns } from './types'
 interface TablePaginationActionsProps {
   count: number
   enableNextPage?: boolean
-  page: number
-  rowsPerPage: number
   loading?: boolean
   onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
+  page: number
+  rowsPerPage: number
 }
 
-export function TablePaginationActions({ count, page, rowsPerPage, onPageChange, enableNextPage, loading }: TablePaginationActionsProps) {
+export function TablePaginationActions({ count, enableNextPage, loading, onPageChange, page, rowsPerPage }: TablePaginationActionsProps) {
   const theme = useTheme()
   const [paginationRef, paginationDispatch] = useXyoEvent<HTMLButtonElement, PaginationNouns>()
 

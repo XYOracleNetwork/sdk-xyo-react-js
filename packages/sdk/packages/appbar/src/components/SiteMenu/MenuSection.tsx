@@ -4,13 +4,13 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { MenuListItemContainer, MenuListItemProps } from './MenuListItem'
 
 export interface MenuSectionProps extends FlexBoxProps {
-  title: string
+  iconMenuTextSpacing?: string
   listItems: MenuListItemProps[]
   showTitle?: boolean
-  iconMenuTextSpacing?: string
+  title: string
 }
 
-export const MenuSection: React.FC<MenuSectionProps> = ({ title, listItems, iconMenuTextSpacing, showTitle = true, ...props }) => {
+export const MenuSection: React.FC<MenuSectionProps> = ({ iconMenuTextSpacing, listItems, showTitle = true, title, ...props }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
       <Collapse in={showTitle} timeout={700}>

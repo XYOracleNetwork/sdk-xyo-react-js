@@ -2,9 +2,9 @@ import { TableCell, TableRow, Typography } from '@mui/material'
 import { XyoApiError, XyoApiResponse } from '@xyo-network/api-models'
 
 export interface ApiCallEntryProps {
+  bgColor?: string
   call: XyoApiResponse | XyoApiError
   index: number
-  bgColor?: string
 }
 
 const ApiCallEntry: React.FC<ApiCallEntryProps> = ({ call, bgColor, index }) => {

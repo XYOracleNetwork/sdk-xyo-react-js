@@ -3,11 +3,11 @@ import { ChangeEvent, MouseEvent } from 'react'
 
 export interface PayloadTableFooterProps {
   count?: number
-  rowsPerPage?: number
-  variant?: TableExVariants
-  page?: number
+  fetchMorePayloads?: () => void
   handleChangePage?: (event: MouseEvent<HTMLButtonElement> | null, newPage: number) => void
   handleChangeRowsPerPage?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
-  fetchMorePayloads?: () => void
   loading?: boolean
+  page?: number
+  rowsPerPage?: number
+  variant?: TableExVariants
 }
