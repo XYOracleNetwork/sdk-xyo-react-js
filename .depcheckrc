@@ -1,15 +1,21 @@
-ignores:  [ "@xylabs/ts-scripts-yarn3",
+ignores: [
+  "@xylabs/ts-scripts-yarn3",
   "@storybook/addon-actions",
   "@storybook/addon-controls",
   "@storybook/addon-essentials",
   "@storybook/addon-interactions",
   "@storybook/addon-links",
   "@storybook/addon-viewport",
+  "@storybook/api",
   "@storybook/builder-webpack5",
+  "@storybook/components",
+  "@storybook/core-events",
   "@storybook/manager-webpack5",
   "@storybook/testing-library",
   "@xylabs/tsconfig-dom",
   "@xylabs/ts-scripts-yarn3",
-  "assert",
+  "jest",
+  "jest-extended",
+  "ts-jest",
   "chromatic"
 ]
