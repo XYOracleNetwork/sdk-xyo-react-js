@@ -1,15 +1,15 @@
-import { AbstractArchivist } from '@xyo-network/archivist'
+import { PayloadArchivist } from '@xyo-network/archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
 import { ArchivistContext } from '../Context'
 
 export type ArchivistProviderProps = ContextExProviderProps<{
-  archivist?: AbstractArchivist
+  archivist?: PayloadArchivist
 }>
 
 export const ArchivistProvider: React.FC<ArchivistProviderProps> = ({ archivist: archivistProp, required = false, children }) => {
-  const [archivist, setArchivist] = useState<AbstractArchivist>()
+  const [archivist, setArchivist] = useState<PayloadArchivist>()
 
   useEffect(() => {
     setArchivist(archivistProp)

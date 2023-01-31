@@ -1,4 +1,5 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { ArchivistWrapper } from '@xyo-network/archivist'
 import { RemoteModuleResolver } from '@xyo-network/http-proxy-module'
 import { NodeConfigSchema } from '@xyo-network/node'
 import { useArchivist } from '@xyo-network/react-archivist'
@@ -29,7 +30,8 @@ const MemoryNodeResolverDecorator: DecoratorFn = (Story, args) => {
 
 const Result: React.FC = () => {
   const { archivist } = useArchivist()
-  const results = archivist?.all()
+  const wrapper = archivist ? new ArchivistWrapper(archivist) : undefined
+  const results = wrapper?.all?.()
   return <code>{JSON.stringify(results, null, 2)}</code>
 }
 
