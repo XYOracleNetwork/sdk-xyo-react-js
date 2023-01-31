@@ -7,11 +7,11 @@ import { ReactNode } from 'react'
 export type TitleSizeProp = SizeProp | 'full'
 
 export interface PropertyTitleProps extends FlexBoxProps {
-  tip?: ReactNode
-  more?: ReactNode
-  title?: string
-  size?: TitleSizeProp
   elevation?: number
+  more?: ReactNode
+  size?: TitleSizeProp
+  tip?: ReactNode
+  title?: string
 }
 
 export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, size = 'medium', tip, more, title, ...props }) => {

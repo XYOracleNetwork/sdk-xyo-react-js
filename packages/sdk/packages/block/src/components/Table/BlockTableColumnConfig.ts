@@ -2,8 +2,11 @@ export type BlockTableColumnSlug = 'hash' | 'payloads' | 'valid'
 
 export interface BlockTableColumnConfig {
   xs?: BlockTableColumnSlug[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   sm?: BlockTableColumnSlug[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   md?: BlockTableColumnSlug[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   lg?: BlockTableColumnSlug[]
   xl?: BlockTableColumnSlug[]
 }

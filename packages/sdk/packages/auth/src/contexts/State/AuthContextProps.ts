@@ -2,8 +2,8 @@ import { AuthDispatch } from './Dispatch'
 import { AuthState } from './State'
 
 export interface AuthContextProps {
-  state?: AuthState
   dispatch?: AuthDispatch
+  state?: AuthState
 }
 
 /** @deprecated */

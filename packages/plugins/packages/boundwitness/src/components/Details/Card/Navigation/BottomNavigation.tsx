@@ -5,8 +5,8 @@ import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps {
-  boundWitness?: XyoBoundWitness
   activeTab?: number
+  boundWitness?: XyoBoundWitness
   setActiveTab?: Dispatch<SetStateAction<number>>
 }
 

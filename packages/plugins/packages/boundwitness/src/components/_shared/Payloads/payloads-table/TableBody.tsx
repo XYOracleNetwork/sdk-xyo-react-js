@@ -6,17 +6,17 @@ import { useTableHeight } from '@xyo-network/react-table'
 import { useLayoutEffect, useRef } from 'react'
 
 export interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps {
+  boundwitnessHash?: string
+  eventNoun?: XyoEventNoun
   payloadHashes?: string[]
   payloadSchemas?: string[]
-  eventNoun?: XyoEventNoun
-  boundwitnessHash?: string
 }
 
 export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = ({
+  boundwitnessHash,
+  eventNoun = 'payload',
   payloadHashes,
   payloadSchemas,
-  eventNoun = 'payload',
-  boundwitnessHash,
   ...props
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

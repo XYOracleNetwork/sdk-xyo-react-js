@@ -1,7 +1,7 @@
 import { AuthState } from '@xyo-network/react-auth'
 
 export interface WrappedArgs {
-  authState?: Partial<AuthState>
   apiDomain?: string
+  authState?: Partial<AuthState>
   isDarkMode?: boolean
 }

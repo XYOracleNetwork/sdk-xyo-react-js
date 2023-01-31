@@ -10,11 +10,11 @@ import { useParams } from 'react-router-dom'
 
 /** @deprecated - moved to @xyo-network/react-address-history */
 export interface AddressHistoryArchivistProps extends WithChildren {
-  required?: boolean
   address?: string
+  required?: boolean
 }
 
-const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ children, address, required = true }) => {
+const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ address, children, required = true }) => {
   const [addressHistory, error] = useDivineAddressHistory(address)
   const { archivist } = useArchivist(required)
 

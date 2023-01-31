@@ -4,9 +4,9 @@ import { TableExProps } from '@xyo-network/react-table'
 import { BlockTableColumnConfig } from './BlockTableColumnConfig'
 
 export interface BlockTableProps extends TableExProps {
-  blocks?: XyoBoundWitness[] | null
   archive?: string
-  onRowClick?: (value: XyoBoundWitness) => void
-  exploreDomain?: string
+  blocks?: XyoBoundWitness[] | null
   columns?: BlockTableColumnConfig
+  exploreDomain?: string
+  onRowClick?: (value: XyoBoundWitness) => void
 }

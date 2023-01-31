@@ -2,8 +2,8 @@ import { assertEx } from '@xylabs/assert'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 
 export class AppSettingsStorageBase {
-  private prefix: string
   private defaults: Record<string, unknown>
+  private prefix: string
   constructor(prefix = 'AppSettings', defaults?: Record<string, unknown>) {
     this.prefix = prefix
     this.defaults = defaults ?? {}
@@ -20,14 +20,6 @@ export class AppSettingsStorageBase {
     return storedValue !== 'false'
   }
 
-  public setBoolean(name: string, value: boolean) {
-    localStorage.setItem(`${this.prefix}|${name}`, JSON.stringify(value))
-  }
-
-  public setNumber(name: string, value: number) {
-    localStorage.setItem(`${this.prefix}|${name}`, JSON.stringify(value))
-  }
-
   public getNumber(name: string): number {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     if (!storedValue) {
@@ -37,6 +29,16 @@ export class AppSettingsStorageBase {
       return defaultValue
     }
     return parseFloat(storedValue)
+  }
+
+  public getObject<T>(name: string): T {
+    const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
+    const parsedStoredValue = storedValue ? JSON.parse(storedValue) : null
+    if (!parsedStoredValue) {
+      assertEx(typeof this.defaults[name] === 'object', 'Default value is not object')
+      return assertEx(this.defaults[name] as T, `Missing Default for ${name}`)
+    }
+    return parsedStoredValue as T
   }
 
   public getString(name: string) {
@@ -50,10 +52,6 @@ export class AppSettingsStorageBase {
     return storedValue
   }
 
-  public setString(name: string, value: string) {
-    localStorage.setItem(`${this.prefix}|${name}`, value)
-  }
-
   public getStringArray(name: string) {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)?.split(',')
     if (!storedValue) {
@@ -65,21 +63,23 @@ export class AppSettingsStorageBase {
     return storedValue
   }
 
-  public setStringArray(name: string, value: string[]) {
-    localStorage.setItem(`${this.prefix}|${name}`, value.join(','))
+  public setBoolean(name: string, value: boolean) {
+    localStorage.setItem(`${this.prefix}|${name}`, JSON.stringify(value))
   }
 
-  public getObject<T>(name: string): T {
-    const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
-    const parsedStoredValue = storedValue ? JSON.parse(storedValue) : null
-    if (!parsedStoredValue) {
-      assertEx(typeof this.defaults[name] === 'object', 'Default value is not object')
-      return assertEx(this.defaults[name] as T, `Missing Default for ${name}`)
-    }
-    return parsedStoredValue as T
+  public setNumber(name: string, value: number) {
+    localStorage.setItem(`${this.prefix}|${name}`, JSON.stringify(value))
   }
 
   public setObject<T>(name: string, value: T) {
     localStorage.setItem(`${this.prefix}|${name}`, JSON.stringify(value))
+  }
+
+  public setString(name: string, value: string) {
+    localStorage.setItem(`${this.prefix}|${name}`, value)
+  }
+
+  public setStringArray(name: string, value: string[]) {
+    localStorage.setItem(`${this.prefix}|${name}`, value.join(','))
   }
 }

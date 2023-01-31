@@ -5,11 +5,11 @@ import { Dispatch, memo, SetStateAction } from 'react'
 import { LoginCredentials } from './LoginCredentials'
 
 interface FormFieldsProps<S> {
-  isLoading: boolean
   credentialsState: [S, Dispatch<SetStateAction<S>>]
+  isLoading: boolean
 }
 
-const FormFieldsComponent: React.FC<FormFieldsProps<LoginCredentials>> = ({ isLoading, credentialsState }) => {
+const FormFieldsComponent: React.FC<FormFieldsProps<LoginCredentials>> = ({ credentialsState, isLoading }) => {
   const [credentials, setCredentials] = credentialsState
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

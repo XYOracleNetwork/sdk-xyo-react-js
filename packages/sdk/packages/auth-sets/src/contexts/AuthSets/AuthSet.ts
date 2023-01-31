@@ -1,11 +1,11 @@
 export const AuthSetSchema = 'network.xyo.authset'
 
 export interface AuthSet {
-  token?: string
-  address?: string
-  issuer?: string
   account?: string
+  address?: string
   identifier?: string
+  issuer?: string
   reAuthenticate?: boolean
   schema: string
+  token?: string
 }

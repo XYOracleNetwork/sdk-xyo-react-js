@@ -19,19 +19,19 @@ import {
 } from './PayloadDynamicTableColumnConfig'
 
 export interface PayloadDynamicTableRowProps extends TableRowProps {
-  payload?: XyoPayload
   archive?: string
-  exploreDomain?: string
   columns?: PayloadDynamicTableColumnConfig
+  exploreDomain?: string
   network?: string
+  payload?: XyoPayload
 }
 
 export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
+  archive,
+  columns = payloadDynamicTableColumnConfigDefaults(),
   exploreDomain,
   network: networkProp,
   payload,
-  archive,
-  columns = payloadDynamicTableColumnConfigDefaults(),
   ...props
 }) => {
   const breakPoint = useBreakpoint()

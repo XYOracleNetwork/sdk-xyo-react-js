@@ -18,10 +18,10 @@ const CardContentExRoot = styled(CardContent, {
 }))
 
 export type CardContentExProps = CardContentProps & {
-  variant?: 'scrollable' | 'normal'
-  scrollToTop?: number
   refreshRef?: number
   removePadding?: boolean
+  scrollToTop?: number
+  variant?: 'scrollable' | 'normal'
 }
 
 export const CardContentExWithRef = forwardRef<HTMLDivElement | null, CardContentExProps>(({ scrollToTop = 0, refreshRef = 0, ...props }, ref) => {

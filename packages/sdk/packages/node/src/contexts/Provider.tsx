@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react'
 import { NodeContext } from './Context'
 
 export interface NodeProviderProps {
-  required?: boolean
   node?: NodeModule
+  required?: boolean
 }
 
 /** @deprecated use NodeProviderProps instead */

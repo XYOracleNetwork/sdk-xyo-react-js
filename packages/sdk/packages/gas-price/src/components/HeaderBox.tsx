@@ -5,8 +5,8 @@ import { GasPriceHeaderActionsBox, GasPriceHeaderTypography } from './HeaderComp
 import { StyledGasPriceHeaderBox } from './layout'
 
 export interface GasPriceWitnessHeaderBoxProps extends FlexBoxProps {
-  parsedPayload?: GasPriceWitnessUIBasePayload
   heading?: string
+  parsedPayload?: GasPriceWitnessUIBasePayload
 }
 
 export const GasPriceWitnessHeaderBox: React.FC<GasPriceWitnessHeaderBoxProps> = ({ heading, parsedPayload, ...props }) => {

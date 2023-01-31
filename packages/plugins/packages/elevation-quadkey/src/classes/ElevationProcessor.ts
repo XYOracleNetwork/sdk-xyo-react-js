@@ -5,22 +5,17 @@ import { NetworkElevationQuadkeyAnswerPayload } from '../types'
 import { LatLngBase, LocationElevation, OpenElevationApiClient } from './OpenElevation'
 
 export interface ElevationPayloadProcessorConfig {
-  payload: NetworkElevationQuadkeyAnswerPayload
   lookupLocations: OpenElevationApiClient['lookupPost']
+  payload: NetworkElevationQuadkeyAnswerPayload
 }
 
 export class ElevationPayloadProcessor {
+  private config: ElevationPayloadProcessorConfig
   private features: Feature<Geometry>[] = []
   private locations: LatLngBase[] = []
-  private config: ElevationPayloadProcessorConfig
 
   constructor(config: ElevationPayloadProcessorConfig) {
     this.config = config
-  }
-
-  buildFeatures() {
-    this.features = this.config.payload.result.map((location) => this.featuresIterator(location))
-    return this
   }
 
   async buildElevations() {
@@ -36,7 +31,12 @@ export class ElevationPayloadProcessor {
     }
   }
 
-  private featuresIterator = ({ quadkey, elevation }: { quadkey: string; elevation: number }) => {
+  buildFeatures() {
+    this.features = this.config.payload.result.map((location) => this.featuresIterator(location))
+    return this
+  }
+
+  private featuresIterator = ({ quadkey, elevation }: { elevation: number; quadkey: string }) => {
     // elevation at center of the quadkey
     const geojson = new GeoJson(quadkey)
 

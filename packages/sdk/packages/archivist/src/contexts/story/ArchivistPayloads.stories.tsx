@@ -3,9 +3,9 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { XyoPayloads } from '@xyo-network/payload-model'
 
 export interface ArchivistPayloadsProps {
-  refresh?: () => void
-  payloads?: XyoPayloads
   error?: Error
+  payloads?: XyoPayloads
+  refresh?: () => void
 }
 
 export const ArchivistPayloads: React.FC<ArchivistPayloadsProps> = ({ refresh, payloads, error }) => {

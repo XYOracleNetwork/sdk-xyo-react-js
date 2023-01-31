@@ -5,9 +5,9 @@ import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 export interface BWNavigationTabs extends TabsProps {
-  value?: number
-  setValue?: Dispatch<SetStateAction<number>>
   boundWitness?: XyoBoundWitness
+  setValue?: Dispatch<SetStateAction<number>>
+  value?: number
 }
 
 export const BWNavigationTabs: React.FC<BWNavigationTabs> = ({ setValue, value, boundWitness, ...props }) => {

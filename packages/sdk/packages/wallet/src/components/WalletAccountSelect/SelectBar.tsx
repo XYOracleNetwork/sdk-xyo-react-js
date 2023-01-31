@@ -4,13 +4,13 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WalletAccountSelect } from './Select'
 
 export interface WalletAccountSelectBarProps extends FlexBoxProps {
-  size?: 'small' | 'medium'
   iconOnly?: boolean
-  icons?: boolean
   iconSize?: number
+  icons?: boolean
+  size?: 'small' | 'medium'
 }
 
-export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({ iconOnly, icons, iconSize, size = 'small', ...props }) => {
+export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({ iconOnly, iconSize, icons, size = 'small', ...props }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
       <Paper variant="elevation" elevation={0}>

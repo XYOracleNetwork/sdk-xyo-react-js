@@ -8,25 +8,25 @@ import { ReactNode, useEffect, useState } from 'react'
 import { BWActions, BWHeading } from '../../_shared'
 
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
-  payload?: XyoPayload
   active?: boolean
   activeBgColor?: boolean
+  additionalActions?: ReactNode
   hideJSONButton?: boolean
-  hideValidation?: boolean
   hidePreviousHash?: boolean
   hideTimestamp?: boolean
-  additionalActions?: ReactNode
+  hideValidation?: boolean
+  payload?: XyoPayload
 }
 
 export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
-  payload,
   active = false,
   activeBgColor = true,
   additionalActions,
   hideJSONButton,
-  hideValidation,
   hidePreviousHash,
   hideTimestamp,
+  hideValidation,
+  payload,
   ...props
 }) => {
   const boundwitness = payload as XyoPayload<XyoBoundWitness>

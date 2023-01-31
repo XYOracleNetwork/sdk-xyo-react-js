@@ -7,8 +7,8 @@ import { CardColumnsFlex, CardColumnTitleH2, CardContentFlex } from './layout'
 import { SchemaAvatarGroup } from './SchemaAvatarGroup'
 
 export interface BoundWitnessCardContentProps extends CardContentProps {
-  payload?: XyoPayload
   active?: boolean
+  payload?: XyoPayload
 }
 
 export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = ({ payload, active, ...props }) => {

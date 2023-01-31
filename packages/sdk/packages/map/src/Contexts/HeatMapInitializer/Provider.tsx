@@ -13,24 +13,24 @@ import { HeatMapInitializerContext } from './Context'
 import { HeatMapInitializerState } from './State'
 
 interface MapInitializerProviderProps {
-  features?: Feature<Polygon>[]
   featureSets?: Feature<Polygon>[][]
   featureSetsLayers?: XyoMapLayer[]
-  layers?: XyoMapLayer[]
-  zoom?: number
+  features?: Feature<Polygon>[]
   fitToPadding?: number
   heatMapColorProps: XyoHeatMapColorProps | XyoAnimatedHeatMapColorProps
+  layers?: XyoMapLayer[]
+  zoom?: number
 }
 
 export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerProviderProps>> = ({
   children,
-  features,
   featureSets,
   featureSetsLayers,
-  zoom,
+  features,
   fitToPadding,
-  layers,
   heatMapColorProps,
+  layers,
+  zoom,
 }) => {
   const [MapHeat, setMapHeat] = useState<XyoMapHeat>()
   const { options } = useDynamicPositioning()

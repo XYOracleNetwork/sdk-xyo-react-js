@@ -6,12 +6,12 @@ import Rollbar from 'rollbar'
 import { XyoErrorRender } from '../XyoErrorRender'
 
 export interface XyoErrorBoundaryProps {
-  rethrow?: boolean
-  children: ReactNode
-  rollbar?: Rollbar
   basePageProps?: BasePageProps
-  errorComponent?: (e: XyoError, boundaryName?: string) => ReactNode
   boundaryName?: string
+  children: ReactNode
+  errorComponent?: (e: XyoError, boundaryName?: string) => ReactNode
+  rethrow?: boolean
+  rollbar?: Rollbar
 }
 
 export interface XyoErrorBoundaryState {
@@ -23,12 +23,12 @@ export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, Xyo
     xyoError: undefined,
   }
 
-  public static normalizeError(error: Error | XyoError): XyoError {
-    return ((error as XyoError).schema === XyoErrorSchema ? error : { message: error.message, schema: XyoErrorSchema, sources: [] }) as XyoError
-  }
-
   static getDerivedStateFromError(error: Error) {
     return { hasError: true, xyoError: XyoThrownErrorBoundary.normalizeError(error) } as XyoErrorBoundaryState
+  }
+
+  public static normalizeError(error: Error | XyoError): XyoError {
+    return ((error as XyoError).schema === XyoErrorSchema ? error : { message: error.message, schema: XyoErrorSchema, sources: [] }) as XyoError
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {

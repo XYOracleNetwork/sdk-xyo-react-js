@@ -6,11 +6,11 @@ import { ReactJsonViewProps } from 'react-json-view'
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 export interface JsonViewerButtonProps extends ButtonExProps {
-  src: object
   jsonViewProps?: Partial<ReactJsonViewProps>
+  src: object
 }
 
-export const JsonViewerButton: React.FC<JsonViewerButtonProps> = ({ title, src, jsonViewProps, ...props }) => {
+export const JsonViewerButton: React.FC<JsonViewerButtonProps> = ({ jsonViewProps, src, title, ...props }) => {
   const [open, setOpen] = useState(false)
   return (
     <>

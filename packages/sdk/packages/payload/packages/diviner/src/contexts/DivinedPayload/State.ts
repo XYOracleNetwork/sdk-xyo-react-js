@@ -4,6 +4,6 @@ import { Dispatch } from 'react'
 
 export interface DivinedPayloadState extends ContextExState {
   payload?: XyoPayload | null
-  setPayload?: Dispatch<XyoPayload | null | undefined>
   payloadError?: Error
+  setPayload?: Dispatch<XyoPayload | null | undefined>
 }

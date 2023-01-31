@@ -6,17 +6,17 @@ import { ReactNode, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
 export interface FullWidthCardProps extends CardProps {
-  name: ReactNode
+  cardIsButton?: boolean
   desc?: ReactNode
   href?: string
-  to?: To
   linkText?: string
   media?: string
+  name: ReactNode
   small?: boolean
-  cardIsButton?: boolean
+  to?: To
 }
 
-export const FullWidthCard: React.FC<FullWidthCardProps> = ({ name, small, cardIsButton, desc, href, to, media, ...props }) => {
+export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc, href, media, name, small, to, ...props }) => {
   const theme = useTheme()
   const [raised, setRaised] = useState(false)
   const navigate = useNavigate()

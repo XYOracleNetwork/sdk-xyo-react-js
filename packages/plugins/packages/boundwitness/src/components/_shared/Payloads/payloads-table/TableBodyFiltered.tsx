@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react'
 import { BoundWitnessPayloadTableBody, BoundWitnessPayloadTableBodyProps } from './TableBody'
 
 export interface BoundWitnessFilteredPayloadTableBodyProps extends BoundWitnessPayloadTableBodyProps {
-  schemaFilter?: string
   bwFilterType?: 'equal' | 'notEqual'
+  schemaFilter?: string
 }
 
 export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFilteredPayloadTableBodyProps> = ({
+  bwFilterType = 'equal',
+  eventNoun = 'payload',
   payloadHashes = [],
   payloadSchemas = [],
   schemaFilter,
-  bwFilterType = 'equal',
-  eventNoun = 'payload',
   ...props
 }) => {
   const [bwPayloadHashes, setBWPayloadHashes] = useState<string[]>([])

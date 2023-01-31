@@ -27,19 +27,19 @@ import { PayloadDynamicTableRow } from './DynamicTableRow'
 import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig'
 
 export interface PayloadDynamicTableProps extends TableProps {
-  exploreDomain?: string
   archive?: string
-  onRowClick?: (value: XyoPayload) => void
-  rowsPerPage?: number
-  payloads?: XyoPayload[] | null
   columns?: PayloadDynamicTableColumnConfig
+  exploreDomain?: string
+  onRowClick?: (value: XyoPayload) => void
+  payloads?: XyoPayload[] | null
+  rowsPerPage?: number
 }
 
 interface TablePaginationActionsProps {
   count: number
+  onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
   page: number
   rowsPerPage: number
-  onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
 }
 
 function TablePaginationActions(props: TablePaginationActionsProps) {
@@ -81,13 +81,13 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 }
 
 export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
-  exploreDomain,
   archive,
+  children,
+  columns = payloadDynamicTableColumnConfigDefaults(),
+  exploreDomain,
   onRowClick,
   rowsPerPage: rowsPerPageProp = 10,
   payloads,
-  children,
-  columns = payloadDynamicTableColumnConfigDefaults(),
   ...props
 }) => {
   const breakPoint = useBreakpoint()

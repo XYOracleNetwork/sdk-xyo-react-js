@@ -9,15 +9,15 @@ import { useWallet } from '../../contexts'
 
 export interface WalletAccountSelectProps extends SelectProps<number> {
   iconOnly?: boolean
-  icons?: boolean
   iconSize?: number
+  icons?: boolean
 }
 
 const arrayRange = (length: number, start = 0) => {
   return Array.from(Array(length).keys()).map((x) => x + start)
 }
 
-export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ size, iconSize = 24, icons, iconOnly, ...props }) => {
+export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOnly, iconSize = 24, icons, size, ...props }) => {
   const { wallet, activeAccountIndex = 0, setActiveAccountIndex } = useWallet()
 
   return (

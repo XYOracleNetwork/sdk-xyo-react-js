@@ -1,12 +1,12 @@
 import { styled, TableCell, TableRow, TableRowProps, Typography, TypographyProps } from '@mui/material'
 
 export interface TableRowNoDataProps extends TableRowProps {
-  typographyProps?: TypographyProps
-  hideBorder?: boolean
   additionalCells?: number
+  hideBorder?: boolean
+  typographyProps?: TypographyProps
 }
 
-export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ hideBorder = false, typographyProps, additionalCells, ...props }) => {
+export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ additionalCells, hideBorder = false, typographyProps, ...props }) => {
   return (
     <TableRow {...props}>
       <StyledTableCell hideBorder={hideBorder}>

@@ -5,12 +5,12 @@ import { useState } from 'react'
 import { FooterAlwaysLinks, FooterAlwaysLinksProps } from './AlwaysLinks'
 
 export interface FooterProps extends FlexBoxProps {
-  container?: ContainerProps['maxWidth'] | 'none'
   alwaysFooterLinksProps?: FooterAlwaysLinksProps
+  container?: ContainerProps['maxWidth'] | 'none'
   dynamicHeight?: boolean
 }
 
-export const Footer: React.FC<FooterProps> = ({ children, alwaysFooterLinksProps, container, dynamicHeight = false, ...props }) => {
+export const Footer: React.FC<FooterProps> = ({ alwaysFooterLinksProps, children, container, dynamicHeight = false, ...props }) => {
   const [more, setMore] = useState(false)
   const onMore = () => {
     setMore(!more)

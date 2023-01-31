@@ -14,13 +14,13 @@ const AddressChainList = styled(List, { name: 'AddressChainList' })(() => ({
 }))
 
 export interface AddressChainProps extends ListProps {
+  address?: string
   addressHistory?: XyoBoundWitness[]
   selectable?: boolean
-  address?: string
   skeleton?: boolean
 }
 
-const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addressHistory, address, selectable, skeleton = true, ...props }, ref) => {
+const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ address, addressHistory, selectable, skeleton = true, ...props }, ref) => {
   const theme = useTheme()
   const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)

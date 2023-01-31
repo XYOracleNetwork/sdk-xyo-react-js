@@ -11,15 +11,15 @@ import { MapBox } from './MapBox'
 import { MapSettings } from './MapSettingsComponents'
 
 export interface XyoMapboxPointsFlexBoxProps extends XyoMapboxFlexBoxProps {
-  features?: Feature<Point>[]
   accessToken: string
+  features?: Feature<Point>[]
 }
 
 export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
   accessToken,
   features,
-  layers,
   fitToPointsPadding = 20,
+  layers,
   zoom,
   ...props
 }) => {

@@ -3,12 +3,12 @@ import { TypographyEx, TypographyExProps } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
 export interface GasPriceHeadingTypographyProps extends TypographyExProps {
-  heading?: string
   children?: ReactNode
+  heading?: string
   networkIcon?: ReactNode
 }
 
-export const GasPriceHeadingTypography: React.FC<GasPriceHeadingTypographyProps> = ({ heading, networkIcon, children, ...props }) => {
+export const GasPriceHeadingTypography: React.FC<GasPriceHeadingTypographyProps> = ({ children, heading, networkIcon, ...props }) => {
   const theme = useTheme()
   return (
     <TypographyEx fontSize={theme.spacing(6)} lineHeight={1} {...props}>
