@@ -1,4 +1,4 @@
-import { InvertableThemeProvider } from '@xylabs/react-invertable-theme'
+import { InvertibleThemeProvider } from '@xylabs/react-invertible-theme'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { CssBaseline } from '@mui/material';
 import { useDarkMode } from 'storybook-dark-mode';
@@ -58,12 +58,12 @@ const withThemeProvider: DecoratorFn = (Story, context) => {
 
   return (
     <AppSettingsProvider value={{darkMode}}>
-    <InvertableThemeProvider dark={darkMode} lightOptions={partialAppLightThemeOptions} darkTheme={partialDarkThemeOptions} options={themeOptions}>
+    <InvertibleThemeProvider dark={darkMode} lightOptions={partialAppLightThemeOptions} darkTheme={partialDarkThemeOptions} options={themeOptions}>
       <CssBaseline enableColorScheme />
       <FlexCol alignItems="unset">
         <Story {...context}/>
       </FlexCol>
-    </InvertableThemeProvider>
+    </InvertibleThemeProvider>
     </AppSettingsProvider>
   );
 };
