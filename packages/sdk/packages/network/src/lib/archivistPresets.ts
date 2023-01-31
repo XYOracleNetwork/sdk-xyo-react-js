@@ -4,8 +4,8 @@ import { ExplorerMapHashes } from './ExplorerMapHashes'
 
 export interface XyoArchivistPreset extends XyoNetworkNodePayload {
   explorerMapHashes?: {
-    staticAnswerHash: string
     animatedAnswerHashes: string[]
+    staticAnswerHash: string
   }
 }
 

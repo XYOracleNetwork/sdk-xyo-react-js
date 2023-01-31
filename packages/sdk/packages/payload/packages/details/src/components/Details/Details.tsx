@@ -10,8 +10,8 @@ export type WithPaper<T> = T & { paper: true }
 export type WithoutPaper<T> = T & { paper?: false }
 
 export type PayloadDetailsProps = FlexBoxProps & {
-  payload?: XyoPayload
   paper?: boolean
+  payload?: XyoPayload
 }
 
 export const PayloadDetails = forwardRef<HTMLDivElement, PayloadDetailsProps>(({ paper, payload, ...props }, ref) => {

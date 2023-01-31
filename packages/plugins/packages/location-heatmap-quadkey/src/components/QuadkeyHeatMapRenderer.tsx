@@ -19,9 +19,9 @@ import { useMemo } from 'react'
 import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
 
 export interface QuadkeyHeatMapInnerProps extends FlexBoxProps {
-  payload?: XyoPayload
   accessToken?: string
   developerMode?: boolean
+  payload?: XyoPayload
 }
 
 const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode, payload, accessToken, ...props }) => {

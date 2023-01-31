@@ -5,9 +5,9 @@ import { XyoThemeTokenAvatar } from '../XyoThemeTokenAvatar'
 
 export interface TokenSummaryProps extends CardHeaderProps {
   icon?: string
+  imgBgProps?: AvatarProps
   symbol?: string
   symbolElement?: ReactNode
-  imgBgProps?: AvatarProps
 }
 
 export const TokenSummary: React.FC<TokenSummaryProps> = ({ icon, symbol, symbolElement, children, ...props }) => {

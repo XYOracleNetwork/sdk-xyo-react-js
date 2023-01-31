@@ -1,12 +1,12 @@
 import * as tokenImages from './img'
 
 export interface TokenData {
-  uniqueTokenId: string
-  tokenSymbol: string
-  icon: string
-  etherscanLink: string
   coinmarketcapLink: string
+  etherscanLink: string
+  icon: string
   readableName: string
+  tokenSymbol: string
+  uniqueTokenId: string
 }
 
 export const TokenData: TokenData[] = [

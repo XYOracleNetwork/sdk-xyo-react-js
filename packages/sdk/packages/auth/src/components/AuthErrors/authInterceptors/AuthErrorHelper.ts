@@ -3,9 +3,9 @@ import { XyoApiError } from '@xyo-network/api-models'
 type AuthError = Error | XyoApiError
 
 interface FormattedAuthError {
-  reAuthenticate: boolean
-  error: AuthError
   dialogMessage: string
+  error: AuthError
+  reAuthenticate: boolean
 }
 
 const isXyoError = (error: AuthError): error is XyoApiError => {

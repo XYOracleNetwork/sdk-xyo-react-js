@@ -4,12 +4,12 @@ import { Dispatch, SetStateAction } from 'react'
 
 export interface EmbedPluginVisibilityConfig {
   hideAvatar?: boolean
-  hideTitle?: boolean
-  hideRefreshButton?: boolean
-  hideTimestamp?: boolean
   hideCardActions?: boolean
   hideCardHeader?: boolean
   hideErrorDetails?: boolean
+  hideRefreshButton?: boolean
+  hideTimestamp?: boolean
+  hideTitle?: boolean
 }
 
 /**
@@ -20,14 +20,14 @@ export interface XyoPluginConfig {
 }
 
 export interface XyoEmbedPluginBase {
-  plugins?: XyoPayloadRenderPlugin[]
   /** XyoEmbedPlugin component configuration */
   embedPluginConfig?: XyoPluginConfig
+  hideElementsConfig?: EmbedPluginVisibilityConfig
   /** @deprecated use huriPayload */
   huri?: string
+  plugins?: XyoPayloadRenderPlugin[]
   refreshTitle?: string
   timestampLabel?: string
-  hideElementsConfig?: EmbedPluginVisibilityConfig
 }
 
 export interface XyoEmbedPluginState extends XyoEmbedPluginBase, ContextExState {

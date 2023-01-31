@@ -3,16 +3,16 @@ export interface XyoHeatMapColorProps {
 }
 
 export interface XyoAnimatedHeatMapColorProps extends XyoHeatMapColorProps {
-  lowUsageColor: string
   highUsageColor: string
+  lowUsageColor: string
 }
 
 export interface ColorGradientLegendProps {
-  startColor: string
   endColor: string
-  heading: string
-  startLabel: string
   endLabel: string
+  heading: string
+  startColor: string
+  startLabel: string
   textColor: string
 }
 

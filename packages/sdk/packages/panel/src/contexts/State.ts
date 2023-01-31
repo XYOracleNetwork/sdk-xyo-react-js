@@ -12,8 +12,8 @@ export enum ReportStatus {
 }
 
 export interface WitnessReportProgress {
-  witness: WitnessWrapper
   status: ReportStatus
+  witness: WitnessWrapper
 }
 
 export interface ArchivistApiReportProgress {
@@ -22,14 +22,14 @@ export interface ArchivistApiReportProgress {
 }
 
 export interface PanelReportProgress {
-  witnesses?: Record<string, WitnessReportProgress>
   archivists?: Record<string, ArchivistApiReportProgress>
+  witnesses?: Record<string, WitnessReportProgress>
 }
 
 export interface PanelContextState {
-  panel?: XyoPanel
   history?: XyoBoundWitness[]
+  panel?: XyoPanel
   progress?: PanelReportProgress
-  status?: ReportStatus
   reportingErrors?: Error[]
+  status?: ReportStatus
 }

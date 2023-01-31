@@ -6,9 +6,9 @@ export type XyoEventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'si
 export type XyoEventVerb = 'click'
 
 export interface XyoEvent<TNoun = XyoEventNoun, TVerb = XyoEventVerb, TData = string> {
+  data?: TData
   noun: TNoun
   verb: TVerb
-  data?: TData
 }
 
 export type XyoEventDispatch<TNoun = XyoEventNoun, TVerb = XyoEventVerb, TData = string> = (noun: TNoun, verb: TVerb, data?: TData) => boolean | void

@@ -18,9 +18,9 @@ import { ElevationExtrusionLayerBuilder, ExtrusionLayerBuilderConstants } from '
 import { ElevationQuadkeyMapSettings } from './ElevationQuadkeyMapSettings'
 
 export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
-  payload?: XyoPayload
   accessToken?: string
   developerMode?: boolean
+  payload?: XyoPayload
 }
 
 const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ payload, developerMode, accessToken, ...props }) => {

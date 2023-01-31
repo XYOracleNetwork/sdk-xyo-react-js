@@ -13,11 +13,11 @@ import {
 import { PointsMapSettings } from './PointsMapSettings'
 
 export interface PointsMapInnerProps extends FlexBoxProps {
-  payload?: XyoPayload
   accessToken?: string
+  payload?: XyoPayload
 }
 
-const PointsMapInner: React.FC<PointsMapInnerProps> = ({ payload, accessToken, ...props }) => {
+const PointsMapInner: React.FC<PointsMapInnerProps> = ({ accessToken, payload, ...props }) => {
   const theme = useTheme()
   const features = (payload as NetworkXyoLocationAnswerPayload)?.result?.features
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken()

@@ -13,18 +13,18 @@ import { PanelContext } from './Context'
 import { PanelReportProgress, ReportStatus } from './State'
 
 export interface PanelProviderProps {
-  archivist?: PayloadArchivist
-  witnesses?: WitnessWrapper[]
-  required?: boolean
   /** @deprecated - panel no longer uses archive but relies on an archivist */
   archive?: string
+  archivist?: PayloadArchivist
+  required?: boolean
+  witnesses?: WitnessWrapper[]
 }
 
 export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   archivist: archivistProp,
-  required = false,
-  witnesses = [],
   children,
+  witnesses = [],
+  required = false,
 }) => {
   const { archivist } = useArchivist()
   const [panel, setPanel] = useState<XyoPanel>()

@@ -2,19 +2,19 @@ import { Chip } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 
 export interface GasPriceEstimateActionsBoxProps extends FlexBoxProps {
-  timestamp?: number
   baseFee?: number
   baseFeeLabel?: string
   blockNumber?: number
   blockNumberLabel?: string
+  timestamp?: number
 }
 
 export const GasPriceHeaderActionsBox: React.FC<GasPriceEstimateActionsBoxProps> = ({
-  timestamp,
   baseFee,
   baseFeeLabel = 'Base Fee',
   blockNumber,
   blockNumberLabel = 'Block Number',
+  timestamp,
   ...props
 }) => {
   return (

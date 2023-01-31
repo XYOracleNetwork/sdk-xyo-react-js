@@ -7,8 +7,8 @@ export type XyoApiErrorCallback = (response: XyoApiResponse) => void
 export interface ApiState {
   api?: XyoArchivistApi
   currentToken?: string
-  successHistory?: XyoApiResponse[]
-  responseHistory?: XyoApiResponse[]
-  failureHistory?: XyoApiResponse[]
   errorHistory?: XyoApiError[]
+  failureHistory?: XyoApiResponse[]
+  responseHistory?: XyoApiResponse[]
+  successHistory?: XyoApiResponse[]
 }

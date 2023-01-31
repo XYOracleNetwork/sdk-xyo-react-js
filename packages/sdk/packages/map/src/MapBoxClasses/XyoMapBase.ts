@@ -7,8 +7,8 @@ import { GeoJSONSource, Map } from 'mapbox-gl'
 import { XyoMapLayer } from '../Layers'
 
 export interface XyoMapBaseConfig<T extends Geometry> {
-  map: Map
   features: Feature<T>[]
+  map: Map
   requestLocation?: boolean
   zoom?: number
 }

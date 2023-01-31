@@ -6,16 +6,16 @@ import { XyoMapLayer } from '../Layers'
 import { XyoMapboxFlexBoxProps } from '../lib'
 
 export interface LayerAnimatorProps {
-  map: Map | undefined
   animateLayers?: boolean
-  layersInitialized: boolean
   layers: XyoMapboxFlexBoxProps['layers']
+  layersInitialized: boolean
+  map: Map | undefined
 }
 
 const timeIncrement = 2000
 const animatedLayerCount = 3
 
-export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ children, animateLayers, layersInitialized, layers, map }) => {
+export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ animateLayers, children, layers, layersInitialized, map }) => {
   const [fillLayers, setFillLayers] = useState<XyoMapLayer[]>([])
   const layerIndexQueue = useRef<number[]>([])
 

@@ -33,8 +33,8 @@ const ValidatePayloadState = () => {
 }
 
 interface ValidatePayloadProviderPropsEx extends ValidatePayloadProviderProps {
-  xyoEmbedPluginContext: XyoEmbedPluginState
   resolvePayloadContext: ResolvePayloadState
+  xyoEmbedPluginContext: XyoEmbedPluginState
 }
 
 const Template: ComponentStory<React.FC<ValidatePayloadProviderPropsEx>> = (props) => {

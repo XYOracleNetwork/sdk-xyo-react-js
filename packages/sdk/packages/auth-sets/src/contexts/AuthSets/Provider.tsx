@@ -7,20 +7,20 @@ import { useAuthSetsMethods } from './hooks'
 import { AuthSetsState } from './State'
 
 export interface AuthSetsProviderProps extends WithChildren {
+  activeIssuer?: string
   defaultAuthSets?: AuthSetsState['authSets']
   defaultReAuthIssuer?: string
-  activeIssuer?: string
   issuerMapping?: Record<string, string>
   persist?: boolean
 }
 
 export const AuthSetsProvider: React.FC<AuthSetsProviderProps> = ({
+  activeIssuer,
+  children,
   defaultAuthSets = new Map(),
   defaultReAuthIssuer,
-  activeIssuer,
   issuerMapping,
   persist = true,
-  children,
 }) => {
   const { addAuthSet, removeAuthSet, authSets, activeAuthSet, onFailure } = useAuthSetsMethods({
     activeIssuer,

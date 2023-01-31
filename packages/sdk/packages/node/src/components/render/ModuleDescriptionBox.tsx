@@ -13,7 +13,7 @@ export interface ModuleDescriptionProps extends FlexBoxProps {
   moduleDescription?: ModuleDescription
 }
 export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ moduleDescription }) => {
-  const idRef = useRef<{ ids: string[]; idIncrementor: number }>({ idIncrementor: 0, ids: [] })
+  const idRef = useRef<{ idIncrementor: number; ids: string[] }>({ idIncrementor: 0, ids: [] })
 
   return (
     <>

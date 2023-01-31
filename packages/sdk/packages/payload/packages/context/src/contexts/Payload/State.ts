@@ -6,6 +6,6 @@ type PayloadFromHash = XyoPayload | null | undefined
 
 export interface PayloadContextState extends ContextExState {
   payload?: PayloadFromHash
-  setPayload?: Dispatch<SetStateAction<PayloadFromHash>>
   payloadError?: Error
+  setPayload?: Dispatch<SetStateAction<PayloadFromHash>>
 }

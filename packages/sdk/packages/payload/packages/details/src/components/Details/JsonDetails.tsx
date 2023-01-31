@@ -8,8 +8,8 @@ import { ReactJsonViewProps } from 'react-json-view'
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 export type PayloadJsonDetailsProps = PropertyGroupProps & {
-  payload?: XyoPayload
   jsonViewProps?: ReactJsonViewProps
+  payload?: XyoPayload
 }
 
 export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonViewProps, payload = {}, ...props }) => {

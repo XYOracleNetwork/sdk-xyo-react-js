@@ -8,12 +8,12 @@ import merge from 'lodash/merge'
 import { useMemo, useState } from 'react'
 
 export type RemoteArchivistProviderProps = ContextExProviderProps<{
+  api?: XyoArchivistApi
   config?: XyoRemoteArchivistConfig
   resolver?: SimpleModuleResolver
-  api?: XyoArchivistApi
 }>
 
-export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = ({ config: configProp, api, resolver, ...props }) => {
+export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = ({ api, config: configProp, resolver, ...props }) => {
   const [config, setConfig] = useDataState(configProp)
   const { archivist } = useArchivist()
 

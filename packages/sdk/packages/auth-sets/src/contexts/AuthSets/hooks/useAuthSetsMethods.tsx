@@ -26,8 +26,8 @@ const resolveInitialAuthSets = (defaultAuthSets?: AuthSetsState['authSets'], per
 }
 
 interface UseAuthSetsMethodsConfig {
-  defaultAuthSets?: AuthSetsState['authSets']
   activeIssuer?: string
+  defaultAuthSets?: AuthSetsState['authSets']
   persist?: boolean
 }
 

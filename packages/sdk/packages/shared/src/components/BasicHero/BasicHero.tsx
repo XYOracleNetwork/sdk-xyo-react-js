@@ -7,41 +7,41 @@ import { ReactElement } from 'react'
 import { useGradientStyles, useIsMobile } from '../../hooks'
 
 export interface BasicHeroProps extends FlexBoxProps {
-  title: string
-  gradientTitle?: string
-  title2?: string
-  desc: string
-  button1Text?: string
-  button2Text?: string
-  button1To?: string
-  button2To?: string
+  backgroundColor?: string
+  backgroundImage?: string
   button1Href?: string
+  button1Text?: string
+  button1To?: string
   button2Href?: string
+  button2Text?: string
+  button2To?: string
+  desc: string
+  gradientTitle?: string
+  heroImage?: string
+  subLinkIcon?: ReactElement
+  subLinkPath?: string
   subLinkText1?: string
   subLinkText2?: string
-  heroImage?: string
-  subLinkPath?: string
-  subLinkIcon?: ReactElement
-  backgroundColor?: string
-  textColor?: string
-  backgroundImage?: string
   sx?: Record<string, string>
+  textColor?: string
+  title: string
+  title2?: string
 }
 
 interface SubLinkSectionProps {
+  backgroundImageAlignment?: boolean
+  subLinkIcon?: ReactElement
+  subLinkPath?: string
   subLinkText1?: string
   subLinkText2?: string
-  subLinkPath?: string
-  subLinkIcon?: ReactElement
-  backgroundImageAlignment?: boolean
 }
 
 interface ButtonSectionProps {
+  buttonText?: string
   href?: string
   to?: string
-  buttonText?: string
 }
-const SubLinkSection: React.FC<SubLinkSectionProps> = ({ subLinkText1, subLinkText2, subLinkPath, subLinkIcon, backgroundImageAlignment }) => {
+const SubLinkSection: React.FC<SubLinkSectionProps> = ({ backgroundImageAlignment, subLinkIcon, subLinkPath, subLinkText1, subLinkText2 }) => {
   return (
     <FlexGrowRow
       width="100%"

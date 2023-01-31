@@ -80,8 +80,8 @@ interface TypographyWithComponentProps<Comp extends ElementType = ElementType> e
 }
 
 export interface EllipsizeBoxProps extends BoxProps {
-  typographyProps?: TypographyWithComponentProps
   ellipsisPosition?: 'start' | 'end'
+  typographyProps?: TypographyWithComponentProps
 }
 
 export const EllipsizeBoxInner: React.FC<WithChildren<EllipsizeBoxProps>> = forwardRef(

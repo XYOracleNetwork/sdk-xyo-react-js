@@ -10,22 +10,22 @@ import { TableRowNoData } from './TableRowNoData'
 import { PayloadTableBodyProps, PayloadTableFooterProps, PayloadTableHeadProps } from './types'
 
 export interface PayloadTableProps extends TableExProps {
-  exploreDomain?: string
-  archive?: string
-  onRowClick?: (value: XyoPayload) => void
-  rowsPerPage?: number
-  payloads?: XyoPayload[] | null
-  loading?: boolean
-  columns?: PayloadTableColumnConfig
-  PayloadTableHeadComponent?: ComponentType<PayloadTableHeadProps>
   PayloadTableBodyComponent?: ComponentType<PayloadTableBodyProps>
   PayloadTableFooterComponent?: ComponentType<PayloadTableFooterProps>
-  /** External trigger to fetch more payloads */
-  fetchMorePayloads?: () => void
-  /** set number of schema parts to display starting from the end */
-  maxSchemaDepth?: number
+  PayloadTableHeadComponent?: ComponentType<PayloadTableHeadProps>
+  archive?: string
+  columns?: PayloadTableColumnConfig
   /** Total number of payloads passed */
   count?: number
+  exploreDomain?: string
+  /** External trigger to fetch more payloads */
+  fetchMorePayloads?: () => void
+  loading?: boolean
+  /** set number of schema parts to display starting from the end */
+  maxSchemaDepth?: number
+  onRowClick?: (value: XyoPayload) => void
+  payloads?: XyoPayload[] | null
+  rowsPerPage?: number
 }
 
 export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProps>(

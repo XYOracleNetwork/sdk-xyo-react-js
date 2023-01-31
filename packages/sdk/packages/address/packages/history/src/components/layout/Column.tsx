@@ -4,8 +4,8 @@ import { WithChildren } from '@xylabs/react-shared'
 import { forwardRef, ReactNode } from 'react'
 
 export interface AddressHistoryColumnProps extends GridProps, WithChildren {
-  scrollableProps?: FlexBoxProps
   heading?: ReactNode
+  scrollableProps?: FlexBoxProps
 }
 
 const GridColumn = styled(Grid, { name: 'GridColumn' })(() => ({

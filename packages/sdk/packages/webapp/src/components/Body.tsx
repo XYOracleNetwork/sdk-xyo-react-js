@@ -66,8 +66,8 @@ const WebAppBodyScrollable = styled(FlexGrowCol, {
 export interface WebAppBodyProps extends FlexBoxProps {
   breadcrumbs?: ReactNode
   disableBreadcrumbGutter?: boolean
-  spacing?: string | number
   mobileScrollingBreakpoint?: Breakpoint
+  spacing?: string | number
   variant?: 'scrollable' | 'fixed'
 }
 

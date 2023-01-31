@@ -7,8 +7,8 @@ import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
 import { useNode } from './useNode'
 
 interface UseArchiveArchivists {
-  archivePayloadWrapper: ArchivistWrapper
   archiveBoundWitnessWrapper: ArchivistWrapper
+  archivePayloadWrapper: ArchivistWrapper
 }
 
 type HookParams = Parameters<typeof useArchiveArchivistsRaw>

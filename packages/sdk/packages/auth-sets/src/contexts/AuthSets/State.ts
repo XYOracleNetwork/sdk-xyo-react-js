@@ -8,9 +8,9 @@ type AuthSetIdentifier = string
 type AuthSetMap = Map<AuthSetIdentifier, AuthSet[]>
 
 export interface AuthSetsState extends ContextExState {
-  authSets?: AuthSetMap
   activeAuthSet?: AuthSet | null
-  removeAuthSet?: (issuer?: string) => boolean
-  reAuthIssuer?: string
+  authSets?: AuthSetMap
   onFailure: (statusCode?: number) => void
+  reAuthIssuer?: string
+  removeAuthSet?: (issuer?: string) => boolean
 }

@@ -8,8 +8,8 @@ export interface NestedBoundWitnesses {
 export interface HashSelectionHistoryState extends ContextExState {
   addSelection?: (boundwitness?: XyoBoundWitness) => Promise<XyoBoundWitness | null>
   clearHistory?: () => boolean
+  error?: XyoError
   fetchFromHash?: (hash?: string) => Promise<XyoBoundWitness | undefined | null>
   hashSelectionHistory?: string[]
   nestedBoundWitnesses?: NestedBoundWitnesses
-  error?: XyoError
 }

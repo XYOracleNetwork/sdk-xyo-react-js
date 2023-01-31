@@ -10,20 +10,20 @@ import { ReflectionViewer } from './ReflectionViewer'
 import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps'
 
 export interface ReflectionGroupViewerProps extends ReflectionViewerProps<ContainerReflection> {
+  autoscroll?: boolean
+  group: ReflectionGroup
   reflection: ContainerReflection
   renderer?: React.FC<ReflectionViewerProps>
-  group: ReflectionGroup
-  autoscroll?: boolean
 }
 
 export const ReflectionGroupViewer: React.FC<ReflectionGroupViewerProps> = ({
-  variant,
-  group,
-  children,
-  lookup,
   autoscroll = false,
-  renderer = ReflectionViewer,
+  children,
   hiddenFlags,
+  group,
+  lookup,
+  renderer = ReflectionViewer,
+  variant,
   ...props
 }) => {
   const hide = (flags?: ReflectionFlags, hiddenFlags: FlagFilter[] = []) => {

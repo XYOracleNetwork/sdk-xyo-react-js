@@ -2,8 +2,11 @@ export type PayloadTableColumnSlug = 'hash' | 'schema' | 'valid'
 
 export interface PayloadTableColumnConfig<T = PayloadTableColumnSlug> {
   xs?: T[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   sm?: T[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   md?: T[]
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   lg?: T[]
   xl?: T[]
 }

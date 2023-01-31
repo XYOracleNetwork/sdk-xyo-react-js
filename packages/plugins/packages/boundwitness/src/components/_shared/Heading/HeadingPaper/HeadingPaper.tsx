@@ -24,14 +24,14 @@ HeadingPaper.displayName = 'HeadingPaper'
 export { HeadingPaper }
 
 interface StyledHeadingPaperProps extends PaperProps {
-  hasAdornmentStart?: boolean
   hasAdornmentEnd?: boolean
+  hasAdornmentStart?: boolean
 }
 
 const StyledHeadingPaper = styled(Paper, {
   name: 'StyledHeadingPaper',
   shouldForwardProp: (prop) => !['hasAdornmentEnd', 'hasAdornmentStart', 'paperProps'].includes(prop as string),
-})<StyledHeadingPaperProps>(({ theme, hasAdornmentEnd, hasAdornmentStart }) => ({
+})<StyledHeadingPaperProps>(({ hasAdornmentEnd, hasAdornmentStart, theme }) => ({
   alignItems: 'center',
   columnGap: theme.spacing(2),
   display: 'flex',

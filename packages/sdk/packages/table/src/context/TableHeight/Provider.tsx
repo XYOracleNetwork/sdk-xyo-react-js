@@ -5,10 +5,10 @@ import { useEffect, useMemo, useState } from 'react'
 import { TableHeightContext } from './Context'
 
 export interface TableHeightProviderProps extends ContextExProviderProps, WithChildren {
-  defaultVisibleRows?: number
-  heightFormat?: string
   /** @field Account for optional header and footer rows */
   additionalRows?: number
+  defaultVisibleRows?: number
+  heightFormat?: string
 }
 
 export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({

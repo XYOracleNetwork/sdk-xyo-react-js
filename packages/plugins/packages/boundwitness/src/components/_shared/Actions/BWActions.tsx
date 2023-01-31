@@ -11,21 +11,21 @@ import { BWPreviousHashQuickTipButton } from './PreviousHash'
 import { BWVerification } from './Verification'
 
 export interface BWActionsProps extends FlexBoxProps {
+  additionalActions?: ReactNode
+  boundwitness?: XyoBoundWitness
   hideJSONButton?: boolean
-  hideValidation?: boolean
   hidePreviousHash?: boolean
   hideTimestamp?: boolean
-  boundwitness?: XyoBoundWitness
-  additionalActions?: ReactNode
+  hideValidation?: boolean
 }
 
 export const BWActions: React.FC<BWActionsProps> = ({
   additionalActions,
+  boundwitness,
   hideJSONButton,
   hideValidation,
   hidePreviousHash,
   hideTimestamp,
-  boundwitness,
   ...props
 }) => {
   const { hash } = boundwitness ? new PayloadWrapper(boundwitness) : { hash: '' }

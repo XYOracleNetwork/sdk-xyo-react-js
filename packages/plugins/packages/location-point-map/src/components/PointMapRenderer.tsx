@@ -15,11 +15,11 @@ import { useEffect, useState } from 'react'
 import { PointMapSettings } from './PointMapSettings'
 
 export interface PointMapInnerProps extends FlexBoxProps {
-  payload?: XyoPayload
   accessToken?: string
+  payload?: XyoPayload
 }
 
-const PointMapInner: React.FC<PointMapInnerProps> = ({ payload, accessToken, ...props }) => {
+const PointMapInner: React.FC<PointMapInnerProps> = ({ accessToken, payload, ...props }) => {
   const theme = useTheme()
   const [feature, setFeature] = useState<Feature<Point>>()
   const locationPayload = payload ? (payload as GeographicCoordinateSystemLocationPayload) : undefined

@@ -23,9 +23,9 @@ const SecondaryActions: React.FC<SecondaryActionsProps> = ({ active, onRemove, r
 
 export interface AuthSetListItemProps extends ListItemProps {
   account?: string
-  issuer?: string
-  identifier?: string
   active?: boolean
+  identifier?: string
+  issuer?: string
   onRemove?: () => boolean | undefined
   reAuth?: boolean
 }
