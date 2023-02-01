@@ -3,7 +3,6 @@ name: Build
 on:
   push:
     branches:
-      - develop
       - main
       - next
 
@@ -32,14 +31,8 @@ jobs:
       - name: install
         run: yarn install --network-timeout 1000000
 
-      - name: compile
-        run: yarn xy compile
-
-      - name: lint
-        run: yarn xy lint
-
-      - name: deps
-        run: yarn xy deps
+      - name: build
+        run: yarn xy build
 
       - name: cycle
         run: yarn xy cycle
