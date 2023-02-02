@@ -20,7 +20,8 @@ const BoundWitnessBottomNavigation = forwardRef<HTMLDivElement, BoundWitnessBott
       <StyledBottomNavigation
         showLabels
         value={activeTab}
-        onChange={(_event, newValue) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        onChange={(_event: any, newValue: any) => {
           setActiveTab?.(newValue)
         }}
         ref={ref}

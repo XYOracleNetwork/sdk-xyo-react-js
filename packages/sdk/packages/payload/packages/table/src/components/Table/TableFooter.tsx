@@ -29,7 +29,8 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
         }}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-        ActionsComponent={(props) => <TablePaginationActions enableNextPage={!!fetchMorePayloads} loading={loading} {...props} />}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ActionsComponent={(props: any) => <TablePaginationActions enableNextPage={!!fetchMorePayloads} loading={loading} {...props} />}
       />
     </TableRow>
   </TableFooterEx>
