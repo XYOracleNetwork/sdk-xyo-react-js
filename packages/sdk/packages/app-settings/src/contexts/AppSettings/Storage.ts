@@ -39,4 +39,8 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
   set navigationType(value: WebAppNavigationType) {
     this.setString(AppSettingSlug.NavigationType, value)
   }
+
+  set seedPhrase(value: string) {
+    this.setString(AppSettingSlug.SeedPhrase, value)
+  }
 }

@@ -19,6 +19,7 @@ export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps
   const [darkMode, setDarkMode] = useState(storage.darkMode)
   const [navigationType, setNavigationType] = useState(storage.navigationType)
   const [navigationCollapsed, setNavigationCollapsed] = useState(storage.navigationCollapsed)
+  const [seedPhrase, setSeedPhrase] = useState(storage.seedPhrase)
 
   const enableDeveloperMode = (value: boolean) => {
     storage.developerMode = value
@@ -40,17 +41,24 @@ export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps
     setNavigationCollapsed(value)
   }
 
+  const changeSeedPhrase = (value: string) => {
+    storage.seedPhrase = value
+    setSeedPhrase(value)
+  }
+
   return (
     <AppSettingsContext.Provider
       value={{
         changeNavigationCollapsed,
         changeNavigationType,
+        changeSeedPhrase,
         darkMode,
         developerMode,
         enableDarkMode,
         enableDeveloperMode,
         navigationCollapsed,
         navigationType,
+        seedPhrase,
 
         ...value,
       }}

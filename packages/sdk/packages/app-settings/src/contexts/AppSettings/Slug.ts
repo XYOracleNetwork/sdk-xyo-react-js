@@ -1,6 +1,7 @@
 export enum AppSettingSlug {
   DarkMode = 'darkmode',
   Developer = 'developer',
-  NavigationType = 'navgiationType',
+  NavigationType = 'navigationType',
   NavigationCollapsed = 'navigationCollapsed',
+  SeedPhrase = 'seedPhrase',
 }
