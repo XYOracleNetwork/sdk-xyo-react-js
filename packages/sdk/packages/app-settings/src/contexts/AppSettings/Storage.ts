@@ -40,6 +40,10 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
     this.setString(AppSettingSlug.NavigationType, value)
   }
 
+  get seedPhrase() {
+    return this.getString(AppSettingSlug.SeedPhrase)
+  }
+
   set seedPhrase(value: string) {
     this.setString(AppSettingSlug.SeedPhrase, value)
   }
