@@ -6019,7 +6019,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/eslint-config@npm:2.12.30, @xylabs/eslint-config@npm:^2.12.30":
+"@xylabs/eslint-config@npm:2.12.32":
+  version: 2.12.32
+  resolution: "@xylabs/eslint-config@npm:2.12.32"
+  dependencies:
+    "@babel/core": ^7.20.12
+    "@babel/eslint-parser": ^7.19.1
+    "@typescript-eslint/eslint-plugin": ^5.50.0
+    "@typescript-eslint/parser": ^5.50.0
+    eslint-config-prettier: ^8.6.0
+    eslint-import-resolver-typescript: ^3.5.3
+    eslint-plugin-deprecation: ^1.3.3
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-json-es: ^1.5.7
+    eslint-plugin-md: ^1.0.19
+    eslint-plugin-no-secrets: ^0.8.9
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-simple-import-sort: ^10.0.0
+    eslint-plugin-sort-keys-fix: ^1.1.2
+    eslint-plugin-workspaces: ^0.7.0
+    markdown-eslint-parser: ^1.2.1
+    prettier: ^2.8.3
+    remark-lint-maximum-line-length: ^3.1.2
+    remark-preset-lint-markdown-style-guide: ^5.1.2
+    typescript: ^4.9.5
+  peerDependencies:
+    eslint: ^8.23.0
+  checksum: a0fcb70418cc8b6ada61e5fe27d3669037a35080e58f7ba622dbf2a103aa0d634c32dc661da688860bd0c1019ed39843fac4deec0636990d014153e67749f4a2
+  languageName: node
+  linkType: hard
+
+"@xylabs/eslint-config@npm:^2.12.30":
   version: 2.12.30
   resolution: "@xylabs/eslint-config@npm:2.12.30"
   dependencies:
@@ -8994,7 +9024,7 @@ __metadata:
     "@storybook/testing-library": ^0.0.13
     "@storybook/theming": ^6.5.16
     "@xylabs/assert": ^2.6.16
-    "@xylabs/eslint-config": 2.12.30
+    "@xylabs/eslint-config": 2.12.32
     "@xylabs/eslint-config-react": 2.12.30
     "@xylabs/pixel": ^1.4.11
     "@xylabs/react-button": ^2.15.15
