@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   core: {
     builder: 'webpack5',
@@ -13,7 +11,7 @@ module.exports = {
     "@storybook/addon-interactions",
     "storybook-dark-mode"
   ],
-  features: { modernInlineRendering: true },
+  features: { modernInlineRender: true },
   typescript: {
     check: true,
   }
