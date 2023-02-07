@@ -40,7 +40,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({ acco
       const panel = await XyoPanel.create({
         account,
         config: {
-          archivists: [archivistWrapper?.address],
+          archivists: archivistWrapper ? [archivistWrapper?.address] : undefined,
           onReportEnd: (_, errors?: Error[]) => {
             if (mounted()) {
               setProgress({
