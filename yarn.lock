@@ -5947,6 +5947,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/eslint-config@npm:^2.13.10":
+  version: 2.13.10
+  resolution: "@xylabs/eslint-config@npm:2.13.10"
+  dependencies:
+    "@babel/core": ^7.20.12
+    "@babel/eslint-parser": ^7.19.1
+    "@typescript-eslint/eslint-plugin": ^5.51.0
+    "@typescript-eslint/parser": ^5.51.0
+    eslint-config-prettier: ^8.6.0
+    eslint-import-resolver-typescript: ^3.5.3
+    eslint-plugin-deprecation: ^1.3.3
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-json-es: ^1.5.7
+    eslint-plugin-md: ^1.0.19
+    eslint-plugin-no-secrets: ^0.8.9
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-simple-import-sort: ^10.0.0
+    eslint-plugin-sort-keys-fix: ^1.1.2
+    eslint-plugin-workspaces: ^0.7.0
+    markdown-eslint-parser: ^1.2.1
+    prettier: ^2.8.3
+    remark-lint-maximum-line-length: ^3.1.2
+    remark-preset-lint-markdown-style-guide: ^5.1.2
+    typescript: ^4.9.5
+  peerDependencies:
+    eslint: ^8.23.0
+  checksum: 520d6cf9ae92ee8a2a4249c5080b015dc0f1b2eb33f2b90f394436f2e694987194b8639b792aab91cf6037ff67adda84d4ad5126509b8bbf97f935d6ff9f5218
+  languageName: node
+  linkType: hard
+
 "@xylabs/eslint-config@npm:^2.13.9":
   version: 2.13.9
   resolution: "@xylabs/eslint-config@npm:2.13.9"
@@ -6287,15 +6317,15 @@ __metadata:
   linkType: hard
 
 "@xylabs/ts-scripts-yarn3@npm:^2.13.9":
-  version: 2.13.9
-  resolution: "@xylabs/ts-scripts-yarn3@npm:2.13.9"
+  version: 2.13.10
+  resolution: "@xylabs/ts-scripts-yarn3@npm:2.13.10"
   dependencies:
     "@babel/core": ^7.20.12
     "@babel/preset-env": ^7.20.2
     "@types/jest": ^29.4.0
     "@types/node": ^18.13.0
-    "@xylabs/eslint-config": ^2.13.9
-    "@xylabs/tsconfig": ^2.13.9
+    "@xylabs/eslint-config": ^2.13.10
+    "@xylabs/tsconfig": ^2.13.10
     chalk: ^4.1.2
     cpy: ^8.1.2
     depcheck: ^1.4.3
@@ -6367,7 +6397,7 @@ __metadata:
     xy: dist/cjs/bin/xy.js
     xy-ts: src/bin/xy-ts.ts
     yarn3only: dist/cjs/bin/yarn3only.js
-  checksum: 3305481c67b2ed9fca0529f43f0445d98819ae0bc65a9caaf255fa1ae3eb3d3e08e3922affd346ac5cb3548b8b6080dd41fb5d79b19b5946d91c36b3852c435f
+  checksum: 1f03f487fd40c150d92b2cb52f148f1c28b1c354732695954f1e4a97b8b639faf5f99a6ea7ab354cace4408e5db012e82a98d0f1dccea5a064d139e1eda8d697
   languageName: node
   linkType: hard
 
@@ -6389,6 +6419,15 @@ __metadata:
   peerDependencies:
     typescript: ^4
   checksum: f7c49d239ccd1034fc44f1c206357988ff20b8bf2c0f1d80b06406814c4645c5643ce1102202031dffb3eaf187b9bc34129a80a9b8f7afd1499c9d9d6322faaa
+  languageName: node
+  linkType: hard
+
+"@xylabs/tsconfig@npm:^2.13.10":
+  version: 2.13.10
+  resolution: "@xylabs/tsconfig@npm:2.13.10"
+  dependencies:
+    typescript: ^4.9.5
+  checksum: 1e4f1e65e9ce7497804d46a2fd64d4edcd3f91565908a64fed1b050ace9c0d4b4ac213405715b0210644e1953f8f0d35216199803b12eeea2e2ca0ece9cbfeb2
   languageName: node
   linkType: hard
 
@@ -8236,13 +8275,12 @@ __metadata:
     "@xylabs/react-shared": ^2.15.17
     "@xylabs/ts-scripts-yarn3": ^2.13.9
     "@xylabs/tsconfig-react": ^2.13.9
+    "@xyo-network/account": ^2.43.27
     "@xyo-network/archivist": ^2.43.27
     "@xyo-network/boundwitness-model": ^2.43.27
     "@xyo-network/module": ^2.43.27
     "@xyo-network/panel": ^2.43.27
-    "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/witness": ^2.43.27
     typescript: ^4.9.5
   peerDependencies:

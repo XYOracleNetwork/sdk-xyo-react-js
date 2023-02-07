@@ -1,11 +1,10 @@
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { Account } from '@xyo-network/account'
 import { ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { SimpleModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
-import { useArchivist } from '@xyo-network/react-archivist'
-import { useAccount } from '@xyo-network/react-wallet'
 import { WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -13,6 +12,8 @@ import { PanelContext } from './Context'
 import { PanelReportProgress, ReportStatus } from './State'
 
 export interface PanelProviderProps {
+  /** Account used by the panel for signing */
+  account?: Account
   /** @deprecated - panel no longer uses archive but relies on an archivist */
   archive?: string
   archivist?: PayloadArchivist
@@ -20,20 +21,12 @@ export interface PanelProviderProps {
   witnesses?: WitnessWrapper[]
 }
 
-export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
-  archivist: archivistProp,
-  children,
-  witnesses = [],
-  required = false,
-}) => {
-  const { archivist } = useArchivist()
+export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({ account, archivist, children, witnesses = [], required = false }) => {
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
   const [progress, setProgress] = useState<PanelReportProgress>({})
   const [status, setStatus] = useState(ReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
-
-  const { account } = useAccount()
 
   const resolver = useMemo(() => {
     const resolver = new SimpleModuleResolver().add(witnesses)
@@ -43,60 +36,58 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const activeArchivist: PayloadArchivist | undefined = archivistProp ?? archivist
-      const archivistWrapper = activeArchivist ? new ArchivistWrapper(activeArchivist) : undefined
-      const panel = archivistWrapper
-        ? await XyoPanel.create({
-            config: {
-              archivists: [archivistWrapper.address],
-              onReportEnd: (_, errors?: Error[]) => {
-                if (mounted()) {
-                  setProgress({
-                    archivists: progress.archivists,
-                    witnesses: progress.witnesses,
-                  })
-                  setStatus(errors ? ReportStatus.Failed : ReportStatus.Succeeded)
-                  setReportingErrors(errors)
-                }
-              },
-              onReportStart: () => {
-                if (mounted()) {
-                  setProgress({ archivists: {}, witnesses: {} })
-                  setStatus(ReportStatus.Started)
-                }
-              },
-              onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
-                const witnesses = progress.witnesses ?? {}
-                witnesses[witness.address] = {
-                  status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
-                  witness,
-                }
-                if (mounted()) {
-                  setProgress({
-                    archivists: progress.archivists,
-                    witnesses,
-                  })
-                }
-              },
-              onWitnessReportStart: (witness: WitnessWrapper) => {
-                const witnesses = progress.witnesses ?? {}
-                witnesses[witness.address] = {
-                  status: ReportStatus.Started,
-                  witness,
-                }
-                if (mounted()) {
-                  setProgress({
-                    archivists: progress.archivists,
-                    witnesses,
-                  })
-                }
-              },
-              schema: XyoPanelConfigSchema,
-              witnesses: witnesses.map((witness) => witness.address),
-            } as XyoPanelConfig,
-            resolver,
-          })
-        : undefined
+      const archivistWrapper = archivist ? new ArchivistWrapper(archivist) : undefined
+      const panel = await XyoPanel.create({
+        account,
+        config: {
+          archivists: [archivistWrapper?.address],
+          onReportEnd: (_, errors?: Error[]) => {
+            if (mounted()) {
+              setProgress({
+                archivists: progress.archivists,
+                witnesses: progress.witnesses,
+              })
+              setStatus(errors ? ReportStatus.Failed : ReportStatus.Succeeded)
+              setReportingErrors(errors)
+            }
+          },
+          onReportStart: () => {
+            if (mounted()) {
+              setProgress({ archivists: {}, witnesses: {} })
+              setStatus(ReportStatus.Started)
+            }
+          },
+          onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
+            const witnesses = progress.witnesses ?? {}
+            witnesses[witness.address] = {
+              status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
+              witness,
+            }
+            if (mounted()) {
+              setProgress({
+                archivists: progress.archivists,
+                witnesses,
+              })
+            }
+          },
+          onWitnessReportStart: (witness: WitnessWrapper) => {
+            const witnesses = progress.witnesses ?? {}
+            witnesses[witness.address] = {
+              status: ReportStatus.Started,
+              witness,
+            }
+            if (mounted()) {
+              setProgress({
+                archivists: progress.archivists,
+                witnesses,
+              })
+            }
+          },
+          schema: XyoPanelConfigSchema,
+          witnesses: witnesses.map((witness) => witness.address),
+        } as XyoPanelConfig,
+        resolver,
+      })
       setPanel(panel)
       await delay(0)
     },
