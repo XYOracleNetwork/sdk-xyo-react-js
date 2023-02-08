@@ -14,5 +14,14 @@ module.exports = {
   features: { modernInlineRender: true },
   typescript: {
     check: true,
+  },
+  // Can be removed when upgrading to 7.0
+  // see - https://github.com/storybookjs/storybook/issues/17458
+  webpackFinal: (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      assert: require.resolve('browser-assert')
+    }
+    return config
   }
 }
