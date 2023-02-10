@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { XyoPayload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
