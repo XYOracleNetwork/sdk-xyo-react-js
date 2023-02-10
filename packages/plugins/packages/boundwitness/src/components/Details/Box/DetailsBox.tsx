@@ -1,10 +1,10 @@
 import { Divider } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
-import { forwardRef } from 'react'
+import { forwardRef, useMemo } from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
@@ -31,6 +31,11 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetails
   const boundwitness = payload as XyoBoundWitness
   const { hash } = payload ? new PayloadWrapper(payload) : { hash: '' }
 
+  const hasBWPayloads = useMemo(
+    () => (boundwitness ? boundwitness.payload_schemas.some((schema) => schema === XyoBoundWitnessSchema) : false),
+    [boundwitness],
+  )
+
   return (
     <FlexCol alignItems="stretch" rowGap={4} ref={ref} {...props}>
       <HashHeadingPaper
@@ -46,10 +51,12 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetails
         <HeadingPaper IconComponent={<VscSymbolNamespace />} heading={'Payloads'} />
         <BoundWitnessPayloadsTable boundwitness={boundwitness} />
       </FlexCol>
-      <FlexCol alignItems="stretch" rowGap={1} mb={1}>
-        <HeadingPaper IconComponent={<VscSymbolMethod />} heading={'Bound Witnesses'} />
-        <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} />
-      </FlexCol>
+      {hasBWPayloads ? (
+        <FlexCol alignItems="stretch" rowGap={1} mb={1}>
+          <HeadingPaper IconComponent={<VscSymbolMethod />} heading={'Bound Witnesses'} />
+          <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} />
+        </FlexCol>
+      ) : null}
       <FlexCol alignItems="stretch" rowGap={1} mb={1}>
         <HeadingPaper IconComponent={<FaSignature />} heading={'Signatures'} />
         <BoundWitnessSignatureTable block={boundwitness} />
