@@ -20,7 +20,7 @@ export const BWVerification: React.FC<BWVerification> = ({ boundwitness }) => {
   const errors = validator?.validate() ?? []
 
   return (
-    <QuickTipButton Icon={errors.length ? InvalidIcon : CheckCircleOutlineRoundedIcon} hoverText={errors.length ? 'Invalid Hash' : 'Valid Hash'}>
+    <QuickTipButton Icon={errors.length ? InvalidIcon : CheckCircleOutlineRoundedIcon} hoverText={errors.length ? 'Invalid Bound Witness' : 'Valid'}>
       {errors.length > 0 ? (
         <FlexCol flexWrap="wrap" alignItems="start">
           {errors.map((error, index) => {
