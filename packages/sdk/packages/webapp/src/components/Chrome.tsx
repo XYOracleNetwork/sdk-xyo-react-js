@@ -44,7 +44,13 @@ export const WebAppChrome: React.FC<WebAppChromeProps> = ({
           </>
         ) : null}
         <FlexGrowCol id="main-flex" justifyContent="flex-start" alignItems="stretch">
-          <ErrorBoundary fallback={errorPage ?? <WebAppErrorPage />}>{children}</ErrorBoundary>
+          <ErrorBoundary
+            fallbackWithError={(error) => {
+              return errorPage ?? <WebAppErrorPage error={error} />
+            }}
+          >
+            {children}
+          </ErrorBoundary>
         </FlexGrowCol>
       </FlexGrowRow>
       <FlexCol id="footer-flex" alignItems="stretch">
