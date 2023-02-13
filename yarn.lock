@@ -5954,6 +5954,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/eslint-config@npm:^2.14.11":
+  version: 2.14.11
+  resolution: "@xylabs/eslint-config@npm:2.14.11"
+  dependencies:
+    "@babel/core": ^7.20.12
+    "@babel/eslint-parser": ^7.19.1
+    "@typescript-eslint/eslint-plugin": ^5.51.0
+    "@typescript-eslint/parser": ^5.51.0
+    eslint-config-prettier: ^8.6.0
+    eslint-import-resolver-typescript: ^3.5.3
+    eslint-plugin-deprecation: ^1.3.3
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-json-es: ^1.5.7
+    eslint-plugin-md: ^1.0.19
+    eslint-plugin-no-secrets: ^0.8.9
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-simple-import-sort: ^10.0.0
+    eslint-plugin-sort-keys-fix: ^1.1.2
+    eslint-plugin-workspaces: ^0.7.0
+    markdown-eslint-parser: ^1.2.1
+    prettier: ^2.8.4
+    remark-lint-maximum-line-length: ^3.1.2
+    remark-preset-lint-markdown-style-guide: ^5.1.2
+    typescript: ^4.9.5
+  peerDependencies:
+    eslint: ^8.23.0
+  checksum: 322719772d5ce200eb6e74742f40e05d79c61514ae32b8f24b2f87204747ebce65c558e88bcba985df3989d30da47adad835cb2a5b4a005dd01305634cfd28a1
+  languageName: node
+  linkType: hard
+
 "@xylabs/eslint-config@npm:^2.14.2":
   version: 2.14.2
   resolution: "@xylabs/eslint-config@npm:2.14.2"
@@ -6337,18 +6367,18 @@ __metadata:
   linkType: hard
 
 "@xylabs/ts-scripts-yarn3@npm:^2.14.2":
-  version: 2.14.2
-  resolution: "@xylabs/ts-scripts-yarn3@npm:2.14.2"
+  version: 2.14.11
+  resolution: "@xylabs/ts-scripts-yarn3@npm:2.14.11"
   dependencies:
     "@babel/core": ^7.20.12
     "@babel/preset-env": ^7.20.2
     "@types/node": ~18.13.0
-    "@xylabs/eslint-config": ^2.14.2
-    "@xylabs/tsconfig": ^2.14.2
+    "@xylabs/eslint-config": ^2.14.11
+    "@xylabs/tsconfig": ^2.14.11
     chalk: ^4.1.2
     cpy: ^8.1.2
     depcheck: ^1.4.3
-    eslint: ^8.33.0
+    eslint: ^8.34.0
     eslint-config-prettier: ^8.6.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-sonarjs: ^0.18.0
@@ -6360,12 +6390,13 @@ __metadata:
     license-checker: ^25.0.1
     lodash: ^4.17.21
     node-cmd: ^5.0.0
-    npm-check-updates: ^16.7.2
+    npm-check-updates: ^16.7.4
     npm-package-json-lint: ^6.4.0
     npm-package-json-lint-config-default: ^5.0.0
     parse-git-config: ^3.0.0
     prettier: ^2.8.4
     reflect-metadata: ^0.1.13
+    rimraf: ^4.1.2
     supertest: ^6.3.3
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
@@ -6399,8 +6430,13 @@ __metadata:
     package-compile: dist/cjs/bin/package/compile.js
     package-compile-cjs: dist/cjs/bin/package/compile-cjs.js
     package-compile-esm: dist/cjs/bin/package/compile-esm.js
+    package-copy-assets-cjs: dist/cjs/bin/package/copy-assets-cjs.js
+    package-copy-assets-esm: dist/cjs/bin/package/copy-assets-esm.js
     package-deps: dist/cjs/bin/package/deps.js
     package-gen-docs: dist/cjs/bin/package/gen-docs.js
+    package-tsconfig-gen: dist/cjs/bin/package/tsconfig-gen.js
+    package-tsconfig-gen-cjs: dist/cjs/bin/package/tsconfig-gen-cjs.js
+    package-tsconfig-gen-esm: dist/cjs/bin/package/tsconfig-gen-esm.js
     rebuild: dist/cjs/bin/rebuild.js
     reinstall: dist/cjs/bin/reinstall.js
     relint: dist/cjs/bin/relint.js
@@ -6418,7 +6454,7 @@ __metadata:
     xy: dist/cjs/bin/xy.js
     xy-ts: src/bin/xy-ts.ts
     yarn3only: dist/cjs/bin/yarn3only.js
-  checksum: 450be8670ff53d11541ffadf573cf93f5224dfdbee058408ff843724f85003cfcf71d135816d863bd084afc1ca46e0f660c1975f8c7f348533c13ba8cf6ff10d
+  checksum: df3b2722269c13e1f3e9fc8947729c09cc953069ce4d4db282f6ccb11adec88ea15921c22984a02baa044ce8e667b53fa83199c3e6b91c195892cb6276284e22
   languageName: node
   linkType: hard
 
@@ -6439,6 +6475,13 @@ __metadata:
   peerDependencies:
     typescript: ^4
   checksum: f07c6564dd72107b6deed6501f233f36701fbfd18a092a0304ac54bf8e735fd160ac7bc85a5ac671cc23e8b21c36791715263bf58156d32aaae600dcd0f89f65
+  languageName: node
+  linkType: hard
+
+"@xylabs/tsconfig@npm:^2.14.11":
+  version: 2.14.11
+  resolution: "@xylabs/tsconfig@npm:2.14.11"
+  checksum: 4682ff8cb7ceeda2a8856fa055f73892b4d87137339895d2fea9cff898a8cdfb2eab0fb9fe9ace96e795d3f8f28452d18efe3692708c82e3555264fe2a1e6ab5
   languageName: node
   linkType: hard
 
@@ -13125,6 +13168,55 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint@npm:^8.34.0":
+  version: 8.34.0
+  resolution: "eslint@npm:8.34.0"
+  dependencies:
+    "@eslint/eslintrc": ^1.4.1
+    "@humanwhocodes/config-array": ^0.11.8
+    "@humanwhocodes/module-importer": ^1.0.1
+    "@nodelib/fs.walk": ^1.2.8
+    ajv: ^6.10.0
+    chalk: ^4.0.0
+    cross-spawn: ^7.0.2
+    debug: ^4.3.2
+    doctrine: ^3.0.0
+    escape-string-regexp: ^4.0.0
+    eslint-scope: ^7.1.1
+    eslint-utils: ^3.0.0
+    eslint-visitor-keys: ^3.3.0
+    espree: ^9.4.0
+    esquery: ^1.4.0
+    esutils: ^2.0.2
+    fast-deep-equal: ^3.1.3
+    file-entry-cache: ^6.0.1
+    find-up: ^5.0.0
+    glob-parent: ^6.0.2
+    globals: ^13.19.0
+    grapheme-splitter: ^1.0.4
+    ignore: ^5.2.0
+    import-fresh: ^3.0.0
+    imurmurhash: ^0.1.4
+    is-glob: ^4.0.0
+    is-path-inside: ^3.0.3
+    js-sdsl: ^4.1.4
+    js-yaml: ^4.1.0
+    json-stable-stringify-without-jsonify: ^1.0.1
+    levn: ^0.4.1
+    lodash.merge: ^4.6.2
+    minimatch: ^3.1.2
+    natural-compare: ^1.4.0
+    optionator: ^0.9.1
+    regexpp: ^3.2.0
+    strip-ansi: ^6.0.1
+    strip-json-comments: ^3.1.0
+    text-table: ^0.2.0
+  bin:
+    eslint: bin/eslint.js
+  checksum: 4e13e9eb05ac2248efbb6acae0b2325091235d5c47ba91a4775c7d6760778cbcd358a773ebd42f4629d2ad89e27c02f5d66eb1f737d75d9f5fc411454f83b2e5
+  languageName: node
+  linkType: hard
+
 "espree@npm:^6.1.2":
   version: 6.2.1
   resolution: "espree@npm:6.2.1"
@@ -18965,9 +19057,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^16.7.2":
-  version: 16.7.2
-  resolution: "npm-check-updates@npm:16.7.2"
+"npm-check-updates@npm:^16.7.4":
+  version: 16.7.4
+  resolution: "npm-check-updates@npm:16.7.4"
   dependencies:
     chalk: ^5.2.0
     cli-table: ^0.3.11
@@ -18995,13 +19087,14 @@ __metadata:
     semver-utils: ^1.1.4
     source-map-support: ^0.5.21
     spawn-please: ^2.0.1
+    strip-json-comments: ^5.0.0
     untildify: ^4.0.0
     update-notifier: ^6.0.2
     yaml: ^2.2.1
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: 1ee84aebe6625e5099d33f103a1ce9ccb20c3f3840a98f4ac934f1c28fb565d37a8e13dfa131792920f75ee20b69f414b6805b62a684ab4c2ca5c461dea9c504
+  checksum: 5df8872f74f1ef1bcf543241051988aa39e71969dd9b88cb9044a79384e9e9cf17066c4b2c4321684d35deea862409b8d75e525ca934be389a3e3e526386f4cf
   languageName: node
   linkType: hard
 
@@ -24041,6 +24134,13 @@ __metadata:
   version: 3.1.1
   resolution: "strip-json-comments@npm:3.1.1"
   checksum: 492f73e27268f9b1c122733f28ecb0e7e8d8a531a6662efbd08e22cccb3f9475e90a1b82cab06a392f6afae6d2de636f977e231296400d0ec5304ba70f166443
+  languageName: node
+  linkType: hard
+
+"strip-json-comments@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "strip-json-comments@npm:5.0.0"
+  checksum: 99cad07ccc3b86cc7bb8a9274a801b0660cbd595189ad291f6e206b8d7b23d90eed3119cdae44e126d9563796024b3ef0e7de2eeee4634b3b9019bafb62803e7
   languageName: node
   linkType: hard
 
