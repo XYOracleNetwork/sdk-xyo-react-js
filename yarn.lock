@@ -6079,16 +6079,16 @@ __metadata:
   linkType: hard
 
 "@xylabs/react-button@npm:^2.16.7":
-  version: 2.16.7
-  resolution: "@xylabs/react-button@npm:2.16.7"
+  version: 2.16.8
+  resolution: "@xylabs/react-button@npm:2.16.8"
   dependencies:
-    "@xylabs/react-shared": ^2.16.7
+    "@xylabs/react-shared": ^2.16.8
   peerDependencies:
-    "@mui/material": ^5.11.7
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-router-dom: ^6.8.0
-  checksum: 5a154f37bdc21cb6ca9aa2ca04e692236167006a8184ea6b63d5e2878b4d521f56dfa73ed4eecdfe74526b28ad362110e847e5381c45f5c37037a4a383b0a63f
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+    react-router-dom: ^6
+  checksum: 6177d699ab06b681c286f14f13fd1b67a6ead5dddd5d1047ada2a48f941c1c84d7f7fccaeebc574015ecb9f944752a3d0b8281488d65db4ec56952daf4fdb9f1
   languageName: node
   linkType: hard
 
@@ -6333,6 +6333,20 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
   checksum: 91b9237e30f5ad0689e43fe352798e3a4a1865f09a568ca9f34dfdaf5cba34b21a2aed6ffe5d21ffa1a0181a3e353e3816c0d07e9aad885e1ea7ebb26d25cf2c
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-shared@npm:^2.16.8":
+  version: 2.16.8
+  resolution: "@xylabs/react-shared@npm:2.16.8"
+  dependencies:
+    "@xylabs/api": ^2.7.1
+    "@xylabs/log": ^2.7.1
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: 93ef7f323dced6902f4aac5d18f7470ba20f134fbb896ca5835a3947911a09a4d3d2fcc4bdfb3274c0a7bfacee1832a368931a67f5367a7fffe7167852bd759e
   languageName: node
   linkType: hard
 
