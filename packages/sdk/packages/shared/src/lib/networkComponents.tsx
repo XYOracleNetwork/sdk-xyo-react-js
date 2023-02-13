@@ -5,7 +5,9 @@ import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded'
 import { SvgIconProps } from '@mui/material'
 import { ReactElement } from 'react'
 
-export type NetworkComponentSlug = 'sentinel' | 'bridge' | 'archivist' | 'diviner'
+import { XyoLogo } from './xyo'
+
+export type NetworkComponentSlug = 'sentinel' | 'bridge' | 'archivist' | 'diviner' | 'node'
 
 export interface NetworkComponentDetails {
   icon: (props?: SvgIconProps) => ReactElement
@@ -18,6 +20,7 @@ export const networkComponents: NetworkComponentDetails[] = [
   { icon: (props) => <CloudRoundedIcon {...props} />, name: 'Bridge', slug: 'bridge' },
   { icon: (props) => <GridViewRoundedIcon {...props} />, name: 'Archivist', slug: 'archivist' },
   { icon: (props) => <VisibilityRoundedIcon {...props} />, name: 'Diviner', slug: 'diviner' },
+  { icon: (props) => <XyoLogo {...props} />, name: 'Node', slug: 'node' },
 ]
 
 export const findNetworkComponentIndex = (slug: string) => {
