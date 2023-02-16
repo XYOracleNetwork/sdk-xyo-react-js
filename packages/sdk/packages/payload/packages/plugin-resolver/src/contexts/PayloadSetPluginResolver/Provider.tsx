@@ -1,6 +1,6 @@
 import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { PayloadSetPluginResolverContext } from './Context'
 
@@ -14,6 +14,10 @@ export const PayloadSetPluginResolverProvider: React.FC<PayloadSetPluginResolver
   children,
 }) => {
   const [resolver, setResolver] = useState<PayloadSetPluginResolver>(resolverProp)
+
+  useEffect(() => {
+    setResolver(resolverProp)
+  }, [resolverProp])
 
   return (
     <PayloadSetPluginResolverContext.Provider
