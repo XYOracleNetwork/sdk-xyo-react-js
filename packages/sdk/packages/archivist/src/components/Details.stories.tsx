@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { PayloadArchivist } from '@xyo-network/archivist'
+import { AbstractArchivist } from '@xyo-network/archivist'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
@@ -26,13 +26,13 @@ const TemplateInner: ComponentStory<typeof ArchivistDetails> = (args) => {
 
 const TemplateInnerWithData: ComponentStory<typeof ArchivistDetails> = (args) => {
   const { archivist } = useArchivist()
-  const [archivistWithData, setArchivistWithData] = useState<PayloadArchivist>()
+  const [archivistWithData, setArchivistWithData] = useState<AbstractArchivist>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (archivist) {
-        await archivist.insert([{ schema: 'netowrk.xyo.test' }])
+        await archivist.insert([{ schema: 'network.xyo.test' }])
         if (mounted()) {
           setArchivistWithData(archivist)
         }

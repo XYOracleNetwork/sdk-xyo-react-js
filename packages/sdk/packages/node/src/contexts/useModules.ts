@@ -12,7 +12,7 @@ export const useModules = (filter?: ModuleFilter, refresher?: unknown) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const modules = await node?.tryResolve(filter)
+      const modules = await node?.resolve(filter)
       if (mounted()) {
         setModules(modules)
       }

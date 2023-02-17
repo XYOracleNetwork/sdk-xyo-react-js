@@ -1,6 +1,6 @@
 import { Card, CardProps } from '@mui/material'
 
-import { ModuleRenderProps } from '../ModuleRenderProps'
+import { ModuleRenderProps } from '../../../ModuleRenderProps'
 import { ModuleCardActions } from './CardActions'
 import { ModuleCardContent } from './CardContent'
 import { ModuleCardHeader } from './CardHeader'

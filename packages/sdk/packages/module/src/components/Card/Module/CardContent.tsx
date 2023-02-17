@@ -5,7 +5,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { AbstractModuleConfig, ModuleWrapper } from '@xyo-network/module'
 import { useState } from 'react'
 
-import { ModuleRenderProps } from '../ModuleRenderProps'
+import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
 export const ModuleCardContent: React.FC<ModuleRenderProps & CardContentProps> = ({ children, module, ...props }) => {
   const [config, setConfig] = useState<AbstractModuleConfig>()

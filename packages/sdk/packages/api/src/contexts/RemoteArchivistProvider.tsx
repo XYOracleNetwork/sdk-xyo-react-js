@@ -1,7 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistApi, XyoRemoteArchivist, XyoRemoteArchivistConfig } from '@xyo-network/api'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
-import { SimpleModuleResolver } from '@xyo-network/module'
+import { CompositeModuleResolver } from '@xyo-network/module'
 import { ArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
@@ -10,7 +10,7 @@ import { useMemo, useState } from 'react'
 export type RemoteArchivistProviderProps = ContextExProviderProps<{
   api?: XyoArchivistApi
   config?: XyoRemoteArchivistConfig
-  resolver?: SimpleModuleResolver
+  resolver?: CompositeModuleResolver
 }>
 
 export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = ({ api, config: configProp, resolver, ...props }) => {
@@ -21,8 +21,8 @@ export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = (
   setConfig(configProp)
 
   const wrapper = useMemo(() => (archivist ? new ArchivistWrapper(archivist) : undefined), [archivist])
-  const activeResolver: SimpleModuleResolver | undefined = useMemo(
-    () => (resolver ?? wrapper ? new SimpleModuleResolver() : undefined),
+  const activeResolver: CompositeModuleResolver | undefined = useMemo(
+    () => (resolver ?? wrapper ? new CompositeModuleResolver() : undefined),
     [resolver, wrapper],
   )
 
@@ -30,7 +30,7 @@ export const RemoteArchivistProvider: React.FC<RemoteArchivistProviderProps> = (
   const activeApi = api ?? config?.api
 
   if (archivist) {
-    activeResolver?.add(new ArchivistWrapper(archivist))
+    activeResolver?.add(archivist)
   }
 
   const [activeArchivist, setActiveArchivist] = useState<XyoRemoteArchivist>()

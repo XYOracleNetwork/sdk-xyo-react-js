@@ -3,7 +3,7 @@ import { ButtonEx } from '@xylabs/react-button'
 import { ModuleWrapper } from '@xyo-network/module'
 import { findNetworkComponent } from '@xyo-network/react-shared'
 
-import { ModuleRenderProps } from '../ModuleRenderProps'
+import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
 const getModuleIcons = (moduleType: string, wrapper: ModuleWrapper) => {
   return wrapper?.queries().find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null

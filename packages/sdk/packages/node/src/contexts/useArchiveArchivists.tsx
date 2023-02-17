@@ -19,7 +19,7 @@ export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean
   const buildReq = useCallback(
     (type: 'payload' | 'boundwitness') =>
       (archiveName && node) || refresher
-        ? node?.tryResolveWrapped(ArchivistWrapper, { name: [encodeURIComponent(`${archiveName}[${type}]`)] })
+        ? node?.resolveWrapped(ArchivistWrapper, { name: [encodeURIComponent(`${archiveName}[${type}]`)] })
         : undefined,
     [archiveName, node, refresher],
   )
