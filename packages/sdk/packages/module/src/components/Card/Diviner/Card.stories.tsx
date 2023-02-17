@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { MemoryArchivistConfigSchema } from '@xyo-network/archivist'
-import { AbstractDiviner, MemoryAddressHistoryDiviner } from '@xyo-network/diviner'
+import { AbstractDiviner, MemoryAddressHistoryDiviner, MemoryAddressHistoryDivinerConfigSchema } from '@xyo-network/diviner'
 import { useState } from 'react'
 
 import { DivinerCard } from './Card'
@@ -31,7 +31,8 @@ const Template: ComponentStory<typeof DivinerCard> = () => {
       if (!module) {
         const newModule = await MemoryAddressHistoryDiviner.create({
           config: {
-            schema: MemoryArchivistConfigSchema,
+            address: '',
+            schema: MemoryAddressHistoryDivinerConfigSchema,
           },
         })
         if (mounted()) {
