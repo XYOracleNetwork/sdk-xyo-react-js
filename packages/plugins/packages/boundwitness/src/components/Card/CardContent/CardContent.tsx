@@ -1,14 +1,14 @@
-import { alpha, CardContent, CardContentProps, styled, Typography, TypographyProps } from '@mui/material'
-import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { XyoPayload } from '@xyo-network/payload'
+import { CardContentProps } from '@mui/material'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { XyoPayload } from '@xyo-network/payload-model'
 
 import { AddressAvatarGroup } from './AddressAvatarGroup'
+import { CardColumnsFlex, CardColumnTitleH2, CardContentFlex } from './layout'
 import { SchemaAvatarGroup } from './SchemaAvatarGroup'
 
 export interface BoundWitnessCardContentProps extends CardContentProps {
-  payload?: XyoPayload
   active?: boolean
+  payload?: XyoPayload
 }
 
 export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = ({ payload, active, ...props }) => {
@@ -27,35 +27,3 @@ export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = (
     </CardContentFlex>
   )
 }
-
-const CardColumnTitleH2: React.FC<TypographyProps> = (props) => <CardColumnTitle {...props} />
-
-interface CardContentFlexProps {
-  active?: boolean
-}
-
-const CardContentFlex = styled(CardContent, { name: 'CardContentFlex', shouldForwardProp: (prop) => prop !== 'active' })<CardContentFlexProps>(
-  ({ theme, active }) => ({
-    [':last-child']: {
-      paddingBottom: theme.spacing(1),
-    },
-    ...(active && { background: alpha(theme.palette.secondary.dark, 7) }),
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    rowGap: theme.spacing(1),
-  }),
-)
-
-const CardColumnsFlex = styled(FlexCol, { name: 'CardColumnsFlex' })(({ theme }) => ({
-  ['@media only screen and (min-width: 333px)']: {
-    minWidth: '50%',
-  },
-  minWidth: '100%',
-  rowGap: theme.spacing(1),
-}))
-
-const CardColumnTitle = styled(Typography, { name: 'CardColumnTitle' })(({ theme }) => ({
-  color: theme.palette.text.primary,
-  fontWeight: 500,
-}))

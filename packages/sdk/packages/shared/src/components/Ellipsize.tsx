@@ -43,9 +43,9 @@ const EllipsizeContentWrap = styled(Typography, {
   name: ComponentName,
   shouldForwardProp: (prop) => prop !== 'ellipsisPosition',
   slot: 'contentWrap',
-})<TypographyWithComponentProps>(({ ellipsisPosition }) => {
-  return {
-    fontFamily: 'monospace',
+})<TypographyWithComponentProps>(({ theme, ellipsisPosition, fontFamily }) => {
+  return theme.unstable_sx({
+    fontFamily: fontFamily ?? 'monospace',
     left: 0,
     overflow: 'hidden',
     position: 'absolute',
@@ -58,7 +58,7 @@ const EllipsizeContentWrap = styled(Typography, {
           textAlign: 'left',
         }
       : {}),
-  }
+  })
 })
 
 const useClientHeight = () => {
@@ -80,8 +80,8 @@ interface TypographyWithComponentProps<Comp extends ElementType = ElementType> e
 }
 
 export interface EllipsizeBoxProps extends BoxProps {
-  typographyProps?: TypographyWithComponentProps
   ellipsisPosition?: 'start' | 'end'
+  typographyProps?: TypographyWithComponentProps
 }
 
 export const EllipsizeBoxInner: React.FC<WithChildren<EllipsizeBoxProps>> = forwardRef(

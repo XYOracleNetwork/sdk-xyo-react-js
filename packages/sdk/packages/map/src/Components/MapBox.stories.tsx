@@ -6,14 +6,56 @@ import { useRef } from 'react'
 import { MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts'
 import { DefaultMapSettings } from '../Settings'
 import { MapBox } from './MapBox'
+import { MapSettings } from './MapSettingsComponents'
 
 const WithMapboxProviders: DecoratorFn = (Story, props) => {
+  const defaultSettings = DefaultMapSettings()
+  defaultSettings.enableControls.hidden = false
+  defaultSettings.scrollToZoom.hidden = false
+
   return (
     <MapBoxInstanceProvider>
-      <MapSettingsProvider defaultMapSettings={DefaultMapSettings()}>
+      <MapSettingsProvider defaultMapSettings={defaultSettings}>
         <Story {...props} />
       </MapSettingsProvider>
     </MapBoxInstanceProvider>
+  )
+}
+
+const ContainerResizeTemplate: ComponentStory<typeof MapBox> = (args) => {
+  const containerRef = useRef<HTMLDivElement | null>()
+  const handleClick = () => {
+    if (containerRef.current) {
+      const containerWidth = containerRef.current.style.minWidth
+      if (containerWidth === '100%') {
+        containerRef.current.style.minWidth = '50%'
+      } else {
+        containerRef.current.style.minWidth = '100%'
+      }
+    }
+  }
+
+  return (
+    <FlexGrowCol rowGap={2} alignItems="start">
+      <Button variant="contained" sx={{ my: 1 }} onClick={handleClick}>
+        Toggle Container minWidth
+      </Button>
+      <div
+        ref={(ref) => (containerRef.current = ref)}
+        style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}
+      >
+        <MapBox {...args} />
+      </div>
+    </FlexGrowCol>
+  )
+}
+
+const WithMapSettingsDecorator: DecoratorFn = (Story, args) => {
+  return (
+    <>
+      <Story {...args} />
+      <MapSettings developerMode={true} />
+    </>
   )
 }
 
@@ -35,34 +77,19 @@ export default {
 } as Meta
 
 const Template: ComponentStory<typeof MapBox> = (args) => {
-  const containerRef = useRef<HTMLDivElement | null>()
-  const handleClick = () => {
-    if (containerRef.current) {
-      const containerWidth = containerRef.current.style.minWidth
-      if (containerWidth === '100%') {
-        containerRef.current.style.minWidth = '50%'
-      } else {
-        containerRef.current.style.minWidth = '100%'
-      }
-    }
-  }
-
   return (
-    <FlexGrowCol rowGap={2} alignItems="start">
-      <Button variant="contained" sx={{ my: 2 }} onClick={handleClick}>
-        Toggle Container minWidth
-      </Button>
-      <div
-        ref={(ref) => (containerRef.current = ref)}
-        style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}
-      >
-        <MapBox {...args} />
-      </div>
-    </FlexGrowCol>
+    <div style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}>
+      <MapBox {...args} />
+    </div>
   )
 }
 
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const WithContainerResize = ContainerResizeTemplate.bind({})
+
+const WithMapSettings = Template.bind({})
+WithMapSettings.decorators = [WithMapSettingsDecorator]
+
+export { Default, WithContainerResize, WithMapSettings }

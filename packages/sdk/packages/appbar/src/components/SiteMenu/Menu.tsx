@@ -8,11 +8,11 @@ import { MenuListItemContainer } from './MenuListItem'
 
 export interface SiteMenuProps extends FlexBoxProps {
   hideSettingsMenuItem?: boolean
-  side?: 'left' | 'right' | 'top' | 'bottom'
   onMenuToggle?: (state?: boolean) => void
+  side?: 'left' | 'right' | 'top' | 'bottom'
 }
 
-export const SiteMenu: React.FC<SiteMenuProps> = ({ side = 'right', children, onMenuToggle, ...props }) => {
+export const SiteMenu: React.FC<SiteMenuProps> = ({ children, onMenuToggle, side = 'right', ...props }) => {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {

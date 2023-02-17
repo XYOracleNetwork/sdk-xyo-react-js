@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "composite": true,
-    "outDir": "./dist",
-    "rootDir": "./src"
+    "declarationDir": "./dist/types",
+    "typeRoots": []
   },
-  "extends": "../../tsconfig.json",
-  "include": ["src/**/*", "../archivist/src/contexts/story/WithArchivistProviders.stories.tsx"]
+  "extends": "@xylabs/tsconfig-react",
+  "include": ["src"]
 }

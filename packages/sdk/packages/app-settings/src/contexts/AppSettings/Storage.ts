@@ -24,6 +24,14 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
     this.setBoolean(AppSettingSlug.Developer, value)
   }
 
+  get navigationCollapsed() {
+    return this.getBoolean(AppSettingSlug.NavigationCollapsed)
+  }
+
+  set navigationCollapsed(value: boolean) {
+    this.setBoolean(AppSettingSlug.NavigationCollapsed, value)
+  }
+
   get navigationType() {
     return this.getString(AppSettingSlug.NavigationType) as WebAppNavigationType
   }
@@ -32,11 +40,11 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
     this.setString(AppSettingSlug.NavigationType, value)
   }
 
-  get navigationCollapsed() {
-    return this.getBoolean(AppSettingSlug.NavigationCollapsed)
+  get seedPhrase() {
+    return this.getString(AppSettingSlug.SeedPhrase)
   }
 
-  set navigationCollapsed(value: boolean) {
-    this.setBoolean(AppSettingSlug.NavigationCollapsed, value)
+  set seedPhrase(value: string) {
+    this.setString(AppSettingSlug.SeedPhrase, value)
   }
 }

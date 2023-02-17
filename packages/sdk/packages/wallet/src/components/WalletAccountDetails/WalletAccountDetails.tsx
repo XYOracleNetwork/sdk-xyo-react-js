@@ -1,14 +1,14 @@
+import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountButton } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { NumberStatus } from '@xylabs/react-number-status'
-import { EthAddress } from '@xylabs/sdk-js'
-import { XyoAccount } from '@xyo-network/account'
+import { Account } from '@xyo-network/account'
 import { useNetwork } from '@xyo-network/react-network'
 
 import { useAccount } from '../../contexts'
 
 export interface WalletAccountDetailsProps extends FlexBoxProps {
-  account?: XyoAccount
+  account?: Account
   exploreUrl?: string
 }
 

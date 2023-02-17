@@ -7,22 +7,22 @@ import { ApiContext } from './Context'
 import { logWithMax } from './logWithMax'
 
 export interface ApiProviderProps extends XyoApiConfig {
-  required?: boolean
-  successHistoryMaxDepth?: number
-  responseHistoryMaxDepth?: number
-  failureHistoryMaxDepth?: number
   errorHistoryMaxDepth?: number
+  failureHistoryMaxDepth?: number
   onFailureCallback?: (statusCode?: number) => void
+  required?: boolean
+  responseHistoryMaxDepth?: number
+  successHistoryMaxDepth?: number
 }
 
 export const ApiProvider: React.FC<WithChildren<ApiProviderProps>> = ({
-  required = false,
-  successHistoryMaxDepth = 0,
-  responseHistoryMaxDepth = 0,
-  failureHistoryMaxDepth = 0,
-  errorHistoryMaxDepth = 0,
-  onFailureCallback,
   children,
+  errorHistoryMaxDepth = 0,
+  failureHistoryMaxDepth = 0,
+  onFailureCallback,
+  required = false,
+  responseHistoryMaxDepth = 0,
+  successHistoryMaxDepth = 0,
   ...configProps
 }) => {
   const [api, setApi] = useState<XyoArchivistApi>()

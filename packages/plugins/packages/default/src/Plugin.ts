@@ -7,7 +7,7 @@ export const DefaultRenderPlugin: XyoPayloadRenderPlugin = {
     canRender: () => true,
     components: {
       box: {
-        details: DetailsRenderer,
+        detailsBox: DetailsRenderer,
       },
     },
     name: 'Default',

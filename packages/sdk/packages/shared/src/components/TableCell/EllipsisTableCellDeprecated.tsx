@@ -9,10 +9,10 @@ import { getRemainingRowWidth } from './getRemainingRowWidth'
 import { getSmallestParentWidth } from './getSmallestParentWidth'
 
 export interface EllipsisTableCellProps extends TableCellProps {
-  value?: string
-  to?: To | undefined
-  href?: string | undefined
   forCell?: number //cell index for ellipsized table cell
+  href?: string | undefined
+  to?: To | undefined
+  value?: string
 }
 
 /** @deprecated - use new EllipsisTableCell */

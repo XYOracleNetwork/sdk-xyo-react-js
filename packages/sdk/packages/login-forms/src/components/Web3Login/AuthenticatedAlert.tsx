@@ -2,11 +2,11 @@ import { Alert, AlertProps, AlertTitle } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
 interface AuthenticatedAlertProps extends AlertProps {
-  metaMaskAccount: string | null
   authStateAccount?: string | null
+  metaMaskAccount: string | null
 }
 
-export const AuthenticatedAlert: React.FC<AuthenticatedAlertProps> = ({ metaMaskAccount, authStateAccount, ...props }) => {
+export const AuthenticatedAlert: React.FC<AuthenticatedAlertProps> = ({ authStateAccount, metaMaskAccount, ...props }) => {
   const [alertVisibility, setAlertVisibility] = useState(false)
 
   useEffect(() => {

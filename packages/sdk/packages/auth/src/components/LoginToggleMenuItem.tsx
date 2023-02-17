@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { AuthActionType, useAuthState } from '../contexts'
 
 export interface LoginToggleMenuItemProps {
-  handleClose?: () => void
   enableLogin?: boolean
+  handleClose?: () => void
   navigateRoute?: string
 }
 

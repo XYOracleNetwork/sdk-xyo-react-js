@@ -1,7 +1,8 @@
+import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
-import { delay } from '@xylabs/sdk-js'
+import { Huri } from '@xyo-network/huri'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
-import { Huri, XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
 import { useRefreshPayload } from '../RefreshPayloadContext'

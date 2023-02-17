@@ -1,12 +1,14 @@
+/* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
 import { useArchive } from '../archive'
 import { useApi } from '../contexts'
 import { UsePayload } from './ResolvePayloadArgs'
 
+/** @deprecated - use a node query instead */
 export const useLoadPayloadViaApi = (hash?: string): UsePayload => {
   const { api } = useApi()
   const { archive } = useArchive()

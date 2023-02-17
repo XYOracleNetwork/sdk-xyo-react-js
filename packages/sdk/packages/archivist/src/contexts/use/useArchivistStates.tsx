@@ -1,5 +1,5 @@
-import { XyoArchivistWrapper } from '@xyo-network/archivist'
-import { XyoPayload } from '@xyo-network/payload'
+import { ArchivistWrapper } from '@xyo-network/archivist'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
 import { useArchivist } from './use'
@@ -11,11 +11,11 @@ export const useArchivistStates = <T extends XyoPayload = XyoPayload>(required: 
   const [refreshCount, setRefreshCount] = useState(1)
   const refreshPayloads = () => setRefreshCount((previous) => previous + 1)
 
-  const [archivist, setArchivist] = useState<XyoArchivistWrapper>()
+  const [archivist, setArchivist] = useState<ArchivistWrapper>()
 
   useEffect(() => {
     if (archivistFromHook) {
-      setArchivist(new XyoArchivistWrapper(archivistFromHook))
+      setArchivist(new ArchivistWrapper(archivistFromHook))
     }
   }, [archivistFromHook])
 

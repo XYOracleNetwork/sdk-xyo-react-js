@@ -1,36 +1,59 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import {} from '@xyo-network/node'
+import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { useAsyncEffect } from '@xylabs/react-shared'
+import { AbstractModule } from '@xyo-network/module'
+import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
+import { useState } from 'react'
 
-import { NodeProvider } from '../contexts'
-import { NodeBox } from './Node'
+import { MemoryNodeProvider, useNode } from '../contexts'
 
-const StorybookEntry = {
-  argTypes: {
-    responsive: {
-      defaultValue: false,
-    },
-  },
-  component: NodeBox,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
-  title: 'node/NodeBox',
-} as ComponentMeta<typeof NodeBox>
+class TestModule extends AbstractModule {}
 
-const Template: ComponentStory<typeof NodeBox> = (args) => {
+const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
   return (
-    <NodeProvider>
-      <NodeBox {...args}></NodeBox>
-    </NodeProvider>
+    <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
+      <Story {...args} />
+    </MemoryNodeProvider>
+  )
+}
+
+// eslint-disable-next-line import/no-default-export
+export default {
+  title: 'node/NodeBox',
+} as Meta
+
+const Template: ComponentStory<React.FC> = (props) => {
+  const [node] = useNode<MemoryNode>(false)
+  const [description, setDescription] = useState<string>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      if (node) {
+        try {
+          const mod = await TestModule.create({ config: { schema: 'network.xyo.test.module' } })
+          node?.register(mod)
+          node?.attach(mod.address)
+          setDescription(JSON.stringify(await node?.description(), null, 2))
+        } catch (e) {
+          console.error(e)
+        }
+      }
+    },
+    [node],
+  )
+
+  return (
+    <div {...props}>
+      <pre>{description}</pre>
+    </div>
   )
 }
 
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const WithModules = Template.bind({})
+WithModules.argTypes = {}
+WithModules.decorators = [MemoryNodeDecorator]
 
-// eslint-disable-next-line import/no-default-export
-export default StorybookEntry
+export { Default, WithModules }

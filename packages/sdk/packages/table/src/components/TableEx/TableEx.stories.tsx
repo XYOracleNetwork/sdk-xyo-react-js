@@ -3,6 +3,7 @@ import { TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme } 
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 
+import { TableCellEx } from './TableCellEx'
 import { TableEx } from './TableEx'
 import { TableFooterEx } from './TableFooterEx'
 
@@ -32,8 +33,8 @@ const Template: ComponentStory<typeof TableEx> = (args) => {
     <TableEx {...args}>
       <TableHead>
         <TableRow>
-          <TableCell>Heading 1</TableCell>
-          <TableCell>Heading 2</TableCell>
+          <TableCellEx>Heading 1</TableCellEx>
+          <TableCellEx>Heading 2</TableCellEx>
         </TableRow>
       </TableHead>
       <TableBody>

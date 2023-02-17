@@ -1,13 +1,17 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { SchemaStatsApiDiviner } from '@xyo-network/api'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
 import { SchemaStatsApiDivinerContext } from './Context'
 
+/** @deprecated - get stats from querying the module on the node directly */
 export type SchemaStatsApiDivinerProps = ContextExProviderProps<{
   diviner?: SchemaStatsApiDiviner
 }>
 
+/** @deprecated - get stats from querying the module on the node directly */
 export const SchemaStatsApiDivinerProvider: React.FC<SchemaStatsApiDivinerProps> = ({ diviner: divinerProp, required = false, children }) => {
   const [diviner, setDiviner] = useState<SchemaStatsApiDiviner | undefined>(divinerProp)
 

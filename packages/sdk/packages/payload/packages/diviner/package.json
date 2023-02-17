@@ -1,0 +1,79 @@
+{
+  "name": "@xyo-network/react-payload-diviner",
+  "author": {
+    "email": "support@xyo.network",
+    "name": "XYO Development Team",
+    "url": "https://xyo.network"
+  },
+  "bugs": {
+    "email": "support@xyo.network",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+  },
+  "dependencies": {
+    "@xylabs/react-shared": "^2.16.8",
+    "@xyo-network/diviner": "^2.43.36",
+    "@xyo-network/module": "^2.43.36",
+    "@xyo-network/payload-model": "^2.43.36",
+    "@xyo-network/react-error": "workspace:^",
+    "@xyo-network/react-payload-huri": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@xylabs/ts-scripts-yarn3": "^2.14.14"
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^5",
+    "@mui/material": "^5",
+    "@mui/styles": "^5",
+    "axios": "^1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-helmet": "^6",
+    "react-router-dom": "^6"
+  },
+  "description": "Common React library for all XYO projects that use React",
+  "browser": "dist/esm/index.js",
+  "docs": "dist/docs.json",
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js"
+      },
+      "browser": {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js"
+      },
+      "default": "./dist/esm/index.js"
+    },
+    "./dist/docs.json": {
+      "default": "./dist/docs.json"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "homepage": "https://xyo.network",
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
+  ],
+  "license": "LGPL-3.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "scripts": {
+    "lint-pkg": "npmPkgJsonLint .",
+    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
+  },
+  "sideEffects": false,
+  "types": "dist/types/index.d.ts",
+  "version": "2.41.54"
+}

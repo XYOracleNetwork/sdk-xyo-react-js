@@ -7,18 +7,18 @@ import { PropertyAction } from './Action'
 import { PropertyTitleProps } from './Title'
 
 export interface PropertyBaseProps {
+  paper?: boolean
   tip?: ReactNode
   title?: string
-  paper?: boolean
   titleProps?: PropertyTitleProps
 }
 
 export type PropertyFieldBaseProps = PropertyBaseProps & {
   actions?: PropertyAction[]
-  required?: boolean
-  value?: string | number | boolean | null
   badge?: boolean
+  required?: boolean
   size?: SizeProp
+  value?: string | number | boolean | null
 }
 
 export type PropertyBoxProps = PropertyFieldBaseProps &

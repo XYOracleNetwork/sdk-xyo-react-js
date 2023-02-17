@@ -1,4 +1,6 @@
-import { assertEx, delay, forget } from '@xylabs/sdk-js'
+import { assertEx } from '@xylabs/assert'
+import { delay } from '@xylabs/delay'
+import { forget } from '@xylabs/forget'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Polygon } from 'geojson'
 import { FitBoundsOptions, GeoJSONSource, GeoJSONSourceRaw, LngLatBounds, Map } from 'mapbox-gl'
@@ -13,27 +15,6 @@ export class XyoMapHeat extends XyoMapBase<Polygon> {
   constructor(config: XyoMapBaseConfig<Polygon>) {
     super(config)
     this.config = config
-  }
-
-  // Build layers each with the same features
-  initializeHeatMapSource(layers: XyoMapLayer[]) {
-    const getSource = (_: number) => {
-      const featuresCollection = GeoJson.featureCollection(this.config.features)
-      return GeoJson.featuresSource(featuresCollection)
-    }
-
-    layers.forEach((layer, index) => {
-      const existingSource = this.config.map.getSource(layer.source as string) as GeoJSONSource
-      const source = getSource(index)
-      if (existingSource) {
-        existingSource.setData(assertEx(source.data) as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>)
-      } else {
-        this.config.map.addSource(layer.source as string, source)
-      }
-      layer.update(this.config.map, true)
-    })
-
-    return this
   }
 
   static initialMapPositioning(options: FitBoundsOptions, map: Map, features?: Feature<Polygon>[], initialBounds?: LngLatBounds) {
@@ -60,16 +41,6 @@ export class XyoMapHeat extends XyoMapBase<Polygon> {
     map.setCenter(bounds.getCenter())
     map.fitBounds(bounds, options)
     return this
-  }
-
-  private static updateLayer(map: Map, layer: XyoMapLayer, source: GeoJSONSourceRaw) {
-    const existingSource = map.getSource(layer.source as string) as GeoJSONSource
-    if (existingSource && source.data) {
-      existingSource.setData(source.data as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>)
-    } else if (source) {
-      map.addSource(layer.source as string, source)
-    }
-    layer.update(map, true)
   }
 
   static async initializeAnimatedHeatMapSource(
@@ -171,5 +142,36 @@ export class XyoMapHeat extends XyoMapBase<Polygon> {
     }
 
     await startAnimation()
+  }
+
+  private static updateLayer(map: Map, layer: XyoMapLayer, source: GeoJSONSourceRaw) {
+    const existingSource = map.getSource(layer.source as string) as GeoJSONSource
+    if (existingSource && source.data) {
+      existingSource.setData(source.data as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>)
+    } else if (source) {
+      map.addSource(layer.source as string, source)
+    }
+    layer.update(map, true)
+  }
+
+  // Build layers each with the same features
+  initializeHeatMapSource(layers: XyoMapLayer[]) {
+    const getSource = (_: number) => {
+      const featuresCollection = GeoJson.featureCollection(this.config.features)
+      return GeoJson.featuresSource(featuresCollection)
+    }
+
+    layers.forEach((layer, index) => {
+      const existingSource = this.config.map.getSource(layer.source as string) as GeoJSONSource
+      const source = getSource(index)
+      if (existingSource) {
+        existingSource.setData(assertEx(source.data) as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>)
+      } else {
+        this.config.map.addSource(layer.source as string, source)
+      }
+      layer.update(this.config.map, true)
+    })
+
+    return this
   }
 }

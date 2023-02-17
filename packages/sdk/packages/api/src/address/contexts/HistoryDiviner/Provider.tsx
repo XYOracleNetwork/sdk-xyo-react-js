@@ -1,34 +1,40 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
+import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { XyoRemoteAddressHistoryDiviner } from '@xyo-network/api'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
+import { useApi } from '../../../contexts'
 import { AddressHistoryDivinerContext } from './Context'
 
-export type AddressHistoryDivinerProviderProps = ContextExProviderProps<{
-  diviner?: XyoRemoteAddressHistoryDiviner
-}>
+/** @deprecated - use useAddressHistory in @xyo-network/react-address-history */
+export const AddressHistoryDivinerProvider: React.FC<WithChildren<ContextExProviderProps>> = ({ required = false, children }) => {
+  const [diviner, setDiviner] = useState<XyoRemoteAddressHistoryDiviner | undefined>()
+  const { api } = useApi()
 
-export const AddressHistoryDivinerProvider: React.FC<AddressHistoryDivinerProviderProps> = ({ diviner: divinerProp, required = false, children }) => {
-  const [diviner, setDiviner] = useState<XyoRemoteAddressHistoryDiviner | undefined>(divinerProp)
-
-  useEffect(() => {
-    if (divinerProp) {
-      setDiviner(divinerProp)
-    }
-  }, [divinerProp, setDiviner])
-
-  const resolveDiviner = () => {
-    if (divinerProp) {
-      return diviner === divinerProp ? diviner : undefined
-    } else {
-      return diviner
-    }
-  }
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      if (api) {
+        const diviner = await XyoRemoteAddressHistoryDiviner.create({
+          api,
+          config: {
+            schema: XyoRemoteAddressHistoryDiviner.configSchema,
+          },
+        })
+        if (mounted()) {
+          setDiviner?.(diviner)
+        }
+      }
+    },
+    [api, setDiviner],
+  )
 
   return (
     <AddressHistoryDivinerContext.Provider
       value={{
-        diviner: resolveDiviner(),
+        diviner,
         provided: true,
         setDiviner,
       }}

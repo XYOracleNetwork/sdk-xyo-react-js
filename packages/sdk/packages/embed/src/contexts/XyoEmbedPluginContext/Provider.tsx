@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { XyoEmbedPluginContext } from './Context'
 import { XyoEmbedPluginBase } from './State'
@@ -17,6 +17,10 @@ export const XyoEmbedPluginProvider: React.FC<WithChildren<XyoEmbedPluginProvide
   embedPluginConfig,
 }) => {
   const [activePlugin, setActivePlugin] = useState<XyoPayloadRenderPlugin | undefined>(plugins ? plugins[0] : undefined)
+
+  useEffect(() => {
+    setActivePlugin(plugins ? plugins[0] : undefined)
+  }, [plugins])
 
   return (
     <XyoEmbedPluginContext.Provider

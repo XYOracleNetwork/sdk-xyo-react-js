@@ -3,11 +3,11 @@ import { EventData, GeolocateControl, Map, MapLayerMouseEvent, MapLayerTouchEven
 import { MapSetting } from '../Settings'
 
 export interface XyoMapSettingsConfig {
-  settings: MapSetting
-  map: Map
-  zoom?: number
-  requestLocation?: boolean
   debugLayerName?: string
+  map: Map
+  requestLocation?: boolean
+  settings: MapSetting
+  zoom?: number
 }
 
 /**
@@ -16,9 +16,7 @@ export interface XyoMapSettingsConfig {
  * Methods are pure functions dedicated to map manipulation
  */
 export class XyoMapSettings {
-  static navControl: NavigationControl | undefined
   static geoLocateControl: GeolocateControl | undefined
-  static requestLocation: boolean | undefined
   static mapListeners = {
     logData: (ev?: MapLayerMouseEvent | (MapLayerTouchEvent & EventData), map?: Map) => {
       const target = map || ev?.target
@@ -28,16 +26,8 @@ export class XyoMapSettings {
       }
     },
   }
-
-  static updateSettings(config: XyoMapSettingsConfig) {
-    const { settings, map, zoom, requestLocation, debugLayerName = '' } = config
-    const { scrollToZoom, enableControls, debugLayer, debugLogging } = settings
-
-    XyoMapSettings.toggleControls(enableControls?.value, map, zoom, requestLocation)
-      .toggleScrollToZoom(scrollToZoom?.value, map)
-      .toggleDebugLayer(debugLayer?.value, map, debugLayerName)
-      .toggleDebugLogging(debugLogging.value, map)
-  }
+  static navControl: NavigationControl | undefined
+  static requestLocation: boolean | undefined
 
   static toggleControls(value: boolean | undefined, map: Map, zoom?: number, requestLocation?: boolean) {
     if (value) {
@@ -49,22 +39,13 @@ export class XyoMapSettings {
     return this
   }
 
-  static toggleScrollToZoom(value: boolean | undefined, map: Map) {
-    if (value) {
-      map.scrollZoom.enable()
-    } else {
-      map.scrollZoom.disable()
-    }
-
-    return this
-  }
-
-  static toggleDebugLayer(value: boolean | undefined, map: Map, layer: string) {
-    if (layer && map.getLayer(layer)) {
+  static toggleDebugLayer(value: boolean | undefined, map: Map, layerName: string) {
+    const debugLayer = map.getLayer(layerName)
+    if (debugLayer) {
       if (value) {
-        map.setLayoutProperty(layer, 'visibility', 'visible')
+        map.setLayoutProperty(layerName, 'visibility', 'visible')
       } else {
-        map.setLayoutProperty(layer, 'visibility', 'none')
+        map.setLayoutProperty(layerName, 'visibility', 'none')
       }
     }
 
@@ -80,6 +61,26 @@ export class XyoMapSettings {
     } else {
       debugEvents.forEach((event) => map.off(event, this.mapListeners.logData))
     }
+  }
+
+  static toggleScrollToZoom(value: boolean | undefined, map: Map) {
+    if (value) {
+      map.scrollZoom.enable()
+    } else {
+      map.scrollZoom.disable()
+    }
+
+    return this
+  }
+
+  static updateSettings(config: XyoMapSettingsConfig) {
+    const { settings, map, zoom, requestLocation, debugLayerName = '' } = config
+    const { scrollToZoom, enableControls, debugLayer, debugLogging } = settings
+
+    XyoMapSettings.toggleControls(enableControls?.value, map, zoom, requestLocation)
+      .toggleScrollToZoom(scrollToZoom?.value, map)
+      .toggleDebugLayer(debugLayer?.value, map, debugLayerName)
+      .toggleDebugLogging(debugLogging.value, map)
   }
 
   // Needs to be static so we ensure controls are only instantiated once

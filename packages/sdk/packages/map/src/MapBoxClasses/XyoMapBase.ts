@@ -1,4 +1,4 @@
-import { assertEx } from '@xylabs/sdk-js'
+import { assertEx } from '@xylabs/assert'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Geometry } from 'geojson'
 // eslint-disable-next-line no-restricted-imports
@@ -7,8 +7,8 @@ import { GeoJSONSource, Map } from 'mapbox-gl'
 import { XyoMapLayer } from '../Layers'
 
 export interface XyoMapBaseConfig<T extends Geometry> {
-  map: Map
   features: Feature<T>[]
+  map: Map
   requestLocation?: boolean
   zoom?: number
 }

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { Hasher } from '@xyo-network/core'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 

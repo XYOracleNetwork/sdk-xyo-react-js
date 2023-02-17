@@ -1,4 +1,4 @@
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { CryptoAssetRenderer } from './components'
@@ -8,7 +8,7 @@ export const CryptoAssetRenderPlugin: XyoPayloadRenderPlugin = {
     canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.crypto.asset',
     components: {
       box: {
-        details: CryptoAssetRenderer,
+        detailsBox: CryptoAssetRenderer,
       },
     },
     name: 'Aggregate Price',

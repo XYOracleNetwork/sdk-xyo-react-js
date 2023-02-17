@@ -1,8 +1,10 @@
-import { XyoWitnessWrapper } from '@xyo-network/witness'
+import { ModuleFilter } from '@xyo-network/module'
+import { WitnessWrapper } from '@xyo-network/witness'
 
-import { useModule } from './useModule'
+import { useModules } from './useModules'
 
-export const useWitnessModule = (address?: string) => {
-  const module = useModule(address)
-  return module ? new XyoWitnessWrapper(module) : undefined
+export const useWitnessModule = (filter?: ModuleFilter) => {
+  const modules = useModules(filter)
+  const foundModule = modules?.shift()
+  return foundModule ? new WitnessWrapper(foundModule) : undefined
 }

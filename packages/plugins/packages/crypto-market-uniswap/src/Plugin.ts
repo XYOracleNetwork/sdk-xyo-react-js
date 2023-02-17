@@ -1,4 +1,4 @@
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin, XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { TableCellSummary, UniswapDetailsRender } from './components'
@@ -8,7 +8,7 @@ export const UniswapPairsRenderPlugin: XyoPayloadRenderPlugin = {
     canRender: (payload?: XyoPayload) => payload?.schema === 'network.xyo.crypto.market.uniswap',
     components: {
       box: {
-        details: UniswapDetailsRender,
+        detailsBox: UniswapDetailsRender,
         listModes: ['table', 'grid'],
       },
       table: {

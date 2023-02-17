@@ -1,18 +1,17 @@
 import { DecoratorFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { ApiProvider, useApi } from '@xyo-network/react-api'
+import { ApiProvider } from '@xyo-network/react-api'
 import { AuthProvider, AuthServiceProvider, defaultState, useAuthState } from '@xyo-network/react-auth'
 import { WalletServiceProvider } from '@xyo-network/react-wallet-service'
 import { BrowserRouter } from 'react-router-dom'
 
 const WithArchivistApi: React.FC<WithChildren> = ({ children }) => {
   const { state } = useAuthState()
-  const { api } = useApi()
 
   if (state) {
     return (
-      <ApiProvider apiDomain={api?.config.apiDomain ?? 'https://beta.api.archivist.xyo.network'} jwtToken={state.jwtToken} required>
+      <ApiProvider apiDomain={'https://beta.api.archivist.xyo.network'} jwtToken={state.jwtToken} required>
         {children}
       </ApiProvider>
     )

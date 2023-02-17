@@ -1,7 +1,7 @@
-import { XyoNode } from '@xyo-network/node'
+import { NodeModule } from '@xyo-network/node'
 import { Dispatch } from 'react'
 
 export interface NodeContextState {
-  node?: XyoNode
-  setNode?: Dispatch<XyoNode>
+  node?: NodeModule
+  setNode?: Dispatch<NodeModule>
 }

@@ -1,8 +1,10 @@
-import { XyoDivinerWrapper } from '@xyo-network/diviner'
+import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
+import { ModuleFilter } from '@xyo-network/module-model'
 
-import { useModule } from './useModule'
+import { useModules } from './useModules'
 
-export const useDivinerModule = (address?: string) => {
-  const module = useModule(address)
-  return module ? new XyoDivinerWrapper(module) : undefined
+export const useDivinerModule = (filter?: ModuleFilter) => {
+  const modules = useModules(filter)
+  const foundModule = modules?.shift()
+  return foundModule ? new DivinerWrapper(foundModule) : undefined
 }

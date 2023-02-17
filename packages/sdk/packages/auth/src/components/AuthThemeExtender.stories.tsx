@@ -1,7 +1,6 @@
 import { createTheme, Typography, useTheme } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
-import { authDecorator } from '@xyo-network/react-storybook'
 
 import { AuthThemeExtender } from './AuthThemeExtender'
 
@@ -64,7 +63,6 @@ const WithExistingThemeOptions: ComponentStory<typeof AuthThemeExtender> = ({ th
 
 const Default = Template.bind({})
 Default.args = {}
-Default.decorators = [authDecorator]
 
 const WithExitingTheme = WithExistingThemeOptions.bind({})
 WithExitingTheme.args = {
@@ -79,7 +77,6 @@ WithExitingTheme.args = {
     },
   },
 }
-WithExitingTheme.decorators = [authDecorator]
 
 export { Default, WithExitingTheme }
 

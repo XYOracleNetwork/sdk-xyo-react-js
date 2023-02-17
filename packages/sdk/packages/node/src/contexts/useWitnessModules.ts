@@ -1,12 +1,8 @@
-import { XyoWitnessObserveQuerySchema, XyoWitnessWrapper } from '@xyo-network/witness'
-import compact from 'lodash/compact'
+import { WitnessWrapper, XyoWitnessObserveQuerySchema } from '@xyo-network/witness'
 
 import { useModules } from './useModules'
 
 export const useWitnessModules = () => {
-  const modules = useModules()
-
-  return compact(modules?.filter((module) => module?.queryable(XyoWitnessObserveQuerySchema))).map((module) =>
-    module ? new XyoWitnessWrapper(module) : undefined,
-  )
+  const modules = useModules({ query: [[XyoWitnessObserveQuerySchema]] })
+  return modules?.map((module) => new WitnessWrapper(module))
 }

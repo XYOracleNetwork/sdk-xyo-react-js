@@ -2,8 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoStorageArchivistConfigSchema } from '@xyo-network/archivist'
-import { XyoPayload } from '@xyo-network/payload'
+import { ArchivistWrapper, StorageArchivistConfigSchema } from '@xyo-network/archivist'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
@@ -29,7 +29,8 @@ const RenderTest: React.FC = () => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const items = await archivist?.all?.()
+      const wrapper = archivist ? new ArchivistWrapper(archivist) : undefined
+      const items = await wrapper?.all()
       if (mounted()) {
         setItems(items?.length)
       }
@@ -72,7 +73,7 @@ const Template: ComponentStory<typeof StorageArchivistProvider> = (args) => (
 )
 
 const Default = Template.bind({})
-Default.args = { config: { schema: XyoStorageArchivistConfigSchema, writeThrough: 'true' } }
+Default.args = { config: { schema: StorageArchivistConfigSchema, writeThrough: 'true' } }
 Default.decorators = [useAppThemeDecorator]
 
 export { Default }

@@ -6,9 +6,9 @@ import { forwardRef, ReactNode } from 'react'
 import { CardEx, CardExProps } from './CardEx'
 
 export interface PageCardProps extends CardExProps {
+  action?: ReactNode
   onRefresh?: () => void
   subheader?: CardHeaderProps['subheader']
-  action?: ReactNode
 }
 
 const PageCardWithRef: React.FC<PageCardProps> = forwardRef(({ subheader, title, onRefresh, children, action, style, ...props }, ref) => {

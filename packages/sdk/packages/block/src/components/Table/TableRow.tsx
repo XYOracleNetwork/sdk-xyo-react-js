@@ -1,6 +1,8 @@
 import { TableCell, TableRow, TableRowProps } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { BoundWitnessValidator, BoundWitnessWrapper, XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
+import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
@@ -10,19 +12,19 @@ import { MdClear, MdDone } from 'react-icons/md'
 import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 
 export interface BlockTableRowProps extends TableRowProps {
-  block?: XyoBoundWitness
   archive?: string
-  exploreDomain?: string
+  block?: XyoBoundWitness
   columns?: BlockTableColumnConfig
+  exploreDomain?: string
   network?: string
 }
 
 export const BlockTableRow: React.FC<BlockTableRowProps> = ({
-  network: networkProp,
-  exploreDomain,
-  block,
   archive,
+  block,
   columns = blockTableColumnConfigDefaults(),
+  exploreDomain,
+  network: networkProp,
   ...props
 }) => {
   const breakPoint = useBreakpoint()

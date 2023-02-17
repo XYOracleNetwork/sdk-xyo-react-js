@@ -10,12 +10,14 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-common": "^2.15.1",
-    "@xylabs/react-flexbox": "^2.15.1",
-    "@xylabs/react-shared": "^2.15.1",
-    "@xylabs/sdk-js": "^2.6.9",
-    "@xyo-network/diviner": "^2.40.0",
-    "@xyo-network/module": "^2.40.0",
+    "@xylabs/eth-address": "^2.7.1",
+    "@xylabs/react-flexbox": "^2.16.8",
+    "@xylabs/react-shared": "^2.16.8",
+    "@xyo-network/boundwitness-model": "^2.43.36",
+    "@xyo-network/boundwitness-validator": "^2.43.36",
+    "@xyo-network/boundwitness-wrapper": "^2.43.36",
+    "@xyo-network/core": "^2.43.36",
+    "@xyo-network/payload-model": "^2.43.36",
     "@xyo-network/react-error": "workspace:^",
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
@@ -23,27 +25,28 @@
     "@xyo-network/react-payload-table": "workspace:^",
     "@xyo-network/react-property": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "lodash": "^4.17.21",
-    "tslib": "^2.4.1"
+    "@xyo-network/react-table": "workspace:^",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@storybook/react": "^6.5.16",
+    "@xylabs/react-button": "^2.16.8",
+    "@xylabs/ts-scripts-yarn3": "^2.14.14",
+    "@xylabs/tsconfig-react": "^2.14.14",
+    "@xyo-network/react-storybook": "workspace:^",
+    "require-from-string": "^2.0.2",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
-    "@mui/styles": "^5.10.3",
-    "@xyo-network/boundwitness": "*",
-    "@xyo-network/core": "*",
-    "@xyo-network/network": "*",
-    "@xyo-network/payload": "*",
-    "@xyo-network/payload-plugin": "*",
-    "@xyo-network/react-table": "workspace:^",
-    "@xyo-network/schema-payload-plugin": "*",
-    "@xyo-network/utils": "*",
-    "axios": "^0.27.2",
-    "pako": "^2.0.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.4.0",
-    "react-router-dom": "^6.3.0"
+    "@mui/icons-material": "^5",
+    "@mui/material": "^5",
+    "@mui/styles": "^5",
+    "axios": "^1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-helmet": "^6",
+    "react-icons": "^4",
+    "react-router-dom": "^6"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
@@ -87,6 +90,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/esm/index.d.ts",
-  "version": "2.40.9"
+  "types": "dist/types/index.d.ts",
+  "version": "2.41.54"
 }

@@ -7,13 +7,13 @@ import { ControlText, SystemControl } from './controls'
 import { SystemControlsType } from './SystemControlsType'
 
 interface SystemControlsUnstyledProps extends FlexBoxProps {
-  visible?: boolean
   systemControlsType?: SystemControlsType
+  visible?: boolean
 }
 
 const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({
-  systemControlsType = SystemControlsType.WindowShade,
   visible,
+  systemControlsType = SystemControlsType.WindowShade,
   ...props
 }) => {
   const { network } = useNetwork()

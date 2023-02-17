@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableCellProps, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
 
@@ -27,11 +27,11 @@ function getComparator<Key extends string>(
 }
 
 interface HeadCell {
+  align: TableCellProps['align']
   disablePadding: boolean
   id: string
   label: string
   numeric: boolean
-  align: TableCellProps['align']
 }
 
 const headCells: readonly HeadCell[] = [

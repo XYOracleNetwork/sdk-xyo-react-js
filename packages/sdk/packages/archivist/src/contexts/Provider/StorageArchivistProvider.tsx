@@ -1,5 +1,5 @@
-import { XyoArchivistWrapper, XyoStorageArchivist, XyoStorageArchivistConfig } from '@xyo-network/archivist'
-import { XyoModuleResolver } from '@xyo-network/module'
+import { ArchivistWrapper, StorageArchivistConfig, XyoStorageArchivist } from '@xyo-network/archivist'
+import { SimpleModuleResolver } from '@xyo-network/module'
 import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 
@@ -7,8 +7,8 @@ import { useArchivist } from '../use'
 import { ArchivistProvider } from './Provider'
 
 export type StorageArchivistProviderProps = ContextExProviderProps<{
-  config: XyoStorageArchivistConfig
-  resolver?: XyoModuleResolver
+  config: StorageArchivistConfig
+  resolver?: SimpleModuleResolver
 }>
 
 import { useAsyncEffect } from '@xylabs/react-shared'
@@ -19,15 +19,15 @@ export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> =
   const { archivist } = useArchivist()
 
   //we set this every time, but it will only take if config VALUE changed
-  setConfig(config)
+  setConfig(configProp)
 
-  const wrapper = useMemo(() => (archivist ? new XyoArchivistWrapper(archivist) : undefined), [archivist])
-  const activeResolver: XyoModuleResolver | undefined = useMemo(
-    () => (resolver ?? wrapper ? new XyoModuleResolver() : undefined),
+  const wrapper = useMemo(() => (archivist ? new ArchivistWrapper(archivist) : undefined), [archivist])
+  const activeResolver: SimpleModuleResolver | undefined = useMemo(
+    () => (resolver ?? wrapper ? new SimpleModuleResolver() : undefined),
     [resolver, wrapper],
   )
   if (archivist) {
-    activeResolver?.add(new XyoArchivistWrapper(archivist))
+    activeResolver?.add(new ArchivistWrapper(archivist))
   }
 
   const [activeArchivist, setActiveArchivist] = useState<XyoStorageArchivist>()

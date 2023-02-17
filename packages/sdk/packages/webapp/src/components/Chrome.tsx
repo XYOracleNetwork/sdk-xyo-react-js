@@ -11,23 +11,23 @@ import { WebAppErrorPage } from './ErrorPage'
 
 export interface WebAppChromeProps extends FlexBoxProps {
   appName: string
-  footer?: ReactNode
   appbar?: ReactNode
   errorPage?: ReactNode
+  footer?: ReactNode
   footerElevation?: number
-  navigationType?: WebAppNavigationType
   menuItems?: ReactNode
+  navigationType?: WebAppNavigationType
 }
 
 export const WebAppChrome: React.FC<WebAppChromeProps> = ({
+  appName,
+  appbar,
+  children,
+  errorPage,
+  footer,
+  footerElevation = 4,
   menuItems,
   navigationType = 'menu',
-  footerElevation = 4,
-  errorPage,
-  appbar,
-  footer,
-  children,
-  appName,
   ...props
 }) => {
   return (
@@ -44,7 +44,13 @@ export const WebAppChrome: React.FC<WebAppChromeProps> = ({
           </>
         ) : null}
         <FlexGrowCol id="main-flex" justifyContent="flex-start" alignItems="stretch">
-          <ErrorBoundary fallback={errorPage ?? <WebAppErrorPage />}>{children}</ErrorBoundary>
+          <ErrorBoundary
+            fallbackWithError={(error) => {
+              return errorPage ?? <WebAppErrorPage error={error} />
+            }}
+          >
+            {children}
+          </ErrorBoundary>
         </FlexGrowCol>
       </FlexGrowRow>
       <FlexCol id="footer-flex" alignItems="stretch">

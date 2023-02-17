@@ -1,16 +1,7 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
-import { useEffect, useMemo, useReducer } from 'react'
-
-type PromiseOrFunction<T> = Promise<T> | (() => Promise<T>)
-
-const resolvePromise = <T,>(promise: PromiseOrFunction<T>) => {
-  if (typeof promise === 'function') {
-    return promise()
-  }
-
-  return promise
-}
+import { useAsyncEffect } from '@xylabs/react-shared'
+import { useReducer } from 'react'
 
 enum State {
   pending = 'pending',
@@ -32,7 +23,7 @@ const defaultState: PromiseState = {
 
 // Since the resolved promise value can be anything, any seems appropriate
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Action = { type: State; payload?: any }
+type Action = { payload?: any; type: State }
 
 const reducer = (_state: PromiseState, action: Action) => {
   switch (action.type) {
@@ -58,43 +49,48 @@ const reducer = (_state: PromiseState, action: Action) => {
   }
 }
 
-export const usePromise = <T,>(promiseArg: PromiseOrFunction<T>, inputs: unknown[] = []) => {
+/**
+ * usePromise -
+ */
+export const usePromise = <D, T extends Promise<D> | D>(promise?: T, dependencies: unknown[] = []) => {
   const [{ error, result, state }, dispatch] = useReducer(reducer, defaultState)
 
-  const dependencies = useMemo(() => [promiseArg, ...inputs], [inputs, promiseArg])
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      if (!promise) {
+        return
+      }
 
-  useEffect(() => {
-    const promise = resolvePromise<T>(promiseArg)
+      let canceled = false
 
-    if (!promise) {
-      return
-    }
+      dispatch({ type: State.pending })
 
-    let canceled = false
+      try {
+        const result = await promise
+        !canceled
+          ? dispatch({
+              payload: result,
+              type: State.resolved,
+            })
+          : undefined
+      } catch (e) {
+        !canceled
+          ? dispatch({
+              payload: error,
+              type: State.rejected,
+            })
+          : undefined
+      }
 
-    dispatch({ type: State.pending })
-
-    promise.then(
-      (result) =>
-        !canceled &&
-        dispatch({
-          payload: result,
-          type: State.resolved,
-        }),
-      (error) =>
-        !canceled &&
-        dispatch({
-          payload: error,
-          type: State.rejected,
-        }),
-    )
-
-    return () => {
-      canceled = true
-    }
+      return () => {
+        canceled = true
+      }
+    },
     // eslint can't inspect the array to verify dependencies are missing
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, dependencies)
+    dependencies,
+  )
 
   return [result, error, state]
 }

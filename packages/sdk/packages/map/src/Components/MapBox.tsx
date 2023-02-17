@@ -9,13 +9,13 @@ import { useDynamicMapResize } from '../hooks'
 import { XyoMapStyle } from '../lib'
 
 export interface MapBoxProps {
+  accessToken: string
+  darkMode?: boolean
   options?: Partial<MapboxOptions>
   zoom?: number
-  darkMode?: boolean
-  accessToken: string
 }
 
-export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, zoom = 2, options, ...props }) => {
+export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, options, zoom = 2, ...props }) => {
   const [map, setMap] = useState<Map>()
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
   const mapCanvasRef = useRef<HTMLCanvasElement | null>(null)

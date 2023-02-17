@@ -1,13 +1,14 @@
 import { Alert, Typography } from '@mui/material'
-import { BoundWitnessWrapper, XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 
 import { BlockTableRow, BlockTableRowProps } from './TableRow'
 
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
-  index: number
-  exploreDomain?: string
   archive?: string
+  exploreDomain?: string
+  index: number
   onRowClick?: (value: XyoBoundWitness) => void
 }
 

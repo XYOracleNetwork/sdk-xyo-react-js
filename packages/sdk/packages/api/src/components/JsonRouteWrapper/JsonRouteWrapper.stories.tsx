@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol } from '@xylabs/react-flexbox'
@@ -14,7 +15,9 @@ const JsonDecorator: DecoratorFn = (Story) => (
 
 const StorybookEntry = {
   argTypes: {
-    apiDomain: 'https://beta.api.archivist.xyo.network',
+    apiDomain: {
+      default: 'https://beta.api.archivist.xyo.network',
+    },
   },
   component: JsonRouteWrapper,
   decorators: [JsonDecorator],

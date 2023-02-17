@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "outDir": "dist",
-    "sourceMap": true
+    "declarationDir": "./dist/types",
+    "typeRoots": []
   },
-  "extends": "@xylabs/tsconfig-dom"
+  "extends": "@xylabs/tsconfig-react"
 }

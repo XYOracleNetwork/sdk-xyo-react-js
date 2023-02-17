@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "composite": true,
-    "outDir": "./dist",
-    "rootDir": "./src"
+    "declarationDir": "./dist/types",
+    "typeRoots": []
   },
-  "extends": "../../tsconfig.json",
-  "include": ["src/**/*"]
+  "extends": "@xylabs/tsconfig-react",
+  "include": ["src"]
 }

@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { WithChildren } from '@xylabs/react-shared'
 import { SchemaContext, useSchema } from '@xyo-network/react-schema'
 import { useCallback, useEffect } from 'react'
@@ -6,6 +8,7 @@ import { useSearchParams } from 'react-router-dom'
 import { SchemaMemoryProvider } from './Memory'
 import { SchemaProviderProps } from './Props'
 
+/** @deprecated - moved to @xyo-network/react-schema */
 const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const { schema, setSchema, schemaList } = useSchema()
 

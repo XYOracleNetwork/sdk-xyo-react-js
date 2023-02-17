@@ -1,19 +1,19 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoNode } from '@xyo-network/node'
+import { NodeModule } from '@xyo-network/node'
 import { useEffect, useState } from 'react'
 
 import { NodeContext } from './Context'
 
 export interface NodeProviderProps {
+  node?: NodeModule
   required?: boolean
-  node?: XyoNode
 }
 
 /** @deprecated use NodeProviderProps instead */
 export type XyoNodeProviderProps = NodeProviderProps
 
 export const NodeProvider: React.FC<WithChildren<NodeProviderProps>> = ({ node: nodeProp, required = false, children }) => {
-  const [node, setNode] = useState<XyoNode>()
+  const [node, setNode] = useState<NodeModule>()
 
   useEffect(() => {
     setNode(nodeProp)

@@ -1,10 +1,13 @@
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { SchemaList } from '@xyo-network/api'
-import { XyoDivinerWrapper } from '@xyo-network/diviner'
+import { DivinerWrapper } from '@xyo-network/diviner'
 import { useState } from 'react'
 
 import { useSchemaListApiDiviner } from './use'
 
+/** @deprecated - get stats from querying the module on the node directly */
 export const useDivineSchemaList = (): [SchemaList[] | undefined, Error | undefined, () => void] => {
   const [list, setList] = useState<SchemaList[]>()
   const [error, setError] = useState<Error>()
@@ -18,7 +21,7 @@ export const useDivineSchemaList = (): [SchemaList[] | undefined, Error | undefi
     async (mounted) => {
       if (diviner) {
         try {
-          const result = (await new XyoDivinerWrapper(diviner).divine()) as SchemaList[]
+          const result = (await new DivinerWrapper(diviner).divine()) as SchemaList[]
           if (mounted()) {
             setList(result)
           }

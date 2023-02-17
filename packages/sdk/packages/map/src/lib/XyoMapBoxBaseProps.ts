@@ -6,14 +6,15 @@ import { ReactNode } from 'react'
 import { XyoMapLayer } from '../Layers'
 
 export interface XyoMapboxFlexBoxProps extends FlexBoxProps {
+  accessToken: string
+  developerMode?: boolean
   disableControls?: boolean
   disableFitToPoints?: boolean
   features?: Feature[]
-  layers?: XyoMapLayer[]
-  mapBoxOptions?: Partial<MapboxOptions>
   fitToPointsPadding?: number
+  layers?: XyoMapLayer[]
+  legend?: ReactNode
+  mapBoxOptions?: Partial<MapboxOptions>
   requestLocation?: boolean
   zoom?: number
-  legend?: ReactNode
-  accessToken: string
 }

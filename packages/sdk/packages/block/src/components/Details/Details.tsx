@@ -2,8 +2,8 @@
 /* eslint-disable deprecation/deprecation */
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
-import { XyoPayload } from '@xyo-network/payload'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { XyoPayload } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import { forwardRef } from 'react'
 

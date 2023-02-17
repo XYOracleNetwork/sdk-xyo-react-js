@@ -1,10 +1,10 @@
 /* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
+import { Alert, AlertTitle } from '@mui/material'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { XyoArchivistApi } from '@xyo-network/api'
-import { DeprecateStory } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
 import { ApiErrorsProvider } from './Provider'
@@ -61,7 +61,9 @@ const Template: ComponentStory<typeof ApiErrorsProvider> = () => {
 
   return (
     <>
-      <DeprecateStory />
+      <Alert severity="error" sx={{ marginBottom: '24px' }}>
+        <AlertTitle>Story has been Deprecated</AlertTitle>
+      </Alert>
       <ButtonEx marginY={2} variant="contained" onClick={() => setErrorRefresh(errorRefresh + 1)}>
         Fire off Error
       </ButtonEx>

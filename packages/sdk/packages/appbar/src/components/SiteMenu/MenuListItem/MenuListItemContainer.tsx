@@ -9,23 +9,23 @@ import { ListItemTooltip, MenuIcon, MenuListItem } from './list-item-components'
 import { SubNavListItemsCollapse, SubNavToggleIconButton } from './sub-nav'
 
 export interface MenuListItemProps extends NavListItemProps, MenuListItemBase, ListItemProps {
+  iconMenuTextSpacing?: string
+  iconOnly?: boolean
   subNavListItems?: NavListItemProps[]
   subNavOpen?: boolean
-  iconOnly?: boolean
-  iconMenuTextSpacing?: string
 }
 
 export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
   style,
-  subNavListItems,
-  iconOnly,
-  tooltip,
   icon,
-  primary,
-  onButtonClick,
-  to,
-  sx,
   iconMenuTextSpacing,
+  iconOnly,
+  onButtonClick,
+  primary,
+  subNavListItems,
+  sx,
+  tooltip,
+  to,
   ...props
 }) => {
   const { dense } = props

@@ -3,10 +3,11 @@ import { FormControlLabel, Switch, SwitchProps } from '@mui/material'
 import { useMapSettings } from '../../Contexts'
 
 export interface MapSettingSwitchProps extends SwitchProps {
+  developerMode?: boolean
   field: string
 }
 
-export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({ field, ...props }) => {
+export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({ developerMode, field, ...props }) => {
   const { mapSettings, setMapSettings } = useMapSettings()
   const setting = mapSettings?.[field]
 
@@ -19,7 +20,7 @@ export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({ field, ...pr
     }
   }
 
-  if (setting?.devMode) {
+  if (setting?.devMode && developerMode === false) {
     return null
   }
 

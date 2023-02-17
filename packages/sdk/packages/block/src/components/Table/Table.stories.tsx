@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness'
+import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { sampleBlock, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'

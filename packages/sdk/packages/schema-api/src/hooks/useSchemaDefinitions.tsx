@@ -1,12 +1,14 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
+import { useArchive } from '@xyo-network/react-api'
+import { useSchemaList } from '@xyo-network/react-schema'
 import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
-import { useDivineSchemaList } from '../diviners'
-
+/** @deprecated - moved to @xyo-network/react-schema package */
 export const useSchemaDefinitions = (): XyoSchemaPayload[] | undefined => {
-  const [schemaList] = useDivineSchemaList()
+  const { archive } = useArchive()
+  const [schemaList] = useSchemaList(archive)
   const [schemaPayloads, setSchemaPayloads] = useState<XyoSchemaPayload[]>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

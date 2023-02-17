@@ -8,10 +8,10 @@ import { MapSettingsContext } from './Context'
 import { MapSettingsState } from './State'
 
 export interface MapSettingsProviderProps {
+  debugLayerName?: string
   defaultMapSettings?: MapSetting
   requestLocation?: boolean
   zoom?: number
-  debugLayerName?: string
 }
 
 export const MapSettingsProvider: React.FC<WithChildren<MapSettingsProviderProps>> = ({
