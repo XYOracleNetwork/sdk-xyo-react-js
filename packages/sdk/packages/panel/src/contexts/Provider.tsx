@@ -17,11 +17,19 @@ export interface PanelProviderProps {
   /** @deprecated - panel no longer uses archive but relies on an archivist */
   archive?: string
   archivist?: AbstractArchivist
+  name?: string
   required?: boolean
   witnesses?: AbstractWitness[]
 }
 
-export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({ account, archivist, children, witnesses = [], required = false }) => {
+export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
+  account,
+  archivist,
+  children,
+  name,
+  witnesses = [],
+  required = false,
+}) => {
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
   const [progress, setProgress] = useState<PanelReportProgress>({})
@@ -41,6 +49,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({ acco
         account,
         config: {
           archivists: archivistWrapper ? [archivistWrapper?.address] : undefined,
+          name,
           onReportEnd: (_, errors?: Error[]) => {
             if (mounted()) {
               setProgress({
