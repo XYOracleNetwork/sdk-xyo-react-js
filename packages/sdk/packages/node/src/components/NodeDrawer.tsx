@@ -3,6 +3,7 @@ import { ClickAwayListener, Drawer, DrawerProps, IconButton } from '@mui/materia
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { ModuleDescription } from '@xyo-network/module'
+import { NodeWrapper } from '@xyo-network/node'
 import { useState } from 'react'
 
 import { useNode, useNodeDrawer } from '../contexts'
@@ -19,7 +20,8 @@ export const NodeDrawer: React.FC<NodeDrawerProps> = ({ children, ...props }) =>
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (node) {
-        const nodeDescription = await node.description()
+        const wrapper = node ? NodeWrapper.wrap(node) : undefined
+        const nodeDescription = await wrapper?.describe()
         setModuleDescription(nodeDescription)
       }
     },

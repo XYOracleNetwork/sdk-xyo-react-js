@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { MemoryArchivist, MemoryArchivistConfigSchema, PayloadArchivist } from '@xyo-network/archivist'
+import { AbstractArchivist, MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { useState } from 'react'
 
-import { ArchivistCard } from './ArchivistCard'
+import { ArchivistCard } from './Card'
 
 const StorybookEntry = {
   argTypes: {
@@ -22,7 +22,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof ArchivistCard>
 
 const Template: ComponentStory<typeof ArchivistCard> = () => {
-  const [module, setModule] = useState<PayloadArchivist>()
+  const [module, setModule] = useState<AbstractArchivist>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

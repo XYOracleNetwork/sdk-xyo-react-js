@@ -73,7 +73,7 @@ const Template: ComponentStory<typeof StorageArchivistProvider> = (args) => (
 )
 
 const Default = Template.bind({})
-Default.args = { config: { schema: StorageArchivistConfigSchema, writeThrough: 'true' } }
+Default.args = { config: { schema: StorageArchivistConfigSchema } }
 Default.decorators = [useAppThemeDecorator]
 
 export { Default }

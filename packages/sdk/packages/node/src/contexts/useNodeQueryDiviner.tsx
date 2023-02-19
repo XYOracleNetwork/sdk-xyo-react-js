@@ -24,7 +24,7 @@ export const useNodeQueryDivinerRaw = (
     async () => {
       if (moduleIdentifier && query && node?.resolver) {
         try {
-          const diviner = await node.tryResolveWrapped(DivinerWrapper, { name: [moduleIdentifier] })
+          const diviner = await node.resolveWrapped(DivinerWrapper, { name: [moduleIdentifier] })
           assertDefinedEx(diviner?.[0], `Unable to find moduleIdentifier: ${moduleIdentifier}`)
 
           const result = await diviner?.[0]?.divine([query])

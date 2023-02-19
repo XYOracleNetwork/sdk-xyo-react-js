@@ -1,5 +1,6 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
+import { NodeWrapper } from '@xyo-network/node'
 import { useState } from 'react'
 
 import { useNode } from '../contexts'
@@ -11,7 +12,8 @@ export const NodeBox: React.FC<FlexBoxProps> = (props) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      setDescription(JSON.stringify(await node?.description(), null, 2))
+      const wrapper = node ? NodeWrapper.wrap(node) : undefined
+      setDescription(JSON.stringify(await wrapper?.describe(), null, 2))
     },
     [node],
   )

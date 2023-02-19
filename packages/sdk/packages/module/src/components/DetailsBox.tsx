@@ -9,10 +9,10 @@ import { useState } from 'react'
 import { ModuleRenderProps } from '../ModuleRenderProps'
 
 const getModuleIcon = (moduleType: string, wrapper: ModuleWrapper) => {
-  return wrapper?.queries().find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null
+  return wrapper?.queries.find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null
 }
 
-export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ module, ...props }) => {
+export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ children, module, ...props }) => {
   const wrapper = module ? new ModuleWrapper(module) : undefined
   const [showQueries, setShowQueries] = useState(false)
   return (
@@ -32,10 +32,11 @@ export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ m
       </FlexRow>
 
       {showQueries
-        ? wrapper?.queries().map((query) => {
+        ? wrapper?.queries.map((query) => {
             return <FlexRow key={query}>{query}</FlexRow>
           })
         : null}
+      {children}
     </FlexCol>
   )
 }

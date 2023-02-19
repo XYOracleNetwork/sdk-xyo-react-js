@@ -1,11 +1,11 @@
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Account } from '@xyo-network/account'
-import { ArchivistWrapper, PayloadArchivist } from '@xyo-network/archivist'
+import { AbstractArchivist, ArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { SimpleModuleResolver } from '@xyo-network/module'
+import { CompositeModuleResolver } from '@xyo-network/module'
 import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
-import { WitnessWrapper } from '@xyo-network/witness'
+import { AbstractWitness, WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useMemo, useState } from 'react'
 
 import { PanelContext } from './Context'
@@ -16,12 +16,20 @@ export interface PanelProviderProps {
   account?: Account
   /** @deprecated - panel no longer uses archive but relies on an archivist */
   archive?: string
-  archivist?: PayloadArchivist
+  archivist?: AbstractArchivist
+  name?: string
   required?: boolean
-  witnesses?: WitnessWrapper[]
+  witnesses?: AbstractWitness[]
 }
 
-export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({ account, archivist, children, witnesses = [], required = false }) => {
+export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
+  account,
+  archivist,
+  children,
+  name,
+  witnesses = [],
+  required = false,
+}) => {
   const [panel, setPanel] = useState<XyoPanel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
   const [progress, setProgress] = useState<PanelReportProgress>({})
@@ -29,8 +37,8 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({ acco
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   const resolver = useMemo(() => {
-    const resolver = new SimpleModuleResolver().add(witnesses)
-    return archivist ? resolver.add(new ArchivistWrapper(archivist)) : resolver
+    const resolver = new CompositeModuleResolver().add(witnesses)
+    return archivist ? resolver.add(archivist) : resolver
   }, [archivist, witnesses])
 
   useAsyncEffect(
@@ -41,6 +49,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({ acco
         account,
         config: {
           archivists: archivistWrapper ? [archivistWrapper?.address] : undefined,
+          name,
           onReportEnd: (_, errors?: Error[]) => {
             if (mounted()) {
               setProgress({

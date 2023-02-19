@@ -2,7 +2,7 @@ import { CardHeader, CardHeaderProps } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 import { ModuleWrapper } from '@xyo-network/module'
 
-import { ModuleRenderProps } from '../ModuleRenderProps'
+import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
 export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = ({ subheader, avatar, title, module, ...props }) => {
   const wrapper = module ? new ModuleWrapper(module) : undefined
