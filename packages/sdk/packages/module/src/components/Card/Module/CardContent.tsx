@@ -2,13 +2,13 @@ import { CardContent, CardContentProps, Typography } from '@mui/material'
 import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { AbstractModuleConfig, ModuleWrapper } from '@xyo-network/module'
+import { ModuleConfig, ModuleWrapper } from '@xyo-network/module'
 import { useState } from 'react'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
 export const ModuleCardContent: React.FC<ModuleRenderProps & CardContentProps> = ({ children, module, ...props }) => {
-  const [config, setConfig] = useState<AbstractModuleConfig>()
+  const [config, setConfig] = useState<ModuleConfig>()
 
   const account = module?.address ? EthAddress.fromString(module?.address) : undefined
 
