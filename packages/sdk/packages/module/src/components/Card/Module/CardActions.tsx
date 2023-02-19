@@ -6,7 +6,7 @@ import { findNetworkComponent } from '@xyo-network/react-shared'
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
 const getModuleIcons = (moduleType: string, wrapper: ModuleWrapper) => {
-  return wrapper?.queries().find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null
+  return wrapper?.queries.find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null
 }
 
 export const ModuleCardActions: React.FC<CardActionsProps & ModuleRenderProps> = ({ children, module, ...props }) => {

@@ -1,7 +1,7 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { AbstractModule } from '@xyo-network/module'
-import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
+import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { useState } from 'react'
 
 import { MemoryNodeProvider, useNode } from '../contexts'
@@ -33,8 +33,10 @@ const Template: ComponentStory<React.FC> = (props) => {
           const mod = await TestModule.create({ config: { schema: 'network.xyo.test.module' } })
           node?.register(mod)
           await node?.attach(mod.address)
+          const wrapper = NodeWrapper.wrap(node)
+          const description = await wrapper?.describe()
           if (mounted()) {
-            setDescription(JSON.stringify(await node?.description(), null, 2))
+            setDescription(JSON.stringify(description, null, 2))
           }
         } catch (e) {
           console.error(e)
