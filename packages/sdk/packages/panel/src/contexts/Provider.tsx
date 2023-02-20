@@ -4,7 +4,7 @@ import { Account } from '@xyo-network/account'
 import { AbstractArchivist, ArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { CompositeModuleResolver } from '@xyo-network/module'
-import { XyoPanel, XyoPanelConfig, XyoPanelConfigSchema } from '@xyo-network/panel'
+import { AbstractSentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { AbstractWitness, WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -30,7 +30,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   witnesses = [],
   required = false,
 }) => {
-  const [panel, setPanel] = useState<XyoPanel>()
+  const [panel, setPanel] = useState<AbstractSentinel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
   const [progress, setProgress] = useState<PanelReportProgress>({})
   const [status, setStatus] = useState(ReportStatus.Idle)
@@ -45,7 +45,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const archivistWrapper = archivist ? new ArchivistWrapper(archivist) : undefined
-      const panel = await XyoPanel.create({
+      const panel = await AbstractSentinel.create({
         account,
         config: {
           archivists: archivistWrapper ? [archivistWrapper?.address] : undefined,
@@ -92,9 +92,9 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
               })
             }
           },
-          schema: XyoPanelConfigSchema,
+          schema: SentinelConfigSchema,
           witnesses: witnesses.map((witness) => witness.address),
-        } as XyoPanelConfig,
+        } as SentinelConfig,
         resolver,
       })
       setPanel(panel)

@@ -2,14 +2,14 @@ import { CardContentProps, Typography } from '@mui/material'
 import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { ArchivistConfig, PayloadArchivist } from '@xyo-network/archivist'
+import { ArchivistConfig, ArchivistModule } from '@xyo-network/archivist'
 import { ModuleWrapper } from '@xyo-network/module'
 import { useState } from 'react'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 import { ModuleCardContent } from '../Module'
 
-export const ArchivistCardContent: React.FC<ModuleRenderProps<PayloadArchivist> & CardContentProps> = ({ children, module, ...props }) => {
+export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> & CardContentProps> = ({ children, module, ...props }) => {
   const [config, setConfig] = useState<ArchivistConfig>()
 
   useAsyncEffect(
