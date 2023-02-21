@@ -4,7 +4,13 @@ import { useEffect, useState } from 'react'
 
 import { useNode } from './useNode'
 
-export const useMemoryNodeUpdates = () => {
+interface UseMemoryNodeUpdates {
+  module?: ModuleAttachedEventArgs
+  /** @deprecated - use module events instead */
+  resolver?: ModuleResolver
+}
+
+export const useMemoryNodeUpdates = (refreshAddresses?: string[]): UseMemoryNodeUpdates => {
   const [node] = useNode<MemoryNode>()
   const [resolver, setResolver] = useState<ModuleResolver>()
   const [module, setModule] = useState<ModuleAttachedEventArgs>()
@@ -15,10 +21,17 @@ export const useMemoryNodeUpdates = () => {
         setResolver(resolver)
       })
       node.on('moduleAttached', (args) => {
-        setModule(args)
+        if (refreshAddresses) {
+          if (refreshAddresses.some((address) => address === args?.module.address)) setModule(args)
+        } else {
+          setModule(args)
+        }
       })
     }
-  }, [node])
+  }, [refreshAddresses, node])
 
-  return { module, resolver }
+  return {
+    module,
+    resolver,
+  }
 }

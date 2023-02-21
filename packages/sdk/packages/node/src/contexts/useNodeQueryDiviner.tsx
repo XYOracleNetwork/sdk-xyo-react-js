@@ -43,9 +43,13 @@ export const useNodeQueryDivinerRaw = (
   return [result, error]
 }
 
-export const useNodeQueryDiviner = (...[moduleIdentifier, query, refresher]: HookParams): ReturnType<typeof useNodeQueryDivinerRaw> => {
-  const { resolver } = useMemoryNodeUpdates()
-  const [result, error] = useNodeQueryDivinerRaw(moduleIdentifier, query, refresher ?? resolver)
+type HookParamsWithAddresses = [...HookParams, string[]]
+
+export const useNodeQueryDiviner = (
+  ...[moduleIdentifier, query, refresher, refreshAddresses]: HookParamsWithAddresses
+): ReturnType<typeof useNodeQueryDivinerRaw> => {
+  const { module } = useMemoryNodeUpdates(refreshAddresses)
+  const [result, error] = useNodeQueryDivinerRaw(moduleIdentifier, query, refresher ?? module)
 
   return [result, error]
 }

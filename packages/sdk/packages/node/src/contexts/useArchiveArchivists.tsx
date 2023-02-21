@@ -44,9 +44,11 @@ export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean
   return archivists
 }
 
-export const useArchiveArchivists = (...[archive, required, refresher]: HookParams) => {
-  const { resolver } = useMemoryNodeUpdates()
-  const archivists = useArchiveArchivistsRaw(archive, required, refresher ?? resolver)
+type HookParamsWithAddresses = [...HookParams, string[]]
+
+export const useArchiveArchivists = (...[archive, required, refresher, refreshAddresses]: HookParamsWithAddresses) => {
+  const { module } = useMemoryNodeUpdates(refreshAddresses)
+  const archivists = useArchiveArchivistsRaw(archive, required, refresher ?? module)
 
   return archivists
 }
