@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Account } from '@xyo-network/account'
@@ -11,6 +13,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { PanelContext } from './Context'
 import { PanelReportProgress, ReportStatus } from './State'
 
+/** @deprecated - use sentinel package instead */
 export interface PanelProviderProps {
   /** Account used by the panel for signing */
   account?: Account
