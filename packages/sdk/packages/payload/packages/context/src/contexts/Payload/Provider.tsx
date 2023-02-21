@@ -29,7 +29,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
       if (payload === undefined && hash && archivePayloadWrapper) {
         try {
           const [loadedPayloads] = await archivePayloadWrapper.get([hash])
-          setPayload(loadedPayloads)
+          setPayload(loadedPayloads ? loadedPayloads : null)
           setPayloadError(undefined)
         } catch (e) {
           setPayload(undefined)
