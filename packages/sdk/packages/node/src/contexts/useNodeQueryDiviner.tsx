@@ -8,12 +8,10 @@ import { useState } from 'react'
 import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
 import { useNode } from './useNode'
 
-type HookParams = Parameters<typeof useNodeQueryDivinerRaw>
-
 export const useNodeQueryDivinerRaw = (
   moduleIdentifier?: string,
   query?: XyoPayload,
-  refresher?: unknown,
+  refresher?: boolean,
 ): [XyoPayloads | undefined, Error | undefined] => {
   const [result, setResult] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
@@ -22,7 +20,7 @@ export const useNodeQueryDivinerRaw = (
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (moduleIdentifier && query && node?.resolver) {
+      if (moduleIdentifier && query && node?.resolver && refresher) {
         try {
           const diviner = await node.resolveWrapped(DivinerWrapper, { name: [moduleIdentifier] })
           assertDefinedEx(diviner?.[0], `Unable to find moduleIdentifier: ${moduleIdentifier}`)
@@ -43,13 +41,14 @@ export const useNodeQueryDivinerRaw = (
   return [result, error]
 }
 
-type HookParamsWithAddresses = [...HookParams, string[]]
-
 export const useNodeQueryDiviner = (
-  ...[moduleIdentifier, query, refresher, refreshAddresses]: HookParamsWithAddresses
+  moduleIdentifier?: string,
+  query?: XyoPayload,
+  refresher?: boolean,
+  refreshAddresses?: string[],
 ): ReturnType<typeof useNodeQueryDivinerRaw> => {
   const { module } = useMemoryNodeUpdates(refreshAddresses)
-  const [result, error] = useNodeQueryDivinerRaw(moduleIdentifier, query, refresher ?? module)
+  const [result, error] = useNodeQueryDivinerRaw(moduleIdentifier, query, refresher ?? !!module)
 
   return [result, error]
 }

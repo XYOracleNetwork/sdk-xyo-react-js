@@ -11,8 +11,6 @@ interface UseArchiveArchivists {
   archivePayloadWrapper: ArchivistWrapper
 }
 
-type HookParams = Parameters<typeof useArchiveArchivistsRaw>
-
 export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean, refresher?: unknown): UseArchiveArchivists | undefined => {
   const [node] = useNode<MemoryNode>(required)
 
@@ -44,11 +42,9 @@ export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean
   return archivists
 }
 
-type HookParamsWithAddresses = [...HookParams, string[]]
-
-export const useArchiveArchivists = (...[archive, required, refresher, refreshAddresses]: HookParamsWithAddresses) => {
+export const useArchiveArchivists = (archiveName?: string, required?: boolean, refresher?: unknown, refreshAddresses?: string[]) => {
   const { module } = useMemoryNodeUpdates(refreshAddresses)
-  const archivists = useArchiveArchivistsRaw(archive, required, refresher ?? module)
+  const archivists = useArchiveArchivistsRaw(archiveName, required, refresher ?? module)
 
   return archivists
 }
