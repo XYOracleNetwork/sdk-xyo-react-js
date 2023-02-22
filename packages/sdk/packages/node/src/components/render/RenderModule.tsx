@@ -1,18 +1,32 @@
 import { TreeItem } from '@mui/lab'
 import { styled } from '@mui/material'
-import { ModuleDescription } from '@xyo-network/module'
-import { MutableRefObject } from 'react'
+import { useAsyncEffect } from '@xylabs/react-shared'
+import { Module, ModuleWrapper } from '@xyo-network/module'
+import { MutableRefObject, useState } from 'react'
 
 interface RenderModuleProps {
   idRef: MutableRefObject<{
     idIncrementor: number
     ids: string[]
   }>
-  module: ModuleDescription
+  module: Module
 }
 
 export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => {
-  const { address, queries, children: moduleChildren } = module
+  const { address, queries } = module
+  const [childModules, setChildModules] = useState<Module[]>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      const wrapper = ModuleWrapper.wrap(module)
+      const children = (await wrapper.resolve()).filter((childModule) => childModule.address !== address)
+      if (mounted()) {
+        setChildModules(children)
+      }
+    },
+    [module, address],
+  )
 
   const increment = () => {
     const newId = (idRef.current.idIncrementor++).toString()
@@ -25,10 +39,10 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => 
       {queries.map((query, index) => {
         return <TreeItem key={query} nodeId={increment()} label={`query : ${query}`} sx={{ mb: index === queries.length - 1 ? 1.5 : 0.5 }} />
       })}
-      {moduleChildren && moduleChildren.length > 0 ? (
+      {childModules && childModules.length > 0 ? (
         <TreeItem nodeId={increment()} label={'children'} sx={{ mb: 0.5 }}>
-          {moduleChildren.map((module) => (
-            <RenderModule key={module.address} module={module} idRef={idRef} />
+          {childModules.map((childModule) => (
+            <RenderModule key={childModule.address} module={childModule} idRef={idRef} />
           ))}
         </TreeItem>
       ) : null}

@@ -3,23 +3,22 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { TreeView } from '@mui/lab'
 import { styled, Typography } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ModuleDescription } from '@xyo-network/module'
-import isEmpty from 'lodash/isEmpty'
+import { Module } from '@xyo-network/module'
 import { useRef } from 'react'
 
 import { RenderModule } from './RenderModule'
 
 export interface ModuleDescriptionProps extends FlexBoxProps {
-  moduleDescription?: ModuleDescription
+  module?: Module
 }
-export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ moduleDescription }) => {
+export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ module }) => {
   const idRef = useRef<{ idIncrementor: number; ids: string[] }>({ idIncrementor: 0, ids: [] })
 
   return (
     <>
-      {moduleDescription === undefined ? <Typography variant="h4">Node not found</Typography> : null}
-      {isEmpty(moduleDescription) ? <Typography>Node has no modules</Typography> : null}
-      {!isEmpty(moduleDescription) ? (
+      {module === undefined ? (
+        <Typography variant="h4">Node not found</Typography>
+      ) : (
         <>
           <Typography variant="h4">Node Configuration</Typography>
           <StyledTreeView
@@ -28,10 +27,10 @@ export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ moduleD
             defaultExpandIcon={<ChevronRightIcon />}
             sx={{ flexGrow: 1 }}
           >
-            <RenderModule module={moduleDescription} idRef={idRef} />
+            <RenderModule module={module} idRef={idRef} />
           </StyledTreeView>
         </>
-      ) : null}
+      )}
     </>
   )
 }
