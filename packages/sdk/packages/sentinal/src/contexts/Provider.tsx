@@ -1,5 +1,3 @@
-/* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-deprecated */
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Account } from '@xyo-network/account'
@@ -10,14 +8,13 @@ import { AbstractSentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-net
 import { WitnessModule, WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useMemo, useState } from 'react'
 
-import { PanelContext } from './Context'
-import { PanelReportProgress, ReportStatus } from './State'
+import { SentinelContext } from './Context'
+import { SentinelReportProgress, SentinelReportStatus } from './State'
 
-/** @deprecated - use sentinel package instead */
-export interface PanelProviderProps {
-  /** Account used by the panel for signing */
+export interface SentinelProviderProps {
+  /** Account used by the sentinel for signing */
   account?: Account
-  /** @deprecated - panel no longer uses archive but relies on an archivist */
+  /** @deprecated - sentinel no longer uses archive but relies on an archivist */
   archive?: string
   archivist?: ArchivistModule
   name?: string
@@ -25,7 +22,7 @@ export interface PanelProviderProps {
   witnesses?: WitnessModule[]
 }
 
-export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
+export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = ({
   account,
   archivist,
   children,
@@ -33,10 +30,10 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   witnesses = [],
   required = false,
 }) => {
-  const [panel, setPanel] = useState<AbstractSentinel>()
+  const [sentinel, setSentinel] = useState<AbstractSentinel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
-  const [progress, setProgress] = useState<PanelReportProgress>({})
-  const [status, setStatus] = useState(ReportStatus.Idle)
+  const [progress, setProgress] = useState<SentinelReportProgress>({})
+  const [status, setStatus] = useState(SentinelReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
   const resolver = useMemo(() => {
@@ -48,7 +45,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const archivistWrapper = archivist ? new ArchivistWrapper(archivist) : undefined
-      const panel = await AbstractSentinel.create({
+      const sentinel = await AbstractSentinel.create({
         account,
         config: {
           archivists: archivistWrapper ? [archivistWrapper?.address] : undefined,
@@ -59,20 +56,20 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
                 archivists: progress.archivists,
                 witnesses: progress.witnesses,
               })
-              setStatus(errors ? ReportStatus.Failed : ReportStatus.Succeeded)
+              setStatus(errors ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded)
               setReportingErrors(errors)
             }
           },
           onReportStart: () => {
             if (mounted()) {
               setProgress({ archivists: {}, witnesses: {} })
-              setStatus(ReportStatus.Started)
+              setStatus(SentinelReportStatus.Started)
             }
           },
           onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
             const witnesses = progress.witnesses ?? {}
             witnesses[witness.address] = {
-              status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
+              status: error ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded,
               witness,
             }
             if (mounted()) {
@@ -85,7 +82,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
           onWitnessReportStart: (witness: WitnessWrapper) => {
             const witnesses = progress.witnesses ?? {}
             witnesses[witness.address] = {
-              status: ReportStatus.Started,
+              status: SentinelReportStatus.Started,
               witness,
             }
             if (mounted()) {
@@ -100,7 +97,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
         } as SentinelConfig,
         resolver,
       })
-      setPanel(panel)
+      setSentinel(sentinel)
       await delay(0)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -108,10 +105,10 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   )
 
   useEffect(() => {
-    setHistory(panel?.history as XyoBoundWitness[])
-  }, [panel])
+    setHistory(sentinel?.history as XyoBoundWitness[])
+  }, [sentinel])
 
-  return !required || panel ? (
-    <PanelContext.Provider value={{ history, panel, progress, provided: true, reportingErrors, status }}>{children}</PanelContext.Provider>
+  return !required || sentinel ? (
+    <SentinelContext.Provider value={{ history, progress, provided: true, reportingErrors, sentinel, status }}>{children}</SentinelContext.Provider>
   ) : null
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-sdk",
+  "name": "@xyo-network/react-sentinel",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,59 +10,28 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-address": "workspace:^",
-    "@xyo-network/react-api": "workspace:^",
-    "@xyo-network/react-app-settings": "workspace:^",
-    "@xyo-network/react-appbar": "workspace:^",
-    "@xyo-network/react-archivist": "workspace:^",
-    "@xyo-network/react-auth": "workspace:^",
-    "@xyo-network/react-auth-service": "workspace:^",
-    "@xyo-network/react-auth-sets": "workspace:^",
-    "@xyo-network/react-block": "workspace:^",
-    "@xyo-network/react-card": "workspace:^",
-    "@xyo-network/react-embed": "workspace:^",
-    "@xyo-network/react-error": "workspace:^",
-    "@xyo-network/react-event": "workspace:^",
-    "@xyo-network/react-footer": "workspace:^",
-    "@xyo-network/react-gas-price": "workspace:^",
-    "@xyo-network/react-login-forms": "workspace:^",
-    "@xyo-network/react-map": "workspace:^",
-    "@xyo-network/react-network": "workspace:^",
-    "@xyo-network/react-node": "workspace:^",
-    "@xyo-network/react-panel": "workspace:^",
-    "@xyo-network/react-payload": "workspace:^",
-    "@xyo-network/react-property": "workspace:^",
-    "@xyo-network/react-schema": "workspace:^",
-    "@xyo-network/react-sentinel": "workspace:^",
+    "@xylabs/delay": "^2.7.1",
+    "@xylabs/react-shared": "^2.16.8",
+    "@xyo-network/account": "^2.47.0",
+    "@xyo-network/archivist": "^2.47.0",
+    "@xyo-network/boundwitness-model": "^2.47.0",
+    "@xyo-network/module": "^2.47.0",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/react-table": "workspace:^",
-    "@xyo-network/react-theme": "workspace:^",
-    "@xyo-network/react-typedoc": "workspace:^",
-    "@xyo-network/react-wallet": "workspace:^",
-    "@xyo-network/react-wallet-service": "workspace:^",
-    "@xyo-network/react-webapp": "workspace:^"
+    "@xyo-network/sentinel": "^2.47.0",
+    "@xyo-network/witness": "^2.47.0"
   },
   "devDependencies": {
     "@xylabs/ts-scripts-yarn3": "^2.14.15",
     "@xylabs/tsconfig-react": "^2.14.15",
-    "react-helmet": "^6.1.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
     "@mui/styles": "^5",
-    "@scure/bip39": "^1",
-    "@xylabs/pixel": "^1",
-    "@xylabs/react-button": "^2",
-    "@xylabs/react-flexbox": "^2",
-    "@xylabs/react-pixel": "^2",
-    "@xylabs/react-shared": "^2",
     "axios": "^1",
     "react": "^18",
     "react-dom": "^18",
-    "react-helmet": "^6",
-    "react-icons": "^4",
     "react-router-dom": "^6"
   },
   "description": "Common React library for all XYO projects that use React",
@@ -108,5 +77,5 @@
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
-  "version": "2.42.5"
+  "version": "2.42.3"
 }
