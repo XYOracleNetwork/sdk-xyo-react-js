@@ -8806,6 +8806,7 @@ __metadata:
     "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
+    "@xyo-network/react-sentinel": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
@@ -8830,6 +8831,33 @@ __metadata:
     react-dom: ^18
     react-helmet: ^6
     react-icons: ^4
+    react-router-dom: ^6
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-sentinel@workspace:^, @xyo-network/react-sentinel@workspace:packages/sdk/packages/sentinal":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-sentinel@workspace:packages/sdk/packages/sentinal"
+  dependencies:
+    "@xylabs/delay": ^2.7.1
+    "@xylabs/react-shared": ^2.16.8
+    "@xylabs/ts-scripts-yarn3": ^2.14.15
+    "@xylabs/tsconfig-react": ^2.14.15
+    "@xyo-network/account": ^2.47.0
+    "@xyo-network/archivist": ^2.47.0
+    "@xyo-network/boundwitness-model": ^2.47.0
+    "@xyo-network/module": ^2.47.0
+    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/sentinel": ^2.47.0
+    "@xyo-network/witness": ^2.47.0
+    typescript: ^4.9.5
+  peerDependencies:
+    "@mui/icons-material": ^5
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    axios: ^1
+    react: ^18
+    react-dom: ^18
     react-router-dom: ^6
   languageName: unknown
   linkType: soft
