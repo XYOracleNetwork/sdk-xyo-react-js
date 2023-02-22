@@ -1,11 +1,11 @@
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Account } from '@xyo-network/account'
-import { AbstractArchivist, ArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistModule, ArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { CompositeModuleResolver } from '@xyo-network/module'
 import { AbstractSentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { AbstractWitness, WitnessWrapper } from '@xyo-network/witness'
+import { WitnessModule, WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useMemo, useState } from 'react'
 
 import { PanelContext } from './Context'
@@ -16,10 +16,10 @@ export interface PanelProviderProps {
   account?: Account
   /** @deprecated - panel no longer uses archive but relies on an archivist */
   archive?: string
-  archivist?: AbstractArchivist
+  archivist?: ArchivistModule
   name?: string
   required?: boolean
-  witnesses?: AbstractWitness[]
+  witnesses?: WitnessModule[]
 }
 
 export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({

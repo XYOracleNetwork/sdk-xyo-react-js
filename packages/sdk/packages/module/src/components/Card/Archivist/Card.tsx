@@ -1,12 +1,12 @@
 import { Card, CardProps } from '@mui/material'
-import { AbstractArchivist } from '@xyo-network/archivist'
+import { ArchivistModule } from '@xyo-network/archivist'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 import { ModuleCardActions } from '../Module'
 import { ArchivistCardContent } from './CardContent'
 import { ArchivistCardHeader } from './CardHeader'
 
-export const ArchivistCard: React.FC<CardProps & ModuleRenderProps<AbstractArchivist>> = ({ children, module, ...props }) => {
+export const ArchivistCard: React.FC<CardProps & ModuleRenderProps<ArchivistModule>> = ({ children, module, ...props }) => {
   return (
     <Card {...props}>
       <ArchivistCardHeader module={module} />

@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { AbstractArchivist } from '@xyo-network/archivist'
+import { ArchivistModule } from '@xyo-network/archivist'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
@@ -26,7 +26,7 @@ const TemplateInner: ComponentStory<typeof ArchivistDetails> = (args) => {
 
 const TemplateInnerWithData: ComponentStory<typeof ArchivistDetails> = (args) => {
   const { archivist } = useArchivist()
-  const [archivistWithData, setArchivistWithData] = useState<AbstractArchivist>()
+  const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

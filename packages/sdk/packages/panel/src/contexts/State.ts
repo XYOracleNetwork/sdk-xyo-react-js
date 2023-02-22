@@ -1,6 +1,6 @@
-import { AbstractArchivist } from '@xyo-network/archivist'
+import { ArchivistModule } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { AbstractSentinel } from '@xyo-network/sentinel'
+import { SentinelModule } from '@xyo-network/sentinel'
 import { WitnessWrapper } from '@xyo-network/witness'
 
 export enum ReportStatus {
@@ -17,7 +17,7 @@ export interface WitnessReportProgress {
 }
 
 export interface ArchivistApiReportProgress {
-  archivist: AbstractArchivist
+  archivist: ArchivistModule
   status: ReportStatus
 }
 
@@ -28,7 +28,7 @@ export interface PanelReportProgress {
 
 export interface PanelContextState {
   history?: XyoBoundWitness[]
-  panel?: AbstractSentinel
+  panel?: SentinelModule
   progress?: PanelReportProgress
   reportingErrors?: Error[]
   status?: ReportStatus

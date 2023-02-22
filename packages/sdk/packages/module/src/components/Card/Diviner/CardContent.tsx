@@ -3,14 +3,14 @@ import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchivistConfig } from '@xyo-network/archivist'
-import { AbstractDiviner } from '@xyo-network/diviner'
+import { DivinerModule } from '@xyo-network/diviner'
 import { ModuleWrapper } from '@xyo-network/module'
 import { useState } from 'react'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 import { ModuleCardContent } from '../Module'
 
-export const DivinerCardContent: React.FC<ModuleRenderProps<AbstractDiviner> & CardContentProps> = ({ children, module, ...props }) => {
+export const DivinerCardContent: React.FC<ModuleRenderProps<DivinerModule> & CardContentProps> = ({ children, module, ...props }) => {
   const [config, setConfig] = useState<ArchivistConfig>()
 
   useAsyncEffect(

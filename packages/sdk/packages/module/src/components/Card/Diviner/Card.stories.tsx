@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { AbstractDiviner, MemoryAddressHistoryDiviner, MemoryAddressHistoryDivinerConfigSchema } from '@xyo-network/diviner'
+import { DivinerModule, MemoryAddressHistoryDiviner, MemoryAddressHistoryDivinerConfigSchema } from '@xyo-network/diviner'
 import { useState } from 'react'
 
 import { DivinerCard } from './Card'
@@ -22,7 +22,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof DivinerCard>
 
 const Template: ComponentStory<typeof DivinerCard> = () => {
-  const [module, setModule] = useState<AbstractDiviner>()
+  const [module, setModule] = useState<DivinerModule>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
