@@ -12,14 +12,10 @@ interface UseMemoryNodeUpdates {
 
 export const useMemoryNodeUpdates = (refreshAddresses?: string[]): UseMemoryNodeUpdates => {
   const [node] = useNode<MemoryNode>()
-  const [resolver, setResolver] = useState<ModuleResolver>()
   const [module, setModule] = useState<ModuleAttachedEventArgs>()
 
   useEffect(() => {
     if (node) {
-      node.on('moduleResolverChanged', ({ resolver }) => {
-        setResolver(resolver)
-      })
       node.on('moduleAttached', (args) => {
         if (refreshAddresses) {
           if (refreshAddresses.some((address) => address === args?.module.address)) setModule(args)
@@ -32,6 +28,5 @@ export const useMemoryNodeUpdates = (refreshAddresses?: string[]): UseMemoryNode
 
   return {
     module,
-    resolver,
   }
 }
