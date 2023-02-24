@@ -19,7 +19,7 @@ export interface XyoErrorBoundaryState {
 }
 
 export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, XyoErrorBoundaryState> {
-  public state: XyoErrorBoundaryState = {
+  public override state: XyoErrorBoundaryState = {
     xyoError: undefined,
   }
 
@@ -31,7 +31,7 @@ export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, Xyo
     return ((error as XyoError).schema === XyoErrorSchema ? error : { message: error.message, schema: XyoErrorSchema, sources: [] }) as XyoError
   }
 
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  public override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     const { rethrow, rollbar } = this.props
     const { xyoError } = this.state
 
@@ -43,7 +43,7 @@ export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, Xyo
     }
   }
 
-  public render() {
+  public override render() {
     const { xyoError } = this.state
     const { children, boundaryName, errorComponent } = this.props
     if (xyoError) {

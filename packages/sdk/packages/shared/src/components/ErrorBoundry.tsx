@@ -24,11 +24,11 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     return { error }
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error(`${error}: ${errorInfo}`)
   }
 
-  render() {
+  override render() {
     if (this.state.error) {
       if (this.props.fallbackWithError) {
         return this.props.fallbackWithError(this.state.error)
