@@ -11,13 +11,14 @@ export interface WalletAccountSelectProps extends SelectProps<number> {
   iconOnly?: boolean
   iconSize?: number
   icons?: boolean
+  maxAccounts?: number
 }
 
 const arrayRange = (length: number, start = 0) => {
   return Array.from(Array(length).keys()).map((x) => x + start)
 }
 
-export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOnly, iconSize = 24, icons, size, ...props }) => {
+export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOnly, iconSize = 24, icons, maxAccounts = 1, size, ...props }) => {
   const { wallet, activeAccountIndex = 0, setActiveAccountIndex } = useWallet()
 
   return (
@@ -42,7 +43,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOn
       {...props}
     >
       {wallet
-        ? arrayRange(10).map((index) => {
+        ? arrayRange(maxAccounts).map((index) => {
             const account = wallet?.getAccount(index)
             return (
               <MenuItem key={index} value={index}>
