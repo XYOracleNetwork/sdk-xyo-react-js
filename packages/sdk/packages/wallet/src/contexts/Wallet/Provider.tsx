@@ -22,6 +22,12 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ ch
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
 
   useEffect(() => {
+    if (defaultActiveAccountIndex !== undefined) {
+      setActiveAccountIndex(defaultActiveAccountIndex)
+    }
+  }, [defaultActiveAccountIndex])
+
+  useEffect(() => {
     if (defaultWallet) {
       setWallet(defaultWallet)
     }
