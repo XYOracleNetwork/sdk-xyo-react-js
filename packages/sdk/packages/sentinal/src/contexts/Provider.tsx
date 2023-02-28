@@ -93,8 +93,9 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       setSentinel(sentinel)
       await node?.register(sentinel).attach(sentinel.address)
       return () => {
-        node?.detach(sentinel.address)
-        node?.unregister(sentinel)
+        // TODO - un-registering in cleanup function seems to cause infinite rerenders
+        // node?.detach(sentinel.address)
+        // node?.unregister(sentinel)
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
