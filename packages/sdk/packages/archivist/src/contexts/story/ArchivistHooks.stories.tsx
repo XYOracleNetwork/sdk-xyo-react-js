@@ -2,12 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { useArchivistFind, useArchivistGet } from '../use'
 import { ArchivistPayloads } from './ArchivistPayloads.stories'
-import { WithArchivistProviders } from './WithArchivistProviders.stories'
 
 const StorybookEntry = {
   argTypes: {},
   component: ArchivistPayloads,
-  decorators: [WithArchivistProviders],
   parameters: {
     docs: {
       page: null,

@@ -4,15 +4,15 @@ import { usePromise } from '@xyo-network/react-shared'
 import { useCallback, useMemo } from 'react'
 
 import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
-import { useNode } from './useNode'
+import { useWrappedNode } from './useNode'
 
 interface UseArchiveArchivists {
   archiveBoundWitnessWrapper: ArchivistWrapper
   archivePayloadWrapper: ArchivistWrapper
 }
 
-export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean, refresher?: unknown): UseArchiveArchivists | undefined => {
-  const [node] = useNode<MemoryNode>(required)
+export const useArchiveArchivistsRaw = (archiveName?: string, refresher?: unknown): UseArchiveArchivists | undefined => {
+  const [node] = useWrappedNode<MemoryNode>()
 
   const buildReq = useCallback(
     (type: 'payload' | 'boundwitness') =>
@@ -42,9 +42,9 @@ export const useArchiveArchivistsRaw = (archiveName?: string, required?: boolean
   return archivists
 }
 
-export const useArchiveArchivists = (archiveName?: string, required?: boolean, refresher?: unknown, refreshAddresses?: string[]) => {
+export const useArchiveArchivists = (archiveName?: string, refresher?: unknown, refreshAddresses?: string[]) => {
   const { module } = useMemoryNodeUpdates(refreshAddresses)
-  const archivists = useArchiveArchivistsRaw(archiveName, required, refresher ?? module)
+  const archivists = useArchiveArchivistsRaw(archiveName, refresher ?? module)
 
   return archivists
 }
