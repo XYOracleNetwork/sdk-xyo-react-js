@@ -20,12 +20,13 @@ export const useNodeQueryDivinerRaw = (
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (moduleIdentifier && query && node?.resolver && refresher) {
+      if (moduleIdentifier && query && node && refresher) {
         try {
-          const diviner = await node.resolveWrapped(DivinerWrapper, { name: [moduleIdentifier] })
-          assertDefinedEx(diviner?.[0], `Unable to find moduleIdentifier: ${moduleIdentifier}`)
+          const divinerModule = (await node.downResolver.resolve({ name: [moduleIdentifier] })).pop()
+          assertDefinedEx(divinerModule, `Unable to find moduleIdentifier: ${moduleIdentifier}`)
+          const diviner = DivinerWrapper.wrap(assertDefinedEx(divinerModule, `Unable to find moduleIdentifier: ${moduleIdentifier}`))
 
-          const result = await diviner?.[0]?.divine([query])
+          const result = await diviner.divine([query])
           setResult(result)
           setError(undefined)
         } catch (e) {

@@ -1,14 +1,13 @@
 /* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-deprecated */
-import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Account } from '@xyo-network/account'
 import { ArchivistModule, ArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { CompositeModuleResolver } from '@xyo-network/module'
+import { MemoryNode } from '@xyo-network/node'
 import { AbstractSentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { WitnessModule, WitnessWrapper } from '@xyo-network/witness'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { PanelContext } from './Context'
 import { PanelReportProgress, ReportStatus } from './State'
@@ -21,6 +20,7 @@ export interface PanelProviderProps {
   archive?: string
   archivist?: ArchivistModule
   name?: string
+  node?: MemoryNode
   required?: boolean
   witnesses?: WitnessModule[]
 }
@@ -30,6 +30,7 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   archivist,
   children,
   name,
+  node,
   witnesses = [],
   required = false,
 }) => {
@@ -38,11 +39,6 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
   const [progress, setProgress] = useState<PanelReportProgress>({})
   const [status, setStatus] = useState(ReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
-
-  const resolver = useMemo(() => {
-    const resolver = new CompositeModuleResolver().add(witnesses)
-    return archivist ? resolver.add(archivist) : resolver
-  }, [archivist, witnesses])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -98,13 +94,20 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
           schema: SentinelConfigSchema,
           witnesses: witnesses.map((witness) => witness.address),
         } as SentinelConfig,
-        resolver,
       })
-      setPanel(panel)
-      await delay(0)
+      await node?.register(panel).attach(panel.address)
+      if (mounted()) {
+        setPanel(panel)
+      }
+      return () => {
+        if (panel) {
+          node?.detach(panel?.address)
+          node?.unregister(panel)
+        }
+      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [account, archivist, witnesses],
+    [account, archivist, witnesses, node],
   )
 
   useEffect(() => {

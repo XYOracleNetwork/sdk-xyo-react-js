@@ -1,12 +1,10 @@
-import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Account } from '@xyo-network/account'
-import { ArchivistModule, ArchivistWrapper } from '@xyo-network/archivist'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { CompositeModuleResolver } from '@xyo-network/module'
+import { MemoryNode } from '@xyo-network/node'
 import { AbstractSentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { WitnessModule, WitnessWrapper } from '@xyo-network/witness'
-import { useEffect, useMemo, useState } from 'react'
+import { WitnessWrapper } from '@xyo-network/witness'
+import { useEffect, useState } from 'react'
 
 import { SentinelContext } from './Context'
 import { SentinelReportProgress, SentinelReportStatus } from './State'
@@ -16,10 +14,11 @@ export interface SentinelProviderProps {
   account?: Account
   /** @deprecated - sentinel no longer uses archive but relies on an archivist */
   archive?: string
-  archivist?: ArchivistModule
+  archivist?: string
   name?: string
+  node?: MemoryNode
   required?: boolean
-  witnesses?: WitnessModule[]
+  witnesses?: string[]
 }
 
 export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = ({
@@ -27,6 +26,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   archivist,
   children,
   name,
+  node,
   witnesses = [],
   required = false,
 }) => {
@@ -36,19 +36,13 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   const [status, setStatus] = useState(SentinelReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
 
-  const resolver = useMemo(() => {
-    const resolver = new CompositeModuleResolver().add(witnesses)
-    return archivist ? resolver.add(archivist) : resolver
-  }, [archivist, witnesses])
-
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const archivistWrapper = archivist ? new ArchivistWrapper(archivist) : undefined
       const sentinel = await AbstractSentinel.create({
         account,
         config: {
-          archivists: archivistWrapper ? [archivistWrapper?.address] : undefined,
+          archivists: archivist ? [archivist] : undefined,
           name,
           onReportEnd: (_, errors?: Error[]) => {
             if (mounted()) {
@@ -93,12 +87,15 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
             }
           },
           schema: SentinelConfigSchema,
-          witnesses: witnesses.map((witness) => witness.address),
+          witnesses,
         } as SentinelConfig,
-        resolver,
       })
       setSentinel(sentinel)
-      await delay(0)
+      await node?.register(sentinel).attach(sentinel.address)
+      return () => {
+        node?.detach(sentinel.address)
+        node?.unregister(sentinel)
+      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [account, archivist, witnesses],
