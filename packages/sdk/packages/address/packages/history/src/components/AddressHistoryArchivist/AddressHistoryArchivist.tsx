@@ -1,5 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { StorageArchivistConfigSchema } from '@xyo-network/archivist'
+// eslint-disable-next-line import/no-deprecated
 import { StorageArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
 import { XyoErrorRender } from '@xyo-network/react-error'
 import { LoadResult, usePromise } from '@xyo-network/react-shared'
@@ -12,9 +13,9 @@ export interface AddressHistoryArchivistProps extends WithChildren {
   required?: boolean
 }
 
-const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ address, children, required = true }) => {
+const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ address, children }) => {
   const [addressHistory, error] = useAddressHistory(address)
-  const { archivist } = useArchivist(required)
+  const archivist = useArchivist()
 
   const [, insertError] = usePromise(addressHistory ? archivist?.insert(addressHistory) : Promise.resolve(undefined), [archivist])
 

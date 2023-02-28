@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useNode } from './useNode'
 
 export const useModuleAddresses = () => {
-  const [node] = useNode()
+  const node = useNode()
   const [attachedAddresses, setAttachedAddresses] = useState<string[]>()
 
   useAsyncEffect(

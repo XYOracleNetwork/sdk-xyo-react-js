@@ -15,7 +15,7 @@ export const useNodeQueryDivinerRaw = (
 ): [XyoPayloads | undefined, Error | undefined] => {
   const [result, setResult] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
-  const [node] = useNode<MemoryNode>()
+  const node = useNode<MemoryNode>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

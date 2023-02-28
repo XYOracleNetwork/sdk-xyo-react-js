@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { CookieArchivist, CookieArchivistConfig } from '@xyo-network/archivist'
 import { MemoryNode } from '@xyo-network/node'
@@ -13,8 +15,9 @@ export type CookieArchivistProviderProps = ContextExProviderProps<{
   node?: MemoryNode
 }>
 
+/** @deprecated use hooks instead */
 export const CookieArchivistProvider: React.FC<CookieArchivistProviderProps> = ({ config, node, ...props }) => {
-  const { archivist } = useArchivist()
+  const archivist = useArchivist()
 
   const [activeArchivist, setActiveArchivist] = useState<CookieArchivist>()
 

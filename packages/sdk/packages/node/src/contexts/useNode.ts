@@ -1,22 +1,34 @@
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { NodeModule, NodeWrapper } from '@xyo-network/node'
-import { useContextEx } from '@xyo-network/react-shared'
-import { Dispatch, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import { NodeContext } from './Context'
 
-export const useNode = <T extends NodeModule = NodeModule>(required = true): [T | undefined, Dispatch<NodeModule> | undefined] => {
-  const { node, setNode } = useContextEx(NodeContext, 'Node', required)
+export const useNode = <T extends NodeModule = NodeModule>(nameOrAddress?: string): T | undefined => {
+  const { node } = useContext(NodeContext)
+  const [resolvedNode, setResolvedNode] = useState<T>()
 
-  return [node as T, setNode]
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      const resolvedNode = (node && nameOrAddress ? await NodeWrapper.wrap(node).resolve(nameOrAddress) : node) as T | undefined
+      if (mounted()) {
+        setResolvedNode(resolvedNode)
+      }
+    },
+    [node, nameOrAddress],
+  )
+
+  return resolvedNode
 }
 
-export const useWrappedNode = <T extends NodeModule = NodeModule>(): [NodeWrapper | undefined] => {
+export const useWrappedNode = <T extends NodeModule = NodeModule>(nameOrAddress?: string): NodeWrapper | undefined => {
+  const node = useNode<T>(nameOrAddress)
   const [wrappedNode, setWrappedNode] = useState<NodeWrapper>()
-  const [node] = useNode<T>()
 
   useEffect(() => {
     setWrappedNode(node ? NodeWrapper.wrap(node) : undefined)
   }, [node])
 
-  return [wrappedNode]
+  return wrappedNode
 }

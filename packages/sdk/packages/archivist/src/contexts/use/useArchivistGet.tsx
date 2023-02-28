@@ -5,11 +5,11 @@ import { useDataState } from '@xyo-network/react-shared'
 import { RefreshCallback } from './lib'
 import { useArchivistStates } from './useArchivistStates'
 
-export const useArchivistGet = <T extends XyoPayload = XyoPayload>(ids?: string[], required = false): [T[]?, Error?, RefreshCallback?] => {
+export const useArchivistGet = <T extends XyoPayload = XyoPayload>(ids?: string[]): [T[]?, Error?, RefreshCallback?] => {
   const [savedIds, setSavedIds] = useDataState(ids)
   setSavedIds(ids)
 
-  const { archivist, error, payloads, refresh, setError, setPayloads, refreshCount } = useArchivistStates<T>(required)
+  const { archivist, error, payloads, refresh, setError, setPayloads, refreshCount } = useArchivistStates<T>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

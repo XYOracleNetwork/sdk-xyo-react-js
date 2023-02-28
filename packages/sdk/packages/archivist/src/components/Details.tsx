@@ -2,7 +2,7 @@ import { ButtonGroup, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema, ArchivistModule } from '@xyo-network/archivist'
+import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema } from '@xyo-network/archivist'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { QueryBoundWitnessBuilder } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload-model'
@@ -17,11 +17,11 @@ const testQueryClear = { schema: ArchivistClearQuerySchema }
 const testQueryClearBoundWitness = new QueryBoundWitnessBuilder({ inlinePayloads: true }).query(testQueryClear).build()
 
 export interface ArchivistDetails extends FlexBoxProps {
-  archivist?: ArchivistModule
+  address?: string
 }
 
-export const ArchivistDetails: React.FC<ArchivistDetails> = ({ archivist: archivistProp, ...props }) => {
-  const { archivist = archivistProp } = useArchivist()
+export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props }) => {
+  const archivist = useArchivist(address)
   const [payloads, setPayloads] = useState<XyoPayload[]>()
   const [refresh, setRefresh] = useState(0)
   const [wrapper, setWrapper] = useState<ArchivistWrapper>()

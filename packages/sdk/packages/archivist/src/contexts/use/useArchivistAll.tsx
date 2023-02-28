@@ -3,8 +3,8 @@ import { ArchivistWrapper } from '@xyo-network/archivist'
 
 import { useArchivistStates } from './useArchivistStates'
 
-export const useArchivistAll = (required = false) => {
-  const { archivist, error, payloads, setPayloads, refresh, setError, refreshCount } = useArchivistStates(required)
+export const useArchivistAll = () => {
+  const { archivist, error, payloads, setPayloads, refresh, setError, refreshCount } = useArchivistStates()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

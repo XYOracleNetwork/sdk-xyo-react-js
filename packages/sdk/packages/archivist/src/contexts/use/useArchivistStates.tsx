@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 
 import { useArchivist } from './use'
 
-export const useArchivistStates = <T extends XyoPayload = XyoPayload>(required: boolean) => {
-  const { archivist: archivistFromHook } = useArchivist(required)
+export const useArchivistStates = <T extends XyoPayload = XyoPayload>() => {
+  const archivistFromHook = useArchivist()
   const [payloads, setPayloads] = useState<T[]>()
   const [error, setError] = useState<Error>()
   const [refreshCount, setRefreshCount] = useState(1)

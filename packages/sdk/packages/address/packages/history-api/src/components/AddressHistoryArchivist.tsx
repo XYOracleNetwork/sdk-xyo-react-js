@@ -14,9 +14,9 @@ export interface AddressHistoryArchivistProps extends WithChildren {
   required?: boolean
 }
 
-const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ address, children, required = true }) => {
+const AddressHistoryArchivistInner: React.FC<AddressHistoryArchivistProps> = ({ address, children }) => {
   const [addressHistory, error] = useDivineAddressHistory(address)
-  const { archivist } = useArchivist(required)
+  const archivist = useArchivist()
 
   const [, insertError] = usePromise(addressHistory ? archivist?.insert(addressHistory) : Promise.resolve(undefined), [archivist])
 

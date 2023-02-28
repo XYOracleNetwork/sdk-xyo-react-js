@@ -10,7 +10,7 @@ export interface NodeDrawerProps extends WithChildren, Omit<DrawerProps, 'open'>
 
 export const NodeDrawer: React.FC<NodeDrawerProps> = ({ children, ...props }) => {
   const { open, setOpen } = useNodeDrawer()
-  const [node] = useNode()
+  const node = useNode()
 
   return (
     <Drawer open={open ?? false} anchor="right" {...props}>

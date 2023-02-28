@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
@@ -23,7 +25,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof StorageArchivistProvider>
 
 const RenderTest: React.FC = () => {
-  const { archivist } = useArchivist()
+  const archivist = useArchivist()
   const [items, setItems] = useState<number>()
   const [refresh, setRefresh] = useState(0)
   useAsyncEffect(

@@ -10,7 +10,7 @@ import { useQuadKeyPayloadsToFeatures } from './useQuadKeyPayloadsToFeatures'
 
 /** @deprecated - use useArchivistGet */
 const useFetchPayloads = (hashes?: string[]) => {
-  const { archivist } = useArchivist()
+  const archivist = useArchivist()
 
   const [apiError, setApiError] = useState<XyoError>()
   const [payloads, setPayloads] = useState<NetworkXyoLocationHeatmapQuadkeyAnswerPayload[]>()

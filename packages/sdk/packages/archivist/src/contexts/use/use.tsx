@@ -1,7 +1,6 @@
-import { useContextEx } from '@xyo-network/react-shared'
+import { ArchivistGetQuerySchema, ArchivistModule } from '@xyo-network/archivist'
+import { useModule } from '@xyo-network/react-node'
 
-import { ArchivistContext } from '../Context'
-
-export const useArchivist = (required = false) => {
-  return useContextEx(ArchivistContext, 'Archivist', required)
+export const useArchivist = (nameOrAddress?: string) => {
+  return useModule<ArchivistModule>(nameOrAddress, [[ArchivistGetQuerySchema]])
 }

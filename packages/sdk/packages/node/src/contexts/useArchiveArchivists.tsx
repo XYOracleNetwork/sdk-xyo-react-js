@@ -12,7 +12,7 @@ interface UseArchiveArchivists {
 }
 
 export const useArchiveArchivistsRaw = (archiveName?: string, refresher?: unknown): UseArchiveArchivists | undefined => {
-  const [node] = useWrappedNode<MemoryNode>()
+  const node = useWrappedNode<MemoryNode>()
 
   const buildReq = useCallback(
     (type: 'payload' | 'boundwitness') =>

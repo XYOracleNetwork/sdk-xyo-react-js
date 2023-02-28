@@ -5,9 +5,9 @@ import { useDataState } from '@xyo-network/react-shared'
 import { RefreshCallback } from './lib'
 import { useArchivistStates } from './useArchivistStates'
 
-export const useArchivistFind = <TFilter extends PayloadFindFilter>(filter: TFilter, required = false): [XyoPayload[]?, Error?, RefreshCallback?] => {
+export const useArchivistFind = <TFilter extends PayloadFindFilter>(filter: TFilter): [XyoPayload[]?, Error?, RefreshCallback?] => {
   const [savedFilter, setSavedFilter] = useDataState(filter)
-  const { archivist, error, payloads, setPayloads, refresh, setError, refreshCount } = useArchivistStates(required)
+  const { archivist, error, payloads, setPayloads, refresh, setError, refreshCount } = useArchivistStates()
 
   setSavedFilter(filter)
 

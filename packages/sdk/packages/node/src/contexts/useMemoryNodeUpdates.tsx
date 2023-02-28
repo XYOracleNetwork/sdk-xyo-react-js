@@ -11,7 +11,7 @@ interface UseMemoryNodeUpdates {
 }
 
 export const useMemoryNodeUpdates = (refreshAddresses?: string[]): UseMemoryNodeUpdates => {
-  const [node] = useNode<MemoryNode>()
+  const node = useNode<MemoryNode>()
   const [module, setModule] = useState<ModuleAttachedEventArgs>()
 
   useEffect(() => {

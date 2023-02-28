@@ -1,21 +1,24 @@
+import { useAsyncEffect } from '@xylabs/react-shared'
 import { StorageArchivistConfig, XyoStorageArchivist } from '@xyo-network/archivist'
 import { MemoryNode } from '@xyo-network/node'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
+import { useState } from 'react'
 
 import { useArchivist } from '../use'
+// eslint-disable-next-line import/no-deprecated
 import { ArchivistProvider } from './Provider'
 
+/** @deprecated use hooks instead */
 export type StorageArchivistProviderProps = ContextExProviderProps<{
   config: StorageArchivistConfig
   node?: MemoryNode
 }>
 
-import { useAsyncEffect } from '@xylabs/react-shared'
-import { useState } from 'react'
-
+/** @deprecated use hooks instead */
+// eslint-disable-next-line deprecation/deprecation
 export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config, node, ...props }) => {
-  const { archivist } = useArchivist()
+  const archivist = useArchivist()
 
   const [activeArchivist, setActiveArchivist] = useState<XyoStorageArchivist>()
 
@@ -49,5 +52,6 @@ export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> =
     [node, archivist, config],
   )
 
+  // eslint-disable-next-line deprecation/deprecation
   return <ArchivistProvider archivist={activeArchivist} {...props} />
 }

@@ -3,8 +3,8 @@ import { XyoPayload } from '@xyo-network/payload-model'
 
 import { useArchivistStates } from './useArchivistStates'
 
-export const useArchivistInsert = (payloads: XyoPayload[], required = false) => {
-  const { archivist, error, payloads: resultPayloads, refresh, setError, setPayloads: setResultPayloads, refreshCount } = useArchivistStates(required)
+export const useArchivistInsert = (payloads: XyoPayload[]) => {
+  const { archivist, error, payloads: resultPayloads, refresh, setError, setPayloads: setResultPayloads, refreshCount } = useArchivistStates()
 
   const insertRefresh = () => {
     setResultPayloads(undefined)

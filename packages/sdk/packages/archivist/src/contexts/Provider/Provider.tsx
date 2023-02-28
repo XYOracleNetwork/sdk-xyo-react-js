@@ -4,10 +4,13 @@ import { useEffect, useState } from 'react'
 
 import { ArchivistContext } from '../Context'
 
+/** @deprecated use hooks instead */
 export type ArchivistProviderProps = ContextExProviderProps<{
   archivist?: ArchivistModule
 }>
 
+/** @deprecated use hooks instead */
+// eslint-disable-next-line deprecation/deprecation
 export const ArchivistProvider: React.FC<ArchivistProviderProps> = ({ archivist: archivistProp, required = false, children }) => {
   const [archivist, setArchivist] = useState<ArchivistModule>()
 
