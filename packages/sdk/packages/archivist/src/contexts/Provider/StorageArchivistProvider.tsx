@@ -1,6 +1,6 @@
-import { ArchivistWrapper, StorageArchivistConfig, XyoStorageArchivist } from '@xyo-network/archivist'
-import { CompositeModuleResolver } from '@xyo-network/module'
-import { ContextExProviderProps, useDataState } from '@xyo-network/react-shared'
+import { StorageArchivistConfig, XyoStorageArchivist } from '@xyo-network/archivist'
+import { MemoryNode } from '@xyo-network/node'
+import { ContextExProviderProps } from '@xyo-network/react-shared'
 import merge from 'lodash/merge'
 
 import { useArchivist } from '../use'
@@ -8,27 +8,14 @@ import { ArchivistProvider } from './Provider'
 
 export type StorageArchivistProviderProps = ContextExProviderProps<{
   config: StorageArchivistConfig
-  resolver?: CompositeModuleResolver
+  node?: MemoryNode
 }>
 
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
-export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config: configProp, resolver, ...props }) => {
-  const [config, setConfig] = useDataState(configProp)
+export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> = ({ config, node, ...props }) => {
   const { archivist } = useArchivist()
-
-  //we set this every time, but it will only take if config VALUE changed
-  setConfig(configProp)
-
-  const wrapper = useMemo(() => (archivist ? new ArchivistWrapper(archivist) : undefined), [archivist])
-  const activeResolver: CompositeModuleResolver | undefined = useMemo(
-    () => (resolver ?? wrapper ? new CompositeModuleResolver() : undefined),
-    [resolver, wrapper],
-  )
-  if (archivist) {
-    activeResolver?.add(archivist)
-  }
 
   const [activeArchivist, setActiveArchivist] = useState<XyoStorageArchivist>()
 
@@ -49,13 +36,17 @@ export const StorageArchivistProvider: React.FC<StorageArchivistProviderProps> =
               }
             : undefined,
         ),
-        resolver: activeResolver,
       }).start()
+      await node?.register(activeArchivist).attach(activeArchivist.address)
       if (mounted()) {
         setActiveArchivist(activeArchivist)
       }
+      return () => {
+        node?.detach(activeArchivist.address)
+        node?.unregister(activeArchivist)
+      }
     },
-    [activeResolver, archivist, config],
+    [node, archivist, config],
   )
 
   return <ArchivistProvider archivist={activeArchivist} {...props} />
