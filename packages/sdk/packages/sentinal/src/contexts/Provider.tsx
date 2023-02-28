@@ -1,7 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Account } from '@xyo-network/account'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { MemoryNode } from '@xyo-network/node'
 import { AbstractSentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
@@ -16,7 +15,6 @@ export interface SentinelProviderProps {
   archive?: string
   archivist?: string
   name?: string
-  node?: MemoryNode
   required?: boolean
   witnesses?: string[]
 }
@@ -26,7 +24,6 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   archivist,
   children,
   name,
-  node,
   witnesses = [],
   required = false,
 }) => {
@@ -91,12 +88,6 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
         } as SentinelConfig,
       })
       setSentinel(sentinel)
-      await node?.register(sentinel).attach(sentinel.address)
-      return () => {
-        // TODO - un-registering in cleanup function seems to cause infinite rerenders
-        // node?.detach(sentinel.address)
-        // node?.unregister(sentinel)
-      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [account, archivist, witnesses],
