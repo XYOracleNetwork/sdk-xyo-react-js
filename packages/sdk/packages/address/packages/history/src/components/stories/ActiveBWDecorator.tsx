@@ -1,14 +1,29 @@
 import { DecoratorFn } from '@storybook/react'
-import { WithChildren } from '@xylabs/react-shared'
+import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { StorageArchivistConfigSchema } from '@xyo-network/archivist'
+import { MemoryNode, NodeWrapper } from '@xyo-network/node'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
-import { StorageArchivistProvider, useArchivist } from '@xyo-network/react-archivist'
+import { useArchivist } from '@xyo-network/react-archivist'
 import { usePromise } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
+import { useState } from 'react'
 
 import { ActiveBoundWitnessProvider } from '../../providers'
 
 export const ActiveBWDecorator: DecoratorFn = (Story, args) => {
+  const [node, setNode] = useState<NodeWrapper>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      const node = NodeWrapper.wrap(await MemoryNode.create())
+      if (mounted()) {
+        setNode(node)
+      }
+    },
+    [],
+  )
+
   return (
     <StorageArchivistProvider config={{ namespace: 'AddressHistory', schema: StorageArchivistConfigSchema, type: 'local' }}>
       <ActiveBWDecoratorInner>
