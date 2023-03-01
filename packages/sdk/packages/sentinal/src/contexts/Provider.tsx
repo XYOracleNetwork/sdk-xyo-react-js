@@ -41,51 +41,52 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
         config: {
           archivists: archivist ? [archivist] : undefined,
           name,
-          onReportEnd: (_, errors?: Error[]) => {
-            if (mounted()) {
-              setProgress({
-                archivists: progress.archivists,
-                witnesses: progress.witnesses,
-              })
-              setStatus(errors ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded)
-              setReportingErrors(errors)
-            }
-          },
-          onReportStart: () => {
-            if (mounted()) {
-              setProgress({ archivists: {}, witnesses: {} })
-              setStatus(SentinelReportStatus.Started)
-            }
-          },
-          onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
-            const witnesses = progress.witnesses ?? {}
-            witnesses[witness.address] = {
-              status: error ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded,
-              witness,
-            }
-            if (mounted()) {
-              setProgress({
-                archivists: progress.archivists,
-                witnesses,
-              })
-            }
-          },
-          onWitnessReportStart: (witness: WitnessWrapper) => {
-            const witnesses = progress.witnesses ?? {}
-            witnesses[witness.address] = {
-              status: SentinelReportStatus.Started,
-              witness,
-            }
-            if (mounted()) {
-              setProgress({
-                archivists: progress.archivists,
-                witnesses,
-              })
-            }
-          },
+
           schema: SentinelConfigSchema,
           witnesses,
         } as SentinelConfig,
+        onReportEnd: (_, errors?: Error[]) => {
+          if (mounted()) {
+            setProgress({
+              archivists: progress.archivists,
+              witnesses: progress.witnesses,
+            })
+            setStatus(errors ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded)
+            setReportingErrors(errors)
+          }
+        },
+        onReportStart: () => {
+          if (mounted()) {
+            setProgress({ archivists: {}, witnesses: {} })
+            setStatus(SentinelReportStatus.Started)
+          }
+        },
+        onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
+          const witnesses = progress.witnesses ?? {}
+          witnesses[witness.address] = {
+            status: error ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded,
+            witness,
+          }
+          if (mounted()) {
+            setProgress({
+              archivists: progress.archivists,
+              witnesses,
+            })
+          }
+        },
+        onWitnessReportStart: (witness: WitnessWrapper) => {
+          const witnesses = progress.witnesses ?? {}
+          witnesses[witness.address] = {
+            status: SentinelReportStatus.Started,
+            witness,
+          }
+          if (mounted()) {
+            setProgress({
+              archivists: progress.archivists,
+              witnesses,
+            })
+          }
+        },
       })
       setSentinel(sentinel)
     },

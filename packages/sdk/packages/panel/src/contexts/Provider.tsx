@@ -49,51 +49,52 @@ export const PanelProvider: React.FC<WithChildren<PanelProviderProps>> = ({
         config: {
           archivists: archivistWrapper ? [archivistWrapper?.address] : undefined,
           name,
-          onReportEnd: (_, errors?: Error[]) => {
-            if (mounted()) {
-              setProgress({
-                archivists: progress.archivists,
-                witnesses: progress.witnesses,
-              })
-              setStatus(errors ? ReportStatus.Failed : ReportStatus.Succeeded)
-              setReportingErrors(errors)
-            }
-          },
-          onReportStart: () => {
-            if (mounted()) {
-              setProgress({ archivists: {}, witnesses: {} })
-              setStatus(ReportStatus.Started)
-            }
-          },
-          onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
-            const witnesses = progress.witnesses ?? {}
-            witnesses[witness.address] = {
-              status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
-              witness,
-            }
-            if (mounted()) {
-              setProgress({
-                archivists: progress.archivists,
-                witnesses,
-              })
-            }
-          },
-          onWitnessReportStart: (witness: WitnessWrapper) => {
-            const witnesses = progress.witnesses ?? {}
-            witnesses[witness.address] = {
-              status: ReportStatus.Started,
-              witness,
-            }
-            if (mounted()) {
-              setProgress({
-                archivists: progress.archivists,
-                witnesses,
-              })
-            }
-          },
+
           schema: SentinelConfigSchema,
           witnesses: witnesses.map((witness) => witness.address),
         } as SentinelConfig,
+        onReportEnd: (_, errors?: Error[]) => {
+          if (mounted()) {
+            setProgress({
+              archivists: progress.archivists,
+              witnesses: progress.witnesses,
+            })
+            setStatus(errors ? ReportStatus.Failed : ReportStatus.Succeeded)
+            setReportingErrors(errors)
+          }
+        },
+        onReportStart: () => {
+          if (mounted()) {
+            setProgress({ archivists: {}, witnesses: {} })
+            setStatus(ReportStatus.Started)
+          }
+        },
+        onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
+          const witnesses = progress.witnesses ?? {}
+          witnesses[witness.address] = {
+            status: error ? ReportStatus.Failed : ReportStatus.Succeeded,
+            witness,
+          }
+          if (mounted()) {
+            setProgress({
+              archivists: progress.archivists,
+              witnesses,
+            })
+          }
+        },
+        onWitnessReportStart: (witness: WitnessWrapper) => {
+          const witnesses = progress.witnesses ?? {}
+          witnesses[witness.address] = {
+            status: ReportStatus.Started,
+            witness,
+          }
+          if (mounted()) {
+            setProgress({
+              archivists: progress.archivists,
+              witnesses,
+            })
+          }
+        },
       })
       await node?.register(panel).attach(panel.address)
       if (mounted()) {
