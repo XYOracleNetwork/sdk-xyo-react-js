@@ -4,10 +4,8 @@ import { EthAccountBox } from '@xylabs/react-crypto'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchivistConfig, ArchivistModule } from '@xyo-network/archivist'
 import { ModuleWrapper } from '@xyo-network/module'
+import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
 import { useState } from 'react'
-
-import { ModuleRenderProps } from '../../../ModuleRenderProps'
-import { ModuleCardContent } from '../Module'
 
 export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> & CardContentProps> = ({ children, module, ...props }) => {
   const [config, setConfig] = useState<ArchivistConfig>()

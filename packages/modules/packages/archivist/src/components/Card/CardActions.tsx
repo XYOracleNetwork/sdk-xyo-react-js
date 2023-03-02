@@ -1,8 +1,6 @@
 import { CardActionsProps } from '@mui/material'
 import { ArchivistModule } from '@xyo-network/archivist'
-
-import { ModuleRenderProps } from '../../../ModuleRenderProps'
-import { ModuleCardActions } from '../Module'
+import { ModuleCardActions, ModuleRenderProps } from '@xyo-network/react-module'
 
 export const ArchivistCardActions: React.FC<ModuleRenderProps<ArchivistModule> & CardActionsProps> = (props) => {
   return <ModuleCardActions {...props} />

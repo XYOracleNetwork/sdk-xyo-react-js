@@ -4,7 +4,7 @@ import { ArchivistModule } from '@xyo-network/archivist'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
-import { MemoryArchivistProvider, useArchivist } from '../contexts'
+import { MemoryArchivistProvider, useArchivist } from '../../contexts'
 import { ArchivistDetails } from './Details'
 
 const StorybookEntry = {

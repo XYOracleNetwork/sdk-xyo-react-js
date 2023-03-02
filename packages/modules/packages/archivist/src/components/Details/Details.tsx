@@ -8,7 +8,7 @@ import { QueryBoundWitnessBuilder } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
-import { useArchivist } from '../contexts'
+import { useArchivist } from '../../contexts'
 
 const testQueryCommit = { schema: ArchivistCommitQuerySchema }
 const testQueryCommitBoundWitness = new QueryBoundWitnessBuilder({ inlinePayloads: true }).query(testQueryCommit).build()

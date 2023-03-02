@@ -1,8 +1,7 @@
 import { Card, CardProps } from '@mui/material'
 import { ArchivistModule } from '@xyo-network/archivist'
+import { ModuleCardActions, ModuleRenderProps } from '@xyo-network/react-module'
 
-import { ModuleRenderProps } from '../../../ModuleRenderProps'
-import { ModuleCardActions } from '../Module'
 import { ArchivistCardContent } from './CardContent'
 import { ArchivistCardHeader } from './CardHeader'
 
