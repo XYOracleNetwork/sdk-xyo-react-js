@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AddressHistoryArchivist } from './AddressHistoryArchivist'
 
 const Result: React.FC = () => {
-  const archivist = useArchivist()
+  const [archivist] = useArchivist()
   const wrapper = archivist ? new ArchivistWrapper(archivist) : undefined
   const results = wrapper?.all?.()
   return <code>{JSON.stringify(results, null, 2)}</code>

@@ -20,13 +20,13 @@ const StorybookEntry = {
 } as ComponentMeta<typeof ArchivistDetails>
 
 const TemplateInner: ComponentStory<typeof ArchivistDetails> = (args) => {
-  const archivist = useArchivist()
+  const [archivist] = useArchivist()
 
   return <ArchivistDetails address={archivist?.address} {...args}></ArchivistDetails>
 }
 
 const TemplateInnerWithData: ComponentStory<typeof ArchivistDetails> = (args) => {
-  const archivist = useArchivist()
+  const [archivist] = useArchivist()
   const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
 
   useAsyncEffect(

@@ -7,7 +7,7 @@ import { useArchivist } from './useArchivist'
 export type RefreshCallback = () => void
 
 export const useArchivistStates = <T extends XyoPayload = XyoPayload>() => {
-  const archivistFromHook = useArchivist()
+  const [archivistFromHook] = useArchivist()
   const [payloads, setPayloads] = useState<T[]>()
   const [error, setError] = useState<Error>()
   const [refreshCount, setRefreshCount] = useState(1)
