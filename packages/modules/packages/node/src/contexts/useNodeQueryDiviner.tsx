@@ -1,12 +1,11 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { DivinerWrapper } from '@xyo-network/diviner-wrapper'
-import { MemoryNode } from '@xyo-network/node'
 import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
+import { useProvidedNode } from '../hooks'
 import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
-import { useNode } from './useNode'
 
 export const useNodeQueryDivinerRaw = (
   moduleIdentifier?: string,
@@ -15,7 +14,7 @@ export const useNodeQueryDivinerRaw = (
 ): [XyoPayloads | undefined, Error | undefined] => {
   const [result, setResult] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
-  const node = useNode<MemoryNode>()
+  const node = useProvidedNode()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,7 +1,6 @@
 import { Paper, Toolbar, ToolbarProps } from '@mui/material'
 import { SelectExProps } from '@xylabs/react-common'
 import { FlexRow } from '@xylabs/react-flexbox'
-import { ArchiveSelectEx } from '@xyo-network/react-api'
 import { DarkModeIconButton } from '@xyo-network/react-app-settings'
 import { AuthSetsStatusIconButton } from '@xyo-network/react-auth-sets'
 import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'

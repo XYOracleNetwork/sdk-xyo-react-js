@@ -17,7 +17,7 @@ const ProviderDecorator: DecoratorFn = (Story, args) => (
 const StorybookEntry = {
   component: NodeDrawer,
   decorators: [ProviderDecorator],
-  title: 'node/NodeDrawer',
+  title: 'modules/node/NodeDrawer',
 } as ComponentMeta<typeof NodeDrawer>
 
 const Template: ComponentStory<typeof NodeDrawer> = (args) => {

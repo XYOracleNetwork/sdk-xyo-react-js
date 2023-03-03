@@ -19,7 +19,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'module/ModuleCard',
+  title: 'modules/module/ModuleCard',
 } as ComponentMeta<typeof ModuleCard>
 
 const Template: ComponentStory<typeof ModuleCard> = () => {

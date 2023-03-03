@@ -1,12 +1,11 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { Module, ModuleFilter } from '@xyo-network/module'
-import { NodeModule } from '@xyo-network/node'
 import { useState } from 'react'
 
-import { useWrappedNode } from './useNode'
+import { useProvidedNode } from '../hooks'
 
 export const useModules = <T extends Module = Module>(filter?: ModuleFilter) => {
-  const node = useWrappedNode<NodeModule>()
+  const node = useProvidedNode(true)
   const [modules, setModules] = useState<T[]>()
 
   useAsyncEffect(

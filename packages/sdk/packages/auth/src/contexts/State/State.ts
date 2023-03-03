@@ -1,5 +1,3 @@
-import { XyoApiError } from '@xyo-network/api-models'
-
 import { AuthActionType } from '../ActionType'
 import { AuthService, AuthServiceId } from './Service'
 
@@ -8,7 +6,7 @@ export interface AuthState {
   activeAuthServiceId?: AuthServiceId
   /** @deprecated now controlled by archivist api instead */
   apiDomain: string
-  authError: undefined | Error | XyoApiError
+  authError: undefined | Error
   /** @deprecated now controlled by AuthServiceContext instead */
   readonly authServiceList?: AuthService[]
   isLoading: boolean

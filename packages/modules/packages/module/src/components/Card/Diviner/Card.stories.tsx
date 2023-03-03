@@ -18,7 +18,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'module/DivinerCard',
+  title: 'modules/diviner/DivinerCard',
 } as ComponentMeta<typeof DivinerCard>
 
 const Template: ComponentStory<typeof DivinerCard> = () => {

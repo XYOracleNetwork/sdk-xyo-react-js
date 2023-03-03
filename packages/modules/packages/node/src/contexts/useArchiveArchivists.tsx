@@ -1,10 +1,9 @@
 import { ArchivistWrapper } from '@xyo-network/archivist'
-import { MemoryNode } from '@xyo-network/node'
 import { usePromise } from '@xyo-network/react-shared'
 import { useCallback, useMemo } from 'react'
 
+import { useProvidedNode } from '../hooks'
 import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
-import { useWrappedNode } from './useNode'
 
 interface UseArchiveArchivists {
   archiveBoundWitnessWrapper: ArchivistWrapper
@@ -12,7 +11,7 @@ interface UseArchiveArchivists {
 }
 
 export const useArchiveArchivistsRaw = (archiveName?: string, refresher?: unknown): UseArchiveArchivists | undefined => {
-  const node = useWrappedNode<MemoryNode>()
+  const node = useProvidedNode(true)
 
   const buildReq = useCallback(
     (type: 'payload' | 'boundwitness') =>

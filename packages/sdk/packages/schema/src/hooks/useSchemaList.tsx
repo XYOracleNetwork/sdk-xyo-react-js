@@ -1,4 +1,3 @@
-import { SchemaList } from '@xyo-network/api'
 import { SchemaStatsPayload, SchemaStatsQuerySchema } from '@xyo-network/node-core-model'
 import { TYPES } from '@xyo-network/node-core-types'
 import { XyoPayloadBuilder } from '@xyo-network/payload-builder'
@@ -6,6 +5,8 @@ import { XyoPayload } from '@xyo-network/payload-model'
 import { useNodeQueryDiviner } from '@xyo-network/react-node'
 import { XyoSchemaSchema } from '@xyo-network/schema-payload-plugin'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+
+import { SchemaList } from './useSchemaDefinitions'
 
 export const useSchemaList = (archive?: string): [SchemaList[] | undefined, Error | undefined, Dispatch<SetStateAction<number>>] => {
   const [refresh, setRefresh] = useState(1)

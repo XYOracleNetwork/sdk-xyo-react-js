@@ -3,10 +3,10 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { NodeWrapper } from '@xyo-network/node'
 import { useState } from 'react'
 
-import { useNode } from '../contexts'
+import { useProvidedNode } from '../hooks'
 
 export const NodeBox: React.FC<FlexBoxProps> = (props) => {
-  const node = useNode()
+  const node = useProvidedNode()
   const [description, setDescription] = useState<string>()
 
   useAsyncEffect(

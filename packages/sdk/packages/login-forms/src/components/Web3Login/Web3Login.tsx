@@ -1,8 +1,6 @@
 import { Alert, AlertTitle, Typography } from '@mui/material'
 import { assertEx } from '@xylabs/assert'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoApiError } from '@xyo-network/api-models'
-import { useApi } from '@xyo-network/react-api'
 import { AuthActionType } from '@xyo-network/react-auth'
 import { useWalletService } from '@xyo-network/react-wallet-service'
 import { useEffect, useState } from 'react'
@@ -17,11 +15,10 @@ import { MetaMaskError } from './MetaMaskError'
 const Web3Login: React.FC<LoginForm> = ({ dispatch, loggedInAccount, onSuccess }) => {
   const { handleReturnUrl } = useHandleReturnUrl()
   const [checkedWallet, setCheckedWallet] = useState(false)
-  const { api } = useApi()
   const { metaMaskWallet } = useWalletService()
   const [token, setToken] = useState('')
   const [metaMaskError, setMetaMaskError] = useState<MetaMaskError>()
-  const [xyoApiError, setXyoApiError] = useState<XyoApiError>()
+  const [xyoApiError, setXyoApiError] = useState<Error>()
   const [newAuthentication, setNewAuthentication] = useState(false)
 
   useEffect(() => {

@@ -1,8 +1,9 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { SchemaList } from '@xyo-network/api'
 import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
+
+export type SchemaList = { name: string }
 
 export const useSchemaDefinitions = (schemaList?: SchemaList[]): XyoSchemaPayload[] | undefined => {
   const [schemaPayloads, setSchemaPayloads] = useState<XyoSchemaPayload[]>()

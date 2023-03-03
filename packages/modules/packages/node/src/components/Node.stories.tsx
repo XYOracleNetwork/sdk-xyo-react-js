@@ -18,7 +18,7 @@ const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'node/NodeBox',
+  title: 'modules/node/NodeBox',
 } as Meta
 
 const Template: ComponentStory<React.FC> = (props) => {
