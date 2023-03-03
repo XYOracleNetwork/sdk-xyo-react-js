@@ -2,7 +2,7 @@ import { ModuleResolver } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleAttachedEventEmitter } from '@xyo-network/node'
 import { useEffect, useState } from 'react'
 
-import { useNode } from '../hooks'
+import { useNode } from './useNode'
 
 interface UseMemoryNodeUpdates {
   module?: ModuleAttachedEventArgs

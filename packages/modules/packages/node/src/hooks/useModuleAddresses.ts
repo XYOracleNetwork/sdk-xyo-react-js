@@ -1,10 +1,10 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { useState } from 'react'
 
-import { useProvidedNode } from '../hooks'
+import { useProvidedNode } from './useProvidedNode'
 
 export const useModuleAddresses = () => {
-  const node = useProvidedNode()
+  const [node] = useProvidedNode()
   const [attachedAddresses, setAttachedAddresses] = useState<string[]>()
 
   useAsyncEffect(

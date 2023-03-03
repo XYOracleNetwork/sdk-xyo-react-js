@@ -23,7 +23,7 @@ export default {
 } as Meta
 
 const Template: ComponentStory<React.FC> = (props) => {
-  const node = useProvidedNode() as MemoryNode
+  const [node] = useProvidedNode() as MemoryNode
   const [description, setDescription] = useState<string>()
 
   useAsyncEffect(

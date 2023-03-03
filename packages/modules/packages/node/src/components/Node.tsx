@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useProvidedNode } from '../hooks'
 
 export const NodeBox: React.FC<FlexBoxProps> = (props) => {
-  const node = useProvidedNode()
+  const [node] = useProvidedNode()
   const [description, setDescription] = useState<string>()
 
   useAsyncEffect(

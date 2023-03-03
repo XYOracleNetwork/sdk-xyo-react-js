@@ -4,8 +4,8 @@ import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
-import { useProvidedNode } from '../hooks'
 import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
+import { useProvidedNode } from './useProvidedNode'
 
 export const useNodeQueryDivinerRaw = (
   moduleIdentifier?: string,
@@ -14,7 +14,7 @@ export const useNodeQueryDivinerRaw = (
 ): [XyoPayloads | undefined, Error | undefined] => {
   const [result, setResult] = useState<XyoPayloads>()
   const [error, setError] = useState<Error>()
-  const node = useProvidedNode()
+  const [node] = useProvidedNode()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

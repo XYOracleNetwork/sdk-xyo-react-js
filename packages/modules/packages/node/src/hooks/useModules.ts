@@ -2,10 +2,10 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { Module, ModuleFilter } from '@xyo-network/module'
 import { useState } from 'react'
 
-import { useProvidedNode } from '../hooks'
+import { useProvidedNode } from './useProvidedNode'
 
 export const useModules = <T extends Module = Module>(filter?: ModuleFilter) => {
-  const node = useProvidedNode(true)
+  const [node] = useProvidedNode(true)
   const [modules, setModules] = useState<T[]>()
 
   useAsyncEffect(
