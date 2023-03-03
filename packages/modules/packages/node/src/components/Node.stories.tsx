@@ -4,7 +4,8 @@ import { AbstractModule } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { useState } from 'react'
 
-import { MemoryNodeProvider, useNode } from '../contexts'
+import { MemoryNodeProvider } from '../contexts'
+import { useProvidedNode } from '../hooks'
 
 class TestModule extends AbstractModule {}
 
@@ -22,7 +23,7 @@ export default {
 } as Meta
 
 const Template: ComponentStory<React.FC> = (props) => {
-  const node = useNode<MemoryNode>()
+  const node = useProvidedNode() as MemoryNode
   const [description, setDescription] = useState<string>()
 
   useAsyncEffect(

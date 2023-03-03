@@ -25,32 +25,22 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
   <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
-    <AuthProvider authState={{}}>
-      <AuthSetsProvider>
-        <BrowserRouter>
-          <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-            <NetworkMemoryProvider>
-              <ArchivesProvider>
-                <ArchiveProvider>
-                  <ApplicationAppBar
-                    systemToolbar={
-                      <SystemToolbar
-                        menuItems={
-                          <List>
-                            <MenuListItemContainer primary="Hello" />
-                          </List>
-                        }
-                      />
-                    }
-                    {...args}
-                  ></ApplicationAppBar>
-                </ArchiveProvider>
-              </ArchivesProvider>
-            </NetworkMemoryProvider>
-          </ApiProvider>
-        </BrowserRouter>
-      </AuthSetsProvider>
-    </AuthProvider>
+    <BrowserRouter>
+      <NetworkMemoryProvider>
+        <ApplicationAppBar
+          systemToolbar={
+            <SystemToolbar
+              menuItems={
+                <List>
+                  <MenuListItemContainer primary="Hello" />
+                </List>
+              }
+            />
+          }
+          {...args}
+        ></ApplicationAppBar>
+      </NetworkMemoryProvider>
+    </BrowserRouter>
   </WalletProvider>
 )
 
@@ -64,7 +54,6 @@ WithSearchBar.args = {
   systemToolbar: (
     <SystemToolbar
       darkModeButton
-      authButton
       menuItems={
         <List>
           <MenuListItemContainer primary="Hello" />
@@ -84,7 +73,7 @@ WithWalletSelectBar.args = {
     </FlexGrowCol>
   ),
   color: 'primary',
-  systemToolbar: <SystemToolbar darkModeButton authButton />,
+  systemToolbar: <SystemToolbar darkModeButton />,
 }
 
 export { Default, WithSearchBar, WithWalletSelectBar }
