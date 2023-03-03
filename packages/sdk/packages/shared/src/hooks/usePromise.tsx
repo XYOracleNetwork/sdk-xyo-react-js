@@ -77,7 +77,7 @@ export const usePromise = <D, T extends Promise<D> | D>(promise?: T, dependencie
       } catch (e) {
         !canceled
           ? dispatch({
-              payload: error,
+              payload: e as Error,
               type: State.rejected,
             })
           : undefined

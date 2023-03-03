@@ -1,20 +1,14 @@
 import { Paper, Toolbar, ToolbarProps } from '@mui/material'
-import { SelectExProps } from '@xylabs/react-common'
 import { FlexRow } from '@xylabs/react-flexbox'
-import { ArchiveSelectEx } from '@xyo-network/react-api'
 import { DarkModeIconButton } from '@xyo-network/react-app-settings'
-import { AuthSetsStatusIconButton } from '@xyo-network/react-auth-sets'
 import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'
 import { ReactNode } from 'react'
 
 import { SiteMenu, SiteMenuProps } from '../../SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
-  archiveSelectProps?: SelectExProps<string>
-  authButton?: boolean
   darkModeButton?: boolean
   developerMode?: boolean
-  hideArchiveSelect?: boolean
   hideNetworkSelect?: boolean
   menuItems?: ReactNode
   networkSelectProps?: NetworkSelectExProps
@@ -23,12 +17,9 @@ export interface SystemToolbarProps extends ToolbarProps {
 }
 
 export const SystemToolbar: React.FC<SystemToolbarProps> = ({
-  archiveSelectProps,
-  authButton = false,
   children,
   darkModeButton = false,
   hideNetworkSelect,
-  hideArchiveSelect,
   menuItems,
   networkSelectProps,
   onMenuToggle,
@@ -45,15 +36,7 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
           </Paper>
         </FlexRow>
       )}
-      {hideArchiveSelect ? null : (
-        <FlexRow marginX={0.5}>
-          <Paper variant="elevation">
-            <ArchiveSelectEx fullWidth {...archiveSelectProps} />
-          </Paper>
-        </FlexRow>
-      )}
       {children}
-      {authButton ? <AuthSetsStatusIconButton color="inherit" /> : null}
       {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
       {menuItems ? <SiteMenu onMenuToggle={onMenuToggle}>{menuItems}</SiteMenu> : null}
     </Toolbar>

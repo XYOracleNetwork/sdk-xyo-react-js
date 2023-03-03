@@ -23,7 +23,7 @@ export class AppSettingsStorageBase {
   public getNumber(name: string): number {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     if (!storedValue) {
-      assertEx(typeof this.defaults[name] === 'boolean', 'Default value is not boolean')
+      assertEx(typeof this.defaults[name] === 'number', 'Default value is not a number')
       const defaultValue = this.defaults[name] as number
       assertEx(defaultValue !== undefined, `Missing Default for ${name}`)
       return defaultValue

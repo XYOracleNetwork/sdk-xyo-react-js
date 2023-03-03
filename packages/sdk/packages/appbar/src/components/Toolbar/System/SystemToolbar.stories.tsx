@@ -1,11 +1,8 @@
 /* eslint-disable import/no-internal-modules */
 import { List } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { ApiProvider, ArchiveProvider, ArchivesProvider } from '@xyo-network/react-api'
-import { AuthProvider, AuthState } from '@xyo-network/react-auth'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { TypographyEx } from '@xyo-network/react-shared'
-import { WrappedAuthComponent } from '@xyo-network/react-storybook'
 import { SyntheticEvent } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -35,51 +32,15 @@ const StorybookEntry: Meta = {
 }
 
 const Template: ComponentStory<typeof SystemToolbar> = (args) => (
-  <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-    <ArchivesProvider>
-      <BrowserRouter>
-        <NetworkMemoryProvider>
-          <ArchiveProvider>
-            <SystemToolbar {...args} />
-          </ArchiveProvider>
-        </NetworkMemoryProvider>
-      </BrowserRouter>
-    </ArchivesProvider>
-  </ApiProvider>
-)
-
-const TemplateWithAuthContext: ComponentStory<WrappedAuthComponent> = ({ authState }) => (
-  <AuthProvider authState={authState as AuthState}>
-    <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-      <ArchivesProvider>
-        <BrowserRouter>
-          <NetworkMemoryProvider>
-            <ArchiveProvider>
-              <SystemToolbar menuItems={DefaultMenu} />
-            </ArchiveProvider>
-          </NetworkMemoryProvider>
-        </BrowserRouter>
-      </ArchivesProvider>
-    </ApiProvider>
-  </AuthProvider>
+  <BrowserRouter>
+    <NetworkMemoryProvider>
+      <SystemToolbar {...args} />
+    </NetworkMemoryProvider>
+  </BrowserRouter>
 )
 
 const Default = Template.bind({})
 Default.args = {}
-
-const WithLoggedInAccount = TemplateWithAuthContext.bind({})
-WithLoggedInAccount.args = {
-  authState: {
-    loggedInAccount: 'none@none.com',
-  },
-}
-
-const NeedsReAuth = TemplateWithAuthContext.bind({})
-NeedsReAuth.args = {
-  authState: {
-    reAuthenticate: true,
-  },
-}
 
 const PrecedingChildren = Template.bind({})
 PrecedingChildren.args = {
@@ -96,7 +57,7 @@ WithOnMenuToggle.args = {
   onMenuToggle: (state) => console.log(state),
 }
 
-export { Default, NeedsReAuth, PrecedingChildren, WithLoggedInAccount, WithOnMenuToggle }
+export { Default, PrecedingChildren, WithOnMenuToggle }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

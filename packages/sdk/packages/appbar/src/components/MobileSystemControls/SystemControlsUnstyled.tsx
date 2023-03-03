@@ -1,6 +1,5 @@
 import { Paper, Theme, useMediaQuery } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { ArchiveSelectEx, useArchive } from '@xyo-network/react-api'
 import { NetworkSelectEx, useNetwork } from '@xyo-network/react-network'
 
 import { ControlText, SystemControl } from './controls'
@@ -16,8 +15,6 @@ const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({
   systemControlsType = SystemControlsType.WindowShade,
   ...props
 }) => {
-  const { network } = useNetwork()
-  const { archive } = useArchive()
   const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
 
   if (visible || isSmall) {
@@ -32,16 +29,9 @@ const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({
                   <NetworkSelectEx responsive={false} className="network-ex" />
                 </Paper>
               </FlexRow>
-              <FlexRow>
-                <Paper variant="elevation" elevation={0}>
-                  <ArchiveSelectEx />
-                </Paper>
-              </FlexRow>
             </>
           }
-        >
-          <ControlText value={`${network?.name} : ${archive ?? 'temp'} `} />
-        </SystemControl>
+        />
       </FlexCol>
     )
   } else {

@@ -6,7 +6,7 @@ import { XyoErrorAlert } from './ErrorAlert'
 import { XyoErrorRenderProps } from './Props'
 
 export const XyoErrorRender: React.FC<XyoErrorRenderProps> = ({
-  xyoError,
+  error,
   noErrorDisplay = false,
   customError = null,
   children,
@@ -23,14 +23,14 @@ export const XyoErrorRender: React.FC<XyoErrorRenderProps> = ({
     }
   }, [location])
 
-  if (xyoError) {
+  if (error) {
     return (
       <FlexCol alignItems="stretch" {...props}>
         {noErrorDisplay ? (
           customError
         ) : (
           <FlexCol alignItems="center" {...props}>
-            <XyoErrorAlert error={xyoError} errorContext={errorContext} />
+            <XyoErrorAlert error={error} errorContext={errorContext} />
           </FlexCol>
         )}
       </FlexCol>
