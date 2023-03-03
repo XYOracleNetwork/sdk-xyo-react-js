@@ -1,3 +1,4 @@
+import { Account } from '@xyo-network/account'
 import { NodeModule, NodeWrapper } from '@xyo-network/node'
 import { useContext, useState } from 'react'
 
@@ -5,15 +6,16 @@ import { NodeContext } from '../contexts'
 
 function useProvidedNodeFunc(wrap?: undefined): [NodeModule | undefined, Error | undefined]
 function useProvidedNodeFunc(wrap: false): [NodeModule | undefined, Error | undefined]
-function useProvidedNodeFunc(wrap: true): [NodeWrapper | undefined, Error | undefined]
-function useProvidedNodeFunc(wrap: true | false | undefined): [NodeModule | NodeWrapper | undefined, Error | undefined] {
+function useProvidedNodeFunc(wrap: true | Account): [NodeWrapper | undefined, Error | undefined]
+function useProvidedNodeFunc(wrap: boolean | Account | undefined): [NodeModule | NodeWrapper | undefined, Error | undefined] {
   const { node } = useContext(NodeContext)
   const [wrappedNode, setWrappedNode] = useState<NodeWrapper>()
   const [error, setError] = useState<Error>()
 
   try {
     if (wrap) {
-      const wrappedNode = wrap ? NodeWrapper.wrap(node) : undefined
+      const account = typeof wrap === 'boolean' ? undefined : wrap
+      const wrappedNode = wrap ? NodeWrapper.wrap(node, account) : undefined
       setWrappedNode(wrappedNode)
       setError(undefined)
     }

@@ -12,13 +12,15 @@ export type WrapFunc<TModule extends Module = Module, TWrapper extends ModuleWra
   account?: Account,
 ) => TWrapper | undefined
 
+export type NodeFunc = () => [NodeModule | undefined, Error | undefined]
+
 export const createUseModuleHook = <
   TModule extends Module = Module,
   TWrapper extends ModuleWrapper = ModuleWrapper,
   TWrapFunc extends WrapFunc<TModule, TWrapper> = WrapFunc<TModule, TWrapper>,
 >(
   wrapFunc: TWrapFunc,
-  nodeFunc: () => [NodeWrapper | undefined, Error | undefined],
+  nodeFunc: NodeFunc,
 ) => {
   function use(name?: string): [TModule | undefined, Error | undefined]
   function use(name: string | undefined, wrap: true | Account): [TWrapper | undefined, Error | undefined]
@@ -40,18 +42,30 @@ export const createUseModuleHook = <
       async (mounted) => {
         try {
           if (nodeError) {
+            console.log(`Setting NodeError [${nodeError.message}]`)
             setError(nodeError)
             setModule(undefined)
           } else {
-            const module = await node?.resolve<TModule>(nameOrAddress)
-            const finalModule = shouldWrap ? wrapFunc(module, account) : module
-            if (mounted()) {
-              setModule(finalModule)
+            if (node) {
+              const wrappedNode = NodeWrapper.wrap(node)
+              const module = await wrappedNode?.resolve<TModule>(nameOrAddress)
+              const finalModule = shouldWrap ? wrapFunc(module, account) : module
+              if (mounted()) {
+                console.log(`Setting Module [${finalModule?.address}]`)
+                setModule(finalModule)
+                setError(undefined)
+              }
+            } else {
+              console.log('Setting All to undefined')
+              setError(undefined)
+              setModule(undefined)
             }
           }
         } catch (ex) {
           if (mounted()) {
-            setError(ex as Error)
+            const error = ex as Error
+            console.log(`Setting Error [${error.message}]`)
+            setError(error)
             setModule(undefined)
           }
         }
@@ -64,4 +78,4 @@ export const createUseModuleHook = <
   return use
 }
 
-export const useNode = createUseModuleHook<NodeModule, NodeWrapper>(NodeWrapper.wrap, () => useProvidedNode(true))
+export const useNode = createUseModuleHook<NodeModule, NodeWrapper>(NodeWrapper.wrap, useProvidedNode as NodeFunc)
