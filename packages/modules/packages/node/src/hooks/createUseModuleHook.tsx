@@ -20,9 +20,16 @@ export const createUseModuleHook = <
 ) => {
   function use(name?: string): [TModule | undefined, Error | undefined]
   function use(name: string | undefined, wrap: true | Account): [TWrapper | undefined, Error | undefined]
+  function use(wrap: true | Account): [TWrapper | undefined, Error | undefined]
   function use(address: string): [TModule | undefined, Error | undefined]
   function use(address: string, wrap: true | Account): [TWrapper | undefined, Error | undefined]
-  function use(nameOrAddress?: string, wrap: boolean | Account = false): [TWrapper | TModule | undefined, Error | undefined] {
+  function use(
+    nameOrAddressOrWrapOrAccount?: string | boolean | Account,
+    wrap: boolean | Account = false,
+  ): [TWrapper | TModule | undefined, Error | undefined] {
+    const shouldWrap = typeof nameOrAddressOrWrapOrAccount === 'boolean' ? nameOrAddressOrWrapOrAccount : wrap
+    const account = typeof nameOrAddressOrWrapOrAccount === 'object' ? nameOrAddressOrWrapOrAccount : typeof wrap === 'boolean' ? undefined : wrap
+    const nameOrAddress = typeof nameOrAddressOrWrapOrAccount === 'string' ? nameOrAddressOrWrapOrAccount : undefined
     const [node, nodeError] = useNodeHook(nameOrAddress, true)
     const [module, setModule] = useState<TModule | TWrapper>()
     const [error, setError] = useState<Error>()
@@ -35,7 +42,7 @@ export const createUseModuleHook = <
             setModule(undefined)
           } else {
             const module = await node?.resolve<TModule>(nameOrAddress)
-            const finalModule = wrap ? wrapFunc(module, typeof wrap === 'boolean' ? undefined : wrap) : module
+            const finalModule = shouldWrap ? wrapFunc(module, account) : module
             if (mounted()) {
               setModule(finalModule)
             }
@@ -47,7 +54,7 @@ export const createUseModuleHook = <
           }
         }
       },
-      [wrap, node, nameOrAddress, nodeError],
+      [wrap, node, nameOrAddress, nodeError, shouldWrap, account],
     )
 
     return [module, error]
