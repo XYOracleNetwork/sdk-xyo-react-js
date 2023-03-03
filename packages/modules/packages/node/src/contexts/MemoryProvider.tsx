@@ -3,7 +3,7 @@ import { ModuleParams } from '@xyo-network/module'
 import { MemoryNode, NodeConfig } from '@xyo-network/node'
 import { useState } from 'react'
 
-import { NodeProvider } from './Node/Provider'
+import { NodeProvider } from './Node'
 
 export type MemoryNodeProviderProps = WithChildren<{
   moduleParams?: ModuleParams<NodeConfig>

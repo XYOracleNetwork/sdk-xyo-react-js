@@ -1,5 +1,5 @@
 import { ModuleResolver } from '@xyo-network/module-model'
-import { ModuleAttachedEventArgs, ModuleAttachedEventEmitter, NodeModule } from '@xyo-network/node'
+import { ModuleAttachedEventArgs, ModuleAttachedEventEmitter } from '@xyo-network/node'
 import { useEffect, useState } from 'react'
 
 import { useNode } from '../hooks'
