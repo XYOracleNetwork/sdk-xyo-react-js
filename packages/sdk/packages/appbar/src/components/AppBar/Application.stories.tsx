@@ -2,8 +2,6 @@
 import { List, Paper } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { AuthProvider } from '@xyo-network/react-auth'
-import { AuthSetsProvider } from '@xyo-network/react-auth-sets'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
 import { XyoWalletBase } from '@xyo-network/wallet'

@@ -2,7 +2,7 @@ import { Alert, AlertProps, AlertTitle, Typography } from '@mui/material'
 import { XyoError } from '@xyo-network/module'
 
 export interface XyoErrorAlertProps extends AlertProps {
-  error?: XyoError
+  error?: XyoError | Error
   errorContext?: string
 }
 

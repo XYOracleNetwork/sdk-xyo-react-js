@@ -1,7 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { List } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
-import { AuthProvider, AuthState } from '@xyo-network/react-auth'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { WrappedAuthComponent } from '@xyo-network/react-storybook'

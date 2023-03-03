@@ -4,8 +4,8 @@ import { ReactNode } from 'react'
 
 export interface XyoErrorRenderProps extends FlexBoxProps {
   customError?: ReactNode
+  error?: XyoError | Error
   errorContext?: string
   noErrorDisplay?: boolean
   noReAuth?: boolean
-  xyoError?: XyoError
 }

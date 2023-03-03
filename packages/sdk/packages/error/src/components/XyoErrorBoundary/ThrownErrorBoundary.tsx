@@ -50,7 +50,7 @@ export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, Xyo
       if (errorComponent) {
         return errorComponent(xyoError)
       }
-      return <XyoErrorRender xyoError={xyoError} errorContext={`${boundaryName} Boundary`} />
+      return <XyoErrorRender error={xyoError} errorContext={`${boundaryName} Boundary`} />
     }
 
     return children

@@ -1,15 +1,12 @@
 import { Paper, Toolbar, ToolbarProps } from '@mui/material'
-import { SelectExProps } from '@xylabs/react-common'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { DarkModeIconButton } from '@xyo-network/react-app-settings'
-import { AuthSetsStatusIconButton } from '@xyo-network/react-auth-sets'
 import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'
 import { ReactNode } from 'react'
 
 import { SiteMenu, SiteMenuProps } from '../../SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
-  authButton?: boolean
   darkModeButton?: boolean
   developerMode?: boolean
   hideNetworkSelect?: boolean
@@ -20,7 +17,6 @@ export interface SystemToolbarProps extends ToolbarProps {
 }
 
 export const SystemToolbar: React.FC<SystemToolbarProps> = ({
-  authButton = false,
   children,
   darkModeButton = false,
   hideNetworkSelect,
@@ -41,7 +37,6 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
         </FlexRow>
       )}
       {children}
-      {authButton ? <AuthSetsStatusIconButton color="inherit" /> : null}
       {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
       {menuItems ? <SiteMenu onMenuToggle={onMenuToggle}>{menuItems}</SiteMenu> : null}
     </Toolbar>
