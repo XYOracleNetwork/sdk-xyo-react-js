@@ -1,5 +1,4 @@
 export * from './ActionType'
-export * from './ApiLogger'
 export * from './AuthService'
 export * from './Context'
 export * from './hooks'

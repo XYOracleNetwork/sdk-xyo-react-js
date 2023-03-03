@@ -9,11 +9,9 @@ import { ReactNode } from 'react'
 import { SiteMenu, SiteMenuProps } from '../../SiteMenu'
 
 export interface SystemToolbarProps extends ToolbarProps {
-  archiveSelectProps?: SelectExProps<string>
   authButton?: boolean
   darkModeButton?: boolean
   developerMode?: boolean
-  hideArchiveSelect?: boolean
   hideNetworkSelect?: boolean
   menuItems?: ReactNode
   networkSelectProps?: NetworkSelectExProps
@@ -22,12 +20,10 @@ export interface SystemToolbarProps extends ToolbarProps {
 }
 
 export const SystemToolbar: React.FC<SystemToolbarProps> = ({
-  archiveSelectProps,
   authButton = false,
   children,
   darkModeButton = false,
   hideNetworkSelect,
-  hideArchiveSelect,
   menuItems,
   networkSelectProps,
   onMenuToggle,
@@ -41,13 +37,6 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
         <FlexRow marginX={0.5}>
           <Paper variant="elevation">
             <NetworkSelectEx fullWidth {...networkSelectProps} />
-          </Paper>
-        </FlexRow>
-      )}
-      {hideArchiveSelect ? null : (
-        <FlexRow marginX={0.5}>
-          <Paper variant="elevation">
-            <ArchiveSelectEx fullWidth {...archiveSelectProps} />
           </Paper>
         </FlexRow>
       )}

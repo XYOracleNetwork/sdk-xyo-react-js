@@ -1,4 +1,3 @@
-export * from './AuthErrors'
 export * from './AuthFooter'
 export * from './AuthStatusIconButton'
 export * from './AuthThemeExtender'
