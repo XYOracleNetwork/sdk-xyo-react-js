@@ -46,9 +46,11 @@ export const createUseModuleHook = <
             setError(nodeError)
             setModule(undefined)
           } else {
-            if (node) {
-              const wrappedNode = NodeWrapper.wrap(node)
-              const module = await wrappedNode?.resolve<TModule>(nameOrAddress)
+            const wrappedNode = NodeWrapper.wrap(node)
+            if (wrappedNode) {
+              const module: TModule | undefined = nameOrAddress
+                ? await wrappedNode?.resolve<TModule>(nameOrAddress)
+                : (await wrappedNode.resolve<TModule>()).pop()
               const finalModule = shouldWrap ? wrapFunc(module, account) : module
               if (mounted()) {
                 console.log(`Setting Module [${finalModule?.address}]`)
