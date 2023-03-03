@@ -1,4 +1,3 @@
-export * from './createUseModuleHook'
 export * from './useArchiveArchivists'
 export * from './useArchivistModule'
 export * from './useArchivistModules'

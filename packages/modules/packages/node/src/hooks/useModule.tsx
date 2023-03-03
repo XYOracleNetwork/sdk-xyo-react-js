@@ -1,6 +1,5 @@
 import { Module, ModuleWrapper } from '@xyo-network/module'
 
-import { createUseModuleHook } from './createUseModuleHook'
-import { useNode } from './useNode'
+import { createUseModuleHook, useNode } from './useNode'
 
-export const useModule = createUseModuleHook<Module, ModuleWrapper>(ModuleWrapper.wrap, useNode)
+export const useModule = createUseModuleHook<Module, ModuleWrapper>(ModuleWrapper.wrap, () => useNode(true))
