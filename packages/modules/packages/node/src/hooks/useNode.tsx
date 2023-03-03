@@ -78,4 +78,4 @@ export const createUseModuleHook = <
   return use
 }
 
-export const useNode = createUseModuleHook<NodeModule, NodeWrapper>(NodeWrapper.wrap, useProvidedNode as NodeFunc)
+export const useNode = createUseModuleHook<NodeModule, NodeWrapper>((module) => NodeWrapper.wrap(module), useProvidedNode)
