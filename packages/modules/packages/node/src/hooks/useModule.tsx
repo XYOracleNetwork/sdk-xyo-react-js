@@ -1,6 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { Module } from '@xyo-network/module-model'
-import { NodeWrapper } from '@xyo-network/node'
 import { useState } from 'react'
 
 import { useProvidedWrappedNode } from './useProvidedNode'
