@@ -46,7 +46,7 @@ export const createUseModuleHook = <
             setError(nodeError)
             setModule(undefined)
           } else {
-            const wrappedNode = NodeWrapper.wrap(node)
+            const wrappedNode = NodeWrapper.tryWrap(node)
             if (wrappedNode) {
               const module: TModule | undefined = nameOrAddress
                 ? await wrappedNode?.resolve<TModule>(nameOrAddress)
