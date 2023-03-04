@@ -20,8 +20,6 @@ export const createUseModuleHook = <
   TWrapFunc extends WrapFunc<TModule, TWrapper> = WrapFunc<TModule, TWrapper>,
 >(
   wrapFunc: TWrapFunc,
-  nodeFunc: NodeFunc,
-  defaultModuleFunc: () => [TModule | undefined, Error | undefined] = () => [undefined, undefined],
 ) => {
   function use(name?: string): [TModule | undefined, Error | undefined]
   function use(name: string | undefined, wrap: true | Account): [TWrapper | undefined, Error | undefined]
@@ -32,8 +30,7 @@ export const createUseModuleHook = <
     nameOrAddressOrWrapOrAccount?: string | boolean | Account,
     wrap: boolean | Account = false,
   ): [TWrapper | TModule | undefined, Error | undefined] {
-    const [node, nodeError] = nodeFunc()
-    const [defaultModule] = defaultModuleFunc()
+    const [node, nodeError] = useProvidedNode()
     const shouldWrap = typeof nameOrAddressOrWrapOrAccount === 'boolean' ? nameOrAddressOrWrapOrAccount : wrap
     const account = typeof nameOrAddressOrWrapOrAccount === 'object' ? nameOrAddressOrWrapOrAccount : typeof wrap === 'boolean' ? undefined : wrap
     const nameOrAddress = typeof nameOrAddressOrWrapOrAccount === 'string' ? nameOrAddressOrWrapOrAccount : undefined
@@ -53,8 +50,7 @@ export const createUseModuleHook = <
               const module: TModule | undefined = nameOrAddress
                 ? await wrappedNode?.resolve<TModule>(nameOrAddress)
                 : (await wrappedNode.resolve<TModule>()).pop()
-              const moduleWithDefault = nameOrAddress ? module : module ?? defaultModule
-              const finalModule = shouldWrap ? wrapFunc(moduleWithDefault, account) : moduleWithDefault
+              const finalModule = shouldWrap ? wrapFunc(module, account) : module
               if (mounted()) {
                 console.log(`Setting Module [${finalModule?.address}]`)
                 setModule(finalModule)
@@ -75,7 +71,7 @@ export const createUseModuleHook = <
           }
         }
       },
-      [wrap, node, nameOrAddress, nodeError, shouldWrap, account, defaultModule],
+      [wrap, node, nameOrAddress, nodeError, shouldWrap, account],
     )
 
     return [module, error]
@@ -83,4 +79,4 @@ export const createUseModuleHook = <
   return use
 }
 
-export const useNode = createUseModuleHook<NodeModule, NodeWrapper>((module) => NodeWrapper.tryWrap(module), useProvidedNode, useProvidedNode)
+export const useNode = createUseModuleHook<NodeModule, NodeWrapper>((module) => NodeWrapper.tryWrap(module))
