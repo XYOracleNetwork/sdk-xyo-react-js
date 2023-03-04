@@ -3,7 +3,7 @@ import { usePromise } from '@xyo-network/react-shared'
 import { useCallback, useMemo } from 'react'
 
 import { useMemoryNodeUpdates } from './useMemoryNodeUpdates'
-import { useProvidedNode } from './useProvidedNode'
+import { useProvidedWrappedNode } from './useProvidedNode'
 
 interface UseArchiveArchivists {
   archiveBoundWitnessWrapper: ArchivistWrapper
@@ -11,7 +11,7 @@ interface UseArchiveArchivists {
 }
 
 export const useArchiveArchivistsRaw = (archiveName?: string, refresher?: unknown): UseArchiveArchivists | undefined => {
-  const [node] = useProvidedNode(true)
+  const [node] = useProvidedWrappedNode()
 
   const buildReq = useCallback(
     (type: 'payload' | 'boundwitness') =>

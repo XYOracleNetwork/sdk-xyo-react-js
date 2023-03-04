@@ -3,10 +3,10 @@ import { Module } from '@xyo-network/module-model'
 import { NodeWrapper } from '@xyo-network/node'
 import { useState } from 'react'
 
-import { useProvidedNode } from './useProvidedNode'
+import { useProvidedWrappedNode } from './useProvidedNode'
 
 export const useModule = <TModule extends Module = Module>(nameOrAddress?: string): [TModule | undefined, Error | undefined] => {
-  const [node, nodeError] = useProvidedNode()
+  const [node, nodeError] = useProvidedWrappedNode()
   const [module, setModule] = useState<TModule>()
   const [error, setError] = useState<Error>()
   useAsyncEffect(
@@ -18,11 +18,8 @@ export const useModule = <TModule extends Module = Module>(nameOrAddress?: strin
           setError(nodeError)
           setModule(undefined)
         } else {
-          const wrappedNode = NodeWrapper.tryWrap(node)
-          if (wrappedNode) {
-            const module: TModule | undefined = nameOrAddress
-              ? await wrappedNode?.resolve<TModule>(nameOrAddress)
-              : (await wrappedNode.resolve<TModule>()).pop()
+          if (node) {
+            const module: TModule | undefined = nameOrAddress ? await node.resolve<TModule>(nameOrAddress) : (await node.resolve<TModule>()).pop()
             if (mounted()) {
               console.log(`Setting Module [${module?.address}]`)
               setModule(module)

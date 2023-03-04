@@ -1,18 +1,19 @@
 import { NodeModule } from '@xyo-network/node'
 
 import { useModule } from './useModule'
-import { useProvidedNode } from './useProvidedNode'
+import { useProvidedWrappedNode } from './useProvidedNode'
 
 export const useNode = (nameOrAddress?: string): [NodeModule | undefined, Error | undefined] => {
-  const providedNode = useProvidedNode()
-  const node = useModule<NodeModule>(nameOrAddress)
+  const [providedNode, providedNodeError] = useProvidedWrappedNode()
+  const [node, nodeError] = useModule<NodeModule>(nameOrAddress)
 
   if (nameOrAddress) {
-    if (providedNode && node) {
-      return node
+    if (providedNode) {
+      return [node, nodeError]
+    } else {
+      return [providedNode, providedNodeError]
     }
   } else {
-    return providedNode
+    return [providedNode, providedNodeError]
   }
-  return [undefined, undefined]
 }
