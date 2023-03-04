@@ -33,6 +33,7 @@ export const createUseModuleHook = <
     wrap: boolean | Account = false,
   ): [TWrapper | TModule | undefined, Error | undefined] {
     const [node, nodeError] = nodeFunc()
+    const [defaultModule] = defaultModuleFunc()
     const shouldWrap = typeof nameOrAddressOrWrapOrAccount === 'boolean' ? nameOrAddressOrWrapOrAccount : wrap
     const account = typeof nameOrAddressOrWrapOrAccount === 'object' ? nameOrAddressOrWrapOrAccount : typeof wrap === 'boolean' ? undefined : wrap
     const nameOrAddress = typeof nameOrAddressOrWrapOrAccount === 'string' ? nameOrAddressOrWrapOrAccount : undefined
@@ -52,7 +53,7 @@ export const createUseModuleHook = <
               const module: TModule | undefined = nameOrAddress
                 ? await wrappedNode?.resolve<TModule>(nameOrAddress)
                 : (await wrappedNode.resolve<TModule>()).pop()
-              const moduleWithDefault = nameOrAddress ? module : module ?? defaultModuleFunc()[0]
+              const moduleWithDefault = nameOrAddress ? module : module ?? defaultModule
               const finalModule = shouldWrap ? wrapFunc(moduleWithDefault, account) : moduleWithDefault
               if (mounted()) {
                 console.log(`Setting Module [${finalModule?.address}]`)
