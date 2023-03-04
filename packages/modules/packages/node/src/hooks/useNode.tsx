@@ -75,7 +75,7 @@ export const createUseModuleHook = <
           }
         }
       },
-      [wrap, node, nameOrAddress, nodeError, shouldWrap, account],
+      [wrap, node, nameOrAddress, nodeError, shouldWrap, account, defaultModule],
     )
 
     return [module, error]
