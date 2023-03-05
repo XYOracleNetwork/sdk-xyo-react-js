@@ -5,7 +5,6 @@ import { MemoryNodeProvider } from '@xyo-network/react-node'
 import { XyoSchemaCache } from '@xyo-network/utils'
 
 import { useSchemaDefinitions } from '../useSchemaDefinitions'
-import { useSchemaList } from '../useSchemaList'
 import { useSchemaStats } from '../useSchemaStats'
 
 const apiConfig = { apiDomain: 'https://beta.api.archivist.xyo.network' }
@@ -24,7 +23,7 @@ export default {
 const Template: ComponentStory<React.FC> = () => {
   XyoSchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
   const [schemaStats] = useSchemaStats('temp')
-  const [schemaList] = useSchemaList('temp')
+  const schemaList = schemaStats?.filter(({ name }) => !!name) as { name: string }[]
   const schemaDefinitions = useSchemaDefinitions(schemaList)
 
   return (

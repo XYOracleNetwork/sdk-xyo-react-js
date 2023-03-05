@@ -1,19 +1,51 @@
-import { NodeModule } from '@xyo-network/node'
+import { AccountInstance } from '@xyo-network/account-model'
+import { NodeModule, NodeWrapper } from '@xyo-network/node'
+import { useEffect, useState } from 'react'
 
 import { useModule } from './useModule'
-import { useProvidedWrappedNode } from './useProvidedNode'
+import { useProvidedNode } from './useProvidedNode'
 
-export const useNode = (nameOrAddress?: string): [NodeModule | undefined, Error | undefined] => {
-  const [providedNode, providedNodeError] = useProvidedWrappedNode()
-  const [node, nodeError] = useModule<NodeModule>(nameOrAddress)
+//AT: intentionally not exported
+const useNodeModule = (nameOrAddress?: string): [NodeModule | undefined, Error | undefined] => {
+  const [providedNode] = useProvidedNode()
+  const [node, nodeError] = useModule(nameOrAddress)
 
   if (nameOrAddress) {
     if (providedNode) {
-      return [node, nodeError]
+      return [node as NodeModule, nodeError]
     } else {
-      return [providedNode, providedNodeError]
+      return [providedNode, undefined]
     }
   } else {
-    return [providedNode, providedNodeError]
+    return [providedNode, undefined]
   }
+}
+
+export const useNode = (nameOrAddress?: string, account?: AccountInstance): [NodeWrapper | undefined, Error | undefined] => {
+  const [node, nodeError] = useNodeModule()
+  const [wrapper, setWrapper] = useState<NodeWrapper>()
+  const [error, setError] = useState<Error>()
+
+  useEffect(() => {
+    if (node) {
+      if (nodeError) {
+        setError(nodeError)
+        setWrapper(undefined)
+      } else {
+        try {
+          const wrapper = NodeWrapper.wrap(node, account)
+          setWrapper(wrapper)
+          setError(undefined)
+        } catch (ex) {
+          setWrapper(undefined)
+          setError(ex as Error)
+        }
+      }
+    } else {
+      setWrapper(undefined)
+      setError(undefined)
+    }
+  }, [node, account, nodeError])
+
+  return [wrapper, error]
 }

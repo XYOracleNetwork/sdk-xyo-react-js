@@ -16,7 +16,7 @@ export const useMemoryNodeUpdates = (refreshAddresses?: string[]): UseMemoryNode
 
   useEffect(() => {
     if (node) {
-      const onFunc = node.on as ModuleAttachedEventEmitter['on']
+      const onFunc = node.module.on as ModuleAttachedEventEmitter['on']
       onFunc('moduleAttached', (args) => {
         if (refreshAddresses) {
           if (refreshAddresses.some((address) => address === args?.module.address)) setModule(args)

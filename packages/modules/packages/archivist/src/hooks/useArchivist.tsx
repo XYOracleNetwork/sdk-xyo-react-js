@@ -1,6 +1,4 @@
-import { ArchivistModule, ArchivistWrapper } from '@xyo-network/archivist'
-import { useModule, WrappedModuleHookFactory } from '@xyo-network/react-node'
+import { ArchivistWrapper } from '@xyo-network/archivist'
+import { WrappedModuleHookFactory } from '@xyo-network/react-node'
 
-export const useArchivist = (nameOrAddress?: string) => useModule<ArchivistModule>(nameOrAddress)
-
-export const useWrappedArchivist = WrappedModuleHookFactory(ArchivistWrapper)
+export const useArchivist = WrappedModuleHookFactory(ArchivistWrapper)

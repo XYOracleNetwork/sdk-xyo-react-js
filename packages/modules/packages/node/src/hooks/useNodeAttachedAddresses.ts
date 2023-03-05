@@ -1,22 +1,22 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { useState } from 'react'
 
-import { useProvidedNode } from './useProvidedNode'
+import { useNode } from './useNode'
 
-export const useModuleAddresses = () => {
-  const [node] = useProvidedNode()
-  const [attachedAddresses, setAttachedAddresses] = useState<string[]>()
+export const useNodeAttachedAddresses = () => {
+  const [node] = useNode()
+  const [addresses, setAddresses] = useState<string[]>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const attached = await node?.attached()
       if (mounted()) {
-        setAttachedAddresses(attached)
+        setAddresses(attached)
       }
     },
     [node],
   )
 
-  return [attachedAddresses, node?.registered()]
+  return [addresses, node?.registered()]
 }
