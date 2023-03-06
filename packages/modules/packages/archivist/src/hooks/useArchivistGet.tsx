@@ -21,6 +21,7 @@ export const useArchivistGet = <T extends XyoPayload = XyoPayload>(
 
   const onRefresh = useCallback(() => {
     setRefresh(refresh + 1)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useAsyncEffect(
