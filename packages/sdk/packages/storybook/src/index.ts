@@ -1,3 +1,4 @@
+export * from './defaultSeedPhrase'
 export * from './DeprecateStory'
 export * from './sampleAddressHistory'
 export * from './sampleBlock'

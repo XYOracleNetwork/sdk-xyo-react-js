@@ -19,12 +19,12 @@ const arrayRange = (length: number, start = 0) => {
 }
 
 export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOnly, iconSize = 24, icons, maxAccounts = 1, size, ...props }) => {
-  const { wallet, activeAccountIndex = 0, setActiveAccountIndex } = useWallet()
+  const { deriveRootAccount, activeAccountIndex = 0, setActiveAccountIndex, wallet } = useWallet()
 
   return (
     <SelectEx
       renderValue={(selected) => {
-        const account = wallet?.getAccount(parseInt(`${selected}`))
+        const account = deriveRootAccount?.(selected.toString())
         return (
           <FlexRow justifyContent="flex-start" gap={1}>
             {icons ? (
@@ -44,10 +44,10 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOn
     >
       {wallet
         ? arrayRange(maxAccounts).map((index) => {
-            const account = wallet?.getAccount(index)
+            const account = deriveRootAccount?.(index.toString())
             return (
               <MenuItem key={index} value={index}>
-                <EthAccountBox iconSize={iconSize} icon={icons} address={EthAddress.fromString(account.addressValue.hex)} />
+                <EthAccountBox iconSize={iconSize} icon={icons} address={EthAddress.fromString(account?.addressValue.hex)} />
               </MenuItem>
             )
           })
