@@ -1,12 +1,11 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { HDAccount } from '@xyo-network/account'
 import { AccountInstance } from '@xyo-network/account-model'
 import { useState } from 'react'
 
 import { AccountContext } from './Context'
 
 export interface AccountMemoryProviderProps {
-  defaultAccount?: HDAccount
+  defaultAccount?: AccountInstance
 }
 
 export const AccountMemoryProvider: React.FC<WithChildren<AccountMemoryProviderProps>> = ({ defaultAccount, ...props }) => {

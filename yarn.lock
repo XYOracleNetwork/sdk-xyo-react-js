@@ -6514,17 +6514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/account-model@npm:^2.50.4":
-  version: 2.50.4
-  resolution: "@xyo-network/account-model@npm:2.50.4"
-  dependencies:
-    "@xyo-network/core": ^2.50.4
-    "@xyo-network/key-model": ^2.50.4
-  checksum: b378a2d0748b414ca7a529a0915287ca5dedf679d880170564f02823777b2321c325bbc34dcc36c22ead8a8af28ea55b0892795310aac28bb33512fc69928b16
-  languageName: node
-  linkType: hard
-
-"@xyo-network/account-model@npm:^2.51.4":
+"@xyo-network/account-model@npm:^2.50.4, @xyo-network/account-model@npm:^2.51.4":
   version: 2.51.4
   resolution: "@xyo-network/account-model@npm:2.51.4"
   dependencies:
@@ -6534,20 +6524,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/account@npm:^2.50.4":
-  version: 2.50.4
-  resolution: "@xyo-network/account@npm:2.50.4"
+"@xyo-network/account@npm:^2.50.4, @xyo-network/account@npm:^2.51.4":
+  version: 2.51.4
+  resolution: "@xyo-network/account@npm:2.51.4"
   dependencies:
     "@ethersproject/hdnode": ^5.7.0
     "@xylabs/assert": ^2.7.4
     "@xylabs/static-implements": ^2.7.4
-    "@xyo-network/account-model": ^2.50.4
-    "@xyo-network/core": ^2.50.4
-    "@xyo-network/key-model": ^2.50.4
-    "@xyo-network/wallet-model": ^2.50.4
+    "@xyo-network/account-model": ^2.51.4
+    "@xyo-network/core": ^2.51.4
+    "@xyo-network/key-model": ^2.51.4
+    "@xyo-network/wallet-model": ^2.51.4
     elliptic: ^6.5.4
     sha.js: ^2.4.11
-  checksum: 177711581a327da9873ac988bcf8ac66772091af750f880a211bc0302d04f8145295c8ab0e78e33a6b70e23e49641db85e1c813492a1da980158d1e45b612060
+  checksum: c57e732518eb75dbb6cae2c18e554251f5894e9c57d250787a5a93a83db731630b5ab84edd5b9b1a79d78eb4357dafa2dae2d801cf1eac83cd9e9b0e7ff2740d
   languageName: node
   linkType: hard
 
@@ -6745,24 +6735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/core@npm:^2.50.4":
-  version: 2.50.4
-  resolution: "@xyo-network/core@npm:2.50.4"
-  dependencies:
-    "@scure/base": ^1.1.1
-    "@xylabs/assert": ^2.7.4
-    "@xylabs/bignumber": ^2.7.4
-    "@xylabs/buffer": ^2.7.4
-    "@xyo-network/typeof": ^2.50.4
-    keccak256: ^1.0.6
-    lodash: ^4.17.21
-    sha.js: ^2.4.11
-    uuid: ^9.0.0
-  checksum: 838a8cf6a9a9e0b6591e7ecfc47a2e14bde6499a2650a79701ce7755561a69e0a2c4896426f75b6cc82f67654ff9ee9e2289321f3980673f7d748e2c651d0874
-  languageName: node
-  linkType: hard
-
-"@xyo-network/core@npm:^2.51.4":
+"@xyo-network/core@npm:^2.50.4, @xyo-network/core@npm:^2.51.4":
   version: 2.51.4
   resolution: "@xyo-network/core@npm:2.51.4"
   dependencies:
@@ -6983,15 +6956,6 @@ __metadata:
     "@xyo-network/core": ^2.50.4
     "@xyo-network/payload-model": ^2.50.4
   checksum: 3d814e00b1057437026d9a6dbb25fb98977f6c1f9b251889c6eceb6bc7ce5250bbc9d12d180edd87534648cd07c59c24b0fcd35792973cdf2000b64b4ca7561e
-  languageName: node
-  linkType: hard
-
-"@xyo-network/key-model@npm:^2.50.4":
-  version: 2.50.4
-  resolution: "@xyo-network/key-model@npm:2.50.4"
-  dependencies:
-    "@xyo-network/core": ^2.50.4
-  checksum: de99b674c5e82ecab4a055ffef8d8e6a0b911b5db25329efadbe75fdbb4a7b100aded5569bf62ab42a7c3dba82c43cf89b85d52a2a0ef73f7c30f5cc1baa2d9c
   languageName: node
   linkType: hard
 
@@ -8530,7 +8494,7 @@ __metadata:
     "@xylabs/react-shared": ^2.16.8
     "@xylabs/ts-scripts-yarn3": ^2.16.0
     "@xylabs/tsconfig-react": ^2.16.0
-    "@xyo-network/account": ^2.50.4
+    "@xyo-network/account": ^2.51.4
     "@xyo-network/archivist": ^2.50.4
     "@xyo-network/diviner-model": ^2.50.4
     "@xyo-network/diviner-wrapper": ^2.50.4
@@ -9024,7 +8988,7 @@ __metadata:
     "@xylabs/react-shared": ^2.16.8
     "@xylabs/ts-scripts-yarn3": ^2.16.0
     "@xylabs/tsconfig-react": ^2.16.0
-    "@xyo-network/account": ^2.50.4
+    "@xyo-network/account": ^2.51.4
     "@xyo-network/archivist": ^2.50.4
     "@xyo-network/boundwitness-model": ^2.50.4
     "@xyo-network/module": ^2.50.4
@@ -9236,6 +9200,7 @@ __metadata:
     "@xylabs/react-shared": ^2.16.8
     "@xylabs/ts-scripts-yarn3": ^2.16.0
     "@xylabs/tsconfig-react": ^2.16.0
+    "@xyo-network/account": ^2.51.4
     "@xyo-network/account-model": ^2.51.4
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -9416,14 +9381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/typeof@npm:^2.50.4":
-  version: 2.50.4
-  resolution: "@xyo-network/typeof@npm:2.50.4"
-  checksum: 13c5ba94a46b9d443fef75c2a6bb143f890979b945795a34c308b557e22b8f81ab3a4a0ffd88143b5ac5ac654e83066a03e309b10e4f56a2400393757e3b0c56
-  languageName: node
-  linkType: hard
-
-"@xyo-network/typeof@npm:^2.51.4":
+"@xyo-network/typeof@npm:^2.50.4, @xyo-network/typeof@npm:^2.51.4":
   version: 2.51.4
   resolution: "@xyo-network/typeof@npm:2.51.4"
   checksum: 9b486eb500f74ba7a46a2f15502ce4842f18b29a477fcc47922730591131f067574711c773d2b17a47f3665f8fa5a0ba77aca4093526598676489613331ed008
@@ -9457,10 +9415,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/wallet-model@npm:^2.50.4":
-  version: 2.50.4
-  resolution: "@xyo-network/wallet-model@npm:2.50.4"
-  checksum: 702f02031767cac789cf3c0073d586dc0d38d479cdf699aaf676f99233f9ca9358e83d8df5aaf0a9ec4420603bedbb2849e93e1edcdedfd75cd98436a25a9a0c
+"@xyo-network/wallet-model@npm:^2.51.4":
+  version: 2.51.4
+  resolution: "@xyo-network/wallet-model@npm:2.51.4"
+  checksum: 375bddb975643dc0796644e18aa0f8e9986ad201468de7b17b961fbe860845d567add164c64b615d14b207637a8d2a03cf7c083efee5935f1815c4d582832a67
   languageName: node
   linkType: hard
 
