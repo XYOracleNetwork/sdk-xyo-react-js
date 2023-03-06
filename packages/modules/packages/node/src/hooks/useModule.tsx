@@ -1,11 +1,15 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { Module } from '@xyo-network/module-model'
+import { Module, ModuleFilter } from '@xyo-network/module-model'
 import { ModuleDetachedEventArgs, ModuleDetachedEventEmitter } from '@xyo-network/node'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import { useProvidedWrappedNode } from './useProvidedNode'
 
-export const useModule = <TModule extends Module = Module>(nameOrAddress?: string): [TModule | undefined, Error | undefined] => {
+export const useModule = <TModule extends Module = Module>(
+  nameOrAddressOrFilter?: string | ModuleFilter,
+): [TModule | undefined, Error | undefined] => {
+  const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
+  const filter = useMemo(() => (typeof nameOrAddressOrFilter === 'object' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
   const [node, nodeError] = useProvidedWrappedNode()
   const [module, setModule] = useState<TModule>()
   const [error, setError] = useState<Error>()
@@ -27,7 +31,9 @@ export const useModule = <TModule extends Module = Module>(nameOrAddress?: strin
         } else {
           if (node) {
             const emitter = node.module as ModuleDetachedEventEmitter
-            const module: TModule | undefined = nameOrAddress ? await node.resolve<TModule>(nameOrAddress) : (await node.resolve<TModule>()).pop()
+            const module: TModule | undefined = nameOrAddress
+              ? await node.resolve<TModule>(nameOrAddress)
+              : (await node.resolve<TModule>(filter)).pop()
             if (mounted()) {
               emitter.on('moduleDetached', detachHandler)
               setModule(module)
@@ -52,7 +58,7 @@ export const useModule = <TModule extends Module = Module>(nameOrAddress?: strin
         }
       }
     },
-    [nameOrAddress, node, nodeError, address],
+    [nameOrAddress, node, nodeError, address, filter],
   )
 
   return [module, error]

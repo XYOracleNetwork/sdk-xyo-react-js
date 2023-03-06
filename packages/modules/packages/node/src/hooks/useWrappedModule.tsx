@@ -6,12 +6,17 @@ import { useEffect, useState } from 'react'
 import { useModule } from './useModule'
 
 export interface WrapperStatic<TModuleWrapper extends ModuleWrapper = ModuleWrapper> {
+  requiredQueries: string[]
   wrap: (module?: TModuleWrapper['module'], account?: AccountInstance) => TModuleWrapper
 }
 
 export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = ModuleWrapper>(wrapperObject: WrapperStatic<TModuleWrapper>) => {
   return (nameOrAddress?: string, account?: AccountInstance): [TModuleWrapper | undefined, Error | undefined] => {
-    const [module, moduleError] = useModule<TModuleWrapper['module']>(nameOrAddress)
+    const [module, moduleError] = useModule<TModuleWrapper['module']>(
+      nameOrAddress ?? {
+        query: [wrapperObject.requiredQueries],
+      },
+    )
 
     const [wrapper, setWrapper] = useState<TModuleWrapper>()
     const [error, setError] = useState<Error>()

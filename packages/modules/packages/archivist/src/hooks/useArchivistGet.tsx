@@ -17,8 +17,6 @@ export const useArchivistGet = <T extends XyoPayload = XyoPayload>(
   const [error, setError] = useState<Error>()
   const [refresh, setRefresh] = useState(0)
 
-  const archivistToUse = passedArchivist ?? foundArchivist
-
   const onRefresh = useCallback(() => {
     setRefresh(refresh + 1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -28,6 +26,7 @@ export const useArchivistGet = <T extends XyoPayload = XyoPayload>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
+        const archivistToUse = passedArchivist ?? foundArchivist
         if (archivistToUse && hashes) {
           const result = ((await archivistToUse.get(hashes ?? [])) as T[]) ?? []
           if (mounted()) {
@@ -39,7 +38,7 @@ export const useArchivistGet = <T extends XyoPayload = XyoPayload>(
         setError(ex as Error)
       }
     },
-    [archivistToUse, hashes, refresh, setError, setPayloads],
+    [passedArchivist, foundArchivist, hashes, refresh, setError, setPayloads],
   )
   return [payloads, error ?? foundArchivistError, onRefresh]
 }
