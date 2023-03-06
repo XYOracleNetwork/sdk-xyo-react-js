@@ -1,5 +1,6 @@
 export * from './archivistApiDecorator'
 export * from './authDecorator'
+export * from './defaultSeedPhrase'
 export * from './DeprecateStory'
 export * from './sampleAddressHistory'
 export * from './sampleBlock'
