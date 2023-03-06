@@ -1,6 +1,6 @@
-/* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoWalletBase } from '@xyo-network/wallet'
+import { HDWallet } from '@xyo-network/account'
+import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 
 import { WalletProvider } from '../../contexts'
 import { WalletAccountSelect } from './Select'
@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof WalletAccountSelect> = (args) => {
 
 const WithWalletTemplate: ComponentStory<typeof WalletAccountSelect> = (args) => {
   return (
-    <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
+    <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
       <WalletAccountSelect {...args}></WalletAccountSelect>
     </WalletProvider>
   )

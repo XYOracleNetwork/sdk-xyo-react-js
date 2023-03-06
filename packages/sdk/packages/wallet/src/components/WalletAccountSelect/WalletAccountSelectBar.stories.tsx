@@ -1,6 +1,6 @@
-/* eslint-disable import/no-internal-modules */
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoWalletBase } from '@xyo-network/wallet'
+import { HDWallet } from '@xyo-network/account'
+import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 
 import { WalletProvider } from '../../contexts'
 import { WalletAccountSelectBar } from './SelectBar'
@@ -22,8 +22,8 @@ const Template: ComponentStory<typeof WalletAccountSelectBar> = (args) => {
 
 const WithWalletTemplate: ComponentStory<typeof WalletAccountSelectBar> = (args) => {
   return (
-    <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
-      <WalletAccountSelectBar {...args}></WalletAccountSelectBar>
+    <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
+      <WalletAccountSelectBar {...args} />
     </WalletProvider>
   )
 }
@@ -37,7 +37,10 @@ WithWallet.args = {}
 const WithWalletIcon = WithWalletTemplate.bind({})
 WithWalletIcon.args = { icons: true }
 
-export { Default, WithWallet, WithWalletIcon }
+const WithAdditionalAccounts = WithWalletTemplate.bind({})
+WithAdditionalAccounts.args = { icons: true, maxAccounts: 10 }
+
+export { Default, WithAdditionalAccounts, WithWallet, WithWalletIcon }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

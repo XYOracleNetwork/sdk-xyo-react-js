@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoWalletBase } from '@xyo-network/wallet'
+import { HDWallet } from '@xyo-network/account'
+import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WalletProvider } from '../../contexts'
@@ -19,7 +20,7 @@ const StorybookEntry = {
 const Template: ComponentStory<typeof WalletAccountDetails> = (args) => {
   return (
     <BrowserRouter>
-      <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
+      <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
         <WalletAccountDetails {...args}></WalletAccountDetails>
       </WalletProvider>
     </BrowserRouter>

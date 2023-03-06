@@ -2,12 +2,13 @@
 import { List, Paper } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
+import { HDWallet } from '@xyo-network/account'
 import { ApiProvider, ArchiveProvider, ArchivesProvider } from '@xyo-network/react-api'
 import { AuthProvider } from '@xyo-network/react-auth'
 import { AuthSetsProvider } from '@xyo-network/react-auth-sets'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
+import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
-import { XyoWalletBase } from '@xyo-network/wallet'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SearchBar } from '../SearchBar'
@@ -27,7 +28,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof ApplicationAppBar>
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
-  <WalletProvider defaultWallet={new XyoWalletBase('test me')}>
+  <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
     <AuthProvider authState={{}}>
       <AuthSetsProvider>
         <BrowserRouter>
