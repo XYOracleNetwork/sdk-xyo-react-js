@@ -1,21 +1,34 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
+import { Archivist } from '@xyo-network/archivist'
 import { XyoPayload } from '@xyo-network/payload-model'
-import { useDataState } from '@xyo-network/react-shared'
+import { useCallback, useState } from 'react'
 
-import { RefreshCallback, useArchivistStates } from './useArchivistStates'
+import { useArchivist } from './useArchivist'
+import { RefreshCallback } from './useArchivistStates'
 
-export const useArchivistGet = <T extends XyoPayload = XyoPayload>(hashes?: string[]): [T[]?, Error?, RefreshCallback?] => {
-  const [savedHashes, setSavedHashes] = useDataState(hashes)
-  setSavedHashes(hashes)
+export const useArchivistGet = <T extends XyoPayload = XyoPayload>(
+  hashes?: string[],
+  archivist?: Archivist | string,
+): [T[]?, Error?, RefreshCallback?] => {
+  const requestedArchivistNameOrAddress = typeof archivist === 'string' ? archivist : undefined
+  const passedArchivist = typeof archivist === 'object' ? archivist : undefined
+  const [payloads, setPayloads] = useState<T[]>()
+  const [foundArchivist, foundArchivistError] = useArchivist(requestedArchivistNameOrAddress)
+  const [error, setError] = useState<Error>()
+  const [refresh, setRefresh] = useState(0)
 
-  const { archivist, error, payloads, refresh, setError, setPayloads, refreshCount } = useArchivistStates<T>()
+  const archivistToUse = passedArchivist ?? foundArchivist
+
+  const onRefresh = useCallback(() => {
+    setRefresh(refresh + 1)
+  }, [])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        if (archivist && savedHashes) {
-          const result = (await archivist.get(savedHashes ?? [])) ?? []
+        if (archivistToUse && hashes) {
+          const result = ((await archivistToUse.get(hashes ?? [])) as T[]) ?? []
           if (mounted()) {
             setError(undefined)
             setPayloads(result as T[])
@@ -25,7 +38,7 @@ export const useArchivistGet = <T extends XyoPayload = XyoPayload>(hashes?: stri
         setError(ex as Error)
       }
     },
-    [archivist, savedHashes, refreshCount, setError, setPayloads],
+    [archivistToUse, hashes, refresh, setError, setPayloads],
   )
-  return [payloads, error, refresh]
+  return [payloads, error ?? foundArchivistError, onRefresh]
 }
