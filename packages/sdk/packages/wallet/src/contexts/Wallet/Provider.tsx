@@ -6,8 +6,8 @@ import { AccountContext } from '../Account'
 import { WalletContext } from './Context'
 import { useWallet } from './use'
 
-const WalletBase = 'm/'
-const WalletRootPath = `${WalletBase}44'/60'/0'/0/`
+const WalletBase = 'm'
+const WalletRootPath = "44'/60'/0'/0"
 
 export interface WalletProviderProps {
   defaultActiveAccountIndex?: number
@@ -17,17 +17,12 @@ export interface WalletProviderProps {
 const AccountWalletProvider: React.FC<WithChildren> = (props) => {
   const { wallet, activeAccountIndex = 0 } = useWallet()
 
-  return <AccountContext.Provider value={{ account: wallet?.deriveAccount(`${WalletRootPath}${activeAccountIndex}`), provided: true }} {...props} />
+  return <AccountContext.Provider value={{ account: wallet?.deriveAccount(activeAccountIndex.toString()), provided: true }} {...props} />
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ children, defaultActiveAccountIndex = 0, defaultWallet, ...props }) => {
   const [wallet, setWallet] = useState<HDWallet | undefined>(defaultWallet)
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
-  const [activeRootAccountPath, setActiveRootAccountPath] = useState<string>()
-
-  useEffect(() => {
-    setActiveRootAccountPath(`${WalletRootPath}${activeAccountIndex.toString()}`)
-  }, [activeAccountIndex])
 
   useEffect(() => {
     if (defaultActiveAccountIndex !== undefined) {
@@ -36,25 +31,21 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ ch
   }, [defaultActiveAccountIndex])
 
   useEffect(() => {
+    // ensure the wallet has the proper base
     if (defaultWallet) {
-      setWallet(defaultWallet)
+      try {
+        const walletWithBasePath = defaultWallet?.derivePath(WalletBase).derivePath(WalletRootPath)
+        setWallet(walletWithBasePath)
+      } catch (e) {
+        console.error('Error setting proper wallet base path', e)
+      }
     }
   }, [defaultWallet])
-
-  const deriveRootAccount = (path: string) => {
-    if (wallet) {
-      return wallet.deriveAccount(`${WalletRootPath}${path}`)
-    } else {
-      throw new Error('Wallet was not created')
-    }
-  }
 
   return (
     <WalletContext.Provider
       value={{
         activeAccountIndex,
-        activeRootAccountPath,
-        deriveRootAccount,
         provided: true,
         setActiveAccountIndex,
         setWallet,

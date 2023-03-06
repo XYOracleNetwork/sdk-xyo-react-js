@@ -17,13 +17,13 @@ const StorybookEntry = {
 } as ComponentMeta<typeof WalletAccountSelect>
 
 const Template: ComponentStory<typeof WalletAccountSelect> = (args) => {
-  return <WalletAccountSelect {...args}></WalletAccountSelect>
+  return <WalletAccountSelect {...args} />
 }
 
 const WithWalletTemplate: ComponentStory<typeof WalletAccountSelect> = (args) => {
   return (
     <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
-      <WalletAccountSelect {...args}></WalletAccountSelect>
+      <WalletAccountSelect {...args} />
     </WalletProvider>
   )
 }
