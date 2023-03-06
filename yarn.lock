@@ -5155,7 +5155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:~18.14.4":
+"@types/node@npm:*":
   version: 18.14.4
   resolution: "@types/node@npm:18.14.4"
   checksum: 3f2f625777747b9f87e793eea5a8bbf1ac2c828846bda5811d07a457d55cfe6762239779759de61e7b7e917632b9ceee3f7ffd2a024117e7ec364dc1b4eb8d55
@@ -5173,6 +5173,13 @@ __metadata:
   version: 16.18.13
   resolution: "@types/node@npm:16.18.13"
   checksum: c284f97a0630d65887be0e0d7ef8e5e5022eb4916ffae142db07f22dad565a80f17b6a84f21b4521c707f642540430710a8aa5930a2cf2bcbecde0a476ff9c02
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:~18.14.6":
+  version: 18.14.6
+  resolution: "@types/node@npm:18.14.6"
+  checksum: 2f88f482cabadc6dbddd627a1674239e68c3c9beab56eb4ae2309fb96fd17fc3a509d99b0309bafe13b58529574f49ecf3a583f2ebe2896dd32fe4be436dc96e
   languageName: node
   linkType: hard
 
@@ -6015,6 +6022,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/eslint-config@npm:^2.16.1":
+  version: 2.16.1
+  resolution: "@xylabs/eslint-config@npm:2.16.1"
+  dependencies:
+    "@babel/core": ^7.21.0
+    "@babel/eslint-parser": ^7.19.1
+    "@typescript-eslint/eslint-plugin": ^5.54.0
+    "@typescript-eslint/parser": ^5.54.0
+    eslint-config-prettier: ^8.6.0
+    eslint-import-resolver-typescript: ^3.5.3
+    eslint-plugin-deprecation: ^1.3.3
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-json-es: ^1.5.7
+    eslint-plugin-md: ^1.0.19
+    eslint-plugin-no-secrets: ^0.8.9
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-simple-import-sort: ^10.0.0
+    eslint-plugin-sort-keys-fix: ^1.1.2
+    eslint-plugin-workspaces: ^0.8.0
+    markdown-eslint-parser: ^1.2.1
+    prettier: ^2.8.4
+    remark-lint-maximum-line-length: ^3.1.2
+    remark-preset-lint-markdown-style-guide: ^5.1.2
+    typescript: ^4.9.5
+  peerDependencies:
+    eslint: ^8.23.0
+  checksum: 875a2a4ac88d4cc4af4a636051b6182e4339047f4b7a92cd30ca915494670e24a494ea5a9b61241884f94dac2afb9e1acd61864efb7cd684f4f82e468a683821
+  languageName: node
+  linkType: hard
+
 "@xylabs/eth-address@npm:^2.7.1, @xylabs/eth-address@npm:^2.7.4":
   version: 2.7.4
   resolution: "@xylabs/eth-address@npm:2.7.4"
@@ -6375,14 +6412,14 @@ __metadata:
   linkType: hard
 
 "@xylabs/ts-scripts-yarn3@npm:^2.16.0":
-  version: 2.16.0
-  resolution: "@xylabs/ts-scripts-yarn3@npm:2.16.0"
+  version: 2.16.1
+  resolution: "@xylabs/ts-scripts-yarn3@npm:2.16.1"
   dependencies:
     "@babel/core": ^7.21.0
     "@babel/preset-env": ^7.20.2
-    "@types/node": ~18.14.4
-    "@xylabs/eslint-config": ^2.16.0
-    "@xylabs/tsconfig": ^2.16.0
+    "@types/node": ~18.14.6
+    "@xylabs/eslint-config": ^2.16.1
+    "@xylabs/tsconfig": ^2.16.1
     chalk: ^4.1.2
     cpy: ^8.1.2
     depcheck: ^1.4.3
@@ -6404,7 +6441,7 @@ __metadata:
     parse-git-config: ^3.0.0
     prettier: ^2.8.4
     reflect-metadata: ^0.1.13
-    rimraf: ^4.1.3
+    rimraf: ^4.3.0
     supertest: ^6.3.3
     ts-jest: ^29.0.5
     ts-node: ^10.9.1
@@ -6464,7 +6501,7 @@ __metadata:
     xy: dist/cjs/bin/xy.js
     xy-ts: src/bin/xy-ts.ts
     yarn3only: dist/cjs/bin/yarn3only.js
-  checksum: c3d9d7094d48608bc31c7417940dd3b2fbde57806431d1c26ce62eb6029654db7413d3cd1899b88e9e8bc9716beecd88c176c20786c3aa1144bd4e92c00cb2f4
+  checksum: 11fe1a1a0e2bf2d5d277749c6f21e5cec60bfa9674e0839f18144bad944937926fce7ac562ca8c7d07fed3e27d247f3b73e3ba10536bd2457dc56049fb0cc8bb
   languageName: node
   linkType: hard
 
@@ -6492,6 +6529,13 @@ __metadata:
   version: 2.16.0
   resolution: "@xylabs/tsconfig@npm:2.16.0"
   checksum: 9d7dab24f33383e7f94c4ecc58db345025eb42827ab19ce48dda641e10aa40163eeeffc2fdc31491ce428c349a759a93f21c6a0f8da79ee06c3bf2fc3f5c94c1
+  languageName: node
+  linkType: hard
+
+"@xylabs/tsconfig@npm:^2.16.1":
+  version: 2.16.1
+  resolution: "@xylabs/tsconfig@npm:2.16.1"
+  checksum: 61abf0a920a0a812cbaffeccb51af5f7656179eb2ddd3f43f860a8872f51f0540fa90fc90ebe05339fb5f67663d98c44f15819ac3f784005131a48b54367c20b
   languageName: node
   linkType: hard
 
@@ -13216,6 +13260,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-workspaces@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "eslint-plugin-workspaces@npm:0.8.0"
+  dependencies:
+    find-workspaces: ^0.1.0
+  checksum: d942078502979b8049ff1cc1651f65b629d92402158bdd27e9c79aed44466f939d7e3acebcc6162f4aef612f1a6090bcdae88b517853e5ebe897dd31af43ba0b
+  languageName: node
+  linkType: hard
+
 "eslint-scope@npm:5.1.1, eslint-scope@npm:^5.0.0, eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
@@ -13705,7 +13758,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.2, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
   dependencies:
@@ -13975,6 +14028,17 @@ __metadata:
     locate-path: ^5.0.0
     path-exists: ^4.0.0
   checksum: 4c172680e8f8c1f78839486e14a43ef82e9decd0e74145f40707cc42e7420506d5ec92d9a11c22bd2c48fb0c384ea05dd30e10dd152fefeec6f2f75282a8b844
+  languageName: node
+  linkType: hard
+
+"find-workspaces@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "find-workspaces@npm:0.1.0"
+  dependencies:
+    fast-glob: ^3.2.12
+    type-fest: ^3.2.0
+    yaml: ^2.1.3
+  checksum: ced008960974722816bbad5ac84eef9deb7132769efca760e3a780d64594d56c1ffe731c6d17e9bfd8702ac2e6460cab1c5bd462d072a3a3c1fc0ced839edd98
   languageName: node
   linkType: hard
 
@@ -14557,6 +14621,18 @@ __metadata:
     minimatch: ^5.0.1
     once: ^1.3.0
   checksum: 92fbea3221a7d12075f26f0227abac435de868dd0736a17170663783296d0dd8d3d532a5672b4488a439bf5d7fb85cdd07c11185d6cd39184f0385cbdfb86a47
+  languageName: node
+  linkType: hard
+
+"glob@npm:^9.2.0":
+  version: 9.2.1
+  resolution: "glob@npm:9.2.1"
+  dependencies:
+    fs.realpath: ^1.0.0
+    minimatch: ^7.4.1
+    minipass: ^4.2.4
+    path-scurry: ^1.6.1
+  checksum: ef9b1c32491e6b532bdd0d2abcc3c9f48e83446609e11285869156982fc5a756dfbaa6f59f797712343bd1e22500ac15708692806633653fde4ef67c85e2aab7
   languageName: node
   linkType: hard
 
@@ -17799,6 +17875,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^7.14.1":
+  version: 7.18.3
+  resolution: "lru-cache@npm:7.18.3"
+  checksum: e550d772384709deea3f141af34b6d4fa392e2e418c1498c078de0ee63670f1f46f5eee746e8ef7e69e1c895af0d4224e62ee33e66a543a14763b0f2e74c1356
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^7.18.1, lru-cache@npm:^7.4.4, lru-cache@npm:^7.5.1, lru-cache@npm:^7.7.1":
   version: 7.18.1
   resolution: "lru-cache@npm:7.18.1"
@@ -18717,6 +18800,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^7.4.1":
+  version: 7.4.2
+  resolution: "minimatch@npm:7.4.2"
+  dependencies:
+    brace-expansion: ^2.0.1
+  checksum: 9e341b04e69d5ab03e4206dcb61c8a158e3b8709628bf5e1a4eaa9f3b72c0ba925e24ad959b1f6ce6835caa5a927131d5087fae6836b69e7d99d7d5e63ef0bd8
+  languageName: node
+  linkType: hard
+
 "minimist-options@npm:4.1.0":
   version: 4.1.0
   resolution: "minimist-options@npm:4.1.0"
@@ -18820,7 +18912,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass@npm:^4.0.0":
+"minipass@npm:^4.0.0, minipass@npm:^4.0.2, minipass@npm:^4.2.4":
   version: 4.2.4
   resolution: "minipass@npm:4.2.4"
   checksum: c664f2ae4401408d1e7a6e4f50aca45f87b1b0634bc9261136df5c378e313e77355765f73f59c4a5abcadcdf43d83fcd3eb14e4a7cdcce8e36508e2290345753
@@ -20093,6 +20185,16 @@ __metadata:
   version: 1.0.7
   resolution: "path-parse@npm:1.0.7"
   checksum: 49abf3d81115642938a8700ec580da6e830dde670be21893c62f4e10bd7dd4c3742ddc603fe24f898cba7eb0c6bc1777f8d9ac14185d34540c6d4d80cd9cae8a
+  languageName: node
+  linkType: hard
+
+"path-scurry@npm:^1.6.1":
+  version: 1.6.1
+  resolution: "path-scurry@npm:1.6.1"
+  dependencies:
+    lru-cache: ^7.14.1
+    minipass: ^4.0.2
+  checksum: 7ba57e823cb7bb879669a4e5e05a283cde1bb9e81b6d806b2609f8d8026d0aef08f4b655b17fc86b21c9c32807851bba95ca715db5ab0605fb13c7a3e9172e42
   languageName: node
   linkType: hard
 
@@ -23115,12 +23217,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^4.1.2, rimraf@npm:^4.1.3":
+"rimraf@npm:^4.1.2":
   version: 4.1.3
   resolution: "rimraf@npm:4.1.3"
   bin:
     rimraf: dist/cjs/src/bin.js
   checksum: 12c080cb3784186393a76a538b2ae7b3afbc2f609d9c51451d818295cc79d8dedbb61dd63b8f2aa0ec0f443e9d5247d559665501401fac3a39ffb67f6a58e843
+  languageName: node
+  linkType: hard
+
+"rimraf@npm:^4.3.0":
+  version: 4.3.1
+  resolution: "rimraf@npm:4.3.1"
+  dependencies:
+    glob: ^9.2.0
+  bin:
+    rimraf: dist/cjs/src/bin.js
+  checksum: d5893862a1e96cde610599ae76e338a709252667408d38bffa07cd24891a840a95957c4bb7178a9b0d3b6141e3b1bea20b9ba4b4f99d8c9edc492723e7b125ec
   languageName: node
   linkType: hard
 
@@ -26511,7 +26624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.2.1":
+"yaml@npm:^2.1.3, yaml@npm:^2.2.1":
   version: 2.2.1
   resolution: "yaml@npm:2.2.1"
   checksum: 84f68cbe462d5da4e7ded4a8bded949ffa912bc264472e5a684c3d45b22d8f73a3019963a32164023bdf3d83cfb6f5b58ff7b2b10ef5b717c630f40bd6369a23
