@@ -29,6 +29,7 @@ export const useModule = <TModule extends Module = Module>(
             const detachEmitter = node.module as ModuleDetachedEventEmitter
             const attachHandler = (args: ModuleAttachedEventArgs) => {
               const eventModule = args.module
+              console.log(`attachHandler: [${eventModule.config.name}][${eventModule.address}]`)
               if (eventModule.address === nameOrAddress || (eventModule?.config.name === nameOrAddress && mounted())) {
                 setModule(eventModule as TModule)
                 setError(undefined)
@@ -36,6 +37,7 @@ export const useModule = <TModule extends Module = Module>(
             }
             const detachHandler = (args: ModuleDetachedEventArgs) => {
               const eventModule = args.module
+              console.log(`detachHandler: [${eventModule.config.name}][${eventModule.address}]`)
               if (eventModule.address === address && mounted()) {
                 setModule(undefined)
                 setError(undefined)

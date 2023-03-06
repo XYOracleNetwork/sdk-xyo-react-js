@@ -22,7 +22,7 @@ const useNodeModule = (nameOrAddress?: string): [NodeModule | undefined, Error |
 }
 
 export const useNode = (nameOrAddress?: string, account?: AccountInstance): [NodeWrapper | undefined, Error | undefined] => {
-  const [node, nodeError] = useNodeModule()
+  const [node, nodeError] = useNodeModule(nameOrAddress)
   const [wrapper, setWrapper] = useState<NodeWrapper>()
   const [error, setError] = useState<Error>()
 
