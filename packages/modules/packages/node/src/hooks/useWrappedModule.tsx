@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { AccountInstance } from '@xyo-network/account-model'
 import { ModuleWrapper } from '@xyo-network/module'
-import { useEffect, useState } from 'react'
+import { useAccount } from '@xyo-network/react-wallet'
+import { useEffect, useMemo, useState } from 'react'
 
 import { useModule } from './useModule'
 
@@ -12,6 +13,7 @@ export interface WrapperStatic<TModuleWrapper extends ModuleWrapper = ModuleWrap
 
 export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = ModuleWrapper>(wrapperObject: WrapperStatic<TModuleWrapper>) => {
   return (nameOrAddress?: string, account?: AccountInstance): [TModuleWrapper | undefined, Error | undefined] => {
+    const [providedAccount] = useAccount()
     const [module, moduleError] = useModule<TModuleWrapper['module']>(
       nameOrAddress ?? {
         query: [wrapperObject.requiredQueries],
@@ -20,10 +22,19 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = 
 
     const [wrapper, setWrapper] = useState<TModuleWrapper>()
     const [error, setError] = useState<Error>()
+
+    const accountToUse = useMemo(() => account ?? providedAccount, [account, providedAccount])
+
+    if (!accountToUse) {
+      const error = Error('Module hooks require either an Account context or account parameter')
+      console.error(error.message)
+      setError(error)
+    }
+
     useEffect(() => {
-      if (module) {
+      if (module && accountToUse) {
         try {
-          const wrapper = wrapperObject.wrap(module, account) as TModuleWrapper
+          const wrapper = wrapperObject.wrap(module, accountToUse) as TModuleWrapper
           setWrapper(wrapper)
         } catch (ex) {
           setWrapper(undefined)
@@ -33,7 +44,7 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = 
         setWrapper(undefined)
         setError(moduleError)
       }
-    }, [module, account, moduleError])
+    }, [module, account, moduleError, accountToUse])
 
     return [wrapper, error]
   }
