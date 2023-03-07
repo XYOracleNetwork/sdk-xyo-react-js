@@ -12,9 +12,12 @@ export interface WrapperStatic<TModuleWrapper extends ModuleWrapper = ModuleWrap
   wrap: (module?: TModuleWrapper['module'], account?: AccountInstance) => TModuleWrapper
 }
 
-export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = ModuleWrapper>(wrapperObject: WrapperStatic<TModuleWrapper>, name?: string) => {
+export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = ModuleWrapper>(
+  wrapperObject: WrapperStatic<TModuleWrapper>,
+  name?: string,
+) => {
   return (nameOrAddress?: string, account?: AccountInstance): [TModuleWrapper | undefined, Error | undefined] => {
-    useRenderSpinCheck({name: name ?? "WrappedModuleHookFactory" })
+    useRenderSpinCheck({ name: name ?? 'WrappedModuleHookFactory' })
     const [providedAccount] = useAccount()
     const [module, moduleError] = useModule<TModuleWrapper['module']>(
       nameOrAddress ?? {
