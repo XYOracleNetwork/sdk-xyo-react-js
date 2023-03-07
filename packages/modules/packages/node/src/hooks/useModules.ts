@@ -24,7 +24,6 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
               setError(undefined)
             }
           } else {
-            console.log('Setting All to undefined')
             setError(undefined)
             setModules(undefined)
           }
@@ -32,7 +31,6 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
       } catch (ex) {
         if (mounted()) {
           const error = ex as Error
-          console.log(`Setting Error [${error.message}]`)
           setError(error)
           setModules(undefined)
         }
