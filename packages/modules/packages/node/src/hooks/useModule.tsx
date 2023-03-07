@@ -1,4 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
+import { AccountInstance } from '@xyo-network/account-model'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleAttachedEventEmitter, ModuleDetachedEventArgs, ModuleDetachedEventEmitter } from '@xyo-network/node'
 import { useMemo, useState } from 'react'
@@ -7,10 +8,11 @@ import { useProvidedWrappedNode } from './useProvidedNode'
 
 export const useModule = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
+  account?: AccountInstance,
 ): [TModule | undefined, Error | undefined] => {
   const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
   const filter = useMemo(() => (typeof nameOrAddressOrFilter === 'object' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
-  const [node, nodeError] = useProvidedWrappedNode()
+  const [node, nodeError] = useProvidedWrappedNode(account)
   const [module, setModule] = useState<TModule>()
   const [error, setError] = useState<Error>()
 
