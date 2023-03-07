@@ -13,7 +13,6 @@ export const useModule = <TModule extends Module = Module>(
   const [node, nodeError] = useProvidedWrappedNode()
   const [module, setModule] = useState<TModule>()
   const [error, setError] = useState<Error>()
-  const [retryCounter, setRetryCounter] = useState(0)
 
   const address = module?.address
 
@@ -30,7 +29,7 @@ export const useModule = <TModule extends Module = Module>(
             const detachEmitter = node.module as ModuleDetachedEventEmitter
             const attachHandler = (args: ModuleAttachedEventArgs) => {
               const eventModule = args.module
-              if (eventModule.address === nameOrAddress || (eventModule?.config.name === nameOrAddress && mounted())) {
+              if ((eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress) && mounted()) {
                 setModule(eventModule as TModule)
                 setError(undefined)
               }
@@ -53,11 +52,6 @@ export const useModule = <TModule extends Module = Module>(
               }
               setModule(module)
               setError(undefined)
-              if (!module) {
-                setTimeout(() => {
-                  setRetryCounter(retryCounter + 1)
-                }, 1000)
-              }
             }
             return () => {
               //remove the event handler on unmount
@@ -77,7 +71,7 @@ export const useModule = <TModule extends Module = Module>(
         }
       }
     },
-    [nameOrAddress, node, nodeError, address, filter, retryCounter],
+    [nameOrAddress, node, nodeError, address, filter],
   )
 
   return [module, error]
