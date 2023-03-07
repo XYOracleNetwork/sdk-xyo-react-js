@@ -47,11 +47,10 @@ export const useModule = <TModule extends Module = Module>(
               ? await node.resolve<TModule>(nameOrAddress)
               : (await node.resolve<TModule>(filter)).pop()
             if (mounted()) {
-              if (module) {
-                detachEmitter.on('moduleDetached', detachHandler)
-              } else {
-                attachEmitter.on('moduleAttached', attachHandler)
-              }
+              attachEmitter.on('moduleAttached', attachHandler, true)
+              detachEmitter.on('moduleDetached', detachHandler, true)
+              detachEmitter.on('moduleDetached', detachHandler)
+              attachEmitter.on('moduleAttached', attachHandler)
               setModule(module)
               setError(undefined)
             }
