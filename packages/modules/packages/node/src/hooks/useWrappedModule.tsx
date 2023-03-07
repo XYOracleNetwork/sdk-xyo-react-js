@@ -16,8 +16,11 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = 
   wrapperObject: WrapperStatic<TModuleWrapper>,
   name?: string,
 ) => {
-  return (nameOrAddress?: string, account?: AccountInstance): [TModuleWrapper | undefined, Error | undefined] => {
-    useRenderSpinCheck({ name: name ?? 'WrappedModuleHookFactory' })
+  return (nameOrAddress?: string, account?: AccountInstance, spinCheck?: boolean): [TModuleWrapper | undefined, Error | undefined] => {
+    const spinCheckBounceNoCheck = useMemo(() => {
+      return { name: name ?? 'WrappedModuleHookFactory-NoCheck' }
+    }, [])
+    useRenderSpinCheck(spinCheck ? { name: name ?? 'WrappedModuleHookFactory' } : spinCheckBounceNoCheck)
     const [providedAccount] = useAccount()
     const [module, moduleError] = useModule<TModuleWrapper['module']>(
       nameOrAddress ?? {
