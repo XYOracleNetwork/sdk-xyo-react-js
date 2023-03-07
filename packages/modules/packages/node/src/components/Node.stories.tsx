@@ -10,11 +10,15 @@ import { useEffect, useState } from 'react'
 import { MemoryNodeProvider } from '../contexts'
 import { useModule, useProvidedNode } from '../hooks'
 
+const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
+
 class TestModule extends AbstractModule {}
 const TestModuleName = 'TestModule'
+const TestModuleAccount = randomWallet.deriveAccount('0')
+
+const account = randomWallet.deriveAccount('0')
 
 const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
-  const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
   return (
     <WalletProvider defaultWallet={randomWallet}>
       <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
@@ -25,7 +29,7 @@ const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
 }
 
 const UseModuleTest: React.FC<WithChildren> = ({ children }) => {
-  const [testModule] = useModule(TestModuleName)
+  const [testModule] = useModule(TestModuleName, account)
 
   useEffect(() => {
     if (testModule) {
@@ -51,9 +55,9 @@ const Template: ComponentStory<React.FC> = (props) => {
     async (mounted) => {
       if (node) {
         try {
-          const mod = await TestModule.create({ config: { name: TestModuleName, schema: 'network.xyo.test.module' } })
+          const mod = await TestModule.create({ account: TestModuleAccount, config: { name: TestModuleName, schema: 'network.xyo.test.module' } })
           node?.register(mod)
-          await node?.attach(mod.address)
+          await node?.attach(mod.address, true)
           const wrapper = NodeWrapper.wrap(node)
           const description = await wrapper?.describe()
           if (mounted()) {
