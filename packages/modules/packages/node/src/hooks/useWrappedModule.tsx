@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import { useRenderSpinCheck } from '@xylabs/react-render-spin-check'
 import { AccountInstance } from '@xyo-network/account-model'
 import { ModuleWrapper } from '@xyo-network/module'
 import { useAccount } from '@xyo-network/react-wallet'
@@ -11,8 +12,9 @@ export interface WrapperStatic<TModuleWrapper extends ModuleWrapper = ModuleWrap
   wrap: (module?: TModuleWrapper['module'], account?: AccountInstance) => TModuleWrapper
 }
 
-export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = ModuleWrapper>(wrapperObject: WrapperStatic<TModuleWrapper>) => {
+export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = ModuleWrapper>(wrapperObject: WrapperStatic<TModuleWrapper>, name?: string) => {
   return (nameOrAddress?: string, account?: AccountInstance): [TModuleWrapper | undefined, Error | undefined] => {
+    useRenderSpinCheck({name: name ?? "WrappedModuleHookFactory" })
     const [providedAccount] = useAccount()
     const [module, moduleError] = useModule<TModuleWrapper['module']>(
       nameOrAddress ?? {
