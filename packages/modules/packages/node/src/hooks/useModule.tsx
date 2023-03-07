@@ -56,12 +56,9 @@ export const useModule = <TModule extends Module = Module>(
               setError(undefined)
             }
             return () => {
-              if (!mounted()) {
-                console.log('***unmounted***')
-                //remove the event handler on unmount
-                attachEmitter.on('moduleAttached', attachHandler, true)
-                detachEmitter.on('moduleDetached', detachHandler, true)
-              }
+              //remove the event handler on unmount
+              attachEmitter.on('moduleAttached', attachHandler, true)
+              detachEmitter.on('moduleDetached', detachHandler, true)
             }
           } else {
             setError(undefined)
