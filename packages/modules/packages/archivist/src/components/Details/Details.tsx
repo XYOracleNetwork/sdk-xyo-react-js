@@ -8,7 +8,7 @@ import { QueryBoundWitnessBuilder } from '@xyo-network/module'
 import { XyoPayload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
-import { useArchivist } from '../../contexts'
+import { useArchivist } from '../../hooks'
 
 const testQueryCommit = { schema: ArchivistCommitQuerySchema }
 const testQueryCommitBoundWitness = new QueryBoundWitnessBuilder({ inlinePayloads: true }).query(testQueryCommit).build()
@@ -21,7 +21,7 @@ export interface ArchivistDetails extends FlexBoxProps {
 }
 
 export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props }) => {
-  const archivist = useArchivist(address)
+  const [archivist] = useArchivist(address)
   const [payloads, setPayloads] = useState<XyoPayload[]>()
   const [refresh, setRefresh] = useState(0)
   const [wrapper, setWrapper] = useState<ArchivistWrapper>()

@@ -3,14 +3,15 @@ import { ClickAwayListener, Drawer, DrawerProps, IconButton } from '@mui/materia
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 
-import { useNode, useNodeDrawer } from '../contexts'
+import { useNodeDrawer } from '../contexts'
+import { useProvidedNode } from '../hooks'
 import { ModuleDescriptionBox } from './render'
 
 export interface NodeDrawerProps extends WithChildren, Omit<DrawerProps, 'open'> {}
 
 export const NodeDrawer: React.FC<NodeDrawerProps> = ({ children, ...props }) => {
   const { open, setOpen } = useNodeDrawer()
-  const node = useNode()
+  const [node] = useProvidedNode()
 
   return (
     <Drawer open={open ?? false} anchor="right" {...props}>

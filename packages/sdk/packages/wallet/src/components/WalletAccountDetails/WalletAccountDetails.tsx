@@ -17,7 +17,7 @@ export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({
   account: accountProp,
   ...props
 }) => {
-  const { account = accountProp } = useAccount()
+  const [account = accountProp] = useAccount()
   const { network } = useNetwork()
   const exploreAddressUrl = `${exploreUrl}/recent?account=${account?.addressValue.hex}&network=${network?.name ?? 'main'}`
 

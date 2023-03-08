@@ -1,28 +1,53 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { HDWallet } from '@xyo-network/account'
 import { AbstractModule } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
-import { useState } from 'react'
+import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
+import { WalletProvider } from '@xyo-network/react-wallet'
+import { useEffect, useState } from 'react'
 
-import { MemoryNodeProvider, useNode } from '../contexts'
+import { MemoryNodeProvider } from '../contexts'
+import { useModule, useProvidedNode } from '../hooks'
+
+const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
 class TestModule extends AbstractModule {}
+const TestModuleName = 'TestModule'
+const TestModuleAccount = randomWallet.deriveAccount('0')
+
+const account = randomWallet.deriveAccount('0')
 
 const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
   return (
-    <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
-      <Story {...args} />
-    </MemoryNodeProvider>
+    <WalletProvider defaultWallet={randomWallet}>
+      <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
+        <Story {...args} />
+      </MemoryNodeProvider>
+    </WalletProvider>
   )
+}
+
+const UseModuleTest: React.FC<WithChildren> = ({ children }) => {
+  const [testModule] = useModule(TestModuleName, account)
+
+  useEffect(() => {
+    if (testModule) {
+      // Should be called but isn't
+      console.log('*****test module*****', testModule)
+    }
+  }, [testModule])
+
+  return <>{children}</>
 }
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'node/NodeBox',
+  title: 'modules/node/NodeBox',
 } as Meta
 
 const Template: ComponentStory<React.FC> = (props) => {
-  const node = useNode<MemoryNode>()
+  const [node] = useProvidedNode() as [MemoryNode]
   const [description, setDescription] = useState<string>()
 
   useAsyncEffect(
@@ -30,9 +55,9 @@ const Template: ComponentStory<React.FC> = (props) => {
     async (mounted) => {
       if (node) {
         try {
-          const mod = await TestModule.create({ config: { schema: 'network.xyo.test.module' } })
+          const mod = await TestModule.create({ account: TestModuleAccount, config: { name: TestModuleName, schema: 'network.xyo.test.module' } })
           node?.register(mod)
-          await node?.attach(mod.address)
+          await node?.attach(mod.address, true)
           const wrapper = NodeWrapper.wrap(node)
           const description = await wrapper?.describe()
           if (mounted()) {
@@ -48,7 +73,9 @@ const Template: ComponentStory<React.FC> = (props) => {
 
   return (
     <div {...props}>
-      <pre>{description}</pre>
+      <UseModuleTest>
+        <pre>{description}</pre>
+      </UseModuleTest>
     </div>
   )
 }

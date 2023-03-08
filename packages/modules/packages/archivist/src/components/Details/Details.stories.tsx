@@ -1,10 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchivistModule } from '@xyo-network/archivist'
+import { NodeProvider } from '@xyo-network/react-node'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
-import { MemoryArchivistProvider, useArchivist } from '../../contexts'
+import { useArchivist } from '../../hooks'
 import { ArchivistDetails } from './Details'
 
 const StorybookEntry = {
@@ -15,17 +16,17 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'archivist/Details',
+  title: 'modules/archivist/Details',
 } as ComponentMeta<typeof ArchivistDetails>
 
 const TemplateInner: ComponentStory<typeof ArchivistDetails> = (args) => {
-  const archivist = useArchivist()
+  const [archivist] = useArchivist()
 
   return <ArchivistDetails address={archivist?.address} {...args}></ArchivistDetails>
 }
 
 const TemplateInnerWithData: ComponentStory<typeof ArchivistDetails> = (args) => {
-  const archivist = useArchivist()
+  const [archivist] = useArchivist()
   const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
 
   useAsyncEffect(
@@ -45,15 +46,15 @@ const TemplateInnerWithData: ComponentStory<typeof ArchivistDetails> = (args) =>
 }
 
 const TemplateWithNoData: ComponentStory<typeof ArchivistDetails> = (args) => (
-  <MemoryArchivistProvider>
+  <NodeProvider>
     <TemplateInner {...args}></TemplateInner>
-  </MemoryArchivistProvider>
+  </NodeProvider>
 )
 
 const TemplateWithData: ComponentStory<typeof ArchivistDetails> = (args) => (
-  <MemoryArchivistProvider>
+  <NodeProvider>
     <TemplateInnerWithData {...args}></TemplateInnerWithData>
-  </MemoryArchivistProvider>
+  </NodeProvider>
 )
 
 const WithNoArchivist = TemplateInner.bind({})

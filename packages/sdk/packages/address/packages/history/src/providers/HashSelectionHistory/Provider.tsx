@@ -20,7 +20,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
   defaultNestedBoundWitnesses = {},
 }) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
-  const archivist = useArchivist()
+  const [archivist] = useArchivist()
   const mounted = useMounted()
   const [hashSelectionHistory, setHashSelectionHistory] = useState<string[]>(defaultHashSelectionHistory)
   const [nestedBoundWitnesses, setNestedBoundWitnesses] = useState<NestedBoundWitnesses>(defaultNestedBoundWitnesses)

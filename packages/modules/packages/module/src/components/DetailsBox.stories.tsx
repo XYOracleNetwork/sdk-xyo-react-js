@@ -16,7 +16,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'module/DetailsBox',
+  title: 'modules/module/DetailsBox',
 } as ComponentMeta<typeof ModuleDetailsBox>
 
 const NodeTemplate: ComponentStory<typeof ModuleDetailsBox> = (args) => {

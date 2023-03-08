@@ -3,9 +3,6 @@ import { List, Paper } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { HDWallet } from '@xyo-network/account'
-import { ApiProvider, ArchiveProvider, ArchivesProvider } from '@xyo-network/react-api'
-import { AuthProvider } from '@xyo-network/react-auth'
-import { AuthSetsProvider } from '@xyo-network/react-auth-sets'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
@@ -29,32 +26,22 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
   <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
-    <AuthProvider authState={{}}>
-      <AuthSetsProvider>
-        <BrowserRouter>
-          <ApiProvider apiDomain="https://beta.api.archivist.xyo.network">
-            <NetworkMemoryProvider>
-              <ArchivesProvider>
-                <ArchiveProvider>
-                  <ApplicationAppBar
-                    systemToolbar={
-                      <SystemToolbar
-                        menuItems={
-                          <List>
-                            <MenuListItemContainer primary="Hello" />
-                          </List>
-                        }
-                      />
-                    }
-                    {...args}
-                  ></ApplicationAppBar>
-                </ArchiveProvider>
-              </ArchivesProvider>
-            </NetworkMemoryProvider>
-          </ApiProvider>
-        </BrowserRouter>
-      </AuthSetsProvider>
-    </AuthProvider>
+    <BrowserRouter>
+      <NetworkMemoryProvider>
+        <ApplicationAppBar
+          systemToolbar={
+            <SystemToolbar
+              menuItems={
+                <List>
+                  <MenuListItemContainer primary="Hello" />
+                </List>
+              }
+            />
+          }
+          {...args}
+        ></ApplicationAppBar>
+      </NetworkMemoryProvider>
+    </BrowserRouter>
   </WalletProvider>
 )
 
@@ -68,7 +55,6 @@ WithSearchBar.args = {
   systemToolbar: (
     <SystemToolbar
       darkModeButton
-      authButton
       menuItems={
         <List>
           <MenuListItemContainer primary="Hello" />
@@ -88,7 +74,7 @@ WithWalletSelectBar.args = {
     </FlexGrowCol>
   ),
   color: 'primary',
-  systemToolbar: <SystemToolbar darkModeButton authButton />,
+  systemToolbar: <SystemToolbar darkModeButton />,
 }
 
 export { Default, WithSearchBar, WithWalletSelectBar }

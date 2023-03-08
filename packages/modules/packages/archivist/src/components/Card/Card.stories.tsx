@@ -18,7 +18,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'module/ArchivistCard',
+  title: 'modules/archivist/ArchivistCard',
 } as ComponentMeta<typeof ArchivistCard>
 
 const Template: ComponentStory<typeof ArchivistCard> = () => {

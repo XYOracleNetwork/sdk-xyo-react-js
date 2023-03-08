@@ -10,14 +10,14 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-button": "^2.16.8",
-    "@xylabs/react-flexbox": "^2.16.8",
-    "@xylabs/react-shared": "^2.16.8",
-    "@xyo-network/node": "^2.50.4",
+    "@xylabs/eth-address": "^2.7.4",
+    "@xylabs/react-button": "^2.16.11",
+    "@xylabs/react-crypto": "^2.16.11",
+    "@xylabs/react-flexbox": "^2.16.11",
+    "@xylabs/react-shared": "^2.16.11",
     "@xyo-network/react-module": "workspace:^",
     "@xyo-network/react-node": "workspace:^",
-    "@xyo-network/react-shared": "workspace:^",
-    "lodash": "^4.17.21"
+    "@xyo-network/react-shared": "workspace:^"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
@@ -32,14 +32,12 @@
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@storybook/react": "^6.5.16",
-    "@types/lodash": "^4.14.191",
-    "@xylabs/ts-scripts-yarn3": "^2.16.0",
-    "@xylabs/tsconfig-react": "^2.16.0",
-    "@xyo-network/archivist": "^2.50.4",
-    "@xyo-network/archivist-wrapper": "^2.50.4",
-    "@xyo-network/module": "^2.50.4",
-    "@xyo-network/payload-model": "^2.50.4",
-    "@xyo-network/react-api": "workspace:^",
+    "@xylabs/ts-scripts-yarn3": "^2.16.1",
+    "@xylabs/tsconfig-react": "^2.16.1",
+    "@xyo-network/archivist": "^2.51.7",
+    "@xyo-network/archivist-wrapper": "^2.51.7",
+    "@xyo-network/module": "^2.51.7",
+    "@xyo-network/payload-model": "^2.51.7",
     "@xyo-network/react-storybook": "workspace:^",
     "require-from-string": "^2.0.2",
     "typescript": "^4.9.5"
@@ -86,5 +84,5 @@
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
-  "version": "2.44.3"
+  "version": "2.45.0"
 }

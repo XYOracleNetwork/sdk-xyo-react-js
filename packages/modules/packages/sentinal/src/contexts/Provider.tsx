@@ -1,7 +1,7 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Account } from '@xyo-network/account'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { AbstractSentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
+import { MemorySentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
 
@@ -27,7 +27,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   witnesses = [],
   required = false,
 }) => {
-  const [sentinel, setSentinel] = useState<AbstractSentinel>()
+  const [sentinel, setSentinel] = useState<MemorySentinel>()
   const [history, setHistory] = useState<XyoBoundWitness[]>()
   const [progress, setProgress] = useState<SentinelReportProgress>({})
   const [status, setStatus] = useState(SentinelReportStatus.Idle)
@@ -36,7 +36,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const sentinel = await AbstractSentinel.create({
+      const sentinel = await MemorySentinel.create({
         account,
         config: {
           archivists: archivist ? [archivist] : undefined,

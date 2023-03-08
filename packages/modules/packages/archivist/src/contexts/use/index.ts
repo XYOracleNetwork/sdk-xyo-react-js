@@ -1,6 +1,0 @@
-export * from './use'
-export * from './useArchivistAll'
-export * from './useArchivistClear'
-export * from './useArchivistFind'
-export * from './useArchivistGet'
-export * from './useArchivistInsert'

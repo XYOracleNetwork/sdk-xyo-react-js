@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { DivinerModule, MemoryAddressHistoryDiviner, MemoryAddressHistoryDivinerConfigSchema } from '@xyo-network/diviner'
+import { AddressHistoryDivinerConfigSchema, DivinerModule, MemoryAddressHistoryDiviner } from '@xyo-network/diviner'
 import { useState } from 'react'
 
 import { DivinerCard } from './Card'
@@ -18,7 +18,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'module/DivinerCard',
+  title: 'modules/diviner/DivinerCard',
 } as ComponentMeta<typeof DivinerCard>
 
 const Template: ComponentStory<typeof DivinerCard> = () => {
@@ -31,7 +31,7 @@ const Template: ComponentStory<typeof DivinerCard> = () => {
         const newModule = await MemoryAddressHistoryDiviner.create({
           config: {
             address: '',
-            schema: MemoryAddressHistoryDivinerConfigSchema,
+            schema: AddressHistoryDivinerConfigSchema,
           },
         })
         if (mounted()) {

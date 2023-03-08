@@ -1,6 +1,5 @@
 /* eslint-disable import/no-internal-modules */
 import { ComponentStory, Meta } from '@storybook/react'
-import { ApiProvider, ArchiveProvider, ArchivesProvider } from '@xyo-network/react-api'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 
 import { SystemControls } from './SystemControls'
@@ -20,13 +19,7 @@ const StorybookEntry: Meta = {
 const Template: ComponentStory<typeof SystemControls> = (props) => {
   return (
     <NetworkMemoryProvider>
-      <ApiProvider apiDomain="http://localhost:8080">
-        <ArchivesProvider>
-          <ArchiveProvider>
-            <SystemControls {...props} />
-          </ArchiveProvider>
-        </ArchivesProvider>
-      </ApiProvider>
+      <SystemControls {...props} />
     </NetworkMemoryProvider>
   )
 }
