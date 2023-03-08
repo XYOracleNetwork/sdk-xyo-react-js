@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react'
 
 import { AccountContext } from '../Account'
 import { WalletContext } from './Context'
-import { WalletPath } from './lib'
+import { WalletRootPath } from './lib'
 import { useWallet } from './use'
 
 export interface WalletProviderProps {
+  basePath?: string
   defaultActiveAccountIndex?: number
   defaultWallet?: HDWallet
 }
@@ -18,7 +19,13 @@ const AccountWalletProvider: React.FC<WithChildren> = (props) => {
   return <AccountContext.Provider value={{ account: wallet?.deriveAccount(activeAccountIndex.toString()), provided: true }} {...props} />
 }
 
-export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ children, defaultActiveAccountIndex = 0, defaultWallet, ...props }) => {
+export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
+  basePath = WalletRootPath,
+  children,
+  defaultActiveAccountIndex = 0,
+  defaultWallet,
+  ...props
+}) => {
   const [wallet, setWallet] = useState<HDWallet | undefined>()
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
 
@@ -32,7 +39,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ ch
     // ensure the wallet has the proper base
     if (defaultWallet) {
       try {
-        const walletWithBasePath = defaultWallet?.derivePath(WalletPath)
+        const walletWithBasePath = defaultWallet?.derivePath(basePath)
         setWallet(walletWithBasePath)
       } catch (e) {
         console.error('Error setting proper wallet base path', e)
@@ -40,12 +47,13 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ ch
     } else {
       throw Error('WalletProvider requires a default HDWallet')
     }
-  }, [defaultWallet])
+  }, [basePath, defaultWallet])
 
   return (
     <WalletContext.Provider
       value={{
         activeAccountIndex,
+        basePath,
         provided: true,
         setActiveAccountIndex,
         setWallet,
