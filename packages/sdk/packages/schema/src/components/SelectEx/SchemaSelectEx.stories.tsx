@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 /*import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { SelectExProps } from '@xylabs/react-common'
+import { SelectExProps } from '@xylabs/react-select'
 import { ApiProvider } from '@xyo-network/react-api'
 import { authDecorator, WrappedArgs } from '@xyo-network/react-storybook'
 
