@@ -1,7 +1,8 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { HDWallet } from '@xyo-network/protocol'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useWallet } from '@xyo-network/react-wallet'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { BuildStandardNodes } from '../../lib'
 import { StandardNodesContext } from './Context'
@@ -9,11 +10,11 @@ import { StandardNodesState } from './State'
 
 export interface StandardNodesProviderProps extends WithChildren {
   defaultRemoteNodes?: StandardNodesState['nodes']
+  wallet?: HDWallet
 }
 
-export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ children, defaultRemoteNodes }) => {
+export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ children, defaultRemoteNodes, wallet }) => {
   const [nodes, setNodes] = useState<StandardNodesState['nodes']>(defaultRemoteNodes)
-  const { wallet, activeAccountIndex } = useWallet()
 
   useEffect(() => {
     setNodes(defaultRemoteNodes)
@@ -22,13 +23,12 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ ch
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (activeAccountIndex !== undefined && wallet) {
-        const remoteNodeWallet = wallet.derivePath(activeAccountIndex.toString())
-        const builtNodes = await BuildStandardNodes(remoteNodeWallet)
+      if (wallet) {
+        const builtNodes = await BuildStandardNodes(wallet)
         setNodes(builtNodes)
       }
     },
-    [activeAccountIndex, wallet],
+    [wallet],
   )
 
   const findAddressByName = (name?: string) => {
@@ -47,4 +47,13 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ ch
       {children}
     </StandardNodesContext.Provider>
   )
+}
+
+export const StandardNodesProviderWithWallet: React.FC<Omit<StandardNodesProviderProps, 'wallet'>> = (props) => {
+  const { wallet: walletFromCtx, activeAccountIndex } = useWallet()
+  const wallet = useMemo(
+    () => (walletFromCtx && activeAccountIndex !== undefined ? walletFromCtx.derivePath(activeAccountIndex.toString()) : undefined),
+    [activeAccountIndex, walletFromCtx],
+  )
+  return <StandardNodesProvider wallet={wallet} {...props} />
 }
