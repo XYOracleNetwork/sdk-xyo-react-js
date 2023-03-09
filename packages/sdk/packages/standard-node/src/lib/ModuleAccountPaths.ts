@@ -1,4 +1,4 @@
-import { DevelopArchivist, RootStorageArchivist } from './ModuleNames'
+import { RootStorageArchivist } from './ModuleNames'
 
 export const GlobalNodeOffsetPath = '15'
 
@@ -10,17 +10,14 @@ export const RemoteNodeOffsetPaths: Record<string, string> = {
 
 export const RemoteNodeArchivistOffsetPaths: Record<string, Record<string, string>> = {
   Kerplunk: {
-    [DevelopArchivist]: '118',
     MemoryNode: '117',
     [RootStorageArchivist]: '119',
   },
   Local: {
-    [DevelopArchivist]: '115',
     MemoryNode: '114',
     [RootStorageArchivist]: '116',
   },
   Main: {
-    [DevelopArchivist]: '121',
     MemoryNode: '120',
     [RootStorageArchivist]: '122',
   },

@@ -5,7 +5,7 @@ import { assertDefinedEx } from '@xyo-network/react-shared'
 
 import { MemoryNodeBuilder } from './Builders'
 import { RemoteNodeArchivistOffsetPaths, RemoteNodeOffsetPaths } from './ModuleAccountPaths'
-import { DevelopArchivist, RootStorageArchivist } from './ModuleNames'
+import { RootStorageArchivist } from './ModuleNames'
 
 const MainApiUrlFallback = 'https://beta.api.archivist.xyo.network'
 
@@ -36,10 +36,6 @@ export const BuildStandardNodes = async (wallet: HDWallet): Promise<MemoryNode[]
         const rootArchivistPath = `${remoteNodeOffset}/${RemoteNodeArchivistOffsetPaths[name][RootStorageArchivist]}`
         const rootArchivistAccount = wallet.deriveAccount(rootArchivistPath)
         await memoryNodeBuilder.addArchivist(rootArchivistAccount, RootStorageArchivist, 'root')
-
-        const developArchivistPath = `${remoteNodeOffset}/${RemoteNodeArchivistOffsetPaths[name][DevelopArchivist]}`
-        const developArchivistAccount = wallet.deriveAccount(developArchivistPath)
-        await memoryNodeBuilder.addArchivist(developArchivistAccount, DevelopArchivist, 'develop')
 
         return assertDefinedEx(memoryNodeBuilder.node, 'Memory Node was not built successfully')
       }),
