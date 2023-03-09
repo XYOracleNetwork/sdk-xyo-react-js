@@ -7456,11 +7456,12 @@ __metadata:
     "@xylabs/react-shared": ^2.16.11
     "@xylabs/ts-scripts-yarn3": ^2.16.1
     "@xylabs/tsconfig-react": ^2.16.1
+    "@xyo-network/account": ^2.51.9
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
-    "@xyo-network/wallet": ^2.51.9
     require-from-string: ^2.0.2
     typescript: ^4.9.5
   peerDependencies:
@@ -7495,7 +7496,6 @@ __metadata:
     "@xyo-network/payload-model": ^2.51.9
     "@xyo-network/react-module": "workspace:^"
     "@xyo-network/react-node": "workspace:^"
-    "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     require-from-string: ^2.0.2
     typescript: ^4.9.5
@@ -8832,6 +8832,7 @@ __metadata:
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-standard-node": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     "@xyo-network/react-typedoc": "workspace:^"
@@ -8914,7 +8915,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-standard-node@workspace:packages/sdk/packages/standard-node":
+"@xyo-network/react-standard-node@workspace:^, @xyo-network/react-standard-node@workspace:packages/sdk/packages/standard-node":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-standard-node@workspace:packages/sdk/packages/standard-node"
   dependencies:
@@ -8923,13 +8924,18 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": ^2.16.1
     "@xylabs/tsconfig-react": ^2.16.1
     "@xyo-network/account-model": ^2.51.9
+    "@xyo-network/archivist": ^2.51.9
     "@xyo-network/bridge": ^2.51.9
+    "@xyo-network/module": ^2.51.9
     "@xyo-network/node": ^2.51.9
+    "@xyo-network/payloadset-plugin": ^2.51.9
     "@xyo-network/protocol": ^2.51.9
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
+    "@xyo-network/sentinel": ^2.51.9
+    "@xyo-network/witness": ^2.51.9
     require-from-string: ^2.0.2
     typescript: ^4.9.5
   peerDependencies:
