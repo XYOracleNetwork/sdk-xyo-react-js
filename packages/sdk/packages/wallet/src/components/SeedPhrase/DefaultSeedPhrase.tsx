@@ -6,7 +6,7 @@ import { WithChildren } from '@xylabs/react-shared'
 import { useEffect, useState } from 'react'
 
 export interface DefaultSeedPhraseProps extends WithChildren {
-  changeSeedPhrase?: (seedPhrase?: string) => void
+  changeSeedPhrase?: (seedPhrase: string) => void
   seedPhrase?: string
 }
 
