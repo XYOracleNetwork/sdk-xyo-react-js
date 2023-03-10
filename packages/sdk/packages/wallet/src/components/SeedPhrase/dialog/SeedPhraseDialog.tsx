@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogProps, DialogTitle } from '@mui/material'
 
 import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts'
-import { SeedPhraseIconButton } from '../SeedPhraseIconButton'
+import { SeedPhraseIconButton } from '../_shared'
 import { DialogActionButtons, NewPhraseTextField, OverwriteWarning, SavedPhraseTextField } from './components'
 
 export interface SeedPhraseDialogProps extends DialogProps {
