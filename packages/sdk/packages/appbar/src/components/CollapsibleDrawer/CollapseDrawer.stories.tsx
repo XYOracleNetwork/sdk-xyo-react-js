@@ -38,7 +38,7 @@ const Template: ComponentStory<typeof CollapsibleDrawer> = (args) => {
           <MenuSection title="Explore & Create" listItems={menuDataTop} showTitle={!collapse} />
           <MenuSection title="Settings & Analytics" listItems={menuDataBottom} showTitle={!collapse} />
           <FlexGrowCol height="100%" />
-          <CollapseToggleFlex justifyContent="start" />
+          <CollapseToggleFlex />
         </CollapsibleDrawer>
       </FlexCol>
       <Divider flexItem orientation={'vertical'} />

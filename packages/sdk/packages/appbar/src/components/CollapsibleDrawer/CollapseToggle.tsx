@@ -16,7 +16,7 @@ export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
   }
 
   return (
-    <FlexRow mt={2} py={2} {...props}>
+    <FlexRow mt={2} py={2} justifyContent={collapse ? 'start' : 'center'} {...props}>
       <Icon
         onClick={handleCollapseToggle}
         onMouseEnter={() => setHover(true)}
