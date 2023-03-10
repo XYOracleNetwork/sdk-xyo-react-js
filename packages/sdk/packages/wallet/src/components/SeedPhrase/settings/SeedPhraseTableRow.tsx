@@ -7,7 +7,7 @@ import { SeedPhraseIconButton } from '../_shared'
 import { SeedPhraseDialog } from '../dialog'
 
 export interface SeedPhraseTableRowProps extends TableRowProps {
-  changeSeedPhrase?: (seedPhrase?: string) => void
+  changeSeedPhrase?: (seedPhrase: string) => void
   seedPhrase?: string
 }
 
