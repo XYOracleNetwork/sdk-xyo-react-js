@@ -1,5 +1,6 @@
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Geometry } from 'geojson'
+import compact from 'lodash/compact'
 import { useEffect, useState } from 'react'
 
 import { NetworkXyoLocationHeatmapQuadkeyAnswerPayload } from '../types'
@@ -27,10 +28,14 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkXyoLocationHeatmapQuadke
   useEffect(() => {
     // Convert Multiple Payloads from Quadkey to GeoJson
     if (Array.isArray(payloads)) {
-      const payloadsArray = payloads as NetworkXyoLocationHeatmapQuadkeyAnswerPayload[]
-      const mappedFeatures = payloadsArray?.map((payload) => payload.result.map(quadKeyToFeature))
+      if (compact(payloads).length !== 0) {
+        const payloadsArray = payloads as NetworkXyoLocationHeatmapQuadkeyAnswerPayload[]
+        const mappedFeatures = payloadsArray?.map((payload) => payload.result.map(quadKeyToFeature))
 
-      setMultipleFeatureSets(mappedFeatures.map((features) => features.map(setDensity)))
+        setMultipleFeatureSets(mappedFeatures.map((features) => features.map(setDensity)))
+      } else {
+        console.error('Cannot find payloads for provided hashes')
+      }
     }
 
     // Convert Single Payload from Quadkey to GeoJson

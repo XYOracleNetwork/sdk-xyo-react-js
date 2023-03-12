@@ -14,17 +14,20 @@
     "@mui/material": "^5.11.12",
     "@mui/styles": "^5.11.12",
     "@scure/bip39": "^1.1.1",
+    "@xyo-network/react-modules": "workspace:^",
+    "@xyo-network/react-plugins": "workspace:^",
     "@xyo-network/react-sdk": "workspace:^",
+    "geojson": "^0.5.0",
+    "mapbox-gl": "^2.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
+    "react-helmet": "^6",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.8.2"
   },
   "devDependencies": {
     "@xylabs/ts-scripts-yarn3": "^2.16.1",
     "@xylabs/tsconfig-react": "^2.16.1",
-    "react-helmet": "^6.1.0",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
@@ -79,6 +82,5 @@
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
-  "version": "2.45.0-rc.31",
-  "stableVersion": "2.44.1"
+  "version": "2.45.9"
 }

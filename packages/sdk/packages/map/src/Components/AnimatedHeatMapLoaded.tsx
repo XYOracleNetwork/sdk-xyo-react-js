@@ -11,11 +11,12 @@ import { AnimatedHeatMapLegend } from './Legend'
 
 export interface AnimatedHeatMapLoadedProps extends FlexBoxProps {
   accessToken: string
+  archivistNameOrAddress: string
 }
 
-export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ accessToken, ...props }) => {
+export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ accessToken, archivistNameOrAddress, ...props }) => {
   const hashes = useFindHashes()
-  const [payloads, xyoError] = useArchivistGet<NetworkXyoLocationHeatmapQuadkeyAnswerPayload>(hashes)
+  const [payloads, xyoError] = useArchivistGet<NetworkXyoLocationHeatmapQuadkeyAnswerPayload>(hashes, archivistNameOrAddress)
   const { multipleFeatureSets } = useQuadKeyPayloadsToFeatures(payloads)
   const { heatMapColorProps, legendProps } = useHeatMapColors()
 

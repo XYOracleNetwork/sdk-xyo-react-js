@@ -4,12 +4,11 @@ import { useEffect, useState } from 'react'
 
 import { AccountContext } from '../Account'
 import { WalletContext } from './Context'
+import { WalletRootPath } from './lib'
 import { useWallet } from './use'
 
-const WalletBase = 'm'
-const WalletRootPath = "44'/60'/0'/0"
-
 export interface WalletProviderProps {
+  basePath?: string
   defaultActiveAccountIndex?: number
   defaultWallet?: HDWallet
 }
@@ -20,8 +19,14 @@ const AccountWalletProvider: React.FC<WithChildren> = (props) => {
   return <AccountContext.Provider value={{ account: wallet?.deriveAccount(activeAccountIndex.toString()), provided: true }} {...props} />
 }
 
-export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ children, defaultActiveAccountIndex = 0, defaultWallet, ...props }) => {
-  const [wallet, setWallet] = useState<HDWallet | undefined>(defaultWallet)
+export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
+  basePath = WalletRootPath,
+  children,
+  defaultActiveAccountIndex = 0,
+  defaultWallet,
+  ...props
+}) => {
+  const [wallet, setWallet] = useState<HDWallet | undefined>()
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
 
   useEffect(() => {
@@ -34,18 +39,21 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({ ch
     // ensure the wallet has the proper base
     if (defaultWallet) {
       try {
-        const walletWithBasePath = defaultWallet?.derivePath(WalletBase).derivePath(WalletRootPath)
+        const walletWithBasePath = defaultWallet?.derivePath(basePath)
         setWallet(walletWithBasePath)
       } catch (e) {
         console.error('Error setting proper wallet base path', e)
       }
+    } else {
+      throw Error('WalletProvider requires a default HDWallet')
     }
-  }, [defaultWallet])
+  }, [basePath, defaultWallet])
 
   return (
     <WalletContext.Provider
       value={{
         activeAccountIndex,
+        basePath,
         provided: true,
         setActiveAccountIndex,
         setWallet,

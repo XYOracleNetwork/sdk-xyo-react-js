@@ -1,2 +1,4 @@
+export * from './_shared'
+export * from './DefaultSeedPhrase'
 export * from './dialog'
-export * from './SeedPhraseIconButton'
+export * from './settings'

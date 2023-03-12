@@ -1,4 +1,3 @@
-import { BasePageProps } from '@xylabs/react-common'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
 import { Component, ErrorInfo, ReactNode } from 'react'
 import Rollbar from 'rollbar'
@@ -6,7 +5,6 @@ import Rollbar from 'rollbar'
 import { XyoErrorRender } from '../XyoErrorRender'
 
 export interface XyoErrorBoundaryProps {
-  basePageProps?: BasePageProps
   boundaryName?: string
   children: ReactNode
   errorComponent?: (e: XyoError, boundaryName?: string) => ReactNode
