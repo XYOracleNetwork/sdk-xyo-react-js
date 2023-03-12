@@ -5,7 +5,7 @@ import { ModuleWrapper } from '@xyo-network/module'
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
 export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = ({ subheader, avatar, title, module, ...props }) => {
-  const wrapper = module ? new ModuleWrapper(module) : undefined
+  const wrapper = module ? ModuleWrapper.wrap(module) : undefined
   return (
     <CardHeader
       title={title ?? 'Module'}

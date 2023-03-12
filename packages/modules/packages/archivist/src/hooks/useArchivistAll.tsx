@@ -10,7 +10,7 @@ export const useArchivistAll = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       try {
-        const wrapper = archivist ? new ArchivistWrapper(archivist) : undefined
+        const wrapper = archivist ? ArchivistWrapper.wrap(archivist) : undefined
         const result = await wrapper?.all()
         if (mounted()) {
           setError(undefined)

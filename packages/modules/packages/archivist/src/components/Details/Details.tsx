@@ -40,7 +40,7 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
   )
 
   useEffect(() => {
-    setWrapper(archivist ? new ArchivistWrapper(archivist) : undefined)
+    setWrapper(archivist ? ArchivistWrapper.wrap(archivist) : undefined)
   }, [archivist])
 
   useAsyncEffect(

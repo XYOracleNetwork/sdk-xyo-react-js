@@ -3,6 +3,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { MemoryArchivist } from '@xyo-network/archivist'
 import { XyoCryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-plugin'
+import { DivinerModule } from '@xyo-network/diviner'
 import { MemoryNode } from '@xyo-network/node'
 import { useState } from 'react'
 
@@ -64,7 +65,7 @@ const ArchivistDetails = ArchivistTemplate.bind({})
 ArchivistDetails.args = {}
 
 const DivinerTemplate: ComponentStory<typeof ModuleDetailsBox> = (args) => {
-  const [diviner, setDiviner] = useState<XyoCryptoMarketAssetDiviner>()
+  const [diviner, setDiviner] = useState<DivinerModule>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {

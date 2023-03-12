@@ -1,8 +1,8 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
-import { Account } from '@xyo-network/account'
+import { AccountInstance } from '@xyo-network/account-model'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { MemorySentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { WitnessWrapper } from '@xyo-network/witness'
+import { WitnessModule, WitnessWrapper } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
 
 import { SentinelContext } from './Context'
@@ -10,7 +10,7 @@ import { SentinelReportProgress, SentinelReportStatus } from './State'
 
 export interface SentinelProviderProps {
   /** Account used by the sentinel for signing */
-  account?: Account
+  account: AccountInstance
   /** @deprecated - sentinel no longer uses archive but relies on an archivist */
   archive?: string
   archivist?: string
@@ -61,7 +61,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
             setStatus(SentinelReportStatus.Started)
           }
         },
-        onWitnessReportEnd: (witness: WitnessWrapper, error?: Error) => {
+        onWitnessReportEnd: (witness: WitnessModule, error?: Error) => {
           const witnesses = progress.witnesses ?? {}
           witnesses[witness.address] = {
             status: error ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded,
@@ -74,7 +74,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
             })
           }
         },
-        onWitnessReportStart: (witness: WitnessWrapper) => {
+        onWitnessReportStart: (witness: WitnessModule) => {
           const witnesses = progress.witnesses ?? {}
           witnesses[witness.address] = {
             status: SentinelReportStatus.Started,
@@ -88,7 +88,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           }
         },
       })
-      setSentinel(sentinel)
+      setSentinel(sentinel as MemorySentinel)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [account, archivist, witnesses],

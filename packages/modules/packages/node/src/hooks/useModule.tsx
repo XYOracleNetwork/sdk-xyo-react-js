@@ -1,7 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { AccountInstance } from '@xyo-network/account-model'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
-import { ModuleAttachedEventArgs, ModuleAttachedEventEmitter, ModuleDetachedEventArgs, ModuleDetachedEventEmitter } from '@xyo-network/node'
+import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
 import { useMemo, useState } from 'react'
 
 import { useProvidedWrappedNode } from './useProvidedNode'
@@ -27,8 +27,8 @@ export const useModule = <TModule extends Module = Module>(
           setModule(undefined)
         } else {
           if (node) {
-            const attachEmitter = node.module as ModuleAttachedEventEmitter
-            const detachEmitter = node.module as ModuleDetachedEventEmitter
+            const attachEmitter = node.module
+            const detachEmitter = node.module
             const attachHandler = (args: ModuleAttachedEventArgs) => {
               const eventModule = args.module
               if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress) && mounted()) {
@@ -47,17 +47,15 @@ export const useModule = <TModule extends Module = Module>(
               ? await node.resolve<TModule>(nameOrAddress)
               : (await node.resolve<TModule>(filter)).pop()
             if (mounted()) {
-              attachEmitter.on('moduleAttached', attachHandler, true)
-              detachEmitter.on('moduleDetached', detachHandler, true)
-              detachEmitter.on('moduleDetached', detachHandler)
               attachEmitter.on('moduleAttached', attachHandler)
+              detachEmitter.on('moduleDetached', detachHandler)
               setModule(module)
               setError(undefined)
             }
             return () => {
               //remove the event handler on unmount
-              attachEmitter.on('moduleAttached', attachHandler, true)
-              detachEmitter.on('moduleDetached', detachHandler, true)
+              attachEmitter.off('moduleAttached', attachHandler)
+              detachEmitter.off('moduleDetached', detachHandler)
             }
           } else {
             setError(undefined)
