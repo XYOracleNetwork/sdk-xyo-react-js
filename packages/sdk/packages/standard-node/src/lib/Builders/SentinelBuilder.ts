@@ -28,7 +28,7 @@ export class SentinelBuilder {
 
   async buildSentinel(callbacks: SentinelCallbacks) {
     const params = this.buildParams(callbacks)
-    return await MemorySentinel.create(params)
+    return (await MemorySentinel.create(params)) as MemorySentinel
   }
 
   private buildParams(callbacks: SentinelCallbacks): SentinelParams {
