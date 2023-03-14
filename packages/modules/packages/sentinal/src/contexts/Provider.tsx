@@ -3,7 +3,6 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
 import { useNode } from '@xyo-network/react-node'
 import { MemorySentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { WitnessModule } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
 
 import { SentinelContext } from './Context'
