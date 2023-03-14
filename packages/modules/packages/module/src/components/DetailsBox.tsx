@@ -13,7 +13,7 @@ const getModuleIcon = (moduleType: string, wrapper: ModuleWrapper) => {
 }
 
 export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ children, module, ...props }) => {
-  const wrapper = module ? new ModuleWrapper(module) : undefined
+  const wrapper = module ? ModuleWrapper.wrap(module) : undefined
   const [showQueries, setShowQueries] = useState(false)
   return (
     <FlexCol {...props}>

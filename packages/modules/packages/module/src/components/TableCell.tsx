@@ -6,7 +6,7 @@ import { ModuleWrapper } from '@xyo-network/module'
 import { ModuleRenderProps } from '../ModuleRenderProps'
 
 export const ModuleTableCell: React.FC<ModuleRenderProps & TableCellProps> = ({ children, module, ...props }) => {
-  const wrapper = module ? new ModuleWrapper(module) : undefined
+  const wrapper = module ? ModuleWrapper.wrap(module) : undefined
   return (
     <TableCell {...props}>
       <EthAccountBox address={EthAddress.fromString(wrapper?.address)} />

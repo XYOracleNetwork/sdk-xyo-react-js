@@ -22,7 +22,7 @@ const useFetchPayloads = (hashes?: string[]) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (archivist && payloads === undefined && hashes?.length && !inFlight) {
-        const archivistWrapper = new ArchivistWrapper(archivist)
+        const archivistWrapper = ArchivistWrapper.wrap(archivist)
         try {
           setInFlight(true)
           const payloads = await archivistWrapper.get(hashes)

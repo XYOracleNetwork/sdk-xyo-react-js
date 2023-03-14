@@ -13,11 +13,11 @@ export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> &
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const wrapper = module ? new ModuleWrapper(module) : undefined
+      const wrapper = module ? ModuleWrapper.wrap(module) : undefined
       const payloads = await wrapper?.discover()
       console.log(`Payloads: ${JSON.stringify(payloads, null, 2)}`)
       if (mounted()) {
-        setConfig(payloads?.[0])
+        setConfig(payloads?.[0] as ArchivistConfig)
       }
     },
     [module],

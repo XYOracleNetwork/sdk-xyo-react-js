@@ -2,8 +2,6 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { MemorySentinel, SentinelConfigSchema, SentinelParams } from '@xyo-network/sentinel'
 
-export type SentinelCallbacks = Pick<SentinelParams, 'onReportEnd' | 'onReportStart' | 'onWitnessReportStart' | 'onWitnessReportEnd'>
-
 export interface SentinelBuilderConfig {
   name: string
   witnesses: string[]
@@ -20,25 +18,24 @@ export class SentinelBuilder {
     return assertDefinedEx(this._sentinel, 'this._sentinel not defined upon create')
   }
 
-  static async create(config: SentinelBuilderConfig, account: AccountInstance, callbacks: SentinelCallbacks): Promise<SentinelBuilder> {
+  static async create(config: SentinelBuilderConfig, account: AccountInstance): Promise<SentinelBuilder> {
     const instance = new this(config, account)
-    instance._sentinel = await instance.buildSentinel(callbacks)
+    instance._sentinel = await instance.buildSentinel()
     return instance
   }
 
-  async buildSentinel(callbacks: SentinelCallbacks) {
-    const params = this.buildParams(callbacks)
-    return await MemorySentinel.create(params)
+  async buildSentinel() {
+    const params = this.buildParams()
+    return (await MemorySentinel.create(params)) as MemorySentinel
   }
 
-  private buildParams(callbacks: SentinelCallbacks): SentinelParams {
+  private buildParams(): SentinelParams {
     return {
+      account: this.account,
       config: {
         ...this.config,
         schema: SentinelConfigSchema,
       },
-      ...callbacks,
-      account: this.account,
     }
   }
 }

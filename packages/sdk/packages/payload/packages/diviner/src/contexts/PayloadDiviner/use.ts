@@ -30,7 +30,7 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
       if (huri && diviner && payload === undefined) {
         try {
           const huriPayload: XyoHuriPayload = { huri: [huri], schema: XyoHuriSchema }
-          const wrapper = diviner ? new DivinerWrapper(diviner) : undefined
+          const wrapper = diviner ? DivinerWrapper.wrap(diviner) : undefined
           const [payload] = (await wrapper?.divine([huriPayload])) ?? []
           if (mounted()) {
             setPayload(payload ? (payload as T) : null)
@@ -68,7 +68,7 @@ export const useDivinePayloads = <T extends XyoPayload = XyoPayload>(
       const payloads = await Promise.allSettled(
         huriList.map(async (huri) => {
           const huriPayload: XyoHuriPayload = { huri: [huri], schema: XyoHuriSchema }
-          const wrapper = diviner ? new DivinerWrapper(diviner) : undefined
+          const wrapper = diviner ? DivinerWrapper.wrap(diviner) : undefined
           const [payload] = (await wrapper?.divine([huriPayload])) ?? []
           return payload
         }),

@@ -10,7 +10,7 @@ const getModuleIcons = (moduleType: string, wrapper: ModuleWrapper) => {
 }
 
 export const ModuleCardActions: React.FC<CardActionsProps & ModuleRenderProps> = ({ children, module, ...props }) => {
-  const wrapper = module ? new ModuleWrapper(module) : undefined
+  const wrapper = module ? ModuleWrapper.wrap(module) : undefined
   return (
     <CardActions style={{ justifyContent: 'space-between' }} {...props}>
       {wrapper

@@ -1,5 +1,5 @@
 import { ModuleResolver } from '@xyo-network/module-model'
-import { ModuleAttachedEventArgs, ModuleAttachedEventEmitter } from '@xyo-network/node'
+import { ModuleAttachedEventArgs } from '@xyo-network/node'
 import { useEffect, useState } from 'react'
 
 import { useNode } from './useNode'
@@ -16,8 +16,7 @@ export const useMemoryNodeUpdates = (refreshAddresses?: string[]): UseMemoryNode
 
   useEffect(() => {
     if (node) {
-      const onFunc = node.module.on as ModuleAttachedEventEmitter['on']
-      onFunc('moduleAttached', (args) => {
+      node.module.on('moduleAttached', (args: ModuleAttachedEventArgs) => {
         if (refreshAddresses) {
           if (refreshAddresses.some((address) => address === args?.module.address)) setModule(args)
         } else {

@@ -1,6 +1,6 @@
 import { DecoratorFn } from '@storybook/react'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
-import { StorageArchivistConfigSchema, XyoStorageArchivist } from '@xyo-network/archivist'
+import { StorageArchivist, StorageArchivistConfigSchema } from '@xyo-network/archivist'
 import { MemoryNode } from '@xyo-network/node'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { useArchivist } from '@xyo-network/react-archivist'
@@ -18,7 +18,7 @@ export const ActiveBWDecorator: DecoratorFn = (Story, args) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const memoryNode = await MemoryNode.create()
-      const archivist = await XyoStorageArchivist.create({
+      const archivist = await StorageArchivist.create({
         config: { namespace: 'AddressHistory', schema: StorageArchivistConfigSchema, type: 'local' },
       })
       await memoryNode.register(archivist).attach(archivist.address)

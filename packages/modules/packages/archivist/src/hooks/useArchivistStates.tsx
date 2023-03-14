@@ -17,7 +17,7 @@ export const useArchivistStates = <T extends XyoPayload = XyoPayload>() => {
 
   useEffect(() => {
     if (archivistFromHook) {
-      setArchivist(new ArchivistWrapper(archivistFromHook))
+      setArchivist(ArchivistWrapper.wrap(archivistFromHook))
     }
   }, [archivistFromHook])
 

@@ -6,7 +6,7 @@ import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { WitnessModule } from '@xyo-network/witness'
 
-import { SentinelBuilder, SentinelBuilderConfig, SentinelCallbacks } from './SentinelBuilder'
+import { SentinelBuilder, SentinelBuilderConfig } from './SentinelBuilder'
 import { StorageArchivistBuilder } from './StorageArchivistBuilder'
 
 interface MemoryNodeBuilderConfig {
@@ -16,7 +16,7 @@ interface MemoryNodeBuilderConfig {
 
 export class MemoryNodeBuilder {
   private _node: MemoryNode | undefined
-  private _wrappedNode: NodeWrapper | undefined
+  private _wrappedNode: NodeWrapper<MemoryNode> | undefined
 
   get node() {
     return assertDefinedEx(this._node, 'this._node was not defined upon create')
@@ -58,8 +58,8 @@ export class MemoryNodeBuilder {
     }
   }
 
-  async addSentinel(config: SentinelBuilderConfig, account: AccountInstance, callbacks: SentinelCallbacks) {
-    const { sentinel } = await SentinelBuilder.create(config, account, callbacks)
+  async addSentinel(config: SentinelBuilderConfig, account: AccountInstance) {
+    const { sentinel } = await SentinelBuilder.create(config, account)
     await this.attach(sentinel, true, true)
     return sentinel
   }
