@@ -6,15 +6,18 @@ import { useState } from 'react'
 import { PayloadContext } from './Context'
 
 export interface PayloadProviderProps {
+  /** @deprecated - no longer used */
   archive?: string
+  /** @deprecated - use archivist prop instead */
   archivePayloadWrapper?: ArchivistWrapper
+  archivist?: ArchivistWrapper
   cachePayload?: boolean
   hash?: string
   required?: boolean
 }
 
 export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
-  archivePayloadWrapper,
+  archivist,
   cachePayload = true,
   children,
   hash,
@@ -26,9 +29,9 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (payload === undefined && hash && archivePayloadWrapper) {
+      if (hash && archivist) {
         try {
-          const [loadedPayloads] = await archivePayloadWrapper.get([hash])
+          const [loadedPayloads] = await archivist.get([hash])
           setPayload(loadedPayloads ? loadedPayloads : null)
           setPayloadError(undefined)
         } catch (e) {
@@ -37,17 +40,17 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
         }
       }
     },
-    [payload, hash, archivePayloadWrapper],
+    [hash, archivist],
   )
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (cachePayload && archivePayloadWrapper && payload) {
-        await archivePayloadWrapper.insert([payload])
+      if (cachePayload && archivist && payload) {
+        await archivist.insert([payload])
       }
     },
-    [archivePayloadWrapper, cachePayload, payload],
+    [archivist, cachePayload, payload],
   )
 
   return (
