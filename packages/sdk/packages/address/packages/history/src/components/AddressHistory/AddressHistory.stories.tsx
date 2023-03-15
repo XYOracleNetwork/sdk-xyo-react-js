@@ -8,6 +8,7 @@ import { AddressHistory } from './AddressHistory'
 // eslint-disable-next-line import/no-default-export
 export default {
   component: AddressHistory,
+  decorators: [ActiveBWDecorator],
   title: 'address/history/AddressHistory',
 } as Meta
 
@@ -24,10 +25,8 @@ WithData.args = { addressHistory: sampleAddressHistory }
 
 const WithDataOrdering = Template.bind({})
 WithDataOrdering.args = { addressHistory: randomizedSampleAddressHistory, selectable: true }
-WithDataOrdering.decorators = [ActiveBWDecorator]
 
 const WithDataActive = Template.bind({})
 WithDataActive.args = { addressHistory: sampleAddressHistory, selectable: true }
-WithDataActive.decorators = [ActiveBWDecorator]
 
 export { Default, WithData, WithDataActive, WithDataOrdering }

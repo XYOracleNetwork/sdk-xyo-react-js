@@ -20,7 +20,6 @@ const Template: ComponentStoryFn<typeof BoundWitnessesBox> = (props) => {
 }
 
 const Default = Template.bind({})
-Default.args = {}
 
 const WithData = Template.bind({})
 
