@@ -37,12 +37,14 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
 
   useEffect(() => {
     // ensure the wallet has the proper base
-    if (defaultWallet && !wallet?.path.includes(basePath)) {
-      try {
-        const walletWithBasePath = defaultWallet?.derivePath(basePath)
-        setWallet(walletWithBasePath)
-      } catch (e) {
-        console.error('Error setting proper wallet base path', e)
+    if (defaultWallet) {
+      if (!wallet?.path.includes(basePath)) {
+        try {
+          const walletWithBasePath = defaultWallet?.derivePath(basePath)
+          setWallet(walletWithBasePath)
+        } catch (e) {
+          console.error('Error setting proper wallet base path', e)
+        }
       }
     } else {
       throw Error('WalletProvider requires a default HDWallet')
