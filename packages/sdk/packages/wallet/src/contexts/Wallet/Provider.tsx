@@ -26,7 +26,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
   defaultWallet,
   ...props
 }) => {
-  const [wallet, setWallet] = useState<HDWallet | undefined>(defaultWallet && basePath ? defaultWallet.derivePath(basePath) : undefined)
+  const [wallet, setWallet] = useState<HDWallet | undefined>()
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
 
   useEffect(() => {
     // ensure the wallet has the proper base
-    if (defaultWallet) {
+    if (defaultWallet && !wallet?.path.includes(basePath)) {
       try {
         const walletWithBasePath = defaultWallet?.derivePath(basePath)
         setWallet(walletWithBasePath)
@@ -47,7 +47,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     } else {
       throw Error('WalletProvider requires a default HDWallet')
     }
-  }, [basePath, defaultWallet])
+  }, [basePath, defaultWallet, wallet?.path])
 
   return (
     <WalletContext.Provider
