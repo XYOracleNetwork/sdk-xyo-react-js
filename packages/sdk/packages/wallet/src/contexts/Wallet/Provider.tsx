@@ -26,7 +26,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
   defaultWallet,
   ...props
 }) => {
-  const [wallet, setWallet] = useState<HDWallet | undefined>()
+  const [wallet, setWallet] = useState<HDWallet | undefined>(defaultWallet && basePath ? defaultWallet.derivePath(basePath) : undefined)
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
 
   useEffect(() => {
