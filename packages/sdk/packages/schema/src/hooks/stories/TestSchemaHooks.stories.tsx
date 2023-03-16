@@ -4,6 +4,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
+import { XyoPayload } from '@xyo-network/payload'
 import { NodeProvider, useNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
@@ -50,7 +51,7 @@ const Template: ComponentStory<React.FC> = () => {
   XyoSchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
   const [account] = useAccount()
   const [node] = useNode(undefined, account)
-  const [attached, setAttached] = useState<string[]>([])
+  const [discovered, setDiscovered] = useState<XyoPayload[]>([])
   const [schemaStats] = useSchemaStats(undefined, undefined, account)
   const schemaList = schemaStats?.filter(({ name }) => !!name) as { name: string }[]
   const schemaDefinitions = useSchemaDefinitions(schemaList)
@@ -58,9 +59,9 @@ const Template: ComponentStory<React.FC> = () => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const attached = await node?.attached()
+      const discovered = await node?.discover()
       if (mounted()) {
-        setAttached(attached ?? [])
+        setDiscovered(discovered ?? [])
       }
     },
     [node],
@@ -70,7 +71,7 @@ const Template: ComponentStory<React.FC> = () => {
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
       <Typography variant={'h2'}>Schema Stats</Typography>
       <code>
-        {`${JSON.stringify(attached, null, 2)}`}
+        {`${JSON.stringify(discovered, null, 2)}`}
         {JSON.stringify(schemaStats, null, 2)}
       </code>
       <Typography variant={'h2'}>Schema List</Typography>
