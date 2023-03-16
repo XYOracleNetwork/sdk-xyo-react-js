@@ -1,13 +1,19 @@
 import { ComponentStoryFn, Meta } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories'
+import {
+  ActiveBWDecorator,
+  ActiveBWDecoratorWithDefaultValues,
+  WithHashSelectionHistory,
+  WithHashSelectionHistoryDefaultValues,
+  WithNestedBoundWitnessesDecorator,
+} from '../stories'
 import { BoundWitnessesBox } from './BoundWitnessesBox'
 
 // eslint-disable-next-line import/no-default-export
 export default {
   component: BoundWitnessesBox,
-  decorators: [ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator],
+  decorators: [ActiveBWDecorator],
   title: 'address/history/BoundWitnessesBox',
 } as Meta
 
@@ -20,7 +26,12 @@ const Template: ComponentStoryFn<typeof BoundWitnessesBox> = (props) => {
 }
 
 const Default = Template.bind({})
+Default.decorators = [ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator]
 
 const WithData = Template.bind({})
+WithData.decorators = [ActiveBWDecoratorWithDefaultValues, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator]
 
-export { Default, WithData }
+const WithNested = Template.bind({})
+WithNested.decorators = [ActiveBWDecoratorWithDefaultValues, WithHashSelectionHistoryDefaultValues, WithNestedBoundWitnessesDecorator]
+
+export { Default, WithData, WithNested }

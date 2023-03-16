@@ -1,7 +1,7 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 
-import { ActiveBWDecorator, WithResetDecorator } from '../../stories'
+import { ActiveBWDecoratorWithDefaultValues, WithResetDecorator } from '../../stories'
 import { ActiveBWFlexBox } from './ActiveBWFlexBox'
 
 const WithRefDecorator: DecoratorFn = (Story, args) => {
@@ -23,14 +23,14 @@ Default.args = {}
 
 const WithActiveBW = Template.bind({})
 WithActiveBW.args = {}
-WithActiveBW.decorators = [ActiveBWDecorator]
+WithActiveBW.decorators = [ActiveBWDecoratorWithDefaultValues]
 
 const WithActiveBWRef = Template.bind({})
 WithActiveBWRef.args = {}
-WithActiveBWRef.decorators = [WithRefDecorator, ActiveBWDecorator]
+WithActiveBWRef.decorators = [WithRefDecorator, ActiveBWDecoratorWithDefaultValues]
 
 const WithActiveBWReset = Template.bind({})
 WithActiveBWReset.args = {}
-WithActiveBWReset.decorators = [WithResetDecorator, ActiveBWDecorator]
+WithActiveBWReset.decorators = [WithResetDecorator, ActiveBWDecoratorWithDefaultValues]
 
 export { Default, WithActiveBW, WithActiveBWRef, WithActiveBWReset }

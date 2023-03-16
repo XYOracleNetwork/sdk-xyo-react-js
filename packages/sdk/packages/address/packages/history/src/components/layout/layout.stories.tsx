@@ -1,7 +1,10 @@
 import { ComponentStory, Meta } from '@storybook/react'
+import { Hasher } from '@xyo-network/core'
+import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
+import { useActiveBoundWitness } from '../../hooks'
 import { AddressHistory } from '../AddressHistory'
 import { BoundWitnessesBox } from '../BoundWitnessesBox'
 import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories'
@@ -18,6 +21,12 @@ export default {
 } as Meta
 
 const Template: ComponentStory<typeof WrappedContainer> = (props) => {
+  const { setActiveBoundWitness } = useActiveBoundWitness()
+  const [ref] = useXyoEvent<HTMLUListElement>((noun, _verb, data) => {
+    if (noun === 'boundwitness' && data) {
+      setActiveBoundWitness?.(sampleAddressHistory.find((bw) => Hasher.hash(bw) === data))
+    }
+  })
   return (
     <BrowserRouter>
       <WrappedContainer height="calc(100vh - 2rem)" spacing={3} {...props}>
@@ -33,7 +42,7 @@ const Template: ComponentStory<typeof WrappedContainer> = (props) => {
           sm={4}
           xs={12}
         >
-          <AddressHistory addressHistory={sampleAddressHistory} sx={{ pr: 2, py: 2 }} />
+          <AddressHistory ref={ref} addressHistory={sampleAddressHistory} sx={{ pr: 2, py: 2 }} />
         </ScrollableGridColumn>
         <ScrollableGridColumn
           heading={
