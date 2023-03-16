@@ -27,7 +27,7 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
   }, [payloadHashes, payloadSchemas, schemaFilter])
 
   useEffect(() => {
-    if (payloadHashes && payloadSchemas && schemaFilter && !bwPayloadHashes && !bwPayloadSchemas) {
+    if (payloadSchemas && schemaFilter) {
       const filteredSchemas = payloadSchemas.filter((schema) => {
         if (bwFilterType === 'equal') {
           return schema === schemaFilter
@@ -36,15 +36,19 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
         }
       })
       setBWPayloadSchemas(filteredSchemas)
+    }
+  }, [bwFilterType, payloadSchemas, schemaFilter])
 
-      const filteredHashes = payloadSchemas.reduce((acc, schema, index) => {
+  useEffect(() => {
+    if (payloadHashes && schemaFilter) {
+      const filteredHashes = payloadSchemas.reduce<string[]>((acc, schema, index) => {
         if (bwFilterType === 'equal' ? schema === schemaFilter : schema !== schemaFilter) {
           acc.push(payloadHashes[index])
         }
         return acc
-      }, [] as string[])
+      }, [])
       setBWPayloadHashes(filteredHashes)
     }
-  }, [bwFilterType, bwPayloadHashes, bwPayloadSchemas, payloadHashes, payloadSchemas, schemaFilter])
+  }, [bwFilterType, payloadHashes, payloadSchemas, schemaFilter])
   return <BoundWitnessPayloadTableBody payloadHashes={bwPayloadHashes} payloadSchemas={bwPayloadSchemas} eventNoun={eventNoun} {...props} />
 }

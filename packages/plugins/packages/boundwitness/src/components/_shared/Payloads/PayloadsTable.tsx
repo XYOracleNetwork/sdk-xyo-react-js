@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
+import { Hasher } from '@xyo-network/core'
 import { PayloadTableProps } from '@xyo-network/react-payload-table'
 import { TableEx } from '@xyo-network/react-table'
 
@@ -19,7 +19,7 @@ export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> 
       noResults={boundwitness?.payload_hashes.length === 0}
       payloadHashes={boundwitness?.payload_hashes}
       payloadSchemas={boundwitness?.payload_schemas}
-      boundwitnessHash={boundwitness ? new PayloadWrapper(boundwitness).hash : ''}
+      boundwitnessHash={boundwitness ? Hasher.hash(boundwitness) : ''}
     />
   </BoundWitnessPayloadsTableInner>
 )
@@ -32,7 +32,7 @@ export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableP
       noResults={boundwitness?.payload_hashes.length === 0}
       payloadHashes={boundwitness?.payload_hashes}
       payloadSchemas={boundwitness?.payload_schemas}
-      boundwitnessHash={boundwitness ? new PayloadWrapper(boundwitness).hash : ''}
+      boundwitnessHash={boundwitness ? Hasher.hash(boundwitness) : ''}
     />
   </BoundWitnessPayloadsTableInner>
 )
