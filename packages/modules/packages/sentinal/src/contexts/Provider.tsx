@@ -63,7 +63,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
         }),
       )
       offCallbacks.push(
-        sentinel.on('ReportStart', () => {
+        sentinel.on('reportStart', () => {
           if (mounted()) {
             setProgress({ archivists: {}, witnesses: {} })
             setStatus(SentinelReportStatus.Started)
@@ -76,7 +76,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
             const witnesses = progress.witnesses ?? {}
             witnesses[witness.address] = {
               status: errors?.length ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded,
-              witness: module as WitnessModule,
+              witness: module,
             }
             if (mounted()) {
               setProgress({
@@ -91,7 +91,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
             const witnesses = progress.witnesses ?? {}
             witnesses[witness.address] = {
               status: SentinelReportStatus.Started,
-              witness: module as WitnessModule,
+              witness: module,
             }
             if (mounted()) {
               setProgress({
