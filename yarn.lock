@@ -7255,18 +7255,18 @@ __metadata:
     "@xylabs/tsconfig-react": ^2.16.1
     "@xyo-network/archivist": ^2.52.1
     "@xyo-network/boundwitness-model": ^2.52.1
+    "@xyo-network/core": ^2.52.1
     "@xyo-network/diviner": ^2.52.1
     "@xyo-network/module": ^2.52.1
-    "@xyo-network/node": ^2.52.1
     "@xyo-network/node-core-types": ^2.52.1
     "@xyo-network/payload-builder": ^2.52.1
     "@xyo-network/payload-wrapper": ^2.52.1
+    "@xyo-network/protocol": ^2.52.1
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-boundwitness-plugin": "workspace:^"
     "@xyo-network/react-diviner": "workspace:^"
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
-    "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
@@ -7395,7 +7395,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
-    "@xyo-network/wallet": ^2.52.1
     require-from-string: ^2.0.2
     typescript: ^4.9.5
   peerDependencies:
@@ -8174,6 +8173,7 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/sdk-geo": ^2.8.0
     geojson: ^0.5.0
+    lodash: ^4.17.21
     mapbox-gl: ^2.13.0
     require-from-string: ^2.0.2
     typescript: ^4.9.5
@@ -8758,7 +8758,7 @@ __metadata:
     "@xylabs/react-shared": ^2.16.11
     "@xylabs/ts-scripts-yarn3": ^2.16.1
     "@xylabs/tsconfig-react": ^2.16.1
-    "@xyo-network/account": ^2.52.1
+    "@xyo-network/account-model": ^2.52.1
     "@xyo-network/archivist": ^2.52.1
     "@xyo-network/boundwitness-model": ^2.52.1
     "@xyo-network/react-node": "workspace:^"
@@ -9247,19 +9247,6 @@ __metadata:
   version: 2.52.1
   resolution: "@xyo-network/wallet-model@npm:2.52.1"
   checksum: ee5bd1fcddca3b20a0ca4c512467f411eb7b28caf4636e7912661fc70aa923871779c2a4c1f508d5041bb7bf403bd0fb34ce7cd325ff9ea59858e17c3b7e45f4
-  languageName: node
-  linkType: hard
-
-"@xyo-network/wallet@npm:^2.52.1":
-  version: 2.52.1
-  resolution: "@xyo-network/wallet@npm:2.52.1"
-  dependencies:
-    "@xylabs/assert": ^2.7.4
-    "@xylabs/delay": ^2.7.4
-    "@xyo-network/account": ^2.52.1
-    "@xyo-network/payload-model": ^2.52.1
-    sha.js: ^2.4.11
-  checksum: 82b94cb2e770574931164c79c328b6c1514cd3ea2ae2a738da55e4b0e12bafd69283896c6b42b711971bd7d0304571be61d981d8af06b9809fed4327d54db758
   languageName: node
   linkType: hard
 
