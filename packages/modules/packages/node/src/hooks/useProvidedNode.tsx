@@ -19,11 +19,13 @@ export const useProvidedWrappedNode = (account?: AccountInstance): [NodeWrapper 
 
   const accountToUse = useMemo(() => account ?? providedAccount, [account, providedAccount])
 
-  if (!accountToUse) {
-    const error = Error('useProvidedWrappedNode requires either an Account context or account parameter')
-    console.error(error.message)
-    setError(error)
-  }
+  useEffect(() => {
+    if (!accountToUse) {
+      const error = Error('useProvidedWrappedNode requires either an Account context or account parameter')
+      console.error(error.message)
+      setError(error)
+    }
+  }, [accountToUse])
 
   useEffect(() => {
     try {
