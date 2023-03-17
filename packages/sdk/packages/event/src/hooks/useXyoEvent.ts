@@ -2,7 +2,7 @@ import { RefObject } from 'react'
 
 import { useCustomEvent } from './useCustomEvent'
 
-export type XyoEventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature'
+export type XyoEventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature' | 'schema'
 export type XyoEventVerb = 'click'
 
 export interface XyoEvent<TNoun = XyoEventNoun, TVerb = XyoEventVerb, TData = string> {
