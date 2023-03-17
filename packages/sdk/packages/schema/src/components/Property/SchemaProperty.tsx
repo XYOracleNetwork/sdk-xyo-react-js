@@ -67,7 +67,9 @@ export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(({
       ) : null}
       {value ? (
         <>
-          <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} sx={{ cursor: 'pointer' }} />
+          <LinkEx display="block" width="100%" sx={{ cursor: 'pointer' }}>
+            <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
+          </LinkEx>
           <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch, true)}>
             <OpenInNewIcon fontSize="inherit" />
           </IconButton>
