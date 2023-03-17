@@ -4,12 +4,12 @@ import { Alert, AlertTitle, Collapse } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
 export interface BWPreviousHashQuickTipButtonProps extends QuickTipButtonProps {
-  boundwitness?: XyoBoundWitness
+  boundwitness?: BoundWitness
 }
 
 export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButtonProps> = ({ boundwitness, ...props }) => {

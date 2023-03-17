@@ -1,14 +1,14 @@
 import { CardContent, CardContentProps, Grid } from '@mui/material'
 import { XyoEthereumGasEtherchainV1Payload } from '@xyo-network/etherchain-ethereum-gas-v1-payload-plugin'
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
-import { XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
+import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
 
 import { useEtherchainV1Transformer } from '../hooks'
 
-export const EtherchainV1GasPriceCardContent = forwardRef<HTMLDivElement, XyoPayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
+export const EtherchainV1GasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as XyoEthereumGasEtherchainV1Payload) : undefined
   const parsedPayload = useEtherchainV1Transformer(gasPricePayload)
 

@@ -1,6 +1,6 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { XyoPayload, XyoPayloads } from '@xyo-network/payload-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import { forwardRef } from 'react'
 
@@ -8,13 +8,13 @@ import { BoundWitnessPayloads, BoundWitnessSignatureDetails } from '../_shared'
 import { BoundWitnessValidationDetails } from './ValidationDetails'
 
 export interface BoundWitnessDetailsProps extends FlexBoxProps {
-  payload?: XyoPayload
+  payload?: Payload
   /** @field Fetched Payloads for the Bound Witness */
-  payloads?: XyoPayloads
+  payloads?: Payload[]
 }
 
 const BoundWitnessDetails = forwardRef<unknown, BoundWitnessDetailsProps>(({ paper, payload, children, ...props }, ref) => {
-  const boundwitness = payload as XyoBoundWitness | undefined
+  const boundwitness = payload as BoundWitness | undefined
   return (
     <FlexCol justifyContent="flex-start" alignItems="stretch" gap={1} ref={ref} {...props}>
       <PayloadDataDetails paper={paper} payload={boundwitness} size="large" badge />

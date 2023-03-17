@@ -1,11 +1,11 @@
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadTableProps } from '@xyo-network/react-payload-table'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 import { BoundWitnessPayloadsTable } from './PayloadsTable'
 
 export type BoundWitnessPayloadsProps = PropertyGroupProps & {
-  payload?: XyoBoundWitness
+  payload?: BoundWitness
   payloadTableProps?: PayloadTableProps
 }
 

@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { DivinerWrapper, XyoHuriPayload, XyoHuriSchema } from '@xyo-network/diviner'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
 import { Dispatch, useEffect, useState } from 'react'
@@ -11,7 +11,7 @@ export const usePayloadDiviner = (required = false) => {
   return useContextEx(PayloadDivinerContext, 'PayloadDiviner', required)
 }
 
-export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
+export const useDivinePayload = <T extends Payload = Payload>(
   huri?: string,
 ): [T | undefined | null, Dispatch<T | null | undefined>, Error | undefined] => {
   const { diviner } = usePayloadDiviner()
@@ -48,7 +48,7 @@ export const useDivinePayload = <T extends XyoPayload = XyoPayload>(
   return [payload, setPayload, error]
 }
 
-export const useDivinePayloads = <T extends XyoPayload = XyoPayload>(
+export const useDivinePayloads = <T extends Payload = Payload>(
   huriList: string[],
 ): [(T | null)[] | undefined, Dispatch<(T | null)[] | undefined>, Error[] | undefined] => {
   const { diviner } = usePayloadDiviner()

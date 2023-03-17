@@ -1,5 +1,5 @@
 import { Avatar, AvatarGroup, AvatarGroupProps } from '@mui/material'
-import { XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
+import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import { useCallback } from 'react'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
@@ -19,7 +19,7 @@ export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({ schemas, m
         <SchemaAvatar key={index + schema} />
       ) : (
         <Avatar key={index + schema} title={schema} sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
-          {schema === XyoBoundWitnessSchema ? <VscSymbolMethod /> : <VscSymbolNamespace />}
+          {schema === BoundWitnessSchema ? <VscSymbolMethod /> : <VscSymbolNamespace />}
         </Avatar>
       )
     },

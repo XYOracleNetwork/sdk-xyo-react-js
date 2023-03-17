@@ -1,2 +1,2 @@
 export * from './contexts'
-export * from './XyoPayloadRenderPluginResolver'
+export * from './PayloadRenderPluginResolver'

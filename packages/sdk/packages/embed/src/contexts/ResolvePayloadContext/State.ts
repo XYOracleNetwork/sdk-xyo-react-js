@@ -1,14 +1,14 @@
 import { XyoError } from '@xyo-network/module'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { ContextExState } from '@xyo-network/react-shared'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface ResolvePayloadState extends ContextExState {
   huri?: string
   huriError?: XyoError
-  huriPayload?: string | XyoPayload
+  huriPayload?: string | Payload
   notFound?: boolean
-  payload?: XyoPayload
+  payload?: Payload
   refreshHuri?: () => void
-  setPayload?: Dispatch<SetStateAction<XyoPayload | undefined>>
+  setPayload?: Dispatch<SetStateAction<Payload | undefined>>
 }

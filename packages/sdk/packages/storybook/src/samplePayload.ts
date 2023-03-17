@@ -1,10 +1,8 @@
-import { XyoPayloadBuilder } from '@xyo-network/payload-builder'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { PayloadBuilder } from '@xyo-network/payload-builder'
+import { Payload } from '@xyo-network/payload-model'
 
 export const samplePayloadFromBuilder = {
-  ...new XyoPayloadBuilder<XyoPayload<{ schema: 'network.xyo.temp'; test: string }>>({ schema: 'network.xyo.temp' })
-    .fields({ test: 'hello' })
-    .build(),
+  ...new PayloadBuilder<Payload<{ schema: 'network.xyo.temp'; test: string }>>({ schema: 'network.xyo.temp' }).fields({ test: 'hello' }).build(),
   _archive: 'temp',
 }
 

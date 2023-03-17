@@ -2,7 +2,7 @@ import { delay } from '@xylabs/delay'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { Huri } from '@xyo-network/huri'
 import { XyoError, XyoErrorSchema } from '@xyo-network/module'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
 import { useRefreshPayload } from '../RefreshPayloadContext'
@@ -12,7 +12,7 @@ import { ResolvePayloadState } from './State'
 export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided'>
 
 export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload }) => {
-  const [payload, setPayload] = useState<XyoPayload>()
+  const [payload, setPayload] = useState<Payload>()
   const [huri, setHuri] = useState<string>()
   const { refreshPayload, setRefreshPayload, onRefresh } = useRefreshPayload()
 

@@ -2,8 +2,8 @@
 /* eslint-disable deprecation/deprecation */
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import { forwardRef } from 'react'
 
@@ -13,9 +13,9 @@ import { BlockValidationDetails } from './ValidationDetails'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockDetailsProps extends WithChildren, FlexBoxProps {
-  block?: XyoBoundWitness
+  block?: BoundWitness
   paper?: boolean
-  payloads?: XyoPayload[]
+  payloads?: Payload[]
 }
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 const BlockDetails = forwardRef<unknown, BlockDetailsProps>(({ paper, block, payloads, children, ...props }, ref) => {

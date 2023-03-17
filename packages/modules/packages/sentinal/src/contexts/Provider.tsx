@@ -1,6 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { AccountInstance } from '@xyo-network/account-model'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useNode } from '@xyo-network/react-node'
 import { MemorySentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { WitnessModule } from '@xyo-network/witness'
@@ -30,7 +30,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
 }) => {
   const [node] = useNode()
   const [sentinel, setSentinel] = useState<MemorySentinel>()
-  const [history, setHistory] = useState<XyoBoundWitness[]>()
+  const [history, setHistory] = useState<BoundWitness[]>()
   const [progress, setProgress] = useState<SentinelReportProgress>({})
   const [status, setStatus] = useState(SentinelReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
@@ -115,7 +115,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   )
 
   useEffect(() => {
-    setHistory(sentinel?.history as XyoBoundWitness[])
+    setHistory(sentinel?.history as BoundWitness[])
   }, [sentinel])
 
   return !required || sentinel ? (

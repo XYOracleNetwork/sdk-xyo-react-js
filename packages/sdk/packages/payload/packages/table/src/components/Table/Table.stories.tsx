@@ -1,6 +1,6 @@
 import { Chip } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
@@ -35,7 +35,7 @@ const Default = Template.bind({})
 Default.args = {}
 Default.decorators = [useAppThemeDecorator]
 
-const payloads: XyoPayload[] = [
+const payloads: Payload[] = [
   sampleIdPayload,
   sampleSystemInfoBrowserPayload,
   sampleIdPayload,

@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { GasFeeCard } from '@xyo-network/react-gas-price'
-import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
@@ -9,7 +9,7 @@ import { forwardRef } from 'react'
 import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../../lib'
 import { GasPriceHeaderBox } from './components'
 
-export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(
+export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ payload, listMode, ...props }, ref) => {
     const gasPricePayload: FeeDataPayload | undefined = payload ? (payload as FeeDataPayload) : undefined

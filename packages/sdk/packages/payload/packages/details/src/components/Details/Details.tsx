@@ -1,5 +1,5 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { forwardRef } from 'react'
 
 import { PayloadDataDetails } from './DataDetails'
@@ -11,7 +11,7 @@ export type WithoutPaper<T> = T & { paper?: false }
 
 export type PayloadDetailsProps = FlexBoxProps & {
   paper?: boolean
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 export const PayloadDetails = forwardRef<HTMLDivElement, PayloadDetailsProps>(({ paper, payload, ...props }, ref) => {

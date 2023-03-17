@@ -1,7 +1,7 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { GeographicCoordinateSystemLocationPayload } from '@xyo-network/location-payload-plugin'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import {
   LocationPointsMapLayerBuilder,
   MapBoxInstanceProvider,
@@ -16,7 +16,7 @@ import { PointMapSettings } from './PointMapSettings'
 
 export interface PointMapInnerProps extends FlexBoxProps {
   accessToken?: string
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 const PointMapInner: React.FC<PointMapInnerProps> = ({ accessToken, payload, ...props }) => {

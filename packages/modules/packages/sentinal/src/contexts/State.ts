@@ -1,5 +1,5 @@
 import { ArchivistModule } from '@xyo-network/archivist'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { SentinelModule } from '@xyo-network/sentinel'
 import { WitnessModule } from '@xyo-network/witness'
 
@@ -27,7 +27,7 @@ export interface SentinelReportProgress {
 }
 
 export interface SentinelContextState {
-  history?: XyoBoundWitness[]
+  history?: BoundWitness[]
   progress?: SentinelReportProgress
   reportingErrors?: Error[]
   sentinel?: SentinelModule

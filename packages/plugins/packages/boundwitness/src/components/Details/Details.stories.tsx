@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
@@ -48,7 +48,7 @@ WithNoData.args = {
     payload_schemas: [],
     previous_hashes: [],
     schema: 'network.xyo.boundwitness',
-  } as XyoPayload,
+  } as Payload,
 }
 
 const WithData = Template.bind({})

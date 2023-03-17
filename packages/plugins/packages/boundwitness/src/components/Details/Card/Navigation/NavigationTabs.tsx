@@ -1,18 +1,18 @@
 import { Paper, Tab, TabProps, Tabs, TabsProps, useTheme } from '@mui/material'
-import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
+import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { Dispatch, SetStateAction, SyntheticEvent } from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 export interface BWNavigationTabs extends TabsProps {
-  boundWitness?: XyoBoundWitness
+  boundWitness?: BoundWitness
   setValue?: Dispatch<SetStateAction<number>>
   value?: number
 }
 
 export const BWNavigationTabs: React.FC<BWNavigationTabs> = ({ setValue, value, boundWitness, ...props }) => {
-  const payloadCount = boundWitness?.payload_schemas.filter((schema) => schema !== XyoBoundWitnessSchema).length ?? 0
-  const boundWitnessCount = boundWitness?.payload_schemas.filter((schema) => schema === XyoBoundWitnessSchema).length ?? 0
+  const payloadCount = boundWitness?.payload_schemas.filter((schema) => schema !== BoundWitnessSchema).length ?? 0
+  const boundWitnessCount = boundWitness?.payload_schemas.filter((schema) => schema === BoundWitnessSchema).length ?? 0
   const signers = boundWitness?.addresses.length ?? 0
   const theme = useTheme()
 

@@ -1,15 +1,12 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { Archivist } from '@xyo-network/archivist'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useState } from 'react'
 
 import { useArchivist } from './useArchivist'
 import { RefreshCallback } from './useArchivistStates'
 
-export const useArchivistGet = <T extends XyoPayload = XyoPayload>(
-  hashes?: string[],
-  archivist?: Archivist | string,
-): [T[]?, Error?, RefreshCallback?] => {
+export const useArchivistGet = <T extends Payload = Payload>(hashes?: string[], archivist?: Archivist | string): [T[]?, Error?, RefreshCallback?] => {
   const requestedArchivistNameOrAddress = typeof archivist === 'string' ? archivist : undefined
   const passedArchivist = typeof archivist === 'object' ? archivist : undefined
   const [payloads, setPayloads] = useState<T[]>()

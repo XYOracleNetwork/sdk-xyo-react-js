@@ -1,8 +1,8 @@
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PropertyGroupProps } from '@xyo-network/react-property'
 
 export type PayloadValidationDetailsProps = PropertyGroupProps & {
   skipBody?: boolean
-  value?: XyoPayload
+  value?: Payload
   viewSchemaUrl?: string
 }

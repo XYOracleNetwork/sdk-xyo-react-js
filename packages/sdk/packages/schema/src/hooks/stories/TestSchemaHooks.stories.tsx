@@ -4,7 +4,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
-import { XyoPayload } from '@xyo-network/payload'
+import { Payload } from '@xyo-network/payload'
 import { NodeProvider, useNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
@@ -51,7 +51,7 @@ const Template: ComponentStory<React.FC> = () => {
   XyoSchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
   const [account] = useAccount()
   const [node] = useNode(undefined, account)
-  const [discovered, setDiscovered] = useState<XyoPayload[]>([])
+  const [discovered, setDiscovered] = useState<Payload[]>([])
   const [schemaStats] = useSchemaStats(undefined, undefined, account)
   const schemaList = schemaStats?.filter(({ name }) => !!name) as { name: string }[]
   const schemaDefinitions = useSchemaDefinitions(schemaList)
