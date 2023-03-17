@@ -1,17 +1,16 @@
-import { Typography } from '@mui/material'
+import { Alert, Button, TextField, Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
-import { Payload } from '@xyo-network/payload'
-import { NodeProvider, useNode } from '@xyo-network/react-node'
+import { NodeProvider } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
+import { WalletProvider } from '@xyo-network/react-wallet'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
-import { useSchemaDefinitions } from '../useSchemaDefinitions'
 import { useSchemaStats } from '../useSchemaStats'
 
 const apiConfig = { apiDomain: 'https://beta.api.archivist.xyo.network' }
@@ -49,35 +48,29 @@ export default {
 
 const Template: ComponentStory<React.FC> = () => {
   XyoSchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
-  const [account] = useAccount()
-  const [node] = useNode(undefined, account)
-  const [discovered, setDiscovered] = useState<Payload[]>([])
-  const [schemaStats] = useSchemaStats(undefined, undefined, account)
-  const schemaList = schemaStats?.filter(({ name }) => !!name) as { name: string }[]
-  const schemaDefinitions = useSchemaDefinitions(schemaList)
-
-  useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    async (mounted) => {
-      const discovered = await node?.discover()
-      if (mounted()) {
-        setDiscovered(discovered ?? [])
-      }
-    },
-    [node],
-  )
+  const [addressText, setAddressText] = useState<string>('')
+  const [address, setAddress] = useState<string>()
+  const [schemaStats, schemaStatsError] = useSchemaStats(address)
+  // const schemaList = schemaStats?.filter(({ name }) => !!name) as { name: string }[]
+  // const schemaDefinitions = useSchemaDefinitions(schemaList)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
+      {schemaStatsError ? <Alert severity={'error'}>{schemaStatsError.message}</Alert> : null}
+      <FlexGrowRow columnGap={4}>
+        <TextField fullWidth size="small" value={address} label="Address" onChange={(event) => setAddressText(event.target.value)} />
+        <Button variant="contained" onClick={() => setAddress(addressText)} sx={{ whiteSpace: 'nowrap' }}>
+          Get Stats
+        </Button>
+      </FlexGrowRow>
       <Typography variant={'h2'}>Schema Stats</Typography>
       <code>
-        {`${JSON.stringify(discovered, null, 2)}`}
-        {JSON.stringify(schemaStats, null, 2)}
+        <pre>{JSON.stringify(schemaStats, null, 2)}</pre>
       </code>
-      <Typography variant={'h2'}>Schema List</Typography>
+      {/* <Typography variant={'h2'}>Schema List</Typography>
       <code>{JSON.stringify(schemaList, null, 2)}</code>
       <Typography variant={'h2'}>Schema Definitions</Typography>
-      <code>{JSON.stringify(schemaDefinitions, null, 2)}</code>
+      <code>{JSON.stringify(schemaDefinitions, null, 2)}</code> */}
     </div>
   )
 }

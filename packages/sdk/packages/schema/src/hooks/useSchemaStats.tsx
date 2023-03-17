@@ -21,8 +21,8 @@ export const useSchemaStats = (
 
   const query: SchemaStatsQueryPayload = useMemo(
     () => ({
+      address: statsAddress,
       schema: SchemaStatsQuerySchema,
-      statsAddress,
     }),
     [statsAddress],
   )
