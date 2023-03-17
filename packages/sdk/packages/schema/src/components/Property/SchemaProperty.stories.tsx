@@ -5,8 +5,6 @@ import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { SchemaProperty } from './SchemaProperty'
 
 const StorybookEntry: Meta = {
-  argTypes: {},
-  args: {},
   component: SchemaProperty,
   decorators: [useAppThemeDecorator],
   parameters: {

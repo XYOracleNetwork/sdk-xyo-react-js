@@ -10,6 +10,9 @@ import { XyoSchemaCache, XyoSchemaCacheEntry } from '@xyo-network/utils'
 import { forwardRef, useState } from 'react'
 
 export type SchemaPropertyProps = PropertyProps & {
+  showLinkNames?: boolean
+  showOpenNewWindowLink?: boolean
+  showStatusIcon?: boolean
   value?: string
   /** @deprecated - use events instead */
   viewSchemaUrl?: string
@@ -32,51 +35,59 @@ const useResolveSchema = (schema?: string) => {
   return entry
 }
 
-export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(({ titleProps, value, ...props }, forwardedRef) => {
-  const resolvedSchema = useResolveSchema(value)
-  const [buttonRef, buttonDispatch] = useXyoEvent<HTMLButtonElement>(undefined)
-  const [divRef, divDispatch] = useXyoEvent<HTMLDivElement>(undefined)
+export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
+  ({ showLinkNames = true, showOpenNewWindowLink = true, showStatusIcon = true, titleProps, value, ...props }, forwardedRef) => {
+    const resolvedSchema = useResolveSchema(value)
+    const [buttonRef, buttonDispatch] = useXyoEvent<HTMLButtonElement>(undefined)
+    const [divRef, divDispatch] = useXyoEvent<HTMLDivElement>(undefined)
 
-  const onClick = (dispatch?: XyoEventDispatch<XyoEventNoun, 'click', string>, openNewWindow = false) => {
-    dispatch?.(
-      'schema',
-      'click',
-      JSON.stringify({
-        openNewWindow,
-        schema: value,
-      }),
+    const onClick = (dispatch?: XyoEventDispatch<XyoEventNoun, 'click', string>, openNewWindow = false) => {
+      dispatch?.(
+        'schema',
+        'click',
+        JSON.stringify({
+          openNewWindow,
+          schema: value,
+        }),
+      )
+    }
+
+    return (
+      <Property ref={forwardedRef} title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
+        {value && showStatusIcon ? (
+          resolvedSchema === null ? (
+            <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
+              <NewReleasesIcon color="warning" fontSize="inherit" />
+            </IconButton>
+          ) : resolvedSchema === undefined ? (
+            <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
+              <NewReleasesIcon color="disabled" fontSize="inherit" />
+            </IconButton>
+          ) : (
+            <IconButton rel="noopener noreferrer" size="small" target="_blank" href={resolvedSchema?.huri?.href ?? ''}>
+              <VerifiedIcon color="success" fontSize="inherit" />
+            </IconButton>
+          )
+        ) : null}
+        {value ? (
+          <>
+            {showLinkNames ? (
+              <LinkEx display="block" width="100%" sx={{ cursor: 'pointer' }}>
+                <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
+              </LinkEx>
+            ) : (
+              <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
+            )}
+            {showOpenNewWindowLink ? (
+              <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch, true)}>
+                <OpenInNewIcon fontSize="inherit" />
+              </IconButton>
+            ) : null}
+          </>
+        ) : null}
+      </Property>
     )
-  }
-
-  return (
-    <Property ref={forwardedRef} title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
-      {value ? (
-        resolvedSchema === null ? (
-          <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
-            <NewReleasesIcon color="warning" fontSize="inherit" />
-          </IconButton>
-        ) : resolvedSchema === undefined ? (
-          <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
-            <NewReleasesIcon color="disabled" fontSize="inherit" />
-          </IconButton>
-        ) : (
-          <IconButton rel="noopener noreferrer" size="small" target="_blank" href={resolvedSchema?.huri?.href ?? ''}>
-            <VerifiedIcon color="success" fontSize="inherit" />
-          </IconButton>
-        )
-      ) : null}
-      {value ? (
-        <>
-          <LinkEx display="block" width="100%" sx={{ cursor: 'pointer' }}>
-            <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
-          </LinkEx>
-          <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch, true)}>
-            <OpenInNewIcon fontSize="inherit" />
-          </IconButton>
-        </>
-      ) : null}
-    </Property>
-  )
-})
+  },
+)
 
 SchemaProperty.displayName = 'SchemaProperty'

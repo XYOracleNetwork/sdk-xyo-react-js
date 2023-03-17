@@ -1,12 +1,17 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
+import { AccountInstance } from '@xyo-network/account-model'
 import { SchemaListPayload, SchemaListQueryPayload, SchemaListQuerySchema } from '@xyo-network/node-core-model'
-import { useDiviner } from '@xyo-network/react-modules'
+import { useDiviner } from '@xyo-network/react-diviner'
 import { useMemo, useState } from 'react'
 
-export const useSchemaList = (address?: string, nameOrAddress = 'SchemaListDiviner'): [SchemaListPayload | undefined, Error | undefined] => {
+export const useSchemaList = (
+  address?: string,
+  nameOrAddress = 'SchemaListDiviner',
+  account?: AccountInstance,
+): [SchemaListPayload | undefined, Error | undefined] => {
   const [schemaList, setSchemaList] = useState<SchemaListPayload>()
   const [error, setError] = useState<Error>()
-  const [diviner, divinerError] = useDiviner(nameOrAddress)
+  const [diviner, divinerError] = useDiviner(nameOrAddress, account)
 
   const query: SchemaListQueryPayload[] | undefined = useMemo(
     () =>
