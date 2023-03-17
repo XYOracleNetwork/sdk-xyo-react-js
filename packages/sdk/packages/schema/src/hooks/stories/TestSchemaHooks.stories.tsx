@@ -11,9 +11,11 @@ import { WalletProvider } from '@xyo-network/react-wallet'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
+import { useSchemaDefinitions } from '../useSchemaDefinitions'
+import { useSchemaList } from '../useSchemaList'
 import { useSchemaStats } from '../useSchemaStats'
 
-const apiConfig = { apiDomain: 'https://beta.api.archivist.xyo.network' }
+const apiConfig = { apiDomain: 'https://api.archivist.xyo.network' }
 const nodeUri = 'http://localhost:8080/node'
 const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
@@ -51,12 +53,13 @@ const Template: ComponentStory<React.FC> = () => {
   const [addressText, setAddressText] = useState<string>('')
   const [address, setAddress] = useState<string>()
   const [schemaStats, schemaStatsError] = useSchemaStats(address)
-  // const schemaList = schemaStats?.filter(({ name }) => !!name) as { name: string }[]
-  // const schemaDefinitions = useSchemaDefinitions(schemaList)
+  const [schemaList, schemaListError] = useSchemaList(address)
+  const mappedSchemaList = schemaList?.schemas?.map((name) => ({ name })) as { name: string }[]
+  const schemaDefinitions = useSchemaDefinitions(mappedSchemaList)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
-      {schemaStatsError ? <Alert severity={'error'}>{schemaStatsError.message}</Alert> : null}
+      {schemaStatsError ? <Alert severity={'error'}>{schemaStatsError.message ?? schemaListError?.message}</Alert> : null}
       <FlexGrowRow columnGap={4}>
         <TextField fullWidth size="small" value={address} label="Address" onChange={(event) => setAddressText(event.target.value)} />
         <Button variant="contained" onClick={() => setAddress(addressText)} sx={{ whiteSpace: 'nowrap' }}>
@@ -67,10 +70,14 @@ const Template: ComponentStory<React.FC> = () => {
       <code>
         <pre>{JSON.stringify(schemaStats, null, 2)}</pre>
       </code>
-      {/* <Typography variant={'h2'}>Schema List</Typography>
-      <code>{JSON.stringify(schemaList, null, 2)}</code>
+      <Typography variant={'h2'}>Schema List</Typography>
+      <code>
+        <pre>{JSON.stringify(schemaList, null, 2)}</pre>
+      </code>
       <Typography variant={'h2'}>Schema Definitions</Typography>
-      <code>{JSON.stringify(schemaDefinitions, null, 2)}</code> */}
+      <pre>
+        <code>{JSON.stringify(schemaDefinitions, null, 2)}</code>
+      </pre>
     </div>
   )
 }
