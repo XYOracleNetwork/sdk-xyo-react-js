@@ -1,4 +1,4 @@
-import { XyoPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { ContextExState, ListMode } from '@xyo-network/react-shared'
 import { Dispatch, SetStateAction } from 'react'
 
@@ -25,12 +25,12 @@ export interface XyoEmbedPluginBase {
   hideElementsConfig?: EmbedPluginVisibilityConfig
   /** @deprecated use huriPayload */
   huri?: string
-  plugins?: XyoPayloadRenderPlugin[]
+  plugins?: PayloadRenderPlugin[]
   refreshTitle?: string
   timestampLabel?: string
 }
 
 export interface XyoEmbedPluginState extends XyoEmbedPluginBase, ContextExState {
-  activePlugin?: XyoPayloadRenderPlugin
-  setActivePlugin?: Dispatch<SetStateAction<XyoPayloadRenderPlugin | undefined>>
+  activePlugin?: PayloadRenderPlugin
+  setActivePlugin?: Dispatch<SetStateAction<PayloadRenderPlugin | undefined>>
 }

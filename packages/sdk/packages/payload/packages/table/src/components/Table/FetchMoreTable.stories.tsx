@@ -1,7 +1,7 @@
 import { Button, Typography } from '@mui/material'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { delay } from '@xylabs/delay'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
@@ -18,10 +18,10 @@ const maxPayloads = 200
 
 const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
   const testPayloads = newPayloads()
-  const [payloads, setPayloads] = useState<XyoPayload[]>([])
+  const [payloads, setPayloads] = useState<Payload[]>([])
   const [count, setCount] = useState(0)
 
-  const addToTotalPayloads = (payloads: XyoPayload[]) =>
+  const addToTotalPayloads = (payloads: Payload[]) =>
     setPayloads((previous) => {
       previous.push(...payloads)
       setCount(previous.length)

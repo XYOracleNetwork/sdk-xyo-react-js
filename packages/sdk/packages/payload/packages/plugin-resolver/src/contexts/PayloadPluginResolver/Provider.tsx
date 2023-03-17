@@ -1,11 +1,11 @@
-import { XyoPayloadPluginResolver } from '@xyo-network/payload-plugin'
+import { PayloadPluginResolver } from '@xyo-network/payload-plugin'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
 import { PayloadPluginResolverContext } from './Context'
 
 export type PayloadPluginResolverProviderProps = ContextExProviderProps<{
-  resolver: XyoPayloadPluginResolver
+  resolver: PayloadPluginResolver
 }>
 
 export const PayloadPluginResolverProvider: React.FC<PayloadPluginResolverProviderProps> = ({
@@ -13,7 +13,7 @@ export const PayloadPluginResolverProvider: React.FC<PayloadPluginResolverProvid
   required = false,
   children,
 }) => {
-  const [resolver, setResolver] = useState<XyoPayloadPluginResolver>(resolverProp)
+  const [resolver, setResolver] = useState<PayloadPluginResolver>(resolverProp)
 
   return (
     <PayloadPluginResolverContext.Provider

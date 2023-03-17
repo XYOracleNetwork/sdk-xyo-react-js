@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
@@ -38,7 +38,7 @@ WithNoData.args = {
     payload_schemas: [],
     previous_hashes: [],
     schema: 'network.xyo.boundwitness',
-  } as XyoPayload,
+  } as Payload,
 }
 
 const WithData = Template.bind({})
@@ -59,7 +59,7 @@ WithNestedBWPayloads.args = {
     query: 'c8ab93c970f4ef0d68ee22efd0119f228c089ae77551eda6e707b24bcec589ec',
     schema: 'network.xyo.boundwitness.query',
     timestamp: 1676043487737,
-  } as XyoPayload,
+  } as Payload,
 }
 
 export { Default, WithData, WithNestedBWPayloads, WithNoData }

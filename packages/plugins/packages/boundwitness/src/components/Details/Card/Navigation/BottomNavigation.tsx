@@ -1,19 +1,19 @@
 import { BottomNavigation, BottomNavigationAction, BottomNavigationProps, styled } from '@mui/material'
-import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
+import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { Dispatch, forwardRef, SetStateAction } from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps {
   activeTab?: number
-  boundWitness?: XyoBoundWitness
+  boundWitness?: BoundWitness
   setActiveTab?: Dispatch<SetStateAction<number>>
 }
 
 const BoundWitnessBottomNavigation = forwardRef<HTMLDivElement, BoundWitnessBottomNavigationProps>(
   ({ activeTab = 0, setActiveTab, boundWitness, ...props }, ref) => {
-    const payloadCount = boundWitness?.payload_schemas.filter((schema) => schema !== XyoBoundWitnessSchema).length ?? 0
-    const boundWitnessCount = boundWitness?.payload_schemas.filter((schema) => schema === XyoBoundWitnessSchema).length ?? 0
+    const payloadCount = boundWitness?.payload_schemas.filter((schema) => schema !== BoundWitnessSchema).length ?? 0
+    const boundWitnessCount = boundWitness?.payload_schemas.filter((schema) => schema === BoundWitnessSchema).length ?? 0
     const signers = boundWitness?.addresses.length ?? 0
 
     return (

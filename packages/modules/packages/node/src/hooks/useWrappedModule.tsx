@@ -35,7 +35,7 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = 
     useEffect(() => {
       if (!accountToUse) {
         const error = Error('Module hooks require either an Account context or account parameter')
-        console.error(error.message)
+        //console.error(error.message)
         setError(error)
       }
     }, [accountToUse])
@@ -45,6 +45,7 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = 
         try {
           const wrapper = wrapperObject.wrap(module, accountToUse) as TModuleWrapper
           setWrapper(wrapper)
+          setError(undefined)
         } catch (ex) {
           setWrapper(undefined)
           setError(ex as Error)

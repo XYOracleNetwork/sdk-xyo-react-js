@@ -1,14 +1,14 @@
 import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { CryptoAssetRenderer } from '@xyo-network/react-aggregate-price-plugin'
-import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 
 import { useCoinGeckoToAssetPriceDiviner } from '../hooks'
 
-export interface CoinGeckoPricesRendererProps extends XyoPayloadDetailsRenderProps {
-  payload?: XyoPayload
+export interface CoinGeckoPricesRendererProps extends PayloadDetailsRenderProps {
+  payload?: Payload
 }
 
 export const CoinGeckoPricesRenderer: React.FC<CoinGeckoPricesRendererProps> = ({ payload, ...props }) => {

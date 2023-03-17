@@ -1,12 +1,12 @@
 /* eslint-disable deprecation/deprecation */
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload-table'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export type BlockPayloadsProps = PropertyGroupProps & {
   payloadTableProps?: PayloadTableProps
-  payloads?: XyoPayload[]
+  payloads?: Payload[]
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */

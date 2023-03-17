@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 export type BoundWitnessLinksDetails = PropertyGroupProps & {
-  value?: XyoBoundWitness
+  value?: BoundWitness
 }
 
 export const BoundWitnessLinksDetails: React.FC<BoundWitnessLinksDetails> = ({ value, ...props }) => {

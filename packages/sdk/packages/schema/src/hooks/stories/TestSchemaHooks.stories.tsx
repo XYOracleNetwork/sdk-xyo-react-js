@@ -1,12 +1,13 @@
 import { Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { Account, HDWallet } from '@xyo-network/account'
+import { HDWallet } from '@xyo-network/account'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
-import { NodeProvider } from '@xyo-network/react-node'
+import { Payload } from '@xyo-network/payload'
+import { NodeProvider, useNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { WalletProvider } from '@xyo-network/react-wallet'
+import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
 import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
@@ -25,7 +26,7 @@ const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
     async () => {
       const node = await MemoryNode.create({ config: { schema: NodeConfigSchema } })
       const bridge = await HttpBridge.create({ config: { nodeUri, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } } })
-      await node.register(bridge).attach(bridge.address)
+      await node.register(bridge).attach(bridge.address, true)
       setNode(node)
     },
     [],
@@ -48,16 +49,31 @@ export default {
 
 const Template: ComponentStory<React.FC> = () => {
   XyoSchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
-  const phrase = 'temp'
-  const address = new Account({ phrase }).addressValue.hex
-  const [schemaStats] = useSchemaStats(address)
+  const [account] = useAccount()
+  const [node] = useNode(undefined, account)
+  const [discovered, setDiscovered] = useState<Payload[]>([])
+  const [schemaStats] = useSchemaStats(undefined, undefined, account)
   const schemaList = schemaStats?.filter(({ name }) => !!name) as { name: string }[]
   const schemaDefinitions = useSchemaDefinitions(schemaList)
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async (mounted) => {
+      const discovered = await node?.discover()
+      if (mounted()) {
+        setDiscovered(discovered ?? [])
+      }
+    },
+    [node],
+  )
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
       <Typography variant={'h2'}>Schema Stats</Typography>
-      <code>{JSON.stringify(schemaStats, null, 2)}</code>
+      <code>
+        {`${JSON.stringify(discovered, null, 2)}`}
+        {JSON.stringify(schemaStats, null, 2)}
+      </code>
       <Typography variant={'h2'}>Schema List</Typography>
       <code>{JSON.stringify(schemaList, null, 2)}</code>
       <Typography variant={'h2'}>Schema Definitions</Typography>

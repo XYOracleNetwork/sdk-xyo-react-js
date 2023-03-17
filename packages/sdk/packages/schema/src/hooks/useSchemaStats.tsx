@@ -1,15 +1,19 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
+import { AccountInstance } from '@xyo-network/account-model'
 import { SchemaStatsPayload, SchemaStatsQueryPayload, SchemaStatsQuerySchema } from '@xyo-network/node-core-model'
 import { TYPES } from '@xyo-network/node-core-types'
 import { useDiviner } from '@xyo-network/react-diviner'
+import { useAccount } from '@xyo-network/react-wallet'
 import { Dispatch, SetStateAction, useMemo, useState } from 'react'
 
 export const useSchemaStats = (
   statsAddress?: string,
   nameOrAddress = TYPES.SchemaStatsDiviner.description,
+  account?: AccountInstance,
 ): [SchemaStatsPayload[] | undefined, Error | undefined, Dispatch<SetStateAction<number>>] => {
   const [refresh, setRefresh] = useState(1)
-  const [diviner, divinerError] = useDiviner(nameOrAddress)
+  const [accountFromContext] = useAccount()
+  const [diviner, divinerError] = useDiviner(nameOrAddress, account ?? accountFromContext)
   const [error, setError] = useState<Error>()
   const refreshHistory = () => setRefresh((previous) => previous + 1)
 

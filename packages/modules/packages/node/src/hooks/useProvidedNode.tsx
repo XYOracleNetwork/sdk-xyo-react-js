@@ -22,7 +22,6 @@ export const useProvidedWrappedNode = (account?: AccountInstance): [NodeWrapper 
   useEffect(() => {
     if (!accountToUse) {
       const error = Error('useProvidedWrappedNode requires either an Account context or account parameter')
-      console.error(error.message)
       setError(error)
     }
   }, [accountToUse])
@@ -30,14 +29,14 @@ export const useProvidedWrappedNode = (account?: AccountInstance): [NodeWrapper 
   useEffect(() => {
     try {
       if (node && accountToUse) {
-        setWrappedNode(NodeWrapper.wrap(node, account))
+        setWrappedNode(NodeWrapper.wrap(node, accountToUse))
         setError(undefined)
       }
     } catch (ex) {
       setWrappedNode(undefined)
       setError(ex as Error)
     }
-  }, [node, account, accountToUse])
+  }, [node, accountToUse])
 
   return [wrappedNode, error]
 }

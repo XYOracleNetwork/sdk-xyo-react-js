@@ -1,13 +1,13 @@
 /* eslint-disable deprecation/deprecation */
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export type BlockValidationDetailsProps = PropertyGroupProps & {
-  value?: XyoBoundWitness
+  value?: BoundWitness
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */

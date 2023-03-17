@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-plugin'
 import { DefaultPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
-import { PayloadRenderPluginResolverProvider, XyoPayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
+import { PayloadRenderPluginResolver, PayloadRenderPluginResolverProvider } from '@xyo-network/react-payload-plugin-resolver'
 import {
   sampleCoinGeckoPayload,
   sampleIdPayload,
@@ -26,7 +26,7 @@ const StorybookEntry = {
 
 const Template: ComponentStory<typeof PayloadDynamicTable> = (args) => (
   <PayloadRenderPluginResolverProvider
-    resolver={new XyoPayloadRenderPluginResolver().register(UniswapPairsRenderPlugin).register(DefaultPayloadRenderPlugin)}
+    resolver={new PayloadRenderPluginResolver().register(UniswapPairsRenderPlugin).register(DefaultPayloadRenderPlugin)}
   >
     <BrowserRouter>
       <PayloadDynamicTable {...args}></PayloadDynamicTable>

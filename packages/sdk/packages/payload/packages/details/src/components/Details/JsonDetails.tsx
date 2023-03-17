@@ -1,6 +1,6 @@
 import { Paper, useMediaQuery, useTheme } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 import { lazy, Suspense } from 'react'
 import { ReactJsonViewProps } from 'react-json-view'
@@ -9,7 +9,7 @@ const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-jso
 
 export type PayloadJsonDetailsProps = PropertyGroupProps & {
   jsonViewProps?: ReactJsonViewProps
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonViewProps, payload = {}, ...props }) => {

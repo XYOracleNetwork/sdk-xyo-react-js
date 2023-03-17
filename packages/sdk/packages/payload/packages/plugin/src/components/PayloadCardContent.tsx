@@ -1,9 +1,9 @@
 import { CardContent, CardContentProps } from '@mui/material'
 import { PayloadDetails } from '@xyo-network/react-payload-details'
 
-import { XyoPayloadRenderProps } from '../XyoPayloadRenderPlugin'
+import { PayloadRenderProps } from '../PayloadRenderPlugin'
 
-export const XyoPayloadCardContent: React.FC<XyoPayloadRenderProps & CardContentProps> = ({ payload, ...props }) => {
+export const PayloadCardContent: React.FC<PayloadRenderProps & CardContentProps> = ({ payload, ...props }) => {
   return (
     <CardContent {...props}>
       <PayloadDetails payload={payload} />

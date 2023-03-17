@@ -1,10 +1,10 @@
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { ContextExState } from '@xyo-network/react-shared'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface ActiveBoundWitnessState extends ContextExState {
-  activeBoundWitness?: XyoBoundWitness
+  activeBoundWitness?: BoundWitness
   activeBoundWitnessHash?: string
-  setActiveBoundWitness?: Dispatch<SetStateAction<XyoBoundWitness | undefined>>
+  setActiveBoundWitness?: Dispatch<SetStateAction<BoundWitness | undefined>>
   setActiveBoundWitnessHash?: Dispatch<SetStateAction<string | undefined>>
 }

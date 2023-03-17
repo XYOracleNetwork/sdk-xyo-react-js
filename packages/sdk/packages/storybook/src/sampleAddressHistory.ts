@@ -1,4 +1,4 @@
-import { XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
+import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 
 export const sampleAddressHistory = [
   {
@@ -7,7 +7,7 @@ export const sampleAddressHistory = [
     payload_hashes: ['97e693d0eb86eec1ca28f2bb0c77ddaae821fd0a9adc51c1521cdd754e2e207d'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['8f914f739a96cb8baffaf156724240e4d51ab94cd4a374754c4e8f8281dc4191'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830950083,
   },
   {
@@ -16,7 +16,7 @@ export const sampleAddressHistory = [
     payload_hashes: ['b01dd00648fafa4488ff461c812e80e5c657939da8c7d4bb056177e241554449'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['7456e3a653f6b3cac3ee0204cef37152eeb8cfeef3e20a0e177abf7ec36e0236'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830946487,
   },
   {
@@ -25,7 +25,7 @@ export const sampleAddressHistory = [
     payload_hashes: ['03be02066ed31dc92ffd371a48026eac5770a8647160704b70e8dca8fc64cb0a'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['053d47a27012548dc0b3bb469e6598c7a48e81d3a552a790b455922cdb0750ba'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830867311,
   },
   {
@@ -34,7 +34,7 @@ export const sampleAddressHistory = [
     payload_hashes: ['5ebf3c990e08174bcf3987dc94ff0a4ec33b6ba806d3f3ec50e0966395fc1c76'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['9ae219b4d71a5c46321a21cdef08540fafe7e6d51440ba34699883bdaf15e61d'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830864908,
   },
   {
@@ -43,7 +43,7 @@ export const sampleAddressHistory = [
     payload_hashes: ['ce405ae29915ea7b5f62a87c316bf4f46052c7bb0a36e67e621fedb1ec96fec5'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['322e48abf142b99635ea51c73d7d6225c04514348ffd3c37399c39b0e17d4972'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830860155,
   },
   {
@@ -52,7 +52,7 @@ export const sampleAddressHistory = [
     payload_hashes: ['84efe9b19a752d3d997cfe5e7c336b1b090669fc0172f649825b2f24c8d82876'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: [null],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830779473,
   },
 ]
@@ -64,7 +64,7 @@ export const randomizedSampleAddressHistory = [
     payload_hashes: ['b01dd00648fafa4488ff461c812e80e5c657939da8c7d4bb056177e241554449'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['7456e3a653f6b3cac3ee0204cef37152eeb8cfeef3e20a0e177abf7ec36e0236'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830946487,
   },
   {
@@ -73,7 +73,7 @@ export const randomizedSampleAddressHistory = [
     payload_hashes: ['5ebf3c990e08174bcf3987dc94ff0a4ec33b6ba806d3f3ec50e0966395fc1c76'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['9ae219b4d71a5c46321a21cdef08540fafe7e6d51440ba34699883bdaf15e61d'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830864908,
   },
   {
@@ -82,7 +82,7 @@ export const randomizedSampleAddressHistory = [
     payload_hashes: ['97e693d0eb86eec1ca28f2bb0c77ddaae821fd0a9adc51c1521cdd754e2e207d'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['8f914f739a96cb8baffaf156724240e4d51ab94cd4a374754c4e8f8281dc4191'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830950083,
   },
   {
@@ -91,7 +91,7 @@ export const randomizedSampleAddressHistory = [
     payload_hashes: ['03be02066ed31dc92ffd371a48026eac5770a8647160704b70e8dca8fc64cb0a'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['053d47a27012548dc0b3bb469e6598c7a48e81d3a552a790b455922cdb0750ba'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830867311,
   },
   {
@@ -100,7 +100,7 @@ export const randomizedSampleAddressHistory = [
     payload_hashes: ['84efe9b19a752d3d997cfe5e7c336b1b090669fc0172f649825b2f24c8d82876'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: [null],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830779473,
   },
   {
@@ -109,7 +109,7 @@ export const randomizedSampleAddressHistory = [
     payload_hashes: ['ce405ae29915ea7b5f62a87c316bf4f46052c7bb0a36e67e621fedb1ec96fec5'],
     payload_schemas: ['network.xyo.id'],
     previous_hashes: ['322e48abf142b99635ea51c73d7d6225c04514348ffd3c37399c39b0e17d4972'],
-    schema: XyoBoundWitnessSchema,
+    schema: BoundWitnessSchema,
     timestamp: 1666830860155,
   },
 ]

@@ -1,6 +1,6 @@
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 
-export const sampleBlock: XyoBoundWitness = {
+export const sampleBlock: BoundWitness = {
   _signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
   addresses: ['9c6df83b84297985d3ccc1f721ba1c2e3608c751', 'BF005E04EF223aa18c0fBFF6B41BbB0227c45A48'],
   payload_hashes: [
@@ -22,7 +22,7 @@ export const sampleBlock: XyoBoundWitness = {
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
 }
-export const sampleBlockWithBoundWitnessPayload: XyoBoundWitness = {
+export const sampleBlockWithBoundWitnessPayload: BoundWitness = {
   _signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
   addresses: ['9c6df83b84297985d3ccc1f721ba1c2e3608c751', 'BF005E04EF223aa18c0fBFF6B41BbB0227c45A48'],
   payload_hashes: [
@@ -89,4 +89,4 @@ export const sampleBlockWithPayloads = {
   payload_schemas: ['network.xyo.payload', 'network.xyo.id'],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
-} as XyoBoundWitness
+} as BoundWitness

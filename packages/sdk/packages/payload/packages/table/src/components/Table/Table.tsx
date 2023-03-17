@@ -1,4 +1,4 @@
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
 import { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
 
@@ -23,8 +23,8 @@ export interface PayloadTableProps extends TableExProps {
   loading?: boolean
   /** set number of schema parts to display starting from the end */
   maxSchemaDepth?: number
-  onRowClick?: (value: XyoPayload) => void
-  payloads?: XyoPayload[] | null
+  onRowClick?: (value: Payload) => void
+  payloads?: Payload[] | null
   rowsPerPage?: number
 }
 
@@ -51,7 +51,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
   ) => {
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
-    const [visiblePayloads, setVisiblePayloads] = useState<XyoPayload[]>([])
+    const [visiblePayloads, setVisiblePayloads] = useState<Payload[]>([])
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - count || 0) : 0

@@ -1,6 +1,6 @@
 import { Collapse } from '@mui/material'
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { CardContentEx, CardContentExProps } from '@xyo-network/react-card'
 import { useTableHeight } from '@xyo-network/react-table'
 import { Dispatch, forwardRef, SetStateAction, useState } from 'react'
@@ -9,7 +9,7 @@ import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnes
 import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation'
 
 export interface DetailsCardContentProps extends CardContentExProps {
-  boundwitness?: XyoBoundWitness
+  boundwitness?: BoundWitness
   collapsed?: boolean
   setCollapsed?: Dispatch<SetStateAction<boolean>>
 }

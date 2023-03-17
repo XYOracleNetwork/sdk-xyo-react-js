@@ -5,7 +5,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema } from '@xyo-network/archivist'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { QueryBoundWitnessBuilder } from '@xyo-network/module'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
 import { useArchivist } from '../../hooks'
@@ -22,7 +22,7 @@ export interface ArchivistDetails extends FlexBoxProps {
 
 export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props }) => {
   const [archivist] = useArchivist(address)
-  const [payloads, setPayloads] = useState<XyoPayload[]>()
+  const [payloads, setPayloads] = useState<Payload[]>()
   const [refresh, setRefresh] = useState(0)
   const [wrapper, setWrapper] = useState<ArchivistWrapper>()
   const [queryableCommit, setQueryableCommit] = useState(false)

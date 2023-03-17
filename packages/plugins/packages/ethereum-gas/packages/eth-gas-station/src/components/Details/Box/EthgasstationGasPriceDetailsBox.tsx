@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { XyoEthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
 import { GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
-import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 import { useEthgasstationTransformer } from '../../hooks'
 import { RenderTitle } from '../../lib'
 
-export const EthgasstationGasPriceDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(
+export const EthgasstationGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ payload, listMode, ...props }, ref) => {
     const gasPricePayload: XyoEthereumGasEthgasstationPayload | undefined = payload ? (payload as XyoEthereumGasEthgasstationPayload) : undefined

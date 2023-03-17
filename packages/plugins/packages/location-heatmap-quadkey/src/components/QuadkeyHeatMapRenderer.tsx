@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,
@@ -21,7 +21,7 @@ import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
 export interface QuadkeyHeatMapInnerProps extends FlexBoxProps {
   accessToken?: string
   developerMode?: boolean
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode, payload, accessToken, ...props }) => {

@@ -1,7 +1,7 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import {
   HeatMapInitializerProvider,
   MapBoxInstanceProvider,
@@ -20,7 +20,7 @@ import { ElevationQuadkeyMapSettings } from './ElevationQuadkeyMapSettings'
 export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
   accessToken?: string
   developerMode?: boolean
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ payload, developerMode, accessToken, ...props }) => {

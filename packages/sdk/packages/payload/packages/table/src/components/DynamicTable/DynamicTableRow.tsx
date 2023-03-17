@@ -3,11 +3,11 @@ import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded'
 import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded'
 import { AvatarProps, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { useNetwork } from '@xyo-network/react-network'
-import { XyoPayloadRenderProps } from '@xyo-network/react-payload-plugin'
+import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import { HashTableCell, HashTableCellProps } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
@@ -23,7 +23,7 @@ export interface PayloadDynamicTableRowProps extends TableRowProps {
   columns?: PayloadDynamicTableColumnConfig
   exploreDomain?: string
   network?: string
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
@@ -68,14 +68,14 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   )
 
   const render: React.FC<TableCellProps> = (props) => {
-    const Render: ComponentType<XyoPayloadRenderProps & TableCellProps> | undefined = payload
+    const Render: ComponentType<PayloadRenderProps & TableCellProps> | undefined = payload
       ? resolver?.resolve(payload)?.components.table.cell
       : undefined
     return Render ? <Render payload={payload} {...props} /> : <TableCell key="payloads" align="left" {...props}></TableCell>
   }
 
   const icon: React.FC<TableCellProps> = (props) => {
-    const Avatar: ComponentType<XyoPayloadRenderProps & AvatarProps> | undefined = payload
+    const Avatar: ComponentType<PayloadRenderProps & AvatarProps> | undefined = payload
       ? resolver?.resolve(payload)?.components.avatar.image
       : undefined
 

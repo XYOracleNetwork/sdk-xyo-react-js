@@ -1,6 +1,6 @@
 import { TableCell, TableRow, TableRowProps } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
 import { useNetwork } from '@xyo-network/react-network'
@@ -13,7 +13,7 @@ import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColum
 
 export interface BlockTableRowProps extends TableRowProps {
   archive?: string
-  block?: XyoBoundWitness
+  block?: BoundWitness
   columns?: BlockTableColumnConfig
   exploreDomain?: string
   network?: string
