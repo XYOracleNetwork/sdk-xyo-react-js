@@ -1,7 +1,6 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { useNetwork } from '@xyo-network/react-network'
 import { useNode } from '@xyo-network/react-node'
-import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useMemo, useState } from 'react'
 
 import { useStandardNodes } from '../contexts'
@@ -18,8 +17,7 @@ export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({ children
 
   const selectedNodeAddress = useMemo(() => {
     if (node && nodes && findAddressByName && network) {
-      const selectedNodeAddress = findAddressByName(network.name)
-      return assertDefinedEx(selectedNodeAddress, `${network.name} was not found in known remote nodes`)
+      return findAddressByName(network.name)
     }
   }, [findAddressByName, network, node, nodes])
 
