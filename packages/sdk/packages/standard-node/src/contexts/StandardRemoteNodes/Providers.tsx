@@ -1,4 +1,5 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { MemoryNode } from '@xyo-network/node'
 import { HDWallet } from '@xyo-network/protocol'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useWallet } from '@xyo-network/react-wallet'
@@ -24,8 +25,14 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ ch
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (wallet) {
-        const builtNodes = await BuildStandardNodes(wallet)
-        setNodes(builtNodes)
+        await BuildStandardNodes(wallet, (node: MemoryNode) => {
+          setNodes((nodes) => {
+            if (nodes?.find((existingNode) => existingNode.config.name === node.config.name)) {
+              return undefined
+            }
+            return nodes ? [...nodes, node] : [node]
+          })
+        })
       }
     },
     [wallet],

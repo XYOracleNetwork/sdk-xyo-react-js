@@ -23,7 +23,7 @@ const knownRemoteNodes = (): { apiDomain: string; name: string }[] => {
   })
 }
 
-export const BuildStandardNodes = async (wallet: HDWallet): Promise<MemoryNode[]> => {
+export const BuildStandardNodes = async (wallet: HDWallet, onNodeBuilt?: (node: MemoryNode) => void): Promise<MemoryNode[]> => {
   try {
     return await Promise.all(
       knownRemoteNodes().map(async ({ apiDomain, name }) => {
@@ -37,7 +37,11 @@ export const BuildStandardNodes = async (wallet: HDWallet): Promise<MemoryNode[]
         const rootArchivistAccount = wallet.deriveAccount(rootArchivistPath)
         await memoryNodeBuilder.addArchivist(rootArchivistAccount, RootStorageArchivist, 'root')
 
-        return assertDefinedEx(memoryNodeBuilder.node, 'Memory Node was not built successfully')
+        const { node } = memoryNodeBuilder
+        assertDefinedEx(node, 'Memory Node was not built successfully')
+        onNodeBuilt?.(node)
+
+        return node
       }),
     )
   } catch (e) {
