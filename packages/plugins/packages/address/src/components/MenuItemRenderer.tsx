@@ -3,9 +3,10 @@ import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
+import { WithChildren } from '@xylabs/react-shared'
 import { forwardRef } from 'react'
 
-export interface AddressMenuItemRendererProps extends MenuItemProps {
+export interface AddressMenuItemRendererProps extends WithChildren, MenuItemProps {
   address?: string
   iconOnly?: boolean
   iconSize?: number
@@ -13,7 +14,7 @@ export interface AddressMenuItemRendererProps extends MenuItemProps {
 }
 
 export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItemRendererProps>(
-  ({ address, iconOnly, iconSize, icons, ...props }, ref) => {
+  ({ address, children, iconOnly, iconSize, icons, ...props }, ref) => {
     return (
       <MenuItem ref={ref} {...props}>
         <FlexRow justifyContent="flex-start" gap={1}>
@@ -23,6 +24,7 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
             </FlexRow>
           ) : null}
           <EthAccountBox alignItems="stretch" iconOnly={iconOnly} address={EthAddress.fromString(address)} />
+          {children}
         </FlexRow>
       </MenuItem>
     )
