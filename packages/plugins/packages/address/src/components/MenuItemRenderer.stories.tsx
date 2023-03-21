@@ -3,6 +3,8 @@ import { Account } from '@xyo-network/account'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer'
 
+const address = new Account({ phrase: 'temp' }).addressValue.hex
+
 const StorybookEntry = {
   argTypes: {},
   component: AddressMenuItemRenderer,
@@ -23,23 +25,42 @@ Default.args = {}
 
 const WithAddress = Template.bind({})
 WithAddress.args = {
-  address: new Account({ phrase: 'temp' }).addressValue.hex,
+  address,
 }
 
 const WithIcon = Template.bind({})
 WithIcon.args = {
-  address: new Account({ phrase: 'temp' }).addressValue.hex,
+  address,
   icons: true,
 }
 
 const WithIconOnly = Template.bind({})
 WithIconOnly.args = {
-  address: new Account({ phrase: 'temp' }).addressValue.hex,
+  address,
   iconOnly: true,
   icons: true,
 }
 
-export { Default, WithAddress, WithIcon, WithIconOnly }
+const WithNullAddress = Template.bind({})
+WithNullAddress.args = {
+  address: null,
+}
+
+const WithNullAddressCustom = Template.bind({})
+WithNullAddressCustom.args = {
+  AddressNullComponent: <span>foo</span>,
+  address: null,
+}
+
+const WithFavorite = Template.bind({})
+WithFavorite.args = {
+  address,
+  favorite: true,
+  icons: true,
+  showFavorite: true,
+}
+
+export { Default, WithAddress, WithFavorite, WithIcon, WithIconOnly, WithNullAddress, WithNullAddressCustom }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
