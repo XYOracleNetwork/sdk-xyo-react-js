@@ -55,7 +55,7 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
     return (
       <>
         {address ? (
-          <MenuItem disableGutters ref={liRef} onClick={() => dispatch('address', 'click', address)} {...props}>
+          <MenuItem ref={liRef} onClick={() => dispatch('address', 'click', address)} {...props}>
             <FlexGrowRow justifyContent="flex-start" gap={1}>
               {icons ? (
                 <ListItemIcon>
@@ -86,7 +86,7 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
                     })
                   }}
                 >
-                  {favorite ? <StarIcon /> : <StarBorderIcon />}
+                  {favorite ? <StarIcon color="secondary" /> : <StarBorderIcon />}
                 </IconButton>
               ) : null}
               {children}
