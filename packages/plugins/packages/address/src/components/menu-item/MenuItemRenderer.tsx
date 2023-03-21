@@ -30,13 +30,10 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
     const AddressNull = useMemo(() => AddressNullComponent ?? <Alert severity="error">Missing Address</Alert>, [AddressNullComponent])
     const AddressUndefined = useMemo(() => AddressUndefinedComponent ?? <CircularProgress size={16} />, [AddressUndefinedComponent])
 
-    const sharedRef = useShareForwardedRef(ref)
-    const [liRef, dispatch] = useXyoEvent(undefined, sharedRef)
-
     return (
       <>
         {address ? (
-          <MenuItem ref={liRef} onClick={() => dispatch('address', 'click', address)} {...props}>
+          <MenuItem ref={ref} {...props}>
             <AddressRenderRowBox
               address={address}
               favorite={favoriteProp}

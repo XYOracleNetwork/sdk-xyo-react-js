@@ -2,7 +2,8 @@ import { ListItemIcon, ListItemText, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexGrowRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { WithChildren } from '@xylabs/react-shared'
-import { EllipsizeBox } from '@xyo-network/react-shared'
+import { useXyoEvent } from '@xyo-network/react-event'
+import { EllipsizeBox, useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
 import { FavoriteIconButton } from './favorite'
@@ -22,10 +23,19 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
   ({ address, children, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, showFavorite = false, ...props }, ref) => {
     const theme = useTheme()
 
+    const sharedRef = useShareForwardedRef(ref)
+    const [elementRef, dispatch] = useXyoEvent(undefined, sharedRef)
+
     return (
-      <FlexGrowRow justifyContent="flex-start" gap={1} ref={ref} {...props}>
+      <FlexGrowRow
+        gap={2}
+        justifyContent="flex-start"
+        ref={elementRef}
+        onClick={() => (address ? dispatch('address', 'click', address) : undefined)}
+        {...props}
+      >
         {icons && address ? (
-          <ListItemIcon>
+          <ListItemIcon sx={{ minWidth: 0 }}>
             <Identicon size={iconSize} value={address} />
           </ListItemIcon>
         ) : null}
@@ -36,7 +46,7 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
             </EllipsizeBox>
           </ListItemText>
         )}
-        {showFavorite && address ? <FavoriteIconButton address={address} favorite={favoriteProp} /> : null}
+        {showFavorite && address ? <FavoriteIconButton size={'small'} address={address} favorite={favoriteProp} /> : null}
         {children}
       </FlexGrowRow>
     )
