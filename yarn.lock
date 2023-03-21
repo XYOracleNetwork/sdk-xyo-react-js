@@ -7286,6 +7286,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-plugin@workspace:packages/plugins/packages/address"
   dependencies:
+    "@storybook/react": ^6.5.16
     "@xylabs/react-flexbox": ^2.16.11
     "@xylabs/react-identicon": ^2.16.11
     "@xylabs/react-shared": ^2.16.11
@@ -7300,9 +7301,11 @@ __metadata:
     "@mui/icons-material": ^5
     "@mui/material": ^5
     "@mui/styles": ^5
+    axios: ^1.3.4
     react: ^18
     react-dom: ^18
     react-router-dom: ^6
+    require-from-string: ^2.0.2
   languageName: unknown
   linkType: soft
 
