@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-address",
+  "name": "@xyo-network/react-address-plugin",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,21 +10,28 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-address-history": "workspace:^",
-    "@xyo-network/react-address-render": "workspace:^"
+    "@xylabs/react-shared": "^2.16.11",
+    "@xyo-network/react-address-render": "workspace:^",
+    "@xyo-network/react-event": "workspace:^",
+    "@xyo-network/react-payload-plugin": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^"
+  },
+  "devDependencies": {
+    "@storybook/react": "^6.5.16",
+    "@xylabs/ts-scripts-yarn3": "^2.16.1",
+    "@xylabs/tsconfig-react": "^2.16.1",
+    "@xyo-network/account": "^2.53.3",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
     "@mui/styles": "^5",
-    "axios": "^1",
+    "axios": "^1.3.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^4",
-    "react-router-dom": "^6"
-  },
-  "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^2.16.1"
+    "react-router-dom": "^6",
+    "require-from-string": "^2.0.2"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
