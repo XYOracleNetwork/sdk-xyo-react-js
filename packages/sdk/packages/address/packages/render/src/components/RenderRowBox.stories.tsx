@@ -51,7 +51,16 @@ WithFavorite.args = {
   showFavorite: true,
 }
 
-export { Default, WithAddress, WithFavorite, WithIcon, WithIconOnly }
+const WithChildren = Template.bind({})
+WithChildren.args = {
+  address,
+  children: <span>{'[InsertedChild]'}</span>,
+  favorite: true,
+  icons: true,
+  showFavorite: true,
+}
+
+export { Default, WithAddress, WithChildren, WithFavorite, WithIcon, WithIconOnly }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

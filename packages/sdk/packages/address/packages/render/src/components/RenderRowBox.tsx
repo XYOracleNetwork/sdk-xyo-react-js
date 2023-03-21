@@ -46,8 +46,8 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
             </EllipsizeBox>
           </ListItemText>
         )}
-        {showFavorite && address ? <FavoriteIconButton size={'small'} address={address} favorite={favoriteProp} /> : null}
         {children}
+        {showFavorite && address ? <FavoriteIconButton size={'small'} address={address} favorite={favoriteProp} /> : null}
       </FlexGrowRow>
     )
   },
