@@ -1,4 +1,13 @@
-import { AvatarProps, CardActionAreaProps, CardContentProps, CardHeaderProps, CardProps, TableCellProps } from '@mui/material'
+import {
+  AvatarProps,
+  CardActionAreaProps,
+  CardContentProps,
+  CardHeaderProps,
+  CardProps,
+  MenuItemProps,
+  MenuListProps,
+  TableCellProps,
+} from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { ListMode } from '@xyo-network/react-shared'
@@ -37,6 +46,11 @@ export interface PayloadRenderPluginTableComponents {
   cell: ComponentType<PayloadRenderProps & TableCellProps>
 }
 
+export interface PayloadRenderPluginMenuComponents {
+  item: ComponentType<PayloadRenderProps & MenuItemProps>
+  list: ComponentType<PayloadRenderProps & MenuListProps>
+}
+
 export interface PayloadRenderPluginBoxComponents {
   /** @deprecated - use detailsBox  */
   details?: ComponentType<PayloadDetailsRenderProps & FlexBoxProps>
@@ -57,6 +71,7 @@ export interface PayloadRenderPluginComponentsConfig {
   avatar?: Partial<PayloadRenderPluginAvatarComponents>
   box?: Partial<PayloadRenderPluginBoxComponents>
   card?: Partial<PayloadRenderPluginCardComponents>
+  menu?: Partial<PayloadRenderPluginMenuComponents>
   table?: Partial<PayloadRenderPluginTableComponents>
 }
 
