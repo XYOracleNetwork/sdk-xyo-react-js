@@ -1,9 +1,8 @@
 import { MenuItem, SelectProps } from '@mui/material'
 import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountBox } from '@xylabs/react-crypto'
-import { FlexRow } from '@xylabs/react-flexbox'
-import { Identicon } from '@xylabs/react-identicon'
 import { SelectEx } from '@xylabs/react-select'
+import { AddressMenuItemRenderer } from '@xyo-network/react-address-plugin'
 
 import { useWallet } from '../../contexts'
 
@@ -25,16 +24,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOn
     <SelectEx
       renderValue={(selected) => {
         const account = wallet?.deriveAccount(selected.toString())
-        return (
-          <FlexRow justifyContent="flex-start" gap={1}>
-            {icons ? (
-              <FlexRow>
-                <Identicon size={iconSize} value={account?.addressValue.hex} />
-              </FlexRow>
-            ) : null}
-            <EthAccountBox alignItems="stretch" iconOnly={iconOnly} address={EthAddress.fromString(account?.addressValue.hex)} />
-          </FlexRow>
-        )
+        return <AddressMenuItemRenderer address={account?.addressValue.hex} iconOnly={iconOnly} iconSize={iconSize} icons={icons} />
       }}
       value={activeAccountIndex}
       onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
@@ -46,9 +36,13 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOn
         ? arrayRange(maxAccounts).map((index) => {
             const account = wallet?.deriveAccount(index.toString())
             return (
-              <MenuItem key={index} value={index}>
-                <EthAccountBox iconSize={iconSize} icon={icons} address={EthAddress.fromString(account?.addressValue.hex)} />
-              </MenuItem>
+              <AddressMenuItemRenderer
+                key={account?.addressValue.hex}
+                address={account?.addressValue.hex}
+                iconOnly={iconOnly}
+                iconSize={iconSize}
+                icons={icons}
+              />
             )
           })
         : null}

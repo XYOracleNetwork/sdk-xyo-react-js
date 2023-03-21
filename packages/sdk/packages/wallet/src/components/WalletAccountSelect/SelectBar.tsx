@@ -1,4 +1,3 @@
-import { Paper } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 
 import { WalletAccountSelect } from './Select'
@@ -21,9 +20,7 @@ export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({
 }) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <Paper variant="elevation" elevation={0}>
-        <WalletAccountSelect fullWidth iconSize={iconSize} iconOnly={iconOnly} icons={icons} maxAccounts={maxAccounts} size={size ?? 'small'} />
-      </Paper>
+      <WalletAccountSelect fullWidth iconSize={iconSize} iconOnly={iconOnly} icons={icons} maxAccounts={maxAccounts} size={size ?? 'small'} />
     </FlexCol>
   )
 }
