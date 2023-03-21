@@ -1,1 +1,1 @@
-export * from './MenuItemRenderer'
+export * from './menu-item'
