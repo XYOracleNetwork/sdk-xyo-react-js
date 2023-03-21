@@ -1,28 +1,38 @@
-import { MenuItem, SelectProps } from '@mui/material'
-import { EthAddress } from '@xylabs/eth-address'
-import { EthAccountBox } from '@xylabs/react-crypto'
+import { SelectProps } from '@mui/material'
 import { SelectEx } from '@xylabs/react-select'
 import { AddressMenuItemRenderer } from '@xyo-network/react-address-plugin'
 
 import { useWallet } from '../../contexts'
 
 export interface WalletAccountSelectProps extends SelectProps<number> {
+  favorites?: number[]
   iconOnly?: boolean
   iconSize?: number
   icons?: boolean
   maxAccounts?: number
+  showFavorite?: boolean
 }
 
 const arrayRange = (length: number, start = 0) => {
   return Array.from(Array(length).keys()).map((x) => x + start)
 }
 
-export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOnly, iconSize = 24, icons, maxAccounts = 1, size, ...props }) => {
+export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
+  favorites,
+  iconOnly,
+  iconSize = 24,
+  icons,
+  maxAccounts = 1,
+  showFavorite = false,
+  size,
+  ...props
+}) => {
   const { activeAccountIndex = 0, setActiveAccountIndex, wallet } = useWallet()
 
   return (
     <SelectEx
       renderValue={(selected) => {
+        console.log(selected)
         const account = wallet?.deriveAccount(selected.toString())
         return <AddressMenuItemRenderer address={account?.addressValue.hex} iconOnly={iconOnly} iconSize={iconSize} icons={icons} />
       }}
@@ -37,11 +47,14 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({ iconOn
             const account = wallet?.deriveAccount(index.toString())
             return (
               <AddressMenuItemRenderer
-                key={account?.addressValue.hex}
                 address={account?.addressValue.hex}
+                favorite={favorites?.includes(index)}
                 iconOnly={iconOnly}
                 iconSize={iconSize}
                 icons={icons}
+                key={account?.addressValue.hex}
+                value={index}
+                showFavorite={showFavorite}
               />
             )
           })

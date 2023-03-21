@@ -40,7 +40,10 @@ WithWalletIcon.args = { icons: true }
 const WithAdditionalAccounts = WithWalletTemplate.bind({})
 WithAdditionalAccounts.args = { icons: true, maxAccounts: 10 }
 
-export { Default, WithAdditionalAccounts, WithWallet, WithWalletIcon }
+const WithAccountFavorites = WithWalletTemplate.bind({})
+WithAccountFavorites.args = { favorites: [0, 3, 9, 10], icons: true, maxAccounts: 10, showFavorite: true }
+
+export { Default, WithAccountFavorites, WithAdditionalAccounts, WithWallet, WithWalletIcon }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
