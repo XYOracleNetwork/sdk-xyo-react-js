@@ -1,16 +1,15 @@
-import { SelectProps } from '@mui/material'
+import { Alert, CircularProgress, MenuItem, SelectProps } from '@mui/material'
 import { SelectEx } from '@xylabs/react-select'
-import { AddressMenuItemRenderer } from '@xyo-network/react-address-plugin'
+import { AddressRenderRowBox, AddressRenderRowBoxPropsBase } from '@xyo-network/react-address-render'
 
 import { useWallet } from '../../contexts'
 
-export interface WalletAccountSelectProps extends SelectProps<number> {
+type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxPropsBase, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
+
+export interface WalletAccountSelectProps extends SharedAddressRenderRowBoxProps, SelectProps<number> {
   favorites?: number[]
-  iconOnly?: boolean
-  iconSize?: number
-  icons?: boolean
+
   maxAccounts?: number
-  showFavorite?: boolean
 }
 
 const arrayRange = (length: number, start = 0) => {
@@ -28,37 +27,42 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
   ...props
 }) => {
   const { activeAccountIndex = 0, setActiveAccountIndex, wallet } = useWallet()
+  const disabled = !wallet || activeAccountIndex === undefined
 
   return (
-    <SelectEx
-      renderValue={(selected) => {
-        console.log(selected)
-        const account = wallet?.deriveAccount(selected.toString())
-        return <AddressMenuItemRenderer address={account?.addressValue.hex} iconOnly={iconOnly} iconSize={iconSize} icons={icons} />
-      }}
-      value={activeAccountIndex}
-      onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
-      size={size}
-      variant="outlined"
-      {...props}
-    >
-      {wallet
-        ? arrayRange(maxAccounts).map((index) => {
-            const account = wallet?.deriveAccount(index.toString())
+    <>
+      {wallet ? (
+        <SelectEx
+          disabled={disabled}
+          renderValue={(selected) => {
+            const account = wallet.deriveAccount(selected.toString())
+            return <AddressRenderRowBox address={account?.addressValue.hex} iconOnly={iconOnly} iconSize={iconSize} icons={icons} />
+          }}
+          value={activeAccountIndex}
+          onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
+          size={size}
+          variant="outlined"
+          {...props}
+        >
+          {arrayRange(maxAccounts).map((index) => {
+            const account = wallet.deriveAccount(index.toString())
             return (
-              <AddressMenuItemRenderer
-                address={account?.addressValue.hex}
-                favorite={favorites?.includes(index)}
-                iconOnly={iconOnly}
-                iconSize={iconSize}
-                icons={icons}
-                key={account?.addressValue.hex}
-                value={index}
-                showFavorite={showFavorite}
-              />
+              <MenuItem key={account?.addressValue.hex} value={index}>
+                <AddressRenderRowBox
+                  address={account?.addressValue.hex}
+                  favorite={favorites?.includes(index)}
+                  iconOnly={iconOnly}
+                  iconSize={iconSize}
+                  icons={icons}
+                  showFavorite={showFavorite}
+                />
+              </MenuItem>
             )
-          })
-        : null}
-    </SelectEx>
+          })}
+        </SelectEx>
+      ) : (
+        <CircularProgress size={24} />
+      )}
+    </>
   )
 }

@@ -1,22 +1,14 @@
-import { Alert, CircularProgress, ListItemIcon, ListItemText, MenuItem, MenuItemProps, useTheme } from '@mui/material'
-import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { Identicon } from '@xylabs/react-identicon'
+import { Alert, CircularProgress, MenuItem, MenuItemProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
+import { AddressRenderRowBox, AddressRenderRowBoxPropsBase } from '@xyo-network/react-address-render'
 import { useXyoEvent } from '@xyo-network/react-event'
-import { EllipsizeBox, useShareForwardedRef } from '@xyo-network/react-shared'
+import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, useMemo } from 'react'
 
-import { FavoriteIconButton } from './favorite'
-
-export interface AddressMenuItemRendererProps extends WithChildren, MenuItemProps {
+export interface AddressMenuItemRendererProps extends WithChildren, AddressRenderRowBoxPropsBase, MenuItemProps {
   AddressNullComponent?: React.ReactNode
   AddressUndefinedComponent?: React.ReactNode
   address?: string | null
-  favorite?: boolean
-  iconOnly?: boolean
-  iconSize?: number
-  icons?: boolean
-  showFavorite?: boolean
 }
 
 export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItemRendererProps>(
@@ -35,7 +27,6 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
     },
     ref,
   ) => {
-    const theme = useTheme()
     const AddressNull = useMemo(() => AddressNullComponent ?? <Alert severity="error">Missing Address</Alert>, [AddressNullComponent])
     const AddressUndefined = useMemo(() => AddressUndefinedComponent ?? <CircularProgress size={16} />, [AddressUndefinedComponent])
 
@@ -46,22 +37,15 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
       <>
         {address ? (
           <MenuItem ref={liRef} onClick={() => dispatch('address', 'click', address)} {...props}>
-            <FlexGrowRow justifyContent="flex-start" gap={1}>
-              {icons ? (
-                <ListItemIcon>
-                  <Identicon size={iconSize} value={address} />
-                </ListItemIcon>
-              ) : null}
-              {iconOnly ? null : (
-                <ListItemText>
-                  <EllipsizeBox ellipsisPosition={'end'} width="100%" typographyProps={{ fontSize: theme.typography.body1.fontSize }}>
-                    {address}
-                  </EllipsizeBox>
-                </ListItemText>
-              )}
-              {showFavorite ? <FavoriteIconButton address={address} favorite={favoriteProp} /> : null}
-              {children}
-            </FlexGrowRow>
+            <AddressRenderRowBox
+              address={address}
+              favorite={favoriteProp}
+              iconOnly={iconOnly}
+              iconSize={iconSize}
+              icons={icons}
+              showFavorite={showFavorite}
+            />
+            {children}
           </MenuItem>
         ) : null}
         {address === null ? AddressNull : null}
