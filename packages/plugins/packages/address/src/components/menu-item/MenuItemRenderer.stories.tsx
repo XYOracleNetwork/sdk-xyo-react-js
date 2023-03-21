@@ -30,19 +30,6 @@ WithAddress.args = {
   address,
 }
 
-const WithIcon = Template.bind({})
-WithIcon.args = {
-  address,
-  icons: true,
-}
-
-const WithIconOnly = Template.bind({})
-WithIconOnly.args = {
-  address,
-  iconOnly: true,
-  icons: true,
-}
-
 const WithNullAddress = Template.bind({})
 WithNullAddress.args = {
   address: null,
@@ -54,15 +41,7 @@ WithNullAddressCustom.args = {
   address: null,
 }
 
-const WithFavorite = Template.bind({})
-WithFavorite.args = {
-  address,
-  favorite: true,
-  icons: true,
-  showFavorite: true,
-}
-
-export { Default, WithAddress, WithFavorite, WithIcon, WithIconOnly, WithNullAddress, WithNullAddressCustom }
+export { Default, WithAddress, WithNullAddress, WithNullAddressCustom }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
