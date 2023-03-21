@@ -1,8 +1,6 @@
 import { Alert, CircularProgress, MenuItem, MenuItemProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import { AddressRenderRowBox, AddressRenderRowBoxPropsBase } from '@xyo-network/react-address-render'
-import { useXyoEvent } from '@xyo-network/react-event'
-import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, useMemo } from 'react'
 
 export interface AddressMenuItemRendererProps extends WithChildren, AddressRenderRowBoxPropsBase, MenuItemProps {
