@@ -4,8 +4,14 @@ import { Alert, CircularProgress, IconButton, ListItemIcon, ListItemText, MenuIt
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { WithChildren } from '@xylabs/react-shared'
-import { EllipsizeBox } from '@xyo-network/react-shared'
+import { useXyoEvent } from '@xyo-network/react-event'
+import { EllipsizeBox, useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, useEffect, useMemo, useState } from 'react'
+
+export interface FavoriteEvent {
+  address: string
+  favorite: boolean
+}
 
 export interface AddressMenuItemRendererProps extends WithChildren, MenuItemProps {
   AddressNullComponent?: React.ReactNode
@@ -35,18 +41,21 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
     ref,
   ) => {
     const theme = useTheme()
-    const [favorite, setFavorite] = useState(favoriteProp)
+    const AddressNull = useMemo(() => AddressNullComponent ?? <Alert severity="error">Missing Address</Alert>, [AddressNullComponent])
+    const AddressUndefined = useMemo(() => AddressUndefinedComponent ?? <CircularProgress size={16} />, [AddressUndefinedComponent])
 
+    const [favorite, setFavorite] = useState(favoriteProp)
     useEffect(() => {
       setFavorite(favoriteProp)
     }, [favoriteProp])
 
-    const AddressNull = useMemo(() => AddressNullComponent ?? <Alert severity="error">Missing Address</Alert>, [AddressNullComponent])
-    const AddressUndefined = useMemo(() => AddressUndefinedComponent ?? <CircularProgress size={16} />, [AddressUndefinedComponent])
+    const sharedRef = useShareForwardedRef(ref)
+    const [liRef, dispatch] = useXyoEvent(undefined, sharedRef)
+
     return (
       <>
         {address ? (
-          <MenuItem disableGutters ref={ref} {...props}>
+          <MenuItem disableGutters ref={liRef} onClick={() => dispatch('address', 'click', address)} {...props}>
             <FlexGrowRow justifyContent="flex-start" gap={1}>
               {icons ? (
                 <ListItemIcon>
@@ -64,9 +73,17 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
                 <IconButton
                   // used to prevent parent items from rippling when IconButton is clicked
                   onMouseDown={(e) => e.stopPropagation()}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setFavorite((current) => !current)
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    setFavorite((current) => {
+                      const newFavoriteState = !current
+                      const favoriteEvent: FavoriteEvent = {
+                        address,
+                        favorite: newFavoriteState,
+                      }
+                      dispatch('address', 'favorite', JSON.stringify(favoriteEvent))
+                      return newFavoriteState
+                    })
                   }}
                 >
                   {favorite ? <StarIcon /> : <StarBorderIcon />}

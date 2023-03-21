@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Account } from '@xyo-network/account'
+import { useXyoEvent } from '@xyo-network/react-event'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer'
 
@@ -17,7 +18,8 @@ const StorybookEntry = {
 } as ComponentMeta<typeof AddressMenuItemRenderer>
 
 const Template: ComponentStory<typeof AddressMenuItemRenderer> = (args) => {
-  return <AddressMenuItemRenderer {...args} />
+  const [ref] = useXyoEvent<HTMLLIElement>((noun, verb, data) => console.log(`${noun}|${verb}|${data}`))
+  return <AddressMenuItemRenderer {...args} ref={ref} />
 }
 
 const Default = Template.bind({})
