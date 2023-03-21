@@ -1,3 +1,4 @@
+export * from '@xyo-network/react-address-plugin'
 export * from '@xyo-network/react-aggregate-price-plugin'
 export * from '@xyo-network/react-boundwitness-plugin'
 export * from '@xyo-network/react-coin-gecko-prices-plugin'
