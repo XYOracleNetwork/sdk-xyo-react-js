@@ -1,17 +1,12 @@
-import StarIcon from '@mui/icons-material/Star'
-import StarBorderIcon from '@mui/icons-material/StarBorder'
-import { Alert, CircularProgress, IconButton, ListItemIcon, ListItemText, MenuItem, MenuItemProps, useTheme } from '@mui/material'
+import { Alert, CircularProgress, ListItemIcon, ListItemText, MenuItem, MenuItemProps, useTheme } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { WithChildren } from '@xylabs/react-shared'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { EllipsizeBox, useShareForwardedRef } from '@xyo-network/react-shared'
-import { forwardRef, useEffect, useMemo, useState } from 'react'
+import { forwardRef, useMemo } from 'react'
 
-export interface FavoriteEvent {
-  address: string
-  favorite: boolean
-}
+import { FavoriteIconButton } from './favorite'
 
 export interface AddressMenuItemRendererProps extends WithChildren, MenuItemProps {
   AddressNullComponent?: React.ReactNode
@@ -44,11 +39,6 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
     const AddressNull = useMemo(() => AddressNullComponent ?? <Alert severity="error">Missing Address</Alert>, [AddressNullComponent])
     const AddressUndefined = useMemo(() => AddressUndefinedComponent ?? <CircularProgress size={16} />, [AddressUndefinedComponent])
 
-    const [favorite, setFavorite] = useState(favoriteProp)
-    useEffect(() => {
-      setFavorite(favoriteProp)
-    }, [favoriteProp])
-
     const sharedRef = useShareForwardedRef(ref)
     const [liRef, dispatch] = useXyoEvent(undefined, sharedRef)
 
@@ -69,26 +59,7 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, AddressMenuItem
                   </EllipsizeBox>
                 </ListItemText>
               )}
-              {showFavorite ? (
-                <IconButton
-                  // used to prevent parent items from rippling when IconButton is clicked
-                  onMouseDown={(e) => e.stopPropagation()}
-                  onClick={(event) => {
-                    event.stopPropagation()
-                    setFavorite((current) => {
-                      const newFavoriteState = !current
-                      const favoriteEvent: FavoriteEvent = {
-                        address,
-                        favorite: newFavoriteState,
-                      }
-                      dispatch('address', 'favorite', JSON.stringify(favoriteEvent))
-                      return newFavoriteState
-                    })
-                  }}
-                >
-                  {favorite ? <StarIcon color="secondary" /> : <StarBorderIcon />}
-                </IconButton>
-              ) : null}
+              {showFavorite ? <FavoriteIconButton address={address} favorite={favoriteProp} /> : null}
               {children}
             </FlexGrowRow>
           </MenuItem>
