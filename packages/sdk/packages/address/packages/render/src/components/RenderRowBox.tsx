@@ -14,13 +14,14 @@ export interface AddressRenderRowBoxPropsBase {
   iconOnly?: boolean
   iconSize?: number
   icons?: boolean
+  name?: string
   showFavorite?: boolean
 }
 
 export interface AddressRenderRowBoxProps extends WithChildren, AddressRenderRowBoxPropsBase, FlexBoxProps {}
 
 export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxProps>(
-  ({ address, children, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, showFavorite = false, ...props }, ref) => {
+  ({ address, children, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, name, showFavorite = false, ...props }, ref) => {
     const theme = useTheme()
 
     const sharedRef = useShareForwardedRef(ref)
@@ -42,7 +43,7 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
         {iconOnly ? null : (
           <ListItemText>
             <EllipsizeBox ellipsisPosition={'end'} width="100%" typographyProps={{ fontSize: theme.typography.body1.fontSize }}>
-              {address}
+              {name ?? address}
             </EllipsizeBox>
           </ListItemText>
         )}

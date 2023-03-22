@@ -6595,6 +6595,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/blockchain-payload-plugins@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/blockchain-payload-plugins@npm:2.53.3"
+  dependencies:
+    "@xyo-network/ethereum-blockchain-payload-plugins": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: 8f82af2c806b5219597a86b60e1277a9b5fa733cf5f1fd20020a2402e0dbf1337dfd5f4ff8be8f9d5cb70050eebd70019a0062a256e7d9d9c8cc06c920bdba6a
+  languageName: node
+  linkType: hard
+
 "@xyo-network/blocknative-ethereum-gas-payload-plugin@npm:^2.53.3":
   version: 2.53.3
   resolution: "@xyo-network/blocknative-ethereum-gas-payload-plugin@npm:2.53.3"
@@ -6790,6 +6800,60 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/crypto-cards-game-payload-plugin@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/crypto-cards-game-payload-plugin@npm:2.53.3"
+  dependencies:
+    "@xyo-network/payload-model": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: 5808a3594ab14da6f7dda4b0d6cf51df8044c288443cbbebedc01befc50ae388cf6c42511e05e54debebab3ba29b3ffede21f6a8d7ab3a7abd5269dbc5206e84
+  languageName: node
+  linkType: hard
+
+"@xyo-network/crypto-cards-move-payload-plugin@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/crypto-cards-move-payload-plugin@npm:2.53.3"
+  dependencies:
+    "@xyo-network/payload-model": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: e2f81be2e724e2415ff5c83b66829ea8b55d7d3184bffecb884c7622fc19e7b7adac9d240665a733a73f0327dfae8e0e4fef9eeabfd4a68f0499b0df5ee007af
+  languageName: node
+  linkType: hard
+
+"@xyo-network/crypto-cards-payload-plugins@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/crypto-cards-payload-plugins@npm:2.53.3"
+  dependencies:
+    "@xyo-network/crypto-cards-game-payload-plugin": ^2.53.3
+    "@xyo-network/crypto-cards-move-payload-plugin": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: 43b448fa52d8241cd32a3c794b1adc0cfd0aab79c3fc714a7c68076ec1903b5e0314e9ea212d05ad2bb05f8846a9e46dbf4f9937ee7868edd4c86d5b7f43c921
+  languageName: node
+  linkType: hard
+
+"@xyo-network/crypto-market-payload-plugins@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/crypto-market-payload-plugins@npm:2.53.3"
+  dependencies:
+    "@xyo-network/coingecko-crypto-market-payload-plugin": ^2.53.3
+    "@xyo-network/crypto-asset-payload-plugin": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+    "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.53.3
+  checksum: 4cb1e7ce9733ec7af78bb906a29b6695849a17714eaeb7f9cb63ababa636c2980c4ce5faad8ee9eab9fa3992d80c9227343b91fecc8cd9c7da98c8b778820d4a
+  languageName: node
+  linkType: hard
+
+"@xyo-network/crypto-payload-plugins@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/crypto-payload-plugins@npm:2.53.3"
+  dependencies:
+    "@xyo-network/crypto-cards-payload-plugins": ^2.53.3
+    "@xyo-network/crypto-market-payload-plugins": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: fd23fb93ebf0b1c01cdaf18b9a99353fa26e5f264bb488bc79705dda1fd9bfb6f2cdae70cdd80b5aa16eb1d5e2b87c2b6953d8d29f6bd4f9458030b42186ccf8
+  languageName: node
+  linkType: hard
+
 "@xyo-network/diviner-model@npm:^2.53.3":
   version: 2.53.3
   resolution: "@xyo-network/diviner-model@npm:2.53.3"
@@ -6881,6 +6945,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins@npm:2.53.3"
+  dependencies:
+    "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: 2468fc216c821a86c328441a446666a3b53e0fafea41ddaaecee9cca9b70ec2fd18bf6ca17972fda5fad6b030dcb9feb4ba2d3885106ea5f9291688d94250966
+  languageName: node
+  linkType: hard
+
+"@xyo-network/ethereum-blockchain-payload-plugins@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/ethereum-blockchain-payload-plugins@npm:2.53.3"
+  dependencies:
+    "@xyo-network/gas-ethereum-blockchain-payload-plugins": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: af511f9194e1a5bfaf6315998659bf261084cf4f95d0579f6297ccaac6ebbc3261fd1d8f97eb829f660eb16ed28a51456c597374a67e2513bfef960750883ee1
+  languageName: node
+  linkType: hard
+
 "@xyo-network/ethers-ethereum-gas-payload-plugin@npm:^2.53.3":
   version: 2.53.3
   resolution: "@xyo-network/ethers-ethereum-gas-payload-plugin@npm:2.53.3"
@@ -6908,6 +6992,17 @@ __metadata:
     "@xyo-network/payload-model": ^2.53.3
     "@xyo-network/payload-plugin": ^2.53.3
   checksum: b6af8ffdda5c8589c4bf1defd3ff39f9180fe0f50953a0702d974f278063ec66b7a1caef7f27bca01316685765cd1bcfa6b57af80d0777b04edd9b272620b94a
+  languageName: node
+  linkType: hard
+
+"@xyo-network/gas-ethereum-blockchain-payload-plugins@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/gas-ethereum-blockchain-payload-plugins@npm:2.53.3"
+  dependencies:
+    "@xyo-network/etherchain-gas-ethereum-blockchain-payload-plugins": ^2.53.3
+    "@xyo-network/etherscan-ethereum-gas-payload-plugin": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: 722e1fbedf634a8556623a8f89cda11c87557f0458cc5288b06aa3cefe5eb147c13bfeb67f74a6e9f6115f3440b9f9c10b5cd5e0ae84163bc37132551dce05a8
   languageName: node
   linkType: hard
 
@@ -6955,12 +7050,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/id-payload-plugin@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/id-payload-plugin@npm:2.53.3"
+  dependencies:
+    "@xyo-network/payload-model": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: 6d28b90fa1cc17baa0f8e18c84eea49357fe7d732365e3245b7443110b9ba175fbff985ab9066d2534a11888d8d1ae32c4ae3507bc7309698285dca49af23ff5
+  languageName: node
+  linkType: hard
+
 "@xyo-network/key-model@npm:^2.53.3":
   version: 2.53.3
   resolution: "@xyo-network/key-model@npm:2.53.3"
   dependencies:
     "@xyo-network/core": ^2.53.3
   checksum: 89ae8d17df61b38b95ddfe00221a219a00be135b7e0727c8727a317caf48265b68e8a38c6b5a9a49a714a9acac4a1fbc209edaa808ad410621bc9999e1812671
+  languageName: node
+  linkType: hard
+
+"@xyo-network/location-certainty-payload-plugin@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/location-certainty-payload-plugin@npm:2.53.3"
+  dependencies:
+    "@xyo-network/payload-model": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: bb9f41e014bf4656abc5ae6e57cfdf502a5eb129a609a97c5ba01770656ba249c43fbd8b3352b41b6ffe617d95ba2a996a254d9f0799015ca47a6b06829c45d1
   languageName: node
   linkType: hard
 
@@ -7029,6 +7144,16 @@ __metadata:
     "@xylabs/forget": ^2.7.4
     "@xyo-network/promise": ^2.53.3
   checksum: 54acf427c07875c643f2606e825defe187f4aa984340931bdc1c89528fd13195d27a43b26cdaa5bb800569afe494cf0cfee39c7036b8d856194415a18f41728e
+  languageName: node
+  linkType: hard
+
+"@xyo-network/module-instance-payload-plugin@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/module-instance-payload-plugin@npm:2.53.3"
+  dependencies:
+    "@xyo-network/payload-model": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+  checksum: 09a219c6dc2e1abe58a4083eae2f42c3887b9367baa88f2307ada5f6385fbbb95d610bd5cbc02bce6ab00c52249dff3e3a5ec1265e3cadfdef67129d1a47addf
   languageName: node
   linkType: hard
 
@@ -7156,6 +7281,26 @@ __metadata:
     "@xyo-network/payload-validator": ^2.53.3
     "@xyo-network/payload-wrapper": ^2.53.3
   checksum: bab3053d89d13215d74c0039661d30838449d1211d2522850c9bdb945c0be003a18b43c41ea5de5c22ca8a4ad7f3bee2d77ca624a85721e8bc2e8f6ea7088f4a
+  languageName: node
+  linkType: hard
+
+"@xyo-network/payload-plugins@npm:^2.53.3":
+  version: 2.53.3
+  resolution: "@xyo-network/payload-plugins@npm:2.53.3"
+  dependencies:
+    "@xyo-network/address-payload-plugin": ^2.53.3
+    "@xyo-network/blockchain-payload-plugins": ^2.53.3
+    "@xyo-network/config-payload-plugin": ^2.53.3
+    "@xyo-network/crypto-payload-plugins": ^2.53.3
+    "@xyo-network/domain-payload-plugin": ^2.53.3
+    "@xyo-network/id-payload-plugin": ^2.53.3
+    "@xyo-network/location-certainty-payload-plugin": ^2.53.3
+    "@xyo-network/location-payload-plugin": ^2.53.3
+    "@xyo-network/module-instance-payload-plugin": ^2.53.3
+    "@xyo-network/payload-plugin": ^2.53.3
+    "@xyo-network/query-payload-plugin": ^2.53.3
+    "@xyo-network/schema-payload-plugin": ^2.53.3
+  checksum: 1d07a7f8cb0670cd74fa37c97725002ad08af9d976dc01937af03c152637d0795d2c721d5bd0bc808d3593a0a560f8f1f30fc74ab38878d4dc2dbd10deb66a2a
   languageName: node
   linkType: hard
 
@@ -7291,6 +7436,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": ^2.16.1
     "@xylabs/tsconfig-react": ^2.16.1
     "@xyo-network/account": ^2.53.3
+    "@xyo-network/payload-plugins": ^2.53.3
     "@xyo-network/react-address-render": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     typescript: ^4.9.5

@@ -1,10 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Account } from '@xyo-network/account'
+import { AddressPayload, AddressSchema } from '@xyo-network/payload-plugins'
 import { useXyoEvent } from '@xyo-network/react-event'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer'
 
 const address = new Account({ phrase: 'temp' }).addressValue.hex
+const payload: AddressPayload = {
+  address,
+  schema: AddressSchema,
+}
 
 const StorybookEntry = {
   argTypes: {},
@@ -27,21 +32,18 @@ Default.args = {}
 
 const WithAddress = Template.bind({})
 WithAddress.args = {
-  address,
+  payload,
 }
 
-const WithNullAddress = Template.bind({})
-WithNullAddress.args = {
-  address: null,
+const WithName = Template.bind({})
+WithName.args = {
+  payload: {
+    ...payload,
+    name: 'My-Address',
+  } as AddressPayload,
 }
 
-const WithNullAddressCustom = Template.bind({})
-WithNullAddressCustom.args = {
-  AddressNullComponent: <span>foo</span>,
-  address: null,
-}
-
-export { Default, WithAddress, WithNullAddress, WithNullAddressCustom }
+export { Default, WithAddress, WithName }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
