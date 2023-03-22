@@ -7,20 +7,26 @@ import { useNavigate } from 'react-router-dom'
 import { useHashSelectionHistory } from '../../hooks'
 import { BoundWitnessesBox } from './BoundWitnessesBox'
 
-export const BoundWitnessBoxWithAddressRouter = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
-  const navigate = useNavigate()
-  const { clearHistory } = useHashSelectionHistory()
+export interface BoundWitnessBoxWithAddressRouterProps extends FlexBoxProps {
+  baseRoute?: string
+}
 
-  const sharedRef = useShareForwardedRef(ref)
+export const BoundWitnessBoxWithAddressRouter = forwardRef<HTMLDivElement, BoundWitnessBoxWithAddressRouterProps>(
+  ({ baseRoute = '/address/', ...props }, ref) => {
+    const navigate = useNavigate()
+    const { clearHistory } = useHashSelectionHistory()
 
-  const [listenerRef] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => {
-    if (noun === 'address' && data) {
-      clearHistory?.()
-      navigate(`/address/${data}`)
-    }
-  }, sharedRef)
+    const sharedRef = useShareForwardedRef(ref)
 
-  return <BoundWitnessesBox ref={listenerRef} {...props} />
-})
+    const [listenerRef] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => {
+      if (noun === 'address' && data) {
+        clearHistory?.()
+        navigate(`${baseRoute}/${data}`)
+      }
+    }, sharedRef)
+
+    return <BoundWitnessesBox ref={listenerRef} {...props} />
+  },
+)
 
 BoundWitnessBoxWithAddressRouter.displayName = 'BoundWitnessBoxWithAddressRouter'
