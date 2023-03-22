@@ -1,7 +1,7 @@
 import { styled, TableCell, TableCellProps } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
 import { WithChildren } from '@xylabs/react-shared'
-import { forwardRef } from 'react'
+import { forwardRef, useMemo } from 'react'
 import { To } from 'react-router-dom'
 
 import { EllipsizeBox } from '../Ellipsize'
@@ -30,19 +30,24 @@ export interface EllipsisTableCellProps extends TableCellProps {
 
 export const EllipsisTableCellWithRef: React.FC<WithChildren<EllipsisTableCellProps>> = forwardRef(
   ({ children, href, link = false, to, value, ...props }, ref) => {
+    const data = useMemo(() => {
+      if (children) {
+        return children
+      }
+      if (href || link) {
+        return (
+          <LinkEx title={value} to={to} href={href} target={href ? '_blank' : undefined}>
+            {value}
+          </LinkEx>
+        )
+      }
+      if (to) {
+        return value
+      }
+    }, [children, href, link, to, value])
     return (
       <EllipsisTableCellRoot ref={ref} {...props}>
-        <EllipsizeBox>
-          {children ? (
-            children
-          ) : href || to || link ? (
-            <LinkEx title={value} to={to} href={href} target={href ? '_blank' : undefined} sx={{ ...(link && { cursor: 'pointer' }) }}>
-              {value}
-            </LinkEx>
-          ) : (
-            value
-          )}
-        </EllipsizeBox>
+        <EllipsizeBox sx={{ cursor: link || to || href ? 'pointer' : 'inherit' }}>{data}</EllipsizeBox>
       </EllipsisTableCellRoot>
     )
   },
