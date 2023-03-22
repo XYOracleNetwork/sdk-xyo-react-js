@@ -24,8 +24,9 @@ export interface FavoriteIconButtonProps extends WithChildren, IconButtonProps {
 
 export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButtonProps>(
   ({ address, alias, children, favorite: favoriteProp, ...props }, ref) => {
-    const [favorite, setFavorite] = useState(favoriteProp)
     const [openPopper, setOpenPopper] = useState(false)
+
+    const [favorite, setFavorite] = useState(favoriteProp)
     useEffect(() => {
       setFavorite(favoriteProp)
     }, [favoriteProp])
