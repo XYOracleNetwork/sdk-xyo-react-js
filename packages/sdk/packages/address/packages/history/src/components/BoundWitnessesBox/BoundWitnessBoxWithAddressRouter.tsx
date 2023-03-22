@@ -16,7 +16,7 @@ export const BoundWitnessBoxWithAddressRouter = forwardRef<HTMLDivElement, FlexB
   const [listenerRef] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => {
     if (noun === 'address' && data) {
       clearHistory?.()
-      navigate(`/addresses/${data}`)
+      navigate(`/address/${data}`)
     }
   }, sharedRef)
 
