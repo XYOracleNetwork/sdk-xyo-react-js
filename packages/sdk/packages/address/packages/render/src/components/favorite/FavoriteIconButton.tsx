@@ -18,11 +18,12 @@ export interface FavoriteEvent {
 export interface FavoriteIconButtonProps extends WithChildren, IconButtonProps {
   // TODO - this could be anything really
   address?: string
+  alias?: string
   favorite?: boolean
 }
 
 export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButtonProps>(
-  ({ address, children, favorite: favoriteProp, ...props }, ref) => {
+  ({ address, alias, children, favorite: favoriteProp, ...props }, ref) => {
     const [favorite, setFavorite] = useState(favoriteProp)
     const [openPopper, setOpenPopper] = useState(false)
     useEffect(() => {
@@ -31,13 +32,12 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
 
     const sharedRef = useShareForwardedRef(ref)
     const [buttonRef, dispatch] = useXyoEvent(undefined, sharedRef)
-    const onConfirmFavorite = (alias?: string) => {
-      setFavorite((current) => {
-        const newFavoriteState = !current
+    const onConfirmFavorite = (alias?: string, newFavoriteState?: boolean) => {
+      setFavorite(() => {
         const favoriteEvent: FavoriteEvent = {
           address,
           alias,
-          favorite: newFavoriteState,
+          favorite: !!newFavoriteState,
         }
         dispatch('address', 'favorite', JSON.stringify(favoriteEvent))
         return newFavoriteState
@@ -60,7 +60,14 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
         {...props}
       >
         <span ref={starRef}>{favorite ? <StarIcon component={'svg'} color="secondary" /> : <StarBorderIcon />}</span>
-        <FavoritePopper favoriteRef={starRef} open={openPopper} onConfirmFavorite={onConfirmFavorite} onClickAway={() => setOpenPopper(false)} />
+        <FavoritePopper
+          alias={alias}
+          favorite={favorite}
+          favoriteRef={starRef}
+          open={openPopper}
+          onConfirmFavorite={onConfirmFavorite}
+          onClickAway={() => setOpenPopper(false)}
+        />
         {children}
       </IconButton>
     )

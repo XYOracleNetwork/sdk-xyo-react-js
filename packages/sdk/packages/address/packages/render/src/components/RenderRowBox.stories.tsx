@@ -1,7 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Account } from '@xyo-network/account'
 import { useXyoEvent } from '@xyo-network/react-event'
+import { useState } from 'react'
 
+import { FavoriteEvent } from './favorite'
 import { AddressRenderRowBox } from './RenderRowBox'
 
 const address = new Account({ phrase: 'temp' }).addressValue.hex
@@ -18,8 +20,17 @@ const StorybookEntry = {
 } as ComponentMeta<typeof AddressRenderRowBox>
 
 const Template: ComponentStory<typeof AddressRenderRowBox> = (args) => {
-  const [ref] = useXyoEvent<HTMLLIElement>((noun, verb, data) => console.log(`${noun}|${verb}|${data}`))
-  return <AddressRenderRowBox {...args} ref={ref} />
+  const [ref] = useXyoEvent<HTMLLIElement>((noun, verb, data) => {
+    console.log(`${noun}|${verb}|${data}`)
+    const parsedEvent = JSON.parse(data ?? '') as FavoriteEvent
+    if (parsedEvent.favorite) {
+      setAlias(parsedEvent.alias)
+    } else {
+      setAlias(undefined)
+    }
+  })
+  const [alias, setAlias] = useState(args.alias)
+  return <AddressRenderRowBox {...args} alias={alias} ref={ref} />
 }
 
 const Default = Template.bind({})
@@ -51,6 +62,15 @@ WithFavorite.args = {
   showFavorite: true,
 }
 
+const WithFavoriteAlias = Template.bind({})
+WithFavoriteAlias.args = {
+  address,
+  alias: 'My Alias',
+  favorite: true,
+  icons: true,
+  showFavorite: true,
+}
+
 const WithChildren = Template.bind({})
 WithChildren.args = {
   address,
@@ -60,7 +80,7 @@ WithChildren.args = {
   showFavorite: true,
 }
 
-export { Default, WithAddress, WithChildren, WithFavorite, WithIcon, WithIconOnly }
+export { Default, WithAddress, WithChildren, WithFavorite, WithFavoriteAlias, WithIcon, WithIconOnly }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
