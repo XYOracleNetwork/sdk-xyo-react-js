@@ -6,24 +6,19 @@ import { useXyoEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 
+import { FavoriteItemEvent } from '../lib'
 import { popperId } from './lib'
 import { FavoritePopper } from './Popper'
 
-export interface FavoriteEvent {
-  address?: string
-  alias?: string
-  favorite: boolean
-}
-
 export interface FavoriteIconButtonProps extends WithChildren, IconButtonProps {
-  // TODO - this could be anything really
-  address?: string
-  alias?: string
-  favorite?: boolean
+  alias?: FavoriteItemEvent['alias']
+  favorite?: FavoriteItemEvent['favorite']
+  value?: string
+  valueType?: FavoriteItemEvent['favoriteType']
 }
 
 export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButtonProps>(
-  ({ address, alias, children, favorite: favoriteProp, ...props }, ref) => {
+  ({ alias, children, favorite: favoriteProp, valueType, value, ...props }, ref) => {
     const [openPopper, setOpenPopper] = useState(false)
 
     const [favorite, setFavorite] = useState(favoriteProp)
@@ -35,10 +30,11 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
     const [buttonRef, dispatch] = useXyoEvent(undefined, sharedRef)
     const onConfirmFavorite = (alias?: string, newFavoriteState?: boolean) => {
       setFavorite(() => {
-        const favoriteEvent: FavoriteEvent = {
-          address,
+        const favoriteEvent: FavoriteItemEvent = {
           alias,
           favorite: !!newFavoriteState,
+          favoriteType: valueType,
+          favoriteValue: value,
         }
         dispatch('address', 'favorite', JSON.stringify(favoriteEvent))
         return newFavoriteState

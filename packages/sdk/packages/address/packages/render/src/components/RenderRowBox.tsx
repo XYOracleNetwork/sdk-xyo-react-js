@@ -49,7 +49,9 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
           </ListItemText>
         )}
         {children}
-        {showFavorite && address ? <FavoriteIconButton alias={alias} size={'small'} address={address} favorite={favoriteProp} /> : null}
+        {showFavorite && address ? (
+          <FavoriteIconButton alias={alias} size={'small'} value={address} valueType={'address'} favorite={favoriteProp} />
+        ) : null}
       </FlexGrowRow>
     )
   },

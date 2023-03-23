@@ -3,7 +3,7 @@ import { Account } from '@xyo-network/account'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { useState } from 'react'
 
-import { FavoriteEvent } from './favorite'
+import { FavoriteItemEvent } from './lib'
 import { AddressRenderRowBox } from './RenderRowBox'
 
 const address = new Account({ phrase: 'temp' }).addressValue.hex
@@ -22,7 +22,7 @@ const StorybookEntry = {
 const Template: ComponentStory<typeof AddressRenderRowBox> = (args) => {
   const [ref] = useXyoEvent<HTMLLIElement>((noun, verb, data) => {
     console.log(`${noun}|${verb}|${data}`)
-    const parsedEvent = JSON.parse(data ?? '') as FavoriteEvent
+    const parsedEvent = JSON.parse(data ?? '') as FavoriteItemEvent
     if (parsedEvent.favorite) {
       setAlias(parsedEvent.alias)
     } else {
