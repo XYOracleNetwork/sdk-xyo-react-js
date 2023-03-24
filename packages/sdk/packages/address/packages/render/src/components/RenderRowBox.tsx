@@ -28,14 +28,10 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
     const sharedRef = useShareForwardedRef(ref)
     const [elementRef, dispatch] = useXyoEvent(undefined, sharedRef)
 
+    const handleClickedAddress = () => (address ? dispatch('address', 'click', address) : undefined)
+
     return (
-      <FlexGrowRow
-        gap={2}
-        justifyContent="flex-start"
-        ref={elementRef}
-        onClick={() => (address ? dispatch('address', 'click', address) : undefined)}
-        {...props}
-      >
+      <FlexGrowRow gap={2} justifyContent="flex-start" ref={elementRef} onClick={handleClickedAddress} {...props}>
         {icons && address ? (
           <ListItemIcon sx={{ minWidth: 0 }}>
             <Identicon size={iconSize} value={address} />

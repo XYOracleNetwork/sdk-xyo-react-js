@@ -46,18 +46,20 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
 
     return (
       <IconButton
-        ref={buttonRef}
         aria-describedby={popperId}
-        // used to prevent parent items from rippling when IconButton is clicked
-        onMouseDown={(e) => e.stopPropagation()}
+        ref={buttonRef}
         onClick={(event) => {
           event.stopPropagation()
-          setOpenPopper(true)
+          setOpenPopper(!openPopper)
         }}
+        onMouseDown={(e) => e.stopPropagation()}
         {...props}
       >
-        <span ref={starRef}>{favorite ? <StarIcon component={'svg'} color="secondary" /> : <StarBorderIcon />}</span>
+        <span ref={starRef}>
+          {favorite ? <StarIcon className="favorite-icon" component={'svg'} color="secondary" /> : <StarBorderIcon className="favorite-icon" />}
+        </span>
         <FavoritePopper
+          sx={{ zIndex: 1301 }}
           alias={alias}
           favorite={favorite}
           favoriteRef={starRef}
