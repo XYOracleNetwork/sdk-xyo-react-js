@@ -16,7 +16,7 @@ import { useSchemaList } from '../useSchemaList'
 import { useSchemaStats } from '../useSchemaStats'
 
 const apiConfig = { apiDomain: 'https://api.archivist.xyo.network' }
-const nodeUri = 'http://localhost:8080/node'
+const nodeUrl = 'http://localhost:8080/node'
 const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
 const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
@@ -26,7 +26,7 @@ const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const node = await MemoryNode.create({ config: { schema: NodeConfigSchema } })
-      const bridge = await HttpBridge.create({ config: { nodeUri, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } } })
+      const bridge = await HttpBridge.create({ config: { nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } } })
       await node.register(bridge).attach(bridge.address, true)
       setNode(node)
     },

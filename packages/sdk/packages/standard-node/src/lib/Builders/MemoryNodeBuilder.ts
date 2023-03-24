@@ -50,7 +50,7 @@ export class MemoryNodeBuilder {
   async addBridge(apiDomain: string) {
     try {
       const bridge = await HttpBridge.create({
-        config: { name: 'RemoteNodeBridge', nodeUri: `${apiDomain}/node`, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
+        config: { name: 'RemoteNodeBridge', nodeUrl: `${apiDomain}/node`, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
       })
       await this.attach(bridge, true)
     } catch (e) {
