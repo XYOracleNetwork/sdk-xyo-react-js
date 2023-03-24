@@ -12,6 +12,7 @@ export const PopperButtonGroup: React.FC<FavoritePopperProps> = ({ alias, onConf
   return (
     <ButtonGroup {...props}>
       <Button
+        title="Save Favorite"
         variant="contained"
         onClick={(e) => {
           e.stopPropagation()
@@ -22,6 +23,7 @@ export const PopperButtonGroup: React.FC<FavoritePopperProps> = ({ alias, onConf
       </Button>
       {favorite ? (
         <Button
+          title="Remove Favorite"
           variant="contained"
           onClick={(e) => {
             e.stopPropagation()

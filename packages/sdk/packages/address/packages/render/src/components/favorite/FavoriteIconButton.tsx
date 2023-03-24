@@ -1,12 +1,11 @@
-import StarIcon from '@mui/icons-material/Star'
-import StarBorderIcon from '@mui/icons-material/StarBorder'
 import { IconButton, IconButtonProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 
-import { FavoriteItemEvent } from '../lib'
+import { FavoriteItemEvent, generateFavoriteEvent } from '../lib'
+import { FavoriteToggleSVG } from './FavoriteToggleSVG'
 import { popperId } from './lib'
 import { FavoritePopper } from './Popper'
 
@@ -28,17 +27,11 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
 
     const sharedRef = useShareForwardedRef(ref)
     const [buttonRef, dispatch] = useXyoEvent(undefined, sharedRef)
+
     const onConfirmFavorite = (alias?: string, newFavoriteState?: boolean) => {
-      setFavorite(() => {
-        const favoriteEvent: FavoriteItemEvent = {
-          alias,
-          favorite: !!newFavoriteState,
-          favoriteType: valueType,
-          favoriteValue: value,
-        }
-        dispatch('address', 'favorite', JSON.stringify(favoriteEvent))
-        return newFavoriteState
-      })
+      const favoriteEvent = generateFavoriteEvent(alias, !!newFavoriteState, valueType, value)
+      dispatch('address', 'favorite', JSON.stringify(favoriteEvent))
+      setFavorite(newFavoriteState)
       setOpenPopper(false)
     }
 
@@ -56,7 +49,7 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
         {...props}
       >
         <span ref={starRef}>
-          {favorite ? <StarIcon className="favorite-icon" component={'svg'} color="secondary" /> : <StarBorderIcon className="favorite-icon" />}
+          <FavoriteToggleSVG favorite={favorite} />
         </span>
         <FavoritePopper
           sx={{ zIndex: 1301 }}
