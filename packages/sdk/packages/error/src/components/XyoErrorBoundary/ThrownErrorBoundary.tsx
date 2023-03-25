@@ -1,4 +1,4 @@
-import { XyoError, XyoErrorSchema } from '@xyo-network/module'
+import { ModuleError, ModuleErrorSchema } from '@xyo-network/module'
 import { Component, ErrorInfo, ReactNode } from 'react'
 import Rollbar from 'rollbar'
 
@@ -7,13 +7,13 @@ import { XyoErrorRender } from '../XyoErrorRender'
 export interface XyoErrorBoundaryProps {
   boundaryName?: string
   children: ReactNode
-  errorComponent?: (e: XyoError, boundaryName?: string) => ReactNode
+  errorComponent?: (e: ModuleError, boundaryName?: string) => ReactNode
   rethrow?: boolean
   rollbar?: Rollbar
 }
 
 export interface XyoErrorBoundaryState {
-  xyoError?: XyoError
+  xyoError?: ModuleError
 }
 
 export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, XyoErrorBoundaryState> {
@@ -25,8 +25,10 @@ export class XyoThrownErrorBoundary extends Component<XyoErrorBoundaryProps, Xyo
     return { hasError: true, xyoError: XyoThrownErrorBoundary.normalizeError(error) } as XyoErrorBoundaryState
   }
 
-  public static normalizeError(error: Error | XyoError): XyoError {
-    return ((error as XyoError).schema === XyoErrorSchema ? error : { message: error.message, schema: XyoErrorSchema, sources: [] }) as XyoError
+  public static normalizeError(error: Error | ModuleError): ModuleError {
+    return (
+      (error as ModuleError).schema === ModuleErrorSchema ? error : { message: error.message, schema: ModuleErrorSchema, sources: [] }
+    ) as ModuleError
   }
 
   public override componentDidCatch(error: Error, errorInfo: ErrorInfo) {

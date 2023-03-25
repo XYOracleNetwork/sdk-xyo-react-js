@@ -1,5 +1,5 @@
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { XyoError } from '@xyo-network/module'
+import { ModuleError } from '@xyo-network/module'
 import { ContextExState } from '@xyo-network/react-shared'
 
 export interface NestedBoundWitnesses {
@@ -8,7 +8,7 @@ export interface NestedBoundWitnesses {
 export interface HashSelectionHistoryState extends ContextExState {
   addSelection?: (boundwitness?: BoundWitness) => Promise<BoundWitness | null>
   clearHistory?: () => boolean
-  error?: XyoError
+  error?: ModuleError
   fetchFromHash?: (hash?: string) => Promise<BoundWitness | undefined | null>
   hashSelectionHistory?: string[]
   nestedBoundWitnesses?: NestedBoundWitnesses
