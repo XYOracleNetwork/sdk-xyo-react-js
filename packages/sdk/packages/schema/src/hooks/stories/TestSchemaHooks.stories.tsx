@@ -8,7 +8,7 @@ import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
 import { NodeProvider } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletProvider } from '@xyo-network/react-wallet'
-import { XyoSchemaCache } from '@xyo-network/utils'
+import { SchemaCache } from '@xyo-network/schema-cache'
 import { useState } from 'react'
 
 import { useSchemaDefinitions } from '../useSchemaDefinitions'
@@ -49,7 +49,7 @@ export default {
 } as Meta
 
 const Template: ComponentStory<React.FC> = () => {
-  XyoSchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
+  SchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
   const [addressText, setAddressText] = useState<string>('')
   const [address, setAddress] = useState<string>()
   const [schemaStats, schemaStatsError] = useSchemaStats(address)

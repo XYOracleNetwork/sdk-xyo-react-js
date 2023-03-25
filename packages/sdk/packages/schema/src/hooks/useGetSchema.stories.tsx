@@ -1,14 +1,14 @@
 import { FormControl, TextField, Typography } from '@mui/material'
 import { ComponentStory, Meta } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { XyoSchemaCache } from '@xyo-network/utils'
+import { SchemaCache } from '@xyo-network/schema-cache'
 import { lazy, Suspense, useEffect, useState } from 'react'
 
 import { useGetSchemaPayload } from './useGetSchema'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
-XyoSchemaCache.instance.proxy = 'https://beta.api.archivist.xyo.network/domain'
+SchemaCache.instance.proxy = 'https://beta.api.archivist.xyo.network/domain'
 
 const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
   const exampleSchemas = ['network.xyo.domain', 'network.xyo.payload', 'network.xyo.schema']

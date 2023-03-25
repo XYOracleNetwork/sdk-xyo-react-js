@@ -6919,7 +6919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/domain-payload-plugin@npm:^2.53.17, @xyo-network/domain-payload-plugin@npm:^2.53.18":
+"@xyo-network/domain-payload-plugin@npm:^2.53.18":
   version: 2.53.18
   resolution: "@xyo-network/domain-payload-plugin@npm:2.53.18"
   dependencies:
@@ -7041,7 +7041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/huri@npm:^2.53.17, @xyo-network/huri@npm:^2.53.18":
+"@xyo-network/huri@npm:^2.53.18":
   version: 2.53.18
   resolution: "@xyo-network/huri@npm:2.53.18"
   dependencies:
@@ -7109,6 +7109,23 @@ __metadata:
     lodash: ^4.17.21
     lru-cache: ^8.0.4
   checksum: 0da7bbba52855278bb878b3c3a0ff52b3ffa400d506641868bd9c8e37f69180ed272edda2ffaf8623bc030472f74c11fc86e01bce9d6b16b3920ee9e2722dcf4
+  languageName: node
+  linkType: hard
+
+"@xyo-network/metamask-connector@npm:^2.53.17":
+  version: 2.53.18
+  resolution: "@xyo-network/metamask-connector@npm:2.53.18"
+  dependencies:
+    "@ethersproject/providers": ^5.7.2
+    "@metamask/providers": ^10.2.1
+    "@xylabs/delay": ^2.7.6
+    "@xyo-network/domain-payload-plugin": ^2.53.18
+    "@xyo-network/huri": ^2.53.18
+    "@xyo-network/payload-model": ^2.53.18
+    "@xyo-network/schema-payload-plugin": ^2.53.18
+    ajv: ^8.12.0
+    lru-cache: ^8.0.4
+  checksum: b77dc8796ae30d92595c2fc39b2fe56b0c5d789b3568a3c32512890d5176611316c705d1e323644a4b4cfd991b5e7ec61411538d45cb6c85daaa85b270221794
   languageName: node
   linkType: hard
 
@@ -7290,7 +7307,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/payload-model@npm:^2.53.17, @xyo-network/payload-model@npm:^2.53.18":
+"@xyo-network/payload-model@npm:^2.53.18":
   version: 2.53.18
   resolution: "@xyo-network/payload-model@npm:2.53.18"
   checksum: b7f192797095f7f635053460ad995f1d952564dc7f65ffd19d269e54a23a4305d275cc6aa9fc3ec4d1c3aab0d9c5e28222302fd104f025eff7a34fe35609bde2
@@ -7956,7 +7973,7 @@ __metadata:
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/utils": ^2.53.17
+    "@xyo-network/schema-cache": ^2.53.17
     require-from-string: ^2.0.2
     typescript: ^4.9.5
   peerDependencies:
@@ -8880,8 +8897,8 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
+    "@xyo-network/schema-cache": ^2.53.17
     "@xyo-network/schema-payload-plugin": ^2.53.18
-    "@xyo-network/utils": ^2.53.17
     lodash: ^4.17.21
     react-json-view: ^1.21.3
     require-from-string: ^2.0.2
@@ -9168,8 +9185,8 @@ __metadata:
     "@xylabs/assert": ^2.7.6
     "@xylabs/react-shared": ^2.16.11
     "@xylabs/ts-scripts-yarn3": ^2.16.1
+    "@xyo-network/metamask-connector": ^2.53.17
     "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/utils": ^2.53.17
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
@@ -9274,6 +9291,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/schema-cache@npm:^2.53.17":
+  version: 2.53.18
+  resolution: "@xyo-network/schema-cache@npm:2.53.18"
+  dependencies:
+    "@ethersproject/providers": ^5.7.2
+    "@metamask/providers": ^10.2.1
+    "@xylabs/delay": ^2.7.6
+    "@xyo-network/domain-payload-plugin": ^2.53.18
+    "@xyo-network/huri": ^2.53.18
+    "@xyo-network/payload-model": ^2.53.18
+    "@xyo-network/schema-payload-plugin": ^2.53.18
+    ajv: ^8.12.0
+    lru-cache: ^8.0.4
+  checksum: 6b21ab2f995da347642c49ed33e8a5e73db6b2bd615bb7e19fd5c3948d5f53983069816461d09d45ffd52d98526e40346656358d4b5749327df990328cef27a9
+  languageName: node
+  linkType: hard
+
 "@xyo-network/schema-name-validator@npm:^2.53.18":
   version: 2.53.18
   resolution: "@xyo-network/schema-name-validator@npm:2.53.18"
@@ -9283,7 +9317,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/schema-payload-plugin@npm:^2.53.17, @xyo-network/schema-payload-plugin@npm:^2.53.18":
+"@xyo-network/schema-payload-plugin@npm:^2.53.18":
   version: 2.53.18
   resolution: "@xyo-network/schema-payload-plugin@npm:2.53.18"
   dependencies:
@@ -9418,23 +9452,6 @@ __metadata:
     "@xyo-network/payload-model": ^2.53.18
     "@xyo-network/payload-plugin": ^2.53.18
   checksum: a10c30eecf84a8d3fea65990c5f7e3094631bb9f01f84ae628da5d9a6bc9e4b9361b3c509492a782ee110a2c14a4833bafc559c139b0ebbbb6d42d31988b3f19
-  languageName: node
-  linkType: hard
-
-"@xyo-network/utils@npm:^2.53.17":
-  version: 2.53.17
-  resolution: "@xyo-network/utils@npm:2.53.17"
-  dependencies:
-    "@ethersproject/providers": ^5.7.2
-    "@metamask/providers": ^10.2.1
-    "@xylabs/delay": ^2.7.6
-    "@xyo-network/domain-payload-plugin": ^2.53.17
-    "@xyo-network/huri": ^2.53.17
-    "@xyo-network/payload-model": ^2.53.17
-    "@xyo-network/schema-payload-plugin": ^2.53.17
-    ajv: ^8.12.0
-    lru-cache: ^8.0.4
-  checksum: ea8753ce3ce1f3e119e806f1b3caea4c7573ad163afc0e76a260257c6b78dfb7ee590c4c82b8cb7ce7d731e9dcaea7bcb81b7295b03a83370ec9a87f1368c9f7
   languageName: node
   linkType: hard
 

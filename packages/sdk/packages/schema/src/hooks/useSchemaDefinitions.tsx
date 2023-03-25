@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
+import { SchemaCache } from '@xyo-network/schema-cache'
 import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
-import { XyoSchemaCache } from '@xyo-network/utils'
 import { useState } from 'react'
 
 export type SchemaList = { name: string }
@@ -11,7 +11,7 @@ export const useSchemaDefinitions = (schemaList?: SchemaList[]): XyoSchemaPayloa
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (schemaList) {
-        const promiseResults = await Promise.allSettled(schemaList?.map(({ name }) => XyoSchemaCache.instance.get(name)))
+        const promiseResults = await Promise.allSettled(schemaList?.map(({ name }) => SchemaCache.instance.get(name)))
         if (mounted()) {
           setSchemaPayloads(
             promiseResults

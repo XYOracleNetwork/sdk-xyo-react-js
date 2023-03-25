@@ -6,7 +6,7 @@ import { LinkEx } from '@xylabs/react-link'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { useXyoEvent, XyoEventDispatch, XyoEventNoun } from '@xyo-network/react-event'
 import { Property, PropertyProps, PropertyValue } from '@xyo-network/react-property'
-import { XyoSchemaCache, XyoSchemaCacheEntry } from '@xyo-network/utils'
+import { SchemaCache, SchemaCacheEntry } from '@xyo-network/schema-cache'
 import { forwardRef, useState } from 'react'
 
 export type SchemaPropertyProps = PropertyProps & {
@@ -19,12 +19,12 @@ export type SchemaPropertyProps = PropertyProps & {
 }
 
 const useResolveSchema = (schema?: string) => {
-  const [entry, setEntry] = useState<XyoSchemaCacheEntry | null>()
+  const [entry, setEntry] = useState<SchemaCacheEntry | null>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (schema) {
-        const entry = await XyoSchemaCache.instance.get(schema)
+        const entry = await SchemaCache.instance.get(schema)
         if (mounted()) {
           setEntry(entry)
         }
