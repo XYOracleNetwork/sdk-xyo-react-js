@@ -34,16 +34,14 @@ export const EllipsisTableCellWithRef: React.FC<WithChildren<EllipsisTableCellPr
       if (children) {
         return children
       }
-      if (href || link) {
+      if (href || link || to) {
         return (
           <LinkEx title={value} to={to} href={href} target={href ? '_blank' : undefined}>
             {value}
           </LinkEx>
         )
       }
-      if (to) {
-        return value
-      }
+      return value
     }, [children, href, link, to, value])
     return (
       <EllipsisTableCellRoot ref={ref} {...props}>
