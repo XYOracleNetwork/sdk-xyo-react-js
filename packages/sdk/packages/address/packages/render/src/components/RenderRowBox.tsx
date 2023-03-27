@@ -37,7 +37,7 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
           </ListItemIcon>
         ) : null}
         {iconOnly ? null : (
-          <ListItemText>
+          <ListItemText sx={{ my: 0 }}>
             <EllipsizeBox ellipsisPosition={'end'} width="100%" typographyProps={{ fontSize: theme.typography.body1.fontSize }}>
               {name ?? address}
             </EllipsizeBox>
