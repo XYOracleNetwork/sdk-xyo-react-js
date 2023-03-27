@@ -24,6 +24,7 @@ const setDensity = (feature: Feature) => {
 const useQuadKeyPayloadsToFeatures = (payloads?: NetworkXyoLocationHeatmapQuadkeyAnswerPayload[] | NetworkXyoLocationHeatmapQuadkeyAnswerPayload) => {
   const [multipleFeatureSets, setMultipleFeatureSets] = useState<Feature<Geometry>[][]>([[]])
   const [features, setFeatures] = useState<Feature<Geometry>[]>([])
+  const [error, setError] = useState<Error>()
 
   useEffect(() => {
     // Convert Multiple Payloads from Quadkey to GeoJson
@@ -34,7 +35,7 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkXyoLocationHeatmapQuadke
 
         setMultipleFeatureSets(mappedFeatures.map((features) => features.map(setDensity)))
       } else {
-        console.error('Cannot find payloads for provided hashes')
+        setError(new Error('Cannot find payloads for provided hashes'))
       }
     }
 
@@ -47,7 +48,7 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkXyoLocationHeatmapQuadke
     }
   }, [payloads])
 
-  return { features, multipleFeatureSets }
+  return { error, features, multipleFeatureSets }
 }
 
 export { useQuadKeyPayloadsToFeatures }

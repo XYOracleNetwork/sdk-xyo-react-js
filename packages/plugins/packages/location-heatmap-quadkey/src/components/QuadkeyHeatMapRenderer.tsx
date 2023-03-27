@@ -1,6 +1,7 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
+import { XyoErrorAlert, XyoErrorRender } from '@xyo-network/react-error'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,
@@ -25,7 +26,7 @@ export interface QuadkeyHeatMapInnerProps extends FlexBoxProps {
 }
 
 const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode, payload, accessToken, ...props }) => {
-  const { features } = useQuadKeyPayloadsToFeatures(payload as NetworkXyoLocationHeatmapQuadkeyAnswerPayload)
+  const { error, features } = useQuadKeyPayloadsToFeatures(payload as NetworkXyoLocationHeatmapQuadkeyAnswerPayload)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
   const accessTokenResolved = accessToken ?? accessTokenFromContext
@@ -34,19 +35,28 @@ const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode
     return LocationHeatMapLayerBuilder(theme.palette.secondary.main, undefined)
   }, [theme.palette.secondary.main])
 
-  return accessTokenResolved ? (
-    <HeatMapInitializerProvider
-      features={features as Feature<Polygon>[]}
-      heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
-      layers={layers}
-    >
-      <XyoMapboxHeatFlexBox accessToken={accessTokenResolved} features={features as Feature<Polygon>[]} developerMode={developerMode} {...props} />
-    </HeatMapInitializerProvider>
-  ) : (
-    <Alert severity={'error'}>
-      <AlertTitle>Mapbox Token Missing</AlertTitle>
-      Please add it to the environment variable or pass it directly to the component
-    </Alert>
+  return (
+    <XyoErrorRender error={error} errorContext={'QuadKeyHeatMapRenderer'}>
+      {accessTokenResolved ? (
+        <HeatMapInitializerProvider
+          features={features as Feature<Polygon>[]}
+          heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
+          layers={layers}
+        >
+          <XyoMapboxHeatFlexBox
+            accessToken={accessTokenResolved}
+            features={features as Feature<Polygon>[]}
+            developerMode={developerMode}
+            {...props}
+          />
+        </HeatMapInitializerProvider>
+      ) : (
+        <Alert severity={'error'}>
+          <AlertTitle>Mapbox Token Missing</AlertTitle>
+          Please add it to the environment variable or pass it directly to the component
+        </Alert>
+      )}
+    </XyoErrorRender>
   )
 }
 
