@@ -25,7 +25,7 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
     },
     ref,
   ) => {
-    const [name, setName] = useState<string>()
+    const [name, setName] = useState(nameProp)
     useEffect(() => {
       setName(nameProp)
     }, [nameProp])
