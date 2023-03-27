@@ -1,18 +1,13 @@
 import { useRenderSpinCheck } from '@xylabs/react-render-spin-check'
 import { AccountInstance } from '@xyo-network/account-model'
-import { ModuleWrapper } from '@xyo-network/module'
+import { ConstructableModuleWrapper, ModuleWrapper } from '@xyo-network/module'
 import { useAccount } from '@xyo-network/react-wallet'
 import { useEffect, useMemo, useState } from 'react'
 
 import { useModule } from './useModule'
 
-export interface WrapperStatic<TModuleWrapper extends ModuleWrapper = ModuleWrapper> {
-  requiredQueries: string[]
-  wrap: (module?: TModuleWrapper['module'], account?: AccountInstance) => TModuleWrapper
-}
-
-export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = ModuleWrapper>(
-  wrapperObject: WrapperStatic<TModuleWrapper>,
+export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper>(
+  wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
   name?: string,
 ) => {
   const useHook = (nameOrAddress?: string, account?: AccountInstance, spinCheck?: boolean): [TModuleWrapper | undefined, Error | undefined] => {
@@ -43,7 +38,7 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = 
     useEffect(() => {
       if (module && accountToUse) {
         try {
-          const wrapper = wrapperObject.wrap(module, accountToUse) as TModuleWrapper
+          const wrapper = wrapperObject.wrap(module, accountToUse)
           setWrapper(wrapper)
           setError(undefined)
         } catch (ex) {

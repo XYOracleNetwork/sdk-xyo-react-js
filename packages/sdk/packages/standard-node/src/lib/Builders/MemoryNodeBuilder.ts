@@ -16,7 +16,7 @@ interface MemoryNodeBuilderConfig {
 
 export class MemoryNodeBuilder {
   private _node: MemoryNode | undefined
-  private _wrappedNode: NodeWrapper<MemoryNode> | undefined
+  private _wrappedNode: NodeWrapper | undefined
 
   get node() {
     return assertDefinedEx(this._node, 'this._node was not defined upon create')
