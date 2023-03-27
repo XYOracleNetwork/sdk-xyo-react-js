@@ -10,7 +10,6 @@ import { FavoriteIconButton } from './favorite'
 
 export interface AddressRenderRowBoxPropsBase {
   address?: string | null
-  alias?: string
   favorite?: boolean
   iconOnly?: boolean
   iconSize?: number
@@ -22,7 +21,7 @@ export interface AddressRenderRowBoxPropsBase {
 export interface AddressRenderRowBoxProps extends WithChildren, AddressRenderRowBoxPropsBase, FlexBoxProps {}
 
 export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxProps>(
-  ({ address, alias, children, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, name, showFavorite = false, ...props }, ref) => {
+  ({ address, children, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, name, showFavorite = false, ...props }, ref) => {
     const theme = useTheme()
 
     const sharedRef = useShareForwardedRef(ref)
@@ -40,13 +39,13 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
         {iconOnly ? null : (
           <ListItemText>
             <EllipsizeBox ellipsisPosition={'end'} width="100%" typographyProps={{ fontSize: theme.typography.body1.fontSize }}>
-              {alias ?? name ?? address}
+              {name ?? address}
             </EllipsizeBox>
           </ListItemText>
         )}
         {children}
         {showFavorite && address ? (
-          <FavoriteIconButton alias={alias} size={'small'} value={address} valueType={'address'} favorite={favoriteProp} />
+          <FavoriteIconButton name={name} size={'small'} value={address} valueType={'address'} favorite={favoriteProp} />
         ) : null}
       </FlexGrowRow>
     )

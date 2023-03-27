@@ -1,20 +1,15 @@
 export interface FavoriteItemEvent {
-  alias?: string
   favorite?: boolean
   favoriteType?: FavoriteType
   favoriteValue?: string
+  name?: string
 }
 
 export type FavoriteType = 'address' | 'schema' | 'hash'
 
-export const generateFavoriteEvent = (
-  alias?: string,
-  favorite?: boolean,
-  favoriteType?: FavoriteType,
-  favoriteValue?: string,
-): FavoriteItemEvent => ({
-  alias,
+export const generateFavoriteEvent = (favorite?: boolean, favoriteType?: FavoriteType, favoriteValue?: string, name?: string): FavoriteItemEvent => ({
   favorite: !!favorite,
   favoriteType,
   favoriteValue,
+  name,
 })

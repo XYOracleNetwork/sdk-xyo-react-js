@@ -24,13 +24,13 @@ const Template: ComponentStory<typeof AddressRenderRowBox> = (args) => {
     console.log(`${noun}|${verb}|${data}`)
     const parsedEvent = JSON.parse(data ?? '') as FavoriteItemEvent
     if (parsedEvent.favorite) {
-      setAlias(parsedEvent.alias)
+      setName(parsedEvent.name)
     } else {
-      setAlias(undefined)
+      setName(undefined)
     }
   })
-  const [alias, setAlias] = useState(args.alias)
-  return <AddressRenderRowBox {...args} alias={alias} ref={ref} />
+  const [name, setName] = useState(args.name)
+  return <AddressRenderRowBox {...args} name={name} ref={ref} />
 }
 
 const Default = Template.bind({})
@@ -65,9 +65,9 @@ WithFavorite.args = {
 const WithFavoriteAlias = Template.bind({})
 WithFavoriteAlias.args = {
   address,
-  alias: 'My Alias',
   favorite: true,
   icons: true,
+  name: 'My Name',
   showFavorite: true,
 }
 

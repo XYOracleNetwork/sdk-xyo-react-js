@@ -10,14 +10,14 @@ import { popperId } from './lib'
 import { FavoritePopper } from './Popper'
 
 export interface FavoriteIconButtonProps extends WithChildren, IconButtonProps {
-  alias?: FavoriteItemEvent['alias']
   favorite?: FavoriteItemEvent['favorite']
+  name?: FavoriteItemEvent['name']
   value?: string
   valueType?: FavoriteItemEvent['favoriteType']
 }
 
 export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButtonProps>(
-  ({ alias, children, favorite: favoriteProp, valueType, value, ...props }, ref) => {
+  ({ children, favorite: favoriteProp, name, valueType, value, ...props }, ref) => {
     const [openPopper, setOpenPopper] = useState(false)
 
     const [favorite, setFavorite] = useState(favoriteProp)
@@ -28,8 +28,8 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
     const sharedRef = useShareForwardedRef(ref)
     const [buttonRef, dispatch] = useXyoEvent(undefined, sharedRef)
 
-    const onConfirmFavorite = (alias?: string, newFavoriteState?: boolean) => {
-      const favoriteEvent = generateFavoriteEvent(alias, !!newFavoriteState, valueType, value)
+    const onConfirmFavorite = (name?: string, newFavoriteState?: boolean) => {
+      const favoriteEvent = generateFavoriteEvent(!!newFavoriteState, valueType, value, name)
       dispatch('address', 'favorite', JSON.stringify(favoriteEvent))
       setFavorite(newFavoriteState)
       setOpenPopper(false)
@@ -53,7 +53,7 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
         </span>
         <FavoritePopper
           sx={{ zIndex: 1301 }}
-          alias={alias}
+          name={name}
           favorite={favorite}
           favoriteRef={starRef}
           open={openPopper}

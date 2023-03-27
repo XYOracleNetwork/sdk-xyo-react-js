@@ -5,16 +5,16 @@ import { popperId } from './lib'
 import { PopperButtonGroup } from './PopperButtonGroup'
 
 export interface FavoritePopperProps extends PopperProps {
-  alias?: string
   favorite?: boolean
   favoriteRef?: RefObject<HTMLElement>
+  name?: string
   onClickAway?: (event: MouseEvent | TouchEvent) => void
-  onConfirmFavorite?: (alias?: string, newFavoriteState?: boolean) => void
+  onConfirmFavorite?: (name?: string, newFavoriteState?: boolean) => void
 }
 export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
   (
     {
-      alias: aliasProp,
+      name: nameProp,
       favorite,
       favoriteRef,
       onClickAway = () => {
@@ -25,10 +25,10 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
     },
     ref,
   ) => {
-    const [alias, setAlias] = useState<string>()
+    const [name, setName] = useState<string>()
     useEffect(() => {
-      setAlias(aliasProp)
-    }, [aliasProp])
+      setName(nameProp)
+    }, [nameProp])
 
     return (
       <ClickAwayListener onClickAway={onClickAway}>
@@ -39,13 +39,13 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
                 <CardContent sx={{ display: 'flex', gap: 1 }}>
                   <TextField
                     autoFocus
-                    label="Favorite Alias"
+                    label="Favorite Name"
                     placeholder="optional"
                     size="small"
-                    value={alias ?? ''}
-                    onChange={(e) => setAlias(e.target.value)}
+                    value={name ?? ''}
+                    onChange={(e) => setName(e.target.value)}
                   />
-                  <PopperButtonGroup favorite={favorite} onConfirmFavorite={onConfirmFavorite} alias={alias} />
+                  <PopperButtonGroup favorite={favorite} onConfirmFavorite={onConfirmFavorite} name={name} />
                 </CardContent>
               </Card>
             </Fade>
