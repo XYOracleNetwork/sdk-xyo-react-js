@@ -1,7 +1,7 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
-import { XyoErrorAlert, XyoErrorRender } from '@xyo-network/react-error'
+import { XyoErrorRender } from '@xyo-network/react-error'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,
