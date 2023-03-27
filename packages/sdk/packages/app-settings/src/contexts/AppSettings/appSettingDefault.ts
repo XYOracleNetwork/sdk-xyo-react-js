@@ -7,5 +7,6 @@ export const appSettingDefault = (): Record<string, unknown> => {
     [AppSettingSlug.NavigationType]: 'menu',
     [AppSettingSlug.NavigationCollapsed]: false,
     [AppSettingSlug.SeedPhrase]: '',
+    [AppSettingSlug.MaxAccounts]: 1,
   }
 }

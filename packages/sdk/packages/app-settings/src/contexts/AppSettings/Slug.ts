@@ -4,4 +4,5 @@ export enum AppSettingSlug {
   NavigationType = 'navigationType',
   NavigationCollapsed = 'navigationCollapsed',
   SeedPhrase = 'seedPhrase',
+  MaxAccounts = 'maxAccounts',
 }

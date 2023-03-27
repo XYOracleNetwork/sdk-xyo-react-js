@@ -20,6 +20,7 @@ export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps
   const [navigationType, setNavigationType] = useState(storage.navigationType)
   const [navigationCollapsed, setNavigationCollapsed] = useState(storage.navigationCollapsed)
   const [seedPhrase, setSeedPhrase] = useState(storage.seedPhrase)
+  const [maxAccounts, setMaxAccounts] = useState(storage.maxAccounts)
 
   const enableDeveloperMode = (value: boolean) => {
     storage.developerMode = value
@@ -46,9 +47,15 @@ export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps
     setSeedPhrase(value)
   }
 
+  const changeMaxAccounts = (value: number) => {
+    storage.maxAccounts = value
+    setMaxAccounts(value)
+  }
+
   return (
     <AppSettingsContext.Provider
       value={{
+        changeMaxAccounts,
         changeNavigationCollapsed,
         changeNavigationType,
         changeSeedPhrase,
@@ -56,6 +63,7 @@ export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps
         developerMode,
         enableDarkMode,
         enableDeveloperMode,
+        maxAccounts,
         navigationCollapsed,
         navigationType,
         seedPhrase,

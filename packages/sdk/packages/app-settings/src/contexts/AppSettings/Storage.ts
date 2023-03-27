@@ -24,6 +24,14 @@ export class AppSettingsStorage extends AppSettingsStorageBase {
     this.setBoolean(AppSettingSlug.Developer, value)
   }
 
+  get maxAccounts() {
+    return this.getNumber(AppSettingSlug.MaxAccounts)
+  }
+
+  set maxAccounts(value: number) {
+    this.setNumber(AppSettingSlug.MaxAccounts, value)
+  }
+
   get navigationCollapsed() {
     return this.getBoolean(AppSettingSlug.NavigationCollapsed)
   }

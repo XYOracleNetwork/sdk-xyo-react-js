@@ -8,7 +8,6 @@ type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxPropsBase, 'iconOn
 
 export interface WalletAccountSelectProps extends SharedAddressRenderRowBoxProps, SelectProps<number> {
   favorites?: number[]
-
   maxAccounts?: number
 }
 
