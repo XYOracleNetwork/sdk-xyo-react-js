@@ -7,7 +7,7 @@ import { useWallet } from '../../contexts'
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxPropsBase, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 
 export interface WalletAccountSelectProps extends SharedAddressRenderRowBoxProps, SelectProps<number> {
-  favorites?: number[]
+  addressNames?: Record<string, string | undefined>
   maxAccounts?: number
 }
 
@@ -16,7 +16,7 @@ const arrayRange = (length: number, start = 0) => {
 }
 
 export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
-  favorites,
+  addressNames = {},
   iconOnly,
   iconSize = 24,
   icons,
@@ -45,14 +45,17 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
         >
           {arrayRange(maxAccounts).map((index) => {
             const account = wallet.deriveAccount(index.toString())
+            const customName = addressNames[account?.addressValue.hex]
+            const favorite = account?.addressValue.hex in addressNames
             return (
               <MenuItem key={account?.addressValue.hex} value={index}>
                 <AddressRenderRowBox
                   address={account?.addressValue.hex}
-                  favorite={favorites?.includes(index)}
+                  favorite={favorite}
                   iconOnly={iconOnly}
                   iconSize={iconSize}
                   icons={icons}
+                  name={customName}
                   showFavorite={showFavorite}
                 />
               </MenuItem>

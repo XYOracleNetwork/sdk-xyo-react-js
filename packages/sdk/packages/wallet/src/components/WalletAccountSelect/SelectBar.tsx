@@ -3,7 +3,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WalletAccountSelect } from './Select'
 
 export interface WalletAccountSelectBarProps extends FlexBoxProps {
-  favorites?: number[]
+  addressNames?: Record<string, string | undefined>
   iconOnly?: boolean
   iconSize?: number
   icons?: boolean
@@ -13,7 +13,7 @@ export interface WalletAccountSelectBarProps extends FlexBoxProps {
 }
 
 export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({
-  favorites,
+  addressNames = {},
   iconOnly,
   iconSize,
   icons,
@@ -25,7 +25,7 @@ export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({
   return (
     <FlexCol alignItems="stretch" {...props}>
       <WalletAccountSelect
-        favorites={favorites}
+        addressNames={addressNames}
         fullWidth
         showFavorite={showFavorite}
         iconSize={iconSize}

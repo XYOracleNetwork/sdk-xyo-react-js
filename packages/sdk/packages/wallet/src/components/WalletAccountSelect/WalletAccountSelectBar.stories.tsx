@@ -2,8 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { HDWallet } from '@xyo-network/account'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 
-import { WalletProvider } from '../../contexts'
+import { WalletProvider, WalletRootPath } from '../../contexts'
 import { WalletAccountSelectBar } from './SelectBar'
+
+const defaultWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
 const StorybookEntry = {
   argTypes: {},
@@ -22,7 +24,7 @@ const Template: ComponentStory<typeof WalletAccountSelectBar> = (args) => {
 
 const WithWalletTemplate: ComponentStory<typeof WalletAccountSelectBar> = (args) => {
   return (
-    <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
+    <WalletProvider defaultWallet={defaultWallet}>
       <WalletAccountSelectBar {...args} />
     </WalletProvider>
   )
@@ -41,7 +43,17 @@ const WithAdditionalAccounts = WithWalletTemplate.bind({})
 WithAdditionalAccounts.args = { icons: true, maxAccounts: 10 }
 
 const WithAccountFavorites = WithWalletTemplate.bind({})
-WithAccountFavorites.args = { favorites: [0, 3, 9, 10], icons: true, maxAccounts: 10, showFavorite: true }
+const defaultWalletAtIndex = defaultWallet.derivePath(WalletRootPath)
+WithAccountFavorites.args = {
+  addressNames: {
+    [defaultWalletAtIndex.deriveAccount('0').addressValue.hex]: 'first address',
+    [defaultWalletAtIndex.deriveAccount('3').addressValue.hex]: 'fourth address',
+    [defaultWalletAtIndex.deriveAccount('5').addressValue.hex]: 'sixth address',
+  },
+  icons: true,
+  maxAccounts: 10,
+  showFavorite: true,
+}
 
 export { Default, WithAccountFavorites, WithAdditionalAccounts, WithWallet, WithWalletIcon }
 
