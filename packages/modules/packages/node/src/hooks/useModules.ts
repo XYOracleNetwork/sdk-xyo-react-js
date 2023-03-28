@@ -11,7 +11,7 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
   const [error, setError] = useState<Error>()
 
   useEffect(() => {
-    logger?.debug('useModules: useAsyncEffect')
+    logger?.debug('useModules: useEffect')
     if (nodeError) {
       setError(nodeError)
       setModules(undefined)
@@ -30,8 +30,10 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
             setError(undefined)
           }
         } else {
-          setError(undefined)
-          setModules(undefined)
+          if (mounted()) {
+            setError(undefined)
+            setModules(undefined)
+          }
         }
       } catch (ex) {
         if (mounted()) {

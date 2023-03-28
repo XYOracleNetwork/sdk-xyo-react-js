@@ -10,16 +10,18 @@ import { useModules } from './useModules'
 
 export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
   wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
-  name?: string,
+  name: string,
 ) => {
   const filter = {
     query: [wrapperObject.requiredQueries],
   }
   const useHook = (account?: AccountInstance, spinCheck?: boolean, logger?: Logger): [TModuleWrapper[] | undefined, Error | undefined] => {
     const spinCheckBounceNoCheck = useMemo(() => {
+      logger?.debug('spinCheckBounceNoCheck.useMemo')
       return { name: name ?? 'WrappedModulesHookFactory-NoCheck' }
-    }, [])
-    useRenderSpinCheck(spinCheck ? { name: name ?? 'WrappedModuleHookFactory' } : spinCheckBounceNoCheck)
+    }, [logger])
+    logger?.debug(`Render: ${name}`)
+    useRenderSpinCheck(spinCheck ? { name } : spinCheckBounceNoCheck)
     const [providedAccount] = useAccount()
     const [modules, moduleError] = useModules<TModuleWrapper['module']>(filter, logger)
 
@@ -29,6 +31,7 @@ export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
     const accountToUse = useMemo(() => account ?? providedAccount, [account, providedAccount])
 
     useEffect(() => {
+      logger?.debug('useEffect: accountToUse start')
       if (!accountToUse) {
         logger?.debug('useEffect: accountToUse')
         const error = Error('Module hooks require either an Account context or account parameter')
@@ -38,6 +41,7 @@ export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
     }, [accountToUse, logger])
 
     useEffect(() => {
+      logger?.debug('useEffect: modules && accountToUse start')
       if (modules && accountToUse) {
         try {
           const wrappers = compact(modules?.map((module) => wrapperObject.tryWrap(module, accountToUse)))
@@ -57,7 +61,7 @@ export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
       return () => {
         logger?.debug('useEffect: modules && accountToUse unmount')
       }
-    }, [modules, account, moduleError, accountToUse, logger])
+    }, [modules, moduleError, accountToUse, logger])
 
     return [wrappers, error]
   }

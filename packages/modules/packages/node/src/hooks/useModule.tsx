@@ -23,8 +23,10 @@ export const useModule = <TModule extends Module = Module>(
     async (mounted) => {
       try {
         if (nodeError) {
-          setError(nodeError)
-          setModule(undefined)
+          if (mounted()) {
+            setError(nodeError)
+            setModule(undefined)
+          }
         } else {
           if (node) {
             const attachEmitter = node.module
@@ -58,8 +60,10 @@ export const useModule = <TModule extends Module = Module>(
               detachEmitter.off('moduleDetached', detachHandler)
             }
           } else {
-            setError(undefined)
-            setModule(undefined)
+            if (mounted()) {
+              setError(undefined)
+              setModule(undefined)
+            }
           }
         }
       } catch (ex) {
