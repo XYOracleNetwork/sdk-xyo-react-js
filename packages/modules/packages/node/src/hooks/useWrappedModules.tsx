@@ -2,27 +2,26 @@ import { useRenderSpinCheck } from '@xylabs/react-render-spin-check'
 import { AccountInstance } from '@xyo-network/account-model'
 import { ConstructableModuleWrapper, ModuleWrapper } from '@xyo-network/module'
 import { useAccount } from '@xyo-network/react-wallet'
+import compact from 'lodash/compact'
 import { useEffect, useMemo, useState } from 'react'
 
-import { useModule } from './useModule'
+import { useModules } from './useModules'
 
-export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper>(
+export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
   wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
   name?: string,
 ) => {
-  const useHook = (nameOrAddress?: string, account?: AccountInstance, spinCheck?: boolean): [TModuleWrapper | undefined, Error | undefined] => {
+  const useHook = (account?: AccountInstance, spinCheck?: boolean): [TModuleWrapper[] | undefined, Error | undefined] => {
     const spinCheckBounceNoCheck = useMemo(() => {
-      return { name: name ?? 'WrappedModuleHookFactory-NoCheck' }
+      return { name: name ?? 'WrappedModulesHookFactory-NoCheck' }
     }, [])
     useRenderSpinCheck(spinCheck ? { name: name ?? 'WrappedModuleHookFactory' } : spinCheckBounceNoCheck)
     const [providedAccount] = useAccount()
-    const [module, moduleError] = useModule<TModuleWrapper['module']>(
-      nameOrAddress ?? {
-        query: [wrapperObject.requiredQueries],
-      },
-    )
+    const [modules, moduleError] = useModules<TModuleWrapper['module']>({
+      query: [wrapperObject.requiredQueries],
+    })
 
-    const [wrapper, setWrapper] = useState<TModuleWrapper>()
+    const [wrappers, setWrappers] = useState<TModuleWrapper[]>()
     const [error, setError] = useState<Error>()
 
     const accountToUse = useMemo(() => account ?? providedAccount, [account, providedAccount])
@@ -36,24 +35,24 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper>(
     }, [accountToUse])
 
     useEffect(() => {
-      if (module && accountToUse) {
+      if (modules && accountToUse) {
         try {
-          const wrapper = wrapperObject.wrap(module, accountToUse)
-          setWrapper(wrapper)
+          const wrappers = compact(modules?.map((module) => wrapperObject.tryWrap(module, accountToUse)))
+          setWrappers(wrappers)
           setError(undefined)
         } catch (ex) {
-          setWrapper(undefined)
+          setWrappers(undefined)
           setError(ex as Error)
         }
       } else {
-        setWrapper(undefined)
+        setWrappers(undefined)
         setError(moduleError)
       }
-    }, [module, account, moduleError, accountToUse])
+    }, [modules, account, moduleError, accountToUse])
 
-    return [wrapper, error]
+    return [wrappers, error]
   }
   return useHook
 }
 
-export const useWrappedModule = WrappedModuleHookFactory(ModuleWrapper, 'useWrappedModule')
+export const useWrappedModules = WrappedModulesHookFactory(ModuleWrapper, 'useWrappedModules')
