@@ -30,10 +30,10 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkXyoLocationHeatmapQuadke
     // Convert Multiple Payloads from Quadkey to GeoJson
     if (Array.isArray(payloads)) {
       if (compact(payloads).length !== 0) {
-        const payloadsArray = payloads as NetworkXyoLocationHeatmapQuadkeyAnswerPayload[]
-        const mappedFeatures = payloadsArray?.map((payload) => payload.result.map(quadKeyToFeature))
+        const payloadsArray = payloads as (NetworkXyoLocationHeatmapQuadkeyAnswerPayload | null)[]
+        const mappedFeatures = payloadsArray?.map((payload) => payload?.result.map(quadKeyToFeature))
 
-        setMultipleFeatureSets(mappedFeatures.map((features) => features.map(setDensity)))
+        setMultipleFeatureSets(mappedFeatures.map((features) => features?.map(setDensity) ?? []))
       } else {
         setError(new Error('Cannot find payloads for provided hashes'))
       }
