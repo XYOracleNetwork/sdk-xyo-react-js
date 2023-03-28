@@ -1,5 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { AccountInstance } from '@xyo-network/account-model'
+import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
 import { useMemo, useState } from 'react'
@@ -21,6 +22,7 @@ export const useModule = <TModule extends Module = Module>(
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
+      const eventUnsubscribe: EventUnsubscribeFunction[] = []
       try {
         if (nodeError) {
           if (mounted()) {
@@ -29,8 +31,6 @@ export const useModule = <TModule extends Module = Module>(
           }
         } else {
           if (node) {
-            const attachEmitter = node.module
-            const detachEmitter = node.module
             const attachHandler = (args: ModuleAttachedEventArgs) => {
               const eventModule = args.module
               if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress) && mounted()) {
@@ -49,15 +49,14 @@ export const useModule = <TModule extends Module = Module>(
               ? await node.resolve<TModule>(nameOrAddress)
               : (await node.resolve<TModule>(filter)).pop()
             if (mounted()) {
-              attachEmitter.on('moduleAttached', attachHandler)
-              detachEmitter.on('moduleDetached', detachHandler)
+              eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
+              eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
               setModule(module)
               setError(undefined)
             }
             return () => {
               //remove the event handler on unmount
-              attachEmitter.off('moduleAttached', attachHandler)
-              detachEmitter.off('moduleDetached', detachHandler)
+              eventUnsubscribe.forEach((func) => func())
             }
           } else {
             if (mounted()) {
