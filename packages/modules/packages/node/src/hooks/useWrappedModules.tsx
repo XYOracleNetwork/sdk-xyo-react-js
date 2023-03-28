@@ -30,27 +30,34 @@ export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
 
     useEffect(() => {
       if (!accountToUse) {
+        logger?.debug('useEffect: accountToUse')
         const error = Error('Module hooks require either an Account context or account parameter')
         //console.error(error.message)
         setError(error)
       }
-    }, [accountToUse])
+    }, [accountToUse, logger])
 
     useEffect(() => {
       if (modules && accountToUse) {
         try {
           const wrappers = compact(modules?.map((module) => wrapperObject.tryWrap(module, accountToUse)))
+          logger?.debug('useEffect: modules && accountToUse')
           setWrappers(wrappers)
           setError(undefined)
         } catch (ex) {
+          logger?.error(`useEffect: modules && accountToUse Error: ${(ex as Error).message}`)
           setWrappers(undefined)
           setError(ex as Error)
         }
       } else {
+        logger?.debug('useEffect: no modules && accountToUse')
         setWrappers(undefined)
         setError(moduleError)
       }
-    }, [modules, account, moduleError, accountToUse])
+      return () => {
+        logger?.debug('useEffect: modules && accountToUse unmount')
+      }
+    }, [modules, account, moduleError, accountToUse, logger])
 
     return [wrappers, error]
   }
