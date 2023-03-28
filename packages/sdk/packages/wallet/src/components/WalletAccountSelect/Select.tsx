@@ -35,7 +35,19 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
           disabled={disabled}
           renderValue={(selected) => {
             const account = wallet.deriveAccount(selected.toString())
-            return <AddressRenderRowBox address={account?.addressValue.hex} iconOnly={iconOnly} iconSize={iconSize} icons={icons} />
+            const customName = addressNames[account?.addressValue.hex]
+            const favorite = account?.addressValue.hex in addressNames
+            return (
+              <AddressRenderRowBox
+                address={account?.addressValue.hex}
+                iconOnly={iconOnly}
+                iconSize={iconSize}
+                icons={icons}
+                name={customName}
+                favorite={favorite}
+                showFavorite={showFavorite}
+              />
+            )
           }}
           value={activeAccountIndex}
           onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}

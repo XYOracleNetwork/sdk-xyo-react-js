@@ -47,7 +47,7 @@ const defaultWalletAtIndex = defaultWallet.derivePath(WalletRootPath)
 WithAccountFavorites.args = {
   addressNames: {
     [defaultWalletAtIndex.deriveAccount('0').addressValue.hex]: 'first address',
-    [defaultWalletAtIndex.deriveAccount('3').addressValue.hex]: 'fourth address',
+    [defaultWalletAtIndex.deriveAccount('3').addressValue.hex]: undefined,
     [defaultWalletAtIndex.deriveAccount('5').addressValue.hex]: 'sixth address',
   },
   icons: true,
