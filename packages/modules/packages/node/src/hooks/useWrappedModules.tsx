@@ -11,15 +11,16 @@ export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
   wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
   name?: string,
 ) => {
+  const filter = {
+    query: [wrapperObject.requiredQueries],
+  }
   const useHook = (account?: AccountInstance, spinCheck?: boolean): [TModuleWrapper[] | undefined, Error | undefined] => {
     const spinCheckBounceNoCheck = useMemo(() => {
       return { name: name ?? 'WrappedModulesHookFactory-NoCheck' }
     }, [])
     useRenderSpinCheck(spinCheck ? { name: name ?? 'WrappedModuleHookFactory' } : spinCheckBounceNoCheck)
     const [providedAccount] = useAccount()
-    const [modules, moduleError] = useModules<TModuleWrapper['module']>({
-      query: [wrapperObject.requiredQueries],
-    })
+    const [modules, moduleError] = useModules<TModuleWrapper['module']>(filter)
 
     const [wrappers, setWrappers] = useState<TModuleWrapper[]>()
     const [error, setError] = useState<Error>()
