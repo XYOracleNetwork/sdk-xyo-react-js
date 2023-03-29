@@ -11,6 +11,7 @@ import { WalletProvider } from '@xyo-network/react-wallet'
 import { CytoscapeOptions } from 'cytoscape'
 import { useState } from 'react'
 
+import { useCytoscapeOptions } from '../hooks'
 import { NodeRelationalGraph } from './RelationalGraph'
 import { options } from './story'
 
@@ -66,6 +67,7 @@ const Template: ComponentStory<typeof NodeRelationalGraph> = (props) => <NodeRel
 const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => {
   const [node] = useProvidedNode()
   const [elements, setElements] = useState<CytoscapeOptions['elements']>()
+  const options = useCytoscapeOptions(elements)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -113,7 +115,7 @@ const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => 
     },
     [node],
   )
-  return <NodeRelationalGraph options={{ elements, layout: options.layout, style: options.style }} {...props} />
+  return <NodeRelationalGraph options={options} {...props} />
 }
 
 const defaultProps = {

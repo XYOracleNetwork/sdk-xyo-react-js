@@ -1,7 +1,7 @@
 import HubIcon from '@mui/icons-material/Hub'
 import { CytoscapeOptions } from 'cytoscape'
 
-import { encodeSvg } from '../lib'
+import { encodeSvg } from '../../lib'
 
 const icon = <HubIcon fontSize="small" />
 const url = encodeSvg(icon)
