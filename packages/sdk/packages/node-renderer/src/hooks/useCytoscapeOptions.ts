@@ -50,7 +50,7 @@ export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
         },
       ],
     }),
-    [elements, icons, theme.palette.divider, theme.palette.primary.dark, theme.palette.text.primary],
+    [elements, icons, theme.palette.divider, theme.palette.primary.main, theme.palette.text.primary],
   )
 
   return options
