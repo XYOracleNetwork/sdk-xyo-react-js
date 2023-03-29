@@ -17,9 +17,12 @@ export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
       },
       style: [
         {
-          selector: 'label',
+          selector: 'node[id]',
           style: {
             color: theme.palette.text.primary,
+            'font-family': 'Lexend Deca, Helvetica, sans-serif',
+            'font-size': 14,
+            'text-margin-y': -5,
           },
         },
         {
@@ -39,7 +42,7 @@ export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
           style: {
             'curve-style': 'bezier',
             'line-color': theme.palette.divider,
-            'line-opacity': 0.25,
+            'line-opacity': 0.1,
             'target-arrow-color': theme.palette.divider,
             'target-arrow-shape': 'triangle',
             width: 3,
