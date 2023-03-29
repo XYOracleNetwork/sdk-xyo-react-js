@@ -2,14 +2,14 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
-import { ModuleAttachedEventArgs } from '@xyo-network/node'
+import { useDataState } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
 import { useProvidedWrappedNode } from './useProvidedNode'
 
 export const useModules = <TModule extends Module = Module>(filter?: ModuleFilter, logger?: Logger): [TModule[] | undefined, Error | undefined] => {
   const [node, nodeError] = useProvidedWrappedNode()
-  const [modules, setModules] = useState<TModule[]>()
+  const [modules, setModules] = useDataState<TModule[]>([])
   const [error, setError] = useState<Error>()
 
   useEffect(() => {
@@ -17,35 +17,43 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
       setError(nodeError)
       setModules(undefined)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodeError, logger])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const eventUnsubscribe: EventUnsubscribeFunction[] = []
+
       try {
         if (node) {
-          eventUnsubscribe.push(
-            node.on('moduleAttached', ({ module }: ModuleAttachedEventArgs) => {
-              if (mounted()) {
-                //add the modules
-                setModules([...(modules ?? []), module as TModule])
-              }
-            }),
-          )
-          eventUnsubscribe.push(
-            node.on('moduleDetached', ({ module }: ModuleAttachedEventArgs) => {
-              if (mounted()) {
-                //remove the modules
-                setModules(modules?.filter((value) => value.address !== module.address))
-              }
-            }),
-          )
-          const modules: TModule[] | undefined = await node.resolve<TModule>(filter)
-          if (mounted()) {
-            setModules(modules)
-            setError(undefined)
+          const getModulesFromResolution = async () => {
+            const modules: TModule[] | undefined = await node.resolve<TModule>(filter)
+            if (mounted()) {
+              setModules(modules)
+              setError(undefined)
+            }
           }
+          await getModulesFromResolution()
+
+          eventUnsubscribe.push(
+            node.on('moduleAttached', async () => {
+              await getModulesFromResolution()
+            }),
+          )
+          eventUnsubscribe.push(
+            node.on('moduleDetached', async () => {
+              await getModulesFromResolution()
+            }),
+          )
+          //TODO: Obviously get rid of this timer
+          const timeoutFunc = async () => {
+            await getModulesFromResolution()
+            if (mounted()) {
+              setTimeout(timeoutFunc, 100)
+            }
+          }
+          setTimeout(timeoutFunc, 100)
         } else {
           if (mounted()) {
             setError(undefined)
@@ -66,6 +74,7 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
         eventUnsubscribe.forEach((func) => func())
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [filter, node, logger],
   )
 
