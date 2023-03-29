@@ -20,7 +20,7 @@ export const NodeRelationalGraph: React.FC<NodeRelationalGraph> = ({ children, o
         }),
       )
     }
-  }, [])
+  }, [options])
 
   return (
     <FlexCol ref={graphRef} {...props}>

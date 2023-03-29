@@ -1,21 +1,7 @@
 import { ComponentStory, Meta } from '@storybook/react'
 
 import { NodeRelationalGraph } from './RelationalGraph'
-
-const elements = [
-  {
-    // node a
-    data: { id: 'a' },
-  },
-  {
-    // node b
-    data: { id: 'b' },
-  },
-  {
-    // edge ab
-    data: { id: 'ab', source: 'a', target: 'b' },
-  },
-]
+import { options } from './story'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -29,6 +15,6 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { height: 'calc(100vh - 20px)', options: { elements }, width: '100%' }
+WithData.args = { height: 'calc(100vh - 20px)', options, width: '100%' }
 
 export { Default, WithData }
