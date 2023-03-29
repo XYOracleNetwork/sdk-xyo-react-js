@@ -3,10 +3,10 @@ import { CytoscapeOptions } from 'cytoscape'
 
 import { encodeSvg } from '../lib'
 
-const icon = <HubIcon />
+const icon = <HubIcon fontSize="small" />
 const url = encodeSvg(icon)
 
-const elements = [
+const elements: CytoscapeOptions['elements'] = [
   {
     // node a
     data: { id: 'a', name: 'element a' },
@@ -30,19 +30,19 @@ const elements = [
 ]
 
 const layout: CytoscapeOptions['layout'] = {
-  name: 'grid',
-  rows: 1,
+  name: 'cose',
+  nodeDimensionsIncludeLabels: true,
 }
 
-const style = [
+const style: CytoscapeOptions['style'] = [
   {
     selector: 'node',
     style: {
       'background-height': '75%',
       'background-image': url,
+      'background-image-smoothing': 'yes',
       'background-width': '75%',
-      'border-width': 1,
-      label: 'data(name)',
+      label: 'data(id)',
     },
   },
 
