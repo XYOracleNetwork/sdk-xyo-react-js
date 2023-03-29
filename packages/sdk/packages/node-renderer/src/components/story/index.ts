@@ -1,1 +1,1 @@
-export * from './TestData.stories'
+export * from './TestData'
