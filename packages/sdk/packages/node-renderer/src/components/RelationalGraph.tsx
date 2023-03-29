@@ -2,27 +2,26 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core, CytoscapeOptions } from 'cytoscape'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 
 export interface NodeRelationalGraph extends WithChildren<FlexBoxProps> {
   options?: CytoscapeOptions
 }
 
 export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGraph>(({ children, options, ...props }, ref) => {
-  const graphRef = useRef<HTMLDivElement>(null)
-  const sharedRef = useShareForwardedRef(graphRef)
+  const sharedRef = useShareForwardedRef(ref)
   const [cy, setCy] = useState<Core>()
 
   useEffect(() => {
-    if (graphRef) {
+    if (sharedRef) {
       setCy(
         cytoscape({
-          container: graphRef.current,
+          container: sharedRef.current,
           ...options,
         }),
       )
     }
-  }, [options])
+  }, [options, sharedRef])
 
   return (
     <FlexCol ref={sharedRef} {...props}>
