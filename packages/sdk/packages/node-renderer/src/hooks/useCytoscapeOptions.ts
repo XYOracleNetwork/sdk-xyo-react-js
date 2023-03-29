@@ -25,7 +25,7 @@ export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
         {
           selector: 'node',
           style: {
-            'background-color': theme.palette.primary.dark,
+            'background-color': theme.palette.primary.main,
             'background-height': '75%',
             // TODO - make dynamic
             'background-image': (elem) => icons[elem.data('type') as CyNodeIcons],

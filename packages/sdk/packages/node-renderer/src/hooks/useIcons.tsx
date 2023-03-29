@@ -24,7 +24,7 @@ export const useIcons = () => {
     const iconMap: Record<CyNodeIcons, string> = { archivist: '', diviner: '', module: '', node: '' }
     return Object.entries(CyIconSet).reduce((acc, [name, IconComponent]) => {
       const icon = <IconComponent fontSize="small" />
-      acc[name as CyNodeIcons] = encodeSvg(icon, theme.palette.text.primary)
+      acc[name as CyNodeIcons] = encodeSvg(icon, theme.palette.getContrastText(theme.palette.text.primary))
       return acc
     }, iconMap)
   }, [theme.palette])
