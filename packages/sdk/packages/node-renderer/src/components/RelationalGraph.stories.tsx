@@ -3,12 +3,12 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
-import { ModuleDescription, ModuleWrapper } from '@xyo-network/module'
+import { ModuleWrapper } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
-import { Payload } from '@xyo-network/payload-model'
 import { NodeProvider, useProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletProvider } from '@xyo-network/react-wallet'
+import { CytoscapeOptions } from 'cytoscape'
 import { useState } from 'react'
 
 import { NodeRelationalGraph } from './RelationalGraph'
@@ -65,29 +65,47 @@ export default {
 const Template: ComponentStory<typeof NodeRelationalGraph> = (props) => <NodeRelationalGraph {...props} />
 const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => {
   const [node] = useProvidedNode()
+  const [elements, setElements] = useState<CytoscapeOptions['elements']>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (node) {
         try {
+          const newElements = []
           const wrapper = NodeWrapper.wrap(node)
           const description = await wrapper?.describe()
+          const rootNodeId = description.name ?? description.address.substring(0, 6)
+          newElements.push({
+            data: { id: rootNodeId },
+          })
           const children = description.children
-          const descriptions: ModuleDescription[] = []
           await Promise.all(
             (children ?? [])?.map(async (address) => {
               const [result] = await wrapper.resolveWrapped(ModuleWrapper, { address: [address] })
-              console.log(result)
               try {
                 const description = await result.describe()
-                descriptions.push(description)
+                const newNodeId = description.name ?? description.address.substring(0, 6)
+                const newNode = {
+                  data: {
+                    id: newNodeId,
+                  },
+                }
+                newElements.push(newNode)
+                const newEdge = {
+                  data: {
+                    id: `${rootNodeId}/${newNodeId}`,
+                    source: rootNodeId,
+                    target: newNodeId,
+                  },
+                }
+                newElements.push(newEdge)
               } catch (e) {
                 console.error(e, result)
               }
             }),
           )
-          console.log(descriptions)
+          setElements(newElements)
         } catch (e) {
           console.error(e)
         }
@@ -95,7 +113,7 @@ const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => 
     },
     [node],
   )
-  return <NodeRelationalGraph {...props} />
+  return <NodeRelationalGraph options={{ elements, layout: options.layout, style: options.style }} {...props} />
 }
 
 const defaultProps = {
@@ -110,7 +128,7 @@ const WithData = Template.bind({})
 WithData.args = { options, ...defaultProps }
 
 const WithDescribe = TemplateDescribe.bind({})
-WithDescribe.args = { options, ...defaultProps }
+WithDescribe.args = { ...defaultProps }
 WithDescribe.decorators = [MemoryNodeDecorator]
 
 export { Default, WithData, WithDescribe }
