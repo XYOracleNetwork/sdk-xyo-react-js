@@ -27,7 +27,8 @@ const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
     async () => {
       const node = await MemoryNode.create({ config: { schema: NodeConfigSchema } })
       const bridge = await HttpBridge.create({ config: { nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } } })
-      await node.register(bridge).attach(bridge.address, true)
+      await node.register(bridge)
+      await node.attach(bridge.address, true)
       setNode(node)
     },
     [],
