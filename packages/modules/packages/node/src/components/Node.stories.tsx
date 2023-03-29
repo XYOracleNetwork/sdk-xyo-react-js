@@ -56,7 +56,7 @@ const Template: ComponentStory<React.FC> = (props) => {
       if (node) {
         try {
           const mod = await TestModule.create({ account: TestModuleAccount, config: { name: TestModuleName, schema: 'network.xyo.test.module' } })
-          node?.register(mod)
+          await node?.register(mod)
           await node?.attach(mod.address, true)
           const wrapper = NodeWrapper.wrap(node)
           const description = await wrapper?.describe()
