@@ -23,13 +23,16 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const eventUnsubscribe: EventUnsubscribeFunction[] = []
+      let modulesLength = modules?.length
 
       try {
         if (node) {
           const getModulesFromResolution = async () => {
             const resolvedModules: TModule[] | undefined = await node.resolve<TModule>(filter)
             if (mounted()) {
-              if (resolvedModules.length !== modules?.length) {
+              logger?.debug(`getModulesFromResolution: [${resolvedModules.length}, ${modulesLength}]`)
+              if (resolvedModules.length !== modulesLength) {
+                modulesLength = resolvedModules.length
                 setModules(resolvedModules)
                 setError(undefined)
               }
