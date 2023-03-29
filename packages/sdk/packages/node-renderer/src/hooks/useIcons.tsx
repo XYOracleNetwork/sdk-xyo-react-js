@@ -8,7 +8,7 @@ import { useMemo } from 'react'
 
 import { encodeSvg } from '../lib'
 
-type CyNodeIcons = 'node' | 'archivist' | 'diviner' | 'module'
+export type CyNodeIcons = 'node' | 'archivist' | 'diviner' | 'module'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const CyIconSet: Record<CyNodeIcons, OverridableComponent<SvgIconTypeMap<{}, 'svg'>>> = {

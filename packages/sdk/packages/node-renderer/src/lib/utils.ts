@@ -17,3 +17,25 @@ export const encodeSvg = (reactElement: ReactElement, color?: string) => {
 
   return `${dataUri}${window.encodeURIComponent(svgElement.outerHTML)}`
 }
+
+export const parseModuleType = (queries?: string[]) => {
+  let type
+  if (queries) {
+    for (let i = 0; i < queries.length; i++) {
+      if (queries[i].includes('archivist')) {
+        type = 'archivist'
+        break
+      }
+      if (queries[i].includes('diviner')) {
+        type = 'diviner'
+        break
+      }
+      if (queries[i].includes('node')) {
+        type = 'node'
+        break
+      }
+      type = 'module'
+    }
+    return type
+  }
+}
