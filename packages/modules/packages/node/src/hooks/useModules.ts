@@ -30,7 +30,7 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
             const resolvedModules: TModule[] | undefined = await node.resolve<TModule>(filter)
             if (mounted()) {
               if (resolvedModules.length !== modules?.length) {
-                setModules(modules)
+                setModules(resolvedModules)
                 setError(undefined)
               }
             }
