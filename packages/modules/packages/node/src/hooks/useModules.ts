@@ -2,14 +2,13 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
-import { useDataState } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
 import { useProvidedWrappedNode } from './useProvidedNode'
 
 export const useModules = <TModule extends Module = Module>(filter?: ModuleFilter, logger?: Logger): [TModule[] | undefined, Error | undefined] => {
   const [node, nodeError] = useProvidedWrappedNode()
-  const [modules, setModules] = useDataState<TModule[]>([])
+  const [modules, setModules] = useState<TModule[]>()
   const [error, setError] = useState<Error>()
 
   useEffect(() => {
@@ -28,10 +27,12 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
       try {
         if (node) {
           const getModulesFromResolution = async () => {
-            const modules: TModule[] | undefined = await node.resolve<TModule>(filter)
+            const resolvedModules: TModule[] | undefined = await node.resolve<TModule>(filter)
             if (mounted()) {
-              setModules(modules)
-              setError(undefined)
+              if (resolvedModules.length !== modules?.length) {
+                setModules(modules)
+                setError(undefined)
+              }
             }
           }
           await getModulesFromResolution()
@@ -50,10 +51,10 @@ export const useModules = <TModule extends Module = Module>(filter?: ModuleFilte
           const timeoutFunc = async () => {
             await getModulesFromResolution()
             if (mounted()) {
-              setTimeout(timeoutFunc, 100)
+              setTimeout(timeoutFunc, 1000)
             }
           }
-          setTimeout(timeoutFunc, 100)
+          setTimeout(timeoutFunc, 1000)
         } else {
           if (mounted()) {
             setError(undefined)
