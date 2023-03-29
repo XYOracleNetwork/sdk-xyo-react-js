@@ -12,8 +12,8 @@ export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
     () => ({
       elements,
       layout: {
-        name: 'cose',
-        nodeDimensionsIncludeLabels: true,
+        minNodeSpacing: 75,
+        name: 'concentric',
       },
       style: [
         {
