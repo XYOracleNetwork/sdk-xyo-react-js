@@ -12,6 +12,7 @@ import { CytoscapeOptions } from 'cytoscape'
 import { useState } from 'react'
 
 import { useCytoscapeOptions } from '../hooks'
+import { parseModuleType } from '../lib'
 import { NodeRelationalGraph } from './RelationalGraph'
 import { options } from './story'
 
@@ -79,7 +80,7 @@ const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => 
           const description = await wrapper?.describe()
           const rootNodeId = description.name ?? description.address.substring(0, 6)
           newElements.push({
-            data: { id: rootNodeId },
+            data: { id: rootNodeId, type: parseModuleType(description.queries) },
           })
           const children = description.children
           await Promise.all(
@@ -91,6 +92,7 @@ const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => 
                 const newNode = {
                   data: {
                     id: newNodeId,
+                    type: parseModuleType(description.queries),
                   },
                 }
                 newElements.push(newNode)

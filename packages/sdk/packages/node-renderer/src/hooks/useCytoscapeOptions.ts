@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material'
 import { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
-import { useIcons } from './useIcons'
+import { CyNodeIcons, useIcons } from './useIcons'
 
 export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
   const theme = useTheme()
@@ -25,10 +25,10 @@ export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
         {
           selector: 'node',
           style: {
-            'background-color': theme.palette.primary.main,
+            'background-color': theme.palette.primary.dark,
             'background-height': '75%',
             // TODO - make dynamic
-            'background-image': icons.module,
+            'background-image': (elem) => icons[elem.data('type') as CyNodeIcons],
             'background-image-smoothing': 'yes',
             'background-width': '75%',
             label: 'data(id)',
@@ -39,7 +39,7 @@ export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
           style: {
             'curve-style': 'bezier',
             'line-color': theme.palette.divider,
-            'line-opacity': 0.5,
+            'line-opacity': 0.25,
             'target-arrow-color': theme.palette.divider,
             'target-arrow-shape': 'triangle',
             width: 3,
@@ -47,7 +47,7 @@ export const useCytoscapeOptions = (elements: CytoscapeOptions['elements']) => {
         },
       ],
     }),
-    [elements, icons.module, theme.palette.divider, theme.palette.primary.main, theme.palette.text.primary],
+    [elements, icons, theme.palette.divider, theme.palette.primary.dark, theme.palette.text.primary],
   )
 
   return options
