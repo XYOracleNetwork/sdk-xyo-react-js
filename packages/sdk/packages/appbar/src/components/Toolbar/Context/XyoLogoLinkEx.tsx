@@ -27,7 +27,7 @@ export const XyoLogoLinkEx: React.FC<XyoLogoLinkExProps> = ({ to = '/', version 
             variant="caption"
             border={`1px ${theme.palette.getContrastText(theme.palette.primary.main)} solid`}
           >
-            {typeof version === 'string' ? version : '2.0'}
+            {typeof version === 'string' ? version : '2.1'}
           </Typography>
         ) : null}
       </FlexRow>
