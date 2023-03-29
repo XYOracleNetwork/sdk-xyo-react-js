@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-test",
+  "name": "@xyo-network/react-node-renderer",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,35 +10,27 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.15",
-    "@mui/styles": "^5.11.13",
-    "@scure/bip39": "^1.2.0",
-    "@xyo-network/react-modules": "workspace:^",
-    "@xyo-network/react-plugins": "workspace:^",
-    "@xyo-network/react-sdk": "workspace:^",
-    "cytoscape": "^3.23.0",
-    "geojson": "^0.5.0",
-    "mapbox-gl": "^2.13.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^4.8.0",
-    "react-router-dom": "^6.9.0"
-  },
-  "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^2.16.1",
-    "@xylabs/tsconfig-react": "^2.16.1",
-    "typescript": "^4.9.5"
+    "@xylabs/react-flexbox": "^2.16.14",
+    "@xyo-network/react-shared": "workspace:^"
   },
   "peerDependencies": {
-    "@xylabs/assert": "^2.6.15",
-    "@xylabs/pixel": "^1.4.9",
-    "@xylabs/react-button": "^2.15.9",
-    "@xylabs/react-flexbox": "^2.15.9",
-    "@xylabs/react-pixel": "^2.15.9",
-    "@xylabs/react-shared": "^2.15.9",
-    "axios": "^1.2.3"
+    "@mui/icons-material": "^5",
+    "@mui/material": "^5",
+    "@mui/styles": "^5",
+    "axios": "^1",
+    "cytoscape": "^3.23.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-router-dom": "^6"
+  },
+  "devDependencies": {
+    "@storybook/react": "^6.5.16",
+    "@types/cytoscape": "^3.19.9",
+    "@xylabs/ts-scripts-yarn3": "^2.16.1",
+    "@xylabs/tsconfig-react": "^2.16.1",
+    "@xyo-network/react-storybook": "workspace:^",
+    "require-from-string": "^2.0.2",
+    "typescript": "^4.9.5"
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",
@@ -71,7 +63,7 @@
   ],
   "license": "LGPL-3.0",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "repository": {
     "type": "git",

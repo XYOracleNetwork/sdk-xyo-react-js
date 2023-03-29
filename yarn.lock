@@ -4933,6 +4933,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/cytoscape@npm:^3.19.9":
+  version: 3.19.9
+  resolution: "@types/cytoscape@npm:3.19.9"
+  checksum: 773e7c73198a0dc9fe8fe708aca47af5e1fc47ba6e3138e37e3de23cd336441dd79d2a0215473c755a6bdd9842e3ed83e2e6d51abd128a34a5680fc10b3402b5
+  languageName: node
+  linkType: hard
+
 "@types/debug@npm:^4.0.0":
   version: 4.1.7
   resolution: "@types/debug@npm:4.1.7"
@@ -8550,6 +8557,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-node-renderer@workspace:^, @xyo-network/react-node-renderer@workspace:packages/sdk/packages/node-renderer":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-node-renderer@workspace:packages/sdk/packages/node-renderer"
+  dependencies:
+    "@storybook/react": ^6.5.16
+    "@types/cytoscape": ^3.19.9
+    "@xylabs/react-flexbox": ^2.16.14
+    "@xylabs/ts-scripts-yarn3": ^2.16.1
+    "@xylabs/tsconfig-react": ^2.16.1
+    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
+    require-from-string: ^2.0.2
+    typescript: ^4.9.5
+  peerDependencies:
+    "@mui/icons-material": ^5
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    axios: ^1
+    cytoscape: ^3.23.0
+    react: ^18
+    react-dom: ^18
+    react-router-dom: ^6
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-node@workspace:^, @xyo-network/react-node@workspace:packages/modules/packages/node":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-node@workspace:packages/modules/packages/node"
@@ -8972,6 +9004,7 @@ __metadata:
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
+    "@xyo-network/react-node-renderer": "workspace:^"
     "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
@@ -8995,6 +9028,7 @@ __metadata:
     "@xylabs/react-pixel": ^2
     "@xylabs/react-shared": ^2
     axios: ^1
+    cytoscape: ^3.23.0
     react: ^18
     react-dom: ^18
     react-helmet: ^6
@@ -9159,6 +9193,7 @@ __metadata:
     "@xyo-network/react-modules": "workspace:^"
     "@xyo-network/react-plugins": "workspace:^"
     "@xyo-network/react-sdk": "workspace:^"
+    cytoscape: ^3.23.0
     geojson: ^0.5.0
     mapbox-gl: ^2.13.0
     react: ^18.2.0
@@ -9437,6 +9472,7 @@ __metadata:
     "@mui/styles": ^5
     "@scure/bip39": ^1
     axios: ^1
+    cytoscape: ^3.23.0
     geojson: ^0.5
     mapbox-gl: ^2
     react: ^18
@@ -12045,6 +12081,16 @@ __metadata:
   dependencies:
     array-find-index: ^1.0.1
   checksum: 1f59fe10b5339b54b1a1eee110022f663f3495cf7cf2f480686e89edc7fa8bfe42dbab4b54f85034bc8b092a76cc7becbc2dad4f9adad332ab5831bec39ad540
+  languageName: node
+  linkType: hard
+
+"cytoscape@npm:^3.23.0":
+  version: 3.23.0
+  resolution: "cytoscape@npm:3.23.0"
+  dependencies:
+    heap: ^0.2.6
+    lodash: ^4.17.21
+  checksum: bcb3c48068384309287553a8b2561bf500562548563ef900c43d011b4a2c8e7cbf0c44f40f7f4ad1b661ff959385c627027f7e7a642021a3716054ae093d3749
   languageName: node
   linkType: hard
 
@@ -15066,6 +15112,13 @@ __metadata:
   bin:
     he: bin/he
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
+  languageName: node
+  linkType: hard
+
+"heap@npm:^0.2.6":
+  version: 0.2.7
+  resolution: "heap@npm:0.2.7"
+  checksum: b0f3963a799e02173f994c452921a777f2b895b710119df999736bfed7477235c2860c423d9aea18a9f3b3d065cb1114d605c208cfcb8d0ac550f97ec5d28cb0
   languageName: node
   linkType: hard
 
