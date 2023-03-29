@@ -71,7 +71,8 @@ export class MemoryNodeBuilder {
         const witness = await witnesses?.[index]?.()
         if (witness) {
           try {
-            await this.node.register(witness).attach(witness.address, true)
+            await this.node.register(witness)
+            await this.node.attach(witness.address, true)
           } catch (e) {
             console.error('Error attaching witness', JSON.stringify(pluginSet, null, 2), e)
           }
@@ -89,7 +90,7 @@ export class MemoryNodeBuilder {
           await this.node.unregister(existingModule)
         }
       }
-      this.node.register(module)
+      await this.node.register(module)
       await this.node.attach(module.address, external)
     } catch (e) {
       throw Error(`Error adding ${module.config.name ?? module.address} to MemoryNode: ${e}`)
