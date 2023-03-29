@@ -23,6 +23,27 @@ const elements: CytoscapeOptions['elements'] = [
   },
 ]
 
+const style: CytoscapeOptions['style'] = [
+  {
+    selector: 'node',
+    style: {
+      label: 'data(id)',
+    },
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'curve-style': 'bezier',
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      'target-arrow-shape': 'triangle',
+      width: 3,
+    },
+  },
+]
+
 export const options: CytoscapeOptions = {
   elements,
+  style,
 }
