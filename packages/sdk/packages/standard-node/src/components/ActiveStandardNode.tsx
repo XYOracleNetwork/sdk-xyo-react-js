@@ -1,25 +1,20 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
-import { useNetwork } from '@xyo-network/react-network'
 import { useNode } from '@xyo-network/react-node'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
 import { useStandardNodes } from '../contexts'
+import { useSelectedNodeAddress } from '../hooks'
 
 export interface ActiveStandardNodeProps extends WithChildren {
   nodeNameOrAddress?: string
 }
 
 export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({ children, nodeNameOrAddress }) => {
-  const { network } = useNetwork(true)
   const [node] = useNode(nodeNameOrAddress)
   const [activeRemoteNodeAddress, setActiveRemoteNodeAddress] = useState<string>()
-  const { nodes, findAddressByName } = useStandardNodes()
+  const { nodes } = useStandardNodes()
 
-  const selectedNodeAddress = useMemo(() => {
-    if (node && nodes && findAddressByName && network) {
-      return findAddressByName(network.name)
-    }
-  }, [findAddressByName, network, node, nodes])
+  const selectedNodeAddress = useSelectedNodeAddress()
 
   // Probably needs to rely on node events rather than provider values to ensure its registered
   useAsyncEffect(
