@@ -1,7 +1,8 @@
 import { useTheme } from '@mui/material'
 import { useMemo } from 'react'
 
-import { CyIconSet, CyNodeIcons, encodeSvg } from '../../lib'
+import { CyIconSet, CyNodeIcons } from '../../Cytoscape'
+import { encodeSvg } from '../../lib'
 
 export const useIcons = () => {
   const theme = useTheme()
