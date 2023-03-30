@@ -1,4 +1,4 @@
-import { IconButton, IconButtonProps } from '@mui/material'
+import { IconButton, IconButtonProps, styled } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
@@ -38,7 +38,7 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
     const starRef = useRef<HTMLSpanElement>(null)
 
     return (
-      <IconButton
+      <IconButtonCondensed
         aria-describedby={popperId}
         ref={buttonRef}
         onClick={(event) => {
@@ -46,6 +46,7 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
           setOpenPopper(!openPopper)
         }}
         onMouseDown={(e) => e.stopPropagation()}
+        sx={{ lineHeight: 0, p: 0.25 }}
         {...props}
       >
         <span ref={starRef}>
@@ -61,9 +62,14 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
           onClickAway={() => setOpenPopper(false)}
         />
         {children}
-      </IconButton>
+      </IconButtonCondensed>
     )
   },
 )
 
 FavoriteIconButton.displayName = 'FavoriteIconButton'
+
+const IconButtonCondensed = styled(IconButton, { name: 'IconButtonCondensed' })(({ theme }) => ({
+  lineHeight: 0,
+  padding: theme.spacing(0.25),
+}))
