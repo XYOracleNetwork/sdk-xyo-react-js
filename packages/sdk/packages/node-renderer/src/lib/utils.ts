@@ -34,6 +34,10 @@ export const parseModuleType = (queries?: string[]) => {
         type = 'node'
         break
       }
+      if (queries[i].includes('witness')) {
+        type = 'witness'
+        break
+      }
       type = 'module'
     }
     return type

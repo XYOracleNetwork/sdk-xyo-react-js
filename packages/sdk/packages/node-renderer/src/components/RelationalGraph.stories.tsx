@@ -3,6 +3,7 @@ import { useAsyncEffect } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
+import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
 import { NodeProvider } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
@@ -37,6 +38,10 @@ export const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
       const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: ArchivistConfigSchema } })
       await node1.register(archivist1)
       await node1.attach(archivist1.address, true)
+
+      const witnessModule = await IdWitness.create({ config: { name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema } })
+      await node1.register(witnessModule)
+      await node1.attach(witnessModule.address, true)
 
       await node.register(node1)
       await node.attach(node1.address, true)
