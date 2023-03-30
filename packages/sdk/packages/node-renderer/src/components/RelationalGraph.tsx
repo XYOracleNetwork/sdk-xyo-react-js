@@ -1,15 +1,14 @@
 import { Button, styled } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { WithChildren } from '@xylabs/react-shared'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core, CytoscapeOptions } from 'cytoscape'
 import { forwardRef, useEffect, useState } from 'react'
 
-export interface NodeRelationalGraph extends WithChildren<FlexBoxProps> {
+export interface NodeRelationalGraph extends FlexBoxProps {
   options?: CytoscapeOptions
 }
 
-export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGraph>(({ children, options, ...props }, ref) => {
+export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGraph>(({ options, ...props }, ref) => {
   const sharedRef = useShareForwardedRef(ref)
   const [cy, setCy] = useState<Core>()
 

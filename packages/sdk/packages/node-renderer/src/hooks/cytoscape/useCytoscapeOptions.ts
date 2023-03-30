@@ -1,4 +1,3 @@
-import { useTheme } from '@mui/material'
 import { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
