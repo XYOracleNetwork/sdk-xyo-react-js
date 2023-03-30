@@ -16,11 +16,11 @@ export interface NetworkComponentDetails {
 }
 
 export const networkComponents: NetworkComponentDetails[] = [
+  { icon: (props) => <XyoLogo {...props} />, name: 'Node', slug: 'node' },
   { icon: (props) => <BubbleChartRoundedIcon {...props} />, name: 'Sentinel', slug: 'sentinel' },
   { icon: (props) => <CloudRoundedIcon {...props} />, name: 'Bridge', slug: 'bridge' },
   { icon: (props) => <GridViewRoundedIcon {...props} />, name: 'Archivist', slug: 'archivist' },
   { icon: (props) => <CallMergeRoundedIcon {...props} />, name: 'Diviner', slug: 'diviner' },
-  { icon: (props) => <XyoLogo {...props} />, name: 'Node', slug: 'node' },
 ]
 
 export const findNetworkComponentIndex = (slug: string) => {
