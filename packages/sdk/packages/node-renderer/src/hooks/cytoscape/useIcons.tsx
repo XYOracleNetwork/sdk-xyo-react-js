@@ -7,7 +7,7 @@ import { SvgIconTypeMap, useTheme } from '@mui/material'
 import { OverridableComponent } from '@mui/material/OverridableComponent'
 import { useMemo } from 'react'
 
-import { encodeSvg } from '../lib'
+import { encodeSvg } from '../../lib'
 
 export type CyNodeIcons = 'archivist' | 'diviner' | 'module' | 'node' | 'witness'
 

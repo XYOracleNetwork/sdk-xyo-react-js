@@ -10,7 +10,7 @@ export interface NodeRelationalGraph extends WithChildren<FlexBoxProps> {
 
 export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGraph>(({ children, options, ...props }, ref) => {
   const sharedRef = useShareForwardedRef(ref)
-  // TODO - likely a value to stick in context
+  // TODO - likely a value to add to a future context
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cy, setCy] = useState<Core>()
 

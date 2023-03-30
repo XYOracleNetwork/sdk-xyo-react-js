@@ -5,7 +5,7 @@ import { useProvidedWrappedNode } from '@xyo-network/react-node'
 import { ElementDefinition } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
-import { parseModuleType } from '../lib'
+import { parseModuleType } from '../../lib'
 
 const MaxNameLength = 20
 
