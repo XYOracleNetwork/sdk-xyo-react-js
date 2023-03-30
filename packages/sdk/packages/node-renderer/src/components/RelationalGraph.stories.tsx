@@ -67,8 +67,15 @@ export default {
 } as Meta
 
 const Template: ComponentStory<typeof NodeRelationalGraph> = (props) => <NodeRelationalGraph {...props} />
+
 const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => {
   const elements = useCytoscapeElements()
+  const options = useCytoscapeOptions(elements)
+  return <NodeRelationalGraph options={options} {...props} />
+}
+
+const TemplateCustomAddress: ComponentStory<typeof NodeRelationalGraph> = (props) => {
+  const elements = useCytoscapeElements('ChildNode')
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraph options={options} {...props} />
 }
@@ -88,4 +95,8 @@ const WithDescribe = TemplateDescribe.bind({})
 WithDescribe.args = { ...defaultProps }
 WithDescribe.decorators = [MemoryNodeDecorator]
 
-export { Default, WithData, WithDescribe }
+const WithCustomAddress = TemplateCustomAddress.bind({})
+WithCustomAddress.args = { ...defaultProps }
+WithCustomAddress.decorators = [MemoryNodeDecorator]
+
+export { Default, WithCustomAddress, WithData, WithDescribe }
