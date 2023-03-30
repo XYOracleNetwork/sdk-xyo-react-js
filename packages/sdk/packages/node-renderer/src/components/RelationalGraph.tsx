@@ -12,6 +12,11 @@ export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGrap
   const sharedRef = useShareForwardedRef(ref)
   const [cy, setCy] = useState<Core>()
 
+  const handleReset = () => {
+    cy?.reset()
+    cy?.fit(undefined, 20)
+  }
+
   useEffect(() => {
     if (sharedRef) {
       setCy(
@@ -25,7 +30,7 @@ export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGrap
 
   return (
     <FlexCol {...props}>
-      <ResetButton size={'small'} variant={'contained'} onClick={() => cy?.reset()}>
+      <ResetButton size={'small'} variant={'contained'} onClick={handleReset}>
         Reset
       </ResetButton>
       <FlexCol alignItems="stretch" height="100%" position="absolute" ref={sharedRef} width="100%"></FlexCol>
