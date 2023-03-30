@@ -1,2 +1,2 @@
 export * from './components'
-export * from './hooks/cytoscape'
+export * from './hooks'
