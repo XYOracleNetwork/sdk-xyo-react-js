@@ -3,7 +3,7 @@ import { useNode } from '@xyo-network/react-node'
 import { useState } from 'react'
 
 import { useStandardNodes } from '../contexts'
-import { useSelectedNodeAddress } from '../hooks'
+import { useActiveNodeAddress } from '../hooks'
 
 export interface ActiveStandardNodeProps extends WithChildren {
   nodeNameOrAddress?: string
@@ -14,7 +14,7 @@ export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({ children
   const [activeRemoteNodeAddress, setActiveRemoteNodeAddress] = useState<string>()
   const { nodes } = useStandardNodes()
 
-  const selectedNodeAddress = useSelectedNodeAddress()
+  const selectedNodeAddress = useActiveNodeAddress()
 
   // Probably needs to rely on node events rather than provider values to ensure its registered
   useAsyncEffect(

@@ -1,1 +1,1 @@
-export * from './useSelectedNodeAddress'
+export * from './useActiveNodeAddress'
