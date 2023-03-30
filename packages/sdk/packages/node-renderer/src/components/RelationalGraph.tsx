@@ -1,3 +1,4 @@
+import { Button, styled } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
@@ -10,8 +11,6 @@ export interface NodeRelationalGraph extends WithChildren<FlexBoxProps> {
 
 export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGraph>(({ children, options, ...props }, ref) => {
   const sharedRef = useShareForwardedRef(ref)
-  // TODO - likely a value to add to a future context
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cy, setCy] = useState<Core>()
 
   useEffect(() => {
@@ -26,10 +25,20 @@ export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGrap
   }, [options, sharedRef])
 
   return (
-    <FlexCol ref={sharedRef} {...props}>
-      {children}
+    <FlexCol {...props}>
+      <ResetButton size={'small'} variant={'contained'} onClick={() => cy?.reset()}>
+        Reset
+      </ResetButton>
+      <FlexCol alignItems="stretch" height="100%" position="absolute" ref={sharedRef} width="100%"></FlexCol>
     </FlexCol>
   )
 })
 
 NodeRelationalGraph.displayName = 'NodeRelationalGraph'
+
+const ResetButton = styled(Button, { name: 'ResetButton' })(() => ({
+  position: 'absolute',
+  right: '10px',
+  top: '10px',
+  zIndex: 2,
+}))
