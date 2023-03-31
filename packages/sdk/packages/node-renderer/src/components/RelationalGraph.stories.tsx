@@ -4,11 +4,11 @@ import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
-import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
-import { NodeProvider } from '@xyo-network/react-node'
+import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
+import { NodeProvider, useModule, useProvidedWrappedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletProvider } from '@xyo-network/react-wallet'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
 import { NodeRelationalGraph } from './RelationalGraph'
@@ -69,13 +69,16 @@ export default {
 const Template: ComponentStory<typeof NodeRelationalGraph> = (props) => <NodeRelationalGraph {...props} />
 
 const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => {
-  const elements = useCytoscapeElements()
+  const [node] = useProvidedWrappedNode()
+  const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraph options={options} {...props} />
 }
 
 const TemplateCustomAddress: ComponentStory<typeof NodeRelationalGraph> = (props) => {
-  const elements = useCytoscapeElements('ChildNode')
+  const [node] = useModule('ChildNode')
+  const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
+  const elements = useCytoscapeElements(wrappedNode)
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraph options={options} {...props} />
 }
