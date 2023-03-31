@@ -7,8 +7,6 @@ import { MemoryNodeBuilder } from './Builders'
 import { RemoteNodeArchivistOffsetPaths, RemoteNodeOffsetPaths } from './ModuleAccountPaths'
 import { RootStorageArchivist } from './ModuleNames'
 
-const MainApiUrlFallback = 'https://beta.api.archivist.xyo.network'
-
 const knownRemoteNodes = (): { apiDomain: string; name: string }[] => {
   const networkNames = defaultNetworkConfigs.map((config) => config.name)
   return networkNames.map((networkName) => {
@@ -16,8 +14,7 @@ const knownRemoteNodes = (): { apiDomain: string; name: string }[] => {
     const uri = defaultNetworkConfigs.filter((config) => config.name === networkName)[0].nodes?.filter((node) => node.type === 'archivist')[0].uri
     const apiDomain = assertDefinedEx<string>(uri, 'missing node type "archivist" in network config')
     return {
-      // Temporary till main is compatible with /node endpoint
-      apiDomain: name === 'Main' ? MainApiUrlFallback : apiDomain,
+      apiDomain,
       name,
     }
   })
