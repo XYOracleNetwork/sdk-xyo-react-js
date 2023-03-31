@@ -1,16 +1,20 @@
 import { Button, styled } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core, CytoscapeOptions } from 'cytoscape'
-import { forwardRef, useEffect, useState } from 'react'
+import { forwardRef, ReactNode, useEffect, useState } from 'react'
+
+import { useCytoscapeInstance } from '../contexts'
 
 export interface NodeRelationalGraph extends FlexBoxProps {
+  actions?: ReactNode
   options?: CytoscapeOptions
 }
 
-export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGraph>(({ options, ...props }, ref) => {
-  const sharedRef = useShareForwardedRef(ref)
+export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGraph>(({ actions, options, ...props }, ref) => {
   const [cy, setCy] = useState<Core>()
+  const { setCy: setCyContext } = useCytoscapeInstance()
+  const sharedRef = useShareForwardedRef(ref)
 
   const handleReset = () => {
     cy?.reset()
@@ -19,20 +23,26 @@ export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGrap
 
   useEffect(() => {
     if (sharedRef) {
-      setCy(
-        cytoscape({
-          container: sharedRef.current,
-          ...options,
-        }),
-      )
+      const newCy = cytoscape({
+        container: sharedRef.current,
+        ...options,
+      })
+      setCy(newCy)
     }
   }, [options, sharedRef])
 
+  useEffect(() => {
+    setCyContext?.(cy)
+  }, [cy, setCyContext])
+
   return (
     <FlexCol {...props}>
-      <ResetButton size={'small'} variant={'contained'} onClick={handleReset}>
-        Reset
-      </ResetButton>
+      <ActionsContainer>
+        {actions}
+        <Button size={'small'} variant={'contained'} onClick={handleReset}>
+          Reset
+        </Button>
+      </ActionsContainer>
       <FlexCol alignItems="stretch" height="100%" position="absolute" ref={sharedRef} width="100%"></FlexCol>
     </FlexCol>
   )
@@ -40,7 +50,8 @@ export const NodeRelationalGraph = forwardRef<HTMLDivElement, NodeRelationalGrap
 
 NodeRelationalGraph.displayName = 'NodeRelationalGraph'
 
-const ResetButton = styled(Button, { name: 'ResetButton' })(() => ({
+const ActionsContainer = styled(FlexRow, { name: 'ActionsContainer' })(() => ({
+  flexWrap: 'wrap',
   position: 'absolute',
   right: '10px',
   top: '10px',

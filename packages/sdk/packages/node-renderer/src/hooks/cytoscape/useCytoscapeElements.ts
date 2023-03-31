@@ -39,7 +39,6 @@ export const useCytoscapeElements = (targetNode?: NodeWrapper) => {
           console.error('Error Getting initial description', e)
         }
       }
-      return () => console.log('unmounted')
     },
     [targetNode],
   )
