@@ -32,7 +32,15 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
 
     return (
       <ClickAwayListener onClickAway={onClickAway}>
-        <PopperStyled id={popperId} anchorEl={favoriteRef?.current} onClick={(e) => e.stopPropagation()} transition ref={ref} {...props}>
+        <PopperStyled
+          id={popperId}
+          anchorEl={favoriteRef?.current}
+          onClick={(e) => e.stopPropagation()}
+          onTouchStart={(e) => e.stopPropagation()}
+          transition
+          ref={ref}
+          {...props}
+        >
           {({ TransitionProps }) => (
             <Fade {...TransitionProps} timeout={350}>
               <Card>

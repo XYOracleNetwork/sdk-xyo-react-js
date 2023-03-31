@@ -27,6 +27,7 @@ export class CytoscapeElements {
     const newNodeId = CytoscapeElements.normalizeName(description.name) ?? description.address.substring(0, 8)
     return {
       data: {
+        address: description.address,
         id: newNodeId,
         type: parseModuleType(description.queries),
       },
