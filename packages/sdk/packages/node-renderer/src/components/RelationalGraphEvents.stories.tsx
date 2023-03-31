@@ -57,13 +57,16 @@ const Template: ComponentStory<typeof NodeRelationalGraph> = (props) => {
   const { cy } = useCytoscapeInstance(true)
 
   useEffect(() => {
-    const listener = (event: EventObject) => console.log(event)
+    const listener = (event: EventObject) => {
+      const element = event.target[0]
+      console.log(element.data().address)
+    }
     if (cy) {
       cy.on('select', listener)
     }
 
     return () => {
-      // cy?.off('select', listener)
+      cy?.off('select', listener)
     }
   }, [cy])
   return <NodeRelationalGraph options={options} {...props} />
