@@ -33,14 +33,14 @@ export const useModule = <TModule extends Module = Module>(
           if (node) {
             const attachHandler = (args: ModuleAttachedEventArgs) => {
               const eventModule = args.module
-              if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress) && mounted()) {
+              if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
                 setModule(eventModule as TModule)
                 setError(undefined)
               }
             }
             const detachHandler = (args: ModuleDetachedEventArgs) => {
               const eventModule = args.module
-              if (eventModule.address === address && mounted()) {
+              if (eventModule.address === address) {
                 setModule(undefined)
                 setError(undefined)
               }
