@@ -1,4 +1,5 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { useNetwork } from '@xyo-network/react-network'
 import { useNode } from '@xyo-network/react-node'
 import { useState } from 'react'
 
@@ -10,11 +11,12 @@ export interface ActiveStandardNodeProps extends WithChildren {
 }
 
 export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({ children, nodeNameOrAddress }) => {
+  const { network } = useNetwork()
   const [node] = useNode(nodeNameOrAddress)
   const [activeRemoteNodeAddress, setActiveRemoteNodeAddress] = useState<string>()
   const { nodes } = useStandardNodes()
 
-  const selectedNodeAddress = useActiveNodeAddress()
+  const selectedNodeAddress = useActiveNodeAddress(network?.name)
 
   // Probably needs to rely on node events rather than provider values to ensure its registered
   useAsyncEffect(
