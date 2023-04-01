@@ -26,10 +26,18 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
   const [payload, setPayload] = useState<Payload | null>()
   const [payloadError, setPayloadError] = useState<Error>()
 
+  const refreshPayload = () => {
+    setPayload(undefined)
+  }
+
+  const clearPayload = () => {
+    setPayload(null)
+  }
+
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (hash && archivist) {
+      if (hash && archivist && payload === undefined) {
         try {
           const [loadedPayloads] = await archivist.get([hash])
           setPayload(loadedPayloads ? loadedPayloads : null)
@@ -40,7 +48,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
         }
       }
     },
-    [hash, archivist],
+    [hash, archivist, payload],
   )
 
   useAsyncEffect(
@@ -54,7 +62,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
   )
 
   return (
-    <PayloadContext.Provider value={{ payload, payloadError, provided: true, setPayload }}>
+    <PayloadContext.Provider value={{ clearPayload, payload, payloadError, provided: true, refreshPayload, setPayload }}>
       {payload ? children : required ? null : children}
     </PayloadContext.Provider>
   )
