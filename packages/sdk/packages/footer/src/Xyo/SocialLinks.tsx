@@ -30,7 +30,7 @@ export const XyoSocialLinks: React.FC<FlexBoxProps> = (props) => {
         <FooterLink href="https://www.linkedin.com/company/officialxyo/">
           <LinkedIn />
         </FooterLink>
-        <FooterLink href="https://discord.com/channels/935586624392298547/935586625101103227">
+        <FooterLink href="https://discord.gg/officialxyo">
           <FaDiscord />
         </FooterLink>
       </FlexRow>
