@@ -1,16 +1,11 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
-import { MemorySentinel, SentinelConfigSchema, SentinelParams } from '@xyo-network/sentinel'
-
-export interface SentinelBuilderConfig {
-  name: string
-  witnesses: string[]
-}
+import { MemorySentinel, SentinelConfig, SentinelParams } from '@xyo-network/sentinel'
 
 export class SentinelBuilder {
   private _sentinel: MemorySentinel | undefined
 
-  protected constructor(private config: SentinelBuilderConfig, private account: AccountInstance) {
+  protected constructor(private config: SentinelConfig, private account: AccountInstance) {
     assertDefinedEx(config, 'config was not defined')
   }
 
@@ -18,7 +13,7 @@ export class SentinelBuilder {
     return assertDefinedEx(this._sentinel, 'this._sentinel not defined upon create')
   }
 
-  static async create(config: SentinelBuilderConfig, account: AccountInstance): Promise<SentinelBuilder> {
+  static async create(config: SentinelConfig, account: AccountInstance): Promise<SentinelBuilder> {
     const instance = new this(config, account)
     instance._sentinel = await instance.buildSentinel()
     return instance
@@ -32,10 +27,7 @@ export class SentinelBuilder {
   private buildParams(): SentinelParams {
     return {
       account: this.account,
-      config: {
-        ...this.config,
-        schema: SentinelConfigSchema,
-      },
+      config: this.config,
     }
   }
 }
