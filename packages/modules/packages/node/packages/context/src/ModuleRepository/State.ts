@@ -1,8 +1,8 @@
-import { CompositeModuleResolver } from '@xyo-network/module'
+import { ModuleResolver } from '@xyo-network/module-model'
 import { ContextExState } from '@xyo-network/react-shared'
 
 export interface ResolverEntries {
-  [name: string]: CompositeModuleResolver
+  [name: string]: ModuleResolver
 }
 
 export interface ModuleRepositoryContextState extends ContextExState {
