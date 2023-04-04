@@ -1,7 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
+import { NodeDrawerContext } from '@xyo-network/react-node-context'
 import { useEffect, useState } from 'react'
-
-import { NodeDrawerContext } from './Context'
 
 export interface NodeDrawerProviderProps extends WithChildren {
   defaultOpen?: boolean

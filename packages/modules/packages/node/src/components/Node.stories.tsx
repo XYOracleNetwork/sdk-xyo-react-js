@@ -3,11 +3,11 @@ import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { AbstractModule } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
+import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletProvider } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
-import { MemoryNodeProvider } from '../contexts'
 import { useModule, useProvidedNode } from '../hooks'
 
 const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)

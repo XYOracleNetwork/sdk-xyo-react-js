@@ -1,9 +1,8 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { NodeModule, NodeWrapper } from '@xyo-network/node'
+import { NodeContext } from '@xyo-network/react-node-context'
 import { useAccount } from '@xyo-network/react-wallet'
 import { useContext, useEffect, useMemo, useState } from 'react'
-
-import { NodeContext } from '../contexts'
 
 export const useProvidedNode = (): [NodeModule | undefined] => {
   const { node } = useContext(NodeContext)

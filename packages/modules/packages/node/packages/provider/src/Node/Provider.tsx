@@ -1,8 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { NodeModule } from '@xyo-network/node'
+import { NodeContext } from '@xyo-network/react-node-context'
 import { useMemo } from 'react'
-
-import { NodeContext } from './Context'
 
 export interface NodeProviderProps {
   node?: NodeModule
