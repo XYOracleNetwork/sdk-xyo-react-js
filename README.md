@@ -21,7 +21,7 @@
 
 ## Description
 
-Common React code that is used throughout XYO projects that use React.
+> Common React code that is used throughout XYO projects that use React.
 
 ## Use the sdk in another project
 
@@ -39,8 +39,8 @@ yarn add @xyo-network/sdk-xyo-react-js
 
 ## Building the sdk locally
 
-First clone the repo to your local computer.  Once you have done that, from
-inside the folder where it was cloned, these are some commands you can do.
+> First clone the repo to your local computer.  Once you have done that, from
+> inside the folder where it was cloned, these are some commands you can do.
 
 See list of XY scripts.
 
