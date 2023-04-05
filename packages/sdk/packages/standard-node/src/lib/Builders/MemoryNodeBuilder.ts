@@ -72,6 +72,7 @@ export class MemoryNodeBuilder {
         const witness = await witnesses?.[index]?.()
         if (witness) {
           try {
+            await this.witnessCleanup(witness)
             await this.node.register(witness)
             await this.node.attach(witness.address, true)
           } catch (e) {
@@ -95,6 +96,13 @@ export class MemoryNodeBuilder {
       await this.node.attach(module.address, external)
     } catch (e) {
       throw Error(`Error adding ${module.config.name ?? module.address} to MemoryNode: ${e}`)
+    }
+  }
+
+  private async witnessCleanup(witness: WitnessModule) {
+    if ((await this.wrappedNode.registered()).includes(witness.address)) {
+      const [existingWitness] = await this.wrappedNode.resolve({ address: [witness.address] })
+      await this.node.unregister(existingWitness)
     }
   }
 }
