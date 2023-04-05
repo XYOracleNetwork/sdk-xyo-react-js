@@ -4,9 +4,10 @@ import { Module } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
 import { assertDefinedEx } from '@xyo-network/react-shared'
+import { SentinelConfig } from '@xyo-network/sentinel'
 import { WitnessModule } from '@xyo-network/witness'
 
-import { SentinelBuilder, SentinelBuilderConfig } from './SentinelBuilder'
+import { SentinelBuilder } from './SentinelBuilder'
 import { StorageArchivistBuilder } from './StorageArchivistBuilder'
 
 interface MemoryNodeBuilderConfig {
@@ -58,7 +59,7 @@ export class MemoryNodeBuilder {
     }
   }
 
-  async addSentinel(config: SentinelBuilderConfig, account: AccountInstance) {
+  async addSentinel(config: SentinelConfig, account: AccountInstance) {
     const { sentinel } = await SentinelBuilder.create(config, account)
     await this.attach(sentinel, true, true)
     return sentinel
