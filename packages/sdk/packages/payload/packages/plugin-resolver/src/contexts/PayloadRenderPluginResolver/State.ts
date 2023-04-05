@@ -1,8 +1,8 @@
 import { Dispatch } from 'react'
 
-import { XyoPayloadRenderPluginResolver } from '../../XyoPayloadRenderPluginResolver'
+import { PayloadRenderPluginResolver } from '../../PayloadRenderPluginResolver'
 
 export interface PayloadRenderPluginResolverState {
-  resolver?: XyoPayloadRenderPluginResolver
-  setResolver?: Dispatch<XyoPayloadRenderPluginResolver>
+  resolver?: PayloadRenderPluginResolver
+  setResolver?: Dispatch<PayloadRenderPluginResolver>
 }

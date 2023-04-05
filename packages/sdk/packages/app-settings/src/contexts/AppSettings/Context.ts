@@ -4,6 +4,7 @@ import { WebAppNavigationType } from '../../WebAppNavigationType'
 import { appSettingDefault } from './appSettingDefault'
 
 export interface AppSettingsContextProps {
+  changeMaxAccounts?: (value: number) => void
   changeNavigationCollapsed?: (value: boolean) => void
   changeNavigationType?: (value: WebAppNavigationType) => void
   changeSeedPhrase?: (value: string) => void
@@ -11,6 +12,7 @@ export interface AppSettingsContextProps {
   developerMode?: boolean
   enableDarkMode?: (value: boolean) => void
   enableDeveloperMode?: (value: boolean) => void
+  maxAccounts?: number
   navigationCollapsed?: boolean
   navigationType?: WebAppNavigationType
   seedPhrase?: string

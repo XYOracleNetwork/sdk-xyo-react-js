@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { Feature, Geometry } from 'geojson'
 import { useState } from 'react'
 
@@ -7,7 +7,7 @@ import { ElevationPayloadProcessor } from '../classes'
 import { useOpenElevationApiClient } from '../contexts'
 import { NetworkElevationQuadkeyAnswerPayload } from '../types'
 
-export const useElevationProcessor = (payloads?: XyoPayload) => {
+export const useElevationProcessor = (payloads?: Payload) => {
   const [features, setFeatures] = useState<Feature<Geometry>[]>()
   const { lookupLocations } = useOpenElevationApiClient()
 

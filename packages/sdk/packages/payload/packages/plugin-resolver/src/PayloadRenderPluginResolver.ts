@@ -1,0 +1,35 @@
+import { assertEx } from '@xylabs/assert'
+import { Payload } from '@xyo-network/payload-model'
+import { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+
+export class PayloadRenderPluginResolver {
+  protected plugins: PayloadRenderPlugin[] = []
+  protected schemaDefaultPlugin = new Map<string, PayloadRenderPlugin>()
+
+  public list(payload?: Payload) {
+    if (!payload) {
+      return this.plugins
+    }
+    const defaultPlugin = this.schemaDefaultPlugin.get(payload.schema)
+    const result = defaultPlugin ? [defaultPlugin] : []
+    this.plugins.some((plugin) => {
+      if (defaultPlugin !== plugin && plugin.canRender(payload)) {
+        result.push(plugin)
+      }
+    })
+    return result
+  }
+
+  public register(plugin: PayloadRenderPlugin, defaultForSchema?: string[]) {
+    this.plugins.push(plugin)
+    defaultForSchema?.forEach((schema) => {
+      assertEx(plugin.canRender({ schema }), 'Default renderer must be able to render schema')
+      this.schemaDefaultPlugin.set(schema, plugin)
+    })
+    return this
+  }
+
+  public resolve(payload: Payload) {
+    return this.schemaDefaultPlugin.get(payload.schema) ?? [...this.plugins.values()].find((plugin) => plugin.canRender(payload))
+  }
+}

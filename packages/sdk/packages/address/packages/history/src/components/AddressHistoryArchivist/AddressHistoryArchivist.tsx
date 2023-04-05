@@ -9,6 +9,7 @@ export interface AddressHistoryArchivistProps extends WithChildren {
   required?: boolean
 }
 
+/** @deprecated - rely on outside storage archivist */
 export const AddressHistoryArchivist: React.FC<AddressHistoryArchivistProps> = ({ address, children }) => {
   const [addressHistory, error] = useAddressHistory(address)
 

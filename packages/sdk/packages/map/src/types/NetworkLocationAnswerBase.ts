@@ -1,7 +1,7 @@
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { Feature, Point, Polygon } from 'geojson'
 
-export interface NetworkLocationAnswerBase<T> extends XyoPayload {
+export interface NetworkLocationAnswerBase<T> extends Payload {
   result: T
 }
 

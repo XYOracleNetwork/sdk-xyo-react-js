@@ -1,27 +1,22 @@
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { useNetwork } from '@xyo-network/react-network'
 import { useNode } from '@xyo-network/react-node'
-import { assertDefinedEx } from '@xyo-network/react-shared'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
 import { useStandardNodes } from '../contexts'
+import { useActiveNodeAddress } from '../hooks'
 
 export interface ActiveStandardNodeProps extends WithChildren {
   nodeNameOrAddress?: string
 }
 
 export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({ children, nodeNameOrAddress }) => {
-  const { network } = useNetwork(true)
+  const { network } = useNetwork()
   const [node] = useNode(nodeNameOrAddress)
   const [activeRemoteNodeAddress, setActiveRemoteNodeAddress] = useState<string>()
-  const { nodes, findAddressByName } = useStandardNodes()
+  const { nodes } = useStandardNodes()
 
-  const selectedNodeAddress = useMemo(() => {
-    if (node && nodes && findAddressByName && network) {
-      const selectedNodeAddress = findAddressByName(network.name)
-      return assertDefinedEx(selectedNodeAddress, `${network.name} was not found in known remote nodes`)
-    }
-  }, [findAddressByName, network, node, nodes])
+  const selectedNodeAddress = useActiveNodeAddress(network?.name)
 
   // Probably needs to rely on node events rather than provider values to ensure its registered
   useAsyncEffect(

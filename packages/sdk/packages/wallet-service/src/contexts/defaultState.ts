@@ -1,10 +1,10 @@
-import { XyoMetaMaskConnector } from '@xyo-network/utils'
+import { MetaMaskConnector } from '@xyo-network/metamask-connector'
 
 import { WalletServiceState } from './State'
 
 export const defaultState = (): WalletServiceState => {
   return {
-    metaMaskWallet: new XyoMetaMaskConnector(),
+    metaMaskWallet: new MetaMaskConnector(),
     provided: true,
   }
 }

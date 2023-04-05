@@ -1,25 +1,27 @@
-import { useRenderSpinCheck } from '@xylabs/react-render-spin-check'
+import { RenderSpinCheckConfig, useRenderSpinCheck } from '@xylabs/react-render-spin-check'
 import { AccountInstance } from '@xyo-network/account-model'
-import { ModuleWrapper } from '@xyo-network/module'
+import { ConstructableModuleWrapper, ModuleWrapper } from '@xyo-network/module'
 import { useAccount } from '@xyo-network/react-wallet'
 import { useEffect, useMemo, useState } from 'react'
 
 import { useModule } from './useModule'
 
-export interface WrapperStatic<TModuleWrapper extends ModuleWrapper = ModuleWrapper> {
-  requiredQueries: string[]
-  wrap: (module?: TModuleWrapper['module'], account?: AccountInstance) => TModuleWrapper
-}
-
-export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = ModuleWrapper>(
-  wrapperObject: WrapperStatic<TModuleWrapper>,
+export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper>(
+  wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
   name?: string,
 ) => {
-  const useHook = (nameOrAddress?: string, account?: AccountInstance, spinCheck?: boolean): [TModuleWrapper | undefined, Error | undefined] => {
+  const useHook = (
+    nameOrAddress?: string,
+    account?: AccountInstance,
+    spinCheck?: boolean | RenderSpinCheckConfig,
+  ): [TModuleWrapper | undefined, Error | undefined] => {
     const spinCheckBounceNoCheck = useMemo(() => {
       return { name: name ?? 'WrappedModuleHookFactory-NoCheck' }
     }, [])
-    useRenderSpinCheck(spinCheck ? { name: name ?? 'WrappedModuleHookFactory' } : spinCheckBounceNoCheck)
+    useRenderSpinCheck(
+      spinCheck ? { name: name ?? 'WrappedModuleHookFactory' } : spinCheckBounceNoCheck,
+      typeof spinCheck === 'object' ? spinCheck : undefined,
+    )
     const [providedAccount] = useAccount()
     const [module, moduleError] = useModule<TModuleWrapper['module']>(
       nameOrAddress ?? {
@@ -32,17 +34,20 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = 
 
     const accountToUse = useMemo(() => account ?? providedAccount, [account, providedAccount])
 
-    if (!accountToUse) {
-      const error = Error('Module hooks require either an Account context or account parameter')
-      console.error(error.message)
-      setError(error)
-    }
+    useEffect(() => {
+      if (!accountToUse) {
+        const error = Error('Module hooks require either an Account context or account parameter')
+        //console.error(error.message)
+        setError(error)
+      }
+    }, [accountToUse])
 
     useEffect(() => {
       if (module && accountToUse) {
         try {
-          const wrapper = wrapperObject.wrap(module, accountToUse) as TModuleWrapper
+          const wrapper = wrapperObject.wrap(module, accountToUse)
           setWrapper(wrapper)
+          setError(undefined)
         } catch (ex) {
           setWrapper(undefined)
           setError(ex as Error)
@@ -58,4 +63,4 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper = 
   return useHook
 }
 
-export const useWrappedModule = WrappedModuleHookFactory(ModuleWrapper)
+export const useWrappedModule = WrappedModuleHookFactory(ModuleWrapper, 'useWrappedModule')

@@ -1,12 +1,12 @@
 import { ArchivistWrapper } from '@xyo-network/archivist'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
 import { useArchivist } from './useArchivist'
 
 export type RefreshCallback = () => void
 
-export const useArchivistStates = <T extends XyoPayload = XyoPayload>() => {
+export const useArchivistStates = <T extends Payload = Payload>() => {
   const [archivistFromHook] = useArchivist()
   const [payloads, setPayloads] = useState<T[]>()
   const [error, setError] = useState<Error>()

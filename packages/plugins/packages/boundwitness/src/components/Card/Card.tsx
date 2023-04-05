@@ -1,16 +1,16 @@
 import { Card, CardProps } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
+import { Payload } from '@xyo-network/payload-model'
 
 import { BoundWitnessCardContent } from './CardContent'
 import { BoundWitnessCardHeader } from './CardHeader'
 
 export interface BoundWitnessCardProps extends CardProps {
   active?: boolean
-  payload?: XyoPayload
+  payload?: Payload
 }
 export const BoundWitnessRendererCard: React.FC<BoundWitnessCardProps> = ({ payload, active, ...props }) => {
-  const boundwitness = payload as XyoPayload<XyoBoundWitness>
+  const boundwitness = payload as Payload<BoundWitness>
 
   return (
     <Card {...props}>

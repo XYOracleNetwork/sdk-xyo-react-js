@@ -1,14 +1,22 @@
 import { DecoratorFn } from '@storybook/react'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
-import { sampleBlock } from '@xyo-network/react-storybook'
+import { Hasher } from '@xyo-network/core'
+import { sampleAddressHistory } from '@xyo-network/react-storybook'
 
 import { HashSelectionHistoryProvider } from '../../providers'
 
 export const WithHashSelectionHistory: DecoratorFn = (Story, args) => {
-  const hash = new PayloadWrapper(sampleBlock).hash
-  const defaultHashSelectionHistory = [hash, hash]
+  return (
+    <HashSelectionHistoryProvider required={false}>
+      <Story {...args} />
+    </HashSelectionHistoryProvider>
+  )
+}
+
+export const WithHashSelectionHistoryDefaultValues: DecoratorFn = (Story, args) => {
+  const hash = Hasher.hash(sampleAddressHistory[0])
+  const defaultHashSelectionHistory = [hash]
   const defaultNestedBoundWitnesses = {
-    [hash]: sampleBlock,
+    [hash]: sampleAddressHistory[1],
   }
   return (
     <HashSelectionHistoryProvider

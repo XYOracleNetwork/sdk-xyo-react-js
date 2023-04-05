@@ -1,9 +1,9 @@
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { ContextExState } from '@xyo-network/react-shared'
 import { Dispatch } from 'react'
 
 export interface DivinedPayloadState extends ContextExState {
-  payload?: XyoPayload | null
+  payload?: Payload | null
   payloadError?: Error
-  setPayload?: Dispatch<XyoPayload | null | undefined>
+  setPayload?: Dispatch<Payload | null | undefined>
 }

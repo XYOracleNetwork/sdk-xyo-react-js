@@ -18,7 +18,7 @@ import {
   useTheme,
 } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 import { useEffect, useState } from 'react'
@@ -30,8 +30,8 @@ export interface PayloadDynamicTableProps extends TableProps {
   archive?: string
   columns?: PayloadDynamicTableColumnConfig
   exploreDomain?: string
-  onRowClick?: (value: XyoPayload) => void
-  payloads?: XyoPayload[] | null
+  onRowClick?: (value: Payload) => void
+  payloads?: Payload[] | null
   rowsPerPage?: number
 }
 

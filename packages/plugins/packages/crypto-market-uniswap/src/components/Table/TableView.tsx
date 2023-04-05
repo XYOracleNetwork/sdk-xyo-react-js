@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableCellProps, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { XyoUniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
 
@@ -111,7 +111,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   )
 }
 interface UniswapPairsRendererProps extends FlexBoxProps {
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ payload, ...props }) => {

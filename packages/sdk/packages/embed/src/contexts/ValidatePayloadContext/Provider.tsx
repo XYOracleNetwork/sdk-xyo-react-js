@@ -1,6 +1,6 @@
 import { Chip } from '@mui/material'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
-import { XyoSchemaCache, XyoSchemaNameToValidatorMap } from '@xyo-network/utils'
+import { SchemaCache, SchemaNameToValidatorMap } from '@xyo-network/schema-cache'
 import { useState } from 'react'
 
 import { useResolvePayload } from '../ResolvePayloadContext'
@@ -20,12 +20,12 @@ export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProvi
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (payload && enabled) {
-        await XyoSchemaCache.instance.get(payload.schema)
+        await SchemaCache.instance.get(payload.schema)
 
-        const possibleKnownSchema = payload.schema as keyof XyoSchemaNameToValidatorMap
+        const possibleKnownSchema = payload.schema as keyof SchemaNameToValidatorMap
 
-        if (XyoSchemaCache.instance.validators[possibleKnownSchema]) {
-          const validator = XyoSchemaCache.instance.validators[possibleKnownSchema]
+        if (SchemaCache.instance.validators[possibleKnownSchema]) {
+          const validator = SchemaCache.instance.validators[possibleKnownSchema]
           setValid(validator?.(payload))
         }
         setInitialized(true)

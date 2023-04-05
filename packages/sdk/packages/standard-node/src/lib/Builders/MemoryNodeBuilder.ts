@@ -4,9 +4,10 @@ import { Module } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
 import { assertDefinedEx } from '@xyo-network/react-shared'
+import { SentinelConfig } from '@xyo-network/sentinel'
 import { WitnessModule } from '@xyo-network/witness'
 
-import { SentinelBuilder, SentinelBuilderConfig } from './SentinelBuilder'
+import { SentinelBuilder } from './SentinelBuilder'
 import { StorageArchivistBuilder } from './StorageArchivistBuilder'
 
 interface MemoryNodeBuilderConfig {
@@ -16,7 +17,7 @@ interface MemoryNodeBuilderConfig {
 
 export class MemoryNodeBuilder {
   private _node: MemoryNode | undefined
-  private _wrappedNode: NodeWrapper<MemoryNode> | undefined
+  private _wrappedNode: NodeWrapper | undefined
 
   get node() {
     return assertDefinedEx(this._node, 'this._node was not defined upon create')
@@ -50,7 +51,7 @@ export class MemoryNodeBuilder {
   async addBridge(apiDomain: string) {
     try {
       const bridge = await HttpBridge.create({
-        config: { name: 'RemoteNodeBridge', nodeUri: `${apiDomain}/node`, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
+        config: { name: 'RemoteNodeBridge', nodeUrl: `${apiDomain}/node`, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
       })
       await this.attach(bridge, true)
     } catch (e) {
@@ -58,7 +59,7 @@ export class MemoryNodeBuilder {
     }
   }
 
-  async addSentinel(config: SentinelBuilderConfig, account: AccountInstance) {
+  async addSentinel(config: SentinelConfig, account: AccountInstance) {
     const { sentinel } = await SentinelBuilder.create(config, account)
     await this.attach(sentinel, true, true)
     return sentinel
@@ -71,7 +72,9 @@ export class MemoryNodeBuilder {
         const witness = await witnesses?.[index]?.()
         if (witness) {
           try {
-            await this.node.register(witness).attach(witness.address, true)
+            await this.witnessCleanup(witness)
+            await this.node.register(witness)
+            await this.node.attach(witness.address, true)
           } catch (e) {
             console.error('Error attaching witness', JSON.stringify(pluginSet, null, 2), e)
           }
@@ -89,10 +92,17 @@ export class MemoryNodeBuilder {
           await this.node.unregister(existingModule)
         }
       }
-      this.node.register(module)
+      await this.node.register(module)
       await this.node.attach(module.address, external)
     } catch (e) {
       throw Error(`Error adding ${module.config.name ?? module.address} to MemoryNode: ${e}`)
+    }
+  }
+
+  private async witnessCleanup(witness: WitnessModule) {
+    if ((await this.wrappedNode.registered()).includes(witness.address)) {
+      const [existingWitness] = await this.wrappedNode.resolve({ address: [witness.address] })
+      await this.node.unregister(existingWitness)
     }
   }
 }

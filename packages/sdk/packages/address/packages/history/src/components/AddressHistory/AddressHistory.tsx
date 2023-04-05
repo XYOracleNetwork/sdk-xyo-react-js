@@ -1,5 +1,5 @@
 import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useXyoEvent } from '@xyo-network/react-event'
@@ -15,7 +15,7 @@ const AddressChainList = styled(List, { name: 'AddressChainList' })(() => ({
 
 export interface AddressChainProps extends ListProps {
   address?: string
-  addressHistory?: XyoBoundWitness[]
+  addressHistory?: BoundWitness[]
   selectable?: boolean
   skeleton?: boolean
 }
@@ -25,10 +25,10 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
   const [ulRef, dispatch] = useXyoEvent<HTMLUListElement>(undefined, sharedRef)
-  const [orderedAddressHistory, setOrderedAddressHistory] = useState<XyoBoundWitness[]>()
+  const [orderedAddressHistory, setOrderedAddressHistory] = useState<BoundWitness[]>()
   const orderHistoryFn = useOrderedHistory()
 
-  const handleClick = (bw: XyoBoundWitness) => {
+  const handleClick = (bw: BoundWitness) => {
     setActiveBoundWitnessHash?.(new PayloadWrapper(bw).hash)
     dispatch('boundwitness', 'click', new PayloadWrapper(bw).hash)
   }

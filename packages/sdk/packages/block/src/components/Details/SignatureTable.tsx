@@ -1,7 +1,7 @@
 /* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Hasher } from '@xyo-network/core'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
@@ -9,7 +9,7 @@ import { BlockSignatureTableRow } from './SignatureTableRow'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockSignatureTableProps extends TableProps {
-  block?: XyoBoundWitness
+  block?: BoundWitness
 }
 
 interface SignatureData {
@@ -19,7 +19,7 @@ interface SignatureData {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-const signatureDataFromBoundWitness = (boundWitness: XyoBoundWitness) => {
+const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
   const result: SignatureData[] = []
   for (let i = 0; i < boundWitness.addresses.length; i++) {
     result.push({

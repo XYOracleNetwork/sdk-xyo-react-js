@@ -1,7 +1,7 @@
 /* eslint-disable deprecation/deprecation */
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchivistWrapper } from '@xyo-network/archivist'
-import { WrapperError, XyoError } from '@xyo-network/module'
+import { ModuleError, WrapperError } from '@xyo-network/module'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useState } from 'react'
 
@@ -12,7 +12,7 @@ import { useQuadKeyPayloadsToFeatures } from './useQuadKeyPayloadsToFeatures'
 const useFetchPayloads = (hashes?: string[]) => {
   const [archivist] = useArchivist()
 
-  const [apiError, setApiError] = useState<XyoError>()
+  const [apiError, setApiError] = useState<ModuleError>()
   const [payloads, setPayloads] = useState<NetworkXyoLocationHeatmapQuadkeyAnswerPayload[]>()
   const { features, multipleFeatureSets } = useQuadKeyPayloadsToFeatures(payloads)
   const [notFound, setNotFound] = useState(false)

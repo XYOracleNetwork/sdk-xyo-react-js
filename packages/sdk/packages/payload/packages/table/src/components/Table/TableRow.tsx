@@ -3,7 +3,7 @@ import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded'
 import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded'
 import { alpha, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { useNetwork } from '@xyo-network/react-network'
@@ -17,7 +17,7 @@ export interface PayloadTableRowProps extends TableRowProps {
   exploreDomain?: string
   maxSchemaDepth?: number
   network?: string
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({

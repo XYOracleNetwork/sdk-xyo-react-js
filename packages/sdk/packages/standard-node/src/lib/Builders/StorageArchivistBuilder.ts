@@ -38,6 +38,7 @@ export class StorageArchivistBuilder {
         read: this.remoteArchivist ? [this.remoteArchivist?.address] : undefined,
       },
       schema: StorageArchivistConfigSchema,
+      storeParentReads: true,
       type: 'local',
     }
   }

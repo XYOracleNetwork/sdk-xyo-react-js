@@ -1,5 +1,5 @@
 import { Alert, Typography } from '@mui/material'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
 
@@ -9,7 +9,7 @@ interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
   archive?: string
   exploreDomain?: string
   index: number
-  onRowClick?: (value: XyoBoundWitness) => void
+  onRowClick?: (value: BoundWitness) => void
 }
 
 const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({ block, archive, columns, onRowClick, index, exploreDomain }) => {

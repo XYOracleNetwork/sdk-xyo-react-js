@@ -10,6 +10,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xyo-network/react-address-plugin": "workspace:^",
     "@xyo-network/react-aggregate-price-plugin": "workspace:^",
     "@xyo-network/react-boundwitness-plugin": "workspace:^",
     "@xyo-network/react-coin-gecko-prices-plugin": "workspace:^",
@@ -25,8 +26,8 @@
     "@xyo-network/react-schema-plugin": "workspace:^"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^2.16.1",
-    "@xylabs/tsconfig-react": "^2.16.1",
+    "@xylabs/ts-scripts-yarn3": "^2.16.4",
+    "@xylabs/tsconfig-react": "^2.16.4",
     "require-from-string": "^2.0.2",
     "typescript": "^4.9.5"
   },
@@ -114,5 +115,5 @@
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
-  "version": "2.46.0"
+  "version": "2.47.46"
 }

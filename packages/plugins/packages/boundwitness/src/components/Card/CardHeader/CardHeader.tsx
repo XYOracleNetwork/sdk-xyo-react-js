@@ -1,7 +1,7 @@
 import { CardHeader, CardHeaderProps, styled, useTheme } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { ReactNode, useEffect, useState } from 'react'
 
@@ -15,7 +15,7 @@ export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   hidePreviousHash?: boolean
   hideTimestamp?: boolean
   hideValidation?: boolean
-  payload?: XyoPayload
+  payload?: Payload
 }
 
 export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
@@ -29,7 +29,7 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
   payload,
   ...props
 }) => {
-  const boundwitness = payload as XyoPayload<XyoBoundWitness>
+  const boundwitness = payload as Payload<BoundWitness>
   const theme = useTheme()
   const [hash, setHash] = useState('')
 

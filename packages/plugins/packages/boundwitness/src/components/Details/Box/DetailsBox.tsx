@@ -1,8 +1,8 @@
 import { Divider } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitness, XyoBoundWitnessSchema } from '@xyo-network/boundwitness-model'
+import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
-import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import { forwardRef, useMemo } from 'react'
 import { FaSignature } from 'react-icons/fa'
@@ -17,7 +17,7 @@ import {
   HeadingPaper,
 } from '../../_shared'
 
-const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(({ visibleRows, ...props }, ref) => {
+const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({ visibleRows, ...props }, ref) => {
   return (
     <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
       <BoundWitnessDetailsBoxInner ref={ref} {...props} />
@@ -27,12 +27,12 @@ const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, XyoPayloadDetailsRende
 
 BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
-const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, XyoPayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
-  const boundwitness = payload as XyoBoundWitness
+const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
+  const boundwitness = payload as BoundWitness
   const { hash } = payload ? new PayloadWrapper(payload) : { hash: '' }
 
   const hasBWPayloads = useMemo(
-    () => (boundwitness ? boundwitness.payload_schemas.some((schema) => schema === XyoBoundWitnessSchema) : false),
+    () => (boundwitness ? boundwitness.payload_schemas.some((schema) => schema === BoundWitnessSchema) : false),
     [boundwitness],
   )
 

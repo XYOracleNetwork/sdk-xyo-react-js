@@ -2,8 +2,8 @@ import { Button } from '@mui/material'
 import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeConfigSchema } from '@xyo-network/node'
+import { MemoryNodeProvider, NodeDrawerProvider, useNodeDrawer } from '@xyo-network/react-node-provider'
 
-import { MemoryNodeProvider, NodeDrawerProvider, useNodeDrawer } from '../contexts'
 import { NodeDrawer } from './NodeDrawer'
 
 const ProviderDecorator: DecoratorFn = (Story, args) => (

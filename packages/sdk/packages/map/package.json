@@ -10,20 +10,21 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/assert": "^2.7.4",
-    "@xylabs/delay": "^2.7.4",
-    "@xylabs/forget": "^2.7.4",
-    "@xylabs/react-flexbox": "^2.16.11",
-    "@xylabs/react-shared": "^2.16.11",
-    "@xyo-network/archivist": "^2.51.10",
-    "@xyo-network/module": "^2.51.10",
-    "@xyo-network/payload-model": "^2.51.10",
+    "@xylabs/assert": "^2.7.6",
+    "@xylabs/delay": "^2.7.6",
+    "@xylabs/forget": "^2.7.6",
+    "@xylabs/react-flexbox": "^2.16.14",
+    "@xylabs/react-shared": "^2.16.14",
+    "@xyo-network/archivist": "^2.54.7",
+    "@xyo-network/module": "^2.54.7",
+    "@xyo-network/payload-model": "^2.54.7",
     "@xyo-network/react-app-settings": "workspace:^",
     "@xyo-network/react-archivist": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "@xyo-network/sdk-geo": "^2.8.0",
     "geojson": "^0.5.0",
+    "lodash": "^4.17.21",
     "mapbox-gl": "^2.13.0"
   },
   "peerDependencies": {
@@ -39,8 +40,8 @@
   "devDependencies": {
     "@storybook/react": "^6.5.16",
     "@types/mapbox-gl": "^2.7.10",
-    "@xylabs/ts-scripts-yarn3": "^2.16.1",
-    "@xylabs/tsconfig-react": "^2.16.1",
+    "@xylabs/ts-scripts-yarn3": "^2.16.4",
+    "@xylabs/tsconfig-react": "^2.16.4",
     "require-from-string": "^2.0.2",
     "typescript": "^4.9.5"
   },
@@ -86,5 +87,5 @@
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
-  "version": "2.46.0"
+  "version": "2.47.46"
 }

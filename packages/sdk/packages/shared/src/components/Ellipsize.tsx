@@ -1,6 +1,6 @@
 import { Box, BoxProps, styled, Typography, TypographyProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
-import React, { ElementType, forwardRef, useCallback, useState } from 'react'
+import { ElementType, forwardRef, useCallback, useState } from 'react'
 
 /**
  * Heavily inspired by - https://stackoverflow.com/a/30362531/2803259
@@ -8,7 +8,7 @@ import React, { ElementType, forwardRef, useCallback, useState } from 'react'
 
 const ComponentName = 'Ellipsize'
 
-interface EllipsizeRootProps {
+interface EllipsizeRootProps extends BoxProps {
   beforeLineHeight?: string | number
 }
 
@@ -84,13 +84,13 @@ export interface EllipsizeBoxProps extends BoxProps {
   typographyProps?: TypographyWithComponentProps
 }
 
-export const EllipsizeBoxInner: React.FC<WithChildren<EllipsizeBoxProps>> = forwardRef(
+export const EllipsizeBox = forwardRef<HTMLDivElement, WithChildren<EllipsizeBoxProps>>(
   ({ children, ellipsisPosition = 'start', typographyProps, ...props }, ref) => {
     // Allow syncing of :before pseudo element height with contentWrapHeight
     const { contentWrapRef, contentWrapHeight } = useClientHeight()
 
     return (
-      <EllipsizeRoot beforeLineHeight={ref ? contentWrapHeight : undefined} ref={ref} {...props}>
+      <EllipsizeRoot beforeLineHeight={ref ? contentWrapHeight : undefined} {...props} ref={ref}>
         <EllipsizeInnerWrap>
           <EllipsizeContentWrap ref={contentWrapRef} component={'span'} ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
             {children}
@@ -100,6 +100,4 @@ export const EllipsizeBoxInner: React.FC<WithChildren<EllipsizeBoxProps>> = forw
     )
   },
 )
-
-EllipsizeBoxInner.displayName = 'EllipsizeBox'
-export const EllipsizeBox = EllipsizeBoxInner
+EllipsizeBox.displayName = 'EllipsizeBox'

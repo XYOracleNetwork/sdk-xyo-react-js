@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { sampleBlock, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
@@ -21,7 +21,7 @@ const StorybookEntry = {
 } as ComponentMeta<typeof BlockTable>
 
 const Template: ComponentStory<typeof BlockTable> = ({ blocks: blocksParam, ...args }) => {
-  const [blocks, setBlocks] = useState<XyoBoundWitness[]>(blocksParam ?? [])
+  const [blocks, setBlocks] = useState<BoundWitness[]>(blocksParam ?? [])
   return (
     <BrowserRouter>
       <FlexCol alignItems="stretch">
@@ -43,7 +43,7 @@ const sampleBlocks = [...Array(100).keys()].map(() => sampleBlock)
 WithData.args = { blocks: sampleBlocks }
 
 const WithError = Template.bind({})
-WithError.args = { blocks: [sampleBlock, badBlock as XyoBoundWitness] }
+WithError.args = { blocks: [sampleBlock, badBlock as BoundWitness] }
 
 export { Default, WithData, WithError }
 

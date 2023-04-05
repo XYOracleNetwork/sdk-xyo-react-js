@@ -1,8 +1,8 @@
 import { useAsyncEffect } from '@xylabs/react-shared'
-import { XyoError, XyoErrorSchema } from '@xyo-network/module'
-import { XyoPayloadBuilder } from '@xyo-network/payload-builder'
+import { ModuleError, ModuleErrorSchema } from '@xyo-network/module'
+import { PayloadBuilder } from '@xyo-network/payload-builder'
+import { SchemaCache, SchemaCacheEntry } from '@xyo-network/schema-cache'
 import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
-import { XyoSchemaCache, XyoSchemaCacheEntry } from '@xyo-network/utils'
 import { useState } from 'react'
 
 /**
@@ -10,8 +10,8 @@ import { useState } from 'react'
  */
 const useGetSchemaPayload = (schema?: string) => {
   const [notFound, setNotFound] = useState(false)
-  const [xyoError, setXyoError] = useState<XyoError>()
-  const [schemaCacheEntry, setSchemaCacheEntry] = useState<XyoSchemaCacheEntry | null | undefined>()
+  const [xyoError, setXyoError] = useState<ModuleError>()
+  const [schemaCacheEntry, setSchemaCacheEntry] = useState<SchemaCacheEntry | null | undefined>()
   const [schemaLocal, setSchemaLocal] = useState<string>()
 
   useAsyncEffect(
@@ -22,7 +22,7 @@ const useGetSchemaPayload = (schema?: string) => {
 
       if ((schema && firstRequest) || (schema && schemaChanged)) {
         try {
-          const schemaCacheEntry = await XyoSchemaCache.instance.get(schema)
+          const schemaCacheEntry = await SchemaCache.instance.get(schema)
           if (mounted()) {
             setSchemaCacheEntry(schemaCacheEntry)
             setNotFound(schemaCacheEntry === null || schemaCacheEntry === undefined)
@@ -31,7 +31,7 @@ const useGetSchemaPayload = (schema?: string) => {
           const error = e as Error
           console.error(e)
           if (mounted()) {
-            setXyoError({ message: error.message, schema: XyoErrorSchema, sources: [] })
+            setXyoError({ message: error.message, schema: ModuleErrorSchema, sources: [] })
           }
         }
       }
@@ -46,7 +46,7 @@ const useGetSchemaPayload = (schema?: string) => {
     notFound,
     schemaHuri: schemaCacheEntry?.huri,
     schemaPayload: schemaCacheEntry
-      ? new XyoPayloadBuilder<XyoSchemaPayload>(schemaCacheEntry?.payload).fields(schemaCacheEntry.payload).build()
+      ? new PayloadBuilder<XyoSchemaPayload>(schemaCacheEntry?.payload).fields(schemaCacheEntry.payload).build()
       : schemaCacheEntry,
     xyoError,
   }

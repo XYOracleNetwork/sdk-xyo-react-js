@@ -10,15 +10,17 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-shared": "^2.16.11",
-    "@xyo-network/archivist-wrapper": "^2.51.10",
-    "@xyo-network/payload-model": "^2.51.10",
+    "@xylabs/react-shared": "^2.16.14",
+    "@xyo-network/archivist-wrapper": "^2.54.7",
+    "@xyo-network/payload-model": "^2.54.7",
     "@xyo-network/react-shared": "workspace:^"
   },
   "devDependencies": {
     "@storybook/react": "^6.5.16",
-    "@xylabs/ts-scripts-yarn3": "^2.16.1",
-    "@xylabs/tsconfig-react": "^2.16.1",
+    "@xylabs/ts-scripts-yarn3": "^2.16.4",
+    "@xylabs/tsconfig-react": "^2.16.4",
+    "@xyo-network/core": "^2.54.7",
+    "@xyo-network/memory-archivist": "^2.54.7",
     "require-from-string": "^2.0.2",
     "typescript": "^4.9.5"
   },
@@ -74,5 +76,5 @@
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
-  "version": "2.46.0"
+  "version": "2.47.46"
 }

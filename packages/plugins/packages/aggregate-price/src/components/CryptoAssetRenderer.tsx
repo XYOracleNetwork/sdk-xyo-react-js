@@ -1,15 +1,15 @@
 import { Grid } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { XyoCryptoMarketAssetPayload } from '@xyo-network/crypto-asset-payload-plugin'
-import { XyoPayload } from '@xyo-network/payload-model'
-import { XyoPayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import { Payload } from '@xyo-network/payload-model'
+import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import isEmpty from 'lodash/isEmpty'
 
 import { CryptoAsset } from './Asset'
 
-export interface CryptoAssetRendererProps extends XyoPayloadDetailsRenderProps {
-  payload?: XyoPayload
+export interface CryptoAssetRendererProps extends PayloadDetailsRenderProps {
+  payload?: Payload
 }
 
 export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payload, ...props }) => {

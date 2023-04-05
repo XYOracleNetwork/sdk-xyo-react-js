@@ -3,7 +3,7 @@ import { Chip } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { XyoBoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { ReactNode } from 'react'
 
@@ -12,7 +12,7 @@ import { BWVerification } from './Verification'
 
 export interface BWActionsProps extends FlexBoxProps {
   additionalActions?: ReactNode
-  boundwitness?: XyoBoundWitness
+  boundwitness?: BoundWitness
   hideJSONButton?: boolean
   hidePreviousHash?: boolean
   hideTimestamp?: boolean

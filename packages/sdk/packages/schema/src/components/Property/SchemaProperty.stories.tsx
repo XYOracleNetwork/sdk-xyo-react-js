@@ -1,11 +1,10 @@
 import { ComponentStory, Meta } from '@storybook/react'
+import { useXyoEvent } from '@xyo-network/react-event'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 
 import { SchemaProperty } from './SchemaProperty'
 
 const StorybookEntry: Meta = {
-  argTypes: {},
-  args: {},
   component: SchemaProperty,
   decorators: [useAppThemeDecorator],
   parameters: {
@@ -16,21 +15,30 @@ const StorybookEntry: Meta = {
   title: 'Schema/SchemaProperty',
 }
 
-const Template: ComponentStory<typeof SchemaProperty> = (args) => <SchemaProperty {...args} />
+const Template: ComponentStory<typeof SchemaProperty> = (args) => {
+  const [ref] = useXyoEvent<HTMLDivElement>((noun, verb, data) => {
+    console.log(`${noun}|${verb}|${data}`)
+  })
+  return (
+    <div ref={ref}>
+      <SchemaProperty {...args} />
+    </div>
+  )
+}
 
 const Default = Template.bind({})
 Default.args = {}
 
-const WithVerfiedValue = Template.bind({})
-WithVerfiedValue.args = { value: 'network.xyo.schema' }
+const WithVerifiedValue = Template.bind({})
+WithVerifiedValue.args = { value: 'network.xyo.schema' }
 
-const WithVerfiedValuePaper = Template.bind({})
-WithVerfiedValuePaper.args = { paper: true, value: 'network.xyo.schema' }
+const WithVerifiedValuePaper = Template.bind({})
+WithVerifiedValuePaper.args = { paper: true, value: 'network.xyo.schema' }
 
-const WithUnverfiedValue = Template.bind({})
-WithUnverfiedValue.args = { value: 'network.xyo.blahblah' }
+const WithUnverifiedValue = Template.bind({})
+WithUnverifiedValue.args = { value: 'network.xyo.blahblah' }
 
-export { Default, WithUnverfiedValue, WithVerfiedValue, WithVerfiedValuePaper }
+export { Default, WithUnverifiedValue, WithVerifiedValue, WithVerifiedValuePaper }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -1,36 +1,36 @@
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 
 import {
-  XyoPayloadAvatar,
-  XyoPayloadCardActionArea,
-  XyoPayloadCardContent,
-  XyoPayloadCardHeader,
-  XyoPayloadDetailsBox,
-  XyoPayloadEditorBox,
-  XyoPayloadTableCell,
+  PayloadAvatar,
+  PayloadCardActionArea,
+  PayloadCardContent,
+  PayloadCardHeader,
+  PayloadDetailsBox,
+  PayloadEditorBox,
+  PayloadTableCell,
 } from './components'
-import { XyoPayloadRenderPlugin } from './XyoPayloadRenderPlugin'
+import { PayloadRenderPlugin } from './PayloadRenderPlugin'
 
-export const DefaultPayloadRenderPlugin: XyoPayloadRenderPlugin = {
-  canRender: function (payload?: XyoPayload): boolean {
+export const DefaultPayloadRenderPlugin: PayloadRenderPlugin = {
+  canRender: function (payload?: Payload): boolean {
     return !!payload?.schema
   },
   components: {
     avatar: {
-      image: XyoPayloadAvatar,
+      image: PayloadAvatar,
     },
     box: {
-      detailsBox: XyoPayloadDetailsBox,
-      editor: XyoPayloadEditorBox,
+      detailsBox: PayloadDetailsBox,
+      editor: PayloadEditorBox,
     },
     card: {
-      actionArea: XyoPayloadCardActionArea,
-      content: XyoPayloadCardContent,
-      header: XyoPayloadCardHeader,
+      actionArea: PayloadCardActionArea,
+      content: PayloadCardContent,
+      header: PayloadCardHeader,
     },
     table: {
-      cell: XyoPayloadTableCell,
+      cell: PayloadTableCell,
     },
   },
-  name: 'XyoPayload',
+  name: 'Payload',
 }

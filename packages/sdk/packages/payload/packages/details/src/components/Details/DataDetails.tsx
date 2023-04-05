@@ -2,7 +2,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { XyoPayload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { Property, PropertyAction, PropertyProps } from '@xyo-network/react-property'
 import { SizeProp } from '@xyo-network/react-shared'
@@ -12,7 +12,7 @@ import { PayloadHashSourceDetails } from './HashSourceDetails'
 
 export type PayloadDataDetailsProps = PropertyProps & {
   badge?: boolean
-  payload?: XyoPayload
+  payload?: Payload
   size?: SizeProp
 }
 
