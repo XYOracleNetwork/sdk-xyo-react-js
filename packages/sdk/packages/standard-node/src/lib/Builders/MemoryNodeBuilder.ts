@@ -30,12 +30,7 @@ export class MemoryNodeBuilder {
   static async create({ name, node }: MemoryNodeBuilderConfig, account?: AccountInstance): Promise<MemoryNodeBuilder> {
     const instance = new this()
 
-    let memoryNode: MemoryNode
-    if (node) {
-      memoryNode = node
-    } else {
-      memoryNode = await MemoryNode.create({ account, config: { name, schema: NodeConfigSchema } })
-    }
+    const memoryNode: MemoryNode = node ?? (await MemoryNode.create({ account, config: { name, schema: NodeConfigSchema } }))
     instance._node = memoryNode
     instance._wrappedNode = NodeWrapper.wrap(memoryNode)
     return instance
