@@ -8,6 +8,10 @@ export const parseModuleType = (queries?: string[]): CyNodeModuleTypes => {
         type = 'archivist'
         break
       }
+      if (queries[i].includes('bridge')) {
+        type = 'bridge'
+        break
+      }
       if (queries[i].includes('diviner')) {
         type = 'diviner'
         break

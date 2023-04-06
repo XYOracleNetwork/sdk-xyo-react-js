@@ -1,1 +1,1 @@
-export type CyNodeModuleTypes = 'archivist' | 'diviner' | 'module' | 'node' | 'witness' | 'sentinel'
+export type CyNodeModuleTypes = 'archivist' | 'bridge' | 'diviner' | 'module' | 'node' | 'witness' | 'sentinel'
