@@ -2,7 +2,7 @@ import { ModuleDescription, ModuleWrapper } from '@xyo-network/module'
 import { NodeWrapper } from '@xyo-network/node'
 import { ElementDefinition } from 'cytoscape'
 
-import { parseModuleType } from '../lib'
+import { parseModuleType } from './lib'
 
 export class CytoscapeElements {
   static MaxNameLength = 20

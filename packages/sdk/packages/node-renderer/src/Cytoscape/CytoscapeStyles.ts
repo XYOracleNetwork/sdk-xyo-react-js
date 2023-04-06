@@ -1,6 +1,6 @@
 import { Stylesheet } from 'cytoscape'
 
-import { CyNodeIcons } from './CytoscapeIcons'
+import { CyNodeModuleTypes } from './lib'
 
 export const NodeIdStyles = (color?: string): Stylesheet => ({
   selector: 'node[id]',
@@ -12,13 +12,13 @@ export const NodeIdStyles = (color?: string): Stylesheet => ({
   },
 })
 
-export const NodeStyled = (icons: Record<CyNodeIcons, string>, bgColor?: string): Stylesheet => ({
+export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string): Stylesheet => ({
   selector: 'node',
   style: {
     'background-color': bgColor,
     'background-height': '75%',
     // TODO - make dynamic
-    'background-image': (elem) => icons[elem.data('type') as CyNodeIcons],
+    'background-image': (elem) => icons[elem.data('type') as CyNodeModuleTypes],
     'background-image-smoothing': 'yes',
     'background-width': '75%',
     label: 'data(id)',

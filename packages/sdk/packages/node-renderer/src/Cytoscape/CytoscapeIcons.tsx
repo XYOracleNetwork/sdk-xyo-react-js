@@ -7,10 +7,10 @@ import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded'
 import { SvgIconTypeMap } from '@mui/material'
 import { OverridableComponent } from '@mui/material/OverridableComponent'
 
-export type CyNodeIcons = 'archivist' | 'diviner' | 'module' | 'node' | 'witness' | 'sentinel'
+import { CyNodeModuleTypes } from './lib'
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export const CyIconSet: Record<CyNodeIcons, OverridableComponent<SvgIconTypeMap<{}, 'svg'>>> = {
+export const CyIconSet: Record<CyNodeModuleTypes, OverridableComponent<SvgIconTypeMap<{}, 'svg'>>> = {
   archivist: Inventory2RoundedIcon,
   diviner: BubbleChartRoundedIcon,
   module: QuestionMarkRoundedIcon,
