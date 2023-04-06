@@ -1,3 +1,4 @@
+import { Button, ButtonGroup } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
@@ -39,10 +40,6 @@ export const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
       await node1.register(archivist1)
       await node1.attach(archivist1.address, true)
 
-      const witnessModule = await IdWitness.create({ config: { name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema } })
-      await node1.register(witnessModule)
-      await node1.attach(witnessModule.address, true)
-
       await node.register(node1)
       await node.attach(node1.address, true)
 
@@ -83,6 +80,48 @@ const TemplateCustomAddress: ComponentStory<typeof NodeRelationalGraph> = (props
   return <NodeRelationalGraph options={options} {...props} />
 }
 
+const TemplateAttachDetach: ComponentStory<typeof NodeRelationalGraph> = (props) => {
+  const [node] = useModule('ChildNode')
+  const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
+  const elements = useCytoscapeElements(wrappedNode)
+  const options = useCytoscapeOptions(elements)
+  const [idWitness, setIdWitness] = useState<IdWitness>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      const witnessModule = await IdWitness.create({ config: { name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema } })
+      setIdWitness(witnessModule)
+    },
+    [],
+  )
+
+  const handleAddWitness = async () => {
+    if (wrappedNode && idWitness) {
+      const memoryNode = wrappedNode as NodeWrapper<MemoryNode>
+      await memoryNode.module.register(idWitness)
+      await memoryNode.attach(idWitness.address, true)
+    }
+  }
+
+  const handleRemoveWitness = async () => {
+    if (wrappedNode && idWitness) {
+      const memoryNode = wrappedNode as NodeWrapper<MemoryNode>
+      await memoryNode.module.unregister(idWitness)
+    }
+  }
+
+  return (
+    <>
+      <ButtonGroup>
+        <Button onClick={handleAddWitness}>Add Witness</Button>
+        <Button onClick={handleRemoveWitness}>Remove Witness</Button>
+      </ButtonGroup>
+      <NodeRelationalGraph options={options} {...props} />
+    </>
+  )
+}
+
 const defaultProps = {
   height: 'calc(100vh - 20px)',
   width: '100%',
@@ -102,4 +141,8 @@ const WithCustomAddress = TemplateCustomAddress.bind({})
 WithCustomAddress.args = { ...defaultProps }
 WithCustomAddress.decorators = [MemoryNodeDecorator]
 
-export { Default, WithCustomAddress, WithData, WithDescribe }
+const WithAttachDetach = TemplateAttachDetach.bind({})
+WithAttachDetach.args = { ...defaultProps }
+WithAttachDetach.decorators = [MemoryNodeDecorator]
+
+export { Default, WithAttachDetach, WithCustomAddress, WithData, WithDescribe }
