@@ -7,7 +7,7 @@ import { parseModuleType } from './lib'
 export class CytoscapeElements {
   static MaxNameLength = 20
 
-  static buildChild = async (wrapper: NodeWrapper, address: string) => {
+  static async buildChild(wrapper: NodeWrapper, address: string) {
     const [result] = await wrapper.resolveWrapped(ModuleWrapper, { address: [address] })
     const description = await result.describe()
     return CytoscapeElements.buildNode(description)
@@ -20,6 +20,31 @@ export class CytoscapeElements {
         source: rootNode.data.id,
         target: newNode.data.id,
       },
+    }
+  }
+
+  static async buildElements(wrapper: NodeWrapper) {
+    try {
+      const [description, newRootNode] = await CytoscapeElements.buildRootNode(wrapper)
+      const newElements: ElementDefinition[] = [newRootNode]
+
+      const children = description.children
+      await Promise.allSettled(
+        (children ?? [])?.map(async (address) => {
+          try {
+            const newNode = await CytoscapeElements.buildChild(wrapper, address)
+            newElements.push(newNode)
+
+            const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
+            newElements.push(newEdge)
+          } catch (e) {
+            console.error('Error parsing children', e)
+          }
+        }),
+      )
+      return newElements
+    } catch (e) {
+      console.error('Error Getting initial description', e)
     }
   }
 

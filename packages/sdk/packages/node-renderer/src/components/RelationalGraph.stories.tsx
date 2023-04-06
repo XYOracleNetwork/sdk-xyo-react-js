@@ -116,7 +116,9 @@ const TemplateAttachDetach: ComponentStory<typeof NodeRelationalGraph> = (props)
   const handleRemoveWitness = async () => {
     if (wrappedNode && idWitness) {
       const memoryNode = wrappedNode as NodeWrapper<MemoryNode>
-      await memoryNode.module.unregister(idWitness)
+      if (await (await memoryNode.registered()).includes(idWitness.address)) {
+        await memoryNode.module.unregister(idWitness)
+      }
     }
   }
 
