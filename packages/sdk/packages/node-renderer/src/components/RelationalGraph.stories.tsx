@@ -9,6 +9,7 @@ import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { NodeProvider, useModule, useProvidedWrappedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletProvider } from '@xyo-network/react-wallet'
+import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useMemo, useState } from 'react'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
@@ -24,26 +25,34 @@ export const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
-      const node1 = await MemoryNode.create({ config: { name: 'ChildNode', schema: NodeConfigSchema } })
-      const bridge = await HttpBridge.create({
-        config: { name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
-      })
-      await node.register(bridge)
-      await node.attach(bridge.address, true)
+      try {
+        const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
+        const node1 = await MemoryNode.create({ config: { name: 'ChildNode', schema: NodeConfigSchema } })
+        const bridge = await HttpBridge.create({
+          config: { name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
+        })
+        await node.register(bridge)
+        await node.attach(bridge.address, true)
 
-      const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: ArchivistConfigSchema } })
-      await node.register(archivist)
-      await node.attach(archivist.address, true)
+        const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: ArchivistConfigSchema } })
+        await node.register(archivist)
+        await node.attach(archivist.address, true)
 
-      const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: ArchivistConfigSchema } })
-      await node1.register(archivist1)
-      await node1.attach(archivist1.address, true)
+        const sentinel = await MemorySentinel.create({ config: { name: 'MemorySentinel', schema: SentinelConfigSchema } })
+        await node.register(sentinel)
+        await node.attach(sentinel.address, true)
 
-      await node.register(node1)
-      await node.attach(node1.address, true)
+        const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: ArchivistConfigSchema } })
+        await node1.register(archivist1)
+        await node1.attach(archivist1.address, true)
 
-      setNode(node)
+        await node.register(node1)
+        await node.attach(node1.address, true)
+
+        setNode(node)
+      } catch (e) {
+        console.error('Error Creating MemoryNode', e)
+      }
     },
     [],
   )
