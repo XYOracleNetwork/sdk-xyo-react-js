@@ -1,3 +1,4 @@
+import { Button, ButtonGroup } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
@@ -8,6 +9,7 @@ import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { NodeProvider, useModule, useProvidedWrappedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletProvider } from '@xyo-network/react-wallet'
+import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useMemo, useState } from 'react'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
@@ -23,30 +25,34 @@ export const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
-      const node1 = await MemoryNode.create({ config: { name: 'ChildNode', schema: NodeConfigSchema } })
-      const bridge = await HttpBridge.create({
-        config: { name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
-      })
-      await node.register(bridge)
-      await node.attach(bridge.address, true)
+      try {
+        const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
+        const node1 = await MemoryNode.create({ config: { name: 'ChildNode', schema: NodeConfigSchema } })
+        const bridge = await HttpBridge.create({
+          config: { name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
+        })
+        await node.register(bridge)
+        await node.attach(bridge.address, true)
 
-      const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: ArchivistConfigSchema } })
-      await node.register(archivist)
-      await node.attach(archivist.address, true)
+        const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: ArchivistConfigSchema } })
+        await node.register(archivist)
+        await node.attach(archivist.address, true)
 
-      const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: ArchivistConfigSchema } })
-      await node1.register(archivist1)
-      await node1.attach(archivist1.address, true)
+        const sentinel = await MemorySentinel.create({ config: { name: 'MemorySentinel', schema: SentinelConfigSchema } })
+        await node.register(sentinel)
+        await node.attach(sentinel.address, true)
 
-      const witnessModule = await IdWitness.create({ config: { name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema } })
-      await node1.register(witnessModule)
-      await node1.attach(witnessModule.address, true)
+        const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: ArchivistConfigSchema } })
+        await node1.register(archivist1)
+        await node1.attach(archivist1.address, true)
 
-      await node.register(node1)
-      await node.attach(node1.address, true)
+        await node.register(node1)
+        await node.attach(node1.address, true)
 
-      setNode(node)
+        setNode(node)
+      } catch (e) {
+        console.error('Error Creating MemoryNode', e)
+      }
     },
     [],
   )
@@ -83,6 +89,48 @@ const TemplateCustomAddress: ComponentStory<typeof NodeRelationalGraph> = (props
   return <NodeRelationalGraph options={options} {...props} />
 }
 
+const TemplateAttachDetach: ComponentStory<typeof NodeRelationalGraph> = (props) => {
+  const [node] = useModule('ChildNode')
+  const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
+  const elements = useCytoscapeElements(wrappedNode)
+  const options = useCytoscapeOptions(elements)
+  const [idWitness, setIdWitness] = useState<IdWitness>()
+
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      const witnessModule = await IdWitness.create({ config: { name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema } })
+      setIdWitness(witnessModule)
+    },
+    [],
+  )
+
+  const handleAddWitness = async () => {
+    if (wrappedNode && idWitness) {
+      const memoryNode = wrappedNode as NodeWrapper<MemoryNode>
+      await memoryNode.module.register(idWitness)
+      await memoryNode.attach(idWitness.address, true)
+    }
+  }
+
+  const handleRemoveWitness = async () => {
+    if (wrappedNode && idWitness) {
+      const memoryNode = wrappedNode as NodeWrapper<MemoryNode>
+      await memoryNode.module.unregister(idWitness)
+    }
+  }
+
+  return (
+    <>
+      <ButtonGroup>
+        <Button onClick={handleAddWitness}>Add Witness</Button>
+        <Button onClick={handleRemoveWitness}>Remove Witness</Button>
+      </ButtonGroup>
+      <NodeRelationalGraph options={options} {...props} />
+    </>
+  )
+}
+
 const defaultProps = {
   height: 'calc(100vh - 20px)',
   width: '100%',
@@ -102,4 +150,8 @@ const WithCustomAddress = TemplateCustomAddress.bind({})
 WithCustomAddress.args = { ...defaultProps }
 WithCustomAddress.decorators = [MemoryNodeDecorator]
 
-export { Default, WithCustomAddress, WithData, WithDescribe }
+const WithAttachDetach = TemplateAttachDetach.bind({})
+WithAttachDetach.args = { ...defaultProps }
+WithAttachDetach.decorators = [MemoryNodeDecorator]
+
+export { Default, WithAttachDetach, WithCustomAddress, WithData, WithDescribe }

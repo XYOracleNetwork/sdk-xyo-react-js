@@ -2,6 +2,8 @@ import { ReactElement } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { renderToStaticMarkup } from 'react-dom/server'
 
+import { CyNodeIcons } from '../Cytoscape'
+
 const dataUri = 'data:image/svg+xml,'
 
 export const encodeSvg = (reactElement: ReactElement, color?: string) => {
@@ -18,8 +20,8 @@ export const encodeSvg = (reactElement: ReactElement, color?: string) => {
   return `${dataUri}${window.encodeURIComponent(svgElement.outerHTML)}`
 }
 
-export const parseModuleType = (queries?: string[]) => {
-  let type
+export const parseModuleType = (queries?: string[]): CyNodeIcons => {
+  let type: CyNodeIcons = 'module'
   if (queries) {
     for (let i = 0; i < queries.length; i++) {
       if (queries[i].includes('archivist')) {
@@ -34,6 +36,10 @@ export const parseModuleType = (queries?: string[]) => {
         type = 'node'
         break
       }
+      if (queries[i].includes('sentinel')) {
+        type = 'sentinel'
+        break
+      }
       if (queries[i].includes('witness')) {
         type = 'witness'
         break
@@ -42,4 +48,5 @@ export const parseModuleType = (queries?: string[]) => {
     }
     return type
   }
+  return 'module'
 }
