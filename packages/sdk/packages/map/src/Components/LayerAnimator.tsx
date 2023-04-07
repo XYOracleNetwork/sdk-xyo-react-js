@@ -1,4 +1,4 @@
-import type { useInterval, WithChildren } from '@xylabs/react-shared'
+import { useInterval, WithChildren } from '@xylabs/react-shared'
 import { Map } from 'mapbox-gl'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
