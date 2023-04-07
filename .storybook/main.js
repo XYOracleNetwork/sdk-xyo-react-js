@@ -1,31 +1,28 @@
 module.exports = {
-  core: {
-    builder: 'webpack5',
+  stories: ["../packages/**/*.stories.@(ts|tsx)"],
+  // addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-interactions", "storybook-dark-mode", "@storybook/addon-mdx-gfm"],
+  features: {
+    modernInlineRendering: true,
+    storyStoreV7: false,
   },
-  stories: [
-    "../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-  ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "storybook-dark-mode"
-  ],
-  features: { modernInlineRendering: true },
   framework: {
-    name: '@storybook/react-webpack5',
-    options: { fastRefresh: true },
+    name: "@storybook/react-webpack5",
+    options: {
+      fastRefresh: true
+    }
   },
   typescript: {
-    check: true,
+    check: true
   },
-  // Can be removed when upgrading to 7.0
-  // see - https://github.com/storybookjs/storybook/issues/17458
-  webpackFinal: (config) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      assert: require.resolve('browser-assert')
-    }
-    return config
+  // webpackFinal: config => {
+  //   config.plugins.forEach(plugin => {
+  //     if('ForkTsCheckerWebpackPlugin' === plugin.constructor.name){
+  //       plugin.memoryLimit = 4096;
+  //     }
+  //   });
+  //   return config;
+  // },
+  docs: {
+    autodocs: true
   }
-}
+};
