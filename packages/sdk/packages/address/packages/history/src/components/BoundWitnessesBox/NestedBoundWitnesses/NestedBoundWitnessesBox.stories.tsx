@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { WithHashSelectionHistoryDefaultValues } from '../../stories'
 import { NestedBoundWitnessesBox } from './NestedBoundWitnessesBox'
@@ -10,7 +10,7 @@ export default {
   title: 'address/history/NestedBoundWitnessesBox',
 } as Meta
 
-const Template: ComponentStory<typeof NestedBoundWitnessesBox> = (props) => {
+const Template: StoryFn<typeof NestedBoundWitnessesBox> = (props) => {
   return <NestedBoundWitnessesBox {...props} />
 }
 

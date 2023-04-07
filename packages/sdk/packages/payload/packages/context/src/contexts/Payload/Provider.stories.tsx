@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { Box, Button, CircularProgress } from '@mui/material'
-import { ComponentStory, DecoratorFn } from '@storybook/react'
+import { DecoratorFn, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { Hasher } from '@xyo-network/core'
@@ -38,7 +38,7 @@ const StorybookEntry = {
   title: 'payload/PayloadProvider',
 }
 
-const Template: ComponentStory<React.FC> = () => {
+const Template: StoryFn<React.FC> = () => {
   const { clearPayload, payload, refreshPayload } = usePayload()
 
   const handleRefresh = () => {

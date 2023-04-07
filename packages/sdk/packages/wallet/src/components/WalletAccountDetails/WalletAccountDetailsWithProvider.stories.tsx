@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { HDWallet } from '@xyo-network/account'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
@@ -15,9 +15,9 @@ const StorybookEntry = {
     },
   },
   title: 'wallet/WalletAccountDetailsWithProvider',
-} as ComponentMeta<typeof WalletAccountDetails>
+} as Meta<typeof WalletAccountDetails>
 
-const Template: ComponentStory<typeof WalletAccountDetails> = (args) => {
+const Template: StoryFn<typeof WalletAccountDetails> = (args) => {
   return (
     <BrowserRouter>
       <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>

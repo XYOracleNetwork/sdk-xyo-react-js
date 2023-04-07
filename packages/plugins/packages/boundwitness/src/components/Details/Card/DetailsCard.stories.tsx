@@ -1,4 +1,4 @@
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleBlock } from '@xyo-network/react-storybook'
 import { useRef } from 'react'
@@ -19,7 +19,7 @@ export default {
   title: 'plugin/boundwitness/DetailsCard',
 } as Meta
 
-const Template: ComponentStory<typeof BoundWitnessDetailsCard> = (props) => <BoundWitnessDetailsCard {...props} />
+const Template: StoryFn<typeof BoundWitnessDetailsCard> = (props) => <BoundWitnessDetailsCard {...props} />
 
 const Default = Template.bind({})
 Default.args = { payload: sampleBlock }

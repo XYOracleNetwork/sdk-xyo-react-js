@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { sampleBlock, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -13,9 +13,9 @@ const StorybookEntry = {
     },
   },
   title: 'boundwitness/SignatureTable',
-} as ComponentMeta<typeof BoundWitnessSignatureTable>
+} as Meta<typeof BoundWitnessSignatureTable>
 
-const Template: ComponentStory<typeof BoundWitnessSignatureTable> = (args) => (
+const Template: StoryFn<typeof BoundWitnessSignatureTable> = (args) => (
   <BrowserRouter>
     <BoundWitnessSignatureTable {...args}></BoundWitnessSignatureTable>
   </BrowserRouter>

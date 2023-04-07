@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { Alert } from '@mui/material'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { XyoThrownErrorBoundary } from './ThrownErrorBoundary'
 
@@ -9,7 +9,7 @@ const StorybookEntry: Meta = {
   title: 'auth-service/XyoApiBoundary/ThrownErrorBoundary',
 }
 
-const Template: ComponentStory<typeof XyoThrownErrorBoundary> = ({ errorComponent }) => {
+const Template: StoryFn<typeof XyoThrownErrorBoundary> = ({ errorComponent }) => {
   return (
     <XyoThrownErrorBoundary errorComponent={errorComponent} boundaryName="StoryBook">
       <Alert severity="info">Use React Dev Tools to trigger and error within the boundary</Alert>

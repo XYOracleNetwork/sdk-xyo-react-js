@@ -1,4 +1,4 @@
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 
 import { ActiveBWDecoratorWithDefaultValues, WithResetDecorator } from '../../stories'
@@ -16,7 +16,7 @@ export default {
   title: 'address/history/ActiveBWFlexBox',
 } as Meta
 
-const Template: ComponentStory<typeof ActiveBWFlexBox> = (props) => <ActiveBWFlexBox {...props} />
+const Template: StoryFn<typeof ActiveBWFlexBox> = (props) => <ActiveBWFlexBox {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

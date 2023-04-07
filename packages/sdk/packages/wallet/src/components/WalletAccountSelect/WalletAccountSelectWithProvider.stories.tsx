@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { HDWallet } from '@xyo-network/account'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 
@@ -14,9 +14,9 @@ const StorybookEntry = {
     },
   },
   title: 'wallet/WalletAccountSelectWithProvider',
-} as ComponentMeta<typeof WalletAccountSelect>
+} as Meta<typeof WalletAccountSelect>
 
-const Template: ComponentStory<typeof WalletAccountSelect> = (args) => {
+const Template: StoryFn<typeof WalletAccountSelect> = (args) => {
   return (
     <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
       <WalletAccountSelect {...args}></WalletAccountSelect>

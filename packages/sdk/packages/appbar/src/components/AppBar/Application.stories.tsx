@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { List, Paper } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { HDWallet } from '@xyo-network/account'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
@@ -22,9 +22,9 @@ const StorybookEntry = {
     },
   },
   title: 'appbar/AppBar/Application',
-} as ComponentMeta<typeof ApplicationAppBar>
+} as Meta<typeof ApplicationAppBar>
 
-const Template: ComponentStory<typeof ApplicationAppBar> = (args) => (
+const Template: StoryFn<typeof ApplicationAppBar> = (args) => (
   <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
     <BrowserRouter>
       <NetworkMemoryProvider>

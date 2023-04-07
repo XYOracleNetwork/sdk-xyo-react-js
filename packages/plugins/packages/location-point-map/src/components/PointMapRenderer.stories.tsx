@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
 import { PointMapWithSettingsRenderer } from './PointMapRenderer'
@@ -22,7 +22,7 @@ export default {
   title: 'plugin/point-map/PointMap',
 } as Meta
 
-const Template: ComponentStory<typeof PointMapWithSettingsRenderer> = (args) => {
+const Template: StoryFn<typeof PointMapWithSettingsRenderer> = (args) => {
   return <PointMapWithSettingsRenderer {...args} />
 }
 

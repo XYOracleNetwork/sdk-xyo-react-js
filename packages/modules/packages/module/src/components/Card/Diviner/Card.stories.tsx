@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { AddressHistoryDivinerConfigSchema, DivinerModule, MemoryAddressHistoryDiviner } from '@xyo-network/diviner'
 import { useState } from 'react'
@@ -19,9 +19,9 @@ const StorybookEntry = {
     },
   },
   title: 'modules/diviner/DivinerCard',
-} as ComponentMeta<typeof DivinerCard>
+} as Meta<typeof DivinerCard>
 
-const Template: ComponentStory<typeof DivinerCard> = () => {
+const Template: StoryFn<typeof DivinerCard> = () => {
   const [module, setModule] = useState<DivinerModule>()
 
   useAsyncEffect(

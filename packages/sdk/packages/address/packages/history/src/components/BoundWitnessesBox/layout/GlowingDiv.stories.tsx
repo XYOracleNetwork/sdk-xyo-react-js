@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { WithNestedBoundWitnessesDecorator } from '../../stories'
 import { GlowingDiv } from './GlowingDiv'
@@ -10,7 +10,7 @@ export default {
   title: 'address/history/GlowingDiv',
 } as Meta
 
-const Template: ComponentStory<typeof GlowingDiv> = (props) => {
+const Template: StoryFn<typeof GlowingDiv> = (props) => {
   return <GlowingDiv style={{ height: '200px' }} {...props} />
 }
 

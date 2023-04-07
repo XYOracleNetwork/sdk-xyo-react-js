@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { BackPaperAdornment } from './Adornment'
 import { HashHeadingPaper } from './HashHeadingPaper'
@@ -9,7 +9,7 @@ export default {
   title: 'plugin/boundwitness/HashHeadingPaper',
 } as Meta
 
-const Template: ComponentStory<typeof HashHeadingPaper> = (props) => <HashHeadingPaper {...props} />
+const Template: StoryFn<typeof HashHeadingPaper> = (props) => <HashHeadingPaper {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

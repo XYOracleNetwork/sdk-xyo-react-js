@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistModule } from '@xyo-network/archivist'
 import { NodeProvider } from '@xyo-network/react-node'
@@ -17,15 +17,15 @@ const StorybookEntry = {
     },
   },
   title: 'modules/archivist/Details',
-} as ComponentMeta<typeof ArchivistDetails>
+} as Meta<typeof ArchivistDetails>
 
-const TemplateInner: ComponentStory<typeof ArchivistDetails> = (args) => {
+const TemplateInner: StoryFn<typeof ArchivistDetails> = (args) => {
   const [archivist] = useArchivist()
 
   return <ArchivistDetails address={archivist?.address} {...args}></ArchivistDetails>
 }
 
-const TemplateInnerWithData: ComponentStory<typeof ArchivistDetails> = (args) => {
+const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   const [archivist] = useArchivist()
   const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
 
@@ -45,13 +45,13 @@ const TemplateInnerWithData: ComponentStory<typeof ArchivistDetails> = (args) =>
   return <ArchivistDetails address={archivistWithData?.address} {...args}></ArchivistDetails>
 }
 
-const TemplateWithNoData: ComponentStory<typeof ArchivistDetails> = (args) => (
+const TemplateWithNoData: StoryFn<typeof ArchivistDetails> = (args) => (
   <NodeProvider>
     <TemplateInner {...args}></TemplateInner>
   </NodeProvider>
 )
 
-const TemplateWithData: ComponentStory<typeof ArchivistDetails> = (args) => (
+const TemplateWithData: StoryFn<typeof ArchivistDetails> = (args) => (
   <NodeProvider>
     <TemplateInnerWithData {...args}></TemplateInnerWithData>
   </NodeProvider>

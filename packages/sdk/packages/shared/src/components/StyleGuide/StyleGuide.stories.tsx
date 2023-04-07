@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { StyleGuideExample } from './StyleGuide.example'
 
@@ -11,9 +11,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/StyleGuide',
-} as ComponentMeta<typeof StyleGuideExample>
+} as Meta<typeof StyleGuideExample>
 
-const Template: ComponentStory<typeof StyleGuideExample> = () => <StyleGuideExample />
+const Template: StoryFn<typeof StyleGuideExample> = () => <StyleGuideExample />
 
 const Default = Template.bind({})
 Default.args = {}

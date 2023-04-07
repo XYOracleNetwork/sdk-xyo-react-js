@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { GasPriceHeaderActionsBox } from './Actions'
 
@@ -8,7 +8,7 @@ export default {
   title: 'plugin/blockchain/GasPrice/GasPriceHeaderActionsBox',
 } as Meta
 
-const Template: ComponentStory<typeof GasPriceHeaderActionsBox> = (props) => <GasPriceHeaderActionsBox {...props} />
+const Template: StoryFn<typeof GasPriceHeaderActionsBox> = (props) => <GasPriceHeaderActionsBox {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeConfigSchema } from '@xyo-network/node'
 import { MemoryNodeProvider, NodeDrawerProvider, useNodeDrawer } from '@xyo-network/react-node-provider'
@@ -18,9 +18,9 @@ const StorybookEntry = {
   component: NodeDrawer,
   decorators: [ProviderDecorator],
   title: 'modules/node/NodeDrawer',
-} as ComponentMeta<typeof NodeDrawer>
+} as Meta<typeof NodeDrawer>
 
-const Template: ComponentStory<typeof NodeDrawer> = (args) => {
+const Template: StoryFn<typeof NodeDrawer> = (args) => {
   const { setOpen } = useNodeDrawer()
   return (
     <FlexCol>

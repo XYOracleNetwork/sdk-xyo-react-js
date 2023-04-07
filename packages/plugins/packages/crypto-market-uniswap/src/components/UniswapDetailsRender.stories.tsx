@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { payloadData, payloadDataMissingPairs } from './storyPayloadData'
 import { UniswapDetailsRender } from './UniswapDetailsRender'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'plugin/uniswap/UniswapDetailsRender',
-} as ComponentMeta<typeof UniswapDetailsRender>
+} as Meta<typeof UniswapDetailsRender>
 
-const Template: ComponentStory<typeof UniswapDetailsRender> = (args) => <UniswapDetailsRender {...args}></UniswapDetailsRender>
+const Template: StoryFn<typeof UniswapDetailsRender> = (args) => <UniswapDetailsRender {...args}></UniswapDetailsRender>
 
 const Default = Template.bind({})
 Default.args = {}

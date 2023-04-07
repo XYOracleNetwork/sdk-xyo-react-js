@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { NotFound } from '@xyo-network/react-shared'
 
 const StorybookEntry = {
@@ -10,9 +10,9 @@ const StorybookEntry = {
     },
   },
   title: 'webapp/NotFound',
-} as ComponentMeta<typeof NotFound>
+} as Meta<typeof NotFound>
 
-const Template: ComponentStory<typeof NotFound> = () => {
+const Template: StoryFn<typeof NotFound> = () => {
   return <NotFound />
 }
 

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { CryptoAssetRenderer } from './CryptoAssetRenderer'
 import { payloadData, payloadDataMissingAssets } from './storyPayloadData'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'plugin/aggregate-price/CryptoAssetRenderer',
-} as ComponentMeta<typeof CryptoAssetRenderer>
+} as Meta<typeof CryptoAssetRenderer>
 
-const Template: ComponentStory<typeof CryptoAssetRenderer> = (args) => <CryptoAssetRenderer {...args}></CryptoAssetRenderer>
+const Template: StoryFn<typeof CryptoAssetRenderer> = (args) => <CryptoAssetRenderer {...args}></CryptoAssetRenderer>
 
 const Default = Template.bind({})
 Default.args = {}

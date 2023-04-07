@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { ContextToolbar } from './ContextToolbar'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'appbar/Toolbar/Context',
-} as ComponentMeta<typeof ContextToolbar>
+} as Meta<typeof ContextToolbar>
 
-const Template: ComponentStory<typeof ContextToolbar> = (args) => (
+const Template: StoryFn<typeof ContextToolbar> = (args) => (
   <BrowserRouter>
     <ContextToolbar {...args}></ContextToolbar>
   </BrowserRouter>

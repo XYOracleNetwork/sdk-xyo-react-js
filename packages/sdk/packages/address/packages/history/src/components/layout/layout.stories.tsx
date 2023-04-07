@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { Hasher } from '@xyo-network/core'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
@@ -20,7 +20,7 @@ export default {
   title: 'address/history/layout',
 } as Meta
 
-const Template: ComponentStory<typeof WrappedContainer> = (props) => {
+const Template: StoryFn<typeof WrappedContainer> = (props) => {
   const { setActiveBoundWitness } = useActiveBoundWitness()
   const [ref] = useXyoEvent<HTMLUListElement>((noun, _verb, data) => {
     if (noun === 'boundwitness' && data) {

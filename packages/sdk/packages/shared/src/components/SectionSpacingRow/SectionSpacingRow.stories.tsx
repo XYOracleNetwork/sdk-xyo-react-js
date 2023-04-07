@@ -1,5 +1,5 @@
 import { Divider, Typography } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SectionSpacingRow } from './SectionSpacingRow'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/SectionSpacingRow',
-} as ComponentMeta<typeof SectionSpacingRow>
+} as Meta<typeof SectionSpacingRow>
 
-const Template: ComponentStory<typeof SectionSpacingRow> = (args) => (
+const Template: StoryFn<typeof SectionSpacingRow> = (args) => (
   <BrowserRouter>
     <Typography variant="subtitle2">No Spacing</Typography>
     <Typography textAlign="center">Hello World</Typography>

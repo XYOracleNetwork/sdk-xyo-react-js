@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { sampleBlock } from '@xyo-network/react-storybook'
 
 import { BoundWitnessRendererCard } from './Card'
@@ -9,7 +9,7 @@ export default {
   title: 'plugin/boundwitness/CardRenderer',
 } as Meta
 
-const Template: ComponentStory<typeof BoundWitnessRendererCard> = (props) => {
+const Template: StoryFn<typeof BoundWitnessRendererCard> = (props) => {
   return <BoundWitnessRendererCard {...props} />
 }
 

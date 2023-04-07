@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { sampleBlockWithPayloads } from '@xyo-network/react-storybook'
 
@@ -13,9 +13,9 @@ const StorybookEntry = {
     },
   },
   title: 'property/Value',
-} as ComponentMeta<typeof PropertyValue>
+} as Meta<typeof PropertyValue>
 
-const Template: ComponentStory<typeof PropertyValue> = (args) => <PropertyValue {...args}></PropertyValue>
+const Template: StoryFn<typeof PropertyValue> = (args) => <PropertyValue {...args}></PropertyValue>
 
 const Default = Template.bind({})
 Default.args = {}

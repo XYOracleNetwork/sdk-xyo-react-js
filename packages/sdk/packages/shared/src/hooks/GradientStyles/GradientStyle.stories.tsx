@@ -1,5 +1,5 @@
 import { Divider, Typography } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -53,9 +53,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/GradientText',
-} as ComponentMeta<typeof GradientTextExample>
+} as Meta<typeof GradientTextExample>
 
-const Template: ComponentStory<typeof GradientTextExample> = (args) => (
+const Template: StoryFn<typeof GradientTextExample> = (args) => (
   <BrowserRouter>
     <GradientTextExample {...args}></GradientTextExample>
   </BrowserRouter>

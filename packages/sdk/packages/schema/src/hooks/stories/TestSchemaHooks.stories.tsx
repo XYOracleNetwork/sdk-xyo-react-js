@@ -1,5 +1,5 @@
 import { Alert, Button, TextField, Typography } from '@mui/material'
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { HDWallet } from '@xyo-network/account'
@@ -49,7 +49,7 @@ export default {
   title: 'schema/Hooks',
 } as Meta
 
-const Template: ComponentStory<React.FC> = () => {
+const Template: StoryFn<React.FC> = () => {
   SchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
   const [addressText, setAddressText] = useState<string>('')
   const [address, setAddress] = useState<string>()

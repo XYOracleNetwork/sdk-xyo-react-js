@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { BasicHero } from './BasicHero'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/BasicHero',
-} as ComponentMeta<typeof BasicHero>
+} as Meta<typeof BasicHero>
 
-const Template: ComponentStory<typeof BasicHero> = (args) => (
+const Template: StoryFn<typeof BasicHero> = (args) => (
   <BrowserRouter>
     <BasicHero {...args}></BasicHero>
   </BrowserRouter>

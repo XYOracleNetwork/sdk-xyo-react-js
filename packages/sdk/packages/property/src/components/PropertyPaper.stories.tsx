@@ -1,6 +1,6 @@
 import ReplayIcon from '@mui/icons-material/Replay'
 import { TextField } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
@@ -17,11 +17,11 @@ const StorybookEntry = {
     },
   },
   title: 'property/PropertyPaper',
-} as ComponentMeta<typeof Property>
+} as Meta<typeof Property>
 
-const Template: ComponentStory<typeof Property> = (args: PropertyProps) => <Property {...(args as PropertyPaperProps)} paper={true}></Property>
+const Template: StoryFn<typeof Property> = (args: PropertyProps) => <Property {...(args as PropertyPaperProps)} paper={true}></Property>
 
-const TemplateWithCompare: ComponentStory<typeof Property> = (args: PropertyProps) => (
+const TemplateWithCompare: StoryFn<typeof Property> = (args: PropertyProps) => (
   <FlexCol gap={1} alignItems="stretch">
     <FlexRow gap={1}>
       <TextField size="small" value="Sample text Field" />

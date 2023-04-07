@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 
 import { RefreshPayloadProvider } from '../RefreshPayloadContext'
 import { ResolvePayloadContext, ResolvePayloadState } from '../ResolvePayloadContext'
@@ -37,7 +37,7 @@ interface ValidatePayloadProviderPropsEx extends ValidatePayloadProviderProps {
   xyoEmbedPluginContext: XyoEmbedPluginState
 }
 
-const Template: ComponentStory<React.FC<ValidatePayloadProviderPropsEx>> = (props) => {
+const Template: StoryFn<React.FC<ValidatePayloadProviderPropsEx>> = (props) => {
   return (
     <ValidatePayloadProvider {...props}>
       <Typography>State:</Typography>

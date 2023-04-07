@@ -1,5 +1,5 @@
 import { List } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FaGlobeAmericas } from 'react-icons/fa'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ const StorybookEntry = {
     },
   },
   title: 'appbar/MenuListItemContainer',
-} as ComponentMeta<typeof MenuListItemContainer>
+} as Meta<typeof MenuListItemContainer>
 
 const SiteMenuList: React.FC<MenuListItemProps> = (args) => {
   return (
@@ -28,7 +28,7 @@ const SiteMenuList: React.FC<MenuListItemProps> = (args) => {
   )
 }
 
-const Template: ComponentStory<typeof MenuListItemContainer> = (args) => {
+const Template: StoryFn<typeof MenuListItemContainer> = (args) => {
   return <SiteMenuList {...args} />
 }
 

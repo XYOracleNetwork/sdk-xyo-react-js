@@ -1,6 +1,6 @@
 /* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-deprecated */
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { DeprecateStory, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
@@ -19,9 +19,9 @@ const StorybookEntry = {
     },
   },
   title: 'block/Details',
-} as ComponentMeta<typeof BlockDetails>
+} as Meta<typeof BlockDetails>
 
-const Template: ComponentStory<typeof BlockDetails> = (args) => {
+const Template: StoryFn<typeof BlockDetails> = (args) => {
   const sharedRef = createRef<HTMLDivElement>()
   useXyoEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`), sharedRef)
   useXyoEvent<HTMLDivElement>(() => console.log('2nd Listener'), sharedRef)

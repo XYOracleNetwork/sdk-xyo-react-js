@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { EllipsisTableCell } from './EllipsisTableCell'
@@ -31,7 +31,7 @@ export default {
   title: 'shared/EllipsisTableCell',
 } as Meta
 
-const Template: ComponentStory<typeof EllipsisTableCell> = (props) => {
+const Template: StoryFn<typeof EllipsisTableCell> = (props) => {
   return (
     <TableRow>
       <EllipsisTableCell to="/foo" value="As-Link-e0f01ab62384d8d501ff6b2f860b7992c347a6b8ae07bd5fd2fa4a7d47dad915" {...props} />
@@ -42,7 +42,7 @@ const Template: ComponentStory<typeof EllipsisTableCell> = (props) => {
   )
 }
 
-const TemplateWithMultiple: ComponentStory<typeof EllipsisTableCell> = (props) => {
+const TemplateWithMultiple: StoryFn<typeof EllipsisTableCell> = (props) => {
   return (
     <TableRow>
       <EllipsisTableCell width="50%" {...props}>
@@ -57,7 +57,7 @@ const TemplateWithMultiple: ComponentStory<typeof EllipsisTableCell> = (props) =
   )
 }
 
-const TemplateWithMultipleRows: ComponentStory<typeof EllipsisTableCell> = (props) => {
+const TemplateWithMultipleRows: StoryFn<typeof EllipsisTableCell> = (props) => {
   return (
     <>
       <TableRow>

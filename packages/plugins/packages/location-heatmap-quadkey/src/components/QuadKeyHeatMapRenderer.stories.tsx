@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
 import { QuadkeyHeatMapWithSettingsRenderer } from './QuadkeyHeatMapRenderer'
@@ -23,7 +23,7 @@ export default {
   title: 'plugin/heat-map/HeatMapWithSettings',
 } as Meta
 
-const Template: ComponentStory<typeof QuadkeyHeatMapWithSettingsRenderer> = (args) => {
+const Template: StoryFn<typeof QuadkeyHeatMapWithSettingsRenderer> = (args) => {
   return <QuadkeyHeatMapWithSettingsRenderer {...args} />
 }
 

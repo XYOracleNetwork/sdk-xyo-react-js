@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
 import { ElevationQuadkeyMapWithSettingsRenderer } from './ElevationQuadkeyMap'
@@ -22,7 +22,7 @@ export default {
   title: 'plugin/elevation-map/ElevationQuadkeyMap',
 } as Meta
 
-const Template: ComponentStory<typeof ElevationQuadkeyMapWithSettingsRenderer> = (args) => {
+const Template: StoryFn<typeof ElevationQuadkeyMapWithSettingsRenderer> = (args) => {
   return <ElevationQuadkeyMapWithSettingsRenderer {...args} />
 }
 

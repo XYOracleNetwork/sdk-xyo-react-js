@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 
 import { GasFeeCard } from './Card'
@@ -14,7 +14,7 @@ export default {
   title: 'plugin/blockchain/GasPrice/GasFeeCard',
 } as Meta
 
-const Template: ComponentStory<typeof GasFeeCard> = (props) => {
+const Template: StoryFn<typeof GasFeeCard> = (props) => {
   return <GasFeeCard {...props} />
 }
 

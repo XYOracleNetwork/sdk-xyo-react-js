@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import Rollbar from 'rollbar'
 
 import { ErrorReporterProvider } from './Provider'
@@ -14,7 +14,7 @@ const StorybookEntry = {
     },
   },
   title: 'auth-service/ErrorReporterProvider',
-} as ComponentMeta<typeof ErrorReporterProvider>
+} as Meta<typeof ErrorReporterProvider>
 
 const RollbarComponent = () => {
   const { rollbar } = useRollbar()
@@ -23,7 +23,7 @@ const RollbarComponent = () => {
   return <Typography color={rollbarFound ? 'green' : 'red'}>Rollbar instance {rollbarFound ? '' : 'NOT'} found from context!</Typography>
 }
 
-const Template: ComponentStory<typeof ErrorReporterProvider> = () => {
+const Template: StoryFn<typeof ErrorReporterProvider> = () => {
   const rollbar = new Rollbar()
   return (
     <ErrorReporterProvider rollbar={rollbar}>

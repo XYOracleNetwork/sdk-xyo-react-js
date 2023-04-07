@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 // eslint-disable-next-line import/no-internal-modules
 import clientDocs from '@xyo-network/core/dist/docs.json'
 import { BrowserRouter } from 'react-router-dom'
@@ -15,9 +15,9 @@ const StorybookEntry = {
     },
   },
   title: 'typedoc/TypeDocViewer/ProjectTwoPanelReflectionViewer',
-} as ComponentMeta<typeof ProjectTwoPanelReflectionViewer>
+} as Meta<typeof ProjectTwoPanelReflectionViewer>
 
-const Template: ComponentStory<typeof ProjectTwoPanelReflectionViewer> = ({ reflection, ...props }) => {
+const Template: StoryFn<typeof ProjectTwoPanelReflectionViewer> = ({ reflection, ...props }) => {
   return (
     <BrowserRouter>
       <ProjectTwoPanelReflectionViewer height="90vh" reflection={reflection} {...props} />

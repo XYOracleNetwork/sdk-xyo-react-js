@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { CryptoPricesRenderer } from './CryptoPricesRenderer'
 import { payloadData, payloadDataMissingAssets } from './storyPayloadData'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'plugin/crypto-prices/CryptoPricesRenderer',
-} as ComponentMeta<typeof CryptoPricesRenderer>
+} as Meta<typeof CryptoPricesRenderer>
 
-const Template: ComponentStory<typeof CryptoPricesRenderer> = (args) => <CryptoPricesRenderer {...args}></CryptoPricesRenderer>
+const Template: StoryFn<typeof CryptoPricesRenderer> = (args) => <CryptoPricesRenderer {...args}></CryptoPricesRenderer>
 
 const Default = Template.bind({})
 Default.args = {}

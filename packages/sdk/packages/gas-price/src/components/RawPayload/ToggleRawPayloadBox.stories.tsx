@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { ToggleRawPayloadBox } from './ToggleRawPayloadBox'
 
@@ -8,7 +8,7 @@ export default {
   title: 'plugin/blockchain/GasPrice/ToggleRawPayloadBox',
 } as Meta
 
-const Template: ComponentStory<typeof ToggleRawPayloadBox> = (props) => <ToggleRawPayloadBox {...props} />
+const Template: StoryFn<typeof ToggleRawPayloadBox> = (props) => <ToggleRawPayloadBox {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

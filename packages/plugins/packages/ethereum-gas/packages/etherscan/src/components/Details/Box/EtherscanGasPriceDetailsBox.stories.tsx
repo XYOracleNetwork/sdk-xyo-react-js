@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { XyoEthereumGasEtherscanSchema } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
 import { sampleEtherscanGasPricePayload } from '@xyo-network/react-storybook'
 
@@ -13,9 +13,9 @@ const StorybookEntry = {
     },
   },
   title: 'plugin/blockchain/EtherscanGasPrice/DetailsBox',
-} as ComponentMeta<typeof EtherscanGasPriceDetailsBox>
+} as Meta<typeof EtherscanGasPriceDetailsBox>
 
-const Template: ComponentStory<typeof EtherscanGasPriceDetailsBox> = (args) => <EtherscanGasPriceDetailsBox {...args} />
+const Template: StoryFn<typeof EtherscanGasPriceDetailsBox> = (args) => <EtherscanGasPriceDetailsBox {...args} />
 
 const Default = Template.bind({})
 Default.args = {}

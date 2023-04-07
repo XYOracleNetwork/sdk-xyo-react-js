@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
@@ -15,9 +15,9 @@ const StorybookEntry = {
     },
   },
   title: 'plugin/boundwitness/DetailsBox',
-} as ComponentMeta<typeof BoundWitnessDetailsBox>
+} as Meta<typeof BoundWitnessDetailsBox>
 
-const Template: ComponentStory<typeof BoundWitnessDetailsBox> = (args) => {
+const Template: StoryFn<typeof BoundWitnessDetailsBox> = (args) => {
   const sharedRef = createRef<HTMLDivElement>()
   useXyoEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`), sharedRef)
   useXyoEvent<HTMLDivElement>(() => console.log('2nd Listener'), sharedRef)

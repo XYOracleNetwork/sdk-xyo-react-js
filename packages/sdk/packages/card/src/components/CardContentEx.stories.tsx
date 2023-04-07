@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { Button, Typography } from '@mui/material'
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 import { useRef, useState } from 'react'
@@ -39,7 +39,7 @@ const StorybookEntry: Meta = {
   title: 'shared/CardContentEx',
 }
 
-const Template: ComponentStory<typeof CardContentEx> = (props) => {
+const Template: StoryFn<typeof CardContentEx> = (props) => {
   return (
     <PageCard title="Page Card" subheader="subheader">
       <CardContentEx {...props}>

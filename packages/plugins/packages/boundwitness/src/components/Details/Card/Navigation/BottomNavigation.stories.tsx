@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { sampleBlock } from '@xyo-network/react-storybook'
 
@@ -10,7 +10,7 @@ export default {
   title: 'plugin/boundwitness/BottomNavigation',
 } as Meta
 
-const Template: ComponentStory<typeof BoundWitnessBottomNavigation> = (props) => {
+const Template: StoryFn<typeof BoundWitnessBottomNavigation> = (props) => {
   return (
     <FlexGrowRow height="calc(100vh - 20px)">
       <BoundWitnessBottomNavigation {...props} />

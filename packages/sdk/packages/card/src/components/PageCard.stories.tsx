@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { CardContent, Typography } from '@mui/material'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
@@ -23,7 +23,7 @@ const StorybookEntry: Meta = {
   title: 'shared/PageCard',
 }
 
-const Template: ComponentStory<typeof PageCard> = (props) => {
+const Template: StoryFn<typeof PageCard> = (props) => {
   const [refreshedValue, setRefreshedValue] = useState<number>(Math.random)
   return (
     <PageCard title="Page Card" subheader="subheader" onRefresh={() => setRefreshedValue(Math.random())} {...props}>
@@ -35,7 +35,7 @@ const Template: ComponentStory<typeof PageCard> = (props) => {
   )
 }
 
-const TemplateWithNoOnRefresh: ComponentStory<typeof PageCard> = (props) => {
+const TemplateWithNoOnRefresh: StoryFn<typeof PageCard> = (props) => {
   return (
     <PageCard title="Page Card" subheader="subheader" {...props}>
       <CardContent>

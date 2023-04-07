@@ -2,7 +2,7 @@ import { Button, Typography } from '@mui/material'
 import { generateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
@@ -14,7 +14,7 @@ export default {
   title: 'Wallet/SeedPhraseDialog',
 } as Meta
 
-const Template: ComponentStory<typeof SeedPhraseDialog> = (props) => {
+const Template: StoryFn<typeof SeedPhraseDialog> = (props) => {
   const mnemonic = generateMnemonic(wordlist, 256)
   const [seedPhrase, setSeedPhrase] = useState(mnemonic)
   const [open, setOpen] = useState(false)

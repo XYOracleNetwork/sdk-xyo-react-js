@@ -1,5 +1,5 @@
 /* eslint-disable import/no-internal-modules */
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 
 import { SystemControls } from './SystemControls'
@@ -16,7 +16,7 @@ const StorybookEntry: Meta = {
   title: 'appbar/System/SystemControls',
 }
 
-const Template: ComponentStory<typeof SystemControls> = (props) => {
+const Template: StoryFn<typeof SystemControls> = (props) => {
   return (
     <NetworkMemoryProvider>
       <SystemControls {...props} />

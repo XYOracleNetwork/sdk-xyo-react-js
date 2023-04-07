@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { List } from '@mui/material'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { SyntheticEvent } from 'react'
@@ -31,7 +31,7 @@ const StorybookEntry: Meta = {
   title: 'appbar/Toolbar/System',
 }
 
-const Template: ComponentStory<typeof SystemToolbar> = (args) => (
+const Template: StoryFn<typeof SystemToolbar> = (args) => (
   <BrowserRouter>
     <NetworkMemoryProvider>
       <SystemToolbar {...args} />

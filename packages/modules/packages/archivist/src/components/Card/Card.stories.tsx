@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistModule, MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { useState } from 'react'
@@ -19,9 +19,9 @@ const StorybookEntry = {
     },
   },
   title: 'modules/archivist/ArchivistCard',
-} as ComponentMeta<typeof ArchivistCard>
+} as Meta<typeof ArchivistCard>
 
-const Template: ComponentStory<typeof ArchivistCard> = () => {
+const Template: StoryFn<typeof ArchivistCard> = () => {
   const [module, setModule] = useState<ArchivistModule>()
 
   useAsyncEffect(

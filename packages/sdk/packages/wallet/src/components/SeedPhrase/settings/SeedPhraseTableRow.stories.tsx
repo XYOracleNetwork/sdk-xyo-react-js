@@ -1,5 +1,5 @@
 import { Table, TableBody } from '@mui/material'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { SeedPhraseTableRow } from './SeedPhraseTableRow'
 
@@ -11,7 +11,7 @@ export default {
   title: 'Wallet/SeedPhraseTableRow',
 } as Meta
 
-const Template: ComponentStory<typeof SeedPhraseTableRow> = (props) => (
+const Template: StoryFn<typeof SeedPhraseTableRow> = (props) => (
   <Table>
     <TableBody>
       <SeedPhraseTableRow {...props} />

@@ -1,5 +1,5 @@
 import { Link } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import * as tokenData from '../TokenData'
@@ -13,9 +13,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/TokenSummary',
-} as ComponentMeta<typeof TokenSummary>
+} as Meta<typeof TokenSummary>
 
-const Template: ComponentStory<typeof TokenSummary> = (args) => (
+const Template: StoryFn<typeof TokenSummary> = (args) => (
   <BrowserRouter>
     <TokenSummary {...args}></TokenSummary>
   </BrowserRouter>

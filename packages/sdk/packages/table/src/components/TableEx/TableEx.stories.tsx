@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme } from '@mui/material'
-import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 
 import { TableCellEx } from './TableCellEx'
@@ -22,9 +22,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/TableEx',
-} as ComponentMeta<typeof TableEx>
+} as Meta<typeof TableEx>
 
-const Template: ComponentStory<typeof TableEx> = (args) => {
+const Template: StoryFn<typeof TableEx> = (args) => {
   const { variant } = args
   const theme = useTheme()
   const tableRows = [...Array(100).keys()]

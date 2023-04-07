@@ -1,4 +1,4 @@
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
@@ -49,7 +49,7 @@ export default {
   title: 'node/renderer/NodeRelationalGraphEvents',
 } as Meta
 
-const Template: ComponentStory<typeof NodeRelationalGraph> = (props) => {
+const Template: StoryFn<typeof NodeRelationalGraph> = (props) => {
   const [node] = useProvidedWrappedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)

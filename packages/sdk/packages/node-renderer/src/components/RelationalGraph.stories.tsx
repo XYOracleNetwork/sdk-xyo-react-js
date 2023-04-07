@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from '@mui/material'
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
@@ -72,16 +72,16 @@ export default {
   title: 'node/renderer/NodeRelationalGraph',
 } as Meta
 
-const Template: ComponentStory<typeof NodeRelationalGraph> = (props) => <NodeRelationalGraph {...props} />
+const Template: StoryFn<typeof NodeRelationalGraph> = (props) => <NodeRelationalGraph {...props} />
 
-const TemplateDescribe: ComponentStory<typeof NodeRelationalGraph> = (props) => {
+const TemplateDescribe: StoryFn<typeof NodeRelationalGraph> = (props) => {
   const [node] = useProvidedWrappedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraph options={options} {...props} />
 }
 
-const TemplateCustomAddress: ComponentStory<typeof NodeRelationalGraph> = (props) => {
+const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraph> = (props) => {
   const [node] = useModule('ChildNode')
   const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
   const elements = useCytoscapeElements(wrappedNode)
@@ -89,7 +89,7 @@ const TemplateCustomAddress: ComponentStory<typeof NodeRelationalGraph> = (props
   return <NodeRelationalGraph options={options} {...props} />
 }
 
-const TemplateAttachDetach: ComponentStory<typeof NodeRelationalGraph> = (props) => {
+const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraph> = (props) => {
   const [node] = useModule('ChildNode')
   const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
   const elements = useCytoscapeElements(wrappedNode)

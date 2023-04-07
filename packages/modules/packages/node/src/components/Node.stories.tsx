@@ -1,4 +1,4 @@
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { AbstractModule } from '@xyo-network/module'
@@ -46,7 +46,7 @@ export default {
   title: 'modules/node/NodeBox',
 } as Meta
 
-const Template: ComponentStory<React.FC> = (props) => {
+const Template: StoryFn<React.FC> = (props) => {
   const [node] = useProvidedNode() as [MemoryNode]
   const [description, setDescription] = useState<string>()
 

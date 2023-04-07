@@ -1,5 +1,5 @@
 import { FormControl, TextField, Typography } from '@mui/material'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { SchemaCache } from '@xyo-network/schema-cache'
 import { lazy, Suspense, useEffect, useState } from 'react'
@@ -60,7 +60,7 @@ const StorybookEntry: Meta = {
   title: 'payload/useGetSchema',
 }
 
-const Template: ComponentStory<typeof UseGetSchemaComponent> = ({ schema }) => {
+const Template: StoryFn<typeof UseGetSchemaComponent> = ({ schema }) => {
   return <UseGetSchemaComponent schema={schema} />
 }
 

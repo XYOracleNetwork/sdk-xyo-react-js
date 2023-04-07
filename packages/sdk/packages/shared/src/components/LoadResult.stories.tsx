@@ -1,5 +1,5 @@
 /* eslint-disable import/no-internal-modules */
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { LoadResult } from './LoadResult'
 
@@ -14,7 +14,7 @@ const StorybookEntry: Meta = {
   title: 'webapp/LoadResult',
 }
 
-const Template: ComponentStory<typeof LoadResult> = (props) => {
+const Template: StoryFn<typeof LoadResult> = (props) => {
   return <LoadResult {...props} />
 }
 

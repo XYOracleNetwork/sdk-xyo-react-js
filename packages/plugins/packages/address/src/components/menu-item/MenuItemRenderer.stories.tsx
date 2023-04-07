@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { Account } from '@xyo-network/account'
 import { AddressPayload, AddressSchema } from '@xyo-network/payload-plugins'
 import { useXyoEvent } from '@xyo-network/react-event'
@@ -20,9 +20,9 @@ const StorybookEntry = {
     },
   },
   title: 'plugin/address/MenuItem',
-} as ComponentMeta<typeof AddressMenuItemRenderer>
+} as Meta<typeof AddressMenuItemRenderer>
 
-const Template: ComponentStory<typeof AddressMenuItemRenderer> = (args) => {
+const Template: StoryFn<typeof AddressMenuItemRenderer> = (args) => {
   const [ref] = useXyoEvent<HTMLLIElement>((noun, verb, data) => console.log(`${noun}|${verb}|${data}`))
   return <AddressMenuItemRenderer {...args} ref={ref} />
 }

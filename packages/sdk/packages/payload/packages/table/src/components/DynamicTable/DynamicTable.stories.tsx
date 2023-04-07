@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-plugin'
 import { DefaultPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { PayloadRenderPluginResolver, PayloadRenderPluginResolverProvider } from '@xyo-network/react-payload-plugin-resolver'
@@ -22,9 +22,9 @@ const StorybookEntry = {
     },
   },
   title: 'payload/DynamicTable',
-} as ComponentMeta<typeof PayloadDynamicTable>
+} as Meta<typeof PayloadDynamicTable>
 
-const Template: ComponentStory<typeof PayloadDynamicTable> = (args) => (
+const Template: StoryFn<typeof PayloadDynamicTable> = (args) => (
   <PayloadRenderPluginResolverProvider
     resolver={new PayloadRenderPluginResolver().register(UniswapPairsRenderPlugin).register(DefaultPayloadRenderPlugin)}
   >

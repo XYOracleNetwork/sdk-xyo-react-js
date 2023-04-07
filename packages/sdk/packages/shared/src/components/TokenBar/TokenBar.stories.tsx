@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/TokenBar',
-} as ComponentMeta<typeof TokenBar>
+} as Meta<typeof TokenBar>
 
-const Template: ComponentStory<typeof TokenBar> = (args) => (
+const Template: StoryFn<typeof TokenBar> = (args) => (
   <BrowserRouter>
     <TokenBar {...args}></TokenBar>
   </BrowserRouter>

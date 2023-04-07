@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { Breadcrumbs, List } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import { MenuListItemContainer } from '@xyo-network/react-appbar'
@@ -18,7 +18,7 @@ const StorybookEntry = {
     },
   },
   title: 'webapp/WebAppChrome',
-} as ComponentMeta<typeof WebAppChrome>
+} as Meta<typeof WebAppChrome>
 
 const rowArray = [32, 64, 128, 256, 512, 1024]
 
@@ -41,7 +41,7 @@ const Children: React.FC<WebAppPageProps> = (props) => (
   </WebAppPage>
 )
 
-const Template: ComponentStory<typeof WebAppChrome> = (args) => {
+const Template: StoryFn<typeof WebAppChrome> = (args) => {
   return (
     <BrowserRouter>
       <WebAppChrome

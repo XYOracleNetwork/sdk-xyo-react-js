@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
@@ -20,7 +20,7 @@ const StorybookEntry = {
     },
   },
   title: 'network/NetworkSelectEx',
-} as ComponentMeta<typeof NetworkSelectEx>
+} as Meta<typeof NetworkSelectEx>
 
 const NetworkConfigOutput = () => {
   const { network } = useNetwork()
@@ -35,11 +35,11 @@ const NetworkConfigOutput = () => {
   )
 }
 
-const Template: ComponentStory<typeof NetworkSelectEx> = (args) => {
+const Template: StoryFn<typeof NetworkSelectEx> = (args) => {
   return <NetworkSelectEx {...args}></NetworkSelectEx>
 }
 
-const TemplateWithMemoryProvider: ComponentStory<typeof NetworkSelectEx> = (props) => {
+const TemplateWithMemoryProvider: StoryFn<typeof NetworkSelectEx> = (props) => {
   return (
     <NetworkMemoryProvider>
       <NetworkSelectEx {...props}></NetworkSelectEx>
@@ -48,7 +48,7 @@ const TemplateWithMemoryProvider: ComponentStory<typeof NetworkSelectEx> = (prop
   )
 }
 
-const TemplateWithRouteProvider: ComponentStory<typeof NetworkSelectEx> = (props) => {
+const TemplateWithRouteProvider: StoryFn<typeof NetworkSelectEx> = (props) => {
   const url = new URL(window.location.toString())
   url.searchParams.set('network', 'main')
   history.pushState({}, '', url)
@@ -61,7 +61,7 @@ const TemplateWithRouteProvider: ComponentStory<typeof NetworkSelectEx> = (props
   )
 }
 
-const TemplateWithRouteProviderInner: ComponentStory<typeof NetworkSelectEx> = (props) => {
+const TemplateWithRouteProviderInner: StoryFn<typeof NetworkSelectEx> = (props) => {
   const { network } = useNetwork()
   const [uris, setUris] = useState<(string | undefined)[]>([])
 

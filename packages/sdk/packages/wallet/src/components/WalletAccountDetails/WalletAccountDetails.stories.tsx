@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WalletAccountDetails } from './WalletAccountDetails'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'wallet/WalletAccountDetails',
-} as ComponentMeta<typeof WalletAccountDetails>
+} as Meta<typeof WalletAccountDetails>
 
-const Template: ComponentStory<typeof WalletAccountDetails> = (args) => {
+const Template: StoryFn<typeof WalletAccountDetails> = (args) => {
   return (
     <BrowserRouter>
       <WalletAccountDetails {...args}></WalletAccountDetails>

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
@@ -18,9 +18,9 @@ const StorybookEntry = {
     },
   },
   title: 'block/Table',
-} as ComponentMeta<typeof BlockTable>
+} as Meta<typeof BlockTable>
 
-const Template: ComponentStory<typeof BlockTable> = ({ blocks: blocksParam, ...args }) => {
+const Template: StoryFn<typeof BlockTable> = ({ blocks: blocksParam, ...args }) => {
   const [blocks, setBlocks] = useState<BoundWitness[]>(blocksParam ?? [])
   return (
     <BrowserRouter>

@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { randomizedSampleAddressHistory, sampleAddressHistory } from '@xyo-network/react-storybook'
 
@@ -12,7 +12,7 @@ export default {
   title: 'address/history/AddressHistory',
 } as Meta
 
-const Template: ComponentStory<typeof AddressHistory> = (props) => {
+const Template: StoryFn<typeof AddressHistory> = (props) => {
   const [ref] = useXyoEvent<HTMLUListElement>((noun, verb, data) => console.log(noun, verb, data))
   return <AddressHistory sx={{ minHeight: '200px', minWidth: '100px' }} ref={ref} {...props} />
 }

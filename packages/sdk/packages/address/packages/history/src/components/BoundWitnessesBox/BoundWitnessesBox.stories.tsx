@@ -1,4 +1,4 @@
-import { ComponentStoryFn, Meta } from '@storybook/react'
+import { Meta, StoryFnFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import {
@@ -17,7 +17,7 @@ export default {
   title: 'address/history/BoundWitnessesBox',
 } as Meta
 
-const Template: ComponentStoryFn<typeof BoundWitnessesBox> = (props) => {
+const Template: StoryFnFn<typeof BoundWitnessesBox> = (props) => {
   return (
     <BrowserRouter>
       <BoundWitnessesBox {...props} />

@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from '@mui/material'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 
 import { defaultNetworkConfigs } from '../../lib'
@@ -24,7 +24,7 @@ const NetworkConfigOutput = () => {
   )
 }
 
-const Template: ComponentStory<typeof NetworkMemoryProvider> = (props) => {
+const Template: StoryFn<typeof NetworkMemoryProvider> = (props) => {
   return (
     <NetworkMemoryProvider {...props}>
       <Typography>

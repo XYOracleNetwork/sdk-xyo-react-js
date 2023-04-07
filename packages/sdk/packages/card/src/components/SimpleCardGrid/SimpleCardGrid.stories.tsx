@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import CoinbaseWalletIcon from './coinbase-wallet.svg'
@@ -13,9 +13,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/SimpleCardGrid',
-} as ComponentMeta<typeof SimpleCardGrid>
+} as Meta<typeof SimpleCardGrid>
 
-const Template: ComponentStory<typeof SimpleCardGrid> = (args) => (
+const Template: StoryFn<typeof SimpleCardGrid> = (args) => (
   <BrowserRouter>
     <SimpleCardGrid {...args}></SimpleCardGrid>
   </BrowserRouter>

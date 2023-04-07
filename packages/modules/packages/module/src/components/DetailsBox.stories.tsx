@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { MemoryArchivist } from '@xyo-network/archivist'
@@ -18,9 +18,9 @@ const StorybookEntry = {
     },
   },
   title: 'modules/module/DetailsBox',
-} as ComponentMeta<typeof ModuleDetailsBox>
+} as Meta<typeof ModuleDetailsBox>
 
-const NodeTemplate: ComponentStory<typeof ModuleDetailsBox> = (args) => {
+const NodeTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   const [node, setNode] = useState<MemoryNode>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,7 +42,7 @@ const NodeTemplate: ComponentStory<typeof ModuleDetailsBox> = (args) => {
 const NodeDetails = NodeTemplate.bind({})
 NodeDetails.args = {}
 
-const ArchivistTemplate: ComponentStory<typeof ModuleDetailsBox> = (args) => {
+const ArchivistTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   const [archivist, setArchivist] = useState<MemoryArchivist>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -64,7 +64,7 @@ const ArchivistTemplate: ComponentStory<typeof ModuleDetailsBox> = (args) => {
 const ArchivistDetails = ArchivistTemplate.bind({})
 ArchivistDetails.args = {}
 
-const DivinerTemplate: ComponentStory<typeof ModuleDetailsBox> = (args) => {
+const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   const [diviner, setDiviner] = useState<DivinerModule>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

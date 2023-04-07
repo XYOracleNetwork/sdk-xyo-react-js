@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { CoinGeckoPricesRenderer } from './CoinGeckoPricesRenderer'
 import { payloadData, payloadDataMissingAssets } from './storyPayloadData'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'plugin/coin-gecko-prices/CoinGeckoPricesRenderer',
-} as ComponentMeta<typeof CoinGeckoPricesRenderer>
+} as Meta<typeof CoinGeckoPricesRenderer>
 
-const Template: ComponentStory<typeof CoinGeckoPricesRenderer> = (args) => <CoinGeckoPricesRenderer {...args}></CoinGeckoPricesRenderer>
+const Template: StoryFn<typeof CoinGeckoPricesRenderer> = (args) => <CoinGeckoPricesRenderer {...args}></CoinGeckoPricesRenderer>
 
 const Default = Template.bind({})
 Default.args = {}

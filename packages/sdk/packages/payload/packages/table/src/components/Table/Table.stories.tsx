@@ -1,5 +1,5 @@
 import { Chip } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
@@ -17,9 +17,9 @@ const StorybookEntry = {
     },
   },
   title: 'payload/Table',
-} as ComponentMeta<typeof PayloadTable>
+} as Meta<typeof PayloadTable>
 
-const Template: ComponentStory<typeof PayloadTable> = (args) => {
+const Template: StoryFn<typeof PayloadTable> = (args) => {
   const [eventData, setEventData] = useState<string | undefined>()
   const [ref] = useXyoEvent<HTMLTableElement>((_noun, _verb, data) => setEventData(data))
 

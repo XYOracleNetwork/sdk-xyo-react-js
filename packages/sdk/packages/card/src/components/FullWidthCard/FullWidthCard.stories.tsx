@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { FullWidthCard } from './FullWidthCard'
@@ -11,9 +11,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/FullWidthCard',
-} as ComponentMeta<typeof FullWidthCard>
+} as Meta<typeof FullWidthCard>
 
-const Template: ComponentStory<typeof FullWidthCard> = (args) => (
+const Template: StoryFn<typeof FullWidthCard> = (args) => (
   <BrowserRouter>
     <FullWidthCard {...args}></FullWidthCard>
   </BrowserRouter>

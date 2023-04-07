@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { sampleIdPayload, samplePayloadFromBuilder, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -13,9 +13,9 @@ const StorybookEntry = {
     },
   },
   title: 'payload/Details',
-} as ComponentMeta<typeof PayloadDetails>
+} as Meta<typeof PayloadDetails>
 
-const Template: ComponentStory<typeof PayloadDetails> = (args) => (
+const Template: StoryFn<typeof PayloadDetails> = (args) => (
   <BrowserRouter>
     <Routes>
       <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />

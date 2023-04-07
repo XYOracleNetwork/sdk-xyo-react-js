@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 
@@ -15,7 +15,7 @@ const StorybookEntry: Meta = {
   title: 'Schema/SchemaProperty',
 }
 
-const Template: ComponentStory<typeof SchemaProperty> = (args: SchemaPropertyProps) => {
+const Template: StoryFn<typeof SchemaProperty> = (args: SchemaPropertyProps) => {
   const [ref] = useXyoEvent<HTMLDivElement>((noun, verb, data) => {
     console.log(`${noun}|${verb}|${data}`)
   })

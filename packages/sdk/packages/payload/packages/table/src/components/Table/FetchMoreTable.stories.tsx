@@ -1,5 +1,5 @@
 import { Button, Typography } from '@mui/material'
-import { ComponentMeta, ComponentStory, DecoratorFn } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { delay } from '@xylabs/delay'
 import { Payload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
@@ -76,9 +76,9 @@ const StorybookEntry = {
     },
   },
   title: 'payload/FetchMoreTable',
-} as ComponentMeta<typeof PayloadTable>
+} as Meta<typeof PayloadTable>
 
-const Template: ComponentStory<typeof PayloadTable> = (args) => {
+const Template: StoryFn<typeof PayloadTable> = (args) => {
   const [ref] = useXyoEvent<HTMLTableElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`))
   return (
     <BrowserRouter>

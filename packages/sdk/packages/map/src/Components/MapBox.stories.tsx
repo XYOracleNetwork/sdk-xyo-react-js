@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useRef } from 'react'
 
@@ -22,7 +22,7 @@ const WithMapboxProviders: DecoratorFn = (Story, props) => {
   )
 }
 
-const ContainerResizeTemplate: ComponentStory<typeof MapBox> = (args) => {
+const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
   const containerRef = useRef<HTMLDivElement | null>()
   const handleClick = () => {
     if (containerRef.current) {
@@ -76,7 +76,7 @@ export default {
   title: 'map/Mapbox',
 } as Meta
 
-const Template: ComponentStory<typeof MapBox> = (args) => {
+const Template: StoryFn<typeof MapBox> = (args) => {
   return (
     <div style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}>
       <MapBox {...args} />

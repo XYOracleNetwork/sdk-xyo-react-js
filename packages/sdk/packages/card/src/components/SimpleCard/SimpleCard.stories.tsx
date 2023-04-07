@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import CoinbaseWalletIcon from './coinbase-wallet.svg'
@@ -14,9 +14,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/SimpleCard',
-} as ComponentMeta<typeof SimpleCard>
+} as Meta<typeof SimpleCard>
 
-const Template: ComponentStory<typeof SimpleCard> = (args) => (
+const Template: StoryFn<typeof SimpleCard> = (args) => (
   <BrowserRouter>
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6} md={3}>

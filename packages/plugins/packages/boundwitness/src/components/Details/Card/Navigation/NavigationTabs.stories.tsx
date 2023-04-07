@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
@@ -15,7 +15,7 @@ export default {
   title: 'plugin/boundwitness/BWNavigationTabs',
 } as Meta
 
-const Template: ComponentStory<typeof BWNavigationTabs> = (props) => {
+const Template: StoryFn<typeof BWNavigationTabs> = (props) => {
   const [value, setValue] = useState(0)
 
   return (

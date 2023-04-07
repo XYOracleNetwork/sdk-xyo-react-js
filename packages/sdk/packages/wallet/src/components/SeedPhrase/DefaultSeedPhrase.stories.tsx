@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { DefaultSeedPhrase } from './DefaultSeedPhrase'
 
@@ -8,7 +8,7 @@ export default {
   title: 'Wallet/DefaultSeedPhrase',
 } as Meta
 
-const Template: ComponentStory<typeof DefaultSeedPhrase> = (props) => <DefaultSeedPhrase {...props} />
+const Template: StoryFn<typeof DefaultSeedPhrase> = (props) => <DefaultSeedPhrase {...props} />
 
 const Default = Template.bind({})
 Default.args = {

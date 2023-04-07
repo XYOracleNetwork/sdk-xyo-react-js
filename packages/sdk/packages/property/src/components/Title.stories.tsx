@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { PropertyTitle } from './Title'
 
@@ -11,9 +11,9 @@ const StorybookEntry = {
     },
   },
   title: 'property/Title',
-} as ComponentMeta<typeof PropertyTitle>
+} as Meta<typeof PropertyTitle>
 
-const Template: ComponentStory<typeof PropertyTitle> = (args) => <PropertyTitle {...args}></PropertyTitle>
+const Template: StoryFn<typeof PropertyTitle> = (args) => <PropertyTitle {...args}></PropertyTitle>
 
 const Default = Template.bind({})
 Default.args = {}

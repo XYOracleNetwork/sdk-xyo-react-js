@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import * as tokenData from '../TokenData'
@@ -12,9 +12,9 @@ const StorybookEntry = {
     },
   },
   title: 'shared/XyoThemeTokenAvatarGroup',
-} as ComponentMeta<typeof XyoThemeTokenAvatarGroup>
+} as Meta<typeof XyoThemeTokenAvatarGroup>
 
-const Template: ComponentStory<typeof XyoThemeTokenAvatarGroup> = (args) => (
+const Template: StoryFn<typeof XyoThemeTokenAvatarGroup> = (args) => (
   <BrowserRouter>
     <XyoThemeTokenAvatarGroup {...args}></XyoThemeTokenAvatarGroup>
   </BrowserRouter>

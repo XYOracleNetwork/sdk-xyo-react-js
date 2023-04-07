@@ -1,4 +1,4 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
 import { sampleIdPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
@@ -24,7 +24,7 @@ const StorybookEntry: Meta = {
   title: 'payload/ValidationDetails',
 }
 
-const Template: ComponentStory<typeof PayloadValidationDetails> = (args: PayloadValidationDetailsProps) => (
+const Template: StoryFn<typeof PayloadValidationDetails> = (args: PayloadValidationDetailsProps) => (
   <BrowserRouter>
     <PayloadValidationDetails {...args} />
   </BrowserRouter>
