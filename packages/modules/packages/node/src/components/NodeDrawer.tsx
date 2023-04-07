@@ -1,7 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close'
 import { ClickAwayListener, Drawer, DrawerProps, IconButton } from '@mui/material'
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import { useNodeDrawer } from '@xyo-network/react-node-provider'
 
 import { useProvidedNode } from '../hooks'

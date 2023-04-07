@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { useAsyncEffect } from '@xylabs/react-shared'
 import { MemoryArchivist } from '@xyo-network/archivist'
 import { XyoCryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-plugin'
 import { DivinerModule } from '@xyo-network/diviner'

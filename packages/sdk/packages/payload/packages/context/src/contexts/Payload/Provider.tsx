@@ -1,4 +1,4 @@
-import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import type { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { Payload } from '@xyo-network/payload-model'
 import { useState } from 'react'

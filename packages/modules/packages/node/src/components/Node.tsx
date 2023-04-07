@@ -1,5 +1,5 @@
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { useAsyncEffect } from '@xylabs/react-shared'
 import { NodeWrapper } from '@xyo-network/node'
 import { useState } from 'react'
 

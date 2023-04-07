@@ -1,6 +1,6 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { useReducer } from 'react'
 
 enum State {

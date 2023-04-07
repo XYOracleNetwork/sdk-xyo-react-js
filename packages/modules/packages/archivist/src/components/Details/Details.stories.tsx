@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistModule } from '@xyo-network/archivist'
 import { NodeProvider } from '@xyo-network/react-node'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'

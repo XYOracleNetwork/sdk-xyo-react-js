@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ModuleError, ModuleErrorSchema } from '@xyo-network/module'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { SchemaCache, SchemaCacheEntry } from '@xyo-network/schema-cache'

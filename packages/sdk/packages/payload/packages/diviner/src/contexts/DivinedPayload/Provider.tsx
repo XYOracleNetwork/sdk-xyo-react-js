@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import { ModuleErrorSchema } from '@xyo-network/module'
 import { XyoErrorRender } from '@xyo-network/react-error'
 import { useBuildHuri } from '@xyo-network/react-payload-huri'

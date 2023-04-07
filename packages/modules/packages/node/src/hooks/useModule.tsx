@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { AccountInstance } from '@xyo-network/account-model'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'

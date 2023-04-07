@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { AddressHistoryDivinerConfigSchema, DivinerModule, MemoryAddressHistoryDiviner } from '@xyo-network/diviner'
 import { useState } from 'react'
 

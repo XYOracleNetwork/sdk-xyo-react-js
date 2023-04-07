@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import { Core } from 'cytoscape'
 import { useEffect, useState } from 'react'
 

@@ -1,7 +1,7 @@
 import { ButtonGroup, Typography } from '@mui/material'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema } from '@xyo-network/archivist'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { QueryBoundWitnessBuilder } from '@xyo-network/module'

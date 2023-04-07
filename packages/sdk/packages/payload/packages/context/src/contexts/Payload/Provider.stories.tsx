@@ -1,7 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { Box, Button, CircularProgress } from '@mui/material'
 import { ComponentStory, DecoratorFn } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { Hasher } from '@xyo-network/core'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/memory-archivist'

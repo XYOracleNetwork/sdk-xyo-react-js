@@ -6199,6 +6199,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-async-effect@npm:^2.17.0, @xylabs/react-async-effect@npm:^2.17.1":
+  version: 2.17.1
+  resolution: "@xylabs/react-async-effect@npm:2.17.1"
+  dependencies:
+    "@xylabs/api": ^2.7.6
+    "@xylabs/log": ^2.7.6
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: 437a63b97471aa9a28b229b916e56711f587756e1f659b61939038473cd279ab994e843ed62c0a8d26b5e3d7df93e70658043f85905e71f3b52e905eded3f819
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-button@npm:^2.17.0":
   version: 2.17.0
   resolution: "@xylabs/react-button@npm:2.17.0"
@@ -6392,6 +6406,21 @@ __metadata:
     react: ^18
     react-dom: ^18
   checksum: ec529e8c0d481c4e2d508dcf630bbf168411d7ce7f729c88a16f725e1aa0eadc7ccddc9e61a46e33dfc5c8de99eb289f87e0b3b8a2e1ea650bb738349f6d6a81
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-shared@npm:^2.17.1":
+  version: 2.17.1
+  resolution: "@xylabs/react-shared@npm:2.17.1"
+  dependencies:
+    "@xylabs/api": ^2.7.6
+    "@xylabs/log": ^2.7.6
+    "@xylabs/react-async-effect": ^2.17.1
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: 71a3d047d5bd6b8ba7232f3c9d47e4a768ec12d8d47538506bb53c76cf64b5e8056717d15609df3bae9bca92a53547535f006cf48541cd57646674b00be8de6a
   languageName: node
   linkType: hard
 
@@ -7526,9 +7555,10 @@ __metadata:
   resolution: "@xyo-network/react-address-history@workspace:packages/sdk/packages/address/packages/history"
   dependencies:
     "@storybook/react": ^6.5.16
+    "@xylabs/react-async-effect": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
     "@xylabs/react-quick-tip-button": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/archivist": ^2.55.0
@@ -7746,10 +7776,10 @@ __metadata:
   dependencies:
     "@storybook/react": ^6.5.16
     "@xylabs/eth-address": ^2.7.6
+    "@xylabs/react-async-effect": ^2.17.1
     "@xylabs/react-button": ^2.17.0
     "@xylabs/react-crypto": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/archivist": ^2.55.0
@@ -8019,8 +8049,9 @@ __metadata:
   resolution: "@xyo-network/react-elevation-map-quadkey-plugin@workspace:packages/plugins/packages/elevation-quadkey"
   dependencies:
     "@storybook/react": ^6.5.16
+    "@xylabs/react-async-effect": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/axios": ^2.55.0
@@ -8462,8 +8493,9 @@ __metadata:
     "@xylabs/assert": ^2.7.6
     "@xylabs/delay": ^2.7.6
     "@xylabs/forget": ^2.7.6
+    "@xylabs/react-async-effect": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/archivist": ^2.55.0
@@ -8504,11 +8536,11 @@ __metadata:
     "@uniswap/sdk-core": ^3.2.2
     "@uniswap/v3-sdk": ^3.9.0
     "@xylabs/eth-address": ^2.7.6
+    "@xylabs/react-async-effect": ^2.17.1
     "@xylabs/react-button": ^2.17.0
     "@xylabs/react-crypto": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
     "@xylabs/react-identicon": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/archivist": ^2.55.0
@@ -8654,8 +8686,9 @@ __metadata:
     "@storybook/react": ^6.5.16
     "@types/cytoscape": ^3.19.9
     "@types/react-dom": ^18.0.11
+    "@xylabs/react-async-effect": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/account": ^2.55.0
@@ -8690,9 +8723,10 @@ __metadata:
     "@mui/lab": ^5.0.0-alpha.125
     "@storybook/react": ^6.5.16
     "@types/lodash": ^4.14.192
+    "@xylabs/react-async-effect": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
     "@xylabs/react-render-spin-check": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/account": ^2.55.0
@@ -8724,7 +8758,8 @@ __metadata:
   resolution: "@xyo-network/react-payload-context@workspace:packages/sdk/packages/payload/packages/context"
   dependencies:
     "@storybook/react": ^6.5.16
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-async-effect": ^2.17.1
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/archivist-wrapper": ^2.55.0
@@ -8780,7 +8815,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload/packages/diviner"
   dependencies:
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-async-effect": ^2.17.0
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xyo-network/diviner": ^2.55.0
     "@xyo-network/module": ^2.55.0
@@ -9055,10 +9091,11 @@ __metadata:
   dependencies:
     "@storybook/react": ^6.5.16
     "@types/lodash": ^4.14.192
+    "@xylabs/react-async-effect": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
     "@xylabs/react-link": ^2.17.0
     "@xylabs/react-select": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/account": ^2.55.0
@@ -9176,11 +9213,12 @@ __metadata:
     "@storybook/react": ^6.5.16
     "@xylabs/pixel": ^1.4.13
     "@xylabs/react-appbar": ^2.17.0
+    "@xylabs/react-async-effect": ^2.17.0
     "@xylabs/react-button": ^2.17.0
     "@xylabs/react-flexbox": ^2.17.0
     "@xylabs/react-link": ^2.17.0
     "@xylabs/react-quick-tip-button": ^2.17.0
-    "@xylabs/react-shared": ^2.17.0
+    "@xylabs/react-shared": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.16.5
     "@xylabs/tsconfig-react": ^2.16.5
     "@xyo-network/react-event": "workspace:^"

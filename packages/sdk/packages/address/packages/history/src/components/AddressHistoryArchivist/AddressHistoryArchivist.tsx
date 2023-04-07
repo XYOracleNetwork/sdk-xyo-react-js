@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import { XyoErrorRender } from '@xyo-network/react-error'
 import { LoadResult } from '@xyo-network/react-shared'
 

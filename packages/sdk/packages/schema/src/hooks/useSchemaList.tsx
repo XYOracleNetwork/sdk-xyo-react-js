@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { AccountInstance } from '@xyo-network/account-model'
 import { SchemaListPayload, SchemaListQueryPayload, SchemaListQuerySchema } from '@xyo-network/node-core-model'
 import { useDiviner } from '@xyo-network/react-diviner'

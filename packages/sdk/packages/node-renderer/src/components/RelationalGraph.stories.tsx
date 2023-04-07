@@ -1,6 +1,6 @@
 import { Button, ButtonGroup } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'

@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { DivinerWrapper, XyoHuriPayload, XyoHuriSchema } from '@xyo-network/diviner'
 import { Payload } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'

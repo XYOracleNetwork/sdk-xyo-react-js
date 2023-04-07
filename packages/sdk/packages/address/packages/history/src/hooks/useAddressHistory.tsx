@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { AddressHistoryQuerySchema } from '@xyo-network/diviner'
 import { TYPES } from '@xyo-network/node-core-types'

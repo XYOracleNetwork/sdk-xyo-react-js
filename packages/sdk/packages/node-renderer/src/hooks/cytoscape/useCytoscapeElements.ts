@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { NodeWrapper } from '@xyo-network/node'
 import { ElementDefinition } from 'cytoscape'

@@ -1,7 +1,7 @@
 import { Alert, Button, TextField, Typography } from '@mui/material'
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { useAsyncEffect } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'

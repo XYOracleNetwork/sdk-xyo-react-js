@@ -1,5 +1,5 @@
 import { ComponentStory, DecoratorFn, Meta } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'

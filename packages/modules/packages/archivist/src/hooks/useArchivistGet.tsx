@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Archivist } from '@xyo-network/archivist'
 import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useState } from 'react'

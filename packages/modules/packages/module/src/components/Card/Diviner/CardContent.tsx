@@ -1,7 +1,7 @@
 import { CardContentProps, Typography } from '@mui/material'
 import { EthAddress } from '@xylabs/eth-address'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { EthAccountBox } from '@xylabs/react-crypto'
-import { useAsyncEffect } from '@xylabs/react-shared'
 import { ArchivistConfig } from '@xyo-network/archivist'
 import { DivinerModule } from '@xyo-network/diviner'
 import { AnyConfigSchema, ModuleWrapper } from '@xyo-network/module'

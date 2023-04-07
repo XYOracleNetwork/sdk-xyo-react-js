@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'

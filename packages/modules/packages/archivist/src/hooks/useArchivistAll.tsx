@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistWrapper } from '@xyo-network/archivist'
 
 import { useArchivistStates } from './useArchivistStates'

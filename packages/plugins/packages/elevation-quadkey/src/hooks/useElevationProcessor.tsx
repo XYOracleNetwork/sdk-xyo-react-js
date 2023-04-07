@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Payload } from '@xyo-network/payload-model'
 import { Feature, Geometry } from 'geojson'
 import { useState } from 'react'

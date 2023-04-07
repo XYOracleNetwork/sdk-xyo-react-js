@@ -1,5 +1,5 @@
 /* eslint-disable deprecation/deprecation */
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistWrapper } from '@xyo-network/archivist'
 import { ModuleError, WrapperError } from '@xyo-network/module'
 import { useArchivist } from '@xyo-network/react-archivist'

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistModule, MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { useState } from 'react'
 
