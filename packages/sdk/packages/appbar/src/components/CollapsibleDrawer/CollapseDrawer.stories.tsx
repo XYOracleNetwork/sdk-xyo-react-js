@@ -6,7 +6,7 @@ import { CollapsibleProvider, useCollapsible } from '../../contexts'
 import { MenuSection } from '../SiteMenu'
 import { CollapseToggleFlex } from './CollapseToggle'
 import { CollapsibleDrawer } from './CollapsibleDrawer'
-import { menuDataBottom, menuDataTop } from './ExampleMenuData.stories'
+import { menuDataBottom, menuDataTop } from './storyExampleMenuData'
 
 const CollapseProviderDecorator: DecoratorFn = (Story, args) => {
   return (

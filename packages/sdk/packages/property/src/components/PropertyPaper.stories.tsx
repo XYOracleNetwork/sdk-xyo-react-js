@@ -6,7 +6,7 @@ import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 
 import { Property } from './Property'
-import { PropertyPaperProps } from './Props'
+import { PropertyPaperProps, PropertyProps } from './Props'
 
 const StorybookEntry = {
   argTypes: {},
@@ -19,9 +19,9 @@ const StorybookEntry = {
   title: 'property/PropertyPaper',
 } as ComponentMeta<typeof Property>
 
-const Template: ComponentStory<typeof Property> = (args) => <Property {...(args as PropertyPaperProps)} paper={true}></Property>
+const Template: ComponentStory<typeof Property> = (args: PropertyProps) => <Property {...(args as PropertyPaperProps)} paper={true}></Property>
 
-const TemplateWithCompare: ComponentStory<typeof Property> = (args) => (
+const TemplateWithCompare: ComponentStory<typeof Property> = (args: PropertyProps) => (
   <FlexCol gap={1} alignItems="stretch">
     <FlexRow gap={1}>
       <TextField size="small" value="Sample text Field" />

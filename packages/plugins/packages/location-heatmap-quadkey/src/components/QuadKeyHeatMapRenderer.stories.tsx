@@ -1,9 +1,9 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
-import { quadKeyHeatMapPayload } from './payload.stories'
 import { QuadkeyHeatMapWithSettingsRenderer } from './QuadkeyHeatMapRenderer'
 import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
+import { quadKeyHeatMapPayload } from './storyPayload'
 
 // eslint-disable-next-line import/no-default-export
 export default {

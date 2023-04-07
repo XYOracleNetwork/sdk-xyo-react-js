@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { payloadData, payloadDataMissingPairs } from './payloadData.stories'
+import { payloadData, payloadDataMissingPairs } from './storyPayloadData'
 import { UniswapDetailsRender } from './UniswapDetailsRender'
 
 const StorybookEntry = {

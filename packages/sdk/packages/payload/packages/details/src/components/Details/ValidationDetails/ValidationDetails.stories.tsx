@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadDetails } from '../Details'
 import { PayloadValidationDetails } from './ValidationDetails'
+import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
 const StorybookEntry: Meta = {
   argTypes: {},
@@ -23,7 +24,7 @@ const StorybookEntry: Meta = {
   title: 'payload/ValidationDetails',
 }
 
-const Template: ComponentStory<typeof PayloadValidationDetails> = (args) => (
+const Template: ComponentStory<typeof PayloadValidationDetails> = (args: PayloadValidationDetailsProps) => (
   <BrowserRouter>
     <PayloadValidationDetails {...args} />
   </BrowserRouter>

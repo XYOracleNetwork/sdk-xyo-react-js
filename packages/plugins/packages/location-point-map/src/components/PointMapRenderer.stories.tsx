@@ -1,8 +1,8 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
-import { locationPayload } from './payload.stories'
 import { PointMapWithSettingsRenderer } from './PointMapRenderer'
+import { locationPayload } from './storyPayload'
 
 // eslint-disable-next-line import/no-default-export
 export default {

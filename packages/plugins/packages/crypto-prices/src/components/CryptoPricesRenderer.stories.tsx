@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { CryptoPricesRenderer } from './CryptoPricesRenderer'
-import { payloadData, payloadDataMissingAssets } from './payloadData.stories'
+import { payloadData, payloadDataMissingAssets } from './storyPayloadData'
 
 const StorybookEntry = {
   argTypes: {},

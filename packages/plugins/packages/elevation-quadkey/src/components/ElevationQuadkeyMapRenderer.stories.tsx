@@ -2,7 +2,7 @@ import { ComponentStory, Meta } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
 
 import { ElevationQuadkeyMapWithSettingsRenderer } from './ElevationQuadkeyMap'
-import { elevationQuadKeyMapPayload } from './payload.stories'
+import { elevationQuadKeyMapPayload } from './storyPayload'
 
 // eslint-disable-next-line import/no-default-export
 export default {
