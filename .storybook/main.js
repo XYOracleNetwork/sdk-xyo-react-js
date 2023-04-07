@@ -11,7 +11,11 @@ module.exports = {
     "@storybook/addon-interactions",
     "storybook-dark-mode"
   ],
-  features: { modernInlineRender: true },
+  features: { modernInlineRendering: true },
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: { fastRefresh: true },
+  },
   typescript: {
     check: true,
   },
