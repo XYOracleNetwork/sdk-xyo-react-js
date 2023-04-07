@@ -1,4 +1,5 @@
-import { Meta, StoryFnFn } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
 import {
@@ -17,7 +18,7 @@ export default {
   title: 'address/history/BoundWitnessesBox',
 } as Meta
 
-const Template: StoryFnFn<typeof BoundWitnessesBox> = (props) => {
+const Template: StoryFn<typeof BoundWitnessesBox> = (props: FlexBoxProps) => {
   return (
     <BrowserRouter>
       <BoundWitnessesBox {...props} />

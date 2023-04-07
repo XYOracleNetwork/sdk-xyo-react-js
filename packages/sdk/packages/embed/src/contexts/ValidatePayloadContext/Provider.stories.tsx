@@ -7,7 +7,7 @@ import { XyoEmbedPluginContext, XyoEmbedPluginState } from '../XyoEmbedPluginCon
 import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider'
 import { useValidatePayload } from './use'
 
-const EmbedDecorator: Decorator = (Story, { args }) => {
+const EmbedDecorator: Decorator<ValidatePayloadProviderPropsEx> = (Story, { args }) => {
   const { xyoEmbedPluginContext, resolvePayloadContext, ...props } = args
   console.log(resolvePayloadContext)
   return (
@@ -21,7 +21,7 @@ const EmbedDecorator: Decorator = (Story, { args }) => {
   )
 }
 
-const StorybookEntry: Meta = {
+const StorybookEntry: Meta<ValidatePayloadProviderPropsEx> = {
   component: ValidatePayloadProvider,
   decorators: [EmbedDecorator],
   title: 'embed/ValidatePayloadProvider',
