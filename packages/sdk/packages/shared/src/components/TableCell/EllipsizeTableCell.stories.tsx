@@ -1,10 +1,10 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { EllipsisTableCell } from './EllipsisTableCell'
 
-const TableDecorator: DecoratorFn = (Story, args) => {
+const TableDecorator: Decorator = (Story, args) => {
   return (
     <BrowserRouter>
       <Table>

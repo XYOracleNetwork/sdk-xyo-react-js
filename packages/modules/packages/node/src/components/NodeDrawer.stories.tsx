@@ -1,12 +1,12 @@
 import { Button } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeConfigSchema } from '@xyo-network/node'
 import { MemoryNodeProvider, NodeDrawerProvider, useNodeDrawer } from '@xyo-network/react-node-provider'
 
 import { NodeDrawer } from './NodeDrawer'
 
-const ProviderDecorator: DecoratorFn = (Story, args) => (
+const ProviderDecorator: Decorator = (Story, args) => (
   <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
     <NodeDrawerProvider defaultOpen>
       <Story {...args} />

@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
@@ -19,7 +19,7 @@ import { options } from './story'
 const nodeUrl = 'http://localhost:8080/node'
 const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
-export const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
+export const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(

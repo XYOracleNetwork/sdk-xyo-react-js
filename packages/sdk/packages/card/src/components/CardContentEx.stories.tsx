@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { Button, Typography } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 import { useRef, useState } from 'react'
@@ -8,7 +8,7 @@ import { useRef, useState } from 'react'
 import { CardContentEx } from './CardContentEx'
 import { PageCard } from './PageCard'
 
-const ScrollableDecoratorFn: DecoratorFn = (Story, args) => {
+const ScrollableDecorator: Decorator = (Story, args) => {
   const [scrollToTop, setScrollToTop] = useState(0)
   const ref = useRef<HTMLDivElement | null>(null)
 
@@ -59,7 +59,7 @@ WithRef.decorators = [WithRefDecorator]
 
 const WithVariant = Template.bind({})
 WithVariant.args = { variant: 'scrollable' }
-WithVariant.decorators = [ScrollableDecoratorFn]
+WithVariant.decorators = [ScrollableDecorator]
 
 export { Default, WithRef, WithVariant }
 

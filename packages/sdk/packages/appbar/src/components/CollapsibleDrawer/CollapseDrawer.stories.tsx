@@ -1,5 +1,5 @@
 import { Divider, useTheme } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 
 import { CollapsibleProvider, useCollapsible } from '../../contexts'
@@ -8,7 +8,7 @@ import { CollapseToggleFlex } from './CollapseToggle'
 import { CollapsibleDrawer } from './CollapsibleDrawer'
 import { menuDataBottom, menuDataTop } from './storyExampleMenuData'
 
-const CollapseProviderDecorator: DecoratorFn = (Story, args) => {
+const CollapseProviderDecorator: Decorator = (Story, args) => {
   return (
     <CollapsibleProvider>
       <Story {...args} />

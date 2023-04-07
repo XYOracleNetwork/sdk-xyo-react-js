@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useRef } from 'react'
 
@@ -8,7 +8,7 @@ import { DefaultMapSettings } from '../Settings'
 import { MapBox } from './MapBox'
 import { MapSettings } from './MapSettingsComponents'
 
-const WithMapboxProviders: DecoratorFn = (Story, props) => {
+const WithMapboxProviders: Decorator = (Story, props) => {
   const defaultSettings = DefaultMapSettings()
   defaultSettings.enableControls.hidden = false
   defaultSettings.scrollToZoom.hidden = false
@@ -50,7 +50,7 @@ const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
   )
 }
 
-const WithMapSettingsDecorator: DecoratorFn = (Story, args) => {
+const WithMapSettingsDecorator: Decorator = (Story, args) => {
   return (
     <>
       <Story {...args} />

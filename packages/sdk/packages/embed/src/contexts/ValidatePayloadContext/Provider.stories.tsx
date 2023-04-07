@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 
 import { RefreshPayloadProvider } from '../RefreshPayloadContext'
 import { ResolvePayloadContext, ResolvePayloadState } from '../ResolvePayloadContext'
@@ -7,7 +7,7 @@ import { XyoEmbedPluginContext, XyoEmbedPluginState } from '../XyoEmbedPluginCon
 import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider'
 import { useValidatePayload } from './use'
 
-const EmbedDecorator: DecoratorFn = (Story, { args }) => {
+const EmbedDecorator: Decorator = (Story, { args }) => {
   const { xyoEmbedPluginContext, resolvePayloadContext, ...props } = args
   console.log(resolvePayloadContext)
   return (

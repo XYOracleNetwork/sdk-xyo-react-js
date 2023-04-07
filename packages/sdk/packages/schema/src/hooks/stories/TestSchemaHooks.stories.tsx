@@ -1,5 +1,5 @@
 import { Alert, Button, TextField, Typography } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { HDWallet } from '@xyo-network/account'
@@ -19,7 +19,7 @@ const apiConfig = { apiDomain: 'https://api.archivist.xyo.network' }
 const nodeUrl = 'http://localhost:8080/node'
 const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
-const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
+const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(

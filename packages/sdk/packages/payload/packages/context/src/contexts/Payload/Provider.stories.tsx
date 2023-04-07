@@ -1,6 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { Box, Button, CircularProgress } from '@mui/material'
-import { DecoratorFn, StoryFn } from '@storybook/react'
+import { Decorator, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { Hasher } from '@xyo-network/core'
@@ -13,7 +13,7 @@ import { usePayload } from './use'
 const testPayload = { schema: 'network.xyo.payload' }
 const testPayloadHash = Hasher.hash(testPayload)
 
-const PayloadProviderDecorator: DecoratorFn = (Story, args) => {
+const PayloadProviderDecorator: Decorator = (Story, args) => {
   const [archivist, setArchivist] = useState<ArchivistWrapper>()
 
   useAsyncEffect(

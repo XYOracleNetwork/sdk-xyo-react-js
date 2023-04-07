@@ -1,10 +1,10 @@
-import { DecoratorFn } from '@storybook/react'
+import { Decorator } from '@storybook/react'
 import { Hasher } from '@xyo-network/core'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 
 import { HashSelectionHistoryProvider } from '../../providers'
 
-export const WithHashSelectionHistory: DecoratorFn = (Story, args) => {
+export const WithHashSelectionHistory: Decorator = (Story, args) => {
   return (
     <HashSelectionHistoryProvider required={false}>
       <Story {...args} />
@@ -12,7 +12,7 @@ export const WithHashSelectionHistory: DecoratorFn = (Story, args) => {
   )
 }
 
-export const WithHashSelectionHistoryDefaultValues: DecoratorFn = (Story, args) => {
+export const WithHashSelectionHistoryDefaultValues: Decorator = (Story, args) => {
   const hash = Hasher.hash(sampleAddressHistory[0])
   const defaultHashSelectionHistory = [hash]
   const defaultNestedBoundWitnesses = {

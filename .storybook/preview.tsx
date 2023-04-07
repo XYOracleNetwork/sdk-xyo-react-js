@@ -5,7 +5,7 @@ import { useDarkMode } from 'storybook-dark-mode';
 import { partialDarkThemeOptions, partialAppLightThemeOptions, themeOptions, appThemeOptions, webThemeOptions } from '@xyo-network/react-theme'
 import { AppSettingsProvider } from '@xyo-network/react-app-settings'
 import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
 export const globalTypes = {
   theme: {
@@ -49,7 +49,7 @@ const getTheme = (themeName) => {
   return themes[themeName]
 }
 
-const withThemeProvider: DecoratorFn = (Story, context) => {
+const withThemeProvider: Decorator = (Story, context) => {
   // Clear the auth state with each story
   localStorage.setItem('AuthState', '')
 

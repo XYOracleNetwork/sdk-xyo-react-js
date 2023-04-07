@@ -1,4 +1,4 @@
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { AbstractModule } from '@xyo-network/module'
@@ -18,7 +18,7 @@ const TestModuleAccount = randomWallet.deriveAccount('0')
 
 const account = randomWallet.deriveAccount('0')
 
-const MemoryNodeDecorator: DecoratorFn = (Story, args) => {
+const MemoryNodeDecorator: Decorator = (Story, args) => {
   return (
     <WalletProvider defaultWallet={randomWallet}>
       <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>

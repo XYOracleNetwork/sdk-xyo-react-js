@@ -1,5 +1,5 @@
 import { Button, Typography } from '@mui/material'
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { delay } from '@xylabs/delay'
 import { Payload } from '@xyo-network/payload-model'
 import { useXyoEvent } from '@xyo-network/react-event'
@@ -16,7 +16,7 @@ const newPayloads = () =>
 // simulating the end of the list
 const maxPayloads = 200
 
-const NewPayloadsDecorator: DecoratorFn = (Story, args) => {
+const NewPayloadsDecorator: Decorator = (Story, args) => {
   const testPayloads = newPayloads()
   const [payloads, setPayloads] = useState<Payload[]>([])
   const [count, setCount] = useState(0)

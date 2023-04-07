@@ -1,10 +1,10 @@
-import { DecoratorFn, Meta, StoryFn } from '@storybook/react'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useXyoEvent } from '@xyo-network/react-event'
 
 import { ActiveBWDecoratorWithDefaultValues, WithResetDecorator } from '../../stories'
 import { ActiveBWFlexBox } from './ActiveBWFlexBox'
 
-const WithRefDecorator: DecoratorFn = (Story, args) => {
+const WithRefDecorator: Decorator = (Story, args) => {
   const [ref] = useXyoEvent((noun, verb, data) => console.log(noun, verb, data))
   args.args.ref = ref
   return <Story {...args} />
