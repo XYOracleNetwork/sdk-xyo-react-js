@@ -17,58 +17,50 @@ export const useModule = <TModule extends Module = Module>(
   const [module, setModule] = useState<TModule>()
   const [error, setError] = useState<Error>()
 
-  const address = module?.address
+  const address = useMemo(() => module?.address, [module])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const eventUnsubscribe: EventUnsubscribeFunction[] = []
       try {
-        if (nodeError) {
+        /* Check pre-conditions */
+        if (nodeError || !node || !nameOrAddress) {
           if (mounted()) {
             setError(nodeError)
             setModule(undefined)
           }
-        } else {
-          if (node) {
-            const attachHandler = (args: ModuleAttachedEventArgs) => {
-              const eventModule = args.module
-              if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
-                setModule(eventModule as TModule)
-                setError(undefined)
-              }
-            }
-            const detachHandler = (args: ModuleDetachedEventArgs) => {
-              const eventModule = args.module
-              if (eventModule.address === address) {
-                setModule(undefined)
-                setError(undefined)
-              }
-            }
-            const module: TModule | undefined = nameOrAddress
-              ? await node.resolve<TModule>(nameOrAddress)
-              : (await node.resolve<TModule>(filter)).pop()
-            if (mounted()) {
-              eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
-              eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
-              setModule(module)
-              setError(undefined)
-            }
-            return () => {
-              //remove the event handler on unmount
-              eventUnsubscribe.forEach((func) => func())
-            }
-          } else {
-            if (mounted()) {
-              setError(undefined)
-              setModule(undefined)
-            }
+          return
+        }
+
+        const attachHandler = (args: ModuleAttachedEventArgs) => {
+          const eventModule = args.module
+          if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
+            setModule(eventModule as TModule)
+            setError(undefined)
           }
+        }
+        const detachHandler = (args: ModuleDetachedEventArgs) => {
+          const eventModule = args.module
+          if (eventModule.address === address) {
+            setModule(undefined)
+            setError(undefined)
+          }
+        }
+        const module: TModule | undefined = nameOrAddress ? await node.resolve<TModule>(nameOrAddress) : (await node.resolve<TModule>(filter)).pop()
+        if (mounted()) {
+          eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
+          eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
+          setModule(module)
+          setError(undefined)
+        }
+        return () => {
+          //remove the event handler on unmount
+          eventUnsubscribe.forEach((func) => func())
         }
       } catch (ex) {
         if (mounted()) {
-          const error = ex as Error
-          setError(error)
+          setError(ex as Error)
           setModule(undefined)
         }
       }
