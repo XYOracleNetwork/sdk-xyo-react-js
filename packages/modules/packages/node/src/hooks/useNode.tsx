@@ -1,4 +1,5 @@
 import { AccountInstance } from '@xyo-network/account-model'
+import { Logger } from '@xyo-network/core'
 import { NodeModule, NodeWrapper } from '@xyo-network/node'
 import { useEffect, useState } from 'react'
 
@@ -6,9 +7,9 @@ import { useModule } from './useModule'
 import { useProvidedNode } from './useProvidedNode'
 
 //AT: intentionally not exported
-const useNodeModule = (nameOrAddress?: string): [NodeModule | undefined, Error | undefined] => {
+const useNodeModule = (nameOrAddress?: string, account?: AccountInstance, logger?: Logger): [NodeModule | undefined, Error | undefined] => {
   const [providedNode] = useProvidedNode()
-  const [node, nodeError] = useModule(nameOrAddress)
+  const [node, nodeError] = useModule(nameOrAddress, account, logger)
 
   if (nameOrAddress) {
     if (providedNode) {
@@ -21,8 +22,8 @@ const useNodeModule = (nameOrAddress?: string): [NodeModule | undefined, Error |
   }
 }
 
-export const useNode = (nameOrAddress?: string, account?: AccountInstance): [NodeWrapper | undefined, Error | undefined] => {
-  const [node, nodeError] = useNodeModule(nameOrAddress)
+export const useNode = (nameOrAddress?: string, account?: AccountInstance, logger?: Logger): [NodeWrapper | undefined, Error | undefined] => {
+  const [node, nodeError] = useNodeModule(nameOrAddress, account, logger)
   const [wrapper, setWrapper] = useState<NodeWrapper>()
   const [error, setError] = useState<Error>()
 

@@ -1,4 +1,3 @@
-import { RenderSpinCheckConfig, useRenderSpinCheck } from '@xylabs/react-render-spin-check'
 import { AccountInstance } from '@xyo-network/account-model'
 import { Logger } from '@xyo-network/core'
 import { ConstructableModuleWrapper, ModuleWrapper } from '@xyo-network/module'
@@ -15,17 +14,9 @@ export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
   const filter = {
     query: [wrapperObject.requiredQueries],
   }
-  const useHook = (
-    account?: AccountInstance,
-    spinCheck?: boolean | RenderSpinCheckConfig,
-    logger?: Logger,
-  ): [TModuleWrapper[] | undefined, Error | undefined] => {
-    const spinCheckBounceNoCheck = useMemo(() => {
-      logger?.debug('spinCheckBounceNoCheck.useMemo')
-      return { name: name ?? 'WrappedModulesHookFactory-NoCheck' }
-    }, [logger])
+  const useHook = (account?: AccountInstance, logger?: Logger): [TModuleWrapper[] | undefined, Error | undefined] => {
     logger?.debug(`Render: ${name}`)
-    useRenderSpinCheck(spinCheck ? { name } : spinCheckBounceNoCheck, typeof spinCheck === 'object' ? spinCheck : undefined)
+
     const [providedAccount] = useAccount()
     const [modules, moduleError] = useModules<TModuleWrapper['module']>(filter, logger)
 

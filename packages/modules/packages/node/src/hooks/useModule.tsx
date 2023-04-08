@@ -1,5 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { AccountInstance } from '@xyo-network/account-model'
+import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
@@ -10,6 +11,7 @@ import { useProvidedWrappedNode } from './useProvidedNode'
 export const useModule = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
   account?: AccountInstance,
+  logger?: Logger,
 ): [TModule | undefined, Error | undefined] => {
   const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
   const filter = useMemo(() => (typeof nameOrAddressOrFilter === 'object' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
@@ -27,6 +29,7 @@ export const useModule = <TModule extends Module = Module>(
         /* Check pre-conditions */
         if (nodeError || !node || !nameOrAddress) {
           if (mounted()) {
+            nodeError && logger?.error(nodeError.message)
             setError(nodeError)
             setModule(undefined)
           }
@@ -36,6 +39,7 @@ export const useModule = <TModule extends Module = Module>(
         const attachHandler = (args: ModuleAttachedEventArgs) => {
           const eventModule = args.module
           if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
+            logger?.debug(`attachHandler-setting [${nameOrAddress}]`)
             setModule(eventModule as TModule)
             setError(undefined)
           }
@@ -43,6 +47,7 @@ export const useModule = <TModule extends Module = Module>(
         const detachHandler = (args: ModuleDetachedEventArgs) => {
           const eventModule = args.module
           if (eventModule.address === address) {
+            logger?.debug(`detachHandler-clearing [${address}]`)
             setModule(undefined)
             setError(undefined)
           }
@@ -51,6 +56,7 @@ export const useModule = <TModule extends Module = Module>(
         if (mounted()) {
           eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
           eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
+          logger?.debug(`resolved [${nameOrAddress}]`)
           setModule(module)
           setError(undefined)
         }
@@ -60,12 +66,14 @@ export const useModule = <TModule extends Module = Module>(
         }
       } catch (ex) {
         if (mounted()) {
-          setError(ex as Error)
+          const error = ex as Error
+          logger?.error(error.message)
+          setError(error)
           setModule(undefined)
         }
       }
     },
-    [nameOrAddress, node, nodeError, address, filter],
+    [nameOrAddress, node, nodeError, address, filter, logger],
   )
 
   return [module, error]
