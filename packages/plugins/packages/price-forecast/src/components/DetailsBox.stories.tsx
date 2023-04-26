@@ -1,5 +1,7 @@
-import { Typography } from '@mui/material'
+import { Button, ButtonGroup, Collapse, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
+import { FlexCol } from '@xylabs/react-flexbox'
+import { RefObject, useRef, useState } from 'react'
 
 import { ForecastPayloadSchema } from '../lib'
 import { PriceForecastDetailsBox } from './DetailsBox'
@@ -27,14 +29,34 @@ const StorybookEntry = {
 } as Meta<typeof PriceForecastDetailsBox>
 
 const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
+  const [showPayloads, setShowPayloads] = useState(false)
+  const forecastPayloadRef = useRef<HTMLParagraphElement>(null)
+  const sourcePayloadsRef = useRef<HTMLParagraphElement>(null)
+  const handleClick = (ref: RefObject<HTMLParagraphElement>) => {
+    setShowPayloads(!showPayloads)
+    if (ref.current) ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
   return (
     <>
       <PriceForecastDetailsBox {...args} />
-      <Typography>
-        Source Payload:{' '}
+      <FlexCol>
+        <ButtonGroup>
+          <Button variant="contained" onClick={() => handleClick(forecastPayloadRef)}>
+            Forecast Payload
+          </Button>
+          <Button variant="contained" onClick={() => handleClick(sourcePayloadsRef)}>
+            Source Payloads
+          </Button>
+        </ButtonGroup>
+      </FlexCol>
+      <Typography ref={forecastPayloadRef}>
+        ForecastPayload:{' '}
         <pre>
           <code>{JSON.stringify(args.payload, null, 2)}</code>
         </pre>
+      </Typography>
+      <Typography ref={sourcePayloadsRef}>
+        SourcePayloads: <pre>{/* <code>{JSON.stringify(args.payload, null, 2)}</code> */}</pre>
       </Typography>
     </>
   )
