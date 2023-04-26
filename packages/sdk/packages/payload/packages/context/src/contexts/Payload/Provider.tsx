@@ -39,6 +39,11 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
     refreshPayload()
   }, [archivist])
 
+  /**
+   * Key States
+   * payload === undefined - ready to attempt to fetch
+   * payload === null - tried to fetch and was unsuccessful
+   */
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
@@ -48,7 +53,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
           setPayload(loadedPayloads ? loadedPayloads : null)
           setPayloadError(undefined)
         } catch (e) {
-          setPayload(undefined)
+          setPayload(null)
           setPayloadError(e as Error)
         }
       }
