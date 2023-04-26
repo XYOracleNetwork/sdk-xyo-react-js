@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { ForecastPayloadSchema } from '../lib'
@@ -26,7 +27,17 @@ const StorybookEntry = {
 } as Meta<typeof PriceForecastDetailsBox>
 
 const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
-  return <PriceForecastDetailsBox {...args} />
+  return (
+    <>
+      <PriceForecastDetailsBox {...args} />
+      <Typography>
+        Source Payload:{' '}
+        <pre>
+          <code>{JSON.stringify(args.payload, null, 2)}</code>
+        </pre>
+      </Typography>
+    </>
+  )
 }
 
 const Default = Template.bind({})
