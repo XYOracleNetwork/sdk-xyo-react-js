@@ -1,6 +1,8 @@
+import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Title, Tooltip } from 'chart.js'
+import { useMemo } from 'react'
 import { Line } from 'react-chartjs-2'
 
 import { ForecastPayload } from '../lib'
@@ -24,30 +26,34 @@ const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
 
 const randomNumberBetween1and10 = () => Math.floor(Math.random() * 10) + 1
 
-export const data: ChartJS<'line'>['data'] = {
-  datasets: [
-    {
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: labels.map(() => randomNumberBetween1and10()),
-      label: 'Dataset 1',
-    },
-    {
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      borderColor: 'rgb(53, 162, 235)',
-      data: labels.map(() => randomNumberBetween1and10()),
-      label: 'Dataset 2',
-    },
-  ],
-  labels,
-}
-
 export interface PriceForecastDetailsBoxProps extends FlexBoxProps {
   payload?: Payload
 }
 
 export const PriceForecastDetailsBox: React.FC<PriceForecastDetailsBoxProps> = ({ payload, ...props }) => {
   const priceForecastPayload = payload as ForecastPayload
+  const theme = useTheme()
+
+  const data: ChartJS<'line'>['data'] = useMemo(
+    () => ({
+      datasets: [
+        {
+          backgroundColor: theme.palette.primary.light,
+          borderColor: theme.palette.primary.light,
+          data: labels.map(() => randomNumberBetween1and10()),
+          label: 'Dataset 1',
+        },
+        {
+          backgroundColor: theme.palette.secondary.light,
+          borderColor: theme.palette.secondary.light,
+          data: labels.map(() => randomNumberBetween1and10()),
+          label: 'Dataset 2',
+        },
+      ],
+      labels,
+    }),
+    [],
+  )
 
   return (
     <FlexCol {...props}>
