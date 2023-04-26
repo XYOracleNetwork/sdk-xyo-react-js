@@ -9,17 +9,18 @@ import { useChartColors } from './useChartColors'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
-
-const randomNumberBetween1and10 = () => Math.floor(Math.random() * 10) + 1
-
 export interface PriceForecastDetailsBoxProps extends FlexBoxProps {
   payload?: Payload
 }
 
 export const PriceForecastDetailsBox: React.FC<PriceForecastDetailsBoxProps> = ({ payload, ...props }) => {
-  const priceForecastPayload = payload as ForecastPayload
-  const { dataSetColorPrimary, dataSetColorSecondary, gridColor } = useChartColors()
+  const priceForecastPayload = payload as ForecastPayload | undefined
+  const { dataSetColorPrimary, gridColor } = useChartColors()
+
+  const labels = useMemo(
+    () => priceForecastPayload?.values.map((price) => (price.timestamp ? new Date(price.timestamp).toLocaleDateString() : null)),
+    [priceForecastPayload?.values],
+  )
 
   const options: ChartJS<'line'>['options'] = {
     plugins: {
@@ -47,30 +48,29 @@ export const PriceForecastDetailsBox: React.FC<PriceForecastDetailsBoxProps> = (
   }
 
   const data: ChartJS<'line'>['data'] = useMemo(
-    () => ({
-      datasets: [
-        {
-          backgroundColor: dataSetColorPrimary,
-          borderColor: dataSetColorPrimary,
-          data: labels.map(() => randomNumberBetween1and10()),
-          label: 'Dataset 1',
-        },
-        {
-          backgroundColor: dataSetColorSecondary,
-          borderColor: dataSetColorSecondary,
-          data: labels.map(() => randomNumberBetween1and10()),
-          label: 'Dataset 2',
-        },
-      ],
-      labels,
-    }),
-    [dataSetColorPrimary, dataSetColorSecondary],
+    () =>
+      priceForecastPayload
+        ? {
+            datasets: [
+              {
+                backgroundColor: dataSetColorPrimary,
+                borderColor: dataSetColorPrimary,
+                data: priceForecastPayload?.values.map((price) => price.value),
+                label: 'Forecast Price',
+              },
+            ],
+            labels,
+          }
+        : {
+            datasets: [],
+            labels,
+          },
+    [dataSetColorPrimary, labels, priceForecastPayload],
   )
 
   return (
-    <FlexCol {...props}>
-      Hello from PriceForecastDetailsBox: <code>{JSON.stringify(priceForecastPayload)}</code>
-      <Line options={options} data={data} />
+    <FlexCol {...props} busy={priceForecastPayload === undefined} minHeight="25vh">
+      {priceForecastPayload ? <Line options={options} data={data} /> : null}
     </FlexCol>
   )
 }
