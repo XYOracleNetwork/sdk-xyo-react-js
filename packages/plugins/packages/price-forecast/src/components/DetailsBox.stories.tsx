@@ -7,28 +7,11 @@ const tenMin = 600000
 
 const ForecastingDivinerPayload = {
   schema: ForecastPayloadSchema,
-  values: [
-    {
-      error: 0,
-      timestamp: Date.now(),
-      value: 1000,
-    },
-    {
-      error: 0,
-      timestamp: Date.now() - tenMin,
-      value: 1000,
-    },
-    {
-      error: 0,
-      timestamp: Date.now() - tenMin * 2,
-      value: 1000,
-    },
-    {
-      error: 0,
-      timestamp: Date.now() - tenMin * 3,
-      value: 1000,
-    },
-  ],
+  values: [1, 2, 3, 4, 5, 6, 7, 8].map((item) => ({
+    error: 0,
+    timestamp: Date.now() + tenMin * item,
+    value: 1000 * Math.random(),
+  })),
 }
 
 const StorybookEntry = {
