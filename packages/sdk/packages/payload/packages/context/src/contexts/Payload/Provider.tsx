@@ -2,7 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { WithChildren } from '@xylabs/react-shared'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { Payload } from '@xyo-network/payload-model'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { PayloadContext } from './Context'
 
@@ -34,6 +34,10 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
   const clearPayload = () => {
     setPayload(null)
   }
+
+  useEffect(() => {
+    refreshPayload()
+  }, [archivist])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
