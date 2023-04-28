@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Collapse, Typography } from '@mui/material'
+import { Button, ButtonGroup, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { RefObject, useRef, useState } from 'react'
@@ -38,7 +38,7 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
   }
   return (
     <>
-      <PriceForecastDetailsBox {...args} />
+      <PriceForecastDetailsBox mb={3} {...args} />
       <FlexCol>
         <ButtonGroup>
           <Button variant="contained" onClick={() => handleClick(forecastPayloadRef)}>
@@ -49,15 +49,16 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
           </Button>
         </ButtonGroup>
       </FlexCol>
-      <Typography ref={forecastPayloadRef}>
-        ForecastPayload:{' '}
-        <pre>
-          <code>{JSON.stringify(args.payload, null, 2)}</code>
-        </pre>
-      </Typography>
-      <Typography ref={sourcePayloadsRef}>
-        SourcePayloads: <pre>{/* <code>{JSON.stringify(args.payload, null, 2)}</code> */}</pre>
-      </Typography>
+      <pre>
+        <Typography ref={forecastPayloadRef}>
+          ForecastPayload: <code>{JSON.stringify(args.payload, null, 2)}</code>
+        </Typography>
+      </pre>
+      <pre>
+        <Typography ref={sourcePayloadsRef}>
+          SourcePayloads: <pre>{/* <code>{JSON.stringify(args.payload, null, 2)}</code> */}</pre>
+        </Typography>
+      </pre>
     </>
   )
 }
