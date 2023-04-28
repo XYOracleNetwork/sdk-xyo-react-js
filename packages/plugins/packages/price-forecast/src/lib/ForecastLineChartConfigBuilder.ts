@@ -1,5 +1,5 @@
 import { Theme } from '@mui/material'
-import { Chart as ChartJS, TooltipOptions } from 'chart.js'
+import { ChartData, ChartOptions, LegendOptions, ScaleChartOptions, TooltipOptions } from 'chart.js'
 // eslint-disable-next-line import/no-unresolved
 import { _DeepPartialObject } from 'chart.js/dist/types/utils'
 
@@ -11,7 +11,7 @@ interface ThemeColors {
   gridColor: string
 }
 
-const defaultOptions: () => ChartJS<'line'>['options'] = () => ({
+const defaultOptions: () => ChartOptions<'line'> = () => ({
   plugins: {
     legend: {
       position: 'top' as const,
@@ -21,15 +21,19 @@ const defaultOptions: () => ChartJS<'line'>['options'] = () => ({
 })
 
 export class ForecastLineChartConfigBuilder {
-  data: ChartJS<'line'>['data'] = {
+  data: ChartData<'line'> = {
     datasets: [],
   }
   labels: (number | undefined)[] = []
-  options: ChartJS<'line'>['options'] = {}
+  options: ChartOptions<'line'> = defaultOptions()
   themeColors: ThemeColors | undefined
 
   constructor(theme: Theme, private forecastPayload?: ForecastPayload) {
     this.themeColors = this.parseTheme(theme)
+    this.build()
+  }
+
+  build() {
     this.buildLabels().buildOptions().buildData()
   }
 
@@ -54,17 +58,26 @@ export class ForecastLineChartConfigBuilder {
   }
 
   buildOptions() {
-    const optionsBase = defaultOptions()
-    if (optionsBase.plugins) {
-      optionsBase.plugins.title = this.generateTitle()
-      optionsBase.plugins.tooltip = this.generateTooltip()
+    if (this.options.plugins) {
+      this.options.plugins.title = this.generateTitle()
+      this.options.plugins.tooltip = this.generateTooltip()
+      this.options.plugins.legend = this.generateLegend()
     }
-    optionsBase.scales = this.generateScales()
-    this.options = optionsBase
+    this.options.scales = this.generateScales()
+
     return this
   }
 
-  generateScales(): ChartJS<'line'>['options']['scales'] {
+  generateLegend(): _DeepPartialObject<LegendOptions<'line'>> {
+    return {
+      labels: {
+        pointStyle: 'circle',
+        usePointStyle: true,
+      },
+    }
+  }
+
+  generateScales(): _DeepPartialObject<ScaleChartOptions<'line'>['scales']> {
     return {
       x: {
         grid: {
