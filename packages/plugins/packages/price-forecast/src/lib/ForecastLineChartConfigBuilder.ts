@@ -43,6 +43,8 @@ export class ForecastLineChartConfigBuilder {
         {
           backgroundColor: this.themeColors?.dataSetColorPrimary,
           borderColor: this.themeColors?.dataSetColorPrimary,
+          borderDash: [10],
+          borderDashOffset: 0.5,
           data: this.forecastPayload?.values.map((price) => price.value) ?? [],
           label: 'Forecast Price',
         },
