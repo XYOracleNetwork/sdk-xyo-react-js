@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { RefObject, useRef, useState } from 'react'
 
-import { ForecastPayloadSchema } from '../lib'
+import { ForecastPayloadSchema, MockSourcePayloads } from '../lib'
 import { PriceForecastDetailsBox } from './DetailsBox'
 
 const tenMin = 600000
@@ -13,7 +13,7 @@ const ForecastingDivinerPayload = {
   values: [1, 2, 3, 4, 5, 6, 7, 8].map((item) => ({
     error: 0,
     timestamp: Date.now() + tenMin * item,
-    value: 1000 * Math.random(),
+    value: 100 * item,
   })),
 }
 
@@ -56,7 +56,7 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
       </pre>
       <pre>
         <Typography ref={sourcePayloadsRef}>
-          SourcePayloads: <pre>{/* <code>{JSON.stringify(args.payload, null, 2)}</code> */}</pre>
+          SourcePayloads: <pre>{JSON.stringify(MockSourcePayloads(), null, 2)}</pre>
         </Typography>
       </pre>
     </>

@@ -1,9 +1,15 @@
 import { Theme } from '@mui/material'
-import { ChartData, ChartOptions, LegendOptions, ScaleChartOptions, TooltipOptions } from 'chart.js'
+import { ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChartOptions } from 'chart.js'
 // eslint-disable-next-line import/no-unresolved
 import { _DeepPartialObject } from 'chart.js/dist/types/utils'
 
 import { ForecastPayload } from './payload'
+import { SourcePayloads } from './SourcePayloads'
+
+interface SourcePayloadConfig {
+  fetch: boolean
+  sampleSize?: number
+}
 
 interface ThemeColors {
   dataSetColorPrimary: string
@@ -24,45 +30,69 @@ export class ForecastLineChartConfigBuilder {
   data: ChartData<'line'> = {
     datasets: [],
   }
-  labels: (number | undefined)[] = []
   options: ChartOptions<'line'> = defaultOptions()
   themeColors: ThemeColors | undefined
 
-  constructor(theme: Theme, private forecastPayload?: ForecastPayload) {
+  constructor(theme: Theme, private payload?: ForecastPayload) {
     this.themeColors = this.parseTheme(theme)
-    this.build()
   }
 
-  build() {
-    this.buildLabels().buildOptions().buildData()
-  }
-
-  buildData() {
-    this.data = {
-      datasets: [
-        {
-          backgroundColor: this.themeColors?.dataSetColorPrimary,
-          borderColor: this.themeColors?.dataSetColorPrimary,
-          borderDash: [10],
-          borderDashOffset: 0.5,
-          data: this.forecastPayload?.values.map((price) => price.value) ?? [],
-          label: 'Forecast Price',
-        },
-      ],
-      labels: this.labels,
+  get forecastPayload() {
+    if (this.payload) {
+      return this.payload
+    } else {
+      throw Error('ForecastPayload was not defined')
     }
+  }
+
+  static async create(theme: Theme, payload?: ForecastPayload, sourcePayloadConfig?: SourcePayloadConfig) {
+    const instance = new ForecastLineChartConfigBuilder(theme, payload)
+
+    await instance.build(sourcePayloadConfig?.fetch)
+
+    instance.refreshValues()
+
+    return instance
+  }
+
+  async build(includeSources?: boolean) {
+    this.buildOptions()
+    await this.buildData(includeSources)
     return this
   }
 
-  buildLabels() {
-    this.labels = this.forecastPayload?.values.map((price) => price.timestamp) ?? []
+  async buildData(includeSources?: boolean) {
+    const forecastData = {
+      backgroundColor: this.themeColors?.dataSetColorPrimary,
+      borderColor: this.themeColors?.dataSetColorPrimary,
+      borderDash: [10],
+      borderDashOffset: 0.5,
+      data: this.forecastPayload.values.map((price) => ({ x: price.timestamp ?? 0, y: price.value })),
+      label: 'Forecast Price',
+    }
+
+    const datasets: ChartDataset<'line'>[] = [forecastData]
+
+    if (includeSources) {
+      // build data from sources in forecastPayload
+      const sourceData = await this.buildSourcePayloads()
+      datasets.unshift(sourceData)
+
+      // add last source point as first item in prediction to connect the lines
+      const lastSourceDataItem = sourceData.data.at(-1) as Point
+      forecastData.data.unshift(lastSourceDataItem)
+    }
+
+    this.data = {
+      datasets,
+    }
+
     return this
   }
 
   buildOptions() {
     if (this.options.plugins) {
       this.options.plugins.title = this.generateTitle()
-      this.options.plugins.tooltip = this.generateTooltip()
       this.options.plugins.legend = this.generateLegend()
     }
     this.options.scales = this.generateScales()
@@ -70,7 +100,12 @@ export class ForecastLineChartConfigBuilder {
     return this
   }
 
-  generateLegend(): _DeepPartialObject<LegendOptions<'line'>> {
+  refreshValues() {
+    this.data = { ...this.data }
+    this.options = { ...this.options }
+  }
+
+  protected generateLegend(): _DeepPartialObject<LegendOptions<'line'>> {
     return {
       labels: {
         pointStyle: 'circle',
@@ -79,21 +114,17 @@ export class ForecastLineChartConfigBuilder {
     }
   }
 
-  generateScales(): _DeepPartialObject<ScaleChartOptions<'line'>['scales']> {
+  protected generateScales(): _DeepPartialObject<ScaleChartOptions<'line'>['scales']> {
     return {
       x: {
         grid: {
           color: this.themeColors?.gridColor,
         },
-        ticks: {
-          callback: function (_, index) {
-            const timestamp = this.getLabelForValue(index)
-            const date = new Date(timestamp)
-            const options: Intl.DateTimeFormatOptions = { hour: 'numeric', hour12: true, minute: 'numeric' }
-            const timeString = date.toLocaleTimeString([], options)
-            return timeString
-          },
+        // offset: true,
+        time: {
+          unit: 'minute',
         },
+        type: 'time',
       },
       y: {
         grid: {
@@ -103,7 +134,7 @@ export class ForecastLineChartConfigBuilder {
     }
   }
 
-  generateTitle() {
+  protected generateTitle() {
     return {
       display: true,
       text: `Gas Price Forecaster (GWEI over time from ${
@@ -112,26 +143,22 @@ export class ForecastLineChartConfigBuilder {
     }
   }
 
-  generateTooltip(): _DeepPartialObject<TooltipOptions<'line'>> {
-    return {
-      callbacks: {
-        title: function () {
-          const label = this.dataPoints[0].label
-          const date = new Date(parseInt(label))
-          const options: Intl.DateTimeFormatOptions = { hour: 'numeric', hour12: true, minute: 'numeric' }
-          const timeString = date.toLocaleTimeString([], options)
-          return `${date.toLocaleDateString()} ${timeString}`
-        },
-      },
-    }
-  }
-
-  parseTheme(theme: Theme) {
+  protected parseTheme(theme: Theme) {
     const dark = theme.palette.mode === 'dark'
     return {
       dataSetColorPrimary: theme.palette.primary.light,
       dataSetColorSecondary: theme.palette.secondary.light,
       gridColor: dark ? theme.palette.grey[800] : theme.palette.grey[300],
+    }
+  }
+
+  private async buildSourcePayloads(): Promise<ChartDataset<'line'>> {
+    const { sourcePrices } = await SourcePayloads.build('feePerGas.medium')
+    return {
+      backgroundColor: this.themeColors?.dataSetColorSecondary,
+      borderColor: this.themeColors?.dataSetColorSecondary,
+      data: sourcePrices,
+      label: 'Source Prices',
     }
   }
 }

@@ -9094,6 +9094,8 @@ __metadata:
     "@xyo-network/payload-model": ^2.55.5
     "@xyo-network/payload-plugins": ^2.55.4
     chart.js: ^4.2.1
+    chartjs-adapter-luxon: ^1.3.1
+    luxon: ^3.3.0
     react-chartjs-2: ^5.2.0
     typescript: ^4.9.5
   peerDependencies:
@@ -9101,9 +9103,7 @@ __metadata:
     "@mui/material": ^5
     "@mui/styles": ^5
     axios: ^1.3.4
-    chart.js: ^4.2.1
     react: ^18
-    react-chartjs-2: ^5.2.0
     react-dom: ^18
     react-router-dom: ^6
   languageName: unknown
@@ -11459,6 +11459,16 @@ __metadata:
   dependencies:
     "@kurkle/color": ^0.3.0
   checksum: 7319fdfd1e29812e87bbc07737e8c9072ff659bbc09ade8dd262f83424cd7e48f89afe5220e11e002c9f236883fae3f3adb8adc16acb4682b0ddcc0b661c3af9
+  languageName: node
+  linkType: hard
+
+"chartjs-adapter-luxon@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "chartjs-adapter-luxon@npm:1.3.1"
+  peerDependencies:
+    chart.js: ">=3.0.0"
+    luxon: ">=1.0.0"
+  checksum: a36889ea7716396b4fd1533304a92e0dccffe0c9a8e9579983cb55b3a75098b508a244e39f3d2f883f2f98d14dfbec6dea6a58b7b34c7ad78af028c7e9a0458d
   languageName: node
   linkType: hard
 
@@ -18034,6 +18044,13 @@ __metadata:
   version: 2.3.9
   resolution: "lunr@npm:2.3.9"
   checksum: 176719e24fcce7d3cf1baccce9dd5633cd8bdc1f41ebe6a180112e5ee99d80373fe2454f5d4624d437e5a8319698ca6837b9950566e15d2cae5f2a543a3db4b8
+  languageName: node
+  linkType: hard
+
+"luxon@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "luxon@npm:3.3.0"
+  checksum: 50cf17a0dc155c3dcacbeae8c0b7e80db425e0ba97b9cbdf12a7fc142d841ff1ab1560919f033af46240ed44e2f70c49f76e3422524c7fc8bb8d81ca47c66187
   languageName: node
   linkType: hard
 
