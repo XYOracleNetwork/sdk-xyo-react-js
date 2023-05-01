@@ -55,7 +55,6 @@ const Template: StoryFn<typeof MapBox> = (args) => {
 }
 
 const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
-  console.log(args)
   const containerRef = useRef<HTMLDivElement | null>()
   const handleClick = () => {
     if (containerRef.current) {
