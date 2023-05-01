@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { AddressHistoryDivinerConfigSchema, DivinerModule, MemoryAddressHistoryDiviner } from '@xyo-network/diviner'
+import { DivinerModule } from '@xyo-network/diviner'
+import { AddressHistoryDiviner, AddressHistoryDivinerConfigSchema } from '@xyo-network/diviner-address-history'
 import { useState } from 'react'
 
 import { DivinerCard } from './Card'
@@ -28,7 +29,7 @@ const Template: StoryFn<typeof DivinerCard> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (!module) {
-        const newModule = await MemoryAddressHistoryDiviner.create({
+        const newModule = await AddressHistoryDiviner.create({
           config: {
             address: '',
             schema: AddressHistoryDivinerConfigSchema,
