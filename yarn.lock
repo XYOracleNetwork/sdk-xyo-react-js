@@ -6216,17 +6216,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-render-spin-check@npm:^2.17.2":
-  version: 2.17.2
-  resolution: "@xylabs/react-render-spin-check@npm:2.17.2"
-  peerDependencies:
-    "@mui/material": ^5
-    react: ^18
-    react-dom: ^18
-  checksum: 0079322da1f80945f2a4d926f153888caf0b4840e716b89551b8f44e6df3c4cb7a4c7faa8976d8d8960aa6fda5d0998ba283a93b7a1d79fec0848b838cd4939e
-  languageName: node
-  linkType: hard
-
 "@xylabs/react-select@npm:^2.17.2":
   version: 2.17.2
   resolution: "@xylabs/react-select@npm:2.17.2"
@@ -6843,18 +6832,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-payload-model@npm:^2.56.0":
-  version: 2.56.0
-  resolution: "@xyo-network/diviner-payload-model@npm:2.56.0"
-  dependencies:
-    "@xyo-network/core": ^2.56.0
-    "@xyo-network/diviner-model": ^2.56.0
-    "@xyo-network/module-model": ^2.56.0
-    "@xyo-network/payload-model": ^2.56.0
-  checksum: 9419c1de34cdda5bde64a39a4b32a8fbe8d1df3afc5a47117d44a56eead44a14dc049e84ad9488d875db73b21a45a879d505fd05a4a31c363cd7d54d7062ef94
-  languageName: node
-  linkType: hard
-
 "@xyo-network/diviner-schema-list-model@npm:^2.56.0":
   version: 2.56.0
   resolution: "@xyo-network/diviner-schema-list-model@npm:2.56.0"
@@ -7247,22 +7224,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/node-core-model@npm:^2.56.0":
-  version: 2.56.0
-  resolution: "@xyo-network/node-core-model@npm:2.56.0"
-  dependencies:
-    "@xyo-network/archivist": ^2.56.0
-    "@xyo-network/boundwitness-model": ^2.56.0
-    "@xyo-network/core": ^2.56.0
-    "@xyo-network/diviner-payload-model": ^2.56.0
-    "@xyo-network/module": ^2.56.0
-    "@xyo-network/payload-model": ^2.56.0
-    "@xyo-network/shared": ^2.56.0
-    ajv: ^8.12.0
-  checksum: 7572ecab79532bba9a2d94c9d30734960be294360de0e38c77a64242859137e4b1fef8d59de6c240e108be7cd640893c63b8d907cbb1baa14564f9b92b4abffe
-  languageName: node
-  linkType: hard
-
 "@xyo-network/node-core-types@npm:^2.56.0":
   version: 2.56.0
   resolution: "@xyo-network/node-core-types@npm:2.56.0"
@@ -7462,7 +7423,6 @@ __metadata:
     "@xyo-network/archivist": ^2.56.0
     "@xyo-network/boundwitness-model": ^2.56.0
     "@xyo-network/core": ^2.56.0
-    "@xyo-network/diviner": ^2.56.0
     "@xyo-network/diviner-address-history-model": ^2.56.0
     "@xyo-network/module": ^2.56.0
     "@xyo-network/node-core-types": ^2.56.0
@@ -7478,7 +7438,6 @@ __metadata:
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7504,7 +7463,6 @@ __metadata:
     "@xyo-network/react-address-render": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7530,7 +7488,6 @@ __metadata:
     "@xyo-network/account": ^2.56.0
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7580,7 +7537,6 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7654,7 +7610,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7688,7 +7643,6 @@ __metadata:
     "@xyo-network/react-module": "workspace:^"
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7727,7 +7681,6 @@ __metadata:
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7768,7 +7721,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7792,7 +7744,6 @@ __metadata:
     "@xylabs/tsconfig-react": ^2.17.5
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7818,7 +7769,6 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7844,7 +7794,6 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.56.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7874,7 +7823,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/uniswap-crypto-market-payload-plugin": ^2.56.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7961,7 +7909,6 @@ __metadata:
     "@xyo-network/sdk-geo": ^2.8.0
     geojson: ^0.5.0
     mapbox-gl: ^2.14.1
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -7997,7 +7944,6 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/schema-cache": ^2.56.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8020,7 +7966,6 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": ^2.17.6
     "@xylabs/tsconfig-react": ^2.17.5
     "@xyo-network/module": ^2.56.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8051,7 +7996,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8097,7 +8041,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8125,7 +8068,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8153,7 +8095,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8181,7 +8122,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8233,7 +8173,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8268,7 +8207,6 @@ __metadata:
     "@xylabs/react-link": ^2.17.2
     "@xylabs/ts-scripts-yarn3": ^2.17.6
     "@xylabs/tsconfig-react": ^2.17.5
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8292,7 +8230,6 @@ __metadata:
     "@xylabs/tsconfig-react": ^2.17.5
     "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8319,7 +8256,6 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     geojson: ^0.5.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8346,7 +8282,6 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     geojson: 0.5.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8371,7 +8306,6 @@ __metadata:
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8409,7 +8343,6 @@ __metadata:
     geojson: ^0.5.0
     lodash: ^4.17.21
     mapbox-gl: ^2.14.1
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8450,7 +8383,6 @@ __metadata:
     "@xyo-network/module": ^2.56.0
     "@xyo-network/node": ^2.56.0
     "@xyo-network/react-shared": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8474,7 +8406,6 @@ __metadata:
     "@xyo-network/react-module": "workspace:^"
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-sentinel": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8523,7 +8454,6 @@ __metadata:
     "@xylabs/tsconfig-react": ^2.17.5
     "@xyo-network/network": ^2.56.0
     "@xyo-network/react-shared": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8561,6 +8491,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-node-provider@workspace:packages/modules/packages/node/packages/provider"
   dependencies:
+    "@xylabs/react-async-effect": ^2.17.2
     "@xylabs/react-shared": ^2.17.2
     "@xylabs/ts-scripts-yarn3": ^2.17.6
     "@xylabs/tsconfig-react": ^2.17.5
@@ -8604,7 +8535,6 @@ __metadata:
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/sentinel": ^2.56.0
     cytoscape: ^3.24.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8626,7 +8556,6 @@ __metadata:
     "@types/lodash": ^4.14.194
     "@xylabs/react-async-effect": ^2.17.2
     "@xylabs/react-flexbox": ^2.17.2
-    "@xylabs/react-render-spin-check": ^2.17.2
     "@xylabs/react-shared": ^2.17.2
     "@xylabs/ts-scripts-yarn3": ^2.17.6
     "@xylabs/tsconfig-react": ^2.17.5
@@ -8641,7 +8570,6 @@ __metadata:
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8668,7 +8596,6 @@ __metadata:
     "@xyo-network/memory-archivist": ^2.56.0
     "@xyo-network/payload-model": ^2.56.0
     "@xyo-network/react-shared": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8699,7 +8626,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     react-json-view: ^1.21.3
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8825,7 +8751,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8881,7 +8806,6 @@ __metadata:
     "@xyo-network/react-location-points-map-plugin": "workspace:^"
     "@xyo-network/react-pointer-plugin": "workspace:^"
     "@xyo-network/react-schema-plugin": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -8952,7 +8876,6 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/typeof": ^2.56.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -9006,7 +8929,6 @@ __metadata:
     "@xyo-network/diviner-schema-stats-model": ^2.56.0
     "@xyo-network/module": ^2.56.0
     "@xyo-network/node": ^2.56.0
-    "@xyo-network/node-core-model": ^2.56.0
     "@xyo-network/node-core-types": ^2.56.0
     "@xyo-network/payload-builder": ^2.56.0
     "@xyo-network/react-diviner": "workspace:^"
@@ -9020,7 +8942,6 @@ __metadata:
     "@xyo-network/schema-payload-plugin": ^2.56.0
     lodash: ^4.17.21
     react-json-view: ^1.21.3
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -9126,7 +9047,6 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": ^2.17.6
     "@xylabs/tsconfig-react": ^2.17.5
     "@xyo-network/react-event": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -9161,7 +9081,6 @@ __metadata:
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/sentinel": ^2.56.0
     "@xyo-network/witness": ^2.56.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -9189,7 +9108,6 @@ __metadata:
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     lodash: ^4.17.21
-    require-from-string: ^2.0.2
     storybook-dark-mode: ^3.0.0
     typescript: ^5.0.4
   peerDependencies:
@@ -9216,7 +9134,6 @@ __metadata:
     "@xylabs/tsconfig-react": ^2.17.5
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -9288,7 +9205,6 @@ __metadata:
     "@xylabs/tsconfig-react": ^2.17.5
     "@xyo-network/core": ^2.56.0
     react-json-view: ^1.21.3
-    require-from-string: ^2.0.2
     typedoc: ^0.23.28
     typescript: ^5.0.4
   peerDependencies:
@@ -9342,7 +9258,6 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -9362,6 +9277,7 @@ __metadata:
     "@storybook/react": ^7.0.7
     "@types/react-helmet": ^6.1.6
     "@xylabs/pixel": ^1.4.13
+    "@xylabs/react-async-effect": ^2.17.2
     "@xylabs/react-button": ^2.17.2
     "@xylabs/react-flexbox": ^2.17.2
     "@xylabs/react-link": ^2.17.2
@@ -9374,7 +9290,6 @@ __metadata:
     "@xyo-network/react-footer": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     axios: ^1.4.0
-    require-from-string: ^2.0.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
@@ -9506,7 +9421,6 @@ __metadata:
     "@xyo-network/react-sdk": "workspace:^"
     "@xyo-network/react-theme": "workspace:^"
     axios: ^1.4.0
-    browser-assert: ^1.2.1
     chromatic: ^6.17.3
     eslint: ^8.39.0
     eslint-import-resolver-typescript: ^3.5.5
@@ -9519,7 +9433,6 @@ __metadata:
     react-helmet: ^6.1.0
     react-icons: ^4.8.0
     react-router-dom: ^6.11.0
-    require-from-string: ^2.0.2
     storybook: ^7.0.7
     storybook-dark-mode: ^3.0.0
     ts-jest: ^29.1.0
