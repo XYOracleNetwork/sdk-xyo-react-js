@@ -1,5 +1,6 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
-import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { WithChildren } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { AbstractModule } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'

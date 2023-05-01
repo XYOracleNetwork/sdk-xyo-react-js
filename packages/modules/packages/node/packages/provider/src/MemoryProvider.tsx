@@ -1,4 +1,5 @@
-import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { WithChildren } from '@xylabs/react-shared'
 import { Module, ModuleParams } from '@xyo-network/module'
 import { MemoryNode, NodeConfig } from '@xyo-network/node'
 import { useState } from 'react'
