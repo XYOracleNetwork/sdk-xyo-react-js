@@ -1,4 +1,5 @@
-import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { WithChildren } from '@xylabs/react-shared'
 import { AccountInstance } from '@xyo-network/account-model'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useNode } from '@xyo-network/react-node'

@@ -1,5 +1,6 @@
 import { Chip } from '@mui/material'
-import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { WithChildren } from '@xylabs/react-shared'
 import { SchemaCache, SchemaNameToValidatorMap } from '@xyo-network/schema-cache'
 import { useState } from 'react'
 

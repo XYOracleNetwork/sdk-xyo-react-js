@@ -1,7 +1,8 @@
 import { Container, ContainerProps, styled } from '@mui/material'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
-import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { WithChildren } from '@xylabs/react-shared'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 

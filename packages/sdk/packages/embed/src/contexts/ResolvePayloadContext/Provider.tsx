@@ -1,5 +1,6 @@
 import { delay } from '@xylabs/delay'
-import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { WithChildren } from '@xylabs/react-shared'
 import { Huri } from '@xyo-network/huri'
 import { ModuleError, ModuleErrorSchema } from '@xyo-network/module'
 import { Payload } from '@xyo-network/payload-model'

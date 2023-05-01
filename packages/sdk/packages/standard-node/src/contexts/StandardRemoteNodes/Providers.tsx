@@ -1,4 +1,5 @@
-import { useAsyncEffect, WithChildren } from '@xylabs/react-shared'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { WithChildren } from '@xylabs/react-shared'
 import { MemoryNode } from '@xyo-network/node'
 import { HDWallet } from '@xyo-network/protocol'
 import { assertDefinedEx } from '@xyo-network/react-shared'
