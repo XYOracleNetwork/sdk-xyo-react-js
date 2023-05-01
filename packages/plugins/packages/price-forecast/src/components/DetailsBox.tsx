@@ -1,8 +1,9 @@
 import 'chartjs-adapter-luxon'
 
 import { useTheme } from '@mui/material'
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { useAsyncEffect } from '@xylabs/react-shared'
+import { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
 import { Payload } from '@xyo-network/payload-model'
 import {
   CategoryScale,
@@ -20,7 +21,7 @@ import {
 import { useState } from 'react'
 import { Line } from 'react-chartjs-2'
 
-import { ForecastLineChartConfigBuilder, ForecastPayload } from '../lib'
+import { ForecastLineChartConfigBuilder } from '../lib'
 
 ChartJS.register(CategoryScale, TimeScale, PointElement, LineElement, LinearScale, Title, Tooltip, Legend)
 

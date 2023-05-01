@@ -6814,6 +6814,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/diviner-forecasting-model@npm:^2.56.0":
+  version: 2.56.0
+  resolution: "@xyo-network/diviner-forecasting-model@npm:2.56.0"
+  dependencies:
+    "@xyo-network/diviner-model": ^2.56.0
+    "@xyo-network/module-model": ^2.56.0
+    "@xyo-network/payload-model": ^2.56.0
+    "@xyo-network/promise": ^2.56.0
+  checksum: 2f093e64b7702b874740571f353e0fe48643134aaa307cbbd79da97a1a8f6bae1d0618b7f1c258206f683ec05950bfd562e7b83420a8e3709ee54d091517a108
+  languageName: node
+  linkType: hard
+
 "@xyo-network/diviner-model@npm:^2.56.0":
   version: 2.56.0
   resolution: "@xyo-network/diviner-model@npm:2.56.0"
@@ -8926,9 +8938,11 @@ __metadata:
   resolution: "@xyo-network/react-price-forecast-plugin@workspace:packages/plugins/packages/price-forecast"
   dependencies:
     "@storybook/react": ^7.0.7
+    "@xylabs/react-async-effect": ^2.17.1
     "@xylabs/react-flexbox": ^2.17.1
     "@xylabs/ts-scripts-yarn3": ^2.17.6
     "@xylabs/tsconfig-react": ^2.17.5
+    "@xyo-network/diviner-forecasting-model": ^2.56.0
     "@xyo-network/payload-model": ^2.56.0
     "@xyo-network/payload-plugins": ^2.56.0
     chart.js: ^4.3.0

@@ -1,9 +1,9 @@
 import { Theme } from '@mui/material'
+import { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
 import { ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChartOptions } from 'chart.js'
 // eslint-disable-next-line import/no-unresolved
 import { _DeepPartialObject } from 'chart.js/dist/types/utils'
 
-import { ForecastPayload } from './payload'
 import { SourcePayloads } from './SourcePayloads'
 
 interface SourcePayloadConfig {

@@ -1,9 +1,10 @@
 import { Button, ButtonGroup, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { ForecastPayloadSchema } from '@xyo-network/diviner-forecasting-model'
 import { RefObject, useRef, useState } from 'react'
 
-import { ForecastPayloadSchema, MockSourcePayloads } from '../lib'
+import { MockSourcePayloads } from '../lib'
 import { PriceForecastDetailsBox } from './DetailsBox'
 
 const tenMin = 600000
