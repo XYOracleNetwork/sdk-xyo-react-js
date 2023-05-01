@@ -1,7 +1,6 @@
 import { Button } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { accessToken } from 'mapbox-gl'
 import { useRef } from 'react'
 
 import { MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts'
