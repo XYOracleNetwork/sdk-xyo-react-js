@@ -5,9 +5,9 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
   stories: [
-    '../packages/modules/packages/*/src/**/*.stories.@(ts|tsx)',
-    '../packages/plugins/packages/*/src/**/*.stories.@(ts|tsx)',
-    '../packages/sdk/packages/*/src/**/*.stories.@(ts|tsx)'
+    '../packages/modules/packages/**/src/**/*.stories.@(ts|tsx)',
+    '../packages/plugins/packages/**/src/**/*.stories.@(ts|tsx)',
+    '../packages/sdk/packages/**/src/**/*.stories.@(ts|tsx)'
   ],
   addons: [
     '@storybook/addon-links',
