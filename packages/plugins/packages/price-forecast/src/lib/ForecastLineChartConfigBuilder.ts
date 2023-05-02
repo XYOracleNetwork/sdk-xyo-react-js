@@ -4,6 +4,8 @@ import { ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChart
 // eslint-disable-next-line import/no-unresolved
 import { _DeepPartialObject } from 'chart.js/dist/types/utils'
 
+import { DataLineStyles } from './DataLineStyles'
+import { DataPointStyles } from './DataPointStyles'
 import { SourcePayloads } from './SourcePayloads'
 
 interface SourcePayloadConfig {
@@ -62,20 +64,13 @@ export class ForecastLineChartConfigBuilder {
   }
 
   async buildData(includeSources?: boolean) {
-    const forecastData = {
-      backgroundColor: this.themeColors?.dataSetColorPrimary,
-      borderColor: this.themeColors?.dataSetColorPrimary,
-      borderDash: [10],
-      borderDashOffset: 0.5,
-      data: this.forecastPayload.values.map((price) => ({ x: price.timestamp ?? 0, y: price.value })),
-      label: 'Forecast Price',
-    }
+    const forecastData = this.generateDataSetForecastData()
 
     const datasets: ChartDataset<'line'>[] = [forecastData]
 
     if (includeSources) {
       // build data from sources in forecastPayload
-      const sourceData = await this.buildSourcePayloads()
+      const sourceData = await this.generateDataSetSourcePayloads()
       datasets.unshift(sourceData)
 
       // add last source point as first item in prediction to connect the lines
@@ -120,7 +115,6 @@ export class ForecastLineChartConfigBuilder {
         grid: {
           color: this.themeColors?.gridColor,
         },
-        // offset: true,
         time: {
           unit: 'minute',
         },
@@ -152,13 +146,24 @@ export class ForecastLineChartConfigBuilder {
     }
   }
 
-  private async buildSourcePayloads(): Promise<ChartDataset<'line'>> {
+  private generateDataSetForecastData(): ChartDataset<'line'> {
+    return {
+      borderDash: [5],
+      borderDashOffset: 0.5,
+      data: this.forecastPayload.values.map((price) => ({ x: price.timestamp ?? 0, y: price.value })),
+      label: 'Forecast Price',
+      ...DataPointStyles(this.themeColors?.dataSetColorPrimary),
+      ...DataLineStyles(this.themeColors?.dataSetColorPrimary),
+    }
+  }
+
+  private async generateDataSetSourcePayloads(): Promise<ChartDataset<'line'>> {
     const { sourcePrices } = await SourcePayloads.build('feePerGas.medium')
     return {
-      backgroundColor: this.themeColors?.dataSetColorSecondary,
-      borderColor: this.themeColors?.dataSetColorSecondary,
       data: sourcePrices,
       label: 'Source Prices',
+      ...DataLineStyles(this.themeColors?.dataSetColorSecondary),
+      ...DataPointStyles(this.themeColors?.dataSetColorSecondary),
     }
   }
 }
