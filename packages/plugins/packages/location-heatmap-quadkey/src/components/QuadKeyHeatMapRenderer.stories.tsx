@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { WithMapboxSetup } from '@xyo-network/react-storybook'
+import { BrowserRouter } from 'react-router-dom'
 
 import { QuadkeyHeatMapWithSettingsRenderer } from './QuadkeyHeatMapRenderer'
 import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
@@ -24,7 +25,11 @@ export default {
 } as Meta
 
 const Template: StoryFn<typeof QuadkeyHeatMapWithSettingsRenderer> = (args) => {
-  return <QuadkeyHeatMapWithSettingsRenderer {...args} />
+  return (
+    <BrowserRouter>
+      <QuadkeyHeatMapWithSettingsRenderer style={{ height: 'calc(100vh - 20px)' }} {...args} />
+    </BrowserRouter>
+  )
 }
 
 const Default = Template.bind({})

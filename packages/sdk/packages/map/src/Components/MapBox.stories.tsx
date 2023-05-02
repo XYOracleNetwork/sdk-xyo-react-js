@@ -22,6 +22,38 @@ const WithMapboxProviders: Decorator = (Story, props) => {
   )
 }
 
+const WithMapSettingsDecorator: Decorator = (Story, args) => {
+  return (
+    <>
+      <Story {...args} />
+      <MapSettings developerMode={true} />
+    </>
+  )
+}
+
+// eslint-disable-next-line import/no-default-export
+export default {
+  args: {
+    accessToken: process.env.STORYBOOK_MAPBOX_TOKEN,
+  },
+  component: MapBox,
+  decorators: [WithMapboxProviders],
+  parameters: {
+    docs: {
+      page: null,
+    },
+  },
+  title: 'map/Mapbox',
+} as Meta
+
+const Template: StoryFn<typeof MapBox> = (args) => {
+  return (
+    <div style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}>
+      <MapBox {...args} />
+    </div>
+  )
+}
+
 const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
   const containerRef = useRef<HTMLDivElement | null>()
   const handleClick = () => {
@@ -47,40 +79,6 @@ const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
         <MapBox {...args} />
       </div>
     </FlexGrowCol>
-  )
-}
-
-const WithMapSettingsDecorator: Decorator = (Story, args) => {
-  return (
-    <>
-      <Story {...args} />
-      <MapSettings developerMode={true} />
-    </>
-  )
-}
-
-// eslint-disable-next-line import/no-default-export
-export default {
-  argTypes: {
-    accessToken: {
-      defaultValue: process.env.STORYBOOK_MAPBOX_TOKEN,
-    },
-  },
-  component: MapBox,
-  decorators: [WithMapboxProviders],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
-  title: 'map/Mapbox',
-} as Meta
-
-const Template: StoryFn<typeof MapBox> = (args) => {
-  return (
-    <div style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}>
-      <MapBox {...args} />
-    </div>
   )
 }
 
