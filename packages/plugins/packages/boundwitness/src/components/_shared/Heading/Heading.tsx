@@ -16,6 +16,7 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
   ...props
 }) => {
   const ellipsizeRef = useRef<HTMLDivElement | null>(null)
+  const headingText = heading ? heading : fallbackText
 
   const sizeParser = (size: HeadingTextSizes) => {
     const map: Record<HeadingTextSizes, TypographyVariant> = {
@@ -34,8 +35,8 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
     <FlexGrowRow columnGap={2} {...props}>
       {AdornmentStart}
       {IconComponent}
-      <EllipsizeBox width="100%" typographyProps={{ variant: sizeParser(size), ...headingProps }} ref={ellipsizeRef}>
-        {heading ? heading : fallbackText}
+      <EllipsizeBox title={headingText} width="100%" typographyProps={{ variant: sizeParser(size), ...headingProps }} ref={ellipsizeRef}>
+        {headingText}
       </EllipsizeBox>
       {AdornmentEnd}
     </FlexGrowRow>
