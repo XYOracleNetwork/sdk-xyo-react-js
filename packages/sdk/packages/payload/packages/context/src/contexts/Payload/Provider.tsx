@@ -37,7 +37,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
 
   useEffect(() => {
     refreshPayload()
-  }, [archivist])
+  }, [archivist, hash])
 
   /**
    * Key States
