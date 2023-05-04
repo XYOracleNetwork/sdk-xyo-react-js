@@ -1,8 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { NodeWrapper } from '@xyo-network/node'
+import { MemoryNodeBuilder } from '@xyo-network/react-standard-node'
 import { useState } from 'react'
-
-import { MemoryNodeBuilder } from '../lib'
 
 type SampleNodeModules = 'MemoryArchivist' | 'Bridge' | 'SystemInfoWitness'
 

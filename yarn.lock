@@ -8944,6 +8944,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-sample-node@workspace:packages/sdk/packages/sample-node":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-sample-node@workspace:packages/sdk/packages/sample-node"
+  dependencies:
+    "@storybook/react": ^7.0.8
+    "@xylabs/ts-scripts-yarn3": ^2.17.6
+    "@xylabs/tsconfig-react": ^2.17.5
+    "@xyo-network/react-node-renderer": "workspace:^"
+    "@xyo-network/react-standard-node": "workspace:^"
+    typescript: ^5.0.4
+  peerDependencies:
+    "@mui/icons-material": ^5
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    axios: ^1
+    react: ^18
+    react-dom: ^18
+    react-router-dom: ^6
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-schema-plugin@workspace:^, @xyo-network/react-schema-plugin@workspace:packages/plugins/packages/schema":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-schema-plugin@workspace:packages/plugins/packages/schema"
@@ -9133,7 +9154,6 @@ __metadata:
     "@xyo-network/protocol": ^2.56.2
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-node": "workspace:^"
-    "@xyo-network/react-node-renderer": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/sentinel": ^2.56.2
