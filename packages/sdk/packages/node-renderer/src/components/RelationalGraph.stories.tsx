@@ -2,7 +2,7 @@ import { Button, ButtonGroup } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { HDWallet } from '@xyo-network/account'
-import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
+import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
@@ -13,6 +13,7 @@ import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useMemo, useState } from 'react'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
+import { ProvidedNodeRenderer } from './ProvidedNodeRenderer'
 import { NodeRelationalGraph } from './RelationalGraph'
 import { options } from './story'
 
@@ -34,7 +35,7 @@ export const MemoryNodeDecorator: Decorator = (Story, args) => {
         await node.register(bridge)
         await node.attach(bridge.address, true)
 
-        const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: ArchivistConfigSchema } })
+        const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: MemoryArchivistConfigSchema } })
         await node.register(archivist)
         await node.attach(archivist.address, true)
 
@@ -42,7 +43,7 @@ export const MemoryNodeDecorator: Decorator = (Story, args) => {
         await node.register(sentinel)
         await node.attach(sentinel.address, true)
 
-        const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: ArchivistConfigSchema } })
+        const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: MemoryArchivistConfigSchema } })
         await node1.register(archivist1)
         await node1.attach(archivist1.address, true)
 
@@ -88,6 +89,8 @@ const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraph> = (props) => {
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraph options={options} {...props} />
 }
+
+const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer {...props} />
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraph> = (props) => {
   const [node] = useModule('ChildNode')
@@ -156,4 +159,8 @@ const WithAttachDetach = TemplateAttachDetach.bind({})
 WithAttachDetach.args = { ...defaultProps }
 WithAttachDetach.decorators = [MemoryNodeDecorator]
 
-export { Default, WithAttachDetach, WithCustomAddress, WithData, WithDescribe }
+const WithProvidedNodeRenderer = TemplateProvidedNodeRenderer.bind({})
+WithProvidedNodeRenderer.args = { ...defaultProps }
+WithProvidedNodeRenderer.decorators = [MemoryNodeDecorator]
+
+export { Default, WithAttachDetach, WithCustomAddress, WithData, WithDescribe, WithProvidedNodeRenderer }
