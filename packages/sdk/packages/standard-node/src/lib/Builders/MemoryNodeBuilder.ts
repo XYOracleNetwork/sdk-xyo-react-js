@@ -56,10 +56,11 @@ export class MemoryNodeBuilder {
     await this.attach(archivist, true)
   }
 
-  async addBridge(apiDomain: string) {
+  async addBridge(apiDomain: string, moduleName = 'RemoteNodeBridge', account?: AccountInstance) {
     try {
       const bridge = await HttpBridge.create({
-        config: { name: 'RemoteNodeBridge', nodeUrl: `${apiDomain}/node`, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
+        account,
+        config: { name: moduleName, nodeUrl: `${apiDomain}/node`, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
       })
       await this.attach(bridge, true)
     } catch (e) {
