@@ -1,23 +1,42 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { XyoBowserSystemInfoWitness, XyoBowserSystemInfoWitnessConfigSchema } from '@xyo-network/bowser-system-info-plugin'
 import { NodeWrapper } from '@xyo-network/node'
 import { MemoryNodeBuilder } from '@xyo-network/react-standard-node'
+import { WitnessWrapper } from '@xyo-network/witness'
 import { useState } from 'react'
 
-type SampleNodeModules = 'MemoryArchivist' | 'Bridge' | 'SystemInfoWitness'
+const SampleNodeModuleNames = ['Node', 'MemoryArchivist', 'Bridge', 'SystemInfoWitness'] as const
 
-export const useBuildSampleNode = (sampleModules: SampleNodeModules[] = [], nodeModuleName = 'Node', apiDomain?: string) => {
+export type SampleNodeModuleNames = (typeof SampleNodeModuleNames)[number]
+
+export type SampleNodeModules = Partial<Record<SampleNodeModuleNames, string>>
+
+export const useBuildSampleNode = (sampleModules: SampleNodeModules, apiDomain?: string) => {
   const [node, setNode] = useState<NodeWrapper>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      const nodeBuilder = await MemoryNodeBuilder.create({ name: nodeModuleName })
-      if (sampleModules.includes('MemoryArchivist')) await nodeBuilder.addArchivistMemory('Archivist')
-      if (sampleModules.includes('Bridge') && apiDomain) await nodeBuilder.addBridge(apiDomain)
+      try {
+        if ('Node' in sampleModules) {
+          const nodeBuilder = await MemoryNodeBuilder.create({ name: 'Node' })
+          if ('MemoryArchivist' in sampleModules) await nodeBuilder.addArchivistMemory('MemoryArchivist')
+          if ('Bridge' in sampleModules && apiDomain) await nodeBuilder.addBridge(apiDomain)
+          if ('SystemInfoWitness' in sampleModules) {
+            const sysInfoWitness = await XyoBowserSystemInfoWitness.create({
+              config: { name: 'SystemInfoWitness', schema: XyoBowserSystemInfoWitnessConfigSchema },
+            })
+            const wrappedWitness = WitnessWrapper.wrap(sysInfoWitness)
+            await nodeBuilder.attach(wrappedWitness, true)
+          }
 
-      setNode(nodeBuilder.wrappedNode)
+          setNode(nodeBuilder.wrappedNode)
+        }
+      } catch (e) {
+        console.error('Error building sample node', e, sampleModules, apiDomain)
+      }
     },
-    [sampleModules, apiDomain, nodeModuleName],
+    [sampleModules, apiDomain],
   )
 
   return node

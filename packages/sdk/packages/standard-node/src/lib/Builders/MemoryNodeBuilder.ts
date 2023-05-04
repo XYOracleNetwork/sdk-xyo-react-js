@@ -91,7 +91,7 @@ export class MemoryNodeBuilder {
     )
   }
 
-  protected async attach(module: Module, external?: boolean, safeAttach?: boolean) {
+  async attach(module: Module, external?: boolean, safeAttach?: boolean) {
     try {
       if (safeAttach) {
         const existingModule = await this.wrappedNode.resolve(module.address)
