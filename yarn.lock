@@ -6623,6 +6623,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/bowser-system-info-payload-plugin@npm:^2.56.2":
+  version: 2.56.2
+  resolution: "@xyo-network/bowser-system-info-payload-plugin@npm:2.56.2"
+  dependencies:
+    "@xyo-network/payload-model": ^2.56.2
+    "@xyo-network/payload-plugin": ^2.56.2
+    bowser: ^2.11.0
+  checksum: 7600d179c6f99a2035ff41590a653d47b3525c3a1f1cfd01a5746899ca8485970181fab1cdfe1a239f97982188f1bfcd874d07e0aedb1aa8e6c995552212ad81
+  languageName: node
+  linkType: hard
+
+"@xyo-network/bowser-system-info-plugin@npm:^2.56.2":
+  version: 2.56.2
+  resolution: "@xyo-network/bowser-system-info-plugin@npm:2.56.2"
+  dependencies:
+    "@xyo-network/bowser-system-info-payload-plugin": ^2.56.2
+    "@xyo-network/module": ^2.56.2
+    "@xyo-network/payload-model": ^2.56.2
+    "@xyo-network/payloadset-plugin": ^2.56.2
+    "@xyo-network/witness": ^2.56.2
+    bowser: ^2.11.0
+    lodash: ^4.17.21
+  checksum: 78afe324c9148d50df291e876ce6124f5d5f370522470badc9ffb14eb48f4e09f1894316b5e7370abfb911381ba96cc728eee3073e596da5c52aabf7dc206daa
+  languageName: node
+  linkType: hard
+
 "@xyo-network/bridge-model@npm:^2.56.2":
   version: 2.56.2
   resolution: "@xyo-network/bridge-model@npm:2.56.2"
@@ -8951,8 +8977,10 @@ __metadata:
     "@storybook/react": ^7.0.8
     "@xylabs/ts-scripts-yarn3": ^2.17.6
     "@xylabs/tsconfig-react": ^2.17.5
+    "@xyo-network/bowser-system-info-plugin": ^2.56.2
     "@xyo-network/react-node-renderer": "workspace:^"
     "@xyo-network/react-standard-node": "workspace:^"
+    "@xyo-network/witness": ^2.56.2
     typescript: ^5.0.4
   peerDependencies:
     "@mui/icons-material": ^5
