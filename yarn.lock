@@ -8970,14 +8970,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-sample-node@workspace:packages/sdk/packages/sample-node":
+"@xyo-network/react-sample-node@workspace:^, @xyo-network/react-sample-node@workspace:packages/sdk/packages/sample-node":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-sample-node@workspace:packages/sdk/packages/sample-node"
   dependencies:
     "@storybook/react": ^7.0.8
+    "@xylabs/react-async-effect": ^2.17.2
     "@xylabs/ts-scripts-yarn3": ^2.17.6
     "@xylabs/tsconfig-react": ^2.17.5
     "@xyo-network/bowser-system-info-plugin": ^2.56.2
+    "@xyo-network/node": ^2.56.2
     "@xyo-network/react-node-renderer": "workspace:^"
     "@xyo-network/react-standard-node": "workspace:^"
     "@xyo-network/witness": ^2.56.2
@@ -9080,6 +9082,7 @@ __metadata:
     "@xyo-network/react-node-renderer": "workspace:^"
     "@xyo-network/react-payload": "workspace:^"
     "@xyo-network/react-property": "workspace:^"
+    "@xyo-network/react-sample-node": "workspace:^"
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-standard-node": "workspace:^"
