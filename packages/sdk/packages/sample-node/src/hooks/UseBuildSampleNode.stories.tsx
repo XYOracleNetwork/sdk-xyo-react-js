@@ -7,7 +7,7 @@ import { useBuildSampleNode } from './useBuildSampleNode'
 const modules: SampleNodeModules = {
   Bridge: 'Bridge',
   MemoryArchivist: 'MemoryArchivist',
-  Node: 'RootNode',
+  Node: 'Node',
   SystemInfoWitness: 'SystemInfoWitness',
 }
 

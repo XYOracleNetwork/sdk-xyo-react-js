@@ -11,9 +11,9 @@ export type SampleNodeModuleNames = (typeof SampleNodeModuleNames)[number]
 
 export type SampleNodeModules = Partial<Record<SampleNodeModuleNames, string>>
 
-const buildSystemInfoWitness = async () => {
+const buildSystemInfoWitness = async (moduleName?: string) => {
   const sysInfoWitness = await XyoBowserSystemInfoWitness.create({
-    config: { name: 'SystemInfoWitness', schema: XyoBowserSystemInfoWitnessConfigSchema },
+    config: { name: moduleName, schema: XyoBowserSystemInfoWitnessConfigSchema },
   })
   return WitnessWrapper.wrap(sysInfoWitness)
 }
@@ -26,10 +26,10 @@ export const useBuildSampleNode = (sampleModules: SampleNodeModules, apiDomain?:
     async () => {
       try {
         if ('Node' in sampleModules) {
-          const nodeBuilder = await MemoryNodeBuilder.create({ name: 'Node' })
-          if ('MemoryArchivist' in sampleModules) await nodeBuilder.addArchivistMemory('MemoryArchivist')
-          if ('Bridge' in sampleModules && apiDomain) await nodeBuilder.addBridge(apiDomain)
-          if ('SystemInfoWitness' in sampleModules) await nodeBuilder.attach(await buildSystemInfoWitness(), true)
+          const nodeBuilder = await MemoryNodeBuilder.create({ name: sampleModules.Node })
+          if ('MemoryArchivist' in sampleModules) await nodeBuilder.addArchivistMemory(sampleModules.MemoryArchivist)
+          if ('Bridge' in sampleModules && apiDomain) await nodeBuilder.addBridge(apiDomain, sampleModules.Bridge)
+          if ('SystemInfoWitness' in sampleModules) await nodeBuilder.attach(await buildSystemInfoWitness(sampleModules.SystemInfoWitness), true)
 
           setNode(nodeBuilder.wrappedNode)
         }
