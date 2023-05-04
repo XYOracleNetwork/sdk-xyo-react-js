@@ -32,7 +32,7 @@ export const BuildStandardNodes = async (wallet: HDWallet, onNodeBuilt?: (node: 
 
         const rootArchivistPath = `${remoteNodeOffset}/${RemoteNodeArchivistOffsetPaths[name][RootStorageArchivist]}`
         const rootArchivistAccount = wallet.deriveAccount(rootArchivistPath)
-        await memoryNodeBuilder.addArchivist(rootArchivistAccount, RootStorageArchivist, 'root')
+        await memoryNodeBuilder.addArchivistStorage(rootArchivistAccount, RootStorageArchivist, 'root')
 
         const { node } = memoryNodeBuilder
         assertDefinedEx(node, 'Memory Node was not built successfully')
