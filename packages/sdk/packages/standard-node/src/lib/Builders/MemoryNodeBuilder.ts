@@ -1,4 +1,5 @@
 import { AccountInstance } from '@xyo-network/account-model'
+import { MemoryArchivist, MemoryArchivistConfig, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { Module } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
@@ -36,7 +37,19 @@ export class MemoryNodeBuilder {
     return instance
   }
 
-  async addArchivist(account: AccountInstance, moduleName: string, namespace: string) {
+  /** @deprecated - call specific method that corresponds to a type of archivist (i.e. addArchivistStorage) */
+  async addArchivist(account?: AccountInstance, moduleName?: string, namespace?: string) {
+    await this.addArchivistStorage(account, moduleName, namespace)
+  }
+
+  async addArchivistMemory(moduleName?: string, account?: AccountInstance) {
+    const config: MemoryArchivistConfig = { name: moduleName, schema: MemoryArchivistConfigSchema }
+    const memoryArchivist = await MemoryArchivist.create({ account, config })
+
+    await this.attach(memoryArchivist, true)
+  }
+
+  async addArchivistStorage(account?: AccountInstance, moduleName?: string, namespace?: string) {
     const config = { name: moduleName, namespace }
     const { archivist } = await StorageArchivistBuilder.create(config, account, this.node)
 
@@ -78,7 +91,7 @@ export class MemoryNodeBuilder {
     )
   }
 
-  private async attach(module: Module, external?: boolean, safeAttach?: boolean) {
+  protected async attach(module: Module, external?: boolean, safeAttach?: boolean) {
     try {
       if (safeAttach) {
         const existingModule = await this.wrappedNode.resolve(module.address)
