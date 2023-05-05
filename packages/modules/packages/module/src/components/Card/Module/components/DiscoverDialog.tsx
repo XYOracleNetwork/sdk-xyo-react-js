@@ -29,7 +29,9 @@ export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ setOpen, wrapper
         <pre>{JSON.stringify(discoverPayloads, null, 2)}</pre>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => setOpen?.(false)} variant={'outlined'}>Close</Button>
+        <Button onClick={() => setOpen?.(false)} variant={'outlined'}>
+          Close
+        </Button>
       </DialogActions>
     </Dialog>
   )

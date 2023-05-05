@@ -6,6 +6,7 @@ import { ArchivistConfig, ArchivistModule } from '@xyo-network/archivist'
 import { ModuleWrapper } from '@xyo-network/module'
 import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
 import React, { useState } from 'react'
+
 import { ArchivistParent } from './components'
 
 export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> & CardContentProps> = ({ children, module, ...props }) => {
