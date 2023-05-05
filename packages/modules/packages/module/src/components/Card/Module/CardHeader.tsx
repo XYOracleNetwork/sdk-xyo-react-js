@@ -8,7 +8,7 @@ export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = (
   const wrapper = module ? ModuleWrapper.wrap(module) : undefined
   return (
     <CardHeader
-      title={title ?? 'Module'}
+      title={title ?? module?.config.name ?? 'Module'}
       subheader={subheader ?? wrapper?.address}
       avatar={avatar ?? <Identicon size={24} value={wrapper?.address} />}
       {...props}
