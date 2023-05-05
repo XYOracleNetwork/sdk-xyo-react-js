@@ -20,6 +20,7 @@ const Template: StoryFn<typeof DivinerCard> = () => {
         const newModule = await AddressHistoryDiviner.create({
           config: {
             address: '',
+            name: 'AddressHistoryDiviner',
             schema: AddressHistoryDivinerConfigSchema,
           },
         })
