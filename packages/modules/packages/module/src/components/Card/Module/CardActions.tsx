@@ -1,7 +1,7 @@
 import { CardActions, CardActionsProps, Divider, Icon, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { AnyConfigSchema, ModuleConfig, ModuleWrapper } from '@xyo-network/module'
+import { ModuleWrapper } from '@xyo-network/module'
 import { findNetworkComponent } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
@@ -25,7 +25,7 @@ export const ModuleCardActions: React.FC<CardActionsProps & ModuleRenderProps> =
       <Divider flexItem sx={{ my: 1 }} />
       <FlexGrowRow justifyContent="space-between" alignItems="center">
         {wrapper
-          ? ['sentinel', 'bridge', 'archivist', 'diviner', 'node'].map((moduleType) => {
+          ? ['sentinel', 'bridge', 'archivist', 'diviner', 'node', 'witness'].map((moduleType) => {
               const icon = getModuleIcons(moduleType, wrapper)
               return icon ? (
                 <Icon color={'primary'} key={moduleType} title={moduleType.toLocaleUpperCase()}>
