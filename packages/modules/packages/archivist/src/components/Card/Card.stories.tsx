@@ -25,6 +25,7 @@ const Template: StoryFn<typeof ArchivistCard> = () => {
         const newParentModule = await MemoryArchivist.create()
         const newModule = await MemoryArchivist.create({
           config: {
+            name: 'MemoryArchivist',
             parents: { commit: [newParentModule.address], read: [newParentModule.address], write: [newParentModule.address] },
             schema: MemoryArchivistConfigSchema,
           },
