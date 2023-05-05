@@ -27,9 +27,13 @@ export const ModuleCardContent: React.FC<ModuleRenderProps & CardContentProps> =
 
   return (
     <CardContent {...props}>
-      <EthAccountBox address={account} />
       {children}
-      <Typography variant="subtitle2">{config?.schema}</Typography>
+      <Typography variant="subtitle2">
+        Config Schema:{' '}
+        <Typography variant="caption" fontFamily="inherit" fontWeight="500">
+          {config?.schema}
+        </Typography>
+      </Typography>
     </CardContent>
   )
 }
