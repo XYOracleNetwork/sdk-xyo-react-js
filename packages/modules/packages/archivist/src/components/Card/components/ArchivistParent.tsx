@@ -1,6 +1,4 @@
-import { ListItem } from "@mui/material"
-import { EthAddress } from "@xylabs/eth-address"
-import { EthAccountBox } from "@xylabs/react-crypto"
+import { ListItem, Typography } from '@mui/material'
 
 export interface ArchivistTypeProps {
   archivistType?: 'Commit' | 'Read' | 'Write'
@@ -12,7 +10,12 @@ export const ArchivistParent: React.FC<ArchivistTypeProps> = ({ archivistType, p
     {parentArchivists?.map((address) => {
       return (
         <ListItem key={address}>
-          {archivistType} - <EthAccountBox key={address} address={EthAddress.fromString(address)} />
+          <Typography variant="subtitle2">
+            {archivistType}:{' '}
+            <Typography variant={'caption'} sx={{ ml: 0.5 }}>
+              {address}
+            </Typography>
+          </Typography>
         </ListItem>
       )
     })}
