@@ -6,12 +6,6 @@ import { useState } from 'react'
 import { ArchivistCard } from './Card'
 
 const StorybookEntry = {
-  argTypes: {
-    authState: {
-      jwtToken: 'badToken',
-      loggedInAccount: 'none@none.com',
-    },
-  },
   component: ArchivistCard,
   parameters: {
     docs: {

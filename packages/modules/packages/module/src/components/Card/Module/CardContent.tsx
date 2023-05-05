@@ -25,15 +25,5 @@ export const ModuleCardContent: React.FC<ModuleRenderProps & CardContentProps> =
     [module],
   )
 
-  return (
-    <CardContent {...props}>
-      {children}
-      <Typography variant="subtitle2">
-        Config Schema:{' '}
-        <Typography variant="caption" fontFamily="inherit" fontWeight="500">
-          {config?.schema}
-        </Typography>
-      </Typography>
-    </CardContent>
-  )
+  return <CardContent {...props}>{children}</CardContent>
 }
