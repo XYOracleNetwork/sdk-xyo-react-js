@@ -5,5 +5,5 @@ import { ModuleRenderProps } from '../../../ModuleRenderProps'
 import { ModuleCardHeader } from '../Module'
 
 export const DivinerCardHeader: React.FC<ModuleRenderProps<DivinerModule> & CardHeaderProps> = ({ title, module, ...props }) => {
-  return <ModuleCardHeader module={module} title={title ?? 'Archivist'} {...props} />
+  return <ModuleCardHeader module={module} title={title ?? 'Diviner'} {...props} />
 }

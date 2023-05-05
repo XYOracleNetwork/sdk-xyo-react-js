@@ -7,18 +7,6 @@ import { useState } from 'react'
 import { DivinerCard } from './Card'
 
 const StorybookEntry = {
-  argTypes: {
-    authState: {
-      jwtToken: 'badToken',
-      loggedInAccount: 'none@none.com',
-    },
-  },
-  component: DivinerCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
   title: 'modules/diviner/DivinerCard',
 } as Meta<typeof DivinerCard>
 

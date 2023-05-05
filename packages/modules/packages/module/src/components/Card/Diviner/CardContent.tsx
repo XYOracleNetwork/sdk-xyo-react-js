@@ -1,7 +1,5 @@
-import { CardContentProps, Typography } from '@mui/material'
-import { EthAddress } from '@xylabs/eth-address'
+import { CardContentProps } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { EthAccountBox } from '@xylabs/react-crypto'
 import { ArchivistConfig } from '@xyo-network/archivist'
 import { DivinerModule } from '@xyo-network/diviner'
 import { AnyConfigSchema, ModuleWrapper } from '@xyo-network/module'
@@ -28,10 +26,6 @@ export const DivinerCardContent: React.FC<ModuleRenderProps<DivinerModule> & Car
 
   return (
     <ModuleCardContent module={module} {...props}>
-      <Typography>Parents</Typography>
-      {config?.parents?.commit?.map((address) => {
-        return <EthAccountBox key={address} address={EthAddress.fromString(address)} />
-      })}
       {children}
     </ModuleCardContent>
   )
