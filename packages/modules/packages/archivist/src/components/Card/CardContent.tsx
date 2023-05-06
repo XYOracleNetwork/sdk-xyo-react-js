@@ -26,9 +26,11 @@ export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> &
     [module],
   )
 
+  const { commit, read, write } = config?.parents ?? {}
+
   return (
     <ModuleCardContent module={module} {...props}>
-      {config?.parents?.commit || config?.parents?.read ? (
+      {commit || read || write ? (
         <FlexCol alignItems="start">
           <span onClick={() => setParentArchivistCollapse(!parentArchivistCollapse)}>
             <Typography variant="subtitle2" sx={{ cursor: 'pointer', display: 'inline-block' }}>
@@ -41,9 +43,9 @@ export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> &
           <Collapse in={parentArchivistCollapse}>
             <Paper elevation={2}>
               <List>
-                <ArchivistParent archivistType="Commit" parentArchivists={config?.parents?.commit} />
-                <ArchivistParent archivistType="Read" parentArchivists={config?.parents?.read} />
-                <ArchivistParent archivistType="Write" parentArchivists={config?.parents?.write} />
+                <ArchivistParent archivistType="Commit" parentArchivists={commit} />
+                <ArchivistParent archivistType="Read" parentArchivists={read} />
+                <ArchivistParent archivistType="Write" parentArchivists={write} />
               </List>
             </Paper>
           </Collapse>
