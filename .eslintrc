@@ -6,7 +6,15 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "ignorePatterns": ["node_modules", "build", "dist", "bin", "storybook-static", ".yarn"],
+  "ignorePatterns": [
+    "**/dist",
+    "**/node_modules",
+    "coverage",
+    "bin",
+    "docker",
+    "storybook-static/",
+    ".yarn"
+  ],
   "rules": {
     "import/no-default-export": "warn",
     "import/no-restricted-paths": [
