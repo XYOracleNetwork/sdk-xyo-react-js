@@ -18,7 +18,6 @@ export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> &
     async (mounted) => {
       const wrapper = module ? ModuleWrapper.wrap(module) : undefined
       const payloads = await wrapper?.discover()
-      console.log(`Payloads: ${JSON.stringify(payloads, null, 2)}`)
       if (mounted()) {
         setConfig(payloads?.[0] as ArchivistConfig)
       }
