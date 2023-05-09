@@ -1,15 +1,18 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogProps } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogProps, DialogTitle, Divider, Paper } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ModuleWrapper } from '@xyo-network/module'
+import { Module, ModuleWrapper } from '@xyo-network/module'
 import { Payload } from '@xyo-network/payload-model'
 import { Dispatch, SetStateAction, useState } from 'react'
 
 export interface DiscoverDialogProps extends DialogProps {
+  module?: Module
   setOpen?: Dispatch<SetStateAction<boolean>>
   wrapper?: ModuleWrapper
 }
 
-export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ setOpen, wrapper, ...props }) => {
+// Add a dialogue title and quick tip to show description of discover query
+
+export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ module, setOpen, wrapper, ...props }) => {
   const [discoverPayloads, setDiscoverPayloads] = useState<Payload[]>([])
 
   useAsyncEffect(
@@ -25,8 +28,13 @@ export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ setOpen, wrapper
 
   return (
     <Dialog {...props}>
+      <DialogTitle>Supported Queries for {module?.config.name || module?.address}</DialogTitle>
+      <Divider />
       <DialogContent>
-        <pre>{JSON.stringify(discoverPayloads, null, 2)}</pre>
+        <Paper sx={{ p: 1 }}>
+          <DialogContentText>All modules share a set of base queries along with ones specific to the module.</DialogContentText>
+          <pre>{JSON.stringify(discoverPayloads, null, 2)}</pre>
+        </Paper>
       </DialogContent>
       <DialogActions>
         <Button onClick={() => setOpen?.(false)} variant={'outlined'}>

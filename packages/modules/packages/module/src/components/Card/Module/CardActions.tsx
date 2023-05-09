@@ -38,7 +38,7 @@ export const ModuleCardActions: React.FC<CardActionsProps & ModuleRenderProps> =
         <ButtonEx onClick={() => setDiscoverDialogOpen(true)} size={'small'} variant={'outlined'}>
           Discover
         </ButtonEx>
-        <DiscoverDialog fullWidth maxWidth={'md'} open={discoverDialogOpen} setOpen={setDiscoverDialogOpen} wrapper={wrapper} />
+        <DiscoverDialog fullWidth maxWidth={'md'} module={module} open={discoverDialogOpen} setOpen={setDiscoverDialogOpen} wrapper={wrapper} />
       </FlexGrowRow>
       {children}
     </CardActions>
