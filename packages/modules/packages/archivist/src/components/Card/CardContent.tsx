@@ -25,7 +25,7 @@ export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> &
 
   return (
     <ModuleCardContent module={module} {...props}>
-      <FlexGrowRow flexWrap="wrap" gap={2}>
+      <FlexGrowRow flexWrap="wrap" justifyContent="start" gap={2}>
         {children}
         <ArchivistParents config={config} />
       </FlexGrowRow>
