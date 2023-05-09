@@ -1,8 +1,8 @@
 {
   "files.eol": "\n",
   "files.exclude": {
-    "**/node_modules": true,
-    "**/.tsconfig.*": true
+    "**/node_modules": false,
+    "**/.tsconfig.*": false
   },
   "editor.formatOnSave": true,
   "editor.quickSuggestions": {
@@ -10,11 +10,13 @@
     "strings": "on",
     "other": "on"
   },
+  "eslint.debug": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
   "editor.tabSize": 2,
   "editor.suggestSelection": "first",
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
@@ -75,5 +77,6 @@
     "wordlists",
     "xylabs",
     "yarnpkg"
-  ]
+  ],
+  "npm.packageManager": "yarn"
 }
