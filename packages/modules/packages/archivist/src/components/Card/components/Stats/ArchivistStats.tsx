@@ -14,14 +14,14 @@ export interface ArchivistStatsProps {
 export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses = {}, boundWitnesses, payloads, schemas = {} }) => {
   return (
     <FlexRow gap={2} mr={0.5}>
-      {payloads ? (
+      {payloads?.length ? (
         <Tooltip title="Payloads">
           <Badge badgeContent={payloads?.length} color="primary">
             <VscSymbolNamespace size={20} />
           </Badge>
         </Tooltip>
       ) : null}
-      {boundWitnesses ? (
+      {boundWitnesses?.length ? (
         <Tooltip title="Blocks">
           <Badge badgeContent={boundWitnesses?.length} color="primary">
             <VscSymbolMethod size={20} />
