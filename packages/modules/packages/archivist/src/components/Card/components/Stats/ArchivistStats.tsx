@@ -1,4 +1,4 @@
-import { Badge } from '@mui/material'
+import { Badge, Tooltip } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { BsFileEarmarkCode } from 'react-icons/bs'
@@ -15,24 +15,32 @@ export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses = {}, 
   return (
     <FlexRow gap={2} mr={0.5}>
       {payloads ? (
-        <Badge badgeContent={payloads?.length} color="primary">
-          <VscSymbolNamespace size={20} />
-        </Badge>
+        <Tooltip title="Payloads">
+          <Badge badgeContent={payloads?.length} color="primary">
+            <VscSymbolNamespace size={20} />
+          </Badge>
+        </Tooltip>
       ) : null}
       {boundWitnesses ? (
-        <Badge badgeContent={boundWitnesses?.length} color="primary">
-          <VscSymbolMethod size={20} />
-        </Badge>
+        <Tooltip title="Blocks">
+          <Badge badgeContent={boundWitnesses?.length} color="primary">
+            <VscSymbolMethod size={20} />
+          </Badge>
+        </Tooltip>
       ) : null}
       {Object.entries(schemas).length ? (
-        <Badge badgeContent={Object.entries(schemas).length} color="primary">
-          <BsFileEarmarkCode size={20} />
-        </Badge>
+        <Tooltip title="Schemas">
+          <Badge badgeContent={Object.entries(schemas).length} color="primary">
+            <BsFileEarmarkCode size={20} />
+          </Badge>
+        </Tooltip>
       ) : null}
       {Object.entries(addresses).length ? (
-        <Badge badgeContent={Object.entries(addresses).length} color="primary">
-          <VscOrganization size={20} />
-        </Badge>
+        <Tooltip title="Addresses">
+          <Badge badgeContent={Object.entries(addresses).length} color="primary">
+            <VscOrganization size={20} />
+          </Badge>
+        </Tooltip>
       ) : null}
     </FlexRow>
   )

@@ -21,7 +21,7 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
 
   useEffect(() => {
     if (archivist?.queries.includes(ArchivistAllQuerySchema)) {
-      archivist.on('inserted', async (args) => {
+      archivist.on('inserted', async () => {
         await getAll(archivist)
       })
     }
