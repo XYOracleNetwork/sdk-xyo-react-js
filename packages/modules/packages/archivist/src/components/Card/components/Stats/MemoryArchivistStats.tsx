@@ -2,6 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistAllQuerySchema, ArchivistModule } from '@xyo-network/archivist'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
+import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
@@ -20,11 +21,15 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
   }, [])
 
   useEffect(() => {
+    let listener: EventUnsubscribeFunction
+
     if (archivist?.queries.includes(ArchivistAllQuerySchema)) {
-      archivist.on('inserted', async () => {
+      listener = archivist.on('inserted', async () => {
         await getAll(archivist)
       })
     }
+
+    return () => listener?.()
   }, [archivist, getAll])
 
   useAsyncEffect(
