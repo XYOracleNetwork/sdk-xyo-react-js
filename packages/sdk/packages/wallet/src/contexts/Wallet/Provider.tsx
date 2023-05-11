@@ -16,7 +16,7 @@ export interface WalletProviderProps {
 const AccountWalletProvider: React.FC<WithChildren> = (props) => {
   const { wallet, activeAccountIndex = 0 } = useWallet()
 
-  return <AccountContext.Provider value={{ account: wallet?.deriveAccount(activeAccountIndex.toString()), provided: true }} {...props} />
+  return <AccountContext.Provider value={{ account: wallet?.derivePath(activeAccountIndex.toString()), provided: true }} {...props} />
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({

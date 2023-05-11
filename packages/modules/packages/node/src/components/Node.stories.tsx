@@ -2,7 +2,7 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
-import { AbstractModule } from '@xyo-network/module'
+import { AbstractModule, Query } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
@@ -12,12 +12,17 @@ import { useEffect, useState } from 'react'
 import { useModule, useProvidedNode } from '../hooks'
 
 const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
-
-class TestModule extends AbstractModule {}
+const TestModuleConfigSchema = 'network.xyo.test.module'
+class TestModule extends AbstractModule {
+  static override configSchema: string = TestModuleConfigSchema
+  get _queryAccountPaths(): Record<Query['schema'], string> {
+    return {}
+  }
+}
 const TestModuleName = 'TestModule'
-const TestModuleAccount = randomWallet.deriveAccount('0')
+const TestModuleAccount = randomWallet.derivePath('0')
 
-const account = randomWallet.deriveAccount('0')
+const account = randomWallet.derivePath('0')
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
   return (
@@ -56,7 +61,7 @@ const Template: StoryFn<React.FC> = (props) => {
     async (mounted) => {
       if (node) {
         try {
-          const mod = await TestModule.create({ account: TestModuleAccount, config: { name: TestModuleName, schema: 'network.xyo.test.module' } })
+          const mod = await TestModule.create({ account: TestModuleAccount, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
           await node?.register(mod)
           await node?.attach(mod.address, true)
           const wrapper = NodeWrapper.wrap(node)

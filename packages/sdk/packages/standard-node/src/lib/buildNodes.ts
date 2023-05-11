@@ -27,11 +27,11 @@ export const BuildStandardNodes = async (wallet: HDWallet, onNodeBuilt?: (node: 
         const remoteNodeOffset = RemoteNodeOffsetPaths[name]
         const remoteNodeWallet = wallet.derivePath(remoteNodeOffset)
 
-        const memoryNodeBuilder = await MemoryNodeBuilder.create({ name }, remoteNodeWallet.deriveAccount('0'))
+        const memoryNodeBuilder = await MemoryNodeBuilder.create({ name }, remoteNodeWallet.derivePath('0'))
         await memoryNodeBuilder.addBridge(apiDomain)
 
         const rootArchivistPath = `${remoteNodeOffset}/${RemoteNodeArchivistOffsetPaths[name][RootStorageArchivist]}`
-        const rootArchivistAccount = wallet.deriveAccount(rootArchivistPath)
+        const rootArchivistAccount = wallet.derivePath(rootArchivistPath)
         await memoryNodeBuilder.addArchivistStorage(rootArchivistAccount, RootStorageArchivist, 'root')
 
         const { node } = memoryNodeBuilder

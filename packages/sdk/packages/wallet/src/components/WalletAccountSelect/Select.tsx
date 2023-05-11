@@ -34,7 +34,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
         <SelectEx
           disabled={disabled}
           renderValue={(selected) => {
-            const account = wallet.deriveAccount(selected.toString())
+            const account = wallet.derivePath(selected.toString())
             const customName = addressNames[account?.addressValue.hex]
             const favorite = account?.addressValue.hex in addressNames
             return (
@@ -56,7 +56,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
           {...props}
         >
           {arrayRange(maxAccounts).map((index) => {
-            const account = wallet.deriveAccount(index.toString())
+            const account = wallet.derivePath(index.toString())
             const customName = addressNames[account?.addressValue.hex]
             const favorite = account?.addressValue.hex in addressNames
             return (
