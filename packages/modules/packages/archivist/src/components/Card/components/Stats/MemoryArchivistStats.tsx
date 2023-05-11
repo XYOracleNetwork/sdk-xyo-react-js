@@ -21,15 +21,21 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
   }, [])
 
   useEffect(() => {
-    let listener: EventUnsubscribeFunction
+    const listeners: EventUnsubscribeFunction[] = []
 
     if (archivist?.queries.includes(ArchivistAllQuerySchema)) {
-      listener = archivist.on('inserted', async () => {
+      const insertListener = archivist.on('inserted', async () => {
         await getAll(archivist)
       })
+      listeners.push(insertListener)
+
+      const clearListener = archivist.on('cleared', async () => {
+        await getAll(archivist)
+      })
+      listeners.push(clearListener)
     }
 
-    return () => listener?.()
+    return () => listeners.forEach((listener) => listener?.())
   }, [archivist, getAll])
 
   useAsyncEffect(

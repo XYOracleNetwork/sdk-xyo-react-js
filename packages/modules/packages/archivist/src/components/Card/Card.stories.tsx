@@ -34,6 +34,10 @@ const insertPayload = async (archivist?: ArchivistModule) => {
   }
 }
 
+const clearArchivist = async (archivist?: ArchivistModule) => {
+  await archivist?.clear?.()
+}
+
 const Template: StoryFn<typeof ArchivistCard> = () => {
   const [module, setModule] = useState<ArchivistModule>()
 
@@ -63,6 +67,9 @@ const Template: StoryFn<typeof ArchivistCard> = () => {
       <ArchivistCard module={module} />
       <Button onClick={() => insertPayload(module)} variant={'contained'}>
         Insert Into Archivist
+      </Button>
+      <Button onClick={() => clearArchivist(module)} variant={'contained'}>
+        Clear Archivist
       </Button>
     </FlexCol>
   )
