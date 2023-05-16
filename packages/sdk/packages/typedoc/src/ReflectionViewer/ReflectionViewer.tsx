@@ -3,7 +3,6 @@ import { ReflectionFlags } from 'typedoc'
 
 import { CommentViewer } from '../CommentViewer'
 import { SomeReflection } from '../SomeReflection'
-import { SourceViewer } from '../SourceViewer'
 import { NameViewer } from './NameViewer'
 import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps'
 
@@ -17,15 +16,7 @@ const hide = (flags?: ReflectionFlags, hiddenFlags: FlagFilter[] = []) => {
   return hide
 }
 
-export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({
-  variant,
-  nameViewer,
-  children,
-  reflection,
-  hiddenFlags,
-  sources = false,
-  ...props
-}) => {
+export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({ variant, nameViewer, children, reflection, hiddenFlags, ...props }) => {
   const someReflection = reflection as SomeReflection
 
   return hide(reflection?.flags, hiddenFlags) ? null : (
@@ -36,13 +27,13 @@ export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({
         nameViewer
       )}
       {reflection.comment ? <CommentViewer comment={reflection.comment} /> : null}
-      {sources && reflection.sources && children ? (
+      {/*sources && reflection.sources && children ? (
         <>
           {reflection.sources.map((source, index) => {
             return <SourceViewer key={index} source={source} />
           })}
         </>
-      ) : null}
+        ) : null*/}
       {someReflection.parameters?.map((parameter) => {
         return <ReflectionViewer hiddenFlags={hiddenFlags} marginY={0.25} marginX={1} key={parameter.id} reflection={parameter} />
       }) ?? null}
