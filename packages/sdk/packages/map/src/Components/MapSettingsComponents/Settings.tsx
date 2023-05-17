@@ -5,7 +5,7 @@ import { useAppSettings } from '@xyo-network/react-app-settings'
 import { useMapSettings } from '../../Contexts'
 import { MapSettingSwitch } from './Setting'
 
-interface MapSettingsProps extends FlexBoxProps {
+export interface MapSettingsProps extends FlexBoxProps {
   developerMode?: boolean
 }
 

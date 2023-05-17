@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { useCollapsible } from '../../../contexts'
 import { MenuListItemProps } from '../MenuListItem'
 
-type DefaultSiteMenuListItemProps = Pick<MenuListItemProps, 'collapseEnd' | 'dense' | 'iconOnly' | 'sx'>
+export type DefaultSiteMenuListItemProps = Pick<MenuListItemProps, 'collapseEnd' | 'dense' | 'iconOnly' | 'sx'>
 
 export const useMenuItemsShared = () => {
   const { collapse, collapseEnd, setCollapse, setCollapseEnd } = useCollapsible()

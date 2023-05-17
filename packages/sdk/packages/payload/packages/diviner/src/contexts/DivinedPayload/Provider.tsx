@@ -8,7 +8,7 @@ import { useDivinePayload } from '../PayloadDiviner'
 import { DivinedPayloadContext } from './Context'
 import { useDivinedPayload } from './use'
 
-interface DivinedPayloadProviderProps extends WithChildren {
+export interface DivinedPayloadProviderProps extends WithChildren {
   hash?: string
 }
 

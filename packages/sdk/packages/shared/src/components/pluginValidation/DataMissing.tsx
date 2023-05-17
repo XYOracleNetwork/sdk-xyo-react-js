@@ -1,6 +1,6 @@
 import { Alert, AlertProps, AlertTitle } from '@mui/material'
 
-interface PayloadDataMissingProps extends AlertProps {
+export interface PayloadDataMissingProps extends AlertProps {
   alertBody?: string
 }
 

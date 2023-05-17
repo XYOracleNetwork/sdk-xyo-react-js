@@ -12,7 +12,7 @@ import { useMapSettings } from '../MapSettings'
 import { HeatMapInitializerContext } from './Context'
 import { HeatMapInitializerState } from './State'
 
-interface MapInitializerProviderProps {
+export interface MapInitializerProviderProps {
   featureSets?: Feature<Polygon>[][]
   featureSetsLayers?: XyoMapLayer[]
   features?: Feature<Polygon>[]

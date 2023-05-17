@@ -9,12 +9,12 @@ export interface GasPriceWitnessUIBasePayload {
   website?: string
 }
 
-interface GasPrice {
+export interface GasPrice {
   price?: UIField
   priorityFee?: UIField
 }
 
-interface UIField {
+export interface UIField {
   label?: string
   value?: number
 }

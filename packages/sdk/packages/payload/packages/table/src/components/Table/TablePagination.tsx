@@ -7,7 +7,7 @@ import { useXyoEvent } from '@xyo-network/react-event'
 
 import { PaginationNouns } from './types'
 
-interface TablePaginationActionsProps {
+export interface TablePaginationActionsProps {
   count: number
   enableNextPage?: boolean
   loading?: boolean

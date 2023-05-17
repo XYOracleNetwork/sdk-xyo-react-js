@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { SeedPhraseContext } from './Context'
 
-interface SeedPhraseProviderProps extends WithChildren {
+export interface SeedPhraseProviderProps extends WithChildren {
   defaultPhrase?: string
   handleChangeSeedPhrase?: (phrase: string) => void
   open?: boolean

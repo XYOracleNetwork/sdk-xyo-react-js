@@ -11,7 +11,7 @@ import { WitnessModule } from '@xyo-network/witness'
 import { SentinelBuilder } from './SentinelBuilder'
 import { StorageArchivistBuilder } from './StorageArchivistBuilder'
 
-interface MemoryNodeBuilderConfig {
+export interface MemoryNodeBuilderConfig {
   name?: string
   node?: MemoryNode
 }

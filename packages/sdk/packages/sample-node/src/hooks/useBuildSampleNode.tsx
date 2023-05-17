@@ -5,7 +5,7 @@ import { MemoryNodeBuilder } from '@xyo-network/react-standard-node'
 import { WitnessWrapper } from '@xyo-network/witness'
 import { useState } from 'react'
 
-const SampleNodeModuleNames = ['Node', 'MemoryArchivist', 'Bridge', 'SystemInfoWitness'] as const
+export const SampleNodeModuleNames = ['Node', 'MemoryArchivist', 'Bridge', 'SystemInfoWitness'] as const
 
 export type SampleNodeModuleNames = (typeof SampleNodeModuleNames)[number]
 

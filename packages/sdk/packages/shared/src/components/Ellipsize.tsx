@@ -8,7 +8,7 @@ import { ElementType, forwardRef, useCallback, useState } from 'react'
 
 const ComponentName = 'Ellipsize'
 
-interface EllipsizeRootProps extends BoxProps {
+export interface EllipsizeRootProps extends BoxProps {
   beforeLineHeight?: string | number
 }
 
@@ -74,7 +74,7 @@ const useClientHeight = () => {
 }
 
 // See - https://mui.com/material-ui/guides/composition/#with-typescript
-interface TypographyWithComponentProps<Comp extends ElementType = ElementType> extends TypographyProps {
+export interface TypographyWithComponentProps<Comp extends ElementType = ElementType> extends TypographyProps {
   component?: Comp
   ellipsisPosition?: 'start' | 'end'
 }
