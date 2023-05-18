@@ -1,4 +1,4 @@
-import { DeclarationReflection, SignatureReflection } from 'typedoc'
+import type { DeclarationReflection, SignatureReflection } from 'typedoc'
 
 import { ReflectionViewer } from './ReflectionViewer'
 import { ReflectionViewerProps } from './ReflectionViewerProps'

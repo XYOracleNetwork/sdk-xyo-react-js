@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { ProjectReflection, ReflectionGroup } from 'typedoc'
+import type { ProjectReflection, ReflectionGroup } from 'typedoc'
 
 import { createLookup } from '../createLookup'
 import { ContainerReflectionViewerProps } from './Container'

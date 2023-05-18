@@ -1,4 +1,4 @@
-import { ContainerReflection, ReflectionGroup } from 'typedoc'
+import type { ContainerReflection, ReflectionGroup } from 'typedoc'
 
 import { createLookup } from '../createLookup'
 import { ReflectionGroupViewer } from './ReflectionGroupViewer'

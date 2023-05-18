@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 // eslint-disable-next-line import/no-internal-modules
 import clientDocs from '@xyo-network/core/dist/docs.json'
 import { BrowserRouter } from 'react-router-dom'
-import { ProjectReflection } from 'typedoc'
+import type { ProjectReflection } from 'typedoc'
 
 import { ProjectTwoPanelReflectionViewer } from './ProjectTwoPanelReflectionViewer'
 

@@ -1,6 +1,5 @@
 import { Chip, Stack, Typography, TypographyVariant } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
-import { ReflectionKind } from 'typedoc'
 
 import { JsonViewerButton } from '../JsonViewerButton'
 import { SomeReflection } from '../SomeReflection'
@@ -25,7 +24,7 @@ export const NameViewer: React.FC<NameViewerProps> = ({ reflectionViewer, varian
         <SomeTypeViewer reflection={reflection} reflectionViewer={reflectionViewer} />
       </FlexRow>
       <Stack direction="row" spacing={1}>
-        <Chip size="small" label={ReflectionKind.singularString(reflection.kind)} />
+        <Chip size="small" label={reflection.kind} />
         {reflection.flags
           ? Object.entries(reflection.flags).map(([flag, value]) => {
               return value ? <Chip size="small" key={flag} label={trimFlagLabel(flag)} variant="outlined" /> : null

@@ -1,4 +1,4 @@
-import { ReflectionType } from 'typedoc'
+import type { ReflectionType } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps'
 

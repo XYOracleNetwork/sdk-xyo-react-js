@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { SourceReference } from 'typedoc'
+import type { SourceReference } from 'typedoc'
 
 export interface SourceViewerProps extends FlexBoxProps {
   source: SourceReference

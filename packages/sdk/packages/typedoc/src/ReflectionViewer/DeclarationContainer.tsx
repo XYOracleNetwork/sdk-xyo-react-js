@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material'
 import { useLocation } from 'react-router-dom'
-import { DeclarationReflection } from 'typedoc'
+import type { DeclarationReflection } from 'typedoc'
 
 import { ContainerReflectionViewer, ContainerReflectionViewerProps } from './Container'
 import { DeclarationReflectionViewer } from './Declaration'

@@ -2,7 +2,7 @@ import { Search } from '@mui/icons-material'
 import { TextField, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { useMemo, useState } from 'react'
-import { ReflectionGroup } from 'typedoc'
+import type { ReflectionGroup } from 'typedoc'
 
 import { createLookup } from './createLookup'
 import { ContainerReflectionViewerProps, ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer'

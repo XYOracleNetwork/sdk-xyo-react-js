@@ -1,5 +1,5 @@
 import { assertEx } from '@xylabs/assert'
-import { ProjectReflection, ReflectionKind } from 'typedoc'
+import type { ProjectReflection } from 'typedoc'
 
 import { ContainerReflectionViewerProps, DeclarationContainerReflectionViewer } from './ReflectionViewer'
 import { TwoPanelReflectionViewer } from './TwoPanelReflectionViewer'
@@ -9,6 +9,6 @@ export const ProjectTwoPanelReflectionViewer: React.FC<ContainerReflectionViewer
   itemRenderer = DeclarationContainerReflectionViewer,
   ...props
 }) => {
-  assertEx(reflection.kind === ReflectionKind.Project, `Project !== ${ReflectionKind.singularString(reflection.kind)}`)
+  assertEx(reflection.isProject, 'Project expected to be Project')
   return <TwoPanelReflectionViewer itemRenderer={itemRenderer} reflection={reflection} {...props} />
 }

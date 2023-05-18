@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { SomeType, Type } from 'typedoc'
+import type { SomeType, Type } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps'
 import { buildArrayString } from './buildArrayString'

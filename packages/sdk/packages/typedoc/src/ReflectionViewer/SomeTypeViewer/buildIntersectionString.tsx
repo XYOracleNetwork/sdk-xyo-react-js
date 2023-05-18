@@ -1,4 +1,4 @@
-import { IntersectionType } from 'typedoc'
+import type { IntersectionType } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps'
 import { TypeBuilder } from './TypeBuilder'

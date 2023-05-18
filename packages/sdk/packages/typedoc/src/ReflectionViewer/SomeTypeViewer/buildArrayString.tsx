@@ -1,4 +1,4 @@
-import { ArrayType } from 'typedoc'
+import type { ArrayType } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps'
 import { TypeBuilder } from './TypeBuilder'

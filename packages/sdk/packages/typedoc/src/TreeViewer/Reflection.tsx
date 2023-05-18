@@ -3,7 +3,7 @@ import { TreeItem, TreeView } from '@mui/lab'
 import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useNavigate } from 'react-router-dom'
-import { ContainerReflection, Reflection } from 'typedoc'
+import type { ContainerReflection, Reflection } from 'typedoc'
 
 import { ReflectionLookup } from '../ReflectionLookup'
 import { FlagFilter } from '../ReflectionViewer'

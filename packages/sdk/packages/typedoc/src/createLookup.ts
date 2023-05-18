@@ -1,4 +1,4 @@
-import { ContainerReflection, DeclarationReflection } from 'typedoc'
+import type { ContainerReflection, DeclarationReflection } from 'typedoc'
 
 export const createLookup = <T extends DeclarationReflection>(reflection: ContainerReflection) => {
   const lookup: Record<number, T> = {}

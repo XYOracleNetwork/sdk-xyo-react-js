@@ -1,4 +1,4 @@
-import { Reflection } from 'typedoc'
+import type { Reflection } from 'typedoc'
 
 import { ReflectionLookup } from './ReflectionLookup'
 import { SomeReflection } from './SomeReflection'

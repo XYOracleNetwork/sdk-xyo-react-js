@@ -1,7 +1,7 @@
 import { TypographyVariant } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ReactElement } from 'react'
-import { Reflection } from 'typedoc'
+import type { Reflection } from 'typedoc'
 
 import { ReflectionLookup } from '../ReflectionLookup'
 

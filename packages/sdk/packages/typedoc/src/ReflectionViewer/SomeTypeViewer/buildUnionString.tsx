@@ -1,4 +1,4 @@
-import { UnionType } from 'typedoc'
+import type { UnionType } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps'
 import { TypeBuilder } from './TypeBuilder'
