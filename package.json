@@ -139,7 +139,8 @@
     "build": "xy build",
     "build-storybook": "storybook build",
     "start": "storybook dev -p 6006",
-    "lint-pkg": "npmPkgJsonLint ."
+    "lint-pkg": "npmPkgJsonLint .",
+    "build-typedoc-site": "typedoc --options typedoc.site.json"
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
