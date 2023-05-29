@@ -4,7 +4,7 @@ import { ellipsize } from '@xylabs/eth-address'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { useHash } from '@xyo-network/react-shared'
+import { usePayloadHash } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
 import { BWPreviousHashQuickTipButton } from './PreviousHash'
@@ -28,7 +28,7 @@ export const BWActions: React.FC<BWActionsProps> = ({
   hideTimestamp,
   ...props
 }) => {
-  const hash = useHash(boundwitness)
+  const hash = usePayloadHash(boundwitness)
 
   return (
     <FlexRow {...props}>

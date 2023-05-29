@@ -20,7 +20,7 @@ import {
 import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
-import { useHashes } from '@xyo-network/react-shared'
+import { usePayloadHashes } from '@xyo-network/react-shared'
 import { useEffect, useMemo, useState } from 'react'
 
 import { PayloadDynamicTableRow } from './DynamicTableRow'
@@ -99,7 +99,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
 
   const pagedPayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, page, rowsPerPage])
 
-  const payloadPairs = useHashes(pagedPayloads)
+  const payloadPairs = usePayloadHashes(pagedPayloads)
 
   useEffect(() => {
     setRowsPerPage(rowsPerPageProp)

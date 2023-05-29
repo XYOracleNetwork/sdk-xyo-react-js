@@ -22,7 +22,7 @@ Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = { value: PayloadWrapper.hash(sampleBlockWithPayloads) }
+WithData.args = { value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
 
 export { Default, WithData }
 

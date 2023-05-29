@@ -1,5 +1,5 @@
 import { Decorator } from '@storybook/react'
-import { useHash } from '@xyo-network/react-shared'
+import { usePayloadHash } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 
 import { HashSelectionHistoryProvider } from '../../providers'
@@ -13,7 +13,7 @@ export const WithHashSelectionHistory: Decorator = (Story, args) => {
 }
 
 export const WithHashSelectionHistoryDefaultValues: Decorator = (Story, args) => {
-  const hash = useHash(sampleAddressHistory[0])
+  const hash = usePayloadHash(sampleAddressHistory[0])
   const defaultHashSelectionHistory = hash ? [hash] : undefined
   const defaultNestedBoundWitnesses = hash
     ? {

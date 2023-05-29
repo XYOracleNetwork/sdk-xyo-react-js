@@ -4,7 +4,7 @@ import { Decorator, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/memory-archivist'
-import { useHash } from '@xyo-network/react-shared'
+import { usePayloadHash } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
 
 import { PayloadProvider } from './Provider'
@@ -14,7 +14,7 @@ const testPayload = { schema: 'network.xyo.payload' }
 
 const PayloadProviderDecorator: Decorator = (Story, args) => {
   const [archivist, setArchivist] = useState<ArchivistWrapper>()
-  const testPayloadHash = useHash(testPayload)
+  const testPayloadHash = usePayloadHash(testPayload)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

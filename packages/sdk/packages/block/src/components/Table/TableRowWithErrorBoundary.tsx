@@ -1,7 +1,7 @@
 import { Alert, Typography } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
-import { useHash } from '@xyo-network/react-shared'
+import { usePayloadHash } from '@xyo-network/react-shared'
 
 import { BlockTableRow, BlockTableRowProps } from './TableRow'
 
@@ -13,7 +13,7 @@ interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
 }
 
 const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({ block, archive, columns, onRowClick, index, exploreDomain }) => {
-  const hash = useHash(block)
+  const hash = usePayloadHash(block)
   return (
     <>
       {block ? (

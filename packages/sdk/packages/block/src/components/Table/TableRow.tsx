@@ -3,7 +3,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useNetwork } from '@xyo-network/react-network'
-import { HashTableCell, useHash, usePromise } from '@xyo-network/react-shared'
+import { HashTableCell, usePayloadHash, usePromise } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
 import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
@@ -32,7 +32,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const [errors = []] = usePromise((block ? new BoundWitnessValidator(block) : undefined)?.validate(), [block])
 
-  const blockHash = useHash(block)
+  const blockHash = usePayloadHash(block)
 
   const hash = (
     <HashTableCell

@@ -6,7 +6,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
-import { HashTableCell, useHash, usePromise } from '@xyo-network/react-shared'
+import { HashTableCell, usePayloadHash, usePromise } from '@xyo-network/react-shared'
 
 import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig'
 
@@ -29,7 +29,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-  const payloadHash = useHash(payload)
+  const payloadHash = usePayloadHash(payload)
   const { network } = useNetwork()
   const [errors = []] = usePromise((payload ? new PayloadValidator(payload) : undefined)?.validate(), [payload])
   const isValid = errors.length === 0

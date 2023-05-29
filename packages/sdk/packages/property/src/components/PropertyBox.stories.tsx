@@ -63,15 +63,15 @@ WithUndefinedData.args = { title: 'Block Hash' }
 WithUndefinedData.decorators = [useAppThemeDecorator]
 
 const WithData = Template.bind({})
-WithData.args = { title: 'Block Hash', value: PayloadWrapper.hash(sampleBlockWithPayloads) }
+WithData.args = { title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
 WithData.decorators = [useAppThemeDecorator]
 
 const WithDataSmall = Template.bind({})
-WithDataSmall.args = { size: 'small', title: 'Block Hash', value: PayloadWrapper.hash(sampleBlockWithPayloads) }
+WithDataSmall.args = { size: 'small', title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
 WithDataSmall.decorators = [useAppThemeDecorator]
 
 const WithDataCompare = TemplateWithCompare.bind({})
-WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: PayloadWrapper.hash(sampleBlockWithPayloads) }
+WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
 WithDataCompare.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeSmall = Template.bind({})
@@ -80,7 +80,7 @@ WithDataAndBadgeSmall.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 WithDataAndBadgeSmall.decorators = [useAppThemeDecorator]
 
@@ -90,7 +90,7 @@ WithDataAndBadgeMedium.args = {
   size: 'medium',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 WithDataAndBadgeMedium.decorators = [useAppThemeDecorator]
 
@@ -100,7 +100,7 @@ WithDataAndBadgeLarge.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 WithDataAndBadgeLarge.decorators = [useAppThemeDecorator]
 
@@ -108,7 +108,7 @@ const WithTip = Template.bind({})
 WithTip.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 WithTip.decorators = [useAppThemeDecorator]
 
@@ -117,7 +117,7 @@ WithTipAndBadge.args = {
   badge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 WithTipAndBadge.decorators = [useAppThemeDecorator]
 
@@ -126,7 +126,7 @@ WithActions.args = {
   actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 WithActions.decorators = [useAppThemeDecorator]
 
@@ -136,7 +136,7 @@ LargeWithValue.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 LargeWithValue.decorators = [useAppThemeDecorator]
 
@@ -147,7 +147,7 @@ LargeWithValueAndActions.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 LargeWithValueAndActions.decorators = [useAppThemeDecorator]
 
@@ -158,7 +158,7 @@ SmallWithValueAndActions.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hash(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
 SmallWithValueAndActions.decorators = [useAppThemeDecorator]
 

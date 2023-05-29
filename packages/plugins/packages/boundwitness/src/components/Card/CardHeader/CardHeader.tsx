@@ -2,7 +2,7 @@ import { CardHeader, CardHeaderProps, styled, useTheme } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Payload } from '@xyo-network/payload-model'
-import { useHash } from '@xyo-network/react-shared'
+import { usePayloadHash } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
 import { BWActions, BWHeading } from '../../_shared'
@@ -31,7 +31,7 @@ export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
 }) => {
   const boundwitness = payload as Payload<BoundWitness>
   const theme = useTheme()
-  const hash = useHash(boundwitness)
+  const hash = usePayloadHash(boundwitness)
 
   return (
     <CardHeaderHash

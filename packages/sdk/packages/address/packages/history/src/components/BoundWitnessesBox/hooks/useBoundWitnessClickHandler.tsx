@@ -2,12 +2,12 @@ import { useMounted } from '@xylabs/react-shared'
 import { XyoEventNoun } from '@xyo-network/react-event'
 import { useCallback } from 'react'
 
-import { useHashSelectionHistory, useNestedBoundWitnesses } from '../../../hooks'
+import { useNestedBoundWitnesses, usePayloadHashSelectionHistory } from '../../../hooks'
 import { BoundwitnessClickType } from '../lib'
 
 export const useBoundWitnessClickHandler = () => {
   const mounted = useMounted()
-  const { hashSelectionHistory, fetchFromHash, addSelection, clearHistory } = useHashSelectionHistory(false)
+  const { hashSelectionHistory, fetchFromHash, addSelection, clearHistory } = usePayloadHashSelectionHistory(false)
   const { setClickedExistingHash, setLoading } = useNestedBoundWitnesses(false)
   const boundwitnessClick = useCallback(
     (noun: XyoEventNoun, data?: string, clickType?: BoundwitnessClickType) => {

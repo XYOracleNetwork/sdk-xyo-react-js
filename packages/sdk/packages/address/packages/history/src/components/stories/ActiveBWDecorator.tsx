@@ -1,6 +1,6 @@
 import { Decorator } from '@storybook/react'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { Hasher } from '@xyo-network/protocol'
+import { usePayloadHash } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
@@ -20,11 +20,9 @@ export const ActiveBWDecorator: Decorator = (Story, args) => {
 
 export const ActiveBWDecoratorWithDefaultValues: Decorator = (Story, args) => {
   const [activeBoundWitness, setActiveBoundWitness] = useState<BoundWitness | undefined>(sampleAddressHistory[0])
-  const [activeBoundWitnessHash, setActiveBoundWitnessHash] = useState<string | undefined>(Hasher.hash(sampleAddressHistory[0]))
+  const activeBoundWitnessHash = usePayloadHash(activeBoundWitness)
   return (
-    <ActiveBoundWitnessContext.Provider
-      value={{ activeBoundWitness, activeBoundWitnessHash, provided: true, setActiveBoundWitness, setActiveBoundWitnessHash }}
-    >
+    <ActiveBoundWitnessContext.Provider value={{ activeBoundWitness, activeBoundWitnessHash, provided: true, setActiveBoundWitness }}>
       <Story {...args} />
     </ActiveBoundWitnessContext.Provider>
   )

@@ -8,7 +8,7 @@ import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
-import { HashTableCell, HashTableCellProps, useHash, usePromise } from '@xyo-network/react-shared'
+import { HashTableCell, HashTableCellProps, usePayloadHash, usePromise } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 
 import {
@@ -34,7 +34,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-  const payloadHash = useHash(payload)
+  const payloadHash = usePayloadHash(payload)
   const { network } = useNetwork()
   const { resolver } = usePayloadRenderPluginResolver()
   const [validationErrors = []] = usePromise(payload ? new PayloadValidator(payload).validate() : undefined, [payload])

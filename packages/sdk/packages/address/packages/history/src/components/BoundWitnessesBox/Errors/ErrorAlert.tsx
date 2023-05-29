@@ -1,8 +1,8 @@
 import { XyoErrorAlert } from '@xyo-network/react-error'
 
-import { useHashSelectionHistory } from '../../../hooks'
+import { usePayloadHashSelectionHistory } from '../../../hooks'
 
 export const BWErrorAlert: React.FC = () => {
-  const { error } = useHashSelectionHistory()
+  const { error } = usePayloadHashSelectionHistory()
   return error ? <XyoErrorAlert error={error} errorContext="HashSelectionContext Error" /> : null
 }

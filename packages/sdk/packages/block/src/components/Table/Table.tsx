@@ -1,6 +1,6 @@
 import { TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { useHashes } from '@xyo-network/react-shared'
+import { usePayloadHashes } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
 
 import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
@@ -18,7 +18,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-  const blockPairs = useHashes(blocks)
+  const blockPairs = usePayloadHashes(blocks)
   return breakPoint ? (
     <TableEx variant={variant} {...props}>
       <TableHead>

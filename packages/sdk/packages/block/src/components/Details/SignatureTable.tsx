@@ -2,7 +2,7 @@
 /* eslint-disable deprecation/deprecation */
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { Hasher } from '@xyo-network/core'
+import { PayloadHasher } from '@xyo-network/core'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
 import { BlockSignatureTableRow } from './SignatureTableRow'
@@ -34,7 +34,7 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
-  const hash = block ? new Hasher(block).hash : undefined
+  const hash = block ? new PayloadHasher(block).hash : undefined
 
   return (
     <ScrollTableOnSm>

@@ -1,6 +1,6 @@
 import { Alert, TableBody, Typography } from '@mui/material'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
-import { useHashes } from '@xyo-network/react-shared'
+import { usePayloadHashes } from '@xyo-network/react-shared'
 
 import { PayloadTableRow } from './TableRow'
 import { PayloadTableBodyProps } from './types'
@@ -17,7 +17,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   NoResultRowComponent,
   ...props
 }) => {
-  const payloadPairs = useHashes(payloads)
+  const payloadPairs = usePayloadHashes(payloads)
 
   return (
     <TableBody {...props}>
