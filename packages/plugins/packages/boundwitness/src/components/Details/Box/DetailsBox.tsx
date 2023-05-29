@@ -1,8 +1,8 @@
 import { Divider } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import { useHash } from '@xyo-network/react-shared'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import { forwardRef, useMemo } from 'react'
 import { FaSignature } from 'react-icons/fa'
@@ -29,7 +29,7 @@ BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
 const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
   const boundwitness = payload as BoundWitness
-  const { hash } = payload ? new PayloadWrapper(payload) : { hash: '' }
+  const hash = useHash(payload)
 
   const hasBWPayloads = useMemo(
     () => (boundwitness ? boundwitness.payload_schemas.some((schema) => schema === BoundWitnessSchema) : false),

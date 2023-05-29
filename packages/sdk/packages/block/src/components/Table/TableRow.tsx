@@ -2,9 +2,8 @@ import { TableCell, TableRow, TableRowProps } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
-import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
 import { useNetwork } from '@xyo-network/react-network'
-import { HashTableCell } from '@xyo-network/react-shared'
+import { HashTableCell, useHash, usePromise } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
 import { ReactElement } from 'react'
 import { MdClear, MdDone } from 'react-icons/md'
@@ -29,16 +28,17 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 }) => {
   const breakPoint = useBreakpoint()
 
-  const validator = block ? new BoundWitnessValidator(block) : undefined
   const { network } = useNetwork()
 
-  const wrapper = block ? new BoundWitnessWrapper(block) : undefined
+  const [errors = []] = usePromise((block ? new BoundWitnessValidator(block) : undefined)?.validate(), [block])
+
+  const blockHash = useHash(block)
 
   const hash = (
     <HashTableCell
       key="hash"
       archive={archive}
-      value={wrapper?.hash}
+      value={blockHash}
       dataType="block"
       exploreDomain={exploreDomain}
       network={networkProp ?? network?.slug}
@@ -53,7 +53,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const valid = (
     <TableCell key="valid" align="center">
-      {validator?.validate().length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
+      {errors.length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
     </TableCell>
   )
 

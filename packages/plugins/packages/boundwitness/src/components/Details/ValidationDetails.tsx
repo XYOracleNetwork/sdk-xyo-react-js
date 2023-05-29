@@ -3,15 +3,14 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import { usePromise } from '@xyo-network/react-shared'
 
 export type BoundWitnessValidationDetailsProps = PropertyGroupProps & {
   value?: BoundWitness
 }
 
 export const BoundWitnessValidationDetails: React.FC<BoundWitnessValidationDetailsProps> = ({ value, ...props }) => {
-  const validator = value ? new BoundWitnessValidator(value) : undefined
-
-  const errors = validator?.validate() ?? []
+  const [errors = []] = usePromise((value ? new BoundWitnessValidator(value) : undefined)?.validate(), [value])
 
   let elevation = 2
   if (props.paper) {

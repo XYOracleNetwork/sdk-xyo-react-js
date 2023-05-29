@@ -5,6 +5,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
+import { usePromise } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
 const InvalidIcon = forwardRef<SVGSVGElement, SvgIconProps>((props, ref) => <CancelRoundedIcon color={'error'} ref={ref} {...props} />)
@@ -15,9 +16,7 @@ export interface BWVerification extends QuickTipButtonProps {
 }
 
 export const BWVerification: React.FC<BWVerification> = ({ boundwitness }) => {
-  const validator = boundwitness ? new BoundWitnessValidator(boundwitness) : undefined
-
-  const errors = validator?.validate() ?? []
+  const [errors = []] = usePromise((boundwitness ? new BoundWitnessValidator(boundwitness) : undefined)?.validate(), [boundwitness])
 
   return (
     <QuickTipButton Icon={errors.length ? InvalidIcon : CheckCircleOutlineRoundedIcon} hoverText={errors.length ? 'Invalid Bound Witness' : 'Valid'}>

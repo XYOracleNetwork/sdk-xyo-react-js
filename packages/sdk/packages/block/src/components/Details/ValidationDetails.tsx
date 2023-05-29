@@ -4,6 +4,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import { usePromise } from '@xyo-network/react-shared'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export type BlockValidationDetailsProps = PropertyGroupProps & {
@@ -12,9 +13,7 @@ export type BlockValidationDetailsProps = PropertyGroupProps & {
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ value, ...props }) => {
-  const validator = value ? new BoundWitnessValidator(value) : undefined
-
-  const errors = validator?.validate() ?? []
+  const [errors = []] = usePromise((value ? new BoundWitnessValidator(value) : undefined)?.validate(), [value])
 
   let elevation = 2
   if (props.paper) {

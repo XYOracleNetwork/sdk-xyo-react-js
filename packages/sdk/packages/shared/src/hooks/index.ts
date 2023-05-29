@@ -1,5 +1,6 @@
 export * from './GradientStyles'
 export * from './useDataState'
+export * from './useHash'
 export * from './useIsMobile'
 export * from './useMediaQuery'
 export * from './usePromise'

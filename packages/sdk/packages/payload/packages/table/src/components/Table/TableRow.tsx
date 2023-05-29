@@ -5,9 +5,8 @@ import { alpha, TableCell, TableCellProps, TableRow, TableRowProps, Typography }
 import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { useNetwork } from '@xyo-network/react-network'
-import { HashTableCell } from '@xyo-network/react-shared'
+import { HashTableCell, useHash, usePromise } from '@xyo-network/react-shared'
 
 import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig'
 
@@ -30,15 +29,17 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-  const wrapper = payload ? new PayloadWrapper(payload) : undefined
+  const payloadHash = useHash(payload)
   const { network } = useNetwork()
+  const [errors = []] = usePromise((payload ? new PayloadValidator(payload) : undefined)?.validate(), [payload])
+  const isValid = errors.length === 0
 
   const hash: React.FC<TableCellProps> = (props) => (
     <HashTableCell
       key="hash"
       archive={archive}
       width="100%"
-      value={wrapper?.hash}
+      value={payloadHash}
       dataType="payload"
       exploreDomain={exploreDomain}
       network={networkProp ?? network?.slug}
@@ -69,8 +70,6 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
       </Typography>
     </TableCell>
   )
-
-  const isValid = wrapper ? new PayloadValidator(wrapper.body).validate().length === 0 : undefined
 
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>

@@ -43,7 +43,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
     if (archivist === undefined || boundwitness === undefined) {
       return null
     }
-    const { hash } = new PayloadWrapper(boundwitness)
+    const hash = await PayloadWrapper.hashAsync(boundwitness)
     if (hashSelectionHistory.includes(hash)) {
       return null
     }

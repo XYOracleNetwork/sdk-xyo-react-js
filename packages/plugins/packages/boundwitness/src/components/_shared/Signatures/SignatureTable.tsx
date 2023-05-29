@@ -1,7 +1,7 @@
 import { TableBody, TableHead, TableRow, Typography } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { Hasher } from '@xyo-network/core'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
+import { useHash } from '@xyo-network/react-shared'
 import { TableCellEx, TableEx, TableExProps } from '@xyo-network/react-table'
 
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow'
@@ -30,7 +30,7 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
 
 export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
-  const hash = block ? new Hasher(block).hash : undefined
+  const hash = useHash(block)
 
   return (
     <TableEx {...props}>

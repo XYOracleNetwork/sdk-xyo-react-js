@@ -1,6 +1,6 @@
 import { Alert, TableBody, Typography } from '@mui/material'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
+import { useHashes } from '@xyo-network/react-shared'
 
 import { PayloadTableRow } from './TableRow'
 import { PayloadTableBodyProps } from './types'
@@ -17,15 +17,16 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   NoResultRowComponent,
   ...props
 }) => {
+  const payloadPairs = useHashes(payloads)
+
   return (
     <TableBody {...props}>
       {noResults && NoResultRowComponent ? <NoResultRowComponent /> : null}
-      {payloads?.map((payload, index) => {
-        const wrapper = new PayloadWrapper(payload)
+      {payloadPairs?.map(([payload, hash], index) => {
         return (
           <XyoThrownErrorBoundary
             boundaryName="PayloadTableBody"
-            key={`${wrapper.hash}-${index}`}
+            key={`${hash}-${index}`}
             errorComponent={(e) => (
               <Alert severity="error">
                 Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>

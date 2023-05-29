@@ -1,9 +1,8 @@
 import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useXyoEvent } from '@xyo-network/react-event'
-import { useShareForwardedRef } from '@xyo-network/react-shared'
+import { useHashes, useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, Fragment, useEffect, useState } from 'react'
 
 import { useActiveBoundWitness, useOrderedHistory } from '../../hooks'
@@ -28,9 +27,11 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   const [orderedAddressHistory, setOrderedAddressHistory] = useState<BoundWitness[]>()
   const orderHistoryFn = useOrderedHistory()
 
-  const handleClick = (bw: BoundWitness) => {
-    setActiveBoundWitnessHash?.(new PayloadWrapper(bw).hash)
-    dispatch('boundwitness', 'click', new PayloadWrapper(bw).hash)
+  const orderedAddressHistoryPairs = useHashes(orderedAddressHistory)
+
+  const handleClick = (hash: string) => {
+    setActiveBoundWitnessHash?.(hash)
+    dispatch('boundwitness', 'click', hash)
   }
 
   useEffect(() => {
@@ -39,15 +40,15 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
 
   return (
     <AddressChainList ref={ulRef} {...props}>
-      {orderedAddressHistory ? (
-        orderedAddressHistory.map((bw, index) => (
+      {orderedAddressHistoryPairs ? (
+        orderedAddressHistoryPairs.map(([bw, bwHash], index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
             {index !== 0 ? <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} /> : null}
             <BoundWitnessRendererCard
               payload={bw}
-              onClick={() => handleClick(bw)}
+              onClick={() => handleClick(bwHash)}
               sx={{ cursor: selectable ? 'pointer' : 'default' }}
-              active={activeBoundWitnessHash ? new PayloadWrapper(bw).hash === activeBoundWitnessHash : false}
+              active={activeBoundWitnessHash ? bwHash === activeBoundWitnessHash : false}
             />
           </Fragment>
         ))
