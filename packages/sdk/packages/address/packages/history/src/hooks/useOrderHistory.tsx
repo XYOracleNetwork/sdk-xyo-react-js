@@ -1,6 +1,5 @@
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/core'
-import { useCallback } from 'react'
 
 // If a boundwitness hash is not found in any other previous_hashes in the history,
 // it is not yet a parent and therefore the youngest
@@ -20,37 +19,33 @@ const findParent = (hashes: string[], addressHistory: BoundWitness[], currentChi
 }
 
 // Note: Assumes there are no orphaned record in the history.
-export const useOrderedHistory = () => {
-  const run = useCallback(async (addressHistory?: BoundWitness[], order: 'asc' | 'desc' = 'asc') => {
-    if (addressHistory?.length) {
-      const stack: BoundWitness[] = []
-      const youngestBW = await findYoungestBW(addressHistory)
-      const hashes = await PayloadHasher.hashes(addressHistory)
-      if (youngestBW) {
-        // stack starts with you youngest bw and works back up from its previous_hashes[0]
-        stack.unshift(youngestBW)
-        let currentChild = youngestBW
-        let noParent = false
-        // once currentChild has a previous hash of null, there are no more parents
-        while (!noParent) {
-          // Note: Potential optimization to remove already placed items in the stack from address history
-          // and pass the remaining items to findParent
-          const parent = findParent(hashes, addressHistory, currentChild)
-          if (!parent) {
-            noParent = true
-          } else {
-            currentChild = parent
-            stack.push(parent)
-          }
+export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'asc' | 'desc' = 'asc') => {
+  if (addressHistory?.length) {
+    const stack: BoundWitness[] = []
+    const youngestBW = await findYoungestBW(addressHistory)
+    const hashes = await PayloadHasher.hashes(addressHistory)
+    if (youngestBW) {
+      // stack starts with you youngest bw and works back up from its previous_hashes[0]
+      stack.unshift(youngestBW)
+      let currentChild = youngestBW
+      let noParent = false
+      // once currentChild has a previous hash of null, there are no more parents
+      while (!noParent) {
+        // Note: Potential optimization to remove already placed items in the stack from address history
+        // and pass the remaining items to findParent
+        const parent = findParent(hashes, addressHistory, currentChild)
+        if (!parent) {
+          noParent = true
+        } else {
+          currentChild = parent
+          stack.push(parent)
         }
-
-        const orderedStack = order === 'desc' ? stack.reverse() : stack
-
-        return addressHistory?.length ? orderedStack : undefined
       }
-    }
-    return []
-  }, [])
 
-  return run
+      const orderedStack = order === 'desc' ? stack.reverse() : stack
+
+      return addressHistory?.length ? orderedStack : undefined
+    }
+  }
+  return []
 }

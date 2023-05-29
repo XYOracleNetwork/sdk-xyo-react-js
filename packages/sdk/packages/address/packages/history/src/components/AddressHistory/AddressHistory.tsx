@@ -2,10 +2,10 @@ import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/mater
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useXyoEvent } from '@xyo-network/react-event'
-import { usePayloadHashes, useShareForwardedRef } from '@xyo-network/react-shared'
-import { forwardRef, Fragment, useEffect, useState } from 'react'
+import { usePayloadHashes, usePromise, useShareForwardedRef } from '@xyo-network/react-shared'
+import { forwardRef, Fragment } from 'react'
 
-import { useActiveBoundWitness, useOrderedHistory } from '../../hooks'
+import { orderedHistory, useActiveBoundWitness } from '../../hooks'
 
 const AddressChainList = styled(List, { name: 'AddressChainList' })(() => ({
   overflow: 'scroll',
@@ -24,8 +24,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
   const [ulRef, dispatch] = useXyoEvent<HTMLUListElement>(undefined, sharedRef)
-  const [orderedAddressHistory, setOrderedAddressHistory] = useState<BoundWitness[]>()
-  const orderHistoryFn = useOrderedHistory()
+  const [orderedAddressHistory] = usePromise(orderedHistory(addressHistory), [addressHistory])
 
   const orderedAddressHistoryPairs = usePayloadHashes(orderedAddressHistory)
 
@@ -33,10 +32,6 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
     setActiveBoundWitnessHash?.(hash)
     dispatch('boundwitness', 'click', hash)
   }
-
-  useEffect(() => {
-    setOrderedAddressHistory(orderHistoryFn(addressHistory))
-  }, [addressHistory, orderHistoryFn])
 
   return (
     <AddressChainList ref={ulRef} {...props}>
