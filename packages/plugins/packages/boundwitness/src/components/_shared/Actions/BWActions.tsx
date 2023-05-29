@@ -4,7 +4,7 @@ import { ellipsize } from '@xylabs/eth-address'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
+import { usePayloadHash } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
 import { BWPreviousHashQuickTipButton } from './PreviousHash'
@@ -28,7 +28,7 @@ export const BWActions: React.FC<BWActionsProps> = ({
   hideTimestamp,
   ...props
 }) => {
-  const { hash } = boundwitness ? new PayloadWrapper(boundwitness) : { hash: '' }
+  const hash = usePayloadHash(boundwitness)
 
   return (
     <FlexRow {...props}>
@@ -38,7 +38,7 @@ export const BWActions: React.FC<BWActionsProps> = ({
       {hidePreviousHash || boundwitness?.previous_hashes.length === 0 ? null : <BWPreviousHashQuickTipButton boundwitness={boundwitness} />}
       {hideValidation ? null : <BWVerification boundwitness={boundwitness} />}
       {hideJSONButton ? null : (
-        <QuickTipButton Icon={DataObjectIcon} title={`JSON for ${ellipsize(hash, 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
+        <QuickTipButton Icon={DataObjectIcon} title={`JSON for ${ellipsize(hash ?? '', 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
           <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
         </QuickTipButton>
       )}

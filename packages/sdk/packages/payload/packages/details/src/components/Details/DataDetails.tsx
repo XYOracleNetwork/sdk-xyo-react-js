@@ -5,7 +5,7 @@ import { ButtonEx } from '@xylabs/react-button'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { Property, PropertyAction, PropertyProps } from '@xyo-network/react-property'
-import { SizeProp } from '@xyo-network/react-shared'
+import { SizeProp, usePayloadHash } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
 import { PayloadHashSourceDetails } from './HashSourceDetails'
@@ -20,7 +20,7 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
   const wrapper = payload ? new PayloadWrapper(payload) : undefined
 
   const [viewSourceOpen, setViewSourceOpen] = useState(false)
-  const hash = wrapper?.hash
+  const hash = usePayloadHash(payload)
 
   let elevation = 2
   if (props.paper) {
@@ -36,7 +36,7 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
     {
       icon: <ContentCopyIcon />,
       name: 'Copy',
-      onClick: async () => await navigator.clipboard.writeText(wrapper?.hash ?? ''),
+      onClick: async () => await navigator.clipboard.writeText(hash ?? ''),
     },
   ]
 

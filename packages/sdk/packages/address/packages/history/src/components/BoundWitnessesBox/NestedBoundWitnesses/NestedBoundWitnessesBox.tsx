@@ -5,14 +5,14 @@ import { useXyoEvent } from '@xyo-network/react-event'
 import isEmpty from 'lodash/isEmpty'
 import { Fragment } from 'react'
 
-import { useHashSelectionHistory } from '../../../hooks'
+import { usePayloadHashSelectionHistory } from '../../../hooks'
 import { useBoundWitnessClickHandler } from '../hooks'
 import { GlowingDiv } from '../layout'
 
 export type NestedBoundWitnessesProps = FlexBoxProps
 
 export const NestedBoundWitnessesBox: React.FC<NestedBoundWitnessesProps> = (props) => {
-  const { nestedBoundWitnesses, hashSelectionHistory } = useHashSelectionHistory(false)
+  const { nestedBoundWitnesses, hashSelectionHistory } = usePayloadHashSelectionHistory(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
   const [nestedBWRef] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => boundwitnessClick(noun, data, 'nestedBoundWitnesses'))
 

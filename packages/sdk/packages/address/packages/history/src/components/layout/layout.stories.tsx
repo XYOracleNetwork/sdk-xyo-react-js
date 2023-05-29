@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { Hasher } from '@xyo-network/core'
 import { useXyoEvent } from '@xyo-network/react-event'
+import { usePayloadHashes } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -22,9 +22,11 @@ export default {
 
 const Template: StoryFn<typeof WrappedContainer> = (props) => {
   const { setActiveBoundWitness } = useActiveBoundWitness()
+  const sampleAddressHistoryPairs = usePayloadHashes(sampleAddressHistory)
   const [ref] = useXyoEvent<HTMLUListElement>((noun, _verb, data) => {
     if (noun === 'boundwitness' && data) {
-      setActiveBoundWitness?.(sampleAddressHistory.find((bw) => Hasher.hash(bw) === data))
+      const found = sampleAddressHistoryPairs?.find(([_, hash]) => hash === data)?.[0]
+      setActiveBoundWitness?.(found)
     }
   })
   return (

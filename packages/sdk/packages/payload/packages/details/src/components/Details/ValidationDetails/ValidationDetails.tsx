@@ -3,13 +3,16 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { Property, PropertyGroup } from '@xyo-network/react-property'
 import { SchemaProperty } from '@xyo-network/react-schema'
+import { usePromise } from '@xyo-network/react-shared'
 
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
 export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ viewSchemaUrl, skipBody = false, value, ...props }) => {
   const validator = value ? new PayloadValidator(value) : undefined
 
-  const bodyErrors = skipBody ? [] : validator?.validate() ?? []
+  const [validateErrors] = usePromise(validator?.validate(), [validator])
+
+  const bodyErrors = skipBody ? [] : validateErrors ?? []
   const errors: Error[] = [...bodyErrors]
 
   let elevation = 2

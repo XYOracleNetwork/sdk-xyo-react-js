@@ -4,7 +4,7 @@ import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useHashSelectionHistory } from '../../hooks'
+import { usePayloadHashSelectionHistory } from '../../hooks'
 import { BoundWitnessesBox } from './BoundWitnessesBox'
 
 export interface BoundWitnessBoxWithAddressRouterProps extends FlexBoxProps {
@@ -14,7 +14,7 @@ export interface BoundWitnessBoxWithAddressRouterProps extends FlexBoxProps {
 export const BoundWitnessBoxWithAddressRouter = forwardRef<HTMLDivElement, BoundWitnessBoxWithAddressRouterProps>(
   ({ baseRoute = '/address/', ...props }, ref) => {
     const navigate = useNavigate()
-    const { clearHistory } = useHashSelectionHistory()
+    const { clearHistory } = usePayloadHashSelectionHistory()
 
     const sharedRef = useShareForwardedRef(ref)
 

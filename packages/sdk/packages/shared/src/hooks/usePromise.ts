@@ -1,9 +1,10 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { Promisable } from '@xyo-network/promise'
 import { useReducer } from 'react'
 
-enum State {
+export enum State {
   pending = 'pending',
   rejected = 'rejected',
   resolved = 'resolved',
@@ -52,7 +53,10 @@ const reducer = (_state: PromiseState, action: Action) => {
 /**
  * usePromise -
  */
-export const usePromise = <D, T extends Promise<D> | D>(promise?: T, dependencies: unknown[] = []) => {
+export const usePromise = <TResult>(
+  promise?: Promisable<TResult>,
+  dependencies: unknown[] = [],
+): [TResult | undefined, Error | undefined, State | undefined] => {
   const [{ error, result, state }, dispatch] = useReducer(reducer, defaultState)
 
   useAsyncEffect(

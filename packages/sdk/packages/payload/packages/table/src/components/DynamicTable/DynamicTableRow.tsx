@@ -5,11 +5,10 @@ import { AvatarProps, TableCell, TableCellProps, TableRow, TableRowProps, Typogr
 import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { useNetwork } from '@xyo-network/react-network'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
-import { HashTableCell, HashTableCellProps } from '@xyo-network/react-shared'
+import { HashTableCell, HashTableCellProps, usePayloadHash, usePromise } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 
 import {
@@ -35,15 +34,17 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-  const wrapper = payload ? new PayloadWrapper(payload) : undefined
+  const payloadHash = usePayloadHash(payload)
   const { network } = useNetwork()
   const { resolver } = usePayloadRenderPluginResolver()
+  const [validationErrors = []] = usePromise(payload ? new PayloadValidator(payload).validate() : undefined, [payload])
+  const isValid = validationErrors.length === 0
   const hash: React.FC<HashTableCellProps> = (props) => (
     <HashTableCell
       key="hash"
       align="left"
       archive={archive}
-      value={wrapper?.hash}
+      value={payloadHash}
       dataType="payload"
       exploreDomain={exploreDomain}
       network={networkProp ?? network?.slug}
@@ -85,8 +86,6 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
       </TableCell>
     )
   }
-
-  const isValid = wrapper ? new PayloadValidator(wrapper.body).validate().length === 0 : undefined
 
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>

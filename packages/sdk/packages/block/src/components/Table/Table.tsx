@@ -1,6 +1,6 @@
 import { TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { Hasher } from '@xyo-network/core'
+import { usePayloadHashes } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
 
 import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig'
@@ -18,6 +18,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
   ...props
 }) => {
   const breakPoint = useBreakpoint()
+  const blockPairs = usePayloadHashes(blocks)
   return breakPoint ? (
     <TableEx variant={variant} {...props}>
       <TableHead>
@@ -32,10 +33,10 @@ export const BlockTable: React.FC<BlockTableProps> = ({
         </TableRow>
       </TableHead>
       <TableBody>
-        {blocks?.map((block, index) => (
+        {blockPairs?.map(([block, hash], index) => (
           <BlockTableRowWithErrorBoundary
             archive={archive}
-            key={`${Hasher.hash(block)}`}
+            key={`${hash}`}
             block={block}
             index={index}
             exploreDomain={exploreDomain}

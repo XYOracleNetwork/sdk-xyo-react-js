@@ -19,9 +19,9 @@ import {
 } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
-import { useEffect, useState } from 'react'
+import { usePayloadHashes } from '@xyo-network/react-shared'
+import { useEffect, useMemo, useState } from 'react'
 
 import { PayloadDynamicTableRow } from './DynamicTableRow'
 import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig'
@@ -97,6 +97,10 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount) : 0
 
+  const pagedPayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, page, rowsPerPage])
+
+  const payloadPairs = usePayloadHashes(pagedPayloads)
+
   useEffect(() => {
     setRowsPerPage(rowsPerPageProp)
   }, [rowsPerPageProp])
@@ -126,12 +130,11 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
         </TableRow>
       </TableHead>
       <TableBody sx={{ overflowY: 'scroll ' }}>
-        {payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((payload, index) => {
-          const wrapper = new PayloadWrapper(payload)
+        {payloadPairs?.map(([payload, hash], index) => {
           return (
             <XyoThrownErrorBoundary
               boundaryName="PayloadTableBody"
-              key={`${wrapper.hash}-${index}`}
+              key={`${hash}-${index}`}
               errorComponent={(e) => (
                 <Alert severity="error">
                   Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>
