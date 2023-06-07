@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { AccountInstance } from '@xyo-network/account-model'
-import { SchemaStatsPayload, SchemaStatsQueryPayload, SchemaStatsQuerySchema } from '@xyo-network/diviner-schema-stats-model'
+import { isSchemaStatsPayload, SchemaStatsPayload, SchemaStatsQueryPayload, SchemaStatsQuerySchema } from '@xyo-network/diviner-schema-stats-model'
 import { TYPES } from '@xyo-network/node-core-types'
 import { useDiviner } from '@xyo-network/react-diviner'
 import { useAccount } from '@xyo-network/react-wallet'
@@ -38,7 +38,7 @@ export const useSchemaStats = (
           }
         } else {
           try {
-            const schemas = (await diviner.divine([query])) as SchemaStatsPayload[]
+            const schemas = (await diviner.divine([query])).filter(isSchemaStatsPayload)
             if (mounted()) {
               setSchemaList(schemas)
               setError(undefined)
