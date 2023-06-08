@@ -1,7 +1,13 @@
-let count = 0
+interface Myself {
+  count: number
+}
+
+type ISelf = Window & typeof globalThis & Myself
 
 self.onmessage = (event) => {
+  const mySelf = self as unknown as ISelf
+  mySelf.count = mySelf.count || 0
   console.log('Inside Worker', event)
-  count++
-  self.postMessage(count.toString())
+  mySelf.count++
+  self.postMessage(mySelf.count.toString())
 }
