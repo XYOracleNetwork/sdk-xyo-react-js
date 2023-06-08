@@ -2,7 +2,7 @@ import { Buffer, bufferPolyfill } from '@xylabs/buffer'
 import { IndexedDbArchivist, IndexedDbArchivistConfigSchema } from '@xyo-network/archivist-indexeddb'
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 
-self.onmessage = async (event) => {
+self.onmessage = async (_event) => {
   interface Myself {
     Buffer: Buffer
     count: number
