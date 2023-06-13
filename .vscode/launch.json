@@ -22,28 +22,17 @@
       "pauseForSourceMap": true,
     },
     {
-      "name": "Debug Jest Tests",
-      "type": "node",
+      "name": "Storybook",
+      "type": "node-terminal",
       "request": "launch",
-      "linux": {
-        "runtimeArgs": [
-          "--inspect-brk",
-          "${workspaceRoot}/node_modules/.bin/jest",
-          "--runInBand"
-        ]
-      },
-      "windows": {
-        "runtimeArgs": [
-          "--inspect-brk",
-          "${workspaceRoot}/node_modules/jest/bin/jest.js",
-          "--runInBand"
-        ]
-      },
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "port": 9229,
       "cwd": "${workspaceFolder}",
-      "envFile": "${workspaceFolder}/.env"
+      "command": "cd ${workspaceFolder} && yarn start",
+      "internalConsoleOptions": "openOnFirstSessionStart",
+      "serverReadyAction": {
+        "pattern": "Local:.+(https?://[^:]+:[0-9]+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
     }
   ]
 }
