@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { XyoBowserSystemInfoWitness, XyoBowserSystemInfoWitnessConfigSchema } from '@xyo-network/bowser-system-info-plugin'
+import { BowserSystemInfoWitness, BowserSystemInfoWitnessConfigSchema } from '@xyo-network/bowser-system-info-plugin'
 import { NodeWrapper } from '@xyo-network/node'
 import { MemoryNodeBuilder } from '@xyo-network/react-standard-node'
 import { WitnessWrapper } from '@xyo-network/witness'
@@ -12,8 +12,8 @@ export type SampleNodeModuleNames = (typeof SampleNodeModuleNames)[number]
 export type SampleNodeModules = Partial<Record<SampleNodeModuleNames, string>>
 
 const buildSystemInfoWitness = async (moduleName?: string) => {
-  const sysInfoWitness = await XyoBowserSystemInfoWitness.create({
-    config: { name: moduleName, schema: XyoBowserSystemInfoWitnessConfigSchema },
+  const sysInfoWitness = await BowserSystemInfoWitness.create({
+    config: { name: moduleName, schema: BowserSystemInfoWitnessConfigSchema },
   })
   return WitnessWrapper.wrap(sysInfoWitness)
 }

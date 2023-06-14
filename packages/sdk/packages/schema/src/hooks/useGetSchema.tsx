@@ -2,7 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ModuleError, ModuleErrorSchema } from '@xyo-network/module'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { SchemaCache, SchemaCacheEntry } from '@xyo-network/schema-cache'
-import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
+import { SchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { useState } from 'react'
 
 /**
@@ -46,7 +46,7 @@ const useGetSchemaPayload = (schema?: string) => {
     notFound,
     schemaHuri: schemaCacheEntry?.huri,
     schemaPayload: schemaCacheEntry
-      ? new PayloadBuilder<XyoSchemaPayload>(schemaCacheEntry?.payload).fields(schemaCacheEntry.payload).build()
+      ? new PayloadBuilder<SchemaPayload>(schemaCacheEntry?.payload).fields(schemaCacheEntry.payload).build()
       : schemaCacheEntry,
     xyoError,
   }

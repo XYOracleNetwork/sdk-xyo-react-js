@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { DivinerWrapper, XyoHuriPayload, XyoHuriSchema } from '@xyo-network/diviner'
+import { DivinerWrapper, HuriPayload, HuriSchema } from '@xyo-network/diviner'
 import { Payload } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
@@ -29,7 +29,7 @@ export const useDivinePayload = <T extends Payload = Payload>(
     async (mounted) => {
       if (huri && diviner && payload === undefined) {
         try {
-          const huriPayload: XyoHuriPayload = { huri: [huri], schema: XyoHuriSchema }
+          const huriPayload: HuriPayload = { huri: [huri], schema: HuriSchema }
           const wrapper = diviner ? DivinerWrapper.wrap(diviner) : undefined
           const [payload] = (await wrapper?.divine([huriPayload])) ?? []
           if (mounted()) {
@@ -67,7 +67,7 @@ export const useDivinePayloads = <T extends Payload = Payload>(
       console.log(`huriList: ${JSON.stringify(huriList, null, 2)}`)
       const payloads = await Promise.allSettled(
         huriList.map(async (huri) => {
-          const huriPayload: XyoHuriPayload = { huri: [huri], schema: XyoHuriSchema }
+          const huriPayload: HuriPayload = { huri: [huri], schema: HuriSchema }
           const wrapper = diviner ? DivinerWrapper.wrap(diviner) : undefined
           const [payload] = (await wrapper?.divine([huriPayload])) ?? []
           return payload

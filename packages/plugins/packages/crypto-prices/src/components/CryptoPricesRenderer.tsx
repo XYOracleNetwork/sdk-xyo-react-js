@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 
 export interface CryptoPricesRendererProps extends FlexBoxProps {
@@ -8,7 +8,7 @@ export interface CryptoPricesRendererProps extends FlexBoxProps {
 }
 
 export const CryptoPricesRenderer: React.FC<CryptoPricesRendererProps> = ({ payload, ...props }) => {
-  const cryptoMarketPayload = payload as XyoCoingeckoCryptoMarketPayload | undefined
+  const cryptoMarketPayload = payload as CoingeckoCryptoMarketPayload | undefined
   const assets = cryptoMarketPayload?.assets
   return (
     <FlexCol {...props}>

@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { XyoCryptoMarketAssetPayload } from '@xyo-network/crypto-asset-payload-plugin'
+import { CryptoMarketAssetPayload } from '@xyo-network/crypto-asset-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
@@ -13,7 +13,7 @@ export interface CryptoAssetRendererProps extends PayloadDetailsRenderProps {
 }
 
 export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payload, ...props }) => {
-  const cryptoAssetPayload = payload ? (payload as XyoCryptoMarketAssetPayload) : undefined
+  const cryptoAssetPayload = payload ? (payload as CryptoMarketAssetPayload) : undefined
 
   if (isEmpty(cryptoAssetPayload?.assets)) {
     return <PayloadDataMissing alertBody="Payload is missing valid asset prices" />

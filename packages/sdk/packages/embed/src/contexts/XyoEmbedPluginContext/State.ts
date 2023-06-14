@@ -15,13 +15,13 @@ export interface EmbedPluginVisibilityConfig {
 /**
  * Extend for custom plugin configuration
  */
-export interface XyoPluginConfig {
+export interface PluginConfig {
   listMode?: ListMode
 }
 
 export interface XyoEmbedPluginBase {
   /** XyoEmbedPlugin component configuration */
-  embedPluginConfig?: XyoPluginConfig
+  embedPluginConfig?: PluginConfig
   hideElementsConfig?: EmbedPluginVisibilityConfig
   /** @deprecated use huriPayload */
   huri?: string

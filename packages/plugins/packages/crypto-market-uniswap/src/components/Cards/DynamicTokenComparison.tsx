@@ -3,11 +3,11 @@ import { Divider, IconButton } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
-import { XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
 
 export interface TokenComparisonSummaryProps {
-  tokenPayload: XyoUniswapCryptoPair
+  tokenPayload: UniswapCryptoPair
 }
 
 export const DynamicTokenComparison: React.FC<TokenComparisonSummaryProps> = ({ tokenPayload }) => {

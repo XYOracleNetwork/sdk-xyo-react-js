@@ -1,5 +1,5 @@
 import { CardContent, CardContentProps, Grid } from '@mui/material'
-import { XyoEthereumGasBlocknativePayload } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
+import { EthereumGasBlocknativePayload } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
@@ -9,7 +9,7 @@ import { forwardRef } from 'react'
 import { useBlocknativeTransformer } from '../hooks'
 
 export const BlocknativeGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
-  const gasPricePayload = payload ? (payload as XyoEthereumGasBlocknativePayload) : undefined
+  const gasPricePayload = payload ? (payload as EthereumGasBlocknativePayload) : undefined
   const parsedPayload = useBlocknativeTransformer(gasPricePayload)
 
   if (isEmpty(gasPricePayload) || !gasPricePayload.blockPrices?.length) {

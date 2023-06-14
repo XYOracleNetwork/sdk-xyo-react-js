@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { XyoEthereumGasEthersSchema } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
+import { EthereumGasEthersSchema } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
 import { sampleEthersGasPricePayload } from '@xyo-network/react-storybook'
 
 import { EthersGasPriceCard } from './Card'
@@ -24,7 +24,7 @@ const WithData = Template.bind({})
 WithData.args = { payload: sampleEthersGasPricePayload }
 
 const WithMissingData = Template.bind({})
-WithMissingData.args = { payload: { schema: XyoEthereumGasEthersSchema } }
+WithMissingData.args = { payload: { schema: EthereumGasEthersSchema } }
 
 export { Default, WithData, WithMissingData }
 

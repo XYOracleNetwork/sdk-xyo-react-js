@@ -12,7 +12,7 @@ export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
 
 export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> = ({ noTitle = false, payload, ...props }) => {
   const theme = useTheme()
-  const payloadWrapper = payload ? new PayloadWrapper(payload) : null
+  const payloadWrapper = payload ? PayloadWrapper.wrap(payload) : null
 
   return (
     <FlexCol alignItems="stretch" {...props}>

@@ -1,4 +1,4 @@
-import { XyoEthereumGasEtherchainV2Schema } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
+import { EthereumGasEtherchainV2Schema } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 import { EthereumGasPriceAvatar } from '@xyo-network/react-gas-price'
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
@@ -7,7 +7,7 @@ import { EtherchainV2GasPriceCardContent, EtherchainV2GasPriceCardHeader, Etherc
 
 export const EthereumGasPriceEtherchainV2Plugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
-    canRender: (payload?: Payload) => payload?.schema === XyoEthereumGasEtherchainV2Schema,
+    canRender: (payload?: Payload) => payload?.schema === EthereumGasEtherchainV2Schema,
     components: {
       avatar: {
         image: EthereumGasPriceAvatar,

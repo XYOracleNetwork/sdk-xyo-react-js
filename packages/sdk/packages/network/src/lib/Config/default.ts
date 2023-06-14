@@ -1,25 +1,25 @@
-import { XyoNetworkPayload, XyoNetworkSchema } from '@xyo-network/network'
+import { NetworkPayload, NetworkSchema } from '@xyo-network/network'
 
 import { findArchivistPreset } from '../archivistPresets'
 import { findDivinerPreset } from '../divinerPresets'
 
-export const defaultNetworkConfigs: XyoNetworkPayload[] = [
+export const defaultNetworkConfigs: NetworkPayload[] = [
   {
     name: 'Kerplunk',
     nodes: [findArchivistPreset('kerplunk-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
-    schema: XyoNetworkSchema,
+    schema: NetworkSchema,
     slug: 'kerplunk',
   },
   {
     name: 'Main',
     nodes: [findArchivistPreset('main-archivist-xyo-network'), findDivinerPreset('location-diviner-xyo-network')],
-    schema: XyoNetworkSchema,
+    schema: NetworkSchema,
     slug: 'main',
   },
   {
     name: 'Local',
     nodes: [findArchivistPreset('local-archivist-xyo-network'), findDivinerPreset('local-location-diviner-xyo-network')],
-    schema: XyoNetworkSchema,
+    schema: NetworkSchema,
     slug: 'local',
   },
 ]

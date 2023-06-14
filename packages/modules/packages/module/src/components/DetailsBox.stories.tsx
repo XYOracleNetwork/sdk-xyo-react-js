@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { MemoryArchivist } from '@xyo-network/archivist'
-import { XyoCryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-plugin'
+import { CryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-plugin'
 import { DivinerModule } from '@xyo-network/diviner'
 import { MemoryNode } from '@xyo-network/node'
 import { useState } from 'react'
@@ -69,7 +69,7 @@ const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const diviner = await XyoCryptoMarketAssetDiviner.create()
+      const diviner = await CryptoMarketAssetDiviner.create()
       if (mounted()) {
         setDiviner(diviner)
       }

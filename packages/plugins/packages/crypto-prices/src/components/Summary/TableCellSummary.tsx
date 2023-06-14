@@ -1,11 +1,11 @@
 import { TableCell, TableCellProps } from '@mui/material'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { TokenData, useGetTokenData, XyoThemeTokenAvatarGroup } from '@xyo-network/react-shared'
-import { XyoUniswapCryptoMarketPayload, XyoUniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({ payload, ...props }) => {
-  const payloadTyped = payload as XyoUniswapCryptoMarketPayload
-  const makeTokenList = (payloadData: XyoUniswapCryptoPair[]) => {
+  const payloadTyped = payload as UniswapCryptoMarketPayload
+  const makeTokenList = (payloadData: UniswapCryptoPair[]) => {
     const tokenList: string[] = []
     {
       payloadData.map((pair) => pair.tokens.map((token) => (tokenList.includes(token.symbol) ? null : tokenList.push(token.symbol))))

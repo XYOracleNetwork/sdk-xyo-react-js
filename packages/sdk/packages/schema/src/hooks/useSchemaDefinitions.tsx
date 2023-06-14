@@ -1,12 +1,12 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { SchemaCache } from '@xyo-network/schema-cache'
-import { XyoSchemaPayload } from '@xyo-network/schema-payload-plugin'
+import { SchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { useState } from 'react'
 
 export type SchemaList = { name: string }
 
-export const useSchemaDefinitions = (schemaList?: SchemaList[]): XyoSchemaPayload[] | undefined => {
-  const [schemaPayloads, setSchemaPayloads] = useState<XyoSchemaPayload[]>()
+export const useSchemaDefinitions = (schemaList?: SchemaList[]): SchemaPayload[] | undefined => {
+  const [schemaPayloads, setSchemaPayloads] = useState<SchemaPayload[]>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
@@ -16,7 +16,7 @@ export const useSchemaDefinitions = (schemaList?: SchemaList[]): XyoSchemaPayloa
           setSchemaPayloads(
             promiseResults
               .map((result) => (result.status === 'fulfilled' ? result.value?.payload : undefined))
-              .filter((item) => item !== undefined && item !== null) as XyoSchemaPayload[],
+              .filter((item) => item !== undefined && item !== null) as SchemaPayload[],
           )
         }
       }

@@ -1,7 +1,7 @@
-import { XyoEthereumGasEtherchainV2Payload } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
+import { EthereumGasEtherchainV2Payload } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
-export const useEtherchainV2Transformer = (payload?: XyoEthereumGasEtherchainV2Payload): GasPriceWitnessUIBasePayload | undefined => {
+export const useEtherchainV2Transformer = (payload?: EthereumGasEtherchainV2Payload): GasPriceWitnessUIBasePayload | undefined => {
   if (payload) {
     return {
       gasPrice: [

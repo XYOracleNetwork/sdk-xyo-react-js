@@ -17,7 +17,7 @@ export type PayloadDataDetailsProps = PropertyProps & {
 }
 
 export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, badge, payload, ...props }) => {
-  const wrapper = payload ? new PayloadWrapper(payload) : undefined
+  const wrapper = payload ? PayloadWrapper.wrap(payload) : undefined
 
   const [viewSourceOpen, setViewSourceOpen] = useState(false)
   const hash = usePayloadHash(payload)

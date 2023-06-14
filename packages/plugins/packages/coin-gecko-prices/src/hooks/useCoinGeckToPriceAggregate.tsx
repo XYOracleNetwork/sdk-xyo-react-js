@@ -1,4 +1,4 @@
-import { XyoCoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 
 const mapAssetsToString = (assetValues: Partial<Record<string, number>> | undefined) => {
   return assetValues
@@ -10,7 +10,7 @@ const mapAssetsToString = (assetValues: Partial<Record<string, number>> | undefi
 }
 
 /** InMemory Transform Diviner to get payload to shape used by AggregatePrice Plugin */
-export const useCoinGeckoToAssetPriceDiviner = (payload?: XyoCoingeckoCryptoMarketPayload) => {
+export const useCoinGeckoToAssetPriceDiviner = (payload?: CoingeckoCryptoMarketPayload) => {
   if (payload) {
     const modifiedAssets = Object.entries(payload.assets).reduce((accumulator, [assetName, assetValues]) => {
       accumulator[assetName] = {

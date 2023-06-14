@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { XyoEthereumGasEtherchainV2Payload } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
+import { EthereumGasEtherchainV2Payload } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import { GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
@@ -13,7 +13,7 @@ import { RenderTitle } from '../../lib'
 export const EtherchainV2GasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ payload, listMode, ...props }, ref) => {
-    const gasPricePayload: XyoEthereumGasEtherchainV2Payload | undefined = payload ? (payload as XyoEthereumGasEtherchainV2Payload) : undefined
+    const gasPricePayload: EthereumGasEtherchainV2Payload | undefined = payload ? (payload as EthereumGasEtherchainV2Payload) : undefined
     const parsedPayload = useEtherchainV2Transformer(gasPricePayload)
 
     return (

@@ -1,5 +1,5 @@
 import { CardContent, CardContentProps, Grid } from '@mui/material'
-import { XyoEthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
+import { EthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
@@ -9,7 +9,7 @@ import { forwardRef } from 'react'
 import { useEthgasstationTransformer } from '../hooks'
 
 export const EthgasstationGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
-  const gasPricePayload = payload ? (payload as XyoEthereumGasEthgasstationPayload) : undefined
+  const gasPricePayload = payload ? (payload as EthereumGasEthgasstationPayload) : undefined
   const parsedPayload = useEthgasstationTransformer(gasPricePayload)
 
   if (isEmpty(gasPricePayload) || isEmpty(gasPricePayload?.gasPrice)) {
