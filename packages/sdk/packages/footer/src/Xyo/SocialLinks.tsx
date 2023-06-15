@@ -5,7 +5,7 @@ import { FaDiscord } from 'react-icons/fa'
 import { FooterLink } from '../Link'
 import { FooterLinks } from '../Links'
 
-export const XyoSocialLinks: React.FC<FlexBoxProps> = (props) => {
+export const SocialLinks: React.FC<FlexBoxProps> = (props) => {
   return (
     <FooterLinks title="XYO Socials" {...props}>
       <FlexRow flexWrap="wrap" justifyContent="flex-start">

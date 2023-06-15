@@ -2,12 +2,12 @@ import { useInterval, WithChildren } from '@xylabs/react-shared'
 import { Map } from 'mapbox-gl'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import { XyoMapLayer } from '../Layers'
-import { XyoMapboxFlexBoxProps } from '../lib'
+import { MapLayer } from '../Layers'
+import { MapboxFlexBoxProps } from '../lib'
 
 export interface LayerAnimatorProps {
   animateLayers?: boolean
-  layers: XyoMapboxFlexBoxProps['layers']
+  layers: MapboxFlexBoxProps['layers']
   layersInitialized: boolean
   map: Map | undefined
 }
@@ -16,7 +16,7 @@ const timeIncrement = 2000
 const animatedLayerCount = 3
 
 export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ animateLayers, children, layers, layersInitialized, map }) => {
-  const [fillLayers, setFillLayers] = useState<XyoMapLayer[]>([])
+  const [fillLayers, setFillLayers] = useState<MapLayer[]>([])
   const layerIndexQueue = useRef<number[]>([])
 
   const incrementQueue = useCallback(
@@ -52,7 +52,7 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ anim
   }, [fillLayers, incrementQueue, lastQueuedIndex])
 
   const layerAnimateWorker = useCallback(
-    (layer: XyoMapLayer) => {
+    (layer: MapLayer) => {
       if (layer) {
         map?.setPaintProperty(layer.id, 'fill-opacity', 0.85)
         setTimeout(() => {
@@ -83,7 +83,7 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ anim
 
   //
   const queueLayerAnimation = useCallback(() => {
-    const animatedLayers: XyoMapLayer[] = []
+    const animatedLayers: MapLayer[] = []
 
     for (let i = 0; i < animatedLayerCount; i++) {
       animatedLayers.push(getNextLayer())

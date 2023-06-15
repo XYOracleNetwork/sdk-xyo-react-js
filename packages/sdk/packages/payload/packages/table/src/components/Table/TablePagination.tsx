@@ -3,7 +3,7 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import LastPageIcon from '@mui/icons-material/LastPage'
 import { Box, CircularProgress, IconButton, useTheme } from '@mui/material'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 
 import { PaginationNouns } from './types'
 
@@ -18,7 +18,7 @@ export interface TablePaginationActionsProps {
 
 export function TablePaginationActions({ count, enableNextPage, loading, onPageChange, page, rowsPerPage }: TablePaginationActionsProps) {
   const theme = useTheme()
-  const [paginationRef, paginationDispatch] = useXyoEvent<HTMLButtonElement, PaginationNouns>()
+  const [paginationRef, paginationDispatch] = useEvent<HTMLButtonElement, PaginationNouns>()
 
   const handleFirstPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     paginationDispatch('firstPage', 'click', 'true')

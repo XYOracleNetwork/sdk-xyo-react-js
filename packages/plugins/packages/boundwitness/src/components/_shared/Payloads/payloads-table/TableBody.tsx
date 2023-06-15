@@ -1,5 +1,5 @@
 import { TableBody, TableCell, TableRow } from '@mui/material'
-import { useXyoEvent, XyoEventNoun } from '@xyo-network/react-event'
+import { EventNoun, useEvent } from '@xyo-network/react-event'
 import { PayloadTableBodyProps, TableRowNoData } from '@xyo-network/react-payload-table'
 import { HashTableCell } from '@xyo-network/react-shared'
 import { useTableHeight } from '@xyo-network/react-table'
@@ -7,7 +7,7 @@ import { useLayoutEffect, useRef } from 'react'
 
 export interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps {
   boundwitnessHash?: string
-  eventNoun?: XyoEventNoun
+  eventNoun?: EventNoun
   payloadHashes?: string[]
   payloadSchemas?: string[]
 }
@@ -22,7 +22,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows, noResults, NoResultRowComponent, ...tableProps } = props
   const ref = useRef<HTMLTableSectionElement | null>(null)
-  const [tableRef, dispatch] = useXyoEvent<HTMLTableSectionElement>(undefined, ref)
+  const [tableRef, dispatch] = useEvent<HTMLTableSectionElement>(undefined, ref)
 
   const { setRowHeight } = useTableHeight()
   const tableRowRef = useRef<HTMLTableRowElement | null>(null)

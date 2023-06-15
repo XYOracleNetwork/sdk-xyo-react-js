@@ -1,5 +1,5 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { sampleBlock } from '@xyo-network/react-storybook'
 import { useRef } from 'react'
 
@@ -7,7 +7,7 @@ import { BoundWitnessDetailsCard } from './DetailsCard'
 
 const WithEventDecorator: Decorator = (Story, args) => {
   const ref = useRef<HTMLDivElement | null>(null)
-  const [tableRef] = useXyoEvent<HTMLDivElement>((noun, verb, data) => console.log(`${noun}|${verb}|${data}`), ref)
+  const [tableRef] = useEvent<HTMLDivElement>((noun, verb, data) => console.log(`${noun}|${verb}|${data}`), ref)
   args.args.ref = tableRef
 
   return <Story {...args} />

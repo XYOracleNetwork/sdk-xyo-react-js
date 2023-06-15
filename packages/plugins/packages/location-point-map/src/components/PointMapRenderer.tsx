@@ -5,9 +5,9 @@ import { Payload } from '@xyo-network/payload-model'
 import {
   LocationPointsMapLayerBuilder,
   MapBoxInstanceProvider,
+  MapboxPointsFlexBox,
   MapSettingsProvider,
   useMapboxAccessToken,
-  XyoMapboxPointsFlexBox,
 } from '@xyo-network/react-map'
 import { Feature, Point } from 'geojson'
 import { useEffect, useState } from 'react'
@@ -50,7 +50,7 @@ const PointMapInner: React.FC<PointMapInnerProps> = ({ accessToken, payload, ...
   }
 
   return accessTokenResolved ? (
-    <XyoMapboxPointsFlexBox
+    <MapboxPointsFlexBox
       accessToken={accessTokenResolved}
       features={feature ? [feature] : []}
       layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}

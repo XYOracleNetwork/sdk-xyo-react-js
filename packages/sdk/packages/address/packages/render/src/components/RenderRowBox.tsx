@@ -2,7 +2,7 @@ import { ListItemIcon, ListItemText, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexGrowRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { WithChildren } from '@xylabs/react-shared'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { EllipsizeBox, useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
@@ -25,7 +25,7 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
     const theme = useTheme()
 
     const sharedRef = useShareForwardedRef(ref)
-    const [elementRef, dispatch] = useXyoEvent(undefined, sharedRef)
+    const [elementRef, dispatch] = useEvent(undefined, sharedRef)
 
     const handleClickedAddress = () => (address ? dispatch('address', 'click', address) : undefined)
 

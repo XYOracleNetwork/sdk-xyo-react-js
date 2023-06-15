@@ -1,6 +1,6 @@
 import type { WithChildren } from '@xylabs/react-shared'
 import { ModuleErrorSchema } from '@xyo-network/module'
-import { XyoErrorRender } from '@xyo-network/react-error'
+import { ErrorRender } from '@xyo-network/react-error'
 import { useBuildHuri } from '@xyo-network/react-payload-huri'
 import { useParams, useSearchParams } from 'react-router-dom'
 
@@ -31,12 +31,12 @@ export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children
   const { payloadError } = useDivinedPayload()
 
   return (
-    <XyoErrorRender
+    <ErrorRender
       error={payloadError ? { message: payloadError.message, schema: ModuleErrorSchema, sources: [] } : undefined}
       errorContext="Divined Payload Provider"
     >
       {children}
-    </XyoErrorRender>
+    </ErrorRender>
   )
 }
 

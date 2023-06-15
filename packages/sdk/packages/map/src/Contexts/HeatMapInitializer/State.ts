@@ -1,7 +1,7 @@
-import { XyoHeatMapColorProps } from '../../Colors'
-import { XyoMapHeat } from '../../MapBoxClasses'
+import { HeatMapColorProps } from '../../Colors'
+import { MapHeat } from '../../MapBoxClasses'
 
 export interface HeatMapInitializerState {
-  MapHeat?: XyoMapHeat
-  heatMapColorProps?: XyoHeatMapColorProps
+  MapHeat?: MapHeat
+  heatMapColorProps?: HeatMapColorProps
 }

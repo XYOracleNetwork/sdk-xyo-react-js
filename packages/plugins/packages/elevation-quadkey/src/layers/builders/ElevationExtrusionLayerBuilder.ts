@@ -1,4 +1,4 @@
-import { SymbolLayerBuilder, XyoMapLayer } from '@xyo-network/react-map'
+import { MapLayer, SymbolLayerBuilder } from '@xyo-network/react-map'
 
 import { ElevationExtrusionLayerConfig, ElevationSymbolLayerConfig } from '../configs'
 import { FillExtrusionLayerBuilder } from '../FillExtrusionLayer'
@@ -30,7 +30,7 @@ export const ElevationExtrusionLayerBuilder = (color: string, alternateColor = '
   const quadkeyElevationLayer = new FillExtrusionLayerBuilder(QuadkeyElevationLayerId, QuadkeyElevationLayerSource, quadkeyElevationLayerConfig)
   const debugLayer = new SymbolLayerBuilder(ElevationDebugLayerId, ElevationDebugLayerSource, debugLayerConfig)
 
-  const layers: XyoMapLayer[] = [elevationLayer, quadkeyElevationLayer, debugLayer]
+  const layers: MapLayer[] = [elevationLayer, quadkeyElevationLayer, debugLayer]
 
   return layers
 }

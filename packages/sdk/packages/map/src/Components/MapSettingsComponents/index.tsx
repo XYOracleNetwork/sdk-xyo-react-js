@@ -1,2 +1,2 @@
 export * from './Setting'
-export * from './Settings'
+export * from './SettingsBox'

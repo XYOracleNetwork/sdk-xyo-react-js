@@ -1,18 +1,18 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
-import { XyoErrorRender } from '@xyo-network/react-error'
+import { ErrorRender } from '@xyo-network/react-error'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,
+  MapboxHeatFlexBox,
   MapBoxInstanceProvider,
   MapHeatConstants,
   MapSetting,
   MapSettingsProvider,
-  NetworkXyoLocationHeatmapQuadkeyAnswerPayload,
+  NetworkLocationHeatmapQuadkeyAnswerPayload,
   useMapboxAccessToken,
   useQuadKeyPayloadsToFeatures,
-  XyoMapboxHeatFlexBox,
 } from '@xyo-network/react-map'
 import { Feature, Polygon } from 'geojson'
 import { useMemo } from 'react'
@@ -26,7 +26,7 @@ export interface QuadkeyHeatMapInnerProps extends FlexBoxProps {
 }
 
 const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode, payload, accessToken, ...props }) => {
-  const { error, features } = useQuadKeyPayloadsToFeatures(payload as NetworkXyoLocationHeatmapQuadkeyAnswerPayload)
+  const { error, features } = useQuadKeyPayloadsToFeatures(payload as NetworkLocationHeatmapQuadkeyAnswerPayload)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
   const accessTokenResolved = accessToken ?? accessTokenFromContext
@@ -36,19 +36,14 @@ const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode
   }, [theme.palette.secondary.main])
 
   return (
-    <XyoErrorRender error={error} errorContext={'QuadKeyHeatMapRenderer'}>
+    <ErrorRender error={error} errorContext={'QuadKeyHeatMapRenderer'}>
       {accessTokenResolved ? (
         <HeatMapInitializerProvider
           features={features as Feature<Polygon>[]}
           heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
           layers={layers}
         >
-          <XyoMapboxHeatFlexBox
-            accessToken={accessTokenResolved}
-            features={features as Feature<Polygon>[]}
-            developerMode={developerMode}
-            {...props}
-          />
+          <MapboxHeatFlexBox accessToken={accessTokenResolved} features={features as Feature<Polygon>[]} developerMode={developerMode} {...props} />
         </HeatMapInitializerProvider>
       ) : (
         <Alert severity={'error'}>
@@ -56,7 +51,7 @@ const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode
           Please add it to the environment variable or pass it directly to the component
         </Alert>
       )}
-    </XyoErrorRender>
+    </ErrorRender>
   )
 }
 

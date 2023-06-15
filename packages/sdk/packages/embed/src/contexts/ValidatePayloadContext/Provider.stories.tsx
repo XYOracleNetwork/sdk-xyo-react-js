@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 
+import { EmbedPluginContext, EmbedPluginState } from '../EmbedPluginContext'
 import { RefreshPayloadProvider } from '../RefreshPayloadContext'
 import { ResolvePayloadContext, ResolvePayloadState } from '../ResolvePayloadContext'
-import { XyoEmbedPluginContext, XyoEmbedPluginState } from '../XyoEmbedPluginContext'
 import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider'
 import { useValidatePayload } from './use'
 
@@ -13,9 +13,9 @@ const EmbedDecorator: Decorator<ValidatePayloadProviderPropsEx> = (Story, { args
   return (
     <RefreshPayloadProvider>
       <ResolvePayloadContext.Provider value={resolvePayloadContext}>
-        <XyoEmbedPluginContext.Provider value={xyoEmbedPluginContext}>
+        <EmbedPluginContext.Provider value={xyoEmbedPluginContext}>
           <Story {...props} />
-        </XyoEmbedPluginContext.Provider>
+        </EmbedPluginContext.Provider>
       </ResolvePayloadContext.Provider>
     </RefreshPayloadProvider>
   )
@@ -34,7 +34,7 @@ const ValidatePayloadState = () => {
 
 interface ValidatePayloadProviderPropsEx extends ValidatePayloadProviderProps {
   resolvePayloadContext: ResolvePayloadState
-  xyoEmbedPluginContext: XyoEmbedPluginState
+  xyoEmbedPluginContext: EmbedPluginState
 }
 
 const Template: StoryFn<React.FC<ValidatePayloadProviderPropsEx>> = (props) => {

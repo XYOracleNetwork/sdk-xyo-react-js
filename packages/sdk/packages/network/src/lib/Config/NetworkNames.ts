@@ -1,1 +1,1 @@
-export type XyoNetworkNames = 'Kerplunk' | 'Main' | 'Local'
+export type NetworkNames = 'Kerplunk' | 'Main' | 'Local'

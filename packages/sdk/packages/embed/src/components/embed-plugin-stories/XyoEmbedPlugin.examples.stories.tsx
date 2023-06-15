@@ -10,7 +10,7 @@ const UniswapPairPointer = 'https://beta.api.archivist.xyo.network/e36602006239d
 // eslint-disable-next-line import/no-default-export
 export default {
   ...xyoEmbedStoryBase,
-  title: 'embed/XyoEmbedPlugin/examples',
+  title: 'embed/EmbedPlugin/examples',
 } as Meta
 
 const AggregatePriceExample = Template.bind({})

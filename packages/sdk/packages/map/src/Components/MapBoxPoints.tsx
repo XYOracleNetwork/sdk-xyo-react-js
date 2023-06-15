@@ -5,17 +5,17 @@ import { FitBoundsOptions } from 'mapbox-gl'
 import { useCallback, useEffect, useState } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts'
-import { XyoMapboxFlexBoxProps } from '../lib'
-import { XyoMapPoints } from '../MapBoxClasses'
+import { MapboxFlexBoxProps } from '../lib'
+import { MapPoints } from '../MapBoxClasses'
 import { MapBox } from './MapBox'
-import { MapSettings } from './MapSettingsComponents'
+import { MapSettingsBox } from './MapSettingsComponents'
 
-export interface XyoMapboxPointsFlexBoxProps extends XyoMapboxFlexBoxProps {
+export interface MapboxPointsFlexBoxProps extends MapboxFlexBoxProps {
   accessToken: string
   features?: Feature<Point>[]
 }
 
-export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
+export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
   accessToken,
   features,
   fitToPointsPadding = 20,
@@ -23,7 +23,7 @@ export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
   zoom,
   ...props
 }) => {
-  const [MapPoints, setMapPoints] = useState<XyoMapPoints>()
+  const [mapPoints, setMapPoints] = useState<MapPoints>()
   const { mapSettings } = useMapSettings()
   const { map, mapInitialized } = useMapBoxInstance()
 
@@ -41,31 +41,31 @@ export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
   }
 
   const updateFeatures = useCallback(() => {
-    if (MapPoints?.isMapReady && features?.length) {
+    if (mapPoints?.isMapReady && features?.length) {
       layers?.forEach((layer) => {
-        MapPoints.initializeMapSource(layer)
+        mapPoints.initializeMapSource(layer)
       })
     }
-  }, [MapPoints, features, layers])
+  }, [mapPoints, features, layers])
 
   const updateMapSetup = useCallback(() => {
     const { fitToPoints } = mapSettings || {}
 
-    if (MapPoints && map) {
+    if (mapPoints && map) {
       if (fitToPoints?.value === true) {
-        MapPoints.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
+        mapPoints.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
       }
     }
-  }, [mapSettings, MapPoints, map, fitToPointsPadding, zoom])
+  }, [mapSettings, mapPoints, map, fitToPointsPadding, zoom])
 
   const reInitializeMap = useCallback(() => {
-    MapPoints?.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
+    mapPoints?.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
     updateFeatures()
-  }, [MapPoints, fitToPointsPadding, updateFeatures, zoom])
+  }, [mapPoints, fitToPointsPadding, updateFeatures, zoom])
 
   useEffect(() => {
     if (map && features?.length) {
-      setMapPoints(new XyoMapPoints({ features, map, zoom }))
+      setMapPoints(new MapPoints({ features, map, zoom }))
     }
   }, [map, features, zoom])
 
@@ -81,7 +81,7 @@ export const XyoMapboxPointsFlexBox: React.FC<XyoMapboxPointsFlexBoxProps> = ({
       {features ? (
         <>
           <MapBox accessToken={accessToken} zoom={zoom} />
-          <MapSettings />
+          <MapSettingsBox />
         </>
       ) : (
         <Alert severity="error">No data to show</Alert>

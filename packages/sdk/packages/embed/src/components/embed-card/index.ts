@@ -1,2 +1,2 @@
 export * from './card'
-export * from './XyoEmbedPluginCard'
+export * from './EmbedPluginCard'

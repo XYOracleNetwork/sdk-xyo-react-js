@@ -1,7 +1,7 @@
 import { AvatarProps, CardHeader, CardHeaderProps, Typography } from '@mui/material'
 import { ReactNode } from 'react'
 
-import { XyoThemeTokenAvatar } from '../XyoThemeTokenAvatar'
+import { ThemeTokenAvatar } from '../ThemeTokenAvatar'
 
 export interface TokenSummaryProps extends CardHeaderProps {
   icon?: string
@@ -14,7 +14,7 @@ export const TokenSummary: React.FC<TokenSummaryProps> = ({ icon, symbol, symbol
   return (
     <>
       <CardHeader
-        avatar={<XyoThemeTokenAvatar src={icon} alt={symbol} />}
+        avatar={<ThemeTokenAvatar src={icon} alt={symbol} />}
         title={
           <Typography variant="h6" fontWeight={300} textTransform="uppercase">
             {symbolElement ?? symbol}

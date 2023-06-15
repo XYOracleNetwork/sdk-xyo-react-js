@@ -1,13 +1,13 @@
 import { useTheme } from '@mui/material'
 
-import { ColorGradientLegendProps, XyoAnimatedHeatMapColorProps } from '../Colors'
+import { AnimatedHeatMapColorProps, ColorGradientLegendProps } from '../Colors'
 
 const useHeatMapColors = () => {
   const theme = useTheme()
   const staticMapColor = '#FFFF75'
   const highUsageColor = '#FF0000'
 
-  const heatMapColorProps: XyoAnimatedHeatMapColorProps = {
+  const heatMapColorProps: AnimatedHeatMapColorProps = {
     highUsageColor,
     lowUsageColor: '#FFB3B3',
     staticMapColor,

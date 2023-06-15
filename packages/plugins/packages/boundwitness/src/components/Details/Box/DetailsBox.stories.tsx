@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
 
@@ -19,9 +19,9 @@ const StorybookEntry = {
 
 const Template: StoryFn<typeof BoundWitnessDetailsBox> = (args) => {
   const sharedRef = createRef<HTMLDivElement>()
-  useXyoEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`), sharedRef)
-  useXyoEvent<HTMLDivElement>(() => console.log('2nd Listener'), sharedRef)
-  useXyoEvent<HTMLDivElement>(() => console.log('3rd Listener'), sharedRef)
+  useEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`), sharedRef)
+  useEvent<HTMLDivElement>(() => console.log('2nd Listener'), sharedRef)
+  useEvent<HTMLDivElement>(() => console.log('3rd Listener'), sharedRef)
 
   return <BoundWitnessDetailsBox ref={sharedRef} {...args} />
 }

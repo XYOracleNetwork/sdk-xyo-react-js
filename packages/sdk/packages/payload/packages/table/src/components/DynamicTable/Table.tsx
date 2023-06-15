@@ -19,7 +19,7 @@ import {
 } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
-import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
+import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -132,7 +132,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
       <TableBody sx={{ overflowY: 'scroll ' }}>
         {payloadPairs?.map(([payload, hash], index) => {
           return (
-            <XyoThrownErrorBoundary
+            <ThrownErrorBoundary
               boundaryName="PayloadTableBody"
               key={`${hash}-${index}`}
               errorComponent={(e) => (
@@ -153,7 +153,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
                 exploreDomain={exploreDomain}
                 payload={payload}
               />
-            </XyoThrownErrorBoundary>
+            </ThrownErrorBoundary>
           )
         })}
         {children}

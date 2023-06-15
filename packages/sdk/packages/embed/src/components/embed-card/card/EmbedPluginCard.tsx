@@ -2,14 +2,14 @@ import { CardContent } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useListMode } from '@xyo-network/react-shared'
 
-import { useResolvePayload, useXyoEmbedPluginState } from '../../../contexts'
+import { useEmbedPluginState, useResolvePayload } from '../../../contexts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls'
 import { BusyCard, BusyCardProps } from './BusyCard'
 import { EmbedCardHeader } from './EmbedCardHeader'
 
 export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
   const { payload } = useResolvePayload()
-  const { activePlugin: ActivePlugin, plugins, hideElementsConfig } = useXyoEmbedPluginState()
+  const { activePlugin: ActivePlugin, plugins, hideElementsConfig } = useEmbedPluginState()
   const { listMode } = useListMode()
   const supportsListMode = ActivePlugin?.components?.box?.listModes?.length ?? 0 > 1
 

@@ -1,2 +1,2 @@
-export * from './XyoErrorBoundary'
-export * from './XyoErrorRender'
+export * from './ErrorBoundary'
+export * from './ErrorRender'

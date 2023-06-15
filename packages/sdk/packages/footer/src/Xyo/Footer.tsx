@@ -2,12 +2,12 @@ import { Grid } from '@mui/material'
 
 import { Footer, FooterProps } from '../Footer'
 import { copyrightLinkTitle } from '../lib'
-import { XyoDeveloperLinks } from './DeveloperLinks'
-import { XyoMoreLinks } from './MoreLinks'
-import { XyoNetworkLinks } from './NetworkLinks'
-import { XyoSocialLinks } from './SocialLinks'
-import { XyoSupportLinks } from './SupportLinks'
-import { XyoTokenLinks } from './TokenLinks'
+import { DeveloperLinks } from './DeveloperLinks'
+import { MoreLinks } from './MoreLinks'
+import { NetworkLinks } from './NetworkLinks'
+import { SocialLinks } from './SocialLinks'
+import { SupportLinks } from './SupportLinks'
+import { TokenLinks } from './TokenLinks'
 
 const footerLinks = [
   {
@@ -41,22 +41,22 @@ export const XyoFooter: React.FC<FooterProps> = ({
     <Footer alwaysFooterLinksProps={alwaysFooterLinksProps} {...props}>
       <Grid container>
         <Grid item xs={12} md={2}>
-          <XyoSocialLinks alignItems="flex-start" />
+          <SocialLinks alignItems="flex-start" />
         </Grid>
         <Grid item xs={6} md={2}>
-          <XyoNetworkLinks alignItems="flex-start" />
+          <NetworkLinks alignItems="flex-start" />
         </Grid>
         <Grid item xs={6} md={2}>
-          <XyoTokenLinks alignItems="flex-start" />
+          <TokenLinks alignItems="flex-start" />
         </Grid>
         <Grid item xs={6} md={2}>
-          <XyoDeveloperLinks alignItems="flex-start" />
+          <DeveloperLinks alignItems="flex-start" />
         </Grid>
         <Grid item xs={6} md={2}>
-          <XyoMoreLinks alignItems="flex-start" />
+          <MoreLinks alignItems="flex-start" />
         </Grid>
         <Grid item xs={6} md={2}>
-          <XyoSupportLinks alignItems="flex-start" />
+          <SupportLinks alignItems="flex-start" />
         </Grid>
       </Grid>
     </Footer>

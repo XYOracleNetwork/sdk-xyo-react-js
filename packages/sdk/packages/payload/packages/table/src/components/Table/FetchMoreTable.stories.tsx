@@ -2,7 +2,7 @@ import { Button, Typography } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { delay } from '@xylabs/delay'
 import { Payload } from '@xyo-network/payload-model'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -79,7 +79,7 @@ const StorybookEntry = {
 } as Meta<typeof PayloadTable>
 
 const Template: StoryFn<typeof PayloadTable> = (args) => {
-  const [ref] = useXyoEvent<HTMLTableElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`))
+  const [ref] = useEvent<HTMLTableElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`))
   return (
     <BrowserRouter>
       <PayloadTable ref={ref} {...args}></PayloadTable>

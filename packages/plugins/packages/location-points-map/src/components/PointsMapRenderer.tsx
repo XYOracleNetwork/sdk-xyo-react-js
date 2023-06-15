@@ -4,10 +4,10 @@ import { Payload } from '@xyo-network/payload-model'
 import {
   LocationPointsMapLayerBuilder,
   MapBoxInstanceProvider,
+  MapboxPointsFlexBox,
   MapSettingsProvider,
-  NetworkXyoLocationAnswerPayload,
+  NetworkLocationAnswerPayload,
   useMapboxAccessToken,
-  XyoMapboxPointsFlexBox,
 } from '@xyo-network/react-map'
 
 import { PointsMapSettings } from './PointsMapSettings'
@@ -19,7 +19,7 @@ export interface PointsMapInnerProps extends FlexBoxProps {
 
 const PointsMapInner: React.FC<PointsMapInnerProps> = ({ accessToken, payload, ...props }) => {
   const theme = useTheme()
-  const features = (payload as NetworkXyoLocationAnswerPayload)?.result?.features
+  const features = (payload as NetworkLocationAnswerPayload)?.result?.features
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken()
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
@@ -33,7 +33,7 @@ const PointsMapInner: React.FC<PointsMapInnerProps> = ({ accessToken, payload, .
   }
 
   return accessTokenResolved ? (
-    <XyoMapboxPointsFlexBox
+    <MapboxPointsFlexBox
       accessToken={accessTokenResolved}
       features={features}
       layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}

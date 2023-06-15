@@ -1,6 +1,6 @@
 import { TableCell, TableCellProps } from '@mui/material'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { TokenData, useGetTokenData, XyoThemeTokenAvatarGroup } from '@xyo-network/react-shared'
+import { ThemeTokenAvatarGroup, TokenData, useGetTokenData } from '@xyo-network/react-shared'
 import { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
 export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({ payload, ...props }) => {
@@ -29,7 +29,7 @@ export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = (
   console.log(payloadTokenListData)
   return (
     <TableCell {...props} align="left">
-      <XyoThemeTokenAvatarGroup total={payloadTyped?.pairs.length} images={payloadTokenImageListData} />
+      <ThemeTokenAvatarGroup total={payloadTyped?.pairs.length} images={payloadTokenImageListData} />
     </TableCell>
   )
 }

@@ -1,7 +1,7 @@
 import { Toolbar, ToolbarProps } from '@mui/material'
 import { To } from 'react-router-dom'
 
-import { XyoLogoLinkEx } from './XyoLogoLinkEx'
+import { LogoLinkEx } from './LogoLinkEx'
 
 export interface ContextToolbarProps extends ToolbarProps {
   logoTo?: To
@@ -11,7 +11,7 @@ export interface ContextToolbarProps extends ToolbarProps {
 export const ContextToolbar: React.FC<ContextToolbarProps> = ({ logoTo = '/', version = false, ...props }) => {
   return (
     <Toolbar {...props}>
-      <XyoLogoLinkEx version={version} to={logoTo} />
+      <LogoLinkEx version={version} to={logoTo} />
     </Toolbar>
   )
 }

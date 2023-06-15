@@ -1,6 +1,6 @@
 import { IconButton, IconButtonProps, styled } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 
@@ -26,7 +26,7 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
     }, [favoriteProp])
 
     const sharedRef = useShareForwardedRef(ref)
-    const [buttonRef, dispatch] = useXyoEvent(undefined, sharedRef)
+    const [buttonRef, dispatch] = useEvent(undefined, sharedRef)
 
     const onConfirmFavorite = (name?: string, newFavoriteState?: boolean) => {
       const favoriteEvent = generateFavoriteEvent(!!newFavoriteState, valueType, value, name)

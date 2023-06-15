@@ -1,2 +1,2 @@
-export * from './XyoMapBoxBaseProps'
-export * from './XyoMapStyle'
+export * from './MapBoxBaseProps'
+export * from './MapStyle'

@@ -1,7 +1,7 @@
 import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { usePayloadHashes, usePromise, useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, Fragment } from 'react'
 
@@ -23,7 +23,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   const theme = useTheme()
   const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
-  const [ulRef, dispatch] = useXyoEvent<HTMLUListElement>(undefined, sharedRef)
+  const [ulRef, dispatch] = useEvent<HTMLUListElement>(undefined, sharedRef)
   const [orderedAddressHistory] = usePromise(orderedHistory(addressHistory), [addressHistory])
 
   const orderedAddressHistoryPairs = usePayloadHashes(orderedAddressHistory)

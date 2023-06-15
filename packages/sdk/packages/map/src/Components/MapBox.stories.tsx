@@ -6,7 +6,7 @@ import { useRef } from 'react'
 import { MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts'
 import { DefaultMapSettings } from '../Settings'
 import { MapBox } from './MapBox'
-import { MapSettings } from './MapSettingsComponents'
+import { MapSettingsBox } from './MapSettingsComponents'
 
 const WithMapboxProviders: Decorator = (Story, props) => {
   const defaultSettings = DefaultMapSettings()
@@ -26,7 +26,7 @@ const WithMapSettingsDecorator: Decorator = (Story, args) => {
   return (
     <>
       <Story {...args} />
-      <MapSettings developerMode={true} />
+      <MapSettingsBox developerMode={true} />
     </>
   )
 }

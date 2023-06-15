@@ -1,2 +1,2 @@
 export * from './useCustomEvent'
-export * from './useXyoEvent'
+export * from './useEvent'

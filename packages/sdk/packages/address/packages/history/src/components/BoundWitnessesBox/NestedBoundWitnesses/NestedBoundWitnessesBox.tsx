@@ -1,7 +1,7 @@
 import { Slide } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import isEmpty from 'lodash/isEmpty'
 import { Fragment } from 'react'
 
@@ -14,7 +14,7 @@ export type NestedBoundWitnessesProps = FlexBoxProps
 export const NestedBoundWitnessesBox: React.FC<NestedBoundWitnessesProps> = (props) => {
   const { nestedBoundWitnesses, hashSelectionHistory } = usePayloadHashSelectionHistory(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
-  const [nestedBWRef] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => boundwitnessClick(noun, data, 'nestedBoundWitnesses'))
+  const [nestedBWRef] = useEvent<HTMLDivElement>((noun, _verb, data) => boundwitnessClick(noun, data, 'nestedBoundWitnesses'))
 
   return isEmpty(nestedBoundWitnesses) ? null : (
     <FlexCol alignItems="stretch" ref={nestedBWRef} rowGap={3} {...props}>

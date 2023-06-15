@@ -4,17 +4,17 @@ import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
 import { useState } from 'react'
 
-import { XyoAnimatedHeatMapColorProps } from '../Colors'
+import { AnimatedHeatMapColorProps } from '../Colors'
 import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts'
-import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, XyoMapLayer } from '../Layers'
+import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, MapLayer } from '../Layers'
 import { MapSetting } from '../Settings'
-import { XyoMapboxHeatFlexBox } from './MapBoxHeat'
+import { MapboxHeatFlexBox } from './MapBoxHeat'
 
 export interface AnimatedHeatMapProps {
   accessToken: string
   animatedFeatureSets: Feature<Polygon>[][]
   defaultMapSettings?: MapSetting
-  heatMapColorProps: XyoAnimatedHeatMapColorProps
+  heatMapColorProps: AnimatedHeatMapColorProps
   staticFeatureSet: Feature<Polygon>[]
 }
 
@@ -30,7 +30,7 @@ export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
   const { staticMapColor, lowUsageColor, highUsageColor } = heatMapColorProps || {}
   const localStaticMapColor = staticMapColor ?? theme.palette.primary.light
 
-  const [layers] = useState<XyoMapLayer[]>([
+  const [layers] = useState<MapLayer[]>([
     LocationHeatMapLayerBuilderAnimated(localStaticMapColor, 0, 'static'),
     LocationHeatMapLayerBuilderAnimated(lowUsageColor || localStaticMapColor, 0, 'animated'),
     LocationHeatMapLayerBuilderAnimated(highUsageColor || darken(localStaticMapColor, 0.9), 1, 'animated'),
@@ -46,7 +46,7 @@ export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
           featureSetsLayers={layers.slice(1, 3)}
           heatMapColorProps={heatMapColorProps}
         >
-          <XyoMapboxHeatFlexBox accessToken={accessToken} {...props}></XyoMapboxHeatFlexBox>
+          <MapboxHeatFlexBox accessToken={accessToken} {...props}></MapboxHeatFlexBox>
         </HeatMapInitializerProvider>
       </MapSettingsProvider>
     </MapBoxInstanceProvider>

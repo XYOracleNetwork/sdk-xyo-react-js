@@ -1,1 +1,1 @@
-export * from './XyoMapColorProps'
+export * from './MapColorProps'

@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { Account } from '@xyo-network/account'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { useState } from 'react'
 
 import { FavoriteItemEvent } from './lib'
@@ -20,7 +20,7 @@ const StorybookEntry = {
 } as Meta<typeof AddressRenderRowBox>
 
 const Template: StoryFn<typeof AddressRenderRowBox> = (args) => {
-  const [ref] = useXyoEvent<HTMLLIElement>((noun, verb, data) => {
+  const [ref] = useEvent<HTMLLIElement>((noun, verb, data) => {
     console.log(`${noun}|${verb}|${data}`)
     const parsedEvent = JSON.parse(data ?? '') as FavoriteItemEvent
     if (parsedEvent.favorite) {

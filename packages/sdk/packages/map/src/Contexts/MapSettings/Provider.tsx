@@ -1,7 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { useEffect, useState } from 'react'
 
-import { XyoMapSettings } from '../../MapBoxClasses'
+import { MapSettings } from '../../MapBoxClasses'
 import { MapSetting } from '../../Settings'
 import { useMapBoxInstance } from '../MapBoxInstance'
 import { MapSettingsContext } from './Context'
@@ -31,7 +31,7 @@ export const MapSettingsProvider: React.FC<WithChildren<MapSettingsProviderProps
 
   useEffect(() => {
     if (mapSettings && map && mapInitialized) {
-      XyoMapSettings.updateSettings({ debugLayerName, map, requestLocation, settings: mapSettings, zoom })
+      MapSettings.updateSettings({ debugLayerName, map, requestLocation, settings: mapSettings, zoom })
     }
   }, [debugLayerName, map, mapInitialized, mapSettings, requestLocation, zoom])
 

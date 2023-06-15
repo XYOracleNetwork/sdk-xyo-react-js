@@ -1,5 +1,5 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -18,7 +18,7 @@ export const BoundWitnessBoxWithAddressRouter = forwardRef<HTMLDivElement, Bound
 
     const sharedRef = useShareForwardedRef(ref)
 
-    const [listenerRef] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => {
+    const [listenerRef] = useEvent<HTMLDivElement>((noun, _verb, data) => {
       if (noun === 'address' && data) {
         clearHistory?.()
         navigate(`${baseRoute}/${data}`)

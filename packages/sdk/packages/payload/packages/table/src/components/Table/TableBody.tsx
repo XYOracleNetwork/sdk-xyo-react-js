@@ -1,5 +1,5 @@
 import { Alert, TableBody, Typography } from '@mui/material'
-import { XyoThrownErrorBoundary } from '@xyo-network/react-error'
+import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 
 import { PayloadTableRow } from './TableRow'
@@ -24,7 +24,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
       {noResults && NoResultRowComponent ? <NoResultRowComponent /> : null}
       {payloadPairs?.map(([payload, hash], index) => {
         return (
-          <XyoThrownErrorBoundary
+          <ThrownErrorBoundary
             boundaryName="PayloadTableBody"
             key={`${hash}-${index}`}
             errorComponent={(e) => (
@@ -46,7 +46,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
               exploreDomain={exploreDomain}
               payload={payload}
             />
-          </XyoThrownErrorBoundary>
+          </ThrownErrorBoundary>
         )
       })}
       {children}

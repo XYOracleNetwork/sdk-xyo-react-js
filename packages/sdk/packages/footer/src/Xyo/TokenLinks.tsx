@@ -4,7 +4,7 @@ import React from 'react'
 import { FooterLink } from '../Link'
 import { FooterLinks } from '../Links'
 
-export const XyoTokenLinks: React.FC<FlexBoxProps> = (props) => (
+export const TokenLinks: React.FC<FlexBoxProps> = (props) => (
   <FooterLinks title="XYO Tokens" {...props}>
     <FooterLink href="https://xyo.network/token">About</FooterLink>
     <FooterLink href="https://xyo.network/token/exchange">Exchanges</FooterLink>

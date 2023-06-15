@@ -5,7 +5,7 @@ import { ModuleError, WrapperError } from '@xyo-network/module'
 import { useArchivist } from '@xyo-network/react-archivist'
 import { useState } from 'react'
 
-import { NetworkXyoLocationHeatmapQuadkeyAnswerPayload } from '../types'
+import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types'
 import { useQuadKeyPayloadsToFeatures } from './useQuadKeyPayloadsToFeatures'
 
 /** @deprecated - use useArchivistGet */
@@ -13,7 +13,7 @@ const useFetchPayloads = (hashes?: string[]) => {
   const [archivist] = useArchivist()
 
   const [apiError, setApiError] = useState<ModuleError>()
-  const [payloads, setPayloads] = useState<NetworkXyoLocationHeatmapQuadkeyAnswerPayload[]>()
+  const [payloads, setPayloads] = useState<NetworkLocationHeatmapQuadkeyAnswerPayload[]>()
   const { features, multipleFeatureSets } = useQuadKeyPayloadsToFeatures(payloads)
   const [notFound, setNotFound] = useState(false)
   const [inFlight, setInFlight] = useState(false)
@@ -31,7 +31,7 @@ const useFetchPayloads = (hashes?: string[]) => {
               setNotFound(true)
               setPayloads([])
             } else {
-              setPayloads(payloads as NetworkXyoLocationHeatmapQuadkeyAnswerPayload[])
+              setPayloads(payloads as NetworkLocationHeatmapQuadkeyAnswerPayload[])
             }
           }
         } catch (e) {

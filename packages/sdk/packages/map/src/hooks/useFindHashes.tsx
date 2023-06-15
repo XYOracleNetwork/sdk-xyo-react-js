@@ -1,4 +1,4 @@
-import { useNetwork, XyoArchivistPreset } from '@xyo-network/react-network'
+import { ArchivistPreset, useNetwork } from '@xyo-network/react-network'
 import { useMemo } from 'react'
 
 const animatedAnswerHashesConst = [
@@ -19,7 +19,7 @@ const staticAnswerHashConst = 'c7bbf61f61cfd4a1b2def160c28136fc1d100d39fbdb67b22
 
 export const useFindHashes = () => {
   const { network } = useNetwork()
-  const exploreMapHashes = (network?.nodes?.find((node) => node.type === 'archivist') as XyoArchivistPreset)?.explorerMapHashes
+  const exploreMapHashes = (network?.nodes?.find((node) => node.type === 'archivist') as ArchivistPreset)?.explorerMapHashes
   const animatedAnswerHashes = exploreMapHashes?.animatedAnswerHashes || animatedAnswerHashesConst
   const staticAnswerHash = exploreMapHashes?.staticAnswerHash || staticAnswerHashConst
   const foundHashes = useMemo(() => [staticAnswerHash, ...animatedAnswerHashes], [animatedAnswerHashes, staticAnswerHash])

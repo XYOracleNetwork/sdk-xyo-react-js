@@ -4,10 +4,10 @@ import type { WithChildren } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
 import {
   HeatMapInitializerProvider,
+  MapboxHeatFlexBox,
   MapBoxInstanceProvider,
   MapSettingsProvider,
   useMapboxAccessToken,
-  XyoMapboxHeatFlexBox,
 } from '@xyo-network/react-map'
 import { Feature, Polygon } from 'geojson'
 import React, { useMemo } from 'react'
@@ -37,7 +37,7 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ pay
           heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
           layers={ElevationExtrusionLayerBuilder(theme.palette.secondary.main)}
         >
-          <XyoMapboxHeatFlexBox
+          <MapboxHeatFlexBox
             developerMode={developerMode}
             accessToken={accessTokenResolved}
             features={features as Feature<Polygon>[]}
@@ -45,7 +45,7 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ pay
             {...props}
           >
             {/* TODO - pass elevation settings as children */}
-          </XyoMapboxHeatFlexBox>
+          </MapboxHeatFlexBox>
         </HeatMapInitializerProvider>
       ) : (
         <FlexCol busy minHeight={400} />

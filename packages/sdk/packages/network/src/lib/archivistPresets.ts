@@ -2,7 +2,7 @@ import { NetworkNodePayload, NetworkNodeSchema } from '@xyo-network/network'
 
 import { ExplorerMapHashes } from './ExplorerMapHashes'
 
-export interface XyoArchivistPreset extends NetworkNodePayload {
+export interface ArchivistPreset extends NetworkNodePayload {
   explorerMapHashes?: {
     animatedAnswerHashes: string[]
     staticAnswerHash: string
@@ -17,7 +17,7 @@ export const findArchivistPreset = (slug: string) => {
   )
 }
 
-export const archivistPresets: XyoArchivistPreset[] = [
+export const archivistPresets: ArchivistPreset[] = [
   {
     docs: 'https://beta.archivist.xyo.network/api',
     explorerMapHashes: ExplorerMapHashes,

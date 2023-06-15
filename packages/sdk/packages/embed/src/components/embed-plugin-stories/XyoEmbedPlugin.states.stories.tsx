@@ -11,7 +11,7 @@ const AggregatePricePointer = 'https://api.archivist.xyo.network/1948bf4eedf90ee
 // eslint-disable-next-line import/no-default-export
 export default {
   ...xyoEmbedStoryBase,
-  title: 'embed/XyoEmbedPlugin/states',
+  title: 'embed/EmbedPlugin/states',
 } as Meta
 
 const testPlugin = createPayloadRenderPlugin({

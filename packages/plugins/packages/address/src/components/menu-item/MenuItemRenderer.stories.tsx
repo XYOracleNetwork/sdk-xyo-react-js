@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { Account } from '@xyo-network/account'
 import { AddressPayload, AddressSchema } from '@xyo-network/payload-plugins'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer'
 
@@ -23,7 +23,7 @@ const StorybookEntry = {
 } as Meta<typeof AddressMenuItemRenderer>
 
 const Template: StoryFn<typeof AddressMenuItemRenderer> = (args) => {
-  const [ref] = useXyoEvent<HTMLLIElement>((noun, verb, data) => console.log(`${noun}|${verb}|${data}`))
+  const [ref] = useEvent<HTMLLIElement>((noun, verb, data) => console.log(`${noun}|${verb}|${data}`))
   return <AddressMenuItemRenderer {...args} ref={ref} />
 }
 

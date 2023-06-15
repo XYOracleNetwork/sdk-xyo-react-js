@@ -1,8 +1,8 @@
-import { XyoNetworkNames } from './NetworkNames'
+import { NetworkNames } from './NetworkNames'
 
 export type SiteName = 'explore' | 'node'
 
-export const resolveNetworkFromHostName = (fallback: XyoNetworkNames = 'Kerplunk', siteName: SiteName) => {
+export const resolveNetworkFromHostName = (fallback: NetworkNames = 'Kerplunk', siteName: SiteName) => {
   switch (document.location.hostname) {
     case `${siteName}.xyo.network`:
       return 'Main'

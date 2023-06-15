@@ -1,8 +1,8 @@
 import { Feature, Polygon } from 'geojson'
 
-import { XyoMapLayer } from '../Layers'
+import { MapLayer } from '../Layers'
 
 export interface FeaturesToLayersMap {
   features: Feature<Polygon>[]
-  layers: XyoMapLayer[]
+  layers: MapLayer[]
 }

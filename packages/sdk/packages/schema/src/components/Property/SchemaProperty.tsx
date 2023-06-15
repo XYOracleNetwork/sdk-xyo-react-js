@@ -4,7 +4,7 @@ import VerifiedIcon from '@mui/icons-material/Verified'
 import { IconButton } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { LinkEx } from '@xylabs/react-link'
-import { useXyoEvent, XyoEventDispatch, XyoEventNoun } from '@xyo-network/react-event'
+import { EventDispatch, EventNoun, useEvent } from '@xyo-network/react-event'
 import { Property, PropertyProps, PropertyValue } from '@xyo-network/react-property'
 import { SchemaCache, SchemaCacheEntry } from '@xyo-network/schema-cache'
 import { forwardRef, useState } from 'react'
@@ -38,10 +38,10 @@ const useResolveSchema = (schema?: string) => {
 export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
   ({ showLinkNames = true, showOpenNewWindowLink = true, showStatusIcon = true, titleProps, value, ...props }, forwardedRef) => {
     const resolvedSchema = useResolveSchema(value)
-    const [buttonRef, buttonDispatch] = useXyoEvent<HTMLButtonElement>(undefined)
-    const [divRef, divDispatch] = useXyoEvent<HTMLDivElement>(undefined)
+    const [buttonRef, buttonDispatch] = useEvent<HTMLButtonElement>(undefined)
+    const [divRef, divDispatch] = useEvent<HTMLDivElement>(undefined)
 
-    const onClick = (dispatch?: XyoEventDispatch<XyoEventNoun, 'click', string>, openNewWindow = false) => {
+    const onClick = (dispatch?: EventDispatch<EventNoun, 'click', string>, openNewWindow = false) => {
       dispatch?.(
         'schema',
         'click',

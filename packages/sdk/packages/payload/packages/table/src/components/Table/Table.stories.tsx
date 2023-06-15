@@ -1,7 +1,7 @@
 import { Chip } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
@@ -21,7 +21,7 @@ const StorybookEntry = {
 
 const Template: StoryFn<typeof PayloadTable> = (args) => {
   const [eventData, setEventData] = useState<string | undefined>()
-  const [ref] = useXyoEvent<HTMLTableElement>((_noun, _verb, data) => setEventData(data))
+  const [ref] = useEvent<HTMLTableElement>((_noun, _verb, data) => setEventData(data))
 
   return (
     <BrowserRouter>

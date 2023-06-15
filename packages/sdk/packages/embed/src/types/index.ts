@@ -1,1 +1,1 @@
-export * from './XyoEmbedPluginProps'
+export * from './EmbedPluginProps'

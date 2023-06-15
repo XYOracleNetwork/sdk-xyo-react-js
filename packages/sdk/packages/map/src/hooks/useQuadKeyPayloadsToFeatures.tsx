@@ -3,7 +3,7 @@ import { Feature, Geometry } from 'geojson'
 import compact from 'lodash/compact'
 import { useEffect, useState } from 'react'
 
-import { NetworkXyoLocationHeatmapQuadkeyAnswerPayload } from '../types'
+import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types'
 
 const quadKeyToFeature = ({ density, quadkey }: { density: number; quadkey: string }) => {
   const polygonFeature = new GeoJson(quadkey).polygonFeature()
@@ -21,7 +21,7 @@ const setDensity = (feature: Feature) => {
   return feature
 }
 
-const useQuadKeyPayloadsToFeatures = (payloads?: NetworkXyoLocationHeatmapQuadkeyAnswerPayload[] | NetworkXyoLocationHeatmapQuadkeyAnswerPayload) => {
+const useQuadKeyPayloadsToFeatures = (payloads?: NetworkLocationHeatmapQuadkeyAnswerPayload[] | NetworkLocationHeatmapQuadkeyAnswerPayload) => {
   const [multipleFeatureSets, setMultipleFeatureSets] = useState<Feature<Geometry>[][]>([[]])
   const [features, setFeatures] = useState<Feature<Geometry>[]>([])
   const [error, setError] = useState<Error>()
@@ -30,7 +30,7 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkXyoLocationHeatmapQuadke
     // Convert Multiple Payloads from Quadkey to GeoJson
     if (Array.isArray(payloads)) {
       if (compact(payloads).length !== 0) {
-        const payloadsArray = payloads as (NetworkXyoLocationHeatmapQuadkeyAnswerPayload | null)[]
+        const payloadsArray = payloads as (NetworkLocationHeatmapQuadkeyAnswerPayload | null)[]
         const mappedFeatures = payloadsArray?.map((payload) => payload?.result.map(quadKeyToFeature))
 
         setMultipleFeatureSets(mappedFeatures.map((features) => features?.map(setDensity) ?? []))
@@ -40,8 +40,8 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkXyoLocationHeatmapQuadke
     }
 
     // Convert Single Payload from Quadkey to GeoJson
-    if (payloads && (payloads as NetworkXyoLocationHeatmapQuadkeyAnswerPayload).result) {
-      const singlePayload = payloads as NetworkXyoLocationHeatmapQuadkeyAnswerPayload
+    if (payloads && (payloads as NetworkLocationHeatmapQuadkeyAnswerPayload).result) {
+      const singlePayload = payloads as NetworkLocationHeatmapQuadkeyAnswerPayload
       const mappedFeatures = singlePayload.result.map(quadKeyToFeature)
 
       setFeatures(mappedFeatures.map(setDensity))

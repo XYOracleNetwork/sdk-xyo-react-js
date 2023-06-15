@@ -2,7 +2,7 @@
 import { Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
@@ -17,7 +17,7 @@ export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, 
     elevation += props.elevation ?? 0
   }
 
-  const [ref, dispatch] = useXyoEvent<HTMLDivElement>()
+  const [ref, dispatch] = useEvent<HTMLDivElement>()
 
   return (
     <PropertyGroup titleProps={{ elevation }} title="Links" tip="Blocks that are linked to this block" {...props}>

@@ -1,7 +1,7 @@
 import { LinearProgress, Slide } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
-import { useRollbar, XyoThrownErrorBoundary } from '@xyo-network/react-error'
-import { useXyoEvent } from '@xyo-network/react-event'
+import { ThrownErrorBoundary, useRollbar } from '@xyo-network/react-error'
+import { useEvent } from '@xyo-network/react-event'
 import { forwardRef } from 'react'
 
 import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks'
@@ -16,10 +16,10 @@ export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props
   const { rollbar } = useRollbar()
   const { loading } = useNestedBoundWitnesses(false)
 
-  const [activeBWref] = useXyoEvent<HTMLDivElement>((noun, _verb, data) => boundwitnessClick(noun, data, 'activeBoundWitness'))
+  const [activeBWref] = useEvent<HTMLDivElement>((noun, _verb, data) => boundwitnessClick(noun, data, 'activeBoundWitness'))
 
   return (
-    <XyoThrownErrorBoundary rollbar={rollbar} boundaryName={'BoundWitness Scrolling List'}>
+    <ThrownErrorBoundary rollbar={rollbar} boundaryName={'BoundWitness Scrolling List'}>
       <FlexGrowCol alignItems="stretch" rowGap={3} justifyContent={activeBoundWitnessHash ? 'start' : 'center'} ref={ref} {...props}>
         {loading ? <LinearProgress sx={{ minHeight: '10px' }} /> : null}
         <BWErrorAlert />
@@ -29,7 +29,7 @@ export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props
           <ActiveBWFlexBox ref={activeBWref} />
         </Slide>
       </FlexGrowCol>
-    </XyoThrownErrorBoundary>
+    </ThrownErrorBoundary>
   )
 })
 

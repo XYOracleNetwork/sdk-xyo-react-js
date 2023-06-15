@@ -1,5 +1,5 @@
 import type { WithChildren } from '@xylabs/react-shared'
-import { XyoErrorRender } from '@xyo-network/react-error'
+import { ErrorRender } from '@xyo-network/react-error'
 import { LoadResult } from '@xyo-network/react-shared'
 
 import { useAddressHistory } from '../../hooks'
@@ -14,10 +14,10 @@ export const AddressHistoryArchivist: React.FC<AddressHistoryArchivistProps> = (
   const [addressHistory, error] = useAddressHistory(address)
 
   return (
-    <XyoErrorRender error={error}>
+    <ErrorRender error={error}>
       <LoadResult notFound={addressHistory === null} searchResult={addressHistory} apiError={error}>
         {children}
       </LoadResult>
-    </XyoErrorRender>
+    </ErrorRender>
   )
 }

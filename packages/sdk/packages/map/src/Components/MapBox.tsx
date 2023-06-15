@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts'
 import { useDynamicMapResize } from '../hooks'
-import { XyoMapStyle } from '../lib'
+import { MapStyle } from '../lib'
 
 export interface MapBoxProps {
   accessToken: string
@@ -27,9 +27,9 @@ export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, o
 
   useEffect(() => {
     if (mapSettings?.preferDark?.value === true) {
-      map?.setStyle(`mapbox://styles/${XyoMapStyle.Dark}`)
+      map?.setStyle(`mapbox://styles/${MapStyle.Dark}`)
     } else {
-      map?.setStyle(`mapbox://styles/${darkMode ? XyoMapStyle.Dark : XyoMapStyle.Light}`)
+      map?.setStyle(`mapbox://styles/${darkMode ? MapStyle.Dark : MapStyle.Light}`)
     }
   }, [map, darkMode, mapSettings])
 
@@ -38,7 +38,7 @@ export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, o
       accessToken,
       center: [0, 0],
       container: mapContainerRef.current ?? '',
-      style: `mapbox://styles/${XyoMapStyle.Light}`,
+      style: `mapbox://styles/${MapStyle.Light}`,
       zoom,
       ...options,
     })
