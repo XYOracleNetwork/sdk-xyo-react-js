@@ -24,7 +24,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
   const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
   const [ulRef, dispatch] = useEvent<HTMLUListElement>(undefined, sharedRef)
-  const [orderedAddressHistory] = usePromise(orderedHistory(addressHistory), [addressHistory])
+  const [orderedAddressHistory] = usePromise(() => orderedHistory(addressHistory), [addressHistory])
 
   const orderedAddressHistoryPairs = usePayloadHashes(orderedAddressHistory)
 

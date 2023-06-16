@@ -30,7 +30,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const { network } = useNetwork()
 
-  const [errors = []] = usePromise((block ? new BoundWitnessValidator(block) : undefined)?.validate(), [block])
+  const [errors = []] = usePromise(() => (block ? new BoundWitnessValidator(block).validate() : undefined), [block])
 
   const blockHash = usePayloadHash(block)
 

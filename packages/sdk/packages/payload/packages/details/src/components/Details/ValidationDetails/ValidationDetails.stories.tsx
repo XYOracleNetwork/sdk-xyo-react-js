@@ -41,7 +41,13 @@ WithViewSchemaLink.args = {
 const WithErrorsInToolTip = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-WithErrorsInToolTip.args = { value: { ...sampleIdPayload, ...{ _hash: '6fe3f745b1179fefa74cc3c7eab58321bee1c9ca9e34d9585467364cc5d3bbe2' } } }
+WithErrorsInToolTip.args = {
+  value: {
+    ...sampleIdPayload,
+    ...{ _hash: '6fe3f745b1179fefa74cc3c7eab58321bee1c9ca9e34d9585467364cc5d3bbe2' },
+    schema: undefined,
+  } as unknown as Payload,
+}
 
 const SkipBody = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -1,8 +1,7 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
-import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Promisable } from '@xyo-network/promise'
-import { useReducer } from 'react'
+import { DependencyList, Reducer, useEffect, useMemo, useReducer } from 'react'
 
 export enum State {
   pending = 'pending',
@@ -16,85 +15,96 @@ interface PromiseState<T = void> {
   state?: State
 }
 
-const defaultState: PromiseState = {
-  error: undefined,
-  result: undefined,
-  state: State.pending,
-}
-
-// Since the resolved promise value can be anything, any seems appropriate
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Action = { payload?: any; type: State }
-
-const reducer = (_state: PromiseState, action: Action) => {
-  switch (action.type) {
-    case State.pending:
-      return defaultState
-
-    case State.resolved:
-      return {
-        error: undefined,
-        result: action.payload,
-        state: State.resolved,
-      }
-
-    case State.rejected:
-      return {
-        error: action.payload,
-        result: undefined,
-        state: State.rejected,
-      }
-
-    default:
-      throw Error(`Error parsing action ${JSON.stringify(action, null, 2)}`)
-  }
-}
+type Action<T> = { error?: Error; payload?: T; type: State }
 
 /**
  * usePromise -
  */
 export const usePromise = <TResult>(
-  promise?: Promisable<TResult>,
-  dependencies: unknown[] = [],
+  promise: () => Promisable<TResult> | undefined,
+  dependencies: DependencyList = [],
+  debug: string | undefined = undefined,
 ): [TResult | undefined, Error | undefined, State | undefined] => {
+  const promiseMemo = useMemo(() => promise?.(), dependencies)
+
+  const defaultState: PromiseState<TResult> = {
+    error: undefined,
+    result: undefined,
+    state: State.pending,
+  }
+
+  const reducer: Reducer<PromiseState<TResult>, Action<TResult>> = (_state: PromiseState<TResult>, action: Action<TResult>) => {
+    switch (action.type) {
+      case State.pending:
+        return defaultState
+
+      case State.resolved:
+        return {
+          error: undefined,
+          result: action.payload,
+          state: State.resolved,
+        }
+
+      case State.rejected:
+        return {
+          error: action.error,
+          result: undefined,
+          state: State.rejected,
+        }
+
+      default:
+        throw Error(`Error parsing action ${JSON.stringify(action, null, 2)}`)
+    }
+  }
+
   const [{ error, result, state }, dispatch] = useReducer(reducer, defaultState)
 
-  useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    async () => {
-      if (!promise) {
-        return
-      }
+  if (debug) console.debug(`usePromise [${debug}] Main Function`)
 
-      let canceled = false
-
-      dispatch({ type: State.pending })
-
-      try {
-        const result = await promise
-        !canceled
-          ? dispatch({
-              payload: result,
+  useEffect(() => {
+    let cancelled = false
+    dispatch({ type: State.pending })
+    if (debug) console.debug(`usePromise [${debug}] useEffect [cancelled: ${cancelled}]`)
+    if (promiseMemo instanceof Promise) {
+      promiseMemo
+        .then((payload) => {
+          if (debug) console.debug(`usePromise [${debug}] then [cancelled: ${cancelled}]`)
+          !cancelled ??
+            dispatch({
+              error: undefined,
+              payload,
               type: State.resolved,
             })
-          : undefined
-      } catch (e) {
-        !canceled
-          ? dispatch({
-              payload: e as Error,
+        })
+        .catch((error) => {
+          if (debug) console.debug(`usePromise [${debug}] catch [cancelled: ${cancelled}]`)
+          !cancelled ??
+            dispatch({
+              error: error as Error,
+              payload: undefined,
               type: State.rejected,
             })
-          : undefined
-      }
-
-      return () => {
-        canceled = true
-      }
-    },
-    // eslint can't inspect the array to verify dependencies are missing
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    dependencies,
-  )
+        })
+    } else if (promiseMemo) {
+      dispatch({
+        error: undefined,
+        payload: promiseMemo,
+        type: State.resolved,
+      })
+    } else {
+      if (debug) console.debug(`usePromise [${debug}] no-promise [cancelled: ${cancelled}]`)
+      !cancelled ??
+        dispatch({
+          error: undefined,
+          payload: undefined,
+          type: State.resolved,
+        })
+    }
+    return () => {
+      if (debug) console.debug(`usePromise [${debug}] useEffect callback`)
+      cancelled = true
+    }
+  }, [promiseMemo])
 
   return [result, error, state]
 }

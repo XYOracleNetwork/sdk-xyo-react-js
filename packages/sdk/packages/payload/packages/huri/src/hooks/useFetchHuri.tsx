@@ -13,7 +13,7 @@ export const useFetchHuri = (hashOrHuri?: string, diviner?: DivinerWrapper, toke
 
   const divinerReq = useMemo(() => (diviner && huriPayload ? diviner.divine([huriPayload]) : undefined), [diviner, huriPayload])
 
-  const [payload, error] = usePromise(divinerReq, [divinerReq])
+  const [payload, error] = usePromise(() => divinerReq, [divinerReq])
 
   return [payload, error]
 }
