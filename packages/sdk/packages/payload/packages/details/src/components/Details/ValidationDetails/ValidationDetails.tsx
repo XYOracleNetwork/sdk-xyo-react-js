@@ -8,8 +8,15 @@ import { usePromise } from '@xyo-network/react-shared'
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
 export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ viewSchemaUrl, skipBody = false, value, ...props }) => {
-  console.log('PayloadValidationDetails')
   const [validateErrors] = usePromise(() => (value ? new PayloadValidator(value).validate() : undefined), [value], 'PayloadValidationDetails')
+  usePromise(() => Promise.reject('promise failed'), [], 'Test Reject')
+  usePromise(
+    () => {
+      throw Error('ManualError')
+    },
+    [],
+    'Test Throw',
+  )
 
   const bodyErrors = skipBody ? [] : validateErrors ?? []
   const errors: Error[] = [...bodyErrors]

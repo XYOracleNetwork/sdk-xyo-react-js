@@ -25,8 +25,6 @@ export const usePromise = <TResult>(
   dependencies: DependencyList = [],
   debug: string | undefined = undefined,
 ): [TResult | undefined, Error | undefined, State | undefined] => {
-  const promiseMemo = useMemo(() => promise?.(), dependencies)
-
   const defaultState: PromiseState<TResult> = {
     error: undefined,
     result: undefined,
@@ -58,6 +56,18 @@ export const usePromise = <TResult>(
   }
 
   const [{ error, result, state }, dispatch] = useReducer(reducer, defaultState)
+
+  const promiseMemo = useMemo(() => {
+    try {
+      return promise?.()
+    } catch (e) {
+      dispatch({
+        error: e as Error,
+        payload: undefined,
+        type: State.rejected,
+      })
+    }
+  }, dependencies)
 
   if (debug) console.debug(`usePromise [${debug}] Main Function`)
 
