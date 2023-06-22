@@ -72,28 +72,25 @@ export const usePromise = <TResult>(
   if (debug) console.debug(`usePromise [${debug}] Main Function`)
 
   useEffect(() => {
-    let cancelled = false
     dispatch({ type: State.pending })
-    if (debug) console.debug(`usePromise [${debug}] useEffect [cancelled: ${cancelled}]`)
+    if (debug) console.debug(`usePromise [${debug}] useEffect`)
     if (promiseMemo instanceof Promise) {
       promiseMemo
         .then((payload) => {
-          if (debug) console.debug(`usePromise [${debug}] then [cancelled: ${cancelled}]`)
-          !cancelled ??
-            dispatch({
-              error: undefined,
-              payload,
-              type: State.resolved,
-            })
+          if (debug) console.debug(`usePromise [${debug}] then`)
+          dispatch({
+            error: undefined,
+            payload,
+            type: State.resolved,
+          })
         })
         .catch((error) => {
-          if (debug) console.debug(`usePromise [${debug}] catch [cancelled: ${cancelled}]`)
-          !cancelled ??
-            dispatch({
-              error: error as Error,
-              payload: undefined,
-              type: State.rejected,
-            })
+          if (debug) console.debug(`usePromise [${debug}] catch`)
+          dispatch({
+            error: error as Error,
+            payload: undefined,
+            type: State.rejected,
+          })
         })
     } else if (promiseMemo) {
       dispatch({
@@ -102,17 +99,15 @@ export const usePromise = <TResult>(
         type: State.resolved,
       })
     } else {
-      if (debug) console.debug(`usePromise [${debug}] no-promise [cancelled: ${cancelled}]`)
-      !cancelled ??
-        dispatch({
-          error: undefined,
-          payload: undefined,
-          type: State.resolved,
-        })
+      if (debug) console.debug(`usePromise [${debug}] no-promise`)
+      dispatch({
+        error: undefined,
+        payload: undefined,
+        type: State.resolved,
+      })
     }
     return () => {
       if (debug) console.debug(`usePromise [${debug}] useEffect callback`)
-      cancelled = true
     }
   }, [promiseMemo])
 

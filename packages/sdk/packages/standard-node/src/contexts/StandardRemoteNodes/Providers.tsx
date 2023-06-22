@@ -2,9 +2,9 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { MemoryNode } from '@xyo-network/node'
 import { HDWallet } from '@xyo-network/protocol'
-import { assertDefinedEx } from '@xyo-network/react-shared'
+import { assertDefinedEx, usePromise } from '@xyo-network/react-shared'
 import { useWallet } from '@xyo-network/react-wallet'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { BuildStandardNodes } from '../../lib'
 import { StandardNodesContext } from './Context'
@@ -59,8 +59,9 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ ch
 
 export const StandardNodesProviderWithWallet: React.FC<Omit<StandardNodesProviderProps, 'wallet'>> = (props) => {
   const { wallet: walletFromCtx, activeAccountIndex } = useWallet()
-  const wallet = useMemo(
-    () => (walletFromCtx && activeAccountIndex !== undefined ? walletFromCtx.derivePath(activeAccountIndex.toString()) : undefined),
+  const [wallet] = usePromise(
+    () =>
+      (walletFromCtx && activeAccountIndex !== undefined ? walletFromCtx.derivePath(activeAccountIndex.toString()) : undefined) as Promise<HDWallet>,
     [activeAccountIndex, walletFromCtx],
   )
   return <StandardNodesProvider wallet={wallet} {...props} />

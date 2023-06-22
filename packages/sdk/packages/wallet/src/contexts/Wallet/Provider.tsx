@@ -1,5 +1,7 @@
+import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
+import { usePromise } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
 import { AccountContext } from '../Account'
@@ -16,7 +18,9 @@ export interface WalletProviderProps {
 const AccountWalletProvider: React.FC<WithChildren> = (props) => {
   const { wallet, activeAccountIndex = 0 } = useWallet()
 
-  return <AccountContext.Provider value={{ account: wallet?.derivePath(activeAccountIndex.toString()), provided: true }} {...props} />
+  const [account] = usePromise(() => wallet?.derivePath(activeAccountIndex.toString()))
+
+  return <AccountContext.Provider value={{ account, provided: true }} {...props} />
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
@@ -35,21 +39,25 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     }
   }, [defaultActiveAccountIndex])
 
-  useEffect(() => {
-    // ensure the wallet has the proper base
-    if (defaultWallet) {
-      if (!wallet?.path.includes(basePath)) {
-        try {
-          const walletWithBasePath = defaultWallet?.derivePath(basePath)
-          setWallet(walletWithBasePath)
-        } catch (e) {
-          console.error('Error setting proper wallet base path', e)
+  useAsyncEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async () => {
+      // ensure the wallet has the proper base
+      if (defaultWallet) {
+        if (!wallet?.path.includes(basePath)) {
+          try {
+            const walletWithBasePath = (await defaultWallet?.derivePath(basePath)) as HDWallet
+            setWallet(walletWithBasePath)
+          } catch (e) {
+            console.error('Error setting proper wallet base path', e)
+          }
         }
+      } else {
+        throw Error('WalletProvider requires a default HDWallet')
       }
-    } else {
-      throw Error('WalletProvider requires a default HDWallet')
-    }
-  }, [basePath, defaultWallet, wallet?.path])
+    },
+    [basePath, defaultWallet, wallet?.path],
+  )
 
   return (
     <WalletContext.Provider

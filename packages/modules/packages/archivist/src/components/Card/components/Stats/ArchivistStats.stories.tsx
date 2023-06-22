@@ -5,7 +5,7 @@ import { Payload } from '@xyo-network/payload-model'
 
 import { ArchivistStats } from './ArchivistStats'
 
-const account = new Account()
+const account = Account.random()
 const payload = () => ({ schema: 'network.xyo.payload', timestamp: Date.now() })
 const boundWitness = () => new BoundWitnessBuilder().payload(payload()).witness(account).build()
 
