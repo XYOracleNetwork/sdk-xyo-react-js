@@ -37,7 +37,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   const payloadHash = usePayloadHash(payload)
   const { network } = useNetwork()
   const { resolver } = usePayloadRenderPluginResolver()
-  const [validationErrors = []] = usePromise(() => (payload ? new PayloadValidator(payload).validate() : undefined), [payload])
+  const [validationErrors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = validationErrors.length === 0
   const hash: React.FC<HashTableCellProps> = (props) => (
     <HashTableCell

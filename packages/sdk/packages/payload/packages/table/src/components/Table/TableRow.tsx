@@ -31,7 +31,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const breakPoint = useBreakpoint()
   const payloadHash = usePayloadHash(payload)
   const { network } = useNetwork()
-  const [errors = []] = usePromise(() => (payload ? new PayloadValidator(payload).validate() : undefined), [payload])
+  const [errors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = errors.length === 0
 
   const hash: React.FC<TableCellProps> = (props) => (

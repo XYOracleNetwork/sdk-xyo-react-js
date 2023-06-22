@@ -12,7 +12,7 @@ export enum State {
  * usePromise -
  */
 export const usePromise = <TResult>(
-  promise: () => Promise<TResult> | TResult | undefined,
+  promise: () => Promise<TResult> | undefined,
   dependencies: DependencyList = [],
   debug: string | undefined = undefined,
 ): [TResult | undefined, Error | undefined, State | undefined] => {
@@ -39,28 +39,20 @@ export const usePromise = <TResult>(
 
   useEffect(() => {
     if (debug) console.log(`usePromise [${debug}] useEffect`)
-    if (promiseMemo instanceof Promise) {
-      if (debug) console.log(`usePromise [${debug}] isPromise`)
-      promiseMemo
-        .then((payload) => {
-          if (debug) console.log(`usePromise [${debug}] then`)
-          setResult(payload)
-          setError(undefined)
-          setState(State.resolved)
-        })
-        .catch((e) => {
-          const error = e as Error
-          console.error(`usePromise: ${error.message}`)
-          setResult(undefined)
-          setError(error)
-          setState(State.rejected)
-        })
-    } else if (promise) {
-      if (debug) console.log(`usePromise [${debug}] isNotPromise`)
-      setResult(promise as TResult)
-      setError(undefined)
-      setState(State.resolved)
-    }
+    promiseMemo
+      ?.then((payload) => {
+        if (debug) console.log(`usePromise [${debug}] then`)
+        setResult(payload)
+        setError(undefined)
+        setState(State.resolved)
+      })
+      .catch((e) => {
+        const error = e as Error
+        console.error(`usePromise: ${error.message}`)
+        setResult(undefined)
+        setError(error)
+        setState(State.rejected)
+      })
     return () => {
       if (debug) console.log(`usePromise [${debug}] useEffect callback`)
     }
