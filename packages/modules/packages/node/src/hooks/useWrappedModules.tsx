@@ -1,9 +1,9 @@
-import { AccountInstance } from '@xyo-network/account-model'
 import { Logger } from '@xyo-network/core'
 import { ConstructableModuleWrapper, ModuleWrapper } from '@xyo-network/module'
 import { useAccount } from '@xyo-network/react-wallet'
+import { WalletInstance } from '@xyo-network/wallet-model'
 import compact from 'lodash/compact'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useModules } from './useModules'
 
@@ -14,16 +14,14 @@ export const WrappedModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
   const filter = {
     query: [wrapperObject.requiredQueries],
   }
-  const useHook = (account?: AccountInstance, logger?: Logger): [TModuleWrapper[] | undefined, Error | undefined] => {
+  const useHook = (account?: WalletInstance, logger?: Logger): [TModuleWrapper[] | undefined, Error | undefined] => {
     logger?.debug(`Render: ${name}`)
 
-    const [providedAccount] = useAccount()
+    const [accountToUse] = useAccount({ account })
     const [modules, moduleError] = useModules<TModuleWrapper['module']>(filter, logger)
 
     const [wrappers, setWrappers] = useState<TModuleWrapper[]>()
     const [error, setError] = useState<Error>()
-
-    const accountToUse = useMemo(() => account ?? providedAccount, [account, providedAccount])
 
     useEffect(() => {
       logger?.debug('useEffect: accountToUse start')
