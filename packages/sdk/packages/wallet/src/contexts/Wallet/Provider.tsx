@@ -2,6 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { HDWallet } from '@xyo-network/account'
 import { usePromise } from '@xyo-network/react-shared'
+import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
 import { AccountContext } from '../Account'
@@ -12,7 +13,7 @@ import { useWallet } from './use'
 export interface WalletProviderProps {
   basePath?: string
   defaultActiveAccountIndex?: number
-  defaultWallet?: HDWallet
+  defaultWallet?: WalletInstance
 }
 
 const AccountWalletProvider: React.FC<WithChildren> = (props) => {

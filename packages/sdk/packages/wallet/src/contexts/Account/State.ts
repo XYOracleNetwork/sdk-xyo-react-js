@@ -1,8 +1,8 @@
-import { AccountInstance } from '@xyo-network/account-model'
 import { ContextExState } from '@xyo-network/react-shared'
+import { WalletInstance } from '@xyo-network/wallet-model'
 import { Dispatch } from 'react'
 
 export interface AccountContextState extends ContextExState {
-  account?: AccountInstance
-  setAccount?: Dispatch<AccountInstance>
+  account?: WalletInstance
+  setAccount?: Dispatch<WalletInstance>
 }

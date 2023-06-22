@@ -1,10 +1,10 @@
-import { AccountInstance } from '@xyo-network/account-model'
 import { usePromise } from '@xyo-network/react-shared'
+import { WalletInstance } from '@xyo-network/wallet-model'
 
 import { useAccountFromContext } from '../contexts'
 
 export interface AccountHookParams {
-  account?: AccountInstance
+  account?: WalletInstance
   path?: string
   required?: boolean
 }
