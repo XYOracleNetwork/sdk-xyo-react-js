@@ -1,14 +1,13 @@
 import { Button, ButtonGroup } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { HDWallet } from '@xyo-network/account'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { NodeProvider, useModule, useProvidedWrappedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { WalletProvider } from '@xyo-network/react-wallet'
+import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useMemo, useState } from 'react'
 
@@ -18,7 +17,6 @@ import { NodeRelationalGraph } from './RelationalGraph'
 import { options } from './story'
 
 const nodeUrl = 'http://localhost:8080/node'
-const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
 export const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
@@ -58,8 +56,10 @@ export const MemoryNodeDecorator: Decorator = (Story, args) => {
     [],
   )
 
+  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+
   return (
-    <WalletProvider defaultWallet={randomWallet}>
+    <WalletProvider defaultWallet={account}>
       <NodeProvider node={node}>
         <Story {...args} />
       </NodeProvider>

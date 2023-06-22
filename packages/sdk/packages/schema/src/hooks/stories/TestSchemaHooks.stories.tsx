@@ -2,12 +2,11 @@ import { Alert, Button, TextField, Typography } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { HDWallet } from '@xyo-network/account'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
 import { NodeProvider } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { WalletProvider } from '@xyo-network/react-wallet'
+import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
 import { SchemaCache } from '@xyo-network/schema-cache'
 import { useState } from 'react'
 
@@ -17,7 +16,6 @@ import { useSchemaStats } from '../useSchemaStats'
 
 const apiConfig = { apiDomain: 'https://api.archivist.xyo.network' }
 const nodeUrl = 'http://localhost:8080/node'
-const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
@@ -34,8 +32,10 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
     [],
   )
 
+  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+
   return (
-    <WalletProvider defaultWallet={randomWallet}>
+    <WalletProvider defaultWallet={account}>
       <NodeProvider node={node}>
         <Story {...args} />
       </NodeProvider>

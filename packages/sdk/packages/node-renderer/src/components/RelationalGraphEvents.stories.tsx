@@ -1,19 +1,16 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { HDWallet } from '@xyo-network/account'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
 import { NodeProvider, useProvidedWrappedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { WalletProvider } from '@xyo-network/react-wallet'
+import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
 import { EventObject } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
 import { CytoscapeInstanceProvider, useCytoscapeInstance } from '../contexts'
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
 import { NodeRelationalGraph } from './RelationalGraph'
-
-const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
@@ -32,8 +29,10 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
     [],
   )
 
+  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+
   return (
-    <WalletProvider defaultWallet={randomWallet}>
+    <WalletProvider defaultWallet={account}>
       <NodeProvider node={node}>
         <CytoscapeInstanceProvider>
           <Story {...args} />

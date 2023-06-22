@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { HDWallet } from '@xyo-network/account'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 
 import { WalletProvider } from '../../contexts'
+import { useAccount } from '../../hooks'
 import { WalletAccountSelect } from './Select'
 
 const StorybookEntry = {
@@ -21,8 +21,9 @@ const Template: StoryFn<typeof WalletAccountSelect> = (args) => {
 }
 
 const WithWalletTemplate: StoryFn<typeof WalletAccountSelect> = (args) => {
+  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
   return (
-    <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
+    <WalletProvider defaultWallet={account}>
       <WalletAccountSelect {...args} />
     </WalletProvider>
   )

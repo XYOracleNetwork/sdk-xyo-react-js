@@ -1,17 +1,15 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
-import { HDWallet } from '@xyo-network/account'
 import { AbstractModule, Query } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { WalletProvider } from '@xyo-network/react-wallet'
+import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
 import { useModule, useProvidedNode } from '../hooks'
 
-const randomWallet = HDWallet.fromMnemonic(DefaultSeedPhrase)
 const TestModuleConfigSchema = 'network.xyo.test.module'
 class TestModule extends AbstractModule {
   static override configSchema: string = TestModuleConfigSchema
@@ -20,13 +18,12 @@ class TestModule extends AbstractModule {
   }
 }
 const TestModuleName = 'TestModule'
-const TestModuleAccount = randomWallet.derivePath('0')
-
-const account = randomWallet.derivePath('0')
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
+  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+
   return (
-    <WalletProvider defaultWallet={randomWallet}>
+    <WalletProvider defaultWallet={account}>
       <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
         <Story {...args} />
       </MemoryNodeProvider>
@@ -35,6 +32,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 }
 
 const UseModuleTest: React.FC<WithChildren> = ({ children }) => {
+  const [account] = useAccount({ mnemonic: DefaultSeedPhrase, path: '0' })
   const [testModule] = useModule(TestModuleName, account)
 
   useEffect(() => {
@@ -56,12 +54,14 @@ const Template: StoryFn<React.FC> = (props) => {
   const [node] = useProvidedNode() as [MemoryNode]
   const [description, setDescription] = useState<string>()
 
+  const [account] = useAccount({ mnemonic: DefaultSeedPhrase, path: '0' })
+
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (node) {
         try {
-          const mod = await TestModule.create({ account: TestModuleAccount, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
+          const mod = await TestModule.create({ account, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
           await node?.register(mod)
           await node?.attach(mod.address, true)
           const wrapper = NodeWrapper.wrap(node)

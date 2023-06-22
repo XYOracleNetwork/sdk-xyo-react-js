@@ -2,10 +2,9 @@
 import { List, Paper } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { HDWallet } from '@xyo-network/account'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
+import { useAccount, WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SearchBar } from '../SearchBar'
@@ -24,26 +23,29 @@ const StorybookEntry = {
   title: 'appbar/AppBar/Application',
 } as Meta<typeof ApplicationAppBar>
 
-const Template: StoryFn<typeof ApplicationAppBar> = (args) => (
-  <WalletProvider defaultWallet={HDWallet.fromMnemonic(DefaultSeedPhrase)}>
-    <BrowserRouter>
-      <NetworkMemoryProvider>
-        <ApplicationAppBar
-          systemToolbar={
-            <SystemToolbar
-              menuItems={
-                <List>
-                  <MenuListItemContainer primary="Hello" />
-                </List>
-              }
-            />
-          }
-          {...args}
-        ></ApplicationAppBar>
-      </NetworkMemoryProvider>
-    </BrowserRouter>
-  </WalletProvider>
-)
+const Template: StoryFn<typeof ApplicationAppBar> = (args) => {
+  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+  return (
+    <WalletProvider defaultWallet={account}>
+      <BrowserRouter>
+        <NetworkMemoryProvider>
+          <ApplicationAppBar
+            systemToolbar={
+              <SystemToolbar
+                menuItems={
+                  <List>
+                    <MenuListItemContainer primary="Hello" />
+                  </List>
+                }
+              />
+            }
+            {...args}
+          ></ApplicationAppBar>
+        </NetworkMemoryProvider>
+      </BrowserRouter>
+    </WalletProvider>
+  )
+}
 
 const Default = Template.bind({})
 Default.args = {}
