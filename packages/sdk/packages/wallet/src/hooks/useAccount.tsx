@@ -15,9 +15,15 @@ export interface AccountHookParams {
 
 export const useAccount = ({ mnemonic, account, path, required, seed }: AccountHookParams = {}) => {
   const [contextAccount] = useAccountFromContext(!account && required)
-  const [activeAccount] = usePromise(
-    async () => (account ?? mnemonic ? await HDWallet.fromMnemonic(mnemonic as string) : seed ? await HDWallet.fromSeed(seed) : contextAccount),
-    [account, mnemonic, contextAccount, seed],
-  )
+  const [activeAccount] = usePromise(async () => {
+    if (account) {
+      return account
+    } else if (mnemonic) {
+      return await HDWallet.fromMnemonic(mnemonic as string)
+    } else if (seed) {
+      return await HDWallet.fromSeed(seed)
+    }
+    return contextAccount
+  }, [account, mnemonic, contextAccount, seed])
   return usePromise(async () => (path ? await activeAccount?.derivePath?.(path) : activeAccount))
 }
