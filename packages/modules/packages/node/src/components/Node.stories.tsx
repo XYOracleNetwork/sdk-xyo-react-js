@@ -5,7 +5,7 @@ import { AbstractModule, Query } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
+import { WalletProvider, useAccount } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
 import { useModule, useProvidedNode } from '../hooks'
@@ -74,7 +74,7 @@ const Template: StoryFn<React.FC> = (props) => {
         }
       }
     },
-    [node],
+    [node, account],
   )
 
   return (
