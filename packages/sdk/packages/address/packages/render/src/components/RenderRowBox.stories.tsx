@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { FavoriteItemEvent } from './lib'
 import { AddressRenderRowBox } from './RenderRowBox'
 
-const address = new Account({ phrase: 'temp' }).addressValue.hex
+const address = new Account({ phrase: 'temp' }).address
 
 const StorybookEntry = {
   argTypes: {},

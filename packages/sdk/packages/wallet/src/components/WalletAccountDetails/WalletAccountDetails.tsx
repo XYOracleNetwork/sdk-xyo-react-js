@@ -5,7 +5,7 @@ import { NumberStatus } from '@xylabs/react-number-status'
 import { Account } from '@xyo-network/account'
 import { useNetwork } from '@xyo-network/react-network'
 
-import { useAccount } from '../../contexts'
+import { useAccount } from '../../hooks'
 
 export interface WalletAccountDetailsProps extends FlexBoxProps {
   account?: Account
@@ -19,11 +19,11 @@ export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({
 }) => {
   const [account = accountProp] = useAccount()
   const { network } = useNetwork()
-  const exploreAddressUrl = `${exploreUrl}/recent?account=${account?.addressValue.hex}&network=${network?.name ?? 'main'}`
+  const exploreAddressUrl = `${exploreUrl}/recent?account=${account?.address}&network=${network?.name ?? 'main'}`
 
   return (
     <FlexCol {...props}>
-      <EthAccountButton address={EthAddress.fromString(account?.addressValue.hex)} />
+      <EthAccountButton address={EthAddress.fromString(account?.address)} />
       <FlexRow gap={1}>
         <NumberStatus rounded title="Tokens" value={0} to={`${exploreAddressUrl}&schema=network.xyo.account.tokens`} target="_blank" />
         <NumberStatus rounded title="NFTs" value={0} to={`${exploreAddressUrl}&schema=network.xyo.account.nfts`} target="_blank" />

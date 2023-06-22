@@ -27,11 +27,11 @@ export const RenderValue: React.FC<{
   wallet: HDWallet
 }> = ({ iconOnly, iconSize, showFavorite, icons, addressNames, selected, wallet }) => {
   const [account] = usePromise<HDWallet>(() => wallet.derivePath(selected.toString()) as Promise<HDWallet>)
-  const customName = account ? addressNames[account?.addressValue.hex] : undefined
-  const favorite = account ? account?.addressValue.hex in addressNames : undefined
+  const customName = account ? addressNames[account?.address] : undefined
+  const favorite = account ? account?.address in addressNames : undefined
   return (
     <AddressRenderRowBox
-      address={account?.addressValue.hex}
+      address={account?.address}
       iconOnly={iconOnly}
       iconSize={iconSize}
       icons={icons}

@@ -5,7 +5,7 @@ import { useEvent } from '@xyo-network/react-event'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer'
 
-const address = new Account({ phrase: 'temp' }).addressValue.hex
+const address = new Account({ phrase: 'temp' }).address
 const payload: AddressPayload = {
   address,
   schema: AddressSchema,

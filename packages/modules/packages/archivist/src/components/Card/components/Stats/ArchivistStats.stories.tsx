@@ -24,7 +24,7 @@ const Template: StoryFn<typeof ArchivistStats> = (props) => <ArchivistStats {...
 const Default = Template.bind({})
 const WithStats = Template.bind({})
 WithStats.args = {
-  addresses: { [account.addressValue.hex]: 1 },
+  addresses: { [account.address]: 1 },
   boundWitnesses: [boundWitness() as unknown as Payload],
   payloads: [payload(), boundWitness() as unknown as Payload],
   schemas: { 'network.xyo.boundwitness': 1, 'network.xyo.payload': 1 },

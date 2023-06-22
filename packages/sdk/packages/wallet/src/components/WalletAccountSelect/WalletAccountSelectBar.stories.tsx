@@ -46,9 +46,9 @@ const WithAccountFavorites = WithWalletTemplate.bind({})
 const defaultWalletAtIndex = defaultWallet.derivePath(WalletRootPath)
 WithAccountFavorites.args = {
   addressNames: {
-    [defaultWalletAtIndex.derivePath('0').addressValue.hex]: 'first address',
-    [defaultWalletAtIndex.derivePath('3').addressValue.hex]: undefined,
-    [defaultWalletAtIndex.derivePath('5').addressValue.hex]: 'sixth address',
+    [defaultWalletAtIndex.derivePath('0').address]: 'first address',
+    [defaultWalletAtIndex.derivePath('3').address]: undefined,
+    [defaultWalletAtIndex.derivePath('5').address]: 'sixth address',
   },
   icons: true,
   maxAccounts: 10,
