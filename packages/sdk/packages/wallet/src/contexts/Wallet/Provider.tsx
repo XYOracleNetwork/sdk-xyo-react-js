@@ -53,8 +53,6 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
             console.error('Error setting proper wallet base path', e)
           }
         }
-      } else {
-        throw Error('WalletProvider requires a default HDWallet')
       }
     },
     [basePath, defaultWallet, wallet?.path],
