@@ -2,8 +2,10 @@ import { Meta, StoryFn } from '@storybook/react'
 import { HDWallet } from '@xyo-network/account'
 import { usePromise } from '@xyo-network/react-shared'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
+import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { WalletProvider, WalletRootPath } from '../../contexts'
+import { WalletProvider } from '../../contexts'
+import { useAccounts } from '../../hooks'
 import { WalletAccountSelectBar } from './SelectBar'
 
 const StorybookEntry = {
@@ -30,6 +32,31 @@ const WithWalletTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
   )
 }
 
+const WithFavoritesTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
+  const [defaultWallet] = usePromise(() => HDWallet.fromMnemonic(DefaultSeedPhrase))
+  const [wallets] = useAccounts({ account: defaultWallet, paths: ['0', '3', '5'] })
+  const castWallets = wallets as WalletInstance[]
+  return (
+    <WalletProvider defaultWallet={defaultWallet}>
+      <WalletAccountSelectBar
+        addressNames={
+          wallets
+            ? {
+                [castWallets[0]?.address]: 'first address',
+                [castWallets[1]?.address]: undefined,
+                [castWallets[2]?.address]: 'sixth address',
+              }
+            : {}
+        }
+        icons={true}
+        maxAccounts={10}
+        showFavorite
+        {...args}
+      />
+    </WalletProvider>
+  )
+}
+
 const Default = Template.bind({})
 Default.args = {}
 
@@ -42,18 +69,7 @@ WithWalletIcon.args = { icons: true }
 const WithAdditionalAccounts = WithWalletTemplate.bind({})
 WithAdditionalAccounts.args = { icons: true, maxAccounts: 10 }
 
-const WithAccountFavorites = WithWalletTemplate.bind({})
-const defaultWalletAtIndex = defaultWallet.derivePath(WalletRootPath)
-WithAccountFavorites.args = {
-  addressNames: {
-    [defaultWalletAtIndex.derivePath('0').address]: 'first address',
-    [defaultWalletAtIndex.derivePath('3').address]: undefined,
-    [defaultWalletAtIndex.derivePath('5').address]: 'sixth address',
-  },
-  icons: true,
-  maxAccounts: 10,
-  showFavorite: true,
-}
+const WithAccountFavorites = WithFavoritesTemplate.bind({})
 
 export { Default, WithAccountFavorites, WithAdditionalAccounts, WithWallet, WithWalletIcon }
 
