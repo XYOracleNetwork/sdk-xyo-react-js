@@ -35,12 +35,12 @@ const WithWalletTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
 const WithFavoritesTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
   const [defaultWallet] = usePromise(() => HDWallet.fromMnemonic(DefaultSeedPhrase))
   const [wallets] = useAccounts({ account: defaultWallet, paths: ['0', '3', '5'] })
-  const castWallets = wallets as WalletInstance[]
+  const castWallets = wallets as WalletInstance[] | undefined
   return (
     <WalletProvider defaultWallet={defaultWallet}>
       <WalletAccountSelectBar
         addressNames={
-          wallets
+          castWallets
             ? {
                 [castWallets[0]?.address]: 'first address',
                 [castWallets[1]?.address]: undefined,

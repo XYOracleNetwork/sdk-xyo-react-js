@@ -1,7 +1,6 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
-import { Promisable } from '@xyo-network/promise'
-import { DependencyList, Reducer, useEffect, useMemo, useReducer } from 'react'
+import { DependencyList, useEffect, useMemo, useState } from 'react'
 
 export enum State {
   pending = 'pending',
@@ -9,107 +8,63 @@ export enum State {
   resolved = 'resolved',
 }
 
-interface PromiseState<T = void> {
-  error?: Error
-  result?: T
-  state?: State
-}
-
-type Action<T> = { error?: Error; payload?: T; type: State }
-
 /**
  * usePromise -
  */
 export const usePromise = <TResult>(
-  promise: () => Promisable<TResult> | undefined,
+  promise: () => Promise<TResult> | TResult | undefined,
   dependencies: DependencyList = [],
   debug: string | undefined = undefined,
 ): [TResult | undefined, Error | undefined, State | undefined] => {
-  const defaultState: PromiseState<TResult> = {
-    error: undefined,
-    result: undefined,
-    state: State.pending,
-  }
+  const [result, setResult] = useState<TResult>()
+  const [error, setError] = useState<Error>()
+  const [state, setState] = useState<State>(State.pending)
 
-  const reducer: Reducer<PromiseState<TResult>, Action<TResult>> = (_state: PromiseState<TResult>, action: Action<TResult>) => {
-    switch (action.type) {
-      case State.pending:
-        return defaultState
-
-      case State.resolved:
-        return {
-          error: undefined,
-          result: action.payload,
-          state: State.resolved,
-        }
-
-      case State.rejected:
-        return {
-          error: action.error,
-          result: undefined,
-          state: State.rejected,
-        }
-
-      default:
-        throw Error(`Error parsing action ${JSON.stringify(action, null, 2)}`)
-    }
-  }
-
-  const [{ error, result, state }, dispatch] = useReducer(reducer, defaultState)
+  if (debug) console.log(`usePromise [${debug}]: started [${typeof promise}]`)
 
   const promiseMemo = useMemo(() => {
     try {
+      if (debug) console.log(`usePromise [${debug}]: re-memo [${typeof promise}]`)
+      setState(State.pending)
       return promise?.()
     } catch (e) {
-      dispatch({
-        error: e as Error,
-        payload: undefined,
-        type: State.rejected,
-      })
+      if (debug) console.log(`usePromise [${debug}]: useMemo rejection [${typeof promise}]`)
+      setResult(undefined)
+      setError(e as Error)
+      setState(State.rejected)
     }
   }, dependencies)
 
-  if (debug) console.debug(`usePromise [${debug}] Main Function`)
+  if (debug) console.log(`usePromise [${debug}] Main Function`)
 
   useEffect(() => {
-    dispatch({ type: State.pending })
-    if (debug) console.debug(`usePromise [${debug}] useEffect`)
+    if (debug) console.log(`usePromise [${debug}] useEffect`)
     if (promiseMemo instanceof Promise) {
+      if (debug) console.log(`usePromise [${debug}] isPromise`)
       promiseMemo
         .then((payload) => {
-          if (debug) console.debug(`usePromise [${debug}] then`)
-          dispatch({
-            error: undefined,
-            payload,
-            type: State.resolved,
-          })
+          if (debug) console.log(`usePromise [${debug}] then`)
+          setResult(payload)
+          setError(undefined)
+          setState(State.resolved)
         })
-        .catch((error) => {
-          if (debug) console.debug(`usePromise [${debug}] catch`)
-          dispatch({
-            error: error as Error,
-            payload: undefined,
-            type: State.rejected,
-          })
+        .catch((e) => {
+          const error = e as Error
+          console.error(`usePromise: ${error.message}`)
+          setResult(undefined)
+          setError(error)
+          setState(State.rejected)
         })
-    } else if (promiseMemo) {
-      dispatch({
-        error: undefined,
-        payload: promiseMemo,
-        type: State.resolved,
-      })
-    } else {
-      if (debug) console.debug(`usePromise [${debug}] no-promise`)
-      dispatch({
-        error: undefined,
-        payload: undefined,
-        type: State.resolved,
-      })
+    } else if (promise) {
+      if (debug) console.log(`usePromise [${debug}] isNotPromise`)
+      setResult(promise as TResult)
+      setError(undefined)
+      setState(State.resolved)
     }
     return () => {
-      if (debug) console.debug(`usePromise [${debug}] useEffect callback`)
+      if (debug) console.log(`usePromise [${debug}] useEffect callback`)
     }
-  }, [promiseMemo])
-
+  }, [...dependencies, promiseMemo])
+  if (debug) console.log(`usePromise [${debug}] returning ${JSON.stringify([result, error, state], null, 2)}`)
   return [result, error, state]
 }
