@@ -5,7 +5,7 @@ import { AbstractModule, Query } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
+import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
 import { useModule, useProvidedNode } from '../hooks'
@@ -20,10 +20,10 @@ class TestModule extends AbstractModule {
 const TestModuleName = 'TestModule'
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
-  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+  const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase })
 
   return (
-    <WalletProvider defaultWallet={account}>
+    <WalletProvider rootWallet={wallet}>
       <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
         <Story {...args} />
       </MemoryNodeProvider>
@@ -32,8 +32,8 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 }
 
 const UseModuleTest: React.FC<WithChildren> = ({ children }) => {
-  const [account] = useAccount({ mnemonic: DefaultSeedPhrase, path: '0' })
-  const [testModule] = useModule(TestModuleName, account)
+  const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
+  const [testModule] = useModule(TestModuleName, wallet)
 
   useEffect(() => {
     if (testModule) {
@@ -54,7 +54,7 @@ const Template: StoryFn<React.FC> = (props) => {
   const [node] = useProvidedNode() as [MemoryNode]
   const [description, setDescription] = useState<string>()
 
-  const [account] = useAccount({ mnemonic: DefaultSeedPhrase, path: '0' })
+  const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

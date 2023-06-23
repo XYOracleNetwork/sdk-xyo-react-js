@@ -1,7 +1,7 @@
+import { AccountInstance } from '@xyo-network/account-model'
 import { NodeModule, NodeWrapper } from '@xyo-network/node'
 import { NodeContext } from '@xyo-network/react-node-context'
 import { useAccount } from '@xyo-network/react-wallet'
-import { WalletInstance } from '@xyo-network/wallet-model'
 import { useContext, useEffect, useState } from 'react'
 
 export const useProvidedNode = (): [NodeModule | undefined] => {
@@ -10,7 +10,7 @@ export const useProvidedNode = (): [NodeModule | undefined] => {
   return [node]
 }
 
-export const useProvidedWrappedNode = (account?: WalletInstance): [NodeWrapper | undefined, Error | undefined] => {
+export const useProvidedWrappedNode = (account?: AccountInstance): [NodeWrapper | undefined, Error | undefined] => {
   const [accountToUse] = useAccount({ account })
   const [node] = useProvidedNode()
   const [wrappedNode, setWrappedNode] = useState<NodeWrapper>()

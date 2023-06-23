@@ -1,10 +1,10 @@
 import { CircularProgress, SelectProps } from '@mui/material'
 import { SelectEx } from '@xylabs/react-select'
-import { HDWallet } from '@xyo-network/account'
 import { AddressRenderRowBox, AddressRenderRowBoxPropsBase } from '@xyo-network/react-address-render'
-import { usePromise } from '@xyo-network/react-shared'
+import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { useWallet } from '../../contexts'
+import { useWalletContext } from '../../contexts'
+import { useWallet } from '../../hooks'
 
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxPropsBase, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 
@@ -17,20 +17,24 @@ const arrayRange = (length: number, start = 0) => {
   return Array.from(Array(length).keys()).map((x) => x + start)
 }
 
-export const RenderValue: React.FC<{
+export interface RenderValueProps {
   addressNames: Record<string, string | undefined>
   iconOnly?: boolean
   iconSize: number
   icons?: boolean
-  selected: number
+  index: number
   showFavorite?: boolean
-  wallet: HDWallet
-}> = ({ iconOnly, iconSize, showFavorite, icons, addressNames, selected, wallet }) => {
-  const [account] = usePromise<HDWallet>(() => wallet.derivePath(selected.toString()) as Promise<HDWallet>)
+  value: number
+  wallet: WalletInstance
+}
+
+export const RenderValue: React.FC<RenderValueProps> = ({ iconOnly, iconSize, showFavorite, icons, addressNames, index, wallet, value }) => {
+  const [account] = useWallet({ path: index.toString(), wallet })
   const customName = account ? addressNames[account?.address] : undefined
   const favorite = account ? account?.address in addressNames : undefined
   return (
     <AddressRenderRowBox
+      component="li"
       address={account?.address}
       iconOnly={iconOnly}
       iconSize={iconSize}
@@ -38,6 +42,7 @@ export const RenderValue: React.FC<{
       name={customName}
       favorite={favorite}
       showFavorite={showFavorite}
+      defaultValue={value}
     />
   )
 }
@@ -52,22 +57,23 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
   size,
   ...props
 }) => {
-  const { activeAccountIndex = 0, setActiveAccountIndex, wallet } = useWallet()
-  const disabled = !wallet || activeAccountIndex === undefined
+  const { activeAccountIndex = 0, setActiveAccountIndex, derivedWallet } = useWalletContext()
+  const disabled = !derivedWallet || activeAccountIndex === undefined
 
   return (
     <>
-      {wallet ? (
-        <SelectEx
+      {derivedWallet ? (
+        <SelectEx<number>
           disabled={disabled}
-          renderValue={(selected) => (
+          renderValue={(value) => (
             <RenderValue
-              wallet={wallet}
-              selected={selected}
+              wallet={derivedWallet}
               addressNames={addressNames}
               iconOnly={iconOnly}
               iconSize={iconSize}
               icons={icons}
+              index={activeAccountIndex}
+              value={value}
               showFavorite={showFavorite}
             />
           )}
@@ -77,18 +83,22 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
           variant="outlined"
           {...props}
         >
-          {arrayRange(maxAccounts).map((index) => (
-            <RenderValue
-              key={index}
-              wallet={wallet}
-              selected={index}
-              addressNames={addressNames}
-              iconOnly={iconOnly}
-              iconSize={iconSize}
-              icons={icons}
-              showFavorite={showFavorite}
-            />
-          ))}
+          {arrayRange(maxAccounts).map((index) => {
+            console.log(`arie: ${index}`)
+            return (
+              <RenderValue
+                key={index}
+                wallet={derivedWallet}
+                addressNames={addressNames}
+                iconOnly={iconOnly}
+                iconSize={iconSize}
+                icons={icons}
+                index={index}
+                showFavorite={showFavorite}
+                value={index}
+              />
+            )
+          })}
         </SelectEx>
       ) : (
         <CircularProgress size={24} />

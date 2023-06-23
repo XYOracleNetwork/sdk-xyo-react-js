@@ -1,42 +1,47 @@
-import { HDWallet } from '@xyo-network/account'
-import { DataLike } from '@xyo-network/core'
+import { AccountInstance } from '@xyo-network/account-model'
 import { usePromise } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useAccountFromContext } from '../contexts'
+import { useContextAccount } from '../contexts'
 
 export interface AccountHookParams {
-  account?: WalletInstance
-  mnemonic?: string
+  account?: AccountInstance
   path?: string
   required?: boolean
-  seed?: DataLike
+  wallet?: WalletInstance
 }
 
-export const useAccount = ({ mnemonic, account, path, required, seed }: AccountHookParams = {}): [WalletInstance | undefined, Error | undefined] => {
+export const useAccount = ({ wallet, account, path, required = false }: AccountHookParams = {}): [AccountInstance | undefined, Error | undefined] => {
+  let validationError: Error | undefined = undefined
+  if (wallet && account) {
+    validationError = Error('useAccount can not have both a wallet and an account in the parameters')
+  }
+
+  if (path && account) {
+    validationError = Error('useAccount can not have both a path and an account in the parameters')
+  }
   const [error, setError] = useState<Error>()
-  const [contextAccount] = useAccountFromContext(!account && required)
+  const [contextAccount] = useContextAccount(!(account || wallet) && required)
   const [activeAccount] = usePromise(async () => {
     try {
-      const newAccount = await (() => {
-        if (account) {
-          return account
-        } else if (mnemonic) {
-          return HDWallet.fromMnemonic(mnemonic as string)
-        } else if (seed) {
-          return HDWallet.fromSeed(seed)
+      if (!validationError) {
+        if (wallet) {
+          if (path) {
+            return await wallet?.derivePath?.(path)
+          } else {
+            return wallet
+          }
+        } else {
+          return contextAccount
         }
-        return contextAccount
-      })()
-      if (path) {
-        return newAccount?.derivePath?.(path)
-      } else {
-        return newAccount
       }
     } catch (ex) {
       setError(ex as Error)
     }
-  }, [account, mnemonic, contextAccount, seed, path])
-  return [activeAccount, error]
+  }, [path, wallet, contextAccount, validationError])
+  if (validationError && !error) {
+    setError(validationError)
+  }
+  return [error ? undefined : activeAccount, error]
 }

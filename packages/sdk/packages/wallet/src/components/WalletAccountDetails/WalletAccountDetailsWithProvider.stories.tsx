@@ -3,7 +3,7 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WalletProvider } from '../../contexts'
-import { useAccount } from '../../hooks'
+import { useWallet } from '../../hooks'
 import { WalletAccountDetails } from './WalletAccountDetails'
 
 const StorybookEntry = {
@@ -18,10 +18,10 @@ const StorybookEntry = {
 } as Meta<typeof WalletAccountDetails>
 
 const Template: StoryFn<typeof WalletAccountDetails> = (args) => {
-  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+  const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase })
   return (
     <BrowserRouter>
-      <WalletProvider defaultWallet={account}>
+      <WalletProvider rootWallet={wallet}>
         <WalletAccountDetails {...args}></WalletAccountDetails>
       </WalletProvider>
     </BrowserRouter>

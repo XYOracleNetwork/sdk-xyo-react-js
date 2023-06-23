@@ -1,7 +1,7 @@
 import { MemoryNode } from '@xyo-network/node'
-import { HDWallet } from '@xyo-network/protocol'
 import { defaultNetworkConfigs } from '@xyo-network/react-network'
 import { assertDefinedEx } from '@xyo-network/react-shared'
+import { WalletInstance } from '@xyo-network/wallet-model'
 
 import { MemoryNodeBuilder } from './Builders'
 import { RemoteNodeArchivistOffsetPaths, RemoteNodeOffsetPaths } from './ModuleAccountPaths'
@@ -20,7 +20,7 @@ const knownRemoteNodes = (): { apiDomain: string; name: string }[] => {
   })
 }
 
-export const BuildStandardNodes = async (wallet: HDWallet, onNodeBuilt?: (node: MemoryNode) => void): Promise<MemoryNode[]> => {
+export const BuildStandardNodes = async (wallet: WalletInstance, onNodeBuilt?: (node: MemoryNode) => void): Promise<MemoryNode[]> => {
   try {
     return await Promise.all(
       knownRemoteNodes().map(async ({ apiDomain, name }) => {

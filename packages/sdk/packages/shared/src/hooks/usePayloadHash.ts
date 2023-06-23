@@ -4,11 +4,11 @@ import { DependencyList } from 'react'
 
 import { usePromise } from './usePromise'
 
-export const usePayloadHash = <TPayload extends Payload>(payload: TPayload | undefined | null, dependencies?: DependencyList) => {
+export const usePayloadHash = <TPayload extends Payload>(payload: TPayload | undefined | null, dependencies: DependencyList = []) => {
   return usePromise(() => (payload ? PayloadHasher.hashAsync(payload) : undefined), dependencies)[0]
 }
 
-export const usePayloadHashes = <TPayload extends Payload>(payloads: TPayload[] | undefined | null, dependencies?: DependencyList) => {
+export const usePayloadHashes = <TPayload extends Payload>(payloads: TPayload[] | undefined | null, dependencies: DependencyList = []) => {
   return usePromise(
     () =>
       payloads

@@ -1,37 +1,24 @@
-import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
-import { HDWallet } from '@xyo-network/account'
 import { usePromise } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
-import { AccountContext } from '../Account'
 import { WalletContext } from './Context'
 import { WalletRootPath } from './lib'
-import { useWallet } from './use'
 
 export interface WalletProviderProps {
   basePath?: string
   defaultActiveAccountIndex?: number
-  defaultWallet?: WalletInstance
-}
-
-const AccountWalletProvider: React.FC<WithChildren> = (props) => {
-  const { wallet, activeAccountIndex = 0 } = useWallet()
-
-  const [account] = usePromise(() => wallet?.derivePath(activeAccountIndex.toString()))
-
-  return <AccountContext.Provider value={{ account, provided: true }} {...props} />
+  rootWallet?: WalletInstance
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
   basePath = WalletRootPath,
   children,
   defaultActiveAccountIndex = 0,
-  defaultWallet,
+  rootWallet,
   ...props
 }) => {
-  const [wallet, setWallet] = useState<HDWallet | undefined>()
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
 
   useEffect(() => {
@@ -40,37 +27,37 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     }
   }, [defaultActiveAccountIndex])
 
-  useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    async () => {
-      // ensure the wallet has the proper base
-      if (defaultWallet) {
-        if (!wallet?.path.includes(basePath)) {
-          try {
-            const walletWithBasePath = (await defaultWallet?.derivePath(basePath)) as HDWallet
-            setWallet(walletWithBasePath)
-          } catch (e) {
-            console.error('Error setting proper wallet base path', e)
-          }
+  const [derivedWallet] = usePromise(async () => {
+    // ensure the wallet has the proper base
+    if (rootWallet) {
+      if (!rootWallet?.path.includes(basePath)) {
+        try {
+          return await rootWallet?.derivePath(basePath)
+        } catch (e) {
+          console.error('Error setting proper wallet base path', e)
         }
       }
-    },
-    [basePath, defaultWallet, wallet?.path],
-  )
+    } else {
+      return undefined
+    }
+  }, [basePath, rootWallet])
+
+  const [activeAccount] = usePromise(() => derivedWallet?.derivePath(activeAccountIndex.toString()), [derivedWallet, activeAccountIndex])
 
   return (
     <WalletContext.Provider
       value={{
+        activeAccount,
         activeAccountIndex,
         basePath,
+        derivedWallet,
         provided: true,
+        rootWallet,
         setActiveAccountIndex,
-        setWallet,
-        wallet,
       }}
       {...props}
     >
-      <AccountWalletProvider>{children}</AccountWalletProvider>
+      {children}
     </WalletContext.Provider>
   )
 }

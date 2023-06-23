@@ -13,7 +13,7 @@ export enum State {
  */
 export const usePromise = <TResult>(
   promise: () => Promise<TResult> | undefined,
-  dependencies: DependencyList = [],
+  dependencies: DependencyList,
   debug: string | undefined = undefined,
 ): [TResult | undefined, Error | undefined, State | undefined] => {
   const [result, setResult] = useState<TResult>()

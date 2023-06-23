@@ -7,7 +7,7 @@ import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
 import { NodeProvider, useModule, useProvidedWrappedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
+import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useMemo, useState } from 'react'
 
@@ -56,10 +56,10 @@ export const MemoryNodeDecorator: Decorator = (Story, args) => {
     [],
   )
 
-  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+  const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase })
 
   return (
-    <WalletProvider defaultWallet={account}>
+    <WalletProvider rootWallet={wallet}>
       <NodeProvider node={node}>
         <Story {...args} />
       </NodeProvider>

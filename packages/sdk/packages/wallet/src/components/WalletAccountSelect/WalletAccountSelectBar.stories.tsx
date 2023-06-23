@@ -1,11 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { HDWallet } from '@xyo-network/account'
-import { usePromise } from '@xyo-network/react-shared'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
 import { WalletProvider } from '../../contexts'
-import { useAccounts } from '../../hooks'
+import { useWallet, useWallets } from '../../hooks'
 import { WalletAccountSelectBar } from './SelectBar'
 
 const StorybookEntry = {
@@ -24,20 +22,20 @@ const Template: StoryFn<typeof WalletAccountSelectBar> = (args) => {
 }
 
 const WithWalletTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
-  const [defaultWallet] = usePromise(() => HDWallet.fromMnemonic(DefaultSeedPhrase))
+  const [rootWallet] = useWallet({ mnemonic: DefaultSeedPhrase })
   return (
-    <WalletProvider defaultWallet={defaultWallet}>
+    <WalletProvider rootWallet={rootWallet}>
       <WalletAccountSelectBar {...args} />
     </WalletProvider>
   )
 }
 
 const WithFavoritesTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
-  const [defaultWallet] = usePromise(() => HDWallet.fromMnemonic(DefaultSeedPhrase))
-  const [wallets] = useAccounts({ account: defaultWallet, paths: ['0', '3', '5'] })
+  const [rootWallet] = useWallet({ mnemonic: DefaultSeedPhrase })
+  const [wallets] = useWallets({ paths: ['0', '3', '5'], wallet: rootWallet })
   const castWallets = wallets as WalletInstance[] | undefined
   return (
-    <WalletProvider defaultWallet={defaultWallet}>
+    <WalletProvider rootWallet={rootWallet}>
       <WalletAccountSelectBar
         addressNames={
           castWallets

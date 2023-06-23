@@ -4,7 +4,7 @@ import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
 import { NodeProvider, useProvidedWrappedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useAccount, WalletProvider } from '@xyo-network/react-wallet'
+import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { EventObject } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
@@ -29,10 +29,10 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
     [],
   )
 
-  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+  const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase })
 
   return (
-    <WalletProvider defaultWallet={account}>
+    <WalletProvider rootWallet={wallet}>
       <NodeProvider node={node}>
         <CytoscapeInstanceProvider>
           <Story {...args} />

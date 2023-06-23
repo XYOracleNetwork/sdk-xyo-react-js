@@ -1,16 +1,16 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { AccountInstance } from '@xyo-network/account-model'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
-import { WalletInstance } from '@xyo-network/wallet-model'
 import { useMemo, useState } from 'react'
 
 import { useProvidedWrappedNode } from './useProvidedNode'
 
 export const useModule = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
-  account?: WalletInstance,
+  account?: AccountInstance,
   logger?: Logger,
 ): [TModule | undefined, Error | undefined] => {
   const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])

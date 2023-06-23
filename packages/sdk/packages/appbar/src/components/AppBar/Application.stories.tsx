@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useAccount, WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
+import { useWallet, WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SearchBar } from '../SearchBar'
@@ -24,9 +24,9 @@ const StorybookEntry = {
 } as Meta<typeof ApplicationAppBar>
 
 const Template: StoryFn<typeof ApplicationAppBar> = (args) => {
-  const [account] = useAccount({ mnemonic: DefaultSeedPhrase })
+  const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase })
   return (
-    <WalletProvider defaultWallet={account}>
+    <WalletProvider rootWallet={wallet}>
       <BrowserRouter>
         <NetworkMemoryProvider>
           <ApplicationAppBar

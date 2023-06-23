@@ -1,7 +1,7 @@
+import { AccountInstance } from '@xyo-network/account-model'
 import { Logger } from '@xyo-network/core'
 import { ConstructableModuleWrapper, ModuleWrapper } from '@xyo-network/module'
 import { useAccount } from '@xyo-network/react-wallet'
-import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
 import { useModule } from './useModule'
@@ -10,7 +10,7 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper>(
   wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
   name?: string,
 ) => {
-  const useHook = (nameOrAddress?: string, account?: WalletInstance, logger?: Logger): [TModuleWrapper | undefined, Error | undefined] => {
+  const useHook = (nameOrAddress?: string, account?: AccountInstance, logger?: Logger): [TModuleWrapper | undefined, Error | undefined] => {
     logger?.debug(`Render: ${name}`)
     const [accountToUse] = useAccount({ account })
     const [module, moduleError] = useModule<TModuleWrapper['module']>(

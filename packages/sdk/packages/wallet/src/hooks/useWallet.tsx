@@ -1,0 +1,47 @@
+import { HDWallet } from '@xyo-network/account'
+import { DataLike } from '@xyo-network/core'
+import { usePromise } from '@xyo-network/react-shared'
+import { WalletInstance } from '@xyo-network/wallet-model'
+import { useState } from 'react'
+
+import { useContextWallet } from '../contexts'
+
+export interface WalletHookParams {
+  mnemonic?: string
+  path?: string
+  required?: boolean
+  seed?: DataLike
+  wallet?: WalletInstance
+}
+
+export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: WalletHookParams = {}): [
+  WalletInstance | undefined,
+  Error | undefined,
+] => {
+  const [error, setError] = useState<Error>()
+  const [contextAccount] = useContextWallet(!wallet && required)
+  const [activeAccount] = usePromise(async () => {
+    try {
+      const newAccount = await (() => {
+        if (wallet) {
+          return wallet
+        } else if (mnemonic) {
+          return HDWallet.fromMnemonic(mnemonic as string)
+        } else if (seed) {
+          return HDWallet.fromSeed(seed)
+        }
+        return contextAccount
+      })()
+
+      if (path) {
+        console.log(`path: ${path}`)
+        return newAccount?.derivePath?.(path)
+      } else {
+        return newAccount ?? wallet
+      }
+    } catch (ex) {
+      setError(ex as Error)
+    }
+  }, [mnemonic, contextAccount, seed, path, wallet])
+  return [activeAccount, error]
+}

@@ -27,10 +27,18 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
     const sharedRef = useShareForwardedRef(ref)
     const [elementRef, dispatch] = useEvent(undefined, sharedRef)
 
-    const handleClickedAddress = () => (address ? dispatch('address', 'click', address) : undefined)
-
     return (
-      <FlexGrowRow gap={2} justifyContent="flex-start" ref={elementRef} onClick={handleClickedAddress} {...props}>
+      <FlexGrowRow
+        gap={2}
+        justifyContent="flex-start"
+        ref={elementRef}
+        onClick={() => {
+          if (address) {
+            dispatch('address', 'click', address)
+          }
+        }}
+        {...props}
+      >
         {icons && address ? (
           <ListItemIcon sx={{ minWidth: 0 }}>
             <Identicon size={iconSize} value={address} />
