@@ -3,7 +3,7 @@ import { usePromise } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useContextAccount } from '../../../..'
+import { useContextAccount } from '../contexts'
 
 export interface AccountHookParams {
   account?: AccountInstance
