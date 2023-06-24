@@ -24,7 +24,6 @@ export const useAccount = ({ wallet, account, path, required = false }: AccountH
   const [error, setError] = useState<Error>()
   const [contextAccount] = useContextAccount(!(account || wallet) && required)
   const [activeAccount] = usePromise(async () => {
-    console.log('useAccount:activeAccount:usePromise')
     try {
       if (!validationError) {
         if (wallet) {
