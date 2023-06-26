@@ -17,7 +17,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   NoResultRowComponent,
   ...props
 }) => {
-  const payloadPairs = usePayloadHashes(payloads, [payloads])
+  const payloadPairs = usePayloadHashes(payloads)
 
   return (
     <TableBody {...props}>
