@@ -11,7 +11,7 @@ const StorybookEntry = {
       page: null,
     },
   },
-  title: 'plugin/crypto-prices/TableCellSummary',
+  title: 'plugin/nft-score/TableCellSummary',
 } as Meta<typeof TableCellSummary>
 
 const Template: StoryFn<typeof TableCellSummary> = (args) => <TableCellSummary {...args}></TableCellSummary>
