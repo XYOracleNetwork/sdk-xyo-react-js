@@ -1,31 +1,31 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { CryptoPricesRenderer } from './NftScoreRenderer'
-import { payloadData, payloadDataMissingAssets } from './storyPayloadData'
+import { NftScoreRenderer } from './NftScoreRenderer'
+import { payloadDataFullScores, payloadDataPartialScores } from './storyPayloadData'
 
 const StorybookEntry = {
   argTypes: {},
-  component: CryptoPricesRenderer,
+  component: NftScoreRenderer,
   parameters: {
     docs: {
       page: null,
     },
   },
-  title: 'plugin/crypto-prices/CryptoPricesRenderer',
-} as Meta<typeof CryptoPricesRenderer>
+  title: 'plugin/nft-score/NftScoreRenderer',
+} as Meta<typeof NftScoreRenderer>
 
-const Template: StoryFn<typeof CryptoPricesRenderer> = (args) => <CryptoPricesRenderer {...args}></CryptoPricesRenderer>
+const Template: StoryFn<typeof NftScoreRenderer> = (args) => <NftScoreRenderer {...args}></NftScoreRenderer>
 
 const Default = Template.bind({})
 Default.args = {}
 
-const WithData = Template.bind({})
-WithData.args = { payload: payloadData }
+const WithFullScores = Template.bind({})
+WithFullScores.args = { payload: payloadDataFullScores }
 
-const WithMissingData = Template.bind({})
-WithMissingData.args = { payload: payloadDataMissingAssets }
+const WithPartialScores = Template.bind({})
+WithPartialScores.args = { payload: payloadDataPartialScores }
 
-export { Default, WithData, WithMissingData }
+export { Default, WithFullScores, WithPartialScores }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
