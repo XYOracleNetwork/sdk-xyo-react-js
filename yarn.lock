@@ -8811,32 +8811,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-crypto-nft-plugin@workspace:packages/plugins/packages/crypto-nft":
-  version: 0.0.0-use.local
-  resolution: "@xyo-network/react-crypto-nft-plugin@workspace:packages/plugins/packages/crypto-nft"
-  dependencies:
-    "@storybook/react": ^7.0.23
-    "@xylabs/react-flexbox": ^2.17.4
-    "@xylabs/ts-scripts-yarn3": ^2.17.17
-    "@xylabs/tsconfig-react": ^2.17.17
-    "@xyo-network/crypto-wallet-nft-payload-plugin": ^2.63.6
-    "@xyo-network/crypto-wallet-nft-plugin": ^2.63.6
-    "@xyo-network/payload-model": ^2.63.6
-    "@xyo-network/react-payload-plugin": "workspace:^"
-    "@xyo-network/react-shared": "workspace:^"
-    "@xyo-network/react-storybook": "workspace:^"
-    typescript: ^5.1.3
-  peerDependencies:
-    "@mui/icons-material": ^5
-    "@mui/material": ^5
-    "@mui/styles": ^5
-    axios: ^1
-    react: ^18
-    react-dom: ^18
-    react-router-dom: ^6
-  languageName: unknown
-  linkType: soft
-
 "@xyo-network/react-crypto-prices-plugin@workspace:^, @xyo-network/react-crypto-prices-plugin@workspace:packages/plugins/packages/crypto-prices":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-crypto-prices-plugin@workspace:packages/plugins/packages/crypto-prices"
@@ -9489,6 +9463,32 @@ __metadata:
     "@xylabs/tsconfig-react": ^2.17.17
     "@xyo-network/network": ^2.63.6
     "@xyo-network/react-shared": "workspace:^"
+    typescript: ^5.1.3
+  peerDependencies:
+    "@mui/icons-material": ^5
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    axios: ^1
+    react: ^18
+    react-dom: ^18
+    react-router-dom: ^6
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-nft-score-plugin@workspace:packages/plugins/packages/nft-score":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-nft-score-plugin@workspace:packages/plugins/packages/nft-score"
+  dependencies:
+    "@storybook/react": ^7.0.23
+    "@xylabs/react-flexbox": ^2.17.4
+    "@xylabs/ts-scripts-yarn3": ^2.17.17
+    "@xylabs/tsconfig-react": ^2.17.17
+    "@xyo-network/crypto-wallet-nft-payload-plugin": ^2.63.6
+    "@xyo-network/crypto-wallet-nft-plugin": ^2.63.6
+    "@xyo-network/payload-model": ^2.63.6
+    "@xyo-network/react-payload-plugin": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-storybook": "workspace:^"
     typescript: ^5.1.3
   peerDependencies:
     "@mui/icons-material": ^5
