@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { CryptoPricesRenderer } from './CryptoPricesRenderer'
+import { CryptoPricesRenderer } from './NftScoreRenderer'
 import { payloadData, payloadDataMissingAssets } from './storyPayloadData'
 
 const StorybookEntry = {
