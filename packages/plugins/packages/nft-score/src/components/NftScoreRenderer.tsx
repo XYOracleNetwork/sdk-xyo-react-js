@@ -12,7 +12,7 @@ export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...
   const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(([key]) => key === 'schema') : undefined
   return (
     <FlexCol {...props}>
-      <Typography variant="h1">Crypto Prices</Typography>
+      <Typography variant="h1">NFT Scores</Typography>
       {nftScorePayload?.timestamp ? <Typography variant="h4">{`[${new Date(nftScorePayload?.timestamp).toLocaleString()}]`}</Typography> : null}
       {categories ? (
         <Table>
