@@ -1,6 +1,6 @@
 import { CardProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
-import { ModuleError } from '@xyo-network/module'
+import { ModuleError } from '@xyo-network/module-model'
 import { ErrorAlert, ErrorRender } from '@xyo-network/react-error'
 
 import { EmbedErrorCard } from './EmbedErrorCard'

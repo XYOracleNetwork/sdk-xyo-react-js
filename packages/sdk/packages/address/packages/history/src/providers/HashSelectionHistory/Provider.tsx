@@ -1,7 +1,7 @@
 import { useMounted, WithChildren } from '@xylabs/react-shared'
 import { ArchivistWrapper } from '@xyo-network/archivist'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { ModuleError } from '@xyo-network/module'
+import { ModuleError } from '@xyo-network/module-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useCallback, useEffect, useState } from 'react'

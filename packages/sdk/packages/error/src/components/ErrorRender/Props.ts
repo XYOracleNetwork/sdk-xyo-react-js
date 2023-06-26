@@ -1,5 +1,5 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ModuleError } from '@xyo-network/module'
+import { ModuleError } from '@xyo-network/module-model'
 import { ReactNode } from 'react'
 
 export interface ErrorRenderProps extends FlexBoxProps {

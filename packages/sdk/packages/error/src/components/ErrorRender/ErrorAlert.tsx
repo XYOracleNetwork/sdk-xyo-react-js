@@ -1,5 +1,5 @@
 import { Alert, AlertProps, AlertTitle, Typography } from '@mui/material'
-import { ModuleError } from '@xyo-network/module'
+import { ModuleError } from '@xyo-network/module-model'
 
 export interface ErrorAlertProps extends AlertProps {
   error?: ModuleError | Error
