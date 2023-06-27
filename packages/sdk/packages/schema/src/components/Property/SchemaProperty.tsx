@@ -14,8 +14,6 @@ export type SchemaPropertyProps = PropertyProps & {
   showOpenNewWindowLink?: boolean
   showStatusIcon?: boolean
   value?: string
-  /** @deprecated - use events instead */
-  viewSchemaUrl?: string
 }
 
 const useResolveSchema = (schema?: string) => {

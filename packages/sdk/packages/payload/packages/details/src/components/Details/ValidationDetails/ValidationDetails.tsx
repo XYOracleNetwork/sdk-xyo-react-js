@@ -7,7 +7,7 @@ import { SchemaProperty } from '@xyo-network/react-schema'
 
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
-export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ viewSchemaUrl, skipBody = false, value, ...props }) => {
+export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ skipBody = false, value, ...props }) => {
   const [validateErrors] = usePromise(
     async () => (value ? await new PayloadValidator(value).validate() : undefined),
     [value],
@@ -49,7 +49,7 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
           )
         }
       />
-      {value?.schema && <SchemaProperty flexGrow={1} titleProps={{ elevation }} value={value.schema} viewSchemaUrl={viewSchemaUrl} />}
+      {value?.schema && <SchemaProperty flexGrow={1} titleProps={{ elevation }} value={value.schema} />}
     </PropertyGroup>
   )
 }

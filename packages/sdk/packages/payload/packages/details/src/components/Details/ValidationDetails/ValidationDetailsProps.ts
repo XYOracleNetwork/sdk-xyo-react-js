@@ -4,5 +4,4 @@ import { PropertyGroupProps } from '@xyo-network/react-property'
 export type PayloadValidationDetailsProps = PropertyGroupProps & {
   skipBody?: boolean
   value?: Payload
-  viewSchemaUrl?: string
 }
