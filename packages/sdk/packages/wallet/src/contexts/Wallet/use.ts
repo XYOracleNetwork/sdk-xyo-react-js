@@ -5,24 +5,29 @@ import { WalletInstance } from '@xyo-network/wallet-model'
 import { WalletContext } from './Context'
 
 export const useWalletContext = (required = true) => {
-  return useContextEx(WalletContext, 'WalletContext', required)
+  return useContextEx(WalletContext, 'Wallet', required)
 }
 
-export const useContextWallet = (required = true): [WalletInstance | undefined] => {
-  const { derivedWallet } = useWalletContext(required)
-  return [derivedWallet]
+export const useCoinTypeWallet = (required = true): [WalletInstance | undefined, Error | undefined] => {
+  const { coinTypeWallet } = useWalletContext(required)
+  return [coinTypeWallet, undefined]
 }
 
-export const useIndexedWalletFromContext = (index: number, required = true): [WalletInstance | undefined] => {
-  const [wallet] = useContextWallet(required)
-  const [account] = usePromise(() => wallet?.derivePath(index.toString()), [wallet, index])
-  return [account]
+export const useRootWallet = (required = true): [WalletInstance | undefined, Error | undefined] => {
+  const { rootWallet } = useWalletContext(required)
+  return [rootWallet, undefined]
 }
 
-export const useSelectedWalletAccount = (required = true): [WalletInstance | undefined] => {
+export const useIndexedWalletFromContext = (index: number, required = true): [WalletInstance | undefined, Error | undefined] => {
+  const [coinTypeWallet] = useCoinTypeWallet(required)
+  const [wallet] = usePromise(() => coinTypeWallet?.derivePath(index.toString()), [coinTypeWallet, index])
+  return [wallet, undefined]
+}
+
+export const useSelectedWalletAccount = (required = true): [WalletInstance | undefined, Error | undefined] => {
   const { activeAccountIndex } = useWalletContext(required)
   //we pass in 0 as default since we can not call the hook optionally,
   //we resolve this false result by checking whether activeAccountIndex is defined before returning it
-  const [account] = useIndexedWalletFromContext(activeAccountIndex ?? 0)
-  return [activeAccountIndex !== undefined ? account : undefined]
+  const [account] = useIndexedWalletFromContext(activeAccountIndex ?? 0, required)
+  return [activeAccountIndex !== undefined ? account : undefined, undefined]
 }

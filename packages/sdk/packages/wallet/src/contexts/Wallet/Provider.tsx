@@ -27,7 +27,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     }
   }, [defaultActiveAccountIndex])
 
-  const [derivedWallet] = usePromise(async () => {
+  const [coinTypeWallet] = usePromise(async () => {
     // ensure the wallet has the proper base
     if (rootWallet) {
       if (!rootWallet?.path.includes(basePath)) {
@@ -42,7 +42,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     }
   }, [basePath, rootWallet])
 
-  const [activeAccount] = usePromise(() => derivedWallet?.derivePath(activeAccountIndex.toString()), [derivedWallet, activeAccountIndex])
+  const [activeAccount] = usePromise(() => coinTypeWallet?.derivePath(activeAccountIndex.toString()), [coinTypeWallet, activeAccountIndex])
 
   return (
     <WalletContext.Provider
@@ -50,7 +50,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
         activeAccount,
         activeAccountIndex,
         basePath,
-        derivedWallet,
+        coinTypeWallet,
         provided: true,
         rootWallet,
         setActiveAccountIndex,

@@ -1,9 +1,11 @@
+import { Stack } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 
 import { WalletProvider } from '../../contexts'
 import { useWallet } from '../../hooks'
 import { WalletAccountSelect } from './Select'
+import { AccountInfo, CoinTypeWalletInfo, RootWalletInfo, SelectedWalletInfo, WalletInfo } from './WalletInfo'
 
 const StorybookEntry = {
   argTypes: {},
@@ -25,6 +27,13 @@ const WithWalletTemplate: StoryFn<typeof WalletAccountSelect> = (args) => {
   return (
     <WalletProvider rootWallet={wallet}>
       <WalletAccountSelect {...args} />
+      <Stack direction="row" position="absolute" right={0} top={0} bgcolor="black" height={16}>
+        <RootWalletInfo />
+        <CoinTypeWalletInfo />
+        <SelectedWalletInfo />
+        <WalletInfo />
+        <AccountInfo />
+      </Stack>
     </WalletProvider>
   )
 }

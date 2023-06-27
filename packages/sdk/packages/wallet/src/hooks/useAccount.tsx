@@ -3,37 +3,38 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useContextAccount } from '../contexts'
+import { useCoinTypeWallet, useWalletContext } from '../contexts'
 
 export interface AccountHookParams {
   account?: AccountInstance
-  path?: string
+  index?: number
   required?: boolean
   wallet?: WalletInstance
 }
 
-export const useAccount = ({ wallet, account, path, required = false }: AccountHookParams = {}): [AccountInstance | undefined, Error | undefined] => {
+export const useAccount = ({ wallet, account, index, required = false }: AccountHookParams = {}): [
+  AccountInstance | undefined,
+  Error | undefined,
+] => {
   const [validationError, setValidationError] = useState<Error>()
   if (wallet && account && !validationError) {
     setValidationError(Error('useAccount can not have both a wallet and an account in the parameters'))
   }
 
-  if (path && account && !validationError) {
-    setValidationError(Error('useAccount can not have both a path and an account in the parameters'))
+  if (index && account && !validationError) {
+    setValidationError(Error('useAccount can not have both a index and an account in the parameters'))
   }
+
   const [error, setError] = useState<Error>()
-  const [contextAccount] = useContextAccount(!(account || wallet) && required)
+  const [coinTypeWallet] = useCoinTypeWallet(!wallet && required)
+  const { activeAccountIndex } = useWalletContext(false)
   const [activeAccount] = usePromise(async () => {
     try {
       if (!validationError) {
         if (wallet) {
-          if (path) {
-            return await wallet?.derivePath?.(path)
-          } else {
-            return wallet
-          }
-        } else {
-          return contextAccount
+          return await wallet?.derivePath?.(`${index ?? 0}'\0`)
+        } else if (coinTypeWallet) {
+          return await coinTypeWallet?.derivePath?.(`${index ?? activeAccountIndex ?? 0}'\0`)
         }
       }
     } catch (ex) {
@@ -41,11 +42,11 @@ export const useAccount = ({ wallet, account, path, required = false }: AccountH
       console.error(error.message)
       setError(error)
     }
-  }, [path, wallet, contextAccount, validationError])
+  }, [index, wallet, coinTypeWallet, activeAccountIndex, validationError])
   if (validationError && !error) {
     console.error(validationError.message)
     setError(validationError)
   }
 
-  return [error ? undefined : activeAccount, error]
+  return [error ? undefined : account ?? activeAccount, error]
 }
