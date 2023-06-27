@@ -1,34 +1,15 @@
 import { TableCell, TableCellProps } from '@mui/material'
+import { isNftScorePayload, NftScorePayload } from '@xyo-network/crypto-wallet-nft-plugin'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { ThemeTokenAvatarGroup, TokenData, useGetTokenData } from '@xyo-network/react-shared'
-import { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import { ThemeTokenAvatarGroup } from '@xyo-network/react-shared'
 
 export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({ payload, ...props }) => {
-  const payloadTyped = payload as UniswapCryptoMarketPayload
-  const makeTokenList = (payloadData: UniswapCryptoPair[]) => {
-    const tokenList: string[] = []
-    {
-      payloadData.map((pair) => pair.tokens.map((token) => (tokenList.includes(token.symbol) ? null : tokenList.push(token.symbol))))
-    }
-    return tokenList
-  }
+  const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScorePayload) : undefined
+  const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(([key]) => key === 'schema') : undefined
 
-  const makeTokenImageList = (tokenNameData: TokenData[]) => {
-    const tokenImageList: string[] = []
-    {
-      tokenNameData.map((token) => (tokenImageList.includes(token.icon) ? null : tokenImageList.push(token.icon)))
-    }
-    console.log(tokenImageList)
-    return tokenImageList
-  }
-
-  const payloadTokenList = makeTokenList(payloadTyped.pairs)
-  const payloadTokenListData = useGetTokenData(payloadTokenList)
-  const payloadTokenImageListData = makeTokenImageList(payloadTokenListData)
-  console.log(payloadTokenListData)
   return (
     <TableCell {...props}>
-      <ThemeTokenAvatarGroup total={payloadTyped?.pairs.length} images={payloadTokenImageListData} />
+      <ThemeTokenAvatarGroup total={categories?.length || 0} images={undefined} />
     </TableCell>
   )
 }
