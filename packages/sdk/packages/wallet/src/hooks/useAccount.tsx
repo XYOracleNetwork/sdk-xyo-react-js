@@ -1,5 +1,5 @@
+import { usePromise } from '@xylabs/react-promise'
 import { AccountInstance } from '@xyo-network/account-model'
-import { usePromise } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 

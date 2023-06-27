@@ -1,6 +1,6 @@
+import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
 import { DataLike } from '@xyo-network/core'
-import { usePromise } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 

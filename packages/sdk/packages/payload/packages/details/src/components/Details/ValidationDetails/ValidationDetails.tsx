@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { usePromise } from '@xylabs/react-promise'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { Property, PropertyGroup } from '@xyo-network/react-property'
 import { SchemaProperty } from '@xyo-network/react-schema'
-import { usePromise } from '@xyo-network/react-shared'
 
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 

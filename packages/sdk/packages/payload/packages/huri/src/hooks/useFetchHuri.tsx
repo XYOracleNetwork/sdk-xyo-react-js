@@ -1,5 +1,5 @@
+import { usePromise } from '@xylabs/react-promise'
 import { DivinerWrapper, HuriPayload, HuriSchema } from '@xyo-network/diviner'
-import { usePromise } from '@xyo-network/react-shared'
 import { useMemo } from 'react'
 
 import { useBuildHuri } from './useBuildHuri'

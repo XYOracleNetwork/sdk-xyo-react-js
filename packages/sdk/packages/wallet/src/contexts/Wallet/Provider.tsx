@@ -1,5 +1,5 @@
+import { usePromise } from '@xylabs/react-promise'
 import { WithChildren } from '@xylabs/react-shared'
-import { usePromise } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
