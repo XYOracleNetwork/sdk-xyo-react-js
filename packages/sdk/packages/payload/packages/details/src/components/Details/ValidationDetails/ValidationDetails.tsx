@@ -8,11 +8,7 @@ import { SchemaProperty } from '@xyo-network/react-schema'
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
 export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ skipBody = false, value, ...props }) => {
-  const [validateErrors] = usePromise(
-    async () => (value ? await new PayloadValidator(value).validate() : undefined),
-    [value],
-    'PayloadValidationDetails',
-  )
+  const [validateErrors] = usePromise(async () => (value ? await new PayloadValidator(value).validate() : undefined), [value])
 
   const bodyErrors = skipBody ? [] : validateErrors ?? []
   const errors: Error[] = [...bodyErrors]
