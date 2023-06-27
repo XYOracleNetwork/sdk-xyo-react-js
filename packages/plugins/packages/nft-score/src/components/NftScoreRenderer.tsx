@@ -1,10 +1,14 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { isNftScorePayload, NftScorePayload } from '@xyo-network/crypto-wallet-nft-plugin'
+import { NftScorePayload, NftScoreSchema } from '@xyo-network/crypto-wallet-nft-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 
 export interface NftScoreRendererProps extends FlexBoxProps {
   payload?: Payload
+}
+
+const isNftScorePayload = (payload?: Payload): payload is NftScorePayload => {
+  return payload?.schema === NftScoreSchema
 }
 
 export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...props }) => {
