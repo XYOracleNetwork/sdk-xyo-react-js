@@ -1,4 +1,4 @@
-import { usePromise } from '@xyo-network/react-shared'
+import { usePromise } from '@xylabs/react-promise'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
 import { useWallet } from './useWallet'

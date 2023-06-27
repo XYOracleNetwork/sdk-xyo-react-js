@@ -1,26 +1,14 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { usePromise } from '@xylabs/react-promise'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { Property, PropertyGroup } from '@xyo-network/react-property'
 import { SchemaProperty } from '@xyo-network/react-schema'
-import { usePromise } from '@xyo-network/react-shared'
 
 import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
 
-export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ viewSchemaUrl, skipBody = false, value, ...props }) => {
-  const [validateErrors] = usePromise(
-    async () => (value ? await new PayloadValidator(value).validate() : undefined),
-    [value],
-    'PayloadValidationDetails',
-  )
-  usePromise(() => Promise.reject('promise failed'), [], 'Test Reject')
-  usePromise(
-    () => {
-      throw Error('ManualError')
-    },
-    [],
-    'Test Throw',
-  )
+export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ skipBody = false, value, ...props }) => {
+  const [validateErrors] = usePromise(async () => (value ? await new PayloadValidator(value).validate() : undefined), [value])
 
   const bodyErrors = skipBody ? [] : validateErrors ?? []
   const errors: Error[] = [...bodyErrors]
@@ -49,7 +37,7 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
           )
         }
       />
-      {value?.schema && <SchemaProperty flexGrow={1} titleProps={{ elevation }} value={value.schema} viewSchemaUrl={viewSchemaUrl} />}
+      {value?.schema && <SchemaProperty flexGrow={1} titleProps={{ elevation }} value={value.schema} />}
     </PropertyGroup>
   )
 }

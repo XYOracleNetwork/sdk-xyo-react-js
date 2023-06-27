@@ -1,7 +1,6 @@
+import { usePromise } from '@xylabs/react-promise'
 import { PayloadHasher } from '@xyo-network/core'
 import { Payload } from '@xyo-network/payload-model'
-
-import { usePromise } from './usePromise'
 
 export const usePayloadHash = <TPayload extends Payload>(payload: TPayload | undefined | null) => {
   return usePromise(() => (payload ? PayloadHasher.hashAsync(payload) : undefined), [payload])[0]

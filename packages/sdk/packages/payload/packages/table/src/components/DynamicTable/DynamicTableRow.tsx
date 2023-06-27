@@ -2,13 +2,14 @@ import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlin
 import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded'
 import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded'
 import { AvatarProps, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
+import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
-import { HashTableCell, HashTableCellProps, usePayloadHash, usePromise } from '@xyo-network/react-shared'
+import { HashTableCell, HashTableCellProps, usePayloadHash } from '@xyo-network/react-shared'
 import { ComponentType } from 'react'
 
 import {

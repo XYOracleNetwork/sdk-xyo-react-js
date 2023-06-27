@@ -1,7 +1,7 @@
-import { AccountInstance } from '@xyo-network/account-model'
 import { Logger } from '@xyo-network/core'
 import { ConstructableModuleWrapper, ModuleWrapper } from '@xyo-network/module'
-import { useAccount } from '@xyo-network/react-wallet'
+import { useWallet } from '@xyo-network/react-wallet'
+import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
 import { useModule } from './useModule'
@@ -10,32 +10,34 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper>(
   wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
   name?: string,
 ) => {
-  const useHook = (nameOrAddress?: string, account?: AccountInstance, logger?: Logger): [TModuleWrapper | undefined, Error | undefined] => {
+  const useHook = (nameOrAddress?: string, wallet?: WalletInstance, logger?: Logger): [TModuleWrapper | undefined, Error | undefined] => {
     logger?.debug(`Render: ${name}`)
-    const [accountToUse] = useAccount({ account })
+    const [walletToUse] = useWallet({ wallet })
     const [module, moduleError] = useModule<TModuleWrapper['module']>(
       nameOrAddress ?? {
         query: [wrapperObject.requiredQueries],
       },
-      account,
+      walletToUse,
       logger,
     )
 
     const [wrapper, setWrapper] = useState<TModuleWrapper>()
     const [error, setError] = useState<Error>()
 
+    /*
     useEffect(() => {
-      if (!accountToUse) {
+      if (!walletToUse) {
         const error = Error('Module hooks require either an Account context or account parameter')
         //console.error(error.message)
         setError(error)
       }
-    }, [accountToUse])
+    }, [walletToUse])
+    */
 
     useEffect(() => {
-      if (module && accountToUse) {
+      if (module && walletToUse) {
         try {
-          const wrapper = wrapperObject.wrap(module, accountToUse)
+          const wrapper = wrapperObject.wrap(module, walletToUse)
           setWrapper(wrapper)
           setError(undefined)
         } catch (ex) {
@@ -46,7 +48,7 @@ export const WrappedModuleHookFactory = <TModuleWrapper extends ModuleWrapper>(
         setWrapper(undefined)
         setError(moduleError)
       }
-    }, [module, account, moduleError, accountToUse])
+    }, [module, wallet, moduleError, walletToUse])
 
     return [wrapper, error]
   }

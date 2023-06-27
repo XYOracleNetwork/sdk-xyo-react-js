@@ -1,8 +1,9 @@
 import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/material'
+import { usePromise } from '@xylabs/react-promise'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useEvent } from '@xyo-network/react-event'
-import { usePayloadHashes, usePromise, useShareForwardedRef } from '@xyo-network/react-shared'
+import { usePayloadHashes, useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, Fragment } from 'react'
 
 import { orderedHistory, useActiveBoundWitness } from '../../hooks'

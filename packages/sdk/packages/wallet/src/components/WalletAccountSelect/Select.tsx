@@ -3,7 +3,7 @@ import { SelectEx } from '@xylabs/react-select'
 import { AddressRenderRowBox, AddressRenderRowBoxPropsBase } from '@xyo-network/react-address-render'
 
 import { useWalletContext } from '../../contexts'
-import { useAccount } from '../../hooks'
+import { useAccount, useWallet } from '../../hooks'
 
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxPropsBase, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 
@@ -26,17 +26,17 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
   size,
   ...props
 }) => {
-  const { activeAccountIndex = 0, setActiveAccountIndex, derivedWallet } = useWalletContext()
-  const disabled = !derivedWallet || activeAccountIndex === undefined
+  const { activeAccountIndex = 0, setActiveAccountIndex, coinTypeWallet } = useWalletContext()
+  const disabled = !coinTypeWallet || activeAccountIndex === undefined
 
   return (
     <>
-      {derivedWallet ? (
+      {coinTypeWallet ? (
         <SelectEx
           disabled={disabled}
           renderValue={(selected) => {
             const Item: React.FC = () => {
-              const [account] = useAccount({ path: selected.toString(), wallet: derivedWallet })
+              const [account] = useWallet({ path: selected.toString(), wallet: coinTypeWallet })
               const customName = account ? addressNames[account.address] : undefined
               const favorite = account && account.address in addressNames
               return (
@@ -61,7 +61,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
         >
           {arrayRange(maxAccounts).map((index) => {
             const Item: React.FC = () => {
-              const [account] = useAccount({ path: index.toString(), wallet: derivedWallet })
+              const [account] = useAccount({ index, wallet: coinTypeWallet })
               const customName = account ? addressNames[account.address] : undefined
               const favorite = account && account.address in addressNames
               return (

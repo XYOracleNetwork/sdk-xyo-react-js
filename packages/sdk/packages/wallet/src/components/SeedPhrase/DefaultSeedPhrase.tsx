@@ -1,8 +1,6 @@
 import { Alert, AlertTitle, Snackbar } from '@mui/material'
-import { generateMnemonic } from '@scure/bip39'
-// eslint-disable-next-line import/no-internal-modules
-import { wordlist } from '@scure/bip39/wordlists/english'
 import { WithChildren } from '@xylabs/react-shared'
+import { generateMnemonic, wordlists } from '@xyo-network/bip39'
 import { useEffect, useState } from 'react'
 
 export interface DefaultSeedPhraseProps extends WithChildren {
@@ -15,7 +13,7 @@ export const DefaultSeedPhrase: React.FC<DefaultSeedPhraseProps> = ({ changeSeed
 
   useEffect(() => {
     if (!seedPhrase) {
-      const mnemonic = generateMnemonic(wordlist, 256)
+      const mnemonic = generateMnemonic(wordlists.english, 256)
       changeSeedPhrase?.(mnemonic)
       setShowSnackBar(true)
     }

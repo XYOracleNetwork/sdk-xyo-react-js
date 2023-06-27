@@ -9,8 +9,8 @@ export interface WalletContextState extends ContextExState {
   activeAccountIndex?: number
   /** Base path from which the wallet was derived */
   basePath?: string
-  /** The derived wallet being used */
-  derivedWallet?: WalletInstance
+  /** The coin_type derived wallet being used */
+  coinTypeWallet?: WalletInstance
   /** The root wallet being used */
   rootWallet?: WalletInstance
   /** Set currently selected index */
