@@ -12,7 +12,7 @@ import { useModule, useProvidedNode } from '../hooks'
 
 const TestModuleConfigSchema = 'network.xyo.test.module'
 class TestModule extends AbstractModule {
-  static override configSchema: string = TestModuleConfigSchema
+  static override readonly configSchemas: string[] = [TestModuleConfigSchema]
   get _queryAccountPaths(): Record<Query['schema'], string> {
     return {}
   }

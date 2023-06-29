@@ -11,13 +11,13 @@ export class StorageArchivistBuilder {
   private _archivist: StorageArchivist | undefined
   private remoteArchivist: ArchivistModule | undefined
 
-  protected constructor(private config: ArchivistBuilderConfig, private account?: AccountInstance, private node?: MemoryNode) {}
+  protected constructor(private config: ArchivistBuilderConfig, private account: AccountInstance, private node?: MemoryNode) {}
 
   get archivist() {
     return assertDefinedEx(this._archivist, 'archivist was not defined upon create')
   }
 
-  static async create(config: ArchivistBuilderConfig, account: AccountInstance | undefined, node: MemoryNode): Promise<StorageArchivistBuilder> {
+  static async create(config: ArchivistBuilderConfig, account: AccountInstance, node: MemoryNode): Promise<StorageArchivistBuilder> {
     const instance = new this(config, account, node)
     instance.remoteArchivist = await instance.findParentArchivist()
     instance._archivist = await instance.buildArchivist()

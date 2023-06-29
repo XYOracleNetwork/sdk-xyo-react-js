@@ -38,7 +38,7 @@ export class MemoryNodeBuilder {
   }
 
   /** @deprecated - call specific method that corresponds to a type of archivist (i.e. addArchivistStorage) */
-  async addArchivist(account?: AccountInstance, moduleName?: string, namespace?: string) {
+  async addArchivist(account: AccountInstance, moduleName?: string, namespace?: string) {
     await this.addArchivistStorage(account, moduleName, namespace)
   }
 
@@ -49,7 +49,7 @@ export class MemoryNodeBuilder {
     await this.attach(memoryArchivist, true)
   }
 
-  async addArchivistStorage(account?: AccountInstance, moduleName?: string, namespace?: string) {
+  async addArchivistStorage(account: AccountInstance, moduleName?: string, namespace?: string) {
     const config = { name: moduleName, namespace }
     const { archivist } = await StorageArchivistBuilder.create(config, account, this.node)
 

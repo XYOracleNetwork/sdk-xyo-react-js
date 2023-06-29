@@ -28,7 +28,7 @@ export const useNode = (nameOrAddress?: string, account?: WalletInstance, logger
   const [error, setError] = useState<Error>()
 
   useEffect(() => {
-    if (node) {
+    if (node && account) {
       if (nodeError) {
         setError(nodeError)
         setWrapper(undefined)

@@ -23,7 +23,7 @@ const insertPayload = async (archivist?: ArchivistModule) => {
   if (archivist) {
     const payload = { schema: 'network.xyo.payload', timestamp: Date.now() }
     const insertQuery = { schema: ArchivistInsertQuerySchema }
-    const account = Account.random()
+    const account = await Account.randomSync()
     const builder = new QueryBoundWitnessBuilder({ inlinePayloads: true }).payloads([insertQuery, payload]).witness(account).query(insertQuery)
     const [insertQueryBoundWitness, payloads] = await builder.build()
     const wrapper = ArchivistWrapper.wrap(archivist, account)
