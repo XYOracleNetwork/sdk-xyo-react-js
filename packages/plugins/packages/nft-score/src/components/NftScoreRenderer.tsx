@@ -1,7 +1,12 @@
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import DangerousIcon from '@mui/icons-material/Dangerous'
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
+import ReportProblemIcon from '@mui/icons-material/ReportProblem'
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { NftScorePayload, NftScoreSchema, Score } from '@xyo-network/crypto-wallet-nft-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
+
 export interface NftScoreRendererProps extends FlexBoxProps {
   payload?: Payload
 }
@@ -29,6 +34,14 @@ const getScoreEmoji = (score: Score) => {
   if (percent >= 0.25) return '🥉'
   return '🤷‍♂️'
 }
+const getScoreIcon = (score: Score) => {
+  const [actual, possible] = score
+  const percent = actual / possible
+  if (percent >= 0.9) return <EmojiEventsIcon />
+  if (percent >= 0.75) return <CheckCircleIcon />
+  if (percent >= 0.5) return <ReportProblemIcon />
+  return <DangerousIcon />
+}
 
 export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...props }) => {
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScorePayload) : undefined
@@ -53,7 +66,7 @@ export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...
                   <TableCell key="Category">{category}</TableCell>
                   <TableCell key="Actual">{score[0]}</TableCell>
                   <TableCell key="Possible">{score[1]}</TableCell>
-                  <TableCell key="Rating">{getScoreEmoji(score)}</TableCell>
+                  <TableCell key="Rating">{getScoreIcon(score)}</TableCell>
                 </TableRow>
               ) : null
             })}
