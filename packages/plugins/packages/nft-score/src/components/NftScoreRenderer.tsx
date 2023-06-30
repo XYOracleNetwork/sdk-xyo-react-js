@@ -25,15 +25,6 @@ const isScore = (entry: [unknown, unknown]): entry is [string, Score] => {
   return true
 }
 
-const getScoreEmoji = (score: Score) => {
-  const [actual, possible] = score
-  const percent = actual / possible
-  if (percent >= 0.9) return '🏆'
-  if (percent >= 0.75) return '🥇'
-  if (percent >= 0.5) return '🥈'
-  if (percent >= 0.25) return '🥉'
-  return '🤷‍♂️'
-}
 const getScoreIcon = (score: Score) => {
   const [actual, possible] = score
   const percent = actual / possible
