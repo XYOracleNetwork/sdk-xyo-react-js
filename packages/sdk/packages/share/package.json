@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-error",
+  "name": "@xyo-network/react-share",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -12,29 +12,21 @@
   "dependencies": {
     "@xylabs/react-button": "^2.17.6",
     "@xylabs/react-flexbox": "^2.17.6",
-    "@xylabs/react-shared": "^2.17.6",
-    "@xyo-network/module": "^2.64.1",
-    "@xyo-network/module-model": "^2.64.1"
+    "@xylabs/react-link": "^2.17.6"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
     "@mui/styles": "^5",
+    "axios": "^1",
     "react": "^18",
     "react-dom": "^18",
-    "react-router-dom": "^6",
-    "rollbar": "^2"
+    "react-icons": "^4",
+    "react-router-dom": "^6"
   },
   "devDependencies": {
-    "@storybook/react": "^7.0.24",
     "@xylabs/ts-scripts-yarn3": "^2.17.17",
-    "@xylabs/tsconfig-react": "^2.17.17",
     "typescript": "^5.1.6"
-  },
-  "peerDependenciesMeta": {
-    "rollbar": {
-      "optional": true
-    }
   },
   "description": "Common React library for all XYO projects that use React",
   "browser": "dist/esm/index.js",

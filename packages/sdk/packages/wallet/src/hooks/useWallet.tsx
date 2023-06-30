@@ -34,7 +34,6 @@ export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: Wa
       })()
 
       if (path) {
-        console.log(`path: ${path}`)
         return newAccount?.derivePath?.(path)
       } else {
         return newAccount ?? wallet

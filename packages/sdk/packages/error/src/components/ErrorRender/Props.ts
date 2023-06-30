@@ -8,4 +8,5 @@ export interface ErrorRenderProps extends FlexBoxProps {
   errorContext?: string
   noErrorDisplay?: boolean
   noReAuth?: boolean
+  onCancel?: () => void
 }

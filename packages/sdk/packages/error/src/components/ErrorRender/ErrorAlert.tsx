@@ -1,12 +1,15 @@
+import ExitIcon from '@mui/icons-material/ExitToApp'
 import { Alert, AlertProps, AlertTitle, Typography } from '@mui/material'
+import { ButtonEx } from '@xylabs/react-button'
 import { ModuleError } from '@xyo-network/module-model'
 
 export interface ErrorAlertProps extends AlertProps {
   error?: ModuleError | Error
   errorContext?: string
+  onCancel?: () => void
 }
 
-export const ErrorAlert: React.FC<ErrorAlertProps> = ({ error, errorContext, ...props }) => {
+export const ErrorAlert: React.FC<ErrorAlertProps> = ({ onCancel, error, errorContext, ...props }) => {
   return (
     <Alert severity="error" {...props}>
       <AlertTitle>Whoops! Something went wrong</AlertTitle>
@@ -19,6 +22,11 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({ error, errorContext, ...
         Error:
       </Typography>
       <Typography variant="caption">{error?.message}</Typography>
+      {onCancel ? (
+        <ButtonEx variant="outlined" size="small" onClick={onCancel} position="absolute" style={{ right: 8, top: 8 }}>
+          <ExitIcon fontSize="small" />
+        </ButtonEx>
+      ) : null}
     </Alert>
   )
 }
