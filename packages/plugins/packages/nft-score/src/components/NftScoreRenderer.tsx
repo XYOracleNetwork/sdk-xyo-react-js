@@ -1,6 +1,10 @@
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import DangerousIcon from '@mui/icons-material/Dangerous'
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
+import ReportProblemIcon from '@mui/icons-material/ReportProblem'
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { NftScorePayload, NftScoreSchema } from '@xyo-network/crypto-wallet-nft-payload-plugin'
+import { NftScorePayload, NftScoreSchema, Score } from '@xyo-network/crypto-wallet-nft-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 
 export interface NftScoreRendererProps extends FlexBoxProps {
@@ -11,29 +15,49 @@ const isNftScorePayload = (payload?: Payload): payload is NftScorePayload => {
   return payload?.schema === NftScoreSchema
 }
 
+const isScore = (entry: [unknown, unknown]): entry is [string, Score] => {
+  const [key, value] = entry
+  if (typeof key !== 'string') return false
+  if (!Array.isArray(value)) return false
+  if (value.length !== 2) return false
+  if (typeof value[0] !== 'number') return false
+  if (typeof value[1] !== 'number') return false
+  return true
+}
+
+const getScoreIcon = (score: Score) => {
+  const [actual, possible] = score
+  const percent = actual / possible
+  if (percent >= 0.9) return <EmojiEventsIcon />
+  if (percent >= 0.75) return <CheckCircleIcon />
+  if (percent >= 0.5) return <ReportProblemIcon />
+  return <DangerousIcon />
+}
+
 export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...props }) => {
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScorePayload) : undefined
-  const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(([key]) => key === 'schema') : undefined
+  const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(isScore) : undefined
+  const sources = nftScorePayload?.sources?.length ? nftScorePayload.sources.join(', ') : undefined
   return (
     <FlexCol {...props}>
-      <Typography variant="h1">NFT Scores</Typography>
+      <Typography variant="h1">{sources ? `NFT Scores (${sources})` : 'NFT Scores'}</Typography>
       {nftScorePayload?.timestamp ? <Typography variant="h4">{`[${new Date(nftScorePayload?.timestamp).toLocaleString()}]`}</Typography> : null}
       {categories ? (
         <Table>
           <TableHead>
-            <TableCell key="spacer"></TableCell>
-            {Object.entries(Object.values(categories)).map(([key]) => {
-              return <TableCell key={key}>{key}</TableCell>
-            })}
+            <TableCell key="Spacer"></TableCell>
+            <TableCell key="Actual">{'Actual'}</TableCell>
+            <TableCell key="Possible">{'Possible'}</TableCell>
+            <TableCell key="Rating">{'Rating'}</TableCell>
           </TableHead>
           <TableBody>
-            {categories.map(([key, value]) => {
-              return value ? (
-                <TableRow key={key}>
-                  <TableCell key="Category">{key}</TableCell>
-                  {Object.entries(value).map(([key, value]) => {
-                    return <TableCell key={`${key}`}>{value}</TableCell>
-                  })}
+            {categories.map(([category, score]) => {
+              return score ? (
+                <TableRow key={category}>
+                  <TableCell key="Category">{category}</TableCell>
+                  <TableCell key="Actual">{score[0]}</TableCell>
+                  <TableCell key="Possible">{score[1]}</TableCell>
+                  <TableCell key="Rating">{getScoreIcon(score)}</TableCell>
                 </TableRow>
               ) : null
             })}
