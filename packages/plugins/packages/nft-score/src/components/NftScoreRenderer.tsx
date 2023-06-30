@@ -13,18 +13,18 @@ const isNftScorePayload = (payload?: Payload): payload is NftScorePayload => {
 
 export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...props }) => {
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScorePayload) : undefined
-  const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(([key]) => key === 'schema') : undefined
+  const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(([key]) => key !== 'schema') : undefined
+  const sources = nftScorePayload?.sources?.length ? nftScorePayload.sources.join(', ') : undefined
   return (
     <FlexCol {...props}>
-      <Typography variant="h1">NFT Scores</Typography>
+      <Typography variant="h1">{sources ? `NFT Scores (${sources})` : 'NFT Scores'}</Typography>
       {nftScorePayload?.timestamp ? <Typography variant="h4">{`[${new Date(nftScorePayload?.timestamp).toLocaleString()}]`}</Typography> : null}
       {categories ? (
         <Table>
           <TableHead>
             <TableCell key="spacer"></TableCell>
-            {Object.entries(Object.values(categories)).map(([key]) => {
-              return <TableCell key={key}>{key}</TableCell>
-            })}
+            <TableCell key="Actual">{'Actual'}</TableCell>
+            <TableCell key="Possible">{'Possible'}</TableCell>
           </TableHead>
           <TableBody>
             {categories.map(([key, value]) => {
