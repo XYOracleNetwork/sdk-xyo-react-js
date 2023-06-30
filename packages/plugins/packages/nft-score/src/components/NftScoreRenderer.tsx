@@ -1,8 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { NftScorePayload, NftScoreSchema } from '@xyo-network/crypto-wallet-nft-payload-plugin'
+import { NftScorePayload, NftScoreSchema, Score } from '@xyo-network/crypto-wallet-nft-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
-
 export interface NftScoreRendererProps extends FlexBoxProps {
   payload?: Payload
 }
@@ -11,9 +10,29 @@ const isNftScorePayload = (payload?: Payload): payload is NftScorePayload => {
   return payload?.schema === NftScoreSchema
 }
 
+const isScore = (entry: [unknown, unknown]): entry is [string, Score] => {
+  const [key, value] = entry
+  if (typeof key !== 'string') return false
+  if (!Array.isArray(value)) return false
+  if (value.length !== 2) return false
+  if (typeof value[0] !== 'number') return false
+  if (typeof value[1] !== 'number') return false
+  return true
+}
+
+const getScoreEmoji = (score: Score) => {
+  const [actual, possible] = score
+  const percent = actual / possible
+  if (percent >= 0.9) return '🏆'
+  if (percent >= 0.75) return '🥇'
+  if (percent >= 0.5) return '🥈'
+  if (percent >= 0.25) return '🥉'
+  return '🤷‍♂️'
+}
+
 export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...props }) => {
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScorePayload) : undefined
-  const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(([key]) => key !== 'schema') : undefined
+  const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(isScore) : undefined
   const sources = nftScorePayload?.sources?.length ? nftScorePayload.sources.join(', ') : undefined
   return (
     <FlexCol {...props}>
@@ -22,18 +41,19 @@ export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...
       {categories ? (
         <Table>
           <TableHead>
-            <TableCell key="spacer"></TableCell>
+            <TableCell key="Spacer"></TableCell>
             <TableCell key="Actual">{'Actual'}</TableCell>
             <TableCell key="Possible">{'Possible'}</TableCell>
+            <TableCell key="Rating">{'Rating'}</TableCell>
           </TableHead>
           <TableBody>
-            {categories.map(([key, value]) => {
-              return value ? (
-                <TableRow key={key}>
-                  <TableCell key="Category">{key}</TableCell>
-                  {Object.entries(value).map(([key, value]) => {
-                    return <TableCell key={`${key}`}>{value}</TableCell>
-                  })}
+            {categories.map(([category, score]) => {
+              return score ? (
+                <TableRow key={category}>
+                  <TableCell key="Category">{category}</TableCell>
+                  <TableCell key="Actual">{score[0]}</TableCell>
+                  <TableCell key="Possible">{score[1]}</TableCell>
+                  <TableCell key="Rating">{getScoreEmoji(score)}</TableCell>
                 </TableRow>
               ) : null
             })}
