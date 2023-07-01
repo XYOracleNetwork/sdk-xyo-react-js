@@ -1,7 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { useNetwork } from '@xyo-network/react-network'
-import { useNode } from '@xyo-network/react-node'
+import { useNodeFromNode } from '@xyo-network/react-node'
 import { useState } from 'react'
 
 import { useStandardNodes } from '../contexts'
@@ -13,7 +13,7 @@ export interface ActiveStandardNodeProps extends WithChildren {
 
 export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({ children, nodeNameOrAddress }) => {
   const { network } = useNetwork()
-  const [node] = useNode(nodeNameOrAddress)
+  const [node] = useNodeFromNode(nodeNameOrAddress)
   const [activeRemoteNodeAddress, setActiveRemoteNodeAddress] = useState<string>()
   const { nodes } = useStandardNodes()
 

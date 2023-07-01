@@ -4,13 +4,13 @@ import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
 import { useEffect, useRef } from 'react'
 
-import { useProvidedWrappedNode } from './useProvidedNode'
+import { useWrappedProvidedNode } from './wrapped'
 
-export const useNodeModules = <TModule extends Module = Module>(
+export const useModulesFromNode = <TModule extends Module = Module>(
   filter?: ModuleFilter,
   logger?: Logger,
 ): [TModule[] | undefined, Error | undefined] => {
-  const [node, nodeError] = useProvidedWrappedNode()
+  const [node, nodeError] = useWrappedProvidedNode()
 
   const modulesLength = useRef<number>()
 

@@ -1,16 +1,11 @@
-import { NodeModule, NodeWrapper } from '@xyo-network/node'
-import { NodeContext } from '@xyo-network/react-node-context'
+import { NodeWrapper } from '@xyo-network/node'
 import { useWallet } from '@xyo-network/react-wallet'
 import { WalletInstance } from '@xyo-network/wallet-model'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export const useProvidedNode = (): [NodeModule | undefined] => {
-  const { node } = useContext(NodeContext)
+import { useProvidedNode } from '../../provided'
 
-  return [node]
-}
-
-export const useProvidedWrappedNode = (wallet?: WalletInstance): [NodeWrapper | undefined, Error | undefined] => {
+export const useWrappedProvidedNode = (wallet?: WalletInstance): [NodeWrapper | undefined, Error | undefined] => {
   const [walletToUse] = useWallet({ wallet })
   const [node] = useProvidedNode()
   const [wrappedNode, setWrappedNode] = useState<NodeWrapper>()

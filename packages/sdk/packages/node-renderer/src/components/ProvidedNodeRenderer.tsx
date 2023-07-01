@@ -1,5 +1,5 @@
 import { NodeWrapper } from '@xyo-network/node'
-import { useProvidedWrappedNode } from '@xyo-network/react-node'
+import { useWrappedProvidedNode } from '@xyo-network/react-node'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
 import { NodeRelationalGraphProps } from './lib'
@@ -10,7 +10,7 @@ export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
 }
 
 export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({ node, ...props }) => {
-  const [providedNode] = useProvidedWrappedNode()
+  const [providedNode] = useWrappedProvidedNode()
   const elements = useCytoscapeElements(node ?? providedNode)
   const options = useCytoscapeOptions(elements)
 

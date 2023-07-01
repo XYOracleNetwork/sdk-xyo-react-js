@@ -9513,6 +9513,7 @@ __metadata:
     "@xyo-network/boundwitness-model": ^2.64.1
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-witness": "workspace:^"
     "@xyo-network/sentinel": ^2.64.1
     "@xyo-network/witness": ^2.64.1
     typescript: ^5.1.6
@@ -9835,7 +9836,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-witness@workspace:packages/modules/packages/witness":
+"@xyo-network/react-witness@workspace:^, @xyo-network/react-witness@workspace:packages/modules/packages/witness":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-witness@workspace:packages/modules/packages/witness"
   dependencies:

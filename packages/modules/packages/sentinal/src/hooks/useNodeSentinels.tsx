@@ -1,4 +1,4 @@
-import { WrappedNodeModulesHookFactory } from '@xyo-network/react-node'
+import { WrappedModulesFromNodeHookFactory } from '@xyo-network/react-node'
 import { SentinelWrapper } from '@xyo-network/sentinel'
 
-export const useSentinels = WrappedNodeModulesHookFactory(SentinelWrapper, 'useSentinel')
+export const useSentinels = WrappedModulesFromNodeHookFactory.create(SentinelWrapper, 'useSentinel')

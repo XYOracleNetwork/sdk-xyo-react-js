@@ -1,2 +1,2 @@
-export * from './useNodeWitness'
-export * from './useNodeWitnesses'
+export * from './useWitnessesFromNode'
+export * from './useWitnessFromNode'

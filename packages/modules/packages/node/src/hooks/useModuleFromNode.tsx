@@ -6,16 +6,16 @@ import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/n
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useMemo, useState } from 'react'
 
-import { useProvidedWrappedNode } from './useProvidedNode'
+import { useWrappedProvidedNode } from './wrapped'
 
-export const useNodeModule = <TModule extends Module = Module>(
+export const useModuleFromNode = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
   wallet?: WalletInstance,
   logger?: Logger,
 ): [TModule | undefined, Error | undefined] => {
   const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
   const filter = useMemo(() => (typeof nameOrAddressOrFilter === 'object' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
-  const [node, nodeError] = useProvidedWrappedNode(wallet)
+  const [node, nodeError] = useWrappedProvidedNode(wallet)
   const [module, setModule] = useState<TModule>()
   const [error, setError] = useState<Error>()
 

@@ -2,7 +2,8 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { AccountInstance } from '@xyo-network/account-model'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { useNode } from '@xyo-network/react-node'
+import { ModuleFilter } from '@xyo-network/module'
+import { useWitnessesFromNode } from '@xyo-network/react-witness'
 import { MemorySentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { WitnessModule } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
@@ -16,30 +17,23 @@ export interface SentinelProviderProps {
   /** @deprecated - sentinel no longer uses archive but relies on an archivist */
   archive?: string
   archivist?: string
+  filter?: ModuleFilter
   name?: string
   required?: boolean
-  witnesses?: string[]
+  witnesses?: WitnessModule[]
 }
 
-export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = ({
-  account,
-  archivist,
-  children,
-  name,
-  witnesses = [],
-  required = false,
-}) => {
-  const [node] = useNode()
+export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = ({ account, archivist, children, filter, name, required = false }) => {
   const [sentinel, setSentinel] = useState<MemorySentinel>()
   const [history, setHistory] = useState<BoundWitness[]>()
   const [progress, setProgress] = useState<SentinelReportProgress>({})
   const [status, setStatus] = useState(SentinelReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
+  const [witnesses] = useWitnessesFromNode(filter)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const witnessModules = (await node?.resolve({ address: witnesses })) as WitnessModule[]
       const sentinel = await MemorySentinel.create({
         account,
         config: {
@@ -47,7 +41,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           name,
 
           schema: SentinelConfigSchema,
-          witnesses,
+          witnesses: witnesses?.map((module) => module.address),
         } as SentinelConfig,
       })
       const offCallbacks: (() => void)[] = []
@@ -71,7 +65,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           }
         }),
       )
-      witnessModules?.forEach((witness) => {
+      witnesses?.forEach((witness) => {
         offCallbacks.push(
           witness.on('reportEnd', ({ module, errors }) => {
             const witnesses = progress.witnesses ?? {}
@@ -112,7 +106,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [account, archivist, witnesses, node],
+    [account, archivist, witnesses],
   )
 
   useEffect(() => {

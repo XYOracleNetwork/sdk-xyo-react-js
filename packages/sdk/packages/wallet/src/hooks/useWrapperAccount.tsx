@@ -1,12 +1,13 @@
 import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
+import { AccountInstance } from '@xyo-network/account-model'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { Mutex } from 'async-mutex'
 
 let globalWrapperWallet: WalletInstance | undefined = undefined
 const globalWrapperWalletMutex = new Mutex()
 
-export const useWrapperWallet = (): WalletInstance | undefined => {
+export const useWrapperAccount = (account?: AccountInstance): AccountInstance | undefined => {
   const [wallet] = usePromise(async () => {
     return await globalWrapperWalletMutex.runExclusive(async () => {
       if (globalWrapperWallet) {
@@ -21,5 +22,5 @@ export const useWrapperWallet = (): WalletInstance | undefined => {
       return globalWrapperWallet
     })
   }, [])
-  return wallet
+  return account ?? wallet
 }
