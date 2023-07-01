@@ -1,2 +1,2 @@
-export * from './useDiviner'
-export * from './useDiviners'
+export * from './useNodeDiviner'
+export * from './useNodeDiviners'

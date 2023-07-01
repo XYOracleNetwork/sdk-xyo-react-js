@@ -1,5 +1,7 @@
 import { Module } from '@xyo-network/module'
 
-export interface ModuleRenderProps<T extends Module = Module> {
+export type ModuleRenderProps<T extends Module = Module> = {
+  address?: string
   module?: T
+  name?: string
 }

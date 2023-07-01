@@ -4,23 +4,29 @@ import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { ArchivistConfig, ArchivistModule } from '@xyo-network/archivist'
 import { ModuleWrapper } from '@xyo-network/module'
 import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
+import { useWallet } from '@xyo-network/react-wallet'
 import React, { useState } from 'react'
 
 import { ArchivistParents } from './components'
 
 export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> & CardContentProps> = ({ children, module, ...props }) => {
   const [config, setConfig] = useState<ArchivistConfig>()
+  const [wallet] = useWallet()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const wrapper = module ? ModuleWrapper.wrap(module) : undefined
-      const payloads = await wrapper?.discover()
-      if (mounted()) {
-        setConfig(payloads?.[0] as ArchivistConfig)
+      if (wallet && module) {
+        const wrapper = ModuleWrapper.wrap(module, wallet)
+        const payloads = await wrapper?.discover()
+        if (mounted()) {
+          setConfig(payloads?.[0] as ArchivistConfig)
+        }
+      } else {
+        setConfig(undefined)
       }
     },
-    [module],
+    [module, wallet],
   )
 
   return (

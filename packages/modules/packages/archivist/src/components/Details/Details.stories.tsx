@@ -5,7 +5,7 @@ import { NodeProvider } from '@xyo-network/react-node'
 import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
-import { useArchivist } from '../../hooks'
+import { useNodeArchivist } from '../../hooks'
 import { ArchivistDetails } from './Details'
 
 const StorybookEntry = {
@@ -20,13 +20,13 @@ const StorybookEntry = {
 } as Meta<typeof ArchivistDetails>
 
 const TemplateInner: StoryFn<typeof ArchivistDetails> = (args) => {
-  const [archivist] = useArchivist()
+  const [archivist] = useNodeArchivist()
 
   return <ArchivistDetails address={archivist?.address} {...args}></ArchivistDetails>
 }
 
 const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
-  const [archivist] = useArchivist()
+  const [archivist] = useNodeArchivist()
   const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
 
   useAsyncEffect(

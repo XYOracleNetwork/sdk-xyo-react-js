@@ -6,9 +6,10 @@ import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema } from '@xyo-netw
 import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
 import { QueryBoundWitnessBuilder } from '@xyo-network/module'
 import { Payload } from '@xyo-network/payload-model'
+import { useWrapperWallet } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
-import { useArchivist } from '../../hooks'
+import { useNodeArchivist } from '../../hooks'
 
 const testQueryCommit = { schema: ArchivistCommitQuerySchema }
 const testQueryCommitBoundWitnessBuilder = new QueryBoundWitnessBuilder({ inlinePayloads: true }).query(testQueryCommit)
@@ -21,12 +22,13 @@ export interface ArchivistDetails extends FlexBoxProps {
 }
 
 export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props }) => {
-  const [archivist] = useArchivist(address)
+  const [archivist] = useNodeArchivist(address)
   const [payloads, setPayloads] = useState<Payload[]>()
   const [refresh, setRefresh] = useState(0)
   const [wrapper, setWrapper] = useState<ArchivistWrapper>()
   const [queryableCommit, setQueryableCommit] = useState(false)
   const [queryableClear, setQueryableClear] = useState(false)
+  const wrapperWallet = useWrapperWallet()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,8 +44,8 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
   )
 
   useEffect(() => {
-    setWrapper(archivist ? ArchivistWrapper.wrap(archivist) : undefined)
-  }, [archivist])
+    setWrapper(archivist && wrapperWallet ? ArchivistWrapper.wrap(archivist, wrapperWallet) : undefined)
+  }, [archivist, wrapperWallet])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,15 +1,16 @@
 import { CardActions, CardActionsProps, Chip } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { ModuleWrapper } from '@xyo-network/module'
 import { useState } from 'react'
 
+import { useWrappedModule } from '../../../hooks'
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 import { DiscoverDialog } from './components'
 
 export const ModuleCardActions: React.FC<CardActionsProps & ModuleRenderProps> = ({ children, module, sx, ...props }) => {
   const [discoverDialogOpen, setDiscoverDialogOpen] = useState(false)
-  const wrapper = module ? ModuleWrapper.wrap(module) : undefined
+
+  const [wrapper] = useWrappedModule(module)
   const config = wrapper?.config
 
   return (
