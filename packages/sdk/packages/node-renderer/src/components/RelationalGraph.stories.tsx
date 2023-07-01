@@ -5,7 +5,7 @@ import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archi
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
-import { NodeProvider, useModule, useProvidedWrappedNode } from '@xyo-network/react-node'
+import { NodeProvider, useNodeModule, useProvidedWrappedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
@@ -83,7 +83,7 @@ const TemplateDescribe: StoryFn<typeof NodeRelationalGraph> = (props) => {
 }
 
 const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraph> = (props) => {
-  const [node] = useModule('ChildNode')
+  const [node] = useNodeModule('ChildNode')
   const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
   const elements = useCytoscapeElements(wrappedNode)
   const options = useCytoscapeOptions(elements)
@@ -93,7 +93,7 @@ const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraph> = (props) => {
 const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer {...props} />
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraph> = (props) => {
-  const [node] = useModule('ChildNode')
+  const [node] = useNodeModule('ChildNode')
   const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
   const elements = useCytoscapeElements(wrappedNode)
   const options = useCytoscapeOptions(elements)

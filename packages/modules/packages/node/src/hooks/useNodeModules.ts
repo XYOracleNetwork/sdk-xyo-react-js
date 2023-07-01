@@ -6,7 +6,10 @@ import { useEffect, useRef } from 'react'
 
 import { useProvidedWrappedNode } from './useProvidedNode'
 
-export const useModules = <TModule extends Module = Module>(filter?: ModuleFilter, logger?: Logger): [TModule[] | undefined, Error | undefined] => {
+export const useNodeModules = <TModule extends Module = Module>(
+  filter?: ModuleFilter,
+  logger?: Logger,
+): [TModule[] | undefined, Error | undefined] => {
   const [node, nodeError] = useProvidedWrappedNode()
 
   const modulesLength = useRef<number>()

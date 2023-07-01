@@ -8,7 +8,7 @@ import { useMemo, useState } from 'react'
 
 import { useProvidedWrappedNode } from './useProvidedNode'
 
-export const useModule = <TModule extends Module = Module>(
+export const useNodeModule = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
   wallet?: WalletInstance,
   logger?: Logger,

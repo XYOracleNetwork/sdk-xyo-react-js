@@ -5,7 +5,7 @@ import { WalletInstance } from '@xyo-network/wallet-model'
 import compact from 'lodash/compact'
 import { useEffect, useState } from 'react'
 
-import { useModules } from './useModules'
+import { useNodeModules } from './useNodeModules'
 
 export const WrappedNodeModulesHookFactory = <TModuleWrapper extends ModuleWrapper>(
   wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
@@ -18,7 +18,7 @@ export const WrappedNodeModulesHookFactory = <TModuleWrapper extends ModuleWrapp
     logger?.debug(`Render: ${name}`)
 
     const [accountToUse] = useAccount({ account })
-    const [modules, moduleError] = useModules<TModuleWrapper['module']>(filter, logger)
+    const [modules, moduleError] = useNodeModules<TModuleWrapper['module']>(filter, logger)
 
     const [wrappers, setWrappers] = useState<TModuleWrapper[]>()
     const [error, setError] = useState<Error>()

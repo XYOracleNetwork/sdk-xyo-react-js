@@ -4,7 +4,7 @@ import { useWallet } from '@xyo-network/react-wallet'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
-import { useModule } from './useModule'
+import { useNodeModule } from './useNodeModule'
 
 export const WrappedNodeModuleHookFactory = <TModuleWrapper extends ModuleWrapper>(
   wrapperObject: ConstructableModuleWrapper<TModuleWrapper>,
@@ -13,7 +13,7 @@ export const WrappedNodeModuleHookFactory = <TModuleWrapper extends ModuleWrappe
   const useHook = (nameOrAddress?: string, wallet?: WalletInstance, logger?: Logger): [TModuleWrapper | undefined, Error | undefined] => {
     logger?.debug(`Render: ${name}`)
     const [walletToUse] = useWallet({ wallet })
-    const [module, moduleError] = useModule<TModuleWrapper['module']>(
+    const [module, moduleError] = useNodeModule<TModuleWrapper['module']>(
       nameOrAddress ?? {
         query: [wrapperObject.requiredQueries],
       },
