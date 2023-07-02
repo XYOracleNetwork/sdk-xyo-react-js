@@ -1,10 +1,10 @@
 import { usePromise } from '@xylabs/react-promise'
 import { AccountInstance } from '@xyo-network/account-model'
 import { ArchivistModule } from '@xyo-network/archivist'
+import { useRefresh } from '@xyo-network/react-module'
 import { useState } from 'react'
 
-import { useRefresh } from './useRefresh'
-import { useWrappedArchivist } from './useWrappedArchivist'
+import { useWrappedArchivist } from '../useWrappedArchivist'
 
 export const useArchivistAll = (archivist: ArchivistModule, account?: AccountInstance) => {
   const [wrappedArchivist] = useWrappedArchivist(archivist, account)

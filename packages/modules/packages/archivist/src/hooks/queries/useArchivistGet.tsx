@@ -2,9 +2,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { AccountInstance } from '@xyo-network/account-model'
 import { ArchivistModule } from '@xyo-network/archivist'
 import { Payload } from '@xyo-network/payload-model'
+import { RefreshCallback, useRefresh } from '@xyo-network/react-module'
 
-import { RefreshCallback, useRefresh } from './useRefresh'
-import { useWrappedArchivist } from './useWrappedArchivist'
+import { useWrappedArchivist } from '../useWrappedArchivist'
 
 export const useArchivistGet = <T extends Payload = Payload>(
   archivist?: ArchivistModule,

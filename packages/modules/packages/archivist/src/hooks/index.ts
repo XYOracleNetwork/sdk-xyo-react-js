@@ -1,6 +1,4 @@
-export * from './useArchivistAll'
+export * from './queries'
 export * from './useArchivistFromNode'
-export * from './useArchivistGet'
 export * from './useArchivistsFromNode'
-export * from './useRefresh'
 export * from './useWrappedArchivist'
