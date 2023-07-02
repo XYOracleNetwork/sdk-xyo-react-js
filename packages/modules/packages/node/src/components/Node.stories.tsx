@@ -8,7 +8,7 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
-import { useNodeModule, useProvidedNode } from '../hooks'
+import { useModuleFromNode, useProvidedNode } from '../hooks'
 
 const TestModuleConfigSchema = 'network.xyo.test.module'
 class TestModule extends AbstractModule {
@@ -33,7 +33,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 
 const UseModuleTest: React.FC<WithChildren> = ({ children }) => {
   const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
-  const [testModule] = useNodeModule(TestModuleName, wallet)
+  const [testModule] = useModuleFromNode(TestModuleName, wallet)
 
   useEffect(() => {
     if (testModule) {

@@ -3,11 +3,11 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { AddressHistoryQuerySchema } from '@xyo-network/diviner-address-history-model'
 import { TYPES } from '@xyo-network/node-core-types'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
-import { useNodeDiviner } from '@xyo-network/react-diviner'
+import { useDivinerFromNode } from '@xyo-network/react-diviner'
 import { useState } from 'react'
 
 export const useAddressHistory = (address?: string): [BoundWitness[] | undefined, Error | undefined, () => void] => {
-  const [diviner, divinerError] = useNodeDiviner(TYPES.AddressHistoryDiviner.description)
+  const [diviner, divinerError] = useDivinerFromNode(TYPES.AddressHistoryDiviner.description)
   const [refresh, setRefresh] = useState(1)
   const [blocks, setBlocks] = useState<BoundWitness[]>()
   const [error, setError] = useState<Error>()

@@ -2,7 +2,7 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistWrapper } from '@xyo-network/archivist'
 import { ModuleError, WrapperError } from '@xyo-network/module'
-import { useNodeArchivist } from '@xyo-network/react-archivist'
+import { useArchivistFromNode } from '@xyo-network/react-archivist'
 import { useState } from 'react'
 
 import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types'
@@ -10,7 +10,7 @@ import { useQuadKeyPayloadsToFeatures } from './useQuadKeyPayloadsToFeatures'
 
 /** @deprecated - use useArchivistGet */
 const useFetchPayloads = (hashes?: string[]) => {
-  const [archivist] = useNodeArchivist()
+  const [archivist] = useArchivistFromNode()
 
   const [apiError, setApiError] = useState<ModuleError>()
   const [payloads, setPayloads] = useState<NetworkLocationHeatmapQuadkeyAnswerPayload[]>()

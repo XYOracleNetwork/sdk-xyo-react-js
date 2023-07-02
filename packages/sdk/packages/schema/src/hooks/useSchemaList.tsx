@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { SchemaListPayload, SchemaListQueryPayload, SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
-import { useNodeDiviner } from '@xyo-network/react-diviner'
+import { useDivinerFromNode } from '@xyo-network/react-diviner'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useMemo, useState } from 'react'
 
@@ -11,7 +11,7 @@ export const useSchemaList = (
 ): [SchemaListPayload | undefined, Error | undefined] => {
   const [schemaList, setSchemaList] = useState<SchemaListPayload>()
   const [error, setError] = useState<Error>()
-  const [diviner, divinerError] = useNodeDiviner(nameOrAddress, account)
+  const [diviner, divinerError] = useDivinerFromNode(nameOrAddress, account)
 
   const query: SchemaListQueryPayload[] | undefined = useMemo(
     () =>

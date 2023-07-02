@@ -1,2 +1,3 @@
-export * from './useNodeDiviner'
-export * from './useNodeDiviners'
+export * from './node'
+export * from './useWrappedDiviner'
+export * from './useWrappedDiviners'

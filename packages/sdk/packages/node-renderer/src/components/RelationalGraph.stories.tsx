@@ -5,7 +5,7 @@ import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archi
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
-import { NodeProvider, useNodeModule, useProvidedWrappedNode } from '@xyo-network/react-node'
+import { NodeProvider, useNodeFromNode, useWrappedProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
@@ -76,14 +76,14 @@ export default {
 const Template: StoryFn<typeof NodeRelationalGraph> = (props) => <NodeRelationalGraph {...props} />
 
 const TemplateDescribe: StoryFn<typeof NodeRelationalGraph> = (props) => {
-  const [node] = useProvidedWrappedNode()
+  const [node] = useWrappedProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraph options={options} {...props} />
 }
 
 const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraph> = (props) => {
-  const [node] = useNodeModule('ChildNode')
+  const [node] = useNodeFromNode('ChildNode')
   const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
   const elements = useCytoscapeElements(wrappedNode)
   const options = useCytoscapeOptions(elements)
@@ -93,7 +93,7 @@ const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraph> = (props) => {
 const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer {...props} />
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraph> = (props) => {
-  const [node] = useNodeModule('ChildNode')
+  const [node] = useNodeFromNode('ChildNode')
   const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
   const elements = useCytoscapeElements(wrappedNode)
   const options = useCytoscapeOptions(elements)

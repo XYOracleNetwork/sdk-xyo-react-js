@@ -4,16 +4,14 @@
     "**/node_modules": false,
     "**/.tsconfig.*": false
   },
-  "editor.formatOnSave": true,
   "editor.quickSuggestions": {
     "comments": "on",
     "strings": "on",
     "other": "on"
   },
-  "eslint.debug": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
   },
   "editor.tabSize": 2,
   "editor.suggestSelection": "first",
@@ -24,27 +22,12 @@
     "**/dist": true,
     "**/build": true
   },
-  "eslint.alwaysShowStatus": true,
-  "eslint.format.enable": true,
+  "eslint.debug": true,
   "eslint.lintTask.enable": true,
-  "files.autoSave": "onFocusChange",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.codeActionsOnSave.mode": "problems",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
   "cSpell.words": [
     "appbar",
     "Arie",
