@@ -2,15 +2,17 @@ import { usePromise } from '@xylabs/react-promise'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
+import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useRef } from 'react'
 
 import { useWrappedProvidedNode } from './wrapped'
 
 export const useModulesFromNode = <TModule extends Module = Module>(
   filter?: ModuleFilter,
+  wallet?: WalletInstance,
   logger?: Logger,
 ): [TModule[] | undefined, Error | undefined] => {
-  const [node, nodeError] = useWrappedProvidedNode()
+  const [node, nodeError] = useWrappedProvidedNode(wallet)
 
   const modulesLength = useRef<number>()
 

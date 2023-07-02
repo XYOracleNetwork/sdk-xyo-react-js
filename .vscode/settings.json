@@ -1,66 +1,100 @@
 {
   "files.eol": "\n",
   "files.exclude": {
-    "**/node_modules": false,
-    "**/.tsconfig.*": false
+    "**/.tsconfig.*": false,
+    "**/node_modules": true
   },
+  "editor.formatOnSave": true,
   "editor.quickSuggestions": {
     "comments": "on",
     "strings": "on",
     "other": "on"
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": false
-  },
   "editor.tabSize": 2,
   "editor.suggestSelection": "first",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
     "**/*.code-search": true,
-    "**/dist": true,
-    "**/build": true
+    "**/.yarn": true,
+    "**/yarn.lock": true
   },
-  "eslint.debug": true,
-  "eslint.lintTask.enable": true,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "eslint.codeActionsOnSave.mode": "problems",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
-    "appbar",
-    "Arie",
+    "Autobuild",
     "autocrlf",
+    "autogen",
+    "automations",
+    "bbox",
+    "bignumber",
     "boundwitness",
     "bowser",
-    "chartjs",
-    "chromaui",
-    "cytoscape",
-    "darkmode",
-    "DATETIME",
-    "ellipsize",
-    "etherchain",
-    "ethersproject",
-    "ethgasstation",
-    "flexbox",
-    "Hasher",
-    "huri",
-    "instrumenter",
+    "chlor",
+    "codeql",
+    "copyfiles",
+    "cryengine",
+    "depcheck",
+    "dmarc",
+    "DNSSEC",
+    "edns",
+    "Etherchain",
+    "geotiff",
+    "IERC",
+    "illumos",
+    "Intellichlor",
+    "inversify",
+    "loong",
     "mapbox",
+    "Millis",
+    "mipsle",
+    "onvalue",
     "pako",
     "payloadset",
-    "Promisable",
     "quadkey",
+    "quadkeys",
+    "riscv",
     "rollbar",
+    "RUNONCE",
+    "Sched",
+    "Screenlogic",
     "scure",
-    "secp",
-    "Trouw",
+    "shajs",
+    "sideeffects",
+    "sonarjs",
+    "SRTM",
+    "systeminformation",
+    "testdata",
     "typechain",
+    "userid",
     "wordlist",
-    "wordlists",
-    "xylabs",
-    "yarnpkg"
+    "xylabs"
   ],
   "npm.packageManager": "yarn"
 }

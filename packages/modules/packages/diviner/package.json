@@ -10,8 +10,12 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
+    "@xyo-network/core": "^2.64.1",
     "@xyo-network/diviner": "^2.64.1",
-    "@xyo-network/react-node": "workspace:^"
+    "@xyo-network/module": "^2.64.1",
+    "@xyo-network/react-module": "workspace:^",
+    "@xyo-network/react-node": "workspace:^",
+    "@xyo-network/wallet-model": "^2.64.1"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
@@ -70,5 +74,5 @@
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
-  "version": "2.56.2"
+  "version": "2.56.3"
 }
