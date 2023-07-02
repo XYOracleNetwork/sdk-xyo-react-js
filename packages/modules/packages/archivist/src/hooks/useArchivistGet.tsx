@@ -1,24 +1,22 @@
 import { usePromise } from '@xylabs/react-promise'
 import { AccountInstance } from '@xyo-network/account-model'
 import { ArchivistModule } from '@xyo-network/archivist'
-import { useState } from 'react'
+import { Payload } from '@xyo-network/payload-model'
 
-import { useRefresh } from './useRefresh'
+import { RefreshCallback, useRefresh } from './useRefresh'
 import { useWrappedArchivist } from './useWrappedArchivist'
 
-export const useArchivistGet = (archivist?: ArchivistModule, hashes?: string[], account?: AccountInstance) => {
+export const useArchivistGet = <T extends Payload = Payload>(
+  archivist?: ArchivistModule,
+  hashes?: string[],
+  account?: AccountInstance,
+): [T[] | undefined, Error | undefined, RefreshCallback] => {
   const [wrappedArchivist] = useWrappedArchivist(archivist, account)
-  const [error, setError] = useState<Error>()
   const [enabled, refresh] = useRefresh()
 
-  const payloads = usePromise(async () => {
-    try {
-      if (enabled && wrappedArchivist && hashes) {
-        return await wrappedArchivist?.get(hashes)
-      }
-    } catch (ex) {
-      const error = ex as Error
-      setError(error)
+  const [payloads, error] = usePromise(async () => {
+    if (enabled && wrappedArchivist && hashes) {
+      return (await wrappedArchivist?.get(hashes)) as T[]
     }
   }, [wrappedArchivist, hashes, enabled])
 

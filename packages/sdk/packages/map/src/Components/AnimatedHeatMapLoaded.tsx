@@ -1,6 +1,6 @@
 import { Alert, AlertTitle } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { useNodeArchivistGet } from '@xyo-network/react-archivist'
+import { useArchivistFromNode, useArchivistGet } from '@xyo-network/react-archivist'
 import { Feature, Polygon } from 'geojson'
 
 import { AnimatedHeatMapSettings } from '../AnimatedHeatMapSettings'
@@ -16,7 +16,8 @@ export interface AnimatedHeatMapLoadedProps extends FlexBoxProps {
 
 export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ accessToken, archivistNameOrAddress, ...props }) => {
   const hashes = useFindHashes()
-  const [payloads, xyoError] = useNodeArchivistGet<NetworkLocationHeatmapQuadkeyAnswerPayload>(hashes, archivistNameOrAddress)
+  const [archivist] = useArchivistFromNode(archivistNameOrAddress)
+  const [payloads, xyoError] = useArchivistGet<NetworkLocationHeatmapQuadkeyAnswerPayload>(archivist, hashes)
   const { multipleFeatureSets } = useQuadKeyPayloadsToFeatures(payloads)
   const { heatMapColorProps, legendProps } = useHeatMapColors()
 
