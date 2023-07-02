@@ -1,2 +1,3 @@
-export * from './useNodeSentinel'
-export * from './useNodeSentinels'
+export * from './node'
+export * from './useWrappedSentinel'
+export * from './useWrappedSentinels'

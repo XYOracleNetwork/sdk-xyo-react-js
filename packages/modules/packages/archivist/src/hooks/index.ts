@@ -1,4 +1,4 @@
+export * from './node'
 export * from './queries'
-export * from './useArchivistFromNode'
-export * from './useArchivistsFromNode'
 export * from './useWrappedArchivist'
+export * from './useWrappedArchivists'
