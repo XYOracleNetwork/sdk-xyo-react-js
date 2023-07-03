@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react'
 export const WrappedModuleHookFactory = {
   create: <TModuleWrapper extends ModuleWrapper>(wrapperObject: ConstructableModuleWrapper<TModuleWrapper>, name?: string) => {
     const useHook = (
-      module?: TModuleWrapper['module'],
-      account?: AccountInstance,
+      module?: TModuleWrapper['module'] | null,
+      account?: AccountInstance | null,
       logger?: Logger,
     ): [TModuleWrapper | undefined, Error | undefined] => {
       logger?.debug(`Render: ${name}`)

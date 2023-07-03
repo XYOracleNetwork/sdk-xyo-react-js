@@ -15,7 +15,6 @@ export const WrappedModuleFromNodeHookFactory = {
         nameOrAddress ?? {
           query: [wrapperObject.requiredQueries],
         },
-        walletToUse,
         logger,
       )
 

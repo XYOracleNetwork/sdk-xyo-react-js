@@ -4,7 +4,7 @@ import { NodeContext } from '@xyo-network/react-node-context'
 import { useMemo } from 'react'
 
 export interface NodeProviderProps {
-  node?: NodeModule
+  node?: NodeModule | null
 }
 
 export const NodeProvider: React.FC<WithChildren<NodeProviderProps>> = ({ node, children }) => {

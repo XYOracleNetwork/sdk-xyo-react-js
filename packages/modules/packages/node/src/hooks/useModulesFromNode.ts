@@ -2,17 +2,15 @@ import { usePromise } from '@xylabs/react-promise'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
-import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useRef } from 'react'
 
-import { useWrappedProvidedNode } from './wrapped'
+import { useProvidedNode } from './provided'
 
 export const useModulesFromNode = <TModule extends Module = Module>(
   filter?: ModuleFilter,
-  wallet?: WalletInstance,
   logger?: Logger,
-): [TModule[] | undefined, Error | undefined] => {
-  const [node, nodeError] = useWrappedProvidedNode(wallet)
+): [TModule[] | null | undefined, Error | undefined] => {
+  const [node] = useProvidedNode()
 
   const modulesLength = useRef<number>()
 
@@ -21,7 +19,7 @@ export const useModulesFromNode = <TModule extends Module = Module>(
   const [resolvedModules, resolvedModulesError] = usePromise<TModule[] | undefined>(async () => {
     const getModulesFromResolution = async () => {
       if (node) {
-        const resolvedModules: TModule[] | undefined = await node.resolve<TModule>(filter)
+        const resolvedModules: TModule[] | undefined = await node.downResolver.resolve<TModule>(filter)
         if (resolvedModules?.length !== modulesLength.current) {
           logger?.debug(`getModulesFromResolution-setting: [${resolvedModules?.length}]`)
           modulesLength.current = resolvedModules?.length
@@ -54,7 +52,7 @@ export const useModulesFromNode = <TModule extends Module = Module>(
       //unsubscribe events
       eventUnsubscribe.forEach((func) => func())
     }
-  }, [filter, node, logger, nodeError])
+  }, [filter, node, logger])
 
   return [resolvedModules, resolvedModulesError]
 }

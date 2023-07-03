@@ -32,8 +32,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 }
 
 const UseModuleTest: React.FC<WithChildren> = ({ children }) => {
-  const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
-  const [testModule] = useModuleFromNode(TestModuleName, wallet)
+  const [testModule] = useModuleFromNode(TestModuleName)
 
   useEffect(() => {
     if (testModule) {
@@ -59,7 +58,7 @@ const Template: StoryFn<React.FC> = (props) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (node) {
+      if (node && account) {
         try {
           const mod = await TestModule.create({ account, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
           await node?.register(mod)

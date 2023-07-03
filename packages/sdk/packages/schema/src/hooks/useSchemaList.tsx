@@ -1,17 +1,12 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { SchemaListPayload, SchemaListQueryPayload, SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
 import { useDivinerFromNode } from '@xyo-network/react-diviner'
-import { WalletInstance } from '@xyo-network/wallet-model'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
-export const useSchemaList = (
-  address?: string,
-  nameOrAddress = 'SchemaListDiviner',
-  account?: WalletInstance,
-): [SchemaListPayload | undefined, Error | undefined] => {
-  const [schemaList, setSchemaList] = useState<SchemaListPayload>()
+export const useSchemaList = (address?: string, nameOrAddress = 'SchemaListDiviner'): [SchemaListPayload | null | undefined, Error | undefined] => {
+  const [schemaList, setSchemaList] = useState<SchemaListPayload | null>()
   const [error, setError] = useState<Error>()
-  const [diviner, divinerError] = useDivinerFromNode(nameOrAddress, account)
+  const [diviner, divinerError] = useDivinerFromNode(nameOrAddress)
 
   const query: SchemaListQueryPayload[] | undefined = useMemo(
     () =>
@@ -25,6 +20,13 @@ export const useSchemaList = (
         : undefined,
     [address],
   )
+
+  useEffect(() => {
+    if (diviner === null) {
+      setSchemaList(null)
+      setError(undefined)
+    }
+  }, [diviner])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps, require-await

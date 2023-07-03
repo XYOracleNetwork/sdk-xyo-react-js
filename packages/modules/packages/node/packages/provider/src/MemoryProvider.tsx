@@ -14,7 +14,7 @@ export type MemoryNodeProviderProps = WithChildren<{
   ModuleParams<NodeConfig>
 
 export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({ children, modules, moduleParams }) => {
-  const [node, setNode] = useState<MemoryNode>()
+  const [node, setNode] = useState<MemoryNode | null>(null)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

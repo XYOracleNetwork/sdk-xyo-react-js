@@ -7,7 +7,7 @@ import { RefreshCallback, useRefresh } from '@xyo-network/react-module'
 import { useWrappedArchivist } from '../useWrappedArchivist'
 
 export const useArchivistGet = <T extends Payload = Payload>(
-  archivist?: ArchivistModule,
+  archivist?: ArchivistModule | null,
   hashes?: string[],
   account?: AccountInstance,
 ): [T[] | undefined, Error | undefined, RefreshCallback] => {

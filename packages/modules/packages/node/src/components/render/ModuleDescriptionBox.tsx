@@ -9,16 +9,14 @@ import { useRef } from 'react'
 import { RenderModule } from './RenderModule'
 
 export interface ModuleDescriptionProps extends FlexBoxProps {
-  module?: Module
+  module?: Module | null
 }
 export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ module }) => {
   const idRef = useRef<{ idIncrementor: number; ids: string[] }>({ idIncrementor: 0, ids: [] })
 
   return (
     <>
-      {module === undefined ? (
-        <Typography variant="h4">Node not found</Typography>
-      ) : (
+      {module ? (
         <>
           <Typography variant="h4">Node Configuration</Typography>
           <StyledTreeView
@@ -30,6 +28,10 @@ export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ module 
             <RenderModule module={module} idRef={idRef} />
           </StyledTreeView>
         </>
+      ) : module === null ? (
+        <Typography variant="h4">Node loading...</Typography>
+      ) : (
+        <Typography variant="h4">Node not found</Typography>
       )}
     </>
   )

@@ -13,7 +13,7 @@ interface RenderModuleProps {
 }
 
 export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => {
-  const { address, queries } = module
+  const { address, queries } = module ?? {}
   const [childModules, setChildModules] = useState<Module[]>()
 
   useAsyncEffect(

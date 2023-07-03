@@ -3,20 +3,18 @@ import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
-import { WalletInstance } from '@xyo-network/wallet-model'
 import { useMemo, useState } from 'react'
 
-import { useWrappedProvidedNode } from './wrapped'
+import { useProvidedNode } from './provided'
 
 export const useModuleFromNode = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
-  wallet?: WalletInstance | null,
   logger?: Logger,
-): [TModule | undefined, Error | undefined] => {
+): [TModule | null | undefined, Error | undefined] => {
   const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
   const filter = useMemo(() => (typeof nameOrAddressOrFilter === 'object' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
-  const [node, nodeError] = useWrappedProvidedNode(wallet)
-  const [module, setModule] = useState<TModule>()
+  const [node] = useProvidedNode()
+  const [module, setModule] = useState<TModule | null>()
   const [error, setError] = useState<Error>()
 
   const address = useMemo(() => module?.address, [module])
@@ -26,39 +24,38 @@ export const useModuleFromNode = <TModule extends Module = Module>(
     async (mounted) => {
       const eventUnsubscribe: EventUnsubscribeFunction[] = []
       try {
-        /* Check pre-conditions */
-        if (nodeError || !node || !nameOrAddress) {
+        if (node) {
+          const attachHandler = (args: ModuleAttachedEventArgs) => {
+            const eventModule = args.module
+            if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
+              logger?.debug(`attachHandler-setting [${nameOrAddress}]`)
+              setModule(eventModule as TModule)
+              setError(undefined)
+            }
+          }
+          const detachHandler = (args: ModuleDetachedEventArgs) => {
+            const eventModule = args.module
+            if (eventModule.address === address) {
+              logger?.debug(`detachHandler-clearing [${address}]`)
+              setModule(undefined)
+              setError(undefined)
+            }
+          }
+          const module: TModule | undefined = nameOrAddress
+            ? (await node.downResolver.resolve<TModule>({ address: [nameOrAddress], name: [nameOrAddress] })).pop()
+            : (await node.downResolver.resolve<TModule>(filter)).pop()
           if (mounted()) {
-            nodeError && logger?.error(nodeError.message)
-            setError(nodeError)
-            setModule(undefined)
-          }
-          return
-        }
-
-        const attachHandler = (args: ModuleAttachedEventArgs) => {
-          const eventModule = args.module
-          if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
-            logger?.debug(`attachHandler-setting [${nameOrAddress}]`)
-            setModule(eventModule as TModule)
+            eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
+            eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
+            logger?.debug(`resolved [${nameOrAddress}]`)
+            setModule(module)
             setError(undefined)
           }
-        }
-        const detachHandler = (args: ModuleDetachedEventArgs) => {
-          const eventModule = args.module
-          if (eventModule.address === address) {
-            logger?.debug(`detachHandler-clearing [${address}]`)
-            setModule(undefined)
+        } else {
+          if (mounted()) {
+            setModule(node)
             setError(undefined)
           }
-        }
-        const module: TModule | undefined = nameOrAddress ? await node.resolve<TModule>(nameOrAddress) : (await node.resolve<TModule>(filter)).pop()
-        if (mounted()) {
-          eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
-          eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
-          logger?.debug(`resolved [${nameOrAddress}]`)
-          setModule(module)
-          setError(undefined)
         }
         return () => {
           //remove the event handler on unmount
@@ -73,7 +70,7 @@ export const useModuleFromNode = <TModule extends Module = Module>(
         }
       }
     },
-    [nameOrAddress, node, nodeError, address, filter, logger],
+    [nameOrAddress, node, address, filter, logger],
   )
 
   return [module, error]
