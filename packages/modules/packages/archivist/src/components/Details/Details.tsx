@@ -28,7 +28,7 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
   const [wrapper, setWrapper] = useState<ArchivistWrapper>()
   const [queryableCommit, setQueryableCommit] = useState(false)
   const [queryableClear, setQueryableClear] = useState(false)
-  const wrapperWallet = useWrapperAccount()
+  const [wrapperWallet] = useWrapperAccount()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

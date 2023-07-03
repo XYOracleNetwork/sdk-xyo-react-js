@@ -12,7 +12,7 @@ export const WrappedModulesHookFactory = {
       logger?: Logger,
     ): [TModuleWrapper[] | undefined, Error | undefined] => {
       logger?.debug(`Render: ${name}`)
-      const wrapperAccount = useWrapperAccount()
+      const [wrapperAccount] = useWrapperAccount()
 
       const [wrappers, setWrappers] = useState<TModuleWrapper[]>()
       const [error, setError] = useState<Error>()

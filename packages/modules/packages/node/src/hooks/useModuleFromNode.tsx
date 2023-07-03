@@ -10,7 +10,7 @@ import { useWrappedProvidedNode } from './wrapped'
 
 export const useModuleFromNode = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
-  wallet?: WalletInstance,
+  wallet?: WalletInstance | null,
   logger?: Logger,
 ): [TModule | undefined, Error | undefined] => {
   const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])

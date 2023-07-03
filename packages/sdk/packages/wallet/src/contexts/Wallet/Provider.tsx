@@ -9,14 +9,14 @@ import { WalletRootPath } from './lib'
 export interface WalletProviderProps {
   basePath?: string
   defaultActiveAccountIndex?: number
-  rootWallet?: WalletInstance
+  rootWallet?: WalletInstance | null
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
   basePath = WalletRootPath,
   children,
   defaultActiveAccountIndex = 0,
-  rootWallet,
+  rootWallet = null,
   ...props
 }) => {
   const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
@@ -27,7 +27,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     }
   }, [defaultActiveAccountIndex])
 
-  const [coinTypeWallet] = usePromise(async () => {
+  const [coinTypeWallet = null] = usePromise(async () => {
     // ensure the wallet has the proper base
     if (rootWallet) {
       if (!rootWallet?.path.includes(basePath)) {
@@ -42,7 +42,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     }
   }, [basePath, rootWallet])
 
-  const [activeAccount] = usePromise(() => coinTypeWallet?.derivePath(activeAccountIndex.toString()), [coinTypeWallet, activeAccountIndex])
+  const [activeAccount = null] = usePromise(() => coinTypeWallet?.derivePath(activeAccountIndex.toString()), [coinTypeWallet, activeAccountIndex])
 
   return (
     <WalletContext.Provider

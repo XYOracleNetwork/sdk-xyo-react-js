@@ -12,7 +12,7 @@ import { StandardNodesState } from './State'
 
 export interface StandardNodesProviderProps extends WithChildren {
   defaultRemoteNodes?: StandardNodesState['nodes']
-  wallet?: WalletInstance
+  wallet?: WalletInstance | null
 }
 
 export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ children, defaultRemoteNodes, wallet }) => {
