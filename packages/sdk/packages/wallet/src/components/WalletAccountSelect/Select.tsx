@@ -38,7 +38,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
             const Item: React.FC = () => {
               const [account] = useWallet({ path: selected.toString(), wallet: coinTypeWallet })
               const customName = account ? addressNames[account.address] : undefined
-              const favorite = account && account.address in addressNames
+              const favorite = !!account && account.address in addressNames
               return (
                 <AddressRenderRowBox
                   address={account?.address}
@@ -63,7 +63,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
             const Item: React.FC = () => {
               const [account] = useAccount({ index, wallet: coinTypeWallet })
               const customName = account ? addressNames[account.address] : undefined
-              const favorite = account && account.address in addressNames
+              const favorite = !!account && account.address in addressNames
               return (
                 <MenuItem key={account?.address} value={index}>
                   <AddressRenderRowBox

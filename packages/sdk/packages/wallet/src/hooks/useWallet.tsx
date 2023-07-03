@@ -4,20 +4,21 @@ import { DataLike } from '@xyo-network/core'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useSelectedWalletAccount } from '../contexts'
+import { useSelectedWalletAccount, useWalletProvided } from '../contexts'
 
 export interface WalletHookParams {
   mnemonic?: string
   path?: string
   required?: boolean
   seed?: DataLike
-  wallet?: WalletInstance
+  wallet?: WalletInstance | null
 }
 
 export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: WalletHookParams = {}): [
-  WalletInstance | undefined,
+  WalletInstance | null | undefined,
   Error | undefined,
 ] => {
+  const walletContextProvided = useWalletProvided()
   const [error, setError] = useState<Error>()
   const [contextAccount] = useSelectedWalletAccount(!wallet && required)
   const [activeAccount] = usePromise(async () => {
@@ -42,5 +43,5 @@ export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: Wa
       setError(ex as Error)
     }
   }, [mnemonic, contextAccount, seed, path, wallet])
-  return [activeAccount, error]
+  return [activeAccount ?? walletContextProvided ? null : undefined, error]
 }

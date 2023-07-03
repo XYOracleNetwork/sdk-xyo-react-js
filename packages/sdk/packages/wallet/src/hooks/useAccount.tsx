@@ -3,7 +3,7 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useCoinTypeWallet, useWalletContext } from '../contexts'
+import { useCoinTypeWallet, useWalletContext, useWalletProvided } from '../contexts'
 
 export interface AccountHookParams {
   account?: AccountInstance
@@ -13,9 +13,10 @@ export interface AccountHookParams {
 }
 
 export const useAccount = ({ wallet, account, index, required = false }: AccountHookParams = {}): [
-  AccountInstance | undefined,
+  AccountInstance | null | undefined,
   Error | undefined,
 ] => {
+  const walletContextProvided = useWalletProvided()
   const [validationError, setValidationError] = useState<Error>()
   if (wallet && account && !validationError) {
     setValidationError(Error('useAccount can not have both a wallet and an account in the parameters'))
@@ -48,5 +49,5 @@ export const useAccount = ({ wallet, account, index, required = false }: Account
     setError(validationError)
   }
 
-  return [error ? undefined : account ?? activeAccount, error]
+  return [error ? undefined : account ?? activeAccount ?? walletContextProvided ? null : undefined, error]
 }

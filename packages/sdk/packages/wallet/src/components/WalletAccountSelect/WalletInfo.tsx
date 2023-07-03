@@ -27,7 +27,7 @@ export const WalletError: React.FC<WalletErrorProps> = ({ error }) => {
 }
 
 export interface WalletIdenticonProps {
-  account?: AccountInstance
+  account?: AccountInstance | null
   name: string
 }
 

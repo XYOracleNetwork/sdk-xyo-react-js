@@ -9,3 +9,8 @@ export const useContextEx = <T extends ContextExState>(context: Context<T>, cont
   }
   return props
 }
+
+export const useProvided = <T extends ContextExState>(context: Context<T>) => {
+  const { provided } = useContext(context)
+  return provided
+}
