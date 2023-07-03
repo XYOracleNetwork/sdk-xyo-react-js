@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { useProvidedNode } from '../../provided'
 
-export const useWrappedProvidedNode = (wallet?: WalletInstance): [NodeWrapper | undefined, Error | undefined] => {
+export const useWrappedProvidedNode = (wallet?: WalletInstance | null): [NodeWrapper | undefined, Error | undefined] => {
   const [walletToUse] = useWallet({ wallet })
   const [node] = useProvidedNode()
   const [wrappedNode, setWrappedNode] = useState<NodeWrapper>()

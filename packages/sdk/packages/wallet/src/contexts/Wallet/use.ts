@@ -22,16 +22,20 @@ export const useRootWallet = (required = true): [WalletInstance | undefined, Err
   return [rootWallet, undefined]
 }
 
-export const useIndexedWalletFromContext = (index: number, required = true): [WalletInstance | undefined, Error | undefined] => {
+export const useIndexedWalletFromContext = (index: number, required = true): [WalletInstance | null | undefined, Error | undefined] => {
   const [coinTypeWallet] = useCoinTypeWallet(required)
-  const [wallet] = usePromise(() => coinTypeWallet?.derivePath(index.toString()), [coinTypeWallet, index])
+  const [wallet] = usePromise(async () => (await coinTypeWallet?.derivePath(index.toString())) ?? coinTypeWallet, [coinTypeWallet, index])
   return [wallet, undefined]
 }
 
-export const useSelectedWalletAccount = (required = true): [WalletInstance | undefined, Error | undefined] => {
+export const useSelectedWalletAccount = (required = true): [WalletInstance | null | undefined, Error | undefined] => {
   const { activeAccountIndex } = useWalletContext(required)
   //we pass in 0 as default since we can not call the hook optionally,
   //we resolve this false result by checking whether activeAccountIndex is defined before returning it
   const [account] = useIndexedWalletFromContext(activeAccountIndex ?? 0, required)
-  return [activeAccountIndex !== undefined ? account : undefined, undefined]
+  if (activeAccountIndex === undefined && account === null) {
+    return [null, undefined]
+  } else {
+    return [account, undefined]
+  }
 }
