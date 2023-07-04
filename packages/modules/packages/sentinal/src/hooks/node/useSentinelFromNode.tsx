@@ -3,5 +3,5 @@ import { ModuleFilter } from '@xyo-network/module'
 import { useModuleFromNode } from '@xyo-network/react-node'
 import { SentinelModule } from '@xyo-network/sentinel'
 
-export const useSentinelFromNode = (nameOrAddressOrFilter?: string | ModuleFilter, logger?: Logger) =>
-  useModuleFromNode<SentinelModule>(nameOrAddressOrFilter, logger)
+export const useSentinelFromNode = (nameOrAddressOrFilter?: string | ModuleFilter, up = false, logger?: Logger) =>
+  useModuleFromNode<SentinelModule>(nameOrAddressOrFilter, up, logger)

@@ -3,4 +3,4 @@ import { ModuleFilter } from '@xyo-network/module'
 import { useModulesFromNode } from '@xyo-network/react-node'
 import { WitnessModule } from '@xyo-network/witness'
 
-export const useWitnessesFromNode = (filter?: ModuleFilter, logger?: Logger) => useModulesFromNode<WitnessModule>(filter, logger)
+export const useWitnessesFromNode = (filter?: ModuleFilter, up = false, logger?: Logger) => useModulesFromNode<WitnessModule>(filter, up, logger)
