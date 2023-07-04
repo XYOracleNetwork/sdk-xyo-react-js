@@ -9,6 +9,7 @@ import { useProvidedNode } from './provided'
 
 export const useModuleFromNode = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
+  up?: false,
   logger?: Logger,
 ): [TModule | null | undefined, Error | undefined] => {
   const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
@@ -41,9 +42,9 @@ export const useModuleFromNode = <TModule extends Module = Module>(
               setError(undefined)
             }
           }
-          const module: TModule | undefined = nameOrAddress
-            ? (await node.downResolver.resolve<TModule>({ address: [nameOrAddress], name: [nameOrAddress] })).pop()
-            : (await node.downResolver.resolve<TModule>(filter)).pop()
+          const activeFilter: ModuleFilter = filter ?? (nameOrAddress ? { address: [nameOrAddress], name: [nameOrAddress] } : {})
+          const moduleDown: TModule | undefined = (await node.downResolver.resolve<TModule>(activeFilter)).pop()
+          const module: TModule | undefined = moduleDown ?? up ? (await node.upResolver.resolve<TModule>(activeFilter)).pop() : undefined
           if (mounted()) {
             eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
             eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
@@ -70,7 +71,7 @@ export const useModuleFromNode = <TModule extends Module = Module>(
         }
       }
     },
-    [nameOrAddress, node, address, filter, logger],
+    [nameOrAddress, node, address, filter, logger, up],
   )
 
   return [module, error]

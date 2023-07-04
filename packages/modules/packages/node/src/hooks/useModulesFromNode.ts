@@ -8,6 +8,7 @@ import { useProvidedNode } from './provided'
 
 export const useModulesFromNode = <TModule extends Module = Module>(
   filter?: ModuleFilter,
+  up = false,
   logger?: Logger,
 ): [TModule[] | null | undefined, Error | undefined] => {
   const [node] = useProvidedNode()
@@ -19,11 +20,13 @@ export const useModulesFromNode = <TModule extends Module = Module>(
   const [resolvedModules, resolvedModulesError] = usePromise<TModule[] | undefined>(async () => {
     const getModulesFromResolution = async () => {
       if (node) {
-        const resolvedModules: TModule[] | undefined = await node.downResolver.resolve<TModule>(filter)
-        if (resolvedModules?.length !== modulesLength.current) {
+        const resolvedDownModules: TModule[] | undefined = await node.downResolver.resolve<TModule>(filter)
+        const resolvedUpModules: TModule[] | undefined = up ? await node.upResolver.resolve<TModule>(filter) : []
+        const allResolvedModules = [...resolvedDownModules, ...resolvedUpModules]
+        if (allResolvedModules?.length !== modulesLength.current) {
           logger?.debug(`getModulesFromResolution-setting: [${resolvedModules?.length}]`)
-          modulesLength.current = resolvedModules?.length
-          return resolvedModules
+          modulesLength.current = allResolvedModules?.length
+          return allResolvedModules
         }
       }
     }
@@ -45,7 +48,7 @@ export const useModulesFromNode = <TModule extends Module = Module>(
       )
     }
     return modules
-  }, [node, filter, logger])
+  }, [node, filter, logger, up])
 
   useEffect(() => {
     return () => {
