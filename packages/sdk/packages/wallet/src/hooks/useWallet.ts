@@ -43,5 +43,5 @@ export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: Wa
       setError(ex as Error)
     }
   }, [mnemonic, contextAccount, seed, path, wallet])
-  return [activeAccount ?? walletContextProvided ? null : activeAccount, error]
+  return [activeAccount ?? (walletContextProvided ? null : activeAccount), error]
 }

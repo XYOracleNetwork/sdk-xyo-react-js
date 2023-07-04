@@ -16,5 +16,5 @@ export const useWallets = ({ wallet, paths }: WalletsHookParams): [WalletInstanc
     () => (foundWallet ? Promise.all(paths.map((path) => foundWallet.derivePath(path))) : undefined),
     [foundWallet, paths],
   )
-  return [wallets ?? walletContextProvided ? null : wallets, error]
+  return [wallets ?? (walletContextProvided ? null : wallets), error]
 }
