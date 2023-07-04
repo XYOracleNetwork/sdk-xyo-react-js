@@ -2,16 +2,18 @@ import { usePromise } from '@xylabs/react-promise'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { Module, ModuleFilter } from '@xyo-network/module-model'
+import { useRefresh } from '@xyo-network/react-module'
 import { useEffect, useRef } from 'react'
 
 import { useProvidedNode } from './provided'
 
 export const useModulesFromNode = <TModule extends Module = Module>(
   filter?: ModuleFilter,
-  up = false,
+  up?: boolean,
   logger?: Logger,
 ): [TModule[] | null | undefined, Error | undefined] => {
   const [node] = useProvidedNode()
+  const [refreshed, refresh] = useRefresh()
 
   const modulesLength = useRef<number>()
 
@@ -31,31 +33,36 @@ export const useModulesFromNode = <TModule extends Module = Module>(
       }
     }
 
-    const modules = await getModulesFromResolution()
+    return await getModulesFromResolution()
+  }, [node, filter, logger, up, refreshed])
 
+  useEffect(() => {
     if (node) {
+      while (eventUnsubscribe.length) {
+        eventUnsubscribe.pop()?.()
+      }
       eventUnsubscribe.push(
-        node.on('moduleAttached', async () => {
+        node.on('moduleAttached', () => {
           logger?.debug('moduleAttached: getModulesFromResolution')
-          await getModulesFromResolution()
+          refresh()
         }),
       )
       eventUnsubscribe.push(
-        node.on('moduleDetached', async () => {
+        node.on('moduleDetached', () => {
           logger?.debug('moduleDetached: getModulesFromResolution')
-          await getModulesFromResolution()
+          refresh()
         }),
       )
     }
-    return modules
-  }, [node, filter, logger, up])
 
-  useEffect(() => {
     return () => {
       //unsubscribe events
       eventUnsubscribe.forEach((func) => func())
+      while (eventUnsubscribe.length) {
+        eventUnsubscribe.pop()
+      }
     }
-  }, [filter, node, logger])
+  }, [node])
 
   return [resolvedModules, resolvedModulesError]
 }

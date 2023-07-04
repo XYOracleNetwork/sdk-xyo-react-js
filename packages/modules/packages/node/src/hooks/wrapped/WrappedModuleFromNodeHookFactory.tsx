@@ -12,7 +12,7 @@ export const WrappedModuleFromNodeHookFactory = {
     const useHook = (
       nameOrAddress?: string,
       wallet?: WalletInstance,
-      up = false,
+      up?: boolean,
       logger?: Logger,
     ): [TModuleWrapper | undefined, Error | undefined] => {
       logger?.debug(`Render: ${name}`)

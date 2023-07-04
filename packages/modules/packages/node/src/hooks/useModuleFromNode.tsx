@@ -9,7 +9,7 @@ import { useProvidedNode } from './provided'
 
 export const useModuleFromNode = <TModule extends Module = Module>(
   nameOrAddress?: string,
-  up = false,
+  up?: boolean,
   logger?: Logger,
 ): [TModule | null | undefined, Error | undefined] => {
   const [node] = useProvidedNode()

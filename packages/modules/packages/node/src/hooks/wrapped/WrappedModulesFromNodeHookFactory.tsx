@@ -12,7 +12,7 @@ export const WrappedModulesFromNodeHookFactory = {
     const filter = {
       query: [wrapperObject.requiredQueries],
     }
-    const useHook = (account?: WalletInstance, up = false, logger?: Logger): [TModuleWrapper[] | undefined, Error | undefined] => {
+    const useHook = (account?: WalletInstance, up?: boolean, logger?: Logger): [TModuleWrapper[] | undefined, Error | undefined] => {
       logger?.debug(`Render: ${name}`)
 
       const [accountToUse] = useAccount({ account })
