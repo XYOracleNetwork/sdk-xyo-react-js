@@ -1,7 +1,5 @@
 import { Logger } from '@xyo-network/core'
 import { DivinerModule } from '@xyo-network/diviner'
-import { ModuleFilter } from '@xyo-network/module'
 import { useModuleFromNode } from '@xyo-network/react-node'
 
-export const useDivinerFromNode = (nameOrAddressOrFilter?: string | ModuleFilter, up = false, logger?: Logger) =>
-  useModuleFromNode<DivinerModule>(nameOrAddressOrFilter, up, logger)
+export const useDivinerFromNode = (nameOrAddress?: string, up = false, logger?: Logger) => useModuleFromNode<DivinerModule>(nameOrAddress, up, logger)

@@ -5,6 +5,7 @@ import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
 import { useModuleFromNode } from '../useModuleFromNode'
+import { useModulesFromNode } from '../useModulesFromNode'
 
 export const WrappedModuleFromNodeHookFactory = {
   create: <TModuleWrapper extends ModuleWrapper>(wrapperObject: ConstructableModuleWrapper<TModuleWrapper>, name?: string) => {
@@ -16,8 +17,10 @@ export const WrappedModuleFromNodeHookFactory = {
     ): [TModuleWrapper | undefined, Error | undefined] => {
       logger?.debug(`Render: ${name}`)
       const [walletToUse] = useWallet({ wallet })
-      const [module, moduleError] = useModuleFromNode<TModuleWrapper['module']>(
-        nameOrAddress ?? {
+      const [module, moduleError] = useModuleFromNode<TModuleWrapper['module']>(nameOrAddress, up, logger)
+
+      const [modules, modulesError] = useModulesFromNode<TModuleWrapper['module']>(
+        {
           query: [wrapperObject.requiredQueries],
         },
         up,
@@ -26,6 +29,8 @@ export const WrappedModuleFromNodeHookFactory = {
 
       const [wrapper, setWrapper] = useState<TModuleWrapper>()
       const [error, setError] = useState<Error>()
+
+      const activeModule = module ?? modules?.[0]
 
       /*
     useEffect(() => {
@@ -38,9 +43,9 @@ export const WrappedModuleFromNodeHookFactory = {
     */
 
       useEffect(() => {
-        if (module && walletToUse) {
+        if (activeModule && walletToUse) {
           try {
-            const wrapper = wrapperObject.wrap(module, walletToUse)
+            const wrapper = wrapperObject.wrap(activeModule, walletToUse)
             setWrapper(wrapper)
             setError(undefined)
           } catch (ex) {
@@ -49,9 +54,9 @@ export const WrappedModuleFromNodeHookFactory = {
           }
         } else {
           setWrapper(undefined)
-          setError(moduleError)
+          setError(moduleError ?? modulesError)
         }
-      }, [module, wallet, moduleError, walletToUse])
+      }, [activeModule, wallet, moduleError, walletToUse, modulesError])
 
       return [wrapper, error]
     }

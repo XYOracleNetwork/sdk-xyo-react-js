@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { usePromise } from '@xylabs/react-promise'
 import { WithChildren } from '@xylabs/react-shared'
 import { MemoryNode } from '@xyo-network/node'
 import { assertDefinedEx } from '@xyo-network/react-shared'
@@ -22,22 +22,18 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ ch
     setNodes(defaultRemoteNodes)
   }, [defaultRemoteNodes])
 
-  useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    async () => {
-      if (wallet) {
-        await BuildStandardNodes(wallet, (node: MemoryNode) => {
-          setNodes((nodes) => {
-            if (nodes?.find((existingNode) => existingNode.config.name === node.config.name)) {
-              return undefined
-            }
-            return nodes ? [...nodes, node] : [node]
-          })
+  usePromise(async () => {
+    if (wallet) {
+      await BuildStandardNodes(wallet, (node: MemoryNode) => {
+        setNodes((nodes) => {
+          if (nodes?.find((existingNode) => existingNode.config.name === node.config.name)) {
+            return undefined
+          }
+          return nodes ? [...nodes, node] : [node]
         })
-      }
-    },
-    [wallet],
-  )
+      })
+    }
+  }, [wallet])
 
   const findAddressByName = (name?: string) => {
     const validNetworkName = assertDefinedEx(name, 'name was not defined')

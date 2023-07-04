@@ -1,19 +1,17 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
-import { Module, ModuleFilter } from '@xyo-network/module-model'
+import { Module } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
 import { useMemo, useState } from 'react'
 
 import { useProvidedNode } from './provided'
 
 export const useModuleFromNode = <TModule extends Module = Module>(
-  nameOrAddressOrFilter?: string | ModuleFilter,
+  nameOrAddress?: string,
   up = false,
   logger?: Logger,
 ): [TModule | null | undefined, Error | undefined] => {
-  const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
-  const filter = useMemo(() => (typeof nameOrAddressOrFilter === 'object' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])
   const [node] = useProvidedNode()
   const [module, setModule] = useState<TModule | null>()
   const [error, setError] = useState<Error>()
@@ -42,9 +40,9 @@ export const useModuleFromNode = <TModule extends Module = Module>(
               setError(undefined)
             }
           }
-          const activeFilter: ModuleFilter = filter ?? (nameOrAddress ? { address: [nameOrAddress], name: [nameOrAddress] } : {})
-          const moduleDown: TModule | undefined = (await node.downResolver.resolve<TModule>(activeFilter)).pop()
-          const module: TModule | undefined = moduleDown ?? up ? (await node.upResolver.resolve<TModule>(activeFilter)).pop() : undefined
+          const moduleDown: TModule | undefined = nameOrAddress ? await node.downResolver.resolveOne<TModule>(nameOrAddress) : undefined
+          const module: TModule | undefined =
+            moduleDown ?? (up && nameOrAddress ? await node.upResolver.resolveOne<TModule>(nameOrAddress) : undefined)
           if (mounted()) {
             eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
             eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
@@ -71,7 +69,7 @@ export const useModuleFromNode = <TModule extends Module = Module>(
         }
       }
     },
-    [nameOrAddress, node, address, filter, logger, up],
+    [nameOrAddress, node, address, logger, up],
   )
 
   return [module, error]
