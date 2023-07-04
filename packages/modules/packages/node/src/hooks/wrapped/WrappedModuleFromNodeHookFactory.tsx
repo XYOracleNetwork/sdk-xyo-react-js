@@ -19,28 +19,18 @@ export const WrappedModuleFromNodeHookFactory = {
       const [walletToUse] = useWallet({ wallet })
       const [module, moduleError] = useModuleFromNode<TModuleWrapper['module']>(nameOrAddress, up, logger)
 
-      const [modules, modulesError] = useModulesFromNode<TModuleWrapper['module']>(
-        {
+      const queryFilter = useMemo(() => {
+        return {
           query: [wrapperObject.requiredQueries],
-        },
-        up,
-        logger,
-      )
+        }
+      }, [])
+
+      const [modules, modulesError] = useModulesFromNode<TModuleWrapper['module']>(queryFilter, up, logger)
 
       const [wrapper, setWrapper] = useState<TModuleWrapper>()
       const [error, setError] = useState<Error>()
 
       const activeModule = useMemo(() => module ?? modules?.[0], [module, modules])
-
-      /*
-    useEffect(() => {
-      if (!walletToUse) {
-        const error = Error('Module hooks require either an Account context or account parameter')
-        //console.error(error.message)
-        setError(error)
-      }
-    }, [walletToUse])
-    */
 
       useEffect(() => {
         if (activeModule && walletToUse) {
