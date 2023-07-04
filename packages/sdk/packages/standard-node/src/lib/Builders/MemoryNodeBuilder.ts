@@ -24,16 +24,11 @@ export class MemoryNodeBuilder {
     return assertDefinedEx(this._node, 'this._node was not defined upon create')
   }
 
-  get wrappedNode() {
-    return assertDefinedEx(this._wrappedNode, 'this._wrappedNode was not defined upon create')
-  }
-
   static async create({ name, node }: MemoryNodeBuilderConfig, account?: AccountInstance): Promise<MemoryNodeBuilder> {
     const instance = new this()
 
     const memoryNode: MemoryNode = node ?? (await MemoryNode.create({ account, config: { name, schema: NodeConfigSchema } }))
     instance._node = memoryNode
-    instance._wrappedNode = NodeWrapper.wrap(memoryNode)
     return instance
   }
 
@@ -95,7 +90,7 @@ export class MemoryNodeBuilder {
   async attach(module: Module, external?: boolean, safeAttach?: boolean) {
     try {
       if (safeAttach) {
-        const existingModule = await this.wrappedNode.resolve(module.address)
+        const existingModule = (await this.node.downResolver.resolve({ address: [module.address] })).pop()
         if (existingModule) {
           await this.node.detach(existingModule.address)
           await this.node.unregister(existingModule)
@@ -108,9 +103,14 @@ export class MemoryNodeBuilder {
     }
   }
 
+  getWrappedNode(account: AccountInstance) {
+    this._wrappedNode = this._wrappedNode ?? NodeWrapper.wrap(this.node, account)
+    return this._wrappedNode
+  }
+
   private async witnessCleanup(witness: WitnessModule) {
-    if ((await this.wrappedNode.registered()).includes(witness.address)) {
-      const [existingWitness] = await this.wrappedNode.resolve({ address: [witness.address] })
+    if (this.node.registered().includes(witness.address)) {
+      const [existingWitness] = await this.node.downResolver.resolve({ address: [witness.address] })
       await this.node.unregister(existingWitness)
     }
   }

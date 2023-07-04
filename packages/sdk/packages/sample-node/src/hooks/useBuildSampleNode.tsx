@@ -1,8 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { BowserSystemInfoWitness, BowserSystemInfoWitnessConfigSchema } from '@xyo-network/bowser-system-info-plugin'
-import { NodeWrapper } from '@xyo-network/node'
+import { NodeModule } from '@xyo-network/node'
 import { MemoryNodeBuilder } from '@xyo-network/react-standard-node'
-import { WitnessWrapper } from '@xyo-network/witness'
 import { useState } from 'react'
 
 export const SampleNodeModuleNames = ['Node', 'MemoryArchivist', 'Bridge', 'SystemInfoWitness'] as const
@@ -15,11 +14,11 @@ const buildSystemInfoWitness = async (moduleName?: string) => {
   const sysInfoWitness = await BowserSystemInfoWitness.create({
     config: { name: moduleName, schema: BowserSystemInfoWitnessConfigSchema },
   })
-  return WitnessWrapper.wrap(sysInfoWitness)
+  return sysInfoWitness
 }
 
 export const useBuildSampleNode = (sampleModules: SampleNodeModules, apiDomain?: string) => {
-  const [node, setNode] = useState<NodeWrapper>()
+  const [node, setNode] = useState<NodeModule>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,7 +30,7 @@ export const useBuildSampleNode = (sampleModules: SampleNodeModules, apiDomain?:
           if ('Bridge' in sampleModules && apiDomain) await nodeBuilder.addBridge(apiDomain, sampleModules.Bridge)
           if ('SystemInfoWitness' in sampleModules) await nodeBuilder.attach(await buildSystemInfoWitness(sampleModules.SystemInfoWitness), true)
 
-          setNode(nodeBuilder.wrappedNode)
+          setNode(nodeBuilder.node)
         }
       } catch (e) {
         console.error('Error building sample node', e, sampleModules, apiDomain)

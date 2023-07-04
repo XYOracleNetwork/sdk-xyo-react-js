@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
-import { NodeWrapper } from '@xyo-network/node'
+import { NodeModule } from '@xyo-network/node'
 import { ElementDefinition } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
@@ -10,7 +10,7 @@ import { CytoscapeElements } from '../../Cytoscape'
  * Note: Relies on describe but could eventually be converted to a discover call
  * Logic would be similar to what the bridge does
  */
-export const useCytoscapeElements = (targetNode?: NodeWrapper) => {
+export const useCytoscapeElements = (targetNode?: NodeModule | null) => {
   const [elements, setElements] = useState<ElementDefinition[]>([])
 
   useAsyncEffect(

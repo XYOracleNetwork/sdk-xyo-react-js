@@ -1,4 +1,4 @@
-import { NodeWrapper } from '@xyo-network/node'
+import { NodeModule } from '@xyo-network/node'
 import { useWrappedProvidedNode } from '@xyo-network/react-node'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
@@ -6,7 +6,7 @@ import { NodeRelationalGraphProps } from './lib'
 import { NodeRelationalGraph } from './RelationalGraph'
 
 export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
-  node?: NodeWrapper
+  node?: NodeModule
 }
 
 export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({ node, ...props }) => {

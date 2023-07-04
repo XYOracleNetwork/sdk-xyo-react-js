@@ -2,7 +2,7 @@
 import { Box, Button, CircularProgress } from '@mui/material'
 import { Decorator, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
+import { ArchivistModule } from '@xyo-network/archivist-model'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/memory-archivist'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
@@ -13,16 +13,15 @@ import { usePayload } from './use'
 const testPayload = { schema: 'network.xyo.payload' }
 
 const PayloadProviderDecorator: Decorator = (Story, args) => {
-  const [archivist, setArchivist] = useState<ArchivistWrapper>()
+  const [archivist, setArchivist] = useState<ArchivistModule>()
   const testPayloadHash = usePayloadHash(testPayload)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const memoryArchivist = await MemoryArchivist.create({ config: { schema: MemoryArchivistConfigSchema } })
-      const wrapper = ArchivistWrapper.wrap(memoryArchivist)
       await memoryArchivist.insert([testPayload])
-      setArchivist(wrapper)
+      setArchivist(memoryArchivist)
     },
     [],
   )

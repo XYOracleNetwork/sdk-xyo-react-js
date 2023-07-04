@@ -84,8 +84,7 @@ const TemplateDescribe: StoryFn<typeof NodeRelationalGraph> = (props) => {
 
 const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraph> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
-  const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
-  const elements = useCytoscapeElements(wrappedNode)
+  const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraph options={options} {...props} />
 }
@@ -94,8 +93,7 @@ const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (prop
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraph> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
-  const wrappedNode = useMemo(() => (node ? NodeWrapper.wrap(node) : undefined), [node])
-  const elements = useCytoscapeElements(wrappedNode)
+  const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   const [idWitness, setIdWitness] = useState<IdWitness>()
 
@@ -109,18 +107,18 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraph> = (props) => {
   )
 
   const handleAddWitness = async () => {
-    if (wrappedNode && idWitness) {
-      const memoryNode = wrappedNode as NodeWrapper<MemoryNode>
-      await memoryNode.module.register(idWitness)
+    if (node && idWitness) {
+      const memoryNode = node as MemoryNode
+      await memoryNode.register(idWitness)
       await memoryNode.attach(idWitness.address, true)
     }
   }
 
   const handleRemoveWitness = async () => {
-    if (wrappedNode && idWitness) {
-      const memoryNode = wrappedNode as NodeWrapper<MemoryNode>
-      if (await (await memoryNode.registered()).includes(idWitness.address)) {
-        await memoryNode.module.unregister(idWitness)
+    if (node && idWitness) {
+      const memoryNode = node as MemoryNode
+      if (memoryNode.registered().includes(idWitness.address)) {
+        await memoryNode.unregister(idWitness)
       }
     }
   }

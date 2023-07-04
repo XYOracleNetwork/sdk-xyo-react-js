@@ -1,7 +1,7 @@
 import { TreeItem } from '@mui/lab'
 import { styled } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { Module, ModuleWrapper } from '@xyo-network/module'
+import { Module } from '@xyo-network/module'
 import { MutableRefObject, useState } from 'react'
 
 interface RenderModuleProps {
@@ -19,8 +19,7 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const wrapper = ModuleWrapper.wrap(module)
-      const children = (await wrapper.downResolver.resolve()).filter((childModule) => childModule.address !== address)
+      const children = (await module.downResolver.resolve()).filter((childModule) => childModule.address !== address)
       if (mounted()) {
         setChildModules(children)
       }
