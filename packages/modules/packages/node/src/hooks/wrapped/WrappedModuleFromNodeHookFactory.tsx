@@ -2,7 +2,7 @@ import { Logger } from '@xyo-network/core'
 import { ConstructableModuleWrapper, ModuleWrapper } from '@xyo-network/module'
 import { useWallet } from '@xyo-network/react-wallet'
 import { WalletInstance } from '@xyo-network/wallet-model'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { useModuleFromNode } from '../useModuleFromNode'
 import { useModulesFromNode } from '../useModulesFromNode'
@@ -30,7 +30,7 @@ export const WrappedModuleFromNodeHookFactory = {
       const [wrapper, setWrapper] = useState<TModuleWrapper>()
       const [error, setError] = useState<Error>()
 
-      const activeModule = module ?? modules?.[0]
+      const activeModule = useMemo(() => module ?? modules?.[0], [module, modules])
 
       /*
     useEffect(() => {
