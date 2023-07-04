@@ -8,13 +8,19 @@ import { useModuleFromNode } from '../useModuleFromNode'
 
 export const WrappedModuleFromNodeHookFactory = {
   create: <TModuleWrapper extends ModuleWrapper>(wrapperObject: ConstructableModuleWrapper<TModuleWrapper>, name?: string) => {
-    const useHook = (nameOrAddress?: string, wallet?: WalletInstance, logger?: Logger): [TModuleWrapper | undefined, Error | undefined] => {
+    const useHook = (
+      nameOrAddress?: string,
+      wallet?: WalletInstance,
+      up = false,
+      logger?: Logger,
+    ): [TModuleWrapper | undefined, Error | undefined] => {
       logger?.debug(`Render: ${name}`)
       const [walletToUse] = useWallet({ wallet })
       const [module, moduleError] = useModuleFromNode<TModuleWrapper['module']>(
         nameOrAddress ?? {
           query: [wrapperObject.requiredQueries],
         },
+        up,
         logger,
       )
 

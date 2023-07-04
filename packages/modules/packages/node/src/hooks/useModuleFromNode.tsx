@@ -9,7 +9,7 @@ import { useProvidedNode } from './provided'
 
 export const useModuleFromNode = <TModule extends Module = Module>(
   nameOrAddressOrFilter?: string | ModuleFilter,
-  up?: false,
+  up = false,
   logger?: Logger,
 ): [TModule | null | undefined, Error | undefined] => {
   const nameOrAddress = useMemo(() => (typeof nameOrAddressOrFilter === 'string' ? nameOrAddressOrFilter : undefined), [nameOrAddressOrFilter])

@@ -4,4 +4,4 @@ import { NodeModule } from '@xyo-network/node'
 
 import { useModulesFromNode } from './useModulesFromNode'
 
-export const useNodesFromNode = (filter?: ModuleFilter, logger?: Logger) => useModulesFromNode<NodeModule>(filter, logger)
+export const useNodesFromNode = (filter?: ModuleFilter, up = false, logger?: Logger) => useModulesFromNode<NodeModule>(filter, up, logger)
