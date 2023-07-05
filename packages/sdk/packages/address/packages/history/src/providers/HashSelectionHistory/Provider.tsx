@@ -10,7 +10,7 @@ import { HashSelectionHistoryContext, NestedBoundWitnesses } from '../../context
 import { useActiveBoundWitness } from '../../hooks'
 
 export interface HashSelectionHistoryProviderProps extends WithChildren, ContextExProviderProps {
-  archivist?: ArchivistModule
+  archivist?: ArchivistModule | null
   defaultHashSelectionHistory?: string[]
   defaultNestedBoundWitnesses?: NestedBoundWitnesses
 }
@@ -39,10 +39,15 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
     }
   }, [activeBoundWitness, clearHistory])
 
-  const addSelection = async (boundwitness?: BoundWitness) => {
-    if (archivist === undefined || boundwitness === undefined) {
+  const addSelection = async (boundwitness?: BoundWitness | null) => {
+    if (archivist === null || boundwitness === null) {
       return null
     }
+
+    if (archivist === undefined || boundwitness === undefined) {
+      return undefined
+    }
+
     const hash = await PayloadWrapper.hashAsync(boundwitness)
     if (hashSelectionHistory.includes(hash)) {
       return null
@@ -60,7 +65,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
   }
 
   const fetchFromHash = async (hash?: string) => {
-    if (archivist === undefined || hash === undefined) {
+    if (!archivist || !hash) {
       return null
     }
     try {

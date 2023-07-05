@@ -6,7 +6,7 @@ export interface NestedBoundWitnesses {
   [hash: string]: BoundWitness
 }
 export interface HashSelectionHistoryState extends ContextExState {
-  addSelection?: (boundwitness?: BoundWitness) => Promise<BoundWitness | null>
+  addSelection?: (boundwitness?: BoundWitness | null) => Promise<BoundWitness | undefined | null>
   clearHistory?: () => boolean
   error?: ModuleError
   fetchFromHash?: (hash?: string) => Promise<BoundWitness | undefined | null>
