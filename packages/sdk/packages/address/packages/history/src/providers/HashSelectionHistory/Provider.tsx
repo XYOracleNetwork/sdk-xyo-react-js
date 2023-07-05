@@ -1,5 +1,5 @@
 import { useMounted, WithChildren } from '@xylabs/react-shared'
-import { ArchivistWrapper } from '@xyo-network/archivist'
+import { ArchivistModule } from '@xyo-network/archivist'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { ModuleError } from '@xyo-network/module-model'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
@@ -10,7 +10,7 @@ import { HashSelectionHistoryContext, NestedBoundWitnesses } from '../../context
 import { useActiveBoundWitness } from '../../hooks'
 
 export interface HashSelectionHistoryProviderProps extends WithChildren, ContextExProviderProps {
-  archivist?: ArchivistWrapper
+  archivist?: ArchivistModule
   defaultHashSelectionHistory?: string[]
   defaultNestedBoundWitnesses?: NestedBoundWitnesses
 }

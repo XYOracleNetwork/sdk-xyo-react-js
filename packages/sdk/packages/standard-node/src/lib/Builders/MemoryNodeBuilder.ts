@@ -2,7 +2,7 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { MemoryArchivist, MemoryArchivistConfig, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
 import { Module } from '@xyo-network/module'
-import { MemoryNode, NodeConfigSchema, NodeWrapper } from '@xyo-network/node'
+import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
 import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { SentinelConfig } from '@xyo-network/sentinel'
@@ -18,7 +18,6 @@ export interface MemoryNodeBuilderConfig {
 
 export class MemoryNodeBuilder {
   private _node: MemoryNode | undefined
-  private _wrappedNode: NodeWrapper | undefined
 
   get node() {
     return assertDefinedEx(this._node, 'this._node was not defined upon create')
@@ -101,11 +100,6 @@ export class MemoryNodeBuilder {
     } catch (e) {
       throw Error(`Error adding ${module.config.name ?? module.address} to MemoryNode: ${e}`)
     }
-  }
-
-  getWrappedNode(account: AccountInstance) {
-    this._wrappedNode = this._wrappedNode ?? NodeWrapper.wrap(this.node, account)
-    return this._wrappedNode
   }
 
   private async witnessCleanup(witness: WitnessModule) {

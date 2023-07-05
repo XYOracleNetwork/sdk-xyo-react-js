@@ -1,19 +1,15 @@
 import { usePromise } from '@xylabs/react-promise'
-import { DivinerWrapper, HuriPayload, HuriSchema } from '@xyo-network/diviner'
+import { DivinerModule, HuriPayload, HuriSchema } from '@xyo-network/diviner'
 import { useMemo } from 'react'
 
 import { useBuildHuri } from './useBuildHuri'
 
-export const useFetchHuri = (hashOrHuri?: string, diviner?: DivinerWrapper, token?: string) => {
+export const useFetchHuri = (hashOrHuri?: string, diviner?: DivinerModule, token?: string) => {
   const huri = useBuildHuri(hashOrHuri) ?? hashOrHuri
   const huriPayload: HuriPayload | undefined = useMemo(
     () => (huri ? { huri: [huri], schema: HuriSchema, tokens: token ? [token] : undefined } : undefined),
     [huri, token],
   )
 
-  const divinerReq = useMemo(() => (diviner && huriPayload ? diviner.divine([huriPayload]) : undefined), [diviner, huriPayload])
-
-  const [payload, error] = usePromise(() => divinerReq, [divinerReq])
-
-  return [payload, error]
+  return usePromise(async () => (diviner && huriPayload ? await diviner.divine([huriPayload]) : undefined), [diviner, huriPayload])
 }
