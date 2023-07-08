@@ -1,18 +1,11 @@
-import { ModuleDescription, ModuleWrapper } from '@xyo-network/module'
-import { NodeModule, NodeWrapper } from '@xyo-network/node'
+import { ModuleManifest } from '@xyo-network/manifest-model'
+import { NodeModule } from '@xyo-network/node'
 import { ElementDefinition } from 'cytoscape'
 
 import { parseModuleType } from './lib'
 
 export class CytoscapeElements {
   static MaxNameLength = 20
-
-  static async buildChild(node: NodeModule, address: string) {
-    const [result] = await node.downResolver.resolve({ address: [address] })
-    const wrapper = ModuleWrapper.wrap(result)
-    const description = await wrapper.describe()
-    return CytoscapeElements.buildNode(description)
-  }
 
   static buildEdge(rootNode: ElementDefinition, newNode: ElementDefinition) {
     return {
@@ -26,14 +19,16 @@ export class CytoscapeElements {
 
   static async buildElements(node: NodeModule) {
     try {
-      const [description, newRootNode] = await CytoscapeElements.buildRootNode(node)
+      const [, newRootNode] = await CytoscapeElements.buildRootNode(node)
       const newElements: ElementDefinition[] = [newRootNode]
 
-      const children = description.children
+      const children = await Promise.all(
+        (await node.downResolver.resolve()).map<Promise<[ModuleManifest, string]>>(async (child) => [await child.manifest(), child.address]),
+      )
       await Promise.allSettled(
-        (children ?? [])?.map(async (address) => {
+        (children ?? [])?.map(async ([child, address]) => {
           try {
-            const newNode = await CytoscapeElements.buildChild(node, address)
+            const newNode = await CytoscapeElements.buildNode(child, address)
             newElements.push(newNode)
 
             const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
@@ -49,21 +44,20 @@ export class CytoscapeElements {
     }
   }
 
-  static buildNode(description: ModuleDescription): ElementDefinition {
-    const newNodeId = CytoscapeElements.normalizeName(description.name) ?? description.address.substring(0, 8)
+  static buildNode(manifest: ModuleManifest, address: string): ElementDefinition {
+    const newNodeId = CytoscapeElements.normalizeName(manifest.config.name) ?? address.substring(0, 8)
     return {
       data: {
-        address: description.address,
+        address,
         id: newNodeId,
-        type: parseModuleType(description.queries),
+        type: parseModuleType(manifest.config.schema),
       },
     }
   }
 
-  static buildRootNode = async (node: NodeModule): Promise<[ModuleDescription, ElementDefinition]> => {
-    const nodeWrapper = NodeWrapper.wrap(node)
-    const description = await nodeWrapper?.describe()
-    return [description, CytoscapeElements.buildNode(description)]
+  static buildRootNode = async (node: NodeModule): Promise<[ModuleManifest, ElementDefinition]> => {
+    const manifest = await node?.manifest()
+    return [manifest, CytoscapeElements.buildNode(manifest, node.address)]
   }
 
   static normalizeName(name?: string) {

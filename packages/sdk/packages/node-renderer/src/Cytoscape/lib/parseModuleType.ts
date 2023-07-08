@@ -1,36 +1,23 @@
 import { CyNodeModuleTypes } from './CyNodeModuleTypes'
 
-export const parseModuleType = (queries?: string[]): CyNodeModuleTypes => {
+export const parseModuleType = (schema?: string): CyNodeModuleTypes => {
   let type: CyNodeModuleTypes = 'module'
-  if (queries) {
-    for (let i = 0; i < queries.length; i++) {
-      if (queries[i].includes('archivist')) {
-        type = 'archivist'
-        break
-      }
-      if (queries[i].includes('bridge')) {
-        type = 'bridge'
-        break
-      }
-      if (queries[i].includes('diviner')) {
-        type = 'diviner'
-        break
-      }
-      if (queries[i].includes('node')) {
-        type = 'node'
-        break
-      }
-      if (queries[i].includes('sentinel')) {
-        type = 'sentinel'
-        break
-      }
-      if (queries[i].includes('witness')) {
-        type = 'witness'
-        break
-      }
+  if (schema) {
+    if (schema.includes('archivist')) {
+      type = 'archivist'
+    } else if (schema.includes('bridge')) {
+      type = 'bridge'
+    } else if (schema.includes('diviner')) {
+      type = 'diviner'
+    } else if (schema.includes('node')) {
+      type = 'node'
+    } else if (schema.includes('sentinel')) {
+      type = 'sentinel'
+    } else if (schema.includes('witness')) {
+      type = 'witness'
+    } else {
       type = 'module'
     }
-    return type
   }
-  return 'module'
+  return type
 }
