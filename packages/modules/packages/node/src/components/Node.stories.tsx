@@ -63,8 +63,7 @@ const Template: StoryFn<React.FC> = (props) => {
           const mod = await TestModule.create({ account, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
           await node?.register(mod)
           await node?.attach(mod.address, true)
-          const wrapper = NodeWrapper.wrap(node)
-          const description = await wrapper?.describe()
+          const description = await node?.describe()
           if (mounted()) {
             setDescription(JSON.stringify(description, null, 2))
           }
