@@ -1,4 +1,6 @@
+import { AccountInstance } from '@xyo-network/account-model'
 import { ModuleManifest } from '@xyo-network/manifest-model'
+import { isDirectModule, ModuleWrapper } from '@xyo-network/module'
 import { NodeModule } from '@xyo-network/node'
 import { ElementDefinition } from 'cytoscape'
 
@@ -17,13 +19,18 @@ export class CytoscapeElements {
     }
   }
 
-  static async buildElements(node: NodeModule) {
+  static async buildElements(node: NodeModule, account: AccountInstance) {
     try {
       const [, newRootNode] = await CytoscapeElements.buildRootNode(node)
       const newElements: ElementDefinition[] = [newRootNode]
 
       const children = await Promise.all(
-        (await node.downResolver.resolve()).map<Promise<[ModuleManifest, string]>>(async (child) => [await child.manifest(), child.address]),
+        (
+          await node.downResolver.resolve()
+        ).map<Promise<[ModuleManifest, string]>>(async (child) => [
+          await (isDirectModule(child) ? child.manifest() : ModuleWrapper.wrap(child, account).manifest()),
+          child.address,
+        ]),
       )
       await Promise.allSettled(
         (children ?? [])?.map(async ([child, address]) => {
