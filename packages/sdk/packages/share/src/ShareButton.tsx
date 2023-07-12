@@ -7,7 +7,11 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import { useRef, useState } from 'react'
 
-export const ShareButton: React.FC<ButtonExProps> = (props) => {
+export interface ShareButtonProps extends ButtonExProps {
+  prepared?: boolean
+}
+
+export const ShareButton: React.FC<ShareButtonProps> = ({ prepared = true, ...props }) => {
   const [expanded, setExpanded] = useState(false)
   const anchorRef = useRef(null)
 
@@ -17,6 +21,7 @@ export const ShareButton: React.FC<ButtonExProps> = (props) => {
         variant="text"
         minWidth={32}
         size="small"
+        disabled={!prepared}
         onClick={() => {
           setExpanded(true)
         }}
@@ -24,7 +29,7 @@ export const ShareButton: React.FC<ButtonExProps> = (props) => {
       >
         <ShareIcon htmlColor="gray" fontSize="small" />
       </ButtonEx>
-      <Popover open={expanded} anchorEl={anchorRef.current} onClose={() => setExpanded(false)} transitionDuration={500}>
+      <Popover open={prepared ? expanded : false} anchorEl={anchorRef.current} onClose={() => setExpanded(false)} transitionDuration={500}>
         <FlexRow gap={0.5} padding={0.5}>
           <LinkEx
             lineHeight={0}
