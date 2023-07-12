@@ -9,11 +9,13 @@ import { useRef, useState } from 'react'
 
 export interface ShareButtonProps extends ButtonExProps {
   prepared?: boolean
+  shareLink?: string
 }
 
-export const ShareButton: React.FC<ShareButtonProps> = ({ prepared = true, ...props }) => {
+export const ShareButton: React.FC<ShareButtonProps> = ({ prepared = true, shareLink, ...props }) => {
   const [expanded, setExpanded] = useState(false)
   const anchorRef = useRef(null)
+  const link = shareLink ?? window.location.href
 
   return (
     <FlexRow gap={1} ref={anchorRef}>
@@ -35,7 +37,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ prepared = true, ...pr
             lineHeight={0}
             style={{ color: '#1da1f2' }}
             onClick={() => {
-              window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}`)
+              window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(link)}`)
               setExpanded(false)
             }}
           >
@@ -45,7 +47,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ prepared = true, ...pr
             lineHeight={0}
             style={{ color: '#4267b2' }}
             onClick={() => {
-              window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`)
+              window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}`)
               setExpanded(false)
             }}
           >
