@@ -13,7 +13,11 @@ const Template: StoryFn<typeof ShareButton> = (props) => {
 
 const Default = Template.bind({})
 Default.args = {}
+
 const WithUnPrepared = Template.bind({})
 WithUnPrepared.args = { prepared: false }
 
-export { Default, WithUnPrepared }
+const WithCustomShareLink = Template.bind({})
+WithCustomShareLink.args = { shareLink: 'http://explore.xyo.network' }
+
+export { Default, WithCustomShareLink, WithUnPrepared }
