@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Account } from '@xyo-network/account'
-import { ArchivistInsertQuerySchema, ArchivistModule, ArchivistWrapper, MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
-import { QueryBoundWitnessBuilder } from '@xyo-network/module'
+import { ArchivistInsertQuerySchema, ArchivistInstance, MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
+import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { useState } from 'react'
 
 import { MemoryArchivistsStats } from './MemoryArchivistStats'
@@ -18,7 +18,7 @@ const StorybookEntry = {
 } as Meta<typeof MemoryArchivistsStats>
 
 const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
-  const [module, setModule] = useState<ArchivistModule>()
+  const [module, setModule] = useState<ArchivistInstance>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -37,8 +37,7 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
         const account = await Account.randomSync()
         const builder = new QueryBoundWitnessBuilder({ inlinePayloads: true }).payloads([insertQuery, payload]).witness(account).query(insertQuery)
         const [insertQueryBoundWitness, payloads] = await builder.build()
-        const wrapper = ArchivistWrapper.wrap(newModule, account)
-        await wrapper.insert([insertQueryBoundWitness, ...payloads])
+        await newModule.insert([insertQueryBoundWitness, ...payloads])
         if (mounted()) {
           setModule(newModule)
         }

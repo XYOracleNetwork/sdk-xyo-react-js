@@ -1,5 +1,5 @@
 import type { WithChildren } from '@xylabs/react-shared'
-import { ModuleErrorSchema } from '@xyo-network/module'
+import { ModuleErrorSchema } from '@xyo-network/payload-model'
 import { ErrorRender } from '@xyo-network/react-error'
 import { useBuildHuri } from '@xyo-network/react-payload-huri'
 import { useParams, useSearchParams } from 'react-router-dom'

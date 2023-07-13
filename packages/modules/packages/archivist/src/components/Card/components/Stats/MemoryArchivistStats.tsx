@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ArchivistAllQuerySchema, ArchivistModule } from '@xyo-network/archivist'
+import { ArchivistAllQuerySchema, ArchivistInstance } from '@xyo-network/archivist'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
@@ -9,13 +9,13 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { ArchivistStats } from './ArchivistStats'
 
 export interface MemoryArchivistStatsProps {
-  archivist?: ArchivistModule
+  archivist?: ArchivistInstance
 }
 
 export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ archivist }) => {
   const [all, setAll] = useState<Payload[] | null>()
 
-  const getAll = useCallback(async (archivist?: ArchivistModule) => {
+  const getAll = useCallback(async (archivist?: ArchivistInstance) => {
     const all = await archivist?.all?.()
     setAll(all)
   }, [])

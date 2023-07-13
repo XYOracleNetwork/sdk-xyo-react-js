@@ -40,9 +40,8 @@ export const useModuleFromNode = <TModule extends Module = Module>(
               setError(undefined)
             }
           }
-          const moduleDown: TModule | undefined = nameOrAddress ? await node.downResolver.resolveOne<TModule>(nameOrAddress) : undefined
-          const module: TModule | undefined =
-            moduleDown ?? (up && nameOrAddress ? await node.upResolver.resolveOne<TModule>(nameOrAddress) : undefined)
+          const moduleDown: TModule | undefined = nameOrAddress ? await node.downResolver.resolve<TModule>(nameOrAddress) : undefined
+          const module: TModule | undefined = moduleDown ?? (up && nameOrAddress ? await node.upResolver.resolve<TModule>(nameOrAddress) : undefined)
           if (mounted()) {
             eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
             eventUnsubscribe.push(node.on('moduleDetached', detachHandler))

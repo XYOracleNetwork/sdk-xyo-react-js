@@ -1,7 +1,7 @@
 import ExitIcon from '@mui/icons-material/ExitToApp'
 import { Alert, AlertProps, AlertTitle, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { ModuleError } from '@xyo-network/module-model'
+import { ModuleError } from '@xyo-network/payload-model'
 
 export interface ErrorAlertProps extends AlertProps {
   error?: ModuleError | Error

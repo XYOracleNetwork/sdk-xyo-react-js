@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { WithChildren } from '@xylabs/react-shared'
-import { ArchivistModule } from '@xyo-network/archivist-model'
+import { ArchivistInstance, ArchivistModule } from '@xyo-network/archivist-model'
 import { Payload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
@@ -11,7 +11,7 @@ export interface PayloadProviderProps {
   archive?: string
   /** @deprecated - use archivist prop instead */
   archivePayloadWrapper?: ArchivistModule
-  archivist?: ArchivistModule
+  archivist?: ArchivistInstance
   cachePayload?: boolean
   hash?: string
   required?: boolean

@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { BowserSystemInfoWitness, BowserSystemInfoWitnessConfigSchema } from '@xyo-network/bowser-system-info-plugin'
-import { NodeModule } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node'
 import { MemoryNodeBuilder } from '@xyo-network/react-standard-node'
 import { useState } from 'react'
 
@@ -18,7 +18,7 @@ const buildSystemInfoWitness = async (moduleName?: string) => {
 }
 
 export const useBuildSampleNode = (sampleModules: SampleNodeModules, apiDomain?: string) => {
-  const [node, setNode] = useState<NodeModule>()
+  const [node, setNode] = useState<NodeInstance>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

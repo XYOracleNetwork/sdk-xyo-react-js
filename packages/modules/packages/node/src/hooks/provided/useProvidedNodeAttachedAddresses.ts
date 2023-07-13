@@ -1,10 +1,10 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { NodeModule } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node'
 import { useMemo, useState } from 'react'
 
 import { useProvidedNode } from './useProvidedNode'
 
-export const useProvidedNodeAttachedAddresses = (node?: NodeModule) => {
+export const useProvidedNodeAttachedAddresses = (node?: NodeInstance) => {
   const [providedNode] = useProvidedNode()
   const [addresses, setAddresses] = useState<string[]>()
 

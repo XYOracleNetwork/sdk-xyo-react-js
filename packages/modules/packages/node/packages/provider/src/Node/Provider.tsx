@@ -1,10 +1,10 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { NodeModule } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node'
 import { NodeContext } from '@xyo-network/react-node-context'
 import { useMemo } from 'react'
 
 export interface NodeProviderProps {
-  node?: NodeModule | null
+  node?: NodeInstance | null
 }
 
 export const NodeProvider: React.FC<WithChildren<NodeProviderProps>> = ({ node, children }) => {

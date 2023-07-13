@@ -1,5 +1,5 @@
-import { NodeModule } from '@xyo-network/node-model'
+import { NodeInstance } from '@xyo-network/node-model'
 
 export interface NodeContextState {
-  node?: NodeModule | null
+  node?: NodeInstance | null
 }

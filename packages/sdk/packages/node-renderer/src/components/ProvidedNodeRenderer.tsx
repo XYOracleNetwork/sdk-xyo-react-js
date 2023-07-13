@@ -1,5 +1,5 @@
 import { AccountInstance } from '@xyo-network/account-model'
-import { NodeModule } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node'
 import { useWrappedProvidedNode } from '@xyo-network/react-node'
 import { useWallet } from '@xyo-network/react-wallet'
 
@@ -9,7 +9,7 @@ import { NodeRelationalGraph } from './RelationalGraph'
 
 export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   account?: AccountInstance
-  node?: NodeModule
+  node?: NodeInstance
 }
 
 export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({ node, account, ...props }) => {

@@ -1,5 +1,5 @@
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { ModuleError } from '@xyo-network/module-model'
+import { ModuleError } from '@xyo-network/payload-model'
 import { ContextExState } from '@xyo-network/react-shared'
 
 export interface NestedBoundWitnesses {

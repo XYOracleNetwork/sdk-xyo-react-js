@@ -1,7 +1,7 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { ModuleManifest } from '@xyo-network/manifest-model'
 import { isDirectModule, ModuleWrapper } from '@xyo-network/module'
-import { NodeModule } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node'
 import { ElementDefinition } from 'cytoscape'
 
 import { parseModuleType } from './lib'
@@ -19,7 +19,7 @@ export class CytoscapeElements {
     }
   }
 
-  static async buildElements(node: NodeModule, account: AccountInstance) {
+  static async buildElements(node: NodeInstance, account: AccountInstance) {
     try {
       const [, newRootNode] = await CytoscapeElements.buildRootNode(node)
       const newElements: ElementDefinition[] = [newRootNode]
@@ -62,7 +62,7 @@ export class CytoscapeElements {
     }
   }
 
-  static buildRootNode = async (node: NodeModule): Promise<[ModuleManifest, ElementDefinition]> => {
+  static buildRootNode = async (node: NodeInstance): Promise<[ModuleManifest, ElementDefinition]> => {
     const manifest = await node?.manifest()
     return [manifest, CytoscapeElements.buildNode(manifest, node.address)]
   }

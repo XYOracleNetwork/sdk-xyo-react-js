@@ -3,11 +3,9 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema } from '@xyo-network/archivist'
-import { ArchivistWrapper } from '@xyo-network/archivist-wrapper'
-import { QueryBoundWitnessBuilder } from '@xyo-network/module'
+import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { Payload } from '@xyo-network/payload-model'
-import { useWrapperAccount } from '@xyo-network/react-wallet'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { useArchivistFromNode } from '../../hooks'
 
@@ -25,10 +23,8 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
   const [archivist] = useArchivistFromNode(address)
   const [payloads, setPayloads] = useState<Payload[]>()
   const [refresh, setRefresh] = useState(0)
-  const [wrapper, setWrapper] = useState<ArchivistWrapper>()
   const [queryableCommit, setQueryableCommit] = useState(false)
   const [queryableClear, setQueryableClear] = useState(false)
-  const [wrapperWallet] = useWrapperAccount()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,29 +39,25 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
     [archivist],
   )
 
-  useEffect(() => {
-    setWrapper(archivist && wrapperWallet ? ArchivistWrapper.wrap(archivist, wrapperWallet) : undefined)
-  }, [archivist, wrapperWallet])
-
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const payloads = await wrapper?.all()
+      const payloads = await archivist?.all?.()
       if (mounted()) {
         setPayloads(payloads)
       }
     },
-    [wrapper, refresh],
+    [archivist, refresh],
   )
 
   return (
     <FlexCol {...props}>
       <Typography>{`Payloads: ${payloads ? payloads.length : '-'}`}</Typography>
       <ButtonGroup>
-        <ButtonEx disabled={payloads?.length === 0 || !archivist || !queryableCommit} onClick={() => wrapper?.commit()}>
+        <ButtonEx disabled={payloads?.length === 0 || !archivist || !queryableCommit} onClick={() => archivist?.commit?.()}>
           Commit
         </ButtonEx>
-        <ButtonEx disabled={!archivist || !queryableClear} onClick={() => wrapper?.clear()}>
+        <ButtonEx disabled={!archivist || !queryableClear} onClick={() => archivist?.clear?.()}>
           Clear
         </ButtonEx>
         <ButtonEx

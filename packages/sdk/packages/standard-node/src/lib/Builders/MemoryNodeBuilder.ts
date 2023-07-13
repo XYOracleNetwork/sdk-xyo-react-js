@@ -1,6 +1,6 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { MemoryArchivist, MemoryArchivistConfig, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
-import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge'
+import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
 import { Module } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
 import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
