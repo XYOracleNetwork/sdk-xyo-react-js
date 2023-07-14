@@ -20,7 +20,8 @@ const WebAppBodyRoot = styled(FlexGrowCol, {
     alignItems: 'stretch',
     gap: 1,
     justifyContent: 'flex-start',
-    overflow: scrollable ? 'scroll' : 'hidden',
+    overflowX: 'auto',
+    overflowY: scrollable ? 'scroll' : 'hidden',
     paddingY: spacing,
     [theme.breakpoints.down(mobileScrollingBreakpoint)]: {
       overflow: 'scroll',
