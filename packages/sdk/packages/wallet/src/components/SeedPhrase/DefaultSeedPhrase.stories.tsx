@@ -20,4 +20,10 @@ WithoutDefaultSeedPhrase.args = {
   changeSeedPhrase: (mnemonic?: string) => alert(`Generated Default Seed Phrase: ${mnemonic}`),
 }
 
-export { Default, WithoutDefaultSeedPhrase }
+const WithHiddenDefaultSeedPhrase = Template.bind({})
+WithHiddenDefaultSeedPhrase.args = {
+  hideDefaultSeedPhraseMessage: true,
+  ...WithoutDefaultSeedPhrase.args,
+}
+
+export { Default, WithHiddenDefaultSeedPhrase, WithoutDefaultSeedPhrase }
