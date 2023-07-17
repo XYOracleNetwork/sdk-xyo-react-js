@@ -1,3 +1,4 @@
+export * from './Body'
 export * from './Chrome'
 export * from './ErrorPage'
 export * from './NotFoundPage'
