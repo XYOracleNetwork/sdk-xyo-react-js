@@ -29,12 +29,17 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
             const eventModule = args.module
             if (nameOrAddress && (eventModule?.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
               logger?.debug(`attachHandler-setting [${nameOrAddress}]`)
-              if (isModuleInstance(eventModule)) {
-                setModule(eventModule)
-                setError(undefined)
+              if (eventModule) {
+                if (isModuleInstance(eventModule)) {
+                  setModule(eventModule)
+                  setError(undefined)
+                } else {
+                  setModule(null)
+                  setError(Error('Attached module failed identity check'))
+                }
               } else {
-                setModule(null)
-                setError(Error('Attached module failed identity check'))
+                setModule(undefined)
+                setError(undefined)
               }
             }
           }
@@ -52,12 +57,15 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
               if (!isModuleInstance(module)) {
                 setModule(null)
                 setError(Error('Resolved module failed identity check'))
+              } else {
+                eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
+                eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
+                logger?.debug(`resolved [${nameOrAddress}]`)
+                setModule(module ?? null)
+                setError(undefined)
               }
             } else {
-              eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
-              eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
-              logger?.debug(`resolved [${nameOrAddress}]`)
-              setModule(module ?? null)
+              setModule(undefined)
               setError(undefined)
             }
           }
