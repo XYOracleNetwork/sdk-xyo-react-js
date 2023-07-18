@@ -1,5 +1,1 @@
 export * from './useRefresh'
-export * from './useWrappedModule'
-export * from './useWrappedModules'
-export * from './WrappedModuleHookFactory'
-export * from './WrappedModulesHookFactory'

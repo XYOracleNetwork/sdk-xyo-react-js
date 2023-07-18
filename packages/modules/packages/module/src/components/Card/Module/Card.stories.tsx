@@ -1,7 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { MemoryArchivist } from '@xyo-network/archivist'
-import { Module } from '@xyo-network/module'
+import { ArchivistInstance, MemoryArchivist } from '@xyo-network/archivist'
 import { useState } from 'react'
 
 import { ModuleCard } from './Card'
@@ -23,7 +22,7 @@ const StorybookEntry = {
 } as Meta<typeof ModuleCard>
 
 const Template: StoryFn<typeof ModuleCard> = () => {
-  const [module, setModule] = useState<Module>()
+  const [module, setModule] = useState<ArchivistInstance>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

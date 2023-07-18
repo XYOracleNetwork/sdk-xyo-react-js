@@ -48,7 +48,7 @@ export class StorageArchivistBuilder {
     const [bridge] = (await wrappedNode.resolve({ name: ['RemoteNodeBridge'] })) ?? []
     if (bridge) {
       try {
-        const [archivist] = (await bridge.downResolver.resolve({ name: ['Archivist'] })) ?? []
+        const [archivist] = (await bridge.resolve({ name: ['Archivist'] })) ?? []
         return archivist as ArchivistModule
       } catch (e) {
         console.error('Error Resolving Parent Archivist', this.node?.config.name, this.config)

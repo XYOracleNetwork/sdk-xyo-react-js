@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { DivinerModule } from '@xyo-network/diviner'
+import { DivinerInstance } from '@xyo-network/diviner'
 import { AddressHistoryDiviner, AddressHistoryDivinerConfigSchema } from '@xyo-network/diviner-address-history'
 import { useState } from 'react'
 
@@ -11,7 +11,7 @@ const StorybookEntry = {
 } as Meta<typeof DivinerCard>
 
 const Template: StoryFn<typeof DivinerCard> = () => {
-  const [module, setModule] = useState<DivinerModule>()
+  const [module, setModule] = useState<DivinerInstance>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

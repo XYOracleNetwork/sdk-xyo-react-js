@@ -1,7 +1,25 @@
-import { Logger } from '@xyo-network/core'
-import { ModuleFilter } from '@xyo-network/module'
-import { NodeModule } from '@xyo-network/node'
+import { ModuleFilter } from '@xyo-network/module-model'
+import { isNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
+import { ModuleFromNodeConfig } from './useModuleFromNode'
 import { useModulesFromNode } from './useModulesFromNode'
 
-export const useNodesFromNode = (filter?: ModuleFilter, up?: boolean, logger?: Logger) => useModulesFromNode<NodeModule>(filter, up, logger)
+export const useNodesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeConfig): [NodeInstance[] | null | undefined, Error | undefined] => {
+  const [modules, error] = useModulesFromNode(filter, config)
+  if (error) {
+    return [null, error]
+  }
+  if (modules) {
+    return [
+      modules.reduce<NodeInstance[]>((prev, module) => {
+        if (isNodeInstance(module)) {
+          prev.push(module)
+        }
+        return prev
+      }, []),
+      undefined,
+    ]
+  } else {
+    return [modules, error]
+  }
+}

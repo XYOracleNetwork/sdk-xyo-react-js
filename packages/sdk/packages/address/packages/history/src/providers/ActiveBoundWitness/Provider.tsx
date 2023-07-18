@@ -1,4 +1,4 @@
-import { ArchivistModule } from '@xyo-network/archivist'
+import { ArchivistInstance } from '@xyo-network/archivist'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useArchivistFromNode, useArchivistGet } from '@xyo-network/react-archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
@@ -9,7 +9,7 @@ import { ActiveBoundWitnessContext } from '../../contexts'
 
 export interface ActiveBoundWitnessProviderProps extends ContextExProviderProps {
   activeBoundWitnessHash?: string
-  archivist?: ArchivistModule | string
+  archivist?: ArchivistInstance | string
 }
 
 export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProps> = ({

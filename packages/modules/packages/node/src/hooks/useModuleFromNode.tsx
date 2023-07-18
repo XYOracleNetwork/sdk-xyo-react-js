@@ -1,19 +1,19 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Logger } from '@xyo-network/core'
-import { EventUnsubscribeFunction } from '@xyo-network/module'
-import { Module } from '@xyo-network/module-model'
+import { EventUnsubscribeFunction } from '@xyo-network/module-events'
+import { isModuleInstance, ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
 import { useMemo, useState } from 'react'
 
 import { useProvidedNode } from './provided'
 
-export const useModuleFromNode = <TModule extends Module = Module>(
-  nameOrAddress?: string,
-  up?: boolean,
-  logger?: Logger,
-): [TModule | null | undefined, Error | undefined] => {
+export type ModuleFromNodeConfig = ModuleFilterOptions & {
+  logger?: Logger
+}
+
+export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [ModuleInstance | null | undefined, Error | undefined] => {
   const [node] = useProvidedNode()
-  const [module, setModule] = useState<TModule | null>()
+  const [module, setModule] = useState<ModuleInstance | null>()
   const [error, setError] = useState<Error>()
 
   const address = useMemo(() => module?.address, [module])
@@ -21,33 +21,45 @@ export const useModuleFromNode = <TModule extends Module = Module>(
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
+      const { logger, ...resolverConfig } = config ?? {}
       const eventUnsubscribe: EventUnsubscribeFunction[] = []
       try {
         if (node) {
           const attachHandler = (args: ModuleAttachedEventArgs) => {
             const eventModule = args.module
-            if (nameOrAddress && (eventModule.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
+            if (nameOrAddress && (eventModule?.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
               logger?.debug(`attachHandler-setting [${nameOrAddress}]`)
-              setModule(eventModule as TModule)
-              setError(undefined)
+              if (isModuleInstance(eventModule)) {
+                setModule(eventModule)
+                setError(undefined)
+              } else {
+                setModule(null)
+                setError(Error('Attached module failed identity check'))
+              }
             }
           }
           const detachHandler = (args: ModuleDetachedEventArgs) => {
             const eventModule = args.module
             if (eventModule.address === address) {
               logger?.debug(`detachHandler-clearing [${address}]`)
-              setModule(undefined)
+              setModule(null)
               setError(undefined)
             }
           }
-          const moduleDown: TModule | undefined = nameOrAddress ? await node.downResolver.resolve<TModule>(nameOrAddress) : undefined
-          const module: TModule | undefined = moduleDown ?? (up && nameOrAddress ? await node.upResolver.resolve<TModule>(nameOrAddress) : undefined)
+          const module = nameOrAddress ? await node.resolve(nameOrAddress, resolverConfig) : undefined
           if (mounted()) {
-            eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
-            eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
-            logger?.debug(`resolved [${nameOrAddress}]`)
-            setModule(module)
-            setError(undefined)
+            if (module) {
+              if (!isModuleInstance(module)) {
+                setModule(null)
+                setError(Error('Resolved module failed identity check'))
+              }
+            } else {
+              eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
+              eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
+              logger?.debug(`resolved [${nameOrAddress}]`)
+              setModule(module ?? null)
+              setError(undefined)
+            }
           }
         } else {
           if (mounted()) {
@@ -68,7 +80,7 @@ export const useModuleFromNode = <TModule extends Module = Module>(
         }
       }
     },
-    [nameOrAddress, node, address, logger, up],
+    [nameOrAddress, node, address, config],
   )
 
   return [module, error]

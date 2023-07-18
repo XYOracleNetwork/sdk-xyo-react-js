@@ -1,11 +1,11 @@
 import { asArchivistInstance } from '@xyo-network/archivist-model'
 import { asDivinerInstance } from '@xyo-network/diviner-model'
-import { Module } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module'
 import { ArchivistCard } from '@xyo-network/react-archivist'
 import { DivinerCard, ModuleCard } from '@xyo-network/react-module'
 
 export interface ModuleCardParserProps {
-  module?: Module
+  module?: ModuleInstance
 }
 
 export const ModuleCardParser: React.FC<ModuleCardParserProps> = ({ module }) => {

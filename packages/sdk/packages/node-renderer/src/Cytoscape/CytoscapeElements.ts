@@ -1,6 +1,6 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { ModuleManifest } from '@xyo-network/manifest-model'
-import { isDirectModule, ModuleWrapper } from '@xyo-network/module'
+import { isModuleInstance, ModuleWrapper } from '@xyo-network/module'
 import { NodeInstance } from '@xyo-network/node'
 import { ElementDefinition } from 'cytoscape'
 
@@ -26,9 +26,9 @@ export class CytoscapeElements {
 
       const children = await Promise.all(
         (
-          await node.downResolver.resolve()
+          await node.resolve()
         ).map<Promise<[ModuleManifest, string]>>(async (child) => [
-          await (isDirectModule(child) ? child.manifest() : ModuleWrapper.wrap(child, account).manifest()),
+          await (isModuleInstance(child) ? child.manifest() : ModuleWrapper.wrap(child, account).manifest()),
           child.address,
         ]),
       )

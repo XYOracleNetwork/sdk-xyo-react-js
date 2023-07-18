@@ -5,7 +5,7 @@ import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archi
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
-import { NodeProvider, useNodeFromNode, useWrappedProvidedNode } from '@xyo-network/react-node'
+import { NodeProvider, useNodeFromNode, useProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
@@ -76,7 +76,7 @@ export default {
 const Template: StoryFn<typeof NodeRelationalGraph> = (props) => <NodeRelationalGraph {...props} />
 
 const TemplateDescribe: StoryFn<typeof NodeRelationalGraph> = (props) => {
-  const [node] = useWrappedProvidedNode()
+  const [node] = useProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraph options={options} {...props} />

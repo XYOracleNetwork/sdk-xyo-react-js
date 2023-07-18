@@ -5,7 +5,7 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { ModuleFilter } from '@xyo-network/module'
 import { useWitnessesFromNode } from '@xyo-network/react-witness'
 import { MemorySentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { WitnessModule } from '@xyo-network/witness'
+import { WitnessInstance } from '@xyo-network/witness'
 import { useEffect, useState } from 'react'
 
 import { SentinelContext } from './Context'
@@ -20,7 +20,7 @@ export interface SentinelProviderProps {
   filter?: ModuleFilter
   name?: string
   required?: boolean
-  witnesses?: WitnessModule[]
+  witnesses?: WitnessInstance[]
 }
 
 export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = ({ account, archivist, children, filter, name, required = false }) => {

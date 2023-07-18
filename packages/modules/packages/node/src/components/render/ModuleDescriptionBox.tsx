@@ -3,13 +3,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { TreeView } from '@mui/lab'
 import { styled, Typography } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { Module } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module'
 import { useRef } from 'react'
 
 import { RenderModule } from './RenderModule'
 
 export interface ModuleDescriptionProps extends FlexBoxProps {
-  module?: Module | null
+  module?: ModuleInstance | null
 }
 export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ module }) => {
   const idRef = useRef<{ idIncrementor: number; ids: string[] }>({ idIncrementor: 0, ids: [] })

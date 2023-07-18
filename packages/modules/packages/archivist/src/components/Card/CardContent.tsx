@@ -1,7 +1,7 @@
 import { CardContentProps } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { ArchivistConfig, ArchivistModule } from '@xyo-network/archivist'
+import { ArchivistConfig, ArchivistInstance } from '@xyo-network/archivist'
 import { ModuleWrapper } from '@xyo-network/module'
 import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
 import { useWallet } from '@xyo-network/react-wallet'
@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 
 import { ArchivistParents } from './components'
 
-export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistModule> & CardContentProps> = ({ children, module, ...props }) => {
+export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistInstance> & CardContentProps> = ({ children, module, ...props }) => {
   const [config, setConfig] = useState<ArchivistConfig>()
   const [wallet] = useWallet()
 

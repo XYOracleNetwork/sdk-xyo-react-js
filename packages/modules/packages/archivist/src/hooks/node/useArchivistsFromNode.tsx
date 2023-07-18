@@ -1,6 +1,26 @@
-import { ArchivistModule } from '@xyo-network/archivist'
-import { Logger } from '@xyo-network/core'
-import { ModuleFilter } from '@xyo-network/module'
-import { useModulesFromNode } from '@xyo-network/react-node'
+import { ArchivistInstance, isArchivistInstance } from '@xyo-network/archivist'
+import { ModuleFilter } from '@xyo-network/module-model'
+import { ModuleFromNodeConfig, useModulesFromNode } from '@xyo-network/react-node'
 
-export const useArchivistsFromNode = (filter?: ModuleFilter, up?: boolean, logger?: Logger) => useModulesFromNode<ArchivistModule>(filter, up, logger)
+export const useArchivistsFromNode = (
+  filter?: ModuleFilter,
+  config?: ModuleFromNodeConfig,
+): [ArchivistInstance[] | null | undefined, Error | undefined] => {
+  const [modules, error] = useModulesFromNode(filter, config)
+  if (error) {
+    return [null, error]
+  }
+  if (modules) {
+    return [
+      modules.reduce<ArchivistInstance[]>((prev, module) => {
+        if (isArchivistInstance(module)) {
+          prev.push(module)
+        }
+        return prev
+      }, []),
+      undefined,
+    ]
+  } else {
+    return [modules, error]
+  }
+}

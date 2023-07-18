@@ -1,42 +1,46 @@
 import { usePromise } from '@xylabs/react-promise'
-import { Logger } from '@xyo-network/core'
-import { EventUnsubscribeFunction } from '@xyo-network/module'
-import { Module, ModuleFilter } from '@xyo-network/module-model'
+import { EventUnsubscribeFunction } from '@xyo-network/module-events'
+import { isModuleInstance, ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
 import { useRefresh } from '@xyo-network/react-module'
+import compact from 'lodash/compact'
 import { useEffect, useRef } from 'react'
 
 import { useProvidedNode } from './provided'
+import { ModuleFromNodeConfig } from './useModuleFromNode'
 
-export const useModulesFromNode = <TModule extends Module = Module>(
+export const useModulesFromNode = (
   filter?: ModuleFilter,
-  up?: boolean,
-  logger?: Logger,
-): [TModule[] | null | undefined, Error | undefined] => {
+  config?: ModuleFromNodeConfig,
+): [ModuleInstance[] | null | undefined, Error | undefined] => {
   const [node] = useProvidedNode()
   const [refreshed, refresh] = useRefresh()
 
+  //we store this to prevent the need of a deep compare to prevent  re-render
   const modulesLength = useRef<number>()
 
   const eventUnsubscribe: EventUnsubscribeFunction[] = []
 
-  const [resolvedModules, resolvedModulesError] = usePromise<TModule[] | undefined>(async () => {
-    const getModulesFromResolution = async () => {
+  const [resolvedModules, resolvedModulesError] = usePromise<ModuleInstance[] | null | undefined>(async () => {
+    const getModulesFromResolution = async (): Promise<ModuleInstance[] | null | undefined> => {
+      const { logger, ...resolverConfig } = config ?? {}
       if (node) {
-        const resolvedDownModules: TModule[] | undefined = await node.downResolver.resolve<TModule>(filter)
-        const resolvedUpModules: TModule[] | undefined = up ? await node.upResolver.resolve<TModule>(filter) : []
-        const allResolvedModules = [...resolvedDownModules, ...resolvedUpModules]
+        const allResolvedModules = compact(
+          (await node.resolve(filter, resolverConfig)).map((module) => (isModuleInstance(module) ? module : undefined)),
+        )
         if (allResolvedModules?.length !== modulesLength.current) {
-          logger?.debug(`getModulesFromResolution-setting: [${resolvedModules?.length}]`)
+          logger?.debug(`getModulesFromResolution-setting: [${allResolvedModules?.length}]`)
           modulesLength.current = allResolvedModules?.length
           return allResolvedModules
         }
       }
+      return undefined
     }
 
     return await getModulesFromResolution()
-  }, [node, filter, logger, up, refreshed])
+  }, [node, filter, config, refreshed])
 
   useEffect(() => {
+    const { logger } = config ?? {}
     if (node) {
       while (eventUnsubscribe.length) {
         eventUnsubscribe.pop()?.()
@@ -62,7 +66,7 @@ export const useModulesFromNode = <TModule extends Module = Module>(
         eventUnsubscribe.pop()
       }
     }
-  }, [node])
+  }, [node, config])
 
   return [resolvedModules, resolvedModulesError]
 }

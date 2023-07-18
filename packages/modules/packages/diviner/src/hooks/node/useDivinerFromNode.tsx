@@ -1,6 +1,14 @@
-import { Logger } from '@xyo-network/core'
-import { DivinerInstance } from '@xyo-network/diviner'
-import { useModuleFromNode } from '@xyo-network/react-node'
+import { asDivinerInstance, DivinerInstance } from '@xyo-network/diviner'
+import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 
-export const useDivinerFromNode = (nameOrAddress?: string, up?: boolean, logger?: Logger) =>
-  useModuleFromNode<DivinerInstance>(nameOrAddress, up, logger)
+export const useDivinerFromNode = (
+  nameOrAddress?: string,
+  config: ModuleFromNodeConfig = {},
+): [DivinerInstance | null | undefined, Error | undefined] => {
+  const [module, error] = useModuleFromNode(nameOrAddress, config)
+  const instance = asDivinerInstance(module)
+  if (module && !instance) {
+    return [null, Error('Resolved module is not a DivinerInstance')]
+  }
+  return [instance, error]
+}

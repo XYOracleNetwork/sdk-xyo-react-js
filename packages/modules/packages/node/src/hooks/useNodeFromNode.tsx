@@ -1,6 +1,12 @@
-import { Logger } from '@xyo-network/core'
-import { NodeInstance } from '@xyo-network/node'
+import { asNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
-import { useModuleFromNode } from './useModuleFromNode'
+import { ModuleFromNodeConfig, useModuleFromNode } from './useModuleFromNode'
 
-export const useNodeFromNode = (nameOrAddress?: string, up?: boolean, logger?: Logger) => useModuleFromNode<NodeInstance>(nameOrAddress, up, logger)
+export const useNodeFromNode = (nameOrAddress?: string, config: ModuleFromNodeConfig = {}): [NodeInstance | null | undefined, Error | undefined] => {
+  const [module, error] = useModuleFromNode(nameOrAddress, config)
+  const instance = asNodeInstance(module)
+  if (module && !instance) {
+    return [null, Error('Resolved mode is not a NodeInstance')]
+  }
+  return [instance, error]
+}

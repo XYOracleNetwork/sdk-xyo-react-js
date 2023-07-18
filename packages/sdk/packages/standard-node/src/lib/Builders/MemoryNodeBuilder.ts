@@ -89,7 +89,7 @@ export class MemoryNodeBuilder {
   async attach(module: Module, external?: boolean, safeAttach?: boolean) {
     try {
       if (safeAttach) {
-        const existingModule = (await this.node.downResolver.resolve({ address: [module.address] })).pop()
+        const existingModule = (await this.node.resolve({ address: [module.address] })).pop()
         if (existingModule) {
           await this.node.detach(existingModule.address)
           await this.node.unregister(existingModule)
@@ -104,7 +104,7 @@ export class MemoryNodeBuilder {
 
   private async witnessCleanup(witness: WitnessModule) {
     if (this.node.registered().includes(witness.address)) {
-      const [existingWitness] = await this.node.downResolver.resolve({ address: [witness.address] })
+      const [existingWitness] = await this.node.resolve({ address: [witness.address] })
       await this.node.unregister(existingWitness)
     }
   }

@@ -2,7 +2,7 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
-import { NodeProvider, useWrappedProvidedNode } from '@xyo-network/react-node'
+import { NodeProvider, useProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { EventObject } from 'cytoscape'
@@ -49,7 +49,7 @@ export default {
 } as Meta
 
 const Template: StoryFn<typeof NodeRelationalGraph> = (props) => {
-  const [node] = useWrappedProvidedNode()
+  const [node] = useProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
 

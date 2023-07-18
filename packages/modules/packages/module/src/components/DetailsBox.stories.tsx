@@ -3,7 +3,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { MemoryArchivist } from '@xyo-network/archivist'
 import { CryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-plugin'
-import { DivinerModule } from '@xyo-network/diviner'
+import { DivinerInstance } from '@xyo-network/diviner'
 import { MemoryNode } from '@xyo-network/node'
 import { useState } from 'react'
 
@@ -65,7 +65,7 @@ const ArchivistDetails = ArchivistTemplate.bind({})
 ArchivistDetails.args = {}
 
 const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
-  const [diviner, setDiviner] = useState<DivinerModule>()
+  const [diviner, setDiviner] = useState<DivinerInstance>()
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {

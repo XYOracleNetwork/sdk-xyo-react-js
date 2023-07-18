@@ -1,30 +1,19 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogProps, DialogTitle, Divider, Paper } from '@mui/material'
-import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { Module, ModuleWrapper } from '@xyo-network/module'
-import { Payload } from '@xyo-network/payload-model'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { usePromise } from '@xylabs/react-promise'
+import { ModuleInstance } from '@xyo-network/module'
+import { Dispatch, SetStateAction } from 'react'
 
 export interface DiscoverDialogProps extends DialogProps {
-  module?: Module
+  module?: ModuleInstance
   setOpen?: Dispatch<SetStateAction<boolean>>
-  wrapper?: ModuleWrapper
 }
 
 // Add a dialogue title and quick tip to show description of discover query
 
-export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ module, setOpen, wrapper, ...props }) => {
-  const [discoverPayloads, setDiscoverPayloads] = useState<Payload[]>([])
-
-  useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    async (mounted) => {
-      if (wrapper) {
-        const payloads = await wrapper.discover()
-        if (mounted()) setDiscoverPayloads(payloads)
-      }
-    },
-    [wrapper],
-  )
+export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ module, setOpen, ...props }) => {
+  const [discoverPayloads] = usePromise(async () => {
+    return await module?.discover()
+  }, [module])
 
   return (
     <Dialog {...props}>

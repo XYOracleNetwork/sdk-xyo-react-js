@@ -1,6 +1,6 @@
-import { Module } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module'
 
-export type ModuleRenderProps<T extends Module = Module> = {
+export type ModuleRenderProps<T extends ModuleInstance = ModuleInstance> = {
   address?: string
   module?: T
   name?: string

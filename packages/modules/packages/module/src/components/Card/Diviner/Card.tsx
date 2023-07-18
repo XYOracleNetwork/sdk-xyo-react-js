@@ -1,12 +1,12 @@
 import { Card, CardProps } from '@mui/material'
-import { DivinerModule } from '@xyo-network/diviner'
+import { DivinerInstance } from '@xyo-network/diviner'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 import { ModuleCardActions } from '../Module'
 import { DivinerCardContent } from './CardContent'
 import { DivinerCardHeader } from './CardHeader'
 
-export const DivinerCard: React.FC<CardProps & ModuleRenderProps<DivinerModule>> = ({ children, module, ...props }) => {
+export const DivinerCard: React.FC<CardProps & ModuleRenderProps<DivinerInstance>> = ({ children, module, ...props }) => {
   return (
     <Card {...props}>
       <DivinerCardHeader module={module} />
