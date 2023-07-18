@@ -6,7 +6,7 @@ export const useSentinelFromNode = (
   config?: ModuleFromNodeConfig,
 ): [SentinelInstance | null | undefined, Error | undefined] => {
   const [module, error] = useModuleFromNode(nameOrAddress, config)
-  const instance = asSentinelInstance(module)
+  const instance = module ? asSentinelInstance(module) : module
   if (module && !instance) {
     return [null, Error('Resolved mode is not a SentinelInstance')]
   }

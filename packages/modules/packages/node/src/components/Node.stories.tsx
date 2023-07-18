@@ -9,7 +9,7 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
-import { useModuleFromNode, useProvidedNode } from '../hooks'
+import { useModuleFromNode, useNodeFromNode, useProvidedNode } from '../hooks'
 
 const TestModuleConfigSchema = 'network.xyo.test.module'
 class TestModule extends AbstractModule {
@@ -55,6 +55,7 @@ const Template: StoryFn<React.FC> = (props) => {
   const [description, setDescription] = useState<string>()
 
   const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
+  const [node2] = useNodeFromNode((node ? node : undefined)?.address)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

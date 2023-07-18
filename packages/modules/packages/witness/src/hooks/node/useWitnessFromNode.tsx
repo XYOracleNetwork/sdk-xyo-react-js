@@ -6,7 +6,7 @@ export const useWitnessFromNode = (
   config?: ModuleFromNodeConfig,
 ): [WitnessInstance | null | undefined, Error | undefined] => {
   const [module, error] = useModuleFromNode(nameOrAddress, config)
-  const instance = asWitnessInstance(module)
+  const instance = module ? asWitnessInstance(module) : module
   if (module && !instance) {
     return [null, Error('Resolved mode is not a SentinelInstance')]
   }
