@@ -3,7 +3,7 @@ import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node
 
 export const useArchivistFromNode = (
   nameOrAddress?: string,
-  config: ModuleFromNodeConfig = {},
+  config?: ModuleFromNodeConfig,
 ): [ArchivistInstance | null | undefined, Error | undefined] => {
   const [module, error] = useModuleFromNode(nameOrAddress, config)
   const instance = asArchivistInstance(module)

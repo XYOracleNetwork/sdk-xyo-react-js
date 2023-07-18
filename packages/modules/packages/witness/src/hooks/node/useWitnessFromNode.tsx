@@ -3,7 +3,7 @@ import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness'
 
 export const useWitnessFromNode = (
   nameOrAddress?: string,
-  config: ModuleFromNodeConfig = {},
+  config?: ModuleFromNodeConfig,
 ): [WitnessInstance | null | undefined, Error | undefined] => {
   const [module, error] = useModuleFromNode(nameOrAddress, config)
   const instance = asWitnessInstance(module)

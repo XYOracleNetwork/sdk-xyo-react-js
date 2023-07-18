@@ -3,7 +3,7 @@ import { asSentinelInstance, SentinelInstance } from '@xyo-network/sentinel'
 
 export const useSentinelFromNode = (
   nameOrAddress?: string,
-  config: ModuleFromNodeConfig = {},
+  config?: ModuleFromNodeConfig,
 ): [SentinelInstance | null | undefined, Error | undefined] => {
   const [module, error] = useModuleFromNode(nameOrAddress, config)
   const instance = asSentinelInstance(module)
