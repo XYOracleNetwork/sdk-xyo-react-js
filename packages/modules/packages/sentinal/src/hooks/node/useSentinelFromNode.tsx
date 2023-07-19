@@ -1,14 +1,13 @@
 import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 import { asSentinelInstance, SentinelInstance } from '@xyo-network/sentinel'
 
-export const useSentinelFromNode = (
-  nameOrAddress?: string,
-  config?: ModuleFromNodeConfig,
-): [SentinelInstance | null | undefined, Error | undefined] => {
+export const useSentinelFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [SentinelInstance | undefined, Error | undefined] => {
   const [module, error] = useModuleFromNode(nameOrAddress, config)
-  const instance = module ? asSentinelInstance(module) : module
+  const instance = asSentinelInstance(module)
   if (module && !instance) {
-    return [null, Error('Resolved mode is not a SentinelInstance')]
+    const error = Error(`Resolved module is not a SentinelInstance [${module.config.name}:${module.address}]`)
+    console.error(error.message)
+    return [undefined, error]
   }
   return [instance, error]
 }

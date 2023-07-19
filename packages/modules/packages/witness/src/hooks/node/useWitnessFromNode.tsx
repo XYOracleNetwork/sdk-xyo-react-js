@@ -1,14 +1,13 @@
 import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness'
 
-export const useWitnessFromNode = (
-  nameOrAddress?: string,
-  config?: ModuleFromNodeConfig,
-): [WitnessInstance | null | undefined, Error | undefined] => {
+export const useWitnessFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [WitnessInstance | undefined, Error | undefined] => {
   const [module, error] = useModuleFromNode(nameOrAddress, config)
-  const instance = module ? asWitnessInstance(module) : module
+  const instance = asWitnessInstance(module)
   if (module && !instance) {
-    return [null, Error('Resolved mode is not a SentinelInstance')]
+    const error = Error(`Resolved module is not a WitnessInstance [${module.config.name}:${module.address}]`)
+    console.error(error.message)
+    return [undefined, error]
   }
   return [instance, error]
 }

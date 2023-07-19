@@ -1,7 +1,7 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Logger } from '@xyo-network/core'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
-import { isModuleInstance, ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
+import { asModuleInstance, isModuleInstance, ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
 import { useMemo, useState } from 'react'
 
@@ -11,9 +11,9 @@ export type ModuleFromNodeConfig = ModuleFilterOptions & {
   logger?: Logger
 }
 
-export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [ModuleInstance | null | undefined, Error | undefined] => {
+export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [ModuleInstance | undefined, Error | undefined] => {
   const [node] = useProvidedNode()
-  const [module, setModule] = useState<ModuleInstance | null>()
+  const [module, setModule] = useState<ModuleInstance>()
   const [error, setError] = useState<Error>()
 
   const address = useMemo(() => module?.address, [module])
@@ -35,8 +35,10 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
                   setModule(eventModule)
                   setError(undefined)
                 } else {
-                  setModule(null)
-                  setError(Error('Attached module failed identity check'))
+                  const error = Error(`Attached module failed identity check [${eventModule.config.name}:${eventModule.address}]`)
+                  console.error(error.message)
+                  setModule(undefined)
+                  setError(error)
                 }
               } else {
                 setModule(undefined)
@@ -49,21 +51,23 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
             console.log('detachHandler: ', eventModule.address)
             if (eventModule.address === address) {
               logger?.debug(`detachHandler-clearing [${address}]`)
-              setModule(null)
+              setModule(undefined)
               setError(undefined)
             }
           }
           const module = nameOrAddress ? await node.resolve(nameOrAddress, resolverConfig) : undefined
           if (mounted()) {
+            const instance = asModuleInstance(module)
             if (module) {
-              if (!isModuleInstance(module)) {
-                setModule(null)
-                setError(Error('Resolved module failed identity check'))
+              if (!instance) {
+                const error = Error(`Attached module failed identity check [${module.config.name}:${module.address}]`)
+                setModule(undefined)
+                setError(error)
               } else {
                 eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
                 eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
                 logger?.debug(`resolved [${nameOrAddress}]`)
-                setModule(module ?? null)
+                setModule(instance ?? null)
                 setError(undefined)
               }
             } else {
@@ -73,7 +77,7 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
           }
         } else {
           if (mounted()) {
-            setModule(node)
+            setModule(node ? node : undefined)
             setError(undefined)
           }
         }
