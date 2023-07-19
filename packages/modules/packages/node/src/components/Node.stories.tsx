@@ -55,7 +55,6 @@ const Template: StoryFn<React.FC> = (props) => {
   const [description, setDescription] = useState<string>()
 
   const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
-  const [node2] = useNodeFromNode((node ? node : undefined)?.address)
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,6 +1,5 @@
 import { Link, Paper, PaperProps, useTheme } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
-import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 
