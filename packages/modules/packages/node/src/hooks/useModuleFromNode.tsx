@@ -28,14 +28,16 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
           const attachHandler = (args: ModuleAttachedEventArgs) => {
             const eventModule = args.module
             console.log('attachHandler: ', eventModule.address)
-            if (nameOrAddress && (eventModule?.address === nameOrAddress || eventModule?.config.name === nameOrAddress)) {
+            if (nameOrAddress && (eventModule?.address === nameOrAddress || eventModule?.config?.name === nameOrAddress)) {
               logger?.debug(`attachHandler-setting [${nameOrAddress}]`)
               if (eventModule) {
                 if (isModuleInstance(eventModule)) {
                   setModule(eventModule)
                   setError(undefined)
                 } else {
-                  const error = Error(`Attached module failed identity check [${eventModule.config.name}:${eventModule.address}]`)
+                  const error = Error(
+                    `Attached module failed identity check [${eventModule.config?.schema}:${eventModule.config?.name}:${eventModule.address}]`,
+                  )
                   console.error(error.message)
                   setModule(undefined)
                   setError(error)
@@ -60,7 +62,7 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
             const instance = asModuleInstance(module)
             if (module) {
               if (!instance) {
-                const error = Error(`Attached module failed identity check [${module.config.name}:${module.address}]`)
+                const error = Error(`Attached module failed identity check [${module.config?.schema}:${module.config?.name}:${module.address}]`)
                 setModule(undefined)
                 setError(error)
               } else {

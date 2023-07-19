@@ -5,7 +5,7 @@ export const useSentinelFromNode = (nameOrAddress?: string, config?: ModuleFromN
   const [module, error] = useModuleFromNode(nameOrAddress, config)
   const instance = asSentinelInstance(module)
   if (module && !instance) {
-    const error = Error(`Resolved module is not a SentinelInstance [${module.config.name}:${module.address}]`)
+    const error = Error(`Resolved module is not a SentinelInstance [${module.config?.schema}:${module.config?.name}:${module.address}]`)
     console.error(error.message)
     return [undefined, error]
   }

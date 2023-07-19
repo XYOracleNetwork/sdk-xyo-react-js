@@ -5,7 +5,7 @@ export const useWitnessFromNode = (nameOrAddress?: string, config?: ModuleFromNo
   const [module, error] = useModuleFromNode(nameOrAddress, config)
   const instance = asWitnessInstance(module)
   if (module && !instance) {
-    const error = Error(`Resolved module is not a WitnessInstance [${module.config.name}:${module.address}]`)
+    const error = Error(`Resolved module is not a WitnessInstance [${module.config?.schema}:${module.config?.name}:${module.address}]`)
     console.error(error.message)
     return [undefined, error]
   }

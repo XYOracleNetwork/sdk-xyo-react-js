@@ -5,7 +5,7 @@ export const useDivinerFromNode = (nameOrAddress?: string, config?: ModuleFromNo
   const [module, error] = useModuleFromNode(nameOrAddress, config)
   const instance = asDivinerInstance(module)
   if (module && !instance) {
-    const error = Error(`Resolved module is not a DivinerInstance [${module.config.name}:${module.address}]`)
+    const error = Error(`Resolved module is not a DivinerInstance [${module.config?.schema}:${module.config?.name}:${module.address}]`)
     console.error(error.message)
     return [undefined, error]
   }

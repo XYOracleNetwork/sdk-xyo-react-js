@@ -5,7 +5,7 @@ export const useArchivistFromNode = (nameOrAddress?: string, config?: ModuleFrom
   const [module, error] = useModuleFromNode(nameOrAddress, config)
   const instance = asArchivistInstance(module)
   if (module && !instance) {
-    const error = Error(`Resolved module is not a ArchivistInstance [${module.config.name}:${module.address}]`)
+    const error = Error(`Resolved module is not a ArchivistInstance [${module.config?.schema}:${module.config?.name}:${module.address}]`)
     console.error(error.message)
     return [undefined, error]
   }
