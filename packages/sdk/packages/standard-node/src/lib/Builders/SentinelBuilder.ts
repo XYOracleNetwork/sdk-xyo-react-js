@@ -5,7 +5,10 @@ import { MemorySentinel, SentinelConfig, SentinelParams } from '@xyo-network/sen
 export class SentinelBuilder {
   private _sentinel: MemorySentinel | undefined
 
-  protected constructor(private config: SentinelConfig, private account: AccountInstance) {
+  protected constructor(
+    private config: SentinelConfig,
+    private account: AccountInstance,
+  ) {
     assertDefinedEx(config, 'config was not defined')
   }
 

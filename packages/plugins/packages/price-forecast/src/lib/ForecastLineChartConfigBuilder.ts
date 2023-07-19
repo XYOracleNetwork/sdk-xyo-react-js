@@ -35,7 +35,10 @@ export class ForecastLineChartConfigBuilder {
   options: ChartOptions<'line'> = defaultOptions()
   themeColors: ThemeColors | undefined
 
-  constructor(theme: Theme, private payload?: ForecastPayload) {
+  constructor(
+    theme: Theme,
+    private payload?: ForecastPayload,
+  ) {
     this.themeColors = this.parseTheme(theme)
   }
 

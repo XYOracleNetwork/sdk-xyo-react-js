@@ -54,21 +54,27 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
   const boundWitnesses = useMemo(() => (all === null ? [] : all?.filter((payload) => payload.schema === BoundWitnessSchema)), [all])
   const addresses = useMemo(
     () =>
-      all?.reduce((prev, payload) => {
-        const w = BoundWitnessWrapper.tryParse(payload) as BoundWitnessWrapper | undefined
-        w?.addresses?.forEach((address) => {
-          prev[address] = (prev[address] ?? 0) + 1
-        })
-        return prev
-      }, {} as Record<string, number>) ?? {},
+      all?.reduce(
+        (prev, payload) => {
+          const w = BoundWitnessWrapper.tryParse(payload) as BoundWitnessWrapper | undefined
+          w?.addresses?.forEach((address) => {
+            prev[address] = (prev[address] ?? 0) + 1
+          })
+          return prev
+        },
+        {} as Record<string, number>,
+      ) ?? {},
     [all],
   )
   const schemas = useMemo(
     () =>
-      all?.reduce((prev, payload) => {
-        prev[payload.schema] = (prev[payload.schema] ?? 0) + 1
-        return prev
-      }, {} as Record<string, number>) ?? {},
+      all?.reduce(
+        (prev, payload) => {
+          prev[payload.schema] = (prev[payload.schema] ?? 0) + 1
+          return prev
+        },
+        {} as Record<string, number>,
+      ) ?? {},
     [all],
   )
 

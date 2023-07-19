@@ -25,9 +25,7 @@ export class CytoscapeElements {
       const newElements: ElementDefinition[] = [newRootNode]
 
       const children = await Promise.all(
-        (
-          await node.resolve()
-        ).map<Promise<[ModuleManifest, string]>>(async (child) => [
+        (await node.resolve()).map<Promise<[ModuleManifest, string]>>(async (child) => [
           await (isModuleInstance(child) ? child.manifest() : ModuleWrapper.wrap(child, account).manifest()),
           child.address,
         ]),

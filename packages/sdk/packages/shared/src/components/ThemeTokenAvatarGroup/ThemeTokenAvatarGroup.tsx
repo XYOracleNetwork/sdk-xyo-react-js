@@ -7,11 +7,5 @@ export interface ThemeTokenAvatarGroupProps extends AvatarGroupProps {
 }
 
 export const ThemeTokenAvatarGroup: React.FC<ThemeTokenAvatarGroupProps> = ({ images, ...props }) => {
-  return (
-    <AvatarGroup {...props}>
-      {images?.map((image, index) => (
-        <ThemeTokenAvatar key={index} src={image} />
-      ))}
-    </AvatarGroup>
-  )
+  return <AvatarGroup {...props}>{images?.map((image, index) => <ThemeTokenAvatar key={index} src={image} />)}</AvatarGroup>
 }

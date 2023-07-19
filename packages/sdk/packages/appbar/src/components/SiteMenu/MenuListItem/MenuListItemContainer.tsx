@@ -70,9 +70,7 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
       </MenuListItem>
       {subNavListItems ? (
         <SubNavListItemsCollapse openSubNav={openSubNav} collapse={collapse}>
-          {subNavListItems?.map((item, index) => (
-            <MenuListItemContainer dense={dense} sx={{ pl: theme.spacing(1) }} key={index} {...item} />
-          ))}
+          {subNavListItems?.map((item, index) => <MenuListItemContainer dense={dense} sx={{ pl: theme.spacing(1) }} key={index} {...item} />)}
         </SubNavListItemsCollapse>
       ) : null}
     </>

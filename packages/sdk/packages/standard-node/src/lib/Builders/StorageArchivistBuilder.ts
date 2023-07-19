@@ -11,7 +11,11 @@ export class StorageArchivistBuilder {
   private _archivist: StorageArchivist | undefined
   private remoteArchivist: ArchivistModule | undefined
 
-  protected constructor(private config: ArchivistBuilderConfig, private account: AccountInstance, private node?: MemoryNode) {}
+  protected constructor(
+    private config: ArchivistBuilderConfig,
+    private account: AccountInstance,
+    private node?: MemoryNode,
+  ) {}
 
   get archivist() {
     return assertDefinedEx(this._archivist, 'archivist was not defined upon create')

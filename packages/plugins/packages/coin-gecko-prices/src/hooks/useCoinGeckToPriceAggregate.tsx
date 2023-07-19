@@ -12,14 +12,17 @@ const mapAssetsToString = (assetValues: Partial<Record<string, number>> | undefi
 /** InMemory Transform Diviner to get payload to shape used by AggregatePrice Plugin */
 export const useCoinGeckoToAssetPriceDiviner = (payload?: CoingeckoCryptoMarketPayload) => {
   if (payload) {
-    const modifiedAssets = Object.entries(payload.assets).reduce((accumulator, [assetName, assetValues]) => {
-      accumulator[assetName] = {
-        value: {
-          ...mapAssetsToString(assetValues),
-        },
-      }
-      return accumulator
-    }, {} as Record<string, { value: Partial<Record<string, string>> }>)
+    const modifiedAssets = Object.entries(payload.assets).reduce(
+      (accumulator, [assetName, assetValues]) => {
+        accumulator[assetName] = {
+          value: {
+            ...mapAssetsToString(assetValues),
+          },
+        }
+        return accumulator
+      },
+      {} as Record<string, { value: Partial<Record<string, string>> }>,
+    )
 
     return {
       ...payload,

@@ -9,7 +9,7 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
-import { useModuleFromNode, useNodeFromNode, useProvidedNode } from '../hooks'
+import { useModuleFromNode, useProvidedNode } from '../hooks'
 
 const TestModuleConfigSchema = 'network.xyo.test.module'
 class TestModule extends AbstractModule {
