@@ -1,6 +1,6 @@
 import { Card, CardContent, CardProps, Divider, Link, Paper, PaperProps, useTheme } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
-import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
@@ -44,7 +44,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
       <CardContent style={{ height: '100%' }}>
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
           <FlexCol alignItems="stretch" justifyContent="flex-start">
-            <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden">
+            <Paper sx={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }} elevation={0}>
               {Object.entries(priceInfo?.value ?? {}).map(([currency, price], index, arr) => (
                 <Fragment key={currency}>
                   <TokenBar square text1={currency.toUpperCase()} text2={formattedPrice(price)} text2Props={{ title: price }} {...tokenBarBgProps} />

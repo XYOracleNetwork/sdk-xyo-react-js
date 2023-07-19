@@ -33,7 +33,7 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
         }
         sx={{ pt: 0, px: 0 }}
       />
-      <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden" mb={3}>
+      <Paper elevation={0} sx={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, mb: 3, overflow: 'hidden' }}>
         <TokenBar text1={toDecimalPrecision(token0.value, 6)} text2={token1.symbol} text1Props={{ title: token0.value.toString() }} {...paperProps} />
       </Paper>
       <TokenSummary
@@ -46,7 +46,7 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
         }
         sx={{ px: 0 }}
       />
-      <Paper component={FlexGrowCol} elevation={0} alignItems="stretch" overflow="hidden">
+      <Paper elevation={0} sx={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
         <TokenBar text1={toDecimalPrecision(token1.value, 6)} text1Props={{ title: token1.value.toString() }} text2={token0.symbol} {...paperProps} />
       </Paper>
     </>

@@ -1,6 +1,6 @@
-import { Box, BoxProps, styled, Typography, TypographyProps } from '@mui/material'
+import { Box, BoxProps, styled, Typography, TypographyProps, TypographyTypeMap } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
-import { ElementType, forwardRef, useCallback, useState } from 'react'
+import { forwardRef, useCallback, useState } from 'react'
 
 /**
  * Heavily inspired by - https://stackoverflow.com/a/30362531/2803259
@@ -74,8 +74,8 @@ const useClientHeight = () => {
 }
 
 // See - https://mui.com/material-ui/guides/composition/#with-typescript
-export interface TypographyWithComponentProps<Comp extends ElementType = ElementType> extends TypographyProps {
-  component?: Comp
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type TypographyWithComponentProps<D extends React.ElementType = TypographyTypeMap['defaultComponent'], P = {}> = TypographyProps<D, P> & {
   ellipsisPosition?: 'start' | 'end'
 }
 
