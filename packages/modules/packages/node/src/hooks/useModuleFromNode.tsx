@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { Logger } from '@xyo-network/core'
+import { Logger } from '@xyo-network/logger'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { asModuleInstance, isModuleInstance, ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
