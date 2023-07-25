@@ -1,23 +1,15 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
-import { AbstractModule } from '@xyo-network/module'
 import { MemoryNode, NodeConfigSchema } from '@xyo-network/node'
-import { Query } from '@xyo-network/payload-model'
 import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
 import { useModuleFromNode, useProvidedNode } from '../hooks'
+import { TestModule, TestModuleConfigSchema } from './TestModule'
 
-const TestModuleConfigSchema = 'network.xyo.test.module'
-class TestModule extends AbstractModule {
-  static override readonly configSchemas: string[] = [TestModuleConfigSchema]
-  get _queryAccountPaths(): Record<Query['schema'], string> {
-    return {}
-  }
-}
 const TestModuleName = 'TestModule'
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
