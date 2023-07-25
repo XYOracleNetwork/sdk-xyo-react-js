@@ -1,7 +1,6 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { NodeInstance } from '@xyo-network/node'
 import { useProvidedNode } from '@xyo-network/react-node'
-import { useWallet } from '@xyo-network/react-wallet'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
 import { NodeRelationalGraphProps } from './lib'
@@ -12,10 +11,9 @@ export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   node?: NodeInstance
 }
 
-export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({ node, account, ...props }) => {
+export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({ node, ...props }) => {
   const [providedNode] = useProvidedNode()
-  const [wallet] = useWallet()
-  const elements = useCytoscapeElements(node ?? providedNode, account ?? wallet)
+  const elements = useCytoscapeElements(node ?? providedNode)
   const options = useCytoscapeOptions(elements)
 
   return <NodeRelationalGraph alignItems="stretch" flexGrow={1} height="100%" options={options} {...props} />
