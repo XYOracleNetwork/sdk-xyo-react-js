@@ -18,7 +18,6 @@ export class CytoscapeElements {
   }
 
   static async buildElements(node: NodeInstance) {
-    console.log('buildElements: Start')
     try {
       const [, newRootNode] = await CytoscapeElements.buildRootNode(node)
       const newElements: ElementDefinition[] = [newRootNode]
@@ -26,7 +25,6 @@ export class CytoscapeElements {
       const children = await Promise.all(
         (await node.resolve()).map<Promise<[ModuleManifest, string]>>(async (child) => [await child.manifest(), child.address]),
       )
-      console.log(`buildElements: ${JSON.stringify(children[0], null, 2)}`)
       await Promise.allSettled(
         (children ?? [])?.map(async ([child, address]) => {
           try {
