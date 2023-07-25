@@ -1,5 +1,4 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { AccountInstance } from '@xyo-network/account-model'
 import { EventUnsubscribeFunction } from '@xyo-network/module'
 import { NodeInstance } from '@xyo-network/node'
 import { ElementDefinition } from 'cytoscape'
@@ -11,14 +10,14 @@ import { CytoscapeElements } from '../../Cytoscape'
  * Note: Relies on describe but could eventually be converted to a discover call
  * Logic would be similar to what the bridge does
  */
-export const useCytoscapeElements = (targetNode: NodeInstance | undefined | null, account?: AccountInstance | undefined | null) => {
+export const useCytoscapeElements = (targetNode: NodeInstance | undefined | null) => {
   const [elements, setElements] = useState<ElementDefinition[]>([])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (targetNode && account) {
-        const newElements = (await CytoscapeElements.buildElements(targetNode, account)) ?? []
+      if (targetNode) {
+        const newElements = (await CytoscapeElements.buildElements(targetNode)) ?? []
         setElements(newElements)
       }
     },
@@ -29,13 +28,13 @@ export const useCytoscapeElements = (targetNode: NodeInstance | undefined | null
     let attachedListener: EventUnsubscribeFunction | undefined = undefined
     let detachedListener: EventUnsubscribeFunction | undefined = undefined
 
-    if (targetNode && account) {
+    if (targetNode) {
       attachedListener = targetNode.on('moduleAttached', async () => {
-        const newElements = (await CytoscapeElements.buildElements(targetNode, account)) ?? []
+        const newElements = (await CytoscapeElements.buildElements(targetNode)) ?? []
         setElements(newElements)
       })
       detachedListener = targetNode.on('moduleDetached', async () => {
-        const newElements = (await CytoscapeElements.buildElements(targetNode, account)) ?? []
+        const newElements = (await CytoscapeElements.buildElements(targetNode)) ?? []
         setElements(newElements)
       })
     }
