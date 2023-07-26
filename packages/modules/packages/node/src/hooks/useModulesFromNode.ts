@@ -4,7 +4,7 @@ import { isModuleInstance, ModuleFilter, ModuleInstance } from '@xyo-network/mod
 import { useRefresh } from '@xyo-network/react-module'
 import { useDataState } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useProvidedNode } from './provided'
 import { ModuleFromNodeConfig } from './useModuleFromNode'
@@ -16,6 +16,7 @@ export const useModulesFromNode = (
   const [providedNode] = useProvidedNode()
   const [configMemo, setConfigMemo] = useDataState(config)
   const [refreshed, refresh] = useRefresh()
+  const [resolvedModules, setResolvedModules] = useState<ModuleInstance[]>()
 
   setConfigMemo(config)
 
@@ -24,25 +25,22 @@ export const useModulesFromNode = (
 
   const eventUnsubscribe: EventUnsubscribeFunction[] = []
 
-  const [resolvedModules, resolvedModulesError] = usePromise<ModuleInstance[] | null | undefined>(async () => {
-    const getModulesFromResolution = async (): Promise<ModuleInstance[] | null | undefined> => {
-      const { logger, ...resolverConfig } = configMemo ?? {}
-      const activeNode = configMemo?.node ?? providedNode
-      if (activeNode) {
-        const allResolvedModules = compact(
-          (await activeNode.resolve(filter, resolverConfig)).map((module) => (isModuleInstance(module) ? module : undefined)),
-        )
-        logger?.log(`getModulesFromResolution:allResolvedModules [${allResolvedModules?.length}]`)
-        if (allResolvedModules?.length !== modulesLength.current) {
-          logger?.log(`getModulesFromResolution-setting: [${allResolvedModules?.length}]`)
-          modulesLength.current = allResolvedModules?.length
-          return allResolvedModules
-        }
+  const [, resolvedModulesError] = usePromise<number | null | undefined>(async () => {
+    const { logger, ...resolverConfig } = configMemo ?? {}
+    const activeNode = configMemo?.node ?? providedNode
+    if (activeNode) {
+      const allResolvedModules = compact(
+        (await activeNode.resolve(filter, resolverConfig)).map((module) => (isModuleInstance(module) ? module : undefined)),
+      )
+      logger?.debug(`getModulesFromResolution:allResolvedModules [${allResolvedModules?.length}]`)
+      if (allResolvedModules?.length !== modulesLength.current) {
+        logger?.debug(`getModulesFromResolution-setting: [${allResolvedModules?.length}]`)
+        modulesLength.current = allResolvedModules?.length
+        setResolvedModules(allResolvedModules)
+        return allResolvedModules?.length
       }
-      return undefined
     }
-
-    return await getModulesFromResolution()
+    return modulesLength.current
   }, [providedNode, filter, configMemo, refreshed])
 
   useEffect(() => {
@@ -54,13 +52,13 @@ export const useModulesFromNode = (
       }
       eventUnsubscribe.push(
         activeNode.on('moduleAttached', ({ module }) => {
-          logger?.log(`moduleAttached: useModulesFromNode [${module.config.name ?? module.address}]`)
+          logger?.debug(`moduleAttached: useModulesFromNode [${module.config.name ?? module.address}]`)
           refresh()
         }),
       )
       eventUnsubscribe.push(
         activeNode.on('moduleDetached', ({ module }) => {
-          logger?.log(`moduleDetached: useModulesFromNode [${module.config.name ?? module.address}]`)
+          logger?.debug(`moduleDetached: useModulesFromNode [${module.config.name ?? module.address}]`)
           refresh()
         }),
       )
