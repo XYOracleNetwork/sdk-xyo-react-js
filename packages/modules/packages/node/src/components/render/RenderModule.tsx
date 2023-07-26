@@ -1,7 +1,7 @@
 import { TreeItem } from '@mui/lab'
 import { styled } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { Module } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module'
 import { MutableRefObject, useState } from 'react'
 
 interface RenderModuleProps {
@@ -9,12 +9,12 @@ interface RenderModuleProps {
     idIncrementor: number
     ids: string[]
   }>
-  module: Module
+  module: ModuleInstance
 }
 
 export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => {
   const { address, queries } = module ?? {}
-  const [childModules, setChildModules] = useState<Module[]>()
+  const [childModules, setChildModules] = useState<ModuleInstance[]>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps

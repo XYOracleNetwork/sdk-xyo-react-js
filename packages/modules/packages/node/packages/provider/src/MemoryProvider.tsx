@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
-import { Module, ModuleParams } from '@xyo-network/module'
+import { ModuleInstance, ModuleParams } from '@xyo-network/module'
 import { MemoryNode, NodeConfig } from '@xyo-network/node'
 import { useState } from 'react'
 
@@ -8,7 +8,7 @@ import { NodeProvider } from './Node'
 
 export type MemoryNodeProviderProps = WithChildren<{
   moduleParams?: ModuleParams<NodeConfig>
-  modules?: Module[]
+  modules?: ModuleInstance[]
   required?: boolean
 }> &
   ModuleParams<NodeConfig>

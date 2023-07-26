@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { Logger } from '@xyo-network/core'
+import { Logger } from '@xyo-network/logger'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { asModuleInstance, isModuleInstance, ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
 import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
@@ -27,7 +27,6 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
         if (node) {
           const attachHandler = (args: ModuleAttachedEventArgs) => {
             const eventModule = args.module
-            console.log('attachHandler: ', eventModule.address)
             if (nameOrAddress && (eventModule?.address === nameOrAddress || eventModule?.config?.name === nameOrAddress)) {
               logger?.debug(`attachHandler-setting [${nameOrAddress}]`)
               if (eventModule) {
@@ -50,7 +49,6 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
           }
           const detachHandler = (args: ModuleDetachedEventArgs) => {
             const eventModule = args.module
-            console.log('detachHandler: ', eventModule.address)
             if (eventModule.address === address) {
               logger?.debug(`detachHandler-clearing [${address}]`)
               setModule(undefined)

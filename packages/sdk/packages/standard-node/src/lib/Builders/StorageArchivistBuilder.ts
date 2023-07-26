@@ -1,6 +1,6 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { ArchivistModule, StorageArchivist, StorageArchivistConfig, StorageArchivistConfigSchema } from '@xyo-network/archivist'
-import { MemoryNode, NodeWrapper } from '@xyo-network/node'
+import { asNodeInstance, MemoryNode } from '@xyo-network/node'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 
 export interface ArchivistBuilderConfig {
@@ -48,8 +48,8 @@ export class StorageArchivistBuilder {
   }
 
   async findParentArchivist() {
-    const wrappedNode = NodeWrapper.wrap(assertDefinedEx(this.node, 'node not defined'), this.account)
-    const [bridge] = (await wrappedNode.resolve({ name: ['RemoteNodeBridge'] })) ?? []
+    const node = asNodeInstance(this.node, 'node not defined')
+    const [bridge] = (await node.resolve({ name: ['RemoteNodeBridge'] })) ?? []
     if (bridge) {
       try {
         const [archivist] = (await bridge.resolve({ name: ['Archivist'] })) ?? []
