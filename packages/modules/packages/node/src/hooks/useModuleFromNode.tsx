@@ -2,29 +2,35 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Logger } from '@xyo-network/logger'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { asModuleInstance, isModuleInstance, ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
-import { ModuleAttachedEventArgs, ModuleDetachedEventArgs } from '@xyo-network/node'
+import { ModuleAttachedEventArgs, ModuleDetachedEventArgs, NodeInstance } from '@xyo-network/node'
+import { useDataState } from '@xyo-network/react-shared'
 import { useMemo, useState } from 'react'
 
 import { useProvidedNode } from './provided'
 
 export type ModuleFromNodeConfig = ModuleFilterOptions & {
   logger?: Logger
+  node?: NodeInstance
 }
 
 export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [ModuleInstance | undefined, Error | undefined] => {
-  const [node] = useProvidedNode()
+  const [providedNode] = useProvidedNode()
   const [module, setModule] = useState<ModuleInstance>()
   const [error, setError] = useState<Error>()
+  const [configMemo, setConfigMemo] = useDataState(config)
+
+  setConfigMemo(config)
 
   const address = useMemo(() => module?.address, [module])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const { logger, ...resolverConfig } = config ?? {}
+      const { logger, node, ...resolverConfig } = configMemo ?? {}
       const eventUnsubscribe: EventUnsubscribeFunction[] = []
       try {
-        if (node) {
+        const activeNode = node ?? providedNode
+        if (activeNode) {
           const attachHandler = (args: ModuleAttachedEventArgs) => {
             const eventModule = args.module
             if (nameOrAddress && (eventModule?.address === nameOrAddress || eventModule?.config?.name === nameOrAddress)) {
@@ -55,7 +61,7 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
               setError(undefined)
             }
           }
-          const module = nameOrAddress ? await node.resolve(nameOrAddress, resolverConfig) : undefined
+          const module = nameOrAddress ? await activeNode.resolve(nameOrAddress, resolverConfig) : undefined
           if (mounted()) {
             const instance = asModuleInstance(module)
             if (module) {
@@ -64,8 +70,8 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
                 setModule(undefined)
                 setError(error)
               } else {
-                eventUnsubscribe.push(node.on('moduleAttached', attachHandler))
-                eventUnsubscribe.push(node.on('moduleDetached', detachHandler))
+                eventUnsubscribe.push(activeNode.on('moduleAttached', attachHandler))
+                eventUnsubscribe.push(activeNode.on('moduleDetached', detachHandler))
                 logger?.debug(`resolved [${nameOrAddress}]`)
                 setModule(instance ?? null)
                 setError(undefined)
@@ -77,7 +83,7 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
           }
         } else {
           if (mounted()) {
-            setModule(node ? node : undefined)
+            setModule(activeNode ? activeNode : undefined)
             setError(undefined)
           }
         }
@@ -94,7 +100,7 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
         }
       }
     },
-    [nameOrAddress, node, address, config],
+    [nameOrAddress, providedNode, address, configMemo],
   )
 
   return [module, error]

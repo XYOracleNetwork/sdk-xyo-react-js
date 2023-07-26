@@ -2,6 +2,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { isModuleInstance, ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
 import { useRefresh } from '@xyo-network/react-module'
+import { useDataState } from '@xyo-network/react-shared'
 import compact from 'lodash/compact'
 import { useEffect, useRef } from 'react'
 
@@ -12,8 +13,11 @@ export const useModulesFromNode = (
   filter?: ModuleFilter,
   config?: ModuleFromNodeConfig,
 ): [ModuleInstance[] | null | undefined, Error | undefined] => {
-  const [node] = useProvidedNode()
+  const [providedNode] = useProvidedNode()
+  const [configMemo, setConfigMemo] = useDataState(config)
   const [refreshed, refresh] = useRefresh()
+
+  setConfigMemo(config)
 
   //we store this to prevent the need of a deep compare to prevent  re-render
   const modulesLength = useRef<number>()
@@ -22,13 +26,15 @@ export const useModulesFromNode = (
 
   const [resolvedModules, resolvedModulesError] = usePromise<ModuleInstance[] | null | undefined>(async () => {
     const getModulesFromResolution = async (): Promise<ModuleInstance[] | null | undefined> => {
-      const { logger, ...resolverConfig } = config ?? {}
-      if (node) {
+      const { logger, ...resolverConfig } = configMemo ?? {}
+      const activeNode = configMemo?.node ?? providedNode
+      if (activeNode) {
         const allResolvedModules = compact(
-          (await node.resolve(filter, resolverConfig)).map((module) => (isModuleInstance(module) ? module : undefined)),
+          (await activeNode.resolve(filter, resolverConfig)).map((module) => (isModuleInstance(module) ? module : undefined)),
         )
+        logger?.log(`getModulesFromResolution:allResolvedModules [${allResolvedModules?.length}]`)
         if (allResolvedModules?.length !== modulesLength.current) {
-          logger?.debug(`getModulesFromResolution-setting: [${allResolvedModules?.length}]`)
+          logger?.log(`getModulesFromResolution-setting: [${allResolvedModules?.length}]`)
           modulesLength.current = allResolvedModules?.length
           return allResolvedModules
         }
@@ -37,23 +43,24 @@ export const useModulesFromNode = (
     }
 
     return await getModulesFromResolution()
-  }, [node, filter, config, refreshed])
+  }, [providedNode, filter, configMemo, refreshed])
 
   useEffect(() => {
-    const { logger } = config ?? {}
-    if (node) {
+    const { logger, node } = configMemo ?? {}
+    const activeNode = node ?? providedNode
+    if (activeNode) {
       while (eventUnsubscribe.length) {
         eventUnsubscribe.pop()?.()
       }
       eventUnsubscribe.push(
-        node.on('moduleAttached', () => {
-          logger?.debug('moduleAttached: getModulesFromResolution')
+        activeNode.on('moduleAttached', ({ module }) => {
+          logger?.log(`moduleAttached: useModulesFromNode [${module.config.name ?? module.address}]`)
           refresh()
         }),
       )
       eventUnsubscribe.push(
-        node.on('moduleDetached', () => {
-          logger?.debug('moduleDetached: getModulesFromResolution')
+        activeNode.on('moduleDetached', ({ module }) => {
+          logger?.log(`moduleDetached: useModulesFromNode [${module.config.name ?? module.address}]`)
           refresh()
         }),
       )
@@ -66,7 +73,7 @@ export const useModulesFromNode = (
         eventUnsubscribe.pop()
       }
     }
-  }, [node, config])
+  }, [providedNode, configMemo])
 
   return [resolvedModules, resolvedModulesError]
 }
