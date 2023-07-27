@@ -1,17 +1,17 @@
 import { useState } from 'react'
 
-export type RefreshCallback = () => boolean
+export type RefreshCallback = () => number
 export type DisableCallback = () => void
 
-export const useRefresh = (): [boolean, RefreshCallback, DisableCallback] => {
-  const [enabled, setEnabled] = useState(1)
+export const useRefresh = (): [number, RefreshCallback, DisableCallback] => {
+  const [count, setCount] = useState(1)
   return [
-    !!enabled,
+    count,
     () => {
-      const enabledCount = enabled + 1
-      setEnabled(enabledCount)
-      return !!enabledCount
+      const newCount = count + 1
+      setCount(newCount)
+      return newCount
     },
-    () => setEnabled(0),
+    () => setCount(0),
   ]
 }

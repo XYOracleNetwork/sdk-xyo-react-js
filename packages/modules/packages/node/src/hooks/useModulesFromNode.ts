@@ -1,72 +1,36 @@
 import { usePromise } from '@xylabs/react-promise'
-import { EventUnsubscribeFunction } from '@xyo-network/module-events'
-import { isModuleInstance, ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
-import { useRefresh } from '@xyo-network/react-module'
-import compact from 'lodash/compact'
-import { useEffect, useRef } from 'react'
+import { ModuleFilter } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module-model'
+import { useState } from 'react'
 
 import { useProvidedNode } from './provided'
 import { ModuleFromNodeConfig } from './useModuleFromNode'
 
-export const useModulesFromNode = (
-  filter?: ModuleFilter,
-  config?: ModuleFromNodeConfig,
-): [ModuleInstance[] | null | undefined, Error | undefined] => {
-  const [node] = useProvidedNode()
-  const [refreshed, refresh] = useRefresh()
-
-  //we store this to prevent the need of a deep compare to prevent  re-render
-  const modulesLength = useRef<number>()
-
-  const eventUnsubscribe: EventUnsubscribeFunction[] = []
-
-  const [resolvedModules, resolvedModulesError] = usePromise<ModuleInstance[] | null | undefined>(async () => {
-    const getModulesFromResolution = async (): Promise<ModuleInstance[] | null | undefined> => {
-      const { logger, ...resolverConfig } = config ?? {}
-      if (node) {
-        const allResolvedModules = compact(
-          (await node.resolve(filter, resolverConfig)).map((module) => (isModuleInstance(module) ? module : undefined)),
-        )
-        if (allResolvedModules?.length !== modulesLength.current) {
-          logger?.debug(`getModulesFromResolution-setting: [${allResolvedModules?.length}]`)
-          modulesLength.current = allResolvedModules?.length
-          return allResolvedModules
-        }
-      }
-      return undefined
+export const useModulesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeConfig): [ModuleInstance[] | undefined, Error | undefined] => {
+  const [providedNode] = useProvidedNode()
+  const { logger, node: paramNode, ...resolveConfig } = config ?? {}
+  const [result, setResult] = useState<ModuleInstance[] | undefined>()
+  const [, error] = usePromise(async () => {
+    logger?.debug('useModuleFromNode: resolving')
+    const activeNode = paramNode ?? providedNode
+    if (activeNode) {
+      activeNode.on('moduleAttached', async ({ module }) => {
+        logger?.debug(`useModuleFromNode: moduleAttached [${module.config.name ?? module.address}]`)
+        const moduleInstances = await activeNode.resolve(filter, resolveConfig)
+        setResult(moduleInstances)
+      })
+      activeNode.on('moduleDetached', async ({ module }) => {
+        logger?.debug(`useModuleFromNode: moduleDetached [${module.config.name ?? module.address}]`)
+        const moduleInstances = await activeNode.resolve(filter, resolveConfig)
+        setResult(moduleInstances)
+      })
+      const moduleInstances = await activeNode.resolve(filter, resolveConfig)
+      setResult(moduleInstances)
+      setResult(moduleInstances)
+      return moduleInstances
     }
-
-    return await getModulesFromResolution()
-  }, [node, filter, config, refreshed])
-
-  useEffect(() => {
-    const { logger } = config ?? {}
-    if (node) {
-      while (eventUnsubscribe.length) {
-        eventUnsubscribe.pop()?.()
-      }
-      eventUnsubscribe.push(
-        node.on('moduleAttached', () => {
-          logger?.debug('moduleAttached: getModulesFromResolution')
-          refresh()
-        }),
-      )
-      eventUnsubscribe.push(
-        node.on('moduleDetached', () => {
-          logger?.debug('moduleDetached: getModulesFromResolution')
-          refresh()
-        }),
-      )
-    }
-
-    return () => {
-      //unsubscribe events
-      eventUnsubscribe.forEach((func) => func())
-      while (eventUnsubscribe.length) {
-        eventUnsubscribe.pop()
-      }
-    }
-  }, [node, config])
-
-  return [resolvedModules, resolvedModulesError]
+    console.log('Result: No Node')
+    return undefined
+  }, [paramNode, providedNode, filter])
+  return [result, error]
 }
