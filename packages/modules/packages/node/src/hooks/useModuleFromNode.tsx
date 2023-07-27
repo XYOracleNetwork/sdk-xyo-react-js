@@ -1,10 +1,9 @@
-import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { usePromise } from '@xylabs/react-promise'
 import { Logger } from '@xyo-network/logger'
-import { EventUnsubscribeFunction } from '@xyo-network/module-events'
-import { asModuleInstance, isModuleInstance, ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
-import { ModuleAttachedEventArgs, ModuleDetachedEventArgs, NodeInstance } from '@xyo-network/node'
-import { useDataState } from '@xyo-network/react-shared'
-import { useMemo, useState } from 'react'
+import { asModuleInstance } from '@xyo-network/module'
+import { ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
+import { NodeInstance } from '@xyo-network/node'
+import { useState } from 'react'
 
 import { useProvidedNode } from './provided'
 
@@ -15,93 +14,32 @@ export type ModuleFromNodeConfig = ModuleFilterOptions & {
 
 export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [ModuleInstance | undefined, Error | undefined] => {
   const [providedNode] = useProvidedNode()
-  const [module, setModule] = useState<ModuleInstance>()
-  const [error, setError] = useState<Error>()
-  const [configMemo, setConfigMemo] = useDataState(config)
-
-  setConfigMemo(config)
-
-  const address = useMemo(() => module?.address, [module])
-
-  useAsyncEffect(
+  const { logger, node: paramNode, ...resolveConfig } = config ?? {}
+  const [result, setResult] = useState<ModuleInstance | undefined>()
+  const [, error] = usePromise(async () => {
+    logger?.debug('useModuleFromNode: resolving')
+    const activeNode = paramNode ?? providedNode
+    if (activeNode && nameOrAddress) {
+      activeNode.on('moduleAttached', ({ module }) => {
+        logger?.debug(`useModuleFromNode: moduleAttached [${module.config.name ?? module.address}]`)
+        if (module.address === nameOrAddress || module.config?.name === nameOrAddress) {
+          setResult(asModuleInstance(module))
+        }
+      })
+      activeNode.on('moduleDetached', ({ module }) => {
+        logger?.debug(`useModuleFromNode: moduleDetached [${module.config.name ?? module.address}]`)
+        if (module.address === nameOrAddress || module.config?.name === nameOrAddress) {
+          setResult(undefined)
+        }
+      })
+      const result = await activeNode.resolve(nameOrAddress, resolveConfig)
+      console.log(`Result: ${result?.address}`)
+      setResult(result)
+      return result
+    }
+    console.log('Result: No Node')
+    return undefined
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    async (mounted) => {
-      const { logger, node, ...resolverConfig } = configMemo ?? {}
-      const eventUnsubscribe: EventUnsubscribeFunction[] = []
-      try {
-        const activeNode = node ?? providedNode
-        if (activeNode) {
-          const attachHandler = (args: ModuleAttachedEventArgs) => {
-            const eventModule = args.module
-            if (nameOrAddress && (eventModule?.address === nameOrAddress || eventModule?.config?.name === nameOrAddress)) {
-              logger?.debug(`attachHandler-setting [${nameOrAddress}]`)
-              if (eventModule) {
-                if (isModuleInstance(eventModule)) {
-                  setModule(eventModule)
-                  setError(undefined)
-                } else {
-                  const error = Error(
-                    `Attached module failed identity check [${eventModule.config?.schema}:${eventModule.config?.name}:${eventModule.address}]`,
-                  )
-                  console.error(error.message)
-                  setModule(undefined)
-                  setError(error)
-                }
-              } else {
-                setModule(undefined)
-                setError(undefined)
-              }
-            }
-          }
-          const detachHandler = (args: ModuleDetachedEventArgs) => {
-            const eventModule = args.module
-            if (eventModule.address === address) {
-              logger?.debug(`detachHandler-clearing [${address}]`)
-              setModule(undefined)
-              setError(undefined)
-            }
-          }
-          const module = nameOrAddress ? await activeNode.resolve(nameOrAddress, resolverConfig) : undefined
-          if (mounted()) {
-            const instance = asModuleInstance(module)
-            if (module) {
-              if (!instance) {
-                const error = Error(`Attached module failed identity check [${module.config?.schema}:${module.config?.name}:${module.address}]`)
-                setModule(undefined)
-                setError(error)
-              } else {
-                eventUnsubscribe.push(activeNode.on('moduleAttached', attachHandler))
-                eventUnsubscribe.push(activeNode.on('moduleDetached', detachHandler))
-                logger?.debug(`resolved [${nameOrAddress}]`)
-                setModule(instance ?? null)
-                setError(undefined)
-              }
-            } else {
-              setModule(undefined)
-              setError(undefined)
-            }
-          }
-        } else {
-          if (mounted()) {
-            setModule(activeNode ? activeNode : undefined)
-            setError(undefined)
-          }
-        }
-        return () => {
-          //remove the event handler on unmount
-          eventUnsubscribe.forEach((func) => func())
-        }
-      } catch (ex) {
-        if (mounted()) {
-          const error = ex as Error
-          logger?.error(error.message)
-          setError(error)
-          setModule(undefined)
-        }
-      }
-    },
-    [nameOrAddress, providedNode, address, configMemo],
-  )
-
-  return [module, error]
+  }, [paramNode, providedNode, nameOrAddress])
+  return [result, error]
 }
