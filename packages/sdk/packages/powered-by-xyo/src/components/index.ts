@@ -1,2 +1,3 @@
-export * from './PoweredByXyoFlexBox'
-export * from './XyoBusyFlexBox'
+export * from './PoweredByXyo'
+export * from './PoweredByXyoButton'
+export * from './XyoBusy'

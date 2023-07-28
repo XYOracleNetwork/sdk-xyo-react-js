@@ -2,12 +2,13 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 
 import { xyoColorLogo } from '../img'
 
-export type XyoBusyFlexBoxProps = FlexBoxProps & {
+export type XyoBusyProps = Omit<FlexBoxProps, 'children'> & {
   busy?: boolean
+  spinsPerSecond?: number
   widthInPixels?: number
 }
 
-export const XyoBusyFlexBox: React.FC<XyoBusyFlexBoxProps> = ({ widthInPixels, busy, ...props }) => {
+export const XyoBusy: React.FC<XyoBusyProps> = ({ widthInPixels, busy, spinsPerSecond = 0.5, ...props }) => {
   return (
     <FlexCol
       sx={{
@@ -19,7 +20,7 @@ export const XyoBusyFlexBox: React.FC<XyoBusyFlexBoxProps> = ({ widthInPixels, b
             transform: 'rotate(0deg)',
           },
         },
-        animation: busy ? 'spin 2s linear infinite' : undefined,
+        animation: busy ? `spin ${1 / spinsPerSecond}s linear infinite` : undefined,
         animationDirection: 'reverse',
       }}
       {...props}

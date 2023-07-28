@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "composite": true,
     "declarationDir": "./dist/types",
+    "resolveJsonModule": true,
     "typeRoots": []
   },
+  "exclude": ["dist", "docs"],
   "extends": "@xylabs/tsconfig-react"
 }
