@@ -52,7 +52,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
               archivists: progress.archivists,
               witnesses: progress.witnesses,
             })
-            setStatus(outPayloads?.length ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded)
+            setStatus(outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed)
             setReportingErrors([Error(`Witness failed [${module?.config?.name ?? module.address}]`)])
           }
         }),
@@ -70,7 +70,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           witness.on('observeEnd', ({ module, outPayloads }) => {
             const witnesses = progress.witnesses ?? {}
             witnesses[witness.address] = {
-              status: outPayloads?.length ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded,
+              status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
               witness: module,
             }
             if (mounted()) {
