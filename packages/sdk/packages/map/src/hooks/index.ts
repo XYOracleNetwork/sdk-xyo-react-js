@@ -1,6 +1,5 @@
 export * from './useDynamicMapResize'
 export * from './useDynamicPositioning'
-export * from './useFetchPayloads'
 export * from './useFindHashes'
 export * from './useHeatMapColors'
 export * from './useQuadKeyPayloadsToFeatures'
