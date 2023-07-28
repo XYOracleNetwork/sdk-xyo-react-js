@@ -6993,6 +6993,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/core@npm:~2.68.0":
+  version: 2.68.0
+  resolution: "@xyo-network/core@npm:2.68.0"
+  dependencies:
+    "@scure/base": ^1.1.1
+    "@xylabs/assert": ^2.9.3
+    "@xylabs/bignumber": ^2.9.3
+    "@xylabs/buffer": ^2.9.3
+    "@xyo-network/logger": ~2.68.0
+    "@xyo-network/promise": ~2.68.0
+    "@xyo-network/typeof": ~2.68.0
+    hash-wasm: ^4.9.0
+    keccak256: ^1.0.6
+    lodash: ^4.17.21
+    sha.js: ^2.4.11
+    uuid: ^9.0.0
+    wasm-feature-detect: ^1.5.1
+  checksum: 11fd67adac97b86e9283a598c43acabbbe8384b1e6ee3c1372f97515abba88a6f49c4b3a4f935205540108d08c9bf4e4dc81b119a5af1d80896287148ffc87fd
+  languageName: node
+  linkType: hard
+
 "@xyo-network/crypto-asset-payload-plugin@npm:^2.67.0, @xyo-network/crypto-asset-payload-plugin@npm:~2.67.0":
   version: 2.67.0
   resolution: "@xyo-network/crypto-asset-payload-plugin@npm:2.67.0"
@@ -7237,6 +7258,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/error@npm:~2.68.0":
+  version: 2.68.0
+  resolution: "@xyo-network/error@npm:2.68.0"
+  checksum: fae128efcdb155c82d98026c97026264a10a471b8dd0f5d44ca0fbcfb84d9d6caf03eb3d45c5ed525b465b2d0fccca46bd51d379e9834d153aed3d004bfee632
+  languageName: node
+  linkType: hard
+
 "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin@npm:^2.67.0, @xyo-network/etherchain-ethereum-gas-v2-payload-plugin@npm:~2.67.0":
   version: 2.67.0
   resolution: "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin@npm:2.67.0"
@@ -7415,6 +7443,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/logger@npm:~2.68.0":
+  version: 2.68.0
+  resolution: "@xyo-network/logger@npm:2.68.0"
+  checksum: db6e762935a038923bad44f805e1cbb74b210a81a862119a394650022ab4893a5d107f83872272dfea6b8ffd9d56b26a90c2b18dc9150b5526b7b1a510f64294
+  languageName: node
+  linkType: hard
+
 "@xyo-network/manifest-model@npm:^2.67.0, @xyo-network/manifest-model@npm:~2.67.0":
   version: 2.67.0
   resolution: "@xyo-network/manifest-model@npm:2.67.0"
@@ -7489,6 +7524,19 @@ __metadata:
     "@xyo-network/error": ~2.67.0
     "@xyo-network/promise": ~2.67.0
   checksum: 0374c73bafcdb7936745f86721bba71a97266a8a5ad4a5d723c6d1272a22a9cdc19292f0471bc1db44e92f56e6eb8e9bf28874ce50bcda5b99f2842f4bba42cb
+  languageName: node
+  linkType: hard
+
+"@xyo-network/module-events@npm:~2.68.0":
+  version: 2.68.0
+  resolution: "@xyo-network/module-events@npm:2.68.0"
+  dependencies:
+    "@xylabs/assert": ^2.9.3
+    "@xylabs/forget": ^2.9.3
+    "@xyo-network/core": ~2.68.0
+    "@xyo-network/error": ~2.68.0
+    "@xyo-network/promise": ~2.68.0
+  checksum: b87c0ca2fda455dc036954db1a2ab3983863628d31aaccc8a3deaea20a86116c4d436044ec88dc80478ecd27edada32414c6bdf973b86753681c93c3006fa000
   languageName: node
   linkType: hard
 
@@ -7752,6 +7800,13 @@ __metadata:
   version: 2.67.0
   resolution: "@xyo-network/promise@npm:2.67.0"
   checksum: e62320a9c57fe7a7ee27d06e7c4d767107d395ad11784548dd1d8b3f38cc2f4a68b36d229d04b1e4d9ab37aa372d326de5dc6e5f31e5d698a9e7f85c805ee53c
+  languageName: node
+  linkType: hard
+
+"@xyo-network/promise@npm:~2.68.0":
+  version: 2.68.0
+  resolution: "@xyo-network/promise@npm:2.68.0"
+  checksum: 5a8d04a1a84682f95b048f134330587b4e439f4701cd37561742cc95a5682a7c9a0b915cb0d9b3474db4216b0b198f3c41645e7f2eb3d4d7b71d3fa55dd28d4f
   languageName: node
   linkType: hard
 
@@ -9266,11 +9321,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-powered-by-xyo@workspace:packages/sdk/packages/powered-by-xyo"
   dependencies:
+    "@storybook/react": ^7.1.1
     "@xylabs/react-async-effect": ~2.17.7
     "@xylabs/react-flexbox": ~2.17.7
     "@xylabs/react-link": ~2.17.7
-    "@xylabs/react-shared": ~2.17.7
     "@xylabs/ts-scripts-yarn3": ^2.19.0
+    "@xyo-network/module-events": ~2.68.0
     "@xyo-network/react-node": "workspace:~"
     typescript: ^5.1.6
   peerDependencies:
@@ -10000,6 +10056,13 @@ __metadata:
   version: 2.67.0
   resolution: "@xyo-network/typeof@npm:2.67.0"
   checksum: 577477e4f6cb7badcbbd194c294a660e4e1a2b0aaad30669e503cbb38fd92fdd861ee59b523bf969d37f3d3b881290abbaf9f146b951414c10df509884453e52
+  languageName: node
+  linkType: hard
+
+"@xyo-network/typeof@npm:~2.68.0":
+  version: 2.68.0
+  resolution: "@xyo-network/typeof@npm:2.68.0"
+  checksum: b316de677e0cda9fbabd31b508690a53f2d2e71c4e79e20dcf47dc97a31f89f24578a7d21eb6554e6660cb20bf745535e734106cd2a9923347d746d5bb476453
   languageName: node
   linkType: hard
 
