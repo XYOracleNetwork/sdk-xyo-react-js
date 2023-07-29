@@ -6983,27 +6983,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/core@npm:~2.68.0":
-  version: 2.68.0
-  resolution: "@xyo-network/core@npm:2.68.0"
-  dependencies:
-    "@scure/base": ^1.1.1
-    "@xylabs/assert": ^2.9.3
-    "@xylabs/bignumber": ^2.9.3
-    "@xylabs/buffer": ^2.9.3
-    "@xyo-network/logger": ~2.68.0
-    "@xyo-network/promise": ~2.68.0
-    "@xyo-network/typeof": ~2.68.0
-    hash-wasm: ^4.9.0
-    keccak256: ^1.0.6
-    lodash: ^4.17.21
-    sha.js: ^2.4.11
-    uuid: ^9.0.0
-    wasm-feature-detect: ^1.5.1
-  checksum: 11fd67adac97b86e9283a598c43acabbbe8384b1e6ee3c1372f97515abba88a6f49c4b3a4f935205540108d08c9bf4e4dc81b119a5af1d80896287148ffc87fd
-  languageName: node
-  linkType: hard
-
 "@xyo-network/crypto-asset-payload-plugin@npm:^2.69.0-rc.3, @xyo-network/crypto-asset-payload-plugin@npm:~2.69.0-rc.3":
   version: 2.69.0-rc.3
   resolution: "@xyo-network/crypto-asset-payload-plugin@npm:2.69.0-rc.3"
@@ -7241,13 +7220,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/error@npm:~2.68.0":
-  version: 2.68.0
-  resolution: "@xyo-network/error@npm:2.68.0"
-  checksum: fae128efcdb155c82d98026c97026264a10a471b8dd0f5d44ca0fbcfb84d9d6caf03eb3d45c5ed525b465b2d0fccca46bd51d379e9834d153aed3d004bfee632
-  languageName: node
-  linkType: hard
-
 "@xyo-network/error@npm:~2.69.0-rc.3":
   version: 2.69.0-rc.3
   resolution: "@xyo-network/error@npm:2.69.0-rc.3"
@@ -7433,13 +7405,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/logger@npm:~2.68.0":
-  version: 2.68.0
-  resolution: "@xyo-network/logger@npm:2.68.0"
-  checksum: db6e762935a038923bad44f805e1cbb74b210a81a862119a394650022ab4893a5d107f83872272dfea6b8ffd9d56b26a90c2b18dc9150b5526b7b1a510f64294
-  languageName: node
-  linkType: hard
-
 "@xyo-network/manifest-model@npm:^2.69.0-rc.3, @xyo-network/manifest-model@npm:~2.69.0-rc.3":
   version: 2.69.0-rc.3
   resolution: "@xyo-network/manifest-model@npm:2.69.0-rc.3"
@@ -7519,19 +7484,6 @@ __metadata:
     "@xyo-network/shared": ~2.69.0-rc.3
     lodash: ^4.17.21
   checksum: d452631c0a1dd5973f792ef61d49284fb4372358467e34b1cba48312c25826963a8a9ccc9cae9ad087ccaf09f502a352146b98653a19af7789dde230d6c6c1ce
-  languageName: node
-  linkType: hard
-
-"@xyo-network/module-events@npm:~2.68.0":
-  version: 2.68.0
-  resolution: "@xyo-network/module-events@npm:2.68.0"
-  dependencies:
-    "@xylabs/assert": ^2.9.3
-    "@xylabs/forget": ^2.9.3
-    "@xyo-network/core": ~2.68.0
-    "@xyo-network/error": ~2.68.0
-    "@xyo-network/promise": ~2.68.0
-  checksum: b87c0ca2fda455dc036954db1a2ab3983863628d31aaccc8a3deaea20a86116c4d436044ec88dc80478ecd27edada32414c6bdf973b86753681c93c3006fa000
   languageName: node
   linkType: hard
 
@@ -7631,7 +7583,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/node-model@npm:^2.69.0-rc.3, @xyo-network/node-model@npm:~2.69.0-rc.3":
+"@xyo-network/node-model@npm:^2.69.0-rc.3, @xyo-network/node-model@npm:next, @xyo-network/node-model@npm:~2.69.0-rc.3":
   version: 2.69.0-rc.3
   resolution: "@xyo-network/node-model@npm:2.69.0-rc.3"
   dependencies:
@@ -7799,13 +7751,6 @@ __metadata:
   version: 2.69.0-rc.3
   resolution: "@xyo-network/previous-hash-store-model@npm:2.69.0-rc.3"
   checksum: cff0e6754ff09047a452d23553432179fd01c72f8c44f5248486bb05f9d5f0e91967020a8ebab82067bbb9fc29e985f167473560c205d1b44975e2c5d4bb33d0
-  languageName: node
-  linkType: hard
-
-"@xyo-network/promise@npm:~2.68.0":
-  version: 2.68.0
-  resolution: "@xyo-network/promise@npm:2.68.0"
-  checksum: 5a8d04a1a84682f95b048f134330587b4e439f4701cd37561742cc95a5682a7c9a0b915cb0d9b3474db4216b0b198f3c41645e7f2eb3d4d7b71d3fa55dd28d4f
   languageName: node
   linkType: hard
 
@@ -8755,12 +8700,10 @@ __metadata:
     "@xylabs/assert": ^2.9.3
     "@xylabs/delay": ^2.9.3
     "@xylabs/forget": ^2.9.3
-    "@xylabs/react-async-effect": ~2.17.7
     "@xylabs/react-flexbox": ~2.17.7
     "@xylabs/react-shared": ~2.17.7
     "@xylabs/ts-scripts-yarn3": ^2.19.0
     "@xylabs/tsconfig-react": ^2.19.0
-    "@xyo-network/module": ^2.69.0-rc.3
     "@xyo-network/payload-model": ^2.69.0-rc.3
     "@xyo-network/react-app-settings": "workspace:~"
     "@xyo-network/react-archivist": "workspace:~"
@@ -9331,16 +9274,20 @@ __metadata:
     "@xylabs/react-async-effect": ~2.17.7
     "@xylabs/react-button": ~2.17.7
     "@xylabs/react-flexbox": ~2.17.7
-    "@xylabs/react-link": ~2.17.7
     "@xylabs/ts-scripts-yarn3": ^2.19.0
     "@xyo-network/manifest": ^2.69.0-rc.3
-    "@xyo-network/module-events": ~2.68.0
+    "@xyo-network/node-model": next
     "@xyo-network/react-node": "workspace:~"
     typescript: ^5.1.6
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
     "@mui/styles": ^5
+    "@xylabs/delay": ^2.9.3
+    "@xylabs/react-promise": ^2.17.7
+    "@xyo-network/account": "*"
+    "@xyo-network/archivist-model": "*"
+    "@xyo-network/node": "*"
     axios: ^1.3.1
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -10064,13 +10011,6 @@ __metadata:
   version: 2.69.0-rc.3
   resolution: "@xyo-network/typeof@npm:2.69.0-rc.3"
   checksum: 769a98d11851ed2569f5689aa94a79365d363207e53d00ead53f7442cd1db4947a6433a9621488ae72743820a87cac063c66ac8dbecfc642e357be29d7783ee8
-  languageName: node
-  linkType: hard
-
-"@xyo-network/typeof@npm:~2.68.0":
-  version: 2.68.0
-  resolution: "@xyo-network/typeof@npm:2.68.0"
-  checksum: b316de677e0cda9fbabd31b508690a53f2d2e71c4e79e20dcf47dc97a31f89f24578a7d21eb6554e6660cb20bf745535e734106cd2a9923347d746d5bb476453
   languageName: node
   linkType: hard
 
