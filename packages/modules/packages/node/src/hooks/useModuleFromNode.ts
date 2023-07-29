@@ -33,11 +33,11 @@ export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNod
         }
       })
       const result = await activeNode.resolve(nameOrAddress, resolveConfig)
-      console.log(`Result: ${result?.address}`)
+      logger?.debug(`Result: ${result?.address}`)
       setResult(result)
       return result
     }
-    console.log('Result: No Node')
+    logger?.debug('Result: No Node')
     return undefined
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paramNode, providedNode, nameOrAddress])
