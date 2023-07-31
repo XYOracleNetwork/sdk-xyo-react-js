@@ -46,14 +46,14 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       })
       const offCallbacks: (() => void)[] = []
       offCallbacks.push(
-        sentinel.on('reportEnd', ({ errors }) => {
+        sentinel.on('reportEnd', ({ module, outPayloads }) => {
           if (mounted()) {
             setProgress({
               archivists: progress.archivists,
               witnesses: progress.witnesses,
             })
-            setStatus(errors ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded)
-            setReportingErrors(errors)
+            setStatus(outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed)
+            setReportingErrors([Error(`Witness failed [${module?.config?.name ?? module.address}]`)])
           }
         }),
       )
@@ -67,10 +67,10 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       )
       witnesses?.forEach((witness) => {
         offCallbacks.push(
-          witness.on('reportEnd', ({ module, errors }) => {
+          witness.on('observeEnd', ({ module, outPayloads }) => {
             const witnesses = progress.witnesses ?? {}
             witnesses[witness.address] = {
-              status: errors?.length ? SentinelReportStatus.Failed : SentinelReportStatus.Succeeded,
+              status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
               witness: module,
             }
             if (mounted()) {
@@ -82,7 +82,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           }),
         )
         offCallbacks.push(
-          witness.on('reportStart', ({ module }) => {
+          witness.on('observeStart', ({ module }) => {
             const witnesses = progress.witnesses ?? {}
             witnesses[witness.address] = {
               status: SentinelReportStatus.Started,

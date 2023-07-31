@@ -11,15 +11,29 @@
   },
   "dependencies": {
     "@xylabs/react-async-effect": "~2.17.7",
+    "@xylabs/react-button": "~2.17.7",
     "@xylabs/react-flexbox": "~2.17.7",
-    "@xylabs/react-link": "~2.17.7",
-    "@xyo-network/module-events": "~2.68.0",
-    "@xyo-network/react-node": "workspace:~"
+    "@xyo-network/archivist-model": "^2.69.0",
+    "@xyo-network/bridge-model": "^2.69.0",
+    "@xyo-network/diviner-model": "^2.69.0",
+    "@xyo-network/module-model": "^2.69.0",
+    "@xyo-network/node-model": "^2.69.0",
+    "@xyo-network/react-node": "workspace:~",
+    "@xyo-network/react-property": "workspace:~",
+    "@xyo-network/react-shared": "workspace:~",
+    "@xyo-network/sentinel": "^2.69.0",
+    "@xyo-network/witness-model": "^2.69.0",
+    "react-json-view": "^1.21.3"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
     "@mui/styles": "^5",
+    "@xylabs/delay": "^2.9.3",
+    "@xylabs/react-promise": "^2.17.7",
+    "@xyo-network/account": "*",
+    "@xyo-network/archivist-model": "*",
+    "@xyo-network/node": "*",
     "axios": "^1.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,6 +42,7 @@
   "devDependencies": {
     "@storybook/react": "^7.1.1",
     "@xylabs/ts-scripts-yarn3": "^2.19.0",
+    "@xyo-network/manifest": "^2.69.0",
     "typescript": "^5.1.6"
   },
   "description": "Common React library for all XYO projects that use React",
@@ -73,5 +88,6 @@
   },
   "sideEffects": false,
   "types": "dist/types/index.d.ts",
-  "version": "2.57.9"
+  "version": "2.58.0-rc.4",
+  "stableVersion": "2.57.9"
 }

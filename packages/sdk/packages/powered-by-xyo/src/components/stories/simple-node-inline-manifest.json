@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/XYOracleNetwork/sdk-xyo-client-js/569095963dfba73a9d48fb17ea137a433b30f4e7/packages/manifest/src/schema.json",
+  "nodes": [
+    {
+      "config": {
+        "accountPath": "0'",
+        "name": "SimpleMemoryDapp",
+        "schema": "network.xyo.node.config"
+      },
+      "modules": {
+        "private": [
+          {
+            "config": {
+              "accountPath": "1'",
+              "language": "javascript",
+              "name": "ScratchArchivist",
+              "schema": "network.xyo.archivist.config"
+            }
+          }
+        ],
+        "public": [
+          {
+            "config": {
+              "accountPath": "2'",
+              "language": "javascript",
+              "name": "SimpleArchivist",
+              "schema": "network.xyo.archivist.config"
+            }
+          },
+          {
+            "config": {
+              "accountPath": "3'",
+              "language": "javascript",
+              "name": "SimpleSentinel",
+              "schema": "network.xyo.sentinel.config"
+            }
+          },
+          {
+            "config": {
+              "accountPath": "4'",
+              "language": "javascript",
+              "name": "SimpleHttpBridge",
+              "nodeUrl": "https://beta.api.archivist.xyo.network",
+              "schema": "network.xyo.bridge.http.config"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "schema": "network.xyo.manifest"
+}
