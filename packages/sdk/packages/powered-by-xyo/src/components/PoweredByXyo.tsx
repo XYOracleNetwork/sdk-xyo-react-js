@@ -45,7 +45,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   const activeOnButtonClick: PoweredByXyoProps['onButtonClick'] =
     (debugDialog
       ? (event) => {
-          if (event.shiftKey) {
+          if (event.shiftKey && event.altKey) {
             setDebugDialogOpen(true)
           } else if (href) {
             window.open(href)

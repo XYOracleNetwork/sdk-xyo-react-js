@@ -1,4 +1,5 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import { useState } from 'react'
 
 import { xyoColorLogo } from '../img'
 
@@ -9,7 +10,12 @@ export type XyoBusyProps = Omit<FlexBoxProps, 'children'> & {
 }
 
 export const XyoBusy: React.FC<XyoBusyProps> = ({ widthInPixels, busy, spinsPerSecond = 0.5, ...props }) => {
-  return (
+  //preloading image to prevent shifting
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const img = new Image()
+  img.onload = () => setImageLoaded(true)
+  img.src = xyoColorLogo
+  return imageLoaded ? (
     <FlexCol
       sx={{
         '@keyframes spin': {
@@ -27,5 +33,5 @@ export const XyoBusy: React.FC<XyoBusyProps> = ({ widthInPixels, busy, spinsPerS
     >
       <img src={xyoColorLogo} height={widthInPixels ?? 22} />
     </FlexCol>
-  )
+  ) : null
 }

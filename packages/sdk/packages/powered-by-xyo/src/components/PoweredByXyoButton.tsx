@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material'
 import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { useState } from 'react'
 
 import { xyoColorLogoText } from '../img'
 import { XyoBusy } from './XyoBusy'
@@ -21,7 +22,12 @@ export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   variant = 'text',
   ...props
 }) => {
-  return (
+  //preloading image to prevent shifting
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const img = new Image()
+  img.onload = () => setImageLoaded(true)
+  img.src = xyoColorLogoText
+  return imageLoaded ? (
     <ButtonEx href={href} target={target} variant={variant} sx={{ borderRadius: 0, padding: 0, ...sx }} {...props}>
       <FlexCol padding={0.5}>
         <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
@@ -29,9 +35,9 @@ export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
         </Typography>
         <FlexRow>
           <XyoBusy busy={busy} />
-          <img src={xyoColorLogoText} height={logoHeight ?? 24} />
+          <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
         </FlexRow>
       </FlexCol>
     </ButtonEx>
-  )
+  ) : null
 }
