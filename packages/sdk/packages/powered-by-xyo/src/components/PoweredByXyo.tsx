@@ -1,15 +1,19 @@
 import { Paper } from '@mui/material'
+import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ButtonExProps } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import { Module } from '@xyo-network/module-model'
 import { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode } from '@xyo-network/react-node'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
+import { DebugDialog } from './DebugDialog'
 import { PoweredByXyoButton } from './PoweredByXyoButton'
 
 export interface PoweredByXyoProps extends FlexBoxProps {
   busy?: boolean
+  debugDialog?: boolean
   disableAnimation?: boolean
   href?: ButtonExProps['href']
   logoHeight?: number
@@ -21,6 +25,7 @@ export interface PoweredByXyoProps extends FlexBoxProps {
 export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   // leave animation on by default so when done testing, removing the prop lets it work
   busy,
+  debugDialog = false,
   disableAnimation = false,
   href = 'https://xyo.network',
   logoHeight,
@@ -30,7 +35,24 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   ...props
 }) => {
   const [node] = useProvidedNode()
-  const [busyCount, setBusyCount] = useState(0)
+  const [debugDialogOpen, setDebugDialogOpen] = useState(false)
+
+  const busyMap: Record<string, boolean> = useMemo(() => ({}), [node])
+
+  const activeBusy = busy ?? Object.values(busyMap).reduce((prev, value) => prev || value, false)
+
+  const activeOnButtonClick: PoweredByXyoProps['onButtonClick'] =
+    (debugDialog
+      ? (event) => {
+          if (event.shiftKey) {
+            setDebugDialogOpen(true)
+          } else if (href) {
+            window.open(href)
+          }
+        }
+      : undefined) ?? onButtonClick
+
+  const activeHref = activeOnButtonClick ? undefined : href
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,31 +63,28 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
       } else if (activeNode) {
         const mods = await activeNode?.resolve()
         mods?.map((mod) => {
-          mod.on('moduleBusy', ({ busy }) => {
-            if (busy) {
-              setBusyCount(busyCount + 1)
-            } else {
-              setBusyCount(busyCount - 1)
-            }
+          mod.on('moduleBusy', async ({ module, busy }) => {
+            busyMap[(module as Module).address] = busy
+            await delay(1000)
+            busyMap[(module as Module).address] = false
           })
         })
-        activeNode?.on('moduleBusy', ({ busy }) => {
-          if (busy) {
-            setBusyCount(busyCount + 1)
-          } else {
-            setBusyCount(busyCount - 1)
-          }
+        activeNode?.on('moduleBusy', async ({ module, busy }) => {
+          busyMap[(module as Module).address] = busy
+          await delay(1000)
+          busyMap[(module as Module).address] = false
         })
       }
     },
-    [busyCount, disableAnimation, propNode, node],
+    [disableAnimation, propNode, node, busyMap],
   )
 
   return (
     <FlexCol alignItems="stretch" position="absolute" bottom="0" left="0" {...props}>
       <Paper sx={{ borderRadius: 0 }}>
-        <PoweredByXyoButton onClick={onButtonClick} href={href} busy={busy ?? !!busyCount} logoHeight={logoHeight} logoTextSize={logoTextSize} />
+        <PoweredByXyoButton onClick={activeOnButtonClick} href={activeHref} busy={activeBusy} logoHeight={logoHeight} logoTextSize={logoTextSize} />
       </Paper>
+      {debugDialog ? <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} /> : null}
     </FlexCol>
   )
 }

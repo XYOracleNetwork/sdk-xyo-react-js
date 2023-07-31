@@ -46,7 +46,7 @@ const TemplateWithNodeContainer: StoryFn<typeof PoweredByXyo> = (props: PoweredB
     if (node) {
       const archivist = asArchivistInstance(await node.resolve('Archivist'))
       if (archivist) {
-        let calls = 100
+        let calls = 1
         while (calls) {
           calls--
           await archivist.get([''])
@@ -66,11 +66,16 @@ const TemplateWithNodeContainer: StoryFn<typeof PoweredByXyo> = (props: PoweredB
 }
 
 const Default = TemplateContainer.bind({})
+
 const Busy = TemplateContainer.bind({})
 Busy.args = { busy: true }
+
 const WithNode = TemplateWithNodeContainer.bind({})
 
-export { Busy, Default, WithNode }
+const WithNodeAndDebug = TemplateWithNodeContainer.bind({})
+WithNodeAndDebug.args = { debugDialog: true }
+
+export { Busy, Default, WithNode, WithNodeAndDebug }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

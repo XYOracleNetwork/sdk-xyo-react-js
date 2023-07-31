@@ -1,4 +1,4 @@
-import { Paper, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 
@@ -13,7 +13,7 @@ export interface PoweredByXyoButtonProps extends ButtonExProps {
 
 export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   busy = false,
-  href = 'https://xyo.network',
+  href,
   logoHeight,
   logoTextSize,
   sx,
