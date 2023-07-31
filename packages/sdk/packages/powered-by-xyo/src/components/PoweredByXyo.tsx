@@ -37,6 +37,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   const [node] = useProvidedNode()
   const [debugDialogOpen, setDebugDialogOpen] = useState(false)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const busyMap: Record<string, boolean> = useMemo(() => ({}), [node])
 
   const activeBusy = busy ?? Object.values(busyMap).reduce((prev, value) => prev || value, false)
