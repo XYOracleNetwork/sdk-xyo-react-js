@@ -64,16 +64,12 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
       } else if (activeNode) {
         const mods = await activeNode?.resolve()
         mods?.map((mod) => {
-          mod.on('moduleBusy', async ({ module, busy }) => {
+          mod.on('moduleBusy', ({ module, busy }) => {
             busyMap[(module as Module).address] = busy
-            await delay(1000)
-            busyMap[(module as Module).address] = false
           })
         })
-        activeNode?.on('moduleBusy', async ({ module, busy }) => {
+        activeNode?.on('moduleBusy', ({ module, busy }) => {
           busyMap[(module as Module).address] = busy
-          await delay(1000)
-          busyMap[(module as Module).address] = false
         })
       }
     },
