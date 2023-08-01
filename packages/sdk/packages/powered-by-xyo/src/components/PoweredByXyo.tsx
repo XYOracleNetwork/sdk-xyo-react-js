@@ -1,5 +1,6 @@
 import { Paper } from '@mui/material'
 import { delay } from '@xylabs/delay'
+import { forget } from '@xylabs/forget'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ButtonExProps } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
@@ -66,10 +67,22 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
         mods?.map((mod) => {
           mod.on('moduleBusy', ({ module, busy }) => {
             busyMap[(module as Module).address] = busy
+            forget(
+              (async () => {
+                await delay(1000)
+                busyMap[(module as Module).address] = false
+              })(),
+            )
           })
         })
         activeNode?.on('moduleBusy', ({ module, busy }) => {
           busyMap[(module as Module).address] = busy
+          forget(
+            (async () => {
+              await delay(1000)
+              busyMap[(module as Module).address] = false
+            })(),
+          )
         })
       }
     },
