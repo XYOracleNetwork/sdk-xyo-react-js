@@ -13,6 +13,7 @@ import { DebugDialog } from './DebugDialog'
 import { PoweredByXyoButton } from './PoweredByXyoButton'
 
 export interface PoweredByXyoProps extends FlexBoxProps {
+  autoStop?: boolean
   busy?: boolean
   debugDialog?: boolean
   disableAnimation?: boolean
@@ -24,7 +25,7 @@ export interface PoweredByXyoProps extends FlexBoxProps {
 }
 
 export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
-  // leave animation on by default so when done testing, removing the prop lets it work
+  autoStop,
   busy,
   debugDialog = false,
   disableAnimation = false,
@@ -67,26 +68,30 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
         mods?.map((mod) => {
           mod.on('moduleBusy', ({ module, busy }) => {
             busyMap[(module as Module).address] = busy
+            if (autoStop) {
+              forget(
+                (async () => {
+                  await delay(1000)
+                  busyMap[(module as Module).address] = false
+                })(),
+              )
+            }
+          })
+        })
+        activeNode?.on('moduleBusy', ({ module, busy }) => {
+          busyMap[(module as Module).address] = busy
+          if (autoStop) {
             forget(
               (async () => {
                 await delay(1000)
                 busyMap[(module as Module).address] = false
               })(),
             )
-          })
-        })
-        activeNode?.on('moduleBusy', ({ module, busy }) => {
-          busyMap[(module as Module).address] = busy
-          forget(
-            (async () => {
-              await delay(1000)
-              busyMap[(module as Module).address] = false
-            })(),
-          )
+          }
         })
       }
     },
-    [disableAnimation, propNode, node, busyMap],
+    [disableAnimation, propNode, node, busyMap, autoStop],
   )
 
   return (
