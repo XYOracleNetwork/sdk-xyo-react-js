@@ -1,5 +1,5 @@
 import { TableCell, TableCellProps } from '@mui/material'
-import { NftScorePayload, NftScoreSchema } from '@xyo-network/crypto-wallet-nft-payload-plugin'
+import { NftScorePayload, NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { ThemeTokenAvatarGroup } from '@xyo-network/react-shared'
