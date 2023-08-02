@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { BowserSystemInfoWitness, BowserSystemInfoWitnessConfigSchema } from '@xyo-network/bowser-system-info-plugin'
-import { NodeInstance } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node-model'
 import { MemoryNodeBuilder } from '@xyo-network/react-standard-node'
 import { useState } from 'react'
 

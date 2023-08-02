@@ -1,6 +1,6 @@
 import { usePromise } from '@xylabs/react-promise'
 import { WithChildren } from '@xylabs/react-shared'
-import { MemoryNode } from '@xyo-network/node'
+import { MemoryNode } from '@xyo-network/node-memory'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useWalletContext } from '@xyo-network/react-wallet'
 import { WalletInstance } from '@xyo-network/wallet-model'

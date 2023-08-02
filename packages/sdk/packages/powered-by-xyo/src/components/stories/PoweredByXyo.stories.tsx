@@ -6,7 +6,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
 import { asArchivistInstance } from '@xyo-network/archivist-model'
 import { ManifestPayload, ManifestWrapper } from '@xyo-network/manifest'
-import { NodeInstance } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node-model'
 import { NodeProvider } from '@xyo-network/react-node'
 import { useState } from 'react'
 

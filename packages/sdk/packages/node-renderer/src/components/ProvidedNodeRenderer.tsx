@@ -1,5 +1,5 @@
 import { AccountInstance } from '@xyo-network/account-model'
-import { NodeInstance } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'

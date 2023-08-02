@@ -4,7 +4,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { MemoryArchivist } from '@xyo-network/archivist'
 import { CryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-plugin'
 import { DivinerInstance } from '@xyo-network/diviner'
-import { MemoryNode } from '@xyo-network/node'
+import { MemoryNode } from '@xyo-network/node-memory'
 import { useState } from 'react'
 
 import { ModuleDetailsBox } from './DetailsBox'

@@ -1,6 +1,7 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { ArchivistModule, StorageArchivist, StorageArchivistConfig, StorageArchivistConfigSchema } from '@xyo-network/archivist'
-import { asNodeInstance, MemoryNode } from '@xyo-network/node'
+import { MemoryNode } from '@xyo-network/node-memory'
+import { asNodeInstance } from '@xyo-network/node-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 
 export interface ArchivistBuilderConfig {

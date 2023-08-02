@@ -2,7 +2,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { Logger } from '@xyo-network/logger'
 import { asModuleInstance } from '@xyo-network/module'
 import { ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
-import { NodeInstance } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node-model'
 import { useState } from 'react'
 
 import { useProvidedNode } from './provided'

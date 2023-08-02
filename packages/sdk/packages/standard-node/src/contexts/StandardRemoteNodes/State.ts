@@ -1,4 +1,4 @@
-import { MemoryNode } from '@xyo-network/node'
+import { MemoryNode } from '@xyo-network/node-memory'
 import { ContextExState } from '@xyo-network/react-shared'
 
 export interface StandardNodesState extends ContextExState {

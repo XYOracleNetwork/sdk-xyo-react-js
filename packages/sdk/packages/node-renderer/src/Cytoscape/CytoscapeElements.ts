@@ -1,5 +1,5 @@
 import { ModuleManifest } from '@xyo-network/manifest-model'
-import { NodeInstance } from '@xyo-network/node'
+import { NodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 
 import { parseModuleType } from './lib'
