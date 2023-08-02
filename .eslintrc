@@ -17,6 +17,36 @@
     ".yarn"
   ],
   "rules": {
+    "no-restricted-imports": [
+      "warn",
+      {
+        "paths": [
+          "@xyo-network/sdk-xyo-react",
+          "@xyo-network/modules",
+          "@xyo-network/node",
+          "@xyo-network/sdk",
+          "@xyo-network/plugins",
+          "@xyo-network/protocol",
+          "@xyo-network/react-modules",
+          "@xyo-network/react-plugins",
+          "@xyo-network/react-sdk",
+          "@xyo-network/react-test",
+          "lodash",
+          "react-player",
+          "filepond",
+          "aos",
+          "react-icons",
+          ".",
+          "..",
+          "../..",
+          "../../..",
+          "../../../..",
+          "../../../../..",
+          "../../../../../..",
+          "../../../../../../..",
+        ]
+      }
+    ],
     "import/no-default-export": "warn",
     "import/no-internal-modules": ["warn", {"allow": [
       "**/*.jpg",

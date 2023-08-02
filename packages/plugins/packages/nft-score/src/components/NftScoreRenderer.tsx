@@ -4,7 +4,8 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
 import ReportProblemIcon from '@mui/icons-material/ReportProblem'
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { NftScorePayload, NftScoreSchema, Score } from '@xyo-network/crypto-nft-payload-plugin'
+import { NftScorePayload, NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
+import { Score } from '@xyo-network/crypto-nft-score-model'
 import { Payload } from '@xyo-network/payload-model'
 
 export interface NftScoreRendererProps extends FlexBoxProps {

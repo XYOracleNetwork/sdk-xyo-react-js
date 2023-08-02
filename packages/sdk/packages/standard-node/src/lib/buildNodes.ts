@@ -1,4 +1,4 @@
-import { MemoryNode } from '@xyo-network/node'
+import { MemoryNode } from '@xyo-network/node-memory'
 import { defaultNetworkConfigs } from '@xyo-network/react-network'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
