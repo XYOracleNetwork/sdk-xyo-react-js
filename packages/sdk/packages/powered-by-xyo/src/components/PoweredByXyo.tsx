@@ -7,7 +7,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Module } from '@xyo-network/module-model'
 import { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode } from '@xyo-network/react-node'
-import { useMemo, useState } from 'react'
+import { KeyboardEvent, useMemo, useState } from 'react'
 
 import { DebugDialog } from './DebugDialog'
 import { PoweredByXyoButton } from './PoweredByXyoButton'
@@ -57,6 +57,12 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
 
   const activeHref = activeOnButtonClick ? undefined : href
 
+  const onKeyDownEscListener = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape' && debugDialogOpen) {
+      setDebugDialogOpen(false)
+    }
+  }
+
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
@@ -99,7 +105,9 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
       <Paper sx={{ borderRadius: 0 }}>
         <PoweredByXyoButton onClick={activeOnButtonClick} href={activeHref} busy={activeBusy} logoHeight={logoHeight} logoTextSize={logoTextSize} />
       </Paper>
-      {debugDialog ? <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} /> : null}
+      {debugDialog ? (
+        <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} onKeyDown={onKeyDownEscListener} />
+      ) : null}
     </FlexCol>
   )
 }
