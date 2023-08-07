@@ -10,11 +10,12 @@ import { useProvidedNode } from '@xyo-network/react-node'
 import { KeyboardEvent, useMemo, useState } from 'react'
 
 import { DebugDialog } from './DebugDialog'
-import { PoweredByXyoButton } from './PoweredByXyoButton'
+import { PoweredByXyoButton, PoweredByXyoButtonProps } from './PoweredByXyoButton'
 
 export interface PoweredByXyoProps extends FlexBoxProps {
   autoStop?: boolean
   busy?: boolean
+  buttonProps?: PoweredByXyoButtonProps
   debugDialog?: boolean
   disableAnimation?: boolean
   href?: ButtonExProps['href']
@@ -27,6 +28,7 @@ export interface PoweredByXyoProps extends FlexBoxProps {
 export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   autoStop,
   busy,
+  buttonProps = {},
   debugDialog = false,
   disableAnimation = false,
   href = 'https://xyo.network',
@@ -103,7 +105,15 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   return (
     <FlexCol alignItems="stretch" position="absolute" bottom="0" left="0" {...props}>
       <Paper sx={{ borderRadius: 0 }}>
-        <PoweredByXyoButton onClick={activeOnButtonClick} href={activeHref} busy={activeBusy} logoHeight={logoHeight} logoTextSize={logoTextSize} />
+        <PoweredByXyoButton
+          onClick={activeOnButtonClick}
+          href={activeHref}
+          busy={activeBusy}
+          logoHeight={logoHeight}
+          logoTextSize={logoTextSize}
+          fullWidth
+          {...buttonProps}
+        />
       </Paper>
       {debugDialog ? (
         <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} onKeyDown={onKeyDownEscListener} />
