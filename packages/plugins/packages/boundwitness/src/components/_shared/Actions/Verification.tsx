@@ -16,7 +16,7 @@ export interface BWVerification extends QuickTipButtonProps {
 }
 
 export const BWVerification: React.FC<BWVerification> = ({ boundwitness }) => {
-  const [errors = []] = usePromise(() => (boundwitness ? new BoundWitnessValidator(boundwitness) : undefined)?.validate(), [boundwitness])
+  const [errors = []] = usePromise(async () => await (boundwitness ? new BoundWitnessValidator(boundwitness) : undefined)?.validate(), [boundwitness])
 
   return (
     <QuickTipButton Icon={errors.length ? InvalidIcon : CheckCircleOutlineRoundedIcon} hoverText={errors.length ? 'Invalid Bound Witness' : 'Valid'}>
