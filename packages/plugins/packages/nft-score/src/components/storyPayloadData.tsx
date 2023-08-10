@@ -1,4 +1,4 @@
-import { NftScorePayload, NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
+import { NftScore, NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
 
 export const payloadDataFullScores = {
   'Animation URL': [1, 1],
@@ -15,9 +15,9 @@ export const payloadDataFullScores = {
   Type: [1, 1],
   'YouTube URL': [1, 1],
   schema: NftScoreSchema,
-} as unknown as NftScorePayload
+} as unknown as NftScore
 
-export const payloadDataPartialScores: NftScorePayload = {
+export const payloadDataPartialScores: NftScore = {
   'Animation URL': [10, 10],
   Attributes: [9, 10],
   'Background Color': [8, 10],
@@ -32,4 +32,4 @@ export const payloadDataPartialScores: NftScorePayload = {
   Type: [0, 10],
   'YouTube URL': [0, 10],
   schema: NftScoreSchema,
-} as unknown as NftScorePayload
+} as unknown as NftScore
