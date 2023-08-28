@@ -1,24 +1,17 @@
-import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { useState } from 'react'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
+import { NodeInstance } from '@xyo-network/node-model'
 
-import { useProvidedNode } from '../hooks'
+import { NodeDescriptionBox } from './NodeDescriptionBox'
 
-export const NodeBox: React.FC<FlexBoxProps> = (props) => {
-  const [node] = useProvidedNode()
-  const [description, setDescription] = useState<string>()
+export interface NodeBoxProps extends FlexBoxProps {
+  node?: string | NodeInstance
+  variant?: 'description'
+}
 
-  useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    async () => {
-      setDescription(JSON.stringify(await node?.describe(), null, 2))
-    },
-    [node],
-  )
-
-  return (
-    <FlexCol {...props}>
-      <pre>{description}</pre>
-    </FlexCol>
-  )
+export const NodeBox: React.FC<NodeBoxProps> = ({ variant, ...props }) => {
+  switch (variant) {
+    case 'description':
+    default:
+      return <NodeDescriptionBox {...props} />
+  }
 }

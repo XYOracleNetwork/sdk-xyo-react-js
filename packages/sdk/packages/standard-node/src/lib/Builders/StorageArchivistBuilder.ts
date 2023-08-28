@@ -1,5 +1,5 @@
 import { AccountInstance } from '@xyo-network/account-model'
-import { ArchivistModule, StorageArchivist, StorageArchivistConfig, StorageArchivistConfigSchema } from '@xyo-network/archivist'
+import { ArchivistModule, asArchivistInstance, StorageArchivist, StorageArchivistConfig, StorageArchivistConfigSchema } from '@xyo-network/archivist'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { asNodeInstance } from '@xyo-network/node-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
@@ -54,7 +54,7 @@ export class StorageArchivistBuilder {
     if (bridge) {
       try {
         const [archivist] = (await bridge.resolve({ name: ['Archivist'] })) ?? []
-        return archivist as ArchivistModule
+        return asArchivistInstance(archivist)
       } catch (e) {
         console.error('Error Resolving Parent Archivist', this.node?.config.name, this.config)
       }

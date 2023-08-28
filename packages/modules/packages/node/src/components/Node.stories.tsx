@@ -9,6 +9,7 @@ import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { useEffect, useState } from 'react'
 
 import { useModuleFromNode, useProvidedNode } from '../hooks'
+import { NodeBox } from './Node'
 import { TestModule, TestModuleConfigSchema } from './TestModule'
 
 const TestModuleName = 'TestModule'
@@ -25,19 +26,6 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-const UseModuleTest: React.FC<WithChildren> = ({ children }) => {
-  const [testModule] = useModuleFromNode(TestModuleName)
-
-  useEffect(() => {
-    if (testModule) {
-      // Should be called but isn't
-      console.log('*****test module*****', testModule)
-    }
-  }, [testModule])
-
-  return <>{children}</>
-}
-
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/node/NodeBox',
@@ -45,7 +33,6 @@ export default {
 
 const Template: StoryFn<React.FC> = (props) => {
   const [node] = useProvidedNode() as [MemoryNode]
-  const [description, setDescription] = useState<string>()
 
   const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
 
@@ -57,10 +44,6 @@ const Template: StoryFn<React.FC> = (props) => {
           const mod = await TestModule.create({ account, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
           await node?.register(mod)
           await node?.attach(mod.address, true)
-          const description = await node?.describe()
-          if (mounted()) {
-            setDescription(JSON.stringify(description, null, 2))
-          }
         } catch (e) {
           console.error(e)
         }
@@ -69,13 +52,7 @@ const Template: StoryFn<React.FC> = (props) => {
     [node, account],
   )
 
-  return (
-    <div {...props}>
-      <UseModuleTest>
-        <pre>{description}</pre>
-      </UseModuleTest>
-    </div>
-  )
+  return <NodeBox node={node} variant="description" maxWidth={640} />
 }
 
 const Default = Template.bind({})
