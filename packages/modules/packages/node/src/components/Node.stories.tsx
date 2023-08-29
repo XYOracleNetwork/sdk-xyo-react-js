@@ -29,14 +29,14 @@ export default {
   title: 'modules/node/NodeBox',
 } as Meta
 
-const Template: StoryFn<React.FC> = (props) => {
+const Template: StoryFn<React.FC> = () => {
   const [node] = useProvidedNode() as [MemoryNode]
 
   const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    async (mounted) => {
+    async () => {
       if (node && account) {
         try {
           const mod = await TestModule.create({ account, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
