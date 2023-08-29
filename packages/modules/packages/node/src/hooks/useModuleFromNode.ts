@@ -18,7 +18,6 @@ export const useModuleFromNodeConfigLogger = (config?: ModuleFromNodeConfig) => 
 }
 
 export const useModuleFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [ModuleInstance | undefined, Error | undefined] => {
-  console.log('useModuleFromNode')
   const [node, nodeError] = useNode(config)
   const logger = useModuleFromNodeConfigLogger(config)
   const filterOptions = useModuleFilterOptions(config)
