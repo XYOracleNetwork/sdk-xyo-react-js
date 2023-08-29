@@ -12,9 +12,11 @@ export type XyoBusyProps = Omit<FlexBoxProps, 'children'> & {
 export const XyoBusy: React.FC<XyoBusyProps> = ({ widthInPixels, busy, spinsPerSecond = 0.5, ...props }) => {
   //preloading image to prevent shifting
   const [imageLoaded, setImageLoaded] = useState(false)
-  const img = new Image()
-  img.onload = () => setImageLoaded(true)
-  img.src = xyoColorLogo
+  if (!imageLoaded) {
+    const img = new Image()
+    img.onload = () => setImageLoaded(true)
+    img.src = xyoColorLogo
+  }
   return imageLoaded ? (
     <FlexCol
       sx={{

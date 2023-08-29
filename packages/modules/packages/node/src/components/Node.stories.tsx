@@ -1,14 +1,12 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { WithChildren } from '@xylabs/react-shared'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
-import { useEffect, useState } from 'react'
 
-import { useModuleFromNode, useProvidedNode } from '../hooks'
+import { useProvidedNode } from '../hooks'
 import { NodeBox } from './Node'
 import { TestModule, TestModuleConfigSchema } from './TestModule'
 
