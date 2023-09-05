@@ -24,7 +24,7 @@ const WebAppBodyRoot = styled(FlexGrowCol, {
     overflowY: scrollable ? 'scroll' : 'hidden',
     paddingY: spacing,
     [theme.breakpoints.down(mobileScrollingBreakpoint)]: {
-      overflow: 'scroll',
+      overflowY: 'scroll',
     },
   })
 })
