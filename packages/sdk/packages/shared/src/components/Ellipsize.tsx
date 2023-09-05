@@ -2,6 +2,8 @@ import { Box, BoxProps, styled, Typography, TypographyProps, TypographyTypeMap }
 import { WithChildren } from '@xylabs/react-shared'
 import { forwardRef, useCallback, useState } from 'react'
 
+import { useShareForwardedRef } from '../hooks'
+
 /**
  * Heavily inspired by - https://stackoverflow.com/a/30362531/2803259
  */
@@ -88,9 +90,10 @@ export const EllipsizeBox = forwardRef<HTMLDivElement, WithChildren<EllipsizeBox
   ({ children, ellipsisPosition = 'start', typographyProps, ...props }, ref) => {
     // Allow syncing of :before pseudo element height with contentWrapHeight
     const { contentWrapRef, contentWrapHeight } = useClientHeight()
+    const sharedRef = useShareForwardedRef(ref)
 
     return (
-      <EllipsizeRoot beforeLineHeight={ref ? contentWrapHeight : undefined} {...props} ref={ref}>
+      <EllipsizeRoot beforeLineHeight={sharedRef ? contentWrapHeight : undefined} {...props} ref={ref}>
         <EllipsizeInnerWrap>
           <EllipsizeContentWrap ref={contentWrapRef} component={'span'} ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
             {children}
