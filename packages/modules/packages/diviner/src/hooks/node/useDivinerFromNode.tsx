@@ -1,8 +1,11 @@
 import { asDivinerInstance, DivinerInstance } from '@xyo-network/diviner'
 import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 
-export const useDivinerFromNode = (nameOrAddress?: string, config?: ModuleFromNodeConfig): [DivinerInstance | undefined, Error | undefined] => {
-  const [module, error] = useModuleFromNode(nameOrAddress, config)
+export const useDivinerFromNode = (
+  nameOrAddressOrInstance?: string | DivinerInstance,
+  config?: ModuleFromNodeConfig,
+): [DivinerInstance | undefined, Error | undefined] => {
+  const [module, error] = useModuleFromNode(nameOrAddressOrInstance, config)
   const instance = asDivinerInstance(module)
   if (module && !instance) {
     const error = Error(`Resolved module is not a DivinerInstance [${module.config?.schema}:${module.config?.name}:${module.address}]`)
