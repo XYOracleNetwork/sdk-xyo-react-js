@@ -3,8 +3,8 @@ import { ModuleFilter } from '@xyo-network/module'
 import { ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig'
 import { useModuleFilterOptions } from './useModuleFilterOptions'
-import { ModuleFromNodeConfig } from './useModuleFromNode'
 import { useNode } from './useNode'
 
 export const useModulesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeConfig): [ModuleInstance[] | undefined, Error | undefined] => {

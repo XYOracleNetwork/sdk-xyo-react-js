@@ -1,7 +1,7 @@
 import { usePromise } from '@xylabs/react-promise'
 import { ModuleDescription } from '@xyo-network/module-model'
 
-import { ModuleFromNodeConfig } from './useModuleFromNode'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig'
 import { useNode } from './useNode'
 
 export const useNodeDescription = (config?: ModuleFromNodeConfig | undefined): [ModuleDescription | undefined, Error | undefined] => {

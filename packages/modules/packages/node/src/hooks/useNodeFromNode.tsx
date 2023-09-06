@@ -1,6 +1,7 @@
 import { asNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
-import { ModuleFromNodeConfig, useModuleFromNode } from './useModuleFromNode'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig'
+import { useModuleFromNode } from './useModuleFromNode'
 
 export const useNodeFromNode = (
   nameOrAddressOrInstance?: string | NodeInstance,

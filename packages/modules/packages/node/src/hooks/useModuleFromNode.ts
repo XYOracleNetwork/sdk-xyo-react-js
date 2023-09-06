@@ -1,21 +1,11 @@
 import { usePromise } from '@xylabs/react-promise'
-import { Logger } from '@xyo-network/logger'
 import { asModuleInstance } from '@xyo-network/module'
-import { isModuleInstance, ModuleFilterOptions, ModuleInstance } from '@xyo-network/module-model'
-import { NodeInstance } from '@xyo-network/node-model'
+import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
+import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig'
 import { useModuleFilterOptions } from './useModuleFilterOptions'
 import { useNode } from './useNode'
-
-export type ModuleFromNodeConfig = ModuleFilterOptions & {
-  logger?: Logger
-  node?: NodeInstance | string
-}
-
-export const useModuleFromNodeConfigLogger = (config?: ModuleFromNodeConfig) => {
-  return config?.logger
-}
 
 export const useModuleFromNode = (
   nameOrAddressOrInstance?: string | ModuleInstance,

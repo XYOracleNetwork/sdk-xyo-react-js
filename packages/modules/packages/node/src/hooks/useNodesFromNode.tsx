@@ -1,7 +1,7 @@
 import { ModuleFilter } from '@xyo-network/module-model'
 import { isNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
-import { ModuleFromNodeConfig } from './useModuleFromNode'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig'
 import { useModulesFromNode } from './useModulesFromNode'
 
 export const useNodesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeConfig): [NodeInstance[] | null | undefined, Error | undefined] => {

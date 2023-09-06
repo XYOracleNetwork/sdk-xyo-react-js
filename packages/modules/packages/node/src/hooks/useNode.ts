@@ -1,8 +1,8 @@
 import { usePromise } from '@xylabs/react-promise'
 import { asNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig'
 import { useProvidedNode } from './provided'
-import { ModuleFromNodeConfig } from './useModuleFromNode'
 import { useNodeConfigNodeField } from './useNodeConfigNodeField'
 
 export const useNode = (config?: ModuleFromNodeConfig | undefined): [NodeInstance | undefined, Error | undefined] => {
