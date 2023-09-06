@@ -82,18 +82,19 @@ export type TypographyWithComponentProps<D extends React.ElementType = Typograph
 }
 
 export interface EllipsizeBoxProps extends BoxProps {
+  disableSharedRef?: boolean
   ellipsisPosition?: 'start' | 'end'
   typographyProps?: TypographyWithComponentProps
 }
 
 export const EllipsizeBox = forwardRef<HTMLDivElement, WithChildren<EllipsizeBoxProps>>(
-  ({ children, ellipsisPosition = 'start', typographyProps, ...props }, ref) => {
+  ({ children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props }, ref) => {
     // Allow syncing of :before pseudo element height with contentWrapHeight
     const { contentWrapRef, contentWrapHeight } = useClientHeight()
     const sharedRef = useShareForwardedRef(ref)
 
     return (
-      <EllipsizeRoot beforeLineHeight={sharedRef ? contentWrapHeight : undefined} {...props} ref={ref}>
+      <EllipsizeRoot beforeLineHeight={!!sharedRef && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={ref}>
         <EllipsizeInnerWrap>
           <EllipsizeContentWrap ref={contentWrapRef} component={'span'} ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
             {children}

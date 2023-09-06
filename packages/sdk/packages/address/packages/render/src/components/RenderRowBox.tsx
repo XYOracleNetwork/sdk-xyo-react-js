@@ -1,15 +1,15 @@
-import { ListItemIcon, ListItemText, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexGrowRow } from '@xylabs/react-flexbox'
+import { ListItemIcon, useTheme } from '@mui/material'
+import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
-import { WithChildren } from '@xylabs/react-shared'
 import { useEvent } from '@xyo-network/react-event'
 import { EllipsizeBox, useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
 import { FavoriteIconButton } from './favorite'
 
-export interface AddressRenderRowBoxPropsBase {
+export interface AddressRenderRowBoxProps extends FlexBoxProps {
   address?: string | null
+  disableSharedRef?: boolean
   favorite?: boolean
   iconOnly?: boolean
   iconSize?: number
@@ -18,17 +18,18 @@ export interface AddressRenderRowBoxPropsBase {
   showFavorite?: boolean
 }
 
-export interface AddressRenderRowBoxProps extends WithChildren, AddressRenderRowBoxPropsBase, FlexBoxProps {}
-
 export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxProps>(
-  ({ address, children, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, name, showFavorite = false, ...props }, ref) => {
+  (
+    { address, children, disableSharedRef, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, name, showFavorite = false, ...props },
+    ref,
+  ) => {
     const theme = useTheme()
 
     const sharedRef = useShareForwardedRef(ref)
     const [elementRef, dispatch] = useEvent(undefined, sharedRef)
 
     return (
-      <FlexGrowRow
+      <FlexRow
         gap={2}
         justifyContent="flex-start"
         ref={elementRef}
@@ -45,17 +46,20 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
           </ListItemIcon>
         ) : null}
         {iconOnly ? null : (
-          <ListItemText sx={{ my: 0 }}>
-            <EllipsizeBox ellipsisPosition={'end'} width="100%" typographyProps={{ fontSize: theme.typography.body1.fontSize }}>
-              {name ?? address}
-            </EllipsizeBox>
-          </ListItemText>
+          <EllipsizeBox
+            disableSharedRef={disableSharedRef}
+            ellipsisPosition={'end'}
+            width="100%"
+            typographyProps={{ fontSize: theme.typography.body1.fontSize }}
+          >
+            {name ?? address}
+          </EllipsizeBox>
         )}
         {children}
         {showFavorite && address ? (
           <FavoriteIconButton name={name} size={'small'} value={address} valueType={'address'} favorite={favoriteProp} />
         ) : null}
-      </FlexGrowRow>
+      </FlexRow>
     )
   },
 )

@@ -1,11 +1,11 @@
 import { CircularProgress, MenuItem, SelectProps } from '@mui/material'
 import { SelectEx } from '@xylabs/react-select'
-import { AddressRenderRowBox, AddressRenderRowBoxPropsBase } from '@xyo-network/react-address-render'
+import { AddressRenderRowBox, AddressRenderRowBoxProps } from '@xyo-network/react-address-render'
 
 import { useWalletContext } from '../../contexts'
-import { useAccount, useWallet } from '../../hooks'
+import { useWallet } from '../../hooks'
 
-type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxPropsBase, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
+type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxProps, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 
 export interface WalletAccountSelectProps extends SharedAddressRenderRowBoxProps, SelectProps<number> {
   addressNames?: Record<string, string | undefined>
@@ -33,22 +33,27 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
     <>
       {coinTypeWallet ? (
         <SelectEx
+          margin="dense"
           disabled={disabled}
-          renderValue={(selected) => {
+          renderValue={(selectedAccountIndex) => {
             const Item: React.FC = () => {
-              const [account] = useWallet({ path: selected.toString(), wallet: coinTypeWallet })
-              const customName = account ? addressNames[account.address] : undefined
-              const favorite = !!account && account.address in addressNames
+              const [selectedAccount] = useWallet({ path: selectedAccountIndex.toString(), wallet: coinTypeWallet })
+              const customName = selectedAccount ? addressNames[selectedAccount.address] : undefined
+              const favorite = !!selectedAccount && selectedAccount.address in addressNames
               return (
-                <AddressRenderRowBox
-                  address={account?.address}
-                  iconOnly={iconOnly}
-                  iconSize={iconSize}
-                  icons={icons}
-                  name={customName}
-                  favorite={favorite}
-                  showFavorite={showFavorite}
-                />
+                <MenuItem value={selectedAccountIndex} sx={{ minHeight: 0, paddingBottom: 0, paddingTop: 0 }}>
+                  <AddressRenderRowBox
+                    disableSharedRef={true}
+                    flexGrow={1}
+                    address={selectedAccount?.address}
+                    iconOnly={iconOnly}
+                    iconSize={iconSize}
+                    icons={icons}
+                    name={customName}
+                    favorite={favorite}
+                    showFavorite={showFavorite}
+                  />
+                </MenuItem>
               )
             }
             return <Item />
@@ -61,12 +66,14 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
         >
           {arrayRange(maxAccounts).map((index) => {
             const Item: React.FC = () => {
-              const [account] = useAccount({ index, wallet: coinTypeWallet })
+              const [account] = useWallet({ path: index.toString(), wallet: coinTypeWallet })
               const customName = account ? addressNames[account.address] : undefined
               const favorite = !!account && account.address in addressNames
               return (
-                <MenuItem key={account?.address} value={index}>
+                <MenuItem key={account?.address} value={index} sx={{ minHeight: 0, paddingBottom: 0, paddingTop: 0 }}>
                   <AddressRenderRowBox
+                    disableSharedRef={true}
+                    flexGrow={1}
                     address={account?.address}
                     favorite={favorite}
                     iconOnly={iconOnly}
