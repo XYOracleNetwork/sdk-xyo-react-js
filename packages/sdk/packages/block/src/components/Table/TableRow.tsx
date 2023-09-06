@@ -12,7 +12,6 @@ import { MdClear, MdDone } from 'react-icons/md'
 import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 
 export interface BlockTableRowProps extends TableRowProps {
-  archive?: string
   block?: BoundWitness
   columns?: BlockTableColumnConfig
   exploreDomain?: string
@@ -20,7 +19,6 @@ export interface BlockTableRowProps extends TableRowProps {
 }
 
 export const BlockTableRow: React.FC<BlockTableRowProps> = ({
-  archive,
   block,
   columns = blockTableColumnConfigDefaults(),
   exploreDomain,
@@ -35,16 +33,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const blockHash = usePayloadHash(block)
 
-  const hash = (
-    <HashTableCell
-      key="hash"
-      archive={archive}
-      value={blockHash}
-      dataType="block"
-      exploreDomain={exploreDomain}
-      network={networkProp ?? network?.slug}
-    />
-  )
+  const hash = <HashTableCell key="hash" value={blockHash} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
 
   const payloads = (
     <TableCell key="payloads" align="center">

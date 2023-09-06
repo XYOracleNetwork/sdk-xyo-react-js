@@ -6,13 +6,12 @@ import { usePayloadHash } from '@xyo-network/react-shared'
 import { BlockTableRow, BlockTableRowProps } from './TableRow'
 
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
-  archive?: string
   exploreDomain?: string
   index: number
   onRowClick?: (value: BoundWitness) => void
 }
 
-const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({ block, archive, columns, onRowClick, index, exploreDomain }) => {
+const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({ block, columns, onRowClick, index, exploreDomain }) => {
   const hash = usePayloadHash(block)
   return (
     <>
@@ -27,7 +26,6 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
           )}
         >
           <BlockTableRow
-            archive={archive}
             exploreDomain={exploreDomain}
             block={block}
             columns={columns}

@@ -9,7 +9,6 @@ import { BlockTableRowWithErrorBoundary } from './TableRowWithErrorBoundary'
 
 export const BlockTable: React.FC<BlockTableProps> = ({
   exploreDomain,
-  archive,
   onRowClick,
   blocks,
   columns = blockTableColumnConfigDefaults(),
@@ -35,8 +34,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
       <TableBody>
         {blockPairs?.map(([block, hash], index) => (
           <BlockTableRowWithErrorBoundary
-            archive={archive}
-            key={`${hash}`}
+            key={hash}
             block={block}
             index={index}
             exploreDomain={exploreDomain}
