@@ -1,3 +1,4 @@
+export * from './ModuleFromNodeConfig'
 export * from './provided'
 export * from './useModuleFilterOptions'
 export * from './useModuleFromNode'

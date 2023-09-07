@@ -39,10 +39,12 @@ export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScore) : undefined
   const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(isScore) : undefined
   const sources = nftScorePayload?.sources?.length ? nftScorePayload.sources.join(', ') : undefined
+  //this is temporary so that we can add the ability to get a timestamp via diviner later
+  const timestamp = Date.now()
   return (
     <FlexCol {...props}>
       <Typography variant="h1">{sources ? `NFT Scores (${sources})` : 'NFT Scores'}</Typography>
-      {nftScorePayload?.timestamp ? <Typography variant="h4">{`[${new Date(nftScorePayload?.timestamp).toLocaleString()}]`}</Typography> : null}
+      {timestamp ? <Typography variant="h4">{`[${new Date(timestamp).toLocaleString()}]`}</Typography> : null}
       {categories ? (
         <Table>
           <TableHead>
