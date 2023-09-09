@@ -1,8 +1,8 @@
 import { Slide } from '@mui/material'
+import { isEmpty } from '@xylabs/lodash'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import { useEvent } from '@xyo-network/react-event'
-import isEmpty from 'lodash/isEmpty'
 import { Fragment } from 'react'
 
 import { usePayloadHashSelectionHistory } from '../../../hooks'

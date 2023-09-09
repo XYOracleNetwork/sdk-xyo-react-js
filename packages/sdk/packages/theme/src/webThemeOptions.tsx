@@ -1,5 +1,5 @@
 import { ThemeOptions } from '@mui/material'
-import merge from 'lodash/merge'
+import { merge } from '@xylabs/lodash'
 
 import { themeOptions } from './themeOptions'
 

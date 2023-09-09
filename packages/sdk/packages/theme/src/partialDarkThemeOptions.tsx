@@ -1,5 +1,5 @@
 import { darken, ThemeOptions } from '@mui/material'
-import merge from 'lodash/merge'
+import { merge } from '@xylabs/lodash'
 
 const appComponents: ThemeOptions['components'] = {
   MuiPaper: {

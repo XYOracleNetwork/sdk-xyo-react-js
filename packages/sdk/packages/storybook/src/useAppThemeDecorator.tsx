@@ -1,7 +1,7 @@
 import { Decorator } from '@storybook/react'
+import { merge } from '@xylabs/lodash'
 import { InvertibleThemeProvider } from '@xylabs/react-invertible-theme'
 import { appThemeOptions, partialAppDarkThemeOptions, partialAppLightThemeOptions, themeOptions } from '@xyo-network/react-theme'
-import merge from 'lodash/merge'
 import { useDarkMode } from 'storybook-dark-mode'
 
 const useAppThemeDecorator: Decorator = (Story, { args }) => {
