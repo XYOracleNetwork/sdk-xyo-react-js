@@ -2,8 +2,8 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
+import { PayloadHasher } from '@xyo-network/hash'
 import { Payload } from '@xyo-network/payload-model'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { Property, PropertyAction, PropertyProps } from '@xyo-network/react-property'
 import { SizeProp, usePayloadHash } from '@xyo-network/react-shared'
 import { useState } from 'react'
@@ -17,7 +17,7 @@ export type PayloadDataDetailsProps = PropertyProps & {
 }
 
 export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, badge, payload, ...props }) => {
-  const wrapper = payload ? PayloadWrapper.wrap(payload) : undefined
+  const payloadString = payload ? JSON.stringify(PayloadHasher.hashFields(payload), null, 2) : ''
 
   const [viewSourceOpen, setViewSourceOpen] = useState(false)
   const hash = usePayloadHash(payload)
@@ -41,7 +41,7 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
   ]
 
   const onCopy = async () => {
-    await navigator.clipboard.writeText(wrapper?.stringified ?? '')
+    await navigator.clipboard.writeText(payloadString)
   }
 
   return (

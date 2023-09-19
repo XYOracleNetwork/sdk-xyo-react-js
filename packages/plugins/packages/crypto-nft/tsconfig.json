@@ -4,7 +4,7 @@
     "declarationDir": "../nft-score/dist/types",
     "typeRoots": []
   },
-  "exclude": ["dist", "docs"],
+  "exclude": ["dist", "docs", "packages", "node_modules"],
   "extends": "@xylabs/tsconfig-react",
   "include": ["../nft-score/src"]
 }

@@ -4,6 +4,7 @@ import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded'
 import { AvatarProps, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
+import { PayloadHasher } from '@xyo-network/hash'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
@@ -40,6 +41,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   const { resolver } = usePayloadRenderPluginResolver()
   const [validationErrors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = validationErrors.length === 0
+  const payloadFieldCount = payload ? Object.keys(PayloadHasher.hashFields(payload)).length : 0
   const hash: React.FC<HashTableCellProps> = (props) => (
     <HashTableCell
       key="hash"
@@ -64,7 +66,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   const details: React.FC<TableCellProps> = (props) => (
     <TableCell key="payloads" align="left" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {payload?.sources}
+        {payloadFieldCount}
       </Typography>
     </TableCell>
   )

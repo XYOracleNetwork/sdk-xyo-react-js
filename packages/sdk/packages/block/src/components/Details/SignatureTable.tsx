@@ -34,7 +34,7 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
-  const hash = block ? new PayloadHasher(block).hash : undefined
+  const hash = block ? new PayloadHasher(block).hashSync() : undefined
 
   return (
     <ScrollTableOnSm>

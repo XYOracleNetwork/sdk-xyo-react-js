@@ -2,8 +2,8 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import { IconButton, Typography, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
+import { PayloadHasher } from '@xyo-network/hash'
 import { Payload } from '@xyo-network/payload-model'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 
 export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
   noTitle?: boolean
@@ -12,7 +12,7 @@ export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
 
 export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> = ({ noTitle = false, payload, ...props }) => {
   const theme = useTheme()
-  const payloadWrapper = payload ? PayloadWrapper.wrap(payload) : null
+  const payloadString = payload ? JSON.stringify(PayloadHasher.hashFields(payload), null, 2) : ''
 
   return (
     <FlexCol alignItems="stretch" {...props}>
@@ -25,7 +25,7 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
       <FlexRow>
         <FlexGrowRow background border={1} borderColor={theme.palette.divider} justifyContent="start">
           <Typography padding={2} fontFamily="monospace" variant="body1" sx={{ overflowWrap: 'break-word', wordBreak: 'break-all' }}>
-            {payloadWrapper?.stringified ?? ''}
+            {payloadString}
           </Typography>
         </FlexGrowRow>
         <IconButton>
