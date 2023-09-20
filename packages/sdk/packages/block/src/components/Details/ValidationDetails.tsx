@@ -1,4 +1,3 @@
-/* eslint-disable deprecation/deprecation */
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'

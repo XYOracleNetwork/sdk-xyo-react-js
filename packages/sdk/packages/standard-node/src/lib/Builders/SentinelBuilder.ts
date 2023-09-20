@@ -1,6 +1,6 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { assertDefinedEx } from '@xyo-network/react-shared'
-import { MemorySentinel, SentinelConfig, SentinelParams } from '@xyo-network/sentinel'
+import { MemorySentinel, MemorySentinelParams, SentinelConfig } from '@xyo-network/sentinel'
 
 export class SentinelBuilder {
   private _sentinel: MemorySentinel | undefined
@@ -27,7 +27,7 @@ export class SentinelBuilder {
     return (await MemorySentinel.create(params)) as MemorySentinel
   }
 
-  private buildParams(): SentinelParams {
+  private buildParams(): MemorySentinelParams {
     return {
       account: this.account,
       config: this.config,
