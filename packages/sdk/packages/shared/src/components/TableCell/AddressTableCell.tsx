@@ -1,4 +1,3 @@
-/* eslint-disable deprecation/deprecation */
 import { forwardRef } from 'react'
 
 import { EllipsisTableCell, EllipsisTableCellProps } from './EllipsisTableCell'

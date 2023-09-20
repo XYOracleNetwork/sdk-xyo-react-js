@@ -1,4 +1,3 @@
-/* eslint-disable deprecation/deprecation */
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'

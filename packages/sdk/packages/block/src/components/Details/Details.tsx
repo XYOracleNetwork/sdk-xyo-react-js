@@ -1,5 +1,4 @@
 /* eslint-disable import/no-deprecated */
-/* eslint-disable deprecation/deprecation */
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { BoundWitness } from '@xyo-network/boundwitness-model'

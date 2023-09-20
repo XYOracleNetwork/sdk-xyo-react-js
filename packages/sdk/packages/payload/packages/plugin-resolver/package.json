@@ -10,10 +10,10 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/assert": "^2.11.5",
-    "@xyo-network/payload-model": "^2.74.0",
-    "@xyo-network/payload-plugin": "^2.74.0",
-    "@xyo-network/payloadset-plugin": "^2.74.0",
+    "@xylabs/assert": "^2.11.7",
+    "@xyo-network/payload-model": "^2.74.1",
+    "@xyo-network/payload-plugin": "^2.74.1",
+    "@xyo-network/payloadset-plugin": "^2.74.1",
     "@xyo-network/react-payload-plugin": "workspace:~",
     "@xyo-network/react-shared": "workspace:~"
   },
@@ -27,31 +27,39 @@
     "react-router-dom": "^6"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^2.19.5",
+    "@xylabs/ts-scripts-yarn3": "^3.0.28",
     "typescript": "^5.2.2"
   },
   "description": "Common React library for all XYO projects that use React",
-  "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {
     ".": {
       "node": {
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js"
+        "import": {
+          "types": "./dist/index.d.mts",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        }
       },
       "browser": {
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js"
+        "import": {
+          "types": "./dist/index.d.mts",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        }
       },
-      "default": "./dist/esm/index.js"
-    },
-    "./dist/docs.json": {
-      "default": "./dist/docs.json"
+      "default": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",
@@ -72,6 +80,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "version": "2.61.0"
 }

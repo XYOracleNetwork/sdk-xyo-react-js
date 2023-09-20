@@ -1,5 +1,4 @@
 /* eslint-disable import/no-deprecated */
-/* eslint-disable deprecation/deprecation */
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/core'

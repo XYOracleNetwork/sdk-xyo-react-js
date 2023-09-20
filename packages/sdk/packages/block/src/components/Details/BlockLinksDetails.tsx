@@ -1,4 +1,3 @@
-/* eslint-disable deprecation/deprecation */
 import { Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'

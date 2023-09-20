@@ -1,4 +1,5 @@
-import { Variant } from '@mui/material/styles/createTypography'
+
+import type { Variant } from '@mui/material/styles/createTypography'
 import { EllipsizeBox, EllipsizeBoxProps } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
