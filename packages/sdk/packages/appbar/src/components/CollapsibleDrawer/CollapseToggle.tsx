@@ -1,7 +1,7 @@
 import { Icon, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
-import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc/index'
+import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc/index.js'
 
 import { useCollapsible } from '../../contexts'
 

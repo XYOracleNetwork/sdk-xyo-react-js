@@ -5,8 +5,8 @@ import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import { forwardRef, useMemo } from 'react'
-import { FaSignature } from 'react-icons/fa/index'
-import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc/index'
+import { FaSignature } from 'react-icons/fa/index.js'
+import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc/index.js'
 
 import {
   BoundWitnessPayloadsTable,

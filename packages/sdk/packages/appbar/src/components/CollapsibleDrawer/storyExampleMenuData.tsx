@@ -11,7 +11,7 @@ import {
   VscSymbolMethod,
   VscSymbolNamespace,
   VscTable,
-} from 'react-icons/vsc/index'
+} from 'react-icons/vsc/index.js'
 
 import { MenuListItemProps } from '../SiteMenu'
 

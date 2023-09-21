@@ -1,6 +1,6 @@
 import { IconButton, IconButtonProps, useTheme } from '@mui/material'
 import { Dispatch, SetStateAction, SyntheticEvent } from 'react'
-import { VscChevronDown } from 'react-icons/vsc/index'
+import { VscChevronDown } from 'react-icons/vsc/index.js'
 
 export interface SubNavToggleIconButtonProps extends IconButtonProps {
   openSubNav?: boolean
