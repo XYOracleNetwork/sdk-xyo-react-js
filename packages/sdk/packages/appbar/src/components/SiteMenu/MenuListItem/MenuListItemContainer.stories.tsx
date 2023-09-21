@@ -1,6 +1,6 @@
 import { List } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
-import { FaGlobeAmericas } from 'react-icons/fa'
+import { FaGlobeAmericas } from 'react-icons/fa/index'
 import { BrowserRouter } from 'react-router-dom'
 
 import { MenuListItemContainer, MenuListItemProps } from './MenuListItemContainer'

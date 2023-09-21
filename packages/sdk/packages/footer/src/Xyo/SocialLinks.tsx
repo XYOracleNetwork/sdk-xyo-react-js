@@ -1,6 +1,6 @@
 import { Facebook, Instagram, LinkedIn, Reddit, Telegram, Twitter, YouTube } from '@mui/icons-material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
-import { FaDiscord } from 'react-icons/fa'
+import { FaDiscord } from 'react-icons/fa/index'
 
 import { FooterLink } from '../Link'
 import { FooterLinks } from '../Links'

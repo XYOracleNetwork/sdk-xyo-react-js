@@ -1,8 +1,8 @@
 import { BottomNavigation, BottomNavigationAction, BottomNavigationProps, styled } from '@mui/material'
 import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { Dispatch, forwardRef, SetStateAction } from 'react'
-import { FaSignature } from 'react-icons/fa'
-import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
+import { FaSignature } from 'react-icons/fa/index'
+import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc/index'
 
 export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps {
   activeTab?: number

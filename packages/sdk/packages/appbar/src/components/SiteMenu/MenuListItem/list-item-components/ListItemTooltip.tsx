@@ -1,6 +1,6 @@
 import { Tooltip, TooltipProps } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { VscInfo } from 'react-icons/vsc'
+import { VscInfo } from 'react-icons/vsc/index'
 
 export interface ListItemTooltipProps extends Omit<TooltipProps, 'children'> {
   title: string
