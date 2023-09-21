@@ -1,5 +1,4 @@
-import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded'
-import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded'
+import { ExpandLessRounded as ExpandLessRoundedIcon, ExpandMoreRounded as ExpandMoreRoundedIcon } from '@mui/icons-material'
 import { Card, CardProps, Divider, IconButton } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'

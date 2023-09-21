@@ -1,4 +1,4 @@
-import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded'
+import { Inventory2Rounded as Inventory2RoundedIcon } from '@mui/icons-material'
 import { ArchivistInstance } from '@xyo-network/archivist-model'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary'

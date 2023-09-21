@@ -1,7 +1,9 @@
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'
-import DangerousIcon from '@mui/icons-material/Dangerous'
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
-import ReportProblemIcon from '@mui/icons-material/ReportProblem'
+import {
+  CheckCircle as CheckCircleIcon,
+  Dangerous as DangerousIcon,
+  EmojiEvents as EmojiEventsIcon,
+  ReportProblem as ReportProblemIcon,
+} from '@mui/icons-material'
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { NftScore, NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'

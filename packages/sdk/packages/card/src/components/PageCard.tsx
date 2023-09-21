@@ -1,4 +1,4 @@
-import RefreshIcon from '@mui/icons-material/Refresh'
+import { Refresh as RefreshIcon } from '@mui/icons-material'
 import { CardHeader, CardHeaderProps, IconButton } from '@mui/material'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { forwardRef, ReactNode } from 'react'

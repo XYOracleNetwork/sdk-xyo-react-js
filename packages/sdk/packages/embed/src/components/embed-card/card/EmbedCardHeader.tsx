@@ -1,4 +1,4 @@
-import RefreshIcon from '@mui/icons-material/Refresh'
+import { Refresh as RefreshIcon } from '@mui/icons-material'
 import { Avatar, CardHeader, CardHeaderProps, Chip, Theme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 

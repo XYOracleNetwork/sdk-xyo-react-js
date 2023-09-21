@@ -1,5 +1,4 @@
-import StarIcon from '@mui/icons-material/Star'
-import StarBorderIcon from '@mui/icons-material/StarBorder'
+import { Star as StarIcon, StarBorder as StarBorderIcon } from '@mui/icons-material'
 
 export const FavoriteToggleSVG: React.FC<{ favorite?: boolean }> = ({ favorite }) => (
   <>

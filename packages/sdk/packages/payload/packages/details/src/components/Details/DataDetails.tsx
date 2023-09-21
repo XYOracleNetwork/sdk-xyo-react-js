@@ -1,5 +1,4 @@
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import VisibilityIcon from '@mui/icons-material/Visibility'
+import { ContentCopy as ContentCopyIcon, Visibility as VisibilityIcon } from '@mui/icons-material'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { PayloadHasher } from '@xyo-network/hash'

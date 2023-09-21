@@ -1,6 +1,4 @@
-import NewReleasesIcon from '@mui/icons-material/NewReleases'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
-import VerifiedIcon from '@mui/icons-material/Verified'
+import { NewReleases as NewReleasesIcon, OpenInNew as OpenInNewIcon, Verified as VerifiedIcon } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { LinkEx } from '@xylabs/react-link'

@@ -1,4 +1,4 @@
-import InsertLinkRoundedIcon from '@mui/icons-material/InsertLinkRounded'
+import { InsertLinkRounded as InsertLinkRoundedIcon } from '@mui/icons-material'
 import { BridgeInstance } from '@xyo-network/bridge-model'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary'

@@ -1,6 +1,4 @@
-import FacebookIcon from '@mui/icons-material/Facebook'
-import ShareIcon from '@mui/icons-material/Share'
-import TwitterIcon from '@mui/icons-material/Twitter'
+import { Facebook as FacebookIcon, Share as ShareIcon, Twitter as TwitterIcon } from '@mui/icons-material'
 import { Popover } from '@mui/material'
 import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { FlexRow } from '@xylabs/react-flexbox'

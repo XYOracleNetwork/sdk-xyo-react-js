@@ -1,4 +1,4 @@
-import DataObjectIcon from '@mui/icons-material/DataObject'
+import { DataObject as DataObjectIcon } from '@mui/icons-material'
 import { Chip } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'

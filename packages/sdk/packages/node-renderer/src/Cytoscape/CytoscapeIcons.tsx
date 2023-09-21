@@ -1,10 +1,12 @@
-import BubbleChartRoundedIcon from '@mui/icons-material/BubbleChartRounded'
-import HubIcon from '@mui/icons-material/Hub'
-import InsertLinkRoundedIcon from '@mui/icons-material/InsertLinkRounded'
-import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded'
-import QuestionMarkRoundedIcon from '@mui/icons-material/QuestionMarkRounded'
-import TimerRoundedIcon from '@mui/icons-material/TimerRounded'
-import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded'
+import {
+  BubbleChartRounded as BubbleChartRoundedIcon,
+  Hub as HubIcon,
+  InsertLinkRounded as InsertLinkRoundedIcon,
+  Inventory2Rounded as Inventory2RoundedIcon,
+  QuestionMarkRounded as QuestionMarkRoundedIcon,
+  TimerRounded as TimerRoundedIcon,
+  VisibilityRounded as VisibilityRoundedIcon,
+} from '@mui/icons-material'
 import { SvgIconTypeMap } from '@mui/material'
 import { OverridableComponent } from '@mui/material/OverridableComponent'
 

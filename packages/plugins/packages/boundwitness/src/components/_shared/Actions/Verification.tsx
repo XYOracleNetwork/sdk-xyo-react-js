@@ -1,5 +1,4 @@
-import CancelRoundedIcon from '@mui/icons-material/CancelRounded'
-import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded'
+import { CancelRounded as CancelRoundedIcon, CheckCircleOutlineRounded as CheckCircleOutlineRoundedIcon } from '@mui/icons-material'
 import { SvgIconProps, Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'

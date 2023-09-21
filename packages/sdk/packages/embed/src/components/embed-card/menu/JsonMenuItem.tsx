@@ -1,4 +1,4 @@
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+import { OpenInNew as OpenInNewIcon } from '@mui/icons-material'
 import { ListItemIcon, ListItemText, MenuItem, MenuItemProps } from '@mui/material'
 
 import { useResolvePayload } from '../../../contexts'

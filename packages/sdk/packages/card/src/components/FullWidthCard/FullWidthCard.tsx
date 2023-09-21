@@ -1,4 +1,4 @@
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
+import { ArrowForwardRounded as ArrowForwardRoundedIcon } from '@mui/icons-material'
 import { alpha, Card, CardActions, CardContent, CardMedia, CardProps, Grid, IconButton, Typography, useTheme, Zoom } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useIsMobile } from '@xyo-network/react-shared'
