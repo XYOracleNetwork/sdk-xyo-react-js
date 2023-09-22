@@ -1,5 +1,5 @@
 import { ModuleManifest } from '@xyo-network/manifest-model'
-import { NodeInstance } from '@xyo-network/node-model'
+import { NodeInstance, isNodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 
 import { parseModuleType } from './lib'
@@ -22,13 +22,12 @@ export class CytoscapeElements {
       const [, newRootNode] = await CytoscapeElements.buildRootNode(node)
       const newElements: ElementDefinition[] = [newRootNode]
 
-      const children = await Promise.all(
-        (await node.resolve()).map<Promise<[ModuleManifest, string]>>(async (child) => [await child.manifest(), child.address]),
-      )
+      const children = await CytoscapeElements.recurseNodes(node)
+
       await Promise.allSettled(
         (children ?? [])?.map(async ([child, address]) => {
           try {
-            const newNode = await CytoscapeElements.buildNode(child, address)
+            const newNode = CytoscapeElements.buildNode(child, address)
             newElements.push(newNode)
 
             const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
@@ -42,6 +41,31 @@ export class CytoscapeElements {
     } catch (e) {
       console.error('Error Getting initial description', e)
     }
+  }
+
+  static async recurseNodes(node: NodeInstance, maxTraversals = 1): Promise<[ModuleManifest, string][]> {
+    let localDepth = 0
+    const childManifests: [ModuleManifest, string][] = []
+
+    const traverse = async (nestedNode: NodeInstance) => {
+      if (localDepth < maxTraversals) {
+        const modules = await nestedNode.resolve(undefined, { maxDepth: 2, direction: 'down' })
+        await Promise.all(modules.map(async (child) => {
+          // if (child.config.schema.includes('bridge')) {
+          //   console.log(await child.resolve())
+          // }
+          if (child !== nestedNode && isNodeInstance(child)) {
+            localDepth++
+            await traverse(child)
+            // don't add the root node that was passed in
+          } else if (child !== node) {
+            childManifests.push([await child.manifest(), child.address])
+          }
+        }))
+      }
+    }
+    await traverse(node)
+    return childManifests
   }
 
   static buildNode(manifest: ModuleManifest, address: string): ElementDefinition {
