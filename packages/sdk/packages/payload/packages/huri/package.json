@@ -10,12 +10,12 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-promise": "^3.1.0-rc.3",
-    "@xyo-network/diviner": "^2.74.4",
+    "@xylabs/react-promise": "^3.1.0-rc.6",
+    "@xyo-network/diviner": "^2.74.5",
     "@xyo-network/react-network": "workspace:~"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^3.0.28",
+    "@xylabs/ts-scripts-yarn3": "^3.0.55",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
@@ -33,30 +33,30 @@
     ".": {
       "node": {
         "import": {
-          "types": "./dist/index.d.mts",
-          "default": "./dist/index.mjs"
+          "types": "./dist/node/index.d.mts",
+          "default": "./dist/node/index.mjs"
         },
         "require": {
-          "types": "./dist/index.d.ts",
-          "default": "./dist/index.js"
+          "types": "./dist/node/index.d.ts",
+          "default": "./dist/node/index.js"
         }
       },
       "browser": {
         "import": {
-          "types": "./dist/index.d.mts",
-          "default": "./dist/index.mjs"
+          "types": "./dist/browser/index.d.ts",
+          "default": "./dist/browser/index.js"
         },
         "require": {
-          "types": "./dist/index.d.ts",
-          "default": "./dist/index.js"
+          "types": "./dist/browser/index.d.ts",
+          "default": "./dist/browser/index.js"
         }
       },
-      "default": "./dist/index.mjs"
+      "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/browser/index.js",
+  "module": "dist/browser/index.js",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",
@@ -77,7 +77,7 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/index.d.ts",
+  "types": "dist/browser/index.d.ts",
   "version": "2.64.0-rc.3",
   "stableVersion": "2.63.1"
 }

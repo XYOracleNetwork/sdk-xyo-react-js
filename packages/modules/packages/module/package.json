@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@xylabs/eth-address": "^2.11.7",
-    "@xylabs/react-button": "^3.1.0-rc.3",
-    "@xylabs/react-crypto": "^3.1.0-rc.3",
-    "@xylabs/react-flexbox": "^3.1.0-rc.3",
-    "@xylabs/react-promise": "^3.1.0-rc.3",
-    "@xyo-network/diviner": "^2.74.4",
-    "@xyo-network/module": "^2.74.4",
+    "@xylabs/react-button": "^3.1.0-rc.6",
+    "@xylabs/react-crypto": "^3.1.0-rc.6",
+    "@xylabs/react-flexbox": "^3.1.0-rc.6",
+    "@xylabs/react-promise": "^3.1.0-rc.6",
+    "@xyo-network/diviner": "^2.74.5",
+    "@xyo-network/module": "^2.74.5",
     "@xyo-network/react-shared": "workspace:~"
   },
   "devDependencies": {
@@ -29,13 +29,13 @@
     "@uniswap/sdk": "^3.0.3",
     "@uniswap/sdk-core": "^4.0.7",
     "@uniswap/v3-sdk": "^3.10.0",
-    "@xylabs/react-async-effect": "^3.1.0-rc.3",
-    "@xylabs/ts-scripts-yarn3": "^3.0.28",
-    "@xylabs/tsconfig-react": "^3.0.28",
-    "@xyo-network/archivist": "^2.74.4",
-    "@xyo-network/crypto-asset-plugin": "^2.74.4",
-    "@xyo-network/diviner-address-history": "^2.74.4",
-    "@xyo-network/node-memory": "^2.74.4",
+    "@xylabs/react-async-effect": "^3.1.0-rc.6",
+    "@xylabs/ts-scripts-yarn3": "^3.0.55",
+    "@xylabs/tsconfig-react": "^3.0.55",
+    "@xyo-network/archivist": "^2.74.5",
+    "@xyo-network/crypto-asset-plugin": "^2.74.5",
+    "@xyo-network/diviner-address-history": "^2.74.5",
+    "@xyo-network/node-memory": "^2.74.5",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
@@ -53,30 +53,30 @@
     ".": {
       "node": {
         "import": {
-          "types": "./dist/index.d.mts",
-          "default": "./dist/index.mjs"
+          "types": "./dist/node/index.d.mts",
+          "default": "./dist/node/index.mjs"
         },
         "require": {
-          "types": "./dist/index.d.ts",
-          "default": "./dist/index.js"
+          "types": "./dist/node/index.d.ts",
+          "default": "./dist/node/index.js"
         }
       },
       "browser": {
         "import": {
-          "types": "./dist/index.d.mts",
-          "default": "./dist/index.mjs"
+          "types": "./dist/browser/index.d.ts",
+          "default": "./dist/browser/index.js"
         },
         "require": {
-          "types": "./dist/index.d.ts",
-          "default": "./dist/index.js"
+          "types": "./dist/browser/index.d.ts",
+          "default": "./dist/browser/index.js"
         }
       },
-      "default": "./dist/index.mjs"
+      "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/browser/index.js",
+  "module": "dist/browser/index.js",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",
@@ -97,7 +97,7 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/index.d.ts",
+  "types": "dist/browser/index.d.ts",
   "version": "2.64.0-rc.3",
   "stableVersion": "2.63.1"
 }
