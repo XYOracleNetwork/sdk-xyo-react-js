@@ -8,7 +8,7 @@ import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { NodeProvider, useNodeFromNode, useProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
+import { WalletProvider, useWallet } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
@@ -19,7 +19,7 @@ import { options } from './story'
 
 const nodeUrl = 'http://localhost:8080/node'
 
-export const MemoryNodeDecorator: Decorator = (Story, args) => {
+const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(
