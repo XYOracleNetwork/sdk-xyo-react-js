@@ -1,7 +1,8 @@
 import { ModuleManifest } from '@xyo-network/manifest-model'
-import { NodeInstance, isNodeInstance } from '@xyo-network/node-model'
+import { isNodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 
+import { ModuleInstance } from '@xyo-network/module'
 import { parseModuleType } from './lib'
 
 export class CytoscapeElements {
@@ -17,12 +18,12 @@ export class CytoscapeElements {
     }
   }
 
-  static async buildElements(node: NodeInstance) {
+  static async buildElements(module: ModuleInstance) {
     try {
-      const [, newRootNode] = await CytoscapeElements.buildRootNode(node)
+      const [, newRootNode] = await CytoscapeElements.buildRootNode(module)
       const newElements: ElementDefinition[] = [newRootNode]
 
-      const children = await CytoscapeElements.recurseNodes(node)
+      const children = await CytoscapeElements.recurseNodes(module)
 
       await Promise.allSettled(
         (children ?? [])?.map(async ([child, address]) => {
@@ -43,11 +44,11 @@ export class CytoscapeElements {
     }
   }
 
-  static async recurseNodes(node: NodeInstance, maxTraversals = 1): Promise<[ModuleManifest, string][]> {
+  static async recurseNodes(module: ModuleInstance, maxTraversals = 1): Promise<[ModuleManifest, string][]> {
     let localDepth = 0
     const childManifests: [ModuleManifest, string][] = []
 
-    const traverse = async (nestedNode: NodeInstance) => {
+    const traverse = async (nestedNode: ModuleInstance) => {
       if (localDepth < maxTraversals) {
         const modules = await nestedNode.resolve(undefined, { maxDepth: 2, direction: 'down' })
         await Promise.all(modules.map(async (child) => {
@@ -57,14 +58,14 @@ export class CytoscapeElements {
           if (child !== nestedNode && isNodeInstance(child)) {
             localDepth++
             await traverse(child)
-            // don't add the root node that was passed in
-          } else if (child !== node) {
+            // don't re add the root module that was passed in
+          } else if (child !== module) {
             childManifests.push([await child.manifest(), child.address])
           }
         }))
       }
     }
-    await traverse(node)
+    await traverse(module)
     return childManifests
   }
 
@@ -79,9 +80,9 @@ export class CytoscapeElements {
     }
   }
 
-  static buildRootNode = async (node: NodeInstance): Promise<[ModuleManifest, ElementDefinition]> => {
-    const manifest = await node?.manifest()
-    return [manifest, CytoscapeElements.buildNode(manifest, node.address)]
+  static buildRootNode = async (module: ModuleInstance): Promise<[ModuleManifest, ElementDefinition]> => {
+    const manifest = await module?.manifest()
+    return [manifest, CytoscapeElements.buildNode(manifest, module.address)]
   }
 
   static normalizeName(name?: string) {
