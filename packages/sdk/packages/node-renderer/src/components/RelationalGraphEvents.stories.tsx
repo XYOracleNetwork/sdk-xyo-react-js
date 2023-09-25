@@ -5,7 +5,7 @@ import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { NodeProvider, useProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
+import { WalletProvider, useWallet } from '@xyo-network/react-wallet'
 import { EventObject } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
