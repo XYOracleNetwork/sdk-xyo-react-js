@@ -1,7 +1,8 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
 import { useModuleFromNode } from '@xyo-network/react-node'
-import { EventObject, NodeDataDefinition } from 'cytoscape'
+import { EventObject, NodeDataDefinition, use } from 'cytoscape'
+import cola from 'cytoscape-cola'
 import { useEffect, useMemo, useState } from 'react'
 
 import { useCytoscapeInstance } from '../contexts'
@@ -25,14 +26,19 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
     if (newElements.length) {
       const { elements, ...rest } = options
       const existingElements = Array.isArray(elements) ? elements : []
+
       return {
         elements: [...existingElements, ...newElements],
         ...rest,
       }
     }
-  }, [newElements, options])
+  }, [options, newElements])
 
   const resolvedOptions = updatedOptions ?? options
+
+  useEffect(() => {
+    use(cola)
+  }, [])
 
   useEffect(() => {
     const listener = (event: EventObject) => {
