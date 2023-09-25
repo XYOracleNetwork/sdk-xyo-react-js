@@ -17,15 +17,16 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   const options = useRelationalGraphOptions(rootModule ?? undefined)
 
   const [selectedElement, setSelectedElement] = useState<NodeDataDefinition>()
-  const { address: selectedAddress, rootNodeId: selectedRootNodeId } = selectedElement?.data() ?? {}
+  const { address: selectedAddress } = selectedElement?.data() ?? {}
   const [module] = useModuleFromNode(selectedAddress)
   const newElements = useCytoscapeElements(module)
 
   const updatedOptions = useMemo(() => {
     if (newElements.length) {
-      const { elements: existingElements, ...rest } = options
+      const { elements, ...rest } = options
+      const existingElements = Array.isArray(elements) ? elements : []
       return {
-        elements: [...newElements],
+        elements: [...existingElements, ...newElements],
         ...rest,
       }
     }
@@ -36,7 +37,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   useEffect(() => {
     const listener = (event: EventObject) => {
       const element = event.target[0]
-      setSelectedElement(element)
+      if (element.isNode()) setSelectedElement(element)
     }
     if (cy) {
       cy.on('select', listener)
