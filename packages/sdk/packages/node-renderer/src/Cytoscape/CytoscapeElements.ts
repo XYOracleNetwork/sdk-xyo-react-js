@@ -1,7 +1,7 @@
+import { ModuleInstance } from '@xyo-network/module'
 import { isNodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 
-import { ModuleInstance } from '@xyo-network/module'
 import { parseModuleType } from './lib'
 
 export class CytoscapeElements {
@@ -24,23 +24,45 @@ export class CytoscapeElements {
 
       const children = await CytoscapeElements.recurseNodes(module)
 
-      await Promise.allSettled(
-        (children ?? [])?.map(async (module) => {
-          try {
-            const newNode = CytoscapeElements.buildNode(module)
-            newElements.push(newNode)
+      children?.map((module) => {
+        try {
+          const newNode = CytoscapeElements.buildNode(module, newRootNode.data.id)
+          newElements.push(newNode)
 
-            const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
-            newElements.push(newEdge)
-          } catch (e) {
-            console.error('Error parsing children', e)
-          }
-        }),
-      )
+          const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
+          newElements.push(newEdge)
+        } catch (e) {
+          console.error('Error parsing children', e)
+        }
+      })
+
       return newElements
     } catch (e) {
       console.error('Error Getting initial description', e)
     }
+  }
+
+  static buildNode(module: ModuleInstance, rootNodeId?: string): ElementDefinition {
+    const { address } = module
+    const newNodeId = CytoscapeElements.normalizeName(module.config.name) ?? address.substring(0, 8)
+    return {
+      data: {
+        address,
+        id: newNodeId,
+        rootNodeId,
+        type: parseModuleType(module),
+      },
+    }
+  }
+
+  static buildRootNode = (module: ModuleInstance): ElementDefinition => {
+    return CytoscapeElements.buildNode(module)
+  }
+
+  static normalizeName(name?: string) {
+    if (!name) return
+    if (name.length > this.MaxNameLength) return `${name.substring(0, 20)}...`
+    return name
   }
 
   static async recurseNodes(module: ModuleInstance, maxTraversals = 1): Promise<ModuleInstance[]> {
@@ -49,41 +71,23 @@ export class CytoscapeElements {
 
     const traverse = async (nestedNode: ModuleInstance) => {
       if (localDepth < maxTraversals) {
-        const modules = await nestedNode.resolve(undefined, { maxDepth: 2, direction: 'down' })
-        await Promise.all(modules.map(async (child) => {
-          if (child !== nestedNode && isNodeInstance(child)) {
-            localDepth++
-            await traverse(child)
-            // don't re add the root module that was passed in
-          } else if (child !== module) {
-            childModules.push(child)
-          }
-        }))
+        const modules = await nestedNode.resolve(undefined, { direction: 'down', maxDepth: 2 })
+        await Promise.all(
+          modules.map(async (child) => {
+            if (child !== nestedNode && isNodeInstance(child)) {
+              localDepth++
+              await traverse(child)
+              // don't re add the root module that was passed in
+            } else if (child !== module) {
+              childModules.push(child)
+            }
+          }),
+        )
       }
     }
+
     await traverse(module)
-    return childModules 
-  }
 
-  static buildNode(module: ModuleInstance): ElementDefinition {
-    const { address } = module
-    const newNodeId = CytoscapeElements.normalizeName(module.config.name) ?? address.substring(0, 8)
-    return {
-      data: {
-        address,
-        id: newNodeId,
-        type: parseModuleType(module),
-      },
-    }
-  }
-
-  static buildRootNode = async (module: ModuleInstance): Promise<ElementDefinition> => {
-    return CytoscapeElements.buildNode(module)
-  }
-
-  static normalizeName(name?: string) {
-    if (!name) return
-    if (name.length > this.MaxNameLength) return `${name.substring(0, 20)}...`
-    return name
+    return childModules
   }
 }
