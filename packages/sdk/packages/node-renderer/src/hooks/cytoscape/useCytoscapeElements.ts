@@ -1,40 +1,36 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { EventUnsubscribeFunction } from '@xyo-network/module'
-import { NodeInstance } from '@xyo-network/node-model'
+import { EventUnsubscribeFunction, ModuleInstance } from '@xyo-network/module'
+import { isNodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
 import { CytoscapeElements } from '../../Cytoscape'
 
-/**
- * Note: Relies on describe but could eventually be converted to a discover call
- * Logic would be similar to what the bridge does
- */
-export const useCytoscapeElements = (targetNode: NodeInstance | undefined | null) => {
+export const useCytoscapeElements = (module: ModuleInstance | undefined | null) => {
   const [elements, setElements] = useState<ElementDefinition[]>([])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (targetNode) {
-        const newElements = (await CytoscapeElements.buildElements(targetNode)) ?? []
+      if (module) {
+        const newElements = (await CytoscapeElements.buildElements(module)) ?? []
         setElements(newElements)
       }
     },
-    [targetNode],
+    [module],
   )
 
   useEffect(() => {
     let attachedListener: EventUnsubscribeFunction | undefined = undefined
     let detachedListener: EventUnsubscribeFunction | undefined = undefined
 
-    if (targetNode) {
-      attachedListener = targetNode.on('moduleAttached', async () => {
-        const newElements = (await CytoscapeElements.buildElements(targetNode)) ?? []
+    if (module && isNodeInstance(module)) {
+      attachedListener = module.on('moduleAttached', async () => {
+        const newElements = (await CytoscapeElements.buildElements(module)) ?? []
         setElements(newElements)
       })
-      detachedListener = targetNode.on('moduleDetached', async () => {
-        const newElements = (await CytoscapeElements.buildElements(targetNode)) ?? []
+      detachedListener = module.on('moduleDetached', async () => {
+        const newElements = (await CytoscapeElements.buildElements(module)) ?? []
         setElements(newElements)
       })
     }
@@ -43,7 +39,7 @@ export const useCytoscapeElements = (targetNode: NodeInstance | undefined | null
       attachedListener?.()
       detachedListener?.()
     }
-  }, [targetNode])
+  }, [module])
 
   return elements
 }
