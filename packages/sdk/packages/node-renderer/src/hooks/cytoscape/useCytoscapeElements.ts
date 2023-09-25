@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 import { CytoscapeElements } from '../../Cytoscape'
 
-export const useCytoscapeElements = (module: ModuleInstance | undefined | null) => {
+export const useCytoscapeElements = (module?: ModuleInstance | null) => {
   const [elements, setElements] = useState<ElementDefinition[]>([])
 
   useAsyncEffect(
