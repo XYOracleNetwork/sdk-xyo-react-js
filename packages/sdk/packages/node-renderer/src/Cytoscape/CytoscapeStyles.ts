@@ -17,7 +17,6 @@ export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: s
   style: {
     'background-color': bgColor,
     'background-height': '75%',
-    // TODO - make dynamic
     'background-image': (elem) => icons[elem.data('type') as CyNodeModuleTypes],
     'background-image-smoothing': 'yes',
     'background-width': '75%',

@@ -1,4 +1,3 @@
-import { ModuleManifest } from '@xyo-network/manifest-model'
 import { isNodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 
@@ -20,15 +19,15 @@ export class CytoscapeElements {
 
   static async buildElements(module: ModuleInstance) {
     try {
-      const [, newRootNode] = await CytoscapeElements.buildRootNode(module)
+      const newRootNode = await CytoscapeElements.buildRootNode(module)
       const newElements: ElementDefinition[] = [newRootNode]
 
       const children = await CytoscapeElements.recurseNodes(module)
 
       await Promise.allSettled(
-        (children ?? [])?.map(async ([child, address]) => {
+        (children ?? [])?.map(async (module) => {
           try {
-            const newNode = CytoscapeElements.buildNode(child, address)
+            const newNode = CytoscapeElements.buildNode(module)
             newElements.push(newNode)
 
             const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
@@ -44,45 +43,42 @@ export class CytoscapeElements {
     }
   }
 
-  static async recurseNodes(module: ModuleInstance, maxTraversals = 1): Promise<[ModuleManifest, string][]> {
+  static async recurseNodes(module: ModuleInstance, maxTraversals = 1): Promise<ModuleInstance[]> {
     let localDepth = 0
-    const childManifests: [ModuleManifest, string][] = []
+    const childModules: ModuleInstance[] = []
 
     const traverse = async (nestedNode: ModuleInstance) => {
       if (localDepth < maxTraversals) {
         const modules = await nestedNode.resolve(undefined, { maxDepth: 2, direction: 'down' })
         await Promise.all(modules.map(async (child) => {
-          // if (child.config.schema.includes('bridge')) {
-          //   console.log(await child.resolve())
-          // }
           if (child !== nestedNode && isNodeInstance(child)) {
             localDepth++
             await traverse(child)
             // don't re add the root module that was passed in
           } else if (child !== module) {
-            childManifests.push([await child.manifest(), child.address])
+            childModules.push(child)
           }
         }))
       }
     }
     await traverse(module)
-    return childManifests
+    return childModules 
   }
 
-  static buildNode(manifest: ModuleManifest, address: string): ElementDefinition {
-    const newNodeId = CytoscapeElements.normalizeName(manifest.config.name) ?? address.substring(0, 8)
+  static buildNode(module: ModuleInstance): ElementDefinition {
+    const { address } = module
+    const newNodeId = CytoscapeElements.normalizeName(module.config.name) ?? address.substring(0, 8)
     return {
       data: {
         address,
         id: newNodeId,
-        type: parseModuleType(manifest.config.schema),
+        type: parseModuleType(module),
       },
     }
   }
 
-  static buildRootNode = async (module: ModuleInstance): Promise<[ModuleManifest, ElementDefinition]> => {
-    const manifest = await module?.manifest()
-    return [manifest, CytoscapeElements.buildNode(manifest, module.address)]
+  static buildRootNode = async (module: ModuleInstance): Promise<ElementDefinition> => {
+    return CytoscapeElements.buildNode(module)
   }
 
   static normalizeName(name?: string) {
