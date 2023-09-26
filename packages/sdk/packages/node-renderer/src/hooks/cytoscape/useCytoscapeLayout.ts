@@ -4,23 +4,11 @@ import { useMemo } from 'react'
 export const useCytoscapeLayout = () => {
   const layout: CytoscapeOptions['layout'] = useMemo(
     () => ({
+      convergenceThreshold: 0.000000001,
       name: 'cola',
     }),
     [],
   )
-  // const layout: CytoscapeOptions['layout'] = useMemo(
-  //   () => ({
-  //     concentric: function (node) {
-  //       return node.degree()
-  //     },
-  //     levelWidth: function () {
-  //       return 2
-  //     },
-  //     minNodeSpacing: 75,
-  //     name: 'concentric',
-  //   }),
-  //   [],
-  // )
 
   return layout
 }

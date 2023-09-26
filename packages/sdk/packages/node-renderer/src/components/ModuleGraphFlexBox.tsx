@@ -1,13 +1,13 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
 import { useModuleFromNode } from '@xyo-network/react-node'
-import { EventObject, NodeDataDefinition, use } from 'cytoscape'
-import cola from 'cytoscape-cola'
+import { EventObject, NodeDataDefinition } from 'cytoscape'
 import { useEffect, useMemo, useState } from 'react'
 
 import { useCytoscapeInstance } from '../contexts'
 import { useCytoscapeElements, useRelationalGraphOptions } from '../hooks'
 import { NodeRelationalGraphFlexBox } from './RelationalGraph'
+import { WithCola } from './WithCola'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   rootModule?: ModuleInstance | null
@@ -37,10 +37,6 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   const resolvedOptions = updatedOptions ?? options
 
   useEffect(() => {
-    use(cola)
-  }, [])
-
-  useEffect(() => {
     const listener = (event: EventObject) => {
       const element = event.target[0]
       if (element.isNode()) setSelectedElement(element)
@@ -54,5 +50,9 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
     }
   }, [cy])
 
-  return <NodeRelationalGraphFlexBox options={resolvedOptions} {...props} />
+  return (
+    <WithCola>
+      <NodeRelationalGraphFlexBox options={resolvedOptions} {...props} />
+    </WithCola>
+  )
 }
