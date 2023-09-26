@@ -1,4 +1,4 @@
-import { Button, styled } from '@mui/material'
+import { Button, ButtonGroup, styled } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core } from 'cytoscape'
@@ -34,10 +34,12 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
   return (
     <FlexCol {...props}>
       <ActionsContainer>
-        {actions}
-        <Button size={'small'} variant={'contained'} onClick={handleReset}>
-          Reset
-        </Button>
+        <ButtonGroup>
+          {actions}
+          <Button size={'small'} variant={'contained'} onClick={handleReset}>
+            Reset
+          </Button>
+        </ButtonGroup>
       </ActionsContainer>
       {/* Cytoscape Element */}
       <FlexCol alignItems="stretch" height="100%" position="absolute" ref={sharedRef} width="100%"></FlexCol>
@@ -47,8 +49,9 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
 NodeRelationalGraphFlexBox.displayName = 'NodeRelationalGraph'
 
-const ActionsContainer = styled(FlexRow, { name: 'ActionsContainer' })(() => ({
+const ActionsContainer = styled(FlexRow, { name: 'ActionsContainer' })(({ theme }) => ({
   flexWrap: 'wrap',
+  gap: theme.spacing(1),
   position: 'absolute',
   right: '10px',
   top: '10px',

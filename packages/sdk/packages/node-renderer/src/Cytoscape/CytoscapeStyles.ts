@@ -16,14 +16,14 @@ export const NodeIdStyles = (color?: string, outlineColor?: string): Stylesheet 
   },
 })
 
-export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string): Stylesheet => ({
+export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string, hideLabels = false): Stylesheet => ({
   selector: 'node',
   style: {
     'background-color': bgColor,
     'background-height': '75%',
     'background-image': (elem) => icons[elem.data('type') as CyNodeModuleTypes],
     'background-width': '24',
-    label: 'data(name)',
+    label: hideLabels ? undefined : 'data(name)',
     shape: 'round-rectangle',
   },
 })

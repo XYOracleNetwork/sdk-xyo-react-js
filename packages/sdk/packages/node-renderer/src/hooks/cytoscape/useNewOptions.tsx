@@ -12,6 +12,8 @@ export const useNewOptions = (options: CytoscapeOptions = {}, newElements: Eleme
         elements: [...existingElements, ...newElements],
         ...rest,
       })
+    } else {
+      setUpdatedOptions(options)
     }
   }, [newElements, options])
 

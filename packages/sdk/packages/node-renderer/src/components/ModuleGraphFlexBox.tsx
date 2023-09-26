@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
 import { EventObject } from 'cytoscape'
@@ -14,7 +15,7 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
 
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, ...props }) => {
   const { cy } = useCytoscapeInstance(true)
-  const options = useRelationalGraphOptions(rootModule ?? undefined)
+  const { handleToggleLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
 
   const { newElements, setSelectedElement } = useNewElements()
 
@@ -36,7 +37,15 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
 
   return (
     <WithCola>
-      <NodeRelationalGraphFlexBox options={newOptions} {...props} />
+      <NodeRelationalGraphFlexBox
+        actions={
+          <Button size={'small'} onClick={handleToggleLabels} variant="contained">
+            Toggle Labels
+          </Button>
+        }
+        options={newOptions}
+        {...props}
+      />
     </WithCola>
   )
 }
