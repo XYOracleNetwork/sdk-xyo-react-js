@@ -17,28 +17,24 @@ export class CytoscapeElements {
     }
   }
 
-  static async buildElements(module: ModuleInstance) {
+  static async buildElements(module: ModuleInstance): Promise<ElementDefinition[]> {
+    const newRootNode = CytoscapeElements.buildRootNode(module)
+    const newElements: ElementDefinition[] = [newRootNode]
+
     try {
-      const newRootNode = await CytoscapeElements.buildRootNode(module)
-      const newElements: ElementDefinition[] = [newRootNode]
+      const childElements = await CytoscapeElements.recurseNodes(module)
+      childElements?.forEach((module) => {
+        const newNode = CytoscapeElements.buildNode(module, newRootNode.data.id)
+        newElements.push(newNode)
 
-      const children = await CytoscapeElements.recurseNodes(module)
-
-      children?.map((module) => {
-        try {
-          const newNode = CytoscapeElements.buildNode(module, newRootNode.data.id)
-          newElements.push(newNode)
-
-          const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
-          newElements.push(newEdge)
-        } catch (e) {
-          console.error('Error parsing children', e)
-        }
+        const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
+        newElements.push(newEdge)
       })
 
       return newElements
     } catch (e) {
-      console.error('Error Getting initial description', e)
+      console.error('error resolving modules', e)
+      return []
     }
   }
 
