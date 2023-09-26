@@ -11,9 +11,7 @@ export const NodeIdStyles = (color?: string, outlineColor?: string): Stylesheet 
     'overlay-padding': '6px',
     'text-halign': 'center',
     'text-outline-color': outlineColor,
-    'text-outline-opacity': 0.75,
     'text-outline-width': '1px',
-    'text-valign': 'center',
   },
 })
 
@@ -23,11 +21,9 @@ export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: s
     'background-color': bgColor,
     'background-height': '75%',
     'background-image': (elem) => icons[elem.data('type') as CyNodeModuleTypes],
-    'background-image-opacity': 0.75,
     'background-image-smoothing': 'yes',
-    'background-opacity': 0.25,
     'background-width': '75%',
-    content: 'data(name)',
+    label: 'data(name)',
   },
 })
 
