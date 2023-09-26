@@ -1,7 +1,7 @@
 import { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
-import { useCytoscapeLayout } from './useCytoscapeLayout'
+import { useCytoscapeColaLayout } from './layouts'
 import { useCytoscapeStyle } from './useCytoscapeStyle'
 
 export const useCytoscapeOptions = (
@@ -10,7 +10,7 @@ export const useCytoscapeOptions = (
   layout?: CytoscapeOptions['layout'],
 ) => {
   const defaultStyle = useCytoscapeStyle()
-  const defaultLayout = useCytoscapeLayout()
+  const defaultLayout = useCytoscapeColaLayout()
 
   const options = useMemo<CytoscapeOptions>(
     () => ({
