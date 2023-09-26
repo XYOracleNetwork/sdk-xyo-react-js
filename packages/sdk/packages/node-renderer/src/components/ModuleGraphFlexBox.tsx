@@ -1,8 +1,8 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
 import { useModuleFromNode } from '@xyo-network/react-node'
-import { EventObject, NodeDataDefinition } from 'cytoscape'
-import { useEffect, useMemo, useState } from 'react'
+import { CytoscapeOptions, EventObject, NodeDataDefinition } from 'cytoscape'
+import { useEffect, useState } from 'react'
 
 import { useCytoscapeInstance } from '../contexts'
 import { useCytoscapeElements, useRelationalGraphOptions } from '../hooks'
@@ -22,23 +22,25 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   const [module] = useModuleFromNode(selectedAddress)
   const newElements = useCytoscapeElements(module)
 
-  const updatedOptions = useMemo(() => {
-    if (newElements.length) {
-      const { elements, ...rest } = options
-      const existingElements = Array.isArray(elements) ? elements : []
+  const [updatedOptions, setUpdatedOptions] = useState<CytoscapeOptions>()
 
-      return {
+  useEffect(() => {
+    const { elements, ...rest } = options
+    const existingElements = Array.isArray(elements) ? elements : []
+    if (newElements.length > 1) {
+      setUpdatedOptions({
         elements: [...existingElements, ...newElements],
         ...rest,
-      }
+      })
     }
-  }, [options, newElements])
+  }, [newElements, options])
 
   const resolvedOptions = updatedOptions ?? options
 
   useEffect(() => {
     const listener = (event: EventObject) => {
       const element = event.target[0]
+      // TODO - check for actual children somewhere before updating
       if (element.isNode()) setSelectedElement(element)
     }
     if (cy) {
