@@ -27,7 +27,7 @@ export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: s
     'background-image-smoothing': 'yes',
     'background-opacity': 0.25,
     'background-width': '75%',
-    content: 'data(id)',
+    content: 'data(name)',
   },
 })
 

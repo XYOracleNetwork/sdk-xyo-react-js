@@ -40,11 +40,12 @@ export class CytoscapeElements {
 
   static buildNode(module: ModuleInstance, rootNodeId?: string): ElementDefinition {
     const { address } = module
-    const newNodeId = CytoscapeElements.normalizeName(module.config.name) ?? address.substring(0, 8)
+    const normalizedName = CytoscapeElements.normalizeName(module.config.name) ?? address.substring(0, 8)
     return {
       data: {
         address,
-        id: newNodeId,
+        id: address,
+        name: normalizedName,
         rootNodeId,
         type: parseModuleType(module),
       },
