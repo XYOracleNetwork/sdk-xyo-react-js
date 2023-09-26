@@ -1,5 +1,4 @@
-import MenuIcon from '@mui/icons-material/Menu'
-import SettingsIcon from '@mui/icons-material/Settings'
+import { Menu as MenuIcon, Settings as SettingsIcon } from '@mui/icons-material'
 import { IconButton, List, SwipeableDrawer } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { useEffect, useState } from 'react'

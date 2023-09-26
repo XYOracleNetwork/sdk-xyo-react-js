@@ -10,8 +10,8 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/assert": "^2.11.7",
-    "@xylabs/react-shared": "~2.19.1",
+    "@xylabs/assert": "^2.11.17",
+    "@xylabs/react-shared": "^3.0.1",
     "@xyo-network/react-shared": "workspace:~"
   },
   "peerDependencies": {
@@ -24,31 +24,39 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^2.19.12",
+    "@xylabs/ts-scripts-yarn3": "^3.0.67",
     "typescript": "^5.2.2"
   },
   "description": "Common React library for all XYO projects that use React",
-  "browser": "dist/esm/index.js",
   "docs": "dist/docs.json",
   "exports": {
     ".": {
       "node": {
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js"
+        "import": {
+          "types": "./dist/node/index.d.mts",
+          "default": "./dist/node/index.mjs"
+        },
+        "require": {
+          "types": "./dist/node/index.d.ts",
+          "default": "./dist/node/index.js"
+        }
       },
       "browser": {
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js"
+        "import": {
+          "types": "./dist/browser/index.d.ts",
+          "default": "./dist/browser/index.js"
+        },
+        "require": {
+          "types": "./dist/browser/index.d.ts",
+          "default": "./dist/browser/index.js"
+        }
       },
-      "default": "./dist/esm/index.js"
-    },
-    "./dist/docs.json": {
-      "default": "./dist/docs.json"
+      "default": "./dist/browser/index.js"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/browser/index.js",
+  "module": "dist/browser/index.js",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",
@@ -69,6 +77,7 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/types/index.d.ts",
-  "version": "2.63.1"
+  "types": "dist/browser/index.d.ts",
+  "version": "2.64.0-rc.7",
+  "stableVersion": "2.63.1"
 }

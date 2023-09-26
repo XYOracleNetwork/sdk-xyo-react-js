@@ -1,4 +1,4 @@
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
+import { MoreHoriz as MoreHorizIcon } from '@mui/icons-material'
 import { IconButton, Menu, MenuItem } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'

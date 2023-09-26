@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material'
+import { isEmpty } from '@xylabs/lodash'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { CryptoMarketAssetPayload } from '@xyo-network/crypto-asset-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import isEmpty from 'lodash/isEmpty'
 
 import { CryptoAsset } from './Asset'
 

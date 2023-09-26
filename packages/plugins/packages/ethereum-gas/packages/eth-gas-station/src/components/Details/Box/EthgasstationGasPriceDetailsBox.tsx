@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material'
+import { isEmpty } from '@xylabs/lodash'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { EthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
 import { GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
 
 import { useEthgasstationTransformer } from '../../hooks'

@@ -1,4 +1,4 @@
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
+import { MoreHoriz as MoreHorizIcon } from '@mui/icons-material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { LinkExProps } from '@xylabs/react-link'
 

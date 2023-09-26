@@ -1,4 +1,4 @@
-import TimerRoundedIcon from '@mui/icons-material/TimerRounded'
+import { TimerRounded as TimerRoundedIcon } from '@mui/icons-material'
 import { SentinelInstance } from '@xyo-network/sentinel'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary'

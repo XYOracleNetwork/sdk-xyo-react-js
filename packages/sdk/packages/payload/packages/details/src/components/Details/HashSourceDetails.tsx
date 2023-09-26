@@ -1,4 +1,4 @@
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import { ContentCopy as ContentCopyIcon } from '@mui/icons-material'
 import { IconButton, Typography, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'

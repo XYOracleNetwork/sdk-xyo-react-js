@@ -2,6 +2,7 @@
 
 // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-webpack5)
 import type { StorybookConfig } from '@storybook/react-webpack5';
+import { NormalModuleReplacementPlugin } from 'webpack';
 
 const config: StorybookConfig = {
   stories: [
@@ -43,6 +44,21 @@ const config: StorybookConfig = {
       url: 'https://5ccbc373887ca40020446347-yldsqjoxzb.chromatic.com',
     },
   },*/
+  webpackFinal: async (config, { configType }) => {
+    config.plugins = config.plugins ?? []
+    config.plugins.push(
+      // Remove node: from import specifiers, because Next.js does not yet support node: scheme
+      // https://github.com/vercel/next.js/issues/28774
+      new NormalModuleReplacementPlugin(
+        /^node:/,
+        (resource) => {
+          resource.request = resource.request.replace(/^node:/, '');
+        },
+      ),
+    );
+
+    return config;
+  },
 };
 
 export default config;

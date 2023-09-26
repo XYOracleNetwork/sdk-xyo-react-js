@@ -1,6 +1,8 @@
-import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded'
-import ErrorOutlineRoundedIcon from '@mui/icons-material/ErrorOutlineRounded'
-import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded'
+import {
+  CheckCircleOutlineRounded as CheckCircleOutlineRoundedIcon,
+  ErrorOutlineRounded as ErrorOutlineRoundedIcon,
+  WarningAmberRounded as WarningAmberRoundedIcon,
+} from '@mui/icons-material'
 import { alpha, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'

@@ -1,4 +1,4 @@
-import ExtensionIcon from '@mui/icons-material/Extension'
+import { Extension as ExtensionIcon } from '@mui/icons-material'
 import { delay } from '@xylabs/delay'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module-model'

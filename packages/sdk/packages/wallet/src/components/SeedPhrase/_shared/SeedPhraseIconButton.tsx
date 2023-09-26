@@ -1,4 +1,4 @@
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
+import { HelpOutline as HelpOutlineIcon } from '@mui/icons-material'
 import {
   Button,
   Dialog,

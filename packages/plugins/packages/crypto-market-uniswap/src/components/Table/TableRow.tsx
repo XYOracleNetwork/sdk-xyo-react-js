@@ -1,4 +1,4 @@
-import SwapHorizRoundedIcon from '@mui/icons-material/SwapHorizRounded'
+import { SwapHorizRounded as SwapHorizRoundedIcon } from '@mui/icons-material'
 import { TableCell, TableRow } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexRow } from '@xylabs/react-flexbox'

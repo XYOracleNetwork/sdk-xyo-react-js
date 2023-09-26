@@ -1,17 +1,6 @@
 ignores: [
   "@xylabs/ts-scripts-yarn3",
-  "@storybook/addon-actions",
-  "@storybook/addon-controls",
-  "@storybook/addon-essentials",
-  "@storybook/addon-interactions",
-  "@storybook/addon-links",
-  "@storybook/addon-viewport",
-  "@storybook/api",
-  "@storybook/builder-webpack5",
-  "@storybook/mdx1-csf",
-  "@storybook/components",
-  "@storybook/core-events",
-  "@storybook/manager-webpack5",
+  "@storybook/*",
   "@typescript-eslint/parser",
   "@storybook/testing-library",
   "@xylabs/tsconfig-dom",
@@ -24,5 +13,13 @@ ignores: [
   "jest-extended",
   "ts-jest",
   "chromatic",
-  "@xylabs/tsconfig-react"
+  "@xylabs/tsconfig-react",
+  "@xylabs/eslint-config",
+  "@xylabs/eslint-config-react",
+  "@xylabs/react-invertible-theme",
+  "@xyo-network/react-app-settings",
+  "@xyo-network/react-theme",
+  "eslint",
+  "storybook-dark-mode",
+  "@emotion/*"
 ]

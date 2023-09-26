@@ -1,5 +1,4 @@
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
-import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import { CheckCircleOutline as CheckCircleOutlineIcon, HighlightOff as HighlightOffIcon } from '@mui/icons-material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { useMemo } from 'react'

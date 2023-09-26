@@ -1,9 +1,9 @@
 import { Grid } from '@mui/material'
+import { isEmpty } from '@xylabs/lodash'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { GasFeeCard } from '@xyo-network/react-gas-price'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import isEmpty from 'lodash/isEmpty'
 import { forwardRef } from 'react'
 
 import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../../lib'

@@ -2,7 +2,7 @@ import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { AddressTableCell } from '@xyo-network/react-shared'
-import { MdClear, MdDone } from 'react-icons/md'
+import { MdClear, MdDone } from 'react-icons/md/index.js'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockSignatureTableRowProps extends TableRowProps {

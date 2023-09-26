@@ -1,5 +1,4 @@
-import ContentCopyIcon from '@mui/icons-material/ContentCopy'
-import LinkRoundedIcon from '@mui/icons-material/LinkRounded'
+import { ContentCopy as ContentCopyIcon, LinkRounded as LinkRoundedIcon } from '@mui/icons-material'
 import { Alert, AlertTitle, Collapse } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'

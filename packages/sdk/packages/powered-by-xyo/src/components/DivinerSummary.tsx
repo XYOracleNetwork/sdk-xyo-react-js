@@ -1,4 +1,4 @@
-import BubbleChartRoundedIcon from '@mui/icons-material/BubbleChartRounded'
+import { BubbleChartRounded as BubbleChartRoundedIcon } from '@mui/icons-material'
 import { DivinerInstance } from '@xyo-network/diviner-model'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary'

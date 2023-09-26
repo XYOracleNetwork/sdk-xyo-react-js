@@ -1,8 +1,8 @@
 import { Paper, Tab, TabProps, Tabs, TabsProps, useTheme } from '@mui/material'
 import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { Dispatch, SetStateAction, SyntheticEvent } from 'react'
-import { FaSignature } from 'react-icons/fa'
-import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
+import { FaSignature } from 'react-icons/fa/index.js'
+import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc/index.js'
 
 export interface BWNavigationTabs extends TabsProps {
   boundWitness?: BoundWitness

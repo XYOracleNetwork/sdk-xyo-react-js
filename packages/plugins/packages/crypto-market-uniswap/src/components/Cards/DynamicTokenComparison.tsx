@@ -1,4 +1,4 @@
-import SwapHorizRoundedIcon from '@mui/icons-material/SwapHorizRounded'
+import { SwapHorizRounded as SwapHorizRoundedIcon } from '@mui/icons-material'
 import { Divider, IconButton } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'

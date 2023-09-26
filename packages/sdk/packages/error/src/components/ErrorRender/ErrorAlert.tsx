@@ -1,4 +1,4 @@
-import ExitIcon from '@mui/icons-material/ExitToApp'
+import { ExitToApp as ExitIcon } from '@mui/icons-material'
 import { Alert, AlertProps, AlertTitle, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { ModuleError } from '@xyo-network/payload-model'

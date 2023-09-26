@@ -1,13 +1,13 @@
 import { TableCell, TableRow, TableRowProps } from '@mui/material'
+import { compact } from '@xylabs/lodash'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
-import compact from 'lodash/compact'
 import { ReactElement } from 'react'
-import { MdClear, MdDone } from 'react-icons/md'
+import { MdClear, MdDone } from 'react-icons/md/index.js'
 
 import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 

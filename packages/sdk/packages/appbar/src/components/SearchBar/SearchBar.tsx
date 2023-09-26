@@ -1,4 +1,4 @@
-import SearchIcon from '@mui/icons-material/Search'
+import { Search as SearchIcon } from '@mui/icons-material'
 import { Paper, TextField } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'

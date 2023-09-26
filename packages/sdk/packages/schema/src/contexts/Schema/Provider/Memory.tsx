@@ -1,5 +1,5 @@
+import { compact } from '@xylabs/lodash'
 import { WithChildren } from '@xylabs/react-shared'
-import compact from 'lodash/compact'
 import { useEffect, useState } from 'react'
 
 import { useSchemaStats } from '../../../hooks'

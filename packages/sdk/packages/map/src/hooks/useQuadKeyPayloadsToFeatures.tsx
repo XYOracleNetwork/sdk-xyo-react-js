@@ -1,6 +1,6 @@
+import { compact } from '@xylabs/lodash'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Geometry } from 'geojson'
-import compact from 'lodash/compact'
 import { useEffect, useState } from 'react'
 
 import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types'

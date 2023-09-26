@@ -1,4 +1,4 @@
-import merge from 'lodash/merge'
+import { merge } from '@xylabs/lodash'
 
 import { DefaultPayloadRenderPlugin } from './DefaultPayloadRenderPlugin'
 import { PayloadRenderPlugin, PayloadRenderPluginConfig } from './PayloadRenderPlugin'

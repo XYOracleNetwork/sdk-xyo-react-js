@@ -1,4 +1,4 @@
-import MoreVertIcon from '@mui/icons-material/MoreVert'
+import { MoreVert as MoreVertIcon } from '@mui/icons-material'
 import { IconButton, IconButtonProps, Menu } from '@mui/material'
 import { useState } from 'react'
 

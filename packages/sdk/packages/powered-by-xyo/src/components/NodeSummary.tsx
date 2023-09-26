@@ -1,4 +1,4 @@
-import HubRoundedIcon from '@mui/icons-material/HubRounded'
+import { HubRounded as HubRoundedIcon } from '@mui/icons-material'
 import { usePromise } from '@xylabs/react-promise'
 import { NodeInstance } from '@xyo-network/node-model'
 import { useModulesFromNode } from '@xyo-network/react-node'

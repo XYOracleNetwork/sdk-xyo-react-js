@@ -1,5 +1,4 @@
-import CancelIcon from '@mui/icons-material/Cancel'
-import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'
+import { Cancel as CancelIcon, RadioButtonChecked as RadioButtonCheckedIcon } from '@mui/icons-material'
 import { Button, ButtonGroup, TableCell, TableRow, TableRowProps } from '@mui/material'
 import { useState } from 'react'
 
