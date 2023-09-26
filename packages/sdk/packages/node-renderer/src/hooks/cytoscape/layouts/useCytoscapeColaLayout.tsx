@@ -4,7 +4,8 @@ import { useMemo } from 'react'
 export const useCytoscapeColaLayout = () => {
   const layout: CytoscapeOptions['layout'] = useMemo(
     () => ({
-      convergenceThreshold: 0.0001,
+      centerGraph: false,
+      convergenceThreshold: 0.01,
       name: 'cola',
     }),
     [],
