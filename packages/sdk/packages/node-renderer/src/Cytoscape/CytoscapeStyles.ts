@@ -2,13 +2,18 @@ import { Stylesheet } from 'cytoscape'
 
 import { CyNodeModuleTypes } from './lib'
 
-export const NodeIdStyles = (color?: string): Stylesheet => ({
+export const NodeIdStyles = (color?: string, outlineColor?: string): Stylesheet => ({
   selector: 'node[id]',
   style: {
     color,
     'font-family': 'Lexend Deca, Helvetica, sans-serif',
-    'font-size': 14,
-    'text-margin-y': -5,
+    'font-size': 12,
+    'overlay-padding': '6px',
+    'text-halign': 'center',
+    'text-outline-color': outlineColor,
+    'text-outline-opacity': 0.75,
+    'text-outline-width': '1px',
+    'text-valign': 'center',
   },
 })
 
@@ -18,9 +23,11 @@ export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: s
     'background-color': bgColor,
     'background-height': '75%',
     'background-image': (elem) => icons[elem.data('type') as CyNodeModuleTypes],
+    'background-image-opacity': 0.75,
     'background-image-smoothing': 'yes',
+    'background-opacity': 0.25,
     'background-width': '75%',
-    label: 'data(id)',
+    content: 'data(id)',
   },
 })
 

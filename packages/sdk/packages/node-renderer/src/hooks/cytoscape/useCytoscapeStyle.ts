@@ -11,8 +11,8 @@ export const useCytoscapeStyle = () => {
 
   const style: CytoscapeOptions['style'] = useMemo(
     () => [
-      NodeIdStyles(theme.palette.text.primary),
-      NodeStyled(icons, theme.palette.primary.main),
+      NodeIdStyles(theme.palette.text.primary, theme.palette.getContrastText(theme.palette.text.primary)),
+      NodeStyled(icons, theme.palette.primary.light),
       EdgeStyled(theme.palette.divider, theme.palette.divider),
     ],
     [icons, theme.palette.divider, theme.palette.primary.main, theme.palette.text.primary],
