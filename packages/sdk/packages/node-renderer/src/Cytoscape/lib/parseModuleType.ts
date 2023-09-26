@@ -1,19 +1,26 @@
+import { isArchivistInstance } from '@xyo-network/archivist-model'
+import { isBridgeInstance } from '@xyo-network/bridge-model'
+import { isDivinerInstance } from '@xyo-network/diviner-model'
+import { ModuleInstance } from '@xyo-network/module'
+import { isNodeInstance } from '@xyo-network/node-model'
+import { isSentinelInstance } from '@xyo-network/sentinel'
+import { isWitnessModule } from '@xyo-network/witness'
 import { CyNodeModuleTypes } from './CyNodeModuleTypes'
 
-export const parseModuleType = (schema?: string): CyNodeModuleTypes => {
+export const parseModuleType = (module?: ModuleInstance): CyNodeModuleTypes => {
   let type: CyNodeModuleTypes = 'module'
-  if (schema) {
-    if (schema.includes('archivist')) {
+  if (module) {
+    if (isArchivistInstance(module)) {
       type = 'archivist'
-    } else if (schema.includes('bridge')) {
+    } else if (isBridgeInstance(module)) {
       type = 'bridge'
-    } else if (schema.includes('diviner')) {
+    } else if (isDivinerInstance(module)) {
       type = 'diviner'
-    } else if (schema.includes('node')) {
+    } else if (isNodeInstance(module)) {
       type = 'node'
-    } else if (schema.includes('sentinel')) {
+    } else if (isSentinelInstance(module)) {
       type = 'sentinel'
-    } else if (schema.includes('witness')) {
+    } else if (isWitnessModule(module)) {
       type = 'witness'
     } else {
       type = 'module'

@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 
 import { CytoscapeInstanceProvider, useCytoscapeInstance } from '../contexts'
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
-import { NodeRelationalGraph } from './RelationalGraph'
+import { NodeRelationalGraphFlexBox } from './RelationalGraph'
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
@@ -45,11 +45,11 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: NodeRelationalGraph,
+  component: NodeRelationalGraphFlexBox,
   title: 'node/renderer/NodeRelationalGraphEvents',
 } as Meta
 
-const Template: StoryFn<typeof NodeRelationalGraph> = (props) => {
+const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
@@ -69,7 +69,7 @@ const Template: StoryFn<typeof NodeRelationalGraph> = (props) => {
       cy?.off('select', listener)
     }
   }, [cy])
-  return <NodeRelationalGraph options={options} {...props} />
+  return <NodeRelationalGraphFlexBox options={options} {...props} />
 }
 
 const defaultProps = {

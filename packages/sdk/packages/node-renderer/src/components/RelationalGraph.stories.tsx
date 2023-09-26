@@ -8,18 +8,18 @@ import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { NodeProvider, useNodeFromNode, useProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
-import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
+import { WalletProvider, useWallet } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
 import { ProvidedNodeRenderer } from './ProvidedNodeRenderer'
-import { NodeRelationalGraph } from './RelationalGraph'
+import { NodeRelationalGraphFlexBox } from './RelationalGraph'
 import { options } from './story'
 
 const nodeUrl = 'http://localhost:8080/node'
 
-export const MemoryNodeDecorator: Decorator = (Story, args) => {
+const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(
@@ -70,29 +70,29 @@ export const MemoryNodeDecorator: Decorator = (Story, args) => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: NodeRelationalGraph,
+  component: NodeRelationalGraphFlexBox,
   title: 'node/renderer/NodeRelationalGraph',
 } as Meta
 
-const Template: StoryFn<typeof NodeRelationalGraph> = (props) => <NodeRelationalGraph {...props} />
+const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox {...props} />
 
-const TemplateDescribe: StoryFn<typeof NodeRelationalGraph> = (props) => {
+const TemplateDescribe: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraph options={options} {...props} />
+  return <NodeRelationalGraphFlexBox options={options} {...props} />
 }
 
-const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraph> = (props) => {
+const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraph options={options} {...props} />
+  return <NodeRelationalGraphFlexBox options={options} {...props} />
 }
 
 const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer {...props} />
 
-const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraph> = (props) => {
+const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
@@ -130,7 +130,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraph> = (props) => {
         <Button onClick={handleAddWitness}>Add Witness</Button>
         <Button onClick={handleRemoveWitness}>Remove Witness</Button>
       </ButtonGroup>
-      <NodeRelationalGraph options={options} {...props} />
+      <NodeRelationalGraphFlexBox options={options} {...props} />
     </>
   )
 }

@@ -26,7 +26,7 @@ export interface PayloadDynamicTableRowProps extends TableRowProps {
   columns?: PayloadDynamicTableColumnConfig
   exploreDomain?: string
   network?: string
-  payload?: Payload
+  payload?: Payload & { sources?: string[] }
 }
 
 export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({

@@ -1,25 +1,20 @@
 import { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
-import { useCytoscapeLayout } from './useCytoscapeLayout'
-import { useCytoscapeStyle } from './useCytoscapeStyle'
-
 export const useCytoscapeOptions = (
   elements: CytoscapeOptions['elements'],
   style?: CytoscapeOptions['style'],
   layout?: CytoscapeOptions['layout'],
 ) => {
-  const defaultStyle = useCytoscapeStyle()
-  const defaultLayout = useCytoscapeLayout()
-
-  const options = useMemo<CytoscapeOptions>(
-    () => ({
-      elements,
-      layout: layout ?? defaultLayout,
-      style: style ?? defaultStyle,
-    }),
-    [defaultLayout, defaultStyle, elements, layout, style],
-  )
+  const options = useMemo<CytoscapeOptions | undefined>(() => {
+    if (elements && layout && style) {
+      return {
+        elements,
+        layout: layout,
+        style: style,
+      }
+    }
+  }, [elements, layout, style])
 
   return options
 }
