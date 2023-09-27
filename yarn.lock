@@ -3549,7 +3549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.11.8":
+"@popperjs/core@npm:^2.0.0, @popperjs/core@npm:^2.11.8":
   version: 2.11.8
   resolution: "@popperjs/core@npm:2.11.8"
   checksum: e5c69fdebf52a4012f6a1f14817ca8e9599cb1be73dd1387e1785e2ed5e5f0862ff817f420a87c7fc532add1f88a12e25aeb010ffcbdc98eace3d55ce2139cf0
@@ -5585,7 +5585,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cytoscape@npm:^3.19.11":
+"@types/cytoscape-popper@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@types/cytoscape-popper@npm:2.0.1"
+  dependencies:
+    "@popperjs/core": ^2.0.0
+    "@types/cytoscape": "*"
+  checksum: 37dffb6384aabcc6954cb9cf8c93183e8d55aa19b6c927d1f2b55621e92297def5616c5f7f8a3ac938af08779f630b2b7ee1ca2454f04ab4fa9155a795aad4f5
+  languageName: node
+  linkType: hard
+
+"@types/cytoscape@npm:*, @types/cytoscape@npm:^3.19.11":
   version: 3.19.11
   resolution: "@types/cytoscape@npm:3.19.11"
   checksum: 6c4a1ba52b416d70c6f8e00b5a5c474e1f2cae5150682c3e6976f6c8ac6b99cab99bcc5887640149901e6704f38627b58e3face8620bff8dac94404329164d8b
@@ -9787,6 +9797,7 @@ __metadata:
   dependencies:
     "@storybook/react": ^7.4.5
     "@types/cytoscape": ^3.19.11
+    "@types/cytoscape-popper": 2.0.1
     "@types/react-dom": ^18.2.7
     "@xylabs/react-async-effect": ~2.19.1
     "@xylabs/react-flexbox": ~2.19.1
@@ -9813,6 +9824,7 @@ __metadata:
     "@xyo-network/sentinel": ^2.74.5
     cytoscape: ^3.26.0
     cytoscape-cola: ^2.5.1
+    cytoscape-popper: ^2.0.0
     typescript: ^5.2.2
   peerDependencies:
     "@mui/icons-material": ^5
@@ -13333,6 +13345,17 @@ __metadata:
   peerDependencies:
     cytoscape: ^3.2.0
   checksum: 3a41a535919c42164adca6720d3d23a18e58dfdf92fe1c51fc2c5a636317a89bdedf00e5521bfa4f1e6673efec0e6db43957c0e9484f026c6cde168be344bffd
+  languageName: node
+  linkType: hard
+
+"cytoscape-popper@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "cytoscape-popper@npm:2.0.0"
+  dependencies:
+    "@popperjs/core": ^2.0.0
+  peerDependencies:
+    cytoscape: ^3.2.0
+  checksum: 857ea88e4d32e359c255785696fb68b993a1122db8ff492fe6977ea6908e82b1c63a4c73f8c04f2bdc3cbcf562f91f71a615d09e4985054dd709ba34b2739b04
   languageName: node
   linkType: hard
 
