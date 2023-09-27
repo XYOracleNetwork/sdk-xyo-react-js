@@ -10,10 +10,10 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/delay": "^2.11.18",
-    "@xylabs/react-async-effect": "^3.0.2",
-    "@xylabs/react-flexbox": "^3.0.2",
-    "@xylabs/react-shared": "^3.0.2",
+    "@xylabs/delay": "^2.11.21",
+    "@xylabs/react-async-effect": "^3.0.3",
+    "@xylabs/react-flexbox": "^3.0.3",
+    "@xylabs/react-shared": "^3.0.3",
     "@xyo-network/huri": "^2.74.5",
     "@xyo-network/payload-model": "^2.74.5",
     "@xyo-network/react-error": "workspace:~",
@@ -26,8 +26,8 @@
     "@uniswap/sdk": "^3.0.3",
     "@uniswap/sdk-core": "^4.0.7",
     "@uniswap/v3-sdk": "^3.10.0",
-    "@xylabs/ts-scripts-yarn3": "^3.0.67",
-    "@xylabs/tsconfig-react": "^3.0.67",
+    "@xylabs/ts-scripts-yarn3": "^3.0.70",
+    "@xylabs/tsconfig-react": "^3.0.70",
     "@xyo-network/react-aggregate-price-plugin": "workspace:~",
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:~",
     "typescript": "^5.2.2"
@@ -62,7 +62,7 @@
         },
         "require": {
           "types": "./dist/browser/index.d.ts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.cjs"
         }
       },
       "default": "./dist/browser/index.js"

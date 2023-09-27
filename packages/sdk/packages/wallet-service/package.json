@@ -10,8 +10,8 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/assert": "^2.11.18",
-    "@xylabs/react-shared": "^3.0.2",
+    "@xylabs/assert": "^2.11.21",
+    "@xylabs/react-shared": "^3.0.3",
     "@xyo-network/metamask-connector": "^2.74.5",
     "@xyo-network/react-shared": "workspace:~"
   },
@@ -25,7 +25,7 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^3.0.67",
+    "@xylabs/ts-scripts-yarn3": "^3.0.70",
     "typescript": "^5.2.2"
   },
   "description": "Common React library for all XYO projects that use React",
@@ -49,7 +49,7 @@
         },
         "require": {
           "types": "./dist/browser/index.d.ts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.cjs"
         }
       },
       "default": "./dist/browser/index.js"

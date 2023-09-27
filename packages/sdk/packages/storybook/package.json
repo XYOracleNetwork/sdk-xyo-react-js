@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@storybook/react": "^7.4.5",
-    "@xylabs/lodash": "^2.11.18",
+    "@xylabs/lodash": "^2.11.21",
     "@xyo-network/boundwitness-model": "^2.74.5",
     "@xyo-network/payload-builder": "^2.74.5",
     "@xyo-network/payload-model": "^2.74.5",
@@ -36,9 +36,9 @@
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@storybook/react": "^7.4.5",
-    "@xylabs/react-invertible-theme": "^3.0.2",
-    "@xylabs/ts-scripts-yarn3": "^3.0.67",
-    "@xylabs/tsconfig-react": "^3.0.67",
+    "@xylabs/react-invertible-theme": "^3.0.3",
+    "@xylabs/ts-scripts-yarn3": "^3.0.70",
+    "@xylabs/tsconfig-react": "^3.0.70",
     "typescript": "^5.2.2"
   },
   "docs": "dist/docs.json",
@@ -61,7 +61,7 @@
         },
         "require": {
           "types": "./dist/browser/index.d.ts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.cjs"
         }
       },
       "default": "./dist/browser/index.js"

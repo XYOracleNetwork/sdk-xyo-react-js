@@ -10,12 +10,12 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/eth-address": "^2.11.18",
-    "@xylabs/react-flexbox": "^3.0.2",
-    "@xylabs/react-identicon": "^3.0.2",
-    "@xylabs/react-promise": "^3.0.2",
-    "@xylabs/react-quick-tip-button": "^3.0.2",
-    "@xylabs/react-shared": "^3.0.2",
+    "@xylabs/eth-address": "^2.11.21",
+    "@xylabs/react-flexbox": "^3.0.3",
+    "@xylabs/react-identicon": "^3.0.3",
+    "@xylabs/react-promise": "^3.0.3",
+    "@xylabs/react-quick-tip-button": "^3.0.3",
+    "@xylabs/react-shared": "^3.0.3",
     "@xyo-network/boundwitness-model": "^2.74.5",
     "@xyo-network/boundwitness-validator": "^2.74.5",
     "@xyo-network/payload-model": "^2.74.5",
@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@storybook/react": "^7.4.5",
-    "@xylabs/ts-scripts-yarn3": "^3.0.67",
-    "@xylabs/tsconfig-react": "^3.0.67",
+    "@xylabs/ts-scripts-yarn3": "^3.0.70",
+    "@xylabs/tsconfig-react": "^3.0.70",
     "@xyo-network/react-storybook": "workspace:~",
     "typescript": "^5.2.2"
   },
@@ -67,7 +67,7 @@
         },
         "require": {
           "types": "./dist/browser/index.d.ts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.cjs"
         }
       },
       "default": "./dist/browser/index.js"

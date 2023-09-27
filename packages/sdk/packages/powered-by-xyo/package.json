@@ -10,12 +10,12 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/delay": "^2.11.18",
-    "@xylabs/forget": "^2.11.18",
-    "@xylabs/react-async-effect": "^3.0.2",
-    "@xylabs/react-button": "^3.0.2",
-    "@xylabs/react-flexbox": "^3.0.2",
-    "@xylabs/react-promise": "^3.0.2",
+    "@xylabs/delay": "^2.11.21",
+    "@xylabs/forget": "^2.11.21",
+    "@xylabs/react-async-effect": "^3.0.3",
+    "@xylabs/react-button": "^3.0.3",
+    "@xylabs/react-flexbox": "^3.0.3",
+    "@xylabs/react-promise": "^3.0.3",
     "@xyo-network/archivist-model": "^2.74.5",
     "@xyo-network/bridge-model": "^2.74.5",
     "@xyo-network/diviner-model": "^2.74.5",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@storybook/react": "^7.4.5",
-    "@xylabs/ts-scripts-yarn3": "^3.0.67",
+    "@xylabs/ts-scripts-yarn3": "^3.0.70",
     "@xyo-network/account": "^2.74.5",
     "@xyo-network/manifest": "^2.74.5",
     "typescript": "^5.2.2"
@@ -65,7 +65,7 @@
         },
         "require": {
           "types": "./dist/browser/index.d.ts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.cjs"
         }
       },
       "default": "./dist/browser/index.js"

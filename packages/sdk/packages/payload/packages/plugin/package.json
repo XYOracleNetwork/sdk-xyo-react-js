@@ -10,15 +10,15 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/lodash": "^2.11.18",
-    "@xylabs/react-flexbox": "^3.0.2",
-    "@xylabs/react-identicon": "^3.0.2",
+    "@xylabs/lodash": "^2.11.21",
+    "@xylabs/react-flexbox": "^3.0.3",
+    "@xylabs/react-identicon": "^3.0.3",
     "@xyo-network/payload-model": "^2.74.5",
     "@xyo-network/react-payload-details": "workspace:~",
     "@xyo-network/react-shared": "workspace:~"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^3.0.67",
+    "@xylabs/ts-scripts-yarn3": "^3.0.70",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
@@ -51,7 +51,7 @@
         },
         "require": {
           "types": "./dist/browser/index.d.ts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.cjs"
         }
       },
       "default": "./dist/browser/index.js"

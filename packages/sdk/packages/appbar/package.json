@@ -10,19 +10,19 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-appbar": "^3.0.2",
-    "@xylabs/react-button": "^3.0.2",
-    "@xylabs/react-flexbox": "^3.0.2",
-    "@xylabs/react-link": "^3.0.2",
-    "@xylabs/react-shared": "^3.0.2",
+    "@xylabs/react-appbar": "^3.0.3",
+    "@xylabs/react-button": "^3.0.3",
+    "@xylabs/react-flexbox": "^3.0.3",
+    "@xylabs/react-link": "^3.0.3",
+    "@xylabs/react-shared": "^3.0.3",
     "@xyo-network/react-app-settings": "workspace:~",
     "@xyo-network/react-network": "workspace:~",
     "@xyo-network/react-shared": "workspace:~"
   },
   "devDependencies": {
     "@storybook/react": "^7.4.5",
-    "@xylabs/ts-scripts-yarn3": "^3.0.67",
-    "@xylabs/tsconfig-react": "^3.0.67",
+    "@xylabs/ts-scripts-yarn3": "^3.0.70",
+    "@xylabs/tsconfig-react": "^3.0.70",
     "@xyo-network/react-storybook": "workspace:~",
     "@xyo-network/react-wallet": "workspace:~",
     "typescript": "^5.2.2"
@@ -58,7 +58,7 @@
         },
         "require": {
           "types": "./dist/browser/index.d.ts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.cjs"
         }
       },
       "default": "./dist/browser/index.js"

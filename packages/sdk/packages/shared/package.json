@@ -11,21 +11,21 @@
   },
   "dependencies": {
     "@xylabs/pixel": "^1.4.14",
-    "@xylabs/react-appbar": "^3.0.2",
-    "@xylabs/react-button": "^3.0.2",
-    "@xylabs/react-flexbox": "^3.0.2",
-    "@xylabs/react-link": "^3.0.2",
-    "@xylabs/react-promise": "^3.0.2",
-    "@xylabs/react-shared": "^3.0.2",
+    "@xylabs/react-appbar": "^3.0.3",
+    "@xylabs/react-button": "^3.0.3",
+    "@xylabs/react-flexbox": "^3.0.3",
+    "@xylabs/react-link": "^3.0.3",
+    "@xylabs/react-promise": "^3.0.3",
+    "@xylabs/react-shared": "^3.0.3",
     "@xyo-network/core": "^2.74.5",
     "@xyo-network/payload-model": "^2.74.5",
     "@xyo-network/react-event": "workspace:~"
   },
   "devDependencies": {
     "@storybook/react": "^7.4.5",
-    "@xylabs/react-quick-tip-button": "^3.0.2",
-    "@xylabs/ts-scripts-yarn3": "^3.0.67",
-    "@xylabs/tsconfig-react": "^3.0.67",
+    "@xylabs/react-quick-tip-button": "^3.0.3",
+    "@xylabs/ts-scripts-yarn3": "^3.0.70",
+    "@xylabs/tsconfig-react": "^3.0.70",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
@@ -58,7 +58,7 @@
         },
         "require": {
           "types": "./dist/browser/index.d.ts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.cjs"
         }
       },
       "default": "./dist/browser/index.js"
