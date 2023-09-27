@@ -17,5 +17,5 @@ export const useRelationalGraphOptions = (module?: ModuleInstance) => {
   const style = useCytoscapeStyle(hideLabels)
   const options = useCytoscapeOptions(elements, style, ColaLayout)
 
-  return { handleToggleLabels, options }
+  return { handleToggleLabels, hideLabels, options }
 }
