@@ -1,11 +1,13 @@
 import { use } from 'cytoscape'
 import cola from 'cytoscape-cola'
+import popper from 'cytoscape-popper'
 import { PropsWithChildren, useEffect, useState } from 'react'
 
-export const WithCola: React.FC<PropsWithChildren> = ({ children }) => {
+export const WithExtensions: React.FC<PropsWithChildren> = ({ children }) => {
   const [initialized, setInitialized] = useState(false)
   useEffect(() => {
     use(cola)
+    use(popper)
     setInitialized(true)
   }, [])
 

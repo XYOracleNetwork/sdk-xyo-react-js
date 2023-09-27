@@ -6,8 +6,8 @@ import { useEffect } from 'react'
 
 import { useCytoscapeInstance } from '../contexts'
 import { useNewElements, useNewOptions, useRelationalGraphOptions } from '../hooks'
+import { WithExtensions } from './cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from './RelationalGraph'
-import { WithCola } from './WithCola'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   rootModule?: ModuleInstance | null
@@ -36,20 +36,33 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   }, [cy, setSelectedElement])
 
   useEffect(() => {
-    const hoverListener = (event: EventObject) => {
-     console.log('hovered', event)
-    }
     cy?.ready(() => {
-      cy.nodes().forEach(ele => console.log(ele))
-    })
+      cy.nodes().forEach((node) => {
+        const popper = node.popper({
+          content: () => {
+            const div = document.createElement('div')
 
-    return () => {
-      cy?.nodes()?.off('hover', undefined, hoverListener)
-    }
+            div.innerHTML = 'Sticky Popper content'
+
+            document.body.appendChild(div)
+
+            return div
+          },
+        })
+
+        const update = () => {
+          popper.update()
+        }
+
+        node.on('position', update)
+
+        cy.on('pan zoom resize', update)
+      })
+    })
   }, [cy, setSelectedElement])
 
   return (
-    <WithCola>
+    <WithExtensions>
       <NodeRelationalGraphFlexBox
         actions={
           <Button size={'small'} onClick={handleToggleLabels} variant="contained">
@@ -59,6 +72,6 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
         options={newOptions}
         {...props}
       />
-    </WithCola>
+    </WithExtensions>
   )
 }
