@@ -11,6 +11,7 @@ import {
   VscSymbolMethod,
   VscSymbolNamespace,
   VscTable,
+  // eslint-disable-next-line import/no-internal-modules
 } from 'react-icons/vsc/index.js'
 
 import { MenuListItemProps } from '../SiteMenu'

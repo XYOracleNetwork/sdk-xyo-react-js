@@ -1,1 +1,1 @@
-export * from './WithExtensions';
+export * from './WithExtensions'

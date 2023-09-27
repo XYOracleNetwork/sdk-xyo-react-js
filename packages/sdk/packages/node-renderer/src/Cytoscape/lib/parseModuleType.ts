@@ -5,6 +5,7 @@ import { ModuleInstance } from '@xyo-network/module'
 import { isNodeInstance } from '@xyo-network/node-model'
 import { isSentinelInstance } from '@xyo-network/sentinel'
 import { isWitnessModule } from '@xyo-network/witness'
+
 import { CyNodeModuleTypes } from './CyNodeModuleTypes'
 
 export const parseModuleType = (module?: ModuleInstance): CyNodeModuleTypes => {

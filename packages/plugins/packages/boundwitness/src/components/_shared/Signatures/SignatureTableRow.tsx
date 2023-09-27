@@ -3,6 +3,7 @@ import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useEvent } from '@xyo-network/react-event'
 import { AddressTableCell } from '@xyo-network/react-shared'
+// eslint-disable-next-line import/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md/index.js'
 
 type clickableFields = 'address' | 'signature'

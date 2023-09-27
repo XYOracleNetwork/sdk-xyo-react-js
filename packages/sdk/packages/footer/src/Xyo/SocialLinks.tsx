@@ -1,5 +1,6 @@
 import { Facebook, Instagram, LinkedIn, Reddit, Telegram, Twitter, YouTube } from '@mui/icons-material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+// eslint-disable-next-line import/no-internal-modules
 import { FaDiscord } from 'react-icons/fa/index.js'
 
 import { FooterLink } from '../Link'
