@@ -35,6 +35,19 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
     }
   }, [cy, setSelectedElement])
 
+  useEffect(() => {
+    const hoverListener = (event: EventObject) => {
+     console.log('hovered', event)
+    }
+    cy?.ready(() => {
+      cy.nodes().forEach(ele => console.log(ele))
+    })
+
+    return () => {
+      cy?.nodes()?.off('hover', undefined, hoverListener)
+    }
+  }, [cy, setSelectedElement])
+
   return (
     <WithCola>
       <NodeRelationalGraphFlexBox
