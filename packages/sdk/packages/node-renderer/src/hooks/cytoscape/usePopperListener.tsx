@@ -4,11 +4,11 @@ import { useCallback } from 'react'
 
 export const usePopperListener = () => {
   const theme = useTheme()
-  const shadowColor = theme.palette.getContrastText(theme.palette.text.primary)
 
   const popperListener = useCallback(
     (node: NodeSingular, hideLabels?: boolean, cy?: Core) => {
       const div = document.createElement('div')
+      const shadowColor = theme.palette.getContrastText(theme.palette.text.primary)
 
       const popper = node.popper({
         content: () => {
@@ -23,8 +23,8 @@ export const usePopperListener = () => {
         },
       })
 
-      const update = () => {
-        popper.update()
+      const update = async () => {
+        await popper.update()
       }
 
       node.on('position', update)
@@ -33,7 +33,7 @@ export const usePopperListener = () => {
 
       cy?.on('pan zoom resize', update)
     },
-    [shadowColor],
+    [theme],
   )
 
   return popperListener
