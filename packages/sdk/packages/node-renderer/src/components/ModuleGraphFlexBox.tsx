@@ -5,7 +5,7 @@ import { EventObject } from 'cytoscape'
 import { useEffect } from 'react'
 
 import { useCytoscapeInstance } from '../contexts'
-import { useAddNewElements, useNewElements, useRelationalGraphOptions } from '../hooks'
+import { useAddNewElements, useNewElements, usePopperListener, useRelationalGraphOptions } from '../hooks'
 import { WithExtensions } from './cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from './RelationalGraph'
 
@@ -15,20 +15,19 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
 
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, ...props }) => {
   const { cy } = useCytoscapeInstance(true)
-  const { handleToggleLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
+  const popperListener = usePopperListener()
+  const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
 
   const { newElements, setSelectedElement } = useNewElements()
 
-  useAddNewElements(newElements)
+  useAddNewElements(newElements, hideLabels)
 
   useEffect(() => {
     const listener = (event: EventObject) => {
       const element = event.target[0]
       if (element.isNode()) setSelectedElement(element)
     }
-    if (cy) {
-      cy.on('select', listener)
-    }
+    cy?.on('select', listener)
 
     return () => {
       cy?.off('select', listener)
@@ -37,29 +36,9 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
 
   useEffect(() => {
     cy?.ready(() => {
-      cy.nodes().forEach((node) => {
-        const popper = node.popper({
-          content: () => {
-            const div = document.createElement('div')
-
-            div.innerHTML = 'Sticky Popper content'
-
-            document.body.appendChild(div)
-
-            return div
-          },
-        })
-
-        const update = () => {
-          popper.update()
-        }
-
-        node.on('position', update)
-
-        cy.on('pan zoom resize', update)
-      })
+      cy.nodes().forEach((node) => popperListener(node, hideLabels, cy))
     })
-  }, [cy, setSelectedElement])
+  }, [cy, hideLabels, popperListener, setSelectedElement])
 
   return (
     <WithExtensions>
