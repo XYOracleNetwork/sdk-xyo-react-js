@@ -5,9 +5,9 @@ import { EventObject } from 'cytoscape'
 import { useEffect } from 'react'
 
 import { useCytoscapeInstance } from '../contexts'
-import { useNewElements, useNewOptions, useRelationalGraphOptions } from '../hooks'
+import { useAddNewElements, useNewElements, usePopperListener, useRelationalGraphOptions } from '../hooks'
+import { WithExtensions } from './cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from './RelationalGraph'
-import { WithCola } from './WithCola'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   rootModule?: ModuleInstance | null
@@ -15,37 +15,42 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
 
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, ...props }) => {
   const { cy } = useCytoscapeInstance(true)
-  const { handleToggleLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
+  const popperListener = usePopperListener()
+  const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
 
   const { newElements, setSelectedElement } = useNewElements()
 
-  const newOptions = useNewOptions(options, newElements)
+  useAddNewElements(newElements, hideLabels)
 
   useEffect(() => {
     const listener = (event: EventObject) => {
       const element = event.target[0]
       if (element.isNode()) setSelectedElement(element)
     }
-    if (cy) {
-      cy.on('select', listener)
-    }
+    cy?.on('select', listener)
 
     return () => {
       cy?.off('select', listener)
     }
   }, [cy, setSelectedElement])
 
+  useEffect(() => {
+    cy?.ready(() => {
+      cy.nodes().forEach((node) => popperListener(node, hideLabels, cy))
+    })
+  }, [cy, hideLabels, popperListener, setSelectedElement])
+
   return (
-    <WithCola>
+    <WithExtensions>
       <NodeRelationalGraphFlexBox
         actions={
           <Button size={'small'} onClick={handleToggleLabels} variant="contained">
             Toggle Labels
           </Button>
         }
-        options={newOptions}
+        options={options}
         {...props}
       />
-    </WithCola>
+    </WithExtensions>
   )
 }
