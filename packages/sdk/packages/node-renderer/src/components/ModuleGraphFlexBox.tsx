@@ -5,7 +5,7 @@ import { EventObject } from 'cytoscape'
 import { useEffect } from 'react'
 
 import { useCytoscapeInstance } from '../contexts'
-import { useNewElements, useNewOptions, useRelationalGraphOptions } from '../hooks'
+import { useAddNewElements, useNewElements, useRelationalGraphOptions } from '../hooks'
 import { WithExtensions } from './cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from './RelationalGraph'
 
@@ -19,7 +19,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
 
   const { newElements, setSelectedElement } = useNewElements()
 
-  const newOptions = useNewOptions(options, newElements)
+  useAddNewElements(newElements)
 
   useEffect(() => {
     const listener = (event: EventObject) => {
@@ -69,7 +69,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
             Toggle Labels
           </Button>
         }
-        options={newOptions}
+        options={options}
         {...props}
       />
     </WithExtensions>
