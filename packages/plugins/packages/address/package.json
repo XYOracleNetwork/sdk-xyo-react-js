@@ -10,7 +10,7 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/payload-plugins": "^2.75.2",
+    "@xyo-network/payload-plugins": "^2.75.3",
     "@xyo-network/react-address-render": "workspace:~",
     "@xyo-network/react-payload-plugin": "workspace:~"
   },
@@ -18,7 +18,7 @@
     "@storybook/react": "^7.4.5",
     "@xylabs/ts-scripts-yarn3": "^3.0.78",
     "@xylabs/tsconfig-react": "^3.0.78",
-    "@xyo-network/account": "^2.75.2",
+    "@xyo-network/account": "^2.75.3",
     "@xyo-network/react-event": "workspace:~",
     "typescript": "^5.2.2"
   },
@@ -38,20 +38,20 @@
       "node": {
         "import": {
           "types": "./dist/node/index.d.mts",
-          "default": "./dist/node/index.mjs"
+          "default": "./dist/node/index.js"
         },
         "require": {
-          "types": "./dist/node/index.d.ts",
-          "default": "./dist/node/index.js"
+          "types": "./dist/node/index.d.cts",
+          "default": "./dist/node/index.cjs"
         }
       },
       "browser": {
         "import": {
-          "types": "./dist/browser/index.d.ts",
+          "types": "./dist/browser/index.d.mts",
           "default": "./dist/browser/index.js"
         },
         "require": {
-          "types": "./dist/browser/index.d.ts",
+          "types": "./dist/browser/index.d.cts",
           "default": "./dist/browser/index.cjs"
         }
       },
@@ -59,7 +59,7 @@
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/browser/index.js",
+  "main": "dist/browser/index.cjs",
   "module": "dist/browser/index.js",
   "homepage": "https://xyo.network",
   "keywords": [
@@ -94,5 +94,6 @@
       }
     }
   },
-  "stableVersion": "2.63.1"
+  "stableVersion": "2.63.1",
+  "type": "module"
 }

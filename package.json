@@ -99,20 +99,20 @@
       "node": {
         "import": {
           "types": "./dist/node/index.d.mts",
-          "default": "./dist/node/index.mjs"
+          "default": "./dist/node/index.js"
         },
         "require": {
-          "types": "./dist/node/index.d.ts",
-          "default": "./dist/node/index.js"
+          "types": "./dist/node/index.d.cts",
+          "default": "./dist/node/index.cjs"
         }
       },
       "browser": {
         "import": {
-          "types": "./dist/browser/index.d.ts",
+          "types": "./dist/browser/index.d.mts",
           "default": "./dist/browser/index.js"
         },
         "require": {
-          "types": "./dist/browser/index.d.ts",
+          "types": "./dist/browser/index.d.cts",
           "default": "./dist/browser/index.cjs"
         }
       },
@@ -120,7 +120,7 @@
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/browser/index.js",
+  "main": "dist/browser/index.cjs",
   "module": "dist/browser/index.js",
   "homepage": "https://xyo.network",
   "keywords": [
@@ -155,5 +155,6 @@
   "types": "dist/browser/index.d.ts",
   "version": "2.64.0-rc.7",
   "packageManager": "yarn@3.6.1",
-  "stableVersion": "2.63.1"
+  "stableVersion": "2.63.1",
+  "type": "module"
 }

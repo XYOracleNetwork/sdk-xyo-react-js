@@ -10,11 +10,11 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/lodash": "^2.12.10",
+    "@xylabs/lodash": "^2.12.12",
     "@xylabs/react-flexbox": "^3.0.5",
     "@xylabs/react-quick-tip-button": "^3.0.5",
-    "@xyo-network/gas-price-payload-plugin": "^2.75.2",
-    "@xyo-network/payload-model": "^2.75.2",
+    "@xyo-network/gas-price-payload-plugin": "^2.75.3",
+    "@xyo-network/payload-model": "^2.75.3",
     "@xyo-network/react-gas-price": "workspace:~",
     "@xyo-network/react-payload-plugin": "workspace:~",
     "@xyo-network/react-shared": "workspace:~"
@@ -42,20 +42,20 @@
       "node": {
         "import": {
           "types": "./dist/node/index.d.mts",
-          "default": "./dist/node/index.mjs"
+          "default": "./dist/node/index.js"
         },
         "require": {
-          "types": "./dist/node/index.d.ts",
-          "default": "./dist/node/index.js"
+          "types": "./dist/node/index.d.cts",
+          "default": "./dist/node/index.cjs"
         }
       },
       "browser": {
         "import": {
-          "types": "./dist/browser/index.d.ts",
+          "types": "./dist/browser/index.d.mts",
           "default": "./dist/browser/index.js"
         },
         "require": {
-          "types": "./dist/browser/index.d.ts",
+          "types": "./dist/browser/index.d.cts",
           "default": "./dist/browser/index.cjs"
         }
       },
@@ -63,7 +63,7 @@
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/browser/index.js",
+  "main": "dist/browser/index.cjs",
   "module": "dist/browser/index.js",
   "homepage": "https://xyo.network",
   "keywords": [
@@ -87,5 +87,6 @@
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
   "version": "2.64.0-rc.7",
-  "stableVersion": "2.63.1"
+  "stableVersion": "2.63.1",
+  "type": "module"
 }
