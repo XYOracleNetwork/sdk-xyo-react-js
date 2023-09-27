@@ -1,12 +1,8 @@
 import { use } from 'cytoscape'
 import cola from 'cytoscape-cola'
-import { useEffect, useState } from 'react'
+import { PropsWithChildren, useEffect, useState } from 'react'
 
-type WithChildren<T = unknown> = Omit<T, 'children'> & {
-  children?: ReactElement | undefined
-}
-
-export const WithCola: React.FC<WithChildren> = ({ children }) => {
+export const WithCola: React.FC<PropsWithChildren> = ({ children }) => {
   const [initialized, setInitialized] = useState(false)
   useEffect(() => {
     use(cola)
