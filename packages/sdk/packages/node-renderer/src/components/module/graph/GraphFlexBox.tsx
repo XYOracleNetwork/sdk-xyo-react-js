@@ -5,7 +5,7 @@ import { ModuleInstance } from '@xyo-network/module'
 import { useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
-import { ModuleHover } from './Hover'
+import { ModuleGraphNodeHover } from './NodeHover'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   rootModule?: ModuleInstance | null
@@ -29,7 +29,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
         options={options}
         {...props}
       >
-        <ModuleHover node={hoveredNode} />
+        <ModuleGraphNodeHover node={hoveredNode} />
       </NodeRelationalGraphFlexBox>
     </WithExtensions>
   )

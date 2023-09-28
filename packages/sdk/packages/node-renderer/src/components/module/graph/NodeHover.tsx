@@ -7,7 +7,7 @@ export interface ModuleHoverProps {
   node?: NodeSingular
 }
 
-export const ModuleHover: React.FC<ModuleHoverProps> = ({ node }) => {
+export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ node }) => {
   const { address, name } = node?.data() ?? {}
   const [boundingBox, setBoundingBox] = useState(node?.renderedBoundingBox())
   const ref = useRef<HTMLDivElement>(null)
