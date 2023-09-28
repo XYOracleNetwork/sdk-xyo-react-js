@@ -10,7 +10,7 @@ import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
-import { CytoscapeInstanceProvider } from '../../contexts'
+import { CytoscapeInstanceProvider } from '../../../contexts'
 import { ModuleGraphFlexBox } from './GraphFlexBox'
 
 const nodeUrl = 'http://localhost:8080/node'

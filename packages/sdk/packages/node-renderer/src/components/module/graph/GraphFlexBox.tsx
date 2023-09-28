@@ -4,10 +4,10 @@ import { ModuleInstance } from '@xyo-network/module'
 import { EventObject, NodeSingular } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
-import { useCytoscapeInstance } from '../../contexts'
-import { useAddNewElements, useNewElements, useRelationalGraphOptions } from '../../hooks'
-import { WithExtensions } from '../cytoscape-extensions'
-import { NodeRelationalGraphFlexBox } from '../RelationalGraph'
+import { useCytoscapeInstance } from '../../../contexts'
+import { useAddNewElements, useNewElements, useRelationalGraphOptions } from '../../../hooks'
+import { WithExtensions } from '../../cytoscape-extensions'
+import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
 import { ModuleHover } from './Hover'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
