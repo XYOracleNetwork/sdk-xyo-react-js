@@ -18,5 +18,5 @@ export const useNewElements = (selectedElement?: NodeSingular) => {
     }
   }, [cy, selectedAddress])
 
-  return { newElements }
+  return newElements
 }

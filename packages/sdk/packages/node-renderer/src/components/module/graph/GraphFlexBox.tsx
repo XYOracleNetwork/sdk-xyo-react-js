@@ -14,7 +14,7 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, ...props }) => {
   const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
   const selectedElement = useSelectedElement()
-  const { newElements } = useNewElements(selectedElement)
+  const newElements = useNewElements(selectedElement)
   const renderedElements = useRenderNewElements(newElements, hideLabels)
   const hoveredNode = useHoveredNode(renderedElements)
 
