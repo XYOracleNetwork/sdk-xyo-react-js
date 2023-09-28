@@ -1,13 +1,14 @@
 import { Button } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
-import { EventObject } from 'cytoscape'
-import { useEffect } from 'react'
+import { EventObject, NodeSingular } from 'cytoscape'
+import { useEffect, useState } from 'react'
 
-import { useCytoscapeInstance } from '../contexts'
-import { useAddNewElements, useNewElements, usePopperListener, useRelationalGraphOptions } from '../hooks'
-import { WithExtensions } from './cytoscape-extensions'
-import { NodeRelationalGraphFlexBox } from './RelationalGraph'
+import { useCytoscapeInstance } from '../../contexts'
+import { useAddNewElements, useNewElements, useRelationalGraphOptions } from '../../hooks'
+import { WithExtensions } from '../cytoscape-extensions'
+import { NodeRelationalGraphFlexBox } from '../RelationalGraph'
+import { ModuleHover } from './Hover'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   rootModule?: ModuleInstance | null
@@ -15,7 +16,6 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
 
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, ...props }) => {
   const { cy } = useCytoscapeInstance(true)
-  const popperListener = usePopperListener()
   const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
 
   const { newElements, setSelectedElement } = useNewElements()
@@ -34,11 +34,20 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
     }
   }, [cy, setSelectedElement])
 
+  const [hoveredNode, setHoveredNode] = useState<NodeSingular>()
+
   useEffect(() => {
     cy?.ready(() => {
-      cy.nodes().forEach((node) => popperListener(node, hideLabels, cy))
+      cy.nodes().forEach((node) => {
+        node.on('mouseover tap', () => {
+          setHoveredNode(node)
+        })
+        node.on('mouseout', () => {
+          setHoveredNode(undefined)
+        })
+      })
     })
-  }, [cy, hideLabels, popperListener, setSelectedElement])
+  }, [cy])
 
   return (
     <WithExtensions>
@@ -50,7 +59,9 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
         }
         options={options}
         {...props}
-      />
+      >
+        <ModuleHover node={hoveredNode} />
+      </NodeRelationalGraphFlexBox>
     </WithExtensions>
   )
 }
