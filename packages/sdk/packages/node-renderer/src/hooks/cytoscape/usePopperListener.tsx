@@ -1,40 +1,53 @@
-import { useTheme } from '@mui/material'
+import { Typography } from '@mui/material'
+import { FlexRow } from '@xylabs/react-flexbox'
+import { Identicon } from '@xylabs/react-identicon'
 import { Core, NodeSingular } from 'cytoscape'
-import { useCallback } from 'react'
+import { flushSync } from 'react-dom'
+// eslint-disable-next-line import/no-internal-modules
+import { createRoot } from 'react-dom/client'
 
 export const usePopperListener = () => {
-  const theme = useTheme()
+  const popperListener = (node: NodeSingular, hideLabels?: boolean, cy?: Core) => {
+    const div = document.createElement('div')
 
-  const popperListener = useCallback(
-    (node: NodeSingular, hideLabels?: boolean, cy?: Core) => {
-      const div = document.createElement('div')
-      const shadowColor = theme.palette.getContrastText(theme.palette.text.primary)
+    const { address, name } = node.data()
 
-      const popper = node.popper({
-        content: () => {
-          div.innerHTML = node.data().name
-          div.style.opacity = '0'
-          div.style.transition = 'opacity .25s'
-          div.style.textShadow = `0 0 3px ${shadowColor}`
+    const popper = node.popper({
+      content: () => {
+        div.style.display = 'none'
 
-          document.body.appendChild(div)
+        const root = createRoot(div)
+        flushSync(() => {
+          root.render(
+            <FlexRow paper p={2} gap={2}>
+              <Identicon value={address} size={24} />
+              <Typography>{name}</Typography>
+            </FlexRow>,
+          )
+        })
 
-          return div
-        },
-      })
+        document.body.appendChild(div)
 
-      const update = async () => {
-        await popper.update()
-      }
+        return div
+      },
+      popper: { modifiers: [], placement: 'top', strategy: 'absolute' },
+    })
 
-      node.on('position', update)
-      node.on('mouseover', () => (hideLabels ? (div.style.opacity = '1') : undefined))
-      node.on('mouseout', () => (hideLabels ? (div.style.opacity = '0') : undefined))
+    const update = async () => {
+      await popper.update()
+    }
 
-      cy?.on('pan zoom resize', update)
-    },
-    [theme],
-  )
+    node.on('position', update)
+    node.on('mouseover tap', () => {
+      div.style.display = 'block'
+      div.style.cursor = 'pointer'
+    })
+    node.on('mouseout', () => {
+      div.style.display = 'none'
+    })
+
+    cy?.on('pan zoom resize', update)
+  }
 
   return popperListener
 }
