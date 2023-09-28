@@ -1,13 +1,12 @@
 import { useModuleFromNode } from '@xyo-network/react-node'
-import { NodeDataDefinition } from 'cytoscape'
-import { useEffect, useState } from 'react'
+import { NodeSingular } from 'cytoscape'
+import { useEffect } from 'react'
 
 import { useCytoscapeInstance } from '../../contexts'
 import { useCytoscapeElements } from './useCytoscapeElements'
 
-export const useNewElements = () => {
+export const useNewElements = (selectedElement?: NodeSingular) => {
   const { cy } = useCytoscapeInstance(true)
-  const [selectedElement, setSelectedElement] = useState<NodeDataDefinition>()
   const { address: selectedAddress } = selectedElement?.data() ?? {}
   const [module] = useModuleFromNode(selectedAddress)
   const newElements = useCytoscapeElements(module)
@@ -19,5 +18,5 @@ export const useNewElements = () => {
     }
   }, [cy, selectedAddress])
 
-  return { newElements, setSelectedElement }
+  return newElements
 }

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 
-import { ModuleCardParser } from './ModuleCardParser'
+import { ModuleCardParser } from './CardParser'
 
 const meta: Meta<typeof ModuleCardParser> = {
   component: ModuleCardParser,

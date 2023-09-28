@@ -1,6 +1,6 @@
-import { CytoscapeOptions } from 'cytoscape'
+import { LayoutOptions } from 'cytoscape'
 
-export const ConcentricLayout: CytoscapeOptions['layout'] = {
+export const ConcentricLayout: LayoutOptions = {
   concentric: function (node) {
     return node.degree()
   },
