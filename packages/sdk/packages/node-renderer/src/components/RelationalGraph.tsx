@@ -7,7 +7,7 @@ import { forwardRef, useEffect, useState } from 'react'
 import { useCytoscapeInstance } from '../contexts'
 import { NodeRelationalGraphProps } from './lib'
 
-export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(({ actions, options, ...props }, ref) => {
+export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(({ actions, children, options, ...props }, ref) => {
   const [cy, setCy] = useState<Core>()
   const { setCy: setCyContext } = useCytoscapeInstance()
   const sharedRef = useShareForwardedRef(ref)
@@ -43,6 +43,7 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
       </ActionsContainer>
       {/* Cytoscape Element */}
       <FlexCol alignItems="stretch" height="100%" position="absolute" ref={sharedRef} width="100%"></FlexCol>
+      {children}
     </FlexCol>
   )
 })
