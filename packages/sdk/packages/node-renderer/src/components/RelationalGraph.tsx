@@ -39,7 +39,7 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
             <ButtonGroup>
               {actions}
               <Button size={'small'} variant={'contained'} onClick={handleReset}>
-                Reset
+                Reset View
               </Button>
             </ButtonGroup>
           ) : (
