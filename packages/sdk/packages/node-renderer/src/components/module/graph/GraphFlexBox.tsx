@@ -2,6 +2,7 @@ import { Button } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
 
+import { CytoscapeInstanceProvider } from '../../../contexts'
 import { useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
@@ -32,5 +33,13 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
         <ModuleGraphNodeHover node={hoveredNode} />
       </NodeRelationalGraphFlexBox>
     </WithExtensions>
+  )
+}
+
+export const ModuleGraphFlexBoxWithProvider: React.FC<ModuleGraphFlexBoxProps> = (props) => {
+  return (
+    <CytoscapeInstanceProvider>
+      <ModuleGraphFlexBox {...props} />
+    </CytoscapeInstanceProvider>
   )
 }

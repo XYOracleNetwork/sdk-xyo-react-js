@@ -10,8 +10,7 @@ import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
-import { CytoscapeInstanceProvider } from '../../../contexts'
-import { ModuleGraphFlexBox } from './GraphFlexBox'
+import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox'
 
 const nodeUrl = 'http://localhost:8080/node'
 
@@ -58,9 +57,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   return (
     <WalletProvider rootWallet={wallet}>
       <NodeProvider node={node}>
-        <CytoscapeInstanceProvider>
-          <Story {...args} />
-        </CytoscapeInstanceProvider>
+        <Story {...args} />
       </NodeProvider>
     </WalletProvider>
   )
@@ -68,15 +65,15 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  component: ModuleGraphFlexBox,
-  title: 'node/renderer/ModuleGraphFlexBox',
+  component: ModuleGraphFlexBoxWithProvider,
+  title: 'node/renderer/ModuleGraphFlexBoxWithProvider',
 } as Meta
 
-const Template: StoryFn<typeof ModuleGraphFlexBox> = (props) => <ModuleGraphFlexBox {...props} />
+const Template: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => <ModuleGraphFlexBoxWithProvider {...props} />
 
-const TemplateWithProvidedModule: StoryFn<typeof ModuleGraphFlexBox> = (props) => {
+const TemplateWithProvidedModule: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => {
   const [node] = useProvidedNode()
-  return <ModuleGraphFlexBox rootModule={node} {...props} />
+  return <ModuleGraphFlexBoxWithProvider rootModule={node} {...props} />
 }
 
 const defaultProps = {
