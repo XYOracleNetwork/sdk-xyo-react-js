@@ -60,7 +60,7 @@ export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ node }) => {
       />
       {node ? (
         <>
-          <ModuleHoverPopper address={address} element={currentEl} name={name} placement={'top'} open />
+          <ModuleHoverPopper address={address} element={currentEl} name={name} placement={'top'} open sx={{ zIndex: 2 }} />
         </>
       ) : null}
     </>
