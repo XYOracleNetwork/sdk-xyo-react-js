@@ -39,3 +39,5 @@ export const EdgeStyled = (lineColor?: string, targetArrowColor?: string) => ({
     width: 3,
   },
 })
+
+export const NodeBgStyles = (bgColor: string): [string, string] => ['background-color', bgColor]

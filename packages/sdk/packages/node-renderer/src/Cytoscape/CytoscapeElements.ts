@@ -24,7 +24,7 @@ export class CytoscapeElements {
     try {
       const childElements = await CytoscapeElements.recurseNodes(module)
       childElements?.forEach((module) => {
-        const newNode = CytoscapeElements.buildNode(module, newRootNode.data.id)
+        const newNode = CytoscapeElements.buildNode(module, { rootNodeId: newRootNode.data.id })
         newElements.push(newNode)
 
         const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
@@ -38,7 +38,7 @@ export class CytoscapeElements {
     }
   }
 
-  static buildNode(module: ModuleInstance, rootNodeId?: string): ElementDefinition {
+  static buildNode(module: ModuleInstance, properties?: { [key: string]: unknown }): ElementDefinition {
     const { address, config } = module
     const normalizedName = config.name ?? address.substring(0, 8)
     return {
@@ -46,14 +46,14 @@ export class CytoscapeElements {
         address,
         id: address,
         name: normalizedName,
-        rootNodeId,
         type: parseModuleType(module),
+        ...properties,
       },
     }
   }
 
   static buildRootNode = (module: ModuleInstance): ElementDefinition => {
-    return CytoscapeElements.buildNode(module)
+    return CytoscapeElements.buildNode(module, { root: true })
   }
 
   static normalizeName(name?: string) {
