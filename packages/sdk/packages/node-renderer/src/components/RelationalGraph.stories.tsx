@@ -12,6 +12,7 @@ import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
+import { CytoscapeInstanceProvider } from '../contexts'
 import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
 import { ProvidedNodeRenderer } from './ProvidedNodeRenderer'
 import { NodeRelationalGraphFlexBox } from './RelationalGraph'
@@ -62,7 +63,9 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   return (
     <WalletProvider rootWallet={wallet}>
       <NodeProvider node={node}>
-        <Story {...args} />
+        <CytoscapeInstanceProvider>
+          <Story {...args} />
+        </CytoscapeInstanceProvider>
       </NodeProvider>
     </WalletProvider>
   )
