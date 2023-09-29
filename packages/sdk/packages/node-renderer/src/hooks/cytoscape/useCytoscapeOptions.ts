@@ -11,12 +11,15 @@ export const useCytoscapeOptions = (
 ) => {
   const defaultStyle = useCytoscapeStyle()
 
+  const resolvedLayout = layout ?? ConcentricLayout
+  const resolvedStyle = style ?? defaultStyle
+
   const options = useMemo<CytoscapeOptions | undefined>(() => {
-    if (elements && layout && style) {
+    if (elements && resolvedLayout && resolvedStyle) {
       return {
         elements,
-        layout: layout ?? ConcentricLayout,
-        style: style ?? defaultStyle,
+        layout: resolvedLayout,
+        style: resolvedStyle,
       }
     }
   }, [elements, layout, style])

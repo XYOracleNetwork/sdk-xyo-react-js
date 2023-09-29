@@ -1,5 +1,7 @@
+import { PopperProps } from '@mui/material'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeSingular } from 'cytoscape'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 import { ModuleHoverPopper } from './Popper'
 
@@ -11,12 +13,16 @@ export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ node }) => {
   const { address, name } = node?.data() ?? {}
   const [boundingBox, setBoundingBox] = useState(node?.renderedBoundingBox())
   const ref = useRef<HTMLDivElement>(null)
-  const [currentEl, setCurrentEl] = useState<HTMLDivElement | null>(null)
+  const [currentEl, setCurrentEl] = useState<PopperProps['anchorEl'] | null>(null)
 
-  useLayoutEffect(() => {
-    if (node && ref.current) {
+  // Ensure first render clears the previous element when node changes to avoid flicker
+  useEffect(() => {
+    setCurrentEl(null)
+  }, [node])
+
+  useEffect(() => {
+    if (node) {
       setBoundingBox(node.renderedBoundingBox())
-      setCurrentEl(ref.current)
     }
 
     const listener = () => {
@@ -30,24 +36,30 @@ export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ node }) => {
     }
   }, [node])
 
+  // Once boundingBox state is set and applied to the layout, update the ref
+  useLayoutEffect(() => {
+    setCurrentEl(ref.current)
+  }, [boundingBox])
+
   return (
     <>
+      <FlexCol
+        ref={ref}
+        sx={{
+          // For easier debugging of the 'ghost' element that matches the hovered cytoscape node
+          // backgroundColor: '#fff',
+          // opacity: 0.25,
+          cursor: 'pointer',
+          height: boundingBox?.h,
+          left: boundingBox?.x1,
+          pointerEvents: 'none',
+          position: 'absolute',
+          top: boundingBox?.y1,
+          width: boundingBox?.w,
+        }}
+      />
       {node ? (
         <>
-          <div
-            ref={ref}
-            style={{
-              // backgroundColor: '#fff',
-              // opacity: 0.25,
-              cursor: 'pointer',
-              height: boundingBox?.h,
-              left: boundingBox?.x1,
-              pointerEvents: 'none',
-              position: 'absolute',
-              top: boundingBox?.y1,
-              width: boundingBox?.w,
-            }}
-          ></div>
           <ModuleHoverPopper address={address} element={currentEl} name={name} placement={'top'} open />
         </>
       ) : null}
