@@ -6,7 +6,7 @@ import { CytoscapeInstanceProvider } from '../../../contexts'
 import { useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
-import { ModuleGraphNodeHover } from './NodeHover'
+import { ModuleGraphNodeHover } from './node'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   rootModule?: ModuleInstance | null
