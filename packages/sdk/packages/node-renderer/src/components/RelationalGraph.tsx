@@ -34,12 +34,20 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
   return (
     <FlexCol {...props}>
       <ActionsContainer>
-        <ButtonGroup>
-          {actions}
-          <Button size={'small'} variant={'contained'} onClick={handleReset}>
-            Reset
-          </Button>
-        </ButtonGroup>
+        <>
+          {actions ? (
+            <ButtonGroup>
+              {actions}
+              <Button size={'small'} variant={'contained'} onClick={handleReset}>
+                Reset
+              </Button>
+            </ButtonGroup>
+          ) : (
+            <Button size={'small'} variant={'contained'} onClick={handleReset}>
+              Reset
+            </Button>
+          )}
+        </>
       </ActionsContainer>
       {/* Cytoscape Element */}
       <FlexCol alignItems="stretch" height="100%" position="absolute" ref={sharedRef} width="100%"></FlexCol>
