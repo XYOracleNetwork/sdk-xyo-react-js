@@ -147,7 +147,7 @@
     "build-storybook-debug": "storybook build --debug-webpack",
     "start": "storybook dev -p 6006",
     "lint-pkg": "npmPkgJsonLint .",
-    "build-typedoc-site": "typedoc --options typedoc.site.json && storybook build -o ./docs/storybook"
+    "build-typedoc-site": "xy gen-docs @xyo-network/sdk-xyo-react && storybook build -o ./docs/storybook"
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
