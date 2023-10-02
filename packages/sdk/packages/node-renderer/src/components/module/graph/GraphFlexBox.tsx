@@ -18,9 +18,9 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   const selectedElement = useSelectedElement()
   const newElements = useNewElements(selectedElement)
   const renderedElements = useRenderNewElements(newElements, hideLabels)
-  const hoveredNode = useHoveredNode(renderedElements)
+  const [hoveredNode, setHoveredNode] = useHoveredNode(renderedElements)
 
-  const { address, name } = selectedElement?.data() ?? {}
+  const { address, name } = hoveredNode?.data() ?? {}
 
   return (
     <WithExtensions>
@@ -34,7 +34,16 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
         {...props}
       >
         <ModuleGraphNodeHover node={hoveredNode}>
-          {(element: PopperProps['anchorEl']) => <StyledModuleHoverPopper address={address} element={element} name={name} placement={'top'} open />}
+          {(element: PopperProps['anchorEl']) => (
+            <StyledModuleHoverPopper
+              address={address}
+              element={element}
+              name={name}
+              onClose={() => setHoveredNode(undefined)}
+              placement={'top'}
+              open
+            />
+          )}
         </ModuleGraphNodeHover>
       </NodeRelationalGraphFlexBox>
     </WithExtensions>
