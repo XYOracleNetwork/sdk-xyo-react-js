@@ -1,5 +1,6 @@
 export * from './useCytoscapeElements'
 export * from './useCytoscapeOptions'
+export * from './useExploreModule'
 export * from './useHoveredNode'
 export * from './useNewElements'
 export * from './useRelationalGraphOptions'

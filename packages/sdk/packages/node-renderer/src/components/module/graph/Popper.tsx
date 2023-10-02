@@ -7,9 +7,10 @@ export interface ModuleHoverPopperProps extends PopperProps {
   element?: PopperProps['anchorEl']
   name?: string
   onClose?: () => void
+  onExploreAddress?: (address?: string) => void
 }
 
-export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, element, name, onClose, ...props }) => {
+export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, element, name, onClose, onExploreAddress, ...props }) => {
   return (
     <>
       {element ? (
@@ -32,9 +33,11 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, e
               subheader={address}
             />
             <StyledCardActions>
-              <Button size="small" variant="contained">
-                Explore
-              </Button>
+              {onExploreAddress ? (
+                <Button onClick={() => onExploreAddress?.(address)} size="small" variant="contained">
+                  Explore
+                </Button>
+              ) : null}
             </StyledCardActions>
           </Card>
         </Popper>

@@ -1,9 +1,9 @@
 import { Button, PopperProps } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
 
 import { CytoscapeInstanceProvider } from '../../../contexts'
-import { useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
+import { useExploreModule, useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
 import { ModuleGraphNodeHover } from './node'
@@ -20,7 +20,9 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   const renderedElements = useRenderNewElements(newElements, hideLabels)
   const [hoveredNode, setHoveredNode] = useHoveredNode(renderedElements)
 
-  const { address, name } = hoveredNode?.data() ?? {}
+  const { address: hoveredAddress, name: hoveredName } = hoveredNode?.data() ?? {}
+
+  const { exploreModule, onExploreAddress } = useExploreModule(rootModule, () => setHoveredNode(undefined))
 
   return (
     <WithExtensions>
