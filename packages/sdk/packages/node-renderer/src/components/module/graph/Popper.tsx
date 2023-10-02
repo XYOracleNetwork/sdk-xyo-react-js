@@ -1,25 +1,42 @@
-import { alpha, Chip, Popper, PopperProps, styled, Theme, Typography } from '@mui/material'
-import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded'
+import { Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, PopperProps, styled } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 
 export interface ModuleHoverPopperProps extends PopperProps {
   address?: string
   element?: PopperProps['anchorEl']
   name?: string
+  onClose?: () => void
 }
 
-export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, element, name, ...props }) => {
+export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, element, name, onClose, ...props }) => {
   return (
     <>
       {element ? (
         <Popper anchorEl={element} {...props}>
-          <FlexCol gap={2} p={2} paper sx={{ backgroundColor: (theme: Theme) => alpha(theme.palette.background.paper, 0.95) }}>
-            <FlexRow gap={2}>
-              <Identicon value={address} size={24} />
-              <Typography>{name}</Typography>
-            </FlexRow>
-            <Chip label={address} color={'primary'} />
-          </FlexCol>
+          <Card elevation={3}>
+            <CardHeader
+              action={
+                onClose ? (
+                  <IconButton size="small" onClick={onClose}>
+                    <CancelRoundedIcon />
+                  </IconButton>
+                ) : null
+              }
+              avatar={
+                <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
+                  <Identicon value={address} size={24} />
+                </Paper>
+              }
+              title={name}
+              subheader={address}
+            />
+            <StyledCardActions>
+              <Button size="small" variant="contained">
+                Explore
+              </Button>
+            </StyledCardActions>
+          </Card>
         </Popper>
       ) : null}
     </>
@@ -27,6 +44,10 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, e
 }
 
 export const StyledModuleHoverPopper = styled(ModuleHoverPopper, { name: 'StyledComponents' })(() => ({
-  cursor: 'pointer',
   zIndex: 2,
+}))
+
+export const StyledCardActions = styled(CardActions, { name: 'StyledCardActions' })(() => ({
+  display: 'flex',
+  justifyContent: 'center',
 }))
