@@ -22,8 +22,7 @@ export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ children, nod
         top={boundingBox?.y1}
         width={boundingBox?.w}
         // For easier debugging of the 'ghost' element that matches the hovered cytoscape node
-        // backgroundColor={'#fff'}
-        // opacity={0.25}
+        // sx={{ background: '#fff', border: '5px solid #fff', opacity: 0.25 }}
       />
       {node ? <>{children?.(currentElement)}</> : null}
     </>
