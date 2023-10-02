@@ -1,5 +1,7 @@
 import { styled } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { usePromise } from '@xylabs/react-promise'
+import { useProvidedNode } from '@xyo-network/react-node'
 import { NodeSingular } from 'cytoscape'
 
 import { ModuleHoverPopper } from '../Popper'
@@ -10,8 +12,15 @@ export interface ModuleHoverProps {
 }
 
 export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ node }) => {
+  const [providedNode] = useProvidedNode()
   const { address, name } = node?.data() ?? {}
   const { boundingBox, ref, currentElement } = useNodeElement(node)
+
+  const [module] = usePromise(async () => {
+    if (node && providedNode) {
+      return await providedNode.resolve(address)
+    }
+  }, [address, node, providedNode])
 
   return (
     <>
