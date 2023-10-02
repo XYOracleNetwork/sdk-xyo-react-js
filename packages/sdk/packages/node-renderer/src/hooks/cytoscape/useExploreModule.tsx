@@ -19,6 +19,7 @@ export const useExploreModule = (rootModule?: ModuleInstance | null, onFoundModu
     const resizeObserver = new ResizeObserver(() => {
       if (exploreModule && cy) {
         const exploreNode = cy?.nodes(`node[id="${exploreAddress}"]`)
+        // cytoscape tries to center prematurely without it :(
         setTimeout(() => cy.center(exploreNode), 100)
       }
     })

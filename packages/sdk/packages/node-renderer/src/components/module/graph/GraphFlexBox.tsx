@@ -32,16 +32,20 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
             Toggle Labels
           </Button>
         }
+        showDetails={!!exploreModule}
+        detail={<FlexGrowCol id="module-detail" width="100%" sx={{ bgcolor: 'lightblue' }}></FlexGrowCol>}
         options={options}
+        width="100%"
         {...props}
       >
         <ModuleGraphNodeHover node={hoveredNode}>
           {(element: PopperProps['anchorEl']) => (
             <StyledModuleHoverPopper
-              address={address}
+              address={hoveredAddress}
               element={element}
-              name={name}
+              name={hoveredName}
               onClose={() => setHoveredNode(undefined)}
+              onExploreAddress={onExploreAddress}
               placement={'top'}
               open
             />
