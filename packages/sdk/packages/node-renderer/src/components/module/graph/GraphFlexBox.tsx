@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, PopperProps } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
 
@@ -7,6 +7,7 @@ import { useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNew
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
 import { ModuleGraphNodeHover } from './node'
+import { StyledModuleHoverPopper } from './Popper'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   rootModule?: ModuleInstance | null
@@ -19,6 +20,8 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   const renderedElements = useRenderNewElements(newElements, hideLabels)
   const hoveredNode = useHoveredNode(renderedElements)
 
+  const { address, name } = selectedElement?.data() ?? {}
+
   return (
     <WithExtensions>
       <NodeRelationalGraphFlexBox
@@ -30,7 +33,9 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
         options={options}
         {...props}
       >
-        <ModuleGraphNodeHover node={hoveredNode} />
+        <ModuleGraphNodeHover node={hoveredNode}>
+          {(element: PopperProps['anchorEl']) => <StyledModuleHoverPopper address={address} element={element} name={name} placement={'top'} open />}
+        </ModuleGraphNodeHover>
       </NodeRelationalGraphFlexBox>
     </WithExtensions>
   )

@@ -1,26 +1,17 @@
-import { styled } from '@mui/material'
+import { PopperProps, styled } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { usePromise } from '@xylabs/react-promise'
-import { useProvidedNode } from '@xyo-network/react-node'
 import { NodeSingular } from 'cytoscape'
+import { ReactElement } from 'react'
 
-import { ModuleHoverPopper } from '../Popper'
 import { useNodeElement } from './hooks'
 
 export interface ModuleHoverProps {
+  children?: (element: PopperProps['anchorEl']) => ReactElement
   node?: NodeSingular
 }
 
-export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ node }) => {
-  const [providedNode] = useProvidedNode()
-  const { address, name } = node?.data() ?? {}
+export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ children, node }) => {
   const { boundingBox, ref, currentElement } = useNodeElement(node)
-
-  const [module] = usePromise(async () => {
-    if (node && providedNode) {
-      return await providedNode.resolve(address)
-    }
-  }, [address, node, providedNode])
 
   return (
     <>
@@ -34,11 +25,7 @@ export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ node }) => {
         // backgroundColor={'#fff'}
         // opacity={0.25}
       />
-      {node ? (
-        <>
-          <ModuleHoverPopper address={address} element={currentElement} name={name} placement={'top'} open sx={{ cursor: 'pointer', zIndex: 2 }} />
-        </>
-      ) : null}
+      {node ? <>{children?.(currentElement)}</> : null}
     </>
   )
 }

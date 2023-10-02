@@ -1,4 +1,4 @@
-import { alpha, Chip, Popper, PopperProps, Theme, Typography } from '@mui/material'
+import { alpha, Chip, Popper, PopperProps, styled, Theme, Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 
@@ -25,3 +25,8 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, e
     </>
   )
 }
+
+export const StyledModuleHoverPopper = styled(ModuleHoverPopper, { name: 'StyledComponents' })(() => ({
+  cursor: 'pointer',
+  zIndex: 2,
+}))
