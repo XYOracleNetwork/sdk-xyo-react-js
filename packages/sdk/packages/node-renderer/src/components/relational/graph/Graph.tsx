@@ -4,8 +4,8 @@ import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core } from 'cytoscape'
 import { forwardRef, useEffect, useState } from 'react'
 
-import { useCytoscapeInstance } from '../contexts'
-import { NodeRelationalGraphProps } from './lib'
+import { useCytoscapeInstance } from '../../../contexts'
+import { NodeRelationalGraphProps } from '../../lib'
 
 export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(
   ({ actions, children, showDetails, detail, options, ...props }, ref) => {

@@ -17,15 +17,16 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
   }, [moduleAddress, rootModule])
 
   useEffect(() => {
+    cy?.on('click', () => console.log(cy.pan()))
     const resizeObserver = new ResizeObserver(() => {
       if (moduleAddress === null) {
-        cy?.center()
         // cytoscape tries to center prematurely without it :(
         setTimeout(() => cy?.center(), 100)
       } else if (foundModule && cy) {
-        const moduleNode = cy.nodes(`[id="${moduleAddress}"]`)
+        const node = cy.nodes(`[id="${moduleAddress}"]`)?.[0]
+        // cy.pan(newPan)
         // cytoscape tries to center prematurely without it :(
-        setTimeout(() => cy.center(moduleNode), 100)
+        setTimeout(() => cy.center(node), 100)
       }
     })
 
