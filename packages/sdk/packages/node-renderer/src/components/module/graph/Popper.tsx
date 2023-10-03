@@ -4,17 +4,16 @@ import { Identicon } from '@xylabs/react-identicon'
 
 export interface ModuleHoverPopperProps extends PopperProps {
   address?: string
-  element?: PopperProps['anchorEl']
   name?: string
   onClose?: () => void
   onExploreAddress?: (address?: string) => void
 }
 
-export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, element, name, onClose, onExploreAddress, ...props }) => {
+export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, anchorEl, name, onClose, onExploreAddress, ...props }) => {
   return (
     <>
-      {element ? (
-        <Popper anchorEl={element} {...props}>
+      {anchorEl ? (
+        <Popper anchorEl={anchorEl} {...props}>
           <Card elevation={3}>
             <CardHeader
               action={

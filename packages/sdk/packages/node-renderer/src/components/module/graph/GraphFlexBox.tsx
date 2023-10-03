@@ -1,6 +1,7 @@
-import { Button, PopperProps } from '@mui/material'
+import { Button } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
+import { useRef } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts'
 import { useExploreModule, useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
@@ -14,6 +15,7 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
 }
 
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, ...props }) => {
+  const cytoscapeRef = useRef<HTMLDivElement>(null)
   const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
   const selectedElement = useSelectedElement()
   const newElements = useNewElements(selectedElement)
@@ -35,15 +37,17 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
         showDetails={!!exploreModule}
         detail={<FlexGrowCol id="module-detail" width="100%" sx={{ bgcolor: 'lightblue' }}></FlexGrowCol>}
         options={options}
+        ref={cytoscapeRef}
         width="100%"
         {...props}
       >
         <ModuleGraphNodeHover node={hoveredNode}>
-          {(element: PopperProps['anchorEl']) => (
+          {(element) => (
             <StyledModuleHoverPopper
               address={hoveredAddress}
-              element={element}
+              anchorEl={element}
               name={hoveredName}
+              container={cytoscapeRef.current}
               onClose={() => setHoveredNode(undefined)}
               onExploreAddress={onExploreAddress}
               placement={'top'}

@@ -6,7 +6,7 @@ import { ReactElement } from 'react'
 import { useNodeElement } from './hooks'
 
 export interface ModuleHoverProps {
-  children?: (element: PopperProps['anchorEl']) => ReactElement
+  children?: (anchorElement?: PopperProps['anchorEl'], container?: PopperProps['container']) => ReactElement
   node?: NodeSingular
 }
 
@@ -15,21 +15,18 @@ export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ children, nod
 
   return (
     <>
-      <StyledNodeGhostElementFlexCol
-        ref={ref}
-        left={boundingBox?.x1}
-        height={boundingBox?.h}
-        top={boundingBox?.y1}
-        width={boundingBox?.w}
-        // For easier debugging of the 'ghost' element that matches the hovered cytoscape node
-        // sx={{ background: '#fff', border: '5px solid #fff', opacity: 0.25 }}
-      />
+      <StyledNodeGhostElementFlexCol ref={ref} left={boundingBox?.x1} height={boundingBox?.h} top={boundingBox?.y1} width={boundingBox?.w} />
       {node ? <>{children?.(currentElement)}</> : null}
     </>
   )
 }
 
 const StyledNodeGhostElementFlexCol = styled(FlexCol, { name: 'StyledNodeGhostElementFlexCol' })(() => ({
+  // For easier debugging of the 'ghost' element that matches the hovered cytoscape node
+  // backgroundColor: '#fff',
+  // opacity: 0.25,
+
+  // eslint-disable-next-line sort-keys-fix/sort-keys-fix
   cursor: 'pointer',
   pointerEvents: 'none',
   position: 'absolute',
