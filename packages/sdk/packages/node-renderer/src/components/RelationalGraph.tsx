@@ -63,9 +63,9 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
           >
             {/* Cytoscape Element */}
             <FlexCol alignItems="stretch" position="absolute" width="100%" height="100%" ref={sharedRef} />
+            {children}
           </FlexCol>
         </FlexGrowRow>
-        {children}
       </FlexCol>
     )
   },
