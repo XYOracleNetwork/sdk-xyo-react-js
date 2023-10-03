@@ -2,7 +2,7 @@ import { ModuleInstance } from '@xyo-network/module'
 import { useState } from 'react'
 
 import { ConcentricLayout } from '../../Cytoscape'
-import { useCytoscapeElements } from './useCytoscapeElements'
+import { useCytoscapeElements } from './elements'
 import { useCytoscapeOptions } from './useCytoscapeOptions'
 import { useCytoscapeStyle } from './useCytoscapeStyle'
 

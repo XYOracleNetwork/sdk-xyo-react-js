@@ -2,7 +2,7 @@ import { Stylesheet } from 'cytoscape'
 
 import { CyNodeModuleTypes } from './lib'
 
-export const NodeIdStyles = (color?: string, outlineColor?: string): Stylesheet => ({
+export const NodeWithName = (color?: string, outlineColor?: string): Stylesheet => ({
   selector: 'node[name]',
   style: {
     color,
@@ -16,7 +16,7 @@ export const NodeIdStyles = (color?: string, outlineColor?: string): Stylesheet 
   },
 })
 
-export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string, hideLabels = false): Stylesheet => ({
+export const Node = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string, hideLabels = false): Stylesheet => ({
   selector: 'node',
   style: {
     'background-color': bgColor,
@@ -25,6 +25,13 @@ export const NodeStyled = (icons: Record<CyNodeModuleTypes, string>, bgColor?: s
     'background-width': '24',
     label: hideLabels ? undefined : 'data(name)',
     shape: 'round-rectangle',
+  },
+})
+
+export const NodeAsRoot = (bgColor?: string) => ({
+  selector: '.activeNode',
+  style: {
+    'background-color': bgColor,
   },
 })
 
@@ -39,5 +46,3 @@ export const EdgeStyled = (lineColor?: string, targetArrowColor?: string) => ({
     width: 3,
   },
 })
-
-export const NodeBgStyles = (bgColor: string): [string, string] => ['background-color', bgColor]

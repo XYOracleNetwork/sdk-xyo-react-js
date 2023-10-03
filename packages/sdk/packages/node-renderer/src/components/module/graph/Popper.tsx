@@ -1,27 +1,62 @@
-import { alpha, Chip, Popper, PopperProps, Theme, Typography } from '@mui/material'
-import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded'
+import { Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, PopperProps, styled } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
+import { NodeSingular } from 'cytoscape'
 
 export interface ModuleHoverPopperProps extends PopperProps {
-  address?: string
-  element?: PopperProps['anchorEl']
-  name?: string
+  node?: NodeSingular
+  onClose?: () => void
+  onModuleDetails?: (address?: string) => void
+  onModuleExplore?: (address?: string) => void
 }
 
-export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, element, name, ...props }) => {
+export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, onClose, onModuleDetails, onModuleExplore, node, ...props }) => {
+  const { address, name } = node?.data() ?? {}
   return (
     <>
-      {element ? (
-        <Popper anchorEl={element} {...props}>
-          <FlexCol gap={2} p={2} paper sx={{ backgroundColor: (theme: Theme) => alpha(theme.palette.background.paper, 0.95) }}>
-            <FlexRow gap={2}>
-              <Identicon value={address} size={24} />
-              <Typography>{name}</Typography>
-            </FlexRow>
-            <Chip label={address} color={'primary'} />
-          </FlexCol>
+      {anchorEl ? (
+        <Popper anchorEl={anchorEl} {...props}>
+          <Card elevation={3}>
+            <CardHeader
+              action={
+                onClose ? (
+                  <IconButton size="small" onClick={onClose}>
+                    <CancelRoundedIcon />
+                  </IconButton>
+                ) : null
+              }
+              avatar={
+                <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
+                  <Identicon value={address} size={24} />
+                </Paper>
+              }
+              title={name}
+              subheader={address}
+            />
+            <StyledCardActions>
+              {onModuleDetails ? (
+                <Button onClick={() => onModuleDetails?.(address)} size="small" variant="contained">
+                  Details
+                </Button>
+              ) : null}
+              {onModuleExplore ? (
+                <Button onClick={() => onModuleExplore?.(address)} size="small" variant="contained">
+                  Explore
+                </Button>
+              ) : null}
+            </StyledCardActions>
+          </Card>
         </Popper>
       ) : null}
     </>
   )
 }
+
+export const StyledModuleHoverPopper = styled(ModuleHoverPopper, { name: 'StyledComponents' })(() => ({
+  zIndex: 2,
+}))
+
+export const StyledCardActions = styled(CardActions, { name: 'StyledCardActions' })(() => ({
+  display: 'flex',
+  justifyContent: 'center',
+}))

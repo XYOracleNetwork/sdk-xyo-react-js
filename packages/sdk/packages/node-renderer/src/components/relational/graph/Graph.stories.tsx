@@ -12,10 +12,10 @@ import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
-import { CytoscapeInstanceProvider } from '../contexts'
-import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
+import { CytoscapeInstanceProvider } from '../../../contexts'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks'
+import { NodeRelationalGraphFlexBox } from './Graph'
 import { ProvidedNodeRenderer } from './ProvidedNodeRenderer'
-import { NodeRelationalGraphFlexBox } from './RelationalGraph'
 import { options } from './story'
 
 const nodeUrl = 'http://localhost:8080/node'

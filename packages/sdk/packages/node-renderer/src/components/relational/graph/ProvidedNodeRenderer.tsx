@@ -2,9 +2,9 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 
-import { useCytoscapeElements, useCytoscapeOptions } from '../hooks'
-import { NodeRelationalGraphProps } from './lib'
-import { NodeRelationalGraphFlexBox } from './RelationalGraph'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks'
+import { NodeRelationalGraphProps } from '../../lib'
+import { NodeRelationalGraphFlexBox } from './Graph'
 
 export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   account?: AccountInstance
