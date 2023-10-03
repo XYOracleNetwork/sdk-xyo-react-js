@@ -4,7 +4,7 @@ import { ModuleInstance } from '@xyo-network/module'
 import { useRef } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts'
-import { useHoveredNode, useModuleDetails, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
+import { useElements, useModuleDetails, useRelationalGraphOptions } from '../../../hooks'
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
 import { DetailsFlexbox } from './DetailsFlexbox'
@@ -18,10 +18,7 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, ...props }) => {
   const cytoscapeRef = useRef<HTMLDivElement>(null)
   const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
-  const selectedElement = useSelectedElement()
-  const newElements = useNewElements(selectedElement)
-  const renderedElements = useRenderNewElements(newElements, hideLabels)
-  const [hoveredNode, setHoveredNode] = useHoveredNode(renderedElements)
+  const { hoveredNode, setHoveredNode, toggleSelectedElement } = useElements(hideLabels)
 
   const { module, onModuleDetails } = useModuleDetails(rootModule, () => setHoveredNode(undefined))
 
@@ -47,6 +44,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
               container={cytoscapeRef.current}
               node={hoveredNode}
               onClose={() => setHoveredNode(undefined)}
+              onModuleExplore={toggleSelectedElement}
               onModuleDetails={onModuleDetails}
               placement={'top'}
               open
