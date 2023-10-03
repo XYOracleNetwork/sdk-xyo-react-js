@@ -6,16 +6,17 @@ import { useRef } from 'react'
 import { CytoscapeInstanceProvider } from '../../../contexts'
 import { useElements, useModuleDetails, useRelationalGraphOptions } from '../../../hooks'
 import { WithExtensions } from '../../cytoscape-extensions'
-import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
+import { NodeRelationalGraphFlexBox } from '../../relational'
 import { DetailsFlexbox } from './DetailsFlexbox'
 import { ModuleGraphNodeHover } from './node'
 import { StyledModuleHoverPopper } from './Popper'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
+  disableModuleDetails?: boolean
   rootModule?: ModuleInstance | null
 }
 
-export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, ...props }) => {
+export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, disableModuleDetails, ...props }) => {
   const cytoscapeRef = useRef<HTMLDivElement>(null)
   const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
   const { hoveredNode, setHoveredNode, toggleSelectedElement } = useElements(hideLabels)
@@ -47,7 +48,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
               node={hoveredNode}
               onClose={() => setHoveredNode(undefined)}
               onModuleExplore={toggleSelectedElement}
-              onModuleDetails={onModuleDetails}
+              onModuleDetails={disableModuleDetails ? undefined : onModuleDetails}
               placement={'top'}
               open
             />

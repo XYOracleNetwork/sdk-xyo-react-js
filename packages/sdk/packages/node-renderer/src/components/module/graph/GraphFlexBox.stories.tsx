@@ -89,4 +89,8 @@ const WithProvidedNode = TemplateWithProvidedModule.bind({})
 WithProvidedNode.args = { ...defaultProps }
 WithProvidedNode.decorators = [MemoryNodeDecorator]
 
-export { Default, WithProvidedNode }
+const WithDisabledDetails = TemplateWithProvidedModule.bind({})
+WithDisabledDetails.args = { ...defaultProps, disableModuleDetails: true }
+WithDisabledDetails.decorators = [MemoryNodeDecorator]
+
+export { Default, WithDisabledDetails, WithProvidedNode }

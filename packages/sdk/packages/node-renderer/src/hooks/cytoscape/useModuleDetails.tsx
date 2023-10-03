@@ -17,7 +17,6 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
   }, [moduleAddress, rootModule])
 
   useEffect(() => {
-    cy?.on('click', () => console.log(cy.pan()))
     const resizeObserver = new ResizeObserver(() => {
       if (moduleAddress === null) {
         // cytoscape tries to center prematurely without it :(
