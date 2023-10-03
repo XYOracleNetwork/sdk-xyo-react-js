@@ -9,8 +9,8 @@ export const useSelectedElement = () => {
 
   const updateStyles = (element: NodeSingular) => {
     const nodes = cy?.nodes()
-    nodes?.toggleClass('rootNode', false)
-    element.toggleClass('rootNode', true)
+    nodes?.toggleClass('activeNode', false)
+    element.toggleClass('activeNode', true)
   }
 
   const toggleSelectedElement = (address?: string) => {

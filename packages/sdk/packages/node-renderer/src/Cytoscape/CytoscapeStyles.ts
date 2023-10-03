@@ -29,7 +29,7 @@ export const Node = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string,
 })
 
 export const NodeAsRoot = (bgColor?: string) => ({
-  selector: '.rootNode',
+  selector: '.activeNode',
   style: {
     'background-color': bgColor,
   },

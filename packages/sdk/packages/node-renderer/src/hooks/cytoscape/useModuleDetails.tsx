@@ -48,13 +48,18 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
   const onModuleDetails = (address?: string | null) => {
     const moduleNode = cy?.nodes(`[id="${address}"]`)
     const rootModuleNode = cy?.nodes(`[id="${rootModule?.address}"]`)
+    const foundModuleNode = cy?.nodes(`[id="${foundModule?.address}"]`)
     const notModuleNode = cy?.nodes(`[id != "${address}"]`)
+
     if (address) {
-      moduleNode?.toggleClass('rootNode', true)
-      notModuleNode?.toggleClass('rootNode', false)
+      // address was passed so we set the node to active styles
+      moduleNode?.toggleClass('activeNode', true)
+      notModuleNode?.toggleClass('activeNode', false)
     } else {
-      notModuleNode?.toggleClass('rootNode', false)
-      rootModuleNode?.toggleClass('rootNode', true)
+      // no address was passes so we reset the state
+      notModuleNode?.toggleClass('activeNode', false)
+      const activeNode = foundModuleNode?.length ? foundModuleNode : rootModuleNode
+      activeNode?.toggleClass('activeNode', true)
     }
     setModuleAddress(address)
   }

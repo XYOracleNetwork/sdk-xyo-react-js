@@ -54,7 +54,7 @@ export class CytoscapeElements {
   }
 
   static buildRootNode = (module: ModuleInstance): ElementDefinition => {
-    return CytoscapeElements.buildNode(module, {}, ['rootNode'])
+    return CytoscapeElements.buildNode(module, {}, ['activeNode'])
   }
 
   static normalizeName(name?: string) {
