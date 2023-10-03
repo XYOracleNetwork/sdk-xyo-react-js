@@ -7,9 +7,10 @@ export interface ModuleHoverPopperProps extends PopperProps {
   node?: NodeSingular
   onClose?: () => void
   onModuleDetails?: (address?: string) => void
+  onModuleExplore?: (address?: string) => void
 }
 
-export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, onClose, onModuleDetails, node, ...props }) => {
+export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, onClose, onModuleDetails, onModuleExplore, node, ...props }) => {
   const { address, name } = node?.data() ?? {}
   return (
     <>
@@ -36,6 +37,11 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, 
               {onModuleDetails ? (
                 <Button onClick={() => onModuleDetails?.(address)} size="small" variant="contained">
                   Details
+                </Button>
+              ) : null}
+              {onModuleExplore ? (
+                <Button onClick={() => onModuleExplore?.(address)} size="small" variant="contained">
+                  Explore
                 </Button>
               ) : null}
             </StyledCardActions>
