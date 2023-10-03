@@ -8,11 +8,11 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
   const { cy } = useCytoscapeInstance()
   const [moduleAddress, setModuleAddress] = useState<string | null>()
 
-  const [module] = usePromise(async () => {
+  const [foundModule] = usePromise(async () => {
     if (moduleAddress === null) return null
     if (moduleAddress && rootModule) {
-      const module = await rootModule.resolve(moduleAddress)
-      return module ? module : null
+      const foundModule = await rootModule.resolve(moduleAddress)
+      return foundModule ? foundModule : null
     }
   }, [moduleAddress, rootModule])
 
@@ -22,7 +22,7 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
         cy?.center()
         // cytoscape tries to center prematurely without it :(
         setTimeout(() => cy?.center(), 100)
-      } else if (module && cy) {
+      } else if (foundModule && cy) {
         const moduleNode = cy.nodes(`[id="${moduleAddress}"]`)
         // cytoscape tries to center prematurely without it :(
         setTimeout(() => cy.center(moduleNode), 100)
@@ -37,13 +37,13 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
     return () => {
       if (container) resizeObserver.unobserve(container)
     }
-  }, [cy, moduleAddress, module, rootModule?.address])
+  }, [cy, moduleAddress, foundModule, rootModule?.address])
 
   useEffect(() => {
-    if (module) {
+    if (foundModule) {
       onFoundModule?.()
     }
-  }, [cy, moduleAddress, module, onFoundModule])
+  }, [cy, moduleAddress, foundModule, onFoundModule])
 
   const onModuleDetails = (address?: string | null) => {
     const moduleNode = cy?.nodes(`[id="${address}"]`)
@@ -59,5 +59,5 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
     setModuleAddress(address)
   }
 
-  return { module, onModuleDetails }
+  return { module: foundModule, onModuleDetails }
 }
