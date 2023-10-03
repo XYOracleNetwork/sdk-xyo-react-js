@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
+import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module'
 import { useRef } from 'react'
 
@@ -7,6 +7,7 @@ import { CytoscapeInstanceProvider } from '../../../contexts'
 import { useExploreModule, useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
+import { DetailsFlexbox } from './DetailsFlexbox'
 import { ModuleGraphNodeHover } from './node'
 import { StyledModuleHoverPopper } from './Popper'
 
@@ -33,7 +34,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
           </Button>
         }
         showDetails={!!exploreModule}
-        detail={<FlexGrowCol id="module-detail" width="100%" sx={{ bgcolor: 'lightblue' }}></FlexGrowCol>}
+        detail={<DetailsFlexbox onClose={() => onExploreAddress(null)} />}
         options={options}
         ref={cytoscapeRef}
         width="100%"
