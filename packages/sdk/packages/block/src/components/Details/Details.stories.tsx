@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import { DeprecateStory, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom-6'
 
 import { BlockLinksDetails } from './BlockLinksDetails'
 import { BlockDetails } from './Details'

@@ -2,7 +2,7 @@ import { List } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 // eslint-disable-next-line import/no-internal-modules
 import { FaGlobeAmericas } from 'react-icons/fa/index.js'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom-6'
 
 import { MenuListItemContainer, MenuListItemProps } from './MenuListItemContainer'
 

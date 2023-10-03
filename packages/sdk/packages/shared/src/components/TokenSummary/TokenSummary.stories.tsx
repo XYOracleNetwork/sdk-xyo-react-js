@@ -1,6 +1,6 @@
 import { Link } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom-6'
 
 import * as tokenData from '../TokenData'
 import { TokenSummary } from './TokenSummary'

@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { sampleIdPayload, samplePayloadFromBuilder, useAppThemeDecorator } from '@xyo-network/react-storybook'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom-6'
 
 import { PayloadDetails } from './Details'
 

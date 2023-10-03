@@ -2,7 +2,7 @@ import { styled, TableCell, TableCellProps } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
 import type { WithChildren } from '@xylabs/react-shared'
 import { forwardRef, useMemo } from 'react'
-import { To } from 'react-router-dom'
+import { To } from 'react-router-dom-6'
 
 import { EllipsizeBox } from '../Ellipsize'
 

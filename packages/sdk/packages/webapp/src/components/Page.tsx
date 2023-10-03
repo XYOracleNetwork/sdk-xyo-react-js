@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
 import { WithChildren } from '@xylabs/react-shared'
 import { Helmet } from 'react-helmet'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom-6'
 
 import { WebAppBody, WebAppBodyProps } from './Body'
 import { fixedWrap, scrollableWrap } from './lib'

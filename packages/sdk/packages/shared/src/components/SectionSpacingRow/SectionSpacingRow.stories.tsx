@@ -1,6 +1,6 @@
 import { Divider, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom-6'
 
 import { SectionSpacingRow } from './SectionSpacingRow'
 const StorybookEntry = {

@@ -9,7 +9,7 @@ import {
   sampleUniswapPayload,
   useAppThemeDecorator,
 } from '@xyo-network/react-storybook'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom-6'
 
 import { PayloadDynamicTable } from './Table'
 

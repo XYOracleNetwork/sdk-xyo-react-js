@@ -2,7 +2,7 @@ import { Add, Remove } from '@mui/icons-material'
 import { Typography } from '@mui/material'
 import { TreeItem, TreeView } from '@mui/x-tree-view'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom-6'
 import type { ContainerReflection, Reflection } from 'typedoc'
 
 import { ReflectionLookup } from '../ReflectionLookup'

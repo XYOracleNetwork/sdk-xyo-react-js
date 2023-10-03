@@ -4,7 +4,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { sampleBlock, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom-6'
 
 import { BlockTable } from './Table'
 

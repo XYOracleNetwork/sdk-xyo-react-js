@@ -1,6 +1,6 @@
 import { ListItemButton, ListItemButtonProps } from '@mui/material'
 import { MouseEvent } from 'react'
-import { NavigateOptions, To, useNavigate } from 'react-router-dom'
+import { NavigateOptions, To, useNavigate } from 'react-router-dom-6'
 
 export interface ListItemButtonExProps extends ListItemButtonProps {
   target?: string
