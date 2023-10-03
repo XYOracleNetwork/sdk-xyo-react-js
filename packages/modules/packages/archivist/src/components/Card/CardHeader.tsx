@@ -1,6 +1,5 @@
 import { CardHeaderProps } from '@mui/material'
-import { MemoryArchivistConfigSchema } from '@xyo-network/archivist'
-import { ArchivistInstance } from '@xyo-network/archivist-model'
+import { ArchivistInstance, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { ModuleCardHeader, ModuleRenderProps } from '@xyo-network/react-module'
 import { useMemo } from 'react'
 
