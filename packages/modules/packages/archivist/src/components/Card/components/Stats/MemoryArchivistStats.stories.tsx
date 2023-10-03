@@ -1,8 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Account } from '@xyo-network/account'
-import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
-import { ArchivistInsertQuerySchema, ArchivistInstance } from '@xyo-network/archivist-model'
+import { ArchivistInsertQuerySchema, ArchivistInstance, MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { useState } from 'react'
 
