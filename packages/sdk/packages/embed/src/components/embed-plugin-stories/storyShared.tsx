@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import { ApiEmbedPluginCard } from '../embed-card'
 

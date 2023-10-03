@@ -3,7 +3,7 @@ import { alpha, Card, CardActions, CardContent, CardMedia, CardProps, Grid, Icon
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useIsMobile } from '@xyo-network/react-shared'
 import { ReactNode, useState } from 'react'
-import { To, useNavigate } from 'react-router-dom-6'
+import { To, useNavigate } from 'react-router-dom'
 
 export interface FullWidthCardProps extends CardProps {
   cardIsButton?: boolean

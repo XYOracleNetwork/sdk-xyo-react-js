@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import { EllipsisTableCell } from './EllipsisTableCell'
 

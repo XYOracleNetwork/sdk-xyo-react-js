@@ -1,7 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { NetworkPayload } from '@xyo-network/network'
 import { useCallback, useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom-6'
+import { useSearchParams } from 'react-router-dom'
 
 import { defaultNetworkConfigs, findNetworkConfig } from '../../lib'
 import { NetworkContext } from '../Context'

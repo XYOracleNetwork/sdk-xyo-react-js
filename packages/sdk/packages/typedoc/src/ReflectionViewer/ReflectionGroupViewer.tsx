@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom-6'
+import { useLocation } from 'react-router-dom'
 import type { ContainerReflection, ReflectionFlags, ReflectionGroup } from 'typedoc'
 
 import { JsonViewerButton } from '../JsonViewerButton'

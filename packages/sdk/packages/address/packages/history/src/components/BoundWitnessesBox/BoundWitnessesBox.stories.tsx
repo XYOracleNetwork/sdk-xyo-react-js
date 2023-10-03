@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import {
   ActiveBWDecorator,

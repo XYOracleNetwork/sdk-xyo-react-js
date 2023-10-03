@@ -1,5 +1,5 @@
 import { Toolbar, ToolbarProps } from '@mui/material'
-import { To } from 'react-router-dom-6'
+import { To } from 'react-router-dom'
 
 import { LogoLinkEx } from './LogoLinkEx'
 

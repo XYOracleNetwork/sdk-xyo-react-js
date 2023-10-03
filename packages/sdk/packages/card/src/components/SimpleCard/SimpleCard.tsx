@@ -3,7 +3,7 @@ import { alpha, CardActions, CardContent, CardMedia, IconButton, Typography, use
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useIsMobile } from '@xyo-network/react-shared'
 import { ReactNode, useState } from 'react'
-import { To, useNavigate } from 'react-router-dom-6'
+import { To, useNavigate } from 'react-router-dom'
 
 import { CardEx, CardExProps } from '../CardEx'
 

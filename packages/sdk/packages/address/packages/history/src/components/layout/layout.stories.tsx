@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import { useActiveBoundWitness } from '../../hooks'
 import { AddressHistory } from '../AddressHistory'

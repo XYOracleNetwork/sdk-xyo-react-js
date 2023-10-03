@@ -3,7 +3,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom-6'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { BoundWitnessLinksDetails } from './BoundWitnessLinksDetails'
 import { BoundWitnessDetails } from './Details'

@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import CoinbaseWalletIcon from './coinbase-wallet.svg'
 import MoneyMedia from './money.jpg'

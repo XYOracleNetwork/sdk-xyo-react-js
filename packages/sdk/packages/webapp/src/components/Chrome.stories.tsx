@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import { MenuListItemContainer } from '@xyo-network/react-appbar'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import { WebAppChrome } from './Chrome'
 import { WebAppPage, WebAppPageProps } from './Page'

@@ -4,7 +4,7 @@ import { delay } from '@xylabs/delay'
 import { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { useEffect, useState } from 'react'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadTable } from './Table'
 

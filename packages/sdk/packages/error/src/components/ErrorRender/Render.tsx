@@ -1,6 +1,6 @@
 import { FlexCol } from '@xylabs/react-flexbox'
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom-6'
+import { useLocation } from 'react-router-dom'
 
 import { ErrorAlert } from './ErrorAlert'
 import { ErrorRenderProps } from './Props'

@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { sampleBlock, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import { BoundWitnessSignatureTable } from './SignatureTable'
 

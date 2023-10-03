@@ -1,7 +1,7 @@
 import { Divider, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { BrowserRouter } from 'react-router-dom-6'
+import { BrowserRouter } from 'react-router-dom'
 
 import { useGradientStyles } from './GradientStyles'
 

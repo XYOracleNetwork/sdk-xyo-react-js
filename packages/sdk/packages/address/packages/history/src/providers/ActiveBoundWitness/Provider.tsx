@@ -3,7 +3,7 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useArchivistFromNode, useArchivistGet } from '@xyo-network/react-archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useEffect, useMemo, useState } from 'react'
-import { useParams } from 'react-router-dom-6'
+import { useParams } from 'react-router-dom'
 
 import { ActiveBoundWitnessContext } from '../../contexts'
 

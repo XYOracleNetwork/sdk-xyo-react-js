@@ -1,6 +1,6 @@
 import type { WithChildren } from '@xylabs/react-shared'
 import { useCallback, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom-6'
+import { useSearchParams } from 'react-router-dom'
 
 import { SchemaContext } from '../Context'
 import { useSchema } from '../use'

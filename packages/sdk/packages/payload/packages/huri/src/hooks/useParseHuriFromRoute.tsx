@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from 'react-router-dom-6'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 import { useBuildHuri } from './useBuildHuri'
 
