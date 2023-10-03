@@ -26,9 +26,11 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
     <WithExtensions>
       <NodeRelationalGraphFlexBox
         actions={
-          <Button size={'small'} onClick={handleToggleLabels} variant="contained">
-            Toggle Labels
-          </Button>
+          module ? null : (
+            <Button size={'small'} onClick={handleToggleLabels} variant="contained">
+              Toggle Labels
+            </Button>
+          )
         }
         showDetails={!!module}
         detail={<DetailsFlexbox onClose={() => onModuleDetails(null)} />}

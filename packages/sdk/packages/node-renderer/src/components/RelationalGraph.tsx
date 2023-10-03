@@ -36,7 +36,7 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
     return (
       <FlexCol id="relational-graph-wrapper" {...props}>
         <FlexRow justifyContent="start" width="100%">
-          {actions ? (
+          {actions === null ? null : actions ? (
             <ButtonGroup>
               {actions}
               <Button size={'small'} variant={'contained'} onClick={handleReset}>
