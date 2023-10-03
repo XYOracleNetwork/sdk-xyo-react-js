@@ -49,16 +49,17 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
             </Button>
           )}
         </FlexRow>
-        <FlexGrowRow width="100%">
+        <FlexGrowRow width="100%" alignItems="start">
           {showDetails ? (
             <FlexCol height="100%" width={'85%'}>
               {detail}
             </FlexCol>
           ) : null}
           <FlexCol
+            justifyContent="start"
             classes="cytoscape-wrap"
-            height={'100%'}
             width={showDetails ? '15%' : '100%'}
+            height={showDetails ? '50%' : '100%'}
             border={showDetails ? `1px solid ${theme.palette.divider}` : undefined}
           >
             {/* Cytoscape Element */}
