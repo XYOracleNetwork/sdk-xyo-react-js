@@ -1,6 +1,7 @@
 import { CardHeader, CardHeaderProps } from '@mui/material'
 import { Module } from '@xyo-network/module'
 import { findNetworkComponent } from '@xyo-network/react-shared'
+import { Fragment } from 'react'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
@@ -19,7 +20,7 @@ export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = (
             {module
               ? ['sentinel', 'bridge', 'archivist', 'diviner', 'node', 'witness'].map((moduleType) => {
                   const Icon = getModuleIcons(moduleType, module)
-                  return Icon ? <Icon fontSize={'large'} color="primary" /> : null
+                  return <Fragment key={moduleType}>{Icon ? <Icon fontSize={'large'} color="primary" /> : null}</Fragment>
                 })
               : null}
           </>
