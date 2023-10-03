@@ -22,8 +22,6 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   const renderedElements = useRenderNewElements(newElements, hideLabels)
   const [hoveredNode, setHoveredNode] = useHoveredNode(renderedElements)
 
-  const { address: hoveredAddress, name: hoveredName } = hoveredNode?.data() ?? {}
-
   const { exploreModule, onExploreAddress } = useExploreModule(rootModule, () => setHoveredNode(undefined))
 
   return (
@@ -44,10 +42,9 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
         <ModuleGraphNodeHover node={hoveredNode}>
           {(element) => (
             <StyledModuleHoverPopper
-              address={hoveredAddress}
               anchorEl={element}
-              name={hoveredName}
               container={cytoscapeRef.current}
+              node={hoveredNode}
               onClose={() => setHoveredNode(undefined)}
               onExploreAddress={onExploreAddress}
               placement={'top'}

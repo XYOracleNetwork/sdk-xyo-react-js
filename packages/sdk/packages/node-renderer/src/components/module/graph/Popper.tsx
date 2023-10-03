@@ -1,15 +1,16 @@
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded'
 import { Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, PopperProps, styled } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
+import { NodeSingular } from 'cytoscape'
 
 export interface ModuleHoverPopperProps extends PopperProps {
-  address?: string
-  name?: string
+  node?: NodeSingular
   onClose?: () => void
   onExploreAddress?: (address?: string) => void
 }
 
-export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ address, anchorEl, name, onClose, onExploreAddress, ...props }) => {
+export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, onClose, onExploreAddress, node, ...props }) => {
+  const { address, name } = node?.data() ?? {}
   return (
     <>
       {anchorEl ? (
