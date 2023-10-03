@@ -6,10 +6,10 @@ import { NodeSingular } from 'cytoscape'
 export interface ModuleHoverPopperProps extends PopperProps {
   node?: NodeSingular
   onClose?: () => void
-  onExploreAddress?: (address?: string) => void
+  onModuleDetails?: (address?: string) => void
 }
 
-export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, onClose, onExploreAddress, node, ...props }) => {
+export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, onClose, onModuleDetails, node, ...props }) => {
   const { address, name } = node?.data() ?? {}
   return (
     <>
@@ -33,9 +33,9 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, 
               subheader={address}
             />
             <StyledCardActions>
-              {onExploreAddress ? (
-                <Button onClick={() => onExploreAddress?.(address)} size="small" variant="contained">
-                  Explore
+              {onModuleDetails ? (
+                <Button onClick={() => onModuleDetails?.(address)} size="small" variant="contained">
+                  Details
                 </Button>
               ) : null}
             </StyledCardActions>

@@ -4,7 +4,7 @@ import { ModuleInstance } from '@xyo-network/module'
 import { useRef } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts'
-import { useExploreModule, useHoveredNode, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
+import { useHoveredNode, useModuleDetails, useNewElements, useRelationalGraphOptions, useRenderNewElements, useSelectedElement } from '../../../hooks'
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../RelationalGraph'
 import { DetailsFlexbox } from './DetailsFlexbox'
@@ -23,7 +23,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
   const renderedElements = useRenderNewElements(newElements, hideLabels)
   const [hoveredNode, setHoveredNode] = useHoveredNode(renderedElements)
 
-  const { exploreModule, onExploreAddress } = useExploreModule(rootModule, () => setHoveredNode(undefined))
+  const { module, onModuleDetails } = useModuleDetails(rootModule, () => setHoveredNode(undefined))
 
   return (
     <WithExtensions>
@@ -33,8 +33,8 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
             Toggle Labels
           </Button>
         }
-        showDetails={!!exploreModule}
-        detail={<DetailsFlexbox onClose={() => onExploreAddress(null)} />}
+        showDetails={!!module}
+        detail={<DetailsFlexbox onClose={() => onModuleDetails(null)} />}
         options={options}
         ref={cytoscapeRef}
         width="100%"
@@ -47,7 +47,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
               container={cytoscapeRef.current}
               node={hoveredNode}
               onClose={() => setHoveredNode(undefined)}
-              onExploreAddress={onExploreAddress}
+              onModuleDetails={onModuleDetails}
               placement={'top'}
               open
             />
