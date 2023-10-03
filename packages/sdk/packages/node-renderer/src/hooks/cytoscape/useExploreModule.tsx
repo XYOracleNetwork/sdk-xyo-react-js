@@ -6,9 +6,10 @@ import { useCytoscapeInstance } from '../../contexts'
 
 export const useExploreModule = (rootModule?: ModuleInstance | null, onFoundModule?: () => void) => {
   const { cy } = useCytoscapeInstance()
-  const [exploreAddress, setExploreAddress] = useState<string>()
+  const [exploreAddress, setExploreAddress] = useState<string | null>()
 
   const [exploreModule] = usePromise(async () => {
+    if (exploreAddress === null) return null
     if (exploreAddress && rootModule) {
       const module = await rootModule.resolve(exploreAddress)
       return module ? module : null
@@ -17,8 +18,12 @@ export const useExploreModule = (rootModule?: ModuleInstance | null, onFoundModu
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver(() => {
-      if (exploreModule && cy) {
-        const exploreNode = cy?.nodes(`node[id="${exploreAddress}"]`)
+      if (exploreAddress === null) {
+        cy?.center()
+        // cytoscape tries to center prematurely without it :(
+        setTimeout(() => cy?.center(), 100)
+      } else if (exploreModule && cy) {
+        const exploreNode = cy.nodes(`[id="${exploreAddress}"]`)
         // cytoscape tries to center prematurely without it :(
         setTimeout(() => cy.center(exploreNode), 100)
       }
@@ -32,7 +37,7 @@ export const useExploreModule = (rootModule?: ModuleInstance | null, onFoundModu
     return () => {
       if (container) resizeObserver.unobserve(container)
     }
-  }, [cy, exploreAddress, exploreModule])
+  }, [cy, exploreAddress, exploreModule, rootModule?.address])
 
   useEffect(() => {
     if (exploreModule) {
@@ -40,7 +45,17 @@ export const useExploreModule = (rootModule?: ModuleInstance | null, onFoundModu
     }
   }, [cy, exploreAddress, exploreModule, onFoundModule])
 
-  const onExploreAddress = (address?: string) => {
+  const onExploreAddress = (address?: string | null) => {
+    const exploreNode = cy?.nodes(`[id="${address}"]`)
+    const rootModuleNode = cy?.nodes(`[id="${rootModule?.address}"]`)
+    const notExploreNode = cy?.nodes(`[id != "${address}"]`)
+    if (address) {
+      exploreNode?.toggleClass('rootNode', true)
+      notExploreNode?.toggleClass('rootNode', false)
+    } else {
+      notExploreNode?.toggleClass('rootNode', false)
+      rootModuleNode?.toggleClass('rootNode', true)
+    }
     setExploreAddress(address)
   }
 
