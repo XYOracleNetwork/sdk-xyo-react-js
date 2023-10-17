@@ -41,6 +41,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           name,
 
           schema: SentinelConfigSchema,
+          synchronous: true,
           tasks: witnesses?.map((module) => ({ module: module.address })),
         } as SentinelConfig,
       })

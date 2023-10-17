@@ -39,7 +39,9 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
         await node.register(archivist)
         await node.attach(archivist.address, true)
 
-        const sentinel = await MemorySentinel.create({ config: { name: 'MemorySentinel', schema: SentinelConfigSchema, tasks: [] } })
+        const sentinel = await MemorySentinel.create({
+          config: { name: 'MemorySentinel', schema: SentinelConfigSchema, synchronous: true, tasks: [] },
+        })
         await node.register(sentinel)
         await node.attach(sentinel.address, true)
 
