@@ -28,13 +28,13 @@
 Using npm:
 
 ```sh
-npm i --save @xyo-network/sdk-xyo-react-js
+npm i --save @xyo-network/sdk-xyo-react
 ```
 
 Using yarn:
 
 ```sh
-yarn add @xyo-network/sdk-xyo-react-js
+yarn add @xyo-network/sdk-xyo-react
 ```
 
 ## Building the sdk locally
@@ -58,6 +58,7 @@ yarn xy compile
 
 -   [Arie Trouw](https://github.com/arietrouw) (<https://arietrouw.com>)
 -   [Matt Jones](https://github.com/jonesmac)
+-   [Joel Carter](https://github.com/JoelBCarter)
 
 ## License
 
