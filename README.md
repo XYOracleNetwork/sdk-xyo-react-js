@@ -7,8 +7,9 @@
 [![codacy-badge][]][codacy-link]
 [![codeclimate-badge][]][codeclimate-link]
 [![snyk-badge][]][snyk-link]
+[![license-badge][]][license-link]
 
-> The XYO Foundation provides this source code available in our efforts to
+> The XYO Foundation provides this source code in our efforts to
 > advance the understanding of the XYO Procotol and its possible uses.
 
 ## Table of Contents
@@ -71,13 +72,21 @@ file for license details
 
 [logo]: https://cdn.xy.company/img/brand/XYO_full_colored.png
 [logo-link]: https://xyo.network
+
 [main-build]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/actions/workflows/build.yml/badge.svg
 [main-build-link]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/actions/workflows/build.yml
+
 [npm-badge]: https://img.shields.io/npm/v/@xyo-network/sdk-xyo-react.svg
 [npm-link]: https://www.npmjs.com/package/@xyo-network/sdk-xyo-react
+
 [codacy-badge]: https://app.codacy.com/project/badge/Grade/0c82dd3b33c3494886a30b1c4ff5a8c0
 [codacy-link]: https://www.codacy.com/gh/XYOracleNetwork/sdk-xyo-react-js/dashboard?utm_source=github.com&utm_medium=referral&utm_content=XYOracleNetwork/sdk-xyo-react-js&utm_campaign=Badge_Grade
+
 [codeclimate-badge]: https://api.codeclimate.com/v1/badges/3d9b970fc814bbdd7d8f/maintainability
 [codeclimate-link]: https://codeclimate.com/github/XYOracleNetwork/sdk-xyo-react-js/maintainability
+
 [snyk-badge]: https://snyk.io/test/github/XYOracleNetwork/sdk-xyo-react-js/badge.svg?targetFile=package.json
 [snyk-link]: https://snyk.io/test/github/XYOracleNetwork/sdk-xyo-react-js?targetFile=package.json
+
+[license-badge]: https://img.shields.io/github/license/XYOracleNetwork/sdk-xyo-react-js
+[license-link]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/blob/main/LICENSE
