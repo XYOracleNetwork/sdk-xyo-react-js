@@ -1,6 +1,6 @@
 [![logo][]][logo-link]
 
-# @xyo-network/sdk-xyo-react-js
+# @xyo-network/sdk-xyo-react
 
 [![main-build][]][main-build-link]
 [![npm-badge][]][npm-link]
