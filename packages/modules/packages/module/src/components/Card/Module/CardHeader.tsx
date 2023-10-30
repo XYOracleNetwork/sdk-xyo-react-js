@@ -4,6 +4,8 @@ import { findNetworkComponent } from '@xyo-network/react-shared'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
+const moduleTypes = ['sentinel', 'bridge', 'archivist', 'diviner', 'node', 'witness']
+
 const getModuleIcons = (moduleType: string, module: Module) => {
   return module?.queries.find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon : null
 }
@@ -17,9 +19,9 @@ export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = (
         avatar ?? (
           <>
             {module
-              ? ['sentinel', 'bridge', 'archivist', 'diviner', 'node', 'witness'].map((moduleType) => {
+              ? moduleTypes.map((moduleType) => {
                   const Icon = getModuleIcons(moduleType, module)
-                  return Icon ? <Icon fontSize={'large'} color="primary" /> : null
+                  return Icon ? <Icon key={moduleType} fontSize={'large'} color="primary" /> : null
                 })
               : null}
           </>

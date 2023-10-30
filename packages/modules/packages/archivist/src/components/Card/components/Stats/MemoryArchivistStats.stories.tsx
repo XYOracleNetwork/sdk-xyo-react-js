@@ -3,6 +3,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Account } from '@xyo-network/account'
 import { ArchivistInsertQuerySchema, ArchivistInstance, MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
+import { MemoryNode } from '@xyo-network/node-memory'
 import { useState } from 'react'
 
 import { MemoryArchivistsStats } from './MemoryArchivistStats'
@@ -22,8 +23,9 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    async (mounted) => {
+    async () => {
       if (!module) {
+        const node = await MemoryNode.create()
         const newParentModule = await MemoryArchivist.create()
         const newModule = await MemoryArchivist.create({
           config: {
@@ -34,13 +36,15 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
         })
         const payload = { schema: 'network.xyo.payload' }
         const insertQuery = { schema: ArchivistInsertQuerySchema }
-        const account = await Account.randomSync()
-        const builder = new QueryBoundWitnessBuilder({ inlinePayloads: true }).payloads([insertQuery, payload]).witness(account).query(insertQuery)
+        const account = Account.randomSync()
+        const builder = new QueryBoundWitnessBuilder().payloads([insertQuery, payload]).witness(account).query(insertQuery)
         const [insertQueryBoundWitness, payloads] = await builder.build()
+        await node.register(newParentModule)
+        await node.attach(newParentModule.address)
+        await node.register(newModule)
+        await node.attach(newModule.address)
         await newModule.insert([insertQueryBoundWitness, ...payloads])
-        if (mounted()) {
-          setModule(newModule)
-        }
+        setModule(newModule)
       }
     },
     [module],

@@ -1,11 +1,11 @@
 import { Button } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { usePromise } from '@xylabs/react-promise'
 import { Account } from '@xyo-network/account'
 import { ArchivistInsertQuerySchema, ArchivistInstance, MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
-import { useState } from 'react'
+import { MemoryNode } from '@xyo-network/node-memory'
 
 import { ArchivistCard } from './Card'
 
@@ -23,8 +23,8 @@ const insertPayload = async (archivist?: ArchivistInstance) => {
   if (archivist) {
     const payload = { schema: 'network.xyo.payload', timestamp: Date.now() }
     const insertQuery = { schema: ArchivistInsertQuerySchema }
-    const account = await Account.randomSync()
-    const builder = new QueryBoundWitnessBuilder({ inlinePayloads: true }).payloads([insertQuery, payload]).witness(account).query(insertQuery)
+    const account = Account.randomSync()
+    const builder = new QueryBoundWitnessBuilder().payloads([insertQuery, payload]).witness(account).query(insertQuery)
     const [insertQueryBoundWitness, payloads] = await builder.build()
     await archivist.insert([insertQueryBoundWitness, ...payloads])
   }
@@ -35,28 +35,30 @@ const clearArchivist = async (archivist?: ArchivistInstance) => {
 }
 
 const Template: StoryFn<typeof ArchivistCard> = () => {
-  const [module, setModule] = useState<ArchivistInstance>()
+  const [node] = usePromise(async () => {
+    return await MemoryNode.create()
+  }, [])
 
-  useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    async (mounted) => {
-      if (!module) {
-        const newParentModule = await MemoryArchivist.create()
-        const newModule = await MemoryArchivist.create({
-          config: {
-            name: 'MemoryArchivist',
-            parents: { commit: [newParentModule.address], read: [newParentModule.address], write: [newParentModule.address] },
-            schema: MemoryArchivistConfigSchema,
-          },
-        })
-        await insertPayload(newModule)
-        if (mounted()) {
-          setModule(newModule)
-        }
-      }
-    },
-    [module],
-  )
+  const [module] = usePromise(async () => {
+    if (node) {
+      const newParentModule = await MemoryArchivist.create()
+      await node?.register(newParentModule)
+      await node?.attach(newParentModule.address)
+
+      const newModule = await MemoryArchivist.create({
+        config: {
+          name: 'MemoryArchivist',
+          parents: { commit: [newParentModule.address], read: [newParentModule.address], write: [newParentModule.address] },
+          schema: MemoryArchivistConfigSchema,
+        },
+      })
+      await node?.register(newModule)
+      await node?.attach(newModule.address)
+
+      await insertPayload(newModule)
+      return newModule
+    }
+  }, [node])
 
   return (
     <FlexCol gap={2}>
