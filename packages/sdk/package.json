@@ -38,8 +38,8 @@
     "@xyo-network/react-webapp": "workspace:~"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^3.0.82",
-    "@xylabs/tsconfig-react": "^3.0.82",
+    "@xylabs/ts-scripts-yarn3": "^3.1.13",
+    "@xylabs/tsconfig-react": "^3.1.13",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
@@ -51,7 +51,6 @@
     "@xylabs/react-flexbox": "^2",
     "@xylabs/react-pixel": "^2",
     "@xylabs/react-shared": "^2",
-    "axios": "^1",
     "react": "^18",
     "react-dom": "^18",
     "react-helmet": "^6",
@@ -95,7 +94,7 @@
     "typescript",
     "react"
   ],
-  "license": "LGPL-3.0",
+  "license": "LGPL-3.0-only",
   "publishConfig": {
     "access": "public"
   },
@@ -108,6 +107,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "version": "2.64.6",
+  "version": "2.65.4",
   "type": "module"
 }

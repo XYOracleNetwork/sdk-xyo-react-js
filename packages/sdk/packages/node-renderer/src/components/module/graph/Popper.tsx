@@ -1,4 +1,4 @@
-import CancelRoundedIcon from '@mui/icons-material/CancelRounded'
+import { CancelRounded } from '@mui/icons-material'
 import { Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, PopperProps, styled } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 import { NodeSingular } from 'cytoscape'
@@ -21,7 +21,7 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, 
               action={
                 onClose ? (
                   <IconButton size="small" onClick={onClose}>
-                    <CancelRoundedIcon />
+                    <CancelRounded />
                   </IconButton>
                 ) : null
               }

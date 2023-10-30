@@ -41,7 +41,8 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           name,
 
           schema: SentinelConfigSchema,
-          witnesses: witnesses?.map((module) => module.address),
+          synchronous: true,
+          tasks: witnesses?.map((module) => ({ module: module.address })),
         } as SentinelConfig,
       })
       const offCallbacks: (() => void)[] = []

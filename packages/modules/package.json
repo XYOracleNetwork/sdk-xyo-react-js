@@ -18,8 +18,8 @@
     "@xyo-network/react-witness": "workspace:~"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^3.0.82",
-    "@xylabs/tsconfig-react": "^3.0.82",
+    "@xylabs/ts-scripts-yarn3": "^3.1.13",
+    "@xylabs/tsconfig-react": "^3.1.13",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
@@ -29,7 +29,6 @@
     "@uniswap/sdk": "^3",
     "@uniswap/sdk-core": "^3",
     "@uniswap/v3-sdk": "^3",
-    "axios": "^1",
     "geojson": "^0.5",
     "mapbox-gl": "^2",
     "react": "^18",
@@ -99,7 +98,7 @@
     "typescript",
     "react"
   ],
-  "license": "LGPL-3.0",
+  "license": "LGPL-3.0-only",
   "publishConfig": {
     "access": "public"
   },
@@ -113,6 +112,6 @@
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
-  "version": "2.64.6",
+  "version": "2.65.4",
   "type": "module"
 }

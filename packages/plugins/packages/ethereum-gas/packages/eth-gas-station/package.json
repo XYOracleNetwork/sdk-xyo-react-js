@@ -10,10 +10,10 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/lodash": "^2.12.14",
-    "@xylabs/react-flexbox": "^3.0.8",
-    "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "^2.75.6",
-    "@xyo-network/payload-model": "^2.75.6",
+    "@xylabs/lodash": "^2.13.3",
+    "@xylabs/react-flexbox": "^3.0.21",
+    "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "^2.77.7",
+    "@xyo-network/payload-model": "^2.77.7",
     "@xyo-network/react-gas-price": "workspace:~",
     "@xyo-network/react-payload-plugin": "workspace:~",
     "@xyo-network/react-shared": "workspace:~"
@@ -22,15 +22,14 @@
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
     "@mui/styles": "^5",
-    "axios": "^1",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@storybook/react": "^7.4.5",
-    "@xylabs/ts-scripts-yarn3": "^3.0.82",
-    "@xylabs/tsconfig-react": "^3.0.82",
-    "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "^2.75.6",
+    "@storybook/react": "^7.5.1",
+    "@xylabs/ts-scripts-yarn3": "^3.1.13",
+    "@xylabs/tsconfig-react": "^3.1.13",
+    "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "^2.77.7",
     "@xyo-network/react-storybook": "workspace:~",
     "typescript": "^5.2.2"
   },
@@ -71,7 +70,7 @@
     "typescript",
     "react"
   ],
-  "license": "LGPL-3.0",
+  "license": "LGPL-3.0-only",
   "publishConfig": {
     "access": "public"
   },
@@ -85,6 +84,6 @@
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
-  "version": "2.64.6",
+  "version": "2.65.4",
   "type": "module"
 }
