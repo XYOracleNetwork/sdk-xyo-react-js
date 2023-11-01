@@ -1,7 +1,7 @@
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { lazy, Suspense, useState } from 'react'
-import { ReactJsonViewProps } from 'react-json-view'
+import type { ReactJsonViewProps } from 'react-json-view'
 
 const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
