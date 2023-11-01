@@ -15,7 +15,7 @@ const StorybookEntry = {
   title: 'modules/witness/WitnessCard',
 } as Meta<typeof WitnessCard>
 
-const Template: StoryFn<typeof WitnessCard> = () => {
+const IdWitnessTemplate: StoryFn<typeof WitnessCard> = () => {
   const [witness] = usePromise(async () => {
     return await IdWitness.create()
   }, [])
@@ -27,9 +27,9 @@ const Template: StoryFn<typeof WitnessCard> = () => {
   )
 }
 
-const SingleModule = Template.bind({})
+const IdWitnessCard = IdWitnessTemplate.bind({})
 
-export { SingleModule }
+export { IdWitnessCard }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
