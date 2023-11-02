@@ -8,7 +8,10 @@ import { CryptoContractDiviner, CryptoContractFunctionReadWitness } from '@xyo-n
 import { ManifestPayload, ManifestWrapper } from '@xyo-network/manifest'
 import { ModuleFactory, ModuleFactoryLocator } from '@xyo-network/module-model'
 import { ERC721__factory, ERC721Enumerable__factory, ERC1155__factory } from '@xyo-network/open-zeppelin-typechain'
+import { Payload } from '@xyo-network/payload-model'
 import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel'
+import { useState } from 'react'
+import JsonView from 'react-json-view'
 
 import { SentinelCard } from './Card'
 import NftSentinelManifest from './NftSentinel.json'
@@ -91,7 +94,59 @@ const NftSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
 
 const NftSentinelCard = NftSentinelTemplate.bind({})
 
-export { NftSentinelCard }
+const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
+  const [node] = usePromise(async () => await loadFromManifest(), [])
+  const [tokens, setTokens] = useState<Payload[]>()
+
+  const [tokensSentinel] = usePromise(async () => {
+    if (node) {
+      const sentinel = asSentinelInstance(await node.resolve('NftTokenInfoSentinel'))
+      sentinel?.on('reportEnd', (args) => {
+        const { inPayloads, outPayloads } = args as ReportEndEventArgs
+        console.log(`tokensSentinelInPayloads: ${inPayloads?.length}`)
+        console.log(`tokensSentinelOutPayloads: ${outPayloads?.length}`)
+        console.log(`tokens: ${JSON.stringify(outPayloads, null, 2)}`)
+      })
+      return sentinel
+    }
+  }, [node])
+
+  const [contractSentinel] = usePromise(async () => {
+    if (node) {
+      const sentinel = asSentinelInstance(await node.resolve('NftInfoSentinel'))
+      sentinel?.on('reportEnd', async (args) => {
+        const { inPayloads, outPayloads } = args as ReportEndEventArgs
+        console.log(`inPayloads: ${inPayloads?.length}`)
+        console.log(`outPayloads: ${outPayloads?.length}`)
+        const calls = Array(1000).map((_, index) => ({
+          address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', //Random ERC721
+          params: [index],
+          schema: CryptoContractFunctionCallSchema,
+        }))
+        await tokensSentinel?.report(calls)
+      })
+      return sentinel
+    }
+  }, [node, tokensSentinel])
+
+  const inPayloads = [
+    {
+      address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', //Random ERC721
+      schema: CryptoContractFunctionCallSchema,
+    },
+  ]
+
+  return (
+    <FlexCol gap={2}>
+      <SentinelCard module={contractSentinel} inPayloads={inPayloads} />
+      {/*tokens ? <JsonView src={tokens} /> : null*/}
+    </FlexCol>
+  )
+}
+
+const NftTokensSentinelCard = NftTokensSentinelTemplate.bind({})
+
+export { NftSentinelCard, NftTokensSentinelCard }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -115,6 +115,22 @@
           },
           {
             "config": {
+              "accountPath": "m/44'/60'/1'/2'/2'",
+              "language": "javascript",
+              "name": "Erc721TokenContractInfoDiviner",
+              "schema": "network.xyo.crypto.contract.diviner.config"
+            }
+          },
+          {
+            "config": {
+              "accountPath": "m/44'/60'/1'/2'/3'",
+              "language": "javascript",
+              "name": "Erc1155TokenContractInfoDiviner",
+              "schema": "network.xyo.crypto.contract.diviner.config"
+            }
+          },
+          {
+            "config": {
               "accountPath": "m/44'/60'/1'/3'/0'",
               "language": "javascript",
               "name": "NftInfoSentinel",
@@ -164,15 +180,11 @@
               "tasks": [
                 {
                   "input": true,
-                  "module": "Erc721NameWitness"
+                  "module": "Erc721TokenURIWitness"
                 },
                 {
                   "input": true,
-                  "module": "Erc721SymbolWitness"
-                },
-                {
-                  "input": true,
-                  "module": "Erc721TotalSupplyWitness"
+                  "module": "Erc721OwnerOfWitness"
                 },
                 {
                   "input": true,
