@@ -4,14 +4,10 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
 import { CryptoContractFunctionCallSchema } from '@xyo-network/crypto-contract-function-read-payload-plugin'
-import {
-  CryptoContractErc721Diviner,
-  CryptoContractErc1155Diviner,
-  CryptoContractFunctionReadWitness,
-} from '@xyo-network/crypto-contract-function-read-plugin'
+import { CryptoContractDiviner, CryptoContractFunctionReadWitness } from '@xyo-network/crypto-contract-function-read-plugin'
 import { ManifestPayload, ManifestWrapper } from '@xyo-network/manifest'
 import { ModuleFactory, ModuleFactoryLocator } from '@xyo-network/module-model'
-import { ERC721__factory, ERC1155__factory } from '@xyo-network/open-zeppelin-typechain'
+import { ERC721__factory, ERC721Enumerable__factory, ERC1155__factory } from '@xyo-network/open-zeppelin-typechain'
 import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel'
 
 import { SentinelCard } from './Card'
@@ -26,14 +22,20 @@ const loadFromManifest = async () => {
   })
 
   const locator = new ModuleFactoryLocator()
-  locator.register(CryptoContractErc1155Diviner)
-  locator.register(CryptoContractErc721Diviner)
+  locator.register(CryptoContractDiviner)
 
   locator.register(
     new ModuleFactory(CryptoContractFunctionReadWitness, {
       factory: (address: string) => ERC721__factory.connect(address, provider),
     }),
     { 'network.xyo.crypto.contract.interface': 'Erc721' },
+  )
+
+  locator.register(
+    new ModuleFactory(CryptoContractFunctionReadWitness, {
+      factory: (address: string) => ERC721Enumerable__factory.connect(address, provider),
+    }),
+    { 'network.xyo.crypto.contract.interface': 'Erc721Enumerable' },
   )
 
   locator.register(
