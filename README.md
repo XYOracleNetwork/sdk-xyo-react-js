@@ -57,7 +57,7 @@ yarn xy compile
 
 ## Maintainers
 
--   [Arie Trouw](https://github.com/arietrouw) (<https://arietrouw.com>)
+-   [Arie Trouw](https://github.com/arietrouw) (https://arietrouw.com)
 -   [Matt Jones](https://github.com/jonesmac)
 -   [Joel Carter](https://github.com/JoelBCarter)
 
@@ -90,3 +90,5 @@ file for license details
 
 [license-badge]: https://img.shields.io/github/license/XYOracleNetwork/sdk-xyo-react-js
 [license-link]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/blob/main/LICENSE
+
+[arietrouw-link]: https://github.com/XYOracleNetwork/sdk-xyo-react-js/blob/main/LICENSE
