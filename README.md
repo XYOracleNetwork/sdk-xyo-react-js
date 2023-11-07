@@ -57,7 +57,7 @@ yarn xy compile
 
 ## Maintainers
 
--   [Arie Trouw](https://github.com/arietrouw) (https://arietrouw.com)
+-   [Arie Trouw](https://github.com/arietrouw) ([arietrouw.com](https://arietrouw.com))
 -   [Matt Jones](https://github.com/jonesmac)
 -   [Joel Carter](https://github.com/JoelBCarter)
 
