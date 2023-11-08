@@ -5,13 +5,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
 import { CryptoContractFunctionCallSchema } from '@xyo-network/crypto-contract-function-read-payload-plugin'
 import { CryptoContractDiviner, CryptoContractFunctionReadWitness } from '@xyo-network/crypto-contract-function-read-plugin'
-import { ManifestPayload, ManifestWrapper } from '@xyo-network/manifest'
+import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
 import { ModuleFactory, ModuleFactoryLocator } from '@xyo-network/module-model'
-import { ERC721__factory, ERC721Enumerable__factory, ERC1155__factory } from '@xyo-network/open-zeppelin-typechain'
-import { Payload } from '@xyo-network/payload-model'
 import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel'
-import { useState } from 'react'
-import JsonView from 'react-json-view'
 
 import { SentinelCard } from './Card'
 import NftSentinelManifest from './NftSentinel.json'
@@ -29,26 +25,26 @@ const loadFromManifest = async () => {
 
   locator.register(
     new ModuleFactory(CryptoContractFunctionReadWitness, {
-      factory: (address: string) => ERC721__factory.connect(address, provider),
+      providers: [provider],
     }),
     { 'network.xyo.crypto.contract.interface': 'Erc721' },
   )
 
   locator.register(
     new ModuleFactory(CryptoContractFunctionReadWitness, {
-      factory: (address: string) => ERC721Enumerable__factory.connect(address, provider),
+      providers: [provider],
     }),
     { 'network.xyo.crypto.contract.interface': 'Erc721Enumerable' },
   )
 
   locator.register(
     new ModuleFactory(CryptoContractFunctionReadWitness, {
-      factory: (address: string) => ERC1155__factory.connect(address, provider),
+      providers: [provider],
     }),
     { 'network.xyo.crypto.contract.interface': 'Erc1155' },
   )
 
-  const manifest = new ManifestWrapper(NftSentinelManifest as ManifestPayload, wallet, locator)
+  const manifest = new ManifestWrapper(NftSentinelManifest as PackageManifestPayload, wallet, locator)
   const node = await manifest.loadNodeFromIndex(0)
   console.log(`node: ${(await node.resolve()).length}`)
   return node
@@ -96,7 +92,6 @@ const NftSentinelCard = NftSentinelTemplate.bind({})
 
 const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
   const [node] = usePromise(async () => await loadFromManifest(), [])
-  const [tokens, setTokens] = useState<Payload[]>()
 
   const [tokensSentinel] = usePromise(async () => {
     if (node) {

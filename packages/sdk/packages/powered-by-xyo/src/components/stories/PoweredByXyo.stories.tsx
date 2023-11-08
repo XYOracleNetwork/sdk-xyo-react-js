@@ -5,7 +5,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
 import { asArchivistInstance } from '@xyo-network/archivist-model'
-import { ManifestPayload, ManifestWrapper } from '@xyo-network/manifest'
+import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
 import { NodeInstance } from '@xyo-network/node-model'
 import { NodeProvider } from '@xyo-network/react-node'
 import { useState } from 'react'
@@ -35,7 +35,7 @@ const TemplateWithNodeContainer: StoryFn<typeof PoweredByXyo> = (props: PoweredB
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const wallet = await HDWallet.random()
-      const manifest = new ManifestWrapper(simpleNodeInlineManifest as ManifestPayload, wallet)
+      const manifest = new ManifestWrapper(simpleNodeInlineManifest as PackageManifestPayload, wallet)
       const [node] = await manifest.loadNodes()
       setNode(node)
     },
