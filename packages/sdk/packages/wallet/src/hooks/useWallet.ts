@@ -27,7 +27,7 @@ export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: Wa
         if (wallet) {
           return wallet
         } else if (mnemonic) {
-          return HDWallet.fromMnemonic(mnemonic as string)
+          return HDWallet.fromPhrase(mnemonic)
         } else if (seed) {
           return HDWallet.fromSeed(seed)
         }

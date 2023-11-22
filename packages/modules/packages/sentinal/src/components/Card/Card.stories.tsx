@@ -1,4 +1,3 @@
-import { InfuraProvider } from '@ethersproject/providers'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
@@ -8,17 +7,15 @@ import { CryptoContractDiviner, CryptoContractFunctionReadWitness } from '@xyo-n
 import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
 import { ModuleFactory, ModuleFactoryLocator } from '@xyo-network/module-model'
 import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel'
+import { InfuraProvider } from 'ethers'
 
 import { SentinelCard } from './Card'
 import NftSentinelManifest from './NftSentinel.json'
 
 const loadFromManifest = async () => {
   const mnemonic = 'later puppy sound rebuild rebuild noise ozone amazing hope broccoli crystal grief'
-  const wallet = await HDWallet.fromMnemonic(mnemonic)
-  const provider = new InfuraProvider('homestead', {
-    projectId: process.env.STORYBOOK_INFURA_PROJECT_ID,
-    projectSecret: process.env.STORYBOOK_INFURA_PROJECT_SECRET,
-  })
+  const wallet = await HDWallet.fromPhrase(mnemonic)
+  const provider = new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)
 
   const locator = new ModuleFactoryLocator()
   locator.register(CryptoContractDiviner)

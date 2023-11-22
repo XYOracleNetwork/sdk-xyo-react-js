@@ -3,7 +3,7 @@
   "nodes": [
     {
       "config": {
-        "accountPath": "m/44'/60'/1'/0'/0'",
+        "accountPath": "/0'/0'",
         "name": "NftInfoNode",
         "schema": "network.xyo.node.config"
       },
@@ -11,7 +11,7 @@
         "public": [
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/1'/0'",
+              "accountPath": "/1'/0'",
               "call": {
                 "functionName": "name",
                 "params": []
@@ -26,7 +26,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/1'/1'",
+              "accountPath": "/1'/1'",
               "call": {
                 "functionName": "symbol",
                 "params": []
@@ -41,7 +41,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/1'/2'",
+              "accountPath": "/1'/2'",
               "call": {
                 "functionName": "totalSupply",
                 "params": []
@@ -56,7 +56,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/1'/3'",
+              "accountPath": "/1'/3'",
               "call": {
                 "functionName": "tokenURI"
               },
@@ -70,7 +70,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/1'/4'",
+              "accountPath": "/1'/4'",
               "call": {
                 "functionName": "ownerOf"
               },
@@ -84,7 +84,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/1'/5'",
+              "accountPath": "/1'/5'",
               "call": {
                 "functionName": "uri",
                 "params": []
@@ -99,7 +99,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/2'/0'",
+              "accountPath": "/2'/0'",
               "language": "javascript",
               "name": "Erc721ContractInfoDiviner",
               "schema": "network.xyo.crypto.contract.diviner.config"
@@ -107,7 +107,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/2'/1'",
+              "accountPath": "/2'/1'",
               "language": "javascript",
               "name": "Erc1155ContractInfoDiviner",
               "schema": "network.xyo.crypto.contract.diviner.config"
@@ -115,7 +115,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/2'/2'",
+              "accountPath": "/2'/2'",
               "language": "javascript",
               "name": "Erc721TokenContractInfoDiviner",
               "schema": "network.xyo.crypto.contract.diviner.config"
@@ -123,7 +123,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/2'/3'",
+              "accountPath": "/2'/3'",
               "language": "javascript",
               "name": "Erc1155TokenContractInfoDiviner",
               "schema": "network.xyo.crypto.contract.diviner.config"
@@ -131,7 +131,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/3'/0'",
+              "accountPath": "/3'/0'",
               "language": "javascript",
               "name": "NftInfoSentinel",
               "schema": "network.xyo.sentinel.config",
@@ -172,7 +172,7 @@
           },
           {
             "config": {
-              "accountPath": "m/44'/60'/1'/3'/1'",
+              "accountPath": "/3'/1'",
               "language": "javascript",
               "name": "NftTokenInfoSentinel",
               "schema": "network.xyo.sentinel.config",

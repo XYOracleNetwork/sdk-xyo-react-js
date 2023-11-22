@@ -1,4 +1,4 @@
-import { Logger } from '@xyo-network/logger'
+import { Logger } from '@xylabs/logger'
 import { ModuleFilterOptions } from '@xyo-network/module-model'
 import { NodeInstance } from '@xyo-network/node-model'
 

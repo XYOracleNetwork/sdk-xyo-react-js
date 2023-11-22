@@ -30,7 +30,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
   const [coinTypeWallet = null] = usePromise(async () => {
     // ensure the wallet has the proper base
     if (rootWallet) {
-      if (!rootWallet?.path.includes(basePath)) {
+      if (!rootWallet?.path?.includes(basePath)) {
         try {
           return await rootWallet?.derivePath(basePath)
         } catch (e) {

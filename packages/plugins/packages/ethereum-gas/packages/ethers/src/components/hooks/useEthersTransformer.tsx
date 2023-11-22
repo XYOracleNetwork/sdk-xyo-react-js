@@ -4,10 +4,6 @@ import { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 export const useEthersTransformer = (payload?: EthereumGasEthersPayload): GasPriceWitnessUIBasePayload | undefined => {
   if (payload) {
     return {
-      baseFee: {
-        label: 'lastBaseFeePerGas',
-        value: payload.lastBaseFeePerGas ? payload.lastBaseFeePerGas / 1_000_000_000 : undefined,
-      },
       gasPrice: [
         {
           price: {
