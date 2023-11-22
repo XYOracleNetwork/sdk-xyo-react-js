@@ -1,10 +1,10 @@
+import { usePromise } from '@xylabs/react-promise'
 import { WithChildren } from '@xylabs/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
 import { WalletContext } from './Context'
 import { WalletRootPath } from './lib'
-import { usePromise } from './usePromise'
 
 export interface WalletProviderProps {
   basePath?: string
@@ -30,17 +30,20 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
   const [coinTypeWallet = null] = usePromise(async () => {
     // ensure the wallet has the proper base
     if (rootWallet) {
-      if (!rootWallet?.path?.includes(basePath)) {
+      if (rootWallet?.path !== basePath) {
         try {
-          return await rootWallet?.derivePath(basePath)
+          const result = await rootWallet?.derivePath(basePath)
+          return result
         } catch (e) {
           console.error('Error setting proper wallet base path', e)
         }
       }
     } else {
-      return undefined
+      return rootWallet
     }
   }, [basePath, rootWallet])
+
+  console.log(`coinTypeWallet: ${coinTypeWallet}`)
 
   const [activeAccount = null] = usePromise(
     async () => await coinTypeWallet?.derivePath(activeAccountIndex.toString()),
