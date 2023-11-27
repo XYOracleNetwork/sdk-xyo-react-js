@@ -1,4 +1,5 @@
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
+import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { AddressTableCell } from '@xyo-network/react-shared'
@@ -16,7 +17,7 @@ export interface BlockSignatureTableRowProps extends TableRowProps {
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ hash, address, previousHash, signature, archive, ...props }) => {
-  const errors = hash && address ? BoundWitnessValidator.validateSignature(hash, address, signature) : []
+  const errors = hash && address ? BoundWitnessValidator.validateSignature(toUint8Array(hash), toUint8Array(address), toUint8Array(signature)) : []
 
   return (
     <TableRow {...props}>

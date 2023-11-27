@@ -1,4 +1,5 @@
 import { Link, TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
+import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useEvent } from '@xyo-network/react-event'
@@ -26,7 +27,7 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
   signature,
   ...props
 }) => {
-  const errors = hash && address ? BoundWitnessValidator.validateSignature(hash, address, signature) : []
+  const errors = hash && address ? BoundWitnessValidator.validateSignature(toUint8Array(hash), toUint8Array(address), toUint8Array(signature)) : []
 
   const [addressRef, addressDispatch] = useEvent<HTMLTableCellElement>()
   const [signatureRef, signatureDispatch] = useEvent<HTMLTableCellElement>()

@@ -6,9 +6,6 @@ import { partialDarkThemeOptions, partialAppLightThemeOptions, themeOptions, app
 import { AppSettingsProvider } from '@xyo-network/react-app-settings'
 import React from 'react';
 import { Decorator } from '@storybook/react';
-import { bufferPolyfill } from '@xylabs/buffer'
-
-bufferPolyfill()
 
 export const globalTypes = {
   theme: {

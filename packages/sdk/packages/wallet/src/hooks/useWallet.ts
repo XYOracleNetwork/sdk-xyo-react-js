@@ -1,6 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
-import { DataLike } from '@xyo-network/core'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
@@ -10,7 +9,7 @@ export interface WalletHookParams {
   mnemonic?: string
   path?: string
   required?: boolean
-  seed?: DataLike
+  seed?: Uint8Array | string
   wallet?: WalletInstance | null
 }
 
