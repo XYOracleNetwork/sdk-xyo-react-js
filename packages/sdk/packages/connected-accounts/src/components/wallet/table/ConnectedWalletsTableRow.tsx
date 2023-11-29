@@ -1,6 +1,7 @@
 import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material'
 import { Badge, Chip, TableCell, TableRow, TableRowProps, useTheme } from '@mui/material'
 import { ConstrainedImage, EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
+import { FlexRow } from '@xylabs/react-flexbox'
 
 export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
   additionalAccounts?: string[]
@@ -25,10 +26,12 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
   return (
     <TableRow {...props}>
       <TableCell align="center">{accountToDisplay ? <RadioButtonChecked color={'success'} /> : <RadioButtonUnchecked />}</TableCell>
-      <TableCell align="center">
-        <ConstrainedImage constrainedValue={theme.spacing(4)} src={icon} />
+      <TableCell>
+        <FlexRow gap={2} justifyContent="start">
+          <ConstrainedImage constrainedValue={theme.spacing(4)} src={icon} />
+          {name}
+        </FlexRow>
       </TableCell>
-      <TableCell>{name}</TableCell>
       <TableCell>{chainId ? <Chip label={chainId} /> : null}</TableCell>
       <TableCell>
         {additionalAccounts?.length ? (
