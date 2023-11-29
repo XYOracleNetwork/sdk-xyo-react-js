@@ -11,7 +11,7 @@ export const ConnectedAccountsFlexbox: React.FC<FlexBoxProps> = (props) => {
     [wallets],
   )
   return (
-    <FlexCol alignItems="start" justifyContent="start" gap={2} {...props}>
+    <FlexCol alignItems="stretch" justifyContent="start" gap={2} {...props}>
       <FlexRow justifyContent="space-between">
         <Button disabled variant="contained">
           Connect Wallet

@@ -15,17 +15,13 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wa
           <TableCell>Status</TableCell>
           <TableCell>Image</TableCell>
           <TableCell>Name</TableCell>
+          <TableCell>Chain Id</TableCell>
           <TableCell>Account</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {Object.values(wallets ?? {}).map((wallet) => (
-          <WalletConnectionsTableRow
-            approvedAccounts={wallet.allowedAccounts}
-            key={wallet.providerInfo?.rdns}
-            icon={wallet.providerInfo?.icon}
-            name={wallet.providerName}
-          />
+          <WalletConnectionsTableRow wallet={wallet} key={wallet.providerInfo?.rdns} />
         ))}
       </TableBody>
     </Table>
