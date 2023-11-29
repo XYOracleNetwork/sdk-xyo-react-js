@@ -6687,6 +6687,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-async-effect@npm:~3.0.25":
+  version: 3.0.25
+  resolution: "@xylabs/react-async-effect@npm:3.0.25"
+  dependencies:
+    "@xylabs/react-promise": "npm:~3.0.25"
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: d2d7742f16555a9591919d6dfaed48642ea60eeb4203edca23dc307cc408b0874e7da7506ad7a4739fab1a68ad13c81233e8df653b3235559cdc082a5a231a23
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-button@npm:^3.0.23, @xylabs/react-button@npm:~3.0.23":
   version: 3.0.23
   resolution: "@xylabs/react-button@npm:3.0.23"
@@ -6698,6 +6711,20 @@ __metadata:
     react: ^18
     react-dom: ^18
   checksum: f8848732478c1a574266dcd72b5ee291b06c952d53b528d8041007e54406215ef8776fdf95cdd62f50b1440400495058df713f1f1d5505d36f2ac99aa4724bae
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-button@npm:~3.0.25":
+  version: 3.0.25
+  resolution: "@xylabs/react-button@npm:3.0.25"
+  dependencies:
+    "@xylabs/react-shared": "npm:~3.0.25"
+    react-router-dom: "npm:^6.20.0"
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: 577675aa285f56c971885edea9131feb7fb890e09c030fe6f3dbba81ce88a112e2dea1aac7acfb5af565ce41f410402971781abbd3634ee5c766c04762f6b44e
   languageName: node
   linkType: hard
 
@@ -6721,6 +6748,29 @@ __metadata:
     react: ^18
     react-dom: ^18
   checksum: bb1c16a4b74212ad623436acb6a3b3071f3b78f61280a93da22de36ae0ffad31dcf14bc60f5e966789ac5d2b68f8871f4390a0a7dfad7f2ae256ec1ce4ff6e65
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-crypto@npm:^3.0.25":
+  version: 3.0.25
+  resolution: "@xylabs/react-crypto@npm:3.0.25"
+  dependencies:
+    "@metamask/providers": "npm:^14.0.2"
+    "@xylabs/assert": "npm:^2.13.18"
+    "@xylabs/bignumber": "npm:^2.13.18"
+    "@xylabs/eth-address": "npm:^2.13.18"
+    "@xylabs/react-async-effect": "npm:~3.0.25"
+    "@xylabs/react-button": "npm:~3.0.25"
+    "@xylabs/react-flexbox": "npm:~3.0.25"
+    "@xylabs/react-identicon": "npm:~3.0.25"
+    "@xylabs/react-promise": "npm:~3.0.25"
+    ethers: "npm:^6.9.0"
+    react-router-dom: "npm:^6.20.0"
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: b70d49d895d49269eed2a7414e8da550cdba19a49686c65de109bc80d9d43c6670746cfa0cc5fdfcb4b5a4f918082d7d13e24f8e4c221b8934c88b0610787aef
   languageName: node
   linkType: hard
 
@@ -6758,6 +6808,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-flexbox@npm:~3.0.25":
+  version: 3.0.25
+  resolution: "@xylabs/react-flexbox@npm:3.0.25"
+  dependencies:
+    "@xylabs/delay": "npm:^2.13.18"
+    "@xylabs/react-async-effect": "npm:~3.0.25"
+    "@xylabs/react-shared": "npm:~3.0.25"
+  peerDependencies:
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    react: ^18
+    react-dom: ^18
+  peerDependenciesMeta:
+    "@mui/styles":
+      optional: true
+  checksum: 88a55d11f382feb1f681bfd5e2f0ee78dbeb28aa9db8612e29e2b8eec12bcc419c8f0c4fbd0d0cc09c92f71e26230d136f21100b99e43fb8581210e6835f517d
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-identicon@npm:^3.0.23, @xylabs/react-identicon@npm:~3.0.23":
   version: 3.0.23
   resolution: "@xylabs/react-identicon@npm:3.0.23"
@@ -6769,6 +6838,20 @@ __metadata:
     react: ^18
     react-dom: ^18
   checksum: f74eec46a862743336aee753af2434d1807954967cf8f25c8fae776e3e1046008f96b052f8d133ecd99473b2981f955e180899638a6efc99010ae8bded763b49
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-identicon@npm:~3.0.25":
+  version: 3.0.25
+  resolution: "@xylabs/react-identicon@npm:3.0.25"
+  dependencies:
+    "@xylabs/react-flexbox": "npm:~3.0.25"
+    md5: "npm:^2.3.0"
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: 32818ba1e76335d4aad2fdc75b1212ad002cb1aaebd10f9227a0ff32dfd1cab5ebbe033f7ce4f1739e4bcb7062161999efd5dc42187e569e0c07fc3eca5b47a7
   languageName: node
   linkType: hard
 
@@ -6841,6 +6924,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-promise@npm:~3.0.25":
+  version: 3.0.25
+  resolution: "@xylabs/react-promise@npm:3.0.25"
+  dependencies:
+    async-mutex: "npm:^0.4.0"
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: d35deaed5a89d5f565b6eee3c82c98221848f8bb57f1809241ec69b62264dc6c82f2be99dad92ebe0c5b3e2a4dc9dd91d5b0e7a85fe60af8b3f7979b34a2da0b
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-quick-tip-button@npm:^3.0.23":
   version: 3.0.23
   resolution: "@xylabs/react-quick-tip-button@npm:3.0.23"
@@ -6880,6 +6976,21 @@ __metadata:
     react: ^18
     react-dom: ^18
   checksum: 69d3748beb902318e3609b54bc0469a9f3b13b6169ce734f77c16fd6ce80c3738dbdfcf229c28668c640950ad1430c36f8f46d8c843043a65b978deee28ffbfb
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-shared@npm:~3.0.25":
+  version: 3.0.25
+  resolution: "@xylabs/react-shared@npm:3.0.25"
+  dependencies:
+    "@xylabs/api": "npm:^2.13.18"
+    "@xylabs/log": "npm:^2.13.18"
+    "@xylabs/react-async-effect": "npm:~3.0.25"
+  peerDependencies:
+    "@mui/material": ^5
+    react: ^18
+    react-dom: ^18
+  checksum: 5096db5abc2676c48355f225067578797da6c2fe16dd64a5d363f245f0987055b606b3ee82fdacbaaa8c0bae517adec79f7c3237190071bc094f46f2b8bd5c06
   languageName: node
   linkType: hard
 
@@ -8718,6 +8829,22 @@ __metadata:
     "@mui/styles": ^5
     react: ^18
     react-dom: ^18
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-connected-accounts@workspace:packages/sdk/packages/connected-accounts":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-connected-accounts@workspace:packages/sdk/packages/connected-accounts"
+  dependencies:
+    "@xylabs/react-crypto": "npm:^3.0.25"
+    "@xylabs/ts-scripts-yarn3": "npm:^3.2.10"
+    typescript: "npm:^5.3.2"
+  peerDependencies:
+    "@mui/icons-material": ^5
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    react: ^18.2.0
+    react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
 
