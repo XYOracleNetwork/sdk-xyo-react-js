@@ -1,1 +1,1 @@
-export * from './ConnectedAccounts'
+export * from './ConnectedAccountsFlexbox'
