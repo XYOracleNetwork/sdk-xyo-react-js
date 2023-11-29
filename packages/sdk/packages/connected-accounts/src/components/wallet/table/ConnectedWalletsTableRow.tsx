@@ -1,8 +1,9 @@
 import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material'
-import { TableCell, TableRow, TableRowProps, useTheme } from '@mui/material'
+import { Badge, Chip, TableCell, TableRow, TableRowProps, useTheme } from '@mui/material'
 import { ConstrainedImage, EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
 
 export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
+  additionalAccounts?: string[]
   approvedAccounts?: string[]
   chainId?: number
   icon?: string
@@ -10,6 +11,7 @@ export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
 }
 
 export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowInnerProps> = ({
+  additionalAccounts,
   approvedAccounts,
   chainId,
   icon,
@@ -19,15 +21,24 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
   const theme = useTheme()
 
   const accountToDisplay = approvedAccounts?.length ? approvedAccounts[0] : null
+
   return (
     <TableRow {...props}>
-      <TableCell>{accountToDisplay ? <RadioButtonChecked color={'success'} /> : <RadioButtonUnchecked />}</TableCell>
-      <TableCell>
+      <TableCell align="center">{accountToDisplay ? <RadioButtonChecked color={'success'} /> : <RadioButtonUnchecked />}</TableCell>
+      <TableCell align="center">
         <ConstrainedImage constrainedValue={theme.spacing(4)} src={icon} />
       </TableCell>
       <TableCell>{name}</TableCell>
-      <TableCell>{chainId}</TableCell>
-      <TableCell>{accountToDisplay ?? 'none'}</TableCell>
+      <TableCell>{chainId ? <Chip label={chainId} /> : null}</TableCell>
+      <TableCell>
+        {additionalAccounts?.length ? (
+          <Badge badgeContent={`+${additionalAccounts.length}`} color="primary">
+            <Chip label={accountToDisplay} />
+          </Badge>
+        ) : (
+          <Chip label={accountToDisplay ?? 'none'} />
+        )}
+      </TableCell>
     </TableRow>
   )
 }
@@ -36,10 +47,12 @@ export interface WalletConnectionsTableRow extends TableRowProps {
   wallet: EthWalletConnectorBase
 }
 export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRow> = ({ wallet, ...props }) => {
-  const { currentAccount, chainId, providerInfo, providerName } = useEthWallet(wallet)
+  const { currentAccount, additionalAccounts, chainId, providerInfo, providerName } = useEthWallet(wallet)
+  const currentAccountString = currentAccount?.toString()
   return (
     <WalletConnectionsTableRowInner
-      approvedAccounts={[currentAccount?.toString() ?? '']}
+      additionalAccounts={additionalAccounts}
+      approvedAccounts={currentAccountString ? [currentAccountString] : []}
       chainId={chainId}
       icon={providerInfo?.icon}
       name={providerName}

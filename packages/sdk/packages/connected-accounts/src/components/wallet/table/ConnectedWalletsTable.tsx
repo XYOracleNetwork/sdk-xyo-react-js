@@ -12,8 +12,8 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wa
     <Table {...props}>
       <TableHead>
         <TableRow>
-          <TableCell>Status</TableCell>
-          <TableCell>Image</TableCell>
+          <TableCell align="center">Status</TableCell>
+          <TableCell align="center">Image</TableCell>
           <TableCell>Name</TableCell>
           <TableCell>Chain Id</TableCell>
           <TableCell>Account</TableCell>
