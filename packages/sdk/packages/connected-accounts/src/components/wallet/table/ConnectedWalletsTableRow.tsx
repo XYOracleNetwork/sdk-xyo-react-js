@@ -1,5 +1,5 @@
 import { Check } from '@mui/icons-material'
-import { Button, TableCell, TableRow, TableRowProps, Typography, useTheme } from '@mui/material'
+import { Button, TableCell, TableRow, TableRowProps, Tooltip, Typography, useTheme } from '@mui/material'
 import { ConstrainedImage, EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { ReactNode, useMemo } from 'react'
@@ -38,7 +38,18 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
       // eslint-disable-next-line sort-keys-fix/sort-keys-fix
       chain: <TableCell>{chainName}</TableCell>,
       // eslint-disable-next-line sort-keys-fix/sort-keys-fix
-      accounts: <TableCell>{totalAccounts}</TableCell>,
+      accounts: (
+        <TableCell>
+          <Tooltip
+            sx={{ cursor: totalAccounts > 0 ? 'pointer' : 'auto' }}
+            title={[...(currentAccount ?? []), ...(additionalAccounts ?? [])].map((address, index) => (
+              <p key={index}>{address}</p>
+            ))}
+          >
+            <Typography>{totalAccounts}</Typography>
+          </Tooltip>
+        </TableCell>
+      ),
       actions: (
         <TableCell>
           <FlexRow gap={2} justifyContent="start">
@@ -60,7 +71,7 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
       ),
     }
     return TableCells
-  }, [chainName, connected, icon, name, theme, totalAccounts])
+  }, [additionalAccounts, chainName, connected, currentAccount, icon, name, theme, totalAccounts])
 
   return <TableRow {...props}>{Object.values(Cells).map((cell) => cell)}</TableRow>
 }
