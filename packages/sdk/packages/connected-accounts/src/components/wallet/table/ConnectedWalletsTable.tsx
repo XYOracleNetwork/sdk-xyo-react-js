@@ -1,6 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow } from '@mui/material'
 import { DiscoveredWallets } from '@xylabs/react-crypto'
 
+import { WalletsTableHeadCells } from '../lib'
 import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow'
 
 export interface ConnectedWalletsTableProps extends TableProps {
@@ -12,10 +13,11 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wa
     <Table {...props}>
       <TableHead>
         <TableRow>
-          <TableCell>Wallet</TableCell>
-          <TableCell>Chain</TableCell>
-          <TableCell>Accounts</TableCell>
-          <TableCell>Actions</TableCell>
+          {WalletsTableHeadCells.map(({ disablePadding, id, label, align, width }) => (
+            <TableCell align={align} key={id} padding={disablePadding ? 'none' : 'normal'} width={width ?? 'auto'}>
+              {label}
+            </TableCell>
+          ))}
         </TableRow>
       </TableHead>
       <TableBody>
