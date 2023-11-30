@@ -6,7 +6,7 @@ import { FlexRow } from '@xylabs/react-flexbox'
 export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
   additionalAccounts?: string[]
   approvedAccounts?: string[]
-  chainId?: number
+  chainName?: string
   icon?: string
   name?: string
 }
@@ -14,7 +14,7 @@ export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
 export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowInnerProps> = ({
   additionalAccounts,
   approvedAccounts,
-  chainId,
+  chainName,
   icon,
   name,
   ...props
@@ -32,7 +32,7 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
           {name}
         </FlexRow>
       </TableCell>
-      <TableCell>{chainId ? <Chip label={chainId} /> : null}</TableCell>
+      <TableCell>{chainName ? <Chip label={chainName} /> : null}</TableCell>
       <TableCell>
         {additionalAccounts?.length ? (
           <Badge badgeContent={`+${additionalAccounts.length}`} color="primary">
@@ -50,13 +50,13 @@ export interface WalletConnectionsTableRow extends TableRowProps {
   wallet: EthWalletConnectorBase
 }
 export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRow> = ({ wallet, ...props }) => {
-  const { currentAccount, additionalAccounts, chainId, providerInfo, providerName } = useEthWallet(wallet)
+  const { currentAccount, additionalAccounts, chainName, providerInfo, providerName } = useEthWallet(wallet)
   const currentAccountString = currentAccount?.toString()
   return (
     <WalletConnectionsTableRowInner
       additionalAccounts={additionalAccounts}
       approvedAccounts={currentAccountString ? [currentAccountString] : []}
-      chainId={chainId}
+      chainName={chainName}
       icon={providerInfo?.icon}
       name={providerName}
       {...props}
