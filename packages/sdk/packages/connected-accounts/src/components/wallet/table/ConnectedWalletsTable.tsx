@@ -12,10 +12,10 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wa
     <Table {...props}>
       <TableHead>
         <TableRow>
-          <TableCell align="center">Status</TableCell>
           <TableCell>Wallet</TableCell>
-          <TableCell>Chain Id</TableCell>
-          <TableCell>Account</TableCell>
+          <TableCell>Chain</TableCell>
+          <TableCell>Accounts</TableCell>
+          <TableCell>Actions</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>

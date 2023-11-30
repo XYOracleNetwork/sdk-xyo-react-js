@@ -1,19 +1,19 @@
-import { RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material'
-import { Badge, Chip, TableCell, TableRow, TableRowProps, useTheme } from '@mui/material'
+import { Check } from '@mui/icons-material'
+import { Button, TableCell, TableRow, TableRowProps, Typography, useTheme } from '@mui/material'
 import { ConstrainedImage, EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 
 export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
   additionalAccounts?: string[]
-  approvedAccounts?: string[]
   chainName?: string
+  currentAccount?: string[]
   icon?: string
   name?: string
 }
 
 export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowInnerProps> = ({
   additionalAccounts,
-  approvedAccounts,
+  currentAccount,
   chainName,
   icon,
   name,
@@ -21,26 +21,35 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
 }) => {
   const theme = useTheme()
 
-  const accountToDisplay = approvedAccounts?.length ? approvedAccounts[0] : null
+  const totalAccounts = (additionalAccounts?.length ?? 0) + (currentAccount?.length ?? 0)
+  const connected = currentAccount?.length ?? 0 > 0
 
   return (
     <TableRow {...props}>
-      <TableCell align="center">{accountToDisplay ? <RadioButtonChecked color={'success'} /> : <RadioButtonUnchecked />}</TableCell>
       <TableCell>
         <FlexRow gap={2} justifyContent="start">
           <ConstrainedImage constrainedValue={theme.spacing(4)} src={icon} />
           {name}
         </FlexRow>
       </TableCell>
-      <TableCell>{chainName ? <Chip label={chainName} /> : null}</TableCell>
+      <TableCell>{chainName}</TableCell>
+      <TableCell>{totalAccounts}</TableCell>
       <TableCell>
-        {additionalAccounts?.length ? (
-          <Badge badgeContent={`+${additionalAccounts.length}`} color="primary">
-            <Chip label={accountToDisplay} />
-          </Badge>
-        ) : (
-          <Chip label={accountToDisplay ?? 'none'} />
-        )}
+        <FlexRow gap={2} justifyContent="start">
+          {connected ? (
+            <Typography sx={{ display: 'inline-flex', gap: 0.5 }}>
+              <Check />
+              Connected
+            </Typography>
+          ) : (
+            <Button variant={'contained'}>Connect</Button>
+          )}
+          {connected ? (
+            <Button variant={'outlined'} color={'error'}>
+              Revoke
+            </Button>
+          ) : null}
+        </FlexRow>
       </TableCell>
     </TableRow>
   )
@@ -55,7 +64,7 @@ export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRow> = ({
   return (
     <WalletConnectionsTableRowInner
       additionalAccounts={additionalAccounts}
-      approvedAccounts={currentAccountString ? [currentAccountString] : []}
+      currentAccount={currentAccountString ? [currentAccountString] : []}
       chainName={chainName}
       icon={providerInfo?.icon}
       name={providerName}
