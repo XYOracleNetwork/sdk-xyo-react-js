@@ -1,10 +1,11 @@
-import { Typography } from '@mui/material'
+import { Typography, useTheme } from '@mui/material'
 import { EIP6963Connector, useWalletDiscovery } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useMemo } from 'react'
 
 import { ConnectedWalletsTable } from './wallet'
 export const ConnectedAccountsFlexbox: React.FC<FlexBoxProps> = (props) => {
+  const theme = useTheme()
   const wallets = useWalletDiscovery()
   const sortedWallets = useMemo(
     () =>
@@ -28,7 +29,7 @@ export const ConnectedAccountsFlexbox: React.FC<FlexBoxProps> = (props) => {
           Detected Web3 Wallets
         </Typography>
         {totalConnectedAccounts ? (
-          <Typography variant={'subtitle1'} sx={{ opacity: 0.5 }}>
+          <Typography variant={'subtitle1'} color={theme.palette.secondary.main} sx={{ opacity: 0.5 }}>
             Total Connected Accounts: {totalConnectedAccounts}
           </Typography>
         ) : null}
