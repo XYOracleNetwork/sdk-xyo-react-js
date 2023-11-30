@@ -1,11 +1,19 @@
 import { Typography } from '@mui/material'
-import { useWalletDiscovery } from '@xylabs/react-crypto'
+import { EIP6963Connector, useWalletDiscovery } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useMemo } from 'react'
 
 import { ConnectedWalletsTable } from './wallet'
 export const ConnectedAccountsFlexbox: React.FC<FlexBoxProps> = (props) => {
   const wallets = useWalletDiscovery()
+  const sortedWallets = useMemo(
+    () =>
+      Object.values(wallets).reduce((acc, wallet) => {
+        wallet.allowedAccounts.length > 0 ? acc.unshift(wallet) : acc.push(wallet)
+        return acc
+      }, [] as EIP6963Connector[]),
+    [wallets],
+  )
 
   // TODO - make reactive
   const totalConnectedAccounts = useMemo(
@@ -25,7 +33,7 @@ export const ConnectedAccountsFlexbox: React.FC<FlexBoxProps> = (props) => {
           </Typography>
         ) : null}
       </FlexCol>
-      <ConnectedWalletsTable wallets={wallets} />
+      <ConnectedWalletsTable wallets={sortedWallets} />
     </FlexCol>
   )
 }
