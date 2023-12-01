@@ -2,8 +2,8 @@ import { Table, TableBody, TableCell, TableHead, TableProps, TableRow } from '@m
 import { EIP6963Connector } from '@xylabs/react-crypto'
 import { useState } from 'react'
 
-import { RevokeWalletDialog } from '../dialoges'
-import { WalletsTableHeadCells } from '../lib'
+import { RevokeWalletConnectionDialog } from '../dialogs'
+import { RevokedProvider, WalletsTableHeadCells } from '../lib'
 import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow'
 
 export interface ConnectedWalletsTableProps extends TableProps {
@@ -12,9 +12,16 @@ export interface ConnectedWalletsTableProps extends TableProps {
 
 export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wallets, ...props }) => {
   const [showRevoke, setShowRevoke] = useState(false)
-  const onRevoke = () => {
+  const [revokedProvider, setRevokedProvider] = useState<RevokedProvider>()
+  const onRevoke = (revokedProvider: RevokedProvider) => {
+    setRevokedProvider(revokedProvider)
     setShowRevoke(true)
   }
+  const onRevokeClose = () => {
+    setShowRevoke(false)
+    setRevokedProvider({})
+  }
+
   return (
     <>
       <Table {...props}>
@@ -33,7 +40,7 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wa
           ))}
         </TableBody>
       </Table>
-      <RevokeWalletDialog open={showRevoke} onClose={() => setShowRevoke(false)} />
+      <RevokeWalletConnectionDialog open={showRevoke} onClose={onRevokeClose} revokedProvider={revokedProvider} />
     </>
   )
 }

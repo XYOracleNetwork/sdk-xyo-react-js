@@ -1,8 +1,9 @@
 import { TableCell, TableRow, TableRowProps, useTheme } from '@mui/material'
 import { ConstrainedImage, EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
-import { ReactNode, useMemo } from 'react'
+import { ReactNode, useCallback, useMemo } from 'react'
 
+import { RevokedProvider } from '../lib'
 import { ConnectedWalletsAccountsTableCell, ConnectedWalletsActionsTableCell } from './cells'
 
 export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
@@ -11,7 +12,7 @@ export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
   currentAccount?: string[]
   icon?: string
   name?: string
-  onRevoke?: () => void
+  onRevoke?: (revokedProvider: RevokedProvider) => void
 }
 
 export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowInnerProps> = ({
@@ -27,6 +28,10 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
 
   const totalAccounts = (additionalAccounts?.length ?? 0) + (currentAccount?.length ?? 0)
   const connected = !!(currentAccount?.length ?? 0 > 0)
+
+  const onRevokeLocal = useCallback(() => {
+    onRevoke?.({ icon, providerName: name })
+  }, [icon, name, onRevoke])
 
   const Cells = useMemo(() => {
     const TableCells: Record<string, ReactNode> = {
@@ -49,16 +54,16 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
           totalAccounts={totalAccounts}
         />
       ),
-      actions: <ConnectedWalletsActionsTableCell key={4} connected={connected} onRevoke={onRevoke} />,
+      actions: <ConnectedWalletsActionsTableCell key={4} connected={connected} onRevoke={onRevokeLocal} />,
     }
     return TableCells
-  }, [additionalAccounts, chainName, connected, currentAccount, icon, name, onRevoke, theme, totalAccounts])
+  }, [additionalAccounts, chainName, connected, currentAccount, icon, name, onRevokeLocal, theme, totalAccounts])
 
   return <TableRow {...props}>{Object.values(Cells).map((cell) => cell)}</TableRow>
 }
 
 export interface WalletConnectionsTableRow extends TableRowProps {
-  onRevoke: () => void
+  onRevoke: WalletConnectionsTableRowInnerProps['onRevoke']
   wallet: EthWalletConnectorBase
 }
 export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRow> = ({ wallet, ...props }) => {
