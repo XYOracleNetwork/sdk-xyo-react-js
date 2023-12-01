@@ -12,21 +12,9 @@ export const useDetectedWallets = () => {
   const [refresh, setRefresh] = useState(0)
   const [sortedWallets, setSortedWallets] = useState<EIP6963Connector[]>([])
 
-  /**
-   * On initial load, wallets may not have resolved their current accounts since they retrieve them asynchronously.
-   * This delay is to allow them to do the initial resolution and ensure an accurate sort
-   */
   useEffect(() => {
-    setTimeout(() => {
-      setSortedWallets(sortWallets(wallets))
-    }, 100)
-  }, [wallets])
-
-  useEffect(() => {
-    if (refresh) {
-      setSortedWallets(sortWallets(wallets))
-    }
-  }, [refresh, wallets])
+    setSortedWallets(sortWallets(wallets))
+  }, [wallets, refresh])
 
   /**
    * Rely on custom events from the wallet base class to know when accounts are changed.
