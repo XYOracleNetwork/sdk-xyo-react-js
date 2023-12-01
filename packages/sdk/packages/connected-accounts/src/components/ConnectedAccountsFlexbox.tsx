@@ -17,11 +17,7 @@ const useDetectedWallets = () => {
 
     return () => {
       Object.values(wallets).forEach((wallet) => {
-        try {
-          wallet.removeEIP11193Listener('accountsChanged', listener)
-        } catch (e) {
-          console.error(e)
-        }
+        wallet.removeEIP11193Listener('accountsChanged', listener)
       })
     }
   }, [wallets])

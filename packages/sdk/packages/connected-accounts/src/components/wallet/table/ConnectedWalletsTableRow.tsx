@@ -28,7 +28,7 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
   const Cells = useMemo(() => {
     const TableCells: Record<string, ReactNode> = {
       wallet: (
-        <TableCell>
+        <TableCell key={1}>
           <FlexRow gap={2} justifyContent="start">
             <ConstrainedImage constrainedValue={theme.spacing(4)} src={icon} />
             {name}
@@ -36,10 +36,10 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
         </TableCell>
       ),
       // eslint-disable-next-line sort-keys-fix/sort-keys-fix
-      chain: <TableCell>{chainName}</TableCell>,
+      chain: <TableCell key={2}>{chainName}</TableCell>,
       // eslint-disable-next-line sort-keys-fix/sort-keys-fix
       accounts: (
-        <TableCell>
+        <TableCell key={3}>
           <Tooltip
             sx={{ cursor: totalAccounts > 0 ? 'pointer' : 'auto' }}
             title={[...(currentAccount ?? []), ...(additionalAccounts ?? [])].map((address, index) => (
@@ -51,7 +51,7 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
         </TableCell>
       ),
       actions: (
-        <TableCell>
+        <TableCell key={4}>
           <FlexRow gap={2} justifyContent="start">
             {connected ? (
               <Typography sx={{ display: 'inline-flex', gap: 0.5 }}>
