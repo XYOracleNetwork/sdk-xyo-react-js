@@ -11,6 +11,7 @@ export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
   currentAccount?: string[]
   icon?: string
   name?: string
+  onRevoke?: () => void
 }
 
 export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowInnerProps> = ({
@@ -19,6 +20,7 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
   chainName,
   icon,
   name,
+  onRevoke,
   ...props
 }) => {
   const theme = useTheme()
@@ -47,15 +49,16 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
           totalAccounts={totalAccounts}
         />
       ),
-      actions: <ConnectedWalletsActionsTableCell key={4} connected={connected} />,
+      actions: <ConnectedWalletsActionsTableCell key={4} connected={connected} onRevoke={onRevoke} />,
     }
     return TableCells
-  }, [additionalAccounts, chainName, connected, currentAccount, icon, name, theme, totalAccounts])
+  }, [additionalAccounts, chainName, connected, currentAccount, icon, name, onRevoke, theme, totalAccounts])
 
   return <TableRow {...props}>{Object.values(Cells).map((cell) => cell)}</TableRow>
 }
 
 export interface WalletConnectionsTableRow extends TableRowProps {
+  onRevoke: () => void
   wallet: EthWalletConnectorBase
 }
 export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRow> = ({ wallet, ...props }) => {

@@ -6,7 +6,7 @@ export const RevokeWalletDialog: React.FC<DialogProps> = (props) => {
       <DialogTitle>Revoking Access to your Web3 Wallet</DialogTitle>
       <DialogContent></DialogContent>
       <DialogActions>
-        <Button variant="contained">Close</Button>
+        <Button variant="contained" onClick={() => props.onClose?.({}, 'escapeKeyDown')}>Close</Button>
       </DialogActions>
     </Dialog>
   )
