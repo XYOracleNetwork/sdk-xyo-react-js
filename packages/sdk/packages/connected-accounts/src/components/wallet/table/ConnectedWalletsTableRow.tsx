@@ -1,8 +1,9 @@
-import { Check } from '@mui/icons-material'
-import { Button, TableCell, TableRow, TableRowProps, Tooltip, Typography, useTheme } from '@mui/material'
+import { TableCell, TableRow, TableRowProps, useTheme } from '@mui/material'
 import { ConstrainedImage, EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { ReactNode, useMemo } from 'react'
+
+import { ConnectedWalletsAccountsTableCell, ConnectedWalletsActionsTableCell } from './cells'
 
 export interface WalletConnectionsTableRowInnerProps extends TableRowProps {
   additionalAccounts?: string[]
@@ -23,7 +24,7 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
   const theme = useTheme()
 
   const totalAccounts = (additionalAccounts?.length ?? 0) + (currentAccount?.length ?? 0)
-  const connected = currentAccount?.length ?? 0 > 0
+  const connected = !!(currentAccount?.length ?? 0 > 0)
 
   const Cells = useMemo(() => {
     const TableCells: Record<string, ReactNode> = {
@@ -39,36 +40,14 @@ export const WalletConnectionsTableRowInner: React.FC<WalletConnectionsTableRowI
       chain: <TableCell key={2}>{chainName}</TableCell>,
       // eslint-disable-next-line sort-keys-fix/sort-keys-fix
       accounts: (
-        <TableCell key={3}>
-          <Tooltip
-            sx={{ cursor: totalAccounts > 0 ? 'pointer' : 'auto' }}
-            title={[...(currentAccount ?? []), ...(additionalAccounts ?? [])].map((address, index) => (
-              <p key={index}>{address}</p>
-            ))}
-          >
-            <Typography>{totalAccounts}</Typography>
-          </Tooltip>
-        </TableCell>
+        <ConnectedWalletsAccountsTableCell
+          key={3}
+          additionalAccounts={additionalAccounts}
+          currentAccount={currentAccount}
+          totalAccounts={totalAccounts}
+        />
       ),
-      actions: (
-        <TableCell key={4}>
-          <FlexRow gap={2} justifyContent="start">
-            {connected ? (
-              <Typography sx={{ display: 'inline-flex', gap: 0.5 }}>
-                <Check />
-                Connected
-              </Typography>
-            ) : (
-              <Button variant={'contained'}>Connect</Button>
-            )}
-            {connected ? (
-              <Button variant={'outlined'} color={'error'}>
-                Revoke
-              </Button>
-            ) : null}
-          </FlexRow>
-        </TableCell>
-      ),
+      actions: <ConnectedWalletsActionsTableCell key={4} connected={connected} />,
     }
     return TableCells
   }, [additionalAccounts, chainName, connected, currentAccount, icon, name, theme, totalAccounts])
