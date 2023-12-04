@@ -11,11 +11,11 @@ export interface RevokeWalletConnectionDialogProps extends DialogProps {
 export const RevokeWalletConnectionDialog: React.FC<RevokeWalletConnectionDialogProps> = ({ revokedProvider, ...props }) => {
   return (
     <Dialog {...props}>
-      <DialogTitle>Revoke {revokedProvider?.providerName} Access</DialogTitle>
+      <FlexRow gap={2} justifyContent="start" pl={2}>
+        <ConstrainedImage src={revokedProvider?.icon} constrainedValue={'24px'} />
+        <DialogTitle sx={{ pl: 0 }}>Revoke {revokedProvider?.providerName} Access</DialogTitle>
+      </FlexRow>
       <DialogContent>
-        <FlexRow width="100%" mb={4}>
-          <ConstrainedImage src={revokedProvider?.icon} constrainedValue={'42px'} />
-        </FlexRow>
         <Typography>
           Revoking access to your wallet must be done from the wallet&apos;s browser extension. Wallets grant access to specific domains please
           consult {revokedProvider?.providerName}&apos;s documentation on how to revoke access to this website:
