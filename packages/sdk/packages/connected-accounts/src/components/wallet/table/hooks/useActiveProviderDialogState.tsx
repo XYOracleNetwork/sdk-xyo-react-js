@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 
 import { ActiveProvider } from '../../lib'
 
-export const useShowActiveProvider = (
+export const useActiveProviderDialogState = (
   setActiveProvider: Dispatch<SetStateAction<ActiveProvider | undefined>>,
 ): [boolean, (activeProvider: ActiveProvider) => void, () => void] => {
   const [show, setShow] = useState(false)

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs'
 import { ActiveProvider, WalletsTableHeadCells } from '../lib'
 import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow'
-import { useShowActiveProvider } from './hooks'
+import { useActiveProviderDialogState } from './hooks'
 
 export interface ConnectedWalletsTableProps extends TableProps {
   wallets?: EIP6963Connector[]
@@ -13,8 +13,8 @@ export interface ConnectedWalletsTableProps extends TableProps {
 
 export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wallets, ...props }) => {
   const [activeProvider, setActiveProvider] = useState<ActiveProvider>()
-  const [showConnect, onSetActiveProviderConnect, onConnectClose] = useShowActiveProvider(setActiveProvider)
-  const [showRevoke, onSetActiveProviderRevoke, onRevokeClose] = useShowActiveProvider(setActiveProvider)
+  const [showConnect, onSetActiveProviderConnect, onConnectClose] = useActiveProviderDialogState(setActiveProvider)
+  const [showRevoke, onSetActiveProviderRevoke, onRevokeClose] = useActiveProviderDialogState(setActiveProvider)
 
   return (
     <>

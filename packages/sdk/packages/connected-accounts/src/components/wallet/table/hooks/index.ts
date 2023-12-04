@@ -1,1 +1,1 @@
-export * from './useActiveProvider'
+export * from './useActiveProviderDialogState'

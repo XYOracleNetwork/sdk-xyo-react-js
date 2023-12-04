@@ -1,19 +1,15 @@
-import { TableCell, TableCellProps, Tooltip, Typography } from '@mui/material'
+import { TableCell, Tooltip, Typography } from '@mui/material'
 
-export interface ConnectedWalletsAccountsTableCellProps extends TableCellProps {
-  additionalAccounts?: string[]
-  currentAccount?: string[]
-  totalAccounts: number
-}
+import { ConnectedWalletTableCellProps } from './lib'
 
-export const ConnectedWalletsAccountsTableCell: React.FC<ConnectedWalletsAccountsTableCellProps> = ({
+export const ConnectedWalletsAccountsTableCell: React.FC<ConnectedWalletTableCellProps> = ({
   additionalAccounts,
   currentAccount,
   totalAccounts,
-  ...props
+  tableCellProps,
 }) => {
   return (
-    <TableCell {...props}>
+    <TableCell {...tableCellProps}>
       <Tooltip
         sx={{ cursor: totalAccounts > 0 ? 'pointer' : 'auto' }}
         title={[...(currentAccount ?? []), ...(additionalAccounts ?? [])].map((address, index) => (

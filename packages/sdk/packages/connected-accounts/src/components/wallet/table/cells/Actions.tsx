@@ -1,16 +1,12 @@
 import { Check } from '@mui/icons-material'
-import { Button, TableCell, TableCellProps, Typography } from '@mui/material'
+import { Button, TableCell, Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 
-export interface ConnectedWalletsActionsTableCellProps extends TableCellProps {
-  connected?: boolean
-  onConnect?: () => void
-  onRevoke?: () => void
-}
+import { ConnectedWalletTableCellProps } from './lib'
 
-export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletsActionsTableCellProps> = ({ connected, onConnect, onRevoke, ...props }) => {
+export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletTableCellProps> = ({ connected, onConnect, onRevoke, tableCellProps }) => {
   return (
-    <TableCell {...props}>
+    <TableCell {...tableCellProps}>
       <FlexRow gap={2} justifyContent="start">
         {connected ? (
           <Typography sx={{ display: 'inline-flex', gap: 0.5 }}>
