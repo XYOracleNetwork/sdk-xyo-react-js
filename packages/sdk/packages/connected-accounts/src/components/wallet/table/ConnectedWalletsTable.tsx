@@ -2,25 +2,19 @@ import { Table, TableBody, TableCell, TableHead, TableProps, TableRow } from '@m
 import { EIP6963Connector } from '@xylabs/react-crypto'
 import { useState } from 'react'
 
-import { RevokeWalletConnectionDialog } from '../dialogs'
-import { RevokedProvider, WalletsTableHeadCells } from '../lib'
+import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs'
+import { ActiveProvider, WalletsTableHeadCells } from '../lib'
 import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow'
+import { useShowActiveProvider } from './hooks'
 
 export interface ConnectedWalletsTableProps extends TableProps {
   wallets?: EIP6963Connector[]
 }
 
 export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wallets, ...props }) => {
-  const [showRevoke, setShowRevoke] = useState(false)
-  const [revokedProvider, setRevokedProvider] = useState<RevokedProvider>()
-  const onRevoke = (revokedProvider: RevokedProvider) => {
-    setRevokedProvider(revokedProvider)
-    setShowRevoke(true)
-  }
-  const onRevokeClose = () => {
-    setShowRevoke(false)
-    setRevokedProvider({})
-  }
+  const [activeProvider, setActiveProvider] = useState<ActiveProvider>()
+  const [showConnect, onSetActiveProviderConnect, onConnectClose] = useShowActiveProvider(setActiveProvider)
+  const [showRevoke, onSetActiveProviderRevoke, onRevokeClose] = useShowActiveProvider(setActiveProvider)
 
   return (
     <>
@@ -36,11 +30,17 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wa
         </TableHead>
         <TableBody>
           {(wallets ?? []).map((wallet) => (
-            <WalletConnectionsTableRow wallet={wallet} key={wallet.providerInfo?.rdns} onRevoke={onRevoke} />
+            <WalletConnectionsTableRow
+              wallet={wallet}
+              key={wallet.providerInfo?.rdns}
+              onConnectClick={onSetActiveProviderConnect}
+              onRevoke={onSetActiveProviderRevoke}
+            />
           ))}
         </TableBody>
       </Table>
-      <RevokeWalletConnectionDialog open={showRevoke} onClose={onRevokeClose} revokedProvider={revokedProvider} />
+      <RevokeWalletConnectionDialog open={showRevoke} onClose={onRevokeClose} activeProvider={activeProvider} />
+      <ConnectWalletDialog activeProvider={activeProvider} onClose={onConnectClose} open={showConnect} />
     </>
   )
 }

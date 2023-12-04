@@ -1,2 +1,2 @@
-export * from './RevokedProvider'
+export * from './ActiveProvider'
 export * from './TableHeadData'

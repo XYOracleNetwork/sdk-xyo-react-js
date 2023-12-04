@@ -4,10 +4,11 @@ import { FlexRow } from '@xylabs/react-flexbox'
 
 export interface ConnectedWalletsActionsTableCellProps extends TableCellProps {
   connected?: boolean
+  onConnect?: () => void
   onRevoke?: () => void
 }
 
-export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletsActionsTableCellProps> = ({ connected, onRevoke, ...props }) => {
+export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletsActionsTableCellProps> = ({ connected, onConnect, onRevoke, ...props }) => {
   return (
     <TableCell {...props}>
       <FlexRow gap={2} justifyContent="start">
@@ -17,7 +18,9 @@ export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletsActionsT
             Connected
           </Typography>
         ) : (
-          <Button variant={'contained'}>Connect</Button>
+          <Button variant={'contained'} onClick={onConnect}>
+            Connect
+          </Button>
         )}
         {connected ? (
           <Button variant={'outlined'} color={'error'} onClick={onRevoke}>
