@@ -13,4 +13,5 @@ export interface ConnectedWalletTableCellProps {
   tableCellProps?: TableCellProps
   totalAccounts: number
   walletName?: string
+  walletRdns?: string
 }

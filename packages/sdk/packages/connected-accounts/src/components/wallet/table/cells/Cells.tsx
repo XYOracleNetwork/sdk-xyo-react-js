@@ -4,6 +4,7 @@ import { ConnectedWalletsAccountsTableCell } from './Accounts'
 import { ConnectedWalletsActionsTableCell } from './Actions'
 import { ConnectedWalletsChainNameTableCell } from './ChainName'
 import { ConnectedWalletTableCellProps } from './lib'
+import { ConnectedWalletState } from './State'
 import { ConnectedWalletsWalletTableCell } from './Wallet'
 
 export const ConnectedWalletTableCells: ComponentType<ConnectedWalletTableCellProps>[] = [
@@ -11,4 +12,5 @@ export const ConnectedWalletTableCells: ComponentType<ConnectedWalletTableCellPr
   ConnectedWalletsChainNameTableCell,
   ConnectedWalletsAccountsTableCell,
   ConnectedWalletsActionsTableCell,
+  ConnectedWalletState,
 ]

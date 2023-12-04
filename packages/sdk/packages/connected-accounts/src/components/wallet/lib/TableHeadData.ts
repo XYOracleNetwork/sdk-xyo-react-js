@@ -29,4 +29,11 @@ export const WalletsTableHeadCells: TableHeadCell[] = [
     numeric: false,
     showOnMobile: true,
   },
+  {
+    disablePadding: false,
+    id: 'enabled',
+    label: 'Enabled',
+    numeric: false,
+    showOnMobile: true,
+  },
 ]
