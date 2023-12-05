@@ -1,6 +1,6 @@
 import { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
 
-export interface EthWallets {
+export interface EnabledWallets {
   [rdns: string]: {
     enabled: boolean
     wallet: EIP6963Connector
@@ -16,14 +16,18 @@ export type WalletListener = () => void
 const DEFAULT_LOCAL_STORAGE_KEY = 'XYO|EnabledWalletsRdns'
 
 export class EnabledEthWalletConnections {
-  private enabledWallets: EthWallets = {}
   private enabledWalletsRdns: EnabledWalletRdns = {}
+  private ethWallets: EnabledWallets = {}
   private listeners: WalletListener[] = []
   private localStorageKey = DEFAULT_LOCAL_STORAGE_KEY
 
   constructor(localStorageKey = DEFAULT_LOCAL_STORAGE_KEY) {
     this.localStorageKey = localStorageKey
     this.reviveSettings()
+  }
+
+  get wallets() {
+    return this.ethWallets
   }
 
   disableWallet(rdns: string) {
@@ -38,7 +42,7 @@ export class EnabledEthWalletConnections {
    * Given a new set of wallets, set their enabled state based off previous preferences
    */
   resetWallets(wallets: DiscoveredWallets) {
-    const newWallets: EthWallets = {}
+    const newWallets: EnabledWallets = {}
 
     const addWallet = ([walletName, wallet]: [string, EIP6963Connector]) => {
       newWallets[walletName] = {
@@ -49,7 +53,7 @@ export class EnabledEthWalletConnections {
     }
 
     Object.entries(wallets).forEach(addWallet.bind(this))
-    this.enabledWallets = newWallets
+    this.ethWallets = newWallets
     this.emitChange()
   }
 
@@ -61,15 +65,11 @@ export class EnabledEthWalletConnections {
   }
 
   toggleEnabledWallet(rdns: string, enabled: boolean) {
-    if (rdns && this.enabledWallets[rdns]) {
-      this.enabledWallets[rdns].enabled = enabled
-      this.enabledWallets = { ...this.enabledWallets }
+    if (rdns && this.ethWallets[rdns]) {
+      this.ethWallets[rdns].enabled = enabled
+      this.ethWallets = { ...this.ethWallets }
       this.emitChange()
     }
-  }
-
-  wallets() {
-    return this.enabledWallets
   }
 
   private emitChange() {
@@ -82,7 +82,7 @@ export class EnabledEthWalletConnections {
 
   private persistSettings() {
     // convert wallet enabled selections into serializable state
-    const enabledWalletsRdns = Object.entries(this.enabledWallets).reduce((acc, [rdns, { enabled }]) => {
+    const enabledWalletsRdns = Object.entries(this.ethWallets).reduce((acc, [rdns, { enabled }]) => {
       acc[rdns] = enabled
       return acc
     }, {} as EnabledWalletRdns)
