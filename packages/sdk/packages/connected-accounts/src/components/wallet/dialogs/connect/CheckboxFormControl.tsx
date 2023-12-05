@@ -1,10 +1,10 @@
 import { Checkbox, FormControl, FormControlProps, FormLabel } from '@mui/material'
 
-export interface IgnoreDialogFormControlProps extends FormControlProps {
+export interface CheckboxFormControlProps extends FormControlProps {
   onCheckChanged?: (checked: boolean) => void
 }
 
-export const IgnoreDialogFormControl: React.FC<IgnoreDialogFormControlProps> = ({ onCheckChanged, ...props }) => {
+export const CheckboxFormControl: React.FC<CheckboxFormControlProps> = ({ onCheckChanged, ...props }) => {
   return (
     <FormControl {...props}>
       <FormLabel>

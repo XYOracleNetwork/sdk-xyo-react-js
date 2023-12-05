@@ -1,7 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
 
 import { ActiveProvider } from '../../lib'
-import { IgnoreDialogFormControl } from './Ignore'
+import { CheckboxFormControl } from './CheckboxFormControl'
 import { LinkedProvidersFlexbox } from './LinkedProvidersFlexbox'
 import { WalletPermissionsFlexbox } from './Permissions'
 
@@ -28,7 +28,7 @@ export const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = ({ active
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         <LinkedProvidersFlexbox icon={icon} providerName={providerName} />
         <WalletPermissionsFlexbox />
-        <IgnoreDialogFormControl onCheckChanged={onIgnoreConnectDialog} />
+        <CheckboxFormControl onCheckChanged={onIgnoreConnectDialog} />
       </DialogContent>
       <DialogActions>
         <Button variant="outlined" onClick={() => props.onClose?.({}, 'escapeKeyDown')}>
