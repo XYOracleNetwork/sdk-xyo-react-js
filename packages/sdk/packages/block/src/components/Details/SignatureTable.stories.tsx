@@ -1,6 +1,6 @@
 /* eslint-disable import/no-deprecated */
 import { Meta, StoryFn } from '@storybook/react'
-import { DeprecateStory, sampleBlock, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { DeprecateStory, sampleBlock, sampleBlockWithPayloads } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { BlockSignatureTable } from './SignatureTable'
@@ -25,15 +25,12 @@ const Template: StoryFn<typeof BlockSignatureTable> = (args) => (
 
 const Default = Template.bind({})
 Default.args = {}
-Default.decorators = [useAppThemeDecorator]
 
 const WithData = Template.bind({})
 WithData.args = { block: sampleBlock }
-WithData.decorators = [useAppThemeDecorator]
 
 const WithDataAndPayloads = Template.bind({})
 WithDataAndPayloads.args = { block: sampleBlockWithPayloads }
-WithDataAndPayloads.decorators = [useAppThemeDecorator]
 
 export { Default, WithData, WithDataAndPayloads }
 

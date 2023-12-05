@@ -2,7 +2,6 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistModule } from '@xyo-network/archivist'
 import { NodeProvider } from '@xyo-network/react-node'
-import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
 import { useArchivistFromNode } from '../../hooks'
@@ -59,15 +58,12 @@ const TemplateWithData: StoryFn<typeof ArchivistDetails> = (args) => (
 
 const WithNoArchivist = TemplateInner.bind({})
 WithNoArchivist.args = {}
-WithNoArchivist.decorators = [useAppThemeDecorator]
 
 const WithNoData = TemplateWithNoData.bind({})
 TemplateWithNoData.args = {}
-TemplateWithNoData.decorators = [useAppThemeDecorator]
 
 const WithData = TemplateWithData.bind({})
 TemplateWithData.args = {}
-TemplateWithData.decorators = [useAppThemeDecorator]
 
 export { WithData, WithNoArchivist, WithNoData }
 

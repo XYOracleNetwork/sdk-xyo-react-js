@@ -1,16 +1,22 @@
-import { Meta, StoryFn } from '@storybook/react'
-import { WithMapboxSetup } from '@xyo-network/react-storybook'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
+import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 
 import { PointMapWithSettingsRenderer } from './PointMapRenderer'
 import { locationPayload } from './storyPayload'
 
+const WithMapboxSetup: Decorator = (Story, context) => {
+  return (
+    <MapboxAccessTokenProvider defaultAccessToken={process.env.STORYBOOK_MAPBOX_TOKEN}>
+      <Story {...context} />
+    </MapboxAccessTokenProvider>
+  )
+}
+
 // eslint-disable-next-line import/no-default-export
 export default {
-  argTypes: {
-    minHeight: {
-      // calc used to account for the offset provided by storybook wrapper
-      defaultValue: 'calc(100vh - 2rem)',
-    },
+  args: {
+    // calc used to account for the offset provided by storybook wrapper
+    minHeight: 'calc(100vh - 2rem)',
   },
   component: PointMapWithSettingsRenderer,
   decorators: [WithMapboxSetup],

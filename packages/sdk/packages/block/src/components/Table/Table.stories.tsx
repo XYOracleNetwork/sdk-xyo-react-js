@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { sampleBlock, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { sampleBlock } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -11,7 +11,6 @@ import { BlockTable } from './Table'
 const StorybookEntry = {
   argTypes: {},
   component: BlockTable,
-  decorators: [useAppThemeDecorator],
   parameters: {
     docs: {
       page: null,
