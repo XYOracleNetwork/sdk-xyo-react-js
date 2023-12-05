@@ -6,12 +6,19 @@ import { ActiveProvider } from '../lib'
 import { ConnectedWalletTableCells } from './cells'
 
 export interface WalletConnectionsTableRowProps extends TableRowProps {
+  ignoreConnectDialog?: boolean
   onConnectClick?: (activeProvider: ActiveProvider) => void
   onRevoke?: (activeProvider: ActiveProvider) => void
   wallet: EthWalletConnectorBase
 }
 
-export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRowProps> = ({ onConnectClick, onRevoke, wallet, ...props }) => {
+export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRowProps> = ({
+  ignoreConnectDialog,
+  onConnectClick,
+  onRevoke,
+  wallet,
+  ...props
+}) => {
   const { currentAccount: currentAccountFromWallet, additionalAccounts, chainName, connectWallet, providerInfo } = useEthWallet(wallet)
 
   const currentAccount = currentAccountFromWallet?.toString() ? [currentAccountFromWallet.toString()] : []
@@ -32,9 +39,13 @@ export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRowProps>
     onRevoke?.(activeProvider)
   }, [activeProvider, onRevoke])
 
-  const onConnectLocal = useCallback(() => {
-    onConnectClick?.(activeProvider)
-  }, [activeProvider, onConnectClick])
+  const onConnectLocal = useCallback(async () => {
+    if (ignoreConnectDialog) {
+      await connectWallet?.()
+    } else {
+      onConnectClick?.(activeProvider)
+    }
+  }, [activeProvider, connectWallet, ignoreConnectDialog, onConnectClick])
 
   return (
     <TableRow {...props}>

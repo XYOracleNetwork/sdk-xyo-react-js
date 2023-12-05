@@ -4,7 +4,11 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useDetectedWallets } from '../hooks'
 import { ConnectedWalletsTable } from './wallet'
 
-export const ConnectedAccountsFlexbox: React.FC<FlexBoxProps> = (props) => {
+export interface ConnectedAccountsFlexboxProps extends FlexBoxProps {
+  ignoreConnectDialog?: boolean
+}
+
+export const ConnectedAccountsFlexbox: React.FC<ConnectedAccountsFlexboxProps> = ({ ignoreConnectDialog, ...props }) => {
   const theme = useTheme()
 
   const { totalConnectedAccounts, sortedWallets } = useDetectedWallets()
@@ -21,7 +25,7 @@ export const ConnectedAccountsFlexbox: React.FC<FlexBoxProps> = (props) => {
           </Typography>
         ) : null}
       </FlexCol>
-      <ConnectedWalletsTable wallets={sortedWallets} />
+      <ConnectedWalletsTable wallets={sortedWallets} ignoreConnectDialog={ignoreConnectDialog} />
     </FlexCol>
   )
 }

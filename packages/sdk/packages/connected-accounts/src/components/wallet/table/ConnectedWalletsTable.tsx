@@ -8,10 +8,11 @@ import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow'
 import { useActiveProviderDialogState } from './hooks'
 
 export interface ConnectedWalletsTableProps extends TableProps {
+  ignoreConnectDialog?: boolean
   wallets?: EIP6963Connector[]
 }
 
-export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wallets, ...props }) => {
+export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ ignoreConnectDialog, wallets, ...props }) => {
   const [activeProvider, setActiveProvider] = useState<ActiveProvider>()
   const [showConnect, onSetActiveProviderConnect, onConnectClose] = useActiveProviderDialogState(setActiveProvider)
   const [showRevoke, onSetActiveProviderRevoke, onRevokeClose] = useActiveProviderDialogState(setActiveProvider)
@@ -31,10 +32,11 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wa
         <TableBody>
           {(wallets ?? []).map((wallet) => (
             <WalletConnectionsTableRow
-              wallet={wallet}
+              ignoreConnectDialog={ignoreConnectDialog}
               key={wallet.providerInfo?.rdns}
               onConnectClick={onSetActiveProviderConnect}
               onRevoke={onSetActiveProviderRevoke}
+              wallet={wallet}
             />
           ))}
         </TableBody>
