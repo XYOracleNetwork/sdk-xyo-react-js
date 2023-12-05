@@ -1,5 +1,6 @@
 /* eslint-disable import/no-internal-modules */
 import { Meta, StoryFn } from '@storybook/react'
+import { useState } from 'react'
 
 import { ConnectedAccountsFlexbox } from './ConnectedAccountsFlexbox'
 
@@ -7,6 +8,7 @@ const StorybookEntry: Meta = {
   argTypes: {},
   component: ConnectedAccountsFlexbox,
   parameters: {
+    actions: { argTypesRegex: '!(^on.*)' },
     docs: {
       page: null,
     },
@@ -18,9 +20,17 @@ const Template: StoryFn<typeof ConnectedAccountsFlexbox> = (props) => {
   return <ConnectedAccountsFlexbox {...props} />
 }
 
-const Default = Template.bind({})
+const TemplateWithIgnoreDialog: StoryFn<typeof ConnectedAccountsFlexbox> = (props) => {
+  const [ignoreDialog, setIgnoreDialog] = useState(false)
+  const listener = (checked: boolean) => setIgnoreDialog(checked)
 
-export { Default }
+  return <ConnectedAccountsFlexbox ignoreConnectDialog={ignoreDialog} onIgnoreConnectDialog={listener} {...props} />
+}
+
+const Default = Template.bind({})
+const WithIgnoreDialog = TemplateWithIgnoreDialog.bind({})
+
+export { Default, WithIgnoreDialog }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

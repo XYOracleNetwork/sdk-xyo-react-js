@@ -1,30 +1,54 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow } from '@mui/material'
 import { EIP6963Connector } from '@xylabs/react-crypto'
+import { useState } from 'react'
 
-import { WalletsTableHeadCells } from '../lib'
+import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs'
+import { ActiveProvider, WalletsTableHeadCells } from '../lib'
 import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow'
+import { useActiveProviderDialogState } from './hooks'
 
 export interface ConnectedWalletsTableProps extends TableProps {
+  ignoreConnectDialog?: boolean
+  onIgnoreConnectDialog?: (checked: boolean) => void
   wallets?: EIP6963Connector[]
 }
 
-export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ wallets, ...props }) => {
+export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ ignoreConnectDialog, onIgnoreConnectDialog, wallets, ...props }) => {
+  const [activeProvider, setActiveProvider] = useState<ActiveProvider>()
+  const [showConnect, onSetActiveProviderConnect, onConnectClose] = useActiveProviderDialogState(setActiveProvider)
+  const [showRevoke, onSetActiveProviderRevoke, onRevokeClose] = useActiveProviderDialogState(setActiveProvider)
+
   return (
-    <Table {...props}>
-      <TableHead>
-        <TableRow>
-          {WalletsTableHeadCells.map(({ disablePadding, id, label, align, width }) => (
-            <TableCell align={align} key={id} padding={disablePadding ? 'none' : 'normal'} width={width ?? 'auto'}>
-              {label}
-            </TableCell>
+    <>
+      <Table {...props}>
+        <TableHead>
+          <TableRow>
+            {WalletsTableHeadCells.map(({ disablePadding, id, label, align, width }) => (
+              <TableCell align={align} key={id} padding={disablePadding ? 'none' : 'normal'} width={width ?? 'auto'}>
+                {label}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {(wallets ?? []).map((wallet) => (
+            <WalletConnectionsTableRow
+              ignoreConnectDialog={ignoreConnectDialog}
+              key={wallet.providerInfo?.rdns}
+              onConnectClick={onSetActiveProviderConnect}
+              onRevoke={onSetActiveProviderRevoke}
+              wallet={wallet}
+            />
           ))}
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {(wallets ?? []).map((wallet) => (
-          <WalletConnectionsTableRow wallet={wallet} key={wallet.providerInfo?.rdns} />
-        ))}
-      </TableBody>
-    </Table>
+        </TableBody>
+      </Table>
+      <RevokeWalletConnectionDialog open={showRevoke} onClose={onRevokeClose} activeProvider={activeProvider} />
+      <ConnectWalletDialog
+        activeProvider={activeProvider}
+        onClose={onConnectClose}
+        open={showConnect}
+        onIgnoreConnectDialog={onIgnoreConnectDialog}
+      />
+    </>
   )
 }
