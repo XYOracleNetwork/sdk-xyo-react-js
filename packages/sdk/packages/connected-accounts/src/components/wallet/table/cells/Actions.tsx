@@ -1,5 +1,5 @@
-import { Check } from '@mui/icons-material'
-import { Button, TableCell, Typography } from '@mui/material'
+import { Check, InfoOutlined } from '@mui/icons-material'
+import { Button, IconButton, TableCell, Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 
 import { ConnectedWalletTableCellProps } from './lib'
@@ -19,9 +19,9 @@ export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletTableCell
           </Button>
         )}
         {connected ? (
-          <Button variant={'outlined'} color={'error'} onClick={onRevoke}>
-            Revoke
-          </Button>
+          <IconButton onClick={onRevoke}>
+            <InfoOutlined />
+          </IconButton>
         ) : null}
       </FlexRow>
     </TableCell>
