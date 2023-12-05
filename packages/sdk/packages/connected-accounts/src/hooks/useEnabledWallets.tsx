@@ -1,14 +1,14 @@
 import { useWalletDiscovery } from '@xylabs/react-crypto'
 import { useMemo, useSyncExternalStore } from 'react'
 
-import { EnabledEthWalletConnections, EnabledWalletRdns, EnabledWallets } from '../classes'
+import { EnabledEthWalletConnections, EnabledEthWalletsState, EnabledWalletsSavedState } from '../classes'
 
 let enabledEthWallets: EnabledEthWalletConnections | undefined
 
 /**
  * Takes the discovered wallets and tracks their enabled state globally
  */
-export const useEnabledWalletsInner = (enabledWalletsRdns?: EnabledWalletRdns) => {
+export const useEnabledWalletsInner = (enabledWalletsRdns?: EnabledWalletsSavedState) => {
   const discoveredWallets = useWalletDiscovery()
 
   // when we discover new wallets, build their enabled state
@@ -25,14 +25,14 @@ export const useEnabledWalletsInner = (enabledWalletsRdns?: EnabledWalletRdns) =
 /**
  * Expose an interface for enabling and disabling wallets
  */
-export const useEnabledWallets = (enabledWalletsRdns?: EnabledWalletRdns) => {
+export const useEnabledWallets = (enabledWalletsRdns?: EnabledWalletsSavedState) => {
   const wallets = useEnabledWalletsInner(enabledWalletsRdns)
   const enabledWallets = useMemo(
     () =>
       Object.entries(wallets).reduce((acc, [walletName, wallet]) => {
         if (wallet.enabled) acc[walletName] = wallet
         return acc
-      }, {} as EnabledWallets),
+      }, {} as EnabledEthWalletsState),
     [wallets],
   )
 

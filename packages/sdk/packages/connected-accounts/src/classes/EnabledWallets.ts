@@ -1,14 +1,18 @@
 import { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
 
-export interface EnabledWallets {
+export interface EnabledEthWalletsState {
   [rdns: string]: {
     enabled: boolean
     wallet: EIP6963Connector
   }
 }
 
-export interface EnabledWalletRdns {
+export interface EnabledWalletsSavedState {
   [rdns: string]: boolean
+}
+
+export interface EnabledEthWalletConnectionsConfig {
+  disablePersistance?: boolean
 }
 
 export type WalletListener = () => void
@@ -16,12 +20,15 @@ export type WalletListener = () => void
 const DEFAULT_LOCAL_STORAGE_KEY = 'XYO|EnabledWalletsRdns'
 
 export class EnabledEthWalletConnections {
-  private enabledWalletsRdns: EnabledWalletRdns = {}
-  private ethWallets: EnabledWallets = {}
+  private enabledWallets: EnabledWalletsSavedState = {}
+  private ethWallets: EnabledEthWalletsState = {}
   private listeners: WalletListener[] = []
   private localStorageKey = DEFAULT_LOCAL_STORAGE_KEY
 
-  constructor(localStorageKey = DEFAULT_LOCAL_STORAGE_KEY) {
+  constructor(
+    localStorageKey = DEFAULT_LOCAL_STORAGE_KEY,
+    private config?: EnabledEthWalletConnectionsConfig,
+  ) {
     this.localStorageKey = localStorageKey
     this.reviveSettings()
   }
@@ -42,12 +49,12 @@ export class EnabledEthWalletConnections {
    * Given a new set of wallets, set their enabled state based off previous preferences
    */
   resetWallets(wallets: DiscoveredWallets) {
-    const newWallets: EnabledWallets = {}
+    const newWallets: EnabledEthWalletsState = {}
 
     const addWallet = ([walletName, wallet]: [string, EIP6963Connector]) => {
       newWallets[walletName] = {
         // preserve the existing enabled state
-        enabled: walletName in this.enabledWalletsRdns ? this.enabledWalletsRdns[walletName] : true,
+        enabled: walletName in this.enabledWallets ? this.enabledWallets[walletName] : true,
         wallet,
       }
     }
@@ -80,24 +87,34 @@ export class EnabledEthWalletConnections {
     this.persistSettings()
   }
 
-  private persistSettings() {
-    // convert wallet enabled selections into serializable state
-    const enabledWalletsRdns = Object.entries(this.ethWallets).reduce((acc, [rdns, { enabled }]) => {
-      acc[rdns] = enabled
-      return acc
-    }, {} as EnabledWalletRdns)
+  private isPersistance(method: () => void) {
+    if (!this.config?.disablePersistance) {
+      method()
+    }
+  }
 
-    // persist to localStorage
-    localStorage.setItem(this.localStorageKey, JSON.stringify(enabledWalletsRdns))
+  private persistSettings() {
+    this.isPersistance(() => {
+      // convert wallet enabled selections into serializable state
+      const enabledWallets = Object.entries(this.ethWallets).reduce((acc, [rdns, { enabled }]) => {
+        acc[rdns] = enabled
+        return acc
+      }, {} as EnabledWalletsSavedState)
+
+      // persist to localStorage
+      localStorage.setItem(this.localStorageKey, JSON.stringify(enabledWallets))
+    })
   }
 
   private reviveSettings() {
-    const existingEntries = localStorage.getItem(this.localStorageKey)
-    try {
-      const entries = existingEntries ? JSON.parse(existingEntries) : {}
-      this.enabledWalletsRdns = entries
-    } catch (e) {
-      console.warn(`Error parsing saved enabled wallet entries: ${(e as Error).message}`)
-    }
+    this.isPersistance(() => {
+      const existingEntries = localStorage.getItem(this.localStorageKey)
+      try {
+        const entries = existingEntries ? JSON.parse(existingEntries) : {}
+        this.enabledWallets = entries
+      } catch (e) {
+        console.warn(`Error parsing saved enabled wallet entries: ${(e as Error).message}`)
+      }
+    })
   }
 }
