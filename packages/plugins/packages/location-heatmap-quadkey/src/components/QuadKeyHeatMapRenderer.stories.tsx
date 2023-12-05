@@ -6,7 +6,7 @@ import { QuadkeyHeatMapWithSettingsRenderer } from './QuadkeyHeatMapRenderer'
 import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
 import { quadKeyHeatMapPayload } from './storyPayload'
 
-export const WithMapboxSetup: Decorator = (Story, context) => {
+const WithMapboxSetup: Decorator = (Story, context) => {
   return (
     <MapboxAccessTokenProvider defaultAccessToken={process.env.STORYBOOK_MAPBOX_TOKEN}>
       <Story {...context} />

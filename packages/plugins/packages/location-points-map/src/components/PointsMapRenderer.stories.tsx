@@ -4,7 +4,7 @@ import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 import { PointsMapRenderer } from './PointsMapRenderer'
 import { locationRangeAnswerPayload } from './storyPayload'
 
-export const WithMapboxSetup: Decorator = (Story, context) => {
+const WithMapboxSetup: Decorator = (Story, context) => {
   return (
     <MapboxAccessTokenProvider defaultAccessToken={process.env.STORYBOOK_MAPBOX_TOKEN}>
       <Story {...context} />
@@ -14,11 +14,9 @@ export const WithMapboxSetup: Decorator = (Story, context) => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  argTypes: {
-    minHeight: {
-      // calc used to account for the offset provided by storybook wrapper
-      defaultValue: 'calc(100vh - 2rem)',
-    },
+  args: {
+    // calc used to account for the offset provided by storybook wrapper
+    minHeight: 'calc(100vh - 2rem)',
   },
   component: PointsMapRenderer,
   decorators: [WithMapboxSetup],
