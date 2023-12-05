@@ -20,15 +20,14 @@ export type WalletListener = () => void
 const DEFAULT_LOCAL_STORAGE_KEY = 'XYO|EnabledWalletsRdns'
 
 export class EnabledEthWalletConnections {
+  public persistPreferences = true
+
   private enabledWallets: EnabledWalletsSavedState = {}
   private ethWallets: EnabledEthWalletsState = {}
   private listeners: WalletListener[] = []
   private localStorageKey = DEFAULT_LOCAL_STORAGE_KEY
 
-  constructor(
-    localStorageKey = DEFAULT_LOCAL_STORAGE_KEY,
-    private config?: EnabledEthWalletConnectionsConfig,
-  ) {
+  constructor(localStorageKey = DEFAULT_LOCAL_STORAGE_KEY) {
     this.localStorageKey = localStorageKey
     this.reviveSettings()
   }
@@ -88,7 +87,7 @@ export class EnabledEthWalletConnections {
   }
 
   private isPersistance(method: () => void) {
-    if (!this.config?.disablePersistance) {
+    if (this.persistPreferences) {
       method()
     }
   }
