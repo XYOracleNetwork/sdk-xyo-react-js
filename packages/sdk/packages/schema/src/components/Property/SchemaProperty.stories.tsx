@@ -1,12 +1,10 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
-import { useAppThemeDecorator } from '@xyo-network/react-storybook'
 
 import { SchemaProperty, SchemaPropertyProps } from './SchemaProperty'
 
 const StorybookEntry: Meta = {
   component: SchemaProperty,
-  decorators: [useAppThemeDecorator],
   parameters: {
     docs: {
       page: null,

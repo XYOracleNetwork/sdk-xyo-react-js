@@ -1,7 +1,7 @@
 /* eslint-disable import/no-deprecated */
 import { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
-import { DeprecateStory, sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { DeprecateStory, sampleBlockWithPayloads } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -11,7 +11,6 @@ import { BlockDetails } from './Details'
 const StorybookEntry = {
   argTypes: {},
   component: BlockDetails,
-  decorators: [useAppThemeDecorator],
   parameters: {
     docs: {
       page: null,

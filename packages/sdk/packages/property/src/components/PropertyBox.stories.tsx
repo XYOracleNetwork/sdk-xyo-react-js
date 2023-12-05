@@ -3,7 +3,7 @@ import { TextField } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
-import { sampleBlockWithPayloads, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { sampleBlockWithPayloads } from '@xyo-network/react-storybook'
 
 import { Property } from './Property'
 import { PropertyProps } from './Props'
@@ -52,27 +52,21 @@ const TemplateWithCompare: StoryFn<typeof Property> = (args: PropertyProps) => (
 
 const Default = Template.bind({})
 Default.args = {}
-Default.decorators = [useAppThemeDecorator]
 
 const WithTitle = Template.bind({})
 WithTitle.args = { title: 'No Data' }
-WithTitle.decorators = [useAppThemeDecorator]
 
 const WithUndefinedData = Template.bind({})
 WithUndefinedData.args = { title: 'Block Hash' }
-WithUndefinedData.decorators = [useAppThemeDecorator]
 
 const WithData = Template.bind({})
 WithData.args = { title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
-WithData.decorators = [useAppThemeDecorator]
 
 const WithDataSmall = Template.bind({})
 WithDataSmall.args = { size: 'small', title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
-WithDataSmall.decorators = [useAppThemeDecorator]
 
 const WithDataCompare = TemplateWithCompare.bind({})
 WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
-WithDataCompare.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeSmall = Template.bind({})
 WithDataAndBadgeSmall.args = {
@@ -82,7 +76,6 @@ WithDataAndBadgeSmall.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-WithDataAndBadgeSmall.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeMedium = Template.bind({})
 WithDataAndBadgeMedium.args = {
@@ -92,7 +85,6 @@ WithDataAndBadgeMedium.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-WithDataAndBadgeMedium.decorators = [useAppThemeDecorator]
 
 const WithDataAndBadgeLarge = Template.bind({})
 WithDataAndBadgeLarge.args = {
@@ -102,7 +94,6 @@ WithDataAndBadgeLarge.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-WithDataAndBadgeLarge.decorators = [useAppThemeDecorator]
 
 const WithTip = Template.bind({})
 WithTip.args = {
@@ -110,7 +101,6 @@ WithTip.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-WithTip.decorators = [useAppThemeDecorator]
 
 const WithTipAndBadge = Template.bind({})
 WithTipAndBadge.args = {
@@ -119,7 +109,6 @@ WithTipAndBadge.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-WithTipAndBadge.decorators = [useAppThemeDecorator]
 
 const WithActions = Template.bind({})
 WithActions.args = {
@@ -128,7 +117,6 @@ WithActions.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-WithActions.decorators = [useAppThemeDecorator]
 
 const LargeWithValue = Template.bind({})
 LargeWithValue.args = {
@@ -138,7 +126,6 @@ LargeWithValue.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-LargeWithValue.decorators = [useAppThemeDecorator]
 
 const LargeWithValueAndActions = Template.bind({})
 LargeWithValueAndActions.args = {
@@ -149,7 +136,6 @@ LargeWithValueAndActions.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-LargeWithValueAndActions.decorators = [useAppThemeDecorator]
 
 const SmallWithValueAndActions = Template.bind({})
 SmallWithValueAndActions.args = {
@@ -160,7 +146,6 @@ SmallWithValueAndActions.args = {
   title: 'Block Hash',
   value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
 }
-SmallWithValueAndActions.decorators = [useAppThemeDecorator]
 
 export {
   Default,

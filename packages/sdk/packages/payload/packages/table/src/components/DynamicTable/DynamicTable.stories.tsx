@@ -2,13 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-plugin'
 import { DefaultPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { PayloadRenderPluginResolver, PayloadRenderPluginResolverProvider } from '@xyo-network/react-payload-plugin-resolver'
-import {
-  sampleCoinGeckoPayload,
-  sampleIdPayload,
-  sampleSystemInfoBrowserPayload,
-  sampleUniswapPayload,
-  useAppThemeDecorator,
-} from '@xyo-network/react-storybook'
+import { sampleCoinGeckoPayload, sampleIdPayload, sampleSystemInfoBrowserPayload, sampleUniswapPayload } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadDynamicTable } from './Table'
@@ -36,7 +30,6 @@ const Template: StoryFn<typeof PayloadDynamicTable> = (args) => (
 
 const Default = Template.bind({})
 Default.args = {}
-Default.decorators = [useAppThemeDecorator]
 
 const WithData = Template.bind({})
 WithData.args = {
@@ -64,7 +57,6 @@ WithData.args = {
     sampleSystemInfoBrowserPayload,
   ],
 }
-WithData.decorators = [useAppThemeDecorator]
 
 const WithError = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

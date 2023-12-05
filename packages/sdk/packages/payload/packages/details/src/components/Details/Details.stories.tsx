@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { sampleIdPayload, samplePayloadFromBuilder, useAppThemeDecorator } from '@xyo-network/react-storybook'
+import { sampleIdPayload, samplePayloadFromBuilder } from '@xyo-network/react-storybook'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { PayloadDetails } from './Details'
@@ -26,35 +26,27 @@ const Template: StoryFn<typeof PayloadDetails> = (args) => (
 
 const Default = Template.bind({})
 Default.args = {}
-Default.decorators = [useAppThemeDecorator]
 
 const WithSample = Template.bind({})
 WithSample.args = { payload: sampleIdPayload }
-WithSample.decorators = [useAppThemeDecorator]
 
 const WithBuilderSample = Template.bind({})
 WithBuilderSample.args = { payload: samplePayloadFromBuilder }
-WithBuilderSample.decorators = [useAppThemeDecorator]
 
 const WithArchiveLink = Template.bind({})
 WithArchiveLink.args = { payload: samplePayloadFromBuilder }
-WithArchiveLink.decorators = [useAppThemeDecorator]
 
 const DefaultPaper = Template.bind({})
 DefaultPaper.args = { paper: true }
-DefaultPaper.decorators = [useAppThemeDecorator]
 
 const WithSamplePaper = Template.bind({})
 WithSamplePaper.args = { paper: true, payload: sampleIdPayload }
-WithSamplePaper.decorators = [useAppThemeDecorator]
 
 const WithBuilderSamplePaper = Template.bind({})
 WithBuilderSamplePaper.args = { paper: true, payload: samplePayloadFromBuilder }
-WithBuilderSamplePaper.decorators = [useAppThemeDecorator]
 
 const WithArchiveLinkPaper = Template.bind({})
 WithArchiveLinkPaper.args = { paper: true, payload: samplePayloadFromBuilder }
-WithArchiveLinkPaper.decorators = [useAppThemeDecorator]
 
 export { Default, DefaultPaper, WithArchiveLink, WithArchiveLinkPaper, WithBuilderSample, WithBuilderSamplePaper, WithSample, WithSamplePaper }
 
