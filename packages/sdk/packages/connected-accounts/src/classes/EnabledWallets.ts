@@ -1,6 +1,6 @@
 import { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
 
-const DEFAULT_LOCAL_STORAGE_KEY = 'XYO|EnabledWalletsRdns'
+const DEFAULT_LOCAL_STORAGE_KEY = 'XYO|EnabledWallets'
 
 /**
  * State for storing wallets and their enabled/disabled status by name
