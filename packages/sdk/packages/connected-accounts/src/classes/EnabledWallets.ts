@@ -1,5 +1,10 @@
 import { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
 
+const DEFAULT_LOCAL_STORAGE_KEY = 'XYO|EnabledWalletsRdns'
+
+/**
+ * State for storing wallets and their enabled/disabled status by name
+ */
 export interface EnabledEthWalletsState {
   [rdns: string]: {
     enabled: boolean
@@ -7,24 +12,29 @@ export interface EnabledEthWalletsState {
   }
 }
 
+/**
+ * State for storing only enabled/disabled status of a wallet by name
+ */
 export interface EnabledWalletsSavedState {
   [rdns: string]: boolean
 }
 
-export interface EnabledEthWalletConnectionsConfig {
-  disablePersistance?: boolean
-}
-
 export type WalletListener = () => void
 
-const DEFAULT_LOCAL_STORAGE_KEY = 'XYO|EnabledWalletsRdns'
-
 export class EnabledEthWalletConnections {
+  // control whether or not enabled/disabled preferences are persisted (i.e. in localStorage)
   public persistPreferences = true
 
+  // Map of wallet names and their enabled/disabled state
   private enabledWallets: EnabledWalletsSavedState = {}
-  private ethWallets: EnabledEthWalletsState = {}
+
+  // Map of wallet names, their enabled/disabled state, and their wallet class
+  private ethWalletsState: EnabledEthWalletsState = {}
+
+  // list of listeners that want to be notified on wallet changes
   private listeners: WalletListener[] = []
+
+  // key to use in localStorage when persisting preferences
   private localStorageKey = DEFAULT_LOCAL_STORAGE_KEY
 
   constructor(localStorageKey = DEFAULT_LOCAL_STORAGE_KEY) {
@@ -33,7 +43,7 @@ export class EnabledEthWalletConnections {
   }
 
   get wallets() {
-    return this.ethWallets
+    return this.ethWalletsState
   }
 
   disableWallet(rdns: string) {
@@ -59,7 +69,7 @@ export class EnabledEthWalletConnections {
     }
 
     Object.entries(wallets).forEach(addWallet.bind(this))
-    this.ethWallets = newWallets
+    this.ethWalletsState = newWallets
     this.emitChange()
   }
 
@@ -71,9 +81,9 @@ export class EnabledEthWalletConnections {
   }
 
   toggleEnabledWallet(rdns: string, enabled: boolean) {
-    if (rdns && this.ethWallets[rdns]) {
-      this.ethWallets[rdns].enabled = enabled
-      this.ethWallets = { ...this.ethWallets }
+    if (rdns && this.ethWalletsState[rdns]) {
+      this.ethWalletsState[rdns].enabled = enabled
+      this.ethWalletsState = { ...this.ethWalletsState }
       this.emitChange()
     }
   }
@@ -95,12 +105,11 @@ export class EnabledEthWalletConnections {
   private persistSettings() {
     this.isPersistance(() => {
       // convert wallet enabled selections into serializable state
-      const enabledWallets = Object.entries(this.ethWallets).reduce((acc, [rdns, { enabled }]) => {
+      const enabledWallets = Object.entries(this.ethWalletsState).reduce((acc, [rdns, { enabled }]) => {
         acc[rdns] = enabled
         return acc
       }, {} as EnabledWalletsSavedState)
 
-      // persist to localStorage
       localStorage.setItem(this.localStorageKey, JSON.stringify(enabledWallets))
     })
   }
