@@ -1,8 +1,16 @@
-import { Meta, StoryFn } from '@storybook/react'
-import { WithMapboxSetup } from '@xyo-network/react-storybook'
+import { Decorator, Meta, StoryFn } from '@storybook/react'
+import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 
 import { PointsMapRenderer } from './PointsMapRenderer'
 import { locationRangeAnswerPayload } from './storyPayload'
+
+export const WithMapboxSetup: Decorator = (Story, context) => {
+  return (
+    <MapboxAccessTokenProvider defaultAccessToken={process.env.STORYBOOK_MAPBOX_TOKEN}>
+      <Story {...context} />
+    </MapboxAccessTokenProvider>
+  )
+}
 
 // eslint-disable-next-line import/no-default-export
 export default {
