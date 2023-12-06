@@ -1,5 +1,11 @@
 {
-  "entryPoints": ["src/index.ts"],
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPointStrategy": "packages",
+  "entryPoints": [
+    "./**/packages/*",
+    "."
+  ],
+  "exclude": ["**/*.d.ts"],
   "includeVersion": true,
   "name": "XYO Platform React SDK",
   "tsconfig": "./tsconfig.typedoc.json"

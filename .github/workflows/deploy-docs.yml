@@ -44,6 +44,10 @@ jobs:
         run: yarn build-typedoc-site
         env:
           NODE_OPTIONS: "--max-old-space-size=8192"
+      - name: storybook build
+        run: yarn storybook build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

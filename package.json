@@ -70,6 +70,7 @@
     "@xylabs/ts-scripts-yarn3": "^3.2.10",
     "@xylabs/tsconfig-react": "^3.2.10",
     "chromatic": "^7.6.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.55.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-deprecation": "^2.0.0",
@@ -139,11 +140,11 @@
   },
   "scripts": {
     "build": "xy build",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build && copyfiles -u 1 storybook-static/**/* docs/storybook",
     "build-storybook-debug": "storybook build --debug-webpack",
     "start": "storybook dev -p 6006",
     "lint-pkg": "npmPkgJsonLint .",
-    "build-typedoc-site": "typedoc --options typedoc.site.json"
+    "build-typedoc-site": "typedoc"
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
