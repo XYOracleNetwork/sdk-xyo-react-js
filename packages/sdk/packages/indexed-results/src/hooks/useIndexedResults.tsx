@@ -1,24 +1,27 @@
 import { usePromise } from '@xylabs/react-promise'
 import { ArchivistInstance, ArchivistModuleEventData } from '@xyo-network/archivist-model'
+import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
 import { EventListener } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
 import { useArchivistFromNode } from '@xyo-network/react-archivist'
-import { useDivinerFromNode } from '@xyo-network/react-diviner'
+import { useProvidedNode } from '@xyo-network/react-node'
 import { useCallback, useEffect, useState } from 'react'
 
 import { IndexedResultsConfig, IndexedSourceConfig } from '../interfaces'
 
 const useFetchModules = (config: IndexedSourceConfig) => {
-  const { archivist: archivistName, diviner: divinerName, fallbackDiviner: fallbackDivinerName } = config
+  const { archivist: archivistName, diviners: divinerNames } = config
+  const [node] = useProvidedNode()
 
   const [archivist] = useArchivistFromNode(archivistName)
-  const [diviner] = useDivinerFromNode(divinerName)
-  const [fallbackDiviner] = useDivinerFromNode(fallbackDivinerName)
+  const [diviners] = usePromise<DivinerInstance[]>(async () => {
+    const resolvedDiviners = node ? await node.resolve({ name: divinerNames }) : []
+    return resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
+  }, [divinerNames, node])
 
   return {
     archivist,
-    diviner,
-    remoteDiviner: fallbackDiviner,
+    diviners,
   }
 }
 
@@ -42,15 +45,15 @@ const useListenForNewResults = (archivist?: ArchivistInstance, listenForNewResul
 }
 
 export const useIndexedResults = (config: IndexedResultsConfig) => {
-  const { archivist, diviner, remoteDiviner } = useFetchModules(config.indexedSourceConfig)
+  const { archivist, diviners } = useFetchModules(config.indexedSourceConfig)
   const { parseResults, validateQueryResult } = config.indexedSourceConfig
-  const { generateWhenNotFound, listenForNewResults, indexedQuery: query, skipCache } = config.indexedQueryConfig
+  const { listenForNewResults, indexedQuery: query } = config.indexedQueryConfig
 
   const newResultRaw = useListenForNewResults(archivist, listenForNewResults)
 
   const validateResults = useCallback(
     async (divinedResult?: Payload[]) => {
-      const validatedDivinedResult = divinedResult?.find(validateQueryResult)
+      const validatedDivinedResult = divinedResult?.filter(validateQueryResult)
       if (validatedDivinedResult) {
         const localResult = parseResults ? await parseResults?.(validatedDivinedResult) : validatedDivinedResult
         if (localResult) return localResult
@@ -59,40 +62,37 @@ export const useIndexedResults = (config: IndexedResultsConfig) => {
     [parseResults, validateQueryResult],
   )
 
+  const tryDiviner = useCallback(
+    async (diviner: DivinerInstance) => {
+      const divinedResult = await diviner?.divine([query])
+      const validatedResult = await validateResults(divinedResult)
+      return validatedResult && validatedResult.length ? validatedResult : null
+    },
+    [query, validateResults],
+  )
+
   const [newResult] = usePromise(async () => {
     if (newResultRaw?.length) {
       return await validateResults(newResultRaw)
     }
   }, [newResultRaw, validateResults])
 
-  const [localResult] = usePromise(async () => {
-    if (!skipCache) {
-      // Check locally
-      const divinedResult = await diviner?.divine([query])
-      const result = await validateResults(divinedResult)
-      return result ?? null
-    }
+  const [results] = usePromise(async () => {
+    let result: Payload[] | null = null
+    let divinerCount = 0
 
-    if (generateWhenNotFound && !remoteDiviner) {
-      // TODO = handle re-witnessing
-      // return await reWitness(urlPayload, refreshModule, queryPayload, remoteDiviner, sourceArchivist, currentTimeStamp?.timestamp, queue)
-    }
-  }, [diviner, generateWhenNotFound, query, remoteDiviner, skipCache, validateResults])
-
-  const [remoteResult] = usePromise(async () => {
-    if (!skipCache && localResult === null) {
-      // Check remotely
-      const divinedResult = await remoteDiviner?.divine([query])
-      const remoteResult = await validateResults(divinedResult)
-      if (remoteResult) return remoteResult
-
-      if (generateWhenNotFound) {
-        // TODO = handle re-witnessing
-        // return await reWitness(urlPayload, refreshModule, queryPayload, remoteDiviner, sourceArchivist, currentTimeStamp?.timestamp, queue)
+    if (diviners) {
+      while (divinerCount <= diviners?.length) {
+        const divinerResult = await tryDiviner(diviners[divinerCount])
+        if (divinerResult && divinerResult?.length) {
+          result = divinerResult
+          break
+        }
+        divinerCount++
       }
-      return null
+      return result
     }
-  }, [generateWhenNotFound, localResult, query, remoteDiviner, skipCache, validateResults])
+  }, [diviners, tryDiviner])
 
-  return [newResult ?? localResult ?? remoteResult]
+  return [newResult ?? results]
 }
