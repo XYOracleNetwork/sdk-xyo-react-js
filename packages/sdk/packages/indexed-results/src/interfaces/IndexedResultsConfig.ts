@@ -1,3 +1,4 @@
+
 import { IndexedQueryConfig } from './IndexedQueryConfig'
 import { IndexedSourceConfig } from './IndexedSourceConfig'
 

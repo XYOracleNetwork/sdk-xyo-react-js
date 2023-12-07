@@ -2,7 +2,7 @@ import { Payload } from '@xyo-network/payload-model'
 
 export interface IndexedQueryConfig {
   freshnessThreshold?: Payload
-  ifNotFoundGenerate?: boolean
+  generateWhenNotFound?: boolean
   listenForNewResults?: boolean
   query: Payload
   skipCache?: boolean
