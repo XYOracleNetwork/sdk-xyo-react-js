@@ -8,7 +8,7 @@ import { TimestampWitness } from '@xyo-network/witness-timestamp'
 import { PropsWithChildren } from 'react'
 
 import { AddDayDiviner } from './AddDayDiviner'
-import DateTimeSentinel from './manifest.json'
+import SentinelManifest from './sentinel-manifest.json'
 
 export const IndexedResultsNodeProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [indexedResultsNode] = usePromise(async () => {
@@ -17,7 +17,7 @@ export const IndexedResultsNodeProvider: React.FC<PropsWithChildren> = ({ childr
       locator.register(TimestampWitness)
       locator.register(AddDayDiviner)
       const wallet = await HDWallet.fromPhrase(DefaultSeedPhrase)
-      const manifest = new ManifestWrapper(DateTimeSentinel as PackageManifest, wallet, locator)
+      const manifest = new ManifestWrapper(SentinelManifest as PackageManifest, wallet, locator)
 
       const [node] = await manifest.loadNodes()
       return node
