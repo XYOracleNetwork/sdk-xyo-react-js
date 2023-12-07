@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-sdk",
+  "name": "@xyo-network/react-indexed-results",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,52 +10,20 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-address": "workspace:~",
-    "@xyo-network/react-app-settings": "workspace:~",
-    "@xyo-network/react-appbar": "workspace:~",
-    "@xyo-network/react-block": "workspace:~",
-    "@xyo-network/react-card": "workspace:~",
-    "@xyo-network/react-connected-accounts": "workspace:~",
-    "@xyo-network/react-embed": "workspace:~",
-    "@xyo-network/react-error": "workspace:~",
-    "@xyo-network/react-event": "workspace:~",
-    "@xyo-network/react-footer": "workspace:~",
-    "@xyo-network/react-gas-price": "workspace:~",
-    "@xyo-network/react-indexed-results": "workspace:~",
-    "@xyo-network/react-map": "workspace:~",
-    "@xyo-network/react-network": "workspace:~",
-    "@xyo-network/react-node-renderer": "workspace:~",
-    "@xyo-network/react-payload": "workspace:~",
-    "@xyo-network/react-powered-by-xyo": "workspace:~",
-    "@xyo-network/react-property": "workspace:~",
-    "@xyo-network/react-sample-node": "workspace:~",
-    "@xyo-network/react-schema": "workspace:~",
-    "@xyo-network/react-share": "workspace:~",
-    "@xyo-network/react-shared": "workspace:~",
-    "@xyo-network/react-standard-node": "workspace:~",
-    "@xyo-network/react-table": "workspace:~",
-    "@xyo-network/react-theme": "workspace:~",
-    "@xyo-network/react-wallet": "workspace:~",
-    "@xyo-network/react-wallet-service": "workspace:~"
-  },
-  "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^3.2.10",
-    "@xylabs/tsconfig-react": "^3.2.10",
-    "typescript": "^5.3.2"
+    "@xyo-network/payload-model": "^2.83.2"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
     "@mui/styles": "^5",
-    "@xylabs/pixel": "^1",
-    "@xylabs/react-button": "^2",
-    "@xylabs/react-flexbox": "^2",
-    "@xylabs/react-pixel": "^2",
-    "@xylabs/react-shared": "^2",
     "react": "^18",
-    "react-dom": "^18",
-    "react-helmet": "^6",
-    "react-icons": "^4"
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@storybook/react": "^7.6.3",
+    "@xylabs/ts-scripts-yarn3": "^3.2.10",
+    "@xylabs/tsconfig-react": "^3.2.10",
+    "typescript": "^5.3.2"
   },
   "description": "Common React library for all XYO projects that use React",
   "docs": "dist/docs.json",
@@ -87,7 +55,6 @@
   },
   "main": "dist/browser/index.cjs",
   "module": "dist/browser/index.js",
-  "types": "dist/browser/index.d.ts",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",
@@ -108,6 +75,7 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
+  "types": "dist/browser/index.d.ts",
   "version": "2.66.5",
   "type": "module"
 }

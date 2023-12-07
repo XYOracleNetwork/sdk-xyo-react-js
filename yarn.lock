@@ -8247,6 +8247,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/object@npm:~2.83.2":
+  version: 2.83.2
+  resolution: "@xyo-network/object@npm:2.83.2"
+  dependencies:
+    "@xylabs/assert": "npm:^2.13.20"
+    "@xylabs/logger": "npm:^2.13.20"
+    "@xylabs/promise": "npm:^2.13.20"
+  checksum: 9d9ee7c66b79432339b4e94c285899299ab49cb84efa643113eca7f5c7ebe1faf645e954272239f443bab9b2a414beedb2697905fcced55e896042f50c2d6feb
+  languageName: node
+  linkType: hard
+
 "@xyo-network/payload-builder@npm:^2.82.0, @xyo-network/payload-builder@npm:~2.82.0":
   version: 2.82.0
   resolution: "@xyo-network/payload-builder@npm:2.82.0"
@@ -8264,6 +8275,15 @@ __metadata:
   dependencies:
     "@xyo-network/object": "npm:~2.82.0"
   checksum: a4a25000202c9ffef567dbc04b4ef863b33bd7b561c7cd5726342feba283144b752c468b594030e5a7c3174091f7c5914c8732fb9430604141c2b7cdf99836ec
+  languageName: node
+  linkType: hard
+
+"@xyo-network/payload-model@npm:^2.83.2":
+  version: 2.83.2
+  resolution: "@xyo-network/payload-model@npm:2.83.2"
+  dependencies:
+    "@xyo-network/object": "npm:~2.83.2"
+  checksum: cf03f512a7d16bce83721d39c3dddcf71c539b1f2a73ca8afe7aa7a8fdf2f3c23b580c34e7d59db4a4570657315235040ed0345b3da66829f52e141dc8190e61
   languageName: node
   linkType: hard
 
@@ -9175,6 +9195,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-indexed-results@workspace:packages/sdk/packages/indexed-results, @xyo-network/react-indexed-results@workspace:~":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-indexed-results@workspace:packages/sdk/packages/indexed-results"
+  dependencies:
+    "@storybook/react": "npm:^7.6.3"
+    "@xylabs/ts-scripts-yarn3": "npm:^3.2.10"
+    "@xylabs/tsconfig-react": "npm:^3.2.10"
+    "@xyo-network/payload-model": "npm:^2.83.2"
+    typescript: "npm:^5.3.2"
+  peerDependencies:
+    "@mui/icons-material": ^5
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    react: ^18
+    react-dom: ^18
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-location-heatmap-quadkey-plugin@workspace:packages/plugins/packages/location-heatmap-quadkey, @xyo-network/react-location-heatmap-quadkey-plugin@workspace:~":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-location-heatmap-quadkey-plugin@workspace:packages/plugins/packages/location-heatmap-quadkey"
@@ -9963,6 +10001,7 @@ __metadata:
     "@xyo-network/react-event": "workspace:~"
     "@xyo-network/react-footer": "workspace:~"
     "@xyo-network/react-gas-price": "workspace:~"
+    "@xyo-network/react-indexed-results": "workspace:~"
     "@xyo-network/react-map": "workspace:~"
     "@xyo-network/react-network": "workspace:~"
     "@xyo-network/react-node-renderer": "workspace:~"
