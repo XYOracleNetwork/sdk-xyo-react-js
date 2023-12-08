@@ -4,7 +4,7 @@
     {
       "config": {
         "accountPath": "1",
-        "name": "DateTimeSentinel",
+        "name": "DateTimeSentinelNode",
         "schema": "network.xyo.node.config"
       },
       "modules": {
@@ -12,7 +12,7 @@
           {
             "config": {
               "language": "javascript",
-              "name": "AddADayDiviner",
+              "name": "AddDayDiviner",
               "params": [],
               "schema": "network.xyo.add.day.diviner.config"
             }
@@ -22,7 +22,7 @@
           {
             "config": {
               "language": "javascript",
-              "name": "NftContractInfoSentinel",
+              "name": "DateTimeSentinel",
               "schema": "network.xyo.sentinel.config",
               "synchronous": "true",
               "tasks": [
@@ -34,7 +34,7 @@
                   "input": [
                     "DateTimeWitness"
                   ],
-                  "module": "AddADayDiviner"
+                  "module": "AddDayDiviner"
                 }
               ]
             }
