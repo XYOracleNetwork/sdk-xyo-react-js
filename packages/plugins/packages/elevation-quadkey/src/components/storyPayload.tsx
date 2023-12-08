@@ -1,3 +1,5 @@
+import { NetworkElevationQuadkeyAnswerSchema } from '../types'
+
 export const elevationQuadKeyMapPayload = {
   result: [
     {
@@ -17,5 +19,5 @@ export const elevationQuadKeyMapPayload = {
       quadkey: '032020',
     },
   ],
-  schema: 'network.xyo.elevation.map.quadkey.answer',
+  schema: NetworkElevationQuadkeyAnswerSchema,
 }
