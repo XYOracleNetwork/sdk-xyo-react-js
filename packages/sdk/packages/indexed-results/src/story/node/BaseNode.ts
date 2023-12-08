@@ -1,7 +1,6 @@
 import { HDWallet } from '@xyo-network/account'
 import { ManifestWrapper, PackageManifest, PackageManifestPayload } from '@xyo-network/manifest'
 import { ModuleFactoryLocator } from '@xyo-network/module'
-import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { TimestampWitness } from '@xyo-network/witness-timestamp'
 
 import { AddDayDiviner } from './diviners'
@@ -12,7 +11,7 @@ export const BaseNode = async (publicChildren?: PackageManifestPayload[]) => {
   locator.register(TimestampWitness)
   locator.register(AddDayDiviner)
 
-  const wallet = await HDWallet.fromPhrase(DefaultSeedPhrase)
+  const wallet = await HDWallet.random()
   const manifest = new ManifestWrapper(archivistManifest as PackageManifest, wallet, locator, publicChildren)
 
   const [node] = await manifest.loadNodes()
