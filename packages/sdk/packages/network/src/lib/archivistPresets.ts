@@ -2,7 +2,7 @@ import { NetworkNodePayload, NetworkNodeSchema } from '@xyo-network/network'
 
 import { ExplorerMapHashes } from './ExplorerMapHashes'
 
-export interface ArchivistPreset extends NetworkNodePayload {
+export type ArchivistPreset = NetworkNodePayload & {
   explorerMapHashes?: {
     animatedAnswerHashes: string[]
     staticAnswerHash: string
