@@ -7,7 +7,7 @@ import { ElevationPayloadProcessor } from '../classes'
 import { useOpenElevationApiClient } from '../contexts'
 import { NetworkElevationQuadkeyAnswerPayload } from '../types'
 
-export const useElevationProcessor = (payloads?: Payload) => {
+export const useElevationProcessor = (payload?: Payload) => {
   const [features, setFeatures] = useState<Feature<Geometry>[]>()
   const { lookupLocations } = useOpenElevationApiClient()
 
@@ -15,8 +15,8 @@ export const useElevationProcessor = (payloads?: Payload) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       // Convert Single Payload from Quadkeys to GeoJson with Elevations
-      if (payloads && (payloads as NetworkElevationQuadkeyAnswerPayload).result && lookupLocations && features === undefined) {
-        const singlePayload = payloads as NetworkElevationQuadkeyAnswerPayload
+      if (payload && (payload as NetworkElevationQuadkeyAnswerPayload).result && lookupLocations && features === undefined) {
+        const singlePayload = payload as NetworkElevationQuadkeyAnswerPayload
         const elevationProcessor = new ElevationPayloadProcessor({ lookupLocations, payload: singlePayload })
         elevationProcessor.buildFeatures()
 
@@ -26,7 +26,7 @@ export const useElevationProcessor = (payloads?: Payload) => {
         }
       }
     },
-    [features, lookupLocations, payloads],
+    [features, lookupLocations, payload],
   )
 
   return { features }

@@ -22,7 +22,7 @@ export const useAddressHistory = (address?: string): [BoundWitness[] | undefined
       } else {
         if (diviner) {
           try {
-            const query = address ? [new PayloadBuilder({ schema: AddressHistoryQuerySchema }).fields({ address }).build()] : undefined
+            const query = address ? [await new PayloadBuilder({ schema: AddressHistoryQuerySchema }).fields({ address }).build()] : undefined
             const blocks = (await diviner.divine(query)) as BoundWitness[]
             if (mounted()) {
               setBlocks(blocks)
