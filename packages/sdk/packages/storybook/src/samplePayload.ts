@@ -1,8 +1,12 @@
-import { PayloadBuilder } from '@xyo-network/payload-builder'
-import { Payload } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model';
 
-export const samplePayloadFromBuilder = {
-  ...new PayloadBuilder<Payload<{ schema: 'network.xyo.temp'; test: string }>>({ schema: 'network.xyo.temp' }).fields({ test: 'hello' }).build(),
+type TestPayload = Payload<{
+  test: string
+}, 'network.xyo.temp'>
+
+// needs to be in a function since cjs doesn't support top level awaits
+export const samplePayloadFromBuilder ={
+  ...{ test: 'hello', schema: 'network.xyo.temp' } as TestPayload,
   _archive: 'temp',
 }
 
