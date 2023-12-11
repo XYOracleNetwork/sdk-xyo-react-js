@@ -1,7 +1,7 @@
-import { IndexedQueryConfig } from './IndexedQueryConfig'
-import { IndexedSourceConfig } from './IndexedSourceConfig'
+import { IndexedQuery } from './IndexedQuery'
+import { IndexedSources } from './IndexedSources'
 
 export interface IndexedResultsConfig {
-  indexedQueryConfig: IndexedQueryConfig
-  indexedSourceConfig: IndexedSourceConfig
+  indexedQueryConfig: IndexedQuery
+  indexedSourceConfig: IndexedSources
 }

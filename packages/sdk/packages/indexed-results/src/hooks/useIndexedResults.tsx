@@ -1,83 +1,57 @@
 import { usePromise } from '@xylabs/react-promise'
-import { ArchivistInstance, ArchivistModuleEventData } from '@xyo-network/archivist-model'
-import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
-import { EventListener } from '@xyo-network/module-events'
+import { DivinerInstance } from '@xyo-network/diviner-model'
 import { Payload } from '@xyo-network/payload-model'
-import { useArchivistFromNode } from '@xyo-network/react-archivist'
-import { useProvidedNode } from '@xyo-network/react-node'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback } from 'react'
 
-import { IndexedResultsConfig, IndexedSourceConfig } from '../interfaces'
+import { IndexedResultsConfig } from '../interfaces'
+import { useFetchModules } from './useFetchModules'
+import { useListenForNewResults } from './useListenForNewResults'
 
-const useFetchModules = (config: IndexedSourceConfig) => {
-  const { archivist: archivistName, diviners: divinerNames } = config
-  const [node] = useProvidedNode()
-
-  const [archivist] = useArchivistFromNode(archivistName)
-  const [diviners] = usePromise<DivinerInstance[]>(async () => {
-    const resolvedDiviners = node ? await node.resolve({ name: divinerNames }) : []
-    return resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
-  }, [divinerNames, node])
-
-  return {
-    archivist,
-    diviners,
-  }
-}
-
-const useListenForNewResults = (archivist?: ArchivistInstance, listenForNewResults?: boolean) => {
-  const [newResults, setNewResults] = useState<Payload[]>()
-
-  useEffect(() => {
-    const listener: EventListener<ArchivistModuleEventData['inserted']> = ({ payloads }) => {
-      setNewResults(payloads)
-    }
-    if (archivist && listenForNewResults) {
-      archivist.on('inserted', listener)
-    }
-
-    return () => {
-      archivist?.off('inserted', listener)
-    }
-  }, [archivist, listenForNewResults])
-
-  return newResults
-}
+// const validateResults = useCallback(
+//   async (divinedResult?: Payload[]) => {
+//     const validatedDivinedResult = divinedResult?.filter(validateQueryResult)
+//     if (validatedDivinedResult) {
+//       const localResult = parseResults ? await parseResults?.(validatedDivinedResult) : validatedDivinedResult
+//       if (localResult) return localResult
+//     }
+//   },
+//   [parseResults, validateQueryResult],
+// )
 
 export const useIndexedResults = (config: IndexedResultsConfig) => {
-  const { archivist, diviners } = useFetchModules(config.indexedSourceConfig)
-  const { parseResults, validateQueryResult } = config.indexedSourceConfig
-  const { listenForNewResults, indexedQuery: query } = config.indexedQueryConfig
-
+  const { validateDivinerResults } = config.indexedSourceConfig
+  const { listenForNewResults } = config.indexedQueryConfig
+  const { archivist } = useFetchModules(config.indexedSourceConfig)
+  
   const newResultRaw = useListenForNewResults(archivist, listenForNewResults)
+  const tryDiviners = useTryDiviners(config)
 
-  const validateResults = useCallback(
-    async (divinedResult?: Payload[]) => {
-      const validatedDivinedResult = divinedResult?.filter(validateQueryResult)
-      if (validatedDivinedResult) {
-        const localResult = parseResults ? await parseResults?.(validatedDivinedResult) : validatedDivinedResult
-        if (localResult) return localResult
-      }
-    },
-    [parseResults, validateQueryResult],
-  )
+  const [results] = usePromise(async () => await tryDiviners(), [tryDiviners])
+
+  const [newResult] = usePromise(async () => {
+    if (newResultRaw?.length) {
+      return await validateDivinerResults(newResultRaw)
+    }
+  }, [newResultRaw, validateDivinerResults])
+
+  return [newResult ?? results]
+}
+
+export const useTryDiviners = (config: IndexedResultsConfig): () => Promise<Payload[] | undefined | null> => {
+  const { diviners } = useFetchModules(config.indexedSourceConfig)
+  const { indexedQuery: query } = config.indexedQueryConfig
+  const { validateDivinerResults } = config.indexedSourceConfig
 
   const tryDiviner = useCallback(
     async (diviner: DivinerInstance) => {
       const divinedResult = await diviner?.divine([query])
-      const validatedResult = await validateResults(divinedResult)
+      const validatedResult = await validateDivinerResults(divinedResult)
       return validatedResult && validatedResult.length ? validatedResult : null
     },
-    [query, validateResults],
+    [query, validateDivinerResults],
   )
 
-  const [newResult] = usePromise(async () => {
-    if (newResultRaw?.length) {
-      return await validateResults(newResultRaw)
-    }
-  }, [newResultRaw, validateResults])
-
-  const [results] = usePromise(async () => {
+  const tryDiviners = useCallback(async () => {
     let result: Payload[] | null = null
     let divinerCount = 0
 
@@ -92,7 +66,7 @@ export const useIndexedResults = (config: IndexedResultsConfig) => {
       }
       return result
     }
-  }, [diviners, tryDiviner])
+  }, [tryDiviner])
 
-  return [newResult ?? results]
+  return tryDiviners
 }

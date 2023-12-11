@@ -1,3 +1,4 @@
-export * from './IndexedQueryConfig'
+export * from './IndexedQuery'
 export * from './IndexedResultsConfig'
-export * from './IndexedSourceConfig'
+export * from './IndexedSources'
+
