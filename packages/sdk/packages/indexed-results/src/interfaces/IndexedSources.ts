@@ -1,4 +1,4 @@
-import { ProcessIndexedResults } from './ProcessIndexedResult'
+import { ProcessIndexedResults } from './ProcessIndexedResults'
 
 export interface IndexedSources extends ProcessIndexedResults {
   /** the source of the indexed query payloads */
@@ -6,5 +6,5 @@ export interface IndexedSources extends ProcessIndexedResults {
   /** diviner that can check the the archivist for the latest results */
   diviners: string[]
 }
-export { ProcessIndexedResults }
+
 

@@ -12,3 +12,5 @@ export const useTriggerFreshIndexedResult = (config: IndexedResultsConfig, trigg
 
   return triggerResult
 }
+
+// TODO - make hook that combines the useTriggerFreshIndexedResult && usePollDiviners to get a single result
