@@ -19,7 +19,7 @@ export const useTryDiviners = (config: IndexedResultsConfig): () => Promise<Payl
   )
 
   const tryDiviners = useCallback(async () => {
-    let result: Payload[] | null = null
+    let result: Payload[] | undefined | null
     let divinerCount = 0
 
     if (diviners) {
@@ -31,7 +31,7 @@ export const useTryDiviners = (config: IndexedResultsConfig): () => Promise<Payl
         }
         divinerCount++
       }
-      return result
+      return result ?? null
     }
   }, [tryDiviner])
 
