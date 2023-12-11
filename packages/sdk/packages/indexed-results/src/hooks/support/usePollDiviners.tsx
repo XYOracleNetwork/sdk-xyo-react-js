@@ -18,7 +18,7 @@ const DEFAULT_POLLING_CONFIG: PollDivinerConfig = {
 export const usePollDiviners = (config: IndexedResultsConfig, pollDivinerConfig: PollDivinerConfig = DEFAULT_POLLING_CONFIG) => {
   const tryDiviners = useTryDiviners(config)
   const { indexedQuery } = config.indexedQueryConfig
-  const { isFresh } = config.indexedSourceConfig
+  const { isFresh } = config.processIndexedResults
   const { maxDelay, maxRetries, initialDelay } = pollDivinerConfig
 
   const pollDivinersWithDelay = useCallback(async (newDelay: number) => {

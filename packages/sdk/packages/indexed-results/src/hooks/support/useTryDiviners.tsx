@@ -7,7 +7,7 @@ import { useFetchModules } from "./useFetchModules"
 export const useTryDiviners = (config: IndexedResultsConfig): () => Promise<Payload[] | undefined | null> => {
   const { diviners } = useFetchModules(config.indexedSourceConfig)
   const { indexedQuery: query } = config.indexedQueryConfig
-  const { validateDivinerResults } = config.indexedSourceConfig
+  const { validateDivinerResults } = config.processIndexedResults
 
   const tryDiviner = useCallback(
     async (diviner: DivinerInstance) => {
