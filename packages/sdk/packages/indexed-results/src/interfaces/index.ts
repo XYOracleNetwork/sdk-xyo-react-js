@@ -1,0 +1,7 @@
+export * from './FreshIndexedResult'
+export * from './IndexedQuery'
+export * from './IndexedResultsConfig'
+export * from './IndexedResultsQueue'
+export * from './IndexedSources'
+export * from './PollingConfig'
+export * from './ProcessIndexedResults'
