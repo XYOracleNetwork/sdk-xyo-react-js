@@ -15,15 +15,15 @@ const DEFAULT_POLLING_CONFIG: PollDivinerConfig = {
   initialDelay: 100,
 }
 
-export const usePollDiviners = (config: IndexedResultsConfig, pollDivinerConfig: PollDivinerConfig = DEFAULT_POLLING_CONFIG) => {
-  const tryDiviners = useTryDiviners(config)
+export const usePollDiviners = <T extends Payload = Payload>(config: IndexedResultsConfig, pollDivinerConfig: PollDivinerConfig = DEFAULT_POLLING_CONFIG) => {
+  const tryDiviners = useTryDiviners<T>(config)
   const { indexedQuery } = config.indexedQueryConfig
   const { isFresh } = config.processIndexedResults
   const { maxDelay, maxRetries, initialDelay } = pollDivinerConfig
 
   const pollDivinersWithDelay = useCallback(async (newDelay: number) => {
     let retries = 0
-    let result: Payload[] | undefined | null = undefined
+    let result: Payload[] | undefined | null
   
     await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
     try {
@@ -38,7 +38,7 @@ export const usePollDiviners = (config: IndexedResultsConfig, pollDivinerConfig:
           retries++
           await pollDivinersWithDelay(updatedDelay)
         }
-        return result
+        return result as T[]
       } else {
         console.warn('Exceeded maximum retries.', JSON.stringify(indexedQuery))
         return

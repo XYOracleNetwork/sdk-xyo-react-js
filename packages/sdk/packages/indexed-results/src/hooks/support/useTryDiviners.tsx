@@ -4,7 +4,7 @@ import { useCallback } from "react"
 import { IndexedResultsConfig } from "../../interfaces"
 import { useFetchModules } from "./useFetchModules"
 
-export const useTryDiviners = (config: IndexedResultsConfig): () => Promise<Payload[] | undefined | null> => {
+export const useTryDiviners = <T extends Payload = Payload>(config: IndexedResultsConfig): () => Promise<Payload[] | undefined | null> => {
   const { diviners } = useFetchModules(config.indexedSourceConfig)
   const { indexedQuery: query } = config.indexedQueryConfig
   const { validateDivinerResults } = config.processIndexedResults
@@ -12,14 +12,14 @@ export const useTryDiviners = (config: IndexedResultsConfig): () => Promise<Payl
   const tryDiviner = useCallback(
     async (diviner: DivinerInstance) => {
       const divinedResult = await diviner?.divine([query])
-      const validatedResult = await validateDivinerResults(divinedResult)
+      const validatedResult = await validateDivinerResults<T>(divinedResult)
       return validatedResult && validatedResult.length ? validatedResult : null
     },
     [query, validateDivinerResults],
   )
 
   const tryDiviners = useCallback(async () => {
-    let result: Payload[] | undefined | null
+    let result: T[] | undefined | null
     let divinerCount = 0
 
     if (diviners) {
