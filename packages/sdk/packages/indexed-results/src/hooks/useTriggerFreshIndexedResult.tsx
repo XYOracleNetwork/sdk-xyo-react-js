@@ -6,8 +6,8 @@ export const useTriggerFreshIndexedResult = (config: IndexedResultsConfig, trigg
 
   const freshResult = useCallback(async () => {
     const { refresh } = freshIndexedResultConfig
-    const { parseResults, validateDivinerResults } = processIndexedResults
-    return trigger ? await refresh?.({ parseResults, validateDivinerResults }) : undefined
+    const { parseIndexedResults } = processIndexedResults
+    return trigger ? await refresh?.({ parseIndexedResults }) : undefined
   }, [freshIndexedResultConfig, processIndexedResults, trigger,])
 
   return freshResult
