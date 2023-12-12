@@ -1,5 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { generateMnemonic, validateMnemonic, wordlists } from '@xyo-network/bip39'
+import { generateMnemonic, validateMnemonic } from '@scure/bip39'
+// eslint-disable-next-line import/no-internal-modules
+import { wordlist } from '@scure/bip39/wordlists/english'
 import { useEffect, useMemo, useState } from 'react'
 
 import { SeedPhraseContext } from './Context'
@@ -40,7 +42,7 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   }, [seedPhrase, open, setPhrase])
 
   const handleGenerate = () => {
-    const mnemonic = generateMnemonic(wordlists.english, 256)
+    const mnemonic = generateMnemonic(wordlist, 256)
     setPhrase?.(mnemonic)
     setOverwriteWarning?.(false)
   }
@@ -67,7 +69,7 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
     if (!passedPhrase) {
       return null
     }
-    return validateMnemonic(passedPhrase, wordlists.english)
+    return validateMnemonic(passedPhrase, wordlist)
   }
 
   const validSeedPhrase = useMemo(() => validate?.(seedPhrase), [seedPhrase])

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-deprecated */
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { PayloadHasher } from '@xyo-network/core'
+import { PayloadHasher } from '@xyo-network/hash'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
 import { BlockSignatureTableRow } from './SignatureTableRow'

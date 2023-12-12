@@ -6,7 +6,7 @@ export class PayloadRenderPluginResolver {
   protected plugins: PayloadRenderPlugin[] = []
   protected schemaDefaultPlugin = new Map<string, PayloadRenderPlugin>()
 
-  public list(payload?: Payload) {
+  list(payload?: Payload) {
     if (!payload) {
       return this.plugins
     }
@@ -20,7 +20,7 @@ export class PayloadRenderPluginResolver {
     return result
   }
 
-  public register(plugin: PayloadRenderPlugin, defaultForSchema?: string[]) {
+  register(plugin: PayloadRenderPlugin, defaultForSchema?: string[]) {
     this.plugins.push(plugin)
     defaultForSchema?.forEach((schema) => {
       assertEx(plugin.canRender({ schema }), 'Default renderer must be able to render schema')
@@ -29,7 +29,7 @@ export class PayloadRenderPluginResolver {
     return this
   }
 
-  public resolve(payload: Payload) {
+  resolve(payload: Payload) {
     return this.schemaDefaultPlugin.get(payload.schema) ?? [...this.plugins.values()].find((plugin) => plugin.canRender(payload))
   }
 }

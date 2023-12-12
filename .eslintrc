@@ -4,38 +4,39 @@
     "@xylabs", "@xylabs/react"
   ],
   "ignorePatterns": [
-    "**/dist",
-    "**/node_modules",
-    "**/docs",
-    "coverage",
-    "docs",
-    "bin",
-    "docker",
-    "**/storybook-static",
-    "**/node_modules",
+    "packages/modules",
+    "packages/plugins",
+    "dist",
+    "node_modules",
     "storybook-static",
-    ".yarn",
-    ".depcheckrc"
+    "docs",
+    "coverage",
+    "docker",
+    "nftData",
+    "testData.json",
+    "*.stories.*",
+    "swagger.json",
+    ".yarn"
   ],
   "rules": {
+    "@typescript-eslint/explicit-member-accessibility": ["warn", { "accessibility": "no-public" }],
     "no-restricted-imports": [
       "warn",
       {
         "paths": [
-          "@xyo-network/sdk-xyo-react",
+          "@xyo-network/bridge",
+          "@xyo-network/core",
+          "@xyo-network/module",
           "@xyo-network/modules",
           "@xyo-network/node",
           "@xyo-network/sdk",
           "@xyo-network/plugins",
           "@xyo-network/protocol",
-          "@xyo-network/react-modules",
-          "@xyo-network/react-plugins",
-          "@xyo-network/react-sdk",
-          "@xyo-network/react-test",
-          "lodash",
+          "@xyo-network/witness",
           "react-player",
           "filepond",
           "aos",
+          "react-icons",
           ".",
           "..",
           "../..",
@@ -43,18 +44,19 @@
           "../../../..",
           "../../../../..",
           "../../../../../..",
-          "../../../../../../..",
+          "../../../../../../.."
         ]
       }
     ],
-    "import/no-default-export": "warn",
-    "import/no-internal-modules": ["warn", {"allow": [
-      "**/*.jpg",
-      "**/*.png",
-      "**/*.svg",
-      "react-icons/*",
-      "lodash/*",
-      "@mui/**/*"
-    ]}]
+    "import/no-internal-modules": [
+      "warn", {
+        "allow": [
+          "source-map-support/*",
+          "lodash/*",
+          "aws-sdk/**/*",
+          "types/*"
+        ]
+      }
+    ]
   }
 }

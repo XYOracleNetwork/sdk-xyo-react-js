@@ -1,4 +1,4 @@
-import { ModuleInstance } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module-model'
 import { isNodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 
