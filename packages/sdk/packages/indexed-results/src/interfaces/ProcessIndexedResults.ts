@@ -5,6 +5,6 @@ export interface ProcessIndexedResults {
   parseResults?: (results: Payload[]) => Promise<Payload[]>
   /** Validates results from the diviner(s) to ensure they are of the expected type */
   validateDivinerResults: (payloads: Payload[]) => Promise<Payload[] | undefined>
-  /**  */
+  /** function to ensure the results meets a required level of freshness */
   isFresh?: (payloads: Payload[]) => boolean
 }
