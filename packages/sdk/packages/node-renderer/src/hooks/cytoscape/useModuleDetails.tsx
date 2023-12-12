@@ -1,5 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import { ModuleInstance } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module-model'
 import { useEffect, useState } from 'react'
 
 import { useCytoscapeInstance } from '../../contexts'

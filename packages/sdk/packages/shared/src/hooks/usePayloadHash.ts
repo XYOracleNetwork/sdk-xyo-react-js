@@ -1,5 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import { PayloadHasher } from '@xyo-network/core'
+import { PayloadHasher } from '@xyo-network/hash'
 import { Payload } from '@xyo-network/payload-model'
 
 export const usePayloadHash = <TPayload extends Payload>(payload: TPayload | undefined | null) => {

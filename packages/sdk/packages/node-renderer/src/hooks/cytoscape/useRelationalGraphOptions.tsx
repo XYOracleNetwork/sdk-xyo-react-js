@@ -1,4 +1,4 @@
-import { ModuleInstance } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
 import { ConcentricLayout } from '../../Cytoscape'

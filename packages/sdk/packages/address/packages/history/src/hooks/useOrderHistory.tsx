@@ -1,5 +1,5 @@
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { PayloadHasher } from '@xyo-network/core'
+import { PayloadHasher } from '@xyo-network/hash'
 
 // If a boundwitness hash is not found in any other previous_hashes in the history,
 // it is not yet a parent and therefore the youngest

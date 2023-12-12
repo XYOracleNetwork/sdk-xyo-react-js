@@ -9,7 +9,7 @@ export class AppSettingsStorageBase {
     this.defaults = defaults ?? {}
   }
 
-  public getBoolean(name: string): boolean {
+  getBoolean(name: string): boolean {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     if (!storedValue) {
       assertEx(typeof this.defaults[name] === 'boolean', 'Default value is not boolean')
@@ -20,7 +20,7 @@ export class AppSettingsStorageBase {
     return storedValue !== 'false'
   }
 
-  public getNumber(name: string): number {
+  getNumber(name: string): number {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     if (!storedValue) {
       assertEx(typeof this.defaults[name] === 'number', 'Default value is not a number')
@@ -31,7 +31,7 @@ export class AppSettingsStorageBase {
     return parseFloat(storedValue)
   }
 
-  public getObject<T>(name: string): T {
+  getObject<T>(name: string): T {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     const parsedStoredValue = storedValue ? JSON.parse(storedValue) : null
     if (!parsedStoredValue) {
@@ -41,7 +41,7 @@ export class AppSettingsStorageBase {
     return parsedStoredValue as T
   }
 
-  public getString(name: string) {
+  getString(name: string) {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     if (!storedValue) {
       assertDefinedEx(typeof this.defaults[name] === 'string', 'Default value is not string')
@@ -52,7 +52,7 @@ export class AppSettingsStorageBase {
     return storedValue
   }
 
-  public getStringArray(name: string) {
+  getStringArray(name: string) {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)?.split(',')
     if (!storedValue) {
       assertDefinedEx(Array.isArray(this.defaults[name]), 'Default value is not array')
@@ -63,23 +63,23 @@ export class AppSettingsStorageBase {
     return storedValue
   }
 
-  public setBoolean(name: string, value: boolean) {
+  setBoolean(name: string, value: boolean) {
     localStorage.setItem(`${this.prefix}|${name}`, JSON.stringify(value))
   }
 
-  public setNumber(name: string, value: number) {
+  setNumber(name: string, value: number) {
     localStorage.setItem(`${this.prefix}|${name}`, JSON.stringify(value))
   }
 
-  public setObject<T>(name: string, value: T) {
+  setObject<T>(name: string, value: T) {
     localStorage.setItem(`${this.prefix}|${name}`, JSON.stringify(value))
   }
 
-  public setString(name: string, value: string) {
+  setString(name: string, value: string) {
     localStorage.setItem(`${this.prefix}|${name}`, value)
   }
 
-  public setStringArray(name: string, value: string[]) {
+  setStringArray(name: string, value: string[]) {
     localStorage.setItem(`${this.prefix}|${name}`, value.join(','))
   }
 }
