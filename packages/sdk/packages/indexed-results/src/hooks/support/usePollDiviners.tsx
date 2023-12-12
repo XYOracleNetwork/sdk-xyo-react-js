@@ -1,21 +1,15 @@
 import { Payload } from '@xyo-network/payload-model'
 import { useCallback } from 'react'
-import { IndexedResultsConfig } from '../../interfaces'
+import { IndexedResultsConfig, PollingConfig } from '../../interfaces'
 import { useTryDiviners } from './useTryDiviners'
 
-export interface PollDivinerConfig {
-  initialDelay: number
-  maxDelay: number
-  maxRetries: number
-}
-
-const DEFAULT_POLLING_CONFIG: PollDivinerConfig = {
+const DEFAULT_POLLING_CONFIG: PollingConfig = {
   maxDelay: 10000,
   maxRetries: 8,
   initialDelay: 100,
 }
 
-export const usePollDiviners = <T extends Payload = Payload>(config: IndexedResultsConfig, pollDivinerConfig: PollDivinerConfig = DEFAULT_POLLING_CONFIG) => {
+export const usePollDiviners = <T extends Payload = Payload>(config: IndexedResultsConfig, pollDivinerConfig: PollingConfig = DEFAULT_POLLING_CONFIG) => {
   const tryDiviners = useTryDiviners<T>(config)
   const { indexedQuery } = config.indexedQueryConfig
   const { isFresh } = config.processIndexedResults
