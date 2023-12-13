@@ -7412,7 +7412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/core@npm:^2.84.0, @xyo-network/core@npm:^2.84.2":
+"@xyo-network/core@npm:^2.84.0":
   version: 2.84.2
   resolution: "@xyo-network/core@npm:2.84.2"
   dependencies:
@@ -8089,7 +8089,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/module-abstract@npm:~2.84.2":
+"@xyo-network/module-abstract@npm:^2.84.2, @xyo-network/module-abstract@npm:~2.84.2":
   version: 2.84.2
   resolution: "@xyo-network/module-abstract@npm:2.84.2"
   dependencies:
@@ -8121,7 +8121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/module-events@npm:~2.84.2":
+"@xyo-network/module-events@npm:^2.84.2, @xyo-network/module-events@npm:~2.84.2":
   version: 2.84.2
   resolution: "@xyo-network/module-events@npm:2.84.2"
   dependencies:
@@ -8178,7 +8178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/module-wrapper@npm:~2.84.2":
+"@xyo-network/module-wrapper@npm:^2.84.2, @xyo-network/module-wrapper@npm:~2.84.2":
   version: 2.84.2
   resolution: "@xyo-network/module-wrapper@npm:2.84.2"
   dependencies:
@@ -8197,19 +8197,6 @@ __metadata:
     "@xyo-network/object": "npm:~2.84.2"
     "@xyo-network/payload-model": "npm:~2.84.2"
   checksum: bc94b3cf2854447a1be31c35400fabf9555866dad1f8327c18c9dc14f74d54466f3d04f6d45f8f0f981508fe197575ff778a216f1c63afc0c88e258c43b8de3e
-  languageName: node
-  linkType: hard
-
-"@xyo-network/module@npm:^2.84.2":
-  version: 2.84.2
-  resolution: "@xyo-network/module@npm:2.84.2"
-  dependencies:
-    "@xyo-network/module-abstract": "npm:~2.84.2"
-    "@xyo-network/module-events": "npm:~2.84.2"
-    "@xyo-network/module-model": "npm:~2.84.2"
-    "@xyo-network/module-resolver": "npm:~2.84.2"
-    "@xyo-network/module-wrapper": "npm:~2.84.2"
-  checksum: 66b3a329df057bbecf2a0c22867bf6406c12849f0227240a41ddbb56db56e1fabb0101129b66f85570978c77bac129ed843c92b3ec08d8186657a1846a8caded
   languageName: node
   linkType: hard
 
@@ -8296,7 +8283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/object@npm:^2.84.0, @xyo-network/object@npm:~2.84.2":
+"@xyo-network/object@npm:^2.84.0, @xyo-network/object@npm:^2.84.2, @xyo-network/object@npm:~2.84.2":
   version: 2.84.2
   resolution: "@xyo-network/object@npm:2.84.2"
   dependencies:
@@ -8467,8 +8454,8 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:^3.2.19"
     "@xyo-network/archivist": "npm:^2.84.2"
     "@xyo-network/boundwitness-model": "npm:^2.84.2"
-    "@xyo-network/core": "npm:^2.84.2"
     "@xyo-network/diviner-address-history-model": "npm:^2.84.2"
+    "@xyo-network/hash": "npm:^2.84.2"
     "@xyo-network/node-core-types": "npm:^2.82.0"
     "@xyo-network/payload-builder": "npm:^2.84.2"
     "@xyo-network/payload-model": "npm:^2.84.2"
@@ -8650,8 +8637,9 @@ __metadata:
     "@xyo-network/boundwitness-builder": "npm:^2.84.2"
     "@xyo-network/boundwitness-model": "npm:^2.84.2"
     "@xyo-network/boundwitness-wrapper": "npm:^2.84.2"
-    "@xyo-network/module": "npm:^2.84.2"
+    "@xyo-network/module-events": "npm:^2.84.2"
     "@xyo-network/module-model": "npm:^2.84.2"
+    "@xyo-network/module-wrapper": "npm:^2.84.2"
     "@xyo-network/node-memory": "npm:^2.84.2"
     "@xyo-network/payload-model": "npm:^2.84.2"
     "@xyo-network/react-module": "workspace:~"
@@ -8684,7 +8672,7 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:^3.2.19"
     "@xyo-network/boundwitness-model": "npm:^2.84.2"
     "@xyo-network/boundwitness-validator": "npm:^2.84.2"
-    "@xyo-network/core": "npm:^2.84.2"
+    "@xyo-network/hash": "npm:^2.84.2"
     "@xyo-network/payload-model": "npm:^2.84.2"
     "@xyo-network/react-error": "workspace:~"
     "@xyo-network/react-event": "workspace:~"
@@ -9248,19 +9236,18 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:^3.2.19"
     "@xyo-network/account": "npm:^2.84.2"
     "@xyo-network/archivist-model": "npm:^2.84.2"
-    "@xyo-network/core": "npm:^2.84.2"
     "@xyo-network/diviner": "npm:^2.84.2"
     "@xyo-network/diviner-model": "npm:^2.84.2"
     "@xyo-network/diviner-payload-memory": "npm:^2.84.2"
     "@xyo-network/manifest": "npm:^2.84.2"
-    "@xyo-network/module": "npm:^2.84.2"
+    "@xyo-network/module-events": "npm:^2.84.2"
+    "@xyo-network/module-model": "npm:^2.84.2"
+    "@xyo-network/object": "npm:^2.84.2"
     "@xyo-network/payload-model": "npm:^2.84.2"
     "@xyo-network/react-archivist": "workspace:~"
-    "@xyo-network/react-diviner": "workspace:~"
+    "@xyo-network/react-node": "workspace:~"
     "@xyo-network/react-node-provider": "workspace:~"
-    "@xyo-network/react-sentinel": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
-    "@xyo-network/react-storybook": "workspace:~"
     "@xyo-network/witness-timestamp": "npm:^2.84.2"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -9389,7 +9376,7 @@ __metadata:
     "@xyo-network/crypto-asset-plugin": "npm:^2.84.0"
     "@xyo-network/diviner": "npm:^2.84.2"
     "@xyo-network/diviner-address-history": "npm:^2.84.2"
-    "@xyo-network/module": "npm:^2.84.2"
+    "@xyo-network/module-model": "npm:^2.84.2"
     "@xyo-network/node-memory": "npm:^2.84.2"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -9502,7 +9489,7 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.19"
     "@xylabs/tsconfig-react": "npm:^3.2.19"
-    "@xyo-network/module": "npm:^2.84.2"
+    "@xyo-network/module-model": "npm:^2.84.2"
     "@xyo-network/node-memory": "npm:^2.84.2"
     "@xyo-network/node-model": "npm:^2.84.2"
     "@xyo-network/react-node-context": "workspace:~"
@@ -9538,7 +9525,8 @@ __metadata:
     "@xyo-network/diviner-model": "npm:^2.84.2"
     "@xyo-network/http-bridge": "npm:^2.84.2"
     "@xyo-network/id-plugin": "npm:^2.84.0"
-    "@xyo-network/module": "npm:^2.84.2"
+    "@xyo-network/module-events": "npm:^2.84.2"
+    "@xyo-network/module-model": "npm:^2.84.2"
     "@xyo-network/node-memory": "npm:^2.84.2"
     "@xyo-network/node-model": "npm:^2.84.2"
     "@xyo-network/react-archivist": "workspace:~"
@@ -9548,7 +9536,7 @@ __metadata:
     "@xyo-network/react-storybook": "workspace:~"
     "@xyo-network/react-wallet": "workspace:~"
     "@xyo-network/sentinel": "npm:^2.84.2"
-    "@xyo-network/witness": "npm:^2.84.2"
+    "@xyo-network/witness-model": "npm:^2.84.2"
     cytoscape: "npm:^3.28.0"
     cytoscape-cola: "npm:^2.5.1"
     typescript: "npm:^5.3.3"
@@ -9577,7 +9565,7 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.19"
     "@xylabs/tsconfig-react": "npm:^3.2.19"
-    "@xyo-network/module": "npm:^2.84.2"
+    "@xyo-network/module-abstract": "npm:^2.84.2"
     "@xyo-network/module-model": "npm:^2.84.2"
     "@xyo-network/node-memory": "npm:^2.84.2"
     "@xyo-network/node-model": "npm:^2.84.2"
@@ -10112,7 +10100,6 @@ __metadata:
     "@xyo-network/crypto-contract-function-read-payload-plugin": "npm:^2.84.0"
     "@xyo-network/crypto-contract-function-read-plugin": "npm:^2.84.0"
     "@xyo-network/manifest": "npm:^2.84.2"
-    "@xyo-network/module": "npm:^2.84.2"
     "@xyo-network/module-model": "npm:^2.84.2"
     "@xyo-network/payload-model": "npm:^2.84.2"
     "@xyo-network/react-module": "workspace:^"
@@ -10121,7 +10108,7 @@ __metadata:
     "@xyo-network/react-witness": "workspace:~"
     "@xyo-network/sentinel": "npm:^2.84.2"
     "@xyo-network/sentinel-model": "npm:^2.84.2"
-    "@xyo-network/witness": "npm:^2.84.2"
+    "@xyo-network/witness-model": "npm:^2.84.2"
     ethers: "npm:^6.9.0"
     react-json-view: "npm:^1.21.3"
     typescript: "npm:^5.3.3"
@@ -10168,7 +10155,7 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.19"
     "@xylabs/tsconfig-react": "npm:^3.2.19"
-    "@xyo-network/core": "npm:^2.84.2"
+    "@xyo-network/hash": "npm:^2.84.2"
     "@xyo-network/payload-model": "npm:^2.84.2"
     "@xyo-network/react-event": "workspace:~"
     react-router-dom: "npm:^6.20.1"
@@ -10195,7 +10182,7 @@ __metadata:
     "@xyo-network/account-model": "npm:^2.84.2"
     "@xyo-network/archivist": "npm:^2.84.2"
     "@xyo-network/http-bridge": "npm:^2.84.2"
-    "@xyo-network/module": "npm:^2.84.2"
+    "@xyo-network/module-model": "npm:^2.84.2"
     "@xyo-network/node-memory": "npm:^2.84.2"
     "@xyo-network/node-model": "npm:^2.84.2"
     "@xyo-network/payloadset-plugin": "npm:^2.84.2"
@@ -10205,7 +10192,7 @@ __metadata:
     "@xyo-network/react-wallet": "workspace:~"
     "@xyo-network/sentinel": "npm:^2.84.2"
     "@xyo-network/wallet-model": "npm:^2.84.2"
-    "@xyo-network/witness": "npm:^2.84.2"
+    "@xyo-network/witness-model": "npm:^2.84.2"
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@mui/icons-material": ^5
@@ -10224,7 +10211,6 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.19"
     "@xylabs/tsconfig-react": "npm:^3.2.19"
     "@xyo-network/boundwitness-model": "npm:^2.84.2"
-    "@xyo-network/payload-builder": "npm:^2.84.2"
     "@xyo-network/payload-model": "npm:^2.84.2"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -10406,7 +10392,6 @@ __metadata:
     "@xyo-network/payload-model": "npm:^2.84.2"
     "@xyo-network/react-module": "workspace:^"
     "@xyo-network/react-node": "workspace:~"
-    "@xyo-network/witness": "npm:^2.84.2"
     "@xyo-network/witness-model": "npm:^2.84.2"
     react-json-view: "npm:^1.21.3"
     typescript: "npm:^5.3.3"
@@ -10680,7 +10665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/witness-timestamp@npm:^2.84.2, @xyo-network/witness-timestamp@npm:~2.84.2":
+"@xyo-network/witness-timestamp@npm:^2.84.2":
   version: 2.84.2
   resolution: "@xyo-network/witness-timestamp@npm:2.84.2"
   dependencies:
@@ -10702,18 +10687,6 @@ __metadata:
     "@xyo-network/payload-model": "npm:~2.84.2"
     "@xyo-network/witness-model": "npm:~2.84.2"
   checksum: 989693e5caf7c1ec90c12a28331f84113d7292dc9cf66023595b7cb4366b0805da7f1184dd2d30f52301f767aef50f71691ca788dd4be53de046032c2a225616
-  languageName: node
-  linkType: hard
-
-"@xyo-network/witness@npm:^2.84.2":
-  version: 2.84.2
-  resolution: "@xyo-network/witness@npm:2.84.2"
-  dependencies:
-    "@xyo-network/abstract-witness": "npm:~2.84.2"
-    "@xyo-network/witness-model": "npm:~2.84.2"
-    "@xyo-network/witness-timestamp": "npm:~2.84.2"
-    "@xyo-network/witness-wrapper": "npm:~2.84.2"
-  checksum: db56a2be2c73fcc81407c21ed165e0563319ba9faef5aa5b9f314a5cc35331b9b06dd04bed73abcc41781dbc0bc6950311be0684cb1eb4c0bbb8d0f921daffca
   languageName: node
   linkType: hard
 
