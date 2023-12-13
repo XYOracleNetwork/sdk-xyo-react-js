@@ -34,7 +34,7 @@ export const useTryDiviners = <T extends Payload = Payload>(config: IndexedResul
       }
       return result ?? null
     }
-  }, [tryDiviner])
+  }, [diviners, tryDiviner])
 
   return tryDiviners
 }

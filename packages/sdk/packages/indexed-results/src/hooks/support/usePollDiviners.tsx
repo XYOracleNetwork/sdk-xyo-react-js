@@ -47,7 +47,7 @@ export const usePollDiviners = <T extends Payload = Payload>(
         throw e
       }
     },
-    [maxDelay, maxRetries, indexedQuery, isFresh],
+    [maxRetries, maxDelay, tryDiviners, isFresh, indexedQuery],
   )
 
   const pollDiviners = useCallback(async () => {

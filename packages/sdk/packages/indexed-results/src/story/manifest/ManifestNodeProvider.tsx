@@ -21,7 +21,7 @@ export const ManifestNodeProvider: React.FC<ManifestNodeProviderProps> = ({ chil
       console.error('Error creating IndexedResultsNode', e)
       throw e
     }
-  }, [])
+  }, [manifestNodes])
 
   return <NodeProvider node={indexedResultsNode}>{children}</NodeProvider>
 }
