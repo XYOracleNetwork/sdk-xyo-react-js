@@ -1,4 +1,4 @@
-import { EmptyObject } from '@xyo-network/core'
+import { EmptyObject } from '@xyo-network/object'
 
 const DEFAULT_ACTIVE_PROMISE_LIMIT = 6
 
@@ -7,11 +7,11 @@ type DefaultValue = EmptyObject | null | undefined
 // A single item in the queue
 export interface QueueItem {
   id: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  task: () => Promise<any>
+  reject: (error: Error) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   resolve: (value: any | PromiseLike<any>) => void
-  reject: (error: Error) => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  task: () => Promise<any>
 }
 
 /**

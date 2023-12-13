@@ -1,1 +1,1 @@
-export * from './diviners';
+export * from './diviners'

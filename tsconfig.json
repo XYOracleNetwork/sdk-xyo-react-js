@@ -2,6 +2,9 @@
   "compilerOptions": {
     "typeRoots": []
   },
-  "exclude": ["dist", "docs", "node_modules", "packages/plugins", "packages/modules"],
-  "extends": "@xylabs/tsconfig-react"
+  "exclude": ["./node_modules", "./**/node_modules", "./dist", "./**/dist", "./**/docs", ".*", "storybook-static"],
+  "extends": "@xylabs/tsconfig-react",
+  "include": [
+    "./src", "./**/src"
+  ]
 }

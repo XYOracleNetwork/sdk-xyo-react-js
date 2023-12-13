@@ -2,7 +2,7 @@ import { EthAddress } from '@xylabs/eth-address'
 import { ButtonEx } from '@xylabs/react-button'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { Module } from '@xyo-network/module'
+import { Module } from '@xyo-network/module-model'
 import { findNetworkComponent } from '@xyo-network/react-shared'
 import { useState } from 'react'
 

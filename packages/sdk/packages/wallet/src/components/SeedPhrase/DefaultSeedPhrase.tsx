@@ -1,8 +1,8 @@
 import { Alert, AlertTitle, Snackbar } from '@mui/material'
-import { WithChildren } from '@xylabs/react-shared'
 import { generateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
+import { WithChildren } from '@xylabs/react-shared'
 import { useEffect, useState } from 'react'
 
 export interface DefaultSeedPhraseProps extends WithChildren {

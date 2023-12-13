@@ -1,1 +1,1 @@
-export * from './SentinelNode';
+export * from './SentinelNode'

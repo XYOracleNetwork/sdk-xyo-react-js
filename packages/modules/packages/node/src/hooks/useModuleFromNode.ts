@@ -1,6 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import { asModuleInstance } from '@xyo-network/module'
-import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
+import { asModuleInstance, isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
 import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig'

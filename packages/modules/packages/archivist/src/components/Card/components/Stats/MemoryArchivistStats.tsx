@@ -2,7 +2,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistAllQuerySchema, ArchivistInstance } from '@xyo-network/archivist'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
-import { EventUnsubscribeFunction } from '@xyo-network/module'
+import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 

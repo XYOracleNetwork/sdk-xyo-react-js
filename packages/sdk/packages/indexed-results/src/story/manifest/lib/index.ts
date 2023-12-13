@@ -1,1 +1,1 @@
-export * from './CreatablePackageManifest';
+export * from './CreatablePackageManifest'

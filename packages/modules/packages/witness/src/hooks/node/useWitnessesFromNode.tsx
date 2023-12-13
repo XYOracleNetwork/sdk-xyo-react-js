@@ -1,6 +1,6 @@
 import { ModuleFilter } from '@xyo-network/module-model'
 import { ModuleFromNodeConfig, useModulesFromNode } from '@xyo-network/react-node'
-import { isWitnessInstance, WitnessInstance } from '@xyo-network/witness'
+import { isWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
 
 export const useWitnessesFromNode = (
   filter?: ModuleFilter,

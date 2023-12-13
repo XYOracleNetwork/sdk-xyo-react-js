@@ -1,22 +1,21 @@
-{
+const finalConfig = {
+  "extends": ["@xylabs", "@xylabs/react"],
+  parser: '@typescript-eslint/parser',
+  parserOptions: { ecmaVersion: 'latest', project: null, tsconfigRootDir: __dirname, extraFileExtensions: ['json'] },
   "root": true,
-  "extends": [
-    "@xylabs", "@xylabs/react"
-  ],
   "ignorePatterns": [
-    "packages/modules",
-    "packages/plugins",
     "dist",
     "node_modules",
-    "storybook-static",
     "docs",
     "coverage",
     "docker",
     "nftData",
     "testData.json",
+    "storybook-static",
     "*.stories.*",
     "swagger.json",
-    ".yarn"
+    ".yarn",
+    ".*"
   ],
   "rules": {
     "@typescript-eslint/explicit-member-accessibility": ["warn", { "accessibility": "no-public" }],
@@ -60,3 +59,5 @@
     ]
   }
 }
+
+module.exports = finalConfig

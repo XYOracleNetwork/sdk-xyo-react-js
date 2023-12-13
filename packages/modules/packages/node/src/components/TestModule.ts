@@ -1,4 +1,5 @@
-import { AbstractModuleInstance, ModuleConfig, ModuleParams } from '@xyo-network/module'
+import { AbstractModuleInstance } from '@xyo-network/module-abstract'
+import { ModuleConfig, ModuleParams } from '@xyo-network/module-model'
 import { Query } from '@xyo-network/payload-model'
 
 export type TestModuleConfigSchema = 'network.xyo.test.module'

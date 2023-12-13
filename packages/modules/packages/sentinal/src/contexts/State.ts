@@ -1,7 +1,7 @@
 import { ArchivistModule } from '@xyo-network/archivist'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { SentinelModule } from '@xyo-network/sentinel'
-import { WitnessModule } from '@xyo-network/witness'
+import { WitnessModule } from '@xyo-network/witness-model'
 
 export enum SentinelReportStatus {
   Idle = 'idle',

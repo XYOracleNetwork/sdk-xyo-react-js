@@ -1,7 +1,7 @@
-import { ArchivistInstance, ArchivistModuleEventData } from "@xyo-network/archivist-model"
+import { ArchivistInstance, ArchivistModuleEventData } from '@xyo-network/archivist-model'
 import { EventListener } from '@xyo-network/module-events'
-import { Payload } from "@xyo-network/payload-model"
-import { useEffect, useState } from "react"
+import { Payload } from '@xyo-network/payload-model'
+import { useEffect, useState } from 'react'
 
 export const useListenForNewResults = (archivist?: ArchivistInstance, listenForNewResults?: boolean) => {
   const [newResults, setNewResults] = useState<Payload[]>()

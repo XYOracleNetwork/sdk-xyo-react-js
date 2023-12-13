@@ -1,5 +1,5 @@
 import { CardHeader, CardHeaderProps } from '@mui/material'
-import { Module } from '@xyo-network/module'
+import { Module } from '@xyo-network/module-model'
 import { findNetworkComponent } from '@xyo-network/react-shared'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'

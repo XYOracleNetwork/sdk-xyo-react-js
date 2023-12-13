@@ -1,7 +1,7 @@
 import { styled } from '@mui/material'
 import { TreeItem } from '@mui/x-tree-view'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ModuleInstance } from '@xyo-network/module'
+import { ModuleInstance } from '@xyo-network/module-model'
 import { MutableRefObject, useState } from 'react'
 
 interface RenderModuleProps {

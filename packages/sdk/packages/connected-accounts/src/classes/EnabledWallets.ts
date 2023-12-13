@@ -23,7 +23,7 @@ export type WalletListener = () => void
 
 export class EnabledEthWalletConnections {
   // control whether or not enabled/disabled preferences are persisted (i.e. in localStorage)
-  public persistPreferences = true
+  persistPreferences = true
 
   // Map of wallet names and their enabled/disabled state
   private enabledWallets: EnabledWalletsSavedState = {}

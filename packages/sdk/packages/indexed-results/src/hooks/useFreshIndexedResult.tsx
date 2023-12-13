@@ -1,21 +1,27 @@
-import { usePromise } from "@xylabs/react-promise";
-import { Payload } from "@xyo-network/payload-model";
-import { IndexedResultsConfig, IndexedResultsQueue, PollingConfig } from "../interfaces";
-import { usePollDiviners } from "./support";
-import { useTriggerFreshIndexedResult } from "./useTriggerFreshIndexedResult";
+import { usePromise } from '@xylabs/react-promise'
+import { Payload } from '@xyo-network/payload-model'
+
+import { IndexedResultsConfig, IndexedResultsQueue, PollingConfig } from '../interfaces'
+import { usePollDiviners } from './support'
+import { useTriggerFreshIndexedResult } from './useTriggerFreshIndexedResult'
 
 export interface FreshIndexedResultConfig {
   /** Indexed Results Configuration */
   config: IndexedResultsConfig
   /** Configuration for polling diviners */
-  pollingConfig?: PollingConfig 
+  pollingConfig?: PollingConfig
   /** */
   queueConfig?: IndexedResultsQueue
   /** External trigger to start the hook logic */
   trigger?: boolean
 }
 
-export const useFreshIndexedResult = <TResult extends Payload = Payload>({ config, pollingConfig, queueConfig, trigger}: FreshIndexedResultConfig) => {
+export const useFreshIndexedResult = <TResult extends Payload = Payload>({
+  config,
+  pollingConfig,
+  queueConfig,
+  trigger,
+}: FreshIndexedResultConfig) => {
   const { queue, taskId } = queueConfig ?? {}
   const freshResult = useTriggerFreshIndexedResult(config, trigger)
 

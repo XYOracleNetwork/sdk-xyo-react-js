@@ -12,12 +12,18 @@ export const isNetworkLocationAnswer = isPayloadOfSchemaType<NetworkLocationAnsw
 
 export const NetworkLocationHeatmapAnswerSchema = 'network.xyo.location.heatmap.answer'
 export type NetworkLocationHeatmapAnswerSchema = 'network.xyo.location.heatmap.answer'
-export type NetworkLocationHeatmapAnswerPayload = Payload<NetworkLocationAnswerBase<{ features: Feature<Polygon>[]  }>, NetworkLocationHeatmapAnswerSchema>
+export type NetworkLocationHeatmapAnswerPayload = Payload<
+  NetworkLocationAnswerBase<{ features: Feature<Polygon>[] }>,
+  NetworkLocationHeatmapAnswerSchema
+>
 export const isNetworkLocationHeatmapAnswer = isPayloadOfSchemaType<NetworkLocationHeatmapAnswerPayload>(NetworkLocationHeatmapAnswerSchema)
 
 export const NetworkLocationHeatmapQuadkeyAnswerSchema = 'network.xyo.location.heatmap.quadkey.answer'
 export type NetworkLocationHeatmapQuadkeyAnswerSchema = 'network.xyo.location.heatmap.quadkey.answer'
-export type NetworkLocationHeatmapQuadkeyAnswerPayload = Payload<NetworkLocationAnswerBase<{ density: number; quadkey: string }[]>, NetworkLocationHeatmapQuadkeyAnswerSchema>
+export type NetworkLocationHeatmapQuadkeyAnswerPayload = Payload<
+  NetworkLocationAnswerBase<{ density: number; quadkey: string }[]>,
+  NetworkLocationHeatmapQuadkeyAnswerSchema
+>
 export const isNetworkLocationHeatmapQuadkeyAnswer = isPayloadOfSchemaType<NetworkLocationHeatmapAnswerPayload>(
   NetworkLocationHeatmapQuadkeyAnswerSchema,
 )
