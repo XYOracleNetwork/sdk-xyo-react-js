@@ -16,7 +16,7 @@ export const usePollDiviners = <T extends Payload = Payload>(
 ) => {
   const [activePolling, setActivePolling] = useState(true)
   const tryDiviners = useTryDiviners<T>(config)
-  const { indexedQuery } = config.indexedQueryConfig
+  const { indexedQuery } = config
   const { isFresh } = config.processIndexedResults
   const { maxDelay, maxRetries, initialDelay } = pollDivinerConfig
 

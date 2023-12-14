@@ -2,9 +2,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 
-import { IndexedSources } from '../../interfaces'
+import { IndexedResultsConfig } from '../../interfaces'
 
-export const useFetchModules = (config: IndexedSources) => {
+export const useFetchModules = (config: IndexedResultsConfig) => {
   const { diviners: divinerNames } = config
   const [node] = useProvidedNode()
 
