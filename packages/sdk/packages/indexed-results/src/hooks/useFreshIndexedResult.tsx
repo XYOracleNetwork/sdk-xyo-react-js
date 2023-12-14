@@ -25,7 +25,7 @@ export const useFreshIndexedResult = <TResult extends Payload = Payload>({
   const { queue, taskId } = queueConfig ?? {}
   const freshResult = useTriggerFreshIndexedResult(config, trigger)
 
-  const pollDiviners = usePollDiviners<TResult>(config, pollingConfig)
+  const { pollDiviners } = usePollDiviners<TResult>(config, pollingConfig)
 
   const [result, error, state] = usePromise(async () => {
     if (trigger) {
