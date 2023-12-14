@@ -1,19 +1,15 @@
 import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
 
-import { IndexedResultsConfig, IndexedResultsQueue, PollingConfig } from '../interfaces'
+import { UseIndexedResultsConfig } from './lib'
 import { usePollDiviners } from './support'
 
-export const useIndexedResults = <TResult extends Payload = Payload>(
-  /** Indexed Results Configuration */
-  config: IndexedResultsConfig,
-  /** Configuration for polling diviners */
-  pollingConfig?: PollingConfig,
-  /** Queue for handling Promise Results */
-  queueConfig?: IndexedResultsQueue,
-  /** External trigger to start the hook logic */
-  trigger?: boolean,
-) => {
+export const useIndexedResults = <TResult extends Payload = Payload>({
+  indexedResultsConfig: config,
+  pollingConfig,
+  queueConfig,
+  trigger,
+}: UseIndexedResultsConfig) => {
   const { queue, taskId } = queueConfig ?? {}
 
   const { pollDiviners } = usePollDiviners<TResult>(config, pollingConfig)
