@@ -5,7 +5,7 @@ import { useProvidedNode } from '@xyo-network/react-node'
 import { IndexedSources } from '../../interfaces'
 
 export const useFetchModules = (config: IndexedSources) => {
-  const { diviners: divinerNames, storageArchivist } = config
+  const { diviners: divinerNames } = config
   const [node] = useProvidedNode()
 
   const [diviners] = usePromise<DivinerInstance[]>(async () => {
@@ -14,7 +14,6 @@ export const useFetchModules = (config: IndexedSources) => {
   }, [divinerNames, node])
 
   return {
-    archivist: storageArchivist,
     diviners,
   }
 }
