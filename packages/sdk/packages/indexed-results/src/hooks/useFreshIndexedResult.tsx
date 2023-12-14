@@ -10,7 +10,7 @@ export interface FreshIndexedResultConfig {
   config: IndexedResultsConfig
   /** Configuration for polling diviners */
   pollingConfig?: PollingConfig
-  /** */
+  /** Queue for handling Promise Results */
   queueConfig?: IndexedResultsQueue
   /** External trigger to start the hook logic */
   trigger?: boolean
