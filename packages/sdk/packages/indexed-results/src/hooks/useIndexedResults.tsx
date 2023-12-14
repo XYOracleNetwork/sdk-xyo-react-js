@@ -5,14 +5,14 @@ import { UseIndexedResultsConfig } from './lib'
 import { usePollDiviners } from './support'
 
 export const useIndexedResults = <TResult extends Payload = Payload>({
-  indexedResultsConfig: config,
+  indexedResultsConfig,
   pollingConfig,
   queueConfig,
   trigger,
 }: UseIndexedResultsConfig) => {
   const { queue, taskId } = queueConfig ?? {}
 
-  const { pollDiviners } = usePollDiviners<TResult>(config, pollingConfig)
+  const { pollDiviners } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
 
   const [results] = usePromise(async () => {
     if (trigger) {
