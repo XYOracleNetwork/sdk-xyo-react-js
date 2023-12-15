@@ -9502,6 +9502,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-manifest@workspace:packages/sdk/packages/manifest, @xyo-network/react-manifest@workspace:~":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-manifest@workspace:packages/sdk/packages/manifest"
+  dependencies:
+    "@storybook/react": "npm:^7.6.4"
+    "@xylabs/react-promise": "npm:^3.0.35"
+    "@xylabs/ts-scripts-yarn3": "npm:^3.2.19"
+    "@xylabs/tsconfig-react": "npm:^3.2.19"
+    "@xyo-network/account": "npm:^2.84.5"
+    "@xyo-network/diviner": "npm:^2.84.5"
+    "@xyo-network/diviner-model": "npm:^2.84.5"
+    "@xyo-network/diviner-payload-memory": "npm:^2.84.5"
+    "@xyo-network/manifest": "npm:^2.84.5"
+    "@xyo-network/module-model": "npm:^2.84.5"
+    "@xyo-network/payload-model": "npm:^2.84.5"
+    "@xyo-network/react-node-provider": "workspace:~"
+    "@xyo-network/witness-timestamp": "npm:^2.84.5"
+    typescript: "npm:^5.3.3"
+  peerDependencies:
+    "@mui/icons-material": ^5
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    react: ^18
+    react-dom: ^18
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-map@workspace:packages/sdk/packages/map, @xyo-network/react-map@workspace:~":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-map@workspace:packages/sdk/packages/map"
@@ -10224,6 +10251,7 @@ __metadata:
     "@xyo-network/react-footer": "workspace:~"
     "@xyo-network/react-gas-price": "workspace:~"
     "@xyo-network/react-indexed-results": "workspace:~"
+    "@xyo-network/react-manifest": "workspace:~"
     "@xyo-network/react-map": "workspace:~"
     "@xyo-network/react-network": "workspace:~"
     "@xyo-network/react-node-renderer": "workspace:~"
