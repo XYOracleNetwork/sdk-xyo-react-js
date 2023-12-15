@@ -2,8 +2,8 @@ import { MemoryBoundWitnessDiviner } from '@xyo-network/diviner-boundwitness-mem
 import { MemoryPayloadDiviner } from '@xyo-network/diviner-payload-memory'
 import { PackageManifestPayload } from '@xyo-network/manifest'
 import { ModuleFactoryLocator } from '@xyo-network/module-model'
+import { CreatablePackageManifest } from '@xyo-network/react-manifest'
 
-import { CreatablePackageManifest } from '../../lib'
 import tokenNodeManifest from './token-node.json'
 
 export const TokenManifestNode: CreatablePackageManifest = (locator: ModuleFactoryLocator): PackageManifestPayload => {

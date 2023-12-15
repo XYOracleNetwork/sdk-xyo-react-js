@@ -12,10 +12,10 @@ import { EvmTokenInterfaceImplementedDiviner } from '@xyo-network/evm-token-inte
 import { PackageManifestPayload } from '@xyo-network/manifest'
 import { MemoryArchivist } from '@xyo-network/memory-archivist'
 import { ModuleFactory, ModuleFactoryLocator } from '@xyo-network/module-model'
+import { CreatablePackageManifest } from '@xyo-network/react-manifest'
 import { TimestampWitness } from '@xyo-network/witness-timestamp'
 import { InfuraProvider } from 'ethers'
 
-import { CreatablePackageManifest } from '../../lib'
 import contractWitnessManifest from './contract-witness-index-node.json'
 
 export const ContractWitnessManifestNode: CreatablePackageManifest = (locator: ModuleFactoryLocator): PackageManifestPayload => {
