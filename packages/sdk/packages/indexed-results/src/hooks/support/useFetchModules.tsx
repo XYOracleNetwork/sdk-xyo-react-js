@@ -10,7 +10,8 @@ export const useFetchModules = (config: IndexedResultsConfig) => {
 
   const [diviners] = usePromise<DivinerInstance[]>(async () => {
     const resolvedDiviners = node ? await node.resolve({ name: divinerNames }) : []
-    return resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
+    const foundDiviners = resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
+    return foundDiviners
   }, [divinerNames, node])
 
   return {
