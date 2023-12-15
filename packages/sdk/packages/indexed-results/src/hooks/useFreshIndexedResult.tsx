@@ -1,33 +1,25 @@
 import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
+import { useMemo } from 'react'
 
-import { IndexedResultsConfig, IndexedResultsQueue, PollingConfig } from '../interfaces'
 import { usePollDiviners } from './support'
+import { UseIndexedResultsConfig } from './types'
 import { useTriggerFreshIndexedResult } from './useTriggerFreshIndexedResult'
 
-export interface FreshIndexedResultConfig {
-  /** Indexed Results Configuration */
-  config: IndexedResultsConfig
-  /** Configuration for polling diviners */
-  pollingConfig?: PollingConfig
-  /** */
-  queueConfig?: IndexedResultsQueue
-  /** External trigger to start the hook logic */
-  trigger?: boolean
-}
-
 export const useFreshIndexedResult = <TResult extends Payload = Payload>({
-  config,
+  indexedResultsConfig,
   pollingConfig,
   queueConfig,
   trigger,
-}: FreshIndexedResultConfig) => {
+}: UseIndexedResultsConfig) => {
   const { queue, taskId } = queueConfig ?? {}
-  const freshResult = useTriggerFreshIndexedResult(config, trigger)
 
-  const pollDiviners = usePollDiviners<TResult>(config, pollingConfig)
+  const triggerFreshResultsConfig = useMemo(() => ({ indexedResultsConfig, trigger }), [indexedResultsConfig, trigger])
+  const freshResult = useTriggerFreshIndexedResult(triggerFreshResultsConfig)
 
-  const [result, error, state] = usePromise(async () => {
+  const { pollDiviners, results } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
+
+  const [, error, state] = usePromise(async () => {
     if (trigger) {
       if (queue) {
         const task = async () => {
@@ -42,5 +34,5 @@ export const useFreshIndexedResult = <TResult extends Payload = Payload>({
     }
   }, [pollDiviners, freshResult, trigger, queue, taskId])
 
-  return [result, error, state]
+  return [results, error, state === 'pending' ? 'polling' : state]
 }

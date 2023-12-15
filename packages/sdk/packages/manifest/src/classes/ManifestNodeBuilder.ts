@@ -2,7 +2,7 @@ import { HDWallet } from '@xyo-network/account'
 import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
 import { ModuleFactoryLocator } from '@xyo-network/module-model'
 
-import { CreatablePackageManifest } from '../lib'
+import { CreatablePackageManifest } from '../types'
 
 export class ManifestNodeBuilder {
   locatedManifests: PackageManifestPayload[] = []

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/XYOracleNetwork/sdk-xyo-client-js/main/packages/manifest/src/schema.json",
+  "nodes": [
+    {
+      "config": {
+        "accountPath": "0",
+        "name": "ArchivistNode",
+        "schema": "network.xyo.node.config"
+      },
+      "modules": {
+        "private": [],
+        "public": [
+          {
+            "config": {
+              "language": "javascript",
+              "name": "Archivist",
+              "schema": "network.xyo.archivist.config"
+            }
+          },
+          {
+            "config": {
+              "language": "javascript",
+              "name": "PayloadDiviner",
+              "schema": "network.xyo.diviner.payload.config"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "schema": "network.xyo.manifest"
+}

@@ -1,0 +1,280 @@
+{
+  "$schema": "https://raw.githubusercontent.com/XYOracleNetwork/sdk-xyo-client-js/main/packages/manifest/src/schema.json",
+  "nodes": [
+    {
+      "config": {
+        "accountPath": "m/44'/60'/2",
+        "name": "TokenDivinerIndexNode",
+        "schema": "network.xyo.node.config"
+      },
+      "modules": {
+        "private": [
+          {
+            "config": {
+              "language": "javascript",
+              "name": "AddressStateArchivist",
+              "schema": "network.xyo.archivist.config",
+              "storeQueries": false
+            }
+          },
+          {
+            "config": {
+              "archivist": "AddressStateArchivist",
+              "language": "javascript",
+              "name": "AddressStateBoundWitnessDiviner",
+              "schema": "network.xyo.diviner.boundwitness.config"
+            }
+          },
+          {
+            "config": {
+              "archivist": "AddressStateArchivist",
+              "language": "javascript",
+              "name": "AddressStatePayloadDiviner",
+              "schema": "network.xyo.diviner.payload.config"
+            }
+          },
+          {
+            "config": {
+              "language": "javascript",
+              "name": "EvmContractDivinerIndexArchivist",
+              "schema": "network.xyo.archivist.config"
+            }
+          },
+          {
+            "config": {
+              "archivist": "EvmContractDivinerIndexArchivist",
+              "language": "javascript",
+              "name": "EvmContractDivinerIndexBoundWitnessDiviner",
+              "schema": "network.xyo.diviner.boundwitness.config"
+            }
+          },
+          {
+            "config": {
+              "archivist": "EvmContractDivinerIndexArchivist",
+              "language": "javascript",
+              "name": "EvmContractDivinerIndexPayloadDiviner",
+              "schema": "network.xyo.diviner.payload.config"
+            }
+          },
+          {
+            "config": {
+              "filter": {
+                "payload_schemas": [
+                  "network.xyo.evm.token.interface.implemented"
+                ]
+              },
+              "labels": {
+                "network.xyo.diviner.stage": "stateToIndexCandidateDiviner"
+              },
+              "language": "javascript",
+              "name": "EvmContractStateToIndexCandidateDiviner",
+              "payloadStore": {
+                "archivist": "Archivist",
+                "boundWitnessDiviner": "BoundWitnessDiviner",
+                "payloadDiviner": "PayloadDiviner"
+              },
+              "schema": "network.xyo.diviner.indexing.temporal.stage.stateToIndexCandidateDiviner.config"
+            }
+          },
+          {
+            "config": {
+              "labels": {
+                "network.xyo.diviner.stage": "indexCandidateToIndexDiviner"
+              },
+              "language": "javascript",
+              "name": "EvmContractIndexCandidateToEvmContractIndexDiviner",
+              "schema": "network.xyo.diviner.indexing.temporal.stage.indexCandidateToIndexDiviner.config",
+              "schemaTransforms": {
+                "network.xyo.evm.token.interface.implemented": [
+                  {
+                    "destinationField": "address",
+                    "sourcePathExpression": "$.address"
+                  },
+                  {
+                    "destinationField": "chainId",
+                    "sourcePathExpression": "$.chainId"
+                  },
+                  {
+                    "destinationField": "tokenInterface",
+                    "sourcePathExpression": "$.tokenInterface"
+                  },
+                  {
+                    "destinationField": "implemented",
+                    "sourcePathExpression": "$.implemented"
+                  }
+                ],
+                "network.xyo.timestamp": [
+                  {
+                    "destinationField": "timestamp",
+                    "sourcePathExpression": "$.timestamp"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "config": {
+              "divinerQuerySchema": "network.xyo.diviner.payload.query",
+              "indexQuerySchema": "network.xyo.diviner.payload.query",
+              "indexSchema": "network.xyo.diviner.indexing.temporal.result.index",
+              "labels": {
+                "network.xyo.diviner.stage": "divinerQueryToIndexQueryDiviner"
+              },
+              "language": "javascript",
+              "name": "EvmContractQueryToEvmContractIndexQueryDiviner",
+              "schema": "network.xyo.diviner.indexing.temporal.stage.divinerQueryToIndexQueryDiviner.config",
+              "schemaTransforms": {
+                "network.xyo.diviner.payload.query": [
+                  {
+                    "destinationField": "address",
+                    "sourcePathExpression": "$.address"
+                  },
+                  {
+                    "defaultValue": 1,
+                    "destinationField": "chainId",
+                    "sourcePathExpression": "$.chainId"
+                  },
+                  {
+                    "defaultValue": 1,
+                    "destinationField": "tokenInterface",
+                    "sourcePathExpression": "$.tokenInterface"
+                  },
+                  {
+                    "defaultValue": 1,
+                    "destinationField": "implemented",
+                    "sourcePathExpression": "$.implemented"
+                  },
+                  {
+                    "defaultValue": 1,
+                    "destinationField": "limit",
+                    "sourcePathExpression": "$.limit"
+                  },
+                  {
+                    "defaultValue": 0,
+                    "destinationField": "offset",
+                    "sourcePathExpression": "$.offset"
+                  },
+                  {
+                    "defaultValue": "desc",
+                    "destinationField": "order",
+                    "sourcePathExpression": "$.order"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "config": {
+              "labels": {
+                "network.xyo.diviner.stage": "indexQueryResponseToDivinerQueryResponseDiviner"
+              },
+              "language": "javascript",
+              "name": "EvmContractIndexQueryResponseToEvmContractQueryResponseDiviner",
+              "schema": "network.xyo.diviner.indexing.temporal.stage.indexQueryResponseToDivinerQueryResponseDiviner.config"
+            }
+          },
+          {
+            "config": {
+              "language": "javascript",
+              "name": "TimestampWitness",
+              "schema": "network.xyo.witness.timestamp.config"
+            }
+          }
+        ],
+        "public": [
+          {
+            "config": {
+              "language": "javascript",
+              "name": "ERC721TokenInterfaceImplementedDiviner",
+              "schema": "network.xyo.evm.token.interface.implemented.diviner.config",
+              "tokenInterfaces": [
+                "ERC721"
+              ]
+            }
+          },
+          {
+            "config": {
+              "language": "javascript",
+              "name": "ERC1155TokenInterfaceImplementedDiviner",
+              "schema": "network.xyo.evm.token.interface.implemented.diviner.config",
+              "tokenInterfaces": [
+                "ERC1155"
+              ]
+            }
+          },
+          {
+            "config": {
+              "indexStore": {
+                "archivist": "EvmContractDivinerIndexArchivist",
+                "boundWitnessDiviner": "EvmContractDivinerIndexBoundWitnessDiviner",
+                "payloadDiviner": "EvmContractDivinerIndexPayloadDiviner"
+              },
+              "indexingDivinerStages": {
+                "divinerQueryToIndexQueryDiviner": "EvmContractQueryToEvmContractIndexQueryDiviner",
+                "indexCandidateToIndexDiviner": "EvmContractIndexCandidateToEvmContractIndexDiviner",
+                "indexQueryResponseToDivinerQueryResponseDiviner": "EvmContractIndexQueryResponseToEvmContractQueryResponseDiviner",
+                "stateToIndexCandidateDiviner": "EvmContractStateToIndexCandidateDiviner"
+              },
+              "language": "javascript",
+              "name": "EvmTokenInterfaceImplementedIndexDiviner",
+              "pollFrequency": 100,
+              "schema": "network.xyo.diviner.indexing.temporal.config",
+              "stateStore": {
+                "archivist": "AddressStateArchivist",
+                "boundWitnessDiviner": "AddressStateBoundWitnessDiviner",
+                "payloadDiviner": "AddressStatePayloadDiviner"
+              }
+            }
+          },
+          {
+            "config": {
+              "archiving": {
+                "archivists": [
+                  "Archivist"
+                ]
+              },
+              "language": "javascript",
+              "name": "ERC721TokenInterfaceImplementedSentinel",
+              "schema": "network.xyo.sentinel.config",
+              "synchronous": "true",
+              "tasks": [
+                {
+                  "input": true,
+                  "module": "TimestampWitness"
+                },
+                {
+                  "input": true,
+                  "module": "ERC721TokenInterfaceImplementedDiviner"
+                }
+              ]
+            }
+          },
+          {
+            "config": {
+              "archiving": {
+                "archivists": [
+                  "Archivist"
+                ]
+              },
+              "language": "javascript",
+              "name": "ERC1155TokenInterfaceImplementedSentinel",
+              "schema": "network.xyo.sentinel.config",
+              "synchronous": "true",
+              "tasks": [
+                {
+                  "input": true,
+                  "module": "TimestampWitness"
+                },
+                {
+                  "input": true,
+                  "module": "ERC1155TokenInterfaceImplementedDiviner"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "schema": "network.xyo.manifest"
+}

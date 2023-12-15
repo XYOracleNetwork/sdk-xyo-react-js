@@ -1,2 +1,1 @@
-export * from './archivist'
-export * from './sentinel'
+export * from './contract'

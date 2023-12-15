@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
-
-import { ArchivistManifestNode, ManifestNodeProvider, SentinelManifestNode } from '.'
+import { ArchivistManifestNode, SentinelManifestNode } from '../story'
+import { ManifestNodeProvider } from './ManifestNodeProvider'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -9,7 +9,7 @@ export default {
 } as Meta
 
 const Template: StoryFn<typeof  ManifestNodeProvider> = (args) => {
-  return < ManifestNodeProvider {...args} />
+  return <ManifestNodeProvider {...args} />
 }
 
 const Default = Template.bind({})
@@ -30,3 +30,4 @@ WithArchivistAndSentinel.args = {
 }
 
 export { Default, WithArchivist, WithArchivistAndSentinel, WithSentinel }
+

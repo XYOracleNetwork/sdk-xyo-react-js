@@ -3,8 +3,8 @@
   "nodes": [
     {
       "config": {
-        "accountPath": "0",
-        "name": "ArchivistNode",
+        "accountPath": "m/44'/60'/0",
+        "name": "TokenNode",
         "schema": "network.xyo.node.config"
       },
       "modules": {
@@ -14,13 +14,23 @@
             "config": {
               "language": "javascript",
               "name": "Archivist",
-              "schema": "network.xyo.archivist.config"
+              "schema": "network.xyo.archivist.config",
+              "storeQueries": false
             }
           },
           {
             "config": {
+              "archivist": "Archivist",
               "language": "javascript",
-              "name": "Archivist",
+              "name": "BoundWitnessDiviner",
+              "schema": "network.xyo.diviner.boundwitness.config"
+            }
+          },
+          {
+            "config": {
+              "archivist": "Archivist",
+              "language": "javascript",
+              "name": "PayloadDiviner",
               "schema": "network.xyo.diviner.payload.config"
             }
           }
