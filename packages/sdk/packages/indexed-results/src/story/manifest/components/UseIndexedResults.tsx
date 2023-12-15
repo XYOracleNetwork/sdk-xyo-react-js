@@ -42,7 +42,7 @@ export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({ address, c
   return (
     <FlexCol alignItems="start">
       <h1>Polling Results from Hook</h1>
-      {results ? <pre>{JSON.stringify(results[0], null, 2)}</pre> : null}
+      {results ? <pre>{JSON.stringify(results, null, 2)}</pre> : null}
     </FlexCol>
   )
 }

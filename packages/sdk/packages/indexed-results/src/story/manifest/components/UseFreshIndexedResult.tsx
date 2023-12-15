@@ -32,8 +32,8 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
               payloads.map(async (payload) => {
                 const castPayload = payload as Payload & { sources: string[] }
                 const results = (await archivist?.get(castPayload.sources as string[])) ?? []
-                // return contract payload
-                return results.filter(isEvmTokenInterfaceImplemented)[0]
+                const filteredResult = results.filter(isEvmTokenInterfaceImplemented)[0]
+                return filteredResult
               }),
             )
           },
@@ -62,7 +62,7 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
   return (
     <FlexCol alignItems="start">
       <h1>Polling Results from Hook</h1>
-      {results ? <pre>{JSON.stringify(results[0], null, 2)}</pre> : null}
+      {results ? <pre>{JSON.stringify(results, null, 2)}</pre> : null}
     </FlexCol>
   )
 }
