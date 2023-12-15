@@ -53,7 +53,7 @@ export const TestSentinel: React.FC = () => {
             const contractSentinel = asSentinelInstance(await node.resolve('EvmContractSentinel'))
             const collectionCallPayload: BlockchainAddress = { address, chainId: 1, schema: BlockchainAddressSchema }
             const report = await contractSentinel?.report([collectionCallPayload])
-            const [bw, timestamp, contract] = (report as [BoundWitness, TimeStamp, EvmContract]) ?? []
+            const [, , contract] = (report as [BoundWitness, TimeStamp, EvmContract]) ?? []
             const divinerName = `${tokenInterface}TokenInterfaceImplementedSentinel`
             const tokenSentinel = asSentinelInstance(await node.resolve(divinerName))
             const tokenReport = await tokenSentinel?.report([contract])
