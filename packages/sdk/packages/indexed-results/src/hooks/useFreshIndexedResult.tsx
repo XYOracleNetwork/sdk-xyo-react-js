@@ -34,5 +34,5 @@ export const useFreshIndexedResult = <TResult extends Payload = Payload>({
     }
   }, [pollDiviners, freshResult, trigger, queue, taskId])
 
-  return [result, error, state]
+  return result
 }
