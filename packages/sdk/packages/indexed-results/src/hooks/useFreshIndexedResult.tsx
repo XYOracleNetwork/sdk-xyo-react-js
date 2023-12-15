@@ -17,9 +17,9 @@ export const useFreshIndexedResult = <TResult extends Payload = Payload>({
   const triggerFreshResultsConfig = useMemo(() => ({ indexedResultsConfig, trigger }), [indexedResultsConfig, trigger])
   const freshResult = useTriggerFreshIndexedResult(triggerFreshResultsConfig)
 
-  const { pollDiviners } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
+  const { pollDiviners, results } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
 
-  const [result, error, state] = usePromise(async () => {
+  const [, error, state] = usePromise(async () => {
     if (trigger) {
       if (queue) {
         const task = async () => {
@@ -34,5 +34,5 @@ export const useFreshIndexedResult = <TResult extends Payload = Payload>({
     }
   }, [pollDiviners, freshResult, trigger, queue, taskId])
 
-  return result
+  return [results, error, state === 'pending' ? 'polling' : state]
 }

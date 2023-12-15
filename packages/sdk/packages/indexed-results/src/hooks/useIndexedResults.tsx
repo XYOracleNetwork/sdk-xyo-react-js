@@ -12,9 +12,9 @@ export const useIndexedResults = <TResult extends Payload = Payload>({
 }: UseIndexedResultsConfig) => {
   const { queue, taskId } = queueConfig ?? {}
 
-  const { pollDiviners } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
+  const { pollDiviners, results } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
 
-  const [results] = usePromise(async () => {
+  const [, error, state] = usePromise(async () => {
     if (trigger) {
       if (queue) {
         const task = async () => {
@@ -27,5 +27,5 @@ export const useIndexedResults = <TResult extends Payload = Payload>({
     }
   }, [pollDiviners, queue, taskId, trigger])
 
-  return results
+  return [results, error, state === 'pending' ? 'polling' : state]
 }
