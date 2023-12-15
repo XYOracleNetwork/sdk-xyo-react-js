@@ -4,7 +4,7 @@ export interface ProcessIndexedResults {
   /** function to ensure the results meets a required level of freshness */
   isFresh?: (payloads?: Payload[] | null) => boolean
   /** Validate and parse results from the diviner(s) (i.e. validate and resolve the hashes that are in the query result) */
-  parseIndexedResults: <T extends Payload = Payload>(payloads: Payload[]) => Promise<T[] | undefined>
+  parseIndexedResults: (payloads: Payload[]) => Promise<Payload[] | undefined>
 }
 
 export interface IndexedResultsConfig<TPayload extends Payload = Payload> {
