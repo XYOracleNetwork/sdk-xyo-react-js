@@ -9,7 +9,9 @@ import { useNode } from '@xyo-network/react-node'
 import { asSentinelInstance } from '@xyo-network/sentinel-model'
 import { BlockchainAddress, BlockchainAddressSchema } from '@xyo-network/witness-blockchain-abstract'
 import { TimeStamp } from '@xyo-network/witness-timestamp'
-import { useCallback, useState } from 'react'
+import { ReactNode, useCallback, useState } from 'react'
+
+import { UseIndexedResultsProps } from './UseIndexedResults'
 
 const address = '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D'
 
@@ -25,12 +27,18 @@ const supportedTokenInterfaces = [
   // 'ERC20',
 ]
 
-export const TestSentinel: React.FC = () => {
+export interface TestSentinelProps {
+  children?: (props: UseIndexedResultsProps) => ReactNode
+}
+
+export const TestSentinel: React.FC<TestSentinelProps> = ({ children }) => {
   const [node] = useNode()
   const [addressField, setAddressField] = useState(address)
   const [tokenInterfaceField, setTokenInterfaceField] = useState(supportedTokenInterfaces[0])
   const [valid, setValid] = useState<boolean>()
   const [indexedResult, setIndexedResult] = useState<boolean>()
+
+  const IndexedDivinerName = 'EvmTokenInterfaceImplementedIndexDiviner'
 
   const handleReport = async () => {
     await testReport(addressField, tokenInterfaceField)
@@ -41,7 +49,7 @@ export const TestSentinel: React.FC = () => {
       if (node) {
         try {
           // test indexed call
-          const diviner = asDivinerInstance(await node.resolve('EvmTokenInterfaceImplementedIndexDiviner'))
+          const diviner = asDivinerInstance(await node.resolve(IndexedDivinerName))
           const query = { address, chainId: 1, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }
           const result = await diviner?.divine([query])
           if (result?.length) {
@@ -54,8 +62,8 @@ export const TestSentinel: React.FC = () => {
             const collectionCallPayload: BlockchainAddress = { address, chainId: 1, schema: BlockchainAddressSchema }
             const report = await contractSentinel?.report([collectionCallPayload])
             const [, , contract] = (report as [BoundWitness, TimeStamp, EvmContract]) ?? []
-            const divinerName = `${tokenInterface}TokenInterfaceImplementedSentinel`
-            const tokenSentinel = asSentinelInstance(await node.resolve(divinerName))
+            const sentinelName = `${tokenInterface}TokenInterfaceImplementedSentinel`
+            const tokenSentinel = asSentinelInstance(await node.resolve(sentinelName))
             const tokenReport = await tokenSentinel?.report([contract])
             const implemented = tokenReport?.filter(isEvmTokenInterfaceImplemented).some((i) => i.implemented)
             setValid(implemented)
@@ -86,6 +94,7 @@ export const TestSentinel: React.FC = () => {
       {indexedResult !== undefined ? (
         <Alert severity={indexedResult ? 'success' : 'error'}>{indexedResult ? 'Indexed Result Found' : 'Not an indexed result'}</Alert>
       ) : null}
+      {children?.({ address: addressField, chainId: 1, diviners: [IndexedDivinerName], tokenInterface: tokenInterfaceField })}
     </FlexCol>
   )
 }

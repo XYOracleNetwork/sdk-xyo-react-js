@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
 import { ManifestNodeProvider } from '@xyo-network/react-manifest'
-import { TestSentinel } from './components'
+import { TestSentinel, UseIndexedResults } from './components'
 import { ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode } from './nodes'
 
 // eslint-disable-next-line import/no-default-export
@@ -10,21 +10,32 @@ export default {
 } as Meta
 
 const Template: StoryFn = (args) => {
-  return <ManifestNodeProvider {...args} />
+  return (
+    <ManifestNodeProvider {...args}>
+      <TestSentinel />
+    </ManifestNodeProvider>
+  )
 }
 
-const TemplateForContractAndToken: StoryFn<typeof  ManifestNodeProvider> = (args) => {
-  return <ManifestNodeProvider {...args}>
-    <TestSentinel />
-  </ManifestNodeProvider>
+const TemplateUseIndexedResults: StoryFn = (args) => {
+  return (
+    <ManifestNodeProvider {...args}>
+      <TestSentinel>
+        {(props) => <UseIndexedResults {...props} />}
+      </TestSentinel>
+    </ManifestNodeProvider>
+  )
 }
 
 const Default = Template.bind({})
-
-const WithContractAndToken = TemplateForContractAndToken.bind({})
-WithContractAndToken.args = {
+Default.args = {
   manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode]
 }
 
-export { Default, WithContractAndToken }
+const WithUseIndexedResults = TemplateUseIndexedResults.bind({})
+WithUseIndexedResults.args = {
+  manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode]
+}
+
+export { Default, WithUseIndexedResults }
 
