@@ -11,9 +11,9 @@ export const useTryDiviners = <T extends Payload = Payload>(config: IndexedResul
   const { parseIndexedResults } = config.processIndexedResults
 
   const tryDiviner = useCallback(
-    async (diviner: DivinerInstance) => {
+    async (diviner?: DivinerInstance) => {
       const divinedResult = await diviner?.divine([indexedQuery])
-      const results = await parseIndexedResults<T>(divinedResult)
+      const results = divinedResult ? await parseIndexedResults(divinedResult) : []
       return results && results.length ? results : null
     },
     [indexedQuery, parseIndexedResults],
@@ -27,7 +27,7 @@ export const useTryDiviners = <T extends Payload = Payload>(config: IndexedResul
       while (divinerCount <= diviners?.length) {
         const divinerResult = await tryDiviner(diviners[divinerCount])
         if (divinerResult && divinerResult?.length) {
-          result = divinerResult
+          result = divinerResult as T[]
           break
         }
         divinerCount++
