@@ -28,7 +28,6 @@ export const useTryDiviners = <T extends Payload = Payload>(config: IndexedResul
         const divinerResult = await tryDiviner(diviners[divinerCount])
         if (divinerResult && divinerResult?.length) {
           result = divinerResult as T[]
-          break
         }
         divinerCount++
       }

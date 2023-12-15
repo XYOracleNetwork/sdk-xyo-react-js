@@ -10,9 +10,10 @@ const DEFAULT_POLLING_CONFIG: PollingConfig = {
   maxRetries: 8,
 }
 
-export const usePollDiviners = <T extends Payload = Payload>(
+export const usePollDivinersInner = <T extends Payload = Payload>(
   config: IndexedResultsConfig,
   pollDivinerConfig: PollingConfig = DEFAULT_POLLING_CONFIG,
+  onResult?: (result: T[]) => void,
 ) => {
   const [activePolling, setActivePolling] = useState(true)
   const tryDiviners = useTryDiviners<T>(config)
@@ -47,10 +48,11 @@ export const usePollDiviners = <T extends Payload = Payload>(
             result = await tryDiviners()
 
             const fresh = freshTest(result)
-            if (!result || !fresh) {
-              await pollDivinersWithDelay(initialDelay)
+            if (result || fresh) {
+              onResult?.(result as T[])
             }
-            return result as T[]
+            await pollDivinersWithDelay(initialDelay)
+            return
           }
 
           // Try for a fixed number of times
@@ -76,7 +78,7 @@ export const usePollDiviners = <T extends Payload = Payload>(
         }
       }
     },
-    [activePolling, maxRetries, tryDiviners, freshTest, initialDelay, maxDelay, indexedQuery],
+    [activePolling, maxRetries, tryDiviners, freshTest, initialDelay, onResult, maxDelay, indexedQuery],
   )
 
   const pollDiviners = useCallback(async () => {
@@ -84,4 +86,16 @@ export const usePollDiviners = <T extends Payload = Payload>(
   }, [initialDelay, pollDivinersWithDelay])
 
   return { cancelPolling, pollDiviners }
+}
+
+export const usePollDiviners = <T extends Payload = Payload>(
+  config: IndexedResultsConfig,
+  pollDivinerConfig: PollingConfig = DEFAULT_POLLING_CONFIG,
+  onResult?: (result: T[]) => void,
+) => {
+  const [results, setResults] = useState<T[]>()
+  const onResultLocal = useCallback((results: T[]) => (onResult ? onResult(results) : setResults(results)), [onResult])
+
+  const { cancelPolling, pollDiviners } = usePollDivinersInner(config, pollDivinerConfig, onResultLocal)
+  return { cancelPolling, pollDiviners, results }
 }
