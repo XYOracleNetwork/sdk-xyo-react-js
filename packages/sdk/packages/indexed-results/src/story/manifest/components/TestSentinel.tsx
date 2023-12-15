@@ -11,7 +11,7 @@ import { BlockchainAddress, BlockchainAddressSchema } from '@xyo-network/witness
 import { TimeStamp } from '@xyo-network/witness-timestamp'
 import { ReactNode, useCallback, useState } from 'react'
 
-import { UseIndexedResultsProps } from './UseIndexedResults'
+import { UseIndexedResultsProps } from './lib'
 
 const address = '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D'
 

@@ -5,20 +5,14 @@ import { useArchivistFromNode } from '@xyo-network/react-archivist'
 import { useMemo } from 'react'
 
 import { useIndexedResults, UseIndexedResultsConfig } from '../../../hooks'
-
-export interface UseIndexedResultsProps {
-  address: string
-  chainId: number
-  diviners: string[]
-  tokenInterface: string
-}
+import { UseIndexedResultsProps } from './lib'
 
 export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
   const [archivist] = useArchivistFromNode('Archivist')
 
-  const config: UseIndexedResultsConfig = useMemo(() => {
+  const config = useMemo(() => {
     const indexedQuery = { address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }
-    return {
+    const config: UseIndexedResultsConfig = {
       indexedResultsConfig: {
         diviners,
         indexedQuery,
@@ -40,14 +34,15 @@ export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({ address, c
       },
       trigger: !!archivist,
     }
+    return config
   }, [address, archivist, chainId, diviners, tokenInterface])
 
   const results = useIndexedResults(config)
 
   return (
     <FlexCol alignItems="start">
-      <h1>Polling Results</h1>
-      {results ? <pre>{JSON.stringify(results, null, 2)}</pre> : null}
+      <h1>Polling Results from Hook</h1>
+      {results ? <pre>{JSON.stringify(results[0], null, 2)}</pre> : null}
     </FlexCol>
   )
 }
