@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 
-import { UseIndexedResultsConfig } from './lib'
+import { UseIndexedResultsConfig } from './types'
 
 export const useTriggerFreshIndexedResult = ({ indexedResultsConfig: config, trigger }: UseIndexedResultsConfig) => {
   const { refresh, processIndexedResults } = config

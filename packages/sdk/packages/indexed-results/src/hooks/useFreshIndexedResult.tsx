@@ -2,8 +2,8 @@ import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
 import { useMemo } from 'react'
 
-import { UseIndexedResultsConfig } from './lib'
 import { usePollDiviners } from './support'
+import { UseIndexedResultsConfig } from './types'
 import { useTriggerFreshIndexedResult } from './useTriggerFreshIndexedResult'
 
 export const useFreshIndexedResult = <TResult extends Payload = Payload>({

@@ -1,8 +1,8 @@
 import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
 
-import { UseIndexedResultsConfig } from './lib'
 import { usePollDiviners } from './support'
+import { UseIndexedResultsConfig } from './types'
 
 export const useIndexedResults = <TResult extends Payload = Payload>({
   indexedResultsConfig,
