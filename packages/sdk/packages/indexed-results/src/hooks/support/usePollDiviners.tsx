@@ -88,7 +88,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
           result = await functionToPoll()
 
           const fresh = freshTest(result)
-          if (result || fresh) {
+          if (result && fresh) {
             onResult?.(result as T[])
           }
           await pollDivinersIndefinitely(initialDelay, functionToPoll)
