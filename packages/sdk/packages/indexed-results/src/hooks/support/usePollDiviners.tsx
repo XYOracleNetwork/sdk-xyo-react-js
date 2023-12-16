@@ -120,7 +120,7 @@ export const usePollDiviners = <T extends Payload = Payload>(
   onResult?: (result: T[]) => void,
 ) => {
   const tryDiviners = useTryDiviners(config)
-  const [results, setResults] = useState<T[]>()
+  const [results, setResults] = useState<T[] | null>()
   const onResultLocal = useCallback((results: T[]) => (onResult ? onResult(results) : setResults(results)), [onResult])
 
   const { cancelPolling, poll } = usePollingFunction(config, pollDivinerConfig, tryDiviners, onResultLocal)
