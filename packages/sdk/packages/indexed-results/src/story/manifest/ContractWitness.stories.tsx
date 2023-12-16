@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
 import { ManifestNodeProvider } from '@xyo-network/react-manifest'
-import { TestSentinel, UseFreshIndexedResult, UseIndexedResults } from './components'
+import { TestSentinel, UseFreshIndexedResult, UseIndexedResults, UseIndexedResultsNoPoll } from './components'
 import { ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode } from './nodes'
 
 // eslint-disable-next-line import/no-default-export
@@ -37,6 +37,16 @@ const TemplateUseFreshIndexedResults: StoryFn = (args) => {
   )
 }
 
+const TemplateUseIndexedResultsNoPoll: StoryFn = (args) => {
+  return (
+    <ManifestNodeProvider {...args}>
+      <TestSentinel>
+        {(props) => <UseIndexedResultsNoPoll {...props} />}
+      </TestSentinel>
+    </ManifestNodeProvider>
+  )
+}
+
 const Default = Template.bind({})
 Default.args = {
   manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode]
@@ -51,6 +61,10 @@ const WithUseFreshIndexedResults = TemplateUseFreshIndexedResults.bind({})
 WithUseFreshIndexedResults.args = {
   manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode]
 }
+const WithUseIndexedResultsNoPoll = TemplateUseIndexedResultsNoPoll.bind({})
+WithUseIndexedResultsNoPoll.args = {
+  manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode]
+}
 
-export { Default, WithUseFreshIndexedResults, WithUseIndexedResults }
+export { Default, WithUseFreshIndexedResults, WithUseIndexedResults, WithUseIndexedResultsNoPoll }
 
