@@ -45,29 +45,33 @@ export const usePollingFunction = <T extends Payload = Payload>(
         let retries = 0
         let result: Payload[] | undefined | null
 
-        await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
-        try {
-          // Try for a fixed number of times
-          if (retries < maxRetries) {
-            // logarithmic backoff till we hit the max, then we continue that delay for remaining tries
-            const updatedDelay = newDelay >= maxDelay ? newDelay : newDelay * 3
-            result = await functionToPoll()
+        const pollDivinersWithDelayInner = async (newDelay: number, functionToPoll: FunctionToPoll) => {
+          await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
+          try {
+            // Try for a fixed number of times
+            if (retries < maxRetries) {
+              // logarithmic backoff till we hit the max, then we continue that delay for remaining tries
+              const updatedDelay = newDelay >= maxDelay ? newDelay : newDelay * 3
+              result = await functionToPoll()
 
-            const fresh = freshTest(result)
-            if (!result || !fresh) {
-              console.log(`Completed Retry ${retries} - Retrying in ${updatedDelay} milliseconds...`)
-              retries++
-              await pollDivinersWithDelay(updatedDelay, functionToPoll)
+              const fresh = freshTest(result)
+              if (!result || !fresh) {
+                console.log(`Completed Retry ${retries} - Retrying in ${updatedDelay} milliseconds...`)
+                retries++
+                await pollDivinersWithDelayInner(updatedDelay, functionToPoll)
+              }
+              return result as T[]
+            } else {
+              console.warn('Exceeded maximum retries.', JSON.stringify(indexedQuery))
+              return
             }
-            return result as T[]
-          } else {
-            console.warn('Exceeded maximum retries.', JSON.stringify(indexedQuery))
-            return
+          } catch (e) {
+            console.error('error retrying diviner', e)
+            throw e
           }
-        } catch (e) {
-          console.error('error retrying diviner', e)
-          throw e
         }
+
+        return await pollDivinersWithDelayInner(newDelay, functionToPoll)
       }
     },
     [activePolling, maxRetries, freshTest, maxDelay, indexedQuery],
