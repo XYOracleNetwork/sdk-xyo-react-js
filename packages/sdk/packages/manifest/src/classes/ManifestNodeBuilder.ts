@@ -17,7 +17,7 @@ export class ManifestNodeBuilder {
   ) {}
 
   async create() {
-    this.locatedManifests = await Promise.all(this.manifestNodes.map(async (manifestNode) => manifestNode(this.locator)))
+    this.locatedManifests = await Promise.all(this.manifestNodes.map((manifestNode) => manifestNode(this.locator)))
     return this
   }
 
