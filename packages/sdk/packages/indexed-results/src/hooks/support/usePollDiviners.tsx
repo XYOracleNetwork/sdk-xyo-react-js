@@ -16,7 +16,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
   config: IndexedResultsConfig,
   pollDivinerConfig: PollingConfig = DEFAULT_POLLING_CONFIG,
   functionToPoll: FunctionToPoll,
-  onResult?: (result: T[]) => void,
+  onResult?: (result: T[] | null) => void,
 ) => {
   const { indexedQuery } = config
   const { isFresh } = config.processIndexedResults
@@ -63,7 +63,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
               return result as T[]
             } else {
               console.warn('Exceeded maximum retries.', JSON.stringify(indexedQuery))
-              return
+              onResult?.(result as T[])
             }
           } catch (e) {
             console.error('error retrying diviner', e)
@@ -74,7 +74,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
         return await pollDivinersWithDelayInner(newDelay, functionToPoll)
       }
     },
-    [activePolling, maxRetries, freshTest, maxDelay, indexedQuery],
+    [activePolling, maxRetries, maxDelay, freshTest, indexedQuery, onResult],
   )
 
   /** A polling function that runs indefinitely on a set interval */
@@ -117,12 +117,12 @@ export const usePollingFunction = <T extends Payload = Payload>(
 export const usePollDiviners = <T extends Payload = Payload>(
   config: IndexedResultsConfig,
   pollDivinerConfig: PollingConfig = DEFAULT_POLLING_CONFIG,
-  onResult?: (result: T[]) => void,
+  onResult?: (result: T[] | null) => void,
 ) => {
   const tryDiviners = useTryDiviners(config)
   const [results, setResults] = useState<T[] | null>()
-  const onResultLocal = useCallback((results: T[]) => (onResult ? onResult(results) : setResults(results)), [onResult])
+  const onResultLocal = useCallback((results: T[] | null) => (onResult ? onResult(results) : setResults(results)), [onResult])
 
   const { cancelPolling, poll } = usePollingFunction(config, pollDivinerConfig, tryDiviners, onResultLocal)
-  return { cancelPolling, pollDiviners: poll, results }
+  return { cancelPolling, pollDiviners: poll, pollResults: results }
 }
