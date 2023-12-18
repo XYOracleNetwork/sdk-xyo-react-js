@@ -5964,15 +5964,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.14.0":
-  version: 6.14.0
-  resolution: "@typescript-eslint/eslint-plugin@npm:6.14.0"
+"@typescript-eslint/eslint-plugin@npm:^6.14.0, @typescript-eslint/eslint-plugin@npm:^6.15.0":
+  version: 6.15.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:6.15.0"
   dependencies:
     "@eslint-community/regexpp": "npm:^4.5.1"
-    "@typescript-eslint/scope-manager": "npm:6.14.0"
-    "@typescript-eslint/type-utils": "npm:6.14.0"
-    "@typescript-eslint/utils": "npm:6.14.0"
-    "@typescript-eslint/visitor-keys": "npm:6.14.0"
+    "@typescript-eslint/scope-manager": "npm:6.15.0"
+    "@typescript-eslint/type-utils": "npm:6.15.0"
+    "@typescript-eslint/utils": "npm:6.15.0"
+    "@typescript-eslint/visitor-keys": "npm:6.15.0"
     debug: "npm:^4.3.4"
     graphemer: "npm:^1.4.0"
     ignore: "npm:^5.2.4"
@@ -5985,7 +5985,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: d420277bed0104713fb4a3c2e0fed32b300919708db3f2e3d13bc83e80a9aec181bfc4e1e6012c65408c318f3ac113926fc77e6667d7657e34fa0d5a2c21ee32
+  checksum: 9020370c5e89b52b65ed2373c755d4b70f57ec7ebcf02d3e2f323f31ec81717af110d8e5f903b189b71e0a952f042e0fe2b637e77959c3102907efed4ba55512
   languageName: node
   linkType: hard
 
@@ -6017,21 +6017,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.14.0":
-  version: 6.14.0
-  resolution: "@typescript-eslint/parser@npm:6.14.0"
+"@typescript-eslint/parser@npm:^6.14.0, @typescript-eslint/parser@npm:^6.15.0":
+  version: 6.15.0
+  resolution: "@typescript-eslint/parser@npm:6.15.0"
   dependencies:
-    "@typescript-eslint/scope-manager": "npm:6.14.0"
-    "@typescript-eslint/types": "npm:6.14.0"
-    "@typescript-eslint/typescript-estree": "npm:6.14.0"
-    "@typescript-eslint/visitor-keys": "npm:6.14.0"
+    "@typescript-eslint/scope-manager": "npm:6.15.0"
+    "@typescript-eslint/types": "npm:6.15.0"
+    "@typescript-eslint/typescript-estree": "npm:6.15.0"
+    "@typescript-eslint/visitor-keys": "npm:6.15.0"
     debug: "npm:^4.3.4"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 34f46aa8aaadb0d0ecb7d791a8436fcf44ec04af33ee9d198bcf6f7ca3927d8caa79d4756e0c4ef0d50979d895df0b8f1a2473fc83104423c96856e9d56047f3
+  checksum: fdd1f584e5068216c36a01e40750950ef309b36a522f6ecde36931690558a319960a702b4b4a806f335fb28ca99f8a07bb206571141550aaab1f6f40066f6605
   languageName: node
   linkType: hard
 
@@ -6045,13 +6045,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:6.14.0":
-  version: 6.14.0
-  resolution: "@typescript-eslint/scope-manager@npm:6.14.0"
+"@typescript-eslint/scope-manager@npm:6.15.0":
+  version: 6.15.0
+  resolution: "@typescript-eslint/scope-manager@npm:6.15.0"
   dependencies:
-    "@typescript-eslint/types": "npm:6.14.0"
-    "@typescript-eslint/visitor-keys": "npm:6.14.0"
-  checksum: fbe945169fe092df5953a54a552a9e8d9dc3dc158a39cd99de7f1843a169c82d3ba59e314b7d0f5b8110dbbe8c37c9e62dc2dda91a31536fe054221d5d8972c3
+    "@typescript-eslint/types": "npm:6.15.0"
+    "@typescript-eslint/visitor-keys": "npm:6.15.0"
+  checksum: 168d783c06a99784362e2eaaa56396b31716ee785779707ef984c2abb3e822c56440473efc6580cb8b84b2da508731ad184a00b3618bc7f3f93d8243804f2fcf
   languageName: node
   linkType: hard
 
@@ -6072,12 +6072,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/type-utils@npm:6.14.0":
-  version: 6.14.0
-  resolution: "@typescript-eslint/type-utils@npm:6.14.0"
+"@typescript-eslint/type-utils@npm:6.15.0":
+  version: 6.15.0
+  resolution: "@typescript-eslint/type-utils@npm:6.15.0"
   dependencies:
-    "@typescript-eslint/typescript-estree": "npm:6.14.0"
-    "@typescript-eslint/utils": "npm:6.14.0"
+    "@typescript-eslint/typescript-estree": "npm:6.15.0"
+    "@typescript-eslint/utils": "npm:6.15.0"
     debug: "npm:^4.3.4"
     ts-api-utils: "npm:^1.0.1"
   peerDependencies:
@@ -6085,7 +6085,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 52c2a380d694f629ed2d37ce9decc5d8f6d276b030dcb8ee2d0a21b667d789e0d50c8a4d06fa60a053cbcc162b50c3708260f569ccd765609f17499d5294c19d
+  checksum: 8dabb355f09f57de8b46d726ad95a57593e5b87427dee5182afecb490624424afec02b69a27018b352dcb5f930eb391cb8cdc12cd60a93231d4f04e63e2f2c0b
   languageName: node
   linkType: hard
 
@@ -6096,10 +6096,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:6.14.0":
-  version: 6.14.0
-  resolution: "@typescript-eslint/types@npm:6.14.0"
-  checksum: bcb32d69ac4a570634e37a3f149b7653a85334ac7b1d736961b627647ceff74797c4ac30b1405c508ede9462fad53b0b4442dbdf21877bf91263390c6e426e95
+"@typescript-eslint/types@npm:6.15.0":
+  version: 6.15.0
+  resolution: "@typescript-eslint/types@npm:6.15.0"
+  checksum: d55de64d532c9016c922cc36b86ab661d7d64d942057486a0bca7a7db07fade95c3de59bfe364bc76ab538fb979ca2e4e6744c3acf8919a2d61e73cc7f544363
   languageName: node
   linkType: hard
 
@@ -6121,12 +6121,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:6.14.0":
-  version: 6.14.0
-  resolution: "@typescript-eslint/typescript-estree@npm:6.14.0"
+"@typescript-eslint/typescript-estree@npm:6.15.0":
+  version: 6.15.0
+  resolution: "@typescript-eslint/typescript-estree@npm:6.15.0"
   dependencies:
-    "@typescript-eslint/types": "npm:6.14.0"
-    "@typescript-eslint/visitor-keys": "npm:6.14.0"
+    "@typescript-eslint/types": "npm:6.15.0"
+    "@typescript-eslint/visitor-keys": "npm:6.15.0"
     debug: "npm:^4.3.4"
     globby: "npm:^11.1.0"
     is-glob: "npm:^4.0.3"
@@ -6135,7 +6135,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 870f00e81de428c0afae3f753c04229170aeec76d62dcded0e22cff1c733fe60a350cf68571c889f87ea7a6008b73f7c62a079e91ab056d79aa2b9803a5b7150
+  checksum: 920f7f3bfe463a9da943e1a686b7f13ac802a5e33be52f39ac711aa53a1e274dbe173b41bba05581c560fabfc3e1fadcfd81ab53a036afe25fb1a76651fcad7a
   languageName: node
   linkType: hard
 
@@ -6157,20 +6157,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:6.14.0, @typescript-eslint/utils@npm:^6.0.0":
-  version: 6.14.0
-  resolution: "@typescript-eslint/utils@npm:6.14.0"
+"@typescript-eslint/utils@npm:6.15.0, @typescript-eslint/utils@npm:^6.0.0":
+  version: 6.15.0
+  resolution: "@typescript-eslint/utils@npm:6.15.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.4.0"
     "@types/json-schema": "npm:^7.0.12"
     "@types/semver": "npm:^7.5.0"
-    "@typescript-eslint/scope-manager": "npm:6.14.0"
-    "@typescript-eslint/types": "npm:6.14.0"
-    "@typescript-eslint/typescript-estree": "npm:6.14.0"
+    "@typescript-eslint/scope-manager": "npm:6.15.0"
+    "@typescript-eslint/types": "npm:6.15.0"
+    "@typescript-eslint/typescript-estree": "npm:6.15.0"
     semver: "npm:^7.5.4"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: fec7338edc31d89d5413ec49ce690e05741511ba1ba2a8c59ce14321f5026e73e0584dc9f35645ab4100561bcf8ecef8a08c042388743db53fe73f047132a150
+  checksum: 7895240933ad28295508f8c4286a8b905550a35eda83a11ecf9511e53078e0af07e75a1872f1bc757f165b41fdc84616ea97c1e2e3bf80cff985935f25596228
   languageName: node
   linkType: hard
 
@@ -6184,13 +6184,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:6.14.0":
-  version: 6.14.0
-  resolution: "@typescript-eslint/visitor-keys@npm:6.14.0"
+"@typescript-eslint/visitor-keys@npm:6.15.0":
+  version: 6.15.0
+  resolution: "@typescript-eslint/visitor-keys@npm:6.15.0"
   dependencies:
-    "@typescript-eslint/types": "npm:6.14.0"
+    "@typescript-eslint/types": "npm:6.15.0"
     eslint-visitor-keys: "npm:^3.4.1"
-  checksum: 404f87a121b4375b13e59ffc11ac2fe3c8e40025d0ef5cd6738ab7b3648ce1d41378414b1130ee68e0b454d7e6ec1937540799cdaa4ea572e2447b04d737ee44
+  checksum: 4641a829485f67a5d9d3558aa0d152e5ab57b468cfd9653168ce9a141e1f051730669a024505183b64f7a7e5d8f62533af4ebd4ad7366b551390461e9c45ec18
   languageName: node
   linkType: hard
 
@@ -7065,71 +7065,71 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/abstract-bridge@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/abstract-bridge@npm:2.84.6"
+"@xyo-network/abstract-bridge@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/abstract-bridge@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/bridge-model": "npm:~2.84.6"
-    "@xyo-network/bridge-module-resolver": "npm:~2.84.6"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-abstract": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 72d6e4c13e28bf08867ae5145078ad02e79aa9aefdc368e1dc003d7e257231f82f156c275e6fb552707805484dba4e50e6aea989bb6e476b66b05c81bbc924ce
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/bridge-model": "npm:~2.84.7"
+    "@xyo-network/bridge-module-resolver": "npm:~2.84.7"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-abstract": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: fa15f4187e5e5567eb5bec4befaf5815c4156bdc96d4307197d19b35c1edd6d9ca34f2a1837cc84889639732b4ae9a2233ef6279aa1864bef72b83a002f2c4d2
   languageName: node
   linkType: hard
 
-"@xyo-network/abstract-diviner@npm:^2.84.3, @xyo-network/abstract-diviner@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/abstract-diviner@npm:2.84.6"
+"@xyo-network/abstract-diviner@npm:^2.84.3, @xyo-network/abstract-diviner@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/abstract-diviner@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/module-abstract": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: a6e41057f0ea3c1d48ea4d9fd1904ea4885836bd0a2506aa1409cf68c497fbe1d03b8d303fe79d5f2bb84ae516fdc319c25a6f7257e70714da97e8f2fed3cac8
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/module-abstract": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: a321d02e2c63664aafce87e38e2e6c73cd30985142705e6de74a40e985d08a8605bcd8283e834fb5e97ef14dd07a3e5ed3f6e64bc2bd57048a0dfe5e71d65757
   languageName: node
   linkType: hard
 
-"@xyo-network/abstract-witness@npm:^2.84.3, @xyo-network/abstract-witness@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/abstract-witness@npm:2.84.6"
+"@xyo-network/abstract-witness@npm:^2.84.3, @xyo-network/abstract-witness@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/abstract-witness@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/module-abstract": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/witness-model": "npm:~2.84.6"
-  checksum: 15fd12092c45f9cb017c7e4e1e00c5c4377b28b6ac20dbd13355222c5d7bd475a841d57ca1bcf7916d09ad0d3e6f4a771a47c05c0a4f08cd59ec9a83c722eb61
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/module-abstract": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/witness-model": "npm:~2.84.7"
+  checksum: 827340e563f52e3a63ec70a9cbe3689d99bad2758df78640bdfdb258f2b6b414170f0121582af1dd6be88d49eef65b7a66bff51b618f9566cffd0fef614c84a7
   languageName: node
   linkType: hard
 
-"@xyo-network/account-model@npm:^2.84.6, @xyo-network/account-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/account-model@npm:2.84.6"
+"@xyo-network/account-model@npm:^2.84.7, @xyo-network/account-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/account-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/key-model": "npm:~2.84.6"
-    "@xyo-network/previous-hash-store-model": "npm:~2.84.6"
-  checksum: 30c132d3e0f615b65b61f1219e162fa1633d3e862e05ab12efbd7980bad43adde3d3daeeb3ec4a44ab233e5c908199f47d71da15f32e2642f90de0dde639261d
+    "@xyo-network/key-model": "npm:~2.84.7"
+    "@xyo-network/previous-hash-store-model": "npm:~2.84.7"
+  checksum: da32228c7113d0602dc962bafead8d8af97a8ad1d6c01b3141436f1c3bf2a57ed6d0ce5051c9c8d70097a35f781f20afe16ce9dd7172d47f8d0c3123a1a5a8cb
   languageName: node
   linkType: hard
 
-"@xyo-network/account@npm:^2.84.6, @xyo-network/account@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/account@npm:2.84.6"
+"@xyo-network/account@npm:^2.84.7, @xyo-network/account@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/account@npm:2.84.7"
   dependencies:
     "@scure/bip39": "npm:^1.2.2"
     "@xylabs/array": "npm:^2.13.20"
@@ -7138,16 +7138,16 @@ __metadata:
     "@xylabs/hex": "npm:^2.13.20"
     "@xylabs/libauth": "npm:^2.13.20"
     "@xylabs/static-implements": "npm:^2.13.20"
-    "@xyo-network/account-model": "npm:~2.84.6"
-    "@xyo-network/data": "npm:~2.84.6"
-    "@xyo-network/key-model": "npm:~2.84.6"
-    "@xyo-network/previous-hash-store-model": "npm:~2.84.6"
-    "@xyo-network/wallet-model": "npm:~2.84.6"
-    "@xyo-network/wasm": "npm:~2.84.6"
+    "@xyo-network/account-model": "npm:~2.84.7"
+    "@xyo-network/data": "npm:~2.84.7"
+    "@xyo-network/key-model": "npm:~2.84.7"
+    "@xyo-network/previous-hash-store-model": "npm:~2.84.7"
+    "@xyo-network/wallet-model": "npm:~2.84.7"
+    "@xyo-network/wasm": "npm:~2.84.7"
     async-mutex: "npm:^0.4.0"
     elliptic: "npm:^6.5.4"
     ethers: "npm:^6.9.0"
-  checksum: d33a639620664355adeb7ad3cf97156c95e1833be91aaefed5801e6f40abe21098c9f4367c7d994d9e6d23d5d71abf4fffdd5cb8f504aadff7b51f56c7fbc8df
+  checksum: c499f283f9d1ac014d7c0d9d07ec2b0784e498c35f5da165a1e5db36116047e1c5969588c727db1284c272827174c16b947fe6bdc02bccbc22f1dabe62883056
   languageName: node
   linkType: hard
 
@@ -7161,90 +7161,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/api-models@npm:^2.84.3, @xyo-network/api-models@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/api-models@npm:2.84.6"
+"@xyo-network/api-models@npm:^2.84.3, @xyo-network/api-models@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/api-models@npm:2.84.7"
   dependencies:
     "@xylabs/axios": "npm:^2.13.20"
-  checksum: 45bcc08ec104195ef138ef76593a77ddd7470b793ccadfb41291dd9e63cce4f3b258b5ac30be2694ea424fcd9376d2604751fbf94dc10a43bc5a31436ffadb75
+  checksum: 8fe80a8e2187a1dee145979ec50d0ac428ef141afd99372a06c958f589adedd49fac01ab113ebff9efb390bc38dee722fb86b7bc713c80b5bcf9f2b670330a8e
   languageName: node
   linkType: hard
 
-"@xyo-network/archivist-abstract@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/archivist-abstract@npm:2.84.6"
+"@xyo-network/archivist-abstract@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/archivist-abstract@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/module-abstract": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
-  checksum: f6ae872aca76f296c6fc638926fe3c84efa02f32ebe2e5bcb5b6a78cb81cdfe14011efb50522f59a2a56a8da04eca55e490ae8fe8a36195dcd18f463013d4b4b
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/module-abstract": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
+  checksum: 1e6a6db74e0c808599c1db7c480f76d9bcb5f4ef22abe4a03087ebb5b00f937d257e5630c6bcb70f5ef0361f8145ef51d6c30143f827bce07732d8bd9fdf2a23
   languageName: node
   linkType: hard
 
-"@xyo-network/archivist-model@npm:^2.84.6, @xyo-network/archivist-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/archivist-model@npm:2.84.6"
+"@xyo-network/archivist-model@npm:^2.84.7, @xyo-network/archivist-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/archivist-model@npm:2.84.7"
   dependencies:
     "@xylabs/hex": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 5d5abcf76a7b1a3e3bef2c423732f2272938ebdc8639f80ee3872ac24fd174c5bdc74d474d335fff3ba32e5e916f2d92000906c9db1ecdba78118e358b824d8d
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 9f3fb6e41f277f3dd41a4d8ad58d4cde7e5ea14f0b9ed28e1fe98b693374d482a9b19a77b7f8638c1e5583e32783a8616825548d666ec1006e69b850938acd72
   languageName: node
   linkType: hard
 
-"@xyo-network/archivist-wrapper@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/archivist-wrapper@npm:2.84.6"
+"@xyo-network/archivist-wrapper@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/archivist-wrapper@npm:2.84.7"
   dependencies:
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/module-wrapper": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 60c1716066db4889a02a57618b18349f8e8b728974af61a4fa75b02dace8d13100a98f389693c55d3e5951ebc3ba30f0ff57458aeb285b06b12fbb656d902a14
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/module-wrapper": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 8240d065b8e90112aa4596c5846ce62c1f50e5e3e0510f4df131ec47846ea996be8b74baf36b176d7c76e4cc2483b0db6ea25acd96ba961d79f5fb41d092656c
   languageName: node
   linkType: hard
 
-"@xyo-network/archivist@npm:^2.84.6, @xyo-network/archivist@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/archivist@npm:2.84.6"
+"@xyo-network/archivist@npm:^2.84.7, @xyo-network/archivist@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/archivist@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/archivist-abstract": "npm:~2.84.6"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/archivist-wrapper": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/memory-archivist": "npm:~2.84.6"
-    "@xyo-network/module-abstract": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
+    "@xyo-network/archivist-abstract": "npm:~2.84.7"
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/archivist-wrapper": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/memory-archivist": "npm:~2.84.7"
+    "@xyo-network/module-abstract": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
     js-cookie: "npm:^3.0.5"
     store2: "npm:^2.14.2"
-  checksum: 7479f6697d31d2930e0be0cfb9caa7918aa7fd47c08b9e9ad6bcad57d10f02205120fcb357a35e35d79306c86cd37274603cedb01149eec314d8e4c9562c7c97
+  checksum: 6dde38a065b6ad9b05f0397622e6094ece53d9c1f018afef3e5550757eaaaecc11b6cf0d0c8274e48e0cdcf829e45afbb6ee45849a27085dc40474f71fcbabe6
   languageName: node
   linkType: hard
 
-"@xyo-network/axios@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/axios@npm:2.84.6"
+"@xyo-network/axios@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/axios@npm:2.84.7"
   dependencies:
-    "@xyo-network/shared": "npm:~2.84.6"
+    "@xyo-network/shared": "npm:~2.84.7"
     axios: "npm:^1.6.2"
     pako: "npm:^2.1.0"
-  checksum: 506eb35b3cde0b9139bf9dd84abd7d5344555b4ec598a56ca1280e2313d60c4785886ddc4b7f7e80c5152c99ab015e9193cbaefe24d0635aeea760490c6ab7d6
+  checksum: ee8f312f0ee51fd02ca8fe7ac49b2a3cf42cfe66745ab7e714eaf84fd44909450ae2c721d5e7ae80884c9ba9ab702c574bebbb40459bd5e6eed6b36a41df280e
   languageName: node
   linkType: hard
 
@@ -7268,9 +7268,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/boundwitness-builder@npm:^2.84.6, @xyo-network/boundwitness-builder@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/boundwitness-builder@npm:2.84.6"
+"@xyo-network/boundwitness-builder@npm:^2.84.7, @xyo-network/boundwitness-builder@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/boundwitness-builder@npm:2.84.7"
   dependencies:
     "@xylabs/arraybuffer": "npm:^2.13.20"
     "@xylabs/assert": "npm:^2.13.20"
@@ -7278,58 +7278,58 @@ __metadata:
     "@xylabs/hex": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/logger": "npm:^2.13.20"
-    "@xyo-network/account-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-validator": "npm:~2.84.6"
-    "@xyo-network/boundwitness-wrapper": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/payload": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
+    "@xyo-network/account-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-validator": "npm:~2.84.7"
+    "@xyo-network/boundwitness-wrapper": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/payload": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
     async-mutex: "npm:^0.4.0"
-  checksum: 08a0b7e64609f63defddfaa9add84c1add911de8fc6f2b434e4e4b2b4becfcf42d3adfa0144f816097db10a6740c910212e90a72afa8a7fc2fa7df94fbad4911
+  checksum: ff6ebce98fd7020a55a6f9baeffed312ce7d2e46cace652c2b717f0d9b830dda661c9d4694303db0b5e8a19676f2e9329e265295bf01d0a1db1c4bc41e99bb42
   languageName: node
   linkType: hard
 
-"@xyo-network/boundwitness-model@npm:^2.84.6, @xyo-network/boundwitness-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/boundwitness-model@npm:2.84.6"
+"@xyo-network/boundwitness-model@npm:^2.84.7, @xyo-network/boundwitness-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/boundwitness-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 1229dac0cbd83dc38939a607782def7a6c732605849ba4a633f59f281f1d14a4cf71c004e4b5960c62ef33c4acf3906ad93370ef3b58fbe5fec29d6bd514ba8f
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 30f16e22d1f078950e3894de8eef8faa1bf451a5df06149a981ab7502bec4ae80b90b79e10c63e76786c435175c8604b216658bbf4d106faa077e9d77d1d685e
   languageName: node
   linkType: hard
 
-"@xyo-network/boundwitness-validator@npm:^2.84.6, @xyo-network/boundwitness-validator@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/boundwitness-validator@npm:2.84.6"
+"@xyo-network/boundwitness-validator@npm:^2.84.7, @xyo-network/boundwitness-validator@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/boundwitness-validator@npm:2.84.7"
   dependencies:
     "@xylabs/arraybuffer": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/typeof": "npm:^2.13.20"
-    "@xyo-network/account": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/payload-validator": "npm:~2.84.6"
-  checksum: 059190b1b703d4653d02d7e92bcbbdf036f30184f2e64fa78d83372ff9b3d86840c01a2c816445e4774e95928c8d535bfe59f2680c2f0074aeb144d7056180ef
+    "@xyo-network/account": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/payload-validator": "npm:~2.84.7"
+  checksum: 08010db5f3925c375128c8a060b211adf76e92f2b6373ac299d67be704680239f786be401ce4cbf1d3344d72d38cc3356f996f9aeb29e455516a37a07e82cff1
   languageName: node
   linkType: hard
 
-"@xyo-network/boundwitness-wrapper@npm:^2.84.6, @xyo-network/boundwitness-wrapper@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/boundwitness-wrapper@npm:2.84.6"
+"@xyo-network/boundwitness-wrapper@npm:^2.84.7, @xyo-network/boundwitness-wrapper@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/boundwitness-wrapper@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/exists": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-validator": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
-  checksum: 5781c83edb1a64331b1794c0780728ccc0cb243dcd0f1fb3084fa3c6824551bf969f1ab0c145ca3eed5da89228277e62dc3aed851f8c84795137328d67f8ba56
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-validator": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
+  checksum: 899fa413b4cc8e22f4fce864686dade4806bac120b5b65d9723e6046151855f100c2c47402e390dab26e787bd4452326d704502bd36327c42a5eb3fc4b7c28e3
   languageName: node
   linkType: hard
 
@@ -7360,48 +7360,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/bridge-model@npm:^2.84.6, @xyo-network/bridge-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/bridge-model@npm:2.84.6"
+"@xyo-network/bridge-model@npm:^2.84.7, @xyo-network/bridge-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/bridge-model@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 23d3777a7293566f2543d1425ac17adfe934ae30c4f5cc1631a65918115014b12daa06775fbe1a3f149a263bc0e8a3bc79ed36d5fe0b6f77603a25d7dd842e01
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 01c3143fc4ea837d9799766fe88a62e0e25cd071cc383f9341ed7e2ed3c84c1263d9717788cb7659fdec6c5ee1f9c317a3e1c2363fff6afa4685870fa75c13f6
   languageName: node
   linkType: hard
 
-"@xyo-network/bridge-module-resolver@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/bridge-module-resolver@npm:2.84.6"
+"@xyo-network/bridge-module-resolver@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/bridge-module-resolver@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/error": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/account-model": "npm:~2.84.6"
+    "@xyo-network/account-model": "npm:~2.84.7"
     "@xyo-network/address-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/archivist-wrapper": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/bridge-model": "npm:~2.84.6"
-    "@xyo-network/diviner": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-abstract": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/module-resolver": "npm:~2.84.6"
-    "@xyo-network/module-wrapper": "npm:~2.84.6"
-    "@xyo-network/node-model": "npm:~2.84.6"
-    "@xyo-network/node-wrapper": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/sentinel": "npm:~2.84.6"
-    "@xyo-network/witness-model": "npm:~2.84.6"
-    "@xyo-network/witness-wrapper": "npm:~2.84.6"
-  checksum: 7201555b0340ef734c5b7a6b91e2668fb3de2fc43e34b1b28c93d3b335f8064d230cdd1eff66aee0cbd2dbed6f543845efbb0155e1953c799c9f08a0682b229f
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/archivist-wrapper": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/bridge-model": "npm:~2.84.7"
+    "@xyo-network/diviner": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-abstract": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/module-resolver": "npm:~2.84.7"
+    "@xyo-network/module-wrapper": "npm:~2.84.7"
+    "@xyo-network/node-model": "npm:~2.84.7"
+    "@xyo-network/node-wrapper": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/sentinel": "npm:~2.84.7"
+    "@xyo-network/witness-model": "npm:~2.84.7"
+    "@xyo-network/witness-wrapper": "npm:~2.84.7"
+  checksum: 4efceffb7860352a75016e62e5392db64c2eb81046512942fe7bf1047d40947e6287e5933b2d7f2682d5c2425b538d475a541dc0d63355db3743151b8521c488
   languageName: node
   linkType: hard
 
@@ -7564,375 +7564,375 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/data@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/data@npm:2.84.6"
+"@xyo-network/data@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/data@npm:2.84.7"
   dependencies:
     "@scure/base": "npm:^1.1.5"
     "@xylabs/arraybuffer": "npm:^2.13.20"
     "@xylabs/assert": "npm:^2.13.20"
     ethers: "npm:^6.9.0"
-  checksum: 1bf95e8c2df42d3f1fa9d9b0ce2abfd8a51cebf4e9020e970655ff715f709f4f309fe145cd8fab8b12fb088edf2cf70ab1e3dab9c66c6c8d428527a8a8a4cbb5
+  checksum: 0f31b466b23669af0de6ac2de7e1928be260bb7db08fcea1c68cd3dbacb9dbaf7bfee2a07a5b2cad7a4b0d0e6df5a4694c89ec08ac12aecfa8849ae7d42b4412
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-address-history-model@npm:^2.84.6, @xyo-network/diviner-address-history-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-address-history-model@npm:2.84.6"
+"@xyo-network/diviner-address-history-model@npm:^2.84.7, @xyo-network/diviner-address-history-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-address-history-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: c4eb4fffe3b8c527f6a03a460cde9c33f724f3c920bb229305210d0a7f10d4bd5acf59e72e42b8d8b911ea8a33067b7ed2720efd38c789e422f4dc3089cb28b5
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 35ebd891922bf99ff7a2b3bf1b47e657b5dac5e1898cb4c4b63ff9e9cd344895ca56c52f68baca2a81892b79e23834a5fdf8bc4b0f9290a9b2ea4fe1237353f7
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-address-history@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-address-history@npm:2.84.6"
+"@xyo-network/diviner-address-history@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-address-history@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-wrapper": "npm:~2.84.6"
-    "@xyo-network/diviner-address-history-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
-  checksum: 1d8d8a320caf708d73ac9e3d65dbbdae12e114842dee6d9d1b9eedadbd784d6a756fe984c4571e092c9b58c9187bb9fdac869c9a629af005fd4da9d08a14c9ca
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-wrapper": "npm:~2.84.7"
+    "@xyo-network/diviner-address-history-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
+  checksum: a2607371a38049262b533dbbbcee28bf83ff176c7017aa4e811cdde1a8bcc57dc224554f2c4fe1e814ad8ed418cc9f3574733e2e85b4dfd1ecb446fb91e57332
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-boundwitness-abstract@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-boundwitness-abstract@npm:2.84.6"
+"@xyo-network/diviner-boundwitness-abstract@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-boundwitness-abstract@npm:2.84.7"
   dependencies:
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.6"
-  checksum: 48eb579821ade5bd16c2a7e137160f939b979a2d3c599273a76d14eb5f1934ffec9eede4ce2a643074920f8e08045e190e7708e2480788c6feaf2100250be5ae
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.7"
+  checksum: 81e24ce88f0c78f2437ff5d8b6d081de621a43408787c4695d8e1a64ac98d1278df193e924e04214d3b148282c7270e18b1efd67698c8e5896f34a8ae7326025
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-boundwitness-memory@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-boundwitness-memory@npm:2.84.6"
+"@xyo-network/diviner-boundwitness-memory@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-boundwitness-memory@npm:2.84.7"
   dependencies:
     "@xylabs/array": "npm:^2.13.20"
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/exists": "npm:^2.13.20"
     "@xylabs/hex": "npm:^2.13.20"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-boundwitness-abstract": "npm:~2.84.6"
-    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 4f026a600d3b2697d17489b3f4d16d9ce28876d614b4b04dacb4ecc5b5813c139fab951c08ef2c74f7712d5353519d2ed9d201bedbd1dbe20f63c838b712b243
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-boundwitness-abstract": "npm:~2.84.7"
+    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 4afddbfaac1494e41d560af19de4e6ff6991ce1bf571ef79d42c1e9cbfe5d4b626f958a77ccf506e892cb4d15fc199e36ef47188250f40abe2464ab951ccd65b
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-boundwitness-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-boundwitness-model@npm:2.84.6"
+"@xyo-network/diviner-boundwitness-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-boundwitness-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/diviner-payload-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 6d93c37425a5051c6b8b1ff69d6d82f8573ceac0b0589bbd798634b68f0e41b6a00ad755d7d7c39f4bf669bec644bb78a2a5d6bbb10f953e8e6356eb5e547961
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/diviner-payload-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: f0cb985dade1d7b5b11e5b14763c1dbb141c0765c9a68ff17d0614663be30ac1b5108d669e745532d38586c3ef44e47a053f7223e03c0918d1518d5a9e4fe533
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-forecasting-model@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-forecasting-model@npm:2.84.6"
+"@xyo-network/diviner-forecasting-model@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-forecasting-model@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 776bfd82a3c13811b8b39f670090d36add9b8a540881d59f99268b5899b121f31a66a7bc74c46fba80ef164210c7fd774e5d2454d5d407f23f0bf4833562a672
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: c2112c8f6bae37225a08a3a73396d462bf796eb876e2ff136371af55c261dd9de7abdd179bb147b16ee611b9176d50cf4980479bd2d43004c0a4e1eb86ee1a88
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-indexing-memory@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-indexing-memory@npm:2.84.6"
+"@xyo-network/diviner-indexing-memory@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-indexing-memory@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/archivist-wrapper": "npm:~2.84.6"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-indexing-model": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/diviner-wrapper": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-builder": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 11173c3b729757b95baf077c50bf428ac07403dea29456151d2b0ba2e7540ddf2b05522099f5950ad0fb7c27e25e4ddbac2be36bc47484d9997800f7962ad554
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/archivist-wrapper": "npm:~2.84.7"
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-indexing-model": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/diviner-wrapper": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-builder": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 23dc5f95d31a5eb61a578ef4d1c23b4230675eb73cb2d732208f79086262229dad040b18698f80126d4633588b26f763011af0b099c7299b3fac303553c881cd
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-indexing-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-indexing-model@npm:2.84.6"
+"@xyo-network/diviner-indexing-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-indexing-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-  checksum: 62d51a100b31e03c1abd9e4164170233b6381c5f8bcb71b0ca51c0f86d3b49df53f072ce9103a3900d46345a92458bf961d7167fa039dbe32f1d342d7808a705
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+  checksum: 41e8fbcd58172cc637cd3cab1581800db1baf22c188f256b4dd8f393307a35ee1aa55753ae4a1c34866e9679badf8624c71eb653d4318df7c8cd94d0be1bf541
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-jsonpatch-memory@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-jsonpatch-memory@npm:2.84.6"
+"@xyo-network/diviner-jsonpatch-memory@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-jsonpatch-memory@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/exists": "npm:^2.13.20"
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/diviner-jsonpatch-model": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    json-joy: "npm:^11.22.0"
-  checksum: 1d681f869f5e80ef9dd4c1b98295fae8a5187bd05a9122a5abeb78a08619d53e3cb1fcc3f7ebfdd7bde64384758978b7d7ad900f03acd36874ffac945ba2d26a
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/diviner-jsonpatch-model": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    json-joy: "npm:^11.24.0"
+  checksum: 37eee81b0a021929b7bba7740cfb55c79a9c1c0daf42eca604d7c755b9ac0a8faf060505ae2121cdc19583221e218b4339c810aa48eb6fe96546e4a77220793e
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-jsonpatch-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-jsonpatch-model@npm:2.84.6"
+"@xyo-network/diviner-jsonpatch-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-jsonpatch-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    json-joy: "npm:^11.22.0"
-  checksum: 390fb4c80efef46fea60e13daebe672c8923c24e1c2a421230fab991988b46d41d982ffe4cf1db398f89817da71ab44a42bbcc3a1ae12396bc8fff1455bcef2e
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    json-joy: "npm:^11.24.0"
+  checksum: 864c0a80d014fae24d973d183fb399f34eb2728db2a39d682e4e3b52bdfcd79a6dd8d28597e17f6cfebcdd8d99141a859188f9dbe1eb4f15aaf348816a6034aa
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-jsonpatch@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-jsonpatch@npm:2.84.6"
+"@xyo-network/diviner-jsonpatch@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-jsonpatch@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-jsonpatch-memory": "npm:~2.84.6"
-    "@xyo-network/diviner-jsonpatch-model": "npm:~2.84.6"
-  checksum: 7547c0aa58dc3a547a53d104adca518e1027dae65d3b3b52a994de98365db2294e803f03a37388a956836fde9078918e3864c6cd820e7fc5da9df99d0f66bc49
+    "@xyo-network/diviner-jsonpatch-memory": "npm:~2.84.7"
+    "@xyo-network/diviner-jsonpatch-model": "npm:~2.84.7"
+  checksum: 7324c29ac2f8cbaa923f37a2d395d27e8c84512c9b588ea69dc82318ee1096432e30604bb675bb802c6311f20c1a81bb5aa6ad305dccc59cb2b3186d318d5226
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-jsonpath-memory@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-jsonpath-memory@npm:2.84.6"
+"@xyo-network/diviner-jsonpath-memory@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-jsonpath-memory@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/diviner-jsonpath-model": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/payload-builder": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/diviner-jsonpath-model": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/payload-builder": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
     jsonpath: "npm:^1.1.1"
-  checksum: b371eb2ced534c0f9cf2b78db953f0ea9605e40ee74310c10ee70b3fbf4ffd57ee0eecffda9536bf65bbb72ce10fe44a4664336cf99695420e01b4871ecf313f
+  checksum: 8d0776010a28c313e26178c145c2f497bd135439646d06c0ce506e8e82e3781525688f7b0daa3be95b8a3fb6cff0b8deff3983ceec5e4b20e2bc669db3c3657a
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-jsonpath-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-jsonpath-model@npm:2.84.6"
+"@xyo-network/diviner-jsonpath-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-jsonpath-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: d42a0b4bd1933858cfd453b94ae83194f3b47fafe5a0306e89e817f51f11b8e93db7a42ee8f4f80907ca0032a5b643e95a8f78baf050490015000445370ec73f
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 19e820efb2143de061645f7b367b4dffcc84405378c0676fa09b39c7d24b90445cfd9e1fffd57895e8786f12c9022e00c90bc3cd271dd8243e8ce874205383f5
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-jsonpath@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-jsonpath@npm:2.84.6"
+"@xyo-network/diviner-jsonpath@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-jsonpath@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-jsonpath-memory": "npm:~2.84.6"
-    "@xyo-network/diviner-jsonpath-model": "npm:~2.84.6"
-  checksum: b9d85159244455cef7f12d14fe1476cc754bc6c66e1a47223c9b51cb0ddcc8bb2cc9bd3f9f8d1a3a95d3a291afd83c2d64c31d8a58df470a2824241fb7bf4175
+    "@xyo-network/diviner-jsonpath-memory": "npm:~2.84.7"
+    "@xyo-network/diviner-jsonpath-model": "npm:~2.84.7"
+  checksum: f71c3055646ff107fd8ba9319236dc7e58acf1c9636c26ca40d1fb7edb106f50cb225e7e7c03493500b7d341fb8a825ccd7cba46d423bf7068814f730de2e43f
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-model@npm:^2.84.3, @xyo-network/diviner-model@npm:^2.84.6, @xyo-network/diviner-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-model@npm:2.84.6"
+"@xyo-network/diviner-model@npm:^2.84.3, @xyo-network/diviner-model@npm:^2.84.7, @xyo-network/diviner-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-model@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 1a6121c1e03c052483b41f5a5f9107220ae6db7e4abe727ac455fe5397a5deae719e56ba3aeef3920e92bb8f85b220a0fc939592824cd91fa6f0db32f5fa9e15
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 68fb39c4d3869cd6cf8037444346c02cc480af4a7251ad53b838038720a98448f6a87085bcbebdfbd9050329fbdc47b990d31adb8a2b6b31ef077bc42fef3093
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-payload-abstract@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-payload-abstract@npm:2.84.6"
+"@xyo-network/diviner-payload-abstract@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-payload-abstract@npm:2.84.7"
   dependencies:
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/diviner-payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 23a1fd78ed1a3ba0ef02d3b0d3cdd483ca690f094b7ba8980910461b7738a79265dd7b19ff327c2c1b50a0aad5c46e5633ba61c8260dec5870eb6c9d73218526
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/diviner-payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 9d0299feb0053ea078d90ac0246647de473a375ca54c075786fd21a71e4efbee9a7b04005942b349be65b9493652d6d048da14f9df7d6918519548ae8d765716
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-payload-memory@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-payload-memory@npm:2.84.6"
+"@xyo-network/diviner-payload-memory@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-payload-memory@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/diviner-payload-abstract": "npm:~2.84.6"
-    "@xyo-network/diviner-payload-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 95e8cac6cf1a30d730530f5faffc9cf2d1eb186f94d22e8a6a3c8d488575420119bbb0afe971a01c57940260ac196039f06320c531ca6791e5cc1182fa241356
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/diviner-payload-abstract": "npm:~2.84.7"
+    "@xyo-network/diviner-payload-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: dd31bdeae11af2667605348ea3bb92ecbf2da71f13809a3c1cffdace73fc6659b666fe8363e639b6bf3af4f38f5826b9412ec77a0765f173f8fb74a3c98f9162
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-payload-model@npm:^2.84.3, @xyo-network/diviner-payload-model@npm:^2.84.6, @xyo-network/diviner-payload-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-payload-model@npm:2.84.6"
+"@xyo-network/diviner-payload-model@npm:^2.84.3, @xyo-network/diviner-payload-model@npm:^2.84.7, @xyo-network/diviner-payload-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-payload-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 0fb60a6722f00879526868766693227cb23d64381a1644e74371c7b0c6e2fd64f82283b11f2bb5aed0b83c0556b1fd7a7498894a3083113d7f99145a327e6b2e
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 950fc69a02761c26f783738751e46c5e623546932409c0fa46b057e527d94f7f4843902b9f0ad4ae5c2519a28bd5dce264b5cbf885783b582ffa935516bf4b6d
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-range-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-range-model@npm:2.84.6"
+"@xyo-network/diviner-range-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-range-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 663c3d9a1d783acf347b07a15c3c46046a9c5f3ee64d1b7e67baf5c93b9f5ac2b711b9ebb515e04ab504375b0d2a8efa24bd77e603d20f4f23ae541e29b29e73
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 8a7223843894f057afc562b914007cbbb8ddfeee654db394cf6dfd959ce69498461396b70cf7b9af2b05e38c7a010b8a202cf4fa952609608ed9457d31c173bc
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-range@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-range@npm:2.84.6"
+"@xyo-network/diviner-range@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-range@npm:2.84.7"
   dependencies:
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/diviner-range-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-  checksum: f05b26beaaa5eb0af08663d907f2910ad02607e8a3e4d235198ad8eb2765922caa0eacd2e3c7ec6d3ecef51776cc990070c6d6ec5c5acf9b85084dd1e2058aad
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/diviner-range-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+  checksum: cfc3418c066025ab8d88e064bdda0c1e1ff611b0f430bf84dd1ac6cf3771d11ffea5e3fd5b1604af902a6b312b539accb1ca504983e0b489dd3cec14a3f97901
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-schema-list-model@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-schema-list-model@npm:2.84.6"
+"@xyo-network/diviner-schema-list-model@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-schema-list-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: ad205682463c780945a6e7f9253a58e14cd7e0340ae9ac99f07a240e2a4510f0f1202f753adc7dc72d167f36be7093bdc55b2d8537c85df3c4bebe2e77bda07c
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: bc498c23a6dce1e7405403e03d57f3981b4be92984bd2cb58b5901df4b297b2189fdf66720d6de91cc91a54cc680b5f9de2918a3f34775364d1bb564568dcf1e
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-schema-stats-model@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-schema-stats-model@npm:2.84.6"
+"@xyo-network/diviner-schema-stats-model@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-schema-stats-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 4896e16733d9a76f9abd78c56d4022b6e1252b1fc30efb3da073ec12e8158da526962409c184b62e375b4d1d5e0916b76fd79225bd2e80a6d104219847115c6d
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: d7595732078d6954a89caceac5c854d0b61dc2c60441288dd58674d66608e3f1f2e6d3d2ae8f802a750d1160a55f69902bebc59c6850d6bcc8e27758b6d3be18
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-temporal-indexing-memory@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-temporal-indexing-memory@npm:2.84.6"
+"@xyo-network/diviner-temporal-indexing-memory@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-temporal-indexing-memory@npm:2.84.7"
   dependencies:
     "@xylabs/array": "npm:^2.13.20"
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/exists": "npm:^2.13.20"
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/archivist-wrapper": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-indexing-memory": "npm:~2.84.6"
-    "@xyo-network/diviner-indexing-model": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/diviner-payload-model": "npm:~2.84.6"
-    "@xyo-network/diviner-temporal-indexing-model": "npm:~2.84.6"
-    "@xyo-network/diviner-wrapper": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-builder": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/witness-timestamp": "npm:~2.84.6"
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/archivist-wrapper": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-indexing-memory": "npm:~2.84.7"
+    "@xyo-network/diviner-indexing-model": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/diviner-payload-model": "npm:~2.84.7"
+    "@xyo-network/diviner-temporal-indexing-model": "npm:~2.84.7"
+    "@xyo-network/diviner-wrapper": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-builder": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/witness-timestamp": "npm:~2.84.7"
     jsonpath: "npm:^1.1.1"
-  checksum: 97c2cfde11bd684854227d69224cc0ac04188e3eb266c3568bbe5e0f42fc94dd1c3e914955d770fd1efbe57e616c94901b4182c35934629b74341264c7386505
+  checksum: 741c7aa614f3ad525d2217e07f9b73fa2fe34571511f108cfce22fcccd99dd7be7cab7ecd10a4a3b6bd299401eb3bb919417c940ffa086cf324f0f5971075442
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-temporal-indexing-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-temporal-indexing-model@npm:2.84.6"
+"@xyo-network/diviner-temporal-indexing-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-temporal-indexing-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-indexing-model": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 0943e904fd28488745ab8cef34716583ba3ca5a3c35cafcd63f1a121b562646d688b3e4a9843f39198312d745771e7707837345571e4e0ac22736665e7eb2f33
+    "@xyo-network/diviner-boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-indexing-model": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 92ccb3feed6b94ec8a0566a10ab1ec8558a899c8fe2b4dbc94892ef9dc83388ef799f426f3796498067cc2f3d08b2122b8830c73042deb9f5bdc265f1c84fd68
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner-wrapper@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner-wrapper@npm:2.84.6"
+"@xyo-network/diviner-wrapper@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner-wrapper@npm:2.84.7"
   dependencies:
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-wrapper": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 1ca51466615b2b029e1efc1d5587492f1e00aa3ab2987c3df140e03a763320c36ba3e1104613be07d5bd58d7e6d628524551c7a0649e3acc5846988c3dcebc48
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-wrapper": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: b32d2698fe7f0a000d558f306e1f9f0b48e0ff95e73a6194929ad6663a414ee981395ae710235db4998588f3d9c2294a8140e423507102ac1dde79886ccfc6fe
   languageName: node
   linkType: hard
 
-"@xyo-network/diviner@npm:^2.84.3, @xyo-network/diviner@npm:^2.84.6, @xyo-network/diviner@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/diviner@npm:2.84.6"
+"@xyo-network/diviner@npm:^2.84.3, @xyo-network/diviner@npm:^2.84.7, @xyo-network/diviner@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/diviner@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/abstract-diviner": "npm:~2.84.6"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/diviner-jsonpatch": "npm:~2.84.6"
-    "@xyo-network/diviner-jsonpath": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/diviner-range": "npm:~2.84.6"
-    "@xyo-network/diviner-wrapper": "npm:~2.84.6"
-    "@xyo-network/huri": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: a51f9713c8bd45f68f4a374ffa87497cfc11fe94ec57d211e2f28d41c68f730e35498f2412c3d4534a7bce34930c64b7783b49bbfd62e5c788b4fe4fd010f033
+    "@xyo-network/abstract-diviner": "npm:~2.84.7"
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/diviner-jsonpatch": "npm:~2.84.7"
+    "@xyo-network/diviner-jsonpath": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/diviner-range": "npm:~2.84.7"
+    "@xyo-network/diviner-wrapper": "npm:~2.84.7"
+    "@xyo-network/huri": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: dec618f59224263a3edfda7355cbf9a4ad57a95e6a8ff5b9366b7773f6a7a9737ee1b357fafd0defb68ca8c3bb9bd45a9c0eb999e210b708c2fec22b54a27ca6
   languageName: node
   linkType: hard
 
-"@xyo-network/dns@npm:^2.84.3, @xyo-network/dns@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/dns@npm:2.84.6"
+"@xyo-network/dns@npm:^2.84.3, @xyo-network/dns@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/dns@npm:2.84.7"
   dependencies:
     "@xylabs/axios": "npm:^2.13.20"
-  checksum: 975233752e226ad8eacc7e1b131eea30e2301f45eb290b37a72cdef28d05900f824aebaa7c041f68b3c10836f81c0109b4b7f20b28539ef8c960e848a1dc5e80
+  checksum: f853b0011d9ec6ec268c9469a93f021b67f0c98193e440dc4db189a9f212a6cf541d46c60835f1f958db43bec5287a54cdf7f309156cd41f722e4858f660c674
   languageName: node
   linkType: hard
 
@@ -8072,56 +8072,56 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/hash@npm:^2.84.3, @xyo-network/hash@npm:^2.84.6, @xyo-network/hash@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/hash@npm:2.84.6"
+"@xyo-network/hash@npm:^2.84.3, @xyo-network/hash@npm:^2.84.7, @xyo-network/hash@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/hash@npm:2.84.7"
   dependencies:
     "@xylabs/hex": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/platform": "npm:^2.13.20"
     "@xylabs/typeof": "npm:^2.13.20"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/wasm": "npm:~2.84.6"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/wasm": "npm:~2.84.7"
     hash-wasm: "npm:^4.11.0"
     sha.js: "npm:^2.4.11"
-  checksum: 95bf3c8417a15d8358ae2ad6782f2cc0b4cdeff8a9418365be455395ff6d7e21277d99c70d350131d8cedf58cc5db6b3d82caf7041f66a5df89e52d1c710272a
+  checksum: 2390b420bd0149719022a0dc6559a2f15a1e70aa03a4046fdbe8b8c8ea3abd00b886e83dbf769a7a89a8b92c3c0545e0fd44be2e8acfe51367422b0de09d5504
   languageName: node
   linkType: hard
 
-"@xyo-network/http-bridge@npm:^2.84.6, @xyo-network/http-bridge@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/http-bridge@npm:2.84.6"
+"@xyo-network/http-bridge@npm:^2.84.7, @xyo-network/http-bridge@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/http-bridge@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/axios": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
-    "@xyo-network/abstract-bridge": "npm:~2.84.6"
-    "@xyo-network/api-models": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/bridge-model": "npm:~2.84.6"
+    "@xyo-network/abstract-bridge": "npm:~2.84.7"
+    "@xyo-network/api-models": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/bridge-model": "npm:~2.84.7"
     "@xyo-network/config-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/node-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/node-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
     "@xyo-network/query-payload-plugin": "npm:^2.84.2"
     lru-cache: "npm:^10.1.0"
     url-parse: "npm:^1.5.10"
-  checksum: 2fa7609c5c36f292cb772b170cb7d6931ce0a8341b67389da23e6df796988f79fe7f768e87113bcfa3d03ab67004da088bd2c73204949a1e1d79bcca8c8f9bde
+  checksum: c462aed8379ef97b49e3e99896092bb06645e1b6ad1738d95addbd99f5662202944a055c490c5e1c19edcdb033029a68d9a82e8dd164f8fa714d636e79795eb6
   languageName: node
   linkType: hard
 
-"@xyo-network/huri@npm:^2.84.3, @xyo-network/huri@npm:^2.84.6, @xyo-network/huri@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/huri@npm:2.84.6"
+"@xyo-network/huri@npm:^2.84.3, @xyo-network/huri@npm:^2.84.7, @xyo-network/huri@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/huri@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/axios": "npm:^2.13.20"
     "@xylabs/hex": "npm:^2.13.20"
-    "@xyo-network/account": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 13be71aa2ac343edba191f339ce995af87a6b7928c286a40c49770d4e10e1ffd148dcf4f6ab57ae2d6b05dd36046956ddf45802cec0fdca9aa2ffc2486e5b751
+    "@xyo-network/account": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 7e47bc3c53d42168baf72eaa1536bf5051c456ea29edd040e9a64914df6cfedce0ffe8afb05b8b66e907decedf09fdd8094c12bc8588472d8b699f96d3f47ca6
   languageName: node
   linkType: hard
 
@@ -8164,12 +8164,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/key-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/key-model@npm:2.84.6"
+"@xyo-network/key-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/key-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/data": "npm:~2.84.6"
-  checksum: 2e95c93b6c1163d3610ddb16cea6585beb963d4dea2aa3bb197f855052db4106439b75f0e19bdadae9c2541e772e426e9d89c0813009cfbac21d8169690852e9
+    "@xyo-network/data": "npm:~2.84.7"
+  checksum: 5588927f9fa3eb3ee6dfc4a94d49e3ecc67d38a5b140e1947312ef8c7953b0dc0e71bd027196d0d4f08c153949b96bbf752211cb0bc7e05d96c3656f1ba3203a
   languageName: node
   linkType: hard
 
@@ -8193,65 +8193,65 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/manifest-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/manifest-model@npm:2.84.6"
+"@xyo-network/manifest-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/manifest-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 92114e08956cf7e444b1936e03beda8af3c49f3fe762d4a79f686a08bc6276bf2e9bce9d29a04bf0415a6fa9d35e9d9e352637de8f2096546f3f7d62a0709472
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: fa15b04aa25ab1caee909f41ddddbcd1a00f80a39ce6ddea5be4acb05f4652f6f7241dac336ac2d458f93a9fc925b83e03ee337fcde6879d0a9605469960197d
   languageName: node
   linkType: hard
 
-"@xyo-network/manifest@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/manifest@npm:2.84.6"
+"@xyo-network/manifest@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/manifest@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
-    "@xyo-network/http-bridge": "npm:~2.84.6"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/memory-archivist": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/node-memory": "npm:~2.84.6"
-    "@xyo-network/node-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
-    "@xyo-network/sentinel": "npm:~2.84.6"
-    "@xyo-network/wallet-model": "npm:~2.84.6"
-  checksum: 641abfc88bc70a8026257f5d1caf8c0ecfaef7fab52dd4a268b7c510fd284ab4532348dd3a8cfa7ab8aa6c81a9cc0b2152814adbce92dd1cf0a71eb068fe59e0
+    "@xyo-network/http-bridge": "npm:~2.84.7"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/memory-archivist": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/node-memory": "npm:~2.84.7"
+    "@xyo-network/node-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
+    "@xyo-network/sentinel": "npm:~2.84.7"
+    "@xyo-network/wallet-model": "npm:~2.84.7"
+  checksum: 6b3df267d760d1185b92b4d6e16593817d6d27bef7d2f9b70b93e96efab892dbec45069d37e48040b6f36480d43c37d1512fc9a952185c9014f9481e78fdd3c3
   languageName: node
   linkType: hard
 
-"@xyo-network/memory-archivist@npm:^2.84.6, @xyo-network/memory-archivist@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/memory-archivist@npm:2.84.6"
+"@xyo-network/memory-archivist@npm:^2.84.7, @xyo-network/memory-archivist@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/memory-archivist@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/archivist-abstract": "npm:~2.84.6"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
+    "@xyo-network/archivist-abstract": "npm:~2.84.7"
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
     lru-cache: "npm:^10.1.0"
-  checksum: d052ba0b521974b14826f321b4c5587f62ce877a5e54fc0d8b33c074c687d8465b76dd4e8518be66e1d3329237a10ed9e200c7257cff3e8a056ac2f8bcf2a75c
+  checksum: a0771800df6aba0c08b811fb945d3ce9290d3f94fffb933821c5c95f113a71b9a14bb0fa0ded446a531305921503eddf077b1f4d7c058e4b78ece7ee0600f90d
   languageName: node
   linkType: hard
 
-"@xyo-network/metamask-connector@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/metamask-connector@npm:2.84.6"
+"@xyo-network/metamask-connector@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/metamask-connector@npm:2.84.7"
   dependencies:
     "@metamask/providers": "npm:^14.0.2"
     ethers: "npm:^6.9.0"
-  checksum: 4d99f5a7cc154aee9f9ee0bdad923c94bab4f6160c83eaad5e4369442cf72479ab6e96e7fa11684bd21f03da825e91ef96a5124ec43aacfa1c1aca372ae36f0d
+  checksum: 177a38b1b378b080117cab861047908f8d789e066fb22f60469a4e01fc1e763e88f765628e626dbac4ecbcb4a2ff503192225a43bdbf54c3e37ffafabab93c4b
   languageName: node
   linkType: hard
 
-"@xyo-network/module-abstract@npm:^2.84.6, @xyo-network/module-abstract@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/module-abstract@npm:2.84.6"
+"@xyo-network/module-abstract@npm:^2.84.7, @xyo-network/module-abstract@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/module-abstract@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/error": "npm:^2.13.20"
@@ -8260,37 +8260,37 @@ __metadata:
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/logger": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/account": "npm:~2.84.6"
-    "@xyo-network/account-model": "npm:~2.84.6"
+    "@xyo-network/account": "npm:~2.84.7"
+    "@xyo-network/account-model": "npm:~2.84.7"
     "@xyo-network/address-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
     "@xyo-network/config-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/module-resolver": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-builder": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/module-resolver": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-builder": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
     "@xyo-network/query-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/wallet-model": "npm:~2.84.6"
-  checksum: fe5a5134f75b11de2ea6726d77f4a37ae9e7a8389e8facc41465267836c202b3685e29a285b49a5f322ccfd640b35db54d301183b2cf67aad549df6d1724346c
+    "@xyo-network/wallet-model": "npm:~2.84.7"
+  checksum: fe23745f26a566d097ab9e43662f8512751d1fda8e03e61ecc6f4755c8fc1a039d33cad65921c479ee5ea784e33da735ab3f6df89e40931433fc87094e7ee2a6
   languageName: node
   linkType: hard
 
-"@xyo-network/module-events@npm:^2.84.6, @xyo-network/module-events@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/module-events@npm:2.84.6"
+"@xyo-network/module-events@npm:^2.84.7, @xyo-network/module-events@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/module-events@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/error": "npm:^2.13.20"
     "@xylabs/forget": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/object": "npm:~2.84.6"
-  checksum: 67c227a175b66e5455fa2932be2e1540b6e83b8285946908b13cf35f8b534ec63a45cb5b5da906e5b418d9c32673653f48ecbe76806efb107607b5ce26f2a05c
+    "@xyo-network/object": "npm:~2.84.7"
+  checksum: 563044c65c1e97e53f3254c09cf6256289dab134afab7f414d348d640a7906d4ab5607031cdf19beba2086abaf035bc2a62176a2ebd0a2040853985e35b6743a
   languageName: node
   linkType: hard
 
@@ -8304,91 +8304,91 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/module-model@npm:^2.84.3, @xyo-network/module-model@npm:^2.84.6, @xyo-network/module-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/module-model@npm:2.84.6"
+"@xyo-network/module-model@npm:^2.84.3, @xyo-network/module-model@npm:^2.84.7, @xyo-network/module-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/module-model@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/hex": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/logger": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/account-model": "npm:~2.84.6"
+    "@xyo-network/account-model": "npm:~2.84.7"
     "@xyo-network/address-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/wallet-model": "npm:~2.84.6"
-  checksum: 62eb2c2de534a9b666df4fb0371a7202f06291c6db528eb4b4a06247fab337a2af5cb8079a2bd457b060ecfd1a0c8011f85e0ccf40299336f49fd4a6b26f1cc9
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/wallet-model": "npm:~2.84.7"
+  checksum: ed322a3e93b6059b1dade8ddd33a1883f159abbaaa44b1428cb0944cfba14dfc4e12bf1fca0deba134f25500c0886144b0fbecb42aff5e30c040375015558a73
   languageName: node
   linkType: hard
 
-"@xyo-network/module-resolver@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/module-resolver@npm:2.84.6"
+"@xyo-network/module-resolver@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/module-resolver@npm:2.84.7"
   dependencies:
     "@xylabs/exists": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-  checksum: 44b12001034684e77c32ac169bbb0db819feb12f2662cc1273c372243a2bed0ea5f9b3e702085d659bb68a775a1c3554d68d789c66c06fd9c524cc47f5a70c7f
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+  checksum: ae73d144fcf1899302bcf3c93cc292591598ee11bb1358421518809edc189ccbb3bebbca790eedf57c55521725fe398c5a696e15bda5446bdbc1567d7895f4aa
   languageName: node
   linkType: hard
 
-"@xyo-network/module-wrapper@npm:^2.84.6, @xyo-network/module-wrapper@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/module-wrapper@npm:2.84.6"
+"@xyo-network/module-wrapper@npm:^2.84.7, @xyo-network/module-wrapper@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/module-wrapper@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
     "@xylabs/logger": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/account": "npm:~2.84.6"
-    "@xyo-network/account-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-wrapper": "npm:~2.84.6"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: f5c1f2bdc5d102ab7569291ebf4f1facda1585715713dd02eeafe519c485d4538fb4de3c080500f5dce94536ceac4b45842c6023ca1be27fc4acd78ddb35491c
+    "@xyo-network/account": "npm:~2.84.7"
+    "@xyo-network/account-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-wrapper": "npm:~2.84.7"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 5af4b04c5728fa21bf3553ddf526b3b78a0d08b8d17b87af60960897c9007d50e63a85f6d1b038be42dbd6013168dc78b6f76485bb1a36fe5991ef22772938f4
   languageName: node
   linkType: hard
 
-"@xyo-network/network@npm:^2.84.3, @xyo-network/network@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/network@npm:2.84.6"
+"@xyo-network/network@npm:^2.84.3, @xyo-network/network@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/network@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
-  checksum: 510bd710d746f799a9f7afe9b6fdf67f3b3a7bb4685e98b774e17f9289b17f961f28de3ac474d8a7e3521b32219e11ed2e56e0cf530fcb2e6ad3d54238bdc1f4
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
+  checksum: b3d0631b81802cddf9bc5e8f4b456eb9097e04f8ffdeaed4342e0b43edd7161edc632709e8f8edf4ad3ccc16e158c1124af3f00287a018183b7f3a0ff6f3554d
   languageName: node
   linkType: hard
 
-"@xyo-network/node-abstract@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/node-abstract@npm:2.84.6"
+"@xyo-network/node-abstract@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/node-abstract@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
     "@xyo-network/address-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-abstract": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/module-resolver": "npm:~2.84.6"
-    "@xyo-network/node-model": "npm:~2.84.6"
-    "@xyo-network/payload-builder": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 97d5d1a7e06a815c91904e076238a2c2e4abe8afa0bb507237ed8c442483a495e6e4bb557b55d54c8b3f7b9a79be5033bc3050259d1b3dcdf773a41b515ddf12
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-abstract": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/module-resolver": "npm:~2.84.7"
+    "@xyo-network/node-model": "npm:~2.84.7"
+    "@xyo-network/payload-builder": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 331cb4099b45ead0980be85fcd3821fa48d912d15eaac495a4545c17d1f218d30bc8c6bb2a77384497fffed4846b9dd3bf709b2d64a1b1848dfb2fd029e8743b
   languageName: node
   linkType: hard
 
@@ -8399,58 +8399,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/node-memory@npm:^2.84.6, @xyo-network/node-memory@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/node-memory@npm:2.84.6"
+"@xyo-network/node-memory@npm:^2.84.7, @xyo-network/node-memory@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/node-memory@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/lodash": "npm:^2.13.20"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/module-resolver": "npm:~2.84.6"
-    "@xyo-network/node-abstract": "npm:~2.84.6"
-    "@xyo-network/node-model": "npm:~2.84.6"
-  checksum: c6454384afe14f7bb2fbf637d8e78c3b07c3deeac68110e63f1dcbf520969210704d5efa47073836d78f08ba597f17fec66e0e83edff05154c54d0c1b4389ada
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/module-resolver": "npm:~2.84.7"
+    "@xyo-network/node-abstract": "npm:~2.84.7"
+    "@xyo-network/node-model": "npm:~2.84.7"
+  checksum: 7fe1518c7a12ecd490c20a5ba091208271dfe5b54c606556f96b7608ea896a73713d9f576d062721e705b8a1f5425e2ed21816b71633a35b30b609d2bc116c8c
   languageName: node
   linkType: hard
 
-"@xyo-network/node-model@npm:^2.84.6, @xyo-network/node-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/node-model@npm:2.84.6"
+"@xyo-network/node-model@npm:^2.84.7, @xyo-network/node-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/node-model@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: c73840aebd91a36bf78141b627eb7eb198a76d4096f3652545af73cb6e6a34566204d439af186da0ae16f459609e01b43eebe71bf05957dbe31da4c1fbff35f7
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: ba3dd9f5ce9214e0b5b88e52011d77cb309730721376dadff80524b249dd31524ed2cfdc460d139338777292ebd8a309616d70660cfe255764c037affe7459c3
   languageName: node
   linkType: hard
 
-"@xyo-network/node-wrapper@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/node-wrapper@npm:2.84.6"
+"@xyo-network/node-wrapper@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/node-wrapper@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
     "@xyo-network/address-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/manifest-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/module-wrapper": "npm:~2.84.6"
-    "@xyo-network/node-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 93bcb555c0b8750cf27962dc3c237f103a5e80da9324cbc5158644268bd654ebfec11bf1e53d223669f3153f85e884cf591fb98788b19fabafe49959fdbbaaf3
+    "@xyo-network/manifest-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/module-wrapper": "npm:~2.84.7"
+    "@xyo-network/node-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 8aaf41092b3fcb94c28e36912baa24bf702bfe4a698d78a9e51fcb82a18b3aa2eb2b9514d65d13f2db2cc79e0927c3a9f229152fdc44b3242ad262c5a52a6855
   languageName: node
   linkType: hard
 
-"@xyo-network/object@npm:^2.84.3, @xyo-network/object@npm:^2.84.6, @xyo-network/object@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/object@npm:2.84.6"
+"@xyo-network/object@npm:^2.84.3, @xyo-network/object@npm:^2.84.7, @xyo-network/object@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/object@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/logger": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-  checksum: fc7f3ba2d0537f3809af6f914b856d942a8e122be3ea17b989c999c801bbaec77daffdaa0566670e8780e18cfc41a8938a230001590a915631c2cb995d025c5a
+  checksum: 12d050fcba67534803916f30076d7b4f3056f6120d617460c09cfdaaeaa0045f65e9ebd1ee796d72baf728af12fbc6f0c982a516d8564963a3c7d253855e4f23
   languageName: node
   linkType: hard
 
@@ -8463,38 +8463,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/payload-builder@npm:^2.84.3, @xyo-network/payload-builder@npm:^2.84.6, @xyo-network/payload-builder@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/payload-builder@npm:2.84.6"
+"@xyo-network/payload-builder@npm:^2.84.3, @xyo-network/payload-builder@npm:^2.84.7, @xyo-network/payload-builder@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/payload-builder@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: dc200014ca0ef8baacfdd24d4afad70adcf1e2df268ffe484280673b56270a0f24947beb1f79a9e8eb578f29498ece035bcca76223cc4c283e1487a5be6dfbd5
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 15fe6520e2c9e454cb9085139c9f5664a7f8a41fd0484e81024bb311e0f3731ab68a425b1e8adebec90345ccbf97ebef818e7740337bb8b1108c09036f918ac1
   languageName: node
   linkType: hard
 
-"@xyo-network/payload-model@npm:^2.84.3, @xyo-network/payload-model@npm:^2.84.6, @xyo-network/payload-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/payload-model@npm:2.84.6"
+"@xyo-network/payload-model@npm:^2.84.3, @xyo-network/payload-model@npm:^2.84.7, @xyo-network/payload-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/payload-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/object": "npm:~2.84.6"
-  checksum: 2d651abb5393edaf903922235ca232cdf6daa407906adaacb72f94253bc1fc5e74ed772020792e5af1f279df7b49193218c2b924ab28aed177eeff292eec9ce3
+    "@xyo-network/object": "npm:~2.84.7"
+  checksum: 9d597d467ad8305e56ea069d241d67782562df49bde4d7b6c8fd15090200163ce8095948c6c6a0051428d8d73257cefd8bdfea809bd154414aa5e369e2df56b2
   languageName: node
   linkType: hard
 
-"@xyo-network/payload-plugin@npm:^2.84.3, @xyo-network/payload-plugin@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/payload-plugin@npm:2.84.6"
+"@xyo-network/payload-plugin@npm:^2.84.3, @xyo-network/payload-plugin@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/payload-plugin@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-builder": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-validator": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
-  checksum: a89f8b5aa5033c84d5d4c7e967e33825cc6a50b2f51e61bc84362ffdd98ec8aa04a143f4ed731b8fb2831c92c6af1c3520373a0305028864f447f8ef8729d0d0
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-builder": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-validator": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
+  checksum: afbcdec2f666d35a3edecf1d0cc303b0887d0ec8d57800467c23391f5ef9028daa48eb8eb48e427f5bea3440ddc6e20b5549a6f7b72427a0becbc0690f21dd44
   languageName: node
   linkType: hard
 
@@ -8524,59 +8524,59 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/payload-validator@npm:^2.84.6, @xyo-network/payload-validator@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/payload-validator@npm:2.84.6"
+"@xyo-network/payload-validator@npm:^2.84.7, @xyo-network/payload-validator@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/payload-validator@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/schema-name-validator": "npm:~2.84.6"
-  checksum: 0f08940e16e5f20682c7b79632a7808e8081b0e9f1cd885371b6b644183d5fd24ee652d7b318343f82e900f36c06e571135a360067ae8f46e0bc5a1dd37584f0
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/schema-name-validator": "npm:~2.84.7"
+  checksum: 081aa2c2286afdb0f3e0975f410b12ffac9c2d99edbd2103826c47e3015cf5ea9d3b68fc6820b351d18160dd367fec74dfd6889692afb5b482188c3a6591e681
   languageName: node
   linkType: hard
 
-"@xyo-network/payload-wrapper@npm:^2.84.3, @xyo-network/payload-wrapper@npm:^2.84.6, @xyo-network/payload-wrapper@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/payload-wrapper@npm:2.84.6"
+"@xyo-network/payload-wrapper@npm:^2.84.3, @xyo-network/payload-wrapper@npm:^2.84.7, @xyo-network/payload-wrapper@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/payload-wrapper@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-validator": "npm:~2.84.6"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-validator": "npm:~2.84.7"
     ajv: "npm:^8.12.0"
-  checksum: a8abedd0af26855c41c6b2f142d796bd4f1a0538d2b66cd1820966a59364f328a0db88d1e5eafcf332dfeb74be133d89368bdb36b44afd5570cb98b0611685b2
+  checksum: c9424e876c1efb064bf20a107fd58449fcd6f874bc10954623fd481e06b26e069c85395fa976f6db68338a1b911f010c20fcbdfdd28fac99e7655307c7f82b98
   languageName: node
   linkType: hard
 
-"@xyo-network/payload@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/payload@npm:2.84.6"
+"@xyo-network/payload@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/payload@npm:2.84.7"
   dependencies:
-    "@xyo-network/huri": "npm:~2.84.6"
-    "@xyo-network/payload-builder": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-validator": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
-  checksum: 471e98008751c8337b67ca5fd1118fb84defa0e88bee7b9790409c470af66deacecc3369a25b8a814a45a982a1f4a9dbb8cfce206fbf8cc4d2db31a061889015
+    "@xyo-network/huri": "npm:~2.84.7"
+    "@xyo-network/payload-builder": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-validator": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
+  checksum: 567e0f4c84d1856c20416e8b9184f6e904b3407b669504688d0305b4a6d01b200876184fce10d597aaf27bfeb51534565f3e4c5d001c06fae992c612bfc7a03d
   languageName: node
   linkType: hard
 
-"@xyo-network/payloadset-plugin@npm:^2.84.3, @xyo-network/payloadset-plugin@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/payloadset-plugin@npm:2.84.6"
+"@xyo-network/payloadset-plugin@npm:^2.84.3, @xyo-network/payloadset-plugin@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/payloadset-plugin@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/hash": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/witness-model": "npm:~2.84.6"
-  checksum: 88e887189926dd73e1f0c2eba10be4408106ecd143e46963998717dea72a135811d3fc32aa12719733c2ba26f15670af99201b93bb95eb8eb374c7e11a075f3c
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/hash": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/witness-model": "npm:~2.84.7"
+  checksum: df82a2b02e1f3768f4d73a1193b1a76f206de1f541028718f48b008db111cf867f582249b7da88b780f16bfc92249aad82f2061cb1affbd4fb5852890d58bbbc
   languageName: node
   linkType: hard
 
@@ -8591,10 +8591,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/previous-hash-store-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/previous-hash-store-model@npm:2.84.6"
-  checksum: 5896dcb724866ac6cb89c10968f29beaedc6ab6e5c9969caf982467a2a2a11e6123a0874c6182eeb9a91943b4a8c0c6ca148e2b82af72aebbaae5ab010a74a4b
+"@xyo-network/previous-hash-store-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/previous-hash-store-model@npm:2.84.7"
+  checksum: 04226726d55f71f39479202c1433166cc2891cab3092c9faca26c52a4cf6106beda02b6da7082d9918da3d14ddb2287bed79e11c270f4a4fbe7baffa289170a6
   languageName: node
   linkType: hard
 
@@ -8621,14 +8621,14 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/archivist": "npm:^2.84.6"
-    "@xyo-network/boundwitness-model": "npm:^2.84.6"
-    "@xyo-network/diviner-address-history-model": "npm:^2.84.6"
-    "@xyo-network/hash": "npm:^2.84.6"
+    "@xyo-network/archivist": "npm:^2.84.7"
+    "@xyo-network/boundwitness-model": "npm:^2.84.7"
+    "@xyo-network/diviner-address-history-model": "npm:^2.84.7"
+    "@xyo-network/hash": "npm:^2.84.7"
     "@xyo-network/node-core-types": "npm:^2.82.0"
-    "@xyo-network/payload-builder": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
-    "@xyo-network/payload-wrapper": "npm:^2.84.6"
+    "@xyo-network/payload-builder": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
+    "@xyo-network/payload-wrapper": "npm:^2.84.7"
     "@xyo-network/react-archivist": "workspace:~"
     "@xyo-network/react-boundwitness-plugin": "workspace:~"
     "@xyo-network/react-diviner": "workspace:~"
@@ -8656,7 +8656,7 @@ __metadata:
     "@storybook/react": "npm:^7.6.5"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/account": "npm:^2.84.6"
+    "@xyo-network/account": "npm:^2.84.7"
     "@xyo-network/payload-plugins": "npm:^2.84.2"
     "@xyo-network/react-address-render": "workspace:~"
     "@xyo-network/react-event": "workspace:~"
@@ -8681,7 +8681,7 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/account": "npm:^2.84.6"
+    "@xyo-network/account": "npm:^2.84.7"
     "@xyo-network/react-event": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -8724,7 +8724,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/crypto-asset-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -8800,17 +8800,17 @@ __metadata:
     "@xylabs/react-promise": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/account": "npm:^2.84.6"
-    "@xyo-network/archivist": "npm:^2.84.6"
-    "@xyo-network/archivist-model": "npm:^2.84.6"
-    "@xyo-network/boundwitness-builder": "npm:^2.84.6"
-    "@xyo-network/boundwitness-model": "npm:^2.84.6"
-    "@xyo-network/boundwitness-wrapper": "npm:^2.84.6"
-    "@xyo-network/module-events": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/module-wrapper": "npm:^2.84.6"
-    "@xyo-network/node-memory": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/account": "npm:^2.84.7"
+    "@xyo-network/archivist": "npm:^2.84.7"
+    "@xyo-network/archivist-model": "npm:^2.84.7"
+    "@xyo-network/boundwitness-builder": "npm:^2.84.7"
+    "@xyo-network/boundwitness-model": "npm:^2.84.7"
+    "@xyo-network/boundwitness-wrapper": "npm:^2.84.7"
+    "@xyo-network/module-events": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/module-wrapper": "npm:^2.84.7"
+    "@xyo-network/node-memory": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-module": "workspace:~"
     "@xyo-network/react-node": "workspace:~"
     "@xyo-network/react-wallet": "workspace:~"
@@ -8839,10 +8839,10 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/boundwitness-model": "npm:^2.84.6"
-    "@xyo-network/boundwitness-validator": "npm:^2.84.6"
-    "@xyo-network/hash": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/boundwitness-model": "npm:^2.84.7"
+    "@xyo-network/boundwitness-validator": "npm:^2.84.7"
+    "@xyo-network/hash": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-error": "workspace:~"
     "@xyo-network/react-event": "workspace:~"
     "@xyo-network/react-network": "workspace:~"
@@ -8878,9 +8878,9 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/boundwitness-model": "npm:^2.84.6"
-    "@xyo-network/boundwitness-validator": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/boundwitness-model": "npm:^2.84.7"
+    "@xyo-network/boundwitness-validator": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-card": "workspace:~"
     "@xyo-network/react-event": "workspace:~"
     "@xyo-network/react-payload-details": "workspace:~"
@@ -8933,7 +8933,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/coingecko-crypto-market-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-aggregate-price-plugin": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -8976,7 +8976,7 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/uniswap-crypto-market-payload-plugin": "npm:^2.84.2"
@@ -8999,7 +8999,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/coingecko-crypto-market-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/react-storybook": "workspace:~"
@@ -9054,8 +9054,8 @@ __metadata:
   dependencies:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/diviner": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
+    "@xyo-network/diviner": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
     "@xyo-network/react-node": "workspace:~"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -9077,8 +9077,8 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/axios": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/axios": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-map": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/sdk-geo": "npm:^2.11.2"
@@ -9105,14 +9105,14 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/huri": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/huri": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-aggregate-price-plugin": "workspace:~"
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:~"
     "@xyo-network/react-error": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
-    "@xyo-network/schema-cache": "npm:^2.84.6"
+    "@xyo-network/schema-cache": "npm:^2.84.7"
     react-router-dom: "npm:^6.21.0"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -9134,7 +9134,7 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     react-router-dom: "npm:^6.21.0"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -9160,7 +9160,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/blocknative-ethereum-gas-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-gas-price": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -9202,7 +9202,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-gas-price": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -9227,7 +9227,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/ethers-ethereum-gas-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-gas-price": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -9252,7 +9252,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-gas-price": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -9277,7 +9277,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-gas-price": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -9325,7 +9325,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/gas-price-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-gas-price": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -9404,27 +9404,27 @@ __metadata:
     "@xylabs/react-promise": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/boundwitness-model": "npm:^2.84.6"
-    "@xyo-network/diviner-boundwitness-memory": "npm:^2.84.6"
-    "@xyo-network/diviner-model": "npm:^2.84.6"
-    "@xyo-network/diviner-payload-memory": "npm:^2.84.6"
-    "@xyo-network/diviner-payload-model": "npm:^2.84.6"
-    "@xyo-network/diviner-temporal-indexing-memory": "npm:^2.84.6"
+    "@xyo-network/boundwitness-model": "npm:^2.84.7"
+    "@xyo-network/diviner-boundwitness-memory": "npm:^2.84.7"
+    "@xyo-network/diviner-model": "npm:^2.84.7"
+    "@xyo-network/diviner-payload-memory": "npm:^2.84.7"
+    "@xyo-network/diviner-payload-model": "npm:^2.84.7"
+    "@xyo-network/diviner-temporal-indexing-memory": "npm:^2.84.7"
     "@xyo-network/evm-contract-witness": "npm:^2.84.2"
     "@xyo-network/evm-token-interface-diviner": "npm:^2.84.2"
-    "@xyo-network/manifest": "npm:^2.84.6"
-    "@xyo-network/memory-archivist": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/object": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/manifest": "npm:^2.84.7"
+    "@xyo-network/memory-archivist": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/object": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-archivist": "workspace:~"
     "@xyo-network/react-manifest": "workspace:~"
     "@xyo-network/react-node": "workspace:~"
     "@xyo-network/react-sentinel": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
-    "@xyo-network/sentinel-model": "npm:^2.84.6"
-    "@xyo-network/witness-blockchain-abstract": "npm:^2.84.6"
-    "@xyo-network/witness-timestamp": "npm:^2.84.6"
+    "@xyo-network/sentinel-model": "npm:^2.84.7"
+    "@xyo-network/witness-blockchain-abstract": "npm:^2.84.7"
+    "@xyo-network/witness-timestamp": "npm:^2.84.7"
     ethers: "npm:6.9.0"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -9444,7 +9444,7 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-error": "workspace:~"
     "@xyo-network/react-map": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
@@ -9469,7 +9469,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/location-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-map": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     geojson: "npm:0.5.0"
@@ -9491,7 +9491,7 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-map": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -9513,16 +9513,16 @@ __metadata:
     "@xylabs/react-promise": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/account": "npm:^2.84.6"
-    "@xyo-network/diviner": "npm:^2.84.6"
-    "@xyo-network/diviner-model": "npm:^2.84.6"
-    "@xyo-network/diviner-payload-memory": "npm:^2.84.6"
-    "@xyo-network/manifest": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/account": "npm:^2.84.7"
+    "@xyo-network/diviner": "npm:^2.84.7"
+    "@xyo-network/diviner-model": "npm:^2.84.7"
+    "@xyo-network/diviner-payload-memory": "npm:^2.84.7"
+    "@xyo-network/manifest": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-node-provider": "workspace:~"
-    "@xyo-network/wallet-model": "npm:^2.84.6"
-    "@xyo-network/witness-timestamp": "npm:^2.84.6"
+    "@xyo-network/wallet-model": "npm:^2.84.7"
+    "@xyo-network/witness-timestamp": "npm:^2.84.7"
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@mui/icons-material": ^5
@@ -9547,7 +9547,7 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-app-settings": "workspace:~"
     "@xyo-network/react-archivist": "workspace:~"
     "@xyo-network/react-network": "workspace:~"
@@ -9578,12 +9578,12 @@ __metadata:
     "@xylabs/react-promise": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/archivist": "npm:^2.84.6"
+    "@xyo-network/archivist": "npm:^2.84.7"
     "@xyo-network/crypto-asset-plugin": "npm:^2.84.2"
-    "@xyo-network/diviner": "npm:^2.84.6"
-    "@xyo-network/diviner-address-history": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/node-memory": "npm:^2.84.6"
+    "@xyo-network/diviner": "npm:^2.84.7"
+    "@xyo-network/diviner-address-history": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/node-memory": "npm:^2.84.7"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -9631,7 +9631,7 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/network": "npm:^2.84.6"
+    "@xyo-network/network": "npm:^2.84.7"
     "@xyo-network/react-shared": "workspace:~"
     react-router-dom: "npm:^6.21.0"
     typescript: "npm:^5.3.3"
@@ -9654,7 +9654,7 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/crypto-nft-payload-plugin": "npm:^2.84.2"
     "@xyo-network/crypto-nft-score-model": "npm:^2.84.2"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/react-storybook": "workspace:~"
@@ -9674,8 +9674,8 @@ __metadata:
   dependencies:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/node-model": "npm:^2.84.6"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/node-model": "npm:^2.84.7"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -9695,9 +9695,9 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/node-memory": "npm:^2.84.6"
-    "@xyo-network/node-model": "npm:^2.84.6"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/node-memory": "npm:^2.84.7"
+    "@xyo-network/node-model": "npm:^2.84.7"
     "@xyo-network/react-node-context": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -9724,25 +9724,25 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/account-model": "npm:^2.84.6"
-    "@xyo-network/archivist": "npm:^2.84.6"
-    "@xyo-network/archivist-model": "npm:^2.84.6"
-    "@xyo-network/bridge-model": "npm:^2.84.6"
-    "@xyo-network/diviner-model": "npm:^2.84.6"
-    "@xyo-network/http-bridge": "npm:^2.84.6"
+    "@xyo-network/account-model": "npm:^2.84.7"
+    "@xyo-network/archivist": "npm:^2.84.7"
+    "@xyo-network/archivist-model": "npm:^2.84.7"
+    "@xyo-network/bridge-model": "npm:^2.84.7"
+    "@xyo-network/diviner-model": "npm:^2.84.7"
+    "@xyo-network/http-bridge": "npm:^2.84.7"
     "@xyo-network/id-plugin": "npm:^2.84.2"
-    "@xyo-network/module-events": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/node-memory": "npm:^2.84.6"
-    "@xyo-network/node-model": "npm:^2.84.6"
+    "@xyo-network/module-events": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/node-memory": "npm:^2.84.7"
+    "@xyo-network/node-model": "npm:^2.84.7"
     "@xyo-network/react-archivist": "workspace:~"
     "@xyo-network/react-module": "workspace:~"
     "@xyo-network/react-node": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/react-storybook": "workspace:~"
     "@xyo-network/react-wallet": "workspace:~"
-    "@xyo-network/sentinel": "npm:^2.84.6"
-    "@xyo-network/witness-model": "npm:^2.84.6"
+    "@xyo-network/sentinel": "npm:^2.84.7"
+    "@xyo-network/witness-model": "npm:^2.84.7"
     cytoscape: "npm:^3.28.0"
     cytoscape-cola: "npm:^2.5.1"
     typescript: "npm:^5.3.3"
@@ -9771,11 +9771,11 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/module-abstract": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/node-memory": "npm:^2.84.6"
-    "@xyo-network/node-model": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/module-abstract": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/node-memory": "npm:^2.84.7"
+    "@xyo-network/node-model": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-node-context": "workspace:~"
     "@xyo-network/react-node-provider": "workspace:~"
     "@xyo-network/react-storybook": "workspace:~"
@@ -9799,9 +9799,9 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/archivist-model": "npm:^2.84.6"
-    "@xyo-network/memory-archivist": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/archivist-model": "npm:^2.84.7"
+    "@xyo-network/memory-archivist": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -9824,9 +9824,9 @@ __metadata:
     "@xylabs/react-quick-tip-button": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/hash": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
-    "@xyo-network/payload-validator": "npm:^2.84.6"
+    "@xyo-network/hash": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
+    "@xyo-network/payload-validator": "npm:^2.84.7"
     "@xyo-network/react-property": "workspace:~"
     "@xyo-network/react-schema": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -9851,8 +9851,8 @@ __metadata:
     "@xylabs/react-async-effect": "npm:^3.0.35"
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
-    "@xyo-network/diviner": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/diviner": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-error": "workspace:~"
     "@xyo-network/react-payload-huri": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
@@ -9873,7 +9873,7 @@ __metadata:
   dependencies:
     "@xylabs/react-promise": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
-    "@xyo-network/diviner": "npm:^2.84.6"
+    "@xyo-network/diviner": "npm:^2.84.7"
     "@xyo-network/react-network": "workspace:~"
     react-router-dom: "npm:^6.21.0"
     typescript: "npm:^5.3.3"
@@ -9892,9 +9892,9 @@ __metadata:
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
-    "@xyo-network/payload-plugin": "npm:^2.84.6"
-    "@xyo-network/payloadset-plugin": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
+    "@xyo-network/payload-plugin": "npm:^2.84.7"
+    "@xyo-network/payloadset-plugin": "npm:^2.84.7"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -9915,7 +9915,7 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^3.0.35"
     "@xylabs/react-identicon": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-payload-details": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -9938,9 +9938,9 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/hash": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
-    "@xyo-network/payload-validator": "npm:^2.84.6"
+    "@xyo-network/hash": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
+    "@xyo-network/payload-validator": "npm:^2.84.7"
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:~"
     "@xyo-network/react-error": "workspace:~"
     "@xyo-network/react-event": "workspace:~"
@@ -10054,7 +10054,7 @@ __metadata:
   dependencies:
     "@xylabs/react-flexbox": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-payload-details": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -10079,18 +10079,18 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^3.0.35"
     "@xylabs/react-promise": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
-    "@xyo-network/account": "npm:^2.84.6"
-    "@xyo-network/archivist-model": "npm:^2.84.6"
-    "@xyo-network/bridge-model": "npm:^2.84.6"
-    "@xyo-network/diviner-model": "npm:^2.84.6"
-    "@xyo-network/manifest": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/node-model": "npm:^2.84.6"
+    "@xyo-network/account": "npm:^2.84.7"
+    "@xyo-network/archivist-model": "npm:^2.84.7"
+    "@xyo-network/bridge-model": "npm:^2.84.7"
+    "@xyo-network/diviner-model": "npm:^2.84.7"
+    "@xyo-network/manifest": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/node-model": "npm:^2.84.7"
     "@xyo-network/react-node": "workspace:~"
     "@xyo-network/react-property": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
-    "@xyo-network/sentinel": "npm:^2.84.6"
-    "@xyo-network/witness-model": "npm:^2.84.6"
+    "@xyo-network/sentinel": "npm:^2.84.7"
+    "@xyo-network/witness-model": "npm:^2.84.7"
     react-json-view: "npm:^1.21.3"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -10111,8 +10111,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/diviner-forecasting-model": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/diviner-forecasting-model": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-payload-plugin": "workspace:~"
     chart.js: "npm:^4.4.1"
     chartjs-adapter-luxon: "npm:^1.3.1"
@@ -10139,10 +10139,10 @@ __metadata:
     "@xylabs/react-quick-tip-button": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/payload-wrapper": "npm:^2.84.6"
+    "@xyo-network/payload-wrapper": "npm:^2.84.7"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/react-storybook": "workspace:~"
-    "@xyo-network/typeof": "npm:^2.84.6"
+    "@xyo-network/typeof": "npm:^2.84.7"
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@mui/icons-material": ^5
@@ -10162,7 +10162,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/bowser-system-info-plugin": "npm:^2.84.2"
-    "@xyo-network/node-model": "npm:^2.84.6"
+    "@xyo-network/node-model": "npm:^2.84.7"
     "@xyo-network/react-node-renderer": "workspace:~"
     "@xyo-network/react-standard-node": "workspace:~"
     typescript: "npm:^5.3.3"
@@ -10181,7 +10181,7 @@ __metadata:
   dependencies:
     "@xylabs/react-flexbox": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-payload-details": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/schema-payload-plugin": "npm:^2.84.2"
@@ -10208,14 +10208,14 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/diviner-schema-list-model": "npm:^2.84.6"
-    "@xyo-network/diviner-schema-stats-model": "npm:^2.84.6"
-    "@xyo-network/http-bridge": "npm:^2.84.6"
+    "@xyo-network/diviner-schema-list-model": "npm:^2.84.7"
+    "@xyo-network/diviner-schema-stats-model": "npm:^2.84.7"
+    "@xyo-network/http-bridge": "npm:^2.84.7"
     "@xyo-network/node-core-types": "npm:^2.82.0"
-    "@xyo-network/node-memory": "npm:^2.84.6"
-    "@xyo-network/node-model": "npm:^2.84.6"
-    "@xyo-network/payload-builder": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/node-memory": "npm:^2.84.7"
+    "@xyo-network/node-model": "npm:^2.84.7"
+    "@xyo-network/payload-builder": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-diviner": "workspace:~"
     "@xyo-network/react-event": "workspace:~"
     "@xyo-network/react-node": "workspace:~"
@@ -10223,7 +10223,7 @@ __metadata:
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/react-storybook": "workspace:~"
     "@xyo-network/react-wallet": "workspace:~"
-    "@xyo-network/schema-cache": "npm:^2.84.6"
+    "@xyo-network/schema-cache": "npm:^2.84.7"
     "@xyo-network/schema-payload-plugin": "npm:^2.84.2"
     react-json-view: "npm:^1.21.3"
     react-router-dom: "npm:^6.21.0"
@@ -10300,22 +10300,22 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/account": "npm:^2.84.6"
-    "@xyo-network/account-model": "npm:^2.84.6"
-    "@xyo-network/archivist": "npm:^2.84.6"
-    "@xyo-network/boundwitness-model": "npm:^2.84.6"
+    "@xyo-network/account": "npm:^2.84.7"
+    "@xyo-network/account-model": "npm:^2.84.7"
+    "@xyo-network/archivist": "npm:^2.84.7"
+    "@xyo-network/boundwitness-model": "npm:^2.84.7"
     "@xyo-network/crypto-contract-function-read-payload-plugin": "npm:^2.84.2"
     "@xyo-network/crypto-contract-function-read-plugin": "npm:^2.84.2"
-    "@xyo-network/manifest": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/manifest": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-module": "workspace:^"
     "@xyo-network/react-node": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/react-witness": "workspace:~"
-    "@xyo-network/sentinel": "npm:^2.84.6"
-    "@xyo-network/sentinel-model": "npm:^2.84.6"
-    "@xyo-network/witness-model": "npm:^2.84.6"
+    "@xyo-network/sentinel": "npm:^2.84.7"
+    "@xyo-network/sentinel-model": "npm:^2.84.7"
+    "@xyo-network/witness-model": "npm:^2.84.7"
     ethers: "npm:^6.9.0"
     react-json-view: "npm:^1.21.3"
     typescript: "npm:^5.3.3"
@@ -10362,8 +10362,8 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/hash": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/hash": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-event": "workspace:~"
     react-router-dom: "npm:^6.21.0"
     typescript: "npm:^5.3.3"
@@ -10386,20 +10386,20 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/account-model": "npm:^2.84.6"
-    "@xyo-network/archivist": "npm:^2.84.6"
-    "@xyo-network/http-bridge": "npm:^2.84.6"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/node-memory": "npm:^2.84.6"
-    "@xyo-network/node-model": "npm:^2.84.6"
-    "@xyo-network/payloadset-plugin": "npm:^2.84.6"
+    "@xyo-network/account-model": "npm:^2.84.7"
+    "@xyo-network/archivist": "npm:^2.84.7"
+    "@xyo-network/http-bridge": "npm:^2.84.7"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/node-memory": "npm:^2.84.7"
+    "@xyo-network/node-model": "npm:^2.84.7"
+    "@xyo-network/payloadset-plugin": "npm:^2.84.7"
     "@xyo-network/react-network": "workspace:~"
     "@xyo-network/react-node": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/react-wallet": "workspace:~"
-    "@xyo-network/sentinel": "npm:^2.84.6"
-    "@xyo-network/wallet-model": "npm:^2.84.6"
-    "@xyo-network/witness-model": "npm:^2.84.6"
+    "@xyo-network/sentinel": "npm:^2.84.7"
+    "@xyo-network/wallet-model": "npm:^2.84.7"
+    "@xyo-network/witness-model": "npm:^2.84.7"
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@mui/icons-material": ^5
@@ -10417,8 +10417,8 @@ __metadata:
     "@storybook/react": "npm:^7.6.5"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/boundwitness-model": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/boundwitness-model": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@mui/icons-material": ^5
@@ -10497,7 +10497,7 @@ __metadata:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
-    "@xyo-network/metamask-connector": "npm:^2.84.6"
+    "@xyo-network/metamask-connector": "npm:^2.84.7"
     "@xyo-network/react-shared": "workspace:~"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -10527,13 +10527,13 @@ __metadata:
     "@xylabs/react-shared": "npm:^3.0.35"
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
-    "@xyo-network/account": "npm:^2.84.6"
-    "@xyo-network/account-model": "npm:^2.84.6"
+    "@xyo-network/account": "npm:^2.84.7"
+    "@xyo-network/account-model": "npm:^2.84.7"
     "@xyo-network/react-address-render": "workspace:~"
     "@xyo-network/react-network": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/react-storybook": "workspace:~"
-    "@xyo-network/wallet-model": "npm:^2.84.6"
+    "@xyo-network/wallet-model": "npm:^2.84.7"
     async-mutex: "npm:^0.4.0"
     react-router-dom: "npm:^6.21.0"
     typescript: "npm:^5.3.3"
@@ -10595,11 +10595,11 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.2.24"
     "@xylabs/tsconfig-react": "npm:^3.2.24"
     "@xyo-network/id-plugin": "npm:^2.84.2"
-    "@xyo-network/module-model": "npm:^2.84.6"
-    "@xyo-network/payload-model": "npm:^2.84.6"
+    "@xyo-network/module-model": "npm:^2.84.7"
+    "@xyo-network/payload-model": "npm:^2.84.7"
     "@xyo-network/react-module": "workspace:^"
     "@xyo-network/react-node": "workspace:~"
-    "@xyo-network/witness-model": "npm:^2.84.6"
+    "@xyo-network/witness-model": "npm:^2.84.7"
     react-json-view: "npm:^1.21.3"
     typescript: "npm:^5.3.3"
   peerDependencies:
@@ -10611,29 +10611,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/schema-cache@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/schema-cache@npm:2.84.6"
+"@xyo-network/schema-cache@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/schema-cache@npm:2.84.7"
   dependencies:
     "@xylabs/axios": "npm:^2.13.20"
     "@xylabs/delay": "npm:^2.13.20"
     "@xylabs/error": "npm:^2.13.20"
     "@xyo-network/domain-payload-plugin": "npm:^2.84.2"
-    "@xyo-network/huri": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
+    "@xyo-network/huri": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
     "@xyo-network/schema-payload-plugin": "npm:^2.84.2"
     ajv: "npm:^8.12.0"
     lru-cache: "npm:^10.1.0"
-  checksum: 11dc2fcef7213a39ac1d76b6ca65caaa4bcf804ce909c51b5df99ed7f2b1be44ee9909042bdd0eeb369716a620adf25be1667fc002c58f566cc396b912d314a7
+  checksum: 26f2305ea608382fa9582f37adcc0169a89ce27d0c981574b56958e8c45033474d7a4e43749ef37e66c4de959826d86f6c47cfae44a25058b019aa18fd774012
   languageName: node
   linkType: hard
 
-"@xyo-network/schema-name-validator@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/schema-name-validator@npm:2.84.6"
+"@xyo-network/schema-name-validator@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/schema-name-validator@npm:2.84.7"
   dependencies:
-    "@xyo-network/dns": "npm:~2.84.6"
-  checksum: 0fad9cbf40d1ed72b34f9fbfbcf5a310781e79db2e1258d52c381d473443409663ff1c15b9cc27093e64d7c0602e17f1ec7148c2261c8eb179715db392d8e7ce
+    "@xyo-network/dns": "npm:~2.84.7"
+  checksum: 360ea0120a70709860885bb904aa6c856c7834aaea828cb713adaf7f88d16f5ac6f15a65fb248770e2123fd2e2e982adfabcaed0a906a9f1d26e1a6836bc3b4d
   languageName: node
   linkType: hard
 
@@ -10686,8 +10686,8 @@ __metadata:
     "@storybook/react-webpack5": "npm:^7.6.5"
     "@storybook/testing-library": "npm:^0.2.2"
     "@storybook/theming": "npm:^7.6.5"
-    "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
-    "@typescript-eslint/parser": "npm:^6.14.0"
+    "@typescript-eslint/eslint-plugin": "npm:^6.15.0"
+    "@typescript-eslint/parser": "npm:^6.15.0"
     "@xylabs/eslint-config": "npm:^3.2.24"
     "@xylabs/eslint-config-react": "npm:^3.2.24"
     "@xylabs/pixel": "npm:^1.4.14"
@@ -10731,72 +10731,72 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/sentinel-abstract@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/sentinel-abstract@npm:2.84.6"
+"@xyo-network/sentinel-abstract@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/sentinel-abstract@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/forget": "npm:^2.13.20"
-    "@xyo-network/boundwitness-builder": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/module-abstract": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/sentinel-model": "npm:~2.84.6"
-  checksum: 8f2b4f8a589e67687a23461b54180e0d1a815e49988ecf4c90cd956257c832b28966b797173069eaa087de1500c0626fffa6ed27f5ae73b2c83b67fffd146e46
+    "@xyo-network/boundwitness-builder": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/module-abstract": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/sentinel-model": "npm:~2.84.7"
+  checksum: 1dffc5ced30fde33937b2c00f521c710c486b00de713af70ed8050aff6ee0982e84ce7d3100f86c8caa9343b26d47f861bd23e2eaf66b19ab298a107ed1633d6
   languageName: node
   linkType: hard
 
-"@xyo-network/sentinel-model@npm:^2.84.6, @xyo-network/sentinel-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/sentinel-model@npm:2.84.6"
+"@xyo-network/sentinel-model@npm:^2.84.7, @xyo-network/sentinel-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/sentinel-model@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/archivist-model": "npm:~2.84.6"
-    "@xyo-network/boundwitness-model": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/witness-model": "npm:~2.84.6"
-  checksum: 3abd4e24694c9ee58aff0175682eecfa8e91e79d3d16b274f79826db464c3d4bf7ff66ddb70afb68cdf23f9a46c90a0ebd153223f0234efc231cdb42c85835a4
+    "@xyo-network/archivist-model": "npm:~2.84.7"
+    "@xyo-network/boundwitness-model": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/witness-model": "npm:~2.84.7"
+  checksum: 62663d8943be504ab7c9d8dc96599b321843921b151f2c5fc78fe964c4fb0027aa39f380551bc14696bc45b161476a1898a8cfe951722257f8339c81af45090d
   languageName: node
   linkType: hard
 
-"@xyo-network/sentinel@npm:^2.84.6, @xyo-network/sentinel@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/sentinel@npm:2.84.6"
+"@xyo-network/sentinel@npm:^2.84.7, @xyo-network/sentinel@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/sentinel@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/hex": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/archivist": "npm:~2.84.6"
-    "@xyo-network/diviner-model": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/module-wrapper": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/payload-wrapper": "npm:~2.84.6"
-    "@xyo-network/sentinel-abstract": "npm:~2.84.6"
-    "@xyo-network/sentinel-model": "npm:~2.84.6"
-    "@xyo-network/witness-model": "npm:~2.84.6"
-  checksum: 63b480b551746886443cc149ea612bbb2f0d4f8881ce2277b35e227ed231de65023d55c8424c0837fe1391dedea7c613e4acff7b8afc795f105980e1a9b54cf6
+    "@xyo-network/archivist": "npm:~2.84.7"
+    "@xyo-network/diviner-model": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/module-wrapper": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/payload-wrapper": "npm:~2.84.7"
+    "@xyo-network/sentinel-abstract": "npm:~2.84.7"
+    "@xyo-network/sentinel-model": "npm:~2.84.7"
+    "@xyo-network/witness-model": "npm:~2.84.7"
+  checksum: dbeeb41e8e8a036b3f2761e8e3c6d0cc0d656378eb12571b2a57de68a2e8ae4c6f0cf5cee25f0733fd74a39deffe84a8c789da61badb37677627474db0b1217d
   languageName: node
   linkType: hard
 
-"@xyo-network/shared@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/shared@npm:2.84.6"
+"@xyo-network/shared@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/shared@npm:2.84.7"
   dependencies:
     "@xylabs/error": "npm:^2.13.20"
-  checksum: c6c12de063a6eba40226a98d1376d6455c1dbf9fbe9785091be694b45ccb747e4b593b20a56b14a2142dceddf6c22e90dd3769322d32fdcabb6b49f014d1b565
+  checksum: 5c8b8441c36ef6d39b4a795bea6c3fbfe765728c82de88c54b32de65a84cbdc0d43d4d71a1f6dd7e25fc0960af62839d655ca3eb1c7b63b5b0c4f34fd594834a
   languageName: node
   linkType: hard
 
-"@xyo-network/typeof@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/typeof@npm:2.84.6"
-  checksum: 002bd6fc9512067323da618d1eb24346e70819137a41d53568f316f49ee48b1d17ed4929e94e748d0749a86a2a72fa321a7698078d7d2e86225eb065fb08308a
+"@xyo-network/typeof@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/typeof@npm:2.84.7"
+  checksum: d9b70fbea9673df158cfc9f4f96bec7b4d9df26aa0c2c3fe240e149dc10ad37013b7a9fd8f2ddc3e9e9a2fb0cf856fdb99fe7c9bfd7230b42b0417cffab93844
   languageName: node
   linkType: hard
 
@@ -10841,75 +10841,75 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/wallet-model@npm:^2.84.6, @xyo-network/wallet-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/wallet-model@npm:2.84.6"
+"@xyo-network/wallet-model@npm:^2.84.7, @xyo-network/wallet-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/wallet-model@npm:2.84.7"
   dependencies:
-    "@xyo-network/account-model": "npm:~2.84.6"
-  checksum: bac38991d1111833714f80b5712de9fe31cd4a8300631687d3216d44688d724312b2b6b2f88fb0c62013b7a0971a794b49e45ff2cf0ef3e66b1628132dbca8bb
+    "@xyo-network/account-model": "npm:~2.84.7"
+  checksum: 46a69603f679f2705b67e1d8e0194c3eab01160de7a97c99d1d7d85da6dfb368a60fee755b352e3b3488830a46e35035bbd17f9c097f3dcecdfa0ec6bc1d5fdf
   languageName: node
   linkType: hard
 
-"@xyo-network/wasm@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/wasm@npm:2.84.6"
+"@xyo-network/wasm@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/wasm@npm:2.84.7"
   dependencies:
     wasm-feature-detect: "npm:^1.6.1"
-  checksum: 715ac54f4a5c956b8eec6858048cacfa61a9b75ce9323b8a714e932c9dad14c494a54a677960ac9bc31c7a433c99bf4f43322b09bb036604d74762200bdc666b
+  checksum: e5123b9abd97a3dac126abd29bc32d0320e3bb24f7386517328b32cc89399f26871a6c6406ea642eb4b454a7f235103e36f5d1d30001033aebd75145e434982b
   languageName: node
   linkType: hard
 
-"@xyo-network/witness-blockchain-abstract@npm:^2.84.3, @xyo-network/witness-blockchain-abstract@npm:^2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/witness-blockchain-abstract@npm:2.84.6"
+"@xyo-network/witness-blockchain-abstract@npm:^2.84.3, @xyo-network/witness-blockchain-abstract@npm:^2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/witness-blockchain-abstract@npm:2.84.7"
   dependencies:
     "@xylabs/assert": "npm:^2.13.20"
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/abstract-witness": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/witness-model": "npm:~2.84.6"
+    "@xyo-network/abstract-witness": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/witness-model": "npm:~2.84.7"
     ethers: "npm:^6.9.0"
-  checksum: 59b102e72fe68591681299d9fb204a72de3195cb5b88718cde06f2939715810dfd09255701dbd3dc100758fa641bd92f3e6162c6a62cefb95ac3946f5685db0f
+  checksum: 0d41f9a27be62102a24b1dd8499f37a0b242401b28027a6856c8e536a8cd5a1e2a6fdbb9b07d17527b55223a8541dbe443b7fe8d777d42b93236ecdb2441d719
   languageName: node
   linkType: hard
 
-"@xyo-network/witness-model@npm:^2.84.3, @xyo-network/witness-model@npm:^2.84.6, @xyo-network/witness-model@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/witness-model@npm:2.84.6"
+"@xyo-network/witness-model@npm:^2.84.3, @xyo-network/witness-model@npm:^2.84.7, @xyo-network/witness-model@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/witness-model@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/module-events": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-  checksum: 48124af44e455808d6feaa17b4c34ce1ade0ef63067d4f47cb6fc3fe262b7b8bb9aab4806dea414f3e1bb63a950b402858217c86e029a9e824e9fb02a7a4ccb9
+    "@xyo-network/module-events": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+  checksum: 455075142a0d19a4b038d7e557dcc599b1d4374c90ee38bf2d24ec90dcbdcdbc2b702633a57c6baceae4a2d12de229e0aac07df95dd9250c0dfabb6a8b1d0660
   languageName: node
   linkType: hard
 
-"@xyo-network/witness-timestamp@npm:^2.84.6, @xyo-network/witness-timestamp@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/witness-timestamp@npm:2.84.6"
+"@xyo-network/witness-timestamp@npm:^2.84.7, @xyo-network/witness-timestamp@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/witness-timestamp@npm:2.84.7"
   dependencies:
     "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/abstract-witness": "npm:~2.84.6"
-    "@xyo-network/module-model": "npm:~2.84.6"
-    "@xyo-network/object": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/witness-model": "npm:~2.84.6"
-  checksum: 1db4d719b0db2de068a3c3be53387016171a8c273faec9f5bd19e49e12e973fa3ec3a7503e09bc640e5806a98ec0b559d9b4a5cc18c4bbd330fb9072aea035cd
+    "@xyo-network/abstract-witness": "npm:~2.84.7"
+    "@xyo-network/module-model": "npm:~2.84.7"
+    "@xyo-network/object": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/witness-model": "npm:~2.84.7"
+  checksum: ffd6c956d52b3bafdc6ca0e4bf3f0b6afcf912ea44a45d7fee0748709bf8663b29809e5240527921ae2ce53950d90df335462e2c08fee7b7b9f7d08e80ccdc37
   languageName: node
   linkType: hard
 
-"@xyo-network/witness-wrapper@npm:~2.84.6":
-  version: 2.84.6
-  resolution: "@xyo-network/witness-wrapper@npm:2.84.6"
+"@xyo-network/witness-wrapper@npm:~2.84.7":
+  version: 2.84.7
+  resolution: "@xyo-network/witness-wrapper@npm:2.84.7"
   dependencies:
-    "@xyo-network/module-wrapper": "npm:~2.84.6"
-    "@xyo-network/payload-model": "npm:~2.84.6"
-    "@xyo-network/witness-model": "npm:~2.84.6"
-  checksum: a252fb539be842ddb1787315a57123a73263936de5538c55e9d417373300b6b8eb99707cb053ebcdfe782899706ce35dc1773cead2c76c516cb6104202733f1d
+    "@xyo-network/module-wrapper": "npm:~2.84.7"
+    "@xyo-network/payload-model": "npm:~2.84.7"
+    "@xyo-network/witness-model": "npm:~2.84.7"
+  checksum: 14138189e5407e66819645d94e18a0bcb80b7ae7b42d6ff41fcb82ef286adf88bb5fef6986435464a5dea9767b6e16f2321a2aa4adf856180d7c2b9058ec3ae2
   languageName: node
   linkType: hard
 
@@ -18545,7 +18545,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-joy@npm:^11.22.0":
+"json-joy@npm:^11.24.0":
   version: 11.24.0
   resolution: "json-joy@npm:11.24.0"
   dependencies:
