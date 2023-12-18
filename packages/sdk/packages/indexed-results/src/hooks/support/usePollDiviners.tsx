@@ -55,15 +55,17 @@ export const usePollingFunction = <T extends Payload = Payload>(
               result = await functionToPoll()
 
               const fresh = freshTest(result)
-              if (!result || !fresh) {
+
+              // have a result but its not fresh enough
+              if (result && !fresh) {
                 console.log(`Completed Retry ${retries} - Retrying in ${updatedDelay} milliseconds...`)
                 retries++
                 await pollDivinersWithDelayInner(updatedDelay, functionToPoll)
               }
-              onResult?.(result as T[])
+              onResult?.(result as T[] | null)
             } else {
               console.warn('Exceeded maximum retries.', JSON.stringify(indexedQuery))
-              onResult?.(result as T[])
+              onResult?.(result as T[] | null)
             }
           } catch (e) {
             console.error('error retrying diviner', e)
@@ -86,6 +88,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
         await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
         try {
           result = await functionToPoll()
+
           const fresh = freshTest(result)
           if ((result && fresh) || result === null) {
             onResult?.(result as T[] | null)
