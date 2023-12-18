@@ -3,10 +3,10 @@ import { Payload } from '@xyo-network/payload-model'
 import { useCallback } from 'react'
 
 import { IndexedResultsConfig } from '../../interfaces'
-import { useFetchModules } from './useFetchModules'
+import { useFetchDivinersFromNode } from './useFetchDivinersFromNode'
 
 export const useTryDiviners = <T extends Payload = Payload>(config: IndexedResultsConfig): (() => Promise<Payload[] | undefined | null>) => {
-  const { diviners } = useFetchModules(config)
+  const { diviners } = useFetchDivinersFromNode(config)
   const { indexedQuery } = config
   const { parseIndexedResults } = config.processIndexedResults
 
@@ -25,8 +25,9 @@ export const useTryDiviners = <T extends Payload = Payload>(config: IndexedResul
     if (diviners && diviners?.length > 0) {
       while (divinerCount < diviners?.length) {
         const divinerResult = await tryDiviner(diviners[divinerCount])
-        if ((divinerResult && divinerResult?.length) || divinerResult === null) {
-          result = divinerResult as T[] | null
+        if (divinerResult && divinerResult?.length) {
+          result = divinerResult as T[]
+          break
         }
         divinerCount++
       }

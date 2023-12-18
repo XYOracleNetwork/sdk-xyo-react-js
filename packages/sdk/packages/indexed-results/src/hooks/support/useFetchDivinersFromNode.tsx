@@ -4,7 +4,7 @@ import { useProvidedNode } from '@xyo-network/react-node'
 
 import { IndexedResultsConfig } from '../../interfaces'
 
-export const useFetchModules = (config: IndexedResultsConfig) => {
+export const useFetchDivinersFromNode = (config: IndexedResultsConfig) => {
   const { diviners: divinerNames } = config
   const [node] = useProvidedNode()
 
