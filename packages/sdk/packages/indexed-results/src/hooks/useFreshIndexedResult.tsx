@@ -19,6 +19,7 @@ export const useFreshIndexedResult = <TResult extends Payload = Payload>({
 
   const { pollDiviners, pollResults } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
 
+  // Start the polling and wait for the results elsewhere
   const [, error, state] = usePromise(async () => {
     if (trigger) {
       if (queue) {
