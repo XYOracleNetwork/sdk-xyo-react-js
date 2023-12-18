@@ -60,7 +60,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
                 retries++
                 await pollDivinersWithDelayInner(updatedDelay, functionToPoll)
               }
-              return result as T[]
+              onResult?.(result as T[])
             } else {
               console.warn('Exceeded maximum retries.', JSON.stringify(indexedQuery))
               onResult?.(result as T[])
@@ -86,10 +86,9 @@ export const usePollingFunction = <T extends Payload = Payload>(
         await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
         try {
           result = await functionToPoll()
-
           const fresh = freshTest(result)
-          if (result && fresh) {
-            onResult?.(result as T[])
+          if ((result && fresh) || result === null) {
+            onResult?.(result as T[] | null)
           }
           await pollDivinersIndefinitely(initialDelay, functionToPoll)
         } catch (e) {
