@@ -23,12 +23,10 @@ export const useTryDiviners = <T extends Payload = Payload>(config: IndexedResul
     let result: T[] | undefined | null
     let divinerCount = 0
     if (diviners && diviners?.length > 0) {
-      while (divinerCount <= diviners?.length) {
-        if (diviners[divinerCount]) {
-          const divinerResult = await tryDiviner(diviners[divinerCount])
-          if ((divinerResult && divinerResult?.length) || divinerResult === null) {
-            result = divinerResult as T[] | null
-          }
+      while (divinerCount < diviners?.length) {
+        const divinerResult = await tryDiviner(diviners[divinerCount])
+        if ((divinerResult && divinerResult?.length) || divinerResult === null) {
+          result = divinerResult as T[] | null
         }
         divinerCount++
       }
