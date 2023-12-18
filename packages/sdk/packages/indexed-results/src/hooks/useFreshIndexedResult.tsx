@@ -24,12 +24,12 @@ export const useFreshIndexedResult = <TResult extends Payload = Payload>({
       if (queue) {
         const task = async () => {
           await freshResult()
-          return await pollDiviners()
+          await pollDiviners()
         }
         return await queue.addRequest<ReturnType<typeof task>>(task, taskId ?? Date.now().toString())
       } else {
         await freshResult()
-        return await pollDiviners()
+        await pollDiviners()
       }
     }
   }, [pollDiviners, freshResult, trigger, queue, taskId])
