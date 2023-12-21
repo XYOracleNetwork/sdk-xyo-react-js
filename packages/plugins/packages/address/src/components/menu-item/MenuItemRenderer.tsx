@@ -1,5 +1,5 @@
 import { Alert, CircularProgress, MenuItem, MenuItemProps } from '@mui/material'
-import { AddressPayload } from '@xyo-network/payload-plugins'
+import { AddressPayload } from '@xyo-network/address-payload-plugin'
 import { AddressRenderRowBox } from '@xyo-network/react-address-render'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { forwardRef } from 'react'

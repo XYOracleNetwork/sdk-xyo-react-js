@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { Account } from '@xyo-network/account'
-import { AddressPayload, AddressSchema } from '@xyo-network/payload-plugins'
+import { AddressPayload, AddressSchema } from '@xyo-network/address-payload-plugin'
 import { useEvent } from '@xyo-network/react-event'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer'
