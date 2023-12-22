@@ -13,13 +13,13 @@ const DEFAULT_POLLING_CONFIG: PollingConfig = {
 }
 
 export const usePollingFunction = <T extends Payload = Payload>(
-  config: IndexedResultsConfig,
+  config?: IndexedResultsConfig,
   pollDivinerConfig: PollingConfig = DEFAULT_POLLING_CONFIG,
-  functionToPoll: FunctionToPoll,
+  functionToPoll?: FunctionToPoll,
   onResult?: (result: T[] | null) => void,
 ) => {
-  const { indexedQuery } = config
-  const { isFresh } = config.processIndexedResults
+  const { indexedQuery, processIndexedResults } = config ?? {}
+  const { isFresh } = processIndexedResults ?? {}
   const { maxDelay = 10000, maxRetries, initialDelay = 100 } = pollDivinerConfig
 
   const [activePolling, setActivePolling] = useState(true)
@@ -40,8 +40,8 @@ export const usePollingFunction = <T extends Payload = Payload>(
 
   /** A polling function that runs on an increasing delay for a fixed number of times */
   const pollDivinersWithDelay = useCallback(
-    async (newDelay: number, functionToPoll: FunctionToPoll) => {
-      if (activePolling && maxRetries !== null) {
+    async (newDelay: number, functionToPoll?: FunctionToPoll) => {
+      if (activePolling && maxRetries !== null && functionToPoll) {
         let retries = 0
         let result: Payload[] | undefined | null
 
@@ -81,8 +81,8 @@ export const usePollingFunction = <T extends Payload = Payload>(
 
   /** A polling function that runs indefinitely on a set interval */
   const pollDivinersIndefinitely = useCallback(
-    async (newDelay: number, functionToPoll: FunctionToPoll) => {
-      if (activePolling) {
+    async (newDelay: number, functionToPoll?: FunctionToPoll) => {
+      if (activePolling && functionToPoll) {
         let result: Payload[] | undefined | null
 
         await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
@@ -117,7 +117,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
 
 /** Poll a set of diviners with various polling strategies  */
 export const usePollDiviners = <T extends Payload = Payload>(
-  config: IndexedResultsConfig,
+  config?: IndexedResultsConfig,
   pollDivinerConfig: PollingConfig = DEFAULT_POLLING_CONFIG,
   onResult?: (result: T[] | null) => void,
 ) => {

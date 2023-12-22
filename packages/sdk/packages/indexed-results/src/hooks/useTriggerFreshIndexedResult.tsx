@@ -1,13 +1,14 @@
 import { useCallback } from 'react'
 
-import { UseIndexedResultsConfig } from './types'
+import { IndexedResultsConfig } from '../interfaces'
 
-export const useTriggerFreshIndexedResult = ({ indexedResultsConfig, trigger }: UseIndexedResultsConfig) => {
-  const { refresh, processIndexedResults } = indexedResultsConfig
+export const useTriggerFreshIndexedResult = (indexedResultsConfig?: IndexedResultsConfig, trigger?: boolean) => {
+  const { processIndexedResults, refresh } = indexedResultsConfig ?? {}
 
   const freshResult = useCallback(async () => {
-    const { parseIndexedResults } = processIndexedResults
-    return trigger ? await refresh?.({ parseIndexedResults }) : undefined
+    if (refresh && trigger) {
+      return refresh ? await refresh?.(processIndexedResults ?? {}) : undefined
+    }
   }, [refresh, processIndexedResults, trigger])
 
   return freshResult

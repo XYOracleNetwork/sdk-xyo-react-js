@@ -17,5 +17,5 @@ export interface IndexedResultsConfig<TPayload extends Payload = Payload> {
   /** Budget */
   queryBudget?: Payload
   /** Function to get a fresh result (i.e. sentinel report or witness observation) */
-  refresh?: (params: ProcessIndexedResults) => Promise<TPayload[]>
+  refresh?: (params: Partial<ProcessIndexedResults>) => Promise<TPayload[]>
 }

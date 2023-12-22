@@ -1,21 +1,15 @@
 import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
-import { useMemo } from 'react'
 
 import { usePollDiviners } from './support'
 import { UseIndexedResultsConfig } from './types'
 import { useTriggerFreshIndexedResult } from './useTriggerFreshIndexedResult'
 
-export const useFreshIndexedResult = <TResult extends Payload = Payload>({
-  indexedResultsConfig,
-  pollingConfig,
-  queueConfig,
-  trigger,
-}: UseIndexedResultsConfig) => {
+export const useFreshIndexedResult = <TResult extends Payload = Payload>(config?: UseIndexedResultsConfig) => {
+  const { indexedResultsConfig, pollingConfig, queueConfig, trigger } = config ?? {}
   const { queue, taskId } = queueConfig ?? {}
 
-  const triggerFreshResultsConfig = useMemo(() => ({ indexedResultsConfig, trigger }), [indexedResultsConfig, trigger])
-  const freshResult = useTriggerFreshIndexedResult(triggerFreshResultsConfig)
+  const freshResult = useTriggerFreshIndexedResult(indexedResultsConfig, trigger)
 
   const { pollDiviners, pollResults } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
 

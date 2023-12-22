@@ -4,14 +4,16 @@ import { useProvidedNode } from '@xyo-network/react-node'
 
 import { IndexedResultsConfig } from '../../interfaces'
 
-export const useFetchDivinersFromNode = (config: IndexedResultsConfig) => {
-  const { diviners: divinerNames } = config
+export const useFetchDivinersFromNode = (config?: IndexedResultsConfig) => {
+  const { diviners: divinerNames } = config ?? {}
   const [node] = useProvidedNode()
 
   const [diviners] = usePromise<DivinerInstance[]>(async () => {
-    const resolvedDiviners = node ? await node.resolve({ name: divinerNames }) : []
-    const foundDiviners = resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
-    return foundDiviners
+    if (divinerNames) {
+      const resolvedDiviners = node ? await node.resolve({ name: divinerNames }) : []
+      const foundDiviners = resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
+      return foundDiviners
+    }
   }, [divinerNames, node])
 
   return {

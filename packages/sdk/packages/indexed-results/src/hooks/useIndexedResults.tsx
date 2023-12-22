@@ -4,12 +4,8 @@ import { Payload } from '@xyo-network/payload-model'
 import { usePollDiviners } from './support'
 import { UseIndexedResultsConfig } from './types'
 
-export const useIndexedResults = <TResult extends Payload = Payload>({
-  indexedResultsConfig,
-  pollingConfig,
-  queueConfig,
-  trigger,
-}: UseIndexedResultsConfig) => {
+export const useIndexedResults = <TResult extends Payload = Payload>(config?: UseIndexedResultsConfig) => {
+  const { indexedResultsConfig, pollingConfig, queueConfig, trigger } = config ?? {}
   const { queue, taskId } = queueConfig ?? {}
 
   const { pollDiviners, pollResults } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
