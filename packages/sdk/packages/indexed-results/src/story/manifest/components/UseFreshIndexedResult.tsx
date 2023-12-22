@@ -1,6 +1,7 @@
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
+import { EvmAddress, EvmAddressSchema } from '@xyo-network/evm-address-payload-plugin'
 import { EvmContract } from '@xyo-network/evm-contract-witness'
 import { isEvmTokenInterfaceImplemented } from '@xyo-network/evm-token-interface-diviner'
 import { Payload } from '@xyo-network/payload-model'
@@ -8,7 +9,6 @@ import { useArchivistFromNode } from '@xyo-network/react-archivist'
 import { useNode } from '@xyo-network/react-node'
 import { useSentinelFromNode } from '@xyo-network/react-sentinel'
 import { asSentinelInstance } from '@xyo-network/sentinel-model'
-import { BlockchainAddress, BlockchainAddressSchema } from '@xyo-network/witness-blockchain-abstract'
 import { TimeStamp } from '@xyo-network/witness-timestamp'
 import { useMemo } from 'react'
 
@@ -39,7 +39,7 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
           },
         },
         refresh: async () => {
-          const collectionCallPayload: BlockchainAddress = { address, chainId: 1, schema: BlockchainAddressSchema }
+          const collectionCallPayload: EvmAddress = { address, chainId: 1, schema: EvmAddressSchema }
           const report = await contractSentinel?.report([collectionCallPayload])
           const [, , contract] = (report as [BoundWitness, TimeStamp, EvmContract]) ?? []
           const sentinelName = `${tokenInterface}TokenInterfaceImplementedSentinel`

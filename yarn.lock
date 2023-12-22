@@ -7960,6 +7960,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/evm-address-payload-plugin@npm:^2.85.0, @xyo-network/evm-address-payload-plugin@npm:~2.85.0":
+  version: 2.85.0
+  resolution: "@xyo-network/evm-address-payload-plugin@npm:2.85.0"
+  dependencies:
+    "@xyo-network/payload-model": "npm:^2.85.0"
+    "@xyo-network/payload-plugin": "npm:^2.85.0"
+  checksum: 6e998bba123d6848a2f35af14aba370da07bf1f32330993b0f8a670f3e28c7f18eab1646a678d82a0cb8d719d5e1483aed216e3fc85e3b726e83fee680bf5b09
+  languageName: node
+  linkType: hard
+
 "@xyo-network/evm-contract-witness@npm:^2.85.0":
   version: 2.85.0
   resolution: "@xyo-network/evm-contract-witness@npm:2.85.0"
@@ -7969,6 +7979,17 @@ __metadata:
     "@xyo-network/payload-model": "npm:^2.85.0"
     "@xyo-network/witness-evm-abstract": "npm:^2.85.0"
   checksum: 33fe24a2fff9c97d21998e501e186a7b6d29a9ddaf7f7daae50c30b5e40e7745e5cb775b5d2954fd64208357a0cde61a3abca60c0606669a01ed024a0d48b83a
+  languageName: node
+  linkType: hard
+
+"@xyo-network/evm-nft-id-payload-plugin@npm:^2.85.0":
+  version: 2.85.0
+  resolution: "@xyo-network/evm-nft-id-payload-plugin@npm:2.85.0"
+  dependencies:
+    "@xyo-network/evm-address-payload-plugin": "npm:~2.85.0"
+    "@xyo-network/payload-model": "npm:^2.85.0"
+    "@xyo-network/payload-plugin": "npm:^2.85.0"
+  checksum: b7550061a01bae4454c01cab6fbb157f74d585b84998820edaad44bdfc9aeb3aea32705692f9ae7a290d2c2d45e5e49bec7958b8e33edd5fb48d5b69ae96b461
   languageName: node
   linkType: hard
 
@@ -9274,7 +9295,9 @@ __metadata:
     "@xyo-network/diviner-payload-memory": "npm:^2.85.0"
     "@xyo-network/diviner-payload-model": "npm:^2.85.0"
     "@xyo-network/diviner-temporal-indexing-memory": "npm:^2.85.0"
+    "@xyo-network/evm-address-payload-plugin": "npm:^2.85.0"
     "@xyo-network/evm-contract-witness": "npm:^2.85.0"
+    "@xyo-network/evm-nft-id-payload-plugin": "npm:^2.85.0"
     "@xyo-network/evm-token-interface-diviner": "npm:^2.85.0"
     "@xyo-network/manifest": "npm:^2.85.0"
     "@xyo-network/memory-archivist": "npm:^2.85.0"
@@ -9287,7 +9310,6 @@ __metadata:
     "@xyo-network/react-sentinel": "workspace:~"
     "@xyo-network/react-shared": "workspace:~"
     "@xyo-network/sentinel-model": "npm:^2.85.0"
-    "@xyo-network/witness-blockchain-abstract": "npm:^2.85.0"
     "@xyo-network/witness-timestamp": "npm:^2.85.0"
     ethers: "npm:^6.9.1"
     typescript: "npm:^5.3.3"
@@ -10689,22 +10711,6 @@ __metadata:
   dependencies:
     wasm-feature-detect: "npm:^1.6.1"
   checksum: d33efd5f2161e83a4332143b6ccc97333b590660b56b615240916533ef1f2d3144a0020e17628633820f0a8c36ec8112bbead82f8090243f43e17c1c3af0c2d3
-  languageName: node
-  linkType: hard
-
-"@xyo-network/witness-blockchain-abstract@npm:^2.85.0":
-  version: 2.85.0
-  resolution: "@xyo-network/witness-blockchain-abstract@npm:2.85.0"
-  dependencies:
-    "@xylabs/assert": "npm:^2.13.20"
-    "@xylabs/promise": "npm:^2.13.20"
-    "@xyo-network/abstract-witness": "npm:~2.85.0"
-    "@xyo-network/module-model": "npm:~2.85.0"
-    "@xyo-network/object": "npm:~2.85.0"
-    "@xyo-network/payload-model": "npm:~2.85.0"
-    "@xyo-network/witness-model": "npm:~2.85.0"
-    ethers: "npm:^6.9.1"
-  checksum: 649d67bf62c877fc10b3a9b8f993eb006a37b8e9f2102f8e238c1f7cc19a44e82daf6fdf03b7e74ab84c164501183033c7e614067cfe02ff5e4f764f8e4bbb50
   languageName: node
   linkType: hard
 
