@@ -22,8 +22,8 @@ export const useCytoscapeElements = (module?: ModuleInstance | null) => {
   )
 
   useEffect(() => {
-    let attachedListener: EventUnsubscribeFunction | undefined = undefined
-    let detachedListener: EventUnsubscribeFunction | undefined = undefined
+    let attachedListener: EventUnsubscribeFunction | undefined
+    let detachedListener: EventUnsubscribeFunction | undefined
 
     if (module && isNodeInstance(module)) {
       attachedListener = module.on('moduleAttached', async () => {

@@ -25,7 +25,7 @@ const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
 
     return (
       <FlexRow ref={ref} flexDirection="column" minWidth={0} alignItems="stretch" overflow="hidden" {...props}>
-        {title !== undefined ? (
+        {title === undefined ? null : (
           <PropertyTitle
             tip={tip}
             title={required ? `${title}*` : title}
@@ -33,7 +33,7 @@ const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
             more={<PropertyActionsMenu actions={actions} />}
             {...titleProps}
           />
-        ) : null}
+        )}
         <FlexRow
           pl={1}
           columnGap={1}
@@ -41,14 +41,8 @@ const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
           overflow="hidden"
           height={sizeValueHeight[size]}
         >
-          {children ? (
-            children
-          ) : value !== undefined ? (
-            <PropertyValue value={value} typographyVariant={sizeVariants[size]} />
-          ) : (
-            <CircularProgress size={16} />
-          )}
-          {value !== undefined ? badge ? <IdenticonCorner value={value} /> : null : null}
+          {children ?? value === undefined ? <CircularProgress size={16} /> : <PropertyValue value={value} typographyVariant={sizeVariants[size]} />}
+          {value === undefined ? null : badge ? <IdenticonCorner value={value} /> : null}
         </FlexRow>
       </FlexRow>
     )

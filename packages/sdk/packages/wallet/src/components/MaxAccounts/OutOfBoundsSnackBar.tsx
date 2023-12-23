@@ -23,7 +23,7 @@ export const OutOfBoundsSnackBar: React.FC<OutOfBoundsSnackBarProps> = ({
     >
       <Alert severity={'error'} onClose={() => setShowSnackBar?.(false)}>
         <AlertTitle>Maximum Accounts Error</AlertTitle>
-        Your currently selected account number ({activeAccountIndex !== undefined ? activeAccountIndex + 1 : ''}) cannot be greater than the desired
+        Your currently selected account number ({activeAccountIndex === undefined ? '' : activeAccountIndex + 1}) cannot be greater than the desired
         Maximum Accounts ({desiredMaximumAccounts}).
       </Alert>
     </Snackbar>

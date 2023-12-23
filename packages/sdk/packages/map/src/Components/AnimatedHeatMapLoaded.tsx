@@ -35,7 +35,9 @@ export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ ac
           You might try authenticating again.
         </Alert>
       ) : null}
-      {hashes !== undefined ? (
+      {hashes === undefined ? (
+        <Alert>Missing answer hash for heat map query</Alert>
+      ) : (
         <AnimatedHeatMap
           accessToken={accessToken}
           defaultMapSettings={AnimatedHeatMapSettings}
@@ -44,8 +46,6 @@ export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ ac
           heatMapColorProps={heatMapColorProps}
           {...MapBoxHeatProps}
         />
-      ) : (
-        <Alert>Missing answer hash for heat map query</Alert>
       )}
     </FlexCol>
   )

@@ -30,14 +30,14 @@ export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses = {}, 
           </Badge>
         </Tooltip>
       ) : null}
-      {Object.entries(schemas).length ? (
+      {Object.entries(schemas).length > 0 ? (
         <Tooltip title="Schemas">
           <Badge badgeContent={Object.entries(schemas).length} color="primary">
             <BsFileEarmarkCode size={20} />
           </Badge>
         </Tooltip>
       ) : null}
-      {Object.entries(addresses).length ? (
+      {Object.entries(addresses).length > 0 ? (
         <Tooltip title="Addresses">
           <Badge badgeContent={Object.entries(addresses).length} color="primary">
             <VscOrganization size={20} />

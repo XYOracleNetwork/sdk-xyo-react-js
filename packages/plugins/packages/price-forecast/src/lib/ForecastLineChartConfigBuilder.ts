@@ -46,7 +46,7 @@ export class ForecastLineChartConfigBuilder {
     if (this.payload) {
       return this.payload
     } else {
-      throw Error('ForecastPayload was not defined')
+      throw new Error('ForecastPayload was not defined')
     }
   }
 

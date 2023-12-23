@@ -18,10 +18,8 @@ export const StyledGlowingDiv = styled('div', { name: 'StyledGlowingDiv' })(({ t
     borderRadius: theme.shape.borderRadius,
   }
   return {
-    ...{
-      animationName: 'glow-1',
-      ...glowAnimationProps,
-    },
+    animationName: 'glow-1',
+    ...glowAnimationProps,
     '&.glow-2': {
       ...glowAnimationProps,
       animationName: 'glow-2',

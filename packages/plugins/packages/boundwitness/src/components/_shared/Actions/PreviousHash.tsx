@@ -32,7 +32,7 @@ export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButton
       dialogProps={{ fullWidth: true, maxWidth: 'md' }}
       {...props}
     >
-      {previousHash !== null ? (
+      {previousHash === null ? null : (
         <>
           <FlexGrowRow columnGap={2}>
             <ContentCopyIcon sx={{ cursor: 'pointer' }} onClick={onCopy} />
@@ -48,7 +48,7 @@ export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButton
             </Collapse>
           </FlexRow>
         </>
-      ) : null}
+      )}
     </QuickTipButton>
   )
 }

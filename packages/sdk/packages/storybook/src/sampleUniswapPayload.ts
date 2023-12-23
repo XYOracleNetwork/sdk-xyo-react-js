@@ -5,12 +5,12 @@ export const sampleUniswapPayload = {
         {
           address: '0x55296f69f40Ea6d20E478533C15A6B08B654E758',
           symbol: 'xyo',
-          value: 0.00000688928,
+          value: 0.000_006_889_28,
         },
         {
           address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
           symbol: 'weth',
-          value: 145153,
+          value: 145_153,
         },
       ],
     },
@@ -19,7 +19,7 @@ export const sampleUniswapPayload = {
         {
           address: '0x55296f69f40Ea6d20E478533C15A6B08B654E758',
           symbol: 'xyo',
-          value: 0.0119766,
+          value: 0.011_976_6,
         },
         {
           address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
@@ -33,7 +33,7 @@ export const sampleUniswapPayload = {
         {
           address: '0x55296f69f40Ea6d20E478533C15A6B08B654E758',
           symbol: 'xyo',
-          value: 0.0119815,
+          value: 0.011_981_5,
         },
         {
           address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
@@ -47,12 +47,12 @@ export const sampleUniswapPayload = {
         {
           address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
           symbol: 'wbtc',
-          value: 1985210,
+          value: 1_985_210,
         },
         {
           address: '0x55296f69f40Ea6d20E478533C15A6B08B654E758',
           symbol: 'xyo',
-          value: 5.03725e-7,
+          value: 5.037_25e-7,
         },
       ],
     },
@@ -66,7 +66,7 @@ export const sampleUniswapPayload = {
         {
           address: '0x55296f69f40Ea6d20E478533C15A6B08B654E758',
           symbol: 'xyo',
-          value: 0.00158066,
+          value: 0.001_580_66,
         },
       ],
     },
@@ -80,7 +80,7 @@ export const sampleUniswapPayload = {
         {
           address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
           symbol: 'weth',
-          value: 0.072255,
+          value: 0.072_255,
         },
       ],
     },
@@ -89,12 +89,12 @@ export const sampleUniswapPayload = {
         {
           address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
           symbol: 'dai',
-          value: 1.00004,
+          value: 1.000_04,
         },
         {
           address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
           symbol: 'usdc',
-          value: 0.999964,
+          value: 0.999_964,
         },
       ],
     },
@@ -103,7 +103,7 @@ export const sampleUniswapPayload = {
         {
           address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
           symbol: 'usdc',
-          value: 0.000575766,
+          value: 0.000_575_766,
         },
         {
           address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
@@ -117,7 +117,7 @@ export const sampleUniswapPayload = {
         {
           address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
           symbol: 'usdc',
-          value: 0.000577657,
+          value: 0.000_577_657,
         },
         {
           address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
@@ -131,12 +131,12 @@ export const sampleUniswapPayload = {
         {
           address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
           symbol: 'dai',
-          value: 1.00002,
+          value: 1.000_02,
         },
         {
           address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
           symbol: 'usdc',
-          value: 0.999983,
+          value: 0.999_983,
         },
       ],
     },
@@ -145,12 +145,12 @@ export const sampleUniswapPayload = {
         {
           address: '0x853d955aCEf822Db058eb8505911ED77F175b99e',
           symbol: 'frax',
-          value: 0.999829,
+          value: 0.999_829,
         },
         {
           address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
           symbol: 'usdc',
-          value: 1.00017,
+          value: 1.000_17,
         },
       ],
     },
@@ -159,12 +159,12 @@ export const sampleUniswapPayload = {
         {
           address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
           symbol: 'wbtc',
-          value: 23967.5,
+          value: 23_967.5,
         },
         {
           address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
           symbol: 'usdc',
-          value: 0.0000417232,
+          value: 0.000_041_723_2,
         },
       ],
     },
@@ -173,22 +173,22 @@ export const sampleUniswapPayload = {
         {
           address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
           symbol: 'usdc',
-          value: 0.999756,
+          value: 0.999_756,
         },
         {
           address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
           symbol: 'usdt',
-          value: 1.00024,
+          value: 1.000_24,
         },
       ],
     },
   ],
   schema: 'network.xyo.crypto.market.uniswap',
-  timestamp: 1659071465718,
+  timestamp: 1_659_071_465_718,
 }
 
 export const payloadDataMissingPairs = {
   pairs: [],
   schema: 'network.xyo.crypto.market.uniswap',
-  timestamp: 1659071465718,
+  timestamp: 1_659_071_465_718,
 }

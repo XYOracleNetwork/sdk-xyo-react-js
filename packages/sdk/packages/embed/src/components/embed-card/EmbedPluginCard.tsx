@@ -61,4 +61,5 @@ export const EmbedPluginCardInner: React.FC<BusyCardProps> = (props) => {
 }
 
 /** @deprecated - use EmbedPluginCard and use CardProps instead of FlexBoxProps */
-export const EmbedPlugin = EmbedPluginCard
+
+export { EmbedPluginCard as EmbedPlugin } from './card'

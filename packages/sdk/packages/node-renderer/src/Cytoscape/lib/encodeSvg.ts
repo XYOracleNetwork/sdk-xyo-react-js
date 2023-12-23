@@ -8,7 +8,7 @@ export const encodeSvg = (reactElement: ReactElement, color?: string) => {
   const svgString = renderToStaticMarkup(reactElement)
 
   const doc = new DOMParser().parseFromString(svgString, 'text/html')
-  const svgElement = doc.getElementsByTagName('svg')[0]
+  const svgElement = doc.querySelectorAll('svg')[0]
   if (svgElement) {
     svgElement.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
     svgElement.setAttribute('height', '100')

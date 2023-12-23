@@ -17,7 +17,7 @@ export const NewPhraseTextField: React.FC<StandardTextFieldProps> = (props) => {
           error={validPhrase === false}
           helperText={validPhrase === false ? <InvalidPhraseTypography /> : null}
           fullWidth
-          maxRows={Infinity}
+          maxRows={Number.POSITIVE_INFINITY}
           multiline
           onChange={(e) => setPhrase?.(e.target.value)}
           value={phrase}

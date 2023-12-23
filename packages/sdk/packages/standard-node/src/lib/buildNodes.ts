@@ -11,7 +11,7 @@ const knownRemoteNodes = (): { apiDomain: string; name: string }[] => {
   const networkNames = defaultNetworkConfigs.map((config) => config.name)
   return networkNames.map((networkName) => {
     const name = assertDefinedEx<string>(networkName, 'missing name in network config')
-    const uri = defaultNetworkConfigs.filter((config) => config.name === networkName)[0].nodes?.filter((node) => node.type === 'archivist')[0].uri
+    const uri = defaultNetworkConfigs.find((config) => config.name === networkName)?.nodes?.filter((node) => node.type === 'archivist')[0].uri
     const apiDomain = assertDefinedEx<string>(uri, 'missing node type "archivist" in network config')
     return {
       apiDomain,

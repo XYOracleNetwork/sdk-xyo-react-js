@@ -9,8 +9,8 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
   variant,
   page,
   rowsPerPage,
-  handleChangePage = () => undefined,
-  handleChangeRowsPerPage = () => undefined,
+  handleChangePage = () => {},
+  handleChangeRowsPerPage = () => {},
   fetchMorePayloads,
   loading,
 }) => (

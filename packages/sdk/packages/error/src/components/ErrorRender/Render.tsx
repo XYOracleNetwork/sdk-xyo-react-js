@@ -24,19 +24,17 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
     }
   }, [location])
 
-  if (error) {
-    return (
-      <FlexCol alignItems="stretch" {...props}>
-        {noErrorDisplay ? (
-          customError
-        ) : (
-          <FlexCol alignItems="center" {...props}>
-            <ErrorAlert error={error} errorContext={errorContext} onCancel={onCancel} />
-          </FlexCol>
-        )}
-      </FlexCol>
-    )
-  } else {
-    return <>{children}</> ?? null
-  }
+  return error ? (
+    <FlexCol alignItems="stretch" {...props}>
+      {noErrorDisplay ? (
+        customError
+      ) : (
+        <FlexCol alignItems="center" {...props}>
+          <ErrorAlert error={error} errorContext={errorContext} onCancel={onCancel} />
+        </FlexCol>
+      )}
+    </FlexCol>
+  ) : (
+    <>{children}</> ?? null
+  )
 }

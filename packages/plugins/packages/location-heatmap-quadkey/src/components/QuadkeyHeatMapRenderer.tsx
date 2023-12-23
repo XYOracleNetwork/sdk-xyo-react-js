@@ -32,7 +32,7 @@ const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
   const layers = useMemo(() => {
-    return LocationHeatMapLayerBuilder(theme.palette.secondary.main, undefined)
+    return LocationHeatMapLayerBuilder(theme.palette.secondary.main)
   }, [theme.palette.secondary.main])
 
   return (

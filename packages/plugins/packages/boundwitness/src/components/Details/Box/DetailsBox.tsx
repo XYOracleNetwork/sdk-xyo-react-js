@@ -33,10 +33,7 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRen
   const boundwitness = payload as BoundWitness
   const hash = usePayloadHash(payload)
 
-  const hasBWPayloads = useMemo(
-    () => (boundwitness ? boundwitness.payload_schemas.some((schema) => schema === BoundWitnessSchema) : false),
-    [boundwitness],
-  )
+  const hasBWPayloads = useMemo(() => (boundwitness ? boundwitness.payload_schemas.includes(BoundWitnessSchema) : false), [boundwitness])
 
   return (
     <FlexCol alignItems="stretch" rowGap={4} ref={ref} {...props}>

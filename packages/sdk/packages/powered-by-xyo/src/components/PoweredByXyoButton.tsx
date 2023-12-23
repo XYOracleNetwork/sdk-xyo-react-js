@@ -25,7 +25,7 @@ export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   //preloading image to prevent shifting
   const [imageLoaded, setImageLoaded] = useState(false)
   const img = new Image()
-  img.onload = () => setImageLoaded(true)
+  img.addEventListener('load', () => setImageLoaded(true))
   img.src = xyoColorLogoText
   return imageLoaded ? (
     <ButtonEx href={href} target={target} variant={variant} sx={{ borderRadius: 0, padding: 0, ...sx }} {...props}>

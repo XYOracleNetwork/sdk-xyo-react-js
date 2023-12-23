@@ -1,18 +1,18 @@
 export const parseMeausureString = (measure?: string, absolute?: number) => {
   if (measure !== undefined && measure !== null && measure.length > 0) {
     if (measure.endsWith('px')) {
-      return parseFloat(measure.substring(0, measure.length - 2))
+      return Number.parseFloat(measure.slice(0, Math.max(0, measure.length - 2)))
     } else if (measure.endsWith('%')) {
       if (absolute !== undefined) {
-        return (parseFloat(measure.substring(0, measure.length - 1)) / 100) * absolute
+        return (Number.parseFloat(measure.slice(0, Math.max(0, measure.length - 1))) / 100) * absolute
       }
-      throw Error('Error Parsing Measure [missing absolute]')
+      throw new Error('Error Parsing Measure [missing absolute]')
     } else if (measure.endsWith('vw')) {
-      return (parseFloat(measure.substring(0, measure.length - 2)) / 100) * window.innerWidth
+      return (Number.parseFloat(measure.slice(0, Math.max(0, measure.length - 2))) / 100) * window.innerWidth
     } else if (measure.endsWith('vh')) {
-      return (parseFloat(measure.substring(0, measure.length - 2)) / 100) * window.innerHeight
+      return (Number.parseFloat(measure.slice(0, Math.max(0, measure.length - 2))) / 100) * window.innerHeight
     }
-    throw Error(`Error Parsing Measure [${measure}]`)
+    throw new Error(`Error Parsing Measure [${measure}]`)
   }
 }
 

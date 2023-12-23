@@ -1,3 +1,1 @@
-import DefaultAvatarIcon from './default-256.jpg'
-
-export { DefaultAvatarIcon }
+export { default as DefaultAvatarIcon } from './default-256.jpg'

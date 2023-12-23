@@ -89,7 +89,7 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ anim
       animatedLayers.push(getNextLayer())
     }
 
-    animatedLayers.forEach((layer, index) => {
+    for (const [index, layer] of animatedLayers.entries()) {
       if (index === 0) {
         layerAnimateWorker(layer)
       } else {
@@ -97,18 +97,18 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ anim
           layerAnimateWorker(layer)
         }, timeIncrement * index)
       }
-    })
+    }
   }, [getNextLayer, layerAnimateWorker])
 
   // Run a single layer animation before the interval kicks in
   useEffect(() => {
-    if (animateLayers && layersInitialized && map && fillLayers.length) {
+    if (animateLayers && layersInitialized && map && fillLayers.length > 0) {
       queueLayerAnimation()
     }
   }, [animateLayers, fillLayers.length, layersInitialized, map, queueLayerAnimation])
 
   useInterval(() => {
-    if (animateLayers && layersInitialized && map && fillLayers.length) {
+    if (animateLayers && layersInitialized && map && fillLayers.length > 0) {
       queueLayerAnimation()
     }
   }, timeIncrement * animatedLayerCount)

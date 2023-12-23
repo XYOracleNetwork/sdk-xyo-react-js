@@ -68,6 +68,7 @@ export class EnabledEthWalletConnections {
       }
     }
 
+    // eslint-disable-next-line unicorn/no-array-for-each
     Object.entries(wallets).forEach(addWallet.bind(this))
     this.ethWalletsState = newWallets
     this.emitChange()
@@ -105,6 +106,7 @@ export class EnabledEthWalletConnections {
   private persistSettings() {
     this.isPersistance(() => {
       // convert wallet enabled selections into serializable state
+      // eslint-disable-next-line unicorn/no-array-reduce
       const enabledWallets = Object.entries(this.ethWalletsState).reduce((acc, [rdns, { enabled }]) => {
         acc[rdns] = enabled
         return acc

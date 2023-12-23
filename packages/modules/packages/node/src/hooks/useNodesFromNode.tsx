@@ -9,17 +9,16 @@ export const useNodesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeC
   if (error) {
     return [null, error]
   }
-  if (modules) {
-    return [
-      modules.reduce<NodeInstance[]>((prev, module) => {
-        if (isNodeInstance(module)) {
-          prev.push(module)
-        }
-        return prev
-      }, []),
-      undefined,
-    ]
-  } else {
-    return [modules, error]
-  }
+  return modules
+    ? [
+        // eslint-disable-next-line unicorn/no-array-reduce
+        modules.reduce<NodeInstance[]>((prev, module) => {
+          if (isNodeInstance(module)) {
+            prev.push(module)
+          }
+          return prev
+        }, []),
+        undefined,
+      ]
+    : [modules, error]
 }

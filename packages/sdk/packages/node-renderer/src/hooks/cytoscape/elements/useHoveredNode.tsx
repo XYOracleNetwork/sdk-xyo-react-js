@@ -15,12 +15,14 @@ export const useHoveredNode = (renderedElements?: NodeCollection): [NodeSingular
 
   useEffect(() => {
     if (renderedElements) {
+      // eslint-disable-next-line unicorn/no-array-for-each
       renderedElements.nodes().forEach(nodeListener)
     }
   }, [nodeListener, renderedElements])
 
   useEffect(() => {
     cy?.ready(() => {
+      // eslint-disable-next-line unicorn/no-array-for-each
       cy.nodes().forEach(nodeListener)
     })
   }, [cy, nodeListener])

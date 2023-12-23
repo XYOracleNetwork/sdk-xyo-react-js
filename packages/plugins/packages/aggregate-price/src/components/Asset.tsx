@@ -25,7 +25,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
   }
 
   const formattedPrice = (price: string) => {
-    const floatedPrice = parseFloat(price)
+    const floatedPrice = Number.parseFloat(price)
     return toDecimalPrecision(floatedPrice, 3)
   }
 
@@ -49,7 +49,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
                 <Fragment key={currency}>
                   <TokenBar square text1={currency.toUpperCase()} text2={formattedPrice(price)} text2Props={{ title: price }} {...tokenBarBgProps} />
                   {/* hide the last divider */}
-                  {index !== arr.length - 1 ? <Divider flexItem /> : null}
+                  {index === arr.length - 1 ? null : <Divider flexItem />}
                 </Fragment>
               ))}
             </Paper>

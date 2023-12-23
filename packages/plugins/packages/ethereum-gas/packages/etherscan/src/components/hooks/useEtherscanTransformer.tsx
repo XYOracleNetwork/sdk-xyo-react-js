@@ -6,30 +6,30 @@ export const useEtherscanTransformer = (payload?: EthereumGasEtherscanPayload): 
     return {
       baseFee: {
         label: 'suggestBaseFee',
-        value: payload.result?.suggestBaseFee ? parseFloat(payload.result?.suggestBaseFee) : undefined,
+        value: payload.result?.suggestBaseFee ? Number.parseFloat(payload.result?.suggestBaseFee) : undefined,
       },
       blockNumber: {
         label: 'LastBlock',
-        value: payload.result?.LastBlock ? parseFloat(payload.result?.LastBlock) : undefined,
+        value: payload.result?.LastBlock ? Number.parseFloat(payload.result?.LastBlock) : undefined,
       },
       gasPrice: [
         {
           price: {
             label: 'SafeGasPrice',
-            value: payload.result?.SafeGasPrice ? parseFloat(payload.result?.SafeGasPrice) : undefined,
+            value: payload.result?.SafeGasPrice ? Number.parseFloat(payload.result?.SafeGasPrice) : undefined,
           },
         },
         {
           price: {
             label: 'ProposeGasPrice',
-            value: payload.result?.ProposeGasPrice ? parseFloat(payload.result?.ProposeGasPrice) : undefined,
+            value: payload.result?.ProposeGasPrice ? Number.parseFloat(payload.result?.ProposeGasPrice) : undefined,
           },
           // No distinct priority fee
         },
         {
           price: {
             label: 'FastGasPrice',
-            value: payload.result?.FastGasPrice ? parseFloat(payload.result?.FastGasPrice) : undefined,
+            value: payload.result?.FastGasPrice ? Number.parseFloat(payload.result?.FastGasPrice) : undefined,
           },
         },
       ],

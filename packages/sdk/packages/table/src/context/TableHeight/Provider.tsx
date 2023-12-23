@@ -21,7 +21,7 @@ export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({
   const [height, setHeight] = useState<number | undefined>()
   const [rowHeight, setRowHeight] = useState<number | undefined>()
 
-  const formattedHeight = useMemo(() => (height !== undefined ? `${height}${heightFormat}` : undefined), [height, heightFormat])
+  const formattedHeight = useMemo(() => (height === undefined ? undefined : `${height}${heightFormat}`), [height, heightFormat])
 
   useEffect(() => {
     setVisibleRows(defaultVisibleRows)

@@ -1,8 +1,8 @@
 export const sampleBlocknativeGasPricePayload = {
   blockPrices: [
     {
-      baseFeePerGas: 26.32847478,
-      blockNumber: 16134624,
+      baseFeePerGas: 26.328_474_78,
+      blockNumber: 16_134_624,
       estimatedPrices: [
         {
           confidence: 99,
@@ -38,7 +38,7 @@ export const sampleBlocknativeGasPricePayload = {
       estimatedTransactionCount: 186,
     },
   ],
-  currentBlockNumber: 16134623,
+  currentBlockNumber: 16_134_623,
   estimatedBaseFees: [
     {
       'pending+1': [
@@ -86,6 +86,6 @@ export const sampleBlocknativeGasPricePayload = {
   network: 'main',
   schema: 'network.xyo.blockchain.ethereum.gas.blocknative',
   system: 'ethereum',
-  timestamp: 1670437800246,
+  timestamp: 1_670_437_800_246,
   unit: 'gwei',
 }

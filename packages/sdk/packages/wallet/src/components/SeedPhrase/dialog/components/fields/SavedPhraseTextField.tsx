@@ -23,7 +23,7 @@ export const SavedPhraseTextField: React.FC<StandardTextFieldProps> = (props) =>
             error={validSeedPhrase === false}
             helperText={validSeedPhrase === false ? <InvalidPhraseTypography /> : null}
             fullWidth
-            maxRows={Infinity}
+            maxRows={Number.POSITIVE_INFINITY}
             multiline
             {...props}
           />

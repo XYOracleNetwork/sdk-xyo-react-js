@@ -29,11 +29,7 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
   useEffect(() => {
     if (payloadSchemas && schemaFilter) {
       const filteredSchemas = payloadSchemas.filter((schema) => {
-        if (bwFilterType === 'equal') {
-          return schema === schemaFilter
-        } else {
-          return schema !== schemaFilter
-        }
+        return bwFilterType === 'equal' ? schema === schemaFilter : schema !== schemaFilter
       })
       setBWPayloadSchemas(filteredSchemas)
     }
@@ -41,6 +37,7 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
 
   useEffect(() => {
     if (payloadHashes && schemaFilter) {
+      // eslint-disable-next-line unicorn/no-array-reduce
       const filteredHashes = payloadSchemas.reduce<string[]>((acc, schema, index) => {
         if (bwFilterType === 'equal' ? schema === schemaFilter : schema !== schemaFilter) {
           acc.push(payloadHashes[index])

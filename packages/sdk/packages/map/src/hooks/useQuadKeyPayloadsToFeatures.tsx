@@ -29,7 +29,7 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkLocationHeatmapQuadkeyAn
   useEffect(() => {
     // Convert Multiple Payloads from Quadkey to GeoJson
     if (Array.isArray(payloads)) {
-      if (compact(payloads).length !== 0) {
+      if (compact(payloads).length > 0) {
         const mappedFeatures = payloads?.map((payload) => payload?.result.map(quadKeyToFeature))
 
         setMultipleFeatureSets(mappedFeatures.map((features) => features?.map(setDensity) ?? []))

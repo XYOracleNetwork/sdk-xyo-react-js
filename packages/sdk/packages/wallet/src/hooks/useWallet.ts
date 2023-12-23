@@ -33,11 +33,7 @@ export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: Wa
         return contextAccount
       })()
 
-      if (path) {
-        return newAccount?.derivePath?.(path)
-      } else {
-        return newAccount ?? wallet
-      }
+      return path ? newAccount?.derivePath?.(path) : newAccount ?? wallet
     } catch (ex) {
       setError(ex as Error)
     }

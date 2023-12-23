@@ -9,11 +9,11 @@ export interface PropertyValueProps extends Omit<EllipsizeBoxProps, 'ref'> {
 }
 
 export const PropertyValue = forwardRef<HTMLDivElement, PropertyValueProps>(({ typographyVariant = 'body1', value, ...props }, ref) => {
-  return value !== undefined ? (
+  return value === undefined ? null : (
     <EllipsizeBox typographyProps={{ component: undefined, title: value?.toString(), variant: typographyVariant }} width="100%" ref={ref} {...props}>
       {value}
     </EllipsizeBox>
-  ) : null
+  )
 })
 
 PropertyValue.displayName = 'PropertyValue'

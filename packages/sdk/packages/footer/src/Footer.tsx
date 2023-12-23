@@ -33,9 +33,9 @@ export const Footer: React.FC<FooterProps> = ({ alwaysFooterLinksProps, children
           </FlexRow>
         </FlexCol>
       ) : null}
-      {!dynamicHeight ? (
+      {dynamicHeight ? null : (
         <FlexCol alignItems="stretch">{container && container !== 'none' ? <Container>{children}</Container> : children}</FlexCol>
-      ) : null}
+      )}
       <FlexRow>
         {container && container !== 'none' ? (
           <Container>

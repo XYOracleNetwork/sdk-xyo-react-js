@@ -6,7 +6,7 @@ import { PayloadHasher } from '@xyo-network/hash'
 const findYoungestBW = async (addressHistory: BoundWitness[]): Promise<BoundWitness | undefined> => {
   const addressHistoryPairs = await PayloadHasher.hashPairs(addressHistory)
   return addressHistoryPairs?.find(([_, bwHash]) => {
-    const isChild = addressHistory.some((nestedBW) => nestedBW.previous_hashes.some((hash) => hash === bwHash))
+    const isChild = addressHistory.some((nestedBW) => nestedBW.previous_hashes.includes(bwHash))
     return !isChild
   })?.[0]
 }
@@ -34,11 +34,11 @@ export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'as
         // Note: Potential optimization to remove already placed items in the stack from address history
         // and pass the remaining items to findParent
         const parent = findParent(hashes, addressHistory, currentChild)
-        if (!parent) {
-          noParent = true
-        } else {
+        if (parent) {
           currentChild = parent
           stack.push(parent)
+        } else {
+          noParent = true
         }
       }
 

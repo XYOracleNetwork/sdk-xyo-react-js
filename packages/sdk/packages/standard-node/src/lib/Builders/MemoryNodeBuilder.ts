@@ -99,7 +99,7 @@ export class MemoryNodeBuilder {
       await this.node.register(module)
       await this.node.attach(module.address, external)
     } catch (e) {
-      throw Error(`Error adding ${module.config.name ?? module.address} to MemoryNode: ${e}`)
+      throw new Error(`Error adding ${module.config.name ?? module.address} to MemoryNode: ${e}`)
     }
   }
 

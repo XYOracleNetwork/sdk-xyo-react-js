@@ -4,7 +4,7 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { Mutex } from 'async-mutex'
 
-let globalWrapperWallet: WalletInstance | undefined = undefined
+let globalWrapperWallet: WalletInstance | undefined
 const globalWrapperWalletMutex = new Mutex()
 
 export const useWrapperAccount = (

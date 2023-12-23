@@ -17,7 +17,7 @@ export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
     <BusyCard {...props}>
       {hideElementsConfig?.hideCardHeader ? null : <EmbedCardHeader />}
       {/* Only show the row if the children are present */}
-      {(plugins && plugins.length) || supportsListMode ? (
+      {(plugins && plugins.length > 0) || supportsListMode ? (
         <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" pb={1}>
           {plugins && plugins.length > 1 ? <EmbedRenderSelect /> : null}
           {supportsListMode ? <ListModeSelectFormControl /> : null}

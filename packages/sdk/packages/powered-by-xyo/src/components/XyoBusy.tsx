@@ -14,7 +14,7 @@ export const XyoBusy: React.FC<XyoBusyProps> = ({ widthInPixels, busy, spinsPerS
   const [imageLoaded, setImageLoaded] = useState(false)
   if (!imageLoaded) {
     const img = new Image()
-    img.onload = () => setImageLoaded(true)
+    img.addEventListener('load', () => setImageLoaded(true))
     img.src = xyoColorLogo
   }
   return imageLoaded ? (

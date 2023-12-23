@@ -35,7 +35,9 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
       listeners.push(clearListener)
     }
 
-    return () => listeners.forEach((listener) => listener?.())
+    return () => {
+      for (const listener of listeners) listener?.()
+    }
   }, [archivist, getAll])
 
   useAsyncEffect(
@@ -57,9 +59,10 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
       all?.reduce(
         (prev, payload) => {
           const w = BoundWitnessWrapper.tryParse(payload) as BoundWitnessWrapper | undefined
-          w?.addresses?.forEach((address) => {
-            prev[address] = (prev[address] ?? 0) + 1
-          })
+          if (w?.addresses)
+            for (const address of w?.addresses ?? []) {
+              prev[address] = (prev[address] ?? 0) + 1
+            }
           return prev
         },
         {} as Record<string, number>,

@@ -29,12 +29,13 @@ export class MapHeat extends MapBase<Polygon> {
     } else {
       bounds = new LngLatBounds()
 
+      // eslint-disable-next-line unicorn/no-array-for-each
       features.forEach((feature: Feature<Polygon>) => {
-        feature.geometry.coordinates.forEach((coordinates) => {
-          coordinates.forEach((position) => {
+        for (const coordinates of feature.geometry.coordinates) {
+          for (const position of coordinates) {
             bounds.extend(position as [number, number])
-          })
-        })
+          }
+        }
       })
     }
 
@@ -61,9 +62,9 @@ export class MapHeat extends MapBase<Polygon> {
     this.updateLayer(map, layers[0], sources[0])
     this.updateLayer(map, layers[1], sources[1])
 
-    layers.forEach((layer) => {
+    for (const layer of layers) {
       map.setPaintProperty(layer.id, 'fill-opacity', 0)
-    })
+    }
 
     const frameLength = 3000
     const initialPad = 0.5
@@ -161,7 +162,7 @@ export class MapHeat extends MapBase<Polygon> {
       return GeoJson.featuresSource(featuresCollection)
     }
 
-    layers.forEach((layer, index) => {
+    for (const [index, layer] of layers.entries()) {
       const existingSource = this.config.map.getSource(layer.source as string) as GeoJSONSource
       const source = getSource(index)
       if (existingSource) {
@@ -170,7 +171,7 @@ export class MapHeat extends MapBase<Polygon> {
         this.config.map.addSource(layer.source as string, source)
       }
       layer.update(this.config.map, true)
-    })
+    }
 
     return this
   }

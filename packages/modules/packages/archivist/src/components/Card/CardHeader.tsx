@@ -7,10 +7,12 @@ import { MemoryArchivistsStats } from './components'
 
 const ArchivistStats = (archivist?: ArchivistInstance) => {
   switch (archivist?.config.schema) {
-    case MemoryArchivistConfigSchema:
+    case MemoryArchivistConfigSchema: {
       return <MemoryArchivistsStats archivist={archivist} />
-    default:
+    }
+    default: {
       return <></>
+    }
   }
 }
 

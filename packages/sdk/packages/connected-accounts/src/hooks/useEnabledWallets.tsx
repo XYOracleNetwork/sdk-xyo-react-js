@@ -15,7 +15,7 @@ export const useEnabledWalletsInner = (enabledWalletsRdns?: EnabledWalletsSavedS
   const wallets = useMemo(() => {
     if (enabledEthWallets === undefined) enabledEthWallets = new EnabledEthWalletConnections()
     enabledEthWallets.resetWallets(discoveredWallets)
-    Object.entries(enabledWalletsRdns ?? {}).forEach(([rdns, enabled]) => enabledEthWallets?.toggleEnabledWallet(rdns, enabled))
+    for (const [rdns, enabled] of Object.entries(enabledWalletsRdns ?? {})) enabledEthWallets?.toggleEnabledWallet(rdns, enabled)
     return enabledEthWallets
   }, [discoveredWallets, enabledWalletsRdns])
 
@@ -29,6 +29,7 @@ export const useEnabledWallets = (enabledWalletsRdns?: EnabledWalletsSavedState)
   const wallets = useEnabledWalletsInner(enabledWalletsRdns)
   const enabledWallets = useMemo(
     () =>
+      // eslint-disable-next-line unicorn/no-array-reduce
       Object.entries(wallets).reduce((acc, [walletName, wallet]) => {
         if (wallet.enabled) acc[walletName] = wallet
         return acc

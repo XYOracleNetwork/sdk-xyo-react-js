@@ -18,7 +18,10 @@ export const BWVerification: React.FC<BWVerification> = ({ boundwitness }) => {
   const [errors = []] = usePromise(async () => await (boundwitness ? new BoundWitnessValidator(boundwitness) : undefined)?.validate(), [boundwitness])
 
   return (
-    <QuickTipButton Icon={errors.length ? InvalidIcon : CheckCircleOutlineRoundedIcon} hoverText={errors.length ? 'Invalid Bound Witness' : 'Valid'}>
+    <QuickTipButton
+      Icon={errors.length > 0 ? InvalidIcon : CheckCircleOutlineRoundedIcon}
+      hoverText={errors.length > 0 ? 'Invalid Bound Witness' : 'Valid'}
+    >
       {errors.length > 0 ? (
         <FlexCol flexWrap="wrap" alignItems="start">
           {errors.map((error, index) => {

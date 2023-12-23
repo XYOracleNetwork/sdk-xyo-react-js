@@ -57,9 +57,9 @@ export class MapSettings {
     if (value) {
       // initial values
       this.mapListeners.logData(undefined, map)
-      debugEvents.forEach((event) => map.on(event, this.mapListeners.logData))
+      for (const event of debugEvents) map.on(event, this.mapListeners.logData)
     } else {
-      debugEvents.forEach((event) => map.off(event, this.mapListeners.logData))
+      for (const event of debugEvents) map.off(event, this.mapListeners.logData)
     }
   }
 
@@ -102,10 +102,8 @@ export class MapSettings {
     this.geoLocateControl = this.geoLocateControl || geolocateControl
     this.navControl = this.navControl || navControl
 
-    if (!map.hasControl(this.geoLocateControl)) {
-      if (requestLocation) {
-        map.addControl(this.geoLocateControl)
-      }
+    if (!map.hasControl(this.geoLocateControl) && requestLocation) {
+      map.addControl(this.geoLocateControl)
     }
 
     if (!map.hasControl(this.navControl)) {
@@ -116,10 +114,8 @@ export class MapSettings {
   }
 
   private static removeControls(map: Map) {
-    if (this.geoLocateControl && map.hasControl(this.geoLocateControl)) {
-      if (this.requestLocation) {
-        map.removeControl(this.geoLocateControl)
-      }
+    if (this.geoLocateControl && map.hasControl(this.geoLocateControl) && this.requestLocation) {
+      map.removeControl(this.geoLocateControl)
     }
 
     if (this.navControl && map.hasControl(this.navControl)) {

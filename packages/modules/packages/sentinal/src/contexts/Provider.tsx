@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-array-push-push */
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { AccountInstance } from '@xyo-network/account-model'
@@ -66,44 +67,45 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           }
         }),
       )
-      witnesses?.forEach((witness) => {
-        offCallbacks.push(
-          witness.on('observeEnd', ({ module, outPayloads }) => {
-            const witnesses = progress.witnesses ?? {}
-            witnesses[witness.address] = {
-              status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
-              witness: module,
-            }
-            if (mounted()) {
-              setProgress({
-                archivists: progress.archivists,
-                witnesses,
-              })
-            }
-          }),
-        )
-        offCallbacks.push(
-          witness.on('observeStart', ({ module }) => {
-            const witnesses = progress.witnesses ?? {}
-            witnesses[witness.address] = {
-              status: SentinelReportStatus.Started,
-              witness: module,
-            }
-            if (mounted()) {
-              setProgress({
-                archivists: progress.archivists,
-                witnesses,
-              })
-            }
-          }),
-        )
-      })
+      if (witnesses)
+        for (const witness of witnesses) {
+          offCallbacks.push(
+            witness.on('observeEnd', ({ module, outPayloads }) => {
+              const witnesses = progress.witnesses ?? {}
+              witnesses[witness.address] = {
+                status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
+                witness: module,
+              }
+              if (mounted()) {
+                setProgress({
+                  archivists: progress.archivists,
+                  witnesses,
+                })
+              }
+            }),
+          )
+          offCallbacks.push(
+            witness.on('observeStart', ({ module }) => {
+              const witnesses = progress.witnesses ?? {}
+              witnesses[witness.address] = {
+                status: SentinelReportStatus.Started,
+                witness: module,
+              }
+              if (mounted()) {
+                setProgress({
+                  archivists: progress.archivists,
+                  witnesses,
+                })
+              }
+            }),
+          )
+        }
       setSentinel(sentinel as MemorySentinel)
       return () => {
         //unsubscribe from events
-        offCallbacks.forEach((callback) => {
+        for (const callback of offCallbacks) {
           callback()
-        })
+        }
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

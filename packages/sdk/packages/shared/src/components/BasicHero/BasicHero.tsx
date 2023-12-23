@@ -112,7 +112,7 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
           sm: '400px',
           xs: '200px',
         },
-        ...(sx ?? {}),
+        ...sx,
       }}
       style={{
         backgroundColor: backgroundColor ?? '',

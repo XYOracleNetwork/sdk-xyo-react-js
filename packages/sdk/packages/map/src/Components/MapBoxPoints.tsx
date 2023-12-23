@@ -41,20 +41,17 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
   }
 
   const updateFeatures = useCallback(() => {
-    if (mapPoints?.isMapReady && features?.length) {
-      layers?.forEach((layer) => {
+    if (mapPoints?.isMapReady && features?.length && layers)
+      for (const layer of layers) {
         mapPoints.initializeMapSource(layer)
-      })
-    }
+      }
   }, [mapPoints, features, layers])
 
   const updateMapSetup = useCallback(() => {
     const { fitToPoints } = mapSettings || {}
 
-    if (mapPoints && map) {
-      if (fitToPoints?.value === true) {
-        mapPoints.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
-      }
+    if (mapPoints && map && fitToPoints?.value === true) {
+      mapPoints.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
     }
   }, [mapSettings, mapPoints, map, fitToPointsPadding, zoom])
 

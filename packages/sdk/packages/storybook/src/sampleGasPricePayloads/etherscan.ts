@@ -10,5 +10,5 @@ export const sampleEtherscanGasPricePayload = {
   },
   schema: 'network.xyo.blockchain.ethereum.gas.etherscan',
   status: '1',
-  timestamp: 1670437200510,
+  timestamp: 1_670_437_200_510,
 }

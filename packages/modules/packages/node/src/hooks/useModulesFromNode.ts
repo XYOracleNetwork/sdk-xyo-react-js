@@ -30,7 +30,7 @@ export const useModulesFromNode = (filter?: ModuleFilter, config?: ModuleFromNod
       return moduleInstances
     }
     console.log('Result: No Node')
-    return undefined
+    return
   }, [node, filter])
   return [result, nodeError ?? error]
 }

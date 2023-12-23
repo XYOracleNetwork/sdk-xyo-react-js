@@ -58,7 +58,10 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
         return (
           <>
             <>&#x2026;</>
-            {`${parts.slice(partsToRemove).reduce((previousValue, part) => `${previousValue}.${part}`)}`}
+            {
+              // eslint-disable-next-line unicorn/no-array-reduce
+              `${parts.slice(partsToRemove).reduce((previousValue, part) => `${previousValue}.${part}`)}`
+            }
           </>
         )
       }

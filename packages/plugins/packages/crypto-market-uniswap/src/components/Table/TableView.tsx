@@ -130,7 +130,7 @@ export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ pay
   }
 
   const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(parseInt(event.target.value, 10))
+    setRowsPerPage(Number.parseInt(event.target.value, 10))
     setPage(0)
   }
   const uniswapPayload = payload ? (payload as UniswapCryptoMarketPayload) : undefined
@@ -141,8 +141,7 @@ export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ pay
         <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size="medium">
           <EnhancedTableHead order={order} orderBy={orderBy} onRequestSort={handleRequestSort} rowCount={uniswapPayload?.pairs.length ?? 0} />
           <TableBody>
-            {uniswapPayload?.pairs
-              .slice()
+            {[...(uniswapPayload?.pairs ?? [])]
               //.sort(getComparator(order, orderBy))
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((pair, index: number) => {

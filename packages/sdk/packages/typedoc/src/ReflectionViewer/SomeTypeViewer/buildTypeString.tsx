@@ -14,16 +14,18 @@ export const buildTypeString: TypeBuilder = (type: SomeType | Type, reflectionVi
   const parts: string[] = []
 
   switch (someType.type) {
-    case 'intrinsic':
+    case 'intrinsic': {
       parts.push(someType.name)
       break
+    }
     case 'intersection': {
       parts.push(...buildIntersectionString(someType, reflectionViewer, buildTypeString))
       break
     }
-    case 'literal':
+    case 'literal': {
       parts.push(JSON.stringify(someType.value))
       break
+    }
     case 'array': {
       parts.push(...buildArrayString(someType, reflectionViewer, buildTypeString))
       break
@@ -39,11 +41,10 @@ export const buildTypeString: TypeBuilder = (type: SomeType | Type, reflectionVi
     case 'reflection': {
       return buildRelfectionString(someType, reflectionViewer)
     }
-    default:
-      parts.push('#')
-      parts.push(someType.type)
-      parts.push('#')
+    default: {
+      parts.push('#', someType.type, '#')
       break
+    }
   }
   return parts.join('')
 }

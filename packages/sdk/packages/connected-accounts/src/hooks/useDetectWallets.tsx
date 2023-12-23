@@ -2,6 +2,7 @@ import { AccountsChangedEventName, DiscoveredWallets, EIP6963Connector, useWalle
 import { useEffect, useMemo, useState } from 'react'
 
 const sortWallets = (wallets: DiscoveredWallets) =>
+  // eslint-disable-next-line unicorn/no-array-reduce
   Object.values(wallets).reduce((acc, wallet) => {
     wallet.allowedAccounts.length > 0 ? acc.unshift(wallet) : acc.push(wallet)
     return acc

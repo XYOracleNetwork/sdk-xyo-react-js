@@ -28,7 +28,7 @@ export class AppSettingsStorageBase {
       assertEx(defaultValue !== undefined, `Missing Default for ${name}`)
       return defaultValue
     }
-    return parseFloat(storedValue)
+    return Number.parseFloat(storedValue)
   }
 
   getObject<T>(name: string): T {

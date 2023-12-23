@@ -45,7 +45,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
     }
 
     if (archivist === undefined || boundwitness === undefined) {
-      return undefined
+      return
     }
 
     const hash = await PayloadWrapper.hashAsync(boundwitness)
@@ -73,7 +73,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
       return result as BoundWitness
     } catch (e) {
       setError(e as ModuleError)
-      return undefined
+      return
     }
   }
 

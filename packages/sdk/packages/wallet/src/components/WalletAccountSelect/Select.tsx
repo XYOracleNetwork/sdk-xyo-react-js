@@ -13,7 +13,7 @@ export interface WalletAccountSelectProps extends SharedAddressRenderRowBoxProps
 }
 
 const arrayRange = (length: number, start = 0) => {
-  return Array.from(Array(length).keys()).map((x) => x + start)
+  return [...Array(length).keys()].map((x) => x + start)
 }
 
 export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
@@ -59,7 +59,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
             return <Item />
           }}
           value={activeAccountIndex}
-          onChange={(event) => setActiveAccountIndex?.(parseInt(`${event.target.value}`))}
+          onChange={(event) => setActiveAccountIndex?.(Number.parseInt(`${event.target.value}`))}
           size={size}
           variant="outlined"
           {...props}

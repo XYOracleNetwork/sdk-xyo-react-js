@@ -34,8 +34,8 @@ const useResolveSchema = (schema?: string) => {
 export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
   ({ showLinkNames = true, showOpenNewWindowLink = true, showStatusIcon = true, titleProps, value, ...props }, forwardedRef) => {
     const resolvedSchema = useResolveSchema(value)
-    const [buttonRef, buttonDispatch] = useEvent<HTMLButtonElement>(undefined)
-    const [divRef, divDispatch] = useEvent<HTMLDivElement>(undefined)
+    const [buttonRef, buttonDispatch] = useEvent<HTMLButtonElement>()
+    const [divRef, divDispatch] = useEvent<HTMLDivElement>()
 
     const onClick = (dispatch?: EventDispatch<EventNoun, 'click', string>, openNewWindow = false) => {
       dispatch?.(

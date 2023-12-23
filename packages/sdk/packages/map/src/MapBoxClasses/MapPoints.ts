@@ -24,6 +24,7 @@ export class MapPoints extends MapBase<Point> {
     } else {
       bounds = new LngLatBounds()
 
+      // eslint-disable-next-line unicorn/no-array-for-each
       this.config.features.forEach((feature: Feature<Point>) => {
         bounds.extend(feature.geometry.coordinates as [number, number])
       })

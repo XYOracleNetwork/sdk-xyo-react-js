@@ -31,7 +31,7 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ pay
 
   return accessTokenResolved ? (
     <>
-      {features && features.length ? (
+      {features && features.length > 0 ? (
         <HeatMapInitializerProvider
           features={features as Feature<Polygon>[]}
           heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}

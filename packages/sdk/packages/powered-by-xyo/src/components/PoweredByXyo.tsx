@@ -44,7 +44,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const busyMap: Record<string, boolean> = useMemo(() => ({}), [node])
 
-  const activeBusy = busy ?? Object.values(busyMap).reduce((prev, value) => prev || value, false)
+  const activeBusy = busy ?? Object.values(busyMap).includes(true)
 
   const activeOnButtonClick: PoweredByXyoProps['onButtonClick'] =
     (debugDialog

@@ -8,7 +8,7 @@ export const useDataState = <T>(defaultValue: T | undefined): [T | undefined, Di
       if (JSON.stringify(value) !== JSON.stringify(state)) {
         setState(value)
       }
-    } catch (ex) {
+    } catch {
       console.error('setDataState failed!  Make sure data type is stringifiable!')
     }
   }

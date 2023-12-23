@@ -10,23 +10,29 @@ interface PhraseHeaderBox extends FlexBoxProps, WithChildren {
 export const PhraseHeaderBox: React.FC<PhraseHeaderBox> = ({ children, conditional, ...props }) => {
   const state = useMemo(() => {
     switch (conditional) {
-      case true:
+      case true: {
         return 'success'
-      case false:
+      }
+      case false: {
         return 'error'
-      default:
+      }
+      default: {
         return null
+      }
     }
   }, [conditional])
 
   const Icon = useMemo(() => {
     switch (state) {
-      case 'success':
+      case 'success': {
         return <CheckCircleOutlineIcon fontSize="small" color="success" />
-      case 'error':
+      }
+      case 'error': {
         return <HighlightOffIcon fontSize="small" color="error" />
-      default:
+      }
+      default: {
         return null
+      }
     }
   }, [state])
 

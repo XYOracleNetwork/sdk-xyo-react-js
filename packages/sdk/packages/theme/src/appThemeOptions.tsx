@@ -11,7 +11,7 @@ const partialAppThemeOptions: ThemeOptions = {
           const { clamped } = ownerState
 
           if (clamped) {
-            const maxWidth = parseInt(clamped as string, 10)
+            const maxWidth = Number.parseInt(clamped as string, 10)
 
             return {
               overflow: 'hidden',

@@ -39,7 +39,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
       {orderedAddressHistoryPairs ? (
         orderedAddressHistoryPairs.map(([bw, bwHash], index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
-            {index !== 0 ? <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} /> : null}
+            {index === 0 ? null : <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} />}
             <BoundWitnessRendererCard
               payload={bw}
               onClick={() => handleClick(bwHash)}

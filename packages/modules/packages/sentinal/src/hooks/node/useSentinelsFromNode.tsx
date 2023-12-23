@@ -10,17 +10,16 @@ export const useSentinelsFromNode = (
   if (error) {
     return [null, error]
   }
-  if (modules) {
-    return [
-      modules.reduce<SentinelInstance[]>((prev, module) => {
-        if (isSentinelInstance(module)) {
-          prev.push(module)
-        }
-        return prev
-      }, []),
-      undefined,
-    ]
-  } else {
-    return [modules, error]
-  }
+  return modules
+    ? [
+        // eslint-disable-next-line unicorn/no-array-reduce
+        modules.reduce<SentinelInstance[]>((prev, module) => {
+          if (isSentinelInstance(module)) {
+            prev.push(module)
+          }
+          return prev
+        }, []),
+        undefined,
+      ]
+    : [modules, error]
 }

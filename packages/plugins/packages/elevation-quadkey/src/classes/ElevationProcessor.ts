@@ -19,14 +19,14 @@ export class ElevationPayloadProcessor {
   }
 
   async buildElevations() {
-    if (!this.locations.length) {
+    if (this.locations.length === 0) {
       console.warn('Cannot build elevations without locations.  Did you call buildFeatures?')
     }
     try {
       const locationElevations = (await this.config.lookupLocations?.({ locations: this.locations }))?.results
       const featuresWithElevations = this.features.map((feature, index) => this.featuresWithElevationsIterator(feature, index, locationElevations))
       return featuresWithElevations
-    } catch (e) {
+    } catch {
       console.error('Error fetching elevation data')
     }
   }

@@ -1,6 +1,6 @@
 export const sampleEthGasStationGasPricePayload = {
   baseFee: 37,
-  blockNumber: 16134572,
+  blockNumber: 16_134_572,
   blockTime: 11.88,
   gasPrice: {
     fast: 84,
@@ -14,5 +14,5 @@ export const sampleEthGasStationGasPricePayload = {
     standard: 2,
   },
   schema: 'network.xyo.blockchain.ethereum.gas.ethgasstation',
-  timestamp: 1670437200687,
+  timestamp: 1_670_437_200_687,
 }

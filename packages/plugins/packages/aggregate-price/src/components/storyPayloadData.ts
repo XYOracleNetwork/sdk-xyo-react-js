@@ -17,11 +17,11 @@ export const payloadData = {
     xyo: { value: { btc: '3.79226e-7', dai: '0.00874169', eth: '0.000005353785', eur: '0.00844792', link: '0.0011937', usd: '0.00872519' } },
   },
   schema: 'network.xyo.crypto.asset',
-  timestamp: 1659625815232,
+  timestamp: 1_659_625_815_232,
 }
 
 export const payloadDataMissingAssets = {
   assets: {},
   schema: 'network.xyo.crypto.asset',
-  timestamp: 1659071465718,
+  timestamp: 1_659_071_465_718,
 }

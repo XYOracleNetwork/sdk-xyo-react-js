@@ -10,8 +10,10 @@ export interface NodeBoxProps extends FlexBoxProps {
 
 export const NodeBox: React.FC<NodeBoxProps> = ({ variant, ...props }) => {
   switch (variant) {
+    // eslint-disable-next-line unicorn/no-useless-switch-case
     case 'description':
-    default:
+    default: {
       return <NodeDescriptionBox {...props} />
+    }
   }
 }

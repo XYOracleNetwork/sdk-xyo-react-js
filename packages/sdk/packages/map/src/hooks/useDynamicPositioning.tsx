@@ -22,8 +22,8 @@ const defaultAspectRatioRange = [0.5, 2]
  *
  * Note: Values are based off the zoom level
  */
-const latRange = [0.9121644205263664, 1.71785031559439]
-const lngRange = [-81.4742014851959, 12.788958675506933]
+const latRange = [0.912_164_420_526_366_4, 1.717_850_315_594_39]
+const lngRange = [-81.474_201_485_195_9, 12.788_958_675_506_933]
 
 /**
  * Function to interpolate an aspect ratio value across a range of degrees and aspect ratios

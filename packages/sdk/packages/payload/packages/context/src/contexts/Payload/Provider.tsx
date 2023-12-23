@@ -50,7 +50,7 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
       if (hash && archivist && payload === undefined) {
         try {
           const [loadedPayloads] = await archivist.get([hash])
-          setPayload(loadedPayloads ? loadedPayloads : null)
+          setPayload(loadedPayloads ?? null)
           setPayloadError(undefined)
         } catch (e) {
           setPayload(null)

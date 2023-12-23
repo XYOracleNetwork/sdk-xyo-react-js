@@ -6,5 +6,5 @@ export const sampleEtherchainV1GasPricePayload = {
   safeLow: 0.2,
   schema: 'network.xyo.blockchain.ethereum.gas.etherchain.v1',
   standard: 0.4,
-  timestamp: 1670437800313,
+  timestamp: 1_670_437_800_313,
 }

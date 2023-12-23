@@ -27,7 +27,7 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ ch
       await BuildStandardNodes(wallet, (node: MemoryNode) => {
         setNodes((nodes) => {
           if (nodes?.find((existingNode) => existingNode.config.name === node.config.name)) {
-            return undefined
+            return
           }
           return nodes ? [...nodes, node] : [node]
         })

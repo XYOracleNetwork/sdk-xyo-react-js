@@ -24,7 +24,7 @@ export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props
         {loading ? <LinearProgress sx={{ minHeight: '10px' }} /> : null}
         <BWErrorAlert />
         <NestedBoundWitnessesBox />
-        {!activeBoundWitness ? <ActiveBWFlexBox /> : null}
+        {activeBoundWitness ? null : <ActiveBWFlexBox />}
         <Slide direction="down" in={!!activeBoundWitness}>
           <ActiveBWFlexBox ref={activeBWref} />
         </Slide>

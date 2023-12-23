@@ -16,7 +16,7 @@ export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ additionalCells,
       </StyledTableCell>
       {additionalCells
         ? Array(additionalCells)
-            .fill(undefined)
+            .fill(null)
             .map((_fill, index) => <StyledTableCell key={index} hideBorder={hideBorder} />)
         : null}
     </TableRow>

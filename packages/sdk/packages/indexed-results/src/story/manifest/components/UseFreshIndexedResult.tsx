@@ -1,7 +1,7 @@
+import { exists } from '@xylabs/exists'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
-import { EvmAddress, EvmAddressSchema } from '@xyo-network/evm-address-payload-plugin'
 import { EvmContract } from '@xyo-network/evm-contract-witness'
 import { isEvmTokenInterfaceImplemented } from '@xyo-network/evm-token-interface-diviner'
 import { Payload } from '@xyo-network/payload-model'
@@ -9,6 +9,7 @@ import { useArchivistFromNode } from '@xyo-network/react-archivist'
 import { useNode } from '@xyo-network/react-node'
 import { useSentinelFromNode } from '@xyo-network/react-sentinel'
 import { asSentinelInstance } from '@xyo-network/sentinel-model'
+import { EvmAddress, EvmAddressSchema } from '@xyo-network/witness-evm-abstract'
 import { TimeStamp } from '@xyo-network/witness-timestamp'
 import { useMemo } from 'react'
 
@@ -28,20 +29,22 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
         indexedQuery,
         processIndexedResults: {
           parseIndexedResults: async (payloads: Payload[]) => {
-            return await Promise.all(
-              payloads.map(async (payload) => {
-                const castPayload = payload as Payload & { sources: string[] }
-                const results = (await archivist?.get(castPayload.sources as string[])) ?? []
-                const filteredResult = results.filter(isEvmTokenInterfaceImplemented)[0]
-                return filteredResult
-              }),
-            )
+            return (
+              await Promise.all(
+                payloads.map(async (payload) => {
+                  const castPayload = payload as Payload & { sources: string[] }
+                  const results = (await archivist?.get(castPayload.sources as string[])) ?? []
+                  const filteredResult = results.find(isEvmTokenInterfaceImplemented)
+                  return filteredResult
+                }),
+              )
+            ).filter(exists)
           },
         },
         refresh: async () => {
           const collectionCallPayload: EvmAddress = { address, chainId: 1, schema: EvmAddressSchema }
           const report = await contractSentinel?.report([collectionCallPayload])
-          const [, , contract] = (report as [BoundWitness, TimeStamp, EvmContract]) ?? []
+          const contract = ((report as [BoundWitness, TimeStamp, EvmContract]) ?? [])[2]
           const sentinelName = `${tokenInterface}TokenInterfaceImplementedSentinel`
           const tokenSentinel = asSentinelInstance(await node?.resolve(sentinelName))
           const results = await tokenSentinel?.report([contract])

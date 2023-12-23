@@ -39,4 +39,5 @@ export const XyoFooterAlwaysLinks: React.FC<XyoFooterAlwaysLinksProps> = (props)
 export type CopyrightProps = XyoFooterAlwaysLinksProps
 
 /** @deprecated use FooterAlwaysLinks*/
-export const Copyright = FooterAlwaysLinks
+
+export { FooterAlwaysLinks as Copyright } from '../AlwaysLinks'

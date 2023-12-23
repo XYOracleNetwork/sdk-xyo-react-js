@@ -5,9 +5,9 @@ import React, { ReactNode } from 'react'
 import { fixedContent, scrollableContent } from './lib'
 
 const WebAppBodyName = 'WebAppBody'
-const propsNotForwarded = ['mobileScrollingBreakpoint', 'variant', 'spacing', 'disableBreadcrumbGutter']
+const propsNotForwarded = new Set(['mobileScrollingBreakpoint', 'variant', 'spacing', 'disableBreadcrumbGutter'])
 const defaultStyledOptions = {
-  shouldForwardProp: (prop: string) => !propsNotForwarded.includes(prop),
+  shouldForwardProp: (prop: string) => !propsNotForwarded.has(prop),
 }
 
 const WebAppBodyRoot = styled(FlexGrowCol, {

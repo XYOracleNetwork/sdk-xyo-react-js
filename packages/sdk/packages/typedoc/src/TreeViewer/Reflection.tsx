@@ -41,7 +41,7 @@ export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({ look
             {group.children.map((child, jndex) => {
               const searchTermTrimmed = searchTerm?.trim().toLowerCase()
               const childReflection = typeof child === 'number' ? lookup?.[child as number] : child
-              return childReflection && (!searchTermTrimmed || childReflection.name.toLowerCase().indexOf(searchTermTrimmed) !== -1) ? (
+              return childReflection && (!searchTermTrimmed || childReflection.name.toLowerCase().includes(searchTermTrimmed)) ? (
                 <TreeItem
                   key={`secondary-${index}- ${jndex}`}
                   nodeId={`declaration-${childReflection?.id}`}

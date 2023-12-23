@@ -10,11 +10,14 @@ export interface ModuleCardParserProps {
 
 export const ModuleCardParser: React.FC<ModuleCardParserProps> = ({ module }) => {
   switch (true) {
-    case isArchivistInstance(module):
+    case isArchivistInstance(module): {
       return <ArchivistCard module={asArchivistInstance(module)} />
-    case isDivinerInstance(module):
+    }
+    case isDivinerInstance(module): {
       return <DivinerCard module={asDivinerInstance(module)} />
-    default:
+    }
+    default: {
       return <ModuleCard module={module} />
+    }
   }
 }

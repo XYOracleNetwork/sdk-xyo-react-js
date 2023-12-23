@@ -55,7 +55,7 @@ export class StorageArchivistBuilder {
       try {
         const [archivist] = (await bridge.resolve({ name: ['Archivist'] })) ?? []
         return asArchivistInstance(archivist)
-      } catch (e) {
+      } catch {
         console.error('Error Resolving Parent Archivist', this.node?.config.name, this.config)
       }
     }

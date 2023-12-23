@@ -16,7 +16,7 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
   ...props
 }) => {
   const ellipsizeRef = useRef<HTMLDivElement | null>(null)
-  const headingText = heading ? heading : fallbackText
+  const headingText = heading ?? fallbackText
 
   const sizeParser = (size: HeadingTextSizes) => {
     const map: Record<HeadingTextSizes, TypographyVariant> = {
@@ -26,7 +26,7 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
     }
     const mappedSize = map[size]
     if (mappedSize === undefined) {
-      throw Error(`${size} is not a recognized TextSize`)
+      throw new Error(`${size} is not a recognized TextSize`)
     }
     return mappedSize
   }

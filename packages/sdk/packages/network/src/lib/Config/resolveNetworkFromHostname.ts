@@ -4,11 +4,14 @@ export type SiteName = 'explore' | 'node'
 
 export const resolveNetworkFromHostName = (fallback: NetworkNames = 'Kerplunk', siteName: SiteName) => {
   switch (document.location.hostname) {
-    case `${siteName}.xyo.network`:
+    case `${siteName}.xyo.network`: {
       return 'Main'
-    case `beta.${siteName}.xyo.network`:
+    }
+    case `beta.${siteName}.xyo.network`: {
       return 'Kerplunk'
-    default:
+    }
+    default: {
       return fallback
+    }
   }
 }

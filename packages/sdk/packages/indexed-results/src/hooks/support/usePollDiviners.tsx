@@ -8,7 +8,7 @@ export type FunctionToPoll = () => Promise<Payload[] | null | undefined>
 
 const DEFAULT_POLLING_CONFIG: PollingConfig = {
   initialDelay: 100,
-  maxDelay: 10000,
+  maxDelay: 10_000,
   maxRetries: 8,
 }
 
@@ -105,11 +105,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
 
   /** Function to invoke polling by determining a polling strategy */
   const poll = useCallback(async () => {
-    if (maxRetries === null) {
-      return await pollDivinersIndefinitely(initialDelay, functionToPoll)
-    } else {
-      return await pollDivinersWithDelay(initialDelay, functionToPoll)
-    }
+    return await (maxRetries === null ? pollDivinersIndefinitely(initialDelay, functionToPoll) : pollDivinersWithDelay(initialDelay, functionToPoll))
   }, [functionToPoll, initialDelay, maxRetries, pollDivinersIndefinitely, pollDivinersWithDelay])
 
   return { cancelPolling, poll }

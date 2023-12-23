@@ -20,9 +20,5 @@ export function LoadResult<T>(props: PropsWithChildren<LoadResultProps<T>>) {
   if (error) {
     return <>{children}</>
   }
-  if (searchResult === undefined) {
-    return <FlexGrowRow busy minHeight="50px" />
-  } else {
-    return <>{children}</>
-  }
+  return searchResult === undefined ? <FlexGrowRow busy minHeight="50px" /> : <>{children}</>
 }

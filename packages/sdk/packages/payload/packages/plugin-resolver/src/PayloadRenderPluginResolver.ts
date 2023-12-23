@@ -22,10 +22,11 @@ export class PayloadRenderPluginResolver {
 
   register(plugin: PayloadRenderPlugin, defaultForSchema?: string[]) {
     this.plugins.push(plugin)
-    defaultForSchema?.forEach((schema) => {
-      assertEx(plugin.canRender({ schema }), 'Default renderer must be able to render schema')
-      this.schemaDefaultPlugin.set(schema, plugin)
-    })
+    if (defaultForSchema)
+      for (const schema of defaultForSchema) {
+        assertEx(plugin.canRender({ schema }), 'Default renderer must be able to render schema')
+        this.schemaDefaultPlugin.set(schema, plugin)
+      }
     return this
   }
 

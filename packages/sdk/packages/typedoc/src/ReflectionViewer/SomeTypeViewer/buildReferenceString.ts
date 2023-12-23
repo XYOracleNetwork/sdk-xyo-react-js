@@ -7,15 +7,15 @@ export const buildReferenceString = (typeObj: ReferenceType, reflectionViewer: R
   const parts: string[] = []
   parts.push(typeObj.name)
   if (typeObj.typeArguments) {
-    parts.push('<')
     parts.push(
+      '<',
       typeObj.typeArguments
         .map((arg) => {
           return typeBuilder(arg, reflectionViewer)
         })
         .join(', '),
+      '>',
     )
-    parts.push('>')
   }
   return parts
 }

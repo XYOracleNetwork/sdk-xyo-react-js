@@ -33,7 +33,7 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
   const { collapse } = useCollapsible()
   const [openSubNav, setOpenSubNav] = useState(false)
   const [hovered, setHovered] = useState(false)
-  const resolvedIconMenuTextSpacing = iconMenuTextSpacing ? iconMenuTextSpacing : theme.spacing(1)
+  const resolvedIconMenuTextSpacing = iconMenuTextSpacing ?? theme.spacing(1)
 
   return (
     <>

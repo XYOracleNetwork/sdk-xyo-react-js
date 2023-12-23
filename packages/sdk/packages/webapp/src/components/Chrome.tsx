@@ -28,12 +28,12 @@ export const WebAppChrome = forwardRef<HTMLDivElement, WebAppChromeProps>(
         </Helmet>
         {appbar ?? <ApplicationAppBar systemToolbar={<SystemToolbar menuItems={navigationType === 'menu' ? menuItems : undefined} />} />}
         <FlexGrowRow id="sidebar-nav-flex" overflow="hidden" alignItems="stretch">
-          {navigationType !== 'menu' ? (
+          {navigationType === 'menu' ? null : (
             <>
               {menuItems}
               <Divider orientation="vertical" />
             </>
-          ) : null}
+          )}
           <FlexGrowCol id="main-flex" justifyContent="flex-start" alignItems="stretch">
             <ErrorBoundary
               fallbackWithError={(error) => {

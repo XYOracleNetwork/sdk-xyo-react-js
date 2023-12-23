@@ -12,7 +12,7 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
     if (moduleAddress === null) return null
     if (moduleAddress && rootModule) {
       const foundModule = await rootModule.resolve(moduleAddress)
-      return foundModule ? foundModule : null
+      return foundModule ?? null
     }
   }, [moduleAddress, rootModule])
 

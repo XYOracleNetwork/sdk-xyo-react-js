@@ -1,10 +1,13 @@
 export const colorParser = (conditional?: boolean | null) => {
   switch (conditional) {
-    case true:
+    case true: {
       return 'success'
-    case false:
+    }
+    case false: {
       return 'error'
-    default:
-      return undefined
+    }
+    default: {
+      return
+    }
   }
 }

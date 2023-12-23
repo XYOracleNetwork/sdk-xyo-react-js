@@ -43,7 +43,7 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
   }
 
   useEffect(() => {
-    if (mapInitialized && featureSets?.length && featureSets[0].length && map && featureSetsLayers?.length) {
+    if (mapInitialized && featureSets?.length && featureSets[0].length > 0 && map && featureSetsLayers?.length) {
       const { lowUsageColor, highUsageColor } = heatMapColorProps as AnimatedHeatMapColorProps
       forget(MapHeat.initializeAnimatedHeatMapSource(featureSetsLayers, featureSets, map, lowUsageColor, highUsageColor))
     }

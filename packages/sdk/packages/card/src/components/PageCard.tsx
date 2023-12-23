@@ -22,9 +22,7 @@ const PageCardWithRef: React.FC<PageCardProps> = forwardRef(({ subheader, title,
         }
         subheader={<TypographyEx variant="subtitle1">{subheader}</TypographyEx>}
         action={
-          action ? (
-            action
-          ) : (
+          action ?? (
             <>
               {onRefresh ? (
                 <IconButton onClick={() => onRefresh?.()}>

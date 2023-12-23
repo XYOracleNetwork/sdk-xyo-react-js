@@ -29,9 +29,9 @@ export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> =
     if (names?.length) {
       setResolvers((resolvers) => {
         if (resolvers) {
-          names.forEach((name) => {
+          for (const name of names) {
             delete resolvers[name]
-          })
+          }
           return { ...resolvers }
         }
       })
