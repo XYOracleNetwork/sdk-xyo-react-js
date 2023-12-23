@@ -20,7 +20,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
 ) => {
   const { indexedQuery, processIndexedResults } = config ?? {}
   const { isFresh } = processIndexedResults ?? {}
-  const { maxDelay = 10000, maxRetries, initialDelay = 100 } = pollDivinerConfig
+  const { maxDelay = 10_000, maxRetries, initialDelay = 100 } = pollDivinerConfig
 
   const [activePolling, setActivePolling] = useState(true)
 

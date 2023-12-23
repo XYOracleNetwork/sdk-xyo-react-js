@@ -17,7 +17,7 @@ export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResu
       if (divinedResult) {
         results = parseIndexedResults ? await parseIndexedResults(divinedResult) : divinedResult
       }
-      return results && results.length ? results : null
+      return results && results.length > 0 ? results : null
     },
     [],
   )
