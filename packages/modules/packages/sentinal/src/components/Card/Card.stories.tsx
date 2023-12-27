@@ -2,8 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
-import { CryptoContractFunctionCallSchema } from '@xyo-network/crypto-contract-function-read-payload-plugin'
-import { CryptoContractDiviner, CryptoContractFunctionReadWitness } from '@xyo-network/crypto-contract-function-read-plugin'
+import { EvmCallWitness, EvmCallDiviner, EvmCallWitnessConfigSchema } from '@xyo-network/evm-call-witness'
 import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
 import { ModuleFactory, ModuleFactoryLocator } from '@xyo-network/module-model'
 import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel'
@@ -18,27 +17,27 @@ const loadFromManifest = async () => {
   const provider = new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)
 
   const locator = new ModuleFactoryLocator()
-  locator.register(CryptoContractDiviner)
+  locator.register(EvmCallDiviner)
 
   locator.register(
-    new ModuleFactory(CryptoContractFunctionReadWitness, {
-      providers: [provider],
+    new ModuleFactory(EvmCallWitness, {
+      providers: () => [provider],
     }),
-    { 'network.xyo.crypto.contract.interface': 'Erc721' },
+    { 'network.xyo.evm.interface': 'Erc721' },
   )
 
   locator.register(
-    new ModuleFactory(CryptoContractFunctionReadWitness, {
-      providers: [provider],
+    new ModuleFactory(EvmCallWitness, {
+      providers: () => [provider],
     }),
-    { 'network.xyo.crypto.contract.interface': 'Erc721Enumerable' },
+    { 'network.xyo.evm.interface': 'Erc721Enumerable' },
   )
 
   locator.register(
-    new ModuleFactory(CryptoContractFunctionReadWitness, {
-      providers: [provider],
+    new ModuleFactory(EvmCallWitness, {
+      providers: () => [provider],
     }),
-    { 'network.xyo.crypto.contract.interface': 'Erc1155' },
+    { 'network.xyo.evm.interface': 'Erc1155' },
   )
 
   const manifest = new ManifestWrapper(NftSentinelManifest as PackageManifestPayload, wallet, locator)
@@ -74,7 +73,7 @@ const NftSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
   const inPayloads = [
     {
       address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', //Random ERC721
-      schema: CryptoContractFunctionCallSchema,
+      schema: EvmCallWitnessConfigSchema,
     },
   ]
 
@@ -113,7 +112,7 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
         const calls = Array(1000).map((_, index) => ({
           address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', //Random ERC721
           params: [index],
-          schema: CryptoContractFunctionCallSchema,
+          schema: EvmCallWitnessConfigSchema,
         }))
         await tokensSentinel?.report(calls)
       })
@@ -124,7 +123,7 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
   const inPayloads = [
     {
       address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', //Random ERC721
-      schema: CryptoContractFunctionCallSchema,
+      schema: EvmCallWitnessConfigSchema,
     },
   ]
 
