@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@storybook/react": "^7.6.6",
+    "@xylabs/exists": "^2.13.23",
     "@xylabs/react-flexbox": "^3.0.35",
     "@xylabs/ts-scripts-yarn3": "^3.2.25",
     "@xylabs/tsconfig-react": "^3.2.25",
@@ -35,9 +36,7 @@
     "@xyo-network/diviner-payload-memory": "^2.85.6",
     "@xyo-network/diviner-payload-model": "^2.85.6",
     "@xyo-network/diviner-temporal-indexing-memory": "^2.85.6",
-    "@xyo-network/evm-address-payload-plugin": "^2.85.1",
     "@xyo-network/evm-contract-witness": "^2.85.1",
-    "@xyo-network/evm-nft-id-payload-plugin": "^2.85.1",
     "@xyo-network/evm-token-interface-diviner": "^2.85.1",
     "@xyo-network/manifest": "^2.85.6",
     "@xyo-network/memory-archivist": "^2.85.6",
@@ -45,6 +44,7 @@
     "@xyo-network/react-manifest": "workspace:~",
     "@xyo-network/react-sentinel": "workspace:~",
     "@xyo-network/sentinel-model": "^2.85.6",
+    "@xyo-network/witness-evm-abstract": "^2.85.8",
     "@xyo-network/witness-timestamp": "^2.85.6",
     "ethers": "^6.9.1",
     "typescript": "^5.3.3"
@@ -100,6 +100,6 @@
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
-  "version": "2.66.12",
+  "version": "2.66.13",
   "type": "module"
 }
