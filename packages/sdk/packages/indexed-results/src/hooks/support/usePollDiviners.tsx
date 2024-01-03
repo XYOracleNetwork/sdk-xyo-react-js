@@ -18,7 +18,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
   functionToPoll?: FunctionToPoll,
   onResult?: (result: T[] | null) => void,
 ) => {
-  const { indexedQuery, processIndexedResults } = config ?? {}
+  const { indexedQueries, processIndexedResults } = config ?? {}
   const { isFresh } = processIndexedResults ?? {}
   const { maxDelay = 10_000, maxRetries, initialDelay = 100 } = pollDivinerConfig
 
@@ -64,7 +64,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
               }
               onResult?.(result as T[] | null)
             } else {
-              console.warn('Exceeded maximum retries.', JSON.stringify(indexedQuery))
+              console.warn('Exceeded maximum retries.', JSON.stringify(indexedQueries))
               onResult?.(result as T[] | null)
             }
           } catch (e) {
@@ -76,7 +76,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
         return await pollDivinersWithDelayInner(newDelay, functionToPoll)
       }
     },
-    [activePolling, maxRetries, maxDelay, freshTest, indexedQuery, onResult],
+    [activePolling, maxRetries, maxDelay, freshTest, indexedQueries, onResult],
   )
 
   /** A polling function that runs indefinitely on a set interval */

@@ -7,12 +7,12 @@ import { useFetchDivinersFromNode } from './useFetchDivinersFromNode'
 
 export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResultsConfig): (() => Promise<Payload[] | undefined | null>) => {
   const { diviners } = useFetchDivinersFromNode(config)
-  const { indexedQuery, processIndexedResults } = config ?? {}
+  const { indexedQueries, processIndexedResults } = config ?? {}
   const parseIndexedResults = processIndexedResults?.parseIndexedResults
 
   const tryDiviner = useCallback(
-    async (diviner: DivinerInstance, indexedQuery: Payload, parseIndexedResults?: ProcessIndexedResults['parseIndexedResults']) => {
-      const divinedResult = await diviner.divine([indexedQuery])
+    async (diviner: DivinerInstance, indexedQueries: Payload[], parseIndexedResults?: ProcessIndexedResults['parseIndexedResults']) => {
+      const divinedResult = await diviner.divine(indexedQueries)
       let results: Payload[] | undefined
       if (divinedResult) {
         results = parseIndexedResults ? await parseIndexedResults(divinedResult) : divinedResult
@@ -26,8 +26,8 @@ export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResu
     let result: T[] | undefined | null
     let divinerCount = 0
     if (diviners && diviners?.length > 0) {
-      while (divinerCount < diviners?.length && indexedQuery) {
-        const divinerResult = await tryDiviner(diviners[divinerCount], indexedQuery, parseIndexedResults)
+      while (divinerCount < diviners?.length && indexedQueries) {
+        const divinerResult = await tryDiviner(diviners[divinerCount], indexedQueries, parseIndexedResults)
         if (divinerResult && divinerResult?.length) {
           result = divinerResult as T[]
           break
@@ -36,7 +36,7 @@ export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResu
       }
       return result ?? null
     }
-  }, [diviners, indexedQuery, parseIndexedResults, tryDiviner])
+  }, [diviners, indexedQueries, parseIndexedResults, tryDiviner])
 
   return tryDiviners
 }

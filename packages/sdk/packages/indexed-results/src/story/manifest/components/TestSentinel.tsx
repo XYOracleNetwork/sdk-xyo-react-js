@@ -17,7 +17,7 @@ const address = '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D'
 
 const supportedTokenInterfaces = [
   'ERC721',
-  'ERC1155',
+  // 'ERC1155',
   // Waiting on a Sentinel for these types
   // 'ERC721TokenReceiver',
   // 'ERC721Metadata',

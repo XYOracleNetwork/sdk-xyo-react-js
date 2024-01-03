@@ -11,7 +11,7 @@ export interface IndexedResultsConfig<TPayload extends Payload = Payload> {
   /** diviner that can check the the archivist for the latest results */
   diviners: string[]
   /** query to search for indexed results */
-  indexedQuery: Payload
+  indexedQueries: Payload[]
   /** Functions to process indexedResults */
   processIndexedResults: ProcessIndexedResults
   /** Budget */

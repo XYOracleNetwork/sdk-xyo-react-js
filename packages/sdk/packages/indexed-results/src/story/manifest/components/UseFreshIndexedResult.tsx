@@ -22,11 +22,11 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
   const [node] = useNode()
 
   const config: UseIndexedResultsConfig = useMemo(() => {
-    const indexedQuery = { address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }
+    const indexedQueries = [{ address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }]
     const config: UseIndexedResultsConfig = {
       indexedResultsConfig: {
         diviners,
-        indexedQuery,
+        indexedQueries,
         processIndexedResults: {
           parseIndexedResults: async (payloads: Payload[]) => {
             return (

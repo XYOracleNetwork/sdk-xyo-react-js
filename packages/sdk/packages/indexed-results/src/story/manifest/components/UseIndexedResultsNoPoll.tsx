@@ -11,11 +11,11 @@ export const UseIndexedResultsNoPoll: React.FC<UseIndexedResultsProps> = ({ addr
   const [archivist] = useArchivistFromNode('Archivist')
 
   const config = useMemo(() => {
-    const indexedQuery = { address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }
+    const indexedQueries = [{ address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }]
     const config: UseIndexedResultsConfig = {
       indexedResultsConfig: {
         diviners,
-        indexedQuery,
+        indexedQueries,
         processIndexedResults: {
           parseIndexedResults: async (payloads: Payload[]) => {
             return await Promise.all(
