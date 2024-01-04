@@ -1,12 +1,13 @@
+import { isDivinerInstance } from '@xyo-network/diviner'
 import { DivinerInstance } from '@xyo-network/diviner-model'
 import { Payload } from '@xyo-network/payload-model'
+import { useProvidedNode } from '@xyo-network/react-modules'
 import { useCallback } from 'react'
 
 import { IndexedResultsConfig, ProcessIndexedResults } from '../../interfaces'
-import { useFetchDivinersFromNode } from './useFetchDivinersFromNode'
 
 export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResultsConfig): (() => Promise<Payload[] | undefined | null>) => {
-  const { diviners } = useFetchDivinersFromNode(config)
+  const [node] = useProvidedNode()
   const { indexedQueries, processIndexedResults } = config ?? {}
   const parseIndexedResults = processIndexedResults?.parseIndexedResults
 
@@ -25,18 +26,24 @@ export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResu
   const tryDiviners = useCallback(async () => {
     let result: T[] | undefined | null
     let divinerCount = 0
-    if (diviners && diviners?.length > 0) {
-      while (divinerCount < diviners?.length && indexedQueries) {
-        const divinerResult = await tryDiviner(diviners[divinerCount], indexedQueries, parseIndexedResults)
-        if (divinerResult && divinerResult?.length) {
-          result = divinerResult as T[]
-          break
+
+    if (config?.diviners && node) {
+      const resolvedDiviners = await node.resolve({ name: config.diviners })
+      const diviners = resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
+
+      if (diviners && diviners?.length > 0) {
+        while (divinerCount < diviners?.length && indexedQueries) {
+          const divinerResult = await tryDiviner(diviners[divinerCount], indexedQueries, parseIndexedResults)
+          if (divinerResult && divinerResult?.length) {
+            result = divinerResult as T[]
+            break
+          }
+          divinerCount++
         }
-        divinerCount++
+        return result ?? null
       }
-      return result ?? null
     }
-  }, [diviners, indexedQueries, parseIndexedResults, tryDiviner])
+  }, [config?.diviners, indexedQueries, node, parseIndexedResults, tryDiviner])
 
   return tryDiviners
 }
