@@ -1,5 +1,5 @@
 import { Payload } from '@xyo-network/payload-model'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { IndexedResultsConfig, PollingConfig } from '../../interfaces'
 import { useTryDiviners } from './useTryDiviners'
@@ -20,32 +20,32 @@ export const usePollingFunction = <T extends Payload = Payload>(
 ) => {
   const { indexedQueries, processIndexedResults } = config ?? {}
   const { isFresh } = processIndexedResults ?? {}
-  const { maxDelay = 10_000, maxRetries, initialDelay = 100 } = pollDivinerConfig
+  const { maxDelay = 10_000, maxRetries, initialDelay = 100, onFoundResult } = pollDivinerConfig
 
-  const [activePolling, setActivePolling] = useState(true)
+  // internal ref for managing a consistent active polling value across rerenders
+  const activePollingRef = useRef(false)
 
-  const cancelPolling = useCallback(() => {
-    setActivePolling(false)
+  useEffect(() => {
+    // activate polling on initial load
+    activePollingRef.current = true
+    return () => {
+      // cancel all polling on component unmount
+      activePollingRef.current = false
+    }
   }, [])
 
-  const freshTest = useCallback(
-    (result?: Payload[] | null) => {
-      if (isFresh) {
-        return isFresh(result)
-      }
-      return true
-    },
-    [isFresh],
-  )
+  const freshTest = useCallback((result?: Payload[] | null) => (isFresh ? isFresh(result) : true), [isFresh])
+
+  const pollCompleteTest = useCallback((result?: Payload[] | null) => (onFoundResult ? onFoundResult(result) : false), [onFoundResult])
 
   /** A polling function that runs on an increasing delay for a fixed number of times */
   const pollDivinersWithDelay = useCallback(
     async (newDelay: number, functionToPoll?: FunctionToPoll) => {
-      if (activePolling && maxRetries !== null && functionToPoll) {
+      if (activePollingRef.current && maxRetries !== null && functionToPoll) {
         let retries = 0
         let result: Payload[] | undefined | null
 
-        const pollDivinersWithDelayInner = async (newDelay: number, functionToPoll: FunctionToPoll) => {
+        const pollDivinersWithDelayInner = async (newDelay: number) => {
           await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
           try {
             // Try for a fixed number of times
@@ -60,7 +60,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
               if (result && !fresh) {
                 console.log(`Completed Retry ${retries} - Retrying in ${updatedDelay} milliseconds...`)
                 retries++
-                await pollDivinersWithDelayInner(updatedDelay, functionToPoll)
+                await pollDivinersWithDelayInner(updatedDelay)
               }
               onResult?.(result as T[] | null)
             } else {
@@ -73,16 +73,18 @@ export const usePollingFunction = <T extends Payload = Payload>(
           }
         }
 
-        return await pollDivinersWithDelayInner(newDelay, functionToPoll)
+        return await pollDivinersWithDelayInner(newDelay)
       }
     },
-    [activePolling, maxRetries, maxDelay, freshTest, indexedQueries, onResult],
+    [maxRetries, maxDelay, freshTest, onResult, indexedQueries],
   )
 
   /** A polling function that runs indefinitely on a set interval */
   const pollDivinersIndefinitely = useCallback(
     async (newDelay: number, functionToPoll?: FunctionToPoll) => {
-      if (activePolling && functionToPoll) {
+      // Uncomment to debug
+      // console.log('activePollingRef', activePollingRef)
+      if (activePollingRef.current && functionToPoll) {
         let result: Payload[] | undefined | null
 
         await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
@@ -90,17 +92,19 @@ export const usePollingFunction = <T extends Payload = Payload>(
           result = await functionToPoll()
 
           const fresh = freshTest(result)
+          const pollComplete = pollCompleteTest(result)
+
           if ((result && fresh) || result === null) {
             onResult?.(result as T[] | null)
           }
-          await pollDivinersIndefinitely(initialDelay, functionToPoll)
+          pollComplete ? (activePollingRef.current = false) : await pollDivinersIndefinitely(initialDelay, functionToPoll)
         } catch (e) {
           console.error('error retrying diviner', e)
           throw e
         }
       }
     },
-    [activePolling, freshTest, initialDelay, onResult],
+    [pollCompleteTest, freshTest, initialDelay, onResult],
   )
 
   /** Function to invoke polling by determining a polling strategy */
@@ -108,7 +112,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
     return await (maxRetries === null ? pollDivinersIndefinitely(initialDelay, functionToPoll) : pollDivinersWithDelay(initialDelay, functionToPoll))
   }, [functionToPoll, initialDelay, maxRetries, pollDivinersIndefinitely, pollDivinersWithDelay])
 
-  return { cancelPolling, poll }
+  return { poll }
 }
 
 /** Poll a set of diviners with various polling strategies  */
@@ -121,6 +125,6 @@ export const usePollDiviners = <T extends Payload = Payload>(
   const [results, setResults] = useState<T[] | null>()
   const onResultLocal = useCallback((results: T[] | null) => (onResult ? onResult(results) : setResults(results)), [onResult])
 
-  const { cancelPolling, poll } = usePollingFunction(config, pollDivinerConfig, tryDiviners, onResultLocal)
-  return { cancelPolling, pollDiviners: poll, pollResults: results }
+  const { poll } = usePollingFunction(config, pollDivinerConfig, tryDiviners, onResultLocal)
+  return { pollDiviners: poll, pollResults: results }
 }
