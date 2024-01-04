@@ -1,4 +1,4 @@
-import { AbstractPayloadDiviner } from '@xyo-network/diviner'
+import { PayloadDiviner } from '@xyo-network/diviner-payload-abstract'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useEffect, useState } from 'react'
 
@@ -6,11 +6,11 @@ import { PayloadDivinerContext } from './Context'
 
 export type PayloadDivinerProviderProps = ContextExProviderProps<{
   /** Required */
-  diviner?: AbstractPayloadDiviner
+  diviner?: PayloadDiviner
 }>
 
 export const PayloadDivinerProvider: React.FC<PayloadDivinerProviderProps> = ({ diviner: divinerProp, required = false, children }) => {
-  const [diviner, setDiviner] = useState<AbstractPayloadDiviner | undefined>(divinerProp)
+  const [diviner, setDiviner] = useState<PayloadDiviner | undefined>(divinerProp)
 
   useEffect(() => {
     if (divinerProp) {
