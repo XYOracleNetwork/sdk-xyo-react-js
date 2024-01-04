@@ -4,6 +4,7 @@ import { useProvidedNode } from '@xyo-network/react-node'
 
 import { IndexedResultsConfig } from '../../interfaces'
 
+/** @deprecated - resolve modules on each polling attempt instead of once up front */
 export const useFetchDivinersFromNode = (config?: IndexedResultsConfig) => {
   const { diviners: divinerNames } = config ?? {}
   const [node] = useProvidedNode()
