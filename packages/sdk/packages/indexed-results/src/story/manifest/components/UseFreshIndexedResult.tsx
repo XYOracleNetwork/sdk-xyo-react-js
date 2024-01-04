@@ -14,6 +14,7 @@ import { TimeStamp } from '@xyo-network/witness-timestamp'
 import { useMemo } from 'react'
 
 import { useFreshIndexedResult, UseIndexedResultsConfig } from '../../../hooks'
+import { PollingStrategies } from '../../../interfaces'
 import { UseIndexedResultsProps } from './lib'
 
 export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
@@ -52,7 +53,8 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
         },
       },
       pollingConfig: {
-        maxRetries: null,
+        ...PollingStrategies.TillComplete,
+        onFoundResult: (result) => isEvmTokenInterfaceImplemented(result?.[0]),
       },
       trigger: !!node && !!archivist && !!contractSentinel,
     }
