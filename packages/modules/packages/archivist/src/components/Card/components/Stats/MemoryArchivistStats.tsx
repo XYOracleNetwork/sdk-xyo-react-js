@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ArchivistAllQuerySchema, ArchivistInstance } from '@xyo-network/archivist'
+import { ArchivistAllQuerySchema, ArchivistInstance } from '@xyo-network/archivist-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
