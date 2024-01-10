@@ -6,7 +6,7 @@ import { Dispatch, SetStateAction, useMemo, useState } from 'react'
 
 export const useSchemaStats = (
   statsAddress?: string,
-  nameOrAddress = TYPES.SchemaStatsDiviner.description,
+  nameOrAddress = TYPES.SchemaStatsDiviner,
 ): [SchemaStatsPayload[] | undefined, Error | undefined, Dispatch<SetStateAction<number>>] => {
   const [refresh, setRefresh] = useState(1)
   const [diviner, divinerError] = useDivinerFromNode(nameOrAddress)

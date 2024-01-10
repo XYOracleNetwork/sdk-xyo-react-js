@@ -7,7 +7,7 @@ import { useDivinerFromNode } from '@xyo-network/react-diviner'
 import { useState } from 'react'
 
 export const useAddressHistory = (address?: string): [BoundWitness[] | undefined, Error | undefined, () => void] => {
-  const [diviner, divinerError] = useDivinerFromNode(TYPES.AddressHistoryDiviner.description)
+  const [diviner, divinerError] = useDivinerFromNode(TYPES.AddressHistoryDiviner)
   const [refresh, setRefresh] = useState(1)
   const [blocks, setBlocks] = useState<BoundWitness[]>()
   const [error, setError] = useState<Error>()
