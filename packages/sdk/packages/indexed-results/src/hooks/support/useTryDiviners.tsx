@@ -1,7 +1,7 @@
 import { isDivinerInstance } from '@xyo-network/diviner'
 import { DivinerInstance } from '@xyo-network/diviner-model'
 import { Payload } from '@xyo-network/payload-model'
-import { useProvidedNode } from '@xyo-network/react-modules'
+import { useProvidedNode } from '@xyo-network/react-node'
 import { useCallback } from 'react'
 
 import { IndexedResultsConfig, ProcessIndexedResults } from '../../interfaces'
@@ -15,7 +15,7 @@ export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResu
     async (diviner: DivinerInstance, indexedQueries: Payload[], parseIndexedResults?: ProcessIndexedResults['parseIndexedResults']) => {
       const divinedResult = await diviner.divine(indexedQueries)
       let results: Payload[] | undefined
-      if (divinedResult) {
+      if (divinedResult?.length > 0) {
         results = parseIndexedResults ? await parseIndexedResults(divinedResult) : divinedResult
       }
       return results && results.length > 0 ? results : null
