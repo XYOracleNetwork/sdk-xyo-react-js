@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { ArchivistManifestNode, SentinelManifestNode } from '../story'
+import { ArchivistManifestNode, SentinelManifestNode } from '../stories'
 import { ManifestNodeProvider } from './ManifestNodeProvider'
 
 // eslint-disable-next-line import/no-default-export

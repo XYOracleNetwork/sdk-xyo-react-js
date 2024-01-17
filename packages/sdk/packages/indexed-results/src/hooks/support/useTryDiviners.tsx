@@ -1,5 +1,4 @@
-import { isDivinerInstance } from '@xyo-network/diviner'
-import { DivinerInstance } from '@xyo-network/diviner-model'
+import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
 import { Payload } from '@xyo-network/payload-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 import { useCallback } from 'react'
