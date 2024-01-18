@@ -2,6 +2,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { IndexedResultsConfig, PollingConfig } from '../../interfaces'
+import { setTimeoutEx } from './setTimeoutEx'
 import { useTryDiviners } from './useTryDiviners'
 
 export type FunctionToPoll = () => Promise<Payload[] | null | undefined>
@@ -46,7 +47,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
         let result: Payload[] | undefined | null
 
         const pollDivinersWithDelayInner = async (newDelay: number) => {
-          await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
+          await new Promise((resolve) => setTimeoutEx(() => resolve(true), newDelay))
           try {
             // Try for a fixed number of times
             if (retries < maxRetries) {
@@ -87,7 +88,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
       if (activePollingRef.current && functionToPoll) {
         let result: Payload[] | undefined | null
 
-        await new Promise((resolve) => setTimeout(() => resolve(true), newDelay))
+        await new Promise((resolve) => setTimeoutEx(() => resolve(true), newDelay))
         try {
           result = await functionToPoll()
 
