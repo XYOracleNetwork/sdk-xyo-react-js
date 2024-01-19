@@ -5,7 +5,7 @@ import { Semaphore } from 'async-mutex'
 import { usePollDiviners } from './support'
 import { UseIndexedResultsConfig } from './types'
 
-let semaphoreLimit = 10
+let semaphoreLimit = 100
 const semaphore = new Semaphore(semaphoreLimit)
 
 export const setIndexedResultsLimit = (limit: number) => {
