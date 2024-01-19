@@ -1,8 +1,17 @@
 import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
+import { Semaphore } from 'async-mutex'
 
 import { usePollDiviners } from './support'
 import { UseIndexedResultsConfig } from './types'
+
+let semaphoreLimit = 10
+const semaphore = new Semaphore(semaphoreLimit)
+
+export const setIndexedResultsLimit = (limit: number) => {
+  semaphore.setValue(limit - (semaphoreLimit - semaphore.getValue()))
+  semaphoreLimit = limit
+}
 
 export const useIndexedResults = <TResult extends Payload = Payload>(config?: UseIndexedResultsConfig) => {
   const { indexedResultsConfig, pollingConfig, queueConfig, trigger } = config ?? {}
@@ -13,13 +22,18 @@ export const useIndexedResults = <TResult extends Payload = Payload>(config?: Us
   // Start the polling and wait for the results elsewhere
   const [, error, state] = usePromise(async () => {
     if (trigger) {
-      if (queue) {
-        const task = async () => {
+      await semaphore.acquire()
+      try {
+        if (queue) {
+          const task = async () => {
+            await pollDiviners()
+          }
+          return await queue.addRequest<ReturnType<typeof task>>(task, taskId ?? Date.now().toString())
+        } else {
           await pollDiviners()
         }
-        return await queue.addRequest<ReturnType<typeof task>>(task, taskId ?? Date.now().toString())
-      } else {
-        await pollDiviners()
+      } finally {
+        semaphore.release()
       }
     }
   }, [pollDiviners, queue, taskId, trigger])
