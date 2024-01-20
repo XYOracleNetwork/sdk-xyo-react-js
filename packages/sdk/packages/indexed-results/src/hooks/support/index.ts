@@ -1,3 +1,7 @@
+export * from './createDivineIndexedResultsPollingFunction'
+export * from './createPollingFunction'
+export * from './divineIndexedResults'
+export * from './divineSingleIndexedResults'
 export * from './useFetchDivinersFromNode'
 export * from './usePollDiviners'
 export * from './useTryDiviners'
