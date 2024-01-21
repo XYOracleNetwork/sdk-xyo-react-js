@@ -1,4 +1,4 @@
-import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
+import { asDivinerInstance } from '@xyo-network/diviner-model'
 import { NodeInstance } from '@xyo-network/node-model'
 import { Payload } from '@xyo-network/payload-model'
 
@@ -6,26 +6,27 @@ import { IndexedResultsConfig } from '../../interfaces'
 import { divineSingleIndexedResults } from './divineSingleIndexedResults'
 
 export const divineIndexedResults = async <T extends Payload = Payload>(node?: NodeInstance | null, config?: IndexedResultsConfig) => {
-  let result: T[] | undefined | null
-  let divinerCount = 0
+  let index = 0
+
+  const { diviners } = config ?? {}
 
   const { indexedQueries, processIndexedResults } = config ?? {}
   const parseIndexedResults = processIndexedResults?.parseIndexedResults
 
-  if (config?.diviners && node) {
-    const resolvedDiviners = await node.resolve({ name: config.diviners })
-    const diviners = resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
-
-    if (diviners && diviners?.length > 0) {
-      while (divinerCount < diviners?.length && indexedQueries) {
-        const divinerResult = await divineSingleIndexedResults(diviners[divinerCount], indexedQueries, parseIndexedResults)
-        if (divinerResult && divinerResult?.length) {
-          result = divinerResult as T[]
-          break
+  if (diviners && node && indexedQueries) {
+    while (index < diviners?.length) {
+      const nameOrAddress = diviners[index]
+      const diviner = asDivinerInstance(await node.resolve(diviners[index]))
+      if (diviner) {
+        const divinerResult = await divineSingleIndexedResults(diviner, indexedQueries, parseIndexedResults)
+        if (divinerResult?.length) {
+          return divinerResult as T[]
         }
-        divinerCount++
+      } else {
+        console.warn(`Unable to resolve or resolved non-diviner [${nameOrAddress}]`)
       }
-      return result ?? null
+      index++
     }
+    return null
   }
 }
