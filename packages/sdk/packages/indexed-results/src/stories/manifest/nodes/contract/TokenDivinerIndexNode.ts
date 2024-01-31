@@ -10,7 +10,7 @@ import {
 import { EvmContractWitness } from '@xyo-network/evm-contract-witness'
 import { EvmTokenInterfaceImplementedDiviner } from '@xyo-network/evm-token-interface-diviner'
 import { PackageManifestPayload } from '@xyo-network/manifest'
-import { MemoryArchivist } from '@xyo-network/memory-archivist'
+import { MemoryArchivist } from '@xyo-network/archivist-memory'
 import { ModuleFactory, ModuleFactoryLocator } from '@xyo-network/module-model'
 import { CreatablePackageManifest } from '@xyo-network/react-manifest'
 import { TimestampWitness } from '@xyo-network/witness-timestamp'

@@ -10,10 +10,10 @@ import { useState } from 'react'
 import { useArchivistFromNode } from '../../hooks'
 
 const testQueryCommit = { schema: ArchivistCommitQuerySchema }
-const testQueryCommitBoundWitnessBuilder = new QueryBoundWitnessBuilder({ inlinePayloads: true }).query(testQueryCommit)
+const testQueryCommitBoundWitnessBuilder = new QueryBoundWitnessBuilder().query(testQueryCommit)
 
 const testQueryClear = { schema: ArchivistClearQuerySchema }
-const testQueryClearBoundWitnessBuilder = new QueryBoundWitnessBuilder({ inlinePayloads: true }).query(testQueryClear)
+const testQueryClearBoundWitnessBuilder = new QueryBoundWitnessBuilder().query(testQueryClear)
 
 export interface ArchivistDetails extends FlexBoxProps {
   address?: string
@@ -30,8 +30,8 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (archivist) {
-        const [commitBW] = await testQueryCommitBoundWitnessBuilder.build()
-        const [clearBW] = await testQueryClearBoundWitnessBuilder.build()
+        const [commitBW] = await (await testQueryCommitBoundWitnessBuilder).build()
+        const [clearBW] = await (await testQueryClearBoundWitnessBuilder).build()
         setQueryableCommit(await archivist?.queryable(commitBW, [testQueryCommit]))
         setQueryableClear(await archivist?.queryable(clearBW, [testQueryClear]))
       }

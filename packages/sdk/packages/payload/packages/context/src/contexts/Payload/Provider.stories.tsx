@@ -3,7 +3,7 @@ import { Box, Button, CircularProgress } from '@mui/material'
 import { Decorator, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistInstance } from '@xyo-network/archivist-model'
-import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/memory-archivist'
+import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
 

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-deprecated */
 import { Meta, StoryFn } from '@storybook/react'
-import { DeprecateStory, sampleBlock, sampleBlockWithPayloads } from '@xyo-network/react-storybook'
+import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { BlockSignatureTable } from './SignatureTable'
@@ -29,10 +29,7 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { block: sampleBlock }
 
-const WithDataAndPayloads = Template.bind({})
-WithDataAndPayloads.args = { block: sampleBlockWithPayloads }
-
-export { Default, WithData, WithDataAndPayloads }
+export { Default, WithData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry
