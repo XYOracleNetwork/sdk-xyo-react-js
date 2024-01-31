@@ -1,5 +1,6 @@
 export * from './appThemeOptions'
 export * from './fontFamily'
+export * from './OsTheme'
 export * from './partialDarkThemeOptions'
 export * from './partialLightThemeOptions'
 export * from './themeOptions'
