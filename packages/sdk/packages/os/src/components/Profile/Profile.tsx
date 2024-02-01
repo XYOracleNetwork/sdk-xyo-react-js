@@ -1,8 +1,9 @@
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 import { Avatar, Button, Divider, Icon, IconButton, Paper, PaperProps, Typography, useTheme } from '@mui/material'
 import { green, purple } from '@mui/material/colors'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { format, subHours } from 'date-fns'
+
+import { StatsModal } from './StatsModal'
 interface XyOsProfileProps extends PaperProps {
   pfp: string
   xns: string
@@ -21,10 +22,10 @@ export const XyOsProfile: React.FC<XyOsProfileProps> = ({ xns, pfp, ...props }) 
       </FlexGrowRow>
       <Paper sx={{ padding: 1 }}>
         <FlexGrowRow paddingBottom={1} width="100%" alignItems="center" justifyContent="space-between">
-          <Typography variant="body1">2024 Stats</Typography>
-          <IconButton size="small" color="primary">
-            <ArrowForwardRoundedIcon />
-          </IconButton>
+          <Typography variant="body1" fontWeight={'medium'}>
+            2024 Stats
+          </Typography>
+          <StatsModal />
         </FlexGrowRow>
         <FlexGrowRow justifyContent="flex-start" width="100%" gap={1}>
           <FlexGrowCol alignItems={'flex-start'}>
