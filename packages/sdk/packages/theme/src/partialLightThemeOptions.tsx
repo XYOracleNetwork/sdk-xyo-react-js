@@ -1,14 +1,6 @@
 import { ThemeOptions } from '@mui/material'
 import { merge } from '@xylabs/lodash'
 
-const appComponents: ThemeOptions['components'] = {
-  MuiPaper: {
-    defaultProps: {
-      variant: 'outlined',
-    },
-  },
-}
-
 export const partialLightThemeOptions: ThemeOptions = {
   palette: {
     mode: 'light',
@@ -21,4 +13,4 @@ export const partialLightThemeOptions: ThemeOptions = {
   },
 }
 
-export const partialAppLightThemeOptions: ThemeOptions = merge({}, partialLightThemeOptions, { components: appComponents })
+export const partialAppLightThemeOptions: ThemeOptions = merge({}, partialLightThemeOptions)

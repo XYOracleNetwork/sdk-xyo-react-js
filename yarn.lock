@@ -9967,6 +9967,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-os@workspace:packages/sdk/packages/os, @xyo-network/react-os@workspace:~":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-os@workspace:packages/sdk/packages/os"
+  dependencies:
+    "@storybook/react": "npm:^7.6.10"
+    "@xylabs/react-flexbox": "npm:^3.0.39"
+    "@xylabs/ts-scripts-yarn3": "npm:^3.2.42"
+    "@xylabs/tsconfig-react": "npm:^3.2.42"
+    date-fns: "npm:^3.3.1"
+    typescript: "npm:^5.3.3"
+  peerDependencies:
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    react: ^18
+    react-dom: ^18
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-payload-context@workspace:packages/sdk/packages/payload/packages/context, @xyo-network/react-payload-context@workspace:~":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-context@workspace:packages/sdk/packages/payload/packages/context"
@@ -10438,6 +10456,7 @@ __metadata:
     "@xyo-network/react-map": "workspace:~"
     "@xyo-network/react-network": "workspace:~"
     "@xyo-network/react-node-renderer": "workspace:~"
+    "@xyo-network/react-os": "workspace:~"
     "@xyo-network/react-payload": "workspace:~"
     "@xyo-network/react-powered-by-xyo": "workspace:~"
     "@xyo-network/react-property": "workspace:~"
@@ -10881,6 +10900,7 @@ __metadata:
     "@xyo-network/react-sdk": "workspace:~"
     chromatic: "npm:^7.6.0"
     copyfiles: "npm:^2.4.1"
+    date-fns: "npm:^3.3.1"
     eslint: "npm:^8.56.0"
     eslint-import-resolver-typescript: "npm:^3.6.1"
     eslint-plugin-deprecation: "npm:^2.0.0"
@@ -13582,6 +13602,13 @@ __metadata:
   version: 1.0.8
   resolution: "damerau-levenshtein@npm:1.0.8"
   checksum: f4eba1c90170f96be25d95fa3857141b5f81e254f7e4d530da929217b19990ea9a0390fc53d3c1cafac9152fda78e722ea4894f765cf6216be413b5af1fbf821
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "date-fns@npm:3.3.1"
+  checksum: 98231936765dfb6fc6897676319b500a06a39f051b2c3ecbdd541a07ce9b1344b770277b8bfb1049fb7a2f70bf365ac8e6f1e2bb452b10e1a8101d518ca7f95d
   languageName: node
   linkType: hard
 
