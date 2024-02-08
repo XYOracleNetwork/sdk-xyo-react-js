@@ -1,5 +1,4 @@
-import { Avatar, Button, Divider, Icon, IconButton, Paper, PaperProps, Typography, useTheme } from '@mui/material'
-import { green, purple } from '@mui/material/colors'
+import { Avatar, Divider, Paper, PaperProps, Typography, useTheme } from '@mui/material'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { format, subHours } from 'date-fns'
 
@@ -17,13 +16,17 @@ export const XyOsProfile: React.FC<XyOsProfileProps> = ({ xns, pfp, ...props }) 
         <Avatar alt={xns} src={'https://arietrouw.com/assets/img/arie.jpg'} sx={{ height: 100, width: 100 }} />
         <FlexGrowCol width="100%" alignItems={'flex-start'}>
           <Typography variant="h5">{xns}</Typography>
+          <Typography variant="body2" color="primary">
+            arietrouw.xyo::profile
+          </Typography>
           <Typography variant="subtitle2">Last Active: {format(subHours(Date.now(), 4), 'pp')}</Typography>
         </FlexGrowCol>
       </FlexGrowRow>
+      <Paper sx={{ padding: 1 }}>Facebook / Twitter / Details / Contact Card</Paper>
       <Paper sx={{ padding: 1 }}>
         <FlexGrowRow paddingBottom={1} width="100%" alignItems="center" justifyContent="space-between">
           <Typography variant="body1" fontWeight={'medium'}>
-            2024 Stats
+            Achievements
           </Typography>
           <StatsModal />
         </FlexGrowRow>
