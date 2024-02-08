@@ -1,7 +1,7 @@
 /* eslint-disable import/no-deprecated */
 import { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
-import { DeprecateStory, sampleBlockWithPayloads } from '@xyo-network/react-storybook'
+import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -40,13 +40,13 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { block: sampleBlockWithPayloads }
+WithData.args = { block: sampleBlock }
 
 const WithArchiveLink = Template.bind({})
-WithArchiveLink.args = { block: sampleBlockWithPayloads }
+WithArchiveLink.args = { block: sampleBlock }
 
 const WithPreviousHash = Template.bind({})
-const block = { ...sampleBlockWithPayloads, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] }
+const block = { ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] }
 WithPreviousHash.args = {
   block,
   children: (
@@ -58,7 +58,7 @@ WithPreviousHash.args = {
 }
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = { block: sampleBlockWithPayloads, paper: true }
+WithArchiveLinkPaper.args = { block: sampleBlock, paper: true }
 
 export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithPreviousHash }
 

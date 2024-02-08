@@ -3,7 +3,7 @@ import { TextField } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
-import { sampleBlockWithPayloads } from '@xyo-network/react-storybook'
+import { sampleBlock } from '@xyo-network/react-storybook'
 
 import { Property } from './Property'
 import { PropertyProps } from './Props'
@@ -60,13 +60,13 @@ const WithUndefinedData = Template.bind({})
 WithUndefinedData.args = { title: 'Block Hash' }
 
 const WithData = Template.bind({})
-WithData.args = { title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
+WithData.args = { title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlock) }
 
 const WithDataSmall = Template.bind({})
-WithDataSmall.args = { size: 'small', title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
+WithDataSmall.args = { size: 'small', title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlock) }
 
 const WithDataCompare = TemplateWithCompare.bind({})
-WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
+WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: PayloadWrapper.hashSync(sampleBlock) }
 
 const WithDataAndBadgeSmall = Template.bind({})
 WithDataAndBadgeSmall.args = {
@@ -74,7 +74,7 @@ WithDataAndBadgeSmall.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 const WithDataAndBadgeMedium = Template.bind({})
@@ -83,7 +83,7 @@ WithDataAndBadgeMedium.args = {
   size: 'medium',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 const WithDataAndBadgeLarge = Template.bind({})
@@ -92,14 +92,14 @@ WithDataAndBadgeLarge.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 const WithTip = Template.bind({})
 WithTip.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 const WithTipAndBadge = Template.bind({})
@@ -107,7 +107,7 @@ WithTipAndBadge.args = {
   badge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 const WithActions = Template.bind({})
@@ -115,7 +115,7 @@ WithActions.args = {
   actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 const LargeWithValue = Template.bind({})
@@ -124,7 +124,7 @@ LargeWithValue.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 const LargeWithValueAndActions = Template.bind({})
@@ -134,7 +134,7 @@ LargeWithValueAndActions.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 const SmallWithValueAndActions = Template.bind({})
@@ -144,7 +144,7 @@ SmallWithValueAndActions.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: PayloadWrapper.hashSync(sampleBlockWithPayloads),
+  value: PayloadWrapper.hashSync(sampleBlock),
 }
 
 export {

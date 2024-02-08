@@ -4,10 +4,11 @@ import { BoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { Payload } from '@xyo-network/payload-model'
 
 import { ArchivistStats } from './ArchivistStats'
+import { usePromise } from '@xylabs/react-promise'
 
 const account = Account.randomSync()
 const payload = () => ({ schema: 'network.xyo.payload', timestamp: Date.now() })
-const boundWitness = () => new BoundWitnessBuilder().payload(payload()).witness(account).build()
+const boundWitness = async () => await (await new BoundWitnessBuilder().payload(payload())).witness(account).build()
 
 const StorybookEntry = {
   component: ArchivistStats,
@@ -19,7 +20,10 @@ const StorybookEntry = {
   title: 'modules/archivist/ArchivistStats',
 } as Meta<typeof ArchivistStats>
 
-const Template: StoryFn<typeof ArchivistStats> = (props) => <ArchivistStats {...props} />
+const Template: StoryFn<typeof ArchivistStats> = ({boundWitnesses, ...props}) => {
+  const [boundWitnessesProp] = usePromise(async () => boundWitnesses ? await Promise.all(boundWitnesses) : [], [boundWitnesses])
+  return boundWitnessesProp ? <ArchivistStats boundWitnesses={boundWitnessesProp} {...props} /> : <div/>
+}
 
 const Default = Template.bind({})
 const WithStats = Template.bind({})

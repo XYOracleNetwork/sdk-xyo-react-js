@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
-import { sampleBlockWithPayloads } from '@xyo-network/react-storybook'
+import { sampleBlock } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -51,13 +51,13 @@ WithNoData.args = {
 }
 
 const WithData = Template.bind({})
-WithData.args = { payload: sampleBlockWithPayloads }
+WithData.args = { payload: sampleBlock }
 
 const WithArchiveLink = Template.bind({})
-WithArchiveLink.args = { payload: sampleBlockWithPayloads }
+WithArchiveLink.args = { payload: sampleBlock }
 
 const WithPreviousHash = Template.bind({})
-const payload = { ...sampleBlockWithPayloads, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] }
+const payload = { ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] }
 WithPreviousHash.args = {
   children: (
     <>
@@ -69,7 +69,7 @@ WithPreviousHash.args = {
 }
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = { paper: true, payload: sampleBlockWithPayloads }
+WithArchiveLinkPaper.args = { paper: true, payload: sampleBlock }
 
 export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithNoData, WithPreviousHash }
 

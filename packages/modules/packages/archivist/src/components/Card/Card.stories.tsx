@@ -24,7 +24,7 @@ const insertPayload = async (archivist?: ArchivistInstance) => {
     const payload = { schema: 'network.xyo.payload', timestamp: Date.now() }
     const insertQuery = { schema: ArchivistInsertQuerySchema }
     const account = Account.randomSync()
-    const builder = new QueryBoundWitnessBuilder().payloads([insertQuery, payload]).witness(account).query(insertQuery)
+    const builder = await (await (new QueryBoundWitnessBuilder().payloads([insertQuery, payload]))).witness(account).query(insertQuery)
     const [insertQueryBoundWitness, payloads] = await builder.build()
     await archivist.insert([insertQueryBoundWitness, ...payloads])
   }

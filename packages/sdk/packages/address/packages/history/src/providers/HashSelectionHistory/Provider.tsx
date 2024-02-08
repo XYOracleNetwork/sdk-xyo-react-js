@@ -1,8 +1,8 @@
 import { useMounted, WithChildren } from '@xylabs/react-shared'
 import { ArchivistInstance } from '@xyo-network/archivist'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
+import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { ModuleError } from '@xyo-network/payload-model'
-import { PayloadWrapper } from '@xyo-network/payload-wrapper'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -48,7 +48,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
       return
     }
 
-    const hash = await PayloadWrapper.hashAsync(boundwitness)
+    const hash = await PayloadBuilder.dataHash(boundwitness)
     if (hashSelectionHistory.includes(hash)) {
       return null
     }
