@@ -24,7 +24,7 @@ export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'as
     const stack: BoundWitness[] = []
     const youngestBW = await findYoungestBW(addressHistory)
     const hashes = await PayloadHasher.hashes(addressHistory)
-    if (youngestBW) {
+    if (youngestBW && hashes) {
       // stack starts with you youngest bw and works back up from its previous_hashes[0]
       stack.unshift(youngestBW)
       let currentChild = youngestBW

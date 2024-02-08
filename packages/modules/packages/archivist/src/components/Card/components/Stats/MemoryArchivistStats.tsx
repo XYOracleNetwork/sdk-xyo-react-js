@@ -1,7 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistAllQuerySchema, ArchivistInstance } from '@xyo-network/archivist-model'
-import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
-import { BoundWitnessWrapper } from '@xyo-network/boundwitness-wrapper'
+import { asBoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useEffect, useMemo, useState } from 'react'
@@ -58,7 +57,7 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
     () =>
       all?.reduce(
         (prev, payload) => {
-          const w = BoundWitnessWrapper.tryParse(payload) as BoundWitnessWrapper | undefined
+          const w = asBoundWitness(payload)
           if (w?.addresses)
             for (const address of w?.addresses ?? []) {
               prev[address] = (prev[address] ?? 0) + 1

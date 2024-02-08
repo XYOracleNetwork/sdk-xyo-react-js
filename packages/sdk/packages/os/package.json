@@ -1,0 +1,81 @@
+{
+  "name": "@xyo-network/react-os",
+  "author": {
+    "email": "support@xyo.network",
+    "name": "XYO Development Team",
+    "url": "https://xyo.network"
+  },
+  "bugs": {
+    "email": "support@xyo.network",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+  },
+  "dependencies": {
+    "@xylabs/react-flexbox": "^3.0.39",
+    "date-fns": "^3.3.1"
+  },
+  "peerDependencies": {
+    "@mui/material": "^5",
+    "@mui/styles": "^5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@storybook/react": "^7.6.13",
+    "@xylabs/ts-scripts-yarn3": "^3.2.42",
+    "@xylabs/tsconfig-react": "^3.2.42",
+    "typescript": "^5.3.3"
+  },
+  "description": "Common React library for all XYO projects that use React",
+  "docs": "dist/docs.json",
+  "exports": {
+    ".": {
+      "node": {
+        "import": {
+          "types": "./dist/node/index.d.mts",
+          "default": "./dist/node/index.js"
+        },
+        "require": {
+          "types": "./dist/node/index.d.cts",
+          "default": "./dist/node/index.cjs"
+        }
+      },
+      "browser": {
+        "import": {
+          "types": "./dist/browser/index.d.mts",
+          "default": "./dist/browser/index.js"
+        },
+        "require": {
+          "types": "./dist/browser/index.d.cts",
+          "default": "./dist/browser/index.cjs"
+        }
+      },
+      "default": "./dist/browser/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/browser/index.cjs",
+  "module": "dist/browser/index.js",
+  "homepage": "https://xyo.network",
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
+  ],
+  "license": "LGPL-3.0-only",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "scripts": {
+    "lint-pkg": "npmPkgJsonLint .",
+    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
+  },
+  "sideEffects": false,
+  "types": "dist/browser/index.d.ts",
+  "version": "2.68.0",
+  "type": "module"
+}

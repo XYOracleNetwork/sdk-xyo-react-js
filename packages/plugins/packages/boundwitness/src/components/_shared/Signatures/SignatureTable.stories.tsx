@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { sampleBlock, sampleBlockWithPayloads } from '@xyo-network/react-storybook'
+import { sampleBlock } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { BoundWitnessSignatureTable } from './SignatureTable'
@@ -27,10 +27,7 @@ Default.args = {}
 const WithData = Template.bind({})
 WithData.args = { block: sampleBlock }
 
-const WithDataAndPayloads = Template.bind({})
-WithDataAndPayloads.args = { block: sampleBlockWithPayloads }
-
-export { Default, WithData, WithDataAndPayloads }
+export { Default, WithData }
 
 // eslint-disable-next-line import/no-default-export
 export default StorybookEntry

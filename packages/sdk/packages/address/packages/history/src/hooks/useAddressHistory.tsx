@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { AddressHistoryQuerySchema } from '@xyo-network/diviner-address-history-model'
+import { AddressHistoryQueryPayload, AddressHistoryQuerySchema } from '@xyo-network/diviner-address-history-model'
 import { TYPES } from '@xyo-network/node-core-types'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { useDivinerFromNode } from '@xyo-network/react-diviner'
@@ -22,7 +22,9 @@ export const useAddressHistory = (address?: string): [BoundWitness[] | undefined
       } else {
         if (diviner) {
           try {
-            const query = address ? [await new PayloadBuilder({ schema: AddressHistoryQuerySchema }).fields({ address }).build()] : undefined
+            const query = address
+              ? [await new PayloadBuilder<AddressHistoryQueryPayload>({ schema: AddressHistoryQuerySchema }).fields({ address }).build()]
+              : undefined
             const blocks = (await diviner.divine(query)) as BoundWitness[]
             if (mounted()) {
               setBlocks(blocks)

@@ -2,7 +2,7 @@ import { InvertibleThemeProvider } from '@xylabs/react-invertible-theme'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { CssBaseline } from '@mui/material';
 import { useDarkMode } from 'storybook-dark-mode';
-import { partialDarkThemeOptions, partialAppLightThemeOptions, themeOptions, appThemeOptions, webThemeOptions } from '@xyo-network/react-theme'
+import { partialDarkThemeOptions, partialAppLightThemeOptions, themeOptions, appThemeOptions, webThemeOptions, osThemeOptions } from '@xyo-network/react-theme'
 import { AppSettingsProvider } from '@xyo-network/react-app-settings'
 import React from 'react';
 import { Decorator } from '@storybook/react';
@@ -15,7 +15,7 @@ export const globalTypes = {
     toolbar: {
       icon: 'eye',
       // Array of plain string values or MenuItem shape (see below)
-      items: ['Theme', 'AppTheme', 'WebTheme'],
+      items: ['Theme', 'AppTheme', 'WebTheme', 'OsTheme'],
       // Property that specifies if the name of the item will be displayed
       title: true,
       // Change title based on selected value
@@ -45,6 +45,7 @@ const getTheme = (themeName) => {
     Theme: themeOptions,
     AppTheme: appThemeOptions,
     WebTheme: webThemeOptions,
+    OsTheme: osThemeOptions
   }
   return themes[themeName]
 }
@@ -58,7 +59,7 @@ const withThemeProvider: Decorator = (Story, context) => {
 
   return (
     <AppSettingsProvider value={{darkMode}}>
-    <InvertibleThemeProvider dark={darkMode} lightOptions={partialAppLightThemeOptions} darkTheme={partialDarkThemeOptions} options={themeOptions}>
+    <InvertibleThemeProvider dark={darkMode} options={themeOptions}>
       <CssBaseline enableColorScheme />
       <FlexCol alignItems="unset">
         <Story {...context}/>

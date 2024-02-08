@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { PayloadWrapper } from '@xyo-network/payload-wrapper'
-import { sampleBlockWithPayloads } from '@xyo-network/react-storybook'
+import { sampleBlock } from '@xyo-network/react-storybook'
 
 import { PropertyValue } from './Value'
 
@@ -22,7 +22,7 @@ Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = { value: PayloadWrapper.hashSync(sampleBlockWithPayloads) }
+WithData.args = { value: PayloadWrapper.hashSync(sampleBlock) }
 
 export { Default, WithData }
 
