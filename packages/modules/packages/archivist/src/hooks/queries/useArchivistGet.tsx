@@ -1,6 +1,6 @@
 import { usePromise } from '@xylabs/react-promise'
 import { ArchivistInstance } from '@xyo-network/archivist'
-import { Payload } from '@xyo-network/payload-model'
+import { Payload, WithMeta } from '@xyo-network/payload-model'
 import { RefreshCallback, useRefresh } from '@xyo-network/react-module'
 
 export const useArchivistGet = <T extends Payload = Payload>(
@@ -11,7 +11,7 @@ export const useArchivistGet = <T extends Payload = Payload>(
 
   const [payloads, error] = usePromise(async () => {
     if (enabled && archivist && hashes) {
-      return (await archivist.get(hashes)) as T[]
+      return (await archivist.get(hashes)) as WithMeta<T>[]
     }
   }, [archivist, hashes, enabled])
 

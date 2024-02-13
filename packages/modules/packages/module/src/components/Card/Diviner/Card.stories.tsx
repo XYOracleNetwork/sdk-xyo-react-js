@@ -17,13 +17,13 @@ const Template: StoryFn<typeof DivinerCard> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (!module) {
-        const newModule = await AddressHistoryDiviner.create({
+        const newModule = (await AddressHistoryDiviner.create({
           config: {
             address: '',
             name: 'AddressHistoryDiviner',
             schema: AddressHistoryDivinerConfigSchema,
           },
-        })
+        })) as DivinerInstance
         if (mounted()) {
           setModule(newModule)
         }

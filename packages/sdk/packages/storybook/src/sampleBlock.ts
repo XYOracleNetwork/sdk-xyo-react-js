@@ -23,6 +23,7 @@ export const sampleBlock: BoundWitness = {
   ],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
+  timestamp: Date.now(),
 }
 export const sampleBlockWithBoundWitnessPayload: BoundWitness = {
   $meta: {
@@ -47,4 +48,5 @@ export const sampleBlockWithBoundWitnessPayload: BoundWitness = {
   ],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
+  timestamp: Date.now(),
 }

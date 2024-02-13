@@ -54,7 +54,7 @@ const config: StorybookConfig = {
         (resource) => {
           resource.request = resource.request.replace(/^node:/, '');
         },
-      ),
+      )
     );
 
     return config;

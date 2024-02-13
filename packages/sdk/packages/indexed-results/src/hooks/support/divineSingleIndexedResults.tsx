@@ -1,6 +1,6 @@
 import { retry } from '@xylabs/retry'
 import { DivinerInstance } from '@xyo-network/diviner-model'
-import { Payload } from '@xyo-network/payload-model'
+import { Payload, WithMeta } from '@xyo-network/payload-model'
 
 import { ParseIndexedResults } from '../../interfaces'
 
@@ -12,7 +12,7 @@ const divineSingleIndexedResultsInner = async <TPayload extends Payload = Payloa
   const divinedResult = await diviner.divine(indexedQueries)
   let results: TPayload[] | undefined
   if (divinedResult?.length > 0) {
-    results = parseIndexedResults ? await parseIndexedResults(divinedResult) : (divinedResult as TPayload[])
+    results = parseIndexedResults ? await parseIndexedResults(divinedResult) : (divinedResult as WithMeta<TPayload>[])
   }
   return results && results.length > 0 ? results : null
 }

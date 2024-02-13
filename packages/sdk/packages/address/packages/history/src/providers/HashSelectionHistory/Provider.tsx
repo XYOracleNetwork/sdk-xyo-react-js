@@ -2,7 +2,7 @@ import { useMounted, WithChildren } from '@xylabs/react-shared'
 import { ArchivistInstance } from '@xyo-network/archivist'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
-import { ModuleError } from '@xyo-network/payload-model'
+import { ModuleError, WithMeta } from '@xyo-network/payload-model'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -59,7 +59,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
         [hash]: boundwitness,
       }))
       setHashSelectionHistory((previous) => [hash, ...previous])
-      return result as BoundWitness
+      return result as WithMeta<BoundWitness>
     }
     return null
   }
@@ -70,7 +70,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
     }
     try {
       const [result] = await archivist.get([hash])
-      return result as BoundWitness
+      return result as WithMeta<BoundWitness>
     } catch (e) {
       setError(e as ModuleError)
       return

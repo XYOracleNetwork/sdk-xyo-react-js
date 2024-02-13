@@ -69,7 +69,7 @@ const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const diviner = await CryptoMarketAssetDiviner.create()
+      const diviner = (await CryptoMarketAssetDiviner.create()) as DivinerInstance
       if (mounted()) {
         setDiviner(diviner)
       }
