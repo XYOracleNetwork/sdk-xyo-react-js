@@ -1,4 +1,4 @@
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
+import { ArrowForwardRounded } from '@mui/icons-material'
 import { Avatar, Backdrop, Box, Fade, IconButton, Modal, Typography } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import * as React from 'react'
@@ -18,7 +18,7 @@ export const StatsModal: React.FC = () => {
   return (
     <div>
       <IconButton size="small" color="primary" onClick={handleOpen}>
-        <ArrowForwardRoundedIcon />
+        <ArrowForwardRounded />
       </IconButton>
       <Modal
         aria-labelledby="transition-modal-title"

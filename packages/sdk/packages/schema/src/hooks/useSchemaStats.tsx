@@ -1,5 +1,4 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { WithSources } from '@xyo-network/diviner-model'
 import {
   SchemaStatsDivinerSchema,
   SchemaStatsPayload,
@@ -7,7 +6,7 @@ import {
   SchemaStatsQuerySchema,
 } from '@xyo-network/diviner-schema-stats-model'
 import { TYPES } from '@xyo-network/node-core-types'
-import { isPayloadOfSchemaTypeWithMeta, WithMeta } from '@xyo-network/payload-model'
+import { isPayloadOfSchemaTypeWithMeta, WithMeta, WithSources } from '@xyo-network/payload-model'
 import { useDivinerFromNode } from '@xyo-network/react-diviner'
 import { Dispatch, SetStateAction, useMemo, useState } from 'react'
 

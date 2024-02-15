@@ -1,10 +1,9 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { AddressHistoryQueryPayload, AddressHistoryQuerySchema } from '@xyo-network/diviner-address-history-model'
-import { WithSources } from '@xyo-network/diviner-model'
 import { TYPES } from '@xyo-network/node-core-types'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
-import { WithMeta } from '@xyo-network/payload-model'
+import { WithMeta, WithSources } from '@xyo-network/payload-model'
 import { useDivinerFromNode } from '@xyo-network/react-diviner'
 import { useState } from 'react'
 
