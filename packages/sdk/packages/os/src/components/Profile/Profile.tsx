@@ -8,6 +8,7 @@ interface XyOsProfileProps extends PaperProps {
   xns: string
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const XyOsProfile: React.FC<XyOsProfileProps> = ({ xns, pfp, ...props }) => {
   const theme = useTheme()
   return (
