@@ -14,6 +14,13 @@ export interface SeedPhraseProviderProps extends WithChildren {
   seedPhrase?: string
 }
 
+const validate = (passedPhrase?: string) => {
+  if (!passedPhrase) {
+    return null
+  }
+  return validateMnemonic(passedPhrase, wordlist)
+}
+
 export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   children,
   defaultPhrase,
@@ -63,13 +70,6 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
       handleChangeSeedPhrase?.(phrase ?? '')
       saveCallback?.()
     }
-  }
-
-  const validate = (passedPhrase?: string) => {
-    if (!passedPhrase) {
-      return null
-    }
-    return validateMnemonic(passedPhrase, wordlist)
   }
 
   const validSeedPhrase = useMemo(() => validate?.(seedPhrase), [seedPhrase])

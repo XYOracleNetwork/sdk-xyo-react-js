@@ -54,12 +54,12 @@ const EllipsizeContentWrap = styled(Typography, {
     right: 0,
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    ...(ellipsisPosition === 'start'
-      ? {
-          direction: 'rtl',
-          textAlign: 'left',
-        }
-      : {}),
+    ...(ellipsisPosition === 'start' ?
+      {
+        direction: 'rtl',
+        textAlign: 'left',
+      }
+    : {}),
   })
 })
 

@@ -12,7 +12,9 @@ export const DarkModeIconButton: React.FC<IconButtonProps> = (props) => {
 
   return (
     <IconButton onClick={handleDarkModeChange} {...props}>
-      {darkMode ? <DarkModeRoundedIcon /> : <LightModeRoundedIcon />}
+      {darkMode ?
+        <DarkModeRoundedIcon />
+      : <LightModeRoundedIcon />}
     </IconButton>
   )
 }

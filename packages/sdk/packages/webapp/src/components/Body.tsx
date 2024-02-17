@@ -83,11 +83,11 @@ export const WebAppBody: React.FC<WebAppBodyProps> = ({
 }) => {
   return (
     <WebAppBodyRoot mobileScrollingBreakpoint={mobileScrollingBreakpoint} spacing={spacing} variant={variant} {...props}>
-      {breadcrumbs ? (
+      {breadcrumbs ?
         <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter} spacing={spacing}>
           {breadcrumbs}
         </WebAppBodyBreadcrumb>
-      ) : null}
+      : null}
       <WebAppBodyScrollableWrapper>
         <WebAppBodyScrollable mobileScrollingBreakpoint={mobileScrollingBreakpoint} variant={variant}>
           {children}

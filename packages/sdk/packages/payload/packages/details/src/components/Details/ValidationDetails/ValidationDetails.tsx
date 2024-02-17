@@ -26,15 +26,13 @@ export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> =
         title="Valid"
         value={errors.length === 0 ? 'True' : 'False'}
         tip={
-          errors.length > 0 ? (
+          errors.length > 0 ?
             <FlexCol>
               {errors.map((error, index) => {
                 return <Typography key={index}>{error.toString()}</Typography>
               })}
             </FlexCol>
-          ) : (
-            <Typography>No Errors</Typography>
-          )
+          : <Typography>No Errors</Typography>
         }
       />
       {value?.schema && <SchemaProperty flexGrow={1} titleProps={{ elevation }} value={value.schema} />}

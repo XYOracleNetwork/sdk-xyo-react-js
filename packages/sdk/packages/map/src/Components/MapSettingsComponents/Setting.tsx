@@ -25,6 +25,6 @@ export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({ developerMod
   }
 
   return setting?.hidden ? null : (
-    <FormControlLabel label={setting?.label} control={<Switch checked={setting?.value} onChange={onLocalChange} {...props} />} />
-  )
+      <FormControlLabel label={setting?.label} control={<Switch checked={setting?.value} onChange={onLocalChange} {...props} />} />
+    )
 }

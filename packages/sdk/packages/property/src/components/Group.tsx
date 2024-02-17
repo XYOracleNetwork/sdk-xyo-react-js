@@ -13,19 +13,17 @@ const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, childre
     <FlexCol alignItems="stretch" overflow="hidden" {...props}>
       <FlexRow overflow="hidden" justifyContent="stretch" alignItems="stretch">
         <PropertyTitle alignItems="flex-start" size="full" title={title} tip={tip} {...titleProps} />
-        {childrenArray ? (
+        {childrenArray ?
           <FlexGrowRow>
             {childrenArray?.map((child, index) => {
-              return child ? (
-                <FlexGrowRow key={index} borderLeft={1} borderColor={theme.palette.divider}>
-                  {child}
-                </FlexGrowRow>
-              ) : null
+              return child ?
+                  <FlexGrowRow key={index} borderLeft={1} borderColor={theme.palette.divider}>
+                    {child}
+                  </FlexGrowRow>
+                : null
             })}
           </FlexGrowRow>
-        ) : (
-          <FlexGrowRow overflow="hidden">{children}</FlexGrowRow>
-        )}
+        : <FlexGrowRow overflow="hidden">{children}</FlexGrowRow>}
       </FlexRow>
     </FlexCol>
   )

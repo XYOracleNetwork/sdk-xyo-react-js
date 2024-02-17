@@ -36,7 +36,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
 
   return (
     <AddressChainList ref={ulRef} {...props}>
-      {orderedAddressHistoryPairs ? (
+      {orderedAddressHistoryPairs ?
         orderedAddressHistoryPairs.map(([bw, bwHash], index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
             {index === 0 ? null : <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} />}
@@ -48,9 +48,12 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
             />
           </Fragment>
         ))
-      ) : (
-        <>{skeleton ? <Skeleton variant="rounded" width="100%" sx={{ p: 2 }} /> : null}</>
-      )}
+      : <>
+          {skeleton ?
+            <Skeleton variant="rounded" width="100%" sx={{ p: 2 }} />
+          : null}
+        </>
+      }
     </AddressChainList>
   )
 })

@@ -8,7 +8,10 @@ export type CardExProps = CardProps & {
 
 export const CardExWithRef: React.FC<CardExProps> = forwardRef(({ style, gradient, ...props }, ref) => {
   const { styles } = useGradientStyles()
-  const gradientStyle = gradient === 'border' ? styles.border : gradient === 'background' ? styles.background : {}
+  const gradientStyle =
+    gradient === 'border' ? styles.border
+    : gradient === 'background' ? styles.background
+    : {}
   return (
     <Card
       style={{

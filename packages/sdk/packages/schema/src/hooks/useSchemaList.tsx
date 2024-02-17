@@ -11,14 +11,14 @@ export const useSchemaList = (address?: string, nameOrAddress = 'SchemaListDivin
 
   const query: SchemaListQueryPayload[] | undefined = useMemo(
     () =>
-      address
-        ? [
-            {
-              address,
-              schema: SchemaListQuerySchema,
-            },
-          ]
-        : undefined,
+      address ?
+        [
+          {
+            address,
+            schema: SchemaListQuerySchema,
+          },
+        ]
+      : undefined,
     [address],
   )
 

@@ -35,7 +35,11 @@ export const ResolvedDivinerProvider = <D,>({ diviner: divinerProp, required = f
         setDiviner,
       }}
     >
-      {diviner ? children : required ? null : children}
+      {diviner ?
+        children
+      : required ?
+        null
+      : children}
     </context.Provider>
   )
 }

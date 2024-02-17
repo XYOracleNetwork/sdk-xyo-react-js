@@ -25,7 +25,7 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
     return reflection.groups?.map((group: ReflectionGroup) => {
       return (
         <ReflectionGroupViewer
-          autoscroll
+          autoScroll
           variant="h6"
           lookup={lookup}
           renderer={itemRenderer}

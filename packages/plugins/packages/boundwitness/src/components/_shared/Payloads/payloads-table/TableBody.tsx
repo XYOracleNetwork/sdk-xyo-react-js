@@ -39,7 +39,9 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
 
   return (
     <TableBody ref={tableRef} {...tableProps}>
-      {noResults && NoResultRowComponent ? <NoResultRowComponent /> : null}
+      {noResults && NoResultRowComponent ?
+        <NoResultRowComponent />
+      : null}
       {(payloadHashes &&
         payloadSchemas &&
         payloadHashes.length > 0 &&

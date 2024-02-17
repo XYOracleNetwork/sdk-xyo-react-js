@@ -9,9 +9,9 @@ export const usePayloadHash = <TPayload extends Payload>(payload: TPayload | und
 export const usePayloadHashes = <TPayload extends Payload>(payloads: TPayload[] | undefined | null) => {
   return usePromise(
     async () =>
-      payloads
-        ? await Promise.all(payloads.map<Promise<[TPayload, string]>>(async (payload) => [payload, await PayloadBuilder.dataHash(payload)]))
-        : undefined,
+      payloads ?
+        await Promise.all(payloads.map<Promise<[TPayload, string]>>(async (payload) => [payload, await PayloadBuilder.dataHash(payload)]))
+      : undefined,
     [payloads],
   )[0]
 }

@@ -52,40 +52,60 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
         backgroundColor: alpha(theme.palette.primary.light, 0.05),
         ...sx,
       }}
-      onMouseEnter={() => (isMobile ? null : interactionVariant == 'button' ? setRaised(true) : null)}
-      onMouseLeave={() => (isMobile ? null : interactionVariant == 'button' ? setRaised(false) : null)}
-      onClick={() => (interactionVariant == 'button' ? (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404')) : null)}
+      onMouseEnter={() =>
+        isMobile ? null
+        : interactionVariant == 'button' ? setRaised(true)
+        : null
+      }
+      onMouseLeave={() =>
+        isMobile ? null
+        : interactionVariant == 'button' ? setRaised(false)
+        : null
+      }
+      onClick={() =>
+        interactionVariant == 'button' ?
+          href ? externalRouteChange(href)
+          : to ? localRouteChange(to)
+          : navigate('/404')
+        : null
+      }
       {...props}
     >
-      {media ? <CardMedia component="img" height="100" image={media} alt="" /> : null}
+      {media ?
+        <CardMedia component="img" height="100" image={media} alt="" />
+      : null}
 
       <CardContent sx={{ height: '100%' }}>
         <FlexCol width="100%" alignItems="flex-start">
-          {iconImage ? <img src={iconImage} height="40px" style={{ paddingBottom: '8px' }} /> : null}
-          {typeof headline === 'string' ? (
+          {iconImage ?
+            <img src={iconImage} height="40px" style={{ paddingBottom: '8px' }} />
+          : null}
+          {typeof headline === 'string' ?
             <Typography variant={small ? 'body1' : 'h6'} textAlign="left" gutterBottom>
               {headline}
             </Typography>
-          ) : (
-            headline
-          )}
-          {subtitle ? (
+          : headline}
+          {subtitle ?
             <Typography variant="subtitle2" textAlign="left" gutterBottom>
               {subtitle}
             </Typography>
-          ) : null}
+          : null}
           <Typography variant={small ? 'caption' : 'body1'} textAlign="left" gutterBottom>
             {desc}
           </Typography>
         </FlexCol>
       </CardContent>
-      {interactionVariant == 'button' ? (
+      {interactionVariant == 'button' ?
         <CardActions>
           <FlexGrowCol alignItems="flex-end">
             <IconButton
               color={raised ? 'secondary' : 'primary'}
               size={small ? 'small' : 'medium'}
-              onClick={() => (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404'))}
+              onClick={() =>
+                href ? externalRouteChange(href)
+                : to ? localRouteChange(to)
+                : navigate('/404')
+              }
               disableFocusRipple
               disableRipple
               disableTouchRipple
@@ -94,7 +114,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
             </IconButton>
           </FlexGrowCol>
         </CardActions>
-      ) : null}
+      : null}
     </CardEx>
   )
 }

@@ -41,8 +41,14 @@ const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
           overflow="hidden"
           height={sizeValueHeight[size]}
         >
-          {children ?? value === undefined ? <CircularProgress size={16} /> : <PropertyValue value={value} typographyVariant={sizeVariants[size]} />}
-          {value === undefined ? null : badge ? <IdenticonCorner value={value} /> : null}
+          {children ?? value === undefined ?
+            <CircularProgress size={16} />
+          : <PropertyValue value={value} typographyVariant={sizeVariants[size]} />}
+          {value === undefined ?
+            null
+          : badge ?
+            <IdenticonCorner value={value} />
+          : null}
         </FlexRow>
       </FlexRow>
     )

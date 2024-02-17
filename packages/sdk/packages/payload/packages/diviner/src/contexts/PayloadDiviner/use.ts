@@ -74,13 +74,15 @@ export const useDivinePayloads = <T extends Payload = Payload>(
       if (mounted()) {
         setPayloads([...payloads.values()].map((value) => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
         setErrors(
-          compact([...payloads.values()].map((value) => (value.status === 'rejected' ? Error('divine failed', { cause: value.reason }) : undefined))),
+          compact(
+            [...payloads.values()].map((value) => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined)),
+          ),
         )
         if (mounted()) {
           setPayloads([...payloads.values()].map((value) => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
           setErrors(
             compact(
-              [...payloads.values()].map((value) => (value.status === 'rejected' ? Error('divine failed', { cause: value.reason }) : undefined)),
+              [...payloads.values()].map((value) => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined)),
             ),
           )
         }

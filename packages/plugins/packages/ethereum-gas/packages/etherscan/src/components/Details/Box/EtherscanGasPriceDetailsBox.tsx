@@ -18,10 +18,9 @@ export const EtherscanGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDet
 
     return (
       <>
-        {isEmpty(gasPricePayload) || gasPricePayload.status !== '1' ? (
+        {isEmpty(gasPricePayload) || gasPricePayload.status !== '1' ?
           <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
-        ) : (
-          <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+        : <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
             <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
             <Grid container spacing={3}>
               {parsedPayload &&
@@ -33,7 +32,7 @@ export const EtherscanGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDet
             </Grid>
             <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
           </FlexCol>
-        )}
+        }
       </>
     )
   },

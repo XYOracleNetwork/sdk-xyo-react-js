@@ -37,8 +37,12 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
         </FlexRow>
       )}
       {children}
-      {darkModeButton ? <DarkModeIconButton color="inherit" /> : null}
-      {menuItems ? <SiteMenu onMenuToggle={onMenuToggle}>{menuItems}</SiteMenu> : null}
+      {darkModeButton ?
+        <DarkModeIconButton color="inherit" />
+      : null}
+      {menuItems ?
+        <SiteMenu onMenuToggle={onMenuToggle}>{menuItems}</SiteMenu>
+      : null}
     </Toolbar>
   )
 }

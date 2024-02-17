@@ -19,7 +19,7 @@ export const ProjectReflectionViewer: React.FC<ContainerReflectionViewerProps<Pr
         return reflection.groups?.map((group: ReflectionGroup) => {
           return (
             <ReflectionGroupViewer
-              autoscroll
+              autoScroll
               variant="h6"
               lookup={lookup}
               key={group.title}

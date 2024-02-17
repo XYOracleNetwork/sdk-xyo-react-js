@@ -32,9 +32,9 @@ export const ModuleSummary: React.FC<ModuleSummaryProps> = ({ children, icon, mo
           <TypographyEx color={busy ? 'gray' : undefined}>{icon ?? <ExtensionIcon />}</TypographyEx>
           <TypographyEx marginX={1}>{module?.config?.name ?? '<Unknown>'}</TypographyEx>
         </FlexRow>
-        {children ?? (downModulesFromResolve !== undefined && upModulesFromResolve !== undefined)
-          ? `[${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
-          : null}
+        {children ?? (downModulesFromResolve !== undefined && upModulesFromResolve !== undefined) ?
+          `[${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
+        : null}
       </FlexRow>
     </FlexCol>
   )

@@ -1,3 +1,4 @@
+import { forget } from '@xylabs/forget'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { ModuleInstance, ModuleParams } from '@xyo-network/module-model'
@@ -27,9 +28,13 @@ export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({ children
           }),
         )
         return () => {
-          modules.map(async (module) => {
-            await node.unregister(module)
-          })
+          forget(
+            Promise.all(
+              modules.map(async (module) => {
+                await node.unregister(module)
+              }),
+            ),
+          )
         }
       }
     },

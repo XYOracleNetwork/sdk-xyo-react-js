@@ -17,7 +17,7 @@ export const ArchivistParents: React.FC<ArchivistParentsProps> = ({ config, ...p
 
   return (
     <>
-      {commit || read || write ? (
+      {commit || read || write ?
         <FlexCol alignItems="start" {...props}>
           <span onClick={() => setParentArchivistCollapse(!parentArchivistCollapse)}>
             <Typography variant="subtitle2" sx={{ cursor: 'pointer', display: 'inline-block' }}>
@@ -37,7 +37,7 @@ export const ArchivistParents: React.FC<ArchivistParentsProps> = ({ config, ...p
             </Paper>
           </Collapse>
         </FlexCol>
-      ) : null}
+      : null}
     </>
   )
 }

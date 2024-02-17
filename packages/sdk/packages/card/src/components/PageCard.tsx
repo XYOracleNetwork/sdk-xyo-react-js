@@ -24,11 +24,11 @@ const PageCardWithRef: React.FC<PageCardProps> = forwardRef(({ subheader, title,
         action={
           action ?? (
             <>
-              {onRefresh ? (
+              {onRefresh ?
                 <IconButton onClick={() => onRefresh?.()}>
                   <RefreshIcon />
                 </IconButton>
-              ) : null}
+              : null}
             </>
           )
         }

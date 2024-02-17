@@ -7,11 +7,11 @@ export const WithResetDecorator: Decorator = (Story, args) => {
   const { activeBoundWitness, setActiveBoundWitnessHash } = useActiveBoundWitness()
   return (
     <>
-      {activeBoundWitness ? (
+      {activeBoundWitness ?
         <Button variant="contained" onClick={() => setActiveBoundWitnessHash?.(undefined)}>
           Reset Active BW
         </Button>
-      ) : null}
+      : null}
       <Story {...args} />
     </>
   )

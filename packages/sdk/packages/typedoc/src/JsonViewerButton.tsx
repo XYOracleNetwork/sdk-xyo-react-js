@@ -18,7 +18,9 @@ export const JsonViewerButton: React.FC<JsonViewerButtonProps> = ({ jsonViewProp
         JSON
       </ButtonEx>
       <Dialog open={open} onClose={() => setOpen(false)}>
-        {title ? <DialogTitle>{title}</DialogTitle> : null}
+        {title ?
+          <DialogTitle>{title}</DialogTitle>
+        : null}
         <DialogContent>
           <Suspense fallback={<div />}>
             <JsonView src={src} {...jsonViewProps} />

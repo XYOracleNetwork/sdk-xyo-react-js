@@ -8,21 +8,20 @@ export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletTableCell
   return (
     <TableCell {...tableCellProps}>
       <FlexRow gap={2} justifyContent="start">
-        {connected ? (
+        {connected ?
           <Typography sx={{ display: 'inline-flex', gap: 0.5 }}>
             <Check />
             Connected
           </Typography>
-        ) : (
-          <Button variant={'contained'} onClick={onConnect}>
+        : <Button variant={'contained'} onClick={onConnect}>
             Connect
           </Button>
-        )}
-        {connected ? (
+        }
+        {connected ?
           <IconButton onClick={onRevoke}>
             <InfoOutlined />
           </IconButton>
-        ) : null}
+        : null}
       </FlexRow>
     </TableCell>
   )

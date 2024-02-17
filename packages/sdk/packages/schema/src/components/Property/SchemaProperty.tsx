@@ -50,37 +50,34 @@ export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
 
     return (
       <Property ref={forwardedRef} title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
-        {value && showStatusIcon ? (
-          resolvedSchema === null ? (
+        {value && showStatusIcon ?
+          resolvedSchema === null ?
             <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
               <NewReleasesIcon color="warning" fontSize="inherit" />
             </IconButton>
-          ) : resolvedSchema === undefined ? (
+          : resolvedSchema === undefined ?
             <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
               <NewReleasesIcon color="disabled" fontSize="inherit" />
             </IconButton>
-          ) : (
-            <IconButton rel="noopener noreferrer" size="small" target="_blank" href={resolvedSchema?.huri?.href ?? ''}>
+          : <IconButton rel="noopener noreferrer" size="small" target="_blank" href={resolvedSchema?.huri?.href ?? ''}>
               <VerifiedIcon color="success" fontSize="inherit" />
             </IconButton>
-          )
-        ) : null}
-        {value ? (
+
+        : null}
+        {value ?
           <>
-            {showLinkNames ? (
+            {showLinkNames ?
               <LinkEx display="block" width="100%" sx={{ cursor: 'pointer' }}>
                 <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
               </LinkEx>
-            ) : (
-              <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
-            )}
-            {showOpenNewWindowLink ? (
+            : <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />}
+            {showOpenNewWindowLink ?
               <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch, true)}>
                 <OpenInNewIcon fontSize="inherit" />
               </IconButton>
-            ) : null}
+            : null}
           </>
-        ) : null}
+        : null}
       </Property>
     )
   },

@@ -19,11 +19,11 @@ export const useAccount = ({ wallet, account, index, required = false }: Account
   const walletContextProvided = useWalletProvided()
   const [validationError, setValidationError] = useState<Error>()
   if (wallet && account && !validationError) {
-    setValidationError(Error('useAccount can not have both a wallet and an account in the parameters'))
+    setValidationError(new Error('useAccount can not have both a wallet and an account in the parameters'))
   }
 
   if (index && account && !validationError) {
-    setValidationError(Error('useAccount can not have both a index and an account in the parameters'))
+    setValidationError(new Error('useAccount can not have both a index and an account in the parameters'))
   }
 
   const [error, setError] = useState<Error>()
@@ -49,5 +49,10 @@ export const useAccount = ({ wallet, account, index, required = false }: Account
     setError(validationError)
   }
 
-  return [error ? undefined : account ?? activeAccount ?? walletContextProvided ? null : undefined, error]
+  return [
+    error ? undefined
+    : account ?? activeAccount ?? walletContextProvided ? null
+    : undefined,
+    error,
+  ]
 }

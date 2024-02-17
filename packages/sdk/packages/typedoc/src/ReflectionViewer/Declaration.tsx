@@ -5,7 +5,11 @@ import { ReflectionViewerProps } from './ReflectionViewerProps'
 
 export const DeclarationReflectionViewer: React.FC<ReflectionViewerProps<DeclarationReflection>> = ({ reflection, hiddenFlags, ...props }) => {
   const safeSignatures = (signatures?: SignatureReflection[] | SignatureReflection) => {
-    return Array.isArray(signatures) ? signatures : signatures ? [signatures] : undefined
+    return (
+      Array.isArray(signatures) ? signatures
+      : signatures ? [signatures]
+      : undefined
+    )
   }
 
   return (

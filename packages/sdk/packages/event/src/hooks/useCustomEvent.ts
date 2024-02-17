@@ -12,8 +12,9 @@ export const useCustomEvent = <TElement extends HTMLElement, TDetail = unknown>(
   useEffect(() => {
     const element = ref?.current
     const currentListener = listener
-    const handler = currentListener
-      ? (event: CustomEventInit<TDetail> & Event) => {
+    const handler =
+      currentListener ?
+        (event: CustomEventInit<TDetail> & Event) => {
           const detail = assertEx(event.detail, 'Event missing detail')
           const stop = currentListener(detail)
           if (stop) {

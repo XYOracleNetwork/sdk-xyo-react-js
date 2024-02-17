@@ -14,13 +14,13 @@ export const NodeDetails: React.FC<NodeViewerProps> = ({ module, ...props }) => 
 
   return (
     <FlexCol alignItems="stretch" {...props}>
-      {children ? (
+      {children ?
         <>
           <FlexCol alignItems="stretch" marginY={1}>
             {children?.map((child) => <ModuleAccordion key={child.address} module={child} />)}
           </FlexCol>
         </>
-      ) : null}
+      : null}
     </FlexCol>
   )
 }

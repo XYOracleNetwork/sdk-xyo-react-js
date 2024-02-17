@@ -22,15 +22,13 @@ export const BWVerification: React.FC<BWVerification> = ({ boundwitness }) => {
       Icon={errors.length > 0 ? InvalidIcon : CheckCircleOutlineRoundedIcon}
       hoverText={errors.length > 0 ? 'Invalid Bound Witness' : 'Valid'}
     >
-      {errors.length > 0 ? (
+      {errors.length > 0 ?
         <FlexCol flexWrap="wrap" alignItems="start">
           {errors.map((error, index) => {
             return <Typography key={index}>{error.toString()}</Typography>
           })}
         </FlexCol>
-      ) : (
-        <Typography>No Errors</Typography>
-      )}
+      : <Typography>No Errors</Typography>}
     </QuickTipButton>
   )
 }

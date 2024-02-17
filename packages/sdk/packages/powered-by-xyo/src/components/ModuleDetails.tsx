@@ -34,31 +34,31 @@ export const ModuleDetails: React.FC<ModuleDetailsProps> = ({ module, ...props }
 
       <FlexRow gap={1} justifyContent="space-between">
         <ButtonGroup>
-          {manifest ? (
+          {manifest ?
             <JsonViewerButton variant="contained" src={manifest}>
               Manifest
             </JsonViewerButton>
-          ) : null}
-          {config ? (
+          : null}
+          {config ?
             <JsonViewerButton variant="contained" src={config}>
               Config
             </JsonViewerButton>
-          ) : null}
-          {discover ? (
+          : null}
+          {discover ?
             <JsonViewerButton variant="contained" src={discover}>
               Discover
             </JsonViewerButton>
-          ) : null}
-          {describe ? (
+          : null}
+          {describe ?
             <JsonViewerButton variant="contained" src={describe}>
               Describe
             </JsonViewerButton>
-          ) : null}
-          {queries ? (
+          : null}
+          {queries ?
             <JsonViewerButton variant="contained" src={queries}>
               Queries
             </JsonViewerButton>
-          ) : null}
+          : null}
         </ButtonGroup>
         <ButtonGroup>
           <ButtonEx target="_blank" href={`https://explore.xyo.network/block?network=main&address=${module?.address}`} variant="outlined">

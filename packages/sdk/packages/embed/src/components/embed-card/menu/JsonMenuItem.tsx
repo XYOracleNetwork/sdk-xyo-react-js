@@ -8,14 +8,14 @@ export const JsonMenuItem: React.FC<MenuItemProps> = (props) => {
 
   return (
     <>
-      {huri ? (
+      {huri ?
         <MenuItem title="Source Payload JSON" onClick={() => window.open(huri, '_blank')} {...props}>
           <ListItemText sx={{ mr: 1 }}>JSON</ListItemText>
           <ListItemIcon sx={{ justifyContent: 'end' }}>
             <OpenInNewIcon fontSize="small" />
           </ListItemIcon>
         </MenuItem>
-      ) : null}
+      : null}
     </>
   )
 }

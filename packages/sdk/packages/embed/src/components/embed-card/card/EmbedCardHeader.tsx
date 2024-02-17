@@ -15,28 +15,25 @@ export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
     <CardHeader
       sx={{ flexWrap: 'wrap', rowGap: 1 }}
       avatar={
-        hideAvatar ? (
+        hideAvatar ?
           <></>
-        ) : (
-          <Avatar sx={{ bgcolor: (theme: Theme) => theme.palette.primary.main }} aria-label={activePlugin?.name}>
+        : <Avatar sx={{ bgcolor: (theme: Theme) => theme.palette.primary.main }} aria-label={activePlugin?.name}>
             {activePlugin?.name?.charAt(0)}
           </Avatar>
-        )
       }
       action={
         <FlexRow flexWrap="wrap" columnGap={0.5}>
-          {timestamp ? (
-            hideTimestamp && hideRefreshButton ? (
+          {timestamp ?
+            hideTimestamp && hideRefreshButton ?
               ''
-            ) : (
-              <Chip
+            : <Chip
                 avatar={hideRefreshButton ? <></> : <RefreshIcon />}
                 clickable={hideRefreshButton ? false : true}
                 onClick={refreshHuri}
                 label={hideTimestamp ? '' : `${timestampLabel} ${new Date(timestamp).toLocaleString()}`}
               />
-            )
-          ) : null}
+
+          : null}
           {/* Huri case is valid as long as the only menu item is JSON */}
           {hideCardActions || huri === undefined ? null : <EmbedMenu />}
         </FlexRow>

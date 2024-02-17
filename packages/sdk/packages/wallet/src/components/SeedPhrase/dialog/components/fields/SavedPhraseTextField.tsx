@@ -12,7 +12,7 @@ export const SavedPhraseTextField: React.FC<StandardTextFieldProps> = (props) =>
   return (
     <FormControl fullWidth size="small" sx={{ display: 'flex', flexDirection: 'column', rowGap: 1 }}>
       <Chip label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'} onClick={() => setVisible(!visible)} />
-      {visible ? (
+      {visible ?
         <>
           <FormLabel>
             <PhraseHeaderBox conditional={validSeedPhrase}>Saved Seed Phrase</PhraseHeaderBox>
@@ -28,7 +28,7 @@ export const SavedPhraseTextField: React.FC<StandardTextFieldProps> = (props) =>
             {...props}
           />
         </>
-      ) : null}
+      : null}
     </FormControl>
   )
 }

@@ -13,7 +13,7 @@ export interface WalletAccountSelectProps extends SharedAddressRenderRowBoxProps
 }
 
 const arrayRange = (length: number, start = 0) => {
-  return [...Array(length).keys()].map((x) => x + start)
+  return [...Array.from({ length }).keys()].map((x) => x + start)
 }
 
 export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
@@ -31,7 +31,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
 
   return (
     <>
-      {coinTypeWallet ? (
+      {coinTypeWallet ?
         <SelectEx
           margin="dense"
           disabled={disabled}
@@ -89,9 +89,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
             return <Item key={index} />
           })}
         </SelectEx>
-      ) : (
-        <CircularProgress size={24} />
-      )}
+      : <CircularProgress size={24} />}
     </>
   )
 }

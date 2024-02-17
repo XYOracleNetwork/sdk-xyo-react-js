@@ -74,36 +74,34 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   )
 
   const render: React.FC<TableCellProps> = (props) => {
-    const Render: ComponentType<PayloadRenderProps & TableCellProps> | undefined = payload
-      ? resolver?.resolve(payload)?.components.table.cell
-      : undefined
+    const Render: ComponentType<PayloadRenderProps & TableCellProps> | undefined =
+      payload ? resolver?.resolve(payload)?.components.table.cell : undefined
     return Render ? <Render payload={payload} {...props} /> : <TableCell key="payloads" align="left" {...props}></TableCell>
   }
 
   const icon: React.FC<TableCellProps> = (props) => {
-    const Avatar: ComponentType<PayloadRenderProps & AvatarProps> | undefined = payload
-      ? resolver?.resolve(payload)?.components.avatar.image
-      : undefined
+    const Avatar: ComponentType<PayloadRenderProps & AvatarProps> | undefined =
+      payload ? resolver?.resolve(payload)?.components.avatar.image : undefined
 
     return (
       <TableCell key="payloads" align="left" {...props}>
-        {Avatar ? <Avatar payload={payload} /> : null}
+        {Avatar ?
+          <Avatar payload={payload} />
+        : null}
       </TableCell>
     )
   }
 
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>
-      {isValid === undefined && payload != undefined ? (
+      {isValid === undefined && payload != undefined ?
         <WarningAmberRoundedIcon fontSize="small" color="warning" />
-      ) : isValid === true ? (
+      : isValid === true ?
         <CheckCircleOutlineRoundedIcon fontSize="small" color="success" />
-      ) : isValid === false ? (
+      : isValid === false ?
         <ErrorOutlineRoundedIcon color="error" fontSize="small" />
-      ) : (
         //nbsp to keep row height consistent even when no data is provided for the row
-        <Typography> &nbsp;</Typography>
-      )}
+      : <Typography> &nbsp;</Typography>}
     </TableCell>
   )
 
@@ -116,11 +114,11 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     valid,
   }
 
-  return breakPoint ? (
-    <TableRow style={{ maxWidth: '100vw' }} {...props}>
-      {columns[breakPoint]?.map((column) => {
-        return column.slug ? tableCells[column.slug]({}) : null
-      })}
-    </TableRow>
-  ) : null
+  return breakPoint ?
+      <TableRow style={{ maxWidth: '100vw' }} {...props}>
+        {columns[breakPoint]?.map((column) => {
+          return column.slug ? tableCells[column.slug]({}) : null
+        })}
+      </TableRow>
+    : null
 }

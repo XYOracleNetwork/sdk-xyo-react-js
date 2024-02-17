@@ -18,10 +18,9 @@ export const BlocknativeGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadD
 
     return (
       <>
-        {isEmpty(gasPricePayload) || !gasPricePayload.blockPrices?.length ? (
+        {isEmpty(gasPricePayload) || !gasPricePayload.blockPrices?.length ?
           <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
-        ) : (
-          <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+        : <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
             <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
             <Grid container spacing={3} columns={{ lg: 15, md: 15, sm: 12, xs: 12 }}>
               {parsedPayload &&
@@ -39,7 +38,7 @@ export const BlocknativeGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadD
             </Grid>
             <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
           </FlexCol>
-        )}
+        }
       </>
     )
   },

@@ -44,7 +44,9 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const valid = (
     <TableCell key="valid" align="center">
-      {errors.length === 0 ? <MdDone fontSize={18} color="green" /> : <MdClear color="red" fontSize={18} />}
+      {errors.length === 0 ?
+        <MdDone fontSize={18} color="green" />
+      : <MdClear color="red" fontSize={18} />}
     </TableCell>
   )
 
@@ -54,11 +56,11 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
     valid,
   }
 
-  return breakPoint ? (
-    <TableRow style={{ maxWidth: '100vw' }} {...props}>
-      {columns[breakPoint]?.map((column) => {
-        return tableCells[column]
-      })}
-    </TableRow>
-  ) : null
+  return breakPoint ?
+      <TableRow style={{ maxWidth: '100vw' }} {...props}>
+        {columns[breakPoint]?.map((column) => {
+          return tableCells[column]
+        })}
+      </TableRow>
+    : null
 }

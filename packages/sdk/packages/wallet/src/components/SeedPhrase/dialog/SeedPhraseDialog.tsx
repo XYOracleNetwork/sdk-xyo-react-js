@@ -32,8 +32,12 @@ export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) =>
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', rowGap: 2 }}>
         <NewPhraseTextField />
-        {seedPhrase ? <SavedPhraseTextField /> : null}
-        {overwriteWarning ? <OverwriteWarning /> : null}
+        {seedPhrase ?
+          <SavedPhraseTextField />
+        : null}
+        {overwriteWarning ?
+          <OverwriteWarning />
+        : null}
       </DialogContent>
       <DialogActionButtons onClose={props.onClose} />
     </Dialog>

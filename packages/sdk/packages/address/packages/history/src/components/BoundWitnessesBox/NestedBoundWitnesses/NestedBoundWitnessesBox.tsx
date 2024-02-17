@@ -17,16 +17,16 @@ export const NestedBoundWitnessesBox: React.FC<NestedBoundWitnessesProps> = (pro
   const [nestedBWRef] = useEvent<HTMLDivElement>((noun, _verb, data) => boundwitnessClick(noun, data, 'nestedBoundWitnesses'))
 
   return isEmpty(nestedBoundWitnesses) ? null : (
-    <FlexCol alignItems="stretch" ref={nestedBWRef} rowGap={3} {...props}>
-      {hashSelectionHistory?.map((hash, index) => (
-        <Fragment key={hash}>
-          <Slide direction="down" in={!!nestedBoundWitnesses[hash]}>
-            <GlowingDiv hash={hash}>
-              <BoundWitnessDetailsCard payload={nestedBoundWitnesses[hash]} active={index !== 0} />
-            </GlowingDiv>
-          </Slide>
-        </Fragment>
-      ))}
-    </FlexCol>
-  )
+      <FlexCol alignItems="stretch" ref={nestedBWRef} rowGap={3} {...props}>
+        {hashSelectionHistory?.map((hash, index) => (
+          <Fragment key={hash}>
+            <Slide direction="down" in={!!nestedBoundWitnesses[hash]}>
+              <GlowingDiv hash={hash}>
+                <BoundWitnessDetailsCard payload={nestedBoundWitnesses[hash]} active={index !== 0} />
+              </GlowingDiv>
+            </Slide>
+          </Fragment>
+        ))}
+      </FlexCol>
+    )
 }

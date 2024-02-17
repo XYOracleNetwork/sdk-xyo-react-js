@@ -14,11 +14,11 @@ export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ additionalCells,
           No Data To Display...
         </Typography>
       </StyledTableCell>
-      {additionalCells
-        ? Array(additionalCells)
-            .fill(null)
-            .map((_fill, index) => <StyledTableCell key={index} hideBorder={hideBorder} />)
-        : null}
+      {additionalCells ?
+        Array.from({ length: additionalCells })
+          .fill(null)
+          .map((_fill, index) => <StyledTableCell key={index} hideBorder={hideBorder} />)
+      : null}
     </TableRow>
   )
 }

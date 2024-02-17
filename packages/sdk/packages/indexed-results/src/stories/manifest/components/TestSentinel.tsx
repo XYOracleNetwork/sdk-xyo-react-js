@@ -1,4 +1,5 @@
 import { Alert, Button, MenuItem, Select, TextField } from '@mui/material'
+import { forget } from '@xylabs/forget'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { asDivinerInstance } from '@xyo-network/diviner-model'
@@ -40,8 +41,8 @@ export const TestSentinel: React.FC<TestSentinelProps> = ({ children }) => {
 
   const IndexedDivinerName = 'EvmTokenInterfaceImplementedIndexDiviner'
 
-  const handleReport = async () => {
-    await testReport(addressField, tokenInterfaceField)
+  const handleReport = () => {
+    forget(testReport(addressField, tokenInterfaceField))
   }
 
   const testReport = useCallback(

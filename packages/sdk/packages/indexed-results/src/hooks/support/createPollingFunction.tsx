@@ -92,9 +92,9 @@ export const createPollingFunction = <T extends Payload = Payload>(
 
   /** Function to invoke polling by determining a polling strategy */
   const poll = async () => {
-    return await (maxRetries === null
-      ? pollDivinersIndefinitely(initialDelay, pollingFunction)
-      : pollDivinersWithDelay(initialDelay, pollingFunction))
+    return await (maxRetries === null ?
+      pollDivinersIndefinitely(initialDelay, pollingFunction)
+    : pollDivinersWithDelay(initialDelay, pollingFunction))
   }
 
   const setActive = (value: boolean) => {

@@ -16,7 +16,9 @@ export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ children, nod
   return (
     <>
       <StyledNodeGhostElementFlexCol ref={ref} left={boundingBox?.x1} height={boundingBox?.h} top={boundingBox?.y1} width={boundingBox?.w} />
-      {node ? <>{children?.(currentElement)}</> : null}
+      {node ?
+        <>{children?.(currentElement)}</>
+      : null}
     </>
   )
 }

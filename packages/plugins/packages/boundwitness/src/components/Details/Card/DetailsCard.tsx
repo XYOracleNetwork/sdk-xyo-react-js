@@ -42,7 +42,11 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, PayloadDetailsRe
           additionalActions={
             <>
               <Divider flexItem orientation={'vertical'} sx={{ ml: 2, mr: 1 }} />
-              <IconButton onClick={() => setCollapsed(!collapsed)}>{collapsed ? <ExpandMoreRoundedIcon /> : <ExpandLessRoundedIcon />}</IconButton>
+              <IconButton onClick={() => setCollapsed(!collapsed)}>
+                {collapsed ?
+                  <ExpandMoreRoundedIcon />
+                : <ExpandLessRoundedIcon />}
+              </IconButton>
             </>
           }
           sx={{ columnGap: 2 }}

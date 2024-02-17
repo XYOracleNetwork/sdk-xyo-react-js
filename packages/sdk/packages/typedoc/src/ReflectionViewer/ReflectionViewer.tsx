@@ -20,24 +20,24 @@ export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({ variant, nam
   const someReflection = reflection as SomeReflection
 
   return hide(reflection?.flags, hiddenFlags) ? null : (
-    <FlexCol title="ReflectionViewer" alignItems="stretch" {...props}>
-      {nameViewer === undefined ? (
-        <NameViewer marginY={0.25} variant={variant} reflection={someReflection} reflectionViewer={ReflectionViewer} />
-      ) : (
-        nameViewer
-      )}
-      {reflection.comment ? <CommentViewer comment={reflection.comment} /> : null}
-      {/*sources && reflection.sources && children ? (
+      <FlexCol title="ReflectionViewer" alignItems="stretch" {...props}>
+        {nameViewer === undefined ?
+          <NameViewer marginY={0.25} variant={variant} reflection={someReflection} reflectionViewer={ReflectionViewer} />
+        : nameViewer}
+        {reflection.comment ?
+          <CommentViewer comment={reflection.comment} />
+        : null}
+        {/*sources && reflection.sources && children ? (
         <>
           {reflection.sources.map((source, index) => {
             return <SourceViewer key={index} source={source} />
           })}
         </>
         ) : null*/}
-      {someReflection.parameters?.map((parameter) => {
-        return <ReflectionViewer hiddenFlags={hiddenFlags} marginY={0.25} marginX={1} key={parameter.id} reflection={parameter} />
-      }) ?? null}
-      {children}
-    </FlexCol>
-  )
+        {someReflection.parameters?.map((parameter) => {
+          return <ReflectionViewer hiddenFlags={hiddenFlags} marginY={0.25} marginX={1} key={parameter.id} reflection={parameter} />
+        }) ?? null}
+        {children}
+      </FlexCol>
+    )
 }

@@ -20,7 +20,7 @@ export const PopperButtonGroup: React.FC<FavoritePopperProps> = ({ name, onConfi
       >
         <StarIcon />
       </Button>
-      {favorite ? (
+      {favorite ?
         <Button
           title="Remove Favorite"
           variant="contained"
@@ -31,7 +31,7 @@ export const PopperButtonGroup: React.FC<FavoritePopperProps> = ({ name, onConfi
         >
           <DeleteIcon />
         </Button>
-      ) : null}
+      : null}
     </ButtonGroup>
   )
 }

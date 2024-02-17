@@ -13,10 +13,10 @@ export const CryptoPricesRenderer: React.FC<CryptoPricesRendererProps> = ({ payl
   return (
     <FlexCol {...props}>
       <Typography variant="h1">Crypto Prices</Typography>
-      {cryptoMarketPayload?.timestamp ? (
+      {cryptoMarketPayload?.timestamp ?
         <Typography variant="h4">{`[${new Date(cryptoMarketPayload?.timestamp).toLocaleString()}]`}</Typography>
-      ) : null}
-      {assets ? (
+      : null}
+      {assets ?
         <Table>
           <TableHead>
             <TableCell key="spacer"></TableCell>
@@ -26,18 +26,18 @@ export const CryptoPricesRenderer: React.FC<CryptoPricesRendererProps> = ({ payl
           </TableHead>
           <TableBody>
             {Object.entries(cryptoMarketPayload.assets).map(([key, value]) => {
-              return value ? (
-                <TableRow key={key}>
-                  <TableCell key="asset">{key}</TableCell>
-                  {Object.entries(value).map(([key, value]) => {
-                    return <TableCell key={`${key}`}>{value}</TableCell>
-                  })}
-                </TableRow>
-              ) : null
+              return value ?
+                  <TableRow key={key}>
+                    <TableCell key="asset">{key}</TableCell>
+                    {Object.entries(value).map(([key, value]) => {
+                      return <TableCell key={`${key}`}>{value}</TableCell>
+                    })}
+                  </TableRow>
+                : null
             })}
           </TableBody>
         </Table>
-      ) : null}
+      : null}
     </FlexCol>
   )
 }

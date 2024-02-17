@@ -47,15 +47,15 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   const activeBusy = busy ?? Object.values(busyMap).includes(true)
 
   const activeOnButtonClick: PoweredByXyoProps['onButtonClick'] =
-    (debugDialog
-      ? (event) => {
-          if (event.shiftKey && event.altKey) {
-            setDebugDialogOpen(true)
-          } else if (href) {
-            window.open(href)
-          }
+    (debugDialog ?
+      (event) => {
+        if (event.shiftKey && event.altKey) {
+          setDebugDialogOpen(true)
+        } else if (href) {
+          window.open(href)
         }
-      : undefined) ?? onButtonClick
+      }
+    : undefined) ?? onButtonClick
 
   const activeHref = activeOnButtonClick ? undefined : href
 
@@ -115,9 +115,9 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
           {...buttonProps}
         />
       </Paper>
-      {debugDialog ? (
+      {debugDialog ?
         <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} onKeyDown={onKeyDownEscListener} />
-      ) : null}
+      : null}
     </FlexCol>
   )
 }

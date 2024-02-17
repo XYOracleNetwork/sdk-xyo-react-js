@@ -12,17 +12,17 @@ export interface WalletErrorProps {
 }
 
 export const WalletError: React.FC<WalletErrorProps> = ({ error }) => {
-  return error ? (
-    <div>
-      <ErrorIcon style={{ fontSize: '12px', position: 'absolute' }} color="error" />
-      <QuickTipButton
-        size="small"
-        style={{ color: '#ffffff00', fontSize: '12px', padding: 0, position: 'absolute' }}
-        hoverText={error.message}
-        disableDialog
-      />
-    </div>
-  ) : null
+  return error ?
+      <div>
+        <ErrorIcon style={{ fontSize: '12px', position: 'absolute' }} color="error" />
+        <QuickTipButton
+          size="small"
+          style={{ color: '#ffffff00', fontSize: '12px', padding: 0, position: 'absolute' }}
+          hoverText={error.message}
+          disableDialog
+        />
+      </div>
+    : null
 }
 
 export interface WalletIdenticonProps {
@@ -33,11 +33,9 @@ export interface WalletIdenticonProps {
 export const WalletIdenticon: React.FC<WalletIdenticonProps> = ({ account, name }) => {
   return (
     <div style={{ width: 20 }}>
-      {account ? (
+      {account ?
         <Identicon size={8} value={account.address} style={{ position: 'absolute', right: 2, top: 2 }} />
-      ) : (
-        <LoadingIcon style={{ fontSize: '10px', padding: 0, position: 'absolute', right: 2, top: 2 }} color="disabled" />
-      )}
+      : <LoadingIcon style={{ fontSize: '10px', padding: 0, position: 'absolute', right: 2, top: 2 }} color="disabled" />}
       <QuickTipButton
         size="small"
         style={{ color: '#ffffff00', fontSize: '12px', padding: 0, position: 'absolute' }}

@@ -27,8 +27,9 @@ export class ThrownErrorBoundary extends Component<ThrownErrorBoundaryProps, Thr
 
   static normalizeError(error: Error | ModuleError): ModuleError {
     return (
-      (error as ModuleError).schema === ModuleErrorSchema ? error : { message: error.message, schema: ModuleErrorSchema, sources: [] }
-    ) as ModuleError
+      (error as ModuleError).schema === ModuleErrorSchema ?
+        error
+      : { message: error.message, schema: ModuleErrorSchema, sources: [] }) as ModuleError
   }
 
   override componentDidCatch(error: Error, errorInfo: ErrorInfo) {

@@ -15,7 +15,7 @@ export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ module 
 
   return (
     <>
-      {module ? (
+      {module ?
         <>
           <Typography variant="h4">Node Configuration</Typography>
           <StyledTreeView
@@ -27,11 +27,9 @@ export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ module 
             <RenderModule module={module} idRef={idRef} />
           </StyledTreeView>
         </>
-      ) : module === null ? (
+      : module === null ?
         <Typography variant="h4">Node loading...</Typography>
-      ) : (
-        <Typography variant="h4">Node not found</Typography>
-      )}
+      : <Typography variant="h4">Node not found</Typography>}
     </>
   )
 }

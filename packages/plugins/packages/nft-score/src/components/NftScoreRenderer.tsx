@@ -46,8 +46,10 @@ export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...
   return (
     <FlexCol {...props}>
       <Typography variant="h1">{sources ? `NFT Scores (${sources})` : 'NFT Scores'}</Typography>
-      {timestamp ? <Typography variant="h4">{`[${new Date(timestamp).toLocaleString()}]`}</Typography> : null}
-      {categories ? (
+      {timestamp ?
+        <Typography variant="h4">{`[${new Date(timestamp).toLocaleString()}]`}</Typography>
+      : null}
+      {categories ?
         <Table>
           <TableHead>
             <TableCell key="Spacer"></TableCell>
@@ -57,18 +59,18 @@ export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...
           </TableHead>
           <TableBody>
             {categories.map(([category, score]) => {
-              return score ? (
-                <TableRow key={category}>
-                  <TableCell key="Category">{category}</TableCell>
-                  <TableCell key="Actual">{score[0]}</TableCell>
-                  <TableCell key="Possible">{score[1]}</TableCell>
-                  <TableCell key="Rating">{getScoreIcon(score)}</TableCell>
-                </TableRow>
-              ) : null
+              return score ?
+                  <TableRow key={category}>
+                    <TableCell key="Category">{category}</TableCell>
+                    <TableCell key="Actual">{score[0]}</TableCell>
+                    <TableCell key="Possible">{score[1]}</TableCell>
+                    <TableCell key="Rating">{getScoreIcon(score)}</TableCell>
+                  </TableRow>
+                : null
             })}
           </TableBody>
         </Table>
-      ) : null}
+      : null}
     </FlexCol>
   )
 }

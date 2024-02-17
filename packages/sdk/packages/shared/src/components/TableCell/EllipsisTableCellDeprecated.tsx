@@ -57,7 +57,7 @@ export const EllipsisTableCellDeprecated: React.FC<EllipsisTableCellProps> = ({ 
   return (
     <TableCell {...props}>
       <div ref={hashDivRef}>
-        {children ? (
+        {children ?
           <span
             style={{
               display: 'block',
@@ -70,7 +70,7 @@ export const EllipsisTableCellDeprecated: React.FC<EllipsisTableCellProps> = ({ 
           >
             {children}
           </span>
-        ) : href || to ? (
+        : href || to ?
           <LinkEx
             style={{
               display: 'block',
@@ -86,8 +86,7 @@ export const EllipsisTableCellDeprecated: React.FC<EllipsisTableCellProps> = ({ 
           >
             {value}
           </LinkEx>
-        ) : (
-          <span
+        : <span
             style={{
               display: 'block',
               maxWidth: calcCellWidth,
@@ -99,7 +98,7 @@ export const EllipsisTableCellDeprecated: React.FC<EllipsisTableCellProps> = ({ 
           >
             {value}
           </span>
-        )}
+        }
       </div>
     </TableCell>
   )

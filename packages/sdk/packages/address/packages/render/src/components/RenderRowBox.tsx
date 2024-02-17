@@ -40,11 +40,11 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
         }}
         {...props}
       >
-        {icons && address ? (
+        {icons && address ?
           <ListItemIcon sx={{ minWidth: 0 }}>
             <Identicon size={iconSize} value={address} />
           </ListItemIcon>
-        ) : null}
+        : null}
         {iconOnly ? null : (
           <EllipsizeBox
             disableSharedRef={disableSharedRef}
@@ -56,9 +56,9 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
           </EllipsizeBox>
         )}
         {children}
-        {showFavorite && address ? (
+        {showFavorite && address ?
           <FavoriteIconButton name={name} size={'small'} value={address} valueType={'address'} favorite={favoriteProp} />
-        ) : null}
+        : null}
       </FlexRow>
     )
   },

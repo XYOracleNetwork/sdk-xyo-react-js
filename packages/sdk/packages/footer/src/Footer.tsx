@@ -26,24 +26,28 @@ export const Footer: React.FC<FooterProps> = ({ alwaysFooterLinksProps, children
       }}
       {...props}
     >
-      {more && dynamicHeight ? (
+      {more && dynamicHeight ?
         <FlexCol alignItems="stretch">
           <FlexRow bottom={-1} position="absolute" width="100%" bgcolor={theme.palette.background.default}>
-            {container && container !== 'none' ? <Container>{children}</Container> : children}
+            {container && container !== 'none' ?
+              <Container>{children}</Container>
+            : children}
           </FlexRow>
         </FlexCol>
-      ) : null}
+      : null}
       {dynamicHeight ? null : (
-        <FlexCol alignItems="stretch">{container && container !== 'none' ? <Container>{children}</Container> : children}</FlexCol>
+        <FlexCol alignItems="stretch">
+          {container && container !== 'none' ?
+            <Container>{children}</Container>
+          : children}
+        </FlexCol>
       )}
       <FlexRow>
-        {container && container !== 'none' ? (
+        {container && container !== 'none' ?
           <Container>
             <FooterAlwaysLinks {...alwaysFooterLinksProps} onMore={dynamicHeight ? onMore : undefined} />
           </Container>
-        ) : (
-          <FooterAlwaysLinks {...alwaysFooterLinksProps} onMore={dynamicHeight ? onMore : undefined} />
-        )}
+        : <FooterAlwaysLinks {...alwaysFooterLinksProps} onMore={dynamicHeight ? onMore : undefined} />}
       </FlexRow>
     </FlexCol>
   )

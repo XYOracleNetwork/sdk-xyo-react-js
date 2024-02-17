@@ -25,11 +25,9 @@ export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload
           <Grid item xs={12} md={4} key={index}>
             <Card style={{ width: '100%' }}>
               <CardContent>
-                {cardViewStyle == CardViewType.Static ? (
+                {cardViewStyle == CardViewType.Static ?
                   <StaticTokenComparison tokenPayload={pair} />
-                ) : (
-                  <DynamicTokenComparison tokenPayload={pair} />
-                )}
+                : <DynamicTokenComparison tokenPayload={pair} />}
               </CardContent>
             </Card>
           </Grid>

@@ -15,7 +15,9 @@ export const WitnessCardContent: React.FC<WitnessCardContentProps> = ({ children
   return (
     <ModuleCardContent module={module} {...props}>
       <FlexGrowRow flexWrap="wrap" justifyContent="start" gap={2}>
-        {observation ? <JsonView src={observation} /> : null}
+        {observation ?
+          <JsonView src={observation} />
+        : null}
         {children}
       </FlexGrowRow>
     </ModuleCardContent>

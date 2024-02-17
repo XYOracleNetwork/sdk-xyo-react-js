@@ -15,7 +15,7 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
   const hash = usePayloadHash(block)
   return (
     <>
-      {block ? (
+      {block ?
         <ThrownErrorBoundary
           boundaryName="BlockTableRow"
           key={`${hash}-${index}`}
@@ -30,15 +30,15 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
             block={block}
             columns={columns}
             onClick={
-              onRowClick
-                ? () => {
-                    onRowClick(block)
-                  }
-                : undefined
+              onRowClick ?
+                () => {
+                  onRowClick(block)
+                }
+              : undefined
             }
           />
         </ThrownErrorBoundary>
-      ) : null}
+      : null}
     </>
   )
 }

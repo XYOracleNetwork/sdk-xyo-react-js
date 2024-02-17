@@ -21,9 +21,9 @@ export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ module
 
   return (
     <ModuleSummary module={module} icon={<HubRoundedIcon />} {...props}>
-      {manifestPublicModules !== undefined && downModulesFromResolve !== undefined && upModulesFromResolve !== undefined
-        ? `[${manifestPublicModules}m/${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
-        : null}
+      {manifestPublicModules !== undefined && downModulesFromResolve !== undefined && upModulesFromResolve !== undefined ?
+        `[${manifestPublicModules}m/${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
+      : null}
     </ModuleSummary>
   )
 }

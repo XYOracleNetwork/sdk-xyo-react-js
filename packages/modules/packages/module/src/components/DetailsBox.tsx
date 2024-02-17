@@ -17,24 +17,24 @@ export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ c
   return (
     <FlexCol {...props}>
       <FlexRow>
-        {module
-          ? ['sentinel', 'bridge', 'archivist', 'diviner', 'node'].map((moduleType) => {
-              const icon = getModuleIcon(moduleType, module)
-              return icon ? (
+        {module ?
+          ['sentinel', 'bridge', 'archivist', 'diviner', 'node'].map((moduleType) => {
+            const icon = getModuleIcon(moduleType, module)
+            return icon ?
                 <ButtonEx onClick={() => setShowQueries(!showQueries)} key={moduleType}>
                   {icon}
                 </ButtonEx>
-              ) : null
-            })
-          : null}
+              : null
+          })
+        : null}
         <EthAccountBox address={EthAddress.fromString(module?.address)} />
       </FlexRow>
 
-      {showQueries
-        ? module?.queries.map((query) => {
-            return <FlexRow key={query}>{query}</FlexRow>
-          })
-        : null}
+      {showQueries ?
+        module?.queries.map((query) => {
+          return <FlexRow key={query}>{query}</FlexRow>
+        })
+      : null}
       {children}
     </FlexCol>
   )

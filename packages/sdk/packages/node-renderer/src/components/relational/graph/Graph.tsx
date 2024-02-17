@@ -36,25 +36,26 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
     return (
       <FlexCol id="relational-graph-wrapper" {...props}>
         <FlexRow justifyContent="start" width="100%">
-          {actions === null ? null : actions ? (
+          {actions === null ?
+            null
+          : actions ?
             <ButtonGroup>
               {actions}
               <Button size={'small'} variant={'contained'} onClick={handleReset}>
                 Reset View
               </Button>
             </ButtonGroup>
-          ) : (
-            <Button size={'small'} variant={'contained'} onClick={handleReset}>
+          : <Button size={'small'} variant={'contained'} onClick={handleReset}>
               Reset
             </Button>
-          )}
+          }
         </FlexRow>
         <FlexGrowRow width="100%" alignItems="start">
-          {showDetails ? (
+          {showDetails ?
             <FlexCol height="100%" width={'85%'}>
               {detail}
             </FlexCol>
-          ) : null}
+          : null}
           <FlexCol
             justifyContent="start"
             classes="cytoscape-wrap"

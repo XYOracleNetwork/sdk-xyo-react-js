@@ -27,17 +27,17 @@ export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   const img = new Image()
   img.addEventListener('load', () => setImageLoaded(true))
   img.src = xyoColorLogoText
-  return imageLoaded ? (
-    <ButtonEx href={href} target={target} variant={variant} sx={{ borderRadius: 0, padding: 0, ...sx }} {...props}>
-      <FlexCol padding={0.5}>
-        <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
-          Powered by
-        </Typography>
-        <FlexRow>
-          <XyoBusy busy={busy} />
-          <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
-        </FlexRow>
-      </FlexCol>
-    </ButtonEx>
-  ) : null
+  return imageLoaded ?
+      <ButtonEx href={href} target={target} variant={variant} sx={{ borderRadius: 0, padding: 0, ...sx }} {...props}>
+        <FlexCol padding={0.5}>
+          <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
+            Powered by
+          </Typography>
+          <FlexRow>
+            <XyoBusy busy={busy} />
+            <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
+          </FlexRow>
+        </FlexCol>
+      </ButtonEx>
+    : null
 }

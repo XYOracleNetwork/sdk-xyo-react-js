@@ -1,6 +1,7 @@
 import { Alert, TableBody, Typography } from '@mui/material'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
+import { ReactNode } from 'react'
 
 import { PayloadTableRow } from './TableRow'
 import { PayloadTableBodyProps } from './types'
@@ -21,7 +22,9 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
 
   return (
     <TableBody {...props}>
-      {noResults && NoResultRowComponent ? <NoResultRowComponent /> : null}
+      {noResults && NoResultRowComponent ?
+        <NoResultRowComponent />
+      : null}
       {payloadPairs?.map(([payload, hash], index) => {
         return (
           <ThrownErrorBoundary
@@ -37,11 +40,11 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
               maxSchemaDepth={maxSchemaDepth}
               archive={archive}
               onClick={
-                onRowClick
-                  ? () => {
-                      onRowClick(payload)
-                    }
-                  : undefined
+                onRowClick ?
+                  () => {
+                    onRowClick(payload)
+                  }
+                : undefined
               }
               exploreDomain={exploreDomain}
               payload={payload}
@@ -50,7 +53,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
         )
       })}
       {children}
-      {(emptyRows ?? 0) > 0 && Array(emptyRows).fill(<PayloadTableRow />)}
+      {emptyRows ? (Array.from({ length: emptyRows }).fill(<PayloadTableRow />) as ReactNode[]) : null}
     </TableBody>
   )
 }

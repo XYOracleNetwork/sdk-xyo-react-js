@@ -18,10 +18,9 @@ export const EthgasstationGasPriceDetailsBox = forwardRef<HTMLDivElement, Payloa
 
     return (
       <>
-        {isEmpty(gasPricePayload) || isEmpty(gasPricePayload.gasPrice) ? (
+        {isEmpty(gasPricePayload) || isEmpty(gasPricePayload.gasPrice) ?
           <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
-        ) : (
-          <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+        : <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
             <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
             <Grid container spacing={3}>
               {parsedPayload &&
@@ -39,7 +38,7 @@ export const EthgasstationGasPriceDetailsBox = forwardRef<HTMLDivElement, Payloa
             </Grid>
             <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
           </FlexCol>
-        )}
+        }
       </>
     )
   },

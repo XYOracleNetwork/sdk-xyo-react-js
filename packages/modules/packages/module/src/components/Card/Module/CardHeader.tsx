@@ -18,12 +18,12 @@ export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = (
       avatar={
         avatar ?? (
           <>
-            {module
-              ? moduleTypes.map((moduleType) => {
-                  const Icon = getModuleIcons(moduleType, module)
-                  return Icon ? <Icon key={moduleType} fontSize={'large'} color="primary" /> : null
-                })
-              : null}
+            {module ?
+              moduleTypes.map((moduleType) => {
+                const Icon = getModuleIcons(moduleType, module)
+                return Icon ? <Icon key={moduleType} fontSize={'large'} color="primary" /> : null
+              })
+            : null}
           </>
         )
       }

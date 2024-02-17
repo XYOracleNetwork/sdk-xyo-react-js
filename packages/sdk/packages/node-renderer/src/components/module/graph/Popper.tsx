@@ -14,16 +14,16 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, 
   const { address, name } = node?.data() ?? {}
   return (
     <>
-      {anchorEl ? (
+      {anchorEl ?
         <Popper anchorEl={anchorEl} {...props}>
           <Card elevation={3}>
             <CardHeader
               action={
-                onClose ? (
+                onClose ?
                   <IconButton size="small" onClick={onClose}>
                     <CancelRounded />
                   </IconButton>
-                ) : null
+                : null
               }
               avatar={
                 <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
@@ -34,20 +34,20 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, 
               subheader={address}
             />
             <StyledCardActions>
-              {onModuleDetails ? (
+              {onModuleDetails ?
                 <Button onClick={() => onModuleDetails?.(address)} size="small" variant="contained">
                   Details
                 </Button>
-              ) : null}
-              {onModuleExplore ? (
+              : null}
+              {onModuleExplore ?
                 <Button onClick={() => onModuleExplore?.(address)} size="small" variant="contained">
                   Explore
                 </Button>
-              ) : null}
+              : null}
             </StyledCardActions>
           </Card>
         </Popper>
-      ) : null}
+      : null}
     </>
   )
 }

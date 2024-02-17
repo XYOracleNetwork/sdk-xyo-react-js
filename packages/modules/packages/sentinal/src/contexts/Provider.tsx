@@ -55,7 +55,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
               witnesses: progress.witnesses,
             })
             setStatus(outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed)
-            setReportingErrors([Error(`Witness failed [${module?.config?.name ?? module.address}]`)])
+            setReportingErrors([new Error(`Witness failed [${module?.config?.name ?? module.address}]`)])
           }
         }),
       )
@@ -116,7 +116,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
     setHistory(sentinel?.history as BoundWitness[])
   }, [sentinel])
 
-  return !required || sentinel ? (
-    <SentinelContext.Provider value={{ history, progress, provided: true, reportingErrors, sentinel, status }}>{children}</SentinelContext.Provider>
-  ) : null
+  return !required || sentinel ?
+      <SentinelContext.Provider value={{ history, progress, provided: true, reportingErrors, sentinel, status }}>{children}</SentinelContext.Provider>
+    : null
 }

@@ -26,16 +26,15 @@ const DefaultErrorAlert: React.FC<EmbedErrorCardBaseProps> = ({ alertProps, hide
   return (
     <Alert severity="error" {...alertProps}>
       <AlertTitle>Whoops! Something went wrong</AlertTitle>
-      {!hideErrorDetails && error ? (
+      {!hideErrorDetails && error ?
         <>
           <Typography variant="caption">Error: </Typography>
           <Typography variant="caption">{error?.message}</Typography>
         </>
-      ) : (
-        <Typography variant="caption" fontSize="small">
+      : <Typography variant="caption" fontSize="small">
           Error Loading Plugin
         </Typography>
-      )}
+      }
     </Alert>
   )
 }

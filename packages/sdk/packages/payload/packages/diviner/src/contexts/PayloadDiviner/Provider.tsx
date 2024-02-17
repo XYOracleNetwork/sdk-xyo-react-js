@@ -26,7 +26,11 @@ export const PayloadDivinerProvider: React.FC<PayloadDivinerProviderProps> = ({ 
         setDiviner,
       }}
     >
-      {diviner ? children : required ? null : children}
+      {diviner ?
+        children
+      : required ?
+        null
+      : children}
     </PayloadDivinerContext.Provider>
   )
 }

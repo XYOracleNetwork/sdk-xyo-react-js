@@ -19,9 +19,15 @@ export const GasPriceHeaderActionsBox: React.FC<GasPriceEstimateActionsBoxProps>
 }) => {
   return (
     <FlexRow columnGap={1} rowGap={1} flexWrap="wrap" {...props}>
-      {timestamp ? <Chip label={new Date(timestamp).toLocaleString()} /> : null}
-      {baseFee ? <Chip label={`${baseFeeLabel} - ${baseFee.toFixed(2)} GWEI`} /> : null}
-      {blockNumber ? <Chip label={`${blockNumberLabel} - ${blockNumber}`} /> : null}
+      {timestamp ?
+        <Chip label={new Date(timestamp).toLocaleString()} />
+      : null}
+      {baseFee ?
+        <Chip label={`${baseFeeLabel} - ${baseFee.toFixed(2)} GWEI`} />
+      : null}
+      {blockNumber ?
+        <Chip label={`${blockNumberLabel} - ${blockNumber}`} />
+      : null}
     </FlexRow>
   )
 }

@@ -21,7 +21,11 @@ export const SeedPhraseTableRow: React.FC<SeedPhraseTableRowProps> = ({ changeSe
       <TableCell>
         Seed Phrase <SeedPhraseIconButton />
       </TableCell>
-      <TableCell align="center">{seedPhrase ? <RadioButtonCheckedIcon color="success" /> : <CancelIcon color="error" />}</TableCell>
+      <TableCell align="center">
+        {seedPhrase ?
+          <RadioButtonCheckedIcon color="success" />
+        : <CancelIcon color="error" />}
+      </TableCell>
       <TableCell>
         <SeedPhraseDialog changeSeedPhrase={changeSeedPhrase} open={open} onClose={() => setOpen(false)} seedPhrase={seedPhrase} />
         <ButtonGroup fullWidth>

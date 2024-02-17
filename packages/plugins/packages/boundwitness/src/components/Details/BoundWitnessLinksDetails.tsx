@@ -21,13 +21,11 @@ export const BoundWitnessLinksDetails: React.FC<BoundWitnessLinksDetails> = ({ v
       {value?.previous_hashes.map((hash) => {
         return (
           <Property key={hash} titleProps={{ elevation }} flexGrow={1} title="Previous Hash" tip={hash}>
-            {hash ? (
+            {hash ?
               <FlexRow ref={ref} onClick={() => dispatch?.('boundwitness', 'click', hash)}>
                 <Typography fontFamily="monospace">{hash}</Typography>
               </FlexRow>
-            ) : (
-              'None'
-            )}
+            : 'None'}
           </Property>
         )
       })}

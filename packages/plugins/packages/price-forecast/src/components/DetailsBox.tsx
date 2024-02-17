@@ -49,7 +49,9 @@ export const PriceForecastDetailsBox: React.FC<PriceForecastDetailsBoxProps> = (
 
   return (
     <FlexCol {...props} busy={priceForecastPayload === undefined} minHeight="25vh">
-      {priceForecastPayload ? <Line options={options} data={data} /> : null}
+      {priceForecastPayload ?
+        <Line options={options} data={data} />
+      : null}
     </FlexCol>
   )
 }

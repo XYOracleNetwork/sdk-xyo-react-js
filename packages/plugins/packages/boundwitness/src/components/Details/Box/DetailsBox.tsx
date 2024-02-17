@@ -50,12 +50,12 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRen
         <HeadingPaper IconComponent={<VscSymbolNamespace />} heading={'Payloads'} />
         <BoundWitnessPayloadsTable boundwitness={boundwitness} />
       </FlexCol>
-      {hasBWPayloads ? (
+      {hasBWPayloads ?
         <FlexCol alignItems="stretch" rowGap={1} mb={1}>
           <HeadingPaper IconComponent={<VscSymbolMethod />} heading={'Bound Witnesses'} />
           <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} />
         </FlexCol>
-      ) : null}
+      : null}
       <FlexCol alignItems="stretch" rowGap={1} mb={1}>
         <HeadingPaper IconComponent={<FaSignature />} heading={'Signatures'} />
         <BoundWitnessSignatureTable block={boundwitness} />

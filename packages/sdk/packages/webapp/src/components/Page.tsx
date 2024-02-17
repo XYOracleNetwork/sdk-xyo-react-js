@@ -57,7 +57,7 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   return (
     <WebAppPageRoot mobileScrollingBreakpoint={mobileScrollingBreakpoint} variant={variant} {...props}>
       <Helmet title={title} />
-      {container && container !== 'none' ? (
+      {container && container !== 'none' ?
         <Container
           disableGutters={disableGutters}
           style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
@@ -73,8 +73,7 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
             {children}
           </WebAppBody>
         </Container>
-      ) : (
-        <WebAppBody
+      : <WebAppBody
           disableBreadcrumbGutter={disableBreadcrumbGutter}
           breadcrumbs={breadcrumbs}
           mobileScrollingBreakpoint={mobileScrollingBreakpoint}
@@ -84,7 +83,7 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
         >
           {children}
         </WebAppBody>
-      )}
+      }
     </WebAppPageRoot>
   )
 }

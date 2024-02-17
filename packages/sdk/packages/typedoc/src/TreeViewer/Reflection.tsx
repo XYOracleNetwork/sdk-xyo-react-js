@@ -41,18 +41,18 @@ export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({ look
             {group.children.map((child, jndex) => {
               const searchTermTrimmed = searchTerm?.trim().toLowerCase()
               const childReflection = typeof child === 'number' ? lookup?.[child as number] : child
-              return childReflection && (!searchTermTrimmed || childReflection.name.toLowerCase().includes(searchTermTrimmed)) ? (
-                <TreeItem
-                  key={`secondary-${index}- ${jndex}`}
-                  nodeId={`declaration-${childReflection?.id}`}
-                  label={childReflection.name}
-                  onClick={() => {
-                    const hash = `#${childReflection.name}`
-                    navigate({ hash })
-                    document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                />
-              ) : null
+              return childReflection && (!searchTermTrimmed || childReflection.name.toLowerCase().includes(searchTermTrimmed)) ?
+                  <TreeItem
+                    key={`secondary-${index}- ${jndex}`}
+                    nodeId={`declaration-${childReflection?.id}`}
+                    label={childReflection.name}
+                    onClick={() => {
+                      const hash = `#${childReflection.name}`
+                      navigate({ hash })
+                      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  />
+                : null
             })}
           </TreeItem>
         ))}

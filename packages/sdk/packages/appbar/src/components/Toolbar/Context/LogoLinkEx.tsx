@@ -14,7 +14,7 @@ export const LogoLinkEx: React.FC<LogoLinkExProps> = ({ to = '/', version = fals
     <LinkEx to={to} {...props}>
       <FlexRow paddingX="4px">
         <Logo height="40" width="43" />
-        {version ? (
+        {version ?
           <Typography
             position="absolute"
             borderRadius={1}
@@ -29,7 +29,7 @@ export const LogoLinkEx: React.FC<LogoLinkExProps> = ({ to = '/', version = fals
           >
             {typeof version === 'string' ? version : '2.1'}
           </Typography>
-        ) : null}
+        : null}
       </FlexRow>
     </LinkEx>
   )

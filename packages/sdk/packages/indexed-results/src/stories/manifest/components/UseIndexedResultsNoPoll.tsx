@@ -42,7 +42,9 @@ export const UseIndexedResultsNoPoll: React.FC<UseIndexedResultsProps> = ({ addr
   return (
     <FlexCol alignItems="start">
       <h1>Polling Results from Hook</h1>
-      {results ? <pre>{JSON.stringify(results, null, 2)}</pre> : null}
+      {results ?
+        <pre>{JSON.stringify(results, null, 2)}</pre>
+      : null}
     </FlexCol>
   )
 }

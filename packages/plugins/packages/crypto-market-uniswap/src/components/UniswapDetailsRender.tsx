@@ -14,5 +14,11 @@ export const UniswapDetailsRender: React.FC<PayloadDetailsRenderProps & FlexBoxP
     return <PayloadDataMissing alertBody="Payload is missing valid Uniswap Pairs." />
   }
 
-  return <>{listMode === 'table' ? <UniswapPairsTableView {...props} /> : <UniswapPairsCardView {...props} />}</>
+  return (
+    <>
+      {listMode === 'table' ?
+        <UniswapPairsTableView {...props} />
+      : <UniswapPairsCardView {...props} />}
+    </>
+  )
 }

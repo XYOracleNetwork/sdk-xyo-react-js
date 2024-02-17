@@ -40,22 +40,36 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc
         },
         backgroundColor: alpha(theme.palette.primary.light, 0.05),
       }}
-      onMouseEnter={() => (isMobile ? null : cardIsButton ? setRaised(true) : null)}
-      onMouseLeave={() => (isMobile ? null : cardIsButton ? setRaised(false) : null)}
-      onClick={() => (cardIsButton ? (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404')) : null)}
+      onMouseEnter={() =>
+        isMobile ? null
+        : cardIsButton ? setRaised(true)
+        : null
+      }
+      onMouseLeave={() =>
+        isMobile ? null
+        : cardIsButton ? setRaised(false)
+        : null
+      }
+      onClick={() =>
+        cardIsButton ?
+          href ? externalRouteChange(href)
+          : to ? localRouteChange(to)
+          : navigate('/404')
+        : null
+      }
     >
-      {media ? <CardMedia component="img" height="100" image={media} alt="" /> : null}
+      {media ?
+        <CardMedia component="img" height="100" image={media} alt="" />
+      : null}
 
       <CardContent>
         <Grid container alignItems="center" paddingY={2} paddingX={2}>
           <Grid item xs={12} md={6}>
-            {typeof name === 'string' ? (
+            {typeof name === 'string' ?
               <Typography fontWeight={700} variant="h2" textAlign="left" paddingBottom={1}>
                 {name}
               </Typography>
-            ) : (
-              name
-            )}
+            : name}
           </Grid>
           <Grid item xs={12} md={5}>
             <Typography variant="body1" fontWeight={400} textAlign="left">
@@ -67,7 +81,11 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc
               <IconButton
                 color="primary"
                 size={small ? 'small' : 'medium'}
-                onClick={() => (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404'))}
+                onClick={() =>
+                  href ? externalRouteChange(href)
+                  : to ? localRouteChange(to)
+                  : navigate('/404')
+                }
                 disableFocusRipple
                 disableRipple
                 disableTouchRipple
@@ -83,7 +101,11 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc
           <IconButton
             color="primary"
             size={small ? 'small' : 'medium'}
-            onClick={() => (href ? externalRouteChange(href) : to ? localRouteChange(to) : navigate('/404'))}
+            onClick={() =>
+              href ? externalRouteChange(href)
+              : to ? localRouteChange(to)
+              : navigate('/404')
+            }
             disableFocusRipple
             disableRipple
             disableTouchRipple

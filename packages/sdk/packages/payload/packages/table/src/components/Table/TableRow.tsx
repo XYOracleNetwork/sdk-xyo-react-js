@@ -79,16 +79,14 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
 
   const valid: React.FC<TableCellProps> = (props) => (
     <TableCell key="valid" align="center" {...props}>
-      {isValid === undefined && payload != undefined ? (
+      {isValid === undefined && payload != undefined ?
         <WarningAmberRoundedIcon fontSize="small" color="warning" />
-      ) : isValid === true ? (
+      : isValid === true ?
         <CheckCircleOutlineRoundedIcon fontSize="small" color="success" />
-      ) : isValid === false ? (
+      : isValid === false ?
         <ErrorOutlineRoundedIcon color="error" fontSize="small" />
-      ) : (
         //to keep row height consistent when no data provided, may need fix later
-        <ErrorOutlineRoundedIcon sx={{ color: alpha('#fff', 0) }} fontSize="small" />
-      )}
+      : <ErrorOutlineRoundedIcon sx={{ color: alpha('#fff', 0) }} fontSize="small" />}
     </TableCell>
   )
 
@@ -98,11 +96,11 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     valid,
   }
 
-  return breakPoint ? (
-    <TableRow style={{ maxWidth: '100vw' }} {...props}>
-      {columns[breakPoint]?.map((column) => {
-        return tableCells[column]({})
-      })}
-    </TableRow>
-  ) : null
+  return breakPoint ?
+      <TableRow style={{ maxWidth: '100vw' }} {...props}>
+        {columns[breakPoint]?.map((column) => {
+          return tableCells[column]({})
+        })}
+      </TableRow>
+    : null
 }

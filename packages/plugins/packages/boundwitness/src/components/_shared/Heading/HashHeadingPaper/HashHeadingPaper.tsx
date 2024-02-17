@@ -18,7 +18,7 @@ const HashHeadingPaper = forwardRef<HTMLDivElement, HashHeadingPaperProps>(({ ha
       fallbackText={'No hash provided'}
       ref={ref}
       IconComponent={
-        hash ? (
+        hash ?
           <Identicon
             size={Number.parseInt(theme.spacing(3).replace('px', ''))}
             p={0.25}
@@ -26,7 +26,7 @@ const HashHeadingPaper = forwardRef<HTMLDivElement, HashHeadingPaperProps>(({ ha
             sx={{ background: theme.palette.background.paper }}
             {...identiconProps}
           />
-        ) : null
+        : null
       }
       sx={{ columnGap: 1 }}
       {...props}

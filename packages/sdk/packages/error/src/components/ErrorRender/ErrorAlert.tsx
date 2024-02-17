@@ -13,20 +13,20 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({ onCancel, error, errorCo
   return (
     <Alert severity="error" {...props}>
       <AlertTitle>Whoops! Something went wrong</AlertTitle>
-      {errorContext ? (
+      {errorContext ?
         <Typography variant="caption" my={0.5} lineHeight="1" display="block">
           {errorContext}
         </Typography>
-      ) : null}
+      : null}
       <Typography variant="caption" mr={0.5} fontWeight="bold">
         Error:
       </Typography>
       <Typography variant="caption">{error?.message}</Typography>
-      {onCancel ? (
+      {onCancel ?
         <ButtonEx variant="outlined" size="small" onClick={onCancel} position="absolute" style={{ right: 8, top: 8 }}>
           <ExitIcon fontSize="small" />
         </ButtonEx>
-      ) : null}
+      : null}
     </Alert>
   )
 }

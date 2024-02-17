@@ -14,7 +14,9 @@ export const ModuleCardActions: React.FC<CardActionsProps & ModuleRenderProps> =
   return (
     <CardActions sx={{ alignItems: 'stretch', flexDirection: 'column', ml: 1, ...sx }} {...props}>
       <FlexRow justifyContent="space-between" gap={1} alignItems="center">
-        {module ? <Chip label={config?.schema} size={'small'} /> : null}
+        {module ?
+          <Chip label={config?.schema} size={'small'} />
+        : null}
         {children}
         <ButtonEx onClick={() => setDiscoverDialogOpen(true)} size={'small'} variant={'outlined'}>
           Discover

@@ -1,5 +1,6 @@
 import { ContentCopy as ContentCopyIcon, Visibility as VisibilityIcon } from '@mui/icons-material'
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
+import { forget } from '@xylabs/forget'
 import { ButtonEx } from '@xylabs/react-button'
 import { PayloadHasher } from '@xyo-network/hash'
 import { Payload } from '@xyo-network/payload-model'
@@ -35,12 +36,12 @@ export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({ size, ba
     {
       icon: <ContentCopyIcon />,
       name: 'Copy',
-      onClick: async () => await navigator.clipboard.writeText(hash ?? ''),
+      onClick: () => forget(navigator.clipboard.writeText(hash ?? '')),
     },
   ]
 
-  const onCopy = async () => {
-    await navigator.clipboard.writeText(payloadString)
+  const onCopy = () => {
+    forget(navigator.clipboard.writeText(payloadString))
   }
 
   return (

@@ -42,16 +42,18 @@ export const DrawerEx: React.FC<DrawerExProps> = ({
         onClick={(event) => event.stopPropagation()}
         sx={{ width: widthVariant === 'full' ? '100%' : undefined }}
       >
-        {title || subTitle ? (
+        {title || subTitle ?
           <FlexCol alignItems="start" gap={1}>
-            {title ? <StyledEllipsisTypography variant={'h3'}>{title}</StyledEllipsisTypography> : null}
-            {subTitle ? (
+            {title ?
+              <StyledEllipsisTypography variant={'h3'}>{title}</StyledEllipsisTypography>
+            : null}
+            {subTitle ?
               <Typography variant={'subtitle1'} textTransform="none">
                 {subTitle}
               </Typography>
-            ) : null}
+            : null}
           </FlexCol>
-        ) : null}
+        : null}
         {children}
       </StyledDrawerContentPaper>
     </Drawer>
