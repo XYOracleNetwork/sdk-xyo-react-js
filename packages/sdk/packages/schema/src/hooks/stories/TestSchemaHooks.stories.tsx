@@ -10,6 +10,7 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { SchemaCache } from '@xyo-network/schema-cache'
 import { useState } from 'react'
+import {Address} from '@xylabs/hex'
 
 import { useSchemaDefinitions } from '../useSchemaDefinitions'
 import { useSchemaList } from '../useSchemaList'
@@ -52,8 +53,8 @@ export default {
 
 const Template: StoryFn<React.FC> = () => {
   SchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
-  const [addressText, setAddressText] = useState<string>('')
-  const [address, setAddress] = useState<string>()
+  const [addressText, setAddressText] = useState<Address>('')
+  const [address, setAddress] = useState<Address>()
   const [schemaStats, schemaStatsError] = useSchemaStats(address)
   const [schemaList, schemaListError] = useSchemaList(address)
   const mappedSchemaList = schemaList?.schemas?.map((name) => ({ name })) as { name: string }[]
@@ -63,7 +64,7 @@ const Template: StoryFn<React.FC> = () => {
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
       {schemaStatsError ? <Alert severity={'error'}>{schemaStatsError.message ?? schemaListError?.message}</Alert> : null}
       <FlexGrowRow columnGap={4}>
-        <TextField fullWidth size="small" value={address} label="Address" onChange={(event) => setAddressText(event.target.value)} />
+        <TextField fullWidth size="small" value={address} label="Address" onChange={(event) => setAddressText(event.target.value as Address)} />
         <Button variant="contained" onClick={() => setAddress(addressText)} sx={{ whiteSpace: 'nowrap' }}>
           Get Stats
         </Button>

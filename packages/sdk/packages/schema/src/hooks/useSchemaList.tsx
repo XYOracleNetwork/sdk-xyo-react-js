@@ -1,10 +1,11 @@
+import { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { SchemaListPayload, SchemaListQueryPayload, SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
 import { WithMeta } from '@xyo-network/payload-model'
 import { useDivinerFromNode } from '@xyo-network/react-diviner'
 import { useEffect, useMemo, useState } from 'react'
 
-export const useSchemaList = (address?: string, nameOrAddress = 'SchemaListDiviner'): [SchemaListPayload | null | undefined, Error | undefined] => {
+export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDiviner'): [SchemaListPayload | null | undefined, Error | undefined] => {
   const [schemaList, setSchemaList] = useState<SchemaListPayload | null>()
   const [error, setError] = useState<Error>()
   const [diviner, divinerError] = useDivinerFromNode(nameOrAddress)

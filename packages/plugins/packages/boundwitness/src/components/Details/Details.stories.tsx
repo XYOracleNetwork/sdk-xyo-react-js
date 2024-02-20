@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { BoundWitnessLinksDetails } from './BoundWitnessLinksDetails'
 import { BoundWitnessDetails } from './Details'
+import {Hash} from '@xylabs/hex'
 
 const StorybookEntry = {
   argTypes: {},
@@ -57,7 +58,7 @@ const WithArchiveLink = Template.bind({})
 WithArchiveLink.args = { payload: sampleBlock }
 
 const WithPreviousHash = Template.bind({})
-const payload = { ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] }
+const payload = { ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] as Hash[] }
 WithPreviousHash.args = {
   children: (
     <>

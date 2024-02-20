@@ -1,3 +1,4 @@
+import { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { AddressHistoryQueryPayload, AddressHistoryQuerySchema } from '@xyo-network/diviner-address-history-model'
@@ -7,7 +8,7 @@ import { WithMeta, WithSources } from '@xyo-network/payload-model'
 import { useDivinerFromNode } from '@xyo-network/react-diviner'
 import { useState } from 'react'
 
-export const useAddressHistory = (address?: string): [BoundWitness[] | undefined, Error | undefined, () => void] => {
+export const useAddressHistory = (address?: Address): [BoundWitness[] | undefined, Error | undefined, () => void] => {
   const [diviner, divinerError] = useDivinerFromNode(TYPES.AddressHistoryDiviner)
   const [refresh, setRefresh] = useState(1)
   const [blocks, setBlocks] = useState<BoundWitness[]>()

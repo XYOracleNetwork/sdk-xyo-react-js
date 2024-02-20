@@ -1,3 +1,4 @@
+import { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import {
   SchemaStatsDivinerSchema,
@@ -11,7 +12,7 @@ import { useDivinerFromNode } from '@xyo-network/react-diviner'
 import { Dispatch, SetStateAction, useMemo, useState } from 'react'
 
 export const useSchemaStats = (
-  statsAddress?: string,
+  statsAddress?: Address,
   nameOrAddress = TYPES.SchemaStatsDiviner,
 ): [SchemaStatsPayload[] | undefined, Error | undefined, Dispatch<SetStateAction<number>>] => {
   const [refresh, setRefresh] = useState(1)
