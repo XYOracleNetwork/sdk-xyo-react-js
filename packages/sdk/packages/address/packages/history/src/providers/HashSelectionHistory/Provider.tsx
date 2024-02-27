@@ -1,3 +1,4 @@
+import { Hash } from '@xylabs/hex'
 import { useMounted, WithChildren } from '@xylabs/react-shared'
 import { ArchivistInstance } from '@xyo-network/archivist'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
@@ -11,7 +12,7 @@ import { useActiveBoundWitness } from '../../hooks'
 
 export interface HashSelectionHistoryProviderProps extends WithChildren, ContextExProviderProps {
   archivist?: ArchivistInstance | null
-  defaultHashSelectionHistory?: string[]
+  defaultHashSelectionHistory?: Hash[]
   defaultNestedBoundWitnesses?: NestedBoundWitnesses
 }
 
@@ -23,7 +24,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
 }) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   const mounted = useMounted()
-  const [hashSelectionHistory, setHashSelectionHistory] = useState<string[]>(defaultHashSelectionHistory)
+  const [hashSelectionHistory, setHashSelectionHistory] = useState<Hash[]>(defaultHashSelectionHistory)
   const [nestedBoundWitnesses, setNestedBoundWitnesses] = useState<NestedBoundWitnesses>(defaultNestedBoundWitnesses)
   const [error, setError] = useState<ModuleError>()
 
@@ -64,7 +65,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
     return null
   }
 
-  const fetchFromHash = async (hash?: string) => {
+  const fetchFromHash = async (hash?: Hash) => {
     if (!archivist || !hash) {
       return null
     }

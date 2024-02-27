@@ -1,4 +1,5 @@
 import { Divider, List, ListProps, Skeleton, styled, useTheme } from '@mui/material'
+import { Address, Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
@@ -14,7 +15,7 @@ const AddressChainList = styled(List, { name: 'AddressChainList' })(() => ({
 }))
 
 export interface AddressChainProps extends ListProps {
-  address?: string
+  address?: Address
   addressHistory?: BoundWitness[]
   selectable?: boolean
   skeleton?: boolean
@@ -29,7 +30,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
 
   const orderedAddressHistoryPairs = usePayloadHashes(orderedAddressHistory)
 
-  const handleClick = (hash: string) => {
+  const handleClick = (hash: Hash) => {
     setActiveBoundWitnessHash?.(hash)
     dispatch('boundwitness', 'click', hash)
   }

@@ -5,12 +5,12 @@ import { useSchema } from '../../contexts'
 
 export type SchemaSelectExProps = SelectExProps<string>
 
-export const SchemaSelectEx: React.FC<SchemaSelectExProps> = ({ onChange, ...props }) => {
+export const SchemaSelectEx: React.FC<SchemaSelectExProps> = ({ onChange, variant = 'outlined', ...props }) => {
   const { schema, setSchema, schemaList } = useSchema(false)
 
   return (
     <SelectEx
-      variant="outlined"
+      variant={variant}
       size="small"
       value={schema ?? 'none'}
       onChange={(event, child) => {

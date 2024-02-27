@@ -1,4 +1,5 @@
-import { MenuItem, Select, SelectProps } from '@mui/material'
+import { MenuItem } from '@mui/material'
+import { SelectEx, SelectExProps } from '@xylabs/react-select'
 
 import { useEmbedPluginState } from '../../contexts'
 import { EmbedFormControl } from './EmbedFormControl'
@@ -6,17 +7,17 @@ import { EmbedFormControl } from './EmbedFormControl'
 const renderSelectId = 'render-select-id'
 const renderSelectLabel = 'Renderer'
 
-export const EmbedRenderSelect: React.FC<SelectProps> = (props) => {
+export const EmbedRenderSelect: React.FC<SelectExProps<string>> = (props) => {
   const { activePlugin, setActivePlugin, plugins } = useEmbedPluginState()
   return (
     <EmbedFormControl formId={renderSelectId} formLabel={renderSelectLabel}>
-      <Select size="small" value={activePlugin?.name} {...props}>
+      <SelectEx size="small" value={activePlugin?.name} {...props}>
         {plugins?.map((plugin) => (
           <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin?.(plugin)}>
             {plugin.name}
           </MenuItem>
         ))}
-      </Select>
+      </SelectEx>
     </EmbedFormControl>
   )
 }

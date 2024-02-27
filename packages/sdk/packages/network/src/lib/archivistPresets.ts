@@ -1,11 +1,12 @@
+import { Hash } from '@xylabs/hex'
 import { NetworkNodePayload, NetworkNodeSchema } from '@xyo-network/network'
 
 import { ExplorerMapHashes } from './ExplorerMapHashes'
 
 export type ArchivistPreset = NetworkNodePayload & {
   explorerMapHashes?: {
-    animatedAnswerHashes: string[]
-    staticAnswerHash: string
+    animatedAnswerHashes: Hash[]
+    staticAnswerHash: Hash
   }
 }
 

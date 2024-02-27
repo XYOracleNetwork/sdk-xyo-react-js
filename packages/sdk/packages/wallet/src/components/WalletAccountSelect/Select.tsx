@@ -7,10 +7,12 @@ import { useWallet } from '../../hooks'
 
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxProps, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 
-export interface WalletAccountSelectProps extends SharedAddressRenderRowBoxProps, SelectProps<number> {
-  addressNames?: Record<string, string | undefined>
-  maxAccounts?: number
-}
+export type WalletAccountSelectProps = SharedAddressRenderRowBoxProps &
+  Omit<SelectProps<number>, 'variant'> &
+  Partial<SelectProps<number>> & {
+    addressNames?: Record<string, string | undefined>
+    maxAccounts?: number
+  }
 
 const arrayRange = (length: number, start = 0) => {
   return [...Array.from({ length }).keys()].map((x) => x + start)
@@ -24,6 +26,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
   maxAccounts = 1,
   showFavorite = false,
   size,
+  variant = 'outlined',
   ...props
 }) => {
   const { activeAccountIndex = 0, setActiveAccountIndex, coinTypeWallet } = useWalletContext()
@@ -61,7 +64,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
           value={activeAccountIndex}
           onChange={(event) => setActiveAccountIndex?.(Number.parseInt(`${event.target.value}`))}
           size={size}
-          variant="outlined"
+          variant={variant}
           {...props}
         >
           {arrayRange(maxAccounts).map((index) => {

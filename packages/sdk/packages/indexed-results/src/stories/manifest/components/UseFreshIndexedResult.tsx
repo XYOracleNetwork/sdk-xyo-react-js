@@ -1,4 +1,5 @@
 import { exists } from '@xylabs/exists'
+import { Hash } from '@xylabs/hex'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
@@ -33,8 +34,8 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
             return (
               await Promise.all(
                 payloads.map(async (payload) => {
-                  const castPayload = payload as Payload & { sources: string[] }
-                  const results = (await archivist?.get(castPayload.sources as string[])) ?? []
+                  const castPayload = payload as Payload & { sources: Hash[] }
+                  const results = (await archivist?.get(castPayload.sources as Hash[])) ?? []
                   const filteredResult = results.find(isEvmTokenInterfaceImplemented)
                   return filteredResult
                 }),

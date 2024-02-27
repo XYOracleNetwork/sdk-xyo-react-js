@@ -1,3 +1,4 @@
+import { Hash } from '@xylabs/hex'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
 import { Payload } from '@xyo-network/payload-model'
@@ -20,8 +21,8 @@ export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({ address, c
           parseIndexedResults: async (payloads: Payload[]) => {
             return await Promise.all(
               payloads.map(async (payload) => {
-                const castPayload = payload as Payload & { sources: string[] }
-                const results = (await archivist?.get(castPayload.sources as string[])) ?? []
+                const castPayload = payload as Payload & { sources: Hash[] }
+                const results = (await archivist?.get(castPayload.sources as Hash[])) ?? []
                 // return contract payload
                 return results[1]
               }),

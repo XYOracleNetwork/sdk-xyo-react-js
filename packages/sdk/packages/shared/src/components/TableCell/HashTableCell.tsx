@@ -1,3 +1,4 @@
+import { Hash } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { useRef } from 'react'
 
@@ -17,7 +18,7 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({ value, archive, da
   const explorePath = archive ? `/archive/${archive}${hashPath}` : hashPath
 
   const handleCellClick = () => {
-    dispatch?.('hash', 'click', value)
+    dispatch?.('hash', 'click', value as Hash)
   }
 
   return (

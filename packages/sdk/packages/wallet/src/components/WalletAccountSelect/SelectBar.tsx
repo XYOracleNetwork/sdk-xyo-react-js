@@ -33,6 +33,7 @@ export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({
         icons={icons}
         maxAccounts={maxAccounts}
         size={size ?? 'small'}
+        variant="outlined"
       />
     </FlexCol>
   )

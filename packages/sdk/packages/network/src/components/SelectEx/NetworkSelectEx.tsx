@@ -6,16 +6,17 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { useNetwork } from '../../contexts'
 import { findNetworkConfig } from '../../lib'
 
-export interface NetworkSelectExProps extends SelectExProps<string> {
-  responsive?: boolean
-}
+export type NetworkSelectExProps = Omit<SelectExProps<string>, 'variant'> &
+  Partial<SelectExProps<string>> & {
+    responsive?: boolean
+  }
 
-export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, responsive = true, ...props }) => {
+export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, variant = 'outlined', responsive = true, ...props }) => {
   const { network, setNetwork, networks } = useNetwork(false)
   const sm = useBreakpoint() === 'sm'
   return (
     <SelectEx
-      variant="outlined"
+      variant={variant}
       size="small"
       value={network?.slug ?? ''}
       onChange={(event, child) => {

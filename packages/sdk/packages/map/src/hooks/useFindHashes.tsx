@@ -1,7 +1,8 @@
+import { Hash } from '@xylabs/hex'
 import { ArchivistPreset, useNetwork } from '@xyo-network/react-network'
 import { useMemo } from 'react'
 
-const animatedAnswerHashesConst = [
+const animatedAnswerHashesConst: Hash[] = [
   '79af071f451fc7af10d009dc63236ef9a9b211732c1ee0c06f028fcecf2336c5',
   '531bfba6d8dfefd3bcc888aca54cdbbd4574ed2b3ec551b230845a1f9a608898',
   'c874412b4faa4947de81372fd1ba12fdd6f43f5e408622b7f357cb2bcb3f17cb',
@@ -15,7 +16,7 @@ const animatedAnswerHashesConst = [
   '32d377bfe7ebe382598c54dd13f8af7510e0a1e2fd2e913311fdd58e517e5e2e,',
 ]
 
-const staticAnswerHashConst = 'c7bbf61f61cfd4a1b2def160c28136fc1d100d39fbdb67b227a2c6e558d9d3a5'
+const staticAnswerHashConst: Hash = 'c7bbf61f61cfd4a1b2def160c28136fc1d100d39fbdb67b227a2c6e558d9d3a5'
 
 export const useFindHashes = () => {
   const { network } = useNetwork()

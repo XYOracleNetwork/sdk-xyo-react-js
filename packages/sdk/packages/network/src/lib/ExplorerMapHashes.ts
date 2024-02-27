@@ -1,4 +1,5 @@
-export const ExplorerMapHashes = {
+import { Hash } from '@xylabs/hex'
+export const ExplorerMapHashes: { animatedAnswerHashes: Hash[]; staticAnswerHash: Hash } = {
   animatedAnswerHashes: [
     '79af071f451fc7af10d009dc63236ef9a9b211732c1ee0c06f028fcecf2336c5',
     '531bfba6d8dfefd3bcc888aca54cdbbd4574ed2b3ec551b230845a1f9a608898',

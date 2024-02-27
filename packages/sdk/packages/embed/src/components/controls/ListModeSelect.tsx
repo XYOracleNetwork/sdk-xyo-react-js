@@ -1,4 +1,5 @@
-import { MenuItem, Select, SelectProps } from '@mui/material'
+import { MenuItem } from '@mui/material'
+import { SelectEx, SelectExProps } from '@xylabs/react-select'
 import { ListMode, useListMode } from '@xyo-network/react-shared'
 
 import { EmbedFormControl } from './EmbedFormControl'
@@ -6,11 +7,11 @@ import { EmbedFormControl } from './EmbedFormControl'
 const listModeSelectId = 'listmode-select-id'
 const listModeSelectLabel = 'List Mode'
 
-export const ListModeSelect: React.FC<SelectProps<ListMode>> = (props) => {
+export const ListModeSelect: React.FC<SelectExProps<ListMode>> = (props) => {
   const { listMode, setListMode } = useListMode()
 
   return (
-    <Select<ListMode>
+    <SelectEx<ListMode>
       value={(listMode ?? 'default') as ListMode}
       onChange={(event) => {
         setListMode?.(event.target.value as ListMode)
@@ -26,11 +27,11 @@ export const ListModeSelect: React.FC<SelectProps<ListMode>> = (props) => {
       <MenuItem key="grid" value="grid">
         Grid
       </MenuItem>
-    </Select>
+    </SelectEx>
   )
 }
 
-export const ListModeSelectFormControl: React.FC<SelectProps<ListMode>> = (props) => {
+export const ListModeSelectFormControl: React.FC<SelectExProps<ListMode>> = (props) => {
   return (
     <EmbedFormControl formId={listModeSelectId} formLabel={listModeSelectLabel}>
       <ListModeSelect size="small" label={listModeSelectLabel} labelId={listModeSelectId} {...props} />
