@@ -2,7 +2,7 @@ import { generateMnemonic, validateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { WithChildren } from '@xylabs/react-shared'
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { SeedPhraseContext } from './Context'
 
@@ -37,40 +37,40 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   }, [defaultPhrase])
 
   useEffect(() => {
-    if (!open) {
-      handleCancelOverwrite()
-    }
-  }, [open])
-
-  useEffect(() => {
     if (seedPhrase || open) {
       setPhrase?.(seedPhrase ?? '')
     }
   }, [seedPhrase, open, setPhrase])
 
-  const handleGenerate = () => {
+  const handleGenerate = useCallback(() => {
     const mnemonic = generateMnemonic(wordlist, 256)
     setPhrase?.(mnemonic)
     setOverwriteWarning?.(false)
-  }
+  }, [])
 
-  const handleCancelOverwrite = () => {
+  const handleCancelOverwrite = useCallback(() => {
     setOverwriteWarning?.(false)
-  }
+  }, [])
 
-  const handleClear = () => {
+  const handleClear = useCallback(() => {
     setPhrase?.('')
     setOverwriteWarning?.(false)
-  }
+  }, [])
 
-  const handleSave = () => {
+  const handleSave = useCallback(() => {
     if (!overwriteWarning && seedPhrase && seedPhrase !== phrase) {
       setOverwriteWarning?.(true)
     } else {
       handleChangeSeedPhrase?.(phrase ?? '')
       saveCallback?.()
     }
-  }
+  }, [handleChangeSeedPhrase, overwriteWarning, phrase, saveCallback, seedPhrase])
+
+  useEffect(() => {
+    if (!open) {
+      handleCancelOverwrite()
+    }
+  }, [handleCancelOverwrite, open])
 
   const validSeedPhrase = useMemo(() => validate?.(seedPhrase), [seedPhrase])
   const validPhrase = useMemo(() => validate?.(phrase), [phrase])
