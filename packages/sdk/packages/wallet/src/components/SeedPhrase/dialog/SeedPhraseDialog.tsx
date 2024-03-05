@@ -1,8 +1,8 @@
-import { Dialog, DialogContent, DialogProps, DialogTitle } from '@mui/material'
+import { Dialog, DialogContent, DialogProps, DialogTitle, FormLabel } from '@mui/material'
 
 import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts'
 import { SeedPhraseIconButton } from '../_shared'
-import { DialogActionButtons, NewPhraseTextField, OverwriteWarning, SavedPhraseTextField } from './components'
+import { DialogActionButtons, NewPhraseTextField, OverwriteWarning, PhraseDialogActions, PhraseHeaderBox, SavedPhraseTextField } from './components'
 
 export interface SeedPhraseDialogProps extends DialogProps {
   changeSeedPhrase?: (value: string) => void
@@ -23,7 +23,7 @@ export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({ changeSeedPh
 }
 
 export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) => {
-  const { overwriteWarning, seedPhrase } = useSeedPhrase()
+  const { overwriteWarning, seedPhrase, validPhrase } = useSeedPhrase()
 
   return (
     <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" fullWidth maxWidth={'sm'} {...props}>
@@ -31,7 +31,12 @@ export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) =>
         Update Your Seed Phrase <SeedPhraseIconButton />
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', rowGap: 2 }}>
-        <NewPhraseTextField />
+        <NewPhraseTextField>
+          <FormLabel>
+            <PhraseHeaderBox conditional={validPhrase}>New Seed Phrase</PhraseHeaderBox>
+          </FormLabel>
+        </NewPhraseTextField>
+        <PhraseDialogActions />
         {seedPhrase ?
           <SavedPhraseTextField />
         : null}

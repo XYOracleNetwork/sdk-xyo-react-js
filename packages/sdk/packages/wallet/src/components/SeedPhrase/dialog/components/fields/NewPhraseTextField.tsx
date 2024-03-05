@@ -1,19 +1,23 @@
-import { Button, DialogActions, FormControl, FormLabel, StandardTextFieldProps, TextField } from '@mui/material'
+import { FormControl, StandardTextFieldProps, TextField } from '@mui/material'
+import { ReactNode } from 'react'
 
 import { useSeedPhrase } from '../../../../../contexts'
-import { colorParser, InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages'
+import { colorParser, InvalidPhraseTypography } from './validation-messages'
 
-export const NewPhraseTextField: React.FC<StandardTextFieldProps> = (props) => {
-  const { handleClear, handleGenerate, overwriteWarning, phrase, setPhrase, validPhrase } = useSeedPhrase()
+export interface NewPhraseTextFieldProps extends StandardTextFieldProps {
+  children?: ReactNode
+  disableColor?: boolean
+}
+
+export const NewPhraseTextField: React.FC<NewPhraseTextFieldProps> = ({ children, disableColor, ...props }) => {
+  const { phrase, setPhrase, validPhrase } = useSeedPhrase()
   return (
     <>
       <FormControl fullWidth size="small" sx={{ display: 'flex', flexDirection: 'column', rowGap: 1 }}>
-        <FormLabel>
-          <PhraseHeaderBox conditional={validPhrase}>New Seed Phrase</PhraseHeaderBox>
-        </FormLabel>
+        {children}
         <TextField
           focused
-          color={colorParser(validPhrase)}
+          color={disableColor ? undefined : colorParser(validPhrase)}
           error={validPhrase === false}
           helperText={validPhrase === false ? <InvalidPhraseTypography /> : null}
           fullWidth
@@ -24,14 +28,6 @@ export const NewPhraseTextField: React.FC<StandardTextFieldProps> = (props) => {
           {...props}
         />
       </FormControl>
-      <DialogActions sx={{ justifyContent: 'center' }}>
-        <Button disabled={overwriteWarning} variant="outlined" onClick={handleGenerate}>
-          Generate
-        </Button>
-        <Button variant="outlined" onClick={handleClear}>
-          Clear
-        </Button>
-      </DialogActions>
     </>
   )
 }
