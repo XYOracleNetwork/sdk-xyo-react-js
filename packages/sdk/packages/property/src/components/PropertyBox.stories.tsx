@@ -19,9 +19,9 @@ const StorybookEntry = {
   title: 'property/PropertyBox',
 } as Meta<typeof Property>
 
-const Template: StoryFn<typeof Property> = (args: PropertyProps) => <Property {...args} paper={false}></Property>
+const Template: StoryFn = (args: PropertyProps) => <Property {...args} paper={false}></Property>
 
-const TemplateWithCompare: StoryFn<typeof Property> = (args: PropertyProps) => (
+const TemplateWithCompare: StoryFn = (args: PropertyProps) => (
   <FlexCol gap={1} alignItems="stretch">
     <FlexRow gap={1}>
       <TextField size="small" value="Sample text Field" />

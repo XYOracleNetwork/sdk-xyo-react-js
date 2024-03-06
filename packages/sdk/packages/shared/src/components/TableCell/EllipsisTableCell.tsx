@@ -1,6 +1,5 @@
 import { styled, TableCell, TableCellProps } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
-import type { WithChildren } from '@xylabs/react-shared'
 import { forwardRef, useMemo } from 'react'
 import { To } from 'react-router-dom'
 
@@ -14,7 +13,7 @@ const EllipsisTableCellRoot = styled(TableCell, {
   width,
 }))
 
-export interface EllipsisTableCellProps extends TableCellProps {
+export interface EllipsisTableCellProps extends Omit<TableCellProps, 'ref'> {
   href?: string
   link?: boolean
   to?: To
@@ -28,7 +27,7 @@ export interface EllipsisTableCellProps extends TableCellProps {
   width?: string | number
 }
 
-export const EllipsisTableCellWithRef: React.FC<WithChildren<EllipsisTableCellProps>> = forwardRef(
+export const EllipsisTableCellWithRef = forwardRef<HTMLElement, EllipsisTableCellProps>(
   ({ children, href, link = false, to, value, ...props }, ref) => {
     const data = useMemo(() => {
       if (children) {

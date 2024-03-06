@@ -13,7 +13,7 @@ const StorybookEntry: Meta = {
   title: 'Schema/SchemaProperty',
 }
 
-const Template: StoryFn<typeof SchemaProperty> = (args: SchemaPropertyProps) => {
+const Template: StoryFn = (args: SchemaPropertyProps) => {
   const [ref] = useEvent<HTMLDivElement>((noun, verb, data) => {
     console.log(`${noun}|${verb}|${data}`)
   })

@@ -11,7 +11,7 @@ export interface PageCardProps extends CardExProps {
   subheader?: CardHeaderProps['subheader']
 }
 
-const PageCardWithRef: React.FC<PageCardProps> = forwardRef(({ subheader, title, onRefresh, children, action, style, ...props }, ref) => {
+const PageCardWithRef = forwardRef<HTMLDivElement, PageCardProps>(({ subheader, title, onRefresh, children, action, style, ...props }, ref) => {
   return (
     <CardEx style={{ backgroundColor: 'transparent', position: 'relative', ...style }} elevation={0} ref={ref} {...props}>
       <CardHeader

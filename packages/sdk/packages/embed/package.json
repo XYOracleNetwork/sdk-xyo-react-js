@@ -10,16 +10,22 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/delay": "^3.0.5",
-    "@xylabs/react-async-effect": "^3.1.2",
-    "@xylabs/react-flexbox": "^3.1.2",
-    "@xylabs/react-shared": "^3.1.2",
-    "@xyo-network/huri": "^2.91.3",
-    "@xyo-network/payload-model": "^2.91.3",
+    "@mui/icons-material": "^5.15.12",
+    "@mui/material": "^5.15.12",
+    "@mui/styles": "^5.15.12",
+    "@xylabs/delay": "^3.0.8",
+    "@xylabs/react-async-effect": "^3.1.4",
+    "@xylabs/react-flexbox": "^3.1.4",
+    "@xylabs/react-select": "^3.1.4",
+    "@xylabs/react-shared": "^3.1.4",
+    "@xyo-network/huri": "^2.92.0",
+    "@xyo-network/payload-model": "^2.92.0",
     "@xyo-network/react-error": "workspace:~",
     "@xyo-network/react-payload-plugin": "workspace:~",
     "@xyo-network/react-shared": "workspace:~",
-    "@xyo-network/schema-cache": "^2.91.3"
+    "@xyo-network/schema-cache": "^2.92.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@storybook/react": "^7.6.17",
@@ -27,15 +33,8 @@
     "@xylabs/tsconfig-react": "^3.4.1",
     "@xyo-network/react-aggregate-price-plugin": "workspace:~",
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:~",
-    "react-router-dom": "^6.22.1",
-    "typescript": "^5.3.3"
-  },
-  "peerDependencies": {
-    "@mui/icons-material": "^5",
-    "@mui/material": "^5",
-    "@mui/styles": "^5",
-    "react": "^18",
-    "react-dom": "^18"
+    "react-router-dom": "^6.22.2",
+    "typescript": "^5.4.2"
   },
   "description": "Common React library for all XYO projects that use React",
   "docs": "dist/docs.json",

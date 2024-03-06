@@ -11,7 +11,7 @@ import {
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { ListMode } from '@xyo-network/react-shared'
-import { ComponentType } from 'react'
+import { ComponentType, ForwardRefExoticComponent, PropsWithoutRef } from 'react'
 
 export interface PayloadRenderProps<T extends Payload = Payload> {
   payload?: T
@@ -33,9 +33,9 @@ export interface PayloadRenderPluginBase {
 }
 
 export interface PayloadRenderPluginCardComponents {
-  actionArea: ComponentType<PayloadRenderProps & CardActionAreaProps>
-  content: ComponentType<PayloadRenderProps & CardContentProps>
-  header: ComponentType<PayloadRenderProps & CardHeaderProps>
+  actionArea: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & CardActionAreaProps>>
+  content: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & CardContentProps>>
+  header: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & CardHeaderProps>>
 }
 
 export interface PayloadRenderPluginAvatarComponents {
@@ -47,8 +47,8 @@ export interface PayloadRenderPluginTableComponents {
 }
 
 export interface PayloadRenderPluginMenuComponents {
-  item: ComponentType<PayloadRenderProps & MenuItemProps>
-  list: ComponentType<PayloadRenderProps & MenuListProps>
+  item: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & MenuItemProps>>
+  list: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & MenuListProps>>
 }
 
 export interface PayloadRenderPluginBoxComponents {

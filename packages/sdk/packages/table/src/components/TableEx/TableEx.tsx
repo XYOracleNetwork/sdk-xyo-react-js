@@ -7,7 +7,7 @@ export interface TableExProps extends PropsWithChildren, TableProps {
   variant?: TableExVariants
 }
 
-const TableExInner: React.FC<TableExProps> = forwardRef(({ children, ...props }, ref) => {
+const TableExInner = forwardRef<HTMLTableElement, TableExProps>(({ children, ...props }, ref) => {
   return (
     <Table ref={ref} {...props}>
       {children}
@@ -17,7 +17,7 @@ const TableExInner: React.FC<TableExProps> = forwardRef(({ children, ...props },
 
 TableExInner.displayName = 'TableExInner'
 
-export const TableExWithRef: React.FC<TableExProps> = forwardRef(({ variant, children, ...props }, ref) => {
+export const TableExWithRef = forwardRef<HTMLTableElement, TableExProps>(({ variant, children, ...props }, ref) => {
   return (
     <TableExInner stickyHeader={variant === 'scrollable'} ref={ref} {...props}>
       {children}

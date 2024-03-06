@@ -3,7 +3,7 @@ import { Identicon } from '@xylabs/react-identicon'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Payload } from '@xyo-network/payload-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode } from 'react'
 
 import { BWActions, BWHeading } from '../../_shared'
 
@@ -18,52 +18,56 @@ export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   payload?: Payload
 }
 
-export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
-  active = false,
-  activeBgColor = true,
-  additionalActions,
-  hideJSONButton,
-  hidePreviousHash,
-  hideTimestamp,
-  hideValidation,
-  payload,
-  ...props
-}) => {
-  const boundwitness = payload as Payload<BoundWitness>
-  const theme = useTheme()
-  const hash = usePayloadHash(boundwitness)
+export const BoundWitnessCardHeader = forwardRef<HTMLElement, BoundWitnessCardHeaderProps>(
+  ({
+    active = false,
+    activeBgColor = true,
+    additionalActions,
+    hideJSONButton,
+    hidePreviousHash,
+    hideTimestamp,
+    hideValidation,
+    payload,
+    ...props
+  }) => {
+    const boundwitness = payload as Payload<BoundWitness>
+    const theme = useTheme()
+    const hash = usePayloadHash(boundwitness)
 
-  return (
-    <CardHeaderHash
-      active={active}
-      activeBgColor={activeBgColor}
-      title={
-        <BWHeading
-          heading={hash}
-          IconComponent={
-            <Identicon
-              size={Number.parseInt(theme.spacing(2.5).replace('px', ''))}
-              p={0.5}
-              value={hash}
-              sx={{ background: theme.palette.background.paper }}
-            />
-          }
-        />
-      }
-      action={
-        <BWActions
-          hideJSONButton={hideJSONButton}
-          hideValidation={hideValidation}
-          hidePreviousHash={hidePreviousHash}
-          hideTimestamp={hideTimestamp}
-          boundwitness={boundwitness}
-          additionalActions={additionalActions}
-        />
-      }
-      {...props}
-    />
-  )
-}
+    return (
+      <CardHeaderHash
+        active={active}
+        activeBgColor={activeBgColor}
+        title={
+          <BWHeading
+            heading={hash}
+            IconComponent={
+              <Identicon
+                size={Number.parseInt(theme.spacing(2.5).replace('px', ''))}
+                p={0.5}
+                value={hash}
+                sx={{ background: theme.palette.background.paper }}
+              />
+            }
+          />
+        }
+        action={
+          <BWActions
+            hideJSONButton={hideJSONButton}
+            hideValidation={hideValidation}
+            hidePreviousHash={hidePreviousHash}
+            hideTimestamp={hideTimestamp}
+            boundwitness={boundwitness}
+            additionalActions={additionalActions}
+          />
+        }
+        {...props}
+      />
+    )
+  },
+)
+
+BoundWitnessCardHeader.displayName = 'BoundWitnessCardHeader'
 
 interface CardHeaderHashProps extends CardHeaderProps {
   active?: boolean
