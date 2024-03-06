@@ -3,7 +3,7 @@ import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import { useCallback } from 'react'
 // eslint-disable-next-line import/no-internal-modules
-import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc/index.js'
+import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 interface SchemaAvatarGroupProps extends AvatarGroupProps {
   maxAvatars?: number

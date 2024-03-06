@@ -2,9 +2,9 @@ import { BottomNavigation, BottomNavigationAction, BottomNavigationProps, styled
 import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { Dispatch, forwardRef, SetStateAction } from 'react'
 // eslint-disable-next-line import/no-internal-modules
-import { FaSignature } from 'react-icons/fa/index.js'
+import { FaSignature } from 'react-icons/fa'
 // eslint-disable-next-line import/no-internal-modules
-import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc/index.js'
+import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps {
   activeTab?: number

@@ -6,9 +6,9 @@ import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import { forwardRef, useMemo } from 'react'
 // eslint-disable-next-line import/no-internal-modules
-import { FaSignature } from 'react-icons/fa/index.js'
+import { FaSignature } from 'react-icons/fa'
 // eslint-disable-next-line import/no-internal-modules
-import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc/index.js'
+import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 import {
   BoundWitnessPayloadsTable,

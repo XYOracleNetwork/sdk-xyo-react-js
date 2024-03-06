@@ -8,7 +8,7 @@ import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import { ReactElement } from 'react'
 // eslint-disable-next-line import/no-internal-modules
-import { MdClear, MdDone } from 'react-icons/md/index.js'
+import { MdClear, MdDone } from 'react-icons/md'
 
 import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig'
 
