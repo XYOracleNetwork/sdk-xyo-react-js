@@ -1,5 +1,5 @@
 import { IconButton, IconButtonProps } from '@mui/material'
-import { Payload, WithSchema } from '@xyo-network/payload-model'
+import { Payload } from '@xyo-network/payload-model'
 import { forwardRef, MouseEventHandler, ReactNode, useState } from 'react'
 
 import { RawInfoDialog } from './Dialog'
@@ -26,7 +26,7 @@ export interface RawInfoIconProps extends IconButtonProps {
   iconOnly?: boolean
   iconSize?: number
   onCloseCallback?: () => void
-  payload?: Payload<WithSchema>
+  payload?: Payload
   presetIconSize?: IconSize
 }
 
@@ -50,9 +50,7 @@ export const RawInfoIcon = forwardRef<HTMLButtonElement, RawInfoIconProps>(
         <IconButton onClick={handleClick} ref={ref} {...props}>
           <img src={xyoColorLogo} height={size ?? iconSize} width={size ?? iconSize} />
         </IconButton>
-        {iconOnly ?
-          <RawInfoDialog payload={payload} onCloseCallback={onCloseCallBackWrapped} dialogContent={dialogContent} open={open} />
-        : null}
+        {iconOnly ? null : <RawInfoDialog payload={payload} onCloseCallback={onCloseCallBackWrapped} dialogContent={dialogContent} open={open} />}
       </>
     )
   },

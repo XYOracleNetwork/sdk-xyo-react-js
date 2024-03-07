@@ -10194,7 +10194,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-payload-raw-info@workspace:packages/sdk/packages/payload/packages/raw-info":
+"@xyo-network/react-payload-raw-info@workspace:packages/sdk/packages/payload/packages/raw-info, @xyo-network/react-payload-raw-info@workspace:~":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-raw-info@workspace:packages/sdk/packages/payload/packages/raw-info"
   dependencies:
@@ -10206,12 +10206,15 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:^3.4.1"
     "@xyo-network/payload-builder": "npm:^2.92.0"
     "@xyo-network/payload-model": "npm:^2.92.0"
+    "@xyo-network/react-shared": "workspace:~"
     react-json-view: "npm:^1.21.3"
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@mui/icons-material": ^5
     "@mui/material": ^5
+    "@mui/styles": ^5
     react: ^18
+    react-dom: ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -10259,6 +10262,7 @@ __metadata:
     "@xyo-network/react-payload-huri": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
     "@xyo-network/react-payload-plugin-resolver": "workspace:~"
+    "@xyo-network/react-payload-raw-info": "workspace:~"
     "@xyo-network/react-payload-table": "workspace:~"
     typescript: "npm:^5.4.2"
   peerDependencies:
