@@ -1,9 +1,6 @@
-import { CircularProgress, useTheme } from '@mui/material'
+import { useTheme } from '@mui/material'
 import { useColorSchemeEx } from '@xylabs/react-invertible-theme'
-import { lazy, Suspense } from 'react'
-import { OnCopyProps, ReactJsonViewProps } from 'react-json-view'
-
-const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
+import JsonView, { OnCopyProps, ReactJsonViewProps } from 'react-json-view'
 
 export const JsonViewEx: React.FC<ReactJsonViewProps> = (props) => {
   const theme = useTheme()
@@ -21,18 +18,16 @@ export const JsonViewEx: React.FC<ReactJsonViewProps> = (props) => {
   }
 
   return (
-    <Suspense fallback={<CircularProgress />}>
-      <JsonView
-        enableClipboard={onCopy}
-        theme={darkMode ? 'tomorrow' : 'summerfruit:inverted'}
-        collapseStringsAfterLength={50}
-        style={{
-          background: darkMode ? theme.palette.background.paper : theme.palette.grey[200],
-          borderRadius: theme.shape.borderRadius,
-          padding: theme.spacing(2),
-        }}
-        {...props}
-      />
-    </Suspense>
+    <JsonView
+      enableClipboard={onCopy}
+      theme={darkMode ? 'tomorrow' : 'summerfruit:inverted'}
+      collapseStringsAfterLength={50}
+      style={{
+        background: darkMode ? theme.palette.background.paper : theme.palette.grey[200],
+        borderRadius: theme.shape.borderRadius,
+        padding: theme.spacing(2),
+      }}
+      {...props}
+    />
   )
 }
