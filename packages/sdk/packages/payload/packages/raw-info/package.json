@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-payload",
+  "name": "@xyo-network/react-payload-raw-info",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,25 +10,23 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-payload-context": "workspace:~",
-    "@xyo-network/react-payload-details": "workspace:~",
-    "@xyo-network/react-payload-diviner": "workspace:~",
-    "@xyo-network/react-payload-huri": "workspace:~",
-    "@xyo-network/react-payload-plugin": "workspace:~",
-    "@xyo-network/react-payload-plugin-resolver": "workspace:~",
-    "@xyo-network/react-payload-raw-info": "workspace:~",
-    "@xyo-network/react-payload-table": "workspace:~"
+    "@xylabs/react-flexbox": "^3.1.4",
+    "@xylabs/react-invertible-theme": "^3.1.4",
+    "@xylabs/react-promise": "^3.1.4",
+    "@xyo-network/payload-builder": "^2.92.0",
+    "@xyo-network/payload-model": "^2.92.0",
+    "react-json-view": "^1.21.3"
   },
   "devDependencies": {
+    "@storybook/react": "^7.6.17",
     "@xylabs/ts-scripts-yarn3": "^3.4.1",
-    "typescript": "^5.4.2"
+    "@xylabs/tsconfig-react": "^3.4.1",
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
     "@mui/material": "^5",
-    "@mui/styles": "^5",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^18"
   },
   "description": "Common React library for all XYO projects that use React",
   "docs": "dist/docs.json",
@@ -60,6 +58,7 @@
   },
   "main": "dist/browser/index.cjs",
   "module": "dist/browser/index.js",
+  "types": "dist/browser/index.d.ts",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",
@@ -80,7 +79,6 @@
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "types": "dist/browser/index.d.ts",
-  "version": "2.70.0",
+  "version": "2.69.4",
   "type": "module"
 }
