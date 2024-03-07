@@ -1,6 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { FlexCol } from "@xylabs/react-flexbox";
-import { InvertibleCssVarsProvider } from "@xylabs/react-invertible-theme";
 import { Payload } from "@xyo-network/payload-model";
 import { RawInfoIcon } from "./RawInfoIcon";
 
@@ -14,7 +13,6 @@ const TestPayload: TestPayload = {
 export default {
   title: 'payload/RawInfoIcon',
   component: RawInfoIcon,
-  decorators: [(Story: StoryFn) => <InvertibleCssVarsProvider><Story /></InvertibleCssVarsProvider>],
 } as Meta
 
 const Template: StoryFn<typeof RawInfoIcon> = (args) => <FlexCol><RawInfoIcon {...args} /></FlexCol>

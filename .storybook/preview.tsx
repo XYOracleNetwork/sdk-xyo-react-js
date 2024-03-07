@@ -1,11 +1,11 @@
-import { InvertibleThemeProvider } from '@xylabs/react-invertible-theme'
-import { FlexCol } from '@xylabs/react-flexbox'
 import { CssBaseline } from '@mui/material';
-import { useDarkMode } from 'storybook-dark-mode';
-import { partialDarkThemeOptions, partialAppLightThemeOptions, themeOptions, appThemeOptions, webThemeOptions, osThemeOptions } from '@xyo-network/react-theme'
-import { AppSettingsProvider } from '@xyo-network/react-app-settings'
-import React from 'react';
 import { Decorator } from '@storybook/react';
+import { FlexCol } from '@xylabs/react-flexbox';
+import { InvertibleCssVarsProvider, InvertibleThemeProvider } from '@xylabs/react-invertible-theme';
+import { AppSettingsProvider } from '@xyo-network/react-app-settings';
+import { appThemeOptions, osThemeOptions, themeOptions, webThemeOptions } from '@xyo-network/react-theme';
+import React from 'react';
+import { useDarkMode } from 'storybook-dark-mode';
 
 export const globalTypes = {
   theme: {
@@ -60,10 +60,12 @@ const withThemeProvider: Decorator = (Story, context) => {
   return (
     <AppSettingsProvider value={{darkMode}}>
     <InvertibleThemeProvider dark={darkMode} options={themeOptions}>
-      <CssBaseline enableColorScheme />
-      <FlexCol alignItems="unset">
-        <Story {...context}/>
-      </FlexCol>
+      <InvertibleCssVarsProvider defaultMode={darkMode ? 'dark' : 'light'}>
+        <CssBaseline enableColorScheme />
+        <FlexCol alignItems="unset">
+          <Story {...context}/>
+        </FlexCol>
+      </InvertibleCssVarsProvider>
     </InvertibleThemeProvider>
     </AppSettingsProvider>
   );
