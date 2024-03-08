@@ -17,7 +17,10 @@ export interface RawInfoIconProps extends IconButtonProps, ExpansionProps {
 }
 
 export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>(
-  ({ defaultExpandedJson, dialogContent, iconOnly, iconSize = 32, onCloseCallback, payload, presetIconSize, updateExpandedJson, ...props }, ref) => {
+  (
+    { defaultExpandedJson = true, dialogContent, iconOnly, iconSize = 32, onCloseCallback, payload, presetIconSize, updateExpandedJson, ...props },
+    ref,
+  ) => {
     const [open, setOpen] = useState(false)
     const size = presetIconSizeValue(presetIconSize)
 
