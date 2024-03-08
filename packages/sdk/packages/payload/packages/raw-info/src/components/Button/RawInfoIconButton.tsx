@@ -5,22 +5,7 @@ import { forwardRef, MouseEventHandler, ReactNode, useState } from 'react'
 import { ExpansionProps } from '../../lib'
 import { RawInfoDialog } from '../Dialog'
 import { xyoColorLogo } from '../img'
-
-type IconSize = 'small' | 'medium' | 'large'
-
-const presetIconSizeValue = (size?: IconSize) => {
-  switch (size) {
-    case 'small': {
-      return 16
-    }
-    case 'medium': {
-      return 32
-    }
-    case 'large': {
-      return 48
-    }
-  }
-}
+import { IconSize, presetIconSizeValue } from './lib'
 
 export interface RawInfoIconProps extends IconButtonProps, ExpansionProps {
   dialogContent?: ReactNode
