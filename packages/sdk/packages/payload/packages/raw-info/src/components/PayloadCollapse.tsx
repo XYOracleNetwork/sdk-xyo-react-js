@@ -37,7 +37,7 @@ export const RawInfoPayloadCollapse: React.FC<RawInfoPayloadCollapse> = ({ defau
           <FlexCol alignItems="stretch" gap={1.5}>
             <Typography sx={{ lineHeight: 1 }}>Payload Hash:</Typography>
             <Chip label={<StyledChipLabel>{hash}</StyledChipLabel>} sx={{ alignSelf: 'start' }} />
-            <JsonViewEx src={payload} />
+            <JsonViewEx value={payload} />
           </FlexCol>
         : null}
       </Collapse>

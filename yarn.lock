@@ -5354,6 +5354,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@textea/json-viewer@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "@textea/json-viewer@npm:3.4.0"
+  dependencies:
+    clsx: "npm:^2.0.0"
+    copy-to-clipboard: "npm:^3.3.3"
+    zustand: "npm:^4.4.7"
+  peerDependencies:
+    "@emotion/react": ^11
+    "@emotion/styled": ^11
+    "@mui/material": ^5
+    react: ^17 || ^18
+    react-dom: ^17 || ^18
+  checksum: 10/cdc93c32db855942139553ae20f3c5648515787004cb808090fda87382d200b5cab647b78dca4658df17dfcf9203c5076b136d1304e4bf32c146c46bb91b4483
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -10181,6 +10198,7 @@ __metadata:
   resolution: "@xyo-network/react-payload-raw-info@workspace:packages/sdk/packages/payload/packages/raw-info"
   dependencies:
     "@storybook/react": "npm:^7.6.17"
+    "@textea/json-viewer": "npm:^3.4.0"
     "@xylabs/react-button": "npm:^3.1.4"
     "@xylabs/react-flexbox": "npm:^3.1.4"
     "@xylabs/react-invertible-theme": "npm:^3.1.4"
@@ -10190,7 +10208,6 @@ __metadata:
     "@xyo-network/payload-builder": "npm:^2.92.0"
     "@xyo-network/payload-model": "npm:^2.92.0"
     "@xyo-network/react-shared": "workspace:~"
-    react-json-view: "npm:^1.21.3"
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@mui/icons-material": ^5
@@ -13326,6 +13343,15 @@ __metadata:
   version: 0.1.1
   resolution: "copy-descriptor@npm:0.1.1"
   checksum: 10/edf4651bce36166c7fcc60b5c1db2c5dad1d87820f468507331dd154b686ece8775f5d383127d44aeef813462520c866f83908aa2d4291708f898df776816860
+  languageName: node
+  linkType: hard
+
+"copy-to-clipboard@npm:^3.3.3":
+  version: 3.3.3
+  resolution: "copy-to-clipboard@npm:3.3.3"
+  dependencies:
+    toggle-selection: "npm:^1.0.6"
+  checksum: 10/e0a325e39b7615108e6c1c8ac110ae7b829cdc4ee3278b1df6a0e4228c490442cc86444cd643e2da344fbc424b3aab8909e2fec82f8bc75e7e5b190b7c24eecf
   languageName: node
   linkType: hard
 
@@ -26711,6 +26737,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"toggle-selection@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "toggle-selection@npm:1.0.6"
+  checksum: 10/9a0ed0ecbaac72b4944888dacd79fe0a55eeea76120a4c7e46b3bb3d85b24f086e90560bb22f5a965654a25ab43d79ec47dfdb3f1850ba740b14c5a50abc7040
+  languageName: node
+  linkType: hard
+
 "toidentifier@npm:1.0.1":
   version: 1.0.1
   resolution: "toidentifier@npm:1.0.1"
@@ -27860,6 +27893,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-sync-external-store@npm:1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10/a676216affc203876bd47981103f201f28c2731361bb186367e12d287a7566763213a8816910c6eb88265eccd4c230426eb783d64c373c4a180905be8820ed8e
+  languageName: node
+  linkType: hard
+
 "use@npm:^3.1.0":
   version: 3.1.1
   resolution: "use@npm:3.1.1"
@@ -28635,6 +28677,26 @@ __metadata:
   version: 1.0.0
   resolution: "yocto-queue@npm:1.0.0"
   checksum: 10/2cac84540f65c64ccc1683c267edce396b26b1e931aa429660aefac8fbe0188167b7aee815a3c22fa59a28a58d898d1a2b1825048f834d8d629f4c2a5d443801
+  languageName: node
+  linkType: hard
+
+"zustand@npm:^4.4.7":
+  version: 4.5.2
+  resolution: "zustand@npm:4.5.2"
+  dependencies:
+    use-sync-external-store: "npm:1.2.0"
+  peerDependencies:
+    "@types/react": ">=16.8"
+    immer: ">=9.0.6"
+    react: ">=16.8"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    immer:
+      optional: true
+    react:
+      optional: true
+  checksum: 10/9e9e92ce7378c5de1d7682f4f10340a1c07a81b673ad0a125b59883a6ade3f2bf39eac6ccc5b05630f9df6ed925291f681592db59ccd3815685c2e83f67c8525
   languageName: node
   linkType: hard
 

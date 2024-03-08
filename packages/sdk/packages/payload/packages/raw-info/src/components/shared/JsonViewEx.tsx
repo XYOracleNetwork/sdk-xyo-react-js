@@ -1,26 +1,14 @@
 import { useTheme } from '@mui/material'
+import { JsonViewer, JsonViewerProps } from '@textea/json-viewer'
 import { useColorSchemeEx } from '@xylabs/react-invertible-theme'
-import JsonView, { OnCopyProps, ReactJsonViewProps } from 'react-json-view'
 
-export const JsonViewEx: React.FC<ReactJsonViewProps> = (props) => {
+export const JsonViewEx: React.FC<JsonViewerProps> = (props) => {
   const theme = useTheme()
   const { darkMode } = useColorSchemeEx()
 
-  const onCopy = async (event: OnCopyProps) => {
-    if (event.src) {
-      try {
-        const copyContent = typeof event.src === 'string' ? event.src : JSON.stringify(event.src, null, 2)
-        await navigator.clipboard.writeText(copyContent)
-      } catch (e) {
-        console.error('Error Copying to clipboard', e, event.src)
-      }
-    }
-  }
-
   return (
-    <JsonView
-      enableClipboard={onCopy}
-      theme={darkMode ? 'tomorrow' : 'summerfruit:inverted'}
+    <JsonViewer
+      theme={darkMode ? 'dark' : 'light'}
       collapseStringsAfterLength={50}
       style={{
         background: darkMode ? theme.palette.background.paper : theme.palette.grey[200],
