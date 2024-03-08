@@ -2,9 +2,9 @@ import { IconButton, IconButtonProps } from '@mui/material'
 import { Payload } from '@xyo-network/payload-model'
 import { forwardRef, MouseEventHandler, ReactNode, useState } from 'react'
 
-import { ExpansionProps } from '../lib'
-import { RawInfoDialog } from './Dialog'
-import { xyoColorLogo } from './img'
+import { ExpansionProps } from '../../lib'
+import { RawInfoDialog } from '../Dialog'
+import { xyoColorLogo } from '../img'
 
 type IconSize = 'small' | 'medium' | 'large'
 
@@ -31,7 +31,7 @@ export interface RawInfoIconProps extends IconButtonProps, ExpansionProps {
   presetIconSize?: IconSize
 }
 
-export const RawInfoIcon = forwardRef<HTMLButtonElement, RawInfoIconProps>(
+export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>(
   ({ defaultExpandedJson, dialogContent, iconOnly, iconSize = 32, onCloseCallback, payload, presetIconSize, updateExpandedJson, ...props }, ref) => {
     const [open, setOpen] = useState(false)
     const size = presetIconSizeValue(presetIconSize)
@@ -66,4 +66,4 @@ export const RawInfoIcon = forwardRef<HTMLButtonElement, RawInfoIconProps>(
   },
 )
 
-RawInfoIcon.displayName = 'RawInfoIcon'
+RawInfoIconButton.displayName = 'RawInfoIcon'

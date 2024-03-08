@@ -1,5 +1,4 @@
 export * from './Button'
 export * from './Dialog'
-export * from './RawInfoIcon'
-export * from './shared/PayloadCollapse'
+export * from './shared'
 export * from './styled'

@@ -32,7 +32,7 @@ export interface RawInfoButtonProps extends ButtonExProps, ExpansionProps {
 }
 
 export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
-  defaultExpandedJson,
+  defaultExpandedJson = true,
   dialogContent,
   iconOnly,
   iconSize = 24,
