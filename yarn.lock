@@ -6634,6 +6634,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/assert@npm:^3.0.11":
+  version: 3.0.11
+  resolution: "@xylabs/assert@npm:3.0.11"
+  checksum: 10/c24181926fcc7a784f870322ab78eaeda46f59de0f69685e535b6a067df48668260599bdca54a302c3c37f67383665b7ed8345553ce0ee70ea514dd1b29b962f
+  languageName: node
+  linkType: hard
+
 "@xylabs/axios@npm:^3.0.6":
   version: 3.0.10
   resolution: "@xylabs/axios@npm:3.0.10"
@@ -6665,6 +6672,13 @@ __metadata:
   version: 3.0.10
   resolution: "@xylabs/error@npm:3.0.10"
   checksum: 10/d5d2057676636e5bd3e97d496ed8de1adebb9ed21ffd5734deca8aebf80d99d72ee0fa7d60f28c63589848fcba0452ed58e8650d48f5259199a3af4972a812aa
+  languageName: node
+  linkType: hard
+
+"@xylabs/error@npm:~3.0.11":
+  version: 3.0.11
+  resolution: "@xylabs/error@npm:3.0.11"
+  checksum: 10/4dea842270fd411b1b6786cf05b40ecd6d84c7ab5af41626082cd64190711551a1e3be172f072a3541c9c204ec12bcfb24d504acb5388f56e90c578d1c6528b3
   languageName: node
   linkType: hard
 
@@ -6817,6 +6831,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/logger@npm:^3.0.11":
+  version: 3.0.11
+  resolution: "@xylabs/logger@npm:3.0.11"
+  dependencies:
+    "@xylabs/error": "npm:~3.0.11"
+  checksum: 10/524ec4cfdc02e004baa17a83ca0e9ed65653ab32158e71c4590ac58ecc2db93104563302c9dd32a7f9095bf0dc88cfe8d7417ef54f797bf5c826aecdd6c2276e
+  languageName: node
+  linkType: hard
+
+"@xylabs/object@npm:^3.0.11":
+  version: 3.0.11
+  resolution: "@xylabs/object@npm:3.0.11"
+  dependencies:
+    "@xylabs/assert": "npm:^3.0.11"
+    "@xylabs/logger": "npm:^3.0.11"
+    "@xylabs/promise": "npm:^3.0.11"
+  checksum: 10/9cf44a6916ddf38c83148b236f9b0d7598b12daa0a0a3a59c58ae9cbad89f41c81da18a53264e36dd6cdc5dd2d9a10020f20fb6c27a79effb9608aea6ba900c6
+  languageName: node
+  linkType: hard
+
 "@xylabs/object@npm:^3.0.6, @xylabs/object@npm:^3.0.8":
   version: 3.0.10
   resolution: "@xylabs/object@npm:3.0.10"
@@ -6857,6 +6891,13 @@ __metadata:
   version: 3.0.10
   resolution: "@xylabs/promise@npm:3.0.10"
   checksum: 10/7cf7441c236d696f68a0973de4f69bd74cb2310d3ef55eb122d8b2ea128421aecd1793c26196087051084a54f3498672359b95ddabec4eaa7fc19f557a3f0ced
+  languageName: node
+  linkType: hard
+
+"@xylabs/promise@npm:^3.0.11":
+  version: 3.0.11
+  resolution: "@xylabs/promise@npm:3.0.11"
+  checksum: 10/42a70069d8c72d7457d56d15582084218d036ab05c9744bba6d794cdf2ad12e7ec12145a084c6dba7dc70f33bd69baeb98afa887353491573a11c6dba08f475e
   languageName: node
   linkType: hard
 
@@ -10199,6 +10240,7 @@ __metadata:
   dependencies:
     "@storybook/react": "npm:^7.6.17"
     "@textea/json-viewer": "npm:^3.4.0"
+    "@xylabs/object": "npm:^3.0.11"
     "@xylabs/react-button": "npm:^3.1.4"
     "@xylabs/react-flexbox": "npm:^3.1.4"
     "@xylabs/react-invertible-theme": "npm:^3.1.4"
