@@ -3,8 +3,8 @@ import { Payload, WithSchema } from '@xyo-network/payload-model'
 import { MouseEventHandler, ReactNode, useState } from 'react'
 
 import { ExpansionProps } from '../../lib'
-import { RawInfoDialog } from '../Dialog'
 import { xyoColorLogo } from '../img'
+import { RawInfoDialog } from '../shared'
 import { IconSize, presetIconSizeValue } from './lib'
 
 export interface RawInfoButtonProps extends ButtonExProps, ExpansionProps {

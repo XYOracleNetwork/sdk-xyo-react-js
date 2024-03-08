@@ -5,9 +5,9 @@ import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { Payload } from '@xyo-network/payload-model'
 import { useDataState } from '@xyo-network/react-shared'
 
-import { ExpansionProps } from '../../lib'
-import { StyledChipLabel } from '../styled'
-import { JsonViewerEx } from './JsonViewerEx'
+import { ExpansionProps } from '../../../lib'
+import { StyledChipLabel } from '../../styled'
+import { JsonViewerEx } from '../JsonViewerEx'
 
 export interface RawInfoPayloadCollapse extends CollapseProps, ExpansionProps {
   payload?: Payload | null
@@ -16,6 +16,7 @@ export interface RawInfoPayloadCollapse extends CollapseProps, ExpansionProps {
 export const RawInfoPayloadCollapse: React.FC<RawInfoPayloadCollapse> = ({ defaultExpandedJson, payload, updateExpandedJson, ...props }) => {
   const [expandedJson, setExpandedJson] = useDataState(defaultExpandedJson)
   const [hash] = usePromise(async () => (payload ? await PayloadBuilder.dataHash(payload) : undefined), [payload])
+  const actionText = expandedJson ? 'Hide JSON' : 'Show JSON'
 
   const handleExpansion = () => {
     updateExpandedJson?.(!expandedJson)
@@ -27,7 +28,7 @@ export const RawInfoPayloadCollapse: React.FC<RawInfoPayloadCollapse> = ({ defau
       {payload ?
         <FlexRow>
           <Button onClick={handleExpansion} size="small" variant="outlined">
-            Show Raw JSON
+            {actionText}
           </Button>
         </FlexRow>
       : null}

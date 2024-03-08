@@ -1,2 +1,2 @@
+export * from './Dialog'
 export * from './JsonViewerEx'
-export * from './PayloadCollapse'

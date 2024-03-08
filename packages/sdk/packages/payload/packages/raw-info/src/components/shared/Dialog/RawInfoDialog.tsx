@@ -2,8 +2,8 @@ import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle 
 import { Payload } from '@xyo-network/payload-model'
 import { MouseEventHandler, ReactNode } from 'react'
 
-import { ExpansionProps } from '../../lib'
-import { RawInfoPayloadCollapse } from '../shared'
+import { ExpansionProps } from '../../../lib'
+import { RawInfoPayloadCollapse } from './PayloadCollapse'
 
 export interface RawInfoDialogProps extends DialogProps, ExpansionProps {
   dialogContent?: ReactNode
