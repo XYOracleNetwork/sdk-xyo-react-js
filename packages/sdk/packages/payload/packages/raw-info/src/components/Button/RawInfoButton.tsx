@@ -1,5 +1,5 @@
+import { JsonObject } from '@xylabs/object'
 import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
-import { Payload, WithSchema } from '@xyo-network/payload-model'
 import { MouseEventHandler, ReactNode, useState } from 'react'
 
 import { ExpansionProps } from '../../lib'
@@ -11,8 +11,8 @@ export interface RawInfoButtonProps extends ButtonExProps, ExpansionProps {
   dialogContent?: ReactNode
   iconOnly?: boolean
   iconSize?: number
+  jsonObject?: JsonObject | null
   onCloseCallback?: () => void
-  payload?: Payload<WithSchema> | null
   presetIconSize?: IconSize
 }
 
@@ -23,7 +23,7 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
   iconSize = 24,
   onCloseCallback,
   children,
-  payload,
+  jsonObject,
   presetIconSize,
   updateExpandedJson,
   ...props
@@ -48,7 +48,7 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
         size="small"
         startIcon={<img src={xyoColorLogo} height={size ?? iconSize} width={size ?? iconSize} />}
         onClick={handleClick}
-        disabled={iconOnly ? false : !payload}
+        disabled={iconOnly ? false : !jsonObject}
         {...props}
       >
         {children ?? <span>Data</span>}
@@ -56,7 +56,7 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
       {iconOnly ? null : (
         <RawInfoDialog
           defaultExpandedJson={defaultExpandedJson}
-          payload={payload}
+          jsonObject={jsonObject}
           onCloseCallback={onCloseCallBackWrapped}
           dialogContent={dialogContent}
           open={open}

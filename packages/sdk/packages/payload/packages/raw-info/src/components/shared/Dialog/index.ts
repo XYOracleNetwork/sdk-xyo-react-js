@@ -1,2 +1,3 @@
-export * from './PayloadCollapse'
+export * from './JsonViewerCollapse'
 export * from './RawInfoDialog'
+

@@ -1,21 +1,21 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
-import { Payload } from '@xyo-network/payload-model'
+import { JsonObject } from '@xylabs/object'
 import { MouseEventHandler, ReactNode } from 'react'
 
 import { ExpansionProps } from '../../../lib'
-import { RawInfoPayloadCollapse } from './PayloadCollapse'
+import { JsonViewerCollapse } from './JsonViewerCollapse'
 
 export interface RawInfoDialogProps extends DialogProps, ExpansionProps {
   dialogContent?: ReactNode
+  jsonObject?: JsonObject | null
   onCloseCallback?: () => void
-  payload?: Payload | null
 }
 
 export const RawInfoDialog: React.FC<RawInfoDialogProps> = ({
   defaultExpandedJson,
   dialogContent,
   onCloseCallback,
-  payload,
+  jsonObject,
   updateExpandedJson,
   ...props
 }) => {
@@ -30,7 +30,7 @@ export const RawInfoDialog: React.FC<RawInfoDialogProps> = ({
         <DialogTitle>Raw Data</DialogTitle>
         <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {dialogContent}
-          <RawInfoPayloadCollapse defaultExpandedJson={defaultExpandedJson} payload={payload} updateExpandedJson={updateExpandedJson} />
+          <JsonViewerCollapse defaultExpandedJson={defaultExpandedJson} jsonObject={jsonObject} updateExpandedJson={updateExpandedJson} />
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={() => onCloseCallback?.()}>

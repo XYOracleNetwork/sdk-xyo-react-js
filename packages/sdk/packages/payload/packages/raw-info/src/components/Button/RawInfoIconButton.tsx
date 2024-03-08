@@ -1,5 +1,5 @@
 import { IconButton, IconButtonProps } from '@mui/material'
-import { Payload } from '@xyo-network/payload-model'
+import { JsonObject } from '@xylabs/object'
 import { forwardRef, MouseEventHandler, ReactNode, useState } from 'react'
 
 import { ExpansionProps } from '../../lib'
@@ -11,14 +11,14 @@ export interface RawInfoIconProps extends IconButtonProps, ExpansionProps {
   dialogContent?: ReactNode
   iconOnly?: boolean
   iconSize?: number
+  jsonObject?: JsonObject
   onCloseCallback?: () => void
-  payload?: Payload
   presetIconSize?: IconSize
 }
 
 export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>(
   (
-    { defaultExpandedJson = true, dialogContent, iconOnly, iconSize = 32, onCloseCallback, payload, presetIconSize, updateExpandedJson, ...props },
+    { defaultExpandedJson = true, dialogContent, iconOnly, iconSize = 32, onCloseCallback, jsonObject, presetIconSize, updateExpandedJson, ...props },
     ref,
   ) => {
     const [open, setOpen] = useState(false)
@@ -42,7 +42,7 @@ export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>
         {iconOnly ? null : (
           <RawInfoDialog
             defaultExpandedJson={defaultExpandedJson}
-            payload={payload}
+            jsonObject={jsonObject}
             onCloseCallback={onCloseCallBackWrapped}
             dialogContent={dialogContent}
             open={open}
