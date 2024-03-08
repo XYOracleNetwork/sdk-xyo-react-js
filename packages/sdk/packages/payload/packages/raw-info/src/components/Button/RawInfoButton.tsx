@@ -2,6 +2,7 @@ import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { Payload, WithSchema } from '@xyo-network/payload-model'
 import { MouseEventHandler, ReactNode, useState } from 'react'
 
+import { ExpansionProps } from '../../lib'
 import { RawInfoDialog } from '../Dialog'
 import { xyoColorLogo } from '../img'
 
@@ -21,7 +22,7 @@ const presetIconSizeValue = (size?: IconSize) => {
   }
 }
 
-export interface RawInfoButtonProps extends ButtonExProps {
+export interface RawInfoButtonProps extends ButtonExProps, ExpansionProps {
   dialogContent?: ReactNode
   iconOnly?: boolean
   iconSize?: number
@@ -31,6 +32,7 @@ export interface RawInfoButtonProps extends ButtonExProps {
 }
 
 export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
+  defaultExpandedJson,
   dialogContent,
   iconOnly,
   iconSize = 24,
@@ -38,6 +40,7 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
   children,
   payload,
   presetIconSize,
+  updateExpandedJson,
   ...props
 }) => {
   const [open, setOpen] = useState(false)
@@ -65,7 +68,16 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
       >
         {children ?? <span>Data</span>}
       </ButtonEx>
-      {iconOnly ? null : <RawInfoDialog payload={payload} onCloseCallback={onCloseCallBackWrapped} dialogContent={dialogContent} open={open} />}
+      {iconOnly ? null : (
+        <RawInfoDialog
+          defaultExpandedJson={defaultExpandedJson}
+          payload={payload}
+          onCloseCallback={onCloseCallBackWrapped}
+          dialogContent={dialogContent}
+          open={open}
+          updateExpandedJson={updateExpandedJson}
+        />
+      )}
     </span>
   )
 }

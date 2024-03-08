@@ -2,15 +2,23 @@ import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle 
 import { Payload } from '@xyo-network/payload-model'
 import { MouseEventHandler, ReactNode } from 'react'
 
-import { RawInfoPayloadCollapse } from '../PayloadCollapse'
+import { ExpansionProps } from '../../lib'
+import { RawInfoPayloadCollapse } from '../shared'
 
-export interface RawInfoDialogProps extends DialogProps {
+export interface RawInfoDialogProps extends DialogProps, ExpansionProps {
   dialogContent?: ReactNode
   onCloseCallback?: () => void
   payload?: Payload | null
 }
 
-export const RawInfoDialog: React.FC<RawInfoDialogProps> = ({ dialogContent, onCloseCallback, payload, ...props }) => {
+export const RawInfoDialog: React.FC<RawInfoDialogProps> = ({
+  defaultExpandedJson,
+  dialogContent,
+  onCloseCallback,
+  payload,
+  updateExpandedJson,
+  ...props
+}) => {
   const onDialogClick: MouseEventHandler<HTMLSpanElement> = (event) => {
     event.stopPropagation()
   }
@@ -22,7 +30,7 @@ export const RawInfoDialog: React.FC<RawInfoDialogProps> = ({ dialogContent, onC
         <DialogTitle>Raw Data</DialogTitle>
         <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {dialogContent}
-          <RawInfoPayloadCollapse payload={payload} />
+          <RawInfoPayloadCollapse defaultExpandedJson={defaultExpandedJson} payload={payload} updateExpandedJson={updateExpandedJson} />
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={() => onCloseCallback?.()}>

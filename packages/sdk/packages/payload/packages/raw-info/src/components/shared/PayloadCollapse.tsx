@@ -5,13 +5,12 @@ import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { Payload } from '@xyo-network/payload-model'
 import { useDataState } from '@xyo-network/react-shared'
 
-import { JsonViewEx } from './shared'
-import { StyledChipLabel } from './styled'
+import { ExpansionProps } from '../../lib'
+import { StyledChipLabel } from '../styled'
+import { JsonViewerEx } from './JsonViewerEx'
 
-export interface RawInfoPayloadCollapse extends CollapseProps {
-  defaultExpandedJson?: boolean
+export interface RawInfoPayloadCollapse extends CollapseProps, ExpansionProps {
   payload?: Payload | null
-  updateExpandedJson?: (expanded: boolean) => void
 }
 
 export const RawInfoPayloadCollapse: React.FC<RawInfoPayloadCollapse> = ({ defaultExpandedJson, payload, updateExpandedJson, ...props }) => {
@@ -37,7 +36,7 @@ export const RawInfoPayloadCollapse: React.FC<RawInfoPayloadCollapse> = ({ defau
           <FlexCol alignItems="stretch" gap={1.5}>
             <Typography sx={{ lineHeight: 1 }}>Payload Hash:</Typography>
             <Chip label={<StyledChipLabel>{hash}</StyledChipLabel>} sx={{ alignSelf: 'start' }} />
-            <JsonViewEx value={payload} />
+            <JsonViewerEx value={payload} />
           </FlexCol>
         : null}
       </Collapse>

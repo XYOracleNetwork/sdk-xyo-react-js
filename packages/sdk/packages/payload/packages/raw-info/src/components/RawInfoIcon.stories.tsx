@@ -24,4 +24,12 @@ WithPayload.args = {
   payload: TestPayload
 }
 
-export { Default, WithPayload };
+const WithDefaultExpanded = Template.bind({})
+WithDefaultExpanded.args = {
+  defaultExpandedJson: true,
+  dialogContent: 'This is a test',
+  payload: TestPayload
+}
+
+export { Default, WithDefaultExpanded, WithPayload };
+
