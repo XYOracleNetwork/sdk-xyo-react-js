@@ -1,6 +1,6 @@
 import { IconButton, IconButtonProps } from '@mui/material'
-import { JsonObject } from '@xylabs/object'
-import { forwardRef, MouseEventHandler, ReactNode, useState } from 'react'
+import { toJson } from '@xylabs/object'
+import { forwardRef, MouseEventHandler, ReactNode, useMemo, useState } from 'react'
 
 import { ExpansionProps } from '../../lib'
 import { xyoColorLogo } from '../img'
@@ -11,18 +11,19 @@ export interface RawInfoIconProps extends IconButtonProps, ExpansionProps {
   dialogContent?: ReactNode
   iconOnly?: boolean
   iconSize?: number
-  jsonObject?: JsonObject
   onCloseCallback?: () => void
   presetIconSize?: IconSize
+  rawValue?: unknown
 }
 
 export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>(
   (
-    { defaultExpandedJson = true, dialogContent, iconOnly, iconSize = 32, onCloseCallback, jsonObject, presetIconSize, updateExpandedJson, ...props },
+    { defaultExpandedJson = true, dialogContent, iconOnly, iconSize = 32, onCloseCallback, rawValue, presetIconSize, updateExpandedJson, ...props },
     ref,
   ) => {
     const [open, setOpen] = useState(false)
     const size = presetIconSizeValue(presetIconSize)
+    const json = useMemo(() => toJson(rawValue), [rawValue])
 
     const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
       event.stopPropagation()
@@ -42,7 +43,7 @@ export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>
         {iconOnly ? null : (
           <RawInfoDialog
             defaultExpandedJson={defaultExpandedJson}
-            jsonObject={jsonObject}
+            jsonValue={json}
             onCloseCallback={onCloseCallBackWrapped}
             dialogContent={dialogContent}
             open={open}

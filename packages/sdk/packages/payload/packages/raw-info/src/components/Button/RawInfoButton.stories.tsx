@@ -1,5 +1,4 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { JsonObject } from "@xylabs/object";
 import { FlexCol } from "@xylabs/react-flexbox";
 import { Payload } from "@xyo-network/payload-model";
 import { RawInfoButton } from "./RawInfoButton";
@@ -22,7 +21,7 @@ const Default = Template.bind({})
 const WithPayload = Template.bind({})
 WithPayload.args = {
   dialogContent: 'This is a test',
-  jsonObject: TestPayload as JsonObject
+  rawValue: TestPayload
 }
 
 export { Default, WithPayload };

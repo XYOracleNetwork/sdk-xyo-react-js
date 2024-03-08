@@ -1,5 +1,5 @@
 import { Button, Chip, Collapse, CollapseProps, Typography } from '@mui/material'
-import { JsonObject } from '@xylabs/object'
+import { JsonValue } from '@xylabs/object'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
@@ -11,15 +11,17 @@ import { StyledChipLabel } from '../../styled'
 import { JsonViewerEx } from '../JsonViewerEx'
 
 export interface RawInfoPayloadCollapse extends CollapseProps, ExpansionProps {
-  jsonObject?: JsonObject | null
+  jsonValue?: JsonValue
 }
 
-export const JsonViewerCollapse: React.FC<RawInfoPayloadCollapse> = ({ defaultExpandedJson, jsonObject, updateExpandedJson, ...props }) => {
+export const JsonViewerCollapse: React.FC<RawInfoPayloadCollapse> = ({ defaultExpandedJson, jsonValue, updateExpandedJson, ...props }) => {
   const [expandedJson, setExpandedJson] = useDataState(defaultExpandedJson)
+
   const [hash] = usePromise(async () => {
-    if (!jsonObject || !isAnyPayload(jsonObject)) return
-    return await PayloadBuilder.dataHash(jsonObject)
-  }, [jsonObject])
+    if (!jsonValue || !isAnyPayload(jsonValue)) return
+    return await PayloadBuilder.dataHash(jsonValue)
+  }, [jsonValue])
+
   const actionText = expandedJson ? 'Hide JSON' : 'Show JSON'
 
   const handleExpansion = () => {
@@ -29,7 +31,7 @@ export const JsonViewerCollapse: React.FC<RawInfoPayloadCollapse> = ({ defaultEx
 
   return (
     <>
-      {jsonObject ?
+      {jsonValue ?
         <FlexRow>
           <Button onClick={handleExpansion} size="small" variant="outlined">
             {actionText}
@@ -37,13 +39,13 @@ export const JsonViewerCollapse: React.FC<RawInfoPayloadCollapse> = ({ defaultEx
         </FlexRow>
       : null}
       <Collapse in={expandedJson} {...props}>
-        {jsonObject ?
+        {jsonValue ?
           <FlexCol alignItems="stretch" gap={1.5}>
             <Typography sx={{ lineHeight: 1 }}>Payload Hash:</Typography>
             {hash ?
               <Chip label={<StyledChipLabel>{hash}</StyledChipLabel>} sx={{ alignSelf: 'start' }} />
             : null}
-            <JsonViewerEx value={jsonObject} />
+            <JsonViewerEx value={jsonValue} />
           </FlexCol>
         : null}
       </Collapse>
