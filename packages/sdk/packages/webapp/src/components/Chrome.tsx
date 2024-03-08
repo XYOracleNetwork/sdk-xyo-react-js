@@ -12,6 +12,7 @@ import { WebAppErrorPage } from './ErrorPage'
 export interface WebAppChromeProps extends FlexBoxProps {
   appName: string
   appbar?: ReactNode
+  errorBoundary?: boolean
   errorPage?: ReactNode
   footer?: ReactNode
   footerElevation?: number
@@ -20,7 +21,7 @@ export interface WebAppChromeProps extends FlexBoxProps {
 }
 
 export const WebAppChrome = forwardRef<HTMLDivElement, WebAppChromeProps>(
-  ({ appName, appbar, children, errorPage, footer, footerElevation = 4, menuItems, navigationType = 'menu', ...props }, ref) => {
+  ({ appName, appbar, children, errorBoundary, errorPage, footer, footerElevation = 4, menuItems, navigationType = 'menu', ...props }, ref) => {
     return (
       <FlexCol id="web-chrome-flex" alignItems="stretch" overflow="hidden" height="100vh" ref={ref} {...props}>
         <Helmet defaultTitle={appName} titleTemplate={`%s | ${appName}`}>
@@ -35,13 +36,15 @@ export const WebAppChrome = forwardRef<HTMLDivElement, WebAppChromeProps>(
             </>
           )}
           <FlexGrowCol id="main-flex" justifyContent="flex-start" alignItems="stretch">
-            <ErrorBoundary
-              fallbackWithError={(error) => {
-                return errorPage ?? <WebAppErrorPage error={error} />
-              }}
-            >
-              {children}
-            </ErrorBoundary>
+            {errorBoundary ?
+              <ErrorBoundary
+                fallbackWithError={(error) => {
+                  return errorPage ?? <WebAppErrorPage error={error} />
+                }}
+              >
+                {children}
+              </ErrorBoundary>
+            : children}
           </FlexGrowCol>
         </FlexGrowRow>
         <FlexCol id="footer-flex" alignItems="stretch">
