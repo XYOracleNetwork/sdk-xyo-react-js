@@ -40,14 +40,13 @@ export const CytoscapeElements = {
   },
 
   buildNode(module: ModuleInstance, properties?: { [key: string]: unknown }, classes?: string[]): ElementDefinition {
-    const { address, config } = module
-    const normalizedName = config.name ?? address.slice(0, 8)
+    const { address, id } = module
     return {
       classes,
       data: {
         address,
         id: address,
-        name: normalizedName,
+        name: id,
         type: parseModuleType(module),
         ...properties,
       },
