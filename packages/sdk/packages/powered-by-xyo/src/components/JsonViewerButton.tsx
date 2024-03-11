@@ -1,10 +1,10 @@
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
+import { JsonViewerEx, JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
 import { useState } from 'react'
-import JsonView, { ReactJsonViewProps } from 'react-json-view'
 
 export interface JsonViewerButtonProps extends ButtonExProps {
-  jsonViewProps?: Partial<ReactJsonViewProps>
+  jsonViewProps?: Partial<JsonViewerExProps>
   src: object
 }
 
@@ -20,7 +20,7 @@ export const JsonViewerButton: React.FC<JsonViewerButtonProps> = ({ children, js
           <DialogTitle>{title}</DialogTitle>
         : null}
         <DialogContent>
-          <JsonView src={src} {...jsonViewProps} />
+          <JsonViewerEx value={src} {...jsonViewProps} />
         </DialogContent>
         <DialogActions>
           <ButtonEx onClick={() => setOpen(false)}>Close</ButtonEx>

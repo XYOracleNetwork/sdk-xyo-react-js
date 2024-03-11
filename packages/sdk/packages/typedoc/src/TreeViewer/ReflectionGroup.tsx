@@ -17,14 +17,7 @@ export const ReflectionGroupTreeViewer: React.FC<ReflectionGroupViewerProps> = (
     <FlexCol {...props}>
       <FlexRow marginY={1} justifyContent="flex-start">
         <Typography variant={variant}>{group.title}</Typography>
-        <JsonViewerButton
-          jsonViewProps={{ collapsed: 1 }}
-          size="small"
-          variant="contained"
-          padding={0}
-          marginX={1}
-          src={resolveChildren(group, lookup)}
-        />
+        <JsonViewerButton size="small" variant="contained" padding={0} marginX={1} src={resolveChildren(group, lookup)} />
       </FlexRow>
       {resolveChildren(group, lookup).map((reflection) => {
         return reflection ?

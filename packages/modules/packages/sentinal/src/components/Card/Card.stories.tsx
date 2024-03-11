@@ -130,7 +130,7 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
   return (
     <FlexCol gap={2}>
       <SentinelCard module={contractSentinel} inPayloads={inPayloads} />
-      {/*tokens ? <JsonView src={tokens} /> : null*/}
+      {/*tokens ? <JsonViewerEx value={tokens} /> : null*/}
     </FlexCol>
   )
 }

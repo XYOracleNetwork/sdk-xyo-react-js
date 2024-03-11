@@ -2,7 +2,9 @@ import { useTheme } from '@mui/material'
 import { JsonViewer, JsonViewerProps } from '@textea/json-viewer'
 import { useColorSchemeEx } from '@xylabs/react-invertible-theme'
 
-export const JsonViewerEx: React.FC<JsonViewerProps> = (props) => {
+export type JsonViewerExProps = JsonViewerProps
+
+export const JsonViewerEx: React.FC<JsonViewerExProps> = (props) => {
   const theme = useTheme()
   const { darkMode } = useColorSchemeEx()
 

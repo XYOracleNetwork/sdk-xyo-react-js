@@ -34,7 +34,7 @@ export const NameViewer: React.FC<NameViewerProps> = ({ reflectionViewer, varian
         : null}
       </Stack>
       {document && document?.location.hostname === 'localhost' && (
-        <JsonViewerButton jsonViewProps={{ collapsed: 1 }} size="small" variant="contained" padding={0} marginX={1} src={reflection} />
+        <JsonViewerButton size="small" variant="contained" padding={0} marginX={1} src={reflection} />
       )}
     </FlexRow>
   )

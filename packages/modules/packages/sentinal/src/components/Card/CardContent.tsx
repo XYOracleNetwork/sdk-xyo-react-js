@@ -2,9 +2,9 @@ import { CardContentProps } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
+import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import { SentinelInstance } from '@xyo-network/sentinel-model'
 import React from 'react'
-import JsonView from 'react-json-view'
 
 export type SentinelCardContentProps = ModuleRenderProps<SentinelInstance> &
   CardContentProps & {
@@ -16,7 +16,7 @@ export const SentinelCardContent: React.FC<SentinelCardContentProps> = ({ childr
     <ModuleCardContent module={module} {...props}>
       <FlexGrowRow flexWrap="wrap" justifyContent="start" gap={2}>
         {report ?
-          <JsonView src={report} />
+          <JsonViewerEx value={report} />
         : null}
         {children}
       </FlexGrowRow>

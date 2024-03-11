@@ -1,12 +1,11 @@
 import { FormControl, TextField, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
-import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { SchemaCache } from '@xyo-network/schema-cache'
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 
 import { useGetSchemaPayload } from './useGetSchema'
-
-const JsonView = lazy(() => import(/* webpackChunkName: "jsonView" */ 'react-json-view'))
 
 SchemaCache.instance.proxy = 'https://beta.api.archivist.xyo.network/domain'
 
@@ -41,9 +40,7 @@ const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
         <TextField value={schemaFieldValue} label="Schema Name" onChange={(e) => setSchemaFieldValue(e.target.value)} />
       </FormControl>
       <FlexRow my={3} justifyContent="start">
-        <Suspense fallback={<FlexCol busy />}>
-          <JsonView src={schemaPayload || {}} />
-        </Suspense>
+          <JsonViewerEx value={schemaPayload || {}} />
       </FlexRow>
     </>
   )
