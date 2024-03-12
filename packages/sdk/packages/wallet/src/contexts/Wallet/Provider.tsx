@@ -43,7 +43,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     }
   }, [basePath, rootWallet])
 
-  console.log(`coinTypeWallet: ${coinTypeWallet}`)
+  //console.log(`coinTypeWallet: ${coinTypeWallet}`)
 
   const [activeAccount = null] = usePromise(
     async () => await coinTypeWallet?.derivePath(activeAccountIndex.toString()),
