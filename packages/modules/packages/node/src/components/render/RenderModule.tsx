@@ -19,7 +19,7 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const children = (await module.resolve()).filter((childModule) => childModule.address !== address)
+      const children = (await module.resolve('*')).filter((childModule) => childModule.address !== address)
       if (mounted()) {
         setChildModules(children)
       }
