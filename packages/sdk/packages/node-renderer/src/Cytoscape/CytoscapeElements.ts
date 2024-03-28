@@ -69,7 +69,7 @@ export const CytoscapeElements = {
 
     const traverse = async (nestedNode: ModuleInstance) => {
       if (localDepth < maxTraversals) {
-        const modules = await nestedNode.resolve(undefined, { direction: 'down', maxDepth: 2 })
+        const modules = await nestedNode.resolve('*', { direction: 'down', maxDepth: 2 })
         await Promise.all(
           modules.map(async (child) => {
             if (child !== nestedNode && isNodeInstance(child)) {

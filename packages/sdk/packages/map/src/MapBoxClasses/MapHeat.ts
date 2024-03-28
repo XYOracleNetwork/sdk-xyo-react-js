@@ -110,7 +110,7 @@ export class MapHeat extends MapBase<Polygon> {
 
     let started = false
     const startAnimation = async () => {
-      assertEx(!started, 'Animation Already Started')
+      assertEx(!started, () => 'Animation Already Started')
       started = true
       while (this.animationStarted) {
         const upLayer = layerTick % layers.length

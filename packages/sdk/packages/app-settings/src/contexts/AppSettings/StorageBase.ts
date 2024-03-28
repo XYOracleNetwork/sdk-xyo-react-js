@@ -12,9 +12,9 @@ export class AppSettingsStorageBase {
   getBoolean(name: string): boolean {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     if (!storedValue) {
-      assertEx(typeof this.defaults[name] === 'boolean', 'Default value is not boolean')
+      assertEx(typeof this.defaults[name] === 'boolean', () => 'Default value is not boolean')
       const defaultValue = this.defaults[name] as boolean
-      assertEx(defaultValue !== undefined, `Missing Default for ${name}`)
+      assertEx(defaultValue !== undefined, () => `Missing Default for ${name}`)
       return defaultValue
     }
     return storedValue !== 'false'
@@ -23,9 +23,9 @@ export class AppSettingsStorageBase {
   getNumber(name: string): number {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     if (!storedValue) {
-      assertEx(typeof this.defaults[name] === 'number', 'Default value is not a number')
+      assertEx(typeof this.defaults[name] === 'number', () => 'Default value is not a number')
       const defaultValue = this.defaults[name] as number
-      assertEx(defaultValue !== undefined, `Missing Default for ${name}`)
+      assertEx(defaultValue !== undefined, () => `Missing Default for ${name}`)
       return defaultValue
     }
     return Number.parseFloat(storedValue)
@@ -35,8 +35,8 @@ export class AppSettingsStorageBase {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     const parsedStoredValue = storedValue ? JSON.parse(storedValue) : null
     if (!parsedStoredValue) {
-      assertEx(typeof this.defaults[name] === 'object', 'Default value is not object')
-      return assertEx(this.defaults[name] as T, `Missing Default for ${name}`)
+      assertEx(typeof this.defaults[name] === 'object', () => 'Default value is not object')
+      return assertEx(this.defaults[name] as T, () => `Missing Default for ${name}`)
     }
     return parsedStoredValue as T
   }
@@ -46,7 +46,7 @@ export class AppSettingsStorageBase {
     if (!storedValue) {
       assertDefinedEx(typeof this.defaults[name] === 'string', 'Default value is not string')
       const defaultValue = this.defaults[name] as string
-      assertEx(defaultValue !== undefined, `Missing Default for ${name}`)
+      assertEx(defaultValue !== undefined, () => `Missing Default for ${name}`)
       return defaultValue
     }
     return storedValue
@@ -57,7 +57,7 @@ export class AppSettingsStorageBase {
     if (!storedValue) {
       assertDefinedEx(Array.isArray(this.defaults[name]), 'Default value is not array')
       const defaultValue = this.defaults[name] as string[]
-      assertEx(defaultValue !== undefined, `Missing Default for ${name}`)
+      assertEx(defaultValue !== undefined, () => `Missing Default for ${name}`)
       return defaultValue
     }
     return storedValue

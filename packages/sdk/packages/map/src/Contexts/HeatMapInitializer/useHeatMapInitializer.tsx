@@ -5,7 +5,7 @@ import { HeatMapInitializerContext } from './Context'
 
 const useHeatMapInitializer = () => {
   const context = useContext(HeatMapInitializerContext)
-  assertEx('heatMapInitialized' in context, 'useHeatMapInitializer must be used within a HeatMapInitializerContext')
+  assertEx('heatMapInitialized' in context, () => 'useHeatMapInitializer must be used within a HeatMapInitializerContext')
 
   return context
 }

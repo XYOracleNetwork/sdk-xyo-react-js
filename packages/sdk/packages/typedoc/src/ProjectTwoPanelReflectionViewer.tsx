@@ -9,6 +9,6 @@ export const ProjectTwoPanelReflectionViewer: React.FC<ContainerReflectionViewer
   itemRenderer = DeclarationContainerReflectionViewer,
   ...props
 }) => {
-  assertEx(reflection.isProject, 'Project expected to be Project')
+  assertEx(reflection.isProject, () => 'Project expected to be Project')
   return <TwoPanelReflectionViewer itemRenderer={itemRenderer} reflection={reflection} {...props} />
 }

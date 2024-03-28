@@ -23,8 +23,8 @@ const convertToBetaIfNeeded = (url: string | URL, currentUrl = new URL(document.
 }
 
 export const FooterLink: React.FC<LinkExProps> = ({ target, href, margin = 0.5, variant = 'body2', ...props }) => {
-  const url = new URL(assertEx(href, 'href not set'))
-  assertEx(url.hostname, 'Hostname is required in href')
+  const url = new URL(assertEx(href, () => 'href not set'))
+  assertEx(url.hostname, () => 'Hostname is required in href')
   const convertedUrl = convertToBetaIfNeeded(url)
   if (document.location.hostname === convertedUrl.hostname) {
     const to = url.search.length > 0 ? `${convertedUrl.pathname}${convertedUrl.search}` : url.pathname

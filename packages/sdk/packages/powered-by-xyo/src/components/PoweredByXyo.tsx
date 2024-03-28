@@ -72,7 +72,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
       if (disableAnimation) {
         return
       } else if (activeNode) {
-        const mods = await activeNode?.resolve()
+        const mods = await activeNode?.resolve('*')
         mods?.map((mod) => {
           mod.on('moduleBusy', ({ module, busy }) => {
             busyMap[(module as Module).address] = busy
