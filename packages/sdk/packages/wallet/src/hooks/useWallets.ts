@@ -1,7 +1,7 @@
 import { usePromise } from '@xylabs/react-promise'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { useWalletProvided } from '../contexts'
+import { useWalletContext } from '../contexts'
 import { useWallet } from './useWallet'
 
 export interface WalletsHookParams {
@@ -10,7 +10,7 @@ export interface WalletsHookParams {
 }
 
 export const useWallets = ({ wallet, paths }: WalletsHookParams): [WalletInstance[] | null | undefined, Error | undefined] => {
-  const walletContextProvided = useWalletProvided()
+  const walletContextProvided = useWalletContext(false)
   const [foundWallet] = useWallet({ wallet })
   const [wallets, error] = usePromise(
     async () => (foundWallet ? await Promise.all(paths.map((path) => foundWallet.derivePath(path))) : undefined),

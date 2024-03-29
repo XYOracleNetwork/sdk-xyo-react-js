@@ -3,7 +3,7 @@ import { HDWallet } from '@xyo-network/account'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useSelectedWalletAccount, useWalletProvided } from '../contexts'
+import { useSelectedWalletAccount, useWalletContext } from '../contexts'
 
 export interface WalletHookParams {
   mnemonic?: string
@@ -17,7 +17,7 @@ export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: Wa
   WalletInstance | null | undefined,
   Error | undefined,
 ] => {
-  const walletContextProvided = useWalletProvided()
+  const walletContextProvided = useWalletContext(false)
   const [error, setError] = useState<Error>()
   const [contextAccount] = useSelectedWalletAccount(!wallet && required)
   const [activeAccount] = usePromise(async () => {
