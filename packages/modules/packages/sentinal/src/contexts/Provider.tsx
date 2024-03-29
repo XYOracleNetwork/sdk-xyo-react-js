@@ -6,7 +6,7 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { ModuleFilter } from '@xyo-network/module-model'
 import { useWitnessesFromNode } from '@xyo-network/react-witness'
 import { MemorySentinel, SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { WitnessInstance } from '@xyo-network/witness-model'
+import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
 import { useEffect, useState } from 'react'
 
 import { SentinelContext } from './Context'
@@ -74,7 +74,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
-                witness: module,
+                witness: asWitnessInstance(module, () => `Module is not a witness [${module.id}]`),
               }
               if (mounted()) {
                 setProgress({
@@ -89,7 +89,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: SentinelReportStatus.Started,
-                witness: module,
+                witness: asWitnessInstance(module, () => `Module is not a witness [${module.id}]`),
               }
               if (mounted()) {
                 setProgress({

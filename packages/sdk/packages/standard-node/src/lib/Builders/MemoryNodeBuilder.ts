@@ -1,13 +1,13 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { MemoryArchivist, MemoryArchivistConfig, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
-import { ModuleInstance } from '@xyo-network/module-model'
+import { AttachableModuleInstance } from '@xyo-network/module-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { SentinelConfig } from '@xyo-network/sentinel'
-import { WitnessInstance, WitnessModule } from '@xyo-network/witness-model'
+import { AttachableWitnessInstance, WitnessModule } from '@xyo-network/witness-model'
 
 import { SentinelBuilder } from './SentinelBuilder'
 import { StorageArchivistBuilder } from './StorageArchivistBuilder'
@@ -69,7 +69,7 @@ export class MemoryNodeBuilder {
     return sentinel
   }
 
-  async addWitnesses(pluginSetResolver: PayloadSetPluginResolver, witnesses: (() => Promise<WitnessInstance>)[] = []) {
+  async addWitnesses(pluginSetResolver: PayloadSetPluginResolver, witnesses: (() => Promise<AttachableWitnessInstance>)[] = []) {
     await Promise.all(
       pluginSetResolver.witnesses().map(async (pluginSet, index) => {
         // Pass the prebuilt witness at the same index
@@ -87,7 +87,7 @@ export class MemoryNodeBuilder {
     )
   }
 
-  async attach(module: ModuleInstance, external?: boolean, safeAttach?: boolean) {
+  async attach(module: AttachableModuleInstance, external?: boolean, safeAttach?: boolean) {
     try {
       if (safeAttach) {
         const existingModule = (await this.node.resolve({ address: [module.address] })).pop()
