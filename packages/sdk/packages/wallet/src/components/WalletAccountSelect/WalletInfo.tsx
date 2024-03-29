@@ -1,4 +1,4 @@
-import { Circle as LoadingIcon, ErrorOutlined as ErrorIcon } from '@mui/icons-material'
+import { ErrorOutlined as ErrorIcon, Circle as LoadingIcon } from '@mui/icons-material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
@@ -46,6 +46,7 @@ export const WalletIdenticon: React.FC<WalletIdenticonProps> = ({ account, name 
   )
 }
 
+/** @deprecated - use rootWallet instead */
 export const CoinTypeWalletInfo: React.FC<FlexBoxProps> = (props) => {
   const [wallet, error] = useCoinTypeWallet()
   return (
