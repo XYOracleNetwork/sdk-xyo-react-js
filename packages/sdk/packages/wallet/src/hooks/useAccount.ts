@@ -3,7 +3,7 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useCoinTypeWallet, useWalletContext, useWalletProvided } from '../contexts'
+import { useRootWallet, useWalletContext, useWalletProvided } from '../contexts'
 
 export interface AccountHookParams {
   account?: AccountInstance
@@ -27,15 +27,15 @@ export const useAccount = ({ wallet, account, index, required = false }: Account
   }
 
   const [error, setError] = useState<Error>()
-  const [coinTypeWallet] = useCoinTypeWallet(!wallet && required)
+  const [rootWallet] = useRootWallet(!wallet && required)
   const { activeAccountIndex } = useWalletContext(false)
   const [activeAccount] = usePromise(async () => {
     try {
       if (!validationError) {
         if (wallet) {
           return await wallet?.derivePath?.(`${index ?? 0}'\0`)
-        } else if (coinTypeWallet) {
-          return await coinTypeWallet?.derivePath?.(`${index ?? activeAccountIndex ?? 0}'\0`)
+        } else if (rootWallet) {
+          return await rootWallet?.derivePath?.(`${index ?? activeAccountIndex ?? 0}'\0`)
         }
       }
     } catch (ex) {
@@ -43,7 +43,7 @@ export const useAccount = ({ wallet, account, index, required = false }: Account
       console.error(error.message)
       setError(error)
     }
-  }, [index, wallet, coinTypeWallet, activeAccountIndex, validationError])
+  }, [index, wallet, rootWallet, activeAccountIndex, validationError])
   if (validationError && !error) {
     console.error(validationError.message)
     setError(validationError)
