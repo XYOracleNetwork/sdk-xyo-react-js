@@ -4,16 +4,16 @@ import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
 import { WalletContext } from './Context'
-import { WalletRootPath } from './lib'
 
 export interface WalletProviderProps {
+  /** @deprecated - BasePath is no longer supported. Set base path outside of WalletProvider */
   basePath?: string
   defaultActiveAccountIndex?: number
   rootWallet?: WalletInstance | null
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
-  basePath = WalletRootPath,
+  basePath,
   children,
   defaultActiveAccountIndex = 0,
   rootWallet = null,
@@ -27,28 +27,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
     }
   }, [defaultActiveAccountIndex])
 
-  const [coinTypeWallet = null] = usePromise(async () => {
-    // ensure the wallet has the proper base
-    if (rootWallet) {
-      if (rootWallet?.path !== basePath) {
-        try {
-          const result = await rootWallet?.derivePath(basePath)
-          return result
-        } catch (e) {
-          console.error('Error setting proper wallet base path', e)
-        }
-      }
-    } else {
-      return rootWallet
-    }
-  }, [basePath, rootWallet])
-
-  //console.log(`coinTypeWallet: ${coinTypeWallet}`)
-
-  const [activeAccount = null] = usePromise(
-    async () => await coinTypeWallet?.derivePath(activeAccountIndex.toString()),
-    [coinTypeWallet, activeAccountIndex],
-  )
+  const [activeAccount = null] = usePromise(async () => await rootWallet?.derivePath(activeAccountIndex.toString()), [activeAccountIndex, rootWallet])
 
   return (
     <WalletContext.Provider
@@ -56,7 +35,9 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
         activeAccount,
         activeAccountIndex,
         basePath,
-        coinTypeWallet,
+        /* eslint-disable deprecation/deprecation */
+        /** @deprecated - Set path for coinTypeWallet outside of provider and pass as rootWallet */
+        coinTypeWallet: null,
         provided: true,
         rootWallet,
         setActiveAccountIndex,
