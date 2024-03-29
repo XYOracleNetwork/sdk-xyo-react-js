@@ -12,6 +12,7 @@ export const useWalletProvided = () => {
   return useProvided(WalletContext)
 }
 
+/** @deprecated - useWalletContext instead */
 export const useCoinTypeWallet = (required = true): [WalletInstance | null | undefined, Error | undefined] => {
   const { coinTypeWallet } = useWalletContext(required)
   return [coinTypeWallet, undefined]
@@ -23,8 +24,8 @@ export const useRootWallet = (required = true): [WalletInstance | null | undefin
 }
 
 export const useIndexedWalletFromContext = (index: number, required = true): [WalletInstance | null | undefined, Error | undefined] => {
-  const [coinTypeWallet] = useCoinTypeWallet(required)
-  const [wallet] = usePromise(async () => (await coinTypeWallet?.derivePath(index.toString())) ?? coinTypeWallet, [coinTypeWallet, index])
+  const { rootWallet } = useWalletContext(required)
+  const [wallet] = usePromise(async () => (await rootWallet?.derivePath(index.toString())) ?? rootWallet, [rootWallet, index])
   return [wallet, undefined]
 }
 

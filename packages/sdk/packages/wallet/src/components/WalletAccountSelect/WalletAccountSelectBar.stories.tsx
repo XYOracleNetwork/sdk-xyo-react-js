@@ -1,14 +1,16 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { WalletProvider } from '../../contexts'
-import { useWallet, useWallets } from '../../hooks'
+import { useWallets } from '../../hooks'
 import { WalletAccountSelectBar } from './SelectBar'
+import { WalletProviderDecorator } from './stories'
+
+const PATHS = { paths: ['0', '3', '5']}
 
 const StorybookEntry = {
   argTypes: {},
   component: WalletAccountSelectBar,
+  decorators: [WalletProviderDecorator],
   parameters: {
     docs: {
       page: null,
@@ -21,21 +23,10 @@ const Template: StoryFn<typeof WalletAccountSelectBar> = (args) => {
   return <WalletAccountSelectBar {...args}></WalletAccountSelectBar>
 }
 
-const WithWalletTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
-  const [rootWallet] = useWallet({ mnemonic: DefaultSeedPhrase })
-  return (
-    <WalletProvider rootWallet={rootWallet}>
-      <WalletAccountSelectBar {...args} />
-    </WalletProvider>
-  )
-}
-
 const WithFavoritesTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
-  const [rootWallet] = useWallet({ mnemonic: DefaultSeedPhrase })
-  const [wallets] = useWallets({ paths: ['0', '3', '5'], wallet: rootWallet })
+  const [wallets] = useWallets(PATHS)
   const castWallets = wallets as WalletInstance[] | undefined
   return (
-    <WalletProvider rootWallet={rootWallet}>
       <WalletAccountSelectBar
         addressNames={
           castWallets
@@ -51,20 +42,19 @@ const WithFavoritesTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => 
         showFavorite
         {...args}
       />
-    </WalletProvider>
   )
 }
 
 const Default = Template.bind({})
 Default.args = {}
 
-const WithWallet = WithWalletTemplate.bind({})
+const WithWallet = Template.bind({})
 WithWallet.args = {}
 
-const WithWalletIcon = WithWalletTemplate.bind({})
+const WithWalletIcon = Template.bind({})
 WithWalletIcon.args = { icons: true }
 
-const WithAdditionalAccounts = WithWalletTemplate.bind({})
+const WithAdditionalAccounts = Template.bind({})
 WithAdditionalAccounts.args = { icons: true, maxAccounts: 10 }
 
 const WithAccountFavorites = WithFavoritesTemplate.bind({})

@@ -46,6 +46,7 @@ export const WalletIdenticon: React.FC<WalletIdenticonProps> = ({ account, name 
   )
 }
 
+/** @deprecated - use rootWallet instead */
 export const CoinTypeWalletInfo: React.FC<FlexBoxProps> = (props) => {
   const [wallet, error] = useCoinTypeWallet()
   return (

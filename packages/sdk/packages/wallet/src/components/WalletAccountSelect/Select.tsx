@@ -29,18 +29,18 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
   variant = 'outlined',
   ...props
 }) => {
-  const { activeAccountIndex = 0, setActiveAccountIndex, coinTypeWallet } = useWalletContext()
-  const disabled = !coinTypeWallet || activeAccountIndex === undefined
+  const { activeAccountIndex = 0, setActiveAccountIndex, rootWallet } = useWalletContext()
+  const disabled = !rootWallet || activeAccountIndex === undefined
 
   return (
     <>
-      {coinTypeWallet ?
+      {rootWallet ?
         <SelectEx
           margin="dense"
           disabled={disabled}
           renderValue={(selectedAccountIndex) => {
             const Item: React.FC = () => {
-              const [selectedAccount] = useWallet({ path: selectedAccountIndex.toString(), wallet: coinTypeWallet })
+              const [selectedAccount] = useWallet({ path: selectedAccountIndex.toString(), wallet: rootWallet })
               const customName = selectedAccount ? addressNames[selectedAccount.address] : undefined
               const favorite = !!selectedAccount && selectedAccount.address in addressNames
               return (
@@ -69,7 +69,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
         >
           {arrayRange(maxAccounts).map((index) => {
             const Item: React.FC = () => {
-              const [account] = useWallet({ path: index.toString(), wallet: coinTypeWallet })
+              const [account] = useWallet({ path: index.toString(), wallet: rootWallet })
               const customName = account ? addressNames[account.address] : undefined
               const favorite = !!account && account.address in addressNames
               return (
