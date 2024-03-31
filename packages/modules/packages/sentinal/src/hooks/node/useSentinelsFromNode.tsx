@@ -1,6 +1,6 @@
 import { ModuleFilter } from '@xyo-network/module-model'
 import { ModuleFromNodeConfig, useModulesFromNode } from '@xyo-network/react-node'
-import { isSentinelInstance, SentinelInstance } from '@xyo-network/sentinel'
+import { isSentinelInstance, SentinelInstance } from '@xyo-network/sentinel-model'
 
 export const useSentinelsFromNode = (
   filter?: ModuleFilter,

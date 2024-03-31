@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ArchivistModule } from '@xyo-network/archivist'
+import { ArchivistModule } from '@xyo-network/archivist-model'
 import { NodeProvider } from '@xyo-network/react-node'
 import { useState } from 'react'
 

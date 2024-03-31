@@ -1,6 +1,6 @@
 import { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
-import { ArchivistInstance } from '@xyo-network/archivist'
+import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { Payload, WithMeta } from '@xyo-network/payload-model'
 import { RefreshCallback, useRefresh } from '@xyo-network/react-module'
 

@@ -2,7 +2,8 @@ import { ButtonGroup } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
-import { ModuleInstance } from '@xyo-network/module-model'
+import { ModuleDescriptionPayload, ModuleDescriptionSchema, ModuleInstance } from '@xyo-network/module-model'
+import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
 import { Property } from '@xyo-network/react-property'
 
 import { JsonViewerButton } from './JsonViewerButton'
@@ -17,11 +18,12 @@ export const ModuleDetails: React.FC<ModuleDetailsProps> = ({ module, ...props }
   }, [module])
 
   const [discover] = usePromise(async () => {
-    return await module?.discover()
+    return await module?.state()
   }, [module])
 
   const [describe] = usePromise(async () => {
-    return await module?.describe()
+    const state = await module?.state()
+    return state?.find<ModuleDescriptionPayload>(isPayloadOfSchemaType(ModuleDescriptionSchema))
   }, [module])
 
   const queries = module?.queries

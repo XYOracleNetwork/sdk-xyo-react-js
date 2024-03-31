@@ -1,7 +1,7 @@
 import { CardActionsProps } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { ModuleCardActions, ModuleRenderProps } from '@xyo-network/react-module'
-import { SentinelInstance } from '@xyo-network/sentinel'
+import { SentinelInstance } from '@xyo-network/sentinel-model'
 
 export type SentinelCardActionsProps = ModuleRenderProps<SentinelInstance> &
   CardActionsProps & {

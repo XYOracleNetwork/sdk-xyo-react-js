@@ -1,5 +1,5 @@
 import { CardHeaderProps } from '@mui/material'
-import { DivinerInstance } from '@xyo-network/diviner'
+import { DivinerInstance } from '@xyo-network/diviner-model'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps'
 import { ModuleCardHeader } from '../Module'

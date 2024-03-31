@@ -1,6 +1,6 @@
 import { compact } from '@xylabs/lodash'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { HuriPayload, HuriSchema } from '@xyo-network/diviner'
+import { HuriPayload, HuriSchema } from '@xyo-network/diviner-huri'
 import { Payload, WithMeta } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'
 import { Dispatch, useEffect, useState } from 'react'

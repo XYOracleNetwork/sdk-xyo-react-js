@@ -1,6 +1,6 @@
-import { ArchivistModule } from '@xyo-network/archivist'
+import { ArchivistModule } from '@xyo-network/archivist-model'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { SentinelModule } from '@xyo-network/sentinel'
+import { SentinelModule } from '@xyo-network/sentinel-model'
 import { WitnessModule } from '@xyo-network/witness-model'
 
 export enum SentinelReportStatus {

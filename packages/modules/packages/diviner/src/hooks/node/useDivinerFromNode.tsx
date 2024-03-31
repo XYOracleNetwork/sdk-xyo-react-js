@@ -1,4 +1,4 @@
-import { asDivinerInstance, DivinerInstance } from '@xyo-network/diviner'
+import { asDivinerInstance, DivinerInstance } from '@xyo-network/diviner-model'
 import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 
 export const useDivinerFromNode = (

@@ -5,7 +5,7 @@ import { HDWallet } from '@xyo-network/account'
 import { EvmCallWitness, EvmCallDiviner, EvmCallWitnessConfigSchema } from '@xyo-network/evm-call-witness'
 import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
 import { ModuleFactory, ModuleFactoryLocator } from '@xyo-network/module-model'
-import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel'
+import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel-model'
 import { InfuraProvider } from 'ethers'
 
 import { SentinelCard } from './Card'

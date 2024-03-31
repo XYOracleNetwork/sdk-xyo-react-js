@@ -3,7 +3,7 @@ import { isBridgeInstance } from '@xyo-network/bridge-model'
 import { isDivinerInstance } from '@xyo-network/diviner-model'
 import { ModuleInstance } from '@xyo-network/module-model'
 import { isNodeInstance } from '@xyo-network/node-model'
-import { isSentinelInstance } from '@xyo-network/sentinel'
+import { isSentinelInstance } from '@xyo-network/sentinel-model'
 import { isWitnessModule } from '@xyo-network/witness-model'
 
 import { CyNodeModuleTypes } from './CyNodeModuleTypes'

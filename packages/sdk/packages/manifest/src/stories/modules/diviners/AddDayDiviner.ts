@@ -1,4 +1,4 @@
-import { AbstractDiviner } from '@xyo-network/diviner'
+import { AbstractDiviner } from '@xyo-network/diviner-abstract'
 import { DivinerParams } from '@xyo-network/diviner-model'
 import { Payload } from '@xyo-network/payload-model'
 import { isTimestamp, TimeStamp } from '@xyo-network/witness-timestamp'

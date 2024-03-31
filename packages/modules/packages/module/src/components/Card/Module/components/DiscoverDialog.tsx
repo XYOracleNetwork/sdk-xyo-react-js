@@ -12,7 +12,7 @@ export interface DiscoverDialogProps extends DialogProps {
 
 export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ module, setOpen, ...props }) => {
   const [discoverPayloads] = usePromise(async () => {
-    return await module?.discover()
+    return await module?.state()
   }, [module])
 
   return (

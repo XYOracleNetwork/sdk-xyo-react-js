@@ -2,7 +2,7 @@ import { isArchivistInstance } from '@xyo-network/archivist-model'
 import { isBridgeInstance } from '@xyo-network/bridge-model'
 import { isDivinerInstance } from '@xyo-network/diviner-model'
 import { isNodeInstance } from '@xyo-network/node-model'
-import { isSentinelInstance } from '@xyo-network/sentinel'
+import { isSentinelInstance } from '@xyo-network/sentinel-model'
 import { isWitnessInstance } from '@xyo-network/witness-model'
 
 import { ArchivistSummary } from './ArchivistSummary'

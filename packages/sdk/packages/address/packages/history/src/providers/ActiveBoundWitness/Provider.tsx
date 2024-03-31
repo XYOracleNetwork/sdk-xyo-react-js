@@ -1,5 +1,5 @@
 import { Hash } from '@xylabs/hex'
-import { ArchivistInstance } from '@xyo-network/archivist'
+import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useArchivistFromNode, useArchivistGet } from '@xyo-network/react-archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
