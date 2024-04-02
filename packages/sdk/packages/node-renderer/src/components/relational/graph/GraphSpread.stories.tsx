@@ -86,17 +86,17 @@ const TemplateDescribe: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => 
   const [node] = useProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraphFlexBox fcose options={options} {...props} />
+  return <NodeRelationalGraphFlexBox spread options={options} {...props} />
 }
 
 const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraphFlexBox fcose options={options} {...props} />
+  return <NodeRelationalGraphFlexBox spread options={options} {...props} />
 }
 
-const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer fcose {...props} />
+const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer spread {...props} />
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
@@ -137,7 +137,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
         <Button onClick={handleRemoveWitness}>Remove Witness</Button>
       </ButtonGroup>
       <WithExtensions>
-        <NodeRelationalGraphFlexBox fcose options={options} {...props} />
+        <NodeRelationalGraphFlexBox spread options={options} {...props} />
       </WithExtensions>
     </>
   )

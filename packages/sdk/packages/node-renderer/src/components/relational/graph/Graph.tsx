@@ -9,7 +9,7 @@ import { useCytoscapeInstance } from '../../../contexts'
 import { NodeRelationalGraphProps } from '../../lib'
 
 export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(
-  ({ actions, children, showDetails, detail, fcose, options, ...props }, ref) => {
+  ({ actions, children, showDetails, detail, spread, options, ...props }, ref) => {
     const theme = useTheme()
     const [cy, setCy] = useState<Core>()
     const { setCy: setCyContext } = useCytoscapeInstance()
@@ -17,7 +17,7 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
     const handleReset = () => {
       cy?.reset()
-      if (fcose) {
+      if (spread) {
         cy?.layout({ name: 'fcose' }).run()
       }
       cy?.fit(undefined, 20)
@@ -25,19 +25,19 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
     useEffect(() => {
       if (sharedRef) {
-        if (fcose) {
+        if (spread) {
           cytoscape.use(fcoseLayout)
         }
         const newCy = cytoscape({
           container: sharedRef.current,
           ...options,
         })
-        if (fcose) {
+        if (spread) {
           newCy.layout({ name: 'fcose' }).run()
         }
         setCy(newCy)
       }
-    }, [options, sharedRef, fcose])
+    }, [options, sharedRef, spread])
 
     useEffect(() => {
       setCyContext?.(cy)
