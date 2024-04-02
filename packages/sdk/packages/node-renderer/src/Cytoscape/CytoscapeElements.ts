@@ -1,8 +1,13 @@
+import { exists } from '@xylabs/exists'
 import { ModuleInstance } from '@xyo-network/module-model'
-import { isNodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 
 import { parseModuleType } from './lib'
+
+interface ModuleInfo {
+  children: ModuleInfo[]
+  module: ModuleInstance
+}
 
 export const CytoscapeElements = {
   MaxNameLength: 20,
@@ -18,25 +23,30 @@ export const CytoscapeElements = {
   },
 
   async buildElements(module: ModuleInstance): Promise<ElementDefinition[]> {
-    const newRootNode = CytoscapeElements.buildRootNode(module)
-    const newElements: ElementDefinition[] = [newRootNode]
+    const info = await CytoscapeElements.recurseNodes(module)
+    const newElements: ElementDefinition[] = await this.buildElementsFromInfo(info, undefined, undefined, ['activeNode'])
 
-    try {
-      const childElements = await CytoscapeElements.recurseNodes(module)
-      if (childElements)
-        for (const module of childElements) {
-          const newNode = CytoscapeElements.buildNode(module)
-          newElements.push(newNode)
+    return newElements
+  },
 
-          const newEdge = CytoscapeElements.buildEdge(newRootNode, newNode)
-          newElements.push(newEdge)
-        }
-
-      return newElements
-    } catch (e) {
-      console.error('error resolving modules', e)
-      return []
+  async buildElementsFromInfo(
+    info: ModuleInfo,
+    root?: ElementDefinition,
+    properties: { [key: string]: unknown } = {},
+    classes: string[] = [],
+  ): Promise<ElementDefinition[]> {
+    const newNode = CytoscapeElements.buildNode(info.module, properties, classes)
+    const newEdge = root ? CytoscapeElements.buildEdge(root, newNode) : undefined
+    const newElements: ElementDefinition[] = [newNode]
+    if (newEdge) {
+      newElements.push(newEdge)
     }
+
+    for (const childInfo of info.children) {
+      newElements.push(...(await this.buildElementsFromInfo(childInfo, newNode)))
+    }
+
+    return newElements
   },
 
   buildNode(module: ModuleInstance, properties?: { [key: string]: unknown }, classes?: string[]): ElementDefinition {
@@ -63,29 +73,23 @@ export const CytoscapeElements = {
     return name
   },
 
-  async recurseNodes(module: ModuleInstance, maxTraversals = 1): Promise<ModuleInstance[]> {
-    let localDepth = 0
-    const childModules: ModuleInstance[] = []
+  async recurseNodes(root: ModuleInstance, maxDepth = 10): Promise<ModuleInfo> {
+    const info: ModuleInfo = { children: [], module: root }
 
-    const traverse = async (nestedNode: ModuleInstance) => {
-      if (localDepth < maxTraversals) {
-        const modules = await nestedNode.resolve('*', { direction: 'down', maxDepth: 2 })
+    if (maxDepth > 0) {
+      const children = await root.resolve('*', { direction: 'down', maxDepth: 1 })
+      info.children = (
         await Promise.all(
-          modules.map(async (child) => {
-            if (child !== nestedNode && isNodeInstance(child)) {
-              localDepth++
-              await traverse(child)
+          children.map(async (child) => {
+            if (child.address !== root.address) {
+              return await this.recurseNodes(child, maxDepth - 1)
               // don't re add the root module that was passed in
-            } else if (child !== module) {
-              childModules.push(child)
             }
           }),
         )
-      }
+      ).filter(exists)
     }
 
-    await traverse(module)
-
-    return childModules
+    return info
   },
 }
