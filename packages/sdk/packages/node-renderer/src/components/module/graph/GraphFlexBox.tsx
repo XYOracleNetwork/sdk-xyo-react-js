@@ -12,6 +12,7 @@ import { ModuleGraphNodeHover } from './node'
 import { StyledModuleHoverPopper } from './Popper'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
+  directed?: boolean | object
   disableModuleDetails?: boolean
   rootModule?: ModuleInstance | null
   spread?: boolean | object

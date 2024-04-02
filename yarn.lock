@@ -10014,6 +10014,7 @@ __metadata:
     "@xyo-network/witness-model": "npm:^2.94.9"
     cytoscape: "npm:^3.28.1"
     cytoscape-cola: "npm:^2.5.1"
+    cytoscape-dagre: "npm:^2.5.0"
     cytoscape-fcose: "npm:^2.2.0"
     typescript: "npm:^5.4.3"
   peerDependencies:
@@ -13760,6 +13761,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cytoscape-dagre@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "cytoscape-dagre@npm:2.5.0"
+  dependencies:
+    dagre: "npm:^0.8.5"
+  peerDependencies:
+    cytoscape: ^3.2.22
+  checksum: 10/118321e9a5547880a50a36b9d53beaa8d46089e077e0bca2109655b05be0805152ec30f3401c07b95055278017b5f8d0b17ebada13b75e0f8a53b19c0c7595e1
+  languageName: node
+  linkType: hard
+
 "cytoscape-fcose@npm:^2.2.0":
   version: 2.2.0
   resolution: "cytoscape-fcose@npm:2.2.0"
@@ -13825,6 +13837,16 @@ __metadata:
   version: 1.0.10
   resolution: "d3-timer@npm:1.0.10"
   checksum: 10/aeaf0f849f1ed316ab4467b822333b22851f174faa6c7dd24735b86bf5f3dc75bb3c3ae02b99ba1f16260a7570ac59563728577ecb6083e47edbaff2ca5c9237
+  languageName: node
+  linkType: hard
+
+"dagre@npm:^0.8.5":
+  version: 0.8.5
+  resolution: "dagre@npm:0.8.5"
+  dependencies:
+    graphlib: "npm:^2.1.8"
+    lodash: "npm:^4.17.15"
+  checksum: 10/f39899e29e9090581d67177ef6e2dd3ca5d7f764fbf3de81758d879bba66fee6fd8802d41d0c5d3d9a0563b334e99e1454a8d6ab4ce17e8e4f50836a3a403fdd
   languageName: node
   linkType: hard
 
@@ -16939,6 +16961,15 @@ __metadata:
   version: 1.4.0
   resolution: "graphemer@npm:1.4.0"
   checksum: 10/6dd60dba97007b21e3a829fab3f771803cc1292977fe610e240ea72afd67e5690ac9eeaafc4a99710e78962e5936ab5a460787c2a1180f1cb0ccfac37d29f897
+  languageName: node
+  linkType: hard
+
+"graphlib@npm:^2.1.8":
+  version: 2.1.8
+  resolution: "graphlib@npm:2.1.8"
+  dependencies:
+    lodash: "npm:^4.17.15"
+  checksum: 10/37cbd851d3c1fb99f3174750ccaa22305d23d11746e5df81a38ba3bf25c0ba29cd9658ba69a0159ea81d56c28e8e875033eeaaa7167d838419fae08d9cd2c62c
   languageName: node
   linkType: hard
 

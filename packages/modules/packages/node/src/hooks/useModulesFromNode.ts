@@ -16,15 +16,15 @@ export const useModulesFromNode = (filter?: ModuleFilter, config?: ModuleFromNod
     if (node) {
       node.on('moduleAttached', async ({ module }) => {
         logger?.debug(`useModuleFromNode: moduleAttached [${module.config.name ?? module.address}]`)
-        const moduleInstances = await node.resolve(filter, filterOptions)
+        const moduleInstances = filter ? await node.resolve(filter, filterOptions) : await node.resolve('*', filterOptions)
         setResult(moduleInstances)
       })
       node.on('moduleDetached', async ({ module }) => {
         logger?.debug(`useModuleFromNode: moduleDetached [${module.config.name ?? module.address}]`)
-        const moduleInstances = await node.resolve(filter, filterOptions)
+        const moduleInstances = filter ? await node.resolve(filter, filterOptions) : await node.resolve('*', filterOptions)
         setResult(moduleInstances)
       })
-      const moduleInstances = await node.resolve(filter, filterOptions)
+      const moduleInstances = filter ? await node.resolve(filter, filterOptions) : await node.resolve('*', filterOptions)
       setResult(moduleInstances)
       setResult(moduleInstances)
       return moduleInstances

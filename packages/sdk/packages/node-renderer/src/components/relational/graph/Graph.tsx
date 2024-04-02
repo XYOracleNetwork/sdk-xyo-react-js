@@ -2,14 +2,15 @@ import { Button, ButtonGroup, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core } from 'cytoscape'
-import fcoseLayout from 'cytoscape-fcose'
+import dagre from 'cytoscape-dagre'
+import fcose from 'cytoscape-fcose'
 import { forwardRef, useEffect, useState } from 'react'
 
 import { useCytoscapeInstance } from '../../../contexts'
 import { NodeRelationalGraphProps } from '../../lib'
 
 export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(
-  ({ actions, children, showDetails, detail, spread, options, ...props }, ref) => {
+  ({ actions, children, directed, showDetails, detail, spread, options, ...props }, ref) => {
     const theme = useTheme()
     const [cy, setCy] = useState<Core>()
     const { setCy: setCyContext } = useCytoscapeInstance()
@@ -17,6 +18,9 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
     const handleReset = () => {
       cy?.reset()
+      if (directed) {
+        cy?.layout({ name: 'dagre', ...(typeof directed === 'object' ? directed : {}) }).run()
+      }
       if (spread) {
         cy?.layout({ name: 'fcose', ...(typeof spread === 'object' ? spread : {}) }).run()
       }
@@ -25,19 +29,25 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
     useEffect(() => {
       if (sharedRef) {
+        if (directed) {
+          cytoscape.use(dagre)
+        }
         if (spread) {
-          cytoscape.use(fcoseLayout)
+          cytoscape.use(fcose)
         }
         const newCy = cytoscape({
           container: sharedRef.current,
           ...options,
         })
+        if (directed) {
+          newCy.layout({ name: 'dagre' }).run()
+        }
         if (spread) {
           newCy.layout({ name: 'fcose' }).run()
         }
         setCy(newCy)
       }
-    }, [options, sharedRef, spread])
+    }, [options, sharedRef, spread, directed])
 
     useEffect(() => {
       setCyContext?.(cy)
