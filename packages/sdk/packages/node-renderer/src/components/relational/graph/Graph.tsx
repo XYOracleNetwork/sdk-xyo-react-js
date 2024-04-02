@@ -18,7 +18,7 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
     const handleReset = () => {
       cy?.reset()
       if (spread) {
-        cy?.layout({ name: 'fcose' }).run()
+        cy?.layout({ name: 'fcose', ...(typeof spread === 'object' ? spread : {}) }).run()
       }
       cy?.fit(undefined, 20)
     }

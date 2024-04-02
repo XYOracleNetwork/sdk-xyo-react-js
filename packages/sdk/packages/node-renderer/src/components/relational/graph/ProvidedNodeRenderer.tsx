@@ -9,7 +9,7 @@ import { NodeRelationalGraphFlexBox } from './Graph'
 export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   account?: AccountInstance
   node?: NodeInstance
-  spread?: boolean
+  spread?: boolean | object
 }
 
 export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({ node, ...props }) => {

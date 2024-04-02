@@ -14,6 +14,7 @@ import { StyledModuleHoverPopper } from './Popper'
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   disableModuleDetails?: boolean
   rootModule?: ModuleInstance | null
+  spread?: boolean | object
 }
 
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, disableModuleDetails, ...props }) => {
