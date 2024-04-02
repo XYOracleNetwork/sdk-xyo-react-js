@@ -2,13 +2,14 @@ import { Button, ButtonGroup, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core } from 'cytoscape'
+import fcoseLayout from 'cytoscape-fcose'
 import { forwardRef, useEffect, useState } from 'react'
 
 import { useCytoscapeInstance } from '../../../contexts'
 import { NodeRelationalGraphProps } from '../../lib'
 
 export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(
-  ({ actions, children, showDetails, detail, options, ...props }, ref) => {
+  ({ actions, children, showDetails, detail, fcose, options, ...props }, ref) => {
     const theme = useTheme()
     const [cy, setCy] = useState<Core>()
     const { setCy: setCyContext } = useCytoscapeInstance()
@@ -16,18 +17,27 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
     const handleReset = () => {
       cy?.reset()
+      if (fcose) {
+        cy?.layout({ name: 'fcose' }).run()
+      }
       cy?.fit(undefined, 20)
     }
 
     useEffect(() => {
       if (sharedRef) {
+        if (fcose) {
+          cytoscape.use(fcoseLayout)
+        }
         const newCy = cytoscape({
           container: sharedRef.current,
           ...options,
         })
+        if (fcose) {
+          newCy.layout({ name: 'fcose' }).run()
+        }
         setCy(newCy)
       }
-    }, [options, sharedRef])
+    }, [options, sharedRef, fcose])
 
     useEffect(() => {
       setCyContext?.(cy)
