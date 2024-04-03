@@ -6,6 +6,7 @@ import { parseModuleType } from './lib'
 
 interface ModuleInfo {
   children: ModuleInfo[]
+  depth: number
   module: ModuleInstance
 }
 
@@ -24,18 +25,13 @@ export const CytoscapeElements = {
 
   async buildElements(module: ModuleInstance): Promise<ElementDefinition[]> {
     const info = await CytoscapeElements.recurseNodes(module)
-    const newElements: ElementDefinition[] = await this.buildElementsFromInfo(info, undefined, undefined, ['activeNode'])
+    const newElements: ElementDefinition[] = await this.buildElementsFromInfo(info, undefined, ['activeNode'])
 
     return newElements
   },
 
-  async buildElementsFromInfo(
-    info: ModuleInfo,
-    root?: ElementDefinition,
-    properties: { [key: string]: unknown } = {},
-    classes: string[] = [],
-  ): Promise<ElementDefinition[]> {
-    const newNode = CytoscapeElements.buildNode(info.module, properties, classes)
+  async buildElementsFromInfo(info: ModuleInfo, root?: ElementDefinition, classes: string[] = []): Promise<ElementDefinition[]> {
+    const newNode = CytoscapeElements.buildNode(info.module, { childCount: info.children.length, depth: info.depth }, classes)
     const newEdge = root ? CytoscapeElements.buildEdge(root, newNode) : undefined
     const newElements: ElementDefinition[] = [newNode]
     if (newEdge) {
@@ -73,8 +69,8 @@ export const CytoscapeElements = {
     return name
   },
 
-  async recurseNodes(root: ModuleInstance, maxDepth = 10): Promise<ModuleInfo> {
-    const info: ModuleInfo = { children: [], module: root }
+  async recurseNodes(root: ModuleInstance, maxDepth = 10, depth = 1): Promise<ModuleInfo> {
+    const info: ModuleInfo = { children: [], depth, module: root }
 
     if (maxDepth > 0) {
       const children = await root.resolve('*', { direction: 'down', maxDepth: 1 })
@@ -82,7 +78,7 @@ export const CytoscapeElements = {
         await Promise.all(
           children.map(async (child) => {
             if (child.address !== root.address) {
-              return await this.recurseNodes(child, maxDepth - 1)
+              return await this.recurseNodes(child, maxDepth - 1, depth + 1)
               // don't re add the root module that was passed in
             }
           }),
