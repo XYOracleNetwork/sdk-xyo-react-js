@@ -115,7 +115,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
           {...buttonProps}
         />
       </Paper>
-      {debugDialog ?
+      {debugDialog && debugDialogOpen ?
         <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} onKeyDown={onKeyDownEscListener} />
       : null}
     </FlexCol>
