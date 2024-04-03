@@ -40,11 +40,12 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
           ...options,
         })
         if (directed) {
-          newCy.layout({ name: 'dagre' }).run()
+          newCy.layout({ name: 'dagre', ...(typeof directed === 'object' ? directed : {}) }).run()
         }
         if (spread) {
-          newCy.layout({ name: 'fcose' }).run()
+          newCy.layout({ name: 'fcose', ...(typeof spread === 'object' ? spread : {}) }).run()
         }
+        newCy.fit(undefined, 20)
         setCy(newCy)
       }
     }, [options, sharedRef, spread, directed])
