@@ -13,12 +13,13 @@ interface ModuleInfo {
 export const CytoscapeElements = {
   MaxNameLength: 20,
 
-  buildEdge(rootNode: ElementDefinition, newNode: ElementDefinition) {
+  buildEdge(rootNode: ElementDefinition, newNode: ElementDefinition, properties?: { [key: string]: unknown }) {
     return {
       data: {
         id: `${rootNode.data.id}/${newNode.data.id}`,
         source: rootNode.data.id,
         target: newNode.data.id,
+        ...properties,
       },
     }
   },
@@ -32,7 +33,7 @@ export const CytoscapeElements = {
 
   async buildElementsFromInfo(info: ModuleInfo, root?: ElementDefinition, classes: string[] = []): Promise<ElementDefinition[]> {
     const newNode = CytoscapeElements.buildNode(info.module, { childCount: info.children.length, depth: info.depth }, classes)
-    const newEdge = root ? CytoscapeElements.buildEdge(root, newNode) : undefined
+    const newEdge = root ? CytoscapeElements.buildEdge(root, newNode, { depth: info.depth, siblingCount: info.children.length }) : undefined
     const newElements: ElementDefinition[] = [newNode]
     if (newEdge) {
       newElements.push(newEdge)
