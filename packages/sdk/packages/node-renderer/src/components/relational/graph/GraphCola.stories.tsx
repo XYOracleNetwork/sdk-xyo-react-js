@@ -77,26 +77,26 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: NodeRelationalGraphFlexBox,
-  title: 'node/renderer/spread/NodeRelationalGraph',
+  title: 'node/renderer/cola/NodeRelationalGraph',
 } as Meta
 
-const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox spread {...props} />
+const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox layout="cola" {...props} />
 
 const TemplateDescribe: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraphFlexBox spread options={options} {...props} />
+  return <NodeRelationalGraphFlexBox layout="cola" options={options} {...props} />
 }
 
 const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraphFlexBox spread options={options} {...props} />
+  return <NodeRelationalGraphFlexBox layout="cola" options={options} {...props} />
 }
 
-const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer spread {...props} />
+const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer layout="cola" {...props} />
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
@@ -137,7 +137,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
         <Button onClick={handleRemoveWitness}>Remove Witness</Button>
       </ButtonGroup>
       <WithExtensions>
-        <NodeRelationalGraphFlexBox spread options={options} {...props} />
+        <NodeRelationalGraphFlexBox layout="cola" options={options} {...props} />
       </WithExtensions>
     </>
   )

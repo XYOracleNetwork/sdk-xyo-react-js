@@ -5575,7 +5575,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cytoscape@npm:^3.21.0":
+"@types/cytoscape-dagre@npm:^2.3.3":
+  version: 2.3.3
+  resolution: "@types/cytoscape-dagre@npm:2.3.3"
+  dependencies:
+    "@types/cytoscape": "npm:*"
+  checksum: 10/ea3cdd17ad1d857215593d631397789232e46738e6bfa4bdb75c153df61c508bbd1f98b0b0cb429d9e615f727b58bc8ab0eaa1174e7dfcc4a6c360eb3692d4ff
+  languageName: node
+  linkType: hard
+
+"@types/cytoscape-euler@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "@types/cytoscape-euler@npm:1.2.3"
+  dependencies:
+    "@types/cytoscape": "npm:*"
+  checksum: 10/010c9edc344da3fc6731430d86a7881e66203956c11c634bf4bb2c2013dedee40e00b1ef5ea3508a6ba692dd23fc3a7715d27ce631de86c5f1475a396e2b1409
+  languageName: node
+  linkType: hard
+
+"@types/cytoscape-fcose@npm:^2.2.4":
+  version: 2.2.4
+  resolution: "@types/cytoscape-fcose@npm:2.2.4"
+  dependencies:
+    "@types/cytoscape": "npm:*"
+  checksum: 10/c207a162a215c46dc242a403eadc6cef2cc0e5ba896b486e0791b7b7a8ac3397d79e47913b7008978d63daea73754333d95e30f80eb06b330cc6ebd2ae288c82
+  languageName: node
+  linkType: hard
+
+"@types/cytoscape@npm:*, @types/cytoscape@npm:^3.21.0":
   version: 3.21.0
   resolution: "@types/cytoscape@npm:3.21.0"
   checksum: 10/1ddc1412c9949c484e4b2d7b6d395a2c588fd80dfd4635da321b09f23e9625ab1b73232d8d642b9028982e2a1831cddd767aa9f41f353e929a3896d10b8c7d1e
@@ -10016,6 +10043,9 @@ __metadata:
   dependencies:
     "@storybook/react": "npm:^7.6.17"
     "@types/cytoscape": "npm:^3.21.0"
+    "@types/cytoscape-dagre": "npm:^2.3.3"
+    "@types/cytoscape-euler": "npm:^1.2.3"
+    "@types/cytoscape-fcose": "npm:^2.2.4"
     "@types/react-dom": "npm:^18.2.24"
     "@xylabs/exists": "npm:^3.0.25"
     "@xylabs/react-async-effect": "npm:^3.1.6"
@@ -10047,7 +10077,9 @@ __metadata:
     "@xyo-network/witness-model": "npm:^2.94.23"
     cytoscape: "npm:^3.28.1"
     cytoscape-cola: "npm:^2.5.1"
+    cytoscape-cose-bilkent: "npm:^4.1.0"
     cytoscape-dagre: "npm:^2.5.0"
+    cytoscape-euler: "npm:^1.2.2"
     cytoscape-fcose: "npm:^2.2.0"
     typescript: "npm:^5.4.4"
   peerDependencies:
@@ -13528,6 +13560,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cose-base@npm:^1.0.0":
+  version: 1.0.3
+  resolution: "cose-base@npm:1.0.3"
+  dependencies:
+    layout-base: "npm:^1.0.0"
+  checksum: 10/52e1f4ae173738aebe14395e3f865dc10ce430156554bab52f4b8ef0c583375644348c2a226b83d97eebc7d35340919e7bc10d23a3e2fe51b853bf56f27b5da7
+  languageName: node
+  linkType: hard
+
 "cose-base@npm:^2.2.0":
   version: 2.2.0
   resolution: "cose-base@npm:2.2.0"
@@ -13794,6 +13835,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cytoscape-cose-bilkent@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "cytoscape-cose-bilkent@npm:4.1.0"
+  dependencies:
+    cose-base: "npm:^1.0.0"
+  peerDependencies:
+    cytoscape: ^3.2.0
+  checksum: 10/9ec2999159af62f1a251bf1e146a9a779085c4fdb1b8146596208f0097c0512fc4bffda53d3b00c87a1e8ae5024db3ebfb97162115216f5b4d024e314f4a03bb
+  languageName: node
+  linkType: hard
+
 "cytoscape-dagre@npm:^2.5.0":
   version: 2.5.0
   resolution: "cytoscape-dagre@npm:2.5.0"
@@ -13802,6 +13854,15 @@ __metadata:
   peerDependencies:
     cytoscape: ^3.2.22
   checksum: 10/118321e9a5547880a50a36b9d53beaa8d46089e077e0bca2109655b05be0805152ec30f3401c07b95055278017b5f8d0b17ebada13b75e0f8a53b19c0c7595e1
+  languageName: node
+  linkType: hard
+
+"cytoscape-euler@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "cytoscape-euler@npm:1.2.2"
+  peerDependencies:
+    cytoscape: ^3.0.0
+  checksum: 10/940b22c5606833c0ce85f4e010bd8431039bdfea8a4aaa72969f28a48d647ce9735318d23bc2f1e17f4274c256dac38cb6a7bd9be6ea7cc097fd815a1694b656
   languageName: node
   linkType: hard
 
@@ -19516,6 +19577,13 @@ __metadata:
   dependencies:
     package-json: "npm:^8.1.0"
   checksum: 10/1f0deba00d5a34394cce4463c938811f51bbb539b131674f4bb2062c63f2cc3b80bccd56ecade3bd5932d04a34cf0a5a8a2ccc4ec9e5e6b285a9a7b3e27d0d66
+  languageName: node
+  linkType: hard
+
+"layout-base@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "layout-base@npm:1.0.2"
+  checksum: 10/34504e61e4770e563cf49d4a56c8c10f1da0fb452cff89a652118783189c642ebc86a300d97cbc247e59a9c1eb06a2d419982f7dd10e8eedcab2414bc46d32f8
   languageName: node
   linkType: hard
 

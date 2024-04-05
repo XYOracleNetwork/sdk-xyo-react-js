@@ -12,11 +12,10 @@ import { ModuleGraphNodeHover } from './node'
 import { StyledModuleHoverPopper } from './Popper'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
-  directed?: boolean | object
   disableModuleDetails?: boolean
-  forceDirected?: boolean | object
+  layout?: 'dagre' | 'euler' | 'fcose' | 'cose-bilkent' | 'cola'
+  layoutOptions?: object
   rootModule?: ModuleInstance | null
-  spread?: boolean | object
 }
 
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, disableModuleDetails, ...props }) => {

@@ -77,26 +77,26 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: NodeRelationalGraphFlexBox,
-  title: 'node/renderer/directed/force/NodeRelationalGraph',
+  title: 'node/renderer/dagre/NodeRelationalGraph',
 } as Meta
 
-const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox forceDirected {...props} />
+const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox layout="dagre" {...props} />
 
 const TemplateDescribe: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraphFlexBox forceDirected options={options} {...props} />
+  return <NodeRelationalGraphFlexBox layout="dagre" options={options} {...props} />
 }
 
 const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraphFlexBox forceDirected options={options} {...props} />
+  return <NodeRelationalGraphFlexBox layout="dagre" options={options} {...props} />
 }
 
-const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer forceDirected {...props} />
+const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer layout="dagre" {...props} />
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
@@ -137,7 +137,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
         <Button onClick={handleRemoveWitness}>Remove Witness</Button>
       </ButtonGroup>
       <WithExtensions>
-        <NodeRelationalGraphFlexBox forceDirected options={options} {...props} />
+        <NodeRelationalGraphFlexBox layout="dagre" options={options} {...props} />
       </WithExtensions>
     </>
   )

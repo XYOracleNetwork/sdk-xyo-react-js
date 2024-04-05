@@ -3,12 +3,7 @@ declare module 'cytoscape-cola' {
   export = ext
 }
 
-declare module 'cytoscape-fcose' {
-  const ext: cytoscape.Ext
-  export = ext
-}
-
-declare module 'cytoscape-dagre' {
+declare module 'cytoscape-cose-bilkent' {
   const ext: cytoscape.Ext
   export = ext
 }

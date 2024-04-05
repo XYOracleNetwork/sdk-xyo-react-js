@@ -14,10 +14,10 @@ import { useState } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts'
 import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks'
-import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from './Graph'
 import { ProvidedNodeRenderer } from './ProvidedNodeRenderer'
 import { options } from './story'
+import { WithExtensions } from '../../cytoscape-extensions'
 
 const nodeUrl = 'http://localhost:8080/node'
 
@@ -77,26 +77,26 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: NodeRelationalGraphFlexBox,
-  title: 'node/renderer/directed/spread/NodeRelationalGraph',
+  title: 'node/renderer/euler/NodeRelationalGraph',
 } as Meta
 
-const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox directed spread {...props} />
+const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox layout="euler" {...props} />
 
 const TemplateDescribe: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraphFlexBox directed spread options={options} {...props} />
+  return <NodeRelationalGraphFlexBox layout="euler" options={options} {...props} />
 }
 
 const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  return <NodeRelationalGraphFlexBox directed spread options={options} {...props} />
+  return <NodeRelationalGraphFlexBox layout="euler" options={options} {...props} />
 }
 
-const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer directed spread {...props} />
+const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer layout="euler" {...props} />
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
@@ -137,7 +137,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
         <Button onClick={handleRemoveWitness}>Remove Witness</Button>
       </ButtonGroup>
       <WithExtensions>
-        <NodeRelationalGraphFlexBox directed options={options} {...props} />
+        <NodeRelationalGraphFlexBox layout="euler" options={options} {...props} />
       </WithExtensions>
     </>
   )
