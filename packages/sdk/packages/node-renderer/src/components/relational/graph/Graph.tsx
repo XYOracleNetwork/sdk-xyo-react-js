@@ -2,6 +2,7 @@ import { Button, ButtonGroup, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core } from 'cytoscape'
+import cola from 'cytoscape-cola'
 import dagre from 'cytoscape-dagre'
 import fcose from 'cytoscape-fcose'
 import { forwardRef, useEffect, useState } from 'react'
@@ -10,7 +11,7 @@ import { useCytoscapeInstance } from '../../../contexts'
 import { NodeRelationalGraphProps } from '../../lib'
 
 export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(
-  ({ actions, children, directed, showDetails, detail, spread, options, ...props }, ref) => {
+  ({ actions, children, directed, forceDirected, showDetails, detail, spread, options, ...props }, ref) => {
     const theme = useTheme()
     const [cy, setCy] = useState<Core>()
     const { setCy: setCyContext } = useCytoscapeInstance()
@@ -24,6 +25,9 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
       if (spread) {
         cy?.layout({ name: 'fcose', ...(typeof spread === 'object' ? spread : {}) }).run()
       }
+      if (forceDirected) {
+        cy?.layout({ name: 'cola', ...(typeof forceDirected === 'object' ? forceDirected : {}) }).run()
+      }
       cy?.fit(undefined, 20)
     }
 
@@ -35,6 +39,9 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
         if (spread) {
           cytoscape.use(fcose)
         }
+        if (forceDirected) {
+          cytoscape.use(cola)
+        }
         const newCy = cytoscape({
           container: sharedRef.current,
           ...options,
@@ -45,10 +52,13 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
         if (spread) {
           newCy.layout({ name: 'fcose', ...(typeof spread === 'object' ? spread : {}) }).run()
         }
+        if (forceDirected) {
+          newCy?.layout({ name: 'cola', ...(typeof forceDirected === 'object' ? forceDirected : {}) }).run()
+        }
         newCy.fit(undefined, 20)
         setCy(newCy)
       }
-    }, [options, sharedRef, spread, directed])
+    }, [options, sharedRef, spread, directed, forceDirected])
 
     useEffect(() => {
       setCyContext?.(cy)

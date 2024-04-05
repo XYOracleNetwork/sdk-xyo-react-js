@@ -6,6 +6,7 @@ export interface NodeRelationalGraphProps extends PropsWithChildren<FlexBoxProps
   actions?: ReactNode
   detail?: ReactNode
   directed?: boolean | object
+  forceDirected?: boolean | object
   options?: CytoscapeOptions
   showDetails?: boolean
   spread?: boolean | object

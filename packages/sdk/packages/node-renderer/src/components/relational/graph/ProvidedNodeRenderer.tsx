@@ -9,6 +9,7 @@ import { NodeRelationalGraphFlexBox } from './Graph'
 export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   account?: AccountInstance
   directed?: boolean | object
+  forceDirected?: boolean | object
   node?: NodeInstance
   spread?: boolean | object
 }
