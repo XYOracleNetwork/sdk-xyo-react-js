@@ -50,20 +50,23 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
     const handleReset = () => {
       cy?.reset()
-      applyLayout(cy, layout ?? 'cola', layoutOptions)
-      cy?.fit(undefined, 20)
+      applyLayout(cy, layout ?? 'euler', layoutOptions)
     }
 
     useEffect(() => {
+      let newCy: Core | undefined
       if (sharedRef) {
         loadLayout(layout)
-        const newCy = cytoscape({
+        newCy = cytoscape({
           container: sharedRef.current,
           ...options,
         })
-        applyLayout(newCy, layout ?? 'cola', layoutOptions)
-        newCy.fit(undefined, 20)
+        applyLayout(newCy, layout ?? 'euler', layoutOptions)
         setCy(newCy)
+      }
+      return () => {
+        newCy?.destroy()
+        setCy(undefined)
       }
     }, [options, sharedRef, layoutOptions, layout])
 
