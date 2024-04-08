@@ -1,15 +1,13 @@
 import { Button, ButtonGroup, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
-import { useShareForwardedRef } from '@xyo-network/react-shared'
 import cytoscape, { Core } from 'cytoscape'
 import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import eulerLayout from 'cytoscape-euler'
 import fcose from 'cytoscape-fcose'
-import { forwardRef, useEffect, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 
-import { useCytoscapeInstance } from '../../../contexts'
 import { NodeRelationalGraphProps } from '../../lib'
 
 const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
@@ -45,8 +43,7 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
   ({ actions, children, layout, layoutOptions, showDetails, detail, options, ...props }, ref) => {
     const theme = useTheme()
     const [cy, setCy] = useState<Core>()
-    const { setCy: setCyContext } = useCytoscapeInstance()
-    const sharedRef = useShareForwardedRef(ref)
+    const cytoscapeRef = useRef<HTMLDivElement>()
 
     const handleReset = () => {
       cy?.reset()
@@ -55,10 +52,11 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
     useEffect(() => {
       let newCy: Core | undefined
-      if (sharedRef) {
+      const container = cytoscapeRef.current
+      if (container) {
         loadLayout(layout)
         newCy = cytoscape({
-          container: sharedRef.current,
+          container,
           ...options,
         })
         applyLayout(newCy, layout ?? 'euler', layoutOptions)
@@ -68,14 +66,10 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
         newCy?.destroy()
         setCy(undefined)
       }
-    }, [options, sharedRef, layoutOptions, layout])
-
-    useEffect(() => {
-      setCyContext?.(cy)
-    }, [cy, setCyContext])
+    }, [options, cytoscapeRef, layoutOptions, layout])
 
     return (
-      <FlexCol id="relational-graph-wrapper" {...props}>
+      <FlexCol id="relational-graph-wrapper" ref={ref} {...props}>
         <FlexRow justifyContent="start" width="100%">
           {actions === null ?
             null
@@ -105,7 +99,7 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
             border={showDetails ? `1px solid ${theme.palette.divider}` : undefined}
           >
             {/* Cytoscape Element */}
-            <FlexCol alignItems="stretch" position="absolute" width="100%" height="100%" ref={sharedRef} />
+            <FlexCol alignItems="stretch" position="absolute" width="100%" height="100%" ref={cytoscapeRef} />
             {children}
           </FlexCol>
         </FlexGrowRow>
