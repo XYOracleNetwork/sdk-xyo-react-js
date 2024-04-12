@@ -5,9 +5,9 @@ import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import eulerLayout from 'cytoscape-euler'
-import fcose from 'cytoscape-fcose'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 
+import { useCytoscapeInstance } from '../../../contexts'
 import { NodeRelationalGraphProps } from '../../lib'
 
 const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
@@ -28,10 +28,6 @@ const loadLayout = (layout = 'cola') => {
       cytoscape.use(coseBilkentLayout)
       break
     }
-    case 'fcose': {
-      cytoscape.use(fcose)
-      break
-    }
     case 'cola': {
       cytoscape.use(cola)
       break
@@ -43,6 +39,7 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
   ({ actions, children, layout, layoutOptions, showDetails, detail, options, ...props }, ref) => {
     const theme = useTheme()
     const [cy, setCy] = useState<Core>()
+    const { setCy: setCyContext } = useCytoscapeInstance()
     const cytoscapeRef = useRef<HTMLDivElement>()
 
     const handleReset = () => {
@@ -67,6 +64,10 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
         setCy(undefined)
       }
     }, [options, cytoscapeRef, layoutOptions, layout])
+
+    useEffect(() => {
+      setCyContext?.(cy ? new WeakRef(cy) : undefined)
+    }, [cy, setCyContext])
 
     return (
       <FlexCol id="relational-graph-wrapper" ref={ref} {...props}>

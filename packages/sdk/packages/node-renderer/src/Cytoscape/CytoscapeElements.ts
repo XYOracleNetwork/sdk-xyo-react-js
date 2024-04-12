@@ -78,9 +78,9 @@ export const CytoscapeElements = {
       info.children = (
         await Promise.all(
           children.map(async (child) => {
+            // don't re add the root module that was passed in
             if (child.address !== root.address) {
               return await this.recurseNodes(child, maxDepth - 1, depth + 1)
-              // don't re add the root module that was passed in
             }
           }),
         )

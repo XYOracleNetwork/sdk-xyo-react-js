@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react'
 import { CytoscapeInstanceContext } from './Context'
 
 export interface CytoscapeInstanceProviderProps extends WithChildren {
-  defaultInstance?: Core
+  defaultInstance?: WeakRef<Core>
 }
 
 export const CytoscapeInstanceProvider: React.FC<CytoscapeInstanceProviderProps> = ({ children, defaultInstance }) => {
-  const [cy, setCy] = useState<Core | undefined>(defaultInstance)
+  const [cy, setCy] = useState<WeakRef<Core> | undefined>(defaultInstance)
   useEffect(() => {
     setCy(defaultInstance)
   }, [defaultInstance])

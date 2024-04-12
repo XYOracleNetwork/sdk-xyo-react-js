@@ -5,7 +5,7 @@ import { PropsWithChildren, ReactNode } from 'react'
 export interface NodeRelationalGraphProps extends PropsWithChildren<FlexBoxProps> {
   actions?: ReactNode
   detail?: ReactNode
-  layout?: 'dagre' | 'euler' | 'fcose' | 'cose-bilkent' | 'cola'
+  layout?: 'dagre' | 'euler' | 'cose-bilkent' | 'cola'
   layoutOptions?: object
   options?: CytoscapeOptions
   showDetails?: boolean

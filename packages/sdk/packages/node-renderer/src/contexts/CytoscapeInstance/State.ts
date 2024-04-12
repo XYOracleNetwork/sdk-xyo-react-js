@@ -3,6 +3,6 @@ import { Core } from 'cytoscape'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface CytoscapeInstanceState extends ContextExState {
-  cy?: Core
-  setCy?: Dispatch<SetStateAction<Core | undefined>>
+  cy?: WeakRef<Core>
+  setCy?: Dispatch<SetStateAction<WeakRef<Core> | undefined>>
 }

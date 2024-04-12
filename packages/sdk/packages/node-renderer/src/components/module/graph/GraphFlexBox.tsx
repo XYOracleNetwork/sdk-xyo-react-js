@@ -13,7 +13,7 @@ import { StyledModuleHoverPopper } from './Popper'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   disableModuleDetails?: boolean
-  layout?: 'dagre' | 'euler' | 'fcose' | 'cose-bilkent' | 'cola'
+  layout?: 'dagre' | 'euler' | 'cose-bilkent' | 'cola'
   layoutOptions?: object
   rootModule?: ModuleInstance | null
 }

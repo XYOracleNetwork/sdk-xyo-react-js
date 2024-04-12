@@ -8,13 +8,15 @@ export const useSelectedElement = () => {
   const { cy } = useCytoscapeInstance(true)
 
   const updateStyles = (element: NodeSingular) => {
-    const nodes = cy?.nodes()
+    const cyInstance = cy?.deref()
+    const nodes = cyInstance?.nodes()
     nodes?.toggleClass('activeNode', false)
     element.toggleClass('activeNode', true)
   }
 
   const toggleSelectedElement = (address?: string) => {
-    const selectedNode = cy?.nodes(`[id="${address}"]`)?.[0]
+    const cyInstance = cy?.deref()
+    const selectedNode = cyInstance?.nodes(`[id="${address}"]`)?.[0]
     if (selectedNode) {
       setSelectedElement(selectedNode)
       updateStyles(selectedNode)

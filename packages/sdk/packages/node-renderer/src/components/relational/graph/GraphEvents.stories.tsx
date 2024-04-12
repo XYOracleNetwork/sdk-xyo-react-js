@@ -61,12 +61,13 @@ const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
       const element = event.target[0]
       console.log(element.data().address)
     }
-    if (cy) {
-      cy.on('select', listener)
+    const cyInstance = cy?.deref()
+    if (cyInstance) {
+      cyInstance.on('select', listener)
     }
 
     return () => {
-      cy?.off('select', listener)
+      cyInstance?.off('select', listener)
     }
   }, [cy])
   return <NodeRelationalGraphFlexBox options={options} {...props} />

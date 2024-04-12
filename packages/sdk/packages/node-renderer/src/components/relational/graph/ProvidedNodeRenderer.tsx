@@ -8,7 +8,7 @@ import { NodeRelationalGraphFlexBox } from './Graph'
 
 export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   account?: AccountInstance
-  layout?: 'dagre' | 'euler' | 'fcose' | 'cose-bilkent' | 'cola'
+  layout?: 'dagre' | 'euler' | 'cose-bilkent' | 'cola'
   layoutOptions?: object
   node?: NodeInstance
 }
