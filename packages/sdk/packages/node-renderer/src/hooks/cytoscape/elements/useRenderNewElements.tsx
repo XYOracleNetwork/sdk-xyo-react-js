@@ -9,11 +9,10 @@ export const useRenderNewElements = (newElements: ElementDefinition[] = [], hide
   const [renderedElements, setRenderedElements] = useState<CollectionReturnValue>()
 
   useEffect(() => {
-    const cyInstance = cy?.deref()
     if (newElements.length > 1) {
-      const renderedElements = cyInstance?.add(newElements)
+      const renderedElements = cy?.deref()?.add(newElements)
       setRenderedElements(renderedElements)
-      cyInstance?.layout(ColaLayout).run()
+      cy?.deref()?.layout(ColaLayout).run()
     }
   }, [cy, hideLabels, newElements])
 

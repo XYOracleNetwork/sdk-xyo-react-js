@@ -21,10 +21,9 @@ export const useHoveredNode = (renderedElements?: NodeCollection): [NodeSingular
   }, [nodeListener, renderedElements])
 
   useEffect(() => {
-    const cyInstance = cy?.deref()
-    cyInstance?.ready(() => {
+    cy?.deref()?.ready(() => {
       // eslint-disable-next-line unicorn/no-array-for-each
-      cyInstance.nodes().forEach(nodeListener)
+      cy?.deref()?.nodes().forEach(nodeListener)
     })
   }, [cy, nodeListener])
 

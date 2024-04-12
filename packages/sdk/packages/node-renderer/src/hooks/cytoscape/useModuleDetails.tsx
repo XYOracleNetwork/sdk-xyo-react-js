@@ -18,20 +18,22 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver(() => {
-      const cyInstance = cy?.deref()
       if (moduleAddress === null) {
         // cytoscape tries to center prematurely without it :(
-        setTimeout(() => cyInstance?.center(), 100)
+        setTimeout(() => {
+          cy?.deref()?.center()
+        }, 100)
       } else if (foundModule && cy) {
-        const node = cyInstance?.nodes(`[id="${moduleAddress}"]`)?.[0]
+        const node = cy?.deref()?.nodes(`[id="${moduleAddress}"]`)?.[0]
         // cy.pan(newPan)
         // cytoscape tries to center prematurely without it :(
-        setTimeout(() => cyInstance?.center(node), 100)
+        setTimeout(() => {
+          cy?.deref()?.center(node)
+        }, 100)
       }
     })
 
-    const cyInstance = cy?.deref()
-    const container = cyInstance?.container()
+    const container = cy?.deref()?.container()
     if (container) {
       resizeObserver.observe(container)
     }
@@ -48,11 +50,10 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
   }, [cy, moduleAddress, foundModule, onFoundModule])
 
   const onModuleDetails = (address?: string | null) => {
-    const cyInstance = cy?.deref()
-    const moduleNode = cyInstance?.nodes(`[id="${address}"]`)
-    const rootModuleNode = cyInstance?.nodes(`[id="${rootModule?.address}"]`)
-    const foundModuleNode = cyInstance?.nodes(`[id="${foundModule?.address}"]`)
-    const notModuleNode = cyInstance?.nodes(`[id != "${address}"]`)
+    const moduleNode = cy?.deref()?.nodes(`[id="${address}"]`)
+    const rootModuleNode = cy?.deref()?.nodes(`[id="${rootModule?.address}"]`)
+    const foundModuleNode = cy?.deref()?.nodes(`[id="${foundModule?.address}"]`)
+    const notModuleNode = cy?.deref()?.nodes(`[id != "${address}"]`)
 
     if (address) {
       // address was passed so we set the node to active styles
