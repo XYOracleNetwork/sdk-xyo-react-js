@@ -51,19 +51,24 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
       let newCy: Core | undefined
       const container = cytoscapeRef.current
       if (container) {
-        loadLayout(layout)
         newCy = cytoscape({
           container,
           ...options,
         })
-        applyLayout(newCy, layout ?? 'euler', layoutOptions)
         setCy(newCy)
       }
       return () => {
         newCy?.destroy()
         setCy(undefined)
       }
-    }, [options, cytoscapeRef, layoutOptions, layout])
+    }, [options, cytoscapeRef, layoutOptions])
+
+    useEffect(() => {
+      if (cy) {
+        loadLayout(layout)
+        applyLayout(cy, layout ?? 'euler', layoutOptions)
+      }
+    }, [cy, layoutOptions, layout])
 
     useEffect(() => {
       setCyContext?.(cy ? new WeakRef(cy) : undefined)
