@@ -13,12 +13,13 @@ import { StyledModuleHoverPopper } from './Popper'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   disableModuleDetails?: boolean
+  hideActions?: boolean
   layout?: 'dagre' | 'euler' | 'cose-bilkent' | 'cola'
   layoutOptions?: object
   rootModule?: ModuleInstance | null
 }
 
-export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModule, disableModuleDetails, ...props }) => {
+export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActions, rootModule, disableModuleDetails, ...props }) => {
   const cytoscapeRef = useRef<HTMLDivElement>(null)
   const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
   const { hoveredNode, setHoveredNode, toggleSelectedElement } = useElements(hideLabels)
@@ -29,11 +30,13 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ rootModu
     <WithExtensions>
       <NodeRelationalGraphFlexBox
         actions={
-          module ? null : (
-            <Button size={'small'} onClick={handleToggleLabels} variant="contained">
+          module ? null
+          : hideActions ?
+            null
+          : <Button size={'small'} onClick={handleToggleLabels} variant="contained">
               Toggle Labels
             </Button>
-          )
+
         }
         showDetails={!!module}
         detail={<DetailsFlexbox onClose={() => onModuleDetails(null)} />}
