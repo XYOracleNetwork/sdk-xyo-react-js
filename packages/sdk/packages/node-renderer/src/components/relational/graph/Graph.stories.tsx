@@ -92,16 +92,29 @@ const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props
   const [node] = useNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
+  
   return <NodeRelationalGraphFlexBox options={options} {...props} />
 }
 
-const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer {...props} />
+const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => {
+  const [layout, setLayout] = useState<'dagre' | 'euler' | 'cose-bilkent' | 'cola'>('euler')
+  return <div>
+    <ButtonGroup>
+      <Button onClick={() => setLayout('dagre')}>Dagre</Button>
+      <Button onClick={() => setLayout('euler')}>Euler</Button>
+      <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
+      <Button onClick={() => setLayout('cola')}>Cola</Button>
+    </ButtonGroup>
+    <ProvidedNodeRenderer {...props} layout={layout} />
+  </div>
+}
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   const [idWitness, setIdWitness] = useState<IdWitness>()
+  const [layout, setLayout] = useState<'dagre' | 'euler' | 'cose-bilkent' | 'cola'>('euler')
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -134,8 +147,12 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
       <ButtonGroup>
         <Button onClick={handleAddWitness}>Add Witness</Button>
         <Button onClick={handleRemoveWitness}>Remove Witness</Button>
+        <Button onClick={() => setLayout('dagre')}>Dagre</Button>
+        <Button onClick={() => setLayout('euler')}>Euler</Button>
+        <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
+        <Button onClick={() => setLayout('cola')}>Cola</Button>
       </ButtonGroup>
-      <NodeRelationalGraphFlexBox options={options} {...props} />
+      <NodeRelationalGraphFlexBox layout={layout} options={options} {...props} />
     </>
   )
 }

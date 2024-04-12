@@ -11,6 +11,7 @@ import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
 import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox'
+import { Button, ButtonGroup } from '@mui/material'
 
 const nodeUrl = 'http://localhost:8080/node'
 
@@ -75,7 +76,15 @@ const Template: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => <Mod
 
 const TemplateWithProvidedModule: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => {
   const [node] = useProvidedNode()
-  return <ModuleGraphFlexBoxWithProvider rootModule={node} {...props} />
+  const [layout, setLayout] = useState<'dagre' | 'euler' | 'cose-bilkent' | 'cola'>('euler')
+  return <div>
+          <ButtonGroup>
+            <Button onClick={() => setLayout('dagre')}>Dagre</Button>
+            <Button onClick={() => setLayout('euler')}>Euler</Button>
+            <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
+            <Button onClick={() => setLayout('cola')}>Cola</Button>
+          </ButtonGroup><ModuleGraphFlexBoxWithProvider rootModule={node} {...props} layout={layout} />
+        </div>
 }
 
 const defaultProps = {
