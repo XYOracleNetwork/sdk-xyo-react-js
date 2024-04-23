@@ -1,5 +1,5 @@
 import { PackageManifestPayload } from '@xyo-network/manifest'
-import { ModuleFactoryLocator } from '@xyo-network/module-model'
+import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { TimestampWitness } from '@xyo-network/witness-timestamp'
 
 import { CreatablePackageManifest } from '../../types'

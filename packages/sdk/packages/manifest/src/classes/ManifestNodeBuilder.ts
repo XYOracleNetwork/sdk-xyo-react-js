@@ -3,7 +3,7 @@ import { generateMnemonic } from '@scure/bip39'
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { HDWallet } from '@xyo-network/account'
 import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
-import { ModuleFactoryLocator } from '@xyo-network/module-model'
+import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
 import { CreatablePackageManifest } from '../types'
