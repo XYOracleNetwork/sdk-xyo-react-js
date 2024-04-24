@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'

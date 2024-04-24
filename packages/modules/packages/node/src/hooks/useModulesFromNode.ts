@@ -1,3 +1,5 @@
+/* eslint-disable deprecation/deprecation */
+/* eslint-disable import/no-deprecated */
 import { usePromise } from '@xylabs/react-promise'
 import { ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
@@ -6,6 +8,7 @@ import { ModuleFromNodeConfig } from './ModuleFromNodeConfig'
 import { useModuleFilterOptions } from './useModuleFilterOptions'
 import { useNode } from './useNode'
 
+/** @deprecated use useModulesFromNode */
 export const useModulesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeConfig): [ModuleInstance[] | undefined, Error | undefined] => {
   const [node, nodeError] = useNode(config)
   const logger = config?.logger
@@ -25,7 +28,6 @@ export const useModulesFromNode = (filter?: ModuleFilter, config?: ModuleFromNod
         setResult(moduleInstances)
       })
       const moduleInstances = filter ? await node.resolve(filter, filterOptions) : await node.resolve('*', filterOptions)
-      setResult(moduleInstances)
       setResult(moduleInstances)
       return moduleInstances
     }

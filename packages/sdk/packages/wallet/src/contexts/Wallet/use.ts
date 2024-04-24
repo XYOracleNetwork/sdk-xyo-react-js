@@ -12,12 +12,6 @@ export const useWalletProvided = () => {
   return useProvided(WalletContext)
 }
 
-/** @deprecated - useWalletContext instead */
-export const useCoinTypeWallet = (required = true): [WalletInstance | null | undefined, Error | undefined] => {
-  const { coinTypeWallet } = useWalletContext(required)
-  return [coinTypeWallet, undefined]
-}
-
 export const useRootWallet = (required = true): [WalletInstance | null | undefined, Error | undefined] => {
   const { rootWallet } = useWalletContext(required)
   return [rootWallet, undefined]

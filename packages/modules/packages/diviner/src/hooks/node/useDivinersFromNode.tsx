@@ -1,7 +1,10 @@
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
 import { ModuleFilter } from '@xyo-network/module-model'
 import { ModuleFromNodeConfig, useModulesFromNode } from '@xyo-network/react-node'
 
+/** @deprecated use useWeakDivinersFromNode */
 export const useDivinersFromNode = (
   filter?: ModuleFilter,
   config?: ModuleFromNodeConfig,

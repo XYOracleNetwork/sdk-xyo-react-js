@@ -1,6 +1,9 @@
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { asDivinerInstance, DivinerInstance } from '@xyo-network/diviner-model'
 import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 
+/** @deprecated use useWeakDivinerFromNode */
 export const useDivinerFromNode = (
   nameOrAddressOrInstance?: string | DivinerInstance,
   config?: ModuleFromNodeConfig,

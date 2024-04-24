@@ -6,14 +6,11 @@ import { useEffect, useState } from 'react'
 import { WalletContext } from './Context'
 
 export interface WalletProviderProps {
-  /** @deprecated - BasePath is no longer supported. Set base path outside of WalletProvider */
-  basePath?: string
   defaultActiveAccountIndex?: number
   rootWallet?: WalletInstance | null
 }
 
 export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
-  basePath,
   children,
   defaultActiveAccountIndex = 0,
   rootWallet = null,
@@ -34,10 +31,6 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
       value={{
         activeAccount,
         activeAccountIndex,
-        basePath,
-        /* eslint-disable deprecation/deprecation */
-        /** @deprecated - Set path for coinTypeWallet outside of provider and pass as rootWallet */
-        coinTypeWallet: null,
         provided: true,
         rootWallet,
         setActiveAccountIndex,

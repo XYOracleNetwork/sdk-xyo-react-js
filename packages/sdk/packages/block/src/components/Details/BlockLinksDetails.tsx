@@ -10,6 +10,7 @@ export type PreviousBlockDetailsProps = PropertyGroupProps & {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
+// eslint-disable-next-line deprecation/deprecation
 export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, ...props }) => {
   let elevation = 2
   if (props.paper) {

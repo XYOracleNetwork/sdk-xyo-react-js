@@ -4,7 +4,7 @@ import { Identicon } from '@xylabs/react-identicon'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { AccountInstance } from '@xyo-network/account-model'
 
-import { useCoinTypeWallet, useRootWallet, useSelectedWalletAccount } from '../../contexts'
+import { useRootWallet, useSelectedWalletAccount } from '../../contexts'
 import { useAccount, useWallet } from '../../hooks'
 
 export interface WalletErrorProps {
@@ -43,17 +43,6 @@ export const WalletIdenticon: React.FC<WalletIdenticonProps> = ({ account, name 
         disableDialog
       />
     </div>
-  )
-}
-
-/** @deprecated - use rootWallet instead */
-export const CoinTypeWalletInfo: React.FC<FlexBoxProps> = (props) => {
-  const [wallet, error] = useCoinTypeWallet()
-  return (
-    <FlexCol width={12} {...props}>
-      {error ? null : <WalletIdenticon name="CoinType" account={wallet} />}
-      <WalletError error={error} />
-    </FlexCol>
   )
 }
 

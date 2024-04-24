@@ -1,6 +1,9 @@
+/* eslint-disable import/no-deprecated */
+/* eslint-disable deprecation/deprecation */
 import { ArchivistInstance, asArchivistInstance } from '@xyo-network/archivist-model'
 import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 
+/** @deprecated use useWeakArchivistFromNode*/
 export const useArchivistFromNode = (
   nameOrAddressOrInstance?: string | ArchivistInstance,
   config?: ModuleFromNodeConfig,

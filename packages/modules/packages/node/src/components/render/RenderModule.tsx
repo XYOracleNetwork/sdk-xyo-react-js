@@ -14,14 +14,14 @@ interface RenderModuleProps {
 
 export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => {
   const { address, queries } = module ?? {}
-  const [childModules, setChildModules] = useState<ModuleInstance[]>()
+  const [childModules, setChildModules] = useState<WeakRef<ModuleInstance>[]>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const children = (await module.resolve('*')).filter((childModule) => childModule.address !== address)
       if (mounted()) {
-        setChildModules(children)
+        setChildModules(children.map((childModule) => new WeakRef(childModule)))
       }
     },
     [module, address],
@@ -40,9 +40,10 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => 
       })}
       {childModules && childModules.length > 0 ?
         <TreeItem nodeId={increment()} label={'children'} sx={{ mb: 0.5 }}>
-          {childModules.map((childModule) => (
-            <RenderModule key={childModule.address} module={childModule} idRef={idRef} />
-          ))}
+          {childModules.map((childModuleRef) => {
+            const childModule = childModuleRef.deref()
+            return childModule ? <RenderModule key={childModule?.address} module={childModule} idRef={idRef} /> : null
+          })}
         </TreeItem>
       : null}
     </StyledAddressTreeItem>

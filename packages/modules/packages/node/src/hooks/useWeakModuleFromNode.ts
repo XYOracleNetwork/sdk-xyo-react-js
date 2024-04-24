@@ -1,5 +1,3 @@
-/* eslint-disable import/no-deprecated */
-/* eslint-disable deprecation/deprecation */
 import { usePromise } from '@xylabs/react-promise'
 import { asModuleInstance, isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
@@ -8,36 +6,37 @@ import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFro
 import { useModuleFilterOptions } from './useModuleFilterOptions'
 import { useNode } from './useNode'
 
-/** @deprecated use useWeakModuleFromNode */
-export const useModuleFromNode = (
+export const useWeakModuleFromNode = (
   nameOrAddressOrInstance?: string | ModuleInstance,
   config?: ModuleFromNodeConfig,
-): [ModuleInstance | undefined, Error | undefined] => {
+): [WeakRef<ModuleInstance> | undefined, Error | undefined] => {
   const [node, nodeError] = useNode(config)
   const logger = useModuleFromNodeConfigLogger(config)
   const filterOptions = useModuleFilterOptions(config)
-  const [result, setResult] = useState<ModuleInstance | undefined>()
+  const [result, setResult] = useState<WeakRef<ModuleInstance> | undefined>()
   const [, error] = usePromise(async () => {
     logger?.debug('useModuleFromNode: resolving')
-    if (node && nameOrAddressOrInstance) {
-      node.on('moduleAttached', ({ module }) => {
+    const nodeInstance = node
+    if (nodeInstance && nameOrAddressOrInstance) {
+      nodeInstance.on('moduleAttached', ({ module }) => {
         logger?.debug(`useModuleFromNode: moduleAttached [${module.config.name ?? module.address}]`)
         if (module.address === nameOrAddressOrInstance || module.config?.name === nameOrAddressOrInstance) {
-          setResult(asModuleInstance(module))
+          const instance = asModuleInstance(module)
+          setResult(instance ? new WeakRef(instance) : undefined)
         }
       })
-      node.on('moduleDetached', ({ module }) => {
+      nodeInstance.on('moduleDetached', ({ module }) => {
         logger?.debug(`useModuleFromNode: moduleDetached [${module.config.name ?? module.address}]`)
         if (module.address === nameOrAddressOrInstance || module.config?.name === nameOrAddressOrInstance) {
           setResult(undefined)
         }
       })
       if (isModuleInstance(nameOrAddressOrInstance)) {
-        setResult(nameOrAddressOrInstance)
+        setResult(new WeakRef(nameOrAddressOrInstance))
       } else {
-        const result = await node.resolve(nameOrAddressOrInstance, filterOptions)
+        const result = await nodeInstance.resolve(nameOrAddressOrInstance, filterOptions)
         logger?.debug(`Result: ${result?.address}`)
-        setResult(result)
+        setResult(result ? new WeakRef(result) : undefined)
       }
       return result
     }

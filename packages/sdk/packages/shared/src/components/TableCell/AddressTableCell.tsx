@@ -10,6 +10,7 @@ export interface AddressTableCellProps extends Omit<EllipsisTableCellProps, 'ref
   link?: boolean
 }
 
+// eslint-disable-next-line deprecation/deprecation
 const AddressTableCell = forwardRef<HTMLElement, AddressTableCellProps>(({ value, archive, exploreDomain, link, ...props }, ref) => {
   const href = exploreDomain && archive ? `${exploreDomain}/archive/${archive}/address/${value}` : undefined
   const to = exploreDomain === undefined && archive ? `/archive/${archive}/address/${value}` : undefined
