@@ -14,8 +14,8 @@ export const AddDayDivinerConfigSchema = 'network.xyo.add.day.diviner.config' as
 export type AddDayDivinerConfigSchema = 'network.xyo.add.day.diviner.config'
 
 export class AddDayDiviner<TParams extends DivinerParams = DivinerParams> extends AbstractDiviner<TParams> {
-  static override configSchemas: Schema[] = [...super.configSchemas, AddDayDivinerConfigSchema]
-  static override defaultConfigSchema: Schema = AddDayDivinerResultSchema
+  static override readonly configSchemas: Schema[] = [...super.configSchemas, AddDayDivinerConfigSchema]
+  static override readonly defaultConfigSchema: Schema = AddDayDivinerResultSchema
   protected override divineHandler = (payloads?: Payload[]): Payload[] => {
     const timeStampPayloads = payloads?.filter(isTimestamp) ?? []
 
