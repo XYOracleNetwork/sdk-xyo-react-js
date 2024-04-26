@@ -3,7 +3,7 @@ import { ArchivistInstance, asArchivistInstance } from '@xyo-network/archivist-m
 import { ModuleFilter } from '@xyo-network/module-model'
 import { ModuleFromNodeConfig, useWeakModulesFromNode } from '@xyo-network/react-node'
 
-export const useWeakDivinersFromNode = (
+export const useWeakArchivistsFromNode = (
   filter?: ModuleFilter,
   config?: ModuleFromNodeConfig,
 ): [WeakRef<ArchivistInstance>[] | null | undefined, Error | undefined] => {
