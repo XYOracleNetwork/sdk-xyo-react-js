@@ -1,6 +1,6 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { NodeInstance } from '@xyo-network/node-model'
-import { useProvidedNode } from '@xyo-network/react-node'
+import { useWeakProvidedNode } from '@xyo-network/react-node'
 
 import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks'
 import { NodeRelationalGraphProps } from '../../lib'
@@ -10,11 +10,11 @@ export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   account?: AccountInstance
   layout?: 'dagre' | 'euler' | 'cose-bilkent' | 'cola'
   layoutOptions?: object
-  node?: NodeInstance
+  node?: WeakRef<NodeInstance>
 }
 
 export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({ node, ...props }) => {
-  const [providedNode] = useProvidedNode()
+  const [providedNode] = useWeakProvidedNode()
   const elements = useCytoscapeElements(node ?? providedNode)
   const options = useCytoscapeOptions(elements)
 

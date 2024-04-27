@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react'
 
 import { useCytoscapeInstance } from '../../contexts'
 
-export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModule?: () => void) => {
+export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, onFoundModule?: () => void) => {
   const { cy } = useCytoscapeInstance()
   const [moduleAddress, setModuleAddress] = useState<string | null>()
 
   const [foundModule] = usePromise(async () => {
     if (moduleAddress === null) return null
-    if (moduleAddress && rootModule) {
-      const foundModule = await rootModule.resolve(moduleAddress)
+    const rootModuleInstance = rootModule?.deref()
+    if (moduleAddress && rootModuleInstance) {
+      const foundModule = await rootModuleInstance.resolve(moduleAddress)
       return foundModule ?? null
     }
   }, [moduleAddress, rootModule])
@@ -41,7 +42,7 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
     return () => {
       if (container) resizeObserver.unobserve(container)
     }
-  }, [cy, moduleAddress, foundModule, rootModule?.address])
+  }, [cy, moduleAddress, foundModule, rootModule])
 
   useEffect(() => {
     if (foundModule) {
@@ -51,7 +52,7 @@ export const useModuleDetails = (rootModule?: ModuleInstance | null, onFoundModu
 
   const onModuleDetails = (address?: string | null) => {
     const moduleNode = cy?.deref()?.nodes(`[id="${address}"]`)
-    const rootModuleNode = cy?.deref()?.nodes(`[id="${rootModule?.address}"]`)
+    const rootModuleNode = cy?.deref()?.nodes(`[id="${rootModule?.deref()?.address}"]`)
     const foundModuleNode = cy?.deref()?.nodes(`[id="${foundModule?.address}"]`)
     const notModuleNode = cy?.deref()?.nodes(`[id != "${address}"]`)
 

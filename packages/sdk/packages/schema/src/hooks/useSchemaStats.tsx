@@ -8,7 +8,7 @@ import {
 } from '@xyo-network/diviner-schema-stats-model'
 import { TYPES } from '@xyo-network/node-core-types'
 import { isPayloadOfSchemaTypeWithMeta, WithMeta, WithSources } from '@xyo-network/payload-model'
-import { useDivinerFromNode } from '@xyo-network/react-diviner'
+import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
 import { Dispatch, SetStateAction, useMemo, useState } from 'react'
 
 export const useSchemaStats = (
@@ -16,7 +16,7 @@ export const useSchemaStats = (
   nameOrAddress = TYPES.SchemaStatsDiviner,
 ): [SchemaStatsPayload[] | undefined, Error | undefined, Dispatch<SetStateAction<number>>] => {
   const [refresh, setRefresh] = useState(1)
-  const [diviner, divinerError] = useDivinerFromNode(nameOrAddress)
+  const [diviner, divinerError] = useWeakDivinerFromNode(nameOrAddress)
   const [error, setError] = useState<Error>()
   const refreshHistory = () => setRefresh((previous) => previous + 1)
 
@@ -33,7 +33,8 @@ export const useSchemaStats = (
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (diviner) {
+      const instance = diviner?.deref()
+      if (instance) {
         if (divinerError) {
           if (mounted()) {
             setError(divinerError)
@@ -41,7 +42,7 @@ export const useSchemaStats = (
           }
         } else {
           try {
-            const schemas = (await diviner.divine([query])).filter(isPayloadOfSchemaTypeWithMeta(SchemaStatsDivinerSchema)) as WithSources<
+            const schemas = (await instance.divine([query])).filter(isPayloadOfSchemaTypeWithMeta(SchemaStatsDivinerSchema)) as WithSources<
               WithMeta<SchemaStatsPayload>
             >[]
             if (mounted()) {

@@ -2,14 +2,14 @@ import { Hash } from '@xylabs/hex'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
 import { Payload } from '@xyo-network/payload-model'
-import { useArchivistFromNode } from '@xyo-network/react-archivist'
+import { useWeakArchivistFromNode } from '@xyo-network/react-archivist'
 import { useMemo } from 'react'
 
 import { useIndexedResults, UseIndexedResultsConfig } from '../../../hooks'
 import { UseIndexedResultsProps } from './lib'
 
 export const UseIndexedResultsNoPoll: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
-  const [archivist] = useArchivistFromNode('Archivist')
+  const [archivist] = useWeakArchivistFromNode('Archivist')
 
   const config = useMemo(() => {
     const indexedQueries = [{ address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }]
@@ -22,7 +22,7 @@ export const UseIndexedResultsNoPoll: React.FC<UseIndexedResultsProps> = ({ addr
             return await Promise.all(
               payloads.map(async (payload) => {
                 const castPayload = payload as Payload & { sources: Hash[] }
-                const results = (await archivist?.get(castPayload.sources as Hash[])) ?? []
+                const results = (await archivist?.deref()?.get(castPayload.sources as Hash[])) ?? []
                 // return contract payload
                 return results[1]
               }),

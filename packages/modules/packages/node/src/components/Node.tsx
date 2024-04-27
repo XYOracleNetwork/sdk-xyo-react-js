@@ -4,7 +4,7 @@ import { NodeInstance } from '@xyo-network/node-model'
 import { NodeDescriptionBox } from './NodeDescriptionBox'
 
 export interface NodeBoxProps extends FlexBoxProps {
-  node?: string | NodeInstance
+  node?: string | WeakRef<NodeInstance>
   variant?: 'description'
 }
 

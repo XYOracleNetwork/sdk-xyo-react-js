@@ -3,7 +3,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
-import { NodeProvider, useProvidedNode } from '@xyo-network/react-node'
+import { NodeProvider, useProvidedNode, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { EventObject } from 'cytoscape'
@@ -50,7 +50,7 @@ export default {
 } as Meta
 
 const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
-  const [node] = useProvidedNode()
+  const [node] = useWeakProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
 

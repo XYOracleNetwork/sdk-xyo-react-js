@@ -1,7 +1,7 @@
 import { Hash } from '@xylabs/hex'
 import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { useArchivistFromNode, useArchivistGet } from '@xyo-network/react-archivist'
+import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -10,7 +10,7 @@ import { ActiveBoundWitnessContext } from '../../contexts'
 
 export interface ActiveBoundWitnessProviderProps extends ContextExProviderProps {
   activeBoundWitnessHash?: Hash
-  archivist?: ArchivistInstance | string
+  archivist?: WeakRef<ArchivistInstance> | string
 }
 
 export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProps> = ({
@@ -23,9 +23,9 @@ export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProp
   const { boundwitness: boundwitnessHashFromParam } = useParams()
   const [activeBoundWitnessHash, setActiveBoundWitnessHash] = useState<Hash>()
   const [activeBoundWitness, setActiveBoundWitness] = useState<BoundWitness>()
-  const [activeArchivist] = useArchivistFromNode(archivistString)
+  const [activeArchivist] = useWeakArchivistFromNode(archivistString)
   const hashes = useMemo(() => (activeBoundWitnessHash ? [activeBoundWitnessHash] : undefined), [activeBoundWitnessHash])
-  const [payload] = useArchivistGet(archivistModule ?? activeArchivist, hashes)
+  const [payload] = useWeakArchivistGet(archivistModule ?? activeArchivist, hashes)
 
   useEffect(() => {
     setActiveBoundWitnessHash(activeBoundWitnessHashProp ?? (boundwitnessHashFromParam as Hash))

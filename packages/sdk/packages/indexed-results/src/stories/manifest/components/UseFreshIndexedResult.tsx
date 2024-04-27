@@ -6,7 +6,7 @@ import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
 import { EvmContract } from '@xyo-network/evm-contract-witness'
 import { isEvmTokenInterfaceImplemented } from '@xyo-network/evm-token-interface-diviner'
 import { Payload } from '@xyo-network/payload-model'
-import { useArchivistFromNode } from '@xyo-network/react-archivist'
+import { useWeakArchivistFromNode } from '@xyo-network/react-archivist'
 import { useNode } from '@xyo-network/react-node'
 import { useSentinelFromNode } from '@xyo-network/react-sentinel'
 import { asSentinelInstance } from '@xyo-network/sentinel-model'
@@ -19,7 +19,7 @@ import { PollingStrategies } from '../../../interfaces'
 import { UseIndexedResultsProps } from './lib'
 
 export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
-  const [archivist] = useArchivistFromNode('Archivist')
+  const [archivist] = useWeakArchivistFromNode('Archivist')
   const [contractSentinel] = useSentinelFromNode('EvmContractSentinel')
   const [node] = useNode()
 
@@ -35,7 +35,7 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
               await Promise.all(
                 payloads.map(async (payload) => {
                   const castPayload = payload as Payload & { sources: Hash[] }
-                  const results = (await archivist?.get(castPayload.sources as Hash[])) ?? []
+                  const results = (await archivist?.deref()?.get(castPayload.sources as Hash[])) ?? []
                   const filteredResult = results.find(isEvmTokenInterfaceImplemented)
                   return filteredResult
                 }),

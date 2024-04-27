@@ -5,11 +5,11 @@ import { AddressHistoryQueryPayload, AddressHistoryQuerySchema } from '@xyo-netw
 import { TYPES } from '@xyo-network/node-core-types'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { WithMeta, WithSources } from '@xyo-network/payload-model'
-import { useDivinerFromNode } from '@xyo-network/react-diviner'
+import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
 import { useState } from 'react'
 
 export const useAddressHistory = (address?: Address): [BoundWitness[] | undefined, Error | undefined, () => void] => {
-  const [diviner, divinerError] = useDivinerFromNode(TYPES.AddressHistoryDiviner)
+  const [diviner, divinerError] = useWeakDivinerFromNode(TYPES.AddressHistoryDiviner)
   const [refresh, setRefresh] = useState(1)
   const [blocks, setBlocks] = useState<BoundWitness[]>()
   const [error, setError] = useState<Error>()
@@ -22,13 +22,14 @@ export const useAddressHistory = (address?: Address): [BoundWitness[] | undefine
         setBlocks(undefined)
         setError(divinerError)
       } else {
-        if (diviner) {
+        const instance = diviner?.deref()
+        if (instance) {
           try {
             const query =
               address ?
                 [await new PayloadBuilder<AddressHistoryQueryPayload>({ schema: AddressHistoryQuerySchema }).fields({ address }).build()]
               : undefined
-            const blocks = (await diviner.divine(query)) as WithSources<WithMeta<BoundWitness>>[]
+            const blocks = (await instance.divine(query)) as WithSources<WithMeta<BoundWitness>>[]
             if (mounted()) {
               setBlocks(blocks)
               setError(undefined)

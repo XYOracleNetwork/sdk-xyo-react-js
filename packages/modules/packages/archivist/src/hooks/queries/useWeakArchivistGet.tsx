@@ -1,0 +1,21 @@
+import { Hash } from '@xylabs/hex'
+import { usePromise } from '@xylabs/react-promise'
+import { ArchivistInstance } from '@xyo-network/archivist-model'
+import { Payload, WithMeta } from '@xyo-network/payload-model'
+import { RefreshCallback, useRefresh } from '@xyo-network/react-module'
+
+export const useWeakArchivistGet = <T extends Payload = Payload>(
+  archivist?: WeakRef<ArchivistInstance> | null,
+  hashes?: Hash[],
+): [T[] | undefined, Error | undefined, RefreshCallback] => {
+  const [enabled, refresh] = useRefresh()
+
+  const [payloads, error] = usePromise(async () => {
+    const archivistInstance = archivist?.deref()
+    if (enabled && archivistInstance && hashes) {
+      return (await archivistInstance.get(hashes)) as WithMeta<T>[]
+    }
+  }, [archivist, hashes, enabled])
+
+  return [payloads, error, refresh]
+}

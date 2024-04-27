@@ -2,7 +2,7 @@ import { HubRounded as HubRoundedIcon } from '@mui/icons-material'
 import { usePromise } from '@xylabs/react-promise'
 import { NodeManifest } from '@xyo-network/manifest'
 import { NodeInstance } from '@xyo-network/node-model'
-import { useModulesFromNode } from '@xyo-network/react-node'
+import { useWeakModulesFromNode } from '@xyo-network/react-node'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary'
 
@@ -11,8 +11,8 @@ export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ module
     return (await module?.manifest()) as NodeManifest
   }, [module])
 
-  const [downModules] = useModulesFromNode(undefined, { direction: 'down' })
-  const [upModules] = useModulesFromNode(undefined, { direction: 'up' })
+  const [downModules] = useWeakModulesFromNode(undefined, { direction: 'down' })
+  const [upModules] = useWeakModulesFromNode(undefined, { direction: 'up' })
 
   const downModulesFromResolve = downModules?.length
   const upModulesFromResolve = upModules?.length

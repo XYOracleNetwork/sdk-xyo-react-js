@@ -16,7 +16,7 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   hideActions?: boolean
   layout?: 'dagre' | 'euler' | 'cose-bilkent' | 'cola'
   layoutOptions?: object
-  rootModule?: ModuleInstance | null
+  rootModule?: WeakRef<ModuleInstance> | null
 }
 
 export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActions, rootModule, disableModuleDetails, ...props }) => {

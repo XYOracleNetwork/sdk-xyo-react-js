@@ -7,7 +7,7 @@ import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { Payload } from '@xyo-network/payload-model'
 import { useState } from 'react'
 
-import { useArchivistFromNode } from '../../hooks'
+import { useWeakArchivistFromNode } from '../../hooks'
 
 const testQueryCommit = { schema: ArchivistCommitQuerySchema }
 const testQueryCommitBoundWitnessBuilder = new QueryBoundWitnessBuilder().query(testQueryCommit)
@@ -20,7 +20,7 @@ export interface ArchivistDetails extends FlexBoxProps {
 }
 
 export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props }) => {
-  const [archivist] = useArchivistFromNode(address)
+  const [archivist] = useWeakArchivistFromNode(address)
   const [payloads, setPayloads] = useState<Payload[]>()
   const [refresh, setRefresh] = useState(0)
   const [queryableCommit, setQueryableCommit] = useState(false)
@@ -29,11 +29,12 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (archivist) {
+      const instance = archivist?.deref()
+      if (instance) {
         const [commitBW] = await (await testQueryCommitBoundWitnessBuilder).build()
         const [clearBW] = await (await testQueryClearBoundWitnessBuilder).build()
-        setQueryableCommit(await archivist?.queryable(commitBW, [testQueryCommit]))
-        setQueryableClear(await archivist?.queryable(clearBW, [testQueryClear]))
+        setQueryableCommit(await instance?.queryable(commitBW, [testQueryCommit]))
+        setQueryableClear(await instance?.queryable(clearBW, [testQueryClear]))
       }
     },
     [archivist],
@@ -42,7 +43,7 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const payloads = await archivist?.all?.()
+      const payloads = await archivist?.deref()?.all?.()
       if (mounted()) {
         setPayloads(payloads)
       }
@@ -54,10 +55,10 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
     <FlexCol {...props}>
       <Typography>{`Payloads: ${payloads ? payloads.length : '-'}`}</Typography>
       <ButtonGroup>
-        <ButtonEx disabled={payloads?.length === 0 || !archivist || !queryableCommit} onClick={() => archivist?.commit?.()}>
+        <ButtonEx disabled={payloads?.length === 0 || !archivist || !queryableCommit} onClick={() => archivist?.deref()?.commit?.()}>
           Commit
         </ButtonEx>
-        <ButtonEx disabled={!archivist || !queryableClear} onClick={() => archivist?.clear?.()}>
+        <ButtonEx disabled={!archivist || !queryableClear} onClick={() => archivist?.deref()?.clear?.()}>
           Clear
         </ButtonEx>
         <ButtonEx

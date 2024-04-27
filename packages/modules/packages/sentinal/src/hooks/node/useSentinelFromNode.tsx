@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-deprecated
 import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 import { asSentinelInstance, SentinelInstance } from '@xyo-network/sentinel-model'
 
@@ -5,6 +6,7 @@ export const useSentinelFromNode = (
   nameOrAddressOrInstance?: string | SentinelInstance,
   config?: ModuleFromNodeConfig,
 ): [SentinelInstance | undefined, Error | undefined] => {
+  // eslint-disable-next-line deprecation/deprecation, import/no-deprecated
   const [module, error] = useModuleFromNode(nameOrAddressOrInstance, config)
   const instance = asSentinelInstance(module)
   if (module && !instance) {

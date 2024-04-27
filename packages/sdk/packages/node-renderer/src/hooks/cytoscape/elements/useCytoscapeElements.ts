@@ -7,14 +7,15 @@ import { useEffect, useState } from 'react'
 
 import { CytoscapeElements } from '../../../Cytoscape'
 
-export const useCytoscapeElements = (module?: ModuleInstance | null) => {
+export const useCytoscapeElements = (module?: WeakRef<ModuleInstance> | null) => {
   const [elements, setElements] = useState<ElementDefinition[]>([])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (module) {
-        const newElements = (await CytoscapeElements.buildElements(module)) ?? []
+      const moduleInstance = module?.deref()
+      if (moduleInstance) {
+        const newElements = (await CytoscapeElements.buildElements(moduleInstance)) ?? []
         setElements(newElements)
       }
     },

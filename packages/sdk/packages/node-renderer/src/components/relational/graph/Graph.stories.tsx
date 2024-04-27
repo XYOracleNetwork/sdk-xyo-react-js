@@ -6,7 +6,7 @@ import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
-import { NodeProvider, useNodeFromNode, useProvidedNode } from '@xyo-network/react-node'
+import { NodeProvider, useNodeFromNode, useProvidedNode, useWeakNodeFromNode, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
@@ -82,14 +82,14 @@ export default {
 const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox {...props} />
 
 const TemplateDescribe: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
-  const [node] = useProvidedNode()
+  const [node] = useWeakProvidedNode()
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   return <NodeRelationalGraphFlexBox options={options} {...props} />
 }
 
 const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
-  const [node] = useNodeFromNode('ChildNode')
+  const [node] = useWeakNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   
@@ -110,7 +110,7 @@ const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (prop
 }
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
-  const [node] = useNodeFromNode('ChildNode')
+  const [node] = useWeakNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
   const [idWitness, setIdWitness] = useState<IdWitness>()
@@ -127,17 +127,17 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
 
   const handleAddWitness = async () => {
     if (node && idWitness) {
-      const memoryNode = node as MemoryNode
-      await memoryNode.register(idWitness)
-      await memoryNode.attach(idWitness.address, true)
+      const memoryNode = node.deref() as MemoryNode | undefined
+      await memoryNode?.register(idWitness)
+      await memoryNode?.attach(idWitness.address, true)
     }
   }
 
   const handleRemoveWitness = async () => {
     if (node && idWitness) {
-      const memoryNode = node as MemoryNode
-      if (memoryNode.registered().includes(idWitness.address)) {
-        await memoryNode.unregister(idWitness)
+      const memoryNode = node.deref() as MemoryNode | undefined
+      if (memoryNode?.registered().includes(idWitness.address)) {
+        await memoryNode?.unregister(idWitness)
       }
     }
   }

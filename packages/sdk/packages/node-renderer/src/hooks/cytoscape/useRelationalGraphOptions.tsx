@@ -6,7 +6,7 @@ import { useCytoscapeElements } from './elements'
 import { useCytoscapeOptions } from './useCytoscapeOptions'
 import { useCytoscapeStyle } from './useCytoscapeStyle'
 
-export const useRelationalGraphOptions = (module?: ModuleInstance) => {
+export const useRelationalGraphOptions = (module?: WeakRef<ModuleInstance>) => {
   const [hideLabels, setHideLabels] = useState(true)
 
   const handleToggleLabels = () => {

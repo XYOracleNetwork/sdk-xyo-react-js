@@ -1,4 +1,4 @@
-import { useModuleFromNode } from '@xyo-network/react-node'
+import { useWeakModuleFromNode } from '@xyo-network/react-node'
 import { NodeSingular } from 'cytoscape'
 import { useMemo } from 'react'
 
@@ -10,7 +10,7 @@ export const useNewElements = (selectedElement?: NodeSingular) => {
     return selectedAddress
   }, [selectedElement])
 
-  const [module] = useModuleFromNode(selectedAddress)
+  const [module] = useWeakModuleFromNode(selectedAddress)
   const newElements = useCytoscapeElements(module)
 
   return newElements

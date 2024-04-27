@@ -6,7 +6,7 @@ import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 
-import { useProvidedNode } from '../hooks'
+import { useProvidedNode, useWeakProvidedNode } from '../hooks'
 import { NodeBox } from './Node'
 import { TestModule, TestModuleConfigSchema } from './TestModule'
 
@@ -30,18 +30,19 @@ export default {
 } as Meta
 
 const Template: StoryFn<React.FC> = () => {
-  const [node] = useProvidedNode() as [MemoryNode]
+  const [node] = useWeakProvidedNode() as [WeakRef<MemoryNode>]
 
   const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (node && account) {
+      const nodeInstance = node?.deref()
+      if (nodeInstance && account) {
         try {
           const mod = await TestModule.create({ account, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
-          await node?.register(mod)
-          await node?.attach(mod.address, true)
+          await nodeInstance.register(mod)
+          await nodeInstance.attach(mod.address, true)
         } catch (e) {
           console.error(e)
         }

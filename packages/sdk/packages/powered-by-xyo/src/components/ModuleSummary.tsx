@@ -2,7 +2,7 @@ import { Extension as ExtensionIcon } from '@mui/icons-material'
 import { delay } from '@xylabs/delay'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module-model'
-import { useModulesFromNode } from '@xyo-network/react-node'
+import { useWeakModulesFromNode } from '@xyo-network/react-node'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { ReactNode, useState } from 'react'
 
@@ -12,8 +12,8 @@ export interface ModuleSummaryProps<T extends ModuleInstance = ModuleInstance> e
 }
 
 export const ModuleSummary: React.FC<ModuleSummaryProps> = ({ children, icon, module, ...props }) => {
-  const [downModules] = useModulesFromNode(undefined, { direction: 'down' })
-  const [upModules] = useModulesFromNode(undefined, { direction: 'up' })
+  const [downModules] = useWeakModulesFromNode(undefined, { direction: 'down' })
+  const [upModules] = useWeakModulesFromNode(undefined, { direction: 'up' })
   const [busy, setBusy] = useState(false)
 
   const downModulesFromResolve = downModules?.length

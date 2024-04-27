@@ -4,7 +4,7 @@ import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archi
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
-import { NodeProvider, useProvidedNode } from '@xyo-network/react-node'
+import { NodeProvider, useProvidedNode, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
@@ -75,7 +75,7 @@ export default {
 const Template: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => <ModuleGraphFlexBoxWithProvider {...props} />
 
 const TemplateWithProvidedModule: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => {
-  const [node] = useProvidedNode()
+  const [node] = useWeakProvidedNode()
   const [layout, setLayout] = useState<'dagre' | 'euler' | 'cose-bilkent' | 'cola'>('euler')
   return <div>
           <ButtonGroup>

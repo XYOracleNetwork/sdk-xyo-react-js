@@ -18,7 +18,7 @@ const buildSystemInfoWitness = async (moduleName?: string) => {
 }
 
 export const useBuildSampleNode = (sampleModules: SampleNodeModules, apiDomain?: string) => {
-  const [node, setNode] = useState<NodeInstance>()
+  const [node, setNode] = useState<WeakRef<NodeInstance>>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -30,7 +30,7 @@ export const useBuildSampleNode = (sampleModules: SampleNodeModules, apiDomain?:
           if ('Bridge' in sampleModules && apiDomain) await nodeBuilder.addBridge(apiDomain, sampleModules.Bridge)
           if ('SystemInfoWitness' in sampleModules) await nodeBuilder.attach(await buildSystemInfoWitness(sampleModules.SystemInfoWitness), true)
 
-          setNode(nodeBuilder.node)
+          setNode(new WeakRef(nodeBuilder.node))
         }
       } catch (e) {
         console.error('Error building sample node', e, sampleModules, apiDomain)

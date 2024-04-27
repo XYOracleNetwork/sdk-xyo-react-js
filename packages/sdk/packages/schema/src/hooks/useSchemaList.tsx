@@ -2,13 +2,13 @@ import { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { SchemaListPayload, SchemaListQueryPayload, SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
 import { WithMeta } from '@xyo-network/payload-model'
-import { useDivinerFromNode } from '@xyo-network/react-diviner'
+import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
 import { useEffect, useMemo, useState } from 'react'
 
 export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDiviner'): [SchemaListPayload | null | undefined, Error | undefined] => {
   const [schemaList, setSchemaList] = useState<SchemaListPayload | null>()
   const [error, setError] = useState<Error>()
-  const [diviner, divinerError] = useDivinerFromNode(nameOrAddress)
+  const [diviner, divinerError] = useWeakDivinerFromNode(nameOrAddress)
 
   const query: SchemaListQueryPayload[] | undefined = useMemo(
     () =>
@@ -33,9 +33,10 @@ export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDivi
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps, require-await
     async (mounted) => {
-      if (diviner) {
+      const divinerInstance = diviner?.deref()
+      if (divinerInstance) {
         try {
-          const response = (await diviner.divine(query)) as WithMeta<SchemaListPayload>[]
+          const response = (await divinerInstance.divine(query)) as WithMeta<SchemaListPayload>[]
           if (mounted()) {
             setSchemaList(response?.[0])
             setError(undefined)
