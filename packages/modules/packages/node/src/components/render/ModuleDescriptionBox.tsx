@@ -8,7 +8,7 @@ import { useRef } from 'react'
 import { RenderModule } from './RenderModule'
 
 export interface ModuleDescriptionProps extends FlexBoxProps {
-  module?: ModuleInstance | null
+  module?: WeakRef<ModuleInstance> | null
 }
 export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ module }) => {
   const idRef = useRef<{ idIncrementor: number; ids: string[] }>({ idIncrementor: 0, ids: [] })

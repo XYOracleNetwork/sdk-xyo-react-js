@@ -9,22 +9,25 @@ interface RenderModuleProps {
     idIncrementor: number
     ids: string[]
   }>
-  module: ModuleInstance
+  module: WeakRef<ModuleInstance>
 }
 
 export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => {
-  const { address, queries } = module ?? {}
   const [childModules, setChildModules] = useState<WeakRef<ModuleInstance>[]>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const children = (await module.resolve('*')).filter((childModule) => childModule.address !== address)
-      if (mounted()) {
-        setChildModules(children.map((childModule) => new WeakRef(childModule)))
+      const moduleInstance = module.deref()
+      const { address } = moduleInstance ?? {}
+      if (moduleInstance) {
+        const children = (await moduleInstance.resolve('*')).filter((childModule) => childModule.address !== address)
+        if (mounted()) {
+          setChildModules(children.map((childModule) => new WeakRef(childModule)))
+        }
       }
     },
-    [module, address],
+    [module],
   )
 
   const increment = () => {
@@ -33,16 +36,19 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => 
     return newId
   }
 
+  const moduleInstance = module.deref()
+  const { queries, address } = moduleInstance ?? {}
+
   return (
     <StyledAddressTreeItem nodeId={increment()} label={`address: ${address}`}>
-      {queries.map((query, index) => {
+      {queries?.map((query, index) => {
         return <TreeItem key={query} nodeId={increment()} label={`query : ${query}`} sx={{ mb: index === queries.length - 1 ? 1.5 : 0.5 }} />
       })}
       {childModules && childModules.length > 0 ?
         <TreeItem nodeId={increment()} label={'children'} sx={{ mb: 0.5 }}>
           {childModules.map((childModuleRef) => {
             const childModule = childModuleRef.deref()
-            return childModule ? <RenderModule key={childModule?.address} module={childModule} idRef={idRef} /> : null
+            return childModule ? <RenderModule key={childModule?.address} module={childModuleRef} idRef={idRef} /> : null
           })}
         </TreeItem>
       : null}

@@ -4,14 +4,14 @@ import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import type { WithChildren } from '@xylabs/react-shared'
 import { useNodeDrawer } from '@xyo-network/react-node-provider'
 
-import { useProvidedNode } from '../hooks'
+import { useWeakProvidedNode } from '../hooks'
 import { ModuleDescriptionBox } from './render'
 
 export interface NodeDrawerProps extends WithChildren, Omit<DrawerProps, 'open'> {}
 
 export const NodeDrawer: React.FC<NodeDrawerProps> = ({ children, ...props }) => {
   const { open, setOpen } = useNodeDrawer()
-  const [node] = useProvidedNode()
+  const [node] = useWeakProvidedNode()
 
   return (
     <Drawer open={open ?? false} anchor="right" {...props}>
