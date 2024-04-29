@@ -31,6 +31,7 @@ const finalConfig = {
       "warn",
       {
         "paths": [
+          "@mui/system",
           "@xyo-network/archivist",
           "@xyo-network/bridge",
           "@xyo-network/core",
