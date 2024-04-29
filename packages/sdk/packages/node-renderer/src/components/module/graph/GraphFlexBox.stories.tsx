@@ -83,7 +83,8 @@ const TemplateWithProvidedModule: StoryFn<typeof ModuleGraphFlexBoxWithProvider>
             <Button onClick={() => setLayout('euler')}>Euler</Button>
             <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
             <Button onClick={() => setLayout('cola')}>Cola</Button>
-          </ButtonGroup><ModuleGraphFlexBoxWithProvider rootModule={node} {...props} layout={layout} />
+          </ButtonGroup>
+          <ModuleGraphFlexBoxWithProvider rootModule={node} {...props} layout={layout} />
         </div>
 }
 
