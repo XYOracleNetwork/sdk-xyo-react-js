@@ -49,7 +49,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActi
           {(element) => (
             <StyledModuleHoverPopper
               anchorEl={element}
-              //container={cytoscapeRef.current}
+              container={cytoscapeRef.current}
               node={hoveredNode}
               onClose={() => setHoveredNode(undefined)}
               onModuleExplore={toggleSelectedElement}
