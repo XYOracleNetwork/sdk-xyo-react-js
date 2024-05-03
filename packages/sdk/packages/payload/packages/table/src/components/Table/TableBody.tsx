@@ -12,6 +12,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   payloads,
   archive,
   maxSchemaDepth,
+  onHashClick,
   onRowClick,
   emptyRows,
   noResults,
@@ -46,6 +47,7 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
                   }
                 : undefined
               }
+              onHashClick={onHashClick}
               exploreDomain={exploreDomain}
               payload={payload}
             />

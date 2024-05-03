@@ -4,6 +4,7 @@ import {
   WarningAmberRounded as WarningAmberRoundedIcon,
 } from '@mui/icons-material'
 import { alpha, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
+import { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
@@ -19,6 +20,7 @@ export interface PayloadTableRowProps extends TableRowProps {
   exploreDomain?: string
   maxSchemaDepth?: number
   network?: string
+  onHashClick?: (value: Hash) => void
   payload?: Payload
 }
 
@@ -28,6 +30,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   exploreDomain,
   maxSchemaDepth,
   network: networkProp,
+  onHashClick,
   payload,
   ...props
 }) => {

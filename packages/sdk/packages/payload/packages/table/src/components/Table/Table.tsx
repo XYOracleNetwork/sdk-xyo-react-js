@@ -1,3 +1,4 @@
+import { Hash } from '@xylabs/hex'
 import { Payload } from '@xyo-network/payload-model'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
 import { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
@@ -23,6 +24,7 @@ export interface PayloadTableProps extends TableExProps {
   loading?: boolean
   /** set number of schema parts to display starting from the end */
   maxSchemaDepth?: number
+  onHashClick?: (value: Hash) => void
   onRowClick?: (value: Payload) => void
   payloads?: Payload[] | null
   rowsPerPage?: number
@@ -33,6 +35,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
     {
       exploreDomain,
       archive,
+      onHashClick,
       onRowClick,
       fetchMorePayloads,
       rowsPerPage: rowsPerPageProp = 25,
@@ -109,6 +112,7 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
           archive={archive}
           maxSchemaDepth={maxSchemaDepth}
           onRowClick={onRowClick}
+          onHashClick={onHashClick}
           emptyRows={emptyRows}
           noResults={noResults}
           NoResultRowComponent={TableRowNoData}
