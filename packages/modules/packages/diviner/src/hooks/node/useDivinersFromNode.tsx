@@ -16,9 +16,9 @@ export const useDivinersFromNode = (
   return modules ?
       [
         // eslint-disable-next-line unicorn/no-array-reduce
-        modules.reduce<DivinerInstance[]>((prev, module) => {
-          if (isDivinerInstance(module)) {
-            prev.push(module)
+        modules.reduce<DivinerInstance[]>((prev, mod) => {
+          if (isDivinerInstance(mod)) {
+            prev.push(mod)
           }
           return prev
         }, []),

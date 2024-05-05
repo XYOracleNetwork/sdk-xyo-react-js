@@ -4,20 +4,20 @@ import { ModuleInstance } from '@xyo-network/module-model'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface DiscoverDialogProps extends DialogProps {
-  module?: ModuleInstance
+  mod?: ModuleInstance
   setOpen?: Dispatch<SetStateAction<boolean>>
 }
 
 // Add a dialogue title and quick tip to show description of discover query
 
-export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ module, setOpen, ...props }) => {
+export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ mod, setOpen, ...props }) => {
   const [discoverPayloads] = usePromise(async () => {
-    return await module?.state()
-  }, [module])
+    return await mod?.state()
+  }, [mod])
 
   return (
     <Dialog {...props}>
-      <DialogTitle>Supported Queries for {module?.config.name || module?.address}</DialogTitle>
+      <DialogTitle>Supported Queries for {mod?.config.name || mod?.address}</DialogTitle>
       <Divider />
       <DialogContent>
         <Paper sx={{ p: 1 }}>

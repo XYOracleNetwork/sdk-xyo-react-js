@@ -22,7 +22,7 @@ const IdWitnessTemplate: StoryFn<typeof WitnessCard> = () => {
 
   return (
     <FlexCol gap={2}>
-      <WitnessCard module={witness} />
+      <WitnessCard mod={witness} />
     </FlexCol>
   )
 }

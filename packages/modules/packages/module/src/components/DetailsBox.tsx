@@ -8,18 +8,18 @@ import { useState } from 'react'
 
 import { ModuleRenderProps } from '../ModuleRenderProps'
 
-const getModuleIcon = (moduleType: string, module: Module) => {
-  return module?.queries.find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null
+const getModuleIcon = (moduleType: string, mod: Module) => {
+  return mod?.queries.find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null
 }
 
-export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ children, module, ...props }) => {
+export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ children, mod, ...props }) => {
   const [showQueries, setShowQueries] = useState(false)
   return (
     <FlexCol {...props}>
       <FlexRow>
-        {module ?
+        {mod ?
           ['sentinel', 'bridge', 'archivist', 'diviner', 'node'].map((moduleType) => {
-            const icon = getModuleIcon(moduleType, module)
+            const icon = getModuleIcon(moduleType, mod)
             return icon ?
                 <ButtonEx onClick={() => setShowQueries(!showQueries)} key={moduleType}>
                   {icon}
@@ -27,11 +27,11 @@ export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ c
               : null
           })
         : null}
-        <EthAccountBox address={EthAddress.fromString(module?.address)} />
+        <EthAccountBox address={EthAddress.fromString(mod?.address)} />
       </FlexRow>
 
       {showQueries ?
-        module?.queries.map((query) => {
+        mod?.queries.map((query) => {
           return <FlexRow key={query}>{query}</FlexRow>
         })
       : null}

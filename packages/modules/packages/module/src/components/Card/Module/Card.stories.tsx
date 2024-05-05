@@ -22,22 +22,22 @@ const StorybookEntry = {
 } as Meta<typeof ModuleCard>
 
 const Template: StoryFn<typeof ModuleCard> = () => {
-  const [module, setModule] = useState<ArchivistInstance>()
+  const [mod, setModule] = useState<ArchivistInstance>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (!module) {
+      if (!mod) {
         const newModule = await MemoryArchivist.create()
         if (mounted()) {
           setModule(newModule)
         }
       }
     },
-    [module],
+    [mod],
   )
 
-  return <ModuleCard module={module} />
+  return <ModuleCard mod={mod} />
 }
 
 const SingleModule = Template.bind({})

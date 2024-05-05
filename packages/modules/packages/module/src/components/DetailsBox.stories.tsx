@@ -34,7 +34,7 @@ const NodeTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   )
   return (
     <FlexCol minHeight="80vh" alignItems="stretch">
-      <ModuleDetailsBox module={node} {...args} />
+      <ModuleDetailsBox mod={node} {...args} />
     </FlexCol>
   )
 }
@@ -56,7 +56,7 @@ const ArchivistTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   )
   return (
     <FlexCol minHeight="80vh" alignItems="stretch">
-      <ModuleDetailsBox module={archivist} {...args} />
+      <ModuleDetailsBox mod={archivist} {...args} />
     </FlexCol>
   )
 }
@@ -78,7 +78,7 @@ const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   )
   return (
     <FlexCol minHeight="80vh" alignItems="stretch">
-      <ModuleDetailsBox module={diviner} {...args} />
+      <ModuleDetailsBox mod={diviner} {...args} />
     </FlexCol>
   )
 }

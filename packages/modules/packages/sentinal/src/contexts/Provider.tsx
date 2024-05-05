@@ -44,19 +44,20 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
 
           schema: SentinelConfigSchema,
           synchronous: true,
-          tasks: witnesses?.map((module) => ({ module: module.address })),
+          // eslint-disable-next-line id-denylist
+          tasks: witnesses?.map((mod) => ({ module: mod.address })),
         } as SentinelConfig,
       })
       const offCallbacks: (() => void)[] = []
       offCallbacks.push(
-        sentinel.on('reportEnd', ({ module, outPayloads }) => {
+        sentinel.on('reportEnd', ({ module: mod, outPayloads }) => {
           if (mounted()) {
             setProgress({
               archivists: progress.archivists,
               witnesses: progress.witnesses,
             })
             setStatus(outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed)
-            setReportingErrors([new Error(`Witness failed [${module?.config?.name ?? module.address}]`)])
+            setReportingErrors([new Error(`Witness failed [${mod?.config?.name ?? mod.address}]`)])
           }
         }),
       )
@@ -71,11 +72,11 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       if (witnesses)
         for (const witness of witnesses) {
           offCallbacks.push(
-            witness.on('observeEnd', ({ module, outPayloads }) => {
+            witness.on('observeEnd', ({ module: mod, outPayloads }) => {
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
-                witness: asWitnessInstance(module, () => `Module is not a witness [${module.id}]`),
+                witness: asWitnessInstance(mod, () => `Module is not a witness [${mod.id}]`),
               }
               if (mounted()) {
                 setProgress({
@@ -86,11 +87,11 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
             }),
           )
           offCallbacks.push(
-            witness.on('observeStart', ({ module }) => {
+            witness.on('observeStart', ({ module: mod }) => {
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: SentinelReportStatus.Started,
-                witness: asWitnessInstance(module, () => `Module is not a witness [${module.id}]`),
+                witness: asWitnessInstance(mod, () => `Module is not a witness [${mod.id}]`),
               }
               if (mounted()) {
                 setProgress({

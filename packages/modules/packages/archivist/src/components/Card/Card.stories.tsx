@@ -40,7 +40,7 @@ const Template: StoryFn<typeof ArchivistCard> = () => {
     return await MemoryNode.create()
   }, [])
 
-  const [module] = usePromise(async () => {
+  const [mod] = usePromise(async () => {
     if (node) {
       const newParentModule = await MemoryArchivist.create()
       await node?.register(newParentModule)
@@ -63,11 +63,11 @@ const Template: StoryFn<typeof ArchivistCard> = () => {
 
   return (
     <FlexCol gap={2}>
-      <ArchivistCard module={module} />
-      <Button onClick={() => insertPayload(module)} variant={'contained'}>
+      <ArchivistCard mod={mod} />
+      <Button onClick={() => insertPayload(mod)} variant={'contained'}>
         Insert Into Archivist
       </Button>
-      <Button onClick={() => clearArchivist(module)} variant={'contained'}>
+      <Button onClick={() => clearArchivist(mod)} variant={'contained'}>
         Clear Archivist
       </Button>
     </FlexCol>

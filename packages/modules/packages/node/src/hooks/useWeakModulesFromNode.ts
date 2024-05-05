@@ -18,20 +18,20 @@ export const useWeakModulesFromNode = (
     logger?.debug('useModuleFromNode: resolving')
     const nodeInstance = node
     if (nodeInstance) {
-      nodeInstance.on('moduleAttached', async ({ module }) => {
+      nodeInstance.on('moduleAttached', async ({ module: mod }) => {
         const nodeInstance = node
-        logger?.debug(`useModuleFromNode: moduleAttached [${module.config.name ?? module.address}]`)
+        logger?.debug(`useModuleFromNode: moduleAttached [${mod.config.name ?? mod.address}]`)
         const moduleInstances = filter ? await nodeInstance?.resolve(filter, filterOptions) : await nodeInstance?.resolve('*', filterOptions)
-        setResult(moduleInstances?.map((module) => new WeakRef(module)))
+        setResult(moduleInstances?.map((mod) => new WeakRef(mod)))
       })
-      nodeInstance.on('moduleDetached', async ({ module }) => {
+      nodeInstance.on('moduleDetached', async ({ module: mod }) => {
         const nodeInstance = node
-        logger?.debug(`useModuleFromNode: moduleDetached [${module.config.name ?? module.address}]`)
+        logger?.debug(`useModuleFromNode: moduleDetached [${mod.config.name ?? mod.address}]`)
         const moduleInstances = filter ? await nodeInstance?.resolve(filter, filterOptions) : await nodeInstance?.resolve('*', filterOptions)
-        setResult(moduleInstances?.map((module) => new WeakRef(module)))
+        setResult(moduleInstances?.map((mod) => new WeakRef(mod)))
       })
       const moduleInstances = filter ? await nodeInstance.resolve(filter, filterOptions) : await nodeInstance.resolve('*', filterOptions)
-      setResult(moduleInstances?.map((module) => new WeakRef(module)))
+      setResult(moduleInstances?.map((mod) => new WeakRef(mod)))
       return moduleInstances
     }
     console.log('Result: No Node')

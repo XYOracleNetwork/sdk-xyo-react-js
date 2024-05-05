@@ -17,7 +17,7 @@ const ArchivistStats = (archivist?: ArchivistInstance) => {
   }
 }
 
-export const ArchivistCardHeader: React.FC<ModuleRenderProps<ArchivistInstance> & CardHeaderProps> = ({ title, module, ...props }) => {
-  const Stats = useMemo(() => ArchivistStats(module), [module])
-  return <ModuleCardHeader module={module} title={title ?? module?.config.name ?? 'Archivist'} action={Stats} {...props} />
+export const ArchivistCardHeader: React.FC<ModuleRenderProps<ArchivistInstance> & CardHeaderProps> = ({ title, mod, ...props }) => {
+  const Stats = useMemo(() => ArchivistStats(mod), [mod])
+  return <ModuleCardHeader mod={mod} title={title ?? mod?.config.name ?? 'Archivist'} action={Stats} {...props} />
 }

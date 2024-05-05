@@ -8,20 +8,20 @@ import { isWitnessModule } from '@xyo-network/witness-model'
 
 import { CyNodeModuleTypes } from './CyNodeModuleTypes'
 
-export const parseModuleType = (module?: ModuleInstance): CyNodeModuleTypes => {
+export const parseModuleType = (mod?: ModuleInstance): CyNodeModuleTypes => {
   let type: CyNodeModuleTypes = 'module'
-  if (module) {
-    if (isArchivistInstance(module)) {
+  if (mod) {
+    if (isArchivistInstance(mod)) {
       type = 'archivist'
-    } else if (isBridgeInstance(module)) {
+    } else if (isBridgeInstance(mod)) {
       type = 'bridge'
-    } else if (isDivinerInstance(module)) {
+    } else if (isDivinerInstance(mod)) {
       type = 'diviner'
-    } else if (isNodeInstance(module)) {
+    } else if (isNodeInstance(mod)) {
       type = 'node'
-    } else if (isSentinelInstance(module)) {
+    } else if (isSentinelInstance(mod)) {
       type = 'sentinel'
-    } else if (isWitnessModule(module)) {
+    } else if (isWitnessModule(mod)) {
       type = 'witness'
     } else {
       type = 'module'

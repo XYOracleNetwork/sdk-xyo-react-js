@@ -6,13 +6,13 @@ import { ModuleCardActions } from '../Module'
 import { DivinerCardContent } from './CardContent'
 import { DivinerCardHeader } from './CardHeader'
 
-export const DivinerCard: React.FC<CardProps & ModuleRenderProps<DivinerInstance>> = ({ children, module, ...props }) => {
+export const DivinerCard: React.FC<CardProps & ModuleRenderProps<DivinerInstance>> = ({ children, mod, ...props }) => {
   return (
     <Card {...props}>
-      <DivinerCardHeader module={module} />
-      <DivinerCardContent module={module} />
+      <DivinerCardHeader mod={mod} />
+      <DivinerCardContent mod={mod} />
       {children}
-      <ModuleCardActions module={module} />
+      <ModuleCardActions mod={mod} />
     </Card>
   )
 }

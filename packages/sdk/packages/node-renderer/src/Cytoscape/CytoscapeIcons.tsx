@@ -18,6 +18,7 @@ export const CyIconSet: Record<CyNodeModuleTypes, OverridableComponent<SvgIconTy
   archivist: Inventory2RoundedIcon,
   bridge: InsertLinkRoundedIcon,
   diviner: BubbleChartRoundedIcon,
+  // eslint-disable-next-line id-denylist
   module: QuestionMarkRoundedIcon,
   node: HubIcon,
   sentinel: TimerRoundedIcon,

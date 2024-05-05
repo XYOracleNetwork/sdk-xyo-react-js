@@ -22,7 +22,7 @@ export const NodeDrawer: React.FC<NodeDrawerProps> = ({ children, ...props }) =>
               <CloseIcon />
             </IconButton>
           </FlexRow>
-          <ModuleDescriptionBox module={node} />
+          <ModuleDescriptionBox mod={node} />
           {children}
         </FlexGrowCol>
       </ClickAwayListener>

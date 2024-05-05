@@ -74,25 +74,25 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
       } else if (activeNode) {
         const mods = await activeNode?.resolve('*')
         mods?.map((mod) => {
-          mod.on('moduleBusy', ({ module, busy }) => {
-            busyMap[(module as Module).address] = busy
+          mod.on('moduleBusy', ({ module: mod, busy }) => {
+            busyMap[(mod as Module).address] = busy
             if (autoStop) {
               forget(
                 (async () => {
                   await delay(1000)
-                  busyMap[(module as Module).address] = false
+                  busyMap[(mod as Module).address] = false
                 })(),
               )
             }
           })
         })
-        activeNode?.on('moduleBusy', ({ module, busy }) => {
-          busyMap[(module as Module).address] = busy
+        activeNode?.on('moduleBusy', ({ module: mod, busy }) => {
+          busyMap[(mod as Module).address] = busy
           if (autoStop) {
             forget(
               (async () => {
                 await delay(1000)
-                busyMap[(module as Module).address] = false
+                busyMap[(mod as Module).address] = false
               })(),
             )
           }

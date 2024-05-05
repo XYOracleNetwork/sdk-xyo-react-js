@@ -5,12 +5,12 @@ import { ModuleCardActions } from './CardActions'
 import { ModuleCardContent } from './CardContent'
 import { ModuleCardHeader } from './CardHeader'
 
-export const ModuleCard: React.FC<CardProps & ModuleRenderProps> = ({ module, ...props }) => {
+export const ModuleCard: React.FC<CardProps & ModuleRenderProps> = ({ mod, ...props }) => {
   return (
     <Card {...props}>
-      <ModuleCardHeader module={module} />
-      <ModuleCardContent module={module} />
-      <ModuleCardActions module={module} />
+      <ModuleCardHeader mod={mod} />
+      <ModuleCardContent mod={mod} />
+      <ModuleCardActions mod={mod} />
     </Card>
   )
 }

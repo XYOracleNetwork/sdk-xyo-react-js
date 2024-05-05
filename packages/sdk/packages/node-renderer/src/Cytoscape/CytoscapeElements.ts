@@ -7,7 +7,7 @@ import { parseModuleType } from './lib'
 interface ModuleInfo {
   children: ModuleInfo[]
   depth: number
-  module: ModuleInstance
+  mod: ModuleInstance
 }
 
 export const CytoscapeElements = {
@@ -24,15 +24,15 @@ export const CytoscapeElements = {
     }
   },
 
-  async buildElements(module: ModuleInstance): Promise<ElementDefinition[]> {
-    const info = await CytoscapeElements.recurseNodes(module)
+  async buildElements(mod: ModuleInstance): Promise<ElementDefinition[]> {
+    const info = await CytoscapeElements.recurseNodes(mod)
     const newElements: ElementDefinition[] = await this.buildElementsFromInfo(info, undefined, ['activeNode'])
 
     return newElements
   },
 
   async buildElementsFromInfo(info: ModuleInfo, root?: ElementDefinition, classes: string[] = []): Promise<ElementDefinition[]> {
-    const newNode = CytoscapeElements.buildNode(info.module, { childCount: info.children.length, depth: info.depth }, classes)
+    const newNode = CytoscapeElements.buildNode(info.mod, { childCount: info.children.length, depth: info.depth }, classes)
     const newEdge = root ? CytoscapeElements.buildEdge(root, newNode, { depth: info.depth, siblingCount: info.children.length }) : undefined
     const newElements: ElementDefinition[] = [newNode]
     if (newEdge) {
@@ -46,22 +46,22 @@ export const CytoscapeElements = {
     return newElements
   },
 
-  buildNode(module: ModuleInstance, properties?: { [key: string]: unknown }, classes?: string[]): ElementDefinition {
-    const { address, id } = module
+  buildNode(mod: ModuleInstance, properties?: { [key: string]: unknown }, classes?: string[]): ElementDefinition {
+    const { address, id } = mod
     return {
       classes,
       data: {
         address,
         id: address,
         name: id,
-        type: parseModuleType(module),
+        type: parseModuleType(mod),
         ...properties,
       },
     }
   },
 
-  buildRootNode: (module: ModuleInstance): ElementDefinition => {
-    return CytoscapeElements.buildNode(module, {}, ['activeNode'])
+  buildRootNode: (mod: ModuleInstance): ElementDefinition => {
+    return CytoscapeElements.buildNode(mod, {}, ['activeNode'])
   },
 
   normalizeName(name?: string) {
@@ -71,7 +71,7 @@ export const CytoscapeElements = {
   },
 
   async recurseNodes(root: ModuleInstance, maxDepth = 10, depth = 1): Promise<ModuleInfo> {
-    const info: ModuleInfo = { children: [], depth, module: root }
+    const info: ModuleInfo = { children: [], depth, mod: root }
 
     if (maxDepth > 0) {
       const children = await root.resolve('*', { direction: 'down', maxDepth: 1 })

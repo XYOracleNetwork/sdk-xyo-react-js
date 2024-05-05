@@ -2,7 +2,7 @@ import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material'
 import { ModuleInstance } from '@xyo-network/module-model'
 
 export interface ModuleAccordionProps<T extends ModuleInstance = ModuleInstance> extends Omit<AccordionProps, 'children'> {
-  module?: T
+  mod?: T
 }
 
 import { Accordion, AccordionDetails, AccordionProps, AccordionSummary } from '@mui/material'
@@ -10,14 +10,14 @@ import { Accordion, AccordionDetails, AccordionProps, AccordionSummary } from '@
 import { ModuleDetails } from './ModuleDetails'
 import { TypedModuleSummary } from './TypedModuleSummary'
 
-export const ModuleAccordion: React.FC<ModuleAccordionProps> = ({ module, ...props }) => {
+export const ModuleAccordion: React.FC<ModuleAccordionProps> = ({ mod, ...props }) => {
   return (
     <Accordion {...props}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <TypedModuleSummary module={module} />
+        <TypedModuleSummary mod={mod} />
       </AccordionSummary>
       <AccordionDetails>
-        <ModuleDetails module={module} />
+        <ModuleDetails mod={mod} />
       </AccordionDetails>
     </Accordion>
   )

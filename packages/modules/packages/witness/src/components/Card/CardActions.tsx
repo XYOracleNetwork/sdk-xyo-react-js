@@ -5,13 +5,13 @@ import { WitnessInstance } from '@xyo-network/witness-model'
 
 export type WitnessCardActionsProps = ModuleRenderProps<WitnessInstance> &
   CardActionsProps & {
-    onObserve?: (module?: WitnessInstance) => void
+    onObserve?: (mod?: WitnessInstance) => void
   }
 
-export const WitnessCardActions: React.FC<WitnessCardActionsProps> = ({ onObserve, module, ...props }) => {
+export const WitnessCardActions: React.FC<WitnessCardActionsProps> = ({ onObserve, mod, ...props }) => {
   return (
-    <ModuleCardActions module={module} {...props}>
-      <ButtonEx onClick={() => onObserve?.(module)} size={'small'} variant={'outlined'}>
+    <ModuleCardActions mod={mod} {...props}>
+      <ButtonEx onClick={() => onObserve?.(mod)} size={'small'} variant={'outlined'}>
         Observe
       </ButtonEx>
     </ModuleCardActions>

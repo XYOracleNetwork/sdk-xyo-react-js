@@ -15,9 +15,9 @@ export const useWitnessesFromNode = (
   return modules ?
       [
         // eslint-disable-next-line unicorn/no-array-reduce
-        modules.reduce<WitnessInstance[]>((prev, module) => {
-          if (isWitnessInstance(module)) {
-            prev.push(module)
+        modules.reduce<WitnessInstance[]>((prev, mod) => {
+          if (isWitnessInstance(mod)) {
+            prev.push(mod)
           }
           return prev
         }, []),

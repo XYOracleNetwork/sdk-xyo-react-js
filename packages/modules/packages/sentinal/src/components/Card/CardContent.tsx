@@ -11,9 +11,9 @@ export type SentinelCardContentProps = ModuleRenderProps<SentinelInstance> &
     report?: Payload[]
   }
 
-export const SentinelCardContent: React.FC<SentinelCardContentProps> = ({ children, report, module, ...props }) => {
+export const SentinelCardContent: React.FC<SentinelCardContentProps> = ({ children, report, mod, ...props }) => {
   return (
-    <ModuleCardContent module={module} {...props}>
+    <ModuleCardContent mod={mod} {...props}>
       <FlexGrowRow flexWrap="wrap" justifyContent="start" gap={2}>
         {report ?
           <JsonViewerEx value={report} />

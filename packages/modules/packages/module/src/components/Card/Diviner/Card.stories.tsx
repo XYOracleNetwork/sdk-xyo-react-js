@@ -11,12 +11,12 @@ const StorybookEntry = {
 } as Meta<typeof DivinerCard>
 
 const Template: StoryFn<typeof DivinerCard> = () => {
-  const [module, setModule] = useState<DivinerInstance>()
+  const [mod, setModule] = useState<DivinerInstance>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (!module) {
+      if (!mod) {
         const newModule = (await AddressHistoryDiviner.create({
           config: {
             address: '',
@@ -29,10 +29,10 @@ const Template: StoryFn<typeof DivinerCard> = () => {
         }
       }
     },
-    [module],
+    [mod],
   )
 
-  return <DivinerCard module={module} />
+  return <DivinerCard mod={mod} />
 }
 
 const SingleModule = Template.bind({})

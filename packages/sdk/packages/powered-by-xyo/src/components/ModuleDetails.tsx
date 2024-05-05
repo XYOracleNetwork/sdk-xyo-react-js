@@ -9,30 +9,30 @@ import { Property } from '@xyo-network/react-property'
 import { JsonViewerButton } from './JsonViewerButton'
 
 export interface ModuleDetailsProps<T extends ModuleInstance = ModuleInstance> extends FlexBoxProps {
-  module?: T
+  mod?: T
 }
 
-export const ModuleDetails: React.FC<ModuleDetailsProps> = ({ module, ...props }) => {
+export const ModuleDetails: React.FC<ModuleDetailsProps> = ({ mod, ...props }) => {
   const [manifest] = usePromise(async () => {
-    return await module?.manifest()
-  }, [module])
+    return await mod?.manifest()
+  }, [mod])
 
   const [discover] = usePromise(async () => {
-    return await module?.state()
-  }, [module])
+    return await mod?.state()
+  }, [mod])
 
   const [describe] = usePromise(async () => {
-    const state = await module?.state()
+    const state = await mod?.state()
     return state?.find<ModuleDescriptionPayload>(isPayloadOfSchemaType(ModuleDescriptionSchema))
-  }, [module])
+  }, [mod])
 
-  const queries = module?.queries
+  const queries = mod?.queries
 
-  const config = module?.config
+  const config = mod?.config
 
   return (
     <FlexCol alignItems="stretch" {...props}>
-      <Property title="Address" value={module?.address} />
+      <Property title="Address" value={mod?.address} />
 
       <FlexRow gap={1} justifyContent="space-between">
         <ButtonGroup>
@@ -63,13 +63,13 @@ export const ModuleDetails: React.FC<ModuleDetailsProps> = ({ module, ...props }
           : null}
         </ButtonGroup>
         <ButtonGroup>
-          <ButtonEx target="_blank" href={`https://explore.xyo.network/block?network=main&address=${module?.address}`} variant="outlined">
+          <ButtonEx target="_blank" href={`https://explore.xyo.network/block?network=main&address=${mod?.address}`} variant="outlined">
             Main
           </ButtonEx>
-          <ButtonEx target="_blank" href={`https://beta.explore.xyo.network/block?network=kerplunk&address=${module?.address}`} variant="outlined">
+          <ButtonEx target="_blank" href={`https://beta.explore.xyo.network/block?network=kerplunk&address=${mod?.address}`} variant="outlined">
             Kerplunk
           </ButtonEx>
-          <ButtonEx target="_blank" href={`https://beta.explore.xyo.network/block?network=local&address=${module?.address}`} variant="outlined">
+          <ButtonEx target="_blank" href={`https://beta.explore.xyo.network/block?network=local&address=${mod?.address}`} variant="outlined">
             Local
           </ButtonEx>
         </ButtonGroup>

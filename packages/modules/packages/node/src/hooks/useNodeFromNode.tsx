@@ -10,10 +10,10 @@ export const useNodeFromNode = (
   config?: ModuleFromNodeConfig,
 ): [NodeInstance | undefined, Error | undefined] => {
   // eslint-disable-next-line import/no-deprecated, deprecation/deprecation
-  const [module, error] = useModuleFromNode(nameOrAddressOrInstance, config)
-  const instance = asNodeInstance(module)
-  if (module && !instance) {
-    const error = new Error(`Resolved module is not a NodeInstance [${module.config?.schema}:${module.config?.name}:${module.address}]`)
+  const [mod, error] = useModuleFromNode(nameOrAddressOrInstance, config)
+  const instance = asNodeInstance(mod)
+  if (mod && !instance) {
+    const error = new Error(`Resolved module is not a NodeInstance [${mod.config?.schema}:${mod.config?.name}:${mod.address}]`)
     console.error(error.message)
     return [undefined, error]
   }

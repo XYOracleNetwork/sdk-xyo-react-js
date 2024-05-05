@@ -7,32 +7,32 @@ import { useEffect, useState } from 'react'
 
 import { CytoscapeElements } from '../../../Cytoscape'
 
-export const useCytoscapeElements = (module?: WeakRef<ModuleInstance> | null) => {
+export const useCytoscapeElements = (mod?: WeakRef<ModuleInstance> | null) => {
   const [elements, setElements] = useState<ElementDefinition[]>([])
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      const moduleInstance = module?.deref()
+      const moduleInstance = mod?.deref()
       if (moduleInstance) {
         const newElements = (await CytoscapeElements.buildElements(moduleInstance)) ?? []
         setElements(newElements)
       }
     },
-    [module],
+    [mod],
   )
 
   useEffect(() => {
     let attachedListener: EventUnsubscribeFunction | undefined
     let detachedListener: EventUnsubscribeFunction | undefined
 
-    if (module && isNodeInstance(module)) {
-      attachedListener = module.on('moduleAttached', async () => {
-        const newElements = (await CytoscapeElements.buildElements(module)) ?? []
+    if (mod && isNodeInstance(mod)) {
+      attachedListener = mod.on('moduleAttached', async () => {
+        const newElements = (await CytoscapeElements.buildElements(mod)) ?? []
         setElements(newElements)
       })
-      detachedListener = module.on('moduleDetached', async () => {
-        const newElements = (await CytoscapeElements.buildElements(module)) ?? []
+      detachedListener = mod.on('moduleDetached', async () => {
+        const newElements = (await CytoscapeElements.buildElements(mod)) ?? []
         setElements(newElements)
       })
     }
@@ -41,7 +41,7 @@ export const useCytoscapeElements = (module?: WeakRef<ModuleInstance> | null) =>
       attachedListener?.()
       detachedListener?.()
     }
-  }, [module])
+  }, [mod])
 
   return elements
 }

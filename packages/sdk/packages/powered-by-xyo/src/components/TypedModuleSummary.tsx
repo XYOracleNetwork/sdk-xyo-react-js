@@ -13,24 +13,24 @@ import { NodeSummary } from './NodeSummary'
 import { SentinelSummary } from './SentinelSummary'
 import { WitnessSummary } from './WitnessSummary'
 
-export const TypedModuleSummary: React.FC<ModuleSummaryProps> = ({ module, ...props }) => {
-  if (isArchivistInstance(module)) {
-    return <ArchivistSummary module={module} {...props} />
+export const TypedModuleSummary: React.FC<ModuleSummaryProps> = ({ mod, ...props }) => {
+  if (isArchivistInstance(mod)) {
+    return <ArchivistSummary mod={mod} {...props} />
   }
-  if (isDivinerInstance(module)) {
-    return <DivinerSummary module={module} {...props} />
+  if (isDivinerInstance(mod)) {
+    return <DivinerSummary mod={mod} {...props} />
   }
-  if (isNodeInstance(module)) {
-    return <NodeSummary module={module} {...props} />
+  if (isNodeInstance(mod)) {
+    return <NodeSummary mod={mod} {...props} />
   }
-  if (isWitnessInstance(module)) {
-    return <WitnessSummary module={module} {...props} />
+  if (isWitnessInstance(mod)) {
+    return <WitnessSummary mod={mod} {...props} />
   }
-  if (isBridgeInstance(module)) {
-    return <BridgeSummary module={module} {...props} />
+  if (isBridgeInstance(mod)) {
+    return <BridgeSummary mod={mod} {...props} />
   }
-  if (isSentinelInstance(module)) {
-    return <SentinelSummary module={module} {...props} />
+  if (isSentinelInstance(mod)) {
+    return <SentinelSummary mod={mod} {...props} />
   }
-  return <ModuleSummary module={module} {...props} />
+  return <ModuleSummary mod={mod} {...props} />
 }

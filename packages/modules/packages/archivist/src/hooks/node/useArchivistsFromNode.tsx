@@ -16,9 +16,9 @@ export const useArchivistsFromNode = (
   return modules ?
       [
         // eslint-disable-next-line unicorn/no-array-reduce
-        modules.reduce<ArchivistInstance[]>((prev, module) => {
-          if (isArchivistInstance(module)) {
-            prev.push(module)
+        modules.reduce<ArchivistInstance[]>((prev, mod) => {
+          if (isArchivistInstance(mod)) {
+            prev.push(mod)
           }
           return prev
         }, []),

@@ -15,9 +15,9 @@ export const useNodesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeC
   return modules ?
       [
         // eslint-disable-next-line unicorn/no-array-reduce
-        modules.reduce<NodeInstance[]>((prev, module) => {
-          if (isNodeInstance(module)) {
-            prev.push(module)
+        modules.reduce<NodeInstance[]>((prev, mod) => {
+          if (isNodeInstance(mod)) {
+            prev.push(mod)
           }
           return prev
         }, []),

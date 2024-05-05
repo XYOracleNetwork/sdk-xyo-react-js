@@ -13,8 +13,8 @@ export const useWeakArchivistsFromNode = (
   }
   return [
     modules
-      ?.map((module) => {
-        const instance = asArchivistInstance(module?.deref())
+      ?.map((mod) => {
+        const instance = asArchivistInstance(mod?.deref())
         if (instance) {
           return new WeakRef(instance)
         }

@@ -13,8 +13,8 @@ export const useWeakWitnessesFromNode = (
   }
   return [
     modules
-      ?.map((module) => {
-        const instance = asWitnessInstance(module?.deref())
+      ?.map((mod) => {
+        const instance = asWitnessInstance(mod?.deref())
         if (instance) {
           return new WeakRef(instance)
         }

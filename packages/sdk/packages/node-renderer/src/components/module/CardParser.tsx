@@ -5,19 +5,19 @@ import { ArchivistCard } from '@xyo-network/react-archivist'
 import { DivinerCard, ModuleCard } from '@xyo-network/react-module'
 
 export interface ModuleCardParserProps {
-  module?: ModuleInstance
+  mod?: ModuleInstance
 }
 
-export const ModuleCardParser: React.FC<ModuleCardParserProps> = ({ module }) => {
+export const ModuleCardParser: React.FC<ModuleCardParserProps> = ({ mod }) => {
   switch (true) {
-    case isArchivistInstance(module): {
-      return <ArchivistCard module={asArchivistInstance(module)} />
+    case isArchivistInstance(mod): {
+      return <ArchivistCard mod={asArchivistInstance(mod)} />
     }
-    case isDivinerInstance(module): {
-      return <DivinerCard module={asDivinerInstance(module)} />
+    case isDivinerInstance(mod): {
+      return <DivinerCard mod={asDivinerInstance(mod)} />
     }
     default: {
-      return <ModuleCard module={module} />
+      return <ModuleCard mod={mod} />
     }
   }
 }

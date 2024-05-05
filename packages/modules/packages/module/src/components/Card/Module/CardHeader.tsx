@@ -6,21 +6,21 @@ import { ModuleRenderProps } from '../../../ModuleRenderProps'
 
 const moduleTypes = ['sentinel', 'bridge', 'archivist', 'diviner', 'node', 'witness']
 
-const getModuleIcons = (moduleType: string, module: Module) => {
-  return module?.queries.find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon : null
+const getModuleIcons = (moduleType: string, mod: Module) => {
+  return mod?.queries.find((query) => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon : null
 }
 
-export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = ({ subheader, avatar, title, module, ...props }) => {
+export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = ({ subheader, avatar, title, mod, ...props }) => {
   return (
     <CardHeader
-      title={title ?? module?.config.name ?? 'Module'}
-      subheader={subheader ?? module?.address}
+      title={title ?? mod?.config.name ?? 'Module'}
+      subheader={subheader ?? mod?.address}
       avatar={
         avatar ?? (
           <>
-            {module ?
+            {mod ?
               moduleTypes.map((moduleType) => {
-                const Icon = getModuleIcons(moduleType, module)
+                const Icon = getModuleIcons(moduleType, mod)
                 return Icon ? <Icon key={moduleType} fontSize={'large'} color="primary" /> : null
               })
             : null}

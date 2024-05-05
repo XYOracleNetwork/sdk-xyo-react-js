@@ -6,10 +6,10 @@ import { useWeakModulesFromNode } from '@xyo-network/react-node'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary'
 
-export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ module, ...props }) => {
+export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ mod, ...props }) => {
   const [manifest] = usePromise(async () => {
-    return (await module?.manifest()) as NodeManifest
-  }, [module])
+    return (await mod?.manifest()) as NodeManifest
+  }, [mod])
 
   const [downModules] = useWeakModulesFromNode(undefined, { direction: 'down' })
   const [upModules] = useWeakModulesFromNode(undefined, { direction: 'up' })
@@ -20,7 +20,7 @@ export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ module
   const manifestPublicModules = manifest?.modules?.public?.length
 
   return (
-    <ModuleSummary module={module} icon={<HubRoundedIcon />} {...props}>
+    <ModuleSummary mod={mod} icon={<HubRoundedIcon />} {...props}>
       {manifestPublicModules !== undefined && downModulesFromResolve !== undefined && upModulesFromResolve !== undefined ?
         `[${manifestPublicModules}m/${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
       : null}

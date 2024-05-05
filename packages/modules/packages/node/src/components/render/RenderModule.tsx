@@ -9,16 +9,16 @@ interface RenderModuleProps {
     idIncrementor: number
     ids: string[]
   }>
-  module: WeakRef<ModuleInstance>
+  mod: WeakRef<ModuleInstance>
 }
 
-export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => {
+export const RenderModule: React.FC<RenderModuleProps> = ({ mod, idRef }) => {
   const [childModules, setChildModules] = useState<WeakRef<ModuleInstance>[]>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      const moduleInstance = module.deref()
+      const moduleInstance = mod.deref()
       const { address } = moduleInstance ?? {}
       if (moduleInstance) {
         const children = (await moduleInstance.resolve('*')).filter((childModule) => childModule.address !== address)
@@ -27,7 +27,7 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => 
         }
       }
     },
-    [module],
+    [mod],
   )
 
   const increment = () => {
@@ -36,7 +36,7 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => 
     return newId
   }
 
-  const moduleInstance = module.deref()
+  const moduleInstance = mod.deref()
   const { queries, address } = moduleInstance ?? {}
 
   return (
@@ -48,7 +48,7 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ module, idRef }) => 
         <TreeItem nodeId={increment()} label={'children'} sx={{ mb: 0.5 }}>
           {childModules.map((childModuleRef) => {
             const childModule = childModuleRef.deref()
-            return childModule ? <RenderModule key={childModule?.address} module={childModuleRef} idRef={idRef} /> : null
+            return childModule ? <RenderModule key={childModule?.address} mod={childModuleRef} idRef={idRef} /> : null
           })}
         </TreeItem>
       : null}

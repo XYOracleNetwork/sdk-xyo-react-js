@@ -23,15 +23,15 @@ export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({ children
     async () => {
       if (node && modules) {
         await Promise.all(
-          modules.map(async (module) => {
-            await node.register(module)
+          modules.map(async (mod) => {
+            await node.register(mod)
           }),
         )
         return () => {
           forget(
             Promise.all(
-              modules.map(async (module) => {
-                await node.unregister(module)
+              modules.map(async (mod) => {
+                await node.unregister(mod)
               }),
             ),
           )

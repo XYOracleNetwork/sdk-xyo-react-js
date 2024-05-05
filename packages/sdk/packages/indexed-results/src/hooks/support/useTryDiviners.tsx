@@ -28,7 +28,7 @@ export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResu
 
     if (config?.diviners && node) {
       const resolvedDiviners = await node.resolve({ name: config.diviners })
-      const diviners = resolvedDiviners.filter((module) => isDivinerInstance(module)) as DivinerInstance[]
+      const diviners = resolvedDiviners.filter((mod) => isDivinerInstance(mod)) as DivinerInstance[]
 
       if (diviners && diviners?.length > 0) {
         while (divinerCount < diviners?.length && indexedQueries) {

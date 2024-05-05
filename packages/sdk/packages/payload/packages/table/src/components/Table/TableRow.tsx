@@ -46,6 +46,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
       archive={archive}
       width="100%"
       value={payloadHash}
+      onHashClick={onHashClick}
       dataType="payload"
       exploreDomain={exploreDomain}
       network={networkProp ?? network?.slug}

@@ -24,13 +24,13 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActi
   const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
   const { hoveredNode, setHoveredNode, toggleSelectedElement } = useElements(hideLabels)
 
-  const { module, onModuleDetails } = useModuleDetails(rootModule, () => setHoveredNode(undefined))
+  const { mod, onModuleDetails } = useModuleDetails(rootModule, () => setHoveredNode(undefined))
 
   return (
     <WithExtensions>
       <NodeRelationalGraphFlexBox
         actions={
-          module ? null
+          mod ? null
           : hideActions ?
             null
           : <Button size={'small'} onClick={handleToggleLabels} variant="contained">
@@ -38,7 +38,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActi
             </Button>
 
         }
-        showDetails={!!module}
+        showDetails={!!mod}
         detail={<DetailsFlexbox onClose={() => onModuleDetails(null)} />}
         options={options}
         ref={cytoscapeRef}

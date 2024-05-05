@@ -22,15 +22,15 @@ export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
     >
     const nodeInstance = node
     if (nodeInstance && nameOrAddressOrInstance) {
-      nodeInstance.on('moduleAttached', ({ module }) => {
-        logger?.debug(`useModuleFromNode: moduleAttached [${module.config.name ?? module.address}]`)
-        if (module.address === nameOrAddressOrInstance || module.config?.name === nameOrAddressOrInstance) {
-          setResult(identity(module) ? new WeakRef(module as T extends ModuleInstance ? T : ModuleInstance) : undefined)
+      nodeInstance.on('moduleAttached', ({ module: mod }) => {
+        logger?.debug(`useModuleFromNode: moduleAttached [${mod.config.name ?? mod.address}]`)
+        if (mod.address === nameOrAddressOrInstance || mod.config?.name === nameOrAddressOrInstance) {
+          setResult(identity(mod) ? new WeakRef(mod as T extends ModuleInstance ? T : ModuleInstance) : undefined)
         }
       })
-      nodeInstance.on('moduleDetached', ({ module }) => {
-        logger?.debug(`useModuleFromNode: moduleDetached [${module.config.name ?? module.address}]`)
-        if (module.address === nameOrAddressOrInstance || module.config?.name === nameOrAddressOrInstance) {
+      nodeInstance.on('moduleDetached', ({ module: mod }) => {
+        logger?.debug(`useModuleFromNode: moduleDetached [${mod.config.name ?? mod.address}]`)
+        if (mod.address === nameOrAddressOrInstance || mod.config?.name === nameOrAddressOrInstance) {
           setResult(undefined)
         }
       })

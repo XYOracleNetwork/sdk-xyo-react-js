@@ -24,15 +24,15 @@ export const useModuleFromNode = <T extends ModuleInstance | void = void>(
       T extends ModuleInstance ? T : ModuleInstance
     >
     if (node && nameOrAddressOrInstance) {
-      node.on('moduleAttached', ({ module }) => {
-        logger?.debug(`useModuleFromNode: moduleAttached [${module.config.name ?? module.address}]`)
-        if (module.address === nameOrAddressOrInstance || module.config?.name === nameOrAddressOrInstance) {
-          setResult(identity(module) ? (module as T extends ModuleInstance ? T : ModuleInstance) : undefined)
+      node.on('moduleAttached', ({ module: mod }) => {
+        logger?.debug(`useModuleFromNode: moduleAttached [${mod.config.name ?? mod.address}]`)
+        if (mod.address === nameOrAddressOrInstance || mod.config?.name === nameOrAddressOrInstance) {
+          setResult(identity(mod) ? (mod as T extends ModuleInstance ? T : ModuleInstance) : undefined)
         }
       })
-      node.on('moduleDetached', ({ module }) => {
-        logger?.debug(`useModuleFromNode: moduleDetached [${module.config.name ?? module.address}]`)
-        if (module.address === nameOrAddressOrInstance || module.config?.name === nameOrAddressOrInstance) {
+      node.on('moduleDetached', ({ module: mod }) => {
+        logger?.debug(`useModuleFromNode: moduleDetached [${mod.config.name ?? mod.address}]`)
+        if (mod.address === nameOrAddressOrInstance || mod.config?.name === nameOrAddressOrInstance) {
           setResult(undefined)
         }
       })
@@ -41,7 +41,7 @@ export const useModuleFromNode = <T extends ModuleInstance | void = void>(
       } else {
         const result = await node.resolve(nameOrAddressOrInstance, filterOptions)
         logger?.debug(`Result: ${result?.address}`)
-        setResult(identity(module) ? (module as T extends ModuleInstance ? T : ModuleInstance) : undefined)
+        setResult(identity(result) ? (result as T extends ModuleInstance ? T : ModuleInstance) : undefined)
       }
       return result
     }

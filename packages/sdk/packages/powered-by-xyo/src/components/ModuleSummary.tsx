@@ -8,10 +8,10 @@ import { ReactNode, useState } from 'react'
 
 export interface ModuleSummaryProps<T extends ModuleInstance = ModuleInstance> extends FlexBoxProps {
   icon?: ReactNode
-  module?: T
+  mod?: T
 }
 
-export const ModuleSummary: React.FC<ModuleSummaryProps> = ({ children, icon, module, ...props }) => {
+export const ModuleSummary: React.FC<ModuleSummaryProps> = ({ children, icon, mod, ...props }) => {
   const [downModules] = useWeakModulesFromNode(undefined, { direction: 'down' })
   const [upModules] = useWeakModulesFromNode(undefined, { direction: 'up' })
   const [busy, setBusy] = useState(false)
@@ -19,7 +19,7 @@ export const ModuleSummary: React.FC<ModuleSummaryProps> = ({ children, icon, mo
   const downModulesFromResolve = downModules?.length
   const upModulesFromResolve = upModules?.length
 
-  module?.on('moduleBusy', async ({ busy }) => {
+  mod?.on('moduleBusy', async ({ busy }) => {
     setBusy(busy)
     await delay(2000)
     setBusy(false)
@@ -30,7 +30,7 @@ export const ModuleSummary: React.FC<ModuleSummaryProps> = ({ children, icon, mo
       <FlexRow justifyContent="flex-start">
         <FlexRow>
           <TypographyEx color={busy ? 'gray' : undefined}>{icon ?? <ExtensionIcon />}</TypographyEx>
-          <TypographyEx marginX={1}>{module?.config?.name ?? '<Unknown>'}</TypographyEx>
+          <TypographyEx marginX={1}>{mod?.config?.name ?? '<Unknown>'}</TypographyEx>
         </FlexRow>
         {children ?? (downModulesFromResolve !== undefined && upModulesFromResolve !== undefined) ?
           `[${downModulesFromResolve}↓/${upModulesFromResolve}↑]`

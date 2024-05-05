@@ -5,13 +5,13 @@ import { ModuleCardActions, ModuleRenderProps } from '@xyo-network/react-module'
 import { ArchivistCardContent } from './CardContent'
 import { ArchivistCardHeader } from './CardHeader'
 
-export const ArchivistCard: React.FC<CardProps & ModuleRenderProps<ArchivistInstance>> = ({ children, module, ...props }) => {
+export const ArchivistCard: React.FC<CardProps & ModuleRenderProps<ArchivistInstance>> = ({ children, mod, ...props }) => {
   return (
     <Card {...props}>
-      <ArchivistCardHeader module={module} />
-      <ArchivistCardContent module={module} />
+      <ArchivistCardHeader mod={mod} />
+      <ArchivistCardContent mod={mod} />
       {children}
-      <ModuleCardActions module={module} />
+      <ModuleCardActions mod={mod} />
     </Card>
   )
 }

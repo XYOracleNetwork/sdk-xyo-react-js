@@ -13,8 +13,8 @@ export const useWeakDivinersFromNode = (
   }
   return [
     modules
-      ?.map((module) => {
-        const instance = asDivinerInstance(module?.deref())
+      ?.map((mod) => {
+        const instance = asDivinerInstance(mod?.deref())
         if (instance) {
           return new WeakRef(instance)
         }

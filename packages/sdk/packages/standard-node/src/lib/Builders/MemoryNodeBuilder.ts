@@ -87,19 +87,19 @@ export class MemoryNodeBuilder {
     )
   }
 
-  async attach(module: AttachableModuleInstance, external?: boolean, safeAttach?: boolean) {
+  async attach(mod: AttachableModuleInstance, external?: boolean, safeAttach?: boolean) {
     try {
       if (safeAttach) {
-        const existingModule = (await this.node.resolve({ address: [module.address] })).pop()
+        const existingModule = (await this.node.resolve({ address: [mod.address] })).pop()
         if (existingModule) {
           await this.node.detach(existingModule.address)
           await this.node.unregister(existingModule)
         }
       }
-      await this.node.register(module)
-      await this.node.attach(module.address, external)
+      await this.node.register(mod)
+      await this.node.attach(mod.address, external)
     } catch (e) {
-      throw new Error(`Error adding ${module.config.name ?? module.address} to MemoryNode: ${e}`)
+      throw new Error(`Error adding ${mod.config.name ?? mod.address} to MemoryNode: ${e}`)
     }
   }
 

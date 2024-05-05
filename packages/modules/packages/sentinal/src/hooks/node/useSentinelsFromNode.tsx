@@ -15,9 +15,9 @@ export const useSentinelsFromNode = (
   return modules ?
       [
         // eslint-disable-next-line unicorn/no-array-reduce
-        modules.reduce<SentinelInstance[]>((prev, module) => {
-          if (isSentinelInstance(module)) {
-            prev.push(module)
+        modules.reduce<SentinelInstance[]>((prev, mod) => {
+          if (isSentinelInstance(mod)) {
+            prev.push(mod)
           }
           return prev
         }, []),

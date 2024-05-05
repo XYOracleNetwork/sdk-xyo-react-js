@@ -13,8 +13,8 @@ export const useWeakSentinelsFromNode = (
   }
   return [
     modules
-      ?.map((module) => {
-        const instance = asSentinelInstance(module?.deref())
+      ?.map((mod) => {
+        const instance = asSentinelInstance(mod?.deref())
         if (instance) {
           return new WeakRef(instance)
         }

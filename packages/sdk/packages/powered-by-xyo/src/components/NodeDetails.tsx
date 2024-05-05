@@ -7,8 +7,8 @@ import { ModuleDetailsProps } from './ModuleDetails'
 
 export interface NodeViewerProps extends ModuleDetailsProps<NodeInstance> {}
 
-export const NodeDetails: React.FC<NodeViewerProps> = ({ module, ...props }) => {
-  const [node = module] = useProvidedNode()
+export const NodeDetails: React.FC<NodeViewerProps> = ({ mod, ...props }) => {
+  const [node = mod] = useProvidedNode()
 
   const [children] = useWeakModulesFromNode(undefined, { node: node ?? undefined })
 
@@ -19,7 +19,7 @@ export const NodeDetails: React.FC<NodeViewerProps> = ({ module, ...props }) => 
           <FlexCol alignItems="stretch" marginY={1}>
             {children?.map((child) => {
               const instance = child.deref()
-              return instance ? <ModuleAccordion key={instance.address} module={instance} /> : null
+              return instance ? <ModuleAccordion key={instance.address} mod={instance} /> : null
             })}
           </FlexCol>
         </>

@@ -10,8 +10,8 @@ export const useNewElements = (selectedElement?: NodeSingular) => {
     return selectedAddress
   }, [selectedElement])
 
-  const [module] = useWeakModuleFromNode(selectedAddress)
-  const newElements = useCytoscapeElements(module)
+  const [mod] = useWeakModuleFromNode(selectedAddress)
+  const newElements = useCytoscapeElements(mod)
 
   return newElements
 }

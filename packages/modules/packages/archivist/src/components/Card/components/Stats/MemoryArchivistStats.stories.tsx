@@ -20,12 +20,12 @@ const StorybookEntry = {
 } as Meta<typeof MemoryArchivistsStats>
 
 const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
-  const [module, setModule] = useState<ArchivistInstance>()
+  const [mod, setModule] = useState<ArchivistInstance>()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
-      if (!module) {
+      if (!mod) {
         const node = await MemoryNode.create()
         const newParentModule = await MemoryArchivist.create()
         const newModule = await MemoryArchivist.create({
@@ -48,10 +48,10 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
         setModule(newModule)
       }
     },
-    [module],
+    [mod],
   )
 
-  return <MemoryArchivistsStats archivist={module} />
+  return <MemoryArchivistsStats archivist={mod} />
 }
 
 const Default = Template.bind({})

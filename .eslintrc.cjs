@@ -18,6 +18,7 @@ const finalConfig = {
     ".*"
   ],
   "rules": {
+    "id-denylist": ["warn", "module"],
     "import/no-default-export": ["off"],
     "unicorn/no-await-expression-member": ["off"],
     "@typescript-eslint/no-misused-promises": ["off"],

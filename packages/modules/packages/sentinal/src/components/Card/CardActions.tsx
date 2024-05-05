@@ -5,13 +5,13 @@ import { SentinelInstance } from '@xyo-network/sentinel-model'
 
 export type SentinelCardActionsProps = ModuleRenderProps<SentinelInstance> &
   CardActionsProps & {
-    onReport?: (module?: SentinelInstance) => void
+    onReport?: (mod?: SentinelInstance) => void
   }
 
-export const SentinelCardActions: React.FC<SentinelCardActionsProps> = ({ onReport, module, ...props }) => {
+export const SentinelCardActions: React.FC<SentinelCardActionsProps> = ({ onReport, mod, ...props }) => {
   return (
-    <ModuleCardActions module={module} {...props}>
-      <ButtonEx onClick={() => onReport?.(module)} size={'small'} variant={'outlined'}>
+    <ModuleCardActions mod={mod} {...props}>
+      <ButtonEx onClick={() => onReport?.(mod)} size={'small'} variant={'outlined'}>
         Report
       </ButtonEx>
     </ModuleCardActions>

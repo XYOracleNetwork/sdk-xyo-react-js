@@ -9,15 +9,15 @@ import React, { useState } from 'react'
 
 import { ArchivistParents } from './components'
 
-export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistInstance> & CardContentProps> = ({ children, module, ...props }) => {
+export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistInstance> & CardContentProps> = ({ children, mod, ...props }) => {
   const [config, setConfig] = useState<ArchivistConfig>()
   const [wallet] = useWallet()
 
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (wallet && module) {
-        const wrapper = ModuleWrapper.wrap(module, wallet)
+      if (wallet && mod) {
+        const wrapper = ModuleWrapper.wrap(mod, wallet)
         const payloads = await wrapper?.state()
         if (mounted()) {
           setConfig(payloads?.[0] as ArchivistConfig)
@@ -26,11 +26,11 @@ export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistInstance>
         setConfig(undefined)
       }
     },
-    [module, wallet],
+    [mod, wallet],
   )
 
   return (
-    <ModuleCardContent module={module} {...props}>
+    <ModuleCardContent mod={mod} {...props}>
       <FlexGrowRow flexWrap="wrap" justifyContent="start" gap={2}>
         {children}
         <ArchivistParents config={config} />

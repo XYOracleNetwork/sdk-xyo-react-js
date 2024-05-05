@@ -3,6 +3,6 @@ import { SentinelInstance } from '@xyo-network/sentinel-model'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary'
 
-export const SentinelSummary: React.FC<ModuleSummaryProps<SentinelInstance>> = ({ module, ...props }) => {
-  return <ModuleSummary module={module} icon={<TimerRoundedIcon />} {...props} />
+export const SentinelSummary: React.FC<ModuleSummaryProps<SentinelInstance>> = ({ mod, ...props }) => {
+  return <ModuleSummary mod={mod} icon={<TimerRoundedIcon />} {...props} />
 }

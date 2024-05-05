@@ -8,19 +8,19 @@ import { WitnessCardActions } from './CardActions'
 import { WitnessCardContent } from './CardContent'
 import { WitnessCardHeader } from './CardHeader'
 
-export const WitnessCard: React.FC<CardProps & ModuleRenderProps<WitnessInstance>> = ({ children, module, ...props }) => {
+export const WitnessCard: React.FC<CardProps & ModuleRenderProps<WitnessInstance>> = ({ children, mod, ...props }) => {
   const [retry, setRetry] = useState(-1)
   const [observation] = usePromise(async () => {
     if (retry >= 0) {
-      return await module?.observe()
+      return await mod?.observe()
     }
-  }, [module, retry])
+  }, [mod, retry])
   return (
     <Card {...props}>
-      <WitnessCardHeader module={module} />
-      <WitnessCardContent module={module} observation={observation} />
+      <WitnessCardHeader mod={mod} />
+      <WitnessCardContent mod={mod} observation={observation} />
       {children}
-      <WitnessCardActions module={module} onObserve={() => setRetry(retry + 1)} />
+      <WitnessCardActions mod={mod} onObserve={() => setRetry(retry + 1)} />
     </Card>
   )
 }
