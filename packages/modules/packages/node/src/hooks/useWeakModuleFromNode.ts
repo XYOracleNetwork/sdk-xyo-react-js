@@ -3,24 +3,24 @@ import { usePromise } from '@xylabs/react-promise'
 import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig'
-import { useModuleFilterOptions } from './useModuleFilterOptions'
-import { useNode } from './useNode'
+import { useWeakModuleFilterOptions } from './useWeakModuleFilterOptions'
+import { useWeakNode } from './useWeakNode'
+import { useWeakModuleFromNodeConfigLogger, WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig'
 
 export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
   nameOrAddressOrInstance: string | (T extends ModuleInstance ? T : ModuleInstance) | undefined = undefined,
-  config?: ModuleFromNodeConfig,
+  config?: WeakModuleFromNodeConfig,
 ): [WeakRef<T extends ModuleInstance ? T : ModuleInstance> | undefined, Error | undefined] => {
-  const [node, nodeError] = useNode(config)
-  const logger = useModuleFromNodeConfigLogger(config)
-  const filterOptions = useModuleFilterOptions(config)
+  const [node, nodeError] = useWeakNode(config)
+  const logger = useWeakModuleFromNodeConfigLogger(config)
+  const filterOptions = useWeakModuleFilterOptions(config)
   const [result, setResult] = useState<WeakRef<T extends ModuleInstance ? T : ModuleInstance> | undefined>()
   const [, error] = usePromise(async () => {
     logger?.debug('useModuleFromNode: resolving')
     const identity: TypeCheck<T extends ModuleInstance ? T : ModuleInstance> = (config?.identity ?? isModuleInstance) as TypeCheck<
       T extends ModuleInstance ? T : ModuleInstance
     >
-    const nodeInstance = node
+    const nodeInstance = node?.deref()
     if (nodeInstance && nameOrAddressOrInstance) {
       nodeInstance.on('moduleAttached', ({ module: mod }) => {
         logger?.debug(`useModuleFromNode: moduleAttached [${mod.config.name ?? mod.address}]`)

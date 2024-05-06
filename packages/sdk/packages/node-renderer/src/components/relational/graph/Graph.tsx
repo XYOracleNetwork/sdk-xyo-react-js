@@ -1,13 +1,16 @@
-import { Button, ButtonGroup, useTheme } from '@mui/material'
+import { CancelRounded } from '@mui/icons-material'
+import { Box, Button, ButtonGroup, Card, CardHeader, CardProps, IconButton, Paper, useTheme } from '@mui/material'
+import { Address, asAddress } from '@xylabs/hex'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
-import cytoscape, { Core } from 'cytoscape'
+import { Identicon } from '@xylabs/react-identicon'
+import { useWeakModuleFromNode } from '@xyo-network/react-node'
+import cytoscape, { Core, NodeSingular } from 'cytoscape'
 import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import eulerLayout from 'cytoscape-euler'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 
-import { useCytoscapeInstance } from '../../../contexts'
 import { NodeRelationalGraphProps } from '../../lib'
 
 const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
@@ -35,12 +38,55 @@ const loadLayout = (layout = 'cola') => {
   }
 }
 
+type ModuleHoverDetailsProps = CardProps & {
+  address: Address
+  name: string
+}
+
+const ModuleHoverDetails: React.FC<ModuleHoverDetailsProps> = ({ name, address, ...props }) => {
+  return (
+    <Card elevation={3} {...props}>
+      <CardHeader
+        avatar={
+          <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
+            <Identicon value={address} size={24} />
+          </Paper>
+        }
+        title={name}
+        subheader={address}
+      />
+    </Card>
+  )
+}
+
 export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(
-  ({ actions, children, layout, layoutOptions, showDetails, detail, options, ...props }, ref) => {
+  ({ actions, children, node, layout, layoutOptions, showDetails, detail, options, onHover, ...props }, ref) => {
     const theme = useTheme()
     const [cy, setCy] = useState<Core>()
-    const { setCy: setCyContext } = useCytoscapeInstance()
     const cytoscapeRef = useRef<HTMLDivElement>()
+    const [hoverPosition, setHoverBoundingBox] = useState<{ x1: number; x2: number; y1: number; y2: number }>()
+    const [hoverAddress, setHoverAddress] = useState<Address>()
+
+    const [moduleInstance] = useWeakModuleFromNode(hoverAddress, { node })
+
+    useEffect(() => {
+      cy?.on('mouseover tap', ({ target }) => {
+        const cyNode = target as NodeSingular
+        const bb = cyNode?.renderedBoundingBox?.()
+        console.log(bb)
+        setHoverBoundingBox(bb)
+        const id = cyNode.id?.()
+        if (id) {
+          if (id.includes('/')) {
+            setHoverAddress(undefined)
+            onHover?.()
+          } else {
+            setHoverAddress(asAddress(id))
+            onHover?.(asAddress(id))
+          }
+        }
+      })
+    }, [onHover, cy])
 
     const handleReset = () => {
       cy?.reset()
@@ -70,12 +116,13 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
       }
     }, [cy, layoutOptions, layout])
 
-    useEffect(() => {
-      setCyContext?.(cy ? new WeakRef(cy) : undefined)
-    }, [cy, setCyContext])
-
     return (
       <FlexCol id="relational-graph-wrapper" ref={ref} {...props}>
+        {hoverAddress && hoverPosition ?
+          <Box position="absolute" top={hoverPosition.y1} left={hoverPosition.x1} zIndex={100}>
+            <ModuleHoverDetails address={hoverAddress} name={moduleInstance?.deref()?.id ?? 'Unknown'} />
+          </Box>
+        : null}
         <FlexRow justifyContent="start" width="100%">
           {actions === null ?
             null
