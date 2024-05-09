@@ -1,5 +1,4 @@
-import { CancelRounded } from '@mui/icons-material'
-import { Box, Button, ButtonGroup, Card, CardHeader, CardProps, IconButton, Paper, useTheme } from '@mui/material'
+import { Box, Button, ButtonGroup, Card, CardHeader, CardProps, Paper, useTheme } from '@mui/material'
 import { Address, asAddress } from '@xylabs/hex'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
@@ -73,7 +72,6 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
       cy?.on('mouseover tap', ({ target }) => {
         const cyNode = target as NodeSingular
         const bb = cyNode?.renderedBoundingBox?.()
-        console.log(bb)
         setHoverBoundingBox(bb)
         const id = cyNode.id?.()
         if (id) {

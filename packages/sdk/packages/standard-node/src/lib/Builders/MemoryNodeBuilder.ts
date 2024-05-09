@@ -104,7 +104,7 @@ export class MemoryNodeBuilder {
   }
 
   private async witnessCleanup(witness: WitnessModule) {
-    if (this.node.registered().includes(witness.address)) {
+    if ((await this.node.registered()).includes(witness.address)) {
       const [existingWitness] = await this.node.resolve({ address: [witness.address] })
       await this.node.unregister(existingWitness)
     }

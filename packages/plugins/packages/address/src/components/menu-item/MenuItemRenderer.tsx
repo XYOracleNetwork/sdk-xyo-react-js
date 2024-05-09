@@ -5,12 +5,12 @@ import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { forwardRef } from 'react'
 
 export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, PayloadRenderProps & MenuItemProps>(({ children, payload, ...props }, ref) => {
-  const { address, name } = (payload as AddressPayload) ?? {}
+  const { address } = (payload as AddressPayload) ?? {}
   return (
     <>
       {address ?
         <MenuItem ref={ref} value={address} title={address} {...props}>
-          <AddressRenderRowBox address={address} name={name} icons />
+          <AddressRenderRowBox address={address} icons />
           {children}
         </MenuItem>
       : null}
