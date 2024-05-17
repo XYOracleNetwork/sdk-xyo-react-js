@@ -2,15 +2,15 @@ import { generateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { HDWallet } from '@xyo-network/account'
-import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
+import { Manifest, ManifestWrapper, ModuleManifest, PackageManifestPayload } from '@xyo-network/manifest'
 import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
 import { CreatablePackageManifest } from '../types'
 
 export class ManifestNodeBuilder {
-  locatedManifests: PackageManifestPayload[] = []
-  manifestWrapper: ManifestWrapper | undefined
+  locatedManifests: Manifest[] = []
+  manifestWrapper: ManifestWrapper<void> | undefined
 
   constructor(
     private manifestNodes: CreatablePackageManifest[] = [],
@@ -20,15 +20,15 @@ export class ManifestNodeBuilder {
   ) {}
 
   async create() {
-    this.locatedManifests = await Promise.all(this.manifestNodes.map((manifestNode) => manifestNode(this.locator)))
+    this.locatedManifests = (await Promise.all(this.manifestNodes.map((manifestNode) => manifestNode(this.locator).nodes))).flat()
     return this
   }
 
   async loadNodes() {
     const wallet = this.wallet ?? (await this.randomWallet())
     const topLevelManifestNode = this.locatedManifests[this.topLevelNodeIndex]
-    const publicChildren = this.locatedManifests.filter((node) => node !== topLevelManifestNode)
-    const wrapper = new ManifestWrapper(topLevelManifestNode, wallet, this.locator, publicChildren)
+    const publicChildren = this.locatedManifests.filter((node) => node !== topLevelManifestNode) as ModuleManifest[]
+    const wrapper = new ManifestWrapper(topLevelManifestNode as PackageManifestPayload, wallet, this.locator, publicChildren)
     const [node] = await wrapper.loadNodes()
     return node
   }

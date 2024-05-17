@@ -136,7 +136,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
   const handleRemoveWitness = async () => {
     if (node && idWitness) {
       const memoryNode = node.deref() as MemoryNode | undefined
-      if (memoryNode?.registered().includes(idWitness.address)) {
+      if ((await memoryNode?.registered() ?? []).includes(idWitness.address)) {
         await memoryNode?.unregister(idWitness)
       }
     }
