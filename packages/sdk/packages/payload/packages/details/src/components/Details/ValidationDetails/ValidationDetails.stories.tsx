@@ -38,7 +38,7 @@ const WithErrorsInToolTip = Template.bind({})
 WithErrorsInToolTip.args = {
   value: {
     ...sampleIdPayload,
-    ...{ _hash: '6fe3f745b1179fefa74cc3c7eab58321bee1c9ca9e34d9585467364cc5d3bbe2' },
+    _hash: '6fe3f745b1179fefa74cc3c7eab58321bee1c9ca9e34d9585467364cc5d3bbe2',
     schema: undefined,
   } as unknown as Payload,
 }
@@ -50,7 +50,7 @@ SkipBody.args = {
   skipBody: true,
   value: {
     _hash: '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a',
-    _timestamp: new Date().getTime(),
+    _timestamp: Date.now(),
     schema: 'network.xyo.test',
   } as Payload,
 }

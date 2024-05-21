@@ -2,11 +2,11 @@ import { Button, ButtonGroup } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
-import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
+import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
-import { NodeProvider, useNodeFromNode, useWeakNodeFromNode, useWeakProvidedNode } from '@xyo-network/react-node'
+import { NodeProvider, useWeakNodeFromNode, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
@@ -92,21 +92,23 @@ const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props
   const [node] = useWeakNodeFromNode('ChildNode')
   const elements = useCytoscapeElements(node)
   const options = useCytoscapeOptions(elements)
-  
+
   return <NodeRelationalGraphFlexBox options={options} {...props} />
 }
 
 const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => {
   const [layout, setLayout] = useState<'dagre' | 'euler' | 'cose-bilkent' | 'cola'>('euler')
-  return <div>
-    <ButtonGroup>
-      <Button onClick={() => setLayout('dagre')}>Dagre</Button>
-      <Button onClick={() => setLayout('euler')}>Euler</Button>
-      <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
-      <Button onClick={() => setLayout('cola')}>Cola</Button>
-    </ButtonGroup>
-    <ProvidedNodeRenderer {...props} layout={layout} />
-  </div>
+  return (
+    <div>
+      <ButtonGroup>
+        <Button onClick={() => setLayout('dagre')}>Dagre</Button>
+        <Button onClick={() => setLayout('euler')}>Euler</Button>
+        <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
+        <Button onClick={() => setLayout('cola')}>Cola</Button>
+      </ButtonGroup>
+      <ProvidedNodeRenderer {...props} layout={layout} />
+    </div>
+  )
 }
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
@@ -136,7 +138,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
   const handleRemoveWitness = async () => {
     if (node && idWitness) {
       const memoryNode = node.deref() as MemoryNode | undefined
-      if ((await memoryNode?.registered() ?? []).includes(idWitness.address)) {
+      if (((await memoryNode?.registered()) ?? []).includes(idWitness.address)) {
         await memoryNode?.unregister(idWitness)
       }
     }

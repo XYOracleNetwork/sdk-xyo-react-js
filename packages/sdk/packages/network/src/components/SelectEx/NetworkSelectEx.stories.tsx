@@ -71,7 +71,7 @@ const TemplateWithRouteProviderInner: StoryFn<typeof NetworkSelectEx> = (props) 
 
   useEffect(() => {
     if (uris.length > 1) {
-      throw Error('Error: Route Provider sent multiple network uris but should only send one.')
+      throw new Error('Error: Route Provider sent multiple network uris but should only send one.')
     }
   })
 

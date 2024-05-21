@@ -1,9 +1,9 @@
 import { FormControl, TextField, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
+import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import { SchemaCache } from '@xyo-network/schema-cache'
 import { useEffect, useState } from 'react'
-import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 
 import { useGetSchemaPayload } from './useGetSchema'
 
@@ -40,7 +40,7 @@ const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
         <TextField value={schemaFieldValue} label="Schema Name" onChange={(e) => setSchemaFieldValue(e.target.value)} />
       </FormControl>
       <FlexRow my={3} justifyContent="start">
-          <JsonViewerEx value={schemaPayload || {}} />
+        <JsonViewerEx value={schemaPayload || {}} />
       </FlexRow>
     </>
   )

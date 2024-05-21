@@ -58,7 +58,7 @@ WithNestedBWPayloads.args = {
     previous_hashes: ['d67b91381ca8015613361470ff3e5dad3618d0ba471af21a1db89b0024c9322e'],
     query: 'c8ab93c970f4ef0d68ee22efd0119f228c089ae77551eda6e707b24bcec589ec',
     schema: 'network.xyo.boundwitness.query',
-    timestamp: 1676043487737,
+    timestamp: 1_676_043_487_737,
   } as Payload,
 }
 

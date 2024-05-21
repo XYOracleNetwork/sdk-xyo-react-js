@@ -1,8 +1,9 @@
 import { Alert, Button, TextField, Typography } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
+import { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
+import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { NodeProvider } from '@xyo-network/react-node'
@@ -10,7 +11,6 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { SchemaCache } from '@xyo-network/schema-cache'
 import { useState } from 'react'
-import {Address} from '@xylabs/hex'
 
 import { useSchemaDefinitions } from '../useSchemaDefinitions'
 import { useSchemaList } from '../useSchemaList'
@@ -62,7 +62,9 @@ const Template: StoryFn<React.FC> = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
-      {schemaStatsError ? <Alert severity={'error'}>{schemaStatsError.message ?? schemaListError?.message}</Alert> : null}
+      {schemaStatsError ?
+        <Alert severity={'error'}>{schemaStatsError.message ?? schemaListError?.message}</Alert>
+      : null}
       <FlexGrowRow columnGap={4}>
         <TextField fullWidth size="small" value={address} label="Address" onChange={(event) => setAddressText(event.target.value as Address)} />
         <Button variant="contained" onClick={() => setAddress(addressText)} sx={{ whiteSpace: 'nowrap' }}>

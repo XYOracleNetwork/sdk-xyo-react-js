@@ -3,7 +3,7 @@ import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { format, subHours } from 'date-fns'
 
 import { StatsModal } from './StatsModal'
-interface XyOsProfileProps extends PaperProps {
+export interface XyOsProfileProps extends PaperProps {
   pfp: string
   xns: string
 }

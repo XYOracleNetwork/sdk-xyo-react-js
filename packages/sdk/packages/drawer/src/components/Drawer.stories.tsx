@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+
 import { DrawerEx, DrawerExProps } from './Drawer'
 
 // eslint-disable-next-line import/no-default-export
@@ -7,7 +8,11 @@ export default {
 } as Meta
 
 const Template: StoryFn<React.FC<DrawerExProps>> = (props) => {
-  return <div style={{ width: '100vw', height: 'calc(100vh - 2rem)'}}><DrawerEx {...props} /></div>
+  return (
+    <div style={{ height: 'calc(100vh - 2rem)', width: '100vw' }}>
+      <DrawerEx {...props} />
+    </div>
+  )
 }
 
 const Default = Template.bind({})
@@ -15,21 +20,21 @@ Default.args = {}
 
 const WithOpen = Template.bind({})
 WithOpen.args = {
-  open: true
+  open: true,
 }
 
 const WithFullScreen = Template.bind({})
 WithFullScreen.args = {
+  heightVariant: 'full',
   open: true,
   widthVariant: 'full',
-  heightVariant: 'full'
 }
 
 const WithTitles = Template.bind({})
 WithTitles.args = {
   open: true,
+  subTitle: 'SubTitle',
   title: 'Title',
-  subTitle: "SubTitle"
 }
 
 export { Default, WithFullScreen, WithOpen, WithTitles }

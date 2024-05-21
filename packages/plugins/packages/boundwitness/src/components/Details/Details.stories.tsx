@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import { Hash } from '@xylabs/hex'
 import { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleBlock } from '@xyo-network/react-storybook'
@@ -7,7 +8,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { BoundWitnessLinksDetails } from './BoundWitnessLinksDetails'
 import { BoundWitnessDetails } from './Details'
-import {Hash} from '@xylabs/hex'
 
 const StorybookEntry = {
   argTypes: {},

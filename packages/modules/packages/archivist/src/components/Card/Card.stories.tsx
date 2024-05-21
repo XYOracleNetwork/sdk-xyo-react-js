@@ -3,8 +3,8 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { Account } from '@xyo-network/account'
-import { ArchivistInsertQuerySchema, ArchivistInstance } from '@xyo-network/archivist-model'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
+import { ArchivistInsertQuerySchema, ArchivistInstance } from '@xyo-network/archivist-model'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { MemoryNode } from '@xyo-network/node-memory'
 
@@ -25,7 +25,7 @@ const insertPayload = async (archivist?: ArchivistInstance) => {
     const payload = { schema: 'network.xyo.payload', timestamp: Date.now() }
     const insertQuery = { schema: ArchivistInsertQuerySchema }
     const account = Account.randomSync()
-    const builder = await (await (new QueryBoundWitnessBuilder().payloads([insertQuery, payload]))).witness(account).query(insertQuery)
+    const builder = await (await new QueryBoundWitnessBuilder().payloads([insertQuery, payload])).witness(account).query(insertQuery)
     const [insertQueryBoundWitness, payloads] = await builder.build()
     await archivist.insert([insertQueryBoundWitness, ...payloads])
   }

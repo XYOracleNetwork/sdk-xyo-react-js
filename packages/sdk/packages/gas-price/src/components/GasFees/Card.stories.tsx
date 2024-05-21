@@ -4,7 +4,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { GasFeeCard } from './Card'
 
 const DefaultArgs = {
-  gasPrice: 15.760184184000002,
+  gasPrice: 15.760_184_184_000_002,
   priorityFee: 1.0625,
 }
 

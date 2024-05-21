@@ -2,8 +2,8 @@ import { Stack } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 
 import { WalletAccountSelect } from './Select'
-import { AccountInfo, RootWalletInfo, SelectedWalletInfo, WalletInfo } from './WalletInfo'
 import { WalletProviderDecorator } from './stories'
+import { AccountInfo, RootWalletInfo, SelectedWalletInfo, WalletInfo } from './WalletInfo'
 
 const StorybookEntry = {
   argTypes: {},
@@ -31,7 +31,7 @@ const WithWalletTemplate: StoryFn<typeof WalletAccountSelect> = (args) => {
         <WalletInfo />
         <AccountInfo />
       </Stack>
-      </>
+    </>
   )
 }
 

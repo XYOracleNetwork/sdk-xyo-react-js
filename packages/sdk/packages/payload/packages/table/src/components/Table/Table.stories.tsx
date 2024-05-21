@@ -25,7 +25,9 @@ const Template: StoryFn<typeof PayloadTable> = (args) => {
 
   return (
     <BrowserRouter>
-      {eventData ? <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} /> : null}
+      {eventData ?
+        <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} />
+      : null}
       <PayloadTable ref={ref} {...args}></PayloadTable>
     </BrowserRouter>
   )

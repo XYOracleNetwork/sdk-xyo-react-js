@@ -1,7 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { XyOsProfile } from './Profile'
 const StorybookEntry = {
   argTypes: {},
@@ -16,16 +15,14 @@ const StorybookEntry = {
 
 const Template: StoryFn<typeof XyOsProfile> = (args) => (
   <BrowserRouter>
-    <XyOsProfile  {...args}></XyOsProfile>
+    <XyOsProfile {...args}></XyOsProfile>
   </BrowserRouter>
 )
 
 const Default = Template.bind({})
 Default.args = {
-  xns:'@arietrouw'
+  xns: '@arietrouw',
 }
-
-
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore

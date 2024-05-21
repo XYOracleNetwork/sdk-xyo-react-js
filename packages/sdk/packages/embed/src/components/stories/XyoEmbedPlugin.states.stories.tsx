@@ -29,7 +29,7 @@ const failingPlugin = createPayloadRenderPlugin({
   components: {
     box: {
       details: () => {
-        throw Error('testing Error Boundary')
+        throw new Error('testing Error Boundary')
       },
     },
   },

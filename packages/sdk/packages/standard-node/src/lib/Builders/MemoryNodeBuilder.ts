@@ -1,6 +1,6 @@
 import { AccountInstance } from '@xyo-network/account-model'
 import { MemoryArchivist, MemoryArchivistConfig, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
-import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
+import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { AttachableModuleInstance } from '@xyo-network/module-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'

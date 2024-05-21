@@ -2,11 +2,11 @@ import { Button, ButtonGroup } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
-import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
+import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
-import { NodeProvider, useNodeFromNode, useProvidedNode, useWeakNodeFromNode, useWeakProvidedNode } from '@xyo-network/react-node'
+import { NodeProvider, useWeakNodeFromNode, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
@@ -14,10 +14,10 @@ import { useState } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts'
 import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks'
+import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from './Graph'
 import { ProvidedNodeRenderer } from './ProvidedNodeRenderer'
 import { options } from './story'
-import { WithExtensions } from '../../cytoscape-extensions'
 
 const nodeUrl = 'http://localhost:8080/node'
 
@@ -124,7 +124,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
   const handleRemoveWitness = async () => {
     if (node && idWitness) {
       const memoryNode = node.deref() as MemoryNode | undefined
-      if ((await memoryNode?.registered() ?? []).includes(idWitness.address)) {
+      if (((await memoryNode?.registered()) ?? []).includes(idWitness.address)) {
         await memoryNode?.unregister(idWitness)
       }
     }

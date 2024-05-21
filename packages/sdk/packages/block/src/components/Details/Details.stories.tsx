@@ -1,5 +1,6 @@
 /* eslint-disable import/no-deprecated */
 import { Meta, StoryFn } from '@storybook/react'
+import { Hash } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
@@ -7,7 +8,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { BlockLinksDetails } from './BlockLinksDetails'
 import { BlockDetails } from './Details'
-import {Hash} from '@xylabs/hex'
 
 const StorybookEntry = {
   argTypes: {},

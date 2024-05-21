@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "typeRoots": []
+  },
+  "exclude": [
+    ".yarn",
+    "node_modules",
+    "build",
+    "dist",
+    "node_modules",
+    "**/node_modules",
+    "**/dist",
+    "**/docs",
+    "public",
+    ".*",
+    ".github",
+    ".vscode",
+    ".yarn"
+  ],
+  "extends": "./tsconfig.json"
+}

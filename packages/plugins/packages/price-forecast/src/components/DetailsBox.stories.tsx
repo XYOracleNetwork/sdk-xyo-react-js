@@ -7,7 +7,7 @@ import { RefObject, useRef, useState } from 'react'
 import { MockSourcePayloads } from '../lib'
 import { PriceForecastDetailsBox } from './DetailsBox'
 
-const tenMin = 600000
+const tenMin = 600_000
 
 const ForecastingDivinerPayload = {
   schema: ForecastPayloadSchema,

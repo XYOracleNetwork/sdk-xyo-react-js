@@ -1,17 +1,17 @@
+import { Button, ButtonGroup } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
-import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/http-bridge'
+import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
-import { NodeProvider, useProvidedNode, useWeakProvidedNode } from '@xyo-network/react-node'
+import { NodeProvider, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
 import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox'
-import { Button, ButtonGroup } from '@mui/material'
 
 const nodeUrl = 'http://localhost:8080/node'
 
@@ -77,15 +77,17 @@ const Template: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => <Mod
 const TemplateWithProvidedModule: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => {
   const [node] = useWeakProvidedNode()
   const [layout, setLayout] = useState<'dagre' | 'euler' | 'cose-bilkent' | 'cola'>('euler')
-  return <div>
-          <ButtonGroup>
-            <Button onClick={() => setLayout('dagre')}>Dagre</Button>
-            <Button onClick={() => setLayout('euler')}>Euler</Button>
-            <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
-            <Button onClick={() => setLayout('cola')}>Cola</Button>
-          </ButtonGroup>
-          <ModuleGraphFlexBoxWithProvider rootModule={node} {...props} layout={layout} />
-        </div>
+  return (
+    <div>
+      <ButtonGroup>
+        <Button onClick={() => setLayout('dagre')}>Dagre</Button>
+        <Button onClick={() => setLayout('euler')}>Euler</Button>
+        <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
+        <Button onClick={() => setLayout('cola')}>Cola</Button>
+      </ButtonGroup>
+      <ModuleGraphFlexBoxWithProvider rootModule={node} {...props} layout={layout} />
+    </div>
+  )
 }
 
 const defaultProps = {

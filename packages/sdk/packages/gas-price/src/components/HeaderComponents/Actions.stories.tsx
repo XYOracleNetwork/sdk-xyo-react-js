@@ -17,9 +17,9 @@ const WithData = Template.bind({})
 WithData.args = {
   baseFee: 12,
   baseFeeLabel: 'Custom BaseFee Label',
-  blockNumber: 123465,
+  blockNumber: 123_465,
   blockNumberLabel: 'Custom BlockNumber Label',
-  timestamp: 1670530947,
+  timestamp: 1_670_530_947,
 }
 
 export { Default, WithData }

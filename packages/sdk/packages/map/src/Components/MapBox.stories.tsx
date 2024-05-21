@@ -59,11 +59,7 @@ const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
   const handleClick = () => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.style.minWidth
-      if (containerWidth === '100%') {
-        containerRef.current.style.minWidth = '50%'
-      } else {
-        containerRef.current.style.minWidth = '100%'
-      }
+      containerRef.current.style.minWidth = containerWidth === '100%' ? '50%' : '100%'
     }
   }
 

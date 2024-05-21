@@ -10,6 +10,7 @@ import { PayloadTable } from './Table'
 
 const newPayloads = () =>
   Array(50)
+    // eslint-disable-next-line unicorn/no-useless-undefined
     .fill(undefined)
     .map((_, index) => ({ index, random: Math.random(), schema: 'network.xyo.stories.test' }))
 

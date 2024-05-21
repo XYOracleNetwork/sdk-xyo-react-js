@@ -1,28 +1,33 @@
-import { Meta, StoryFn } from "@storybook/react";
-import { FlexCol } from "@xylabs/react-flexbox";
-import { Payload } from "@xyo-network/payload-model";
-import { RawInfoButton } from "./RawInfoButton";
+import { Meta, StoryFn } from '@storybook/react'
+import { FlexCol } from '@xylabs/react-flexbox'
+import { Payload } from '@xyo-network/payload-model'
 
-type TestPayload = Payload<{ id: string, type: string, schema: string }, 'network.xyo.test'>
+import { RawInfoButton } from './RawInfoButton'
+
+type TestPayload = Payload<{ id: string; schema: string; type: string }, 'network.xyo.test'>
 const TestPayload: TestPayload = {
   id: '123',
-  type: 'test',
   schema: 'network.xyo.test',
+  type: 'test',
 }
 
+// eslint-disable-next-line import/no-default-export
 export default {
-  title: 'payload/RawInfoButton',
   component: RawInfoButton,
+  title: 'payload/RawInfoButton',
 } as Meta
 
-const Template: StoryFn<typeof RawInfoButton> = (args) => <FlexCol><RawInfoButton {...args} /></FlexCol>
+const Template: StoryFn<typeof RawInfoButton> = (args) => (
+  <FlexCol>
+    <RawInfoButton {...args} />
+  </FlexCol>
+)
 
 const Default = Template.bind({})
 const WithPayload = Template.bind({})
 WithPayload.args = {
   dialogContent: 'This is a test',
-  rawValue: TestPayload
+  rawValue: TestPayload,
 }
 
-export { Default, WithPayload };
-
+export { Default, WithPayload }
