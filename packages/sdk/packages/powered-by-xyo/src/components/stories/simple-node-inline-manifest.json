@@ -39,9 +39,12 @@
           {
             "config": {
               "accountPath": "4'",
+              "client": {
+                "discoverRoots": "start",
+                "url": "https://beta.api.archivist.xyo.network"
+              },
               "language": "javascript",
               "name": "SimpleHttpBridge",
-              "nodeUrl": "https://beta.api.archivist.xyo.network",
               "schema": "network.xyo.bridge.http.config"
             }
           }
