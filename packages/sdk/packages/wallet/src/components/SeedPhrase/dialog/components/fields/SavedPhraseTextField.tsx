@@ -4,7 +4,11 @@ import { useState } from 'react'
 import { useSeedPhrase } from '../../../../../contexts'
 import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages'
 
-export const SavedPhraseTextField: React.FC<StandardTextFieldProps> = (props) => {
+export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
+  showPhraseHeader?: boolean
+}
+
+export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({ showPhraseHeader, ...props }) => {
   const { validSeedPhrase, seedPhrase } = useSeedPhrase()
 
   const [visible, setVisible] = useState(false)
@@ -14,9 +18,11 @@ export const SavedPhraseTextField: React.FC<StandardTextFieldProps> = (props) =>
       <Chip label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'} onClick={() => setVisible(!visible)} />
       {visible ?
         <>
-          <FormLabel>
-            <PhraseHeaderBox conditional={validSeedPhrase}>Saved Seed Phrase</PhraseHeaderBox>
-          </FormLabel>
+          {showPhraseHeader ?
+            <FormLabel>
+              <PhraseHeaderBox conditional={validSeedPhrase}>Saved Seed Phrase</PhraseHeaderBox>
+            </FormLabel>
+          : null}
           <TextField
             defaultValue={seedPhrase}
             disabled
