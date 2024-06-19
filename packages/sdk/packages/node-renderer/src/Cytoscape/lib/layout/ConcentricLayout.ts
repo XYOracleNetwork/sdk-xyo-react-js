@@ -2,7 +2,7 @@ import { LayoutOptions } from 'cytoscape'
 
 export const ConcentricLayout: LayoutOptions = {
   concentric: function (node) {
-    return node.degree()
+    return node.degree(false)
   },
   levelWidth: function () {
     return 2
