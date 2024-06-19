@@ -7521,16 +7521,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/address-payload-plugin@npm:^2.106.0":
-  version: 2.106.0
-  resolution: "@xyo-network/address-payload-plugin@npm:2.106.0"
-  dependencies:
-    "@xyo-network/module-model": "npm:~2.106.0"
-    "@xyo-network/payload-plugin": "npm:~2.106.0"
-  checksum: 10/7212436b348f7b1a87944d1f7867540972bbe5861828f42ed8f1d62f429fa734e74c2f03d09a129c2d6c02ee8447ab29626a3fa22b11cf73aebbabe964c02839
-  languageName: node
-  linkType: hard
-
 "@xyo-network/api-models@npm:~2.106.0":
   version: 2.106.0
   resolution: "@xyo-network/api-models@npm:2.106.0"
@@ -9093,7 +9083,7 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:^3.11.2"
     "@xylabs/tsconfig-react": "npm:^3.11.2"
     "@xyo-network/account": "npm:^2.106.0"
-    "@xyo-network/address-payload-plugin": "npm:^2.106.0"
+    "@xyo-network/module-model": "npm:^2.106.0"
     "@xyo-network/react-address-render": "workspace:~"
     "@xyo-network/react-event": "workspace:~"
     "@xyo-network/react-payload-plugin": "workspace:~"
@@ -10237,6 +10227,7 @@ __metadata:
     "@types/cytoscape-euler": "npm:^1.2.3"
     "@types/react-dom": "npm:^18.3.0"
     "@xylabs/exists": "npm:^3.5.1"
+    "@xylabs/hex": "npm:^3.5.1"
     "@xylabs/react-async-effect": "npm:^3.1.7"
     "@xylabs/react-flexbox": "npm:^3.1.7"
     "@xylabs/react-identicon": "npm:^3.1.7"
@@ -10930,8 +10921,12 @@ __metadata:
     "@mui/icons-material": ^5
     "@mui/material": ^5
     "@mui/styles": ^5
+    ethers: ^6
     react: ^18
     react-dom: ^18
+  peerDependenciesMeta:
+    ethers:
+      optional: true
   languageName: unknown
   linkType: soft
 
