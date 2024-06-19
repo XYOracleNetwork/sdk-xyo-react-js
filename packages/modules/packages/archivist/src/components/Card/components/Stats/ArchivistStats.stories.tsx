@@ -8,7 +8,7 @@ import { ArchivistStats } from './ArchivistStats'
 
 const account = Account.randomSync()
 const payload = () => ({ schema: 'network.xyo.payload', timestamp: Date.now() })
-const boundWitness = async () => await (await new BoundWitnessBuilder().payload(payload())).witness(account).build()
+const boundWitness = async () => await new BoundWitnessBuilder().payload(payload()).signer(account).build()
 
 const StorybookEntry = {
   component: ArchivistStats,
