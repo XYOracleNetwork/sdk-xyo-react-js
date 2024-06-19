@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@xylabs/lodash": "^3.5.1",
-    "@xyo-network/coingecko-crypto-market-payload-plugin": "^2.95.3",
-    "@xyo-network/payload-model": "^2.104.0",
+    "@xyo-network/coingecko-crypto-market-payload-plugin": "next",
+    "@xyo-network/payload-model": "next",
     "@xyo-network/react-aggregate-price-plugin": "workspace:~",
     "@xyo-network/react-payload-plugin": "workspace:~",
     "@xyo-network/react-shared": "workspace:~"
@@ -83,6 +83,7 @@
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
-  "version": "2.76.6",
-  "type": "module"
+  "version": "2.77.0-rc.1",
+  "type": "module",
+  "stableVersion": "2.76.6"
 }
