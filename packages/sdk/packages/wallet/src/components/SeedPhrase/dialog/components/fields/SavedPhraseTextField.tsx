@@ -16,7 +16,7 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({ full
 
   return (
     <FormControl fullWidth={fullWidth} size="small" sx={{ display: 'flex', flexDirection: 'column', rowGap: 1 }}>
-      <Chip label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'} onClick={() => setVisible(!visible)} />
+      <Chip label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'} onClick={() => setVisible(!visible)} sx={{ alignSelf: 'center'}} />
       {visible ?
         <>
           {showPhraseHeader ?
