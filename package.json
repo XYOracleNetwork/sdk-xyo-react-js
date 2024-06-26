@@ -122,10 +122,11 @@
   "name": "@xyo-network/sdk-xyo-react",
   "resolutions": {
     "bn.js": "^5",
-    "ethers": "6.11.0",
+    "ethers": "^6",
     "typescript": "5.2.2",
     "@mui/x-tree-view": "^6.0.0-alpha.1"
   },
+  "resolutions_comment": "We set the above resolutions to make sure we pull in the latest versions of these packages even if some sub packages request earlier versions",
   "publishConfig": {
     "access": "public"
   },
