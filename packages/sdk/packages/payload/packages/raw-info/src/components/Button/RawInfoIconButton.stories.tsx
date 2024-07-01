@@ -14,7 +14,7 @@ const TestPayload: TestPayload = {
 // eslint-disable-next-line import/no-default-export
 export default {
   component: RawInfoIconButton,
-  title: 'payload/RawInfoIcon',
+  title: 'payload/RawInfoIconButton',
 } as Meta
 
 const Template: StoryFn<typeof RawInfoIconButton> = (args) => (

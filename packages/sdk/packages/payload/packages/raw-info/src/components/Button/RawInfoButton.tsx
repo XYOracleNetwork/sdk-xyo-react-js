@@ -3,7 +3,7 @@ import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { MouseEventHandler, ReactNode, useMemo, useState } from 'react'
 
 import { ExpansionProps } from '../../lib'
-import { xyoColorLogo } from '../img'
+import { XyoColorLogo } from '../img'
 import { RawInfoDialog } from '../shared'
 import { IconSize, presetIconSizeValue } from './lib'
 
@@ -47,7 +47,7 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
       <ButtonEx
         variant="outlined"
         size="small"
-        startIcon={<img src={xyoColorLogo} height={size ?? iconSize} width={size ?? iconSize} />}
+        startIcon={<XyoColorLogo sx={{ height: size ?? iconSize, width: size ?? iconSize }} />}
         onClick={handleClick}
         disabled={iconOnly ? false : !rawValue}
         {...props}

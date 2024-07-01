@@ -3,7 +3,7 @@ import { toJson } from '@xylabs/object'
 import { forwardRef, MouseEventHandler, ReactNode, useMemo, useState } from 'react'
 
 import { ExpansionProps } from '../../lib'
-import { xyoColorLogo } from '../img'
+import { XyoColorLogo } from '../img'
 import { RawInfoDialog } from '../shared'
 import { IconSize, presetIconSizeValue } from './lib'
 
@@ -38,7 +38,7 @@ export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>
     return (
       <>
         <IconButton onClick={handleClick} ref={ref} {...props}>
-          <img src={xyoColorLogo} height={size ?? iconSize} width={size ?? iconSize} />
+          <XyoColorLogo sx={{ height: size ?? iconSize, width: size ?? iconSize }} />
         </IconButton>
         {iconOnly ? null : (
           <RawInfoDialog
