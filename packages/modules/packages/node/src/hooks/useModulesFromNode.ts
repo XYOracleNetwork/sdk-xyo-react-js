@@ -17,12 +17,12 @@ export const useModulesFromNode = (filter?: ModuleFilter, config?: ModuleFromNod
   const [, error] = usePromise(async () => {
     logger?.debug('useModuleFromNode: resolving')
     if (node) {
-      node.on('moduleAttached', async ({ module: mod }) => {
+      node.on('moduleAttached', async ({ mod }) => {
         logger?.debug(`useModuleFromNode: moduleAttached [${mod.config.name ?? mod.address}]`)
         const moduleInstances = filter ? await node.resolve(filter, filterOptions) : await node.resolve('*', filterOptions)
         setResult(moduleInstances)
       })
-      node.on('moduleDetached', async ({ module: mod }) => {
+      node.on('moduleDetached', async ({ mod }) => {
         logger?.debug(`useModuleFromNode: moduleDetached [${mod.config.name ?? mod.address}]`)
         const moduleInstances = filter ? await node.resolve(filter, filterOptions) : await node.resolve('*', filterOptions)
         setResult(moduleInstances)

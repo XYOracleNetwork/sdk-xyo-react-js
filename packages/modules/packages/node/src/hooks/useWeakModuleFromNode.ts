@@ -22,13 +22,13 @@ export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
     >
     const nodeInstance = node?.deref()
     if (nodeInstance && nameOrAddressOrInstance) {
-      nodeInstance.on('moduleAttached', ({ module: mod }) => {
+      nodeInstance.on('moduleAttached', ({ mod }) => {
         logger?.debug(`useModuleFromNode: moduleAttached [${mod.config.name ?? mod.address}]`)
         if (mod.address === nameOrAddressOrInstance || mod.config?.name === nameOrAddressOrInstance) {
           setResult(identity(mod) ? new WeakRef(mod as T extends ModuleInstance ? T : ModuleInstance) : undefined)
         }
       })
-      nodeInstance.on('moduleDetached', ({ module: mod }) => {
+      nodeInstance.on('moduleDetached', ({ mod }) => {
         logger?.debug(`useModuleFromNode: moduleDetached [${mod.config.name ?? mod.address}]`)
         if (mod.address === nameOrAddressOrInstance || mod.config?.name === nameOrAddressOrInstance) {
           setResult(undefined)

@@ -139,19 +139,19 @@
               "tasks": [
                 {
                   "input": true,
-                  "module": "Erc721NameWitness"
+                  "mod": "Erc721NameWitness"
                 },
                 {
                   "input": true,
-                  "module": "Erc721SymbolWitness"
+                  "mod": "Erc721SymbolWitness"
                 },
                 {
                   "input": true,
-                  "module": "Erc721TotalSupplyWitness"
+                  "mod": "Erc721TotalSupplyWitness"
                 },
                 {
                   "input": true,
-                  "module": "Erc1155UriWitness"
+                  "mod": "Erc1155UriWitness"
                 },
                 {
                   "input": [
@@ -159,13 +159,13 @@
                     "Erc721SymbolWitness",
                     "Erc721TotalSupplyWitness"
                   ],
-                  "module": "Erc721ContractInfoDiviner"
+                  "mod": "Erc721ContractInfoDiviner"
                 },
                 {
                   "input": [
                     "Erc1155UriWitness"
                   ],
-                  "module": "Erc1155ContractInfoDiviner"
+                  "mod": "Erc1155ContractInfoDiviner"
                 }
               ]
             }
@@ -180,28 +180,28 @@
               "tasks": [
                 {
                   "input": true,
-                  "module": "Erc721TokenURIWitness"
+                  "mod": "Erc721TokenURIWitness"
                 },
                 {
                   "input": true,
-                  "module": "Erc721OwnerOfWitness"
+                  "mod": "Erc721OwnerOfWitness"
                 },
                 {
                   "input": true,
-                  "module": "Erc1155UriWitness"
+                  "mod": "Erc1155UriWitness"
                 },
                 {
                   "input": [
                     "Erc721TokenURIWitness",
                     "Erc721OwnerOfWitness"
                   ],
-                  "module": "Erc721TokenContractInfoDiviner"
+                  "mod": "Erc721TokenContractInfoDiviner"
                 },
                 {
                   "input": [
                     "Erc1155UriWitness"
                   ],
-                  "module": "Erc1155TokenContractInfoDiviner"
+                  "mod": "Erc1155TokenContractInfoDiviner"
                 }
               ]
             }

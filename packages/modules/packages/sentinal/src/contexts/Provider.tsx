@@ -45,12 +45,12 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
           schema: SentinelConfigSchema,
           synchronous: true,
           // eslint-disable-next-line id-denylist
-          tasks: witnesses?.map((mod) => ({ module: mod.address })),
+          tasks: witnesses?.map((mod) => ({ mod: mod.address })),
         } as SentinelConfig,
       })
       const offCallbacks: (() => void)[] = []
       offCallbacks.push(
-        sentinel.on('reportEnd', ({ module: mod, outPayloads }) => {
+        sentinel.on('reportEnd', ({ mod, outPayloads }) => {
           if (mounted()) {
             setProgress({
               archivists: progress.archivists,
@@ -72,7 +72,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       if (witnesses)
         for (const witness of witnesses) {
           offCallbacks.push(
-            witness.on('observeEnd', ({ module: mod, outPayloads }) => {
+            witness.on('observeEnd', ({ mod, outPayloads }) => {
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
@@ -87,7 +87,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
             }),
           )
           offCallbacks.push(
-            witness.on('observeStart', ({ module: mod }) => {
+            witness.on('observeStart', ({ mod }) => {
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: SentinelReportStatus.Started,

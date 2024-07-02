@@ -74,7 +74,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
       } else if (activeNode) {
         const mods = await activeNode?.resolve('*')
         mods?.map((mod) => {
-          mod.on('moduleBusy', ({ module: mod, busy }) => {
+          mod.on('moduleBusy', ({ mod, busy }) => {
             busyMap[(mod as Module).address] = busy
             if (autoStop) {
               forget(
@@ -86,7 +86,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
             }
           })
         })
-        activeNode?.on('moduleBusy', ({ module: mod, busy }) => {
+        activeNode?.on('moduleBusy', ({ mod, busy }) => {
           busyMap[(mod as Module).address] = busy
           if (autoStop) {
             forget(

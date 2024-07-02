@@ -24,13 +24,13 @@ export const useModuleFromNode = <T extends ModuleInstance | void = void>(
       T extends ModuleInstance ? T : ModuleInstance
     >
     if (node && nameOrAddressOrInstance) {
-      node.on('moduleAttached', ({ module: mod }) => {
+      node.on('moduleAttached', ({ mod }) => {
         logger?.debug(`useModuleFromNode: moduleAttached [${mod.config.name ?? mod.address}]`)
         if (mod.address === nameOrAddressOrInstance || mod.config?.name === nameOrAddressOrInstance) {
           setResult(identity(mod) ? (mod as T extends ModuleInstance ? T : ModuleInstance) : undefined)
         }
       })
-      node.on('moduleDetached', ({ module: mod }) => {
+      node.on('moduleDetached', ({ mod }) => {
         logger?.debug(`useModuleFromNode: moduleDetached [${mod.config.name ?? mod.address}]`)
         if (mod.address === nameOrAddressOrInstance || mod.config?.name === nameOrAddressOrInstance) {
           setResult(undefined)
