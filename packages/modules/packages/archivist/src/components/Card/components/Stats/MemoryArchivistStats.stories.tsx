@@ -37,7 +37,7 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
         })
         const payload = { schema: 'network.xyo.payload' }
         const insertQuery = { schema: ArchivistInsertQuerySchema }
-        const account = Account.randomSync()
+        const account = await Account.random()
         const builder = await new QueryBoundWitnessBuilder().payloads([insertQuery, payload]).signer(account).query(insertQuery)
         const [insertQueryBoundWitness, payloads] = await builder.build()
         await node.register(newParentModule)

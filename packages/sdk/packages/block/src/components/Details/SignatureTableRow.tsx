@@ -3,7 +3,7 @@ import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
-import { AddressTableCell } from '@xyo-network/react-shared'
+import { AddressTableCell, usePromise } from '@xyo-network/react-shared'
 // eslint-disable-next-line import/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
@@ -18,7 +18,11 @@ export interface BlockSignatureTableRowProps extends TableRowProps {
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ hash, address, previousHash, signature, archive, ...props }) => {
-  const errors = hash && address ? BoundWitnessValidator.validateSignature(toUint8Array(hash), toUint8Array(address), toUint8Array(signature)) : []
+  const [errors] = usePromise(
+    async () =>
+      hash && address ? await BoundWitnessValidator.validateSignature(toUint8Array(hash), toUint8Array(address), toUint8Array(signature)) : [],
+    [hash, address, signature],
+  )
 
   return (
     <TableRow {...props}>
@@ -34,7 +38,9 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ 
         </Typography>
       </TableCell>
       <TableCell key="valid" align="center">
-        {errors.length === 0 ?
+        {errors === undefined ?
+          <MdDone fontSize={18} color="gray" />
+        : errors?.length === 0 ?
           <MdDone fontSize={18} color="green" />
         : <MdClear color="red" fontSize={18} />}
       </TableCell>

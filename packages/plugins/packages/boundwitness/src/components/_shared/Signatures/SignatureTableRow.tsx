@@ -3,7 +3,7 @@ import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useEvent } from '@xyo-network/react-event'
-import { AddressTableCell } from '@xyo-network/react-shared'
+import { AddressTableCell, usePromise } from '@xyo-network/react-shared'
 // eslint-disable-next-line import/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
@@ -27,7 +27,11 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
   signature,
   ...props
 }) => {
-  const errors = hash && address ? BoundWitnessValidator.validateSignature(toUint8Array(hash), toUint8Array(address), toUint8Array(signature)) : []
+  const [errors] = usePromise(
+    async () =>
+      hash && address ? await BoundWitnessValidator.validateSignature(toUint8Array(hash), toUint8Array(address), toUint8Array(signature)) : [],
+    [hash, address, signature],
+  )
 
   const [addressRef, addressDispatch] = useEvent<HTMLTableCellElement>()
   const [signatureRef, signatureDispatch] = useEvent<HTMLTableCellElement>()
@@ -56,7 +60,9 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
         </Typography>
       </TableCell>
       <TableCell key="valid" align="center">
-        {errors.length === 0 ?
+        {errors === undefined ?
+          <MdDone fontSize={18} color="gray" />
+        : errors?.length === 0 ?
           <MdDone fontSize={18} color="green" />
         : <MdClear color="red" fontSize={18} />}
       </TableCell>

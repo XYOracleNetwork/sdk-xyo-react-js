@@ -1,12 +1,13 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { Account } from '@xyo-network/account'
+import { Address, toHex } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
+import { randomBytes } from 'ethers'
 import { useState } from 'react'
 
 import { FavoriteItemEvent } from './lib'
 import { AddressRenderRowBox } from './RenderRowBox'
 
-const address = new Account({ phrase: 'temp' }).address
+const address: Address = toHex(randomBytes(20))
 
 const StorybookEntry = {
   argTypes: {},

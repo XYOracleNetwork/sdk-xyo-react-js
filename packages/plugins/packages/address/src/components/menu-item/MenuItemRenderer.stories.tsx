@@ -1,11 +1,12 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { Account } from '@xyo-network/account'
+import { Address, toHex } from '@xylabs/hex'
 import { AddressPayload, AddressSchema } from '@xyo-network/module-model'
 import { useEvent } from '@xyo-network/react-event'
+import { randomBytes } from 'ethers'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer'
 
-const address = new Account({ phrase: 'temp' }).address
+const address: Address = toHex(randomBytes(20))
 const payload: AddressPayload = {
   address,
   schema: AddressSchema,
