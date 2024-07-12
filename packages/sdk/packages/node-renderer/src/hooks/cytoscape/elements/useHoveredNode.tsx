@@ -1,7 +1,7 @@
 import { NodeCollection, NodeSingular } from 'cytoscape'
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
 
-import { useCytoscapeInstance } from '../../../contexts'
+import { useCytoscapeInstance } from '../../../contexts/index.js'
 
 export const useHoveredNode = (renderedElements?: NodeCollection): [NodeSingular | undefined, Dispatch<SetStateAction<NodeSingular | undefined>>] => {
   const { cy } = useCytoscapeInstance(true)

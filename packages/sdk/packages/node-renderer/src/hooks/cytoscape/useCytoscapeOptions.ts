@@ -1,8 +1,8 @@
 import { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
-import { ConcentricLayout } from '../../Cytoscape'
-import { useCytoscapeStyle } from './useCytoscapeStyle'
+import { ConcentricLayout } from '../../Cytoscape/index.js'
+import { useCytoscapeStyle } from './useCytoscapeStyle.js'
 
 export const useCytoscapeOptions = (
   elements: CytoscapeOptions['elements'],

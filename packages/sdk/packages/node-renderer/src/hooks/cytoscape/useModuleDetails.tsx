@@ -2,7 +2,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { ModuleInstance } from '@xyo-network/module-model'
 import { useEffect, useState } from 'react'
 
-import { useCytoscapeInstance } from '../../contexts'
+import { useCytoscapeInstance } from '../../contexts/index.js'
 
 export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, onFoundModule?: () => void) => {
   const { cy } = useCytoscapeInstance()

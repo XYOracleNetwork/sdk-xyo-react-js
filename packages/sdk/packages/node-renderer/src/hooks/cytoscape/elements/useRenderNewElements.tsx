@@ -1,8 +1,8 @@
 import { CollectionReturnValue, ElementDefinition } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
-import { useCytoscapeInstance } from '../../../contexts'
-import { ColaLayout } from '../../../Cytoscape'
+import { useCytoscapeInstance } from '../../../contexts/index.js'
+import { ColaLayout } from '../../../Cytoscape/index.js'
 
 export const useRenderNewElements = (newElements: ElementDefinition[] = [], hideLabels?: boolean) => {
   const { cy } = useCytoscapeInstance(true)

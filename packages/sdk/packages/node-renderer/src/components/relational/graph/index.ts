@@ -1,2 +1,2 @@
-export * from './Graph'
-export * from './ProvidedNodeRenderer'
+export * from './Graph.js'
+export * from './ProvidedNodeRenderer.js'

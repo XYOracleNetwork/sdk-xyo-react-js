@@ -1,6 +1,6 @@
 import { Stylesheet } from 'cytoscape'
 
-import { CyNodeModuleTypes } from './lib'
+import { CyNodeModuleTypes } from './lib/index.js'
 
 export const NodeWithName = (color?: string, outlineColor?: string): Stylesheet => ({
   selector: 'node[name]',

@@ -1,4 +1,4 @@
-import { CyNodeModuleTypes } from './CyNodeModuleTypes'
+import { CyNodeModuleTypes } from './CyNodeModuleTypes.js'
 
 export const generateIconMap: () => Record<CyNodeModuleTypes, string> = () => ({
   archivist: '',

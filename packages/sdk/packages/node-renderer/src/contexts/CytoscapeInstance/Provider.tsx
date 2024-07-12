@@ -2,7 +2,7 @@ import type { WithChildren } from '@xylabs/react-shared'
 import { Core } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
-import { CytoscapeInstanceContext } from './Context'
+import { CytoscapeInstanceContext } from './Context.js'
 
 export interface CytoscapeInstanceProviderProps extends WithChildren {
   defaultInstance?: WeakRef<Core>

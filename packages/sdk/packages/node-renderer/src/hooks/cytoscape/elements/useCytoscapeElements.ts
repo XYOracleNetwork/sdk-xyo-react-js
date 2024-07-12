@@ -5,7 +5,7 @@ import { isNodeInstance } from '@xyo-network/node-model'
 import { ElementDefinition } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
-import { CytoscapeElements } from '../../../Cytoscape'
+import { CytoscapeElements } from '../../../Cytoscape/index.js'
 
 export const useCytoscapeElements = (mod?: WeakRef<ModuleInstance> | null) => {
   const [elements, setElements] = useState<ElementDefinition[]>([])

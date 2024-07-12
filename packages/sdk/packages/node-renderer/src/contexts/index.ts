@@ -1,1 +1,1 @@
-export * from './CytoscapeInstance'
+export * from './CytoscapeInstance/index.js'

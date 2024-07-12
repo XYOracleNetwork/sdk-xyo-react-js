@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material'
 import { useMemo } from 'react'
 
-import { CyIconSet, CyNodeModuleTypes, encodeSvg, generateIconMap } from '../../Cytoscape'
+import { CyIconSet, CyNodeModuleTypes, encodeSvg, generateIconMap } from '../../Cytoscape/index.js'
 
 export const useIcons = () => {
   const theme = useTheme()

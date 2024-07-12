@@ -1,1 +1,1 @@
-export * from './Hover'
+export * from './Hover.js'

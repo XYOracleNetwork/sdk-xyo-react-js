@@ -1,1 +1,1 @@
-export * from './RelationalGraphProps'
+export * from './RelationalGraphProps.js'

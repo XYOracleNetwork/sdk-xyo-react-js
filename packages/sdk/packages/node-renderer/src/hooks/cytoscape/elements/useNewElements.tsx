@@ -2,7 +2,7 @@ import { useWeakModuleFromNode } from '@xyo-network/react-node'
 import { NodeSingular } from 'cytoscape'
 import { useMemo } from 'react'
 
-import { useCytoscapeElements } from './useCytoscapeElements'
+import { useCytoscapeElements } from './useCytoscapeElements.js'
 
 export const useNewElements = (selectedElement?: NodeSingular) => {
   const selectedAddress = useMemo(() => {

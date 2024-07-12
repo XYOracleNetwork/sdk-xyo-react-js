@@ -1,7 +1,7 @@
 import { NodeSingular } from 'cytoscape'
 import { useState } from 'react'
 
-import { useCytoscapeInstance } from '../../../contexts'
+import { useCytoscapeInstance } from '../../../contexts/index.js'
 
 export const useSelectedElement = () => {
   const [selectedElement, setSelectedElement] = useState<NodeSingular>()

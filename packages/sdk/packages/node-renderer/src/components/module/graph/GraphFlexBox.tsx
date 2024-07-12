@@ -3,13 +3,13 @@ import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module-model'
 import { useRef } from 'react'
 
-import { CytoscapeInstanceProvider } from '../../../contexts'
+import { CytoscapeInstanceProvider } from '../../../contexts/index.js'
 import { useElements, useModuleDetails, useRelationalGraphOptions } from '../../../hooks/index.js'
-import { WithExtensions } from '../../cytoscape-extensions'
-import { NodeRelationalGraphFlexBox } from '../../relational'
-import { DetailsFlexbox } from './DetailsFlexbox'
-import { ModuleGraphNodeHover } from './node'
-import { StyledModuleHoverPopper } from './Popper'
+import { WithExtensions } from '../../cytoscape-extensions/index.js'
+import { NodeRelationalGraphFlexBox } from '../../relational/index.js'
+import { DetailsFlexbox } from './DetailsFlexbox.js'
+import { ModuleGraphNodeHover } from './node/index.js'
+import { StyledModuleHoverPopper } from './Popper.js'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   disableModuleDetails?: boolean

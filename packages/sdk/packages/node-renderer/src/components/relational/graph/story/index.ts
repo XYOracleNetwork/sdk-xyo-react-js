@@ -1,1 +1,1 @@
-export * from './TestData'
+export * from './TestData.js'

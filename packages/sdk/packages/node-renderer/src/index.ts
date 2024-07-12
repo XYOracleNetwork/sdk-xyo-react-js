@@ -1,4 +1,4 @@
 export * from './components/index.js'
-export * from './contexts'
-export * from './Cytoscape'
-export * from './hooks'
+export * from './contexts/index.js'
+export * from './Cytoscape/index.js'
+export * from './hooks/index.js'
