@@ -1,1 +1,1 @@
-export * from './TableEx'
+export * from './TableEx/index.js'

@@ -6,7 +6,7 @@ import { Manifest, ManifestWrapper, ModuleManifest, PackageManifestPayload } fro
 import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { CreatablePackageManifest } from '../types'
+import { CreatablePackageManifest } from '../types/index.js'
 
 export class ManifestNodeBuilder {
   locatedManifests: Manifest[] = []

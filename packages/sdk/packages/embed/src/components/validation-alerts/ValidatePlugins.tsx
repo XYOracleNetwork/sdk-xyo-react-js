@@ -1,7 +1,7 @@
 import { Alert, AlertProps, AlertTitle } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 
-import { useEmbedPluginState, useResolvePayload } from '../../contexts'
+import { useEmbedPluginState, useResolvePayload } from '../../contexts/index.js'
 
 export const ValidatePluginsAlert: React.FC<WithChildren<AlertProps>> = ({ children, ...props }) => {
   const { payload } = useResolvePayload()

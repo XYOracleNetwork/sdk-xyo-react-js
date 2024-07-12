@@ -1,6 +1,6 @@
 import { useContextEx } from '@xyo-network/react-shared'
 
-import { PixelContext } from './Context'
+import { PixelContext } from './Context.js'
 
 export const usePixel = (required = true) => {
   const { pixel } = useContextEx(PixelContext, 'Pixel', required)

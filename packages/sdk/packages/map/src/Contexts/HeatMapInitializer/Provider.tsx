@@ -3,14 +3,14 @@ import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
 import { useEffect, useState } from 'react'
 
-import { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors'
-import { useDynamicPositioning } from '../../hooks'
-import { MapLayer } from '../../Layers'
-import { MapHeat } from '../../MapBoxClasses'
-import { useMapBoxInstance } from '../MapBoxInstance'
-import { useMapSettings } from '../MapSettings'
-import { HeatMapInitializerContext } from './Context'
-import { HeatMapInitializerState } from './State'
+import { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.js'
+import { useDynamicPositioning } from '../../hooks/index.js'
+import { MapLayer } from '../../Layers/index.js'
+import { MapHeat } from '../../MapBoxClasses/index.js'
+import { useMapBoxInstance } from '../MapBoxInstance/index.js'
+import { useMapSettings } from '../MapSettings/index.js'
+import { HeatMapInitializerContext } from './Context.js'
+import { HeatMapInitializerState } from './State.js'
 
 export interface MapInitializerProviderProps {
   featureSets?: Feature<Polygon>[][]
@@ -65,7 +65,11 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
 
       if (map) {
         if (fitToPoints?.value === true) {
-          MapHeat.initialMapPositioning({ padding: fitToPadding }, map, features)
+          MapHeat.initialMapPositioning(
+            { padding: { bottom: fitToPadding, left: fitToPadding, right: fitToPadding, top: fitToPadding } },
+            map,
+            features,
+          )
         } else if (options.zoom && options.center) {
           map.setZoom(options.zoom)
           map.setCenter(options.center)

@@ -1,3 +1,3 @@
-export * from './ForecastLineChartConfigBuilder'
-export * from './MockSourcePayloads'
-export * from './SourcePayloads'
+export * from './ForecastLineChartConfigBuilder.js'
+export * from './MockSourcePayloads.js'
+export * from './SourcePayloads.js'

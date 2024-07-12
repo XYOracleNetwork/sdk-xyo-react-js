@@ -4,9 +4,9 @@ import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexb
 import { useMemo, useState } from 'react'
 import type { ReflectionGroup } from 'typedoc'
 
-import { createLookup } from './createLookup'
-import { ContainerReflectionViewerProps, ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer'
-import { ReflectionTreeViewer } from './TreeViewer'
+import { createLookup } from './createLookup.js'
+import { ContainerReflectionViewerProps, ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer/index.js'
+import { ReflectionTreeViewer } from './TreeViewer/index.js'
 
 export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({
   reflection,

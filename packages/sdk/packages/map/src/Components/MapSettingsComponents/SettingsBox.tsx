@@ -2,8 +2,8 @@ import { Paper, Stack } from '@mui/material'
 import { FlexBoxProps, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { useAppSettings } from '@xyo-network/react-app-settings'
 
-import { useMapSettings } from '../../Contexts'
-import { MapSettingSwitch } from './Setting'
+import { useMapSettings } from '../../Contexts/index.js'
+import { MapSettingSwitch } from './Setting.js'
 
 export interface MapSettingsBoxProps extends FlexBoxProps {
   developerMode?: boolean

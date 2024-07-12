@@ -2,7 +2,7 @@ import { Card, CardProps, Paper, useTheme } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { CardContentEx } from '@xyo-network/react-card'
 
-import { GasPriceBox, PriorityFeeBox, SpeedBox } from './components'
+import { GasPriceBox, PriorityFeeBox, SpeedBox } from './components/index.js'
 
 export interface GasFeeCardProps extends CardProps {
   gasPrice?: number

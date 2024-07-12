@@ -5,11 +5,11 @@ import { ThrownErrorBoundary, useRollbar } from '@xyo-network/react-error'
 import { EventNoun, EventVerb, useEvent } from '@xyo-network/react-event'
 import { forwardRef } from 'react'
 
-import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks'
-import { ActiveBWFlexBox } from './ActiveBoundWitness'
-import { BWErrorAlert } from './Errors'
-import { useBoundWitnessClickHandler } from './hooks'
-import { NestedBoundWitnessesBox } from './NestedBoundWitnesses'
+import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks/index.js'
+import { ActiveBWFlexBox } from './ActiveBoundWitness/index.js'
+import { BWErrorAlert } from './Errors/index.js'
+import { useBoundWitnessClickHandler } from './hooks/index.js'
+import { NestedBoundWitnessesBox } from './NestedBoundWitnesses/index.js'
 
 export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
   const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness(false)

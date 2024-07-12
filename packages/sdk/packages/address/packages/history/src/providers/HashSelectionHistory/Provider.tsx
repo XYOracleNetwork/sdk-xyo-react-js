@@ -7,8 +7,8 @@ import { ModuleError, WithMeta } from '@xyo-network/payload-model'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useCallback, useEffect, useState } from 'react'
 
-import { HashSelectionHistoryContext, NestedBoundWitnesses } from '../../contexts'
-import { useActiveBoundWitness } from '../../hooks'
+import { HashSelectionHistoryContext, NestedBoundWitnesses } from '../../contexts/index.js'
+import { useActiveBoundWitness } from '../../hooks/index.js'
 
 export interface HashSelectionHistoryProviderProps extends WithChildren, ContextExProviderProps {
   archivist?: ArchivistInstance | null

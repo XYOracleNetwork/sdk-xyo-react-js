@@ -3,10 +3,10 @@ import { LinkEx } from '@xylabs/react-link'
 import { useEffect, useRef, useState } from 'react'
 import { To } from 'react-router-dom'
 
-import { getActualPaddingX } from '../../lib'
-import { findParent } from './findParent'
-import { getRemainingRowWidth } from './getRemainingRowWidth'
-import { getSmallestParentWidth } from './getSmallestParentWidth'
+import { getActualPaddingX } from '../../lib/index.js'
+import { findParent } from './findParent.js'
+import { getRemainingRowWidth } from './getRemainingRowWidth.js'
+import { getSmallestParentWidth } from './getSmallestParentWidth.js'
 
 export interface EllipsisTableCellProps extends TableCellProps {
   forCell?: number //cell index for ellipsized table cell

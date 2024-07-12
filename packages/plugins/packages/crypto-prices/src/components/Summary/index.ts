@@ -1,1 +1,1 @@
-export * from './TableCellSummary'
+export * from './TableCellSummary.js'

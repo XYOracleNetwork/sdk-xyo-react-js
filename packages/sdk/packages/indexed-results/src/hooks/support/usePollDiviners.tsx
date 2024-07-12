@@ -2,8 +2,8 @@ import { setTimeoutEx } from '@xylabs/timer'
 import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import { IndexedResultsConfig, PollingConfig } from '../../interfaces'
-import { useTryDiviners } from './useTryDiviners'
+import { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.js'
+import { useTryDiviners } from './useTryDiviners.js'
 
 export type FunctionToPoll = () => Promise<Payload[] | null | undefined>
 

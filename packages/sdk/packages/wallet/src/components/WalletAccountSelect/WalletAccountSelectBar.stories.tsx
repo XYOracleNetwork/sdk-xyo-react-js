@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { useWallets } from '../../hooks'
+import { useWallets } from '../../hooks/index.js'
 import { WalletAccountSelectBar } from './SelectBar'
 import { WalletProviderDecorator } from './stories'
 

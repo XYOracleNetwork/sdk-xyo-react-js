@@ -1,7 +1,7 @@
 import { Typography, useTheme } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 
-import { ColorGradientLegendProps } from '../../Colors'
+import { ColorGradientLegendProps } from '../../Colors/index.js'
 
 const ColorGradientLegend: React.FC<ColorGradientLegendProps> = ({ startColor, endColor, startLabel, endLabel, heading, textColor, ...props }) => {
   const theme = useTheme()

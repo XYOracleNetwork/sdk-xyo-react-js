@@ -3,8 +3,8 @@ import { useMounted } from '@xylabs/react-shared'
 import { EventNoun } from '@xyo-network/react-event'
 import { useCallback } from 'react'
 
-import { useNestedBoundWitnesses, usePayloadHashSelectionHistory } from '../../../hooks'
-import { BoundwitnessClickType } from '../lib'
+import { useNestedBoundWitnesses, usePayloadHashSelectionHistory } from '../../../hooks/index.js'
+import { BoundwitnessClickType } from '../lib/index.js'
 
 export const useBoundWitnessClickHandler = () => {
   const mounted = useMounted()

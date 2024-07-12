@@ -1,6 +1,6 @@
 import { Typography, TypographyProps } from '@mui/material'
 
-import { useGradientStyles } from '../hooks'
+import { useGradientStyles } from '../hooks/index.js'
 
 export interface TypographyExProps extends TypographyProps {
   gradient?: 'text'

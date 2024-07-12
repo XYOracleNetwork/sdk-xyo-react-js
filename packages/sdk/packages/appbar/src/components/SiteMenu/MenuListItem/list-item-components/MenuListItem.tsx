@@ -1,6 +1,6 @@
 import { ListItem, ListItemProps } from '@mui/material'
 
-import { MenuListItemBase } from '../../lib'
+import { MenuListItemBase } from '../../lib/index.js'
 
 export interface ListItemExProps extends MenuListItemBase, ListItemProps {}
 

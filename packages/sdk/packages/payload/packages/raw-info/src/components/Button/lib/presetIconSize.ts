@@ -1,4 +1,4 @@
-import { IconSize } from './IconSize'
+import { IconSize } from './IconSize.js'
 
 export const presetIconSizeValue = (size?: IconSize) => {
   switch (size) {

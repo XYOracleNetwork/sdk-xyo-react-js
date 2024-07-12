@@ -1,2 +1,2 @@
-export * from './IconSize'
-export * from './presetIconSize'
+export * from './IconSize.js'
+export * from './presetIconSize.js'

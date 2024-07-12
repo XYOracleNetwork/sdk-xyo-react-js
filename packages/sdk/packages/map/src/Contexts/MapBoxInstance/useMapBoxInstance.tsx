@@ -1,7 +1,7 @@
 import { assertEx } from '@xylabs/assert'
 import { useContext } from 'react'
 
-import { MapBoxInstanceContext } from './Context'
+import { MapBoxInstanceContext } from './Context.js'
 
 const useMapBoxInstance = () => {
   const context = useContext(MapBoxInstanceContext)

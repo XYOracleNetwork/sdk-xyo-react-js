@@ -13,7 +13,7 @@ import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import { useState } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts'
-import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.js'
 import { NodeRelationalGraphFlexBox } from './Graph'
 import { ProvidedNodeRenderer } from './ProvidedNodeRenderer'
 import { options } from './story'

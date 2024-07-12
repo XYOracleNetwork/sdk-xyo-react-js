@@ -2,8 +2,8 @@ import { Paper, Theme, useMediaQuery } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { NetworkSelectEx } from '@xyo-network/react-network'
 
-import { SystemControl } from './controls'
-import { SystemControlsType } from './SystemControlsType'
+import { SystemControl } from './controls/index.js'
+import { SystemControlsType } from './SystemControlsType.js'
 
 interface SystemControlsUnstyledProps extends FlexBoxProps {
   systemControlsType?: SystemControlsType

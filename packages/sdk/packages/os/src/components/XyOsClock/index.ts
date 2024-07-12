@@ -1,1 +1,1 @@
-export * from './XyOsClock'
+export * from './XyOsClock.js'

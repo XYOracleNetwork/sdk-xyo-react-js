@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { TypographyEx } from '@xyo-network/react-shared'
 
-import { GweiLabelTypography } from './GweiLabelTypography'
+import { GweiLabelTypography } from './GweiLabelTypography.js'
 
 export interface PriorityFeeBoxProps extends FlexBoxProps {
   priorityFee?: number

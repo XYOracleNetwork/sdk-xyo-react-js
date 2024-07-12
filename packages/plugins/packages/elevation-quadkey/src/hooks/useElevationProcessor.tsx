@@ -3,9 +3,9 @@ import { Payload } from '@xyo-network/payload-model'
 import { Feature, Geometry } from 'geojson'
 import { useState } from 'react'
 
-import { ElevationPayloadProcessor } from '../classes'
-import { useOpenElevationApiClient } from '../contexts'
-import { NetworkElevationQuadkeyAnswerPayload } from '../types'
+import { ElevationPayloadProcessor } from '../classes/index.js'
+import { useOpenElevationApiClient } from '../contexts/index.js'
+import { NetworkElevationQuadkeyAnswerPayload } from '../types.js'
 
 export const useElevationProcessor = (payload?: Payload) => {
   const [features, setFeatures] = useState<Feature<Geometry>[]>()

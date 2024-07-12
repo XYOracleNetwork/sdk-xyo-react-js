@@ -5,9 +5,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig'
-import { useModuleFilterOptions } from './useModuleFilterOptions'
-import { useNode } from './useNode'
+import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig.js'
+import { useModuleFilterOptions } from './useModuleFilterOptions.js'
+import { useNode } from './useNode.js'
 
 /** @deprecated use useWeakModuleFromNode */
 export const useModuleFromNode = <T extends ModuleInstance | void = void>(

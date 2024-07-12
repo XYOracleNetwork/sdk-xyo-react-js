@@ -1,1 +1,1 @@
-export * from './useEthersTransformer'
+export * from './useEthersTransformer.js'

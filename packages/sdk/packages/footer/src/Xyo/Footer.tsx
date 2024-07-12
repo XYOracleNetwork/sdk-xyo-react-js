@@ -1,13 +1,13 @@
 import { Grid } from '@mui/material'
 
-import { Footer, FooterProps } from '../Footer'
-import { copyrightLinkTitle } from '../lib'
-import { DeveloperLinks } from './DeveloperLinks'
-import { MoreLinks } from './MoreLinks'
-import { NetworkLinks } from './NetworkLinks'
-import { SocialLinks } from './SocialLinks'
-import { SupportLinks } from './SupportLinks'
-import { TokenLinks } from './TokenLinks'
+import { Footer, FooterProps } from '../Footer.js'
+import { copyrightLinkTitle } from '../lib/index.js'
+import { DeveloperLinks } from './DeveloperLinks.js'
+import { MoreLinks } from './MoreLinks.js'
+import { NetworkLinks } from './NetworkLinks.js'
+import { SocialLinks } from './SocialLinks.js'
+import { SupportLinks } from './SupportLinks.js'
+import { TokenLinks } from './TokenLinks.js'
 
 const footerLinks = [
   {

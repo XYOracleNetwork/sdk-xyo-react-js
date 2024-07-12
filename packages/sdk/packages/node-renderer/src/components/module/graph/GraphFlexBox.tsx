@@ -4,7 +4,7 @@ import { ModuleInstance } from '@xyo-network/module-model'
 import { useRef } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts'
-import { useElements, useModuleDetails, useRelationalGraphOptions } from '../../../hooks'
+import { useElements, useModuleDetails, useRelationalGraphOptions } from '../../../hooks/index.js'
 import { WithExtensions } from '../../cytoscape-extensions'
 import { NodeRelationalGraphFlexBox } from '../../relational'
 import { DetailsFlexbox } from './DetailsFlexbox'

@@ -1,1 +1,1 @@
-export * from './MenuListItemContainer'
+export * from './MenuListItemContainer.js'

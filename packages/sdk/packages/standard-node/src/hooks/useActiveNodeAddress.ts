@@ -1,7 +1,7 @@
 import { useProvidedNode } from '@xyo-network/react-node'
 import { useMemo } from 'react'
 
-import { useStandardNodes } from '../contexts'
+import { useStandardNodes } from '../contexts/index.js'
 
 export const useActiveNodeAddress = (networkName?: string) => {
   const [node] = useProvidedNode()

@@ -1,7 +1,7 @@
 import { Payload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { CoinGeckoPricesRenderer } from './components'
+import { CoinGeckoPricesRenderer } from './components/index.js'
 
 export const CoinGeckoPricesRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

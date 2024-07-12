@@ -2,10 +2,10 @@ import { CardContent } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useListMode } from '@xyo-network/react-shared'
 
-import { useEmbedPluginState, useResolvePayload } from '../../../contexts'
-import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls'
-import { BusyCard, BusyCardProps } from './BusyCard'
-import { EmbedCardHeader } from './EmbedCardHeader'
+import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.js'
+import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls/index.js'
+import { BusyCard, BusyCardProps } from './BusyCard.js'
+import { EmbedCardHeader } from './EmbedCardHeader.js'
 
 export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
   const { payload } = useResolvePayload()

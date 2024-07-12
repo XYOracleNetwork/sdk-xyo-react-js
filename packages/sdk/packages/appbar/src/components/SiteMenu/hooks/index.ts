@@ -1,1 +1,1 @@
-export * from './useMenuItemsShared'
+export * from './useMenuItemsShared.js'

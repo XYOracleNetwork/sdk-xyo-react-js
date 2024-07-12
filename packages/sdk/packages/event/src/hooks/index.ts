@@ -1,2 +1,2 @@
-export * from './useCustomEvent'
-export * from './useEvent'
+export * from './useCustomEvent.js'
+export * from './useEvent.js'

@@ -2,7 +2,7 @@ import { exists } from '@xylabs/exists'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { NodeInstance } from '@xyo-network/node-model'
 
-import { useWeakModulesFromNode } from '../hooks'
+import { useWeakModulesFromNode } from '../hooks/index.js'
 
 export interface NodeDescriptionBoxProps extends FlexBoxProps {
   node?: string | NodeInstance

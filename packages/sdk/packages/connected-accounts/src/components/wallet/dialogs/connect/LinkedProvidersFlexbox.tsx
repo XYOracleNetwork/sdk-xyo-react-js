@@ -3,7 +3,7 @@ import { Typography } from '@mui/material'
 import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 
-import { xyoColorLogo } from '../../../../img'
+import { xyoColorLogo } from '../../../../img/index.js'
 
 export interface LinkedProvidersFlexboxProps extends FlexBoxProps {
   icon?: string

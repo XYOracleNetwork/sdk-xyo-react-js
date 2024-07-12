@@ -3,7 +3,7 @@ import { CardHeader, CardHeaderProps, IconButton } from '@mui/material'
 import { TypographyEx } from '@xyo-network/react-shared'
 import { forwardRef, ReactNode } from 'react'
 
-import { CardEx, CardExProps } from './CardEx'
+import { CardEx, CardExProps } from './CardEx.js'
 
 export interface PageCardProps extends CardExProps {
   action?: ReactNode

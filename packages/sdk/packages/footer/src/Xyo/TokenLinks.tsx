@@ -1,8 +1,8 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { FooterLink } from '../Link'
-import { FooterLinks } from '../Links'
+import { FooterLink } from '../Link.js'
+import { FooterLinks } from '../Links.js'
 
 export const TokenLinks: React.FC<FlexBoxProps> = (props) => (
   <FooterLinks title="XYO Tokens" {...props}>

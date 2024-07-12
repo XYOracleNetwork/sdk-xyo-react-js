@@ -1,8 +1,8 @@
 import { FormControl, StandardTextFieldProps, TextField } from '@mui/material'
 import { ReactNode } from 'react'
 
-import { useSeedPhrase } from '../../../../../contexts'
-import { colorParser, InvalidPhraseTypography } from './validation-messages'
+import { useSeedPhrase } from '../../../../../contexts/index.js'
+import { colorParser, InvalidPhraseTypography } from './validation-messages/index.js'
 
 export interface NewPhraseTextFieldProps extends StandardTextFieldProps {
   children?: ReactNode

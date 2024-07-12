@@ -1,1 +1,1 @@
-export * from './EthgasstationGasPriceDetailsBox'
+export * from './EthgasstationGasPriceDetailsBox.js'

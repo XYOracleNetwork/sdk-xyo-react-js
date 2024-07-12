@@ -7,8 +7,8 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
-import { BWPreviousHashQuickTipButton } from './PreviousHash'
-import { BWVerification } from './Verification'
+import { BWPreviousHashQuickTipButton } from './PreviousHash.js'
+import { BWVerification } from './Verification.js'
 
 export interface BWActionsProps extends FlexBoxProps {
   additionalActions?: ReactNode

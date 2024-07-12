@@ -2,7 +2,7 @@ import { WithChildren } from '@xylabs/react-shared'
 import { useEffect, useState } from 'react'
 import Rollbar from 'rollbar'
 
-import { ErrorReporterContext } from './Context'
+import { ErrorReporterContext } from './Context.js'
 
 export interface ErrorReporterProviderProps {
   rollbar: Rollbar

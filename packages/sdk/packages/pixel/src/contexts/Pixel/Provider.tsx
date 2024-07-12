@@ -1,7 +1,7 @@
 import { XyPixel } from '@xylabs/pixel'
 import { WithChildren } from '@xylabs/react-shared'
 
-import { PixelContext } from './Context'
+import { PixelContext } from './Context.js'
 
 export interface PixelProviderProps {
   id: string

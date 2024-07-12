@@ -3,7 +3,7 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useRootWallet, useWalletContext, useWalletProvided } from '../contexts'
+import { useRootWallet, useWalletContext, useWalletProvided } from '../contexts/index.js'
 
 export interface AccountHookParams {
   account?: AccountInstance

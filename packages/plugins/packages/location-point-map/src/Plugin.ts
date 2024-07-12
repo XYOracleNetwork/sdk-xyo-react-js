@@ -2,7 +2,7 @@ import { LocationSchema } from '@xyo-network/location-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { PointMapWithSettingsRenderer } from './components'
+import { PointMapWithSettingsRenderer } from './components/index.js'
 
 export const PointMapRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

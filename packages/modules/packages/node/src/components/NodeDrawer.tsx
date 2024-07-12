@@ -4,8 +4,8 @@ import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import type { WithChildren } from '@xylabs/react-shared'
 import { useNodeDrawer } from '@xyo-network/react-node-provider'
 
-import { useWeakProvidedNode } from '../hooks'
-import { ModuleDescriptionBox } from './render'
+import { useWeakProvidedNode } from '../hooks/index.js'
+import { ModuleDescriptionBox } from './render/index.js'
 
 export interface NodeDrawerProps extends WithChildren, Omit<DrawerProps, 'open'> {}
 

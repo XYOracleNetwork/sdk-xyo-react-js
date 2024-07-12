@@ -1,7 +1,7 @@
-import { HeatMapFillLayerConfig, HeatMapLineLayerConfig, HeatMapSymbolLayerConfig } from '../Configs'
-import { FillLayerBuilder } from '../FillLayer'
-import { LineLayerBuilder } from '../LineLayer'
-import { SymbolLayerBuilder } from '../SymbolLayer'
+import { HeatMapFillLayerConfig, HeatMapLineLayerConfig, HeatMapSymbolLayerConfig } from '../Configs/index.js'
+import { FillLayerBuilder } from '../FillLayer.js'
+import { LineLayerBuilder } from '../LineLayer.js'
+import { SymbolLayerBuilder } from '../SymbolLayer.js'
 
 export const MapHeatConstants = {
   LocationDebugLayerId: 'location-debug-id',

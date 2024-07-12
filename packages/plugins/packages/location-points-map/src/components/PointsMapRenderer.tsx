@@ -10,7 +10,7 @@ import {
   useMapboxAccessToken,
 } from '@xyo-network/react-map'
 
-import { PointsMapSettings } from './PointsMapSettings'
+import { PointsMapSettings } from './PointsMapSettings.js'
 
 export interface PointsMapInnerProps extends FlexBoxProps {
   accessToken?: string

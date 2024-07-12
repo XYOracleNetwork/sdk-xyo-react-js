@@ -1,7 +1,7 @@
 import { OpenInNew as OpenInNewIcon } from '@mui/icons-material'
 import { ListItemIcon, ListItemText, MenuItem, MenuItemProps } from '@mui/material'
 
-import { useResolvePayload } from '../../../contexts'
+import { useResolvePayload } from '../../../contexts/index.js'
 
 export const JsonMenuItem: React.FC<MenuItemProps> = (props) => {
   const { huri } = useResolvePayload()

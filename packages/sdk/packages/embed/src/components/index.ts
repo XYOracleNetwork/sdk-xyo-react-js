@@ -1,2 +1,2 @@
-export * from './embed-card'
-export * from './EmbedPlugin'
+export * from './embed-card/index.js'
+export * from './EmbedPlugin.js'

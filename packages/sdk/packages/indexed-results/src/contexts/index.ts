@@ -1,1 +1,1 @@
-export * from './PromiseQueue'
+export * from './PromiseQueue/index.js'

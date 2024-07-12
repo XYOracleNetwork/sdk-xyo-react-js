@@ -1,2 +1,2 @@
-export * from './connect'
-export * from './revoke'
+export * from './connect/index.js'
+export * from './revoke/index.js'

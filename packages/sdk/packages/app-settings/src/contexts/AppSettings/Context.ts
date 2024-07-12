@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 
-import { WebAppNavigationType } from '../../WebAppNavigationType'
-import { appSettingDefault } from './appSettingDefault'
+import { WebAppNavigationType } from '../../WebAppNavigationType.js'
+import { appSettingDefault } from './appSettingDefault.js'
 
 export interface AppSettingsContextProps {
   changeMaxAccounts?: (value: number) => void

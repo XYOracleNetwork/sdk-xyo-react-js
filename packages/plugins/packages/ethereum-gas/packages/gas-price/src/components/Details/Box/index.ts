@@ -1,1 +1,1 @@
-export * from './EthereumGasPriceDetailsBox'
+export * from './EthereumGasPriceDetailsBox.js'

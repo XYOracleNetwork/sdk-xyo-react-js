@@ -1,7 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { useEffect, useState } from 'react'
 
-import { CollapsibleContext } from './context'
+import { CollapsibleContext } from './context.js'
 
 export interface CollapsibleProviderProps extends WithChildren {
   defaultCollapse?: boolean

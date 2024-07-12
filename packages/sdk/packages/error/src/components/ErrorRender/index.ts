@@ -1,3 +1,3 @@
-export * from './ErrorAlert'
-export * from './Props'
-export * from './Render'
+export * from './ErrorAlert.js'
+export * from './Props.js'
+export * from './Render.js'

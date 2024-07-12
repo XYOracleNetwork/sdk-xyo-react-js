@@ -1,1 +1,1 @@
-export * from './StyledChipLabel'
+export * from './StyledChipLabel.js'

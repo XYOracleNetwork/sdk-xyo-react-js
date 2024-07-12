@@ -1,3 +1,3 @@
-export * from './colorParser'
-export * from './InvalidPhrase'
-export * from './PhraseHeaderBox'
+export * from './colorParser.js'
+export * from './InvalidPhrase.js'
+export * from './PhraseHeaderBox.js'

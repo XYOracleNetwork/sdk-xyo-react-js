@@ -1,3 +1,3 @@
-export * from './components'
-export * from './hooks'
-export * from './ModuleRenderProps'
+export * from './components/index.js'
+export * from './hooks/index.js'
+export * from './ModuleRenderProps.js'

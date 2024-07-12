@@ -1,6 +1,6 @@
 import { Button, DialogActions } from '@mui/material'
 
-import { useSeedPhrase } from '../../../../../contexts'
+import { useSeedPhrase } from '../../../../../contexts/index.js'
 
 export const PhraseDialogActions = () => {
   const { handleClear, handleGenerate, overwriteWarning } = useSeedPhrase()

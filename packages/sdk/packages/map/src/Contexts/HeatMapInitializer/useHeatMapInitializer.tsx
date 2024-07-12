@@ -1,7 +1,7 @@
 import { assertEx } from '@xylabs/assert'
 import { useContext } from 'react'
 
-import { HeatMapInitializerContext } from './Context'
+import { HeatMapInitializerContext } from './Context.js'
 
 const useHeatMapInitializer = () => {
   const context = useContext(HeatMapInitializerContext)

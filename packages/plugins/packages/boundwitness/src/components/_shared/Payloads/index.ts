@@ -1,2 +1,2 @@
-export * from './PayloadsPropertyGroup'
-export * from './PayloadsTable'
+export * from './PayloadsPropertyGroup.js'
+export * from './PayloadsTable.js'

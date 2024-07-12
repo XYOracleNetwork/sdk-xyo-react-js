@@ -1,4 +1,4 @@
-import { IndexedResultsConfig, IndexedResultsQueue, PollingConfig } from '../../interfaces'
+import { IndexedResultsConfig, IndexedResultsQueue, PollingConfig } from '../../interfaces/index.js'
 
 export interface UseIndexedResultsConfig {
   /** Indexed Results Configuration */

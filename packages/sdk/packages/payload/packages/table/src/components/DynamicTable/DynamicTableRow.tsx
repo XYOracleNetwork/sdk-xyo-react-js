@@ -19,7 +19,7 @@ import {
   PayloadDynamicTableColumnConfig,
   payloadDynamicTableColumnConfigDefaults,
   PayloadDynamicTableColumnSlug,
-} from './PayloadDynamicTableColumnConfig'
+} from './PayloadDynamicTableColumnConfig.js'
 
 export interface PayloadDynamicTableRowProps extends TableRowProps {
   archive?: string

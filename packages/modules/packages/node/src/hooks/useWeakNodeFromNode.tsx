@@ -1,7 +1,7 @@
 import { isNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
-import { useWeakModuleFromNode } from './useWeakModuleFromNode'
-import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig'
+import { useWeakModuleFromNode } from './useWeakModuleFromNode.js'
+import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.js'
 
 export const useWeakNodeFromNode = (
   nameOrAddressOrInstance?: string | NodeInstance,

@@ -1,11 +1,11 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { useEffect, useState } from 'react'
 
-import { MapSettings } from '../../MapBoxClasses'
-import { MapSetting } from '../../Settings'
-import { useMapBoxInstance } from '../MapBoxInstance'
-import { MapSettingsContext } from './Context'
-import { MapSettingsState } from './State'
+import { MapSettings } from '../../MapBoxClasses/index.js'
+import { MapSetting } from '../../Settings/index.js'
+import { useMapBoxInstance } from '../MapBoxInstance/index.js'
+import { MapSettingsContext } from './Context.js'
+import { MapSettingsState } from './State.js'
 
 export interface MapSettingsProviderProps {
   debugLayerName?: string

@@ -10,8 +10,8 @@ import { SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel-mode
 import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
 import { useEffect, useState } from 'react'
 
-import { SentinelContext } from './Context'
-import { SentinelReportProgress, SentinelReportStatus } from './State'
+import { SentinelContext } from './Context.js'
+import { SentinelReportProgress, SentinelReportStatus } from './State.js'
 
 export interface SentinelProviderProps {
   /** Account used by the sentinel for signing */

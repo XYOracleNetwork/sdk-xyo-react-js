@@ -2,10 +2,10 @@ import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { ErrorBoundary, ListModeProvider } from '@xyo-network/react-shared'
 
-import { EmbedPluginProvider, RefreshPayloadProvider, ResolvePayloadProvider, ValidatePayloadProvider } from '../contexts'
-import { EmbedPluginProps } from '../types'
-import { EmbedResolver } from './EmbedResolver'
-import { ValidatePayloadAlert, ValidatePluginsAlert } from './validation-alerts'
+import { EmbedPluginProvider, RefreshPayloadProvider, ResolvePayloadProvider, ValidatePayloadProvider } from '../contexts/index.js'
+import { EmbedPluginProps } from '../types/index.js'
+import { EmbedResolver } from './EmbedResolver.js'
+import { ValidatePayloadAlert, ValidatePluginsAlert } from './validation-alerts/index.js'
 
 export const EmbedPluginInner: React.FC<WithChildren<EmbedPluginProps>> = ({
   validateSchema,

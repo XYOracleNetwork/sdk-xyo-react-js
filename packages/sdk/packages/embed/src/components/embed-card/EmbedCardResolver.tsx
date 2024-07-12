@@ -3,8 +3,8 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { LoadResult } from '@xyo-network/react-shared'
 
-import { useRefreshPayload, useResolvePayload } from '../../contexts'
-import { EmbedCardApiErrorRenderer } from './error-handling'
+import { useRefreshPayload, useResolvePayload } from '../../contexts/index.js'
+import { EmbedCardApiErrorRenderer } from './error-handling/index.js'
 
 export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({ children, ...props }) => {
   const { payload, notFound, huriError } = useResolvePayload()

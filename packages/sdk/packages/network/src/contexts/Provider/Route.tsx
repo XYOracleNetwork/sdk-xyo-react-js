@@ -3,11 +3,11 @@ import { NetworkPayload } from '@xyo-network/network'
 import { useCallback, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { defaultNetworkConfigs, findNetworkConfig } from '../../lib'
-import { NetworkContext } from '../Context'
-import { useNetwork } from '../use'
-import { NetworkMemoryProvider } from './Memory'
-import { NetworkProviderProps } from './Props'
+import { defaultNetworkConfigs, findNetworkConfig } from '../../lib/index.js'
+import { NetworkContext } from '../Context.js'
+import { useNetwork } from '../use.js'
+import { NetworkMemoryProvider } from './Memory.js'
+import { NetworkProviderProps } from './Props.js'
 
 const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const [initialized, setInitialized] = useState(false)

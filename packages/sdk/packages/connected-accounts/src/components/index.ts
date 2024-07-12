@@ -1,2 +1,2 @@
-export * from './ConnectedAccountsFlexbox'
-export * from './wallet'
+export * from './ConnectedAccountsFlexbox.js'
+export * from './wallet/index.js'

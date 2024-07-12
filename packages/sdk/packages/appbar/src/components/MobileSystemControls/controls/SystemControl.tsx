@@ -3,7 +3,7 @@ import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { useState } from 'react'
 
-import { SystemControlsType } from '../SystemControlsType'
+import { SystemControlsType } from '../SystemControlsType.js'
 
 interface SystemControlProps extends FlexBoxProps {
   controlElement: React.ReactNode

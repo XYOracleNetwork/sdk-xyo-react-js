@@ -1,2 +1,2 @@
-export * from './ElevationQuadkeyMap'
-export * from './ElevationQuadkeyMapSettings'
+export * from './ElevationQuadkeyMap.js'
+export * from './ElevationQuadkeyMapSettings.js'

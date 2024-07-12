@@ -1,3 +1,3 @@
-export * from './Button'
-export * from './shared'
-export * from './styled'
+export * from './Button/index.js'
+export * from './shared/index.js'
+export * from './styled/index.js'

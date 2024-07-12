@@ -2,7 +2,7 @@ import { TableCell, useTheme } from '@mui/material'
 import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 
-import { ConnectedWalletTableCellProps } from './lib'
+import { ConnectedWalletTableCellProps } from './lib/index.js'
 
 export const ConnectedWalletsWalletTableCell: React.FC<ConnectedWalletTableCellProps> = ({ icon, walletName, tableCellProps }) => {
   const theme = useTheme()

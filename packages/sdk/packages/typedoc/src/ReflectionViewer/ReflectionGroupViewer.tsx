@@ -4,10 +4,10 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import type { ContainerReflection, ReflectionFlags, ReflectionGroup } from 'typedoc'
 
-import { JsonViewerButton } from '../JsonViewerButton'
-import { resolveChildren } from '../resolveChildren'
-import { ReflectionViewer } from './ReflectionViewer'
-import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps'
+import { JsonViewerButton } from '../JsonViewerButton.js'
+import { resolveChildren } from '../resolveChildren.js'
+import { ReflectionViewer } from './ReflectionViewer.js'
+import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps.js'
 
 export interface ReflectionGroupViewerProps extends ReflectionViewerProps<ContainerReflection> {
   autoScroll?: boolean

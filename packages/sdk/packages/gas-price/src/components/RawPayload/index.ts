@@ -1,1 +1,1 @@
-export * from './ToggleRawPayloadBox'
+export * from './ToggleRawPayloadBox.js'

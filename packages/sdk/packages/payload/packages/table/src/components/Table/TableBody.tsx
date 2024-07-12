@@ -3,8 +3,8 @@ import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
-import { PayloadTableRow } from './TableRow'
-import { PayloadTableBodyProps } from './types'
+import { PayloadTableRow } from './TableRow.js'
+import { PayloadTableBodyProps } from './types/index.js'
 
 export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   children,

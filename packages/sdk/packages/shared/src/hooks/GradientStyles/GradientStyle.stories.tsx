@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
-import { useGradientStyles } from './GradientStyles'
+import { useGradientStyles } from './GradientStyles.js'
 
 const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
   const { classes } = useGradientStyles()

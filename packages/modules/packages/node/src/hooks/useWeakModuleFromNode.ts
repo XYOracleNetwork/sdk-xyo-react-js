@@ -3,9 +3,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { useWeakModuleFilterOptions } from './useWeakModuleFilterOptions'
-import { useWeakNode } from './useWeakNode'
-import { useWeakModuleFromNodeConfigLogger, WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig'
+import { useWeakModuleFilterOptions } from './useWeakModuleFilterOptions.js'
+import { useWeakNode } from './useWeakNode.js'
+import { useWeakModuleFromNodeConfigLogger, WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.js'
 
 export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
   nameOrAddressOrInstance: string | (T extends ModuleInstance ? T : ModuleInstance) | undefined = undefined,

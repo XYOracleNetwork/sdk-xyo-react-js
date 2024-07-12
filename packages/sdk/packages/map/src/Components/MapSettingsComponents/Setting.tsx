@@ -1,6 +1,6 @@
 import { FormControlLabel, Switch, SwitchProps } from '@mui/material'
 
-import { useMapSettings } from '../../Contexts'
+import { useMapSettings } from '../../Contexts/index.js'
 
 export interface MapSettingSwitchProps extends SwitchProps {
   developerMode?: boolean

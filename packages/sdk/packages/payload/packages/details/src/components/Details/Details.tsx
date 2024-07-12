@@ -2,9 +2,9 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { forwardRef } from 'react'
 
-import { PayloadDataDetails } from './DataDetails'
-import { PayloadJsonDetails } from './JsonDetails'
-import { PayloadValidationDetails } from './ValidationDetails'
+import { PayloadDataDetails } from './DataDetails.js'
+import { PayloadJsonDetails } from './JsonDetails.js'
+import { PayloadValidationDetails } from './ValidationDetails/index.js'
 
 export type WithPaper<T> = T & { paper: true }
 export type WithoutPaper<T> = T & { paper?: false }

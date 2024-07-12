@@ -1,2 +1,2 @@
-export * from './Select'
-export * from './SelectBar'
+export * from './Select.js'
+export * from './SelectBar.js'

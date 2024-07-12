@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import { ReactElement } from 'react'
 
-import { useGradientStyles, useIsMobile } from '../../hooks'
+import { useGradientStyles, useIsMobile } from '../../hooks/index.js'
 
 export interface BasicHeroProps extends FlexBoxProps {
   backgroundColor?: string

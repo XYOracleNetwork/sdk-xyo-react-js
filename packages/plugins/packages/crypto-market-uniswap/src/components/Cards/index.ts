@@ -1,1 +1,1 @@
-export * from './CardView'
+export * from './CardView.js'

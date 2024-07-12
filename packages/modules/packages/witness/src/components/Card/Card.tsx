@@ -4,9 +4,9 @@ import { ModuleRenderProps } from '@xyo-network/react-module'
 import { WitnessInstance } from '@xyo-network/witness-model'
 import { useState } from 'react'
 
-import { WitnessCardActions } from './CardActions'
-import { WitnessCardContent } from './CardContent'
-import { WitnessCardHeader } from './CardHeader'
+import { WitnessCardActions } from './CardActions.js'
+import { WitnessCardContent } from './CardContent.js'
+import { WitnessCardHeader } from './CardHeader.js'
 
 export const WitnessCard: React.FC<CardProps & ModuleRenderProps<WitnessInstance>> = ({ children, mod, ...props }) => {
   const [retry, setRetry] = useState(-1)

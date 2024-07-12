@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import { TypographyExProps, useGetTokenData } from '@xyo-network/react-shared'
 
-import { GasPriceHeadingTypography } from './Heading'
+import { GasPriceHeadingTypography } from './Heading.js'
 
 export interface GasPriceHeaderTypographyProps extends TypographyExProps, WithChildren {
   heading?: string

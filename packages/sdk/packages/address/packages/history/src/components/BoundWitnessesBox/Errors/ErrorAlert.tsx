@@ -1,6 +1,6 @@
 import { ErrorAlert } from '@xyo-network/react-error'
 
-import { usePayloadHashSelectionHistory } from '../../../hooks'
+import { usePayloadHashSelectionHistory } from '../../../hooks/index.js'
 
 export const BWErrorAlert: React.FC = () => {
   const { error } = usePayloadHashSelectionHistory()

@@ -1,12 +1,10 @@
 import { Theme } from '@mui/material'
 import { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
 import { ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChartOptions } from 'chart.js'
-// eslint-disable-next-line import/no-unresolved
-import { _DeepPartialObject } from 'chart.js/dist/types/utils'
 
-import { DataLineStyles } from './DataLineStyles'
-import { DataPointStyles } from './DataPointStyles'
-import { SourcePayloads } from './SourcePayloads'
+import { DataLineStyles } from './DataLineStyles.js'
+import { DataPointStyles } from './DataPointStyles.js'
+import { SourcePayloads } from './SourcePayloads.js'
 
 interface SourcePayloadConfig {
   fetch: boolean
@@ -103,16 +101,16 @@ export class ForecastLineChartConfigBuilder {
     this.options = { ...this.options }
   }
 
-  protected generateLegend(): _DeepPartialObject<LegendOptions<'line'>> {
+  protected generateLegend() {
     return {
       labels: {
         pointStyle: 'circle',
         usePointStyle: true,
       },
-    }
+    } as LegendOptions<'line'>
   }
 
-  protected generateScales(): _DeepPartialObject<ScaleChartOptions<'line'>['scales']> {
+  protected generateScales() {
     return {
       x: {
         grid: {
@@ -128,7 +126,7 @@ export class ForecastLineChartConfigBuilder {
           color: this.themeColors?.gridColor,
         },
       },
-    }
+    } as unknown as ScaleChartOptions<'line'>['scales']
   }
 
   protected generateTitle() {

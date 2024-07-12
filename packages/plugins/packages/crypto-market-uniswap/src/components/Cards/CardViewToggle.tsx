@@ -2,7 +2,7 @@ import { Button, ButtonGroup } from '@mui/material'
 import { FlexBoxProps, FlexGrowRow } from '@xylabs/react-flexbox'
 import { Dispatch, SetStateAction } from 'react'
 
-import { CardViewType } from './CardViewType'
+import { CardViewType } from './CardViewType.js'
 
 interface CardViewToggleProps extends FlexBoxProps {
   cardViewStyle: CardViewType

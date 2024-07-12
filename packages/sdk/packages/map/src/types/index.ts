@@ -1,1 +1,1 @@
-export * from './NetworkLocationAnswerBase'
+export * from './NetworkLocationAnswerBase.js'

@@ -1,1 +1,1 @@
-export * from './useEthgasstationTransformer'
+export * from './useEthgasstationTransformer.js'

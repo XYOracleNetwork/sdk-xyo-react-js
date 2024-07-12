@@ -1,1 +1,1 @@
-export * from './ThrownErrorBoundary'
+export * from './ThrownErrorBoundary.js'

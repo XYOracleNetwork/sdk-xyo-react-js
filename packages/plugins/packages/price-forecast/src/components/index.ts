@@ -1,1 +1,1 @@
-export * from './DetailsBox'
+export * from './DetailsBox.js'

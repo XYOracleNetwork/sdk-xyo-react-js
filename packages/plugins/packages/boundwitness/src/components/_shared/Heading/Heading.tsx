@@ -3,7 +3,7 @@ import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import { useRef } from 'react'
 
-import { BWHeadingProps, HeadingTextSizes } from './HeadingProps'
+import { BWHeadingProps, HeadingTextSizes } from './HeadingProps.js'
 
 export const BWHeading: React.FC<BWHeadingProps> = ({
   AdornmentEnd,

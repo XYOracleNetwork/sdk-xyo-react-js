@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-import { MapBoxInstanceState } from './State'
+import { MapBoxInstanceState } from './State.js'
 
 const MapBoxInstanceContext = createContext<MapBoxInstanceState>({})
 

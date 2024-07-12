@@ -6,9 +6,9 @@ import { useWalletContext } from '@xyo-network/react-wallet'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useEffect, useState } from 'react'
 
-import { BuildStandardNodes } from '../../lib'
-import { StandardNodesContext } from './Context'
-import { StandardNodesState } from './State'
+import { BuildStandardNodes } from '../../lib/index.js'
+import { StandardNodesContext } from './Context.js'
+import { StandardNodesState } from './State.js'
 
 export interface StandardNodesProviderProps extends WithChildren {
   defaultRemoteNodes?: StandardNodesState['nodes']

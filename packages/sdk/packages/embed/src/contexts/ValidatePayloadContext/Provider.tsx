@@ -4,8 +4,8 @@ import { WithChildren } from '@xylabs/react-shared'
 import { SchemaCache, SchemaNameToValidatorMap } from '@xyo-network/schema-cache'
 import { useState } from 'react'
 
-import { useResolvePayload } from '../ResolvePayloadContext'
-import { ValidatePayloadContext } from './Context'
+import { useResolvePayload } from '../ResolvePayloadContext/index.js'
+import { ValidatePayloadContext } from './Context.js'
 
 export interface ValidatePayloadProviderProps {
   // Opt-in flag to validate payloads for the plugin(s)

@@ -1,1 +1,1 @@
-export * from './CryptoAssetRenderer'
+export * from './CryptoAssetRenderer.js'

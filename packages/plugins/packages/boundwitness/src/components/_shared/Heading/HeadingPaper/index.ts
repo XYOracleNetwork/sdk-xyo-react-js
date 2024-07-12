@@ -1,1 +1,1 @@
-export * from './HeadingPaper'
+export * from './HeadingPaper.js'

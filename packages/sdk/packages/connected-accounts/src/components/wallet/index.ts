@@ -1,2 +1,2 @@
-export * from './dialogs'
-export * from './table'
+export * from './dialogs/index.js'
+export * from './table/index.js'

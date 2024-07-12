@@ -4,8 +4,8 @@ import { useNetwork } from '@xyo-network/react-network'
 import { useWeakNodeFromNode } from '@xyo-network/react-node'
 import { useState } from 'react'
 
-import { useStandardNodes } from '../contexts'
-import { useActiveNodeAddress } from '../hooks'
+import { useStandardNodes } from '../contexts/index.js'
+import { useActiveNodeAddress } from '../hooks/index.js'
 
 export interface ActiveStandardNodeProps extends WithChildren {
   nodeNameOrAddress?: string

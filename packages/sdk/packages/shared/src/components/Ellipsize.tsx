@@ -2,7 +2,7 @@ import { Box, BoxProps, styled, Typography, TypographyProps, TypographyTypeMap }
 import { WithChildren } from '@xylabs/react-shared'
 import { forwardRef, useCallback, useState } from 'react'
 
-import { useShareForwardedRef } from '../hooks'
+import { useShareForwardedRef } from '../hooks/index.js'
 
 /**
  * Heavily inspired by - https://stackoverflow.com/a/30362531/2803259

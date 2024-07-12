@@ -1,3 +1,3 @@
-export * from './ArchivistParent'
-export * from './ArchivistParents'
-export * from './Stats'
+export * from './ArchivistParent.js'
+export * from './ArchivistParents.js'
+export * from './Stats/index.js'

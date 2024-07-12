@@ -1,2 +1,2 @@
-export * from './SystemControl'
-export * from './SystemControlText'
+export * from './SystemControl.js'
+export * from './SystemControlText.js'

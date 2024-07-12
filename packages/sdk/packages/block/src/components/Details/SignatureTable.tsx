@@ -5,7 +5,7 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/hash'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 
-import { BlockSignatureTableRow } from './SignatureTableRow'
+import { BlockSignatureTableRow } from './SignatureTableRow.js'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockSignatureTableProps extends TableProps {

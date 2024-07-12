@@ -1,8 +1,8 @@
 import { useMediaQuery, useTheme } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 
-import { ColorGradientLegendProps } from '../Colors'
-import { ColorGradientLegend } from './Legends'
+import { ColorGradientLegendProps } from '../Colors/index.js'
+import { ColorGradientLegend } from './Legends/index.js'
 
 const AnimatedHeatMapLegend: React.FC<ColorGradientLegendProps> = ({ ...legendProps }) => {
   const { startColor, endColor, startLabel, endLabel, heading, textColor } = legendProps

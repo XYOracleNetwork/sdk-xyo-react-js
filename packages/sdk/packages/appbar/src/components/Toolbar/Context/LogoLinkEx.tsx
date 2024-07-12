@@ -2,7 +2,7 @@ import { Typography, useTheme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx, LinkExProps } from '@xylabs/react-link'
 
-import { Logo } from './Logo'
+import { Logo } from './Logo.js'
 
 export interface LogoLinkExProps extends LinkExProps {
   version?: boolean | string

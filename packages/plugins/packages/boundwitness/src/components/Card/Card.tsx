@@ -2,8 +2,8 @@ import { Card, CardProps } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Payload } from '@xyo-network/payload-model'
 
-import { BoundWitnessCardContent } from './CardContent'
-import { BoundWitnessCardHeader } from './CardHeader'
+import { BoundWitnessCardContent } from './CardContent/index.js'
+import { BoundWitnessCardHeader } from './CardHeader/index.js'
 
 export interface BoundWitnessCardProps extends CardProps {
   active?: boolean

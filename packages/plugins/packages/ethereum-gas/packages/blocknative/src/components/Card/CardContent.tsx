@@ -6,7 +6,7 @@ import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
-import { useBlocknativeTransformer } from '../hooks'
+import { useBlocknativeTransformer } from '../hooks/index.js'
 
 export const BlocknativeGasPriceCardContent = forwardRef<HTMLDivElement, Omit<PayloadRenderProps & CardContentProps, 'ref'>>(
   ({ payload, ...props }, ref) => {

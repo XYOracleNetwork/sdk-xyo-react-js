@@ -4,7 +4,7 @@ import { useState } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'
 
-import { useCollapsible } from '../../contexts'
+import { useCollapsible } from '../../contexts/index.js'
 
 export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
   const { collapse, setCollapse, setCollapseEnd } = useCollapsible()

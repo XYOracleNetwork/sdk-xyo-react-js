@@ -1,7 +1,7 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { NodeInstance } from '@xyo-network/node-model'
 
-import { useWeakNodeDescription } from '../hooks'
+import { useWeakNodeDescription } from '../hooks/index.js'
 
 export interface NodeDescriptionBoxProps extends FlexBoxProps {
   node?: string | WeakRef<NodeInstance>

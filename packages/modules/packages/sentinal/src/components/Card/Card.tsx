@@ -5,9 +5,9 @@ import { ModuleRenderProps } from '@xyo-network/react-module'
 import { SentinelInstance } from '@xyo-network/sentinel-model'
 import { useState } from 'react'
 
-import { SentinelCardActions } from './CardActions'
-import { SentinelCardContent } from './CardContent'
-import { SentinelCardHeader } from './CardHeader'
+import { SentinelCardActions } from './CardActions.js'
+import { SentinelCardContent } from './CardContent.js'
+import { SentinelCardHeader } from './CardHeader.js'
 
 export type SentinelCardProps = CardProps &
   ModuleRenderProps<SentinelInstance> & {

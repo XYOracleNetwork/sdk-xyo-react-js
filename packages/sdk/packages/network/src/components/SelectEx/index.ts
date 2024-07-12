@@ -1,1 +1,1 @@
-export * from './NetworkSelectEx'
+export * from './NetworkSelectEx.js'

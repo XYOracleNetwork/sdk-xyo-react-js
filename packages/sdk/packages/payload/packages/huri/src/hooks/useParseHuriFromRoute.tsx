@@ -1,6 +1,6 @@
 import { useParams, useSearchParams } from 'react-router-dom'
 
-import { useBuildHuri } from './useBuildHuri'
+import { useBuildHuri } from './useBuildHuri.js'
 
 export type RouteOptions = 'routeParam' | 'searchParam' | 'any'
 

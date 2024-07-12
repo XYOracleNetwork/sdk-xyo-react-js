@@ -1,7 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { LoadResult } from '@xyo-network/react-shared'
 
-import { useResolvePayload } from '../contexts'
+import { useResolvePayload } from '../contexts/index.js'
 
 export const EmbedResolver: React.FC<WithChildren> = ({ children }) => {
   const { payload, notFound, huriError } = useResolvePayload()

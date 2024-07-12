@@ -1,1 +1,1 @@
-export * from './ConnectedWalletTableCellProps'
+export * from './ConnectedWalletTableCellProps.js'

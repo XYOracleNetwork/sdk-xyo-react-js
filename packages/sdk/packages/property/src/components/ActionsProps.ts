@@ -1,6 +1,6 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 
-import { PropertyAction } from './Action'
+import { PropertyAction } from './Action.js'
 
 export interface PropertyActionsProps extends FlexBoxProps {
   actions?: PropertyAction[]

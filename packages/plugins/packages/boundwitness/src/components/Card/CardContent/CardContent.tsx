@@ -3,9 +3,9 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Payload } from '@xyo-network/payload-model'
 import { forwardRef } from 'react'
 
-import { AddressAvatarGroup } from './AddressAvatarGroup'
-import { CardColumnsFlex, CardColumnTitleH2, CardContentFlex } from './layout'
-import { SchemaAvatarGroup } from './SchemaAvatarGroup'
+import { AddressAvatarGroup } from './AddressAvatarGroup.js'
+import { CardColumnsFlex, CardColumnTitleH2, CardContentFlex } from './layout/index.js'
+import { SchemaAvatarGroup } from './SchemaAvatarGroup.js'
 
 export interface BoundWitnessCardContentProps extends CardContentProps {
   active?: boolean

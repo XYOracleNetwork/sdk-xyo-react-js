@@ -1,1 +1,1 @@
-export * from './GasPriceWitnessPayload'
+export * from './GasPriceWitnessPayload.js'

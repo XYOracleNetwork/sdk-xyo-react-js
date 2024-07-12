@@ -7,8 +7,8 @@ import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
-import { useBlocknativeTransformer } from '../../hooks'
-import { RenderTitle } from '../../lib'
+import { useBlocknativeTransformer } from '../../hooks/index.js'
+import { RenderTitle } from '../../lib/index.js'
 
 export const BlocknativeGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,6 +1,6 @@
-import { EventData, GeolocateControl, Map, MapLayerMouseEvent, MapLayerTouchEvent, NavigationControl } from 'mapbox-gl'
+import { GeolocateControl, Map, MapEvent, MapMouseEvent, MapTouchEvent, NavigationControl } from 'mapbox-gl'
 
-import { MapSetting } from '../Settings'
+import { MapSetting } from '../Settings/index.js'
 
 export interface MapSettingsConfig {
   debugLayerName?: string
@@ -18,7 +18,7 @@ export interface MapSettingsConfig {
 export class MapSettings {
   static geoLocateControl: GeolocateControl | undefined
   static mapListeners = {
-    logData: (ev?: MapLayerMouseEvent | (MapLayerTouchEvent & EventData), map?: Map) => {
+    logData: (ev?: MapMouseEvent | MapTouchEvent, map?: Map) => {
       const target = map || ev?.target
       if (target) {
         console.log('zoom', target.getZoom())
@@ -53,7 +53,7 @@ export class MapSettings {
   }
 
   static toggleDebugLogging(value: boolean | undefined, map: Map) {
-    const debugEvents = ['resize', 'zoomend', 'dragend']
+    const debugEvents: MapEvent[] = ['resize', 'zoomend', 'dragend']
     if (value) {
       // initial values
       this.mapListeners.logData(undefined, map)

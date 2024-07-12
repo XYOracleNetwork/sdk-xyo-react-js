@@ -1,7 +1,7 @@
 import { AvatarProps, CardHeader, CardHeaderProps, Typography } from '@mui/material'
 import { ReactNode } from 'react'
 
-import { ThemeTokenAvatar } from '../ThemeTokenAvatar'
+import { ThemeTokenAvatar } from '../ThemeTokenAvatar/index.js'
 
 export interface TokenSummaryProps extends CardHeaderProps {
   icon?: string

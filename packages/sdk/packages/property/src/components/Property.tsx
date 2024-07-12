@@ -3,11 +3,11 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import { SizeProp } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
-import { PropertyActionsMenu } from './ActionsMenu'
-import { IdenticonCorner } from './IdenticonCorner'
-import { PropertyBoxProps, PropertyPaperProps, PropertyProps } from './Props'
-import { PropertyTitle } from './Title'
-import { PropertyValue } from './Value'
+import { PropertyActionsMenu } from './ActionsMenu.js'
+import { IdenticonCorner } from './IdenticonCorner.js'
+import { PropertyBoxProps, PropertyPaperProps, PropertyProps } from './Props.js'
+import { PropertyTitle } from './Title.js'
+import { PropertyValue } from './Value.js'
 
 const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
   ({ titleProps, title, value, children, size = 'medium', tip, actions, required, badge = false, ...props }, ref) => {

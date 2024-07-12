@@ -1,7 +1,7 @@
 import { styled, TableFooter, TableFooterProps } from '@mui/material'
 import { PropsWithChildren } from 'react'
 
-import { TableExVariants } from './types'
+import { TableExVariants } from './types/index.js'
 
 const TableFooterExRoot = styled(TableFooter, {
   name: 'TableFooterEx',

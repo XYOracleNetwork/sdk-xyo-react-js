@@ -3,7 +3,7 @@ import { WithChildren } from '@xylabs/react-shared'
 import { ModuleError } from '@xyo-network/payload-model'
 import { ErrorAlert, ErrorRender } from '@xyo-network/react-error'
 
-import { EmbedErrorCard } from './EmbedErrorCard'
+import { EmbedErrorCard } from './EmbedErrorCard.js'
 
 interface EmbedCardApiErrorRendererProps extends CardProps {
   xyoError?: ModuleError

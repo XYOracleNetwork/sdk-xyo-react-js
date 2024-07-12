@@ -1,2 +1,2 @@
-export * from './DarkModeIconButton'
-export * from './Developer'
+export * from './DarkModeIconButton.js'
+export * from './Developer.js'

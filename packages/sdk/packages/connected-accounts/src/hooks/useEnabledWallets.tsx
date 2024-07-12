@@ -1,7 +1,7 @@
 import { useWalletDiscovery } from '@xylabs/react-crypto'
 import { useMemo, useSyncExternalStore } from 'react'
 
-import { EnabledEthWalletConnections, EnabledEthWalletsState, EnabledWalletsSavedState } from '../classes'
+import { EnabledEthWalletConnections, EnabledEthWalletsState, EnabledWalletsSavedState } from '../classes/index.js'
 
 let enabledEthWallets: EnabledEthWalletConnections | undefined
 

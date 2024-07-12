@@ -3,8 +3,8 @@ import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 // eslint-disable-next-line import/no-internal-modules
 import { FaDiscord } from 'react-icons/fa'
 
-import { FooterLink } from '../Link'
-import { FooterLinks } from '../Links'
+import { FooterLink } from '../Link.js'
+import { FooterLinks } from '../Links.js'
 
 export const SocialLinks: React.FC<FlexBoxProps> = (props) => {
   return (

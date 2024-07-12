@@ -1,7 +1,7 @@
 import { Button, DialogActions, DialogActionsProps, DialogProps } from '@mui/material'
 import { MouseEvent } from 'react'
 
-import { useSeedPhrase } from '../../../../contexts'
+import { useSeedPhrase } from '../../../../contexts/index.js'
 
 interface DialogActionButtonsProps extends DialogActionsProps {
   onClose?: DialogProps['onClose']

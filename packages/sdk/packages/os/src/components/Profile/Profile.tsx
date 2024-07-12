@@ -2,7 +2,7 @@ import { Avatar, Divider, Paper, PaperProps, Typography, useTheme } from '@mui/m
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { format, subHours } from 'date-fns'
 
-import { StatsModal } from './StatsModal'
+import { StatsModal } from './StatsModal.js'
 export interface XyOsProfileProps extends PaperProps {
   pfp: string
   xns: string

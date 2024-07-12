@@ -1,7 +1,7 @@
 import { MapLayer, SymbolLayerBuilder } from '@xyo-network/react-map'
 
-import { ElevationExtrusionLayerConfig, ElevationSymbolLayerConfig } from '../configs'
-import { FillExtrusionLayerBuilder } from '../FillExtrusionLayer'
+import { ElevationExtrusionLayerConfig, ElevationSymbolLayerConfig } from '../configs/index.js'
+import { FillExtrusionLayerBuilder } from '../FillExtrusionLayer.js'
 
 export const ExtrusionLayerBuilderConstants = {
   ElevationDebugLayerId: 'elevation-debug-id',

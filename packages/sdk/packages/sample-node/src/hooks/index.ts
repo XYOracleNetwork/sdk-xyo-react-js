@@ -1,1 +1,1 @@
-export * from './useBuildSampleNode'
+export * from './useBuildSampleNode.js'

@@ -3,7 +3,7 @@ import { IconButton, List, SwipeableDrawer } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { useEffect, useState } from 'react'
 
-import { MenuListItemContainer } from './MenuListItem'
+import { MenuListItemContainer } from './MenuListItem/index.js'
 
 export interface SiteMenuProps extends FlexBoxProps {
   hideSettingsMenuItem?: boolean

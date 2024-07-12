@@ -3,7 +3,7 @@ import { Feature } from 'geojson'
 import { MapboxOptions } from 'mapbox-gl'
 import { ReactNode } from 'react'
 
-import { MapLayer } from '../Layers'
+import { MapLayer } from '../Layers/index.js'
 
 export interface MapboxFlexBoxProps extends FlexBoxProps {
   accessToken: string

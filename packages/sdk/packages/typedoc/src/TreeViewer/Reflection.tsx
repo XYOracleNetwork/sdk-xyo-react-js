@@ -5,8 +5,8 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useNavigate } from 'react-router-dom'
 import type { ContainerReflection, Reflection } from 'typedoc'
 
-import { ReflectionLookup } from '../ReflectionLookup'
-import { FlagFilter } from '../ReflectionViewer'
+import { ReflectionLookup } from '../ReflectionLookup.js'
+import { FlagFilter } from '../ReflectionViewer/index.js'
 
 export interface ReflectionTreeViewerProps<T extends Reflection = ContainerReflection> extends FlexBoxProps {
   hiddenFlags?: FlagFilter[]

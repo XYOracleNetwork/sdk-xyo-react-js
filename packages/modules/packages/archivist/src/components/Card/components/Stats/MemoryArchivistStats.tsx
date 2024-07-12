@@ -5,7 +5,7 @@ import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
-import { ArchivistStats } from './ArchivistStats'
+import { ArchivistStats } from './ArchivistStats.js'
 
 export interface MemoryArchivistStatsProps {
   archivist?: ArchivistInstance

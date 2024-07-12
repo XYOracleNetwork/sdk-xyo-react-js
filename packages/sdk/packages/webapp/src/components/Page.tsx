@@ -6,8 +6,8 @@ import { WithChildren } from '@xylabs/react-shared'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 
-import { WebAppBody, WebAppBodyProps } from './Body'
-import { fixedWrap, scrollableWrap } from './lib'
+import { WebAppBody, WebAppBodyProps } from './Body.js'
+import { fixedWrap, scrollableWrap } from './lib/index.js'
 
 const WebAppPageRoot = styled(FlexGrowCol, {
   name: 'WebAppPage',

@@ -5,7 +5,7 @@ import { ArchivistInstance, ArchivistModule } from '@xyo-network/archivist-model
 import { Payload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
-import { PayloadContext } from './Context'
+import { PayloadContext } from './Context.js'
 
 export interface PayloadProviderProps {
   /** @deprecated - no longer used */

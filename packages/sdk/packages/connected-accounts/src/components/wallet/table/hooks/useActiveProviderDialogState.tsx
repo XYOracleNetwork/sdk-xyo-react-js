@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react'
 
-import { ActiveProvider } from '../../lib'
+import { ActiveProvider } from '../../lib/index.js'
 
 export const useActiveProviderDialogState = (
   setActiveProvider: Dispatch<SetStateAction<ActiveProvider | undefined>>,

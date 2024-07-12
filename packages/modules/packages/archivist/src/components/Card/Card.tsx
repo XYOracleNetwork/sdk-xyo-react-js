@@ -2,8 +2,8 @@ import { Card, CardProps } from '@mui/material'
 import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { ModuleCardActions, ModuleRenderProps } from '@xyo-network/react-module'
 
-import { ArchivistCardContent } from './CardContent'
-import { ArchivistCardHeader } from './CardHeader'
+import { ArchivistCardContent } from './CardContent.js'
+import { ArchivistCardHeader } from './CardHeader.js'
 
 export const ArchivistCard: React.FC<CardProps & ModuleRenderProps<ArchivistInstance>> = ({ children, mod, ...props }) => {
   return (

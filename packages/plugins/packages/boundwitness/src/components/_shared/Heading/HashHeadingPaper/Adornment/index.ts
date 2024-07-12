@@ -1,3 +1,3 @@
-export * from './BackPaperAdornment'
-export * from './PaperAdornment'
-export * from './PaperAdornmentIconButton'
+export * from './BackPaperAdornment.js'
+export * from './PaperAdornment.js'
+export * from './PaperAdornmentIconButton.js'

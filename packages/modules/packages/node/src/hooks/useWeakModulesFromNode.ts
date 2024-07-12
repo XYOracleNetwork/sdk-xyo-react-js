@@ -2,9 +2,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig'
-import { useModuleFilterOptions } from './useModuleFilterOptions'
-import { useNode } from './useNode'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.js'
+import { useModuleFilterOptions } from './useModuleFilterOptions.js'
+import { useNode } from './useNode.js'
 
 export const useWeakModulesFromNode = (
   filter?: ModuleFilter,

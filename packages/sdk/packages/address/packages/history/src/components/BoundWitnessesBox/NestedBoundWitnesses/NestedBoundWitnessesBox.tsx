@@ -6,9 +6,9 @@ import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import { EventNoun, EventVerb, useEvent } from '@xyo-network/react-event'
 import { Fragment } from 'react'
 
-import { usePayloadHashSelectionHistory } from '../../../hooks'
-import { useBoundWitnessClickHandler } from '../hooks'
-import { GlowingDiv } from '../layout'
+import { usePayloadHashSelectionHistory } from '../../../hooks/index.js'
+import { useBoundWitnessClickHandler } from '../hooks/index.js'
+import { GlowingDiv } from '../layout/index.js'
 
 export type NestedBoundWitnessesProps = FlexBoxProps
 

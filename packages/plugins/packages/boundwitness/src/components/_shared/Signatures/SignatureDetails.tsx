@@ -1,7 +1,7 @@
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 
-import { BoundWitnessSignatureTable } from './SignatureTable'
+import { BoundWitnessSignatureTable } from './SignatureTable.js'
 
 export type BoundWitnessSignatureDetailsProps = PropertyGroupProps & {
   block?: BoundWitness

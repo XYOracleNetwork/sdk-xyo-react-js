@@ -4,7 +4,7 @@ import { usePayloadHashes } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { useActiveBoundWitness } from '../../hooks'
+import { useActiveBoundWitness } from '../../hooks/index.js'
 import { AddressHistory } from '../AddressHistory'
 import { BoundWitnessesBox } from '../BoundWitnessesBox'
 import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories'

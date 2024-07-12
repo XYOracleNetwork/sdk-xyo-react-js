@@ -1,2 +1,2 @@
-export * from './useProvidedNode'
-export * from './useWeakProvidedNode'
+export * from './useProvidedNode.js'
+export * from './useWeakProvidedNode.js'

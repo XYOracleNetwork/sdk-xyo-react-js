@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 
-import { useCollapsible } from '../../../contexts'
-import { MenuListItemProps } from '../MenuListItem'
+import { useCollapsible } from '../../../contexts/index.js'
+import { MenuListItemProps } from '../MenuListItem/index.js'
 
 export type DefaultSiteMenuListItemProps = Pick<MenuListItemProps, 'collapseEnd' | 'dense' | 'iconOnly' | 'sx'>
 

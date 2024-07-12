@@ -1,4 +1,4 @@
-import { defaultNetworkConfigs } from './default'
+import { defaultNetworkConfigs } from './default.js'
 
 export const findNetworkConfig = (slug: string, configs = defaultNetworkConfigs) => {
   return configs.find((item) => {

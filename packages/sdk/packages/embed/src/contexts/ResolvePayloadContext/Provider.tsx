@@ -5,9 +5,9 @@ import { Huri } from '@xyo-network/huri'
 import { ModuleError, ModuleErrorSchema, Payload } from '@xyo-network/payload-model'
 import { useEffect, useState } from 'react'
 
-import { useRefreshPayload } from '../RefreshPayloadContext'
-import { ResolvePayloadContext } from './Context'
-import { ResolvePayloadState } from './State'
+import { useRefreshPayload } from '../RefreshPayloadContext/index.js'
+import { ResolvePayloadContext } from './Context.js'
+import { ResolvePayloadState } from './State.js'
 
 export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided'>
 

@@ -2,7 +2,7 @@ import { Check, InfoOutlined } from '@mui/icons-material'
 import { Button, IconButton, TableCell, Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 
-import { ConnectedWalletTableCellProps } from './lib'
+import { ConnectedWalletTableCellProps } from './lib/index.js'
 
 export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletTableCellProps> = ({ connected, onConnect, onRevoke, tableCellProps }) => {
   return (

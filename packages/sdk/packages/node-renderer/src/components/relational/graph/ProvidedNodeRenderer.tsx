@@ -2,7 +2,7 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { NodeInstance } from '@xyo-network/node-model'
 import { useWeakProvidedNode } from '@xyo-network/react-node'
 
-import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.js'
 import { NodeRelationalGraphProps } from '../../lib'
 import { NodeRelationalGraphFlexBox } from './Graph'
 

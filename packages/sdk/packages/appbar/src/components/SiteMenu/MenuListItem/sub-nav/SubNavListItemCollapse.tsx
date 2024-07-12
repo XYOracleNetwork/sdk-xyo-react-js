@@ -1,7 +1,7 @@
 import { Collapse, CollapseProps, List } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 
-import { NavListItemProps } from '../../lib'
+import { NavListItemProps } from '../../lib/index.js'
 
 export interface SubNavListItemsCollapseProps extends WithChildren, CollapseProps {
   collapse?: boolean

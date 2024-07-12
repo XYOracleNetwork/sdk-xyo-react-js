@@ -1,9 +1,9 @@
 import { NodeInstance } from '@xyo-network/node-model'
 import { Payload } from '@xyo-network/payload-model'
 
-import { IndexedResultsConfig, PollingConfig } from '../../interfaces'
-import { createPollingFunction, DEFAULT_POLLING_CONFIG } from './createPollingFunction'
-import { divineIndexedResults } from './divineIndexedResults'
+import { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.js'
+import { createPollingFunction, DEFAULT_POLLING_CONFIG } from './createPollingFunction.js'
+import { divineIndexedResults } from './divineIndexedResults.js'
 
 /** Poll a set of diviners with various polling strategies  */
 export const createDivineIndexedResultsPollingFunction = <T extends Payload = Payload>(

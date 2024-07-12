@@ -1,1 +1,1 @@
-export * from './OpenElevationApiClient'
+export * from './OpenElevationApiClient/index.js'

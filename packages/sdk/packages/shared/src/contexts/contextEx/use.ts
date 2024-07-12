@@ -1,6 +1,6 @@
 import { Context, useContext } from 'react'
 
-import { ContextExState } from './State'
+import { ContextExState } from './State.js'
 
 export const useContextEx = <T extends ContextExState>(context: Context<T>, contextName: string, required = true) => {
   const { provided, ...props } = useContext(context)

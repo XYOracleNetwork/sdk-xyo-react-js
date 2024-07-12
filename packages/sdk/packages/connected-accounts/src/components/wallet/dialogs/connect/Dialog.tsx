@@ -1,9 +1,9 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
 
-import { ActiveProvider } from '../../lib'
-import { CheckboxFormControl } from './CheckboxFormControl'
-import { LinkedProvidersFlexbox } from './LinkedProvidersFlexbox'
-import { WalletPermissionsFlexbox } from './Permissions'
+import { ActiveProvider } from '../../lib/index.js'
+import { CheckboxFormControl } from './CheckboxFormControl.js'
+import { LinkedProvidersFlexbox } from './LinkedProvidersFlexbox.js'
+import { WalletPermissionsFlexbox } from './Permissions.js'
 
 export interface ConnectWalletDialogProps extends DialogProps {
   activeProvider?: ActiveProvider

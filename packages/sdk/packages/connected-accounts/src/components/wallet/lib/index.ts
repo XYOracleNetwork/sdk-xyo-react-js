@@ -1,2 +1,2 @@
-export * from './ActiveProvider'
-export * from './TableHeadData'
+export * from './ActiveProvider.js'
+export * from './TableHeadData.js'

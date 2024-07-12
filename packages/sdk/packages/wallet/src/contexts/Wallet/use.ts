@@ -2,7 +2,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { useContextEx, useProvided } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { WalletContext } from './Context'
+import { WalletContext } from './Context.js'
 
 export const useWalletContext = (required = true) => {
   return useContextEx(WalletContext, 'Wallet', required)

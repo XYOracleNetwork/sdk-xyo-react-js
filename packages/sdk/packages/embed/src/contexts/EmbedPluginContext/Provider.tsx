@@ -2,8 +2,8 @@ import { WithChildren } from '@xylabs/react-shared'
 import { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { useEffect, useState } from 'react'
 
-import { EmbedPluginContext } from './Context'
-import { EmbedPluginBase } from './State'
+import { EmbedPluginContext } from './Context.js'
+import { EmbedPluginBase } from './State.js'
 
 export type EmbedPluginProviderProps = EmbedPluginBase
 

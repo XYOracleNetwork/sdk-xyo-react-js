@@ -1,2 +1,2 @@
-export * from './ElevationProcessor'
-export * from './OpenElevation'
+export * from './ElevationProcessor.js'
+export * from './OpenElevation/index.js'

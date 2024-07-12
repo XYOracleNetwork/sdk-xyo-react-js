@@ -1,6 +1,6 @@
 import { RefObject } from 'react'
 
-import { useCustomEvent } from './useCustomEvent'
+import { useCustomEvent } from './useCustomEvent.js'
 
 export type EventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature' | 'schema'
 export type EventVerb = 'click' | 'favorite'

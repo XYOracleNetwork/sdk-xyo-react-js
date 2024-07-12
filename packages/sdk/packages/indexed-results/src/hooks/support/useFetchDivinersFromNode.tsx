@@ -2,7 +2,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 
-import { IndexedResultsConfig } from '../../interfaces'
+import { IndexedResultsConfig } from '../../interfaces/index.js'
 
 /** @deprecated - resolve modules on each polling attempt instead of once up front */
 export const useFetchDivinersFromNode = (config?: IndexedResultsConfig) => {

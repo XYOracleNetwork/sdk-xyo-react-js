@@ -4,8 +4,8 @@ import { GasPriceWitnessCardHeader } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { forwardRef } from 'react'
 
-import { useEthersTransformer } from '../hooks'
-import { RenderTitle } from '../lib'
+import { useEthersTransformer } from '../hooks/index.js'
+import { RenderTitle } from '../lib/index.js'
 
 export const EthersGasPriceCardHeader = forwardRef<HTMLDivElement, PayloadRenderProps & CardHeaderProps>(({ payload }, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasEthersPayload) : undefined

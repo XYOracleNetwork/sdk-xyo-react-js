@@ -1,2 +1,2 @@
-export * from './DescriptionQuickTip'
-export * from './Header'
+export * from './DescriptionQuickTip.js'
+export * from './Header.js'

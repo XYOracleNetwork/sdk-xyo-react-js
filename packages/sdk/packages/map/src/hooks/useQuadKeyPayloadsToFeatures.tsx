@@ -3,7 +3,7 @@ import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Geometry } from 'geojson'
 import { useEffect, useState } from 'react'
 
-import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types'
+import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.js'
 
 const quadKeyToFeature = ({ density, quadkey }: { density: number; quadkey: string }) => {
   const polygonFeature = new GeoJson(quadkey).polygonFeature()

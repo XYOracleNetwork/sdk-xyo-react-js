@@ -3,7 +3,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 import { useCallback } from 'react'
 
-import { IndexedResultsConfig, ProcessIndexedResults } from '../../interfaces'
+import { IndexedResultsConfig, ProcessIndexedResults } from '../../interfaces/index.js'
 
 export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResultsConfig): (() => Promise<Payload[] | undefined | null>) => {
   const [node] = useProvidedNode()

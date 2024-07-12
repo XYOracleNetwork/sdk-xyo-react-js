@@ -1,8 +1,15 @@
 import { Dialog, DialogContent, DialogProps, DialogTitle, FormLabel } from '@mui/material'
 
-import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts'
-import { SeedPhraseIconButton } from '../_shared'
-import { DialogActionButtons, NewPhraseTextField, OverwriteWarning, PhraseDialogActions, PhraseHeaderBox, SavedPhraseTextField } from './components'
+import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts/index.js'
+import { SeedPhraseIconButton } from '../_shared/index.js'
+import {
+  DialogActionButtons,
+  NewPhraseTextField,
+  OverwriteWarning,
+  PhraseDialogActions,
+  PhraseHeaderBox,
+  SavedPhraseTextField,
+} from './components/index.js'
 
 export interface SeedPhraseDialogProps extends DialogProps {
   changeSeedPhrase?: (value: string) => void

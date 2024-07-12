@@ -1,1 +1,1 @@
-export * from './GradientStyles'
+export * from './GradientStyles.js'

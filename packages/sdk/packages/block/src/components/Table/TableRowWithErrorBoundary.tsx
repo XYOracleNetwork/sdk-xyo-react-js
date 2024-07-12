@@ -3,7 +3,7 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHash } from '@xyo-network/react-shared'
 
-import { BlockTableRow, BlockTableRowProps } from './TableRow'
+import { BlockTableRow, BlockTableRowProps } from './TableRow.js'
 
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
   exploreDomain?: string

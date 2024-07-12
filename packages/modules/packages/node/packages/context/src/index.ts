@@ -1,3 +1,3 @@
-export * from './ModuleRepository'
-export * from './Node'
-export * from './NodeDrawerContext'
+export * from './ModuleRepository/index.js'
+export * from './Node/index.js'
+export * from './NodeDrawerContext/index.js'

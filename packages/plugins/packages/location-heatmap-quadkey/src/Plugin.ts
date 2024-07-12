@@ -1,7 +1,7 @@
 import { Payload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { QuadkeyHeatMapWithSettingsRenderer } from './components'
+import { QuadkeyHeatMapWithSettingsRenderer } from './components/index.js'
 
 export const QuadkeyHeatMapRenderPlugin: PayloadRenderPlugin = createPayloadRenderPlugin({
   canRender: (payload?: Payload) => payload?.schema === 'network.xyo.location.heatmap.quadkey.answer',

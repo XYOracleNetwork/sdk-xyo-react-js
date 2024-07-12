@@ -2,8 +2,8 @@ import { usePromise } from '@xylabs/react-promise'
 import { ModuleDescription, ModuleDescriptionPayload, ModuleDescriptionSchema } from '@xyo-network/module-model'
 import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
 
-import { useWeakNode } from './useWeakNode'
-import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig'
+import { useWeakNode } from './useWeakNode.js'
+import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.js'
 
 export const useWeakNodeDescription = (config?: WeakModuleFromNodeConfig | undefined): [ModuleDescription | undefined, Error | undefined] => {
   const [activeNode, nodeError] = useWeakNode(config)

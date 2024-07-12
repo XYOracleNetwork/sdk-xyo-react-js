@@ -1,2 +1,2 @@
-export * from './components'
-export * from './Plugin'
+export * from './components/index.js'
+export * from './Plugin.js'

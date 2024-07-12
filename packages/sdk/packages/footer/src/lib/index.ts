@@ -1,1 +1,1 @@
-export * from './copyrightLinkTitle'
+export * from './copyrightLinkTitle.js'

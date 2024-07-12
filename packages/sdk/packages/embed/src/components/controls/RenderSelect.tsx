@@ -1,8 +1,8 @@
 import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/react-select'
 
-import { useEmbedPluginState } from '../../contexts'
-import { EmbedFormControl } from './EmbedFormControl'
+import { useEmbedPluginState } from '../../contexts/index.js'
+import { EmbedFormControl } from './EmbedFormControl.js'
 
 const renderSelectId = 'render-select-id'
 const renderSelectLabel = 'Renderer'

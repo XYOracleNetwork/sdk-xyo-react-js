@@ -1,3 +1,3 @@
-export * from './AddressTableCell'
-export * from './EllipsisTableCell'
-export * from './HashTableCell'
+export * from './AddressTableCell.js'
+export * from './EllipsisTableCell.js'
+export * from './HashTableCell.js'

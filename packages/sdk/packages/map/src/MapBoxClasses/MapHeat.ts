@@ -3,10 +3,10 @@ import { delay } from '@xylabs/delay'
 import { forget } from '@xylabs/forget'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Polygon } from 'geojson'
-import { FitBoundsOptions, GeoJSONSource, GeoJSONSourceRaw, LngLatBounds, Map } from 'mapbox-gl'
+import { GeoJSONSource, LngLatBounds, Map, MapOptions, VectorSourceSpecification } from 'mapbox-gl'
 
-import { MapLayer } from '../Layers'
-import { MapBase, MapBaseConfig } from './MapBase'
+import { MapLayer } from '../Layers/index.js'
+import { MapBase, MapBaseConfig } from './MapBase.js'
 
 export class MapHeat extends MapBase<Polygon> {
   static animationStarted = false
@@ -17,7 +17,7 @@ export class MapHeat extends MapBase<Polygon> {
     this.config = config
   }
 
-  static initialMapPositioning(options: FitBoundsOptions, map: Map, features?: Feature<Polygon>[], initialBounds?: LngLatBounds) {
+  static initialMapPositioning(options: MapOptions['fitBoundsOptions'], map: Map, features?: Feature<Polygon>[], initialBounds?: LngLatBounds) {
     if (!features) {
       return
     }
@@ -145,7 +145,7 @@ export class MapHeat extends MapBase<Polygon> {
     await startAnimation()
   }
 
-  private static updateLayer(map: Map, layer: MapLayer, source: GeoJSONSourceRaw) {
+  private static updateLayer(map: Map, layer: MapLayer, source: VectorSourceSpecification) {
     const existingSource = map.getSource(layer.source as string) as GeoJSONSource
     if (existingSource && source.data) {
       existingSource.setData(source.data as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>)

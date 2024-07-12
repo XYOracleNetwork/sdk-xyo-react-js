@@ -1,7 +1,7 @@
 import { Toolbar, ToolbarProps } from '@mui/material'
 import { To } from 'react-router-dom'
 
-import { LogoLinkEx } from './LogoLinkEx'
+import { LogoLinkEx } from './LogoLinkEx.js'
 
 export interface ContextToolbarProps extends ToolbarProps {
   logoTo?: To

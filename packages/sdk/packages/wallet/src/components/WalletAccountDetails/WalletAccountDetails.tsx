@@ -5,7 +5,7 @@ import { NumberStatus } from '@xylabs/react-number-status'
 import { useNetwork } from '@xyo-network/react-network'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { useAccount } from '../../hooks'
+import { useAccount } from '../../hooks/index.js'
 
 export interface WalletAccountDetailsProps extends FlexBoxProps {
   account?: WalletInstance

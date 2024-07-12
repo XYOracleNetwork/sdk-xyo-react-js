@@ -1,4 +1,4 @@
-import { RootStorageArchivist } from './ModuleNames'
+import { RootStorageArchivist } from './ModuleNames.js'
 
 export const GlobalNodeOffsetPath = '15'
 

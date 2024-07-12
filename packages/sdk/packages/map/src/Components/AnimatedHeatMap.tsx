@@ -4,11 +4,11 @@ import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
 import { useState } from 'react'
 
-import { AnimatedHeatMapColorProps } from '../Colors'
-import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts'
-import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, MapLayer } from '../Layers'
-import { MapSetting } from '../Settings'
-import { MapboxHeatFlexBox } from './MapBoxHeat'
+import { AnimatedHeatMapColorProps } from '../Colors/index.js'
+import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.js'
+import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, MapLayer } from '../Layers/index.js'
+import { MapSetting } from '../Settings/index.js'
+import { MapboxHeatFlexBox } from './MapBoxHeat.js'
 
 export interface AnimatedHeatMapProps {
   accessToken: string

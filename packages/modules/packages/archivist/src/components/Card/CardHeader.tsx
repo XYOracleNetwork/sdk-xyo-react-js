@@ -4,7 +4,7 @@ import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { ModuleCardHeader, ModuleRenderProps } from '@xyo-network/react-module'
 import { useMemo } from 'react'
 
-import { MemoryArchivistsStats } from './components'
+import { MemoryArchivistsStats } from './components/index.js'
 
 const ArchivistStats = (archivist?: ArchivistInstance) => {
   switch (archivist?.config.schema) {

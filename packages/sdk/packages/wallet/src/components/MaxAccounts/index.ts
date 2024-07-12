@@ -1,1 +1,1 @@
-export * from './MaxAccountsTableRow'
+export * from './MaxAccountsTableRow.js'

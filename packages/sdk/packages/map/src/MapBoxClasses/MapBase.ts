@@ -4,7 +4,7 @@ import { Feature, Geometry } from 'geojson'
 // eslint-disable-next-line no-restricted-imports
 import { GeoJSONSource, Map } from 'mapbox-gl'
 
-import { MapLayer } from '../Layers'
+import { MapLayer } from '../Layers/index.js'
 
 export interface MapBaseConfig<T extends Geometry> {
   features: Feature<T>[]

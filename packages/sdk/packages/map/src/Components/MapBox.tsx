@@ -4,9 +4,9 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { Map, MapboxOptions } from 'mapbox-gl'
 import { useEffect, useRef, useState } from 'react'
 
-import { useMapBoxInstance, useMapSettings } from '../Contexts'
-import { useDynamicMapResize } from '../hooks'
-import { MapStyle } from '../lib'
+import { useMapBoxInstance, useMapSettings } from '../Contexts/index.js'
+import { useDynamicMapResize } from '../hooks/index.js'
+import { MapStyle } from '../lib/index.js'
 
 export interface MapBoxProps {
   accessToken: string

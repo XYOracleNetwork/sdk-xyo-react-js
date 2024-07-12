@@ -5,7 +5,7 @@ import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module-model'
 import { useRef } from 'react'
 
-import { RenderModule } from './RenderModule'
+import { RenderModule } from './RenderModule.js'
 
 export interface ModuleDescriptionProps extends FlexBoxProps {
   mod?: WeakRef<ModuleInstance> | null

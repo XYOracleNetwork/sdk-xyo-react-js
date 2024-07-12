@@ -5,7 +5,7 @@ import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 
-import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../lib'
+import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../lib/index.js'
 
 export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined

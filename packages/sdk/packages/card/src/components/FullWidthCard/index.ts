@@ -1,1 +1,1 @@
-export * from './FullWidthCard'
+export * from './FullWidthCard.js'

@@ -1,1 +1,1 @@
-export * from './WalletProviderDecorator'
+export * from './WalletProviderDecorator.js'

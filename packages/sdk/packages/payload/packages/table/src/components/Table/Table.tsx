@@ -3,12 +3,12 @@ import { Payload } from '@xyo-network/payload-model'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
 import { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
 
-import { PayloadTableColumnConfig } from './PayloadTableColumnConfig'
-import { PayloadTableBody } from './TableBody'
-import { PayloadTableFooter } from './TableFooter'
-import { PayloadTableHead } from './TableHead'
-import { TableRowNoData } from './TableRowNoData'
-import { PayloadTableBodyProps, PayloadTableFooterProps, PayloadTableHeadProps } from './types'
+import { PayloadTableColumnConfig } from './PayloadTableColumnConfig.js'
+import { PayloadTableBody } from './TableBody.js'
+import { PayloadTableFooter } from './TableFooter.js'
+import { PayloadTableHead } from './TableHead.js'
+import { TableRowNoData } from './TableRowNoData.js'
+import { PayloadTableBodyProps, PayloadTableFooterProps, PayloadTableHeadProps } from './types/index.js'
 
 export interface PayloadTableProps extends TableExProps {
   PayloadTableBodyComponent?: ComponentType<PayloadTableBodyProps>

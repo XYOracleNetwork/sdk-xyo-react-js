@@ -1,1 +1,1 @@
-export * from './DetailsCard'
+export * from './DetailsCard.js'

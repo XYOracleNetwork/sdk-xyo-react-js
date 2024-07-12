@@ -1,7 +1,7 @@
 import { Alert, AlertProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 
-import { useValidatePayload } from '../../contexts'
+import { useValidatePayload } from '../../contexts/index.js'
 
 export const ValidatePayloadAlert: React.FC<WithChildren<AlertProps>> = ({ children, ...props }) => {
   const { validPayload, enabled, schema } = useValidatePayload()

@@ -1,7 +1,7 @@
 import type { DeclarationReflection, SignatureReflection } from 'typedoc'
 
-import { ReflectionViewer } from './ReflectionViewer'
-import { ReflectionViewerProps } from './ReflectionViewerProps'
+import { ReflectionViewer } from './ReflectionViewer.js'
+import { ReflectionViewerProps } from './ReflectionViewerProps.js'
 
 export const DeclarationReflectionViewer: React.FC<ReflectionViewerProps<DeclarationReflection>> = ({ reflection, hiddenFlags, ...props }) => {
   const safeSignatures = (signatures?: SignatureReflection[] | SignatureReflection) => {

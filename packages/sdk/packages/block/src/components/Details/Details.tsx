@@ -7,9 +7,9 @@ import { Payload } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import { forwardRef } from 'react'
 
-import { BlockPayloads } from './Payloads'
-import { BlockSignatureDetails } from './SignatureDetails'
-import { BlockValidationDetails } from './ValidationDetails'
+import { BlockPayloads } from './Payloads.js'
+import { BlockSignatureDetails } from './SignatureDetails.js'
+import { BlockValidationDetails } from './ValidationDetails.js'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockDetailsProps extends WithChildren, FlexBoxProps {

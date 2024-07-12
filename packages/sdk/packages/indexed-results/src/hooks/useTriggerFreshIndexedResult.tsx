@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 
-import { IndexedResultsConfig } from '../interfaces'
+import { IndexedResultsConfig } from '../interfaces/index.js'
 
 export const useTriggerFreshIndexedResult = (indexedResultsConfig?: IndexedResultsConfig, trigger?: boolean) => {
   const { processIndexedResults, refresh } = indexedResultsConfig ?? {}

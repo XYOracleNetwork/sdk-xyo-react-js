@@ -2,8 +2,8 @@ import { useTheme } from '@mui/material'
 import { useLocation } from 'react-router-dom'
 import type { DeclarationReflection } from 'typedoc'
 
-import { ContainerReflectionViewer, ContainerReflectionViewerProps } from './Container'
-import { DeclarationReflectionViewer } from './Declaration'
+import { ContainerReflectionViewer, ContainerReflectionViewerProps } from './Container.js'
+import { DeclarationReflectionViewer } from './Declaration.js'
 
 export interface DeclarationContainerReflectionViewerProps extends ContainerReflectionViewerProps {
   reflection: DeclarationReflection

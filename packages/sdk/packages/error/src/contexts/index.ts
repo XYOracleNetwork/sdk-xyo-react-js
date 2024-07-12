@@ -1,1 +1,1 @@
-export * from './ErrorReporter'
+export * from './ErrorReporter/index.js'

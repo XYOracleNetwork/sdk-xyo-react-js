@@ -5,7 +5,7 @@ import { Payload, WithMeta } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'
 import { Dispatch, useEffect, useState } from 'react'
 
-import { PayloadDivinerContext } from './Context'
+import { PayloadDivinerContext } from './Context.js'
 
 export const usePayloadDiviner = (required = false) => {
   return useContextEx(PayloadDivinerContext, 'PayloadDiviner', required)

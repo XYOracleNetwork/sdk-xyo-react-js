@@ -1,2 +1,2 @@
-export * from './contexts'
-export * from './PayloadRenderPluginResolver'
+export * from './contexts/index.js'
+export * from './PayloadRenderPluginResolver.js'

@@ -1,7 +1,7 @@
 import { Payload } from '@xyo-network/payload-model'
 import { Point } from 'chart.js'
 
-import { MockSourcePayloads } from './MockSourcePayloads'
+import { MockSourcePayloads } from './MockSourcePayloads.js'
 
 export class SourcePayloads {
   sourcePrices: Point[] = []

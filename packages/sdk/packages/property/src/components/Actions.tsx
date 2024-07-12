@@ -2,7 +2,7 @@ import { IconButton } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexRow } from '@xylabs/react-flexbox'
 
-import { PropertyActionsProps } from './ActionsProps'
+import { PropertyActionsProps } from './ActionsProps.js'
 
 export const PropertyActions: React.FC<PropertyActionsProps> = ({ buttons = false, actions, ...props }) => {
   if (actions) {

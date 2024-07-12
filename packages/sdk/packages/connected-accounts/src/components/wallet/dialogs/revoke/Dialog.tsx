@@ -2,7 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle,
 import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 
-import { ActiveProvider } from '../../lib'
+import { ActiveProvider } from '../../lib/index.js'
 
 export interface RevokeWalletConnectionDialogProps extends DialogProps {
   activeProvider?: ActiveProvider

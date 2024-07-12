@@ -1,3 +1,3 @@
-export * from './BusyCard'
-export * from './EmbedCardHeader'
-export * from './EmbedPluginCard'
+export * from './BusyCard.js'
+export * from './EmbedCardHeader.js'
+export * from './EmbedPluginCard.js'

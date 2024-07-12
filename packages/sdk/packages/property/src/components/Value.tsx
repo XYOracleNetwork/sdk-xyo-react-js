@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-internal-modules
-import type { Variant } from '@mui/material/styles/createTypography'
+import { Variant } from '@mui/material/styles/createTypography.js'
 import { EllipsizeBox, EllipsizeBoxProps } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 

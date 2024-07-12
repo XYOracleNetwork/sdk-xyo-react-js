@@ -1,2 +1,2 @@
-export * from './ActiveBWFlexBox'
-export * from './NoBlockSelectedBox'
+export * from './ActiveBWFlexBox.js'
+export * from './NoBlockSelectedBox.js'

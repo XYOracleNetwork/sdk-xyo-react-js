@@ -1,1 +1,1 @@
-export * from './StandardRemoteNodes'
+export * from './StandardRemoteNodes/index.js'

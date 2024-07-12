@@ -1,9 +1,9 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { useState } from 'react'
 
-import { defaultNetworkConfigs } from '../../lib'
-import { NetworkContext } from '../Context'
-import { NetworkProviderProps } from './Props'
+import { defaultNetworkConfigs } from '../../lib/index.js'
+import { NetworkContext } from '../Context.js'
+import { NetworkProviderProps } from './Props.js'
 
 export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetworkConfig, defaultNetworkName, ...props }) => {
   if (defaultNetworkConfig && defaultNetworkName) {

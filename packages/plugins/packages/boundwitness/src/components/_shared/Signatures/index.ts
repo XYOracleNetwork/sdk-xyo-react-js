@@ -1,2 +1,2 @@
-export * from './SignatureDetails'
-export * from './SignatureTable'
+export * from './SignatureDetails.js'
+export * from './SignatureTable.js'

@@ -1,1 +1,1 @@
-export * from './SimpleCardGrid'
+export * from './SimpleCardGrid.js'

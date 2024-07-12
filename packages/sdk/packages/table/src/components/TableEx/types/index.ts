@@ -1,1 +1,1 @@
-export * from './TableExVariants'
+export * from './TableExVariants.js'

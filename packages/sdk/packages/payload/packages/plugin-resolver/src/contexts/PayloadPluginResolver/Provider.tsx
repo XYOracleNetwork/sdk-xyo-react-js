@@ -2,7 +2,7 @@ import { PayloadPluginResolver } from '@xyo-network/payload-plugin'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
-import { PayloadPluginResolverContext } from './Context'
+import { PayloadPluginResolverContext } from './Context.js'
 
 export type PayloadPluginResolverProviderProps = ContextExProviderProps<{
   resolver: PayloadPluginResolver

@@ -2,7 +2,7 @@ import { CardContent, CardContentProps } from '@mui/material'
 import { PayloadDetails } from '@xyo-network/react-payload-details'
 import { forwardRef } from 'react'
 
-import { PayloadRenderProps } from '../PayloadRenderPlugin'
+import { PayloadRenderProps } from '../PayloadRenderPlugin.js'
 
 export const PayloadCardContent = forwardRef<HTMLElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }) => {
   return (

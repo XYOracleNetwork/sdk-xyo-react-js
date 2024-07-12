@@ -9,8 +9,8 @@ import { assertDefinedEx } from '@xyo-network/react-shared'
 import { SentinelConfig } from '@xyo-network/sentinel-model'
 import { AttachableWitnessInstance, WitnessModule } from '@xyo-network/witness-model'
 
-import { SentinelBuilder } from './SentinelBuilder'
-import { StorageArchivistBuilder } from './StorageArchivistBuilder'
+import { SentinelBuilder } from './SentinelBuilder.js'
+import { StorageArchivistBuilder } from './StorageArchivistBuilder.js'
 
 export interface MemoryNodeBuilderConfig {
   name?: string

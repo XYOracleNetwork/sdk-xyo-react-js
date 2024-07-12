@@ -2,8 +2,8 @@ import { CircularProgress, MenuItem, SelectProps } from '@mui/material'
 import { SelectEx } from '@xylabs/react-select'
 import { AddressRenderRowBox, AddressRenderRowBoxProps } from '@xyo-network/react-address-render'
 
-import { useWalletContext } from '../../contexts'
-import { useWallet } from '../../hooks'
+import { useWalletContext } from '../../contexts/index.js'
+import { useWallet } from '../../hooks/index.js'
 
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxProps, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 

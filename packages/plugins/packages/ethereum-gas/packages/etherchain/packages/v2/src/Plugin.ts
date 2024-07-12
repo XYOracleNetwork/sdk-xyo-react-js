@@ -3,7 +3,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { EthereumGasPriceAvatar } from '@xyo-network/react-gas-price'
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { EtherchainV2GasPriceCardContent, EtherchainV2GasPriceCardHeader, EtherchainV2GasPriceDetailsBox } from './components'
+import { EtherchainV2GasPriceCardContent, EtherchainV2GasPriceCardHeader, EtherchainV2GasPriceDetailsBox } from './components/index.js'
 
 export const EthereumGasPriceEtherchainV2Plugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

@@ -2,8 +2,8 @@ import { asDivinerInstance } from '@xyo-network/diviner-model'
 import { NodeInstance } from '@xyo-network/node-model'
 import { Payload } from '@xyo-network/payload-model'
 
-import { IndexedResultsConfig } from '../../interfaces'
-import { divineSingleIndexedResults } from './divineSingleIndexedResults'
+import { IndexedResultsConfig } from '../../interfaces/index.js'
+import { divineSingleIndexedResults } from './divineSingleIndexedResults.js'
 
 export const divineIndexedResults = async <T extends Payload = Payload>(node?: NodeInstance | null, config?: IndexedResultsConfig) => {
   let index = 0

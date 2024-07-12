@@ -1,1 +1,1 @@
-export * from './useCoinGeckToPriceAggregate'
+export * from './useCoinGeckoToPriceAggregate.js'

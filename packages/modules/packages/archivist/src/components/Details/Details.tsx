@@ -7,7 +7,7 @@ import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { Payload } from '@xyo-network/payload-model'
 import { useState } from 'react'
 
-import { useWeakArchivistFromNode } from '../../hooks'
+import { useWeakArchivistFromNode } from '../../hooks/index.js'
 
 const testQueryCommit = { schema: ArchivistCommitQuerySchema }
 const testQueryCommitBoundWitnessBuilder = new QueryBoundWitnessBuilder().query(testQueryCommit)

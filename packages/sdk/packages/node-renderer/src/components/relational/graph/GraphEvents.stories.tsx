@@ -10,7 +10,7 @@ import { EventObject } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
 import { CytoscapeInstanceProvider, useCytoscapeInstance } from '../../../contexts'
-import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.js'
 import { NodeRelationalGraphFlexBox } from './Graph'
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {

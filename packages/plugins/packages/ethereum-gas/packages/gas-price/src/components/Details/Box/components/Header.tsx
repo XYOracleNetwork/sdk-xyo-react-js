@@ -1,7 +1,7 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { GasPriceHeaderActionsBox, GasPriceHeaderTypography, StyledGasPriceHeaderBox } from '@xyo-network/react-gas-price'
 
-import { DescriptionQuickTip } from './DescriptionQuickTip'
+import { DescriptionQuickTip } from './DescriptionQuickTip.js'
 
 export interface GasPriceHeaderBoxProps extends FlexBoxProps {
   baseFee?: number

@@ -2,7 +2,7 @@ import { CardHeader, CardHeaderProps } from '@mui/material'
 import { Module } from '@xyo-network/module-model'
 import { findNetworkComponent } from '@xyo-network/react-shared'
 
-import { ModuleRenderProps } from '../../../ModuleRenderProps'
+import { ModuleRenderProps } from '../../../ModuleRenderProps.js'
 
 const moduleTypes = ['sentinel', 'bridge', 'archivist', 'diviner', 'node', 'witness']
 

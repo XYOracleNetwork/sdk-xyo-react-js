@@ -1,1 +1,1 @@
-export * from './SchemaProperty'
+export * from './SchemaProperty.js'

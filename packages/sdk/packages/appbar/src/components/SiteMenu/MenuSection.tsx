@@ -1,7 +1,7 @@
 import { Collapse, ListSubheader } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 
-import { MenuListItemContainer, MenuListItemProps } from './MenuListItem'
+import { MenuListItemContainer, MenuListItemProps } from './MenuListItem/index.js'
 
 export interface MenuSectionProps extends FlexBoxProps {
   iconMenuTextSpacing?: string

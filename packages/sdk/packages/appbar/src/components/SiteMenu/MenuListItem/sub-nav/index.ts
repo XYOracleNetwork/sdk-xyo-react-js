@@ -1,2 +1,2 @@
-export * from './SubNavListItemCollapse'
-export * from './SubNavToggleIconButton'
+export * from './SubNavListItemCollapse.js'
+export * from './SubNavToggleIconButton.js'

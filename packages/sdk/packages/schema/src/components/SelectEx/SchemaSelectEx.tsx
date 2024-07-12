@@ -1,7 +1,7 @@
 import { MenuItem, Typography } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/react-select'
 
-import { useSchema } from '../../contexts'
+import { useSchema } from '../../contexts/index.js'
 
 export type SchemaSelectExProps = SelectExProps<string>
 

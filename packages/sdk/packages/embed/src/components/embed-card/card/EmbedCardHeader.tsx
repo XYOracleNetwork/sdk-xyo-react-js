@@ -2,8 +2,8 @@ import { Refresh as RefreshIcon } from '@mui/icons-material'
 import { Avatar, CardHeader, CardHeaderProps, Chip, Theme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 
-import { useEmbedPluginState, useResolvePayload } from '../../../contexts'
-import { EmbedMenu } from '../menu'
+import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.js'
+import { EmbedMenu } from '../menu/index.js'
 
 export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
   const { refreshHuri, huri } = useResolvePayload()

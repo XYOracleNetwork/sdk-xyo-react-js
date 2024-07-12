@@ -2,7 +2,7 @@ import { FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, Last
 import { Box, CircularProgress, IconButton, useTheme } from '@mui/material'
 import { useEvent } from '@xyo-network/react-event'
 
-import { PaginationNouns } from './types'
+import { PaginationNouns } from './types/index.js'
 
 export interface TablePaginationActionsProps {
   count: number

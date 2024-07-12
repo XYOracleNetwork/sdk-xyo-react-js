@@ -3,7 +3,7 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WalletProvider } from '../../contexts'
-import { useWallet } from '../../hooks'
+import { useWallet } from '../../hooks/index.js'
 import { WalletAccountDetails } from './WalletAccountDetails'
 
 const StorybookEntry = {

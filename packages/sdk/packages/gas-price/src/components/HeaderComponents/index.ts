@@ -1,2 +1,2 @@
-export * from './Actions'
-export * from './Header'
+export * from './Actions.js'
+export * from './Header/index.js'

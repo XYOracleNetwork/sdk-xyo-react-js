@@ -1,7 +1,7 @@
 import { NodeInstance } from '@xyo-network/node-model'
 import { useMemo } from 'react'
 
-import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig'
+import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.js'
 
 export const useWeakNodeConfigNodeField = (
   config?: WeakModuleFromNodeConfig | undefined,

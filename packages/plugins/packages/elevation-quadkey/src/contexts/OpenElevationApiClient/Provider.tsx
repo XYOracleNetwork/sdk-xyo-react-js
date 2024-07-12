@@ -1,8 +1,8 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { useState } from 'react'
 
-import { OpenElevationApiClient, OpenElevationApiClientConfig } from '../../classes'
-import { OpenElevationApiContext } from './Context'
+import { OpenElevationApiClient, OpenElevationApiClientConfig } from '../../classes/index.js'
+import { OpenElevationApiContext } from './Context.js'
 
 export interface OpenElevationApiProviderProps extends WithChildren {
   openElevationApiConfig?: OpenElevationApiClientConfig

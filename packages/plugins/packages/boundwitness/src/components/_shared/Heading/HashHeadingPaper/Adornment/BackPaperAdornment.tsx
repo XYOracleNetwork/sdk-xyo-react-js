@@ -1,7 +1,7 @@
 import { ArrowBackRounded } from '@mui/icons-material'
 import { IconButtonProps } from '@mui/material'
 
-import { PaperAdornmentIconButton } from './PaperAdornmentIconButton'
+import { PaperAdornmentIconButton } from './PaperAdornmentIconButton.js'
 
 type BackPaperAdornmentProps = IconButtonProps
 

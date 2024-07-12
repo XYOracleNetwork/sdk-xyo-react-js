@@ -1,6 +1,6 @@
-export * from './components'
-export * from './Plugin'
+export * from './components/index.js'
+export * from './Plugin.js'
 
 // eslint-disable-next-line import/no-default-export
 
-export { EthereumGasPriceEthersPlugin as default } from './Plugin'
+export { EthereumGasPriceEthersPlugin as default } from './Plugin.js'

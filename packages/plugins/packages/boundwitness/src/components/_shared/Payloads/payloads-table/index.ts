@@ -1,3 +1,3 @@
-export * from './TableBody'
-export * from './TableBodyFiltered'
-export * from './TableHead'
+export * from './TableBody.js'
+export * from './TableBodyFiltered.js'
+export * from './TableHead.js'

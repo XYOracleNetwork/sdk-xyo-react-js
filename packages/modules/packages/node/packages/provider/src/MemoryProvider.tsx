@@ -6,7 +6,7 @@ import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfig } from '@xyo-network/node-model'
 import { useState } from 'react'
 
-import { NodeProvider } from './Node'
+import { NodeProvider } from './Node/index.js'
 
 export type MemoryNodeProviderProps = WithChildren<{
   moduleParams?: ModuleParams<NodeConfig>

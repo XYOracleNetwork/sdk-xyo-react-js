@@ -1,1 +1,1 @@
-export * from './CoinGeckoPricesRenderer'
+export * from './CoinGeckoPricesRenderer.js'

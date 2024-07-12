@@ -1,5 +1,5 @@
-import { ManifestNodeBuilder } from '../classes'
-import { CreatablePackageManifest } from '../types'
+import { ManifestNodeBuilder } from '../classes/index.js'
+import { CreatablePackageManifest } from '../types/index.js'
 
 export const buildManifestNodes = async (manifestNodes?: CreatablePackageManifest[]) => {
   // extract to function to make useful outside of the node provider

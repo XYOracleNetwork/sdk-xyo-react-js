@@ -5,7 +5,7 @@ import { usePayloadHash } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { useState } from 'react'
 
-import { ActiveBoundWitnessContext } from '../../contexts'
+import { ActiveBoundWitnessContext } from '../../contexts/index.js'
 
 export const ActiveBWDecorator: Decorator = (Story, args) => {
   const [activeBoundWitness, setActiveBoundWitness] = useState<BoundWitness | undefined>()

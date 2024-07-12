@@ -8,7 +8,7 @@ import { Property, PropertyAction, PropertyProps } from '@xyo-network/react-prop
 import { SizeProp, usePayloadHash } from '@xyo-network/react-shared'
 import { useState } from 'react'
 
-import { PayloadHashSourceDetails } from './HashSourceDetails'
+import { PayloadHashSourceDetails } from './HashSourceDetails.js'
 
 export type PayloadDataDetailsProps = PropertyProps & {
   badge?: boolean

@@ -3,8 +3,8 @@ import { assertEx } from '@xylabs/assert'
 import { SelectEx, SelectExProps } from '@xylabs/react-select'
 import { useBreakpoint } from '@xylabs/react-shared'
 
-import { useNetwork } from '../../contexts'
-import { findNetworkConfig } from '../../lib'
+import { useNetwork } from '../../contexts/index.js'
+import { findNetworkConfig } from '../../lib/index.js'
 
 export type NetworkSelectExProps = Omit<SelectExProps<string>, 'variant'> &
   Partial<SelectExProps<string>> & {

@@ -1,4 +1,4 @@
-import { DefaultMapSettings } from './Settings'
+import { DefaultMapSettings } from './Settings/index.js'
 
 export const AnimatedHeatMapSettings = DefaultMapSettings()
 const { debugLayer, scrollToZoom, fitToPoints, preferDark } = AnimatedHeatMapSettings

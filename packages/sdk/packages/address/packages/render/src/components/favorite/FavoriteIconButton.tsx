@@ -4,10 +4,10 @@ import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 
-import { FavoriteItemEvent, generateFavoriteEvent } from '../lib'
-import { FavoriteToggleSVG } from './FavoriteToggleSVG'
-import { popperId } from './lib'
-import { FavoritePopper } from './Popper'
+import { FavoriteItemEvent, generateFavoriteEvent } from '../lib/index.js'
+import { FavoriteToggleSVG } from './FavoriteToggleSVG.js'
+import { popperId } from './lib/index.js'
+import { FavoritePopper } from './Popper.js'
 
 export interface FavoriteIconButtonProps extends WithChildren, IconButtonProps {
   favorite?: FavoriteItemEvent['favorite']

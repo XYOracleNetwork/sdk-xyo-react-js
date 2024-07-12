@@ -1,8 +1,8 @@
 import { styled, TablePagination, TableRow } from '@mui/material'
 import { TableFooterEx } from '@xyo-network/react-table'
 
-import { TablePaginationActions } from './TablePagination'
-import { PayloadTableFooterProps } from './types'
+import { TablePaginationActions } from './TablePagination.js'
+import { PayloadTableFooterProps } from './types/index.js'
 
 export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
   count,

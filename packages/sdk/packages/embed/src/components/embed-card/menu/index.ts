@@ -1,1 +1,1 @@
-export * from './EmbedMenu'
+export * from './EmbedMenu.js'

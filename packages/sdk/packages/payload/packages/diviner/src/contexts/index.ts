@@ -1,2 +1,2 @@
-export * from './DivinedPayload'
-export * from './PayloadDiviner'
+export * from './DivinedPayload/index.js'
+export * from './PayloadDiviner/index.js'

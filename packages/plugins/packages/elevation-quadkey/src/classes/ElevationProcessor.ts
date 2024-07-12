@@ -1,8 +1,8 @@
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Geometry } from 'geojson'
 
-import { NetworkElevationQuadkeyAnswerPayload } from '../types'
-import { LatLngBase, LocationElevation, OpenElevationApiClient } from './OpenElevation'
+import { NetworkElevationQuadkeyAnswerPayload } from '../types.js'
+import { LatLngBase, LocationElevation, OpenElevationApiClient } from './OpenElevation/index.js'
 
 export interface ElevationPayloadProcessorConfig {
   lookupLocations: OpenElevationApiClient['lookupPost']

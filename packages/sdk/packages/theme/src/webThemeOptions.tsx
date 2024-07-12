@@ -1,7 +1,7 @@
 import { ThemeOptions } from '@mui/material'
 import { merge } from '@xylabs/lodash'
 
-import { themeOptions } from './themeOptions'
+import { themeOptions } from './themeOptions.js'
 
 const partialWebThemeOptions: ThemeOptions = {}
 

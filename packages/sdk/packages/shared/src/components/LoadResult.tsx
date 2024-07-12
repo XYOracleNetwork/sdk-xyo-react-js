@@ -1,7 +1,7 @@
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { PropsWithChildren } from 'react'
 
-import { NotFound } from './NotFound'
+import { NotFound } from './NotFound.js'
 
 export interface LoadResultProps<T> {
   /** @deprecated - use error prop */

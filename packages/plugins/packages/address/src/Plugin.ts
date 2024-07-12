@@ -1,6 +1,6 @@
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { AddressMenuItemRenderer } from './components'
+import { AddressMenuItemRenderer } from './components/index.js'
 
 export const AddressRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

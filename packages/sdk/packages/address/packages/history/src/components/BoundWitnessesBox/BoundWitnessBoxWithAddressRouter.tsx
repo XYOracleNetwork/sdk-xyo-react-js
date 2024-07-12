@@ -4,8 +4,8 @@ import { useShareForwardedRef } from '@xyo-network/react-shared'
 import { forwardRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { usePayloadHashSelectionHistory } from '../../hooks'
-import { BoundWitnessesBox } from './BoundWitnessesBox'
+import { usePayloadHashSelectionHistory } from '../../hooks/index.js'
+import { BoundWitnessesBox } from './BoundWitnessesBox.js'
 
 export interface BoundWitnessBoxWithAddressRouterProps extends FlexBoxProps {
   baseRoute?: string

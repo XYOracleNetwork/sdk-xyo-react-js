@@ -1,5 +1,5 @@
-import { CircleLayerBuilder } from '../CircleLayer'
-import { LocationPointLayerConfig } from '../Configs'
+import { CircleLayerBuilder } from '../CircleLayer.js'
+import { LocationPointLayerConfig } from '../Configs/index.js'
 
 export const MapPointsConstants = {
   LocationDotsLayerId: 'location-dots',

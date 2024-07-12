@@ -1,2 +1,2 @@
-export * from './useDetectWallets'
-export * from './useEnabledWallets'
+export * from './useDetectWallets.js'
+export * from './useEnabledWallets.js'

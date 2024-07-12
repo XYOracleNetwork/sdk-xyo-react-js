@@ -1,4 +1,4 @@
-import { PollingConfig } from './PollingConfig'
+import { PollingConfig } from './PollingConfig.js'
 
 export type PollingStrategyNames = 'Continuous' | 'None' | 'TillComplete'
 

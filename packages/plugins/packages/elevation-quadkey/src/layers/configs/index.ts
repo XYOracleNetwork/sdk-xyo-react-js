@@ -1,2 +1,2 @@
-export * from './ElevationExtrusion'
-export * from './ElevationSymbol'
+export * from './ElevationExtrusion.js'
+export * from './ElevationSymbol.js'

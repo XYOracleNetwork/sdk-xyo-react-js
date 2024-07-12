@@ -1,8 +1,8 @@
 import { Paper, PaperProps, styled } from '@mui/material'
 import { forwardRef } from 'react'
 
-import { BWHeading } from '../Heading'
-import { BWHeadingProps } from '../HeadingProps'
+import { BWHeading } from '../Heading.js'
+import { BWHeadingProps } from '../HeadingProps.js'
 
 export interface HeadingPaperProps extends BWHeadingProps {
   paperProps?: PaperProps

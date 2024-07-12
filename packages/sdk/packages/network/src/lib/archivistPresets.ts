@@ -1,7 +1,7 @@
 import { Hash } from '@xylabs/hex'
 import { NetworkNodePayload, NetworkNodeSchema } from '@xyo-network/network'
 
-import { ExplorerMapHashes } from './ExplorerMapHashes'
+import { ExplorerMapHashes } from './ExplorerMapHashes.js'
 
 export type ArchivistPreset = NetworkNodePayload & {
   explorerMapHashes?: {

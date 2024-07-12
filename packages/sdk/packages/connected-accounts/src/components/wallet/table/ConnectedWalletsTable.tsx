@@ -2,10 +2,10 @@ import { Table, TableBody, TableCell, TableHead, TableProps, TableRow } from '@m
 import { EIP6963Connector } from '@xylabs/react-crypto'
 import { useState } from 'react'
 
-import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs'
-import { ActiveProvider, WalletsTableHeadCells } from '../lib'
-import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow'
-import { useActiveProviderDialogState } from './hooks'
+import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs/index.js'
+import { ActiveProvider, WalletsTableHeadCells } from '../lib/index.js'
+import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow.js'
+import { useActiveProviderDialogState } from './hooks/index.js'
 
 export interface ConnectedWalletsTableProps extends TableProps {
   ignoreConnectDialog?: boolean

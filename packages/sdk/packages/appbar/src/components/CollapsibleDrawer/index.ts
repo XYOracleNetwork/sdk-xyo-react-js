@@ -1,2 +1,2 @@
-export * from './CollapseToggle'
-export * from './CollapsibleDrawer'
+export * from './CollapseToggle.js'
+export * from './CollapsibleDrawer.js'

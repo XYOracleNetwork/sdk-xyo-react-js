@@ -1,1 +1,1 @@
-export * from './ErrorAlert'
+export * from './ErrorAlert.js'

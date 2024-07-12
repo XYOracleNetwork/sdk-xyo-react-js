@@ -3,11 +3,11 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
 import { Feature, Polygon } from 'geojson'
 
-import { AnimatedHeatMapSettings } from '../AnimatedHeatMapSettings'
-import { useFindHashes, useHeatMapColors, useQuadKeyPayloadsToFeatures } from '../hooks'
-import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types'
-import { AnimatedHeatMap } from './AnimatedHeatMap'
-import { AnimatedHeatMapLegend } from './Legend'
+import { AnimatedHeatMapSettings } from '../AnimatedHeatMapSettings.js'
+import { useFindHashes, useHeatMapColors, useQuadKeyPayloadsToFeatures } from '../hooks/index.js'
+import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.js'
+import { AnimatedHeatMap } from './AnimatedHeatMap.js'
+import { AnimatedHeatMapLegend } from './Legend.js'
 
 export interface AnimatedHeatMapLoadedProps extends FlexBoxProps {
   accessToken: string

@@ -1,1 +1,1 @@
-export * from './BasicHero'
+export * from './BasicHero.js'

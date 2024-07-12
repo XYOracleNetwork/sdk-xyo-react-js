@@ -1,3 +1,3 @@
-export * from './favorite'
-export * from './lib'
-export * from './RenderRowBox'
+export * from './favorite/index.js'
+export * from './lib/index.js'
+export * from './RenderRowBox.js'

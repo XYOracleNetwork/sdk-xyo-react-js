@@ -1,14 +1,14 @@
 import { Alert } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { Feature, Point } from 'geojson'
-import { FitBoundsOptions } from 'mapbox-gl'
+import { MapOptions } from 'mapbox-gl'
 import { useCallback, useEffect, useState } from 'react'
 
-import { useMapBoxInstance, useMapSettings } from '../Contexts'
-import { MapboxFlexBoxProps } from '../lib'
-import { MapPoints } from '../MapBoxClasses'
-import { MapBox } from './MapBox'
-import { MapSettingsBox } from './MapSettingsComponents'
+import { useMapBoxInstance, useMapSettings } from '../Contexts/index.js'
+import { MapboxFlexBoxProps } from '../lib/index.js'
+import { MapPoints } from '../MapBoxClasses/index.js'
+import { MapBox } from './MapBox.js'
+import { MapSettingsBox } from './MapSettingsComponents/index.js'
 
 export interface MapboxPointsFlexBoxProps extends MapboxFlexBoxProps {
   accessToken: string
@@ -31,7 +31,7 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
    * Needed because of a bug in mapbox taking undefined values for the config options of fitToBounds
    * see - https://github.com/mapbox/mapbox-gl-js/issues/10013
    */
-  const customFitToBoundsOptions = (zoom?: number): FitBoundsOptions => {
+  const customFitToBoundsOptions = (zoom?: number): MapOptions['fitBoundsOptions'] => {
     if (zoom !== undefined) {
       return {
         maxZoom: zoom,
@@ -51,12 +51,18 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
     const { fitToPoints } = mapSettings || {}
 
     if (mapPoints && map && fitToPoints?.value === true) {
-      mapPoints.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
+      mapPoints.initialMapPositioning({
+        padding: { bottom: fitToPointsPadding, left: fitToPointsPadding, right: fitToPointsPadding, top: fitToPointsPadding },
+        ...customFitToBoundsOptions(zoom),
+      })
     }
   }, [mapSettings, mapPoints, map, fitToPointsPadding, zoom])
 
   const reInitializeMap = useCallback(() => {
-    mapPoints?.initialMapPositioning({ padding: fitToPointsPadding, ...customFitToBoundsOptions(zoom) })
+    mapPoints?.initialMapPositioning({
+      padding: { bottom: fitToPointsPadding, left: fitToPointsPadding, right: fitToPointsPadding, top: fitToPointsPadding },
+      ...customFitToBoundsOptions(zoom),
+    })
     updateFeatures()
   }, [mapPoints, fitToPointsPadding, updateFeatures, zoom])
 

@@ -1,8 +1,8 @@
 import { FlexCol } from '@xylabs/react-flexbox'
 
-import { MapboxFlexBoxProps } from '../lib'
-import { MapBox } from './MapBox'
-import { MapSettingsBox } from './MapSettingsComponents'
+import { MapboxFlexBoxProps } from '../lib/index.js'
+import { MapBox } from './MapBox.js'
+import { MapSettingsBox } from './MapSettingsComponents/index.js'
 
 export const MapboxHeatFlexBox: React.FC<MapboxFlexBoxProps> = ({ accessToken, children, mapBoxOptions, zoom, legend, developerMode, ...props }) => {
   return (

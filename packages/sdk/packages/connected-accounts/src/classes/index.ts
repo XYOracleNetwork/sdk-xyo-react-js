@@ -1,1 +1,1 @@
-export * from './EnabledWallets'
+export * from './EnabledWallets.js'

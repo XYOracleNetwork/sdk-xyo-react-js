@@ -5,8 +5,8 @@ import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import { forwardRef, useEffect, useState } from 'react'
 
-import { BoundWitnessCardHeader } from '../../Card'
-import { DetailsCardContent } from './DetailsCardContent'
+import { BoundWitnessCardHeader } from '../../Card/index.js'
+import { DetailsCardContent } from './DetailsCardContent.js'
 
 const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(({ visibleRows, ...props }, ref) => {
   return (

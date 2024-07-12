@@ -1,1 +1,1 @@
-export * from './SystemToolbar'
+export * from './SystemToolbar.js'

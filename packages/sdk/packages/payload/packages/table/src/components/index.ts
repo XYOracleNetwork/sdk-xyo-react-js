@@ -1,2 +1,2 @@
-export * from './DynamicTable'
-export * from './Table'
+export * from './DynamicTable/index.js'
+export * from './Table/index.js'

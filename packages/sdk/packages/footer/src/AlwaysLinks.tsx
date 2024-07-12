@@ -2,7 +2,7 @@ import { MoreHoriz as MoreHorizIcon } from '@mui/icons-material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { LinkExProps } from '@xylabs/react-link'
 
-import { FooterLink } from './Link'
+import { FooterLink } from './Link.js'
 
 export interface FooterAlwaysLinksProps extends FlexBoxProps {
   footerLinks?: LinkExProps[]

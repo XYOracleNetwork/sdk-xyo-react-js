@@ -2,7 +2,7 @@ import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/react-select'
 import { ListMode, useListMode } from '@xyo-network/react-shared'
 
-import { EmbedFormControl } from './EmbedFormControl'
+import { EmbedFormControl } from './EmbedFormControl.js'
 
 const listModeSelectId = 'listmode-select-id'
 const listModeSelectLabel = 'List Mode'

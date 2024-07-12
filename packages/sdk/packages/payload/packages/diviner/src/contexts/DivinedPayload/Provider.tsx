@@ -4,9 +4,9 @@ import { ErrorRender } from '@xyo-network/react-error'
 import { useBuildHuri } from '@xyo-network/react-payload-huri'
 import { useParams, useSearchParams } from 'react-router-dom'
 
-import { useDivinePayload } from '../PayloadDiviner'
-import { DivinedPayloadContext } from './Context'
-import { useDivinedPayload } from './use'
+import { useDivinePayload } from '../PayloadDiviner/index.js'
+import { DivinedPayloadContext } from './Context.js'
+import { useDivinedPayload } from './use.js'
 
 export interface DivinedPayloadProviderProps extends WithChildren {
   hash?: string

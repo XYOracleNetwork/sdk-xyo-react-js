@@ -3,8 +3,8 @@ import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { typeOf } from '@xyo-network/typeof'
 import { ReactElement } from 'react'
 
-import { PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps } from './Props'
-import { PropertyTitle } from './Title'
+import { PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps } from './Props.js'
+import { PropertyTitle } from './Title.js'
 
 const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, children, title, tip, ...props }) => {
   const theme = useTheme()

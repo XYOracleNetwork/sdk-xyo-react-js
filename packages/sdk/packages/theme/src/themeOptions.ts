@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material'
 
-import { fontFamilyPrimary } from './fontFamily'
+import { fontFamilyPrimary } from './fontFamily.js'
 
 export const components: ThemeOptions['components'] = {
   MuiCard: {

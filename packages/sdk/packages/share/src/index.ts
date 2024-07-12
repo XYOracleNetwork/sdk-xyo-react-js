@@ -1,1 +1,1 @@
-export * from './ShareButton'
+export * from './ShareButton.js'

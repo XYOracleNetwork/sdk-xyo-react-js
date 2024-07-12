@@ -1,7 +1,7 @@
 import { assertEx } from '@xylabs/assert'
 import { useContext } from 'react'
 
-import { WalletServiceContext } from './Context'
+import { WalletServiceContext } from './Context.js'
 
 export const useWalletService = () => {
   const context = useContext(WalletServiceContext)

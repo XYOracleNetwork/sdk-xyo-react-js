@@ -1,7 +1,7 @@
 import { Payload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { TableCellSummary, UniswapDetailsRender } from './components'
+import { TableCellSummary, UniswapDetailsRender } from './components/index.js'
 
 export const UniswapPairsRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

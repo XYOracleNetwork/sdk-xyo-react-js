@@ -1,2 +1,2 @@
-export * from './Header'
-export * from './StyledCardHeader'
+export * from './Header.js'
+export * from './StyledCardHeader.js'

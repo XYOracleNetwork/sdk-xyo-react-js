@@ -1,5 +1,5 @@
 import { createContext } from 'react'
 
-import { ErrorReporterContextState } from './State'
+import { ErrorReporterContextState } from './State.js'
 
 export const ErrorReporterContext = createContext<ErrorReporterContextState>({})

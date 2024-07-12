@@ -1,7 +1,7 @@
 import type { Reflection } from 'typedoc'
 
-import { ReflectionLookup } from './ReflectionLookup'
-import { SomeReflection } from './SomeReflection'
+import { ReflectionLookup } from './ReflectionLookup.js'
+import { SomeReflection } from './SomeReflection.js'
 
 type ReflectionWithChildren = { children: Reflection[] }
 

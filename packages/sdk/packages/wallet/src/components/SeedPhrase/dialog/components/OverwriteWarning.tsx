@@ -1,7 +1,7 @@
 import { Alert, Button } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 
-import { useSeedPhrase } from '../../../../contexts'
+import { useSeedPhrase } from '../../../../contexts/index.js'
 
 export const OverwriteWarning = () => {
   const { handleCancelOverwrite, handleSave } = useSeedPhrase()

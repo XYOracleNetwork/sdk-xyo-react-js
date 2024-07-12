@@ -3,9 +3,9 @@ import { defaultNetworkConfigs } from '@xyo-network/react-network'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { MemoryNodeBuilder } from './Builders'
-import { RemoteNodeArchivistOffsetPaths, RemoteNodeOffsetPaths } from './ModuleAccountPaths'
-import { RootStorageArchivist } from './ModuleNames'
+import { MemoryNodeBuilder } from './Builders/index.js'
+import { RemoteNodeArchivistOffsetPaths, RemoteNodeOffsetPaths } from './ModuleAccountPaths.js'
+import { RootStorageArchivist } from './ModuleNames.js'
 
 const knownRemoteNodes = (): { apiDomain: string; name: string }[] => {
   const networkNames = defaultNetworkConfigs.map((config) => config.name)

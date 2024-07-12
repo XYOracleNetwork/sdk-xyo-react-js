@@ -4,9 +4,9 @@ import { Payload } from '@xyo-network/payload-model'
 import { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import { useState } from 'react'
 
-import { CardViewType } from './CardViewType'
-import { DynamicTokenComparison } from './DynamicTokenComparison'
-import { StaticTokenComparison } from './StaticTokenComparison'
+import { CardViewType } from './CardViewType.js'
+import { DynamicTokenComparison } from './DynamicTokenComparison.js'
+import { StaticTokenComparison } from './StaticTokenComparison.js'
 
 interface UniswapPairsCardsProps extends FlexBoxProps {
   payload?: Payload

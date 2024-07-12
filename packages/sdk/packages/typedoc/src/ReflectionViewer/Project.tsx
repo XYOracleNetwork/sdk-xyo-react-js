@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import type { ProjectReflection, ReflectionGroup } from 'typedoc'
 
-import { createLookup } from '../createLookup'
-import { ContainerReflectionViewerProps } from './Container'
-import { ReflectionGroupViewer } from './ReflectionGroupViewer'
-import { ReflectionViewer } from './ReflectionViewer'
+import { createLookup } from '../createLookup.js'
+import { ContainerReflectionViewerProps } from './Container.js'
+import { ReflectionGroupViewer } from './ReflectionGroupViewer.js'
+import { ReflectionViewer } from './ReflectionViewer.js'
 
 export const ProjectReflectionViewer: React.FC<ContainerReflectionViewerProps<ProjectReflection>> = ({
   reflection,

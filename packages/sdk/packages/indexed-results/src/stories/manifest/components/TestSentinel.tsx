@@ -12,7 +12,7 @@ import { EvmAddress, EvmAddressSchema } from '@xyo-network/witness-evm-abstract'
 import { TimeStamp } from '@xyo-network/witness-timestamp'
 import { ReactNode, useCallback, useState } from 'react'
 
-import { UseIndexedResultsProps } from './lib'
+import { UseIndexedResultsProps } from './lib/index.js'
 
 const address = '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D'
 

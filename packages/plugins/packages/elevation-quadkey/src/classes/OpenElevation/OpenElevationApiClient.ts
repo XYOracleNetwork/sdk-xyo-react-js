@@ -1,6 +1,6 @@
 import { axios, AxiosResponse } from '@xyo-network/axios'
 
-import { LatLngTuple, LookupPostRequest, LookupResponse } from './types'
+import { LatLngTuple, LookupPostRequest, LookupResponse } from './types.js'
 
 export interface OpenElevationApiClientConfig {
   apiDomain?: string

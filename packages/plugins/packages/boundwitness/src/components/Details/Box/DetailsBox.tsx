@@ -17,7 +17,7 @@ import {
   BWActions,
   HashHeadingPaper,
   HeadingPaper,
-} from '../../_shared'
+} from '../../_shared/index.js'
 
 const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({ visibleRows, ...props }, ref) => {
   return (

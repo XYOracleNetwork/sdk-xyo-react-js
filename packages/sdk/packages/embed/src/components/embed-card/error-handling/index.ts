@@ -1,2 +1,2 @@
-export * from './EmbedCardApiErrorRenderer'
-export * from './EmbedErrorCard'
+export * from './EmbedCardApiErrorRenderer.js'
+export * from './EmbedErrorCard.js'

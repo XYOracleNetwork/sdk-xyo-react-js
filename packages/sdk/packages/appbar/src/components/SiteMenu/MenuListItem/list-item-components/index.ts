@@ -1,3 +1,3 @@
-export * from './ListItemTooltip'
-export * from './MenuIcon'
-export * from './MenuListItem'
+export * from './ListItemTooltip.js'
+export * from './MenuIcon.js'
+export * from './MenuListItem.js'

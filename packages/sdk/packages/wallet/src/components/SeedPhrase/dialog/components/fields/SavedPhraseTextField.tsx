@@ -1,8 +1,8 @@
 import { Chip, FormControl, FormLabel, StandardTextFieldProps, TextField } from '@mui/material'
 import { useState } from 'react'
 
-import { useSeedPhrase } from '../../../../../contexts'
-import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages'
+import { useSeedPhrase } from '../../../../../contexts/index.js'
+import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages/index.js'
 
 export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
   fullWidth?: boolean
@@ -16,7 +16,11 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({ full
 
   return (
     <FormControl fullWidth={fullWidth} size="small" sx={{ display: 'flex', flexDirection: 'column', rowGap: 1 }}>
-      <Chip label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'} onClick={() => setVisible(!visible)} sx={{ alignSelf: 'center'}} />
+      <Chip
+        label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'}
+        onClick={() => setVisible(!visible)}
+        sx={{ alignSelf: 'center' }}
+      />
       {visible ?
         <>
           {showPhraseHeader ?

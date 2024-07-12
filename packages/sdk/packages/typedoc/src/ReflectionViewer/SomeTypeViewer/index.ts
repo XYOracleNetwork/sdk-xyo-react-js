@@ -1,1 +1,1 @@
-export * from './SomeTypeViewer'
+export * from './SomeTypeViewer.js'

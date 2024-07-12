@@ -1,4 +1,4 @@
-import { createContextEx } from '../contextEx'
-import { ListModeContextState } from './State'
+import { createContextEx } from '../contextEx/index.js'
+import { ListModeContextState } from './State.js'
 
 export const ListModeContext = createContextEx<ListModeContextState>()

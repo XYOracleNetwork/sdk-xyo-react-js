@@ -1,8 +1,8 @@
 import { usePromise } from '@xylabs/react-promise'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { useWalletContext } from '../contexts'
-import { useWallet } from './useWallet'
+import { useWalletContext } from '../contexts/index.js'
+import { useWallet } from './useWallet.js'
 
 export interface WalletsHookParams {
   paths: string[]

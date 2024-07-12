@@ -1,1 +1,1 @@
-export * from './ColorGradient'
+export * from './ColorGradient.js'

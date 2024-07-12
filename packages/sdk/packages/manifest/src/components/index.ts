@@ -1,1 +1,1 @@
-export * from './ManifestNodeProvider'
+export * from './ManifestNodeProvider.js'

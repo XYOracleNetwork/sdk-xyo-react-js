@@ -2,7 +2,7 @@ import { Breakpoint, styled } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { ReactNode } from 'react'
 
-import { fixedContent, scrollableContent } from './lib'
+import { fixedContent, scrollableContent } from './lib/index.js'
 
 const WebAppBodyName = 'WebAppBody'
 const propsNotForwarded = new Set(['mobileScrollingBreakpoint', 'variant', 'spacing', 'disableBreadcrumbGutter'])

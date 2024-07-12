@@ -17,7 +17,7 @@ import {
 import { Feature, Polygon } from 'geojson'
 import { useMemo } from 'react'
 
-import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
+import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings.js'
 
 export interface QuadkeyHeatMapInnerProps extends FlexBoxProps {
   accessToken?: string

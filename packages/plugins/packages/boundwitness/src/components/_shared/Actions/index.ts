@@ -1,3 +1,3 @@
-export * from './BWActions'
-export * from './PreviousHash'
-export * from './Verification'
+export * from './BWActions.js'
+export * from './PreviousHash.js'
+export * from './Verification.js'

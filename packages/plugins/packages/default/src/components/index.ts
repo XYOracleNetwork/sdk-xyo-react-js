@@ -1,1 +1,1 @@
-export * from './DetailsRenderer'
+export * from './DetailsRenderer.js'

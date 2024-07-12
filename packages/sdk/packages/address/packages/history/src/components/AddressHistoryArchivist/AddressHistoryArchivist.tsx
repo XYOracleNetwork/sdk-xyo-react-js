@@ -3,7 +3,7 @@ import type { WithChildren } from '@xylabs/react-shared'
 import { ErrorRender } from '@xyo-network/react-error'
 import { LoadResult } from '@xyo-network/react-shared'
 
-import { useAddressHistory } from '../../hooks'
+import { useAddressHistory } from '../../hooks/index.js'
 
 export interface AddressHistoryArchivistProps extends WithChildren {
   address?: Address

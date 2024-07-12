@@ -14,9 +14,9 @@ import { EvmAddress, EvmAddressSchema } from '@xyo-network/witness-evm-abstract'
 import { TimeStamp } from '@xyo-network/witness-timestamp'
 import { useMemo } from 'react'
 
-import { useFreshIndexedResult, UseIndexedResultsConfig } from '../../../hooks'
-import { PollingStrategies } from '../../../interfaces'
-import { UseIndexedResultsProps } from './lib'
+import { useFreshIndexedResult, UseIndexedResultsConfig } from '../../../hooks/index.js'
+import { PollingStrategies } from '../../../interfaces/index.js'
+import { UseIndexedResultsProps } from './lib/index.js'
 
 export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
   const [archivist] = useWeakArchivistFromNode('Archivist')

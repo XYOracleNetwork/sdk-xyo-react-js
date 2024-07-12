@@ -2,8 +2,8 @@ import { usePromise } from '@xylabs/react-promise'
 import { ModuleDescription, ModuleDescriptionPayload, ModuleDescriptionSchema } from '@xyo-network/module-model'
 import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig'
-import { useNode } from './useNode'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.js'
+import { useNode } from './useNode.js'
 
 export const useNodeDescription = (config?: ModuleFromNodeConfig | undefined): [ModuleDescription | undefined, Error | undefined] => {
   const [activeNode, nodeError] = useNode(config)

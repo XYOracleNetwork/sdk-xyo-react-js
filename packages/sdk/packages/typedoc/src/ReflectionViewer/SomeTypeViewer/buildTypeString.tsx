@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
 import type { SomeType, Type } from 'typedoc'
 
-import { ReflectionViewerProps } from '../ReflectionViewerProps'
-import { buildArrayString } from './buildArrayString'
-import { buildIntersectionString } from './buildIntersectionString'
-import { buildReferenceString } from './buildReferenceString'
-import { buildRelfectionString } from './buildReflectionString'
-import { buildUnionString } from './buildUnionString'
-import { TypeBuilder } from './TypeBuilder'
+import { ReflectionViewerProps } from '../ReflectionViewerProps.js'
+import { buildArrayString } from './buildArrayString.js'
+import { buildIntersectionString } from './buildIntersectionString.js'
+import { buildReferenceString } from './buildReferenceString.js'
+import { buildReflectionString } from './buildReflectionString.js'
+import { buildUnionString } from './buildUnionString.js'
+import { TypeBuilder } from './TypeBuilder.js'
 
 export const buildTypeString: TypeBuilder = (type: SomeType | Type, reflectionViewer: React.FC<ReflectionViewerProps>): ReactNode => {
   const someType = type as SomeType
@@ -39,7 +39,7 @@ export const buildTypeString: TypeBuilder = (type: SomeType | Type, reflectionVi
       break
     }
     case 'reflection': {
-      return buildRelfectionString(someType, reflectionViewer)
+      return buildReflectionString(someType, reflectionViewer)
     }
     default: {
       parts.push('#', someType.type, '#')

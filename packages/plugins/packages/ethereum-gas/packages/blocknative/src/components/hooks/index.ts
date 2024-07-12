@@ -1,1 +1,1 @@
-export * from './useBlocknativeTransformer'
+export * from './useBlocknativeTransformer.js'

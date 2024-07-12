@@ -6,7 +6,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 
-import { CryptoAsset } from './Asset'
+import { CryptoAsset } from './Asset.js'
 
 export interface CryptoAssetRendererProps extends PayloadDetailsRenderProps {
   payload?: Payload

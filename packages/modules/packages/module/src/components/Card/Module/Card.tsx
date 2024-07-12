@@ -1,9 +1,9 @@
 import { Card, CardProps } from '@mui/material'
 
-import { ModuleRenderProps } from '../../../ModuleRenderProps'
-import { ModuleCardActions } from './CardActions'
-import { ModuleCardContent } from './CardContent'
-import { ModuleCardHeader } from './CardHeader'
+import { ModuleRenderProps } from '../../../ModuleRenderProps.js'
+import { ModuleCardActions } from './CardActions.js'
+import { ModuleCardContent } from './CardContent.js'
+import { ModuleCardHeader } from './CardHeader.js'
 
 export const ModuleCard: React.FC<CardProps & ModuleRenderProps> = ({ mod, ...props }) => {
   return (
