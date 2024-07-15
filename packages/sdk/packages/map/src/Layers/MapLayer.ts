@@ -1,7 +1,6 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-// eslint-disable-next-line no-restricted-imports
-import { AnyLayer, Layer } from 'mapbox-gl'
+import { Layer, LayerSpecification } from 'mapbox-gl'
 
 export interface MapLayer extends Layer {
-  update: LayerBase<AnyLayer>['update']
+  update: LayerBase<LayerSpecification>['update']
 }

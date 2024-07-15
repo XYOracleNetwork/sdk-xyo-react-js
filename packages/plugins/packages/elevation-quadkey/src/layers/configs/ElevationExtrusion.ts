@@ -1,6 +1,6 @@
-import { FillExtrusionLayer } from 'mapbox-gl'
+import { FillExtrusionLayerSpecification } from 'mapbox-gl'
 
-export const ElevationExtrusionLayerConfig: (color: string, property: string) => Partial<FillExtrusionLayer> = (color, property) => ({
+export const ElevationExtrusionLayerConfig: (color: string, property: string) => Partial<FillExtrusionLayerSpecification> = (color, property) => ({
   paint: {
     // 'fill-extrusion-base': 10000,
     'fill-extrusion-color': color,

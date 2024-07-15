@@ -1,18 +1,17 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-// eslint-disable-next-line no-restricted-imports
-import { FillLayer } from 'mapbox-gl'
+import { FillLayerSpecification } from 'mapbox-gl'
 
-export class FillLayerBuilder extends LayerBase<FillLayer> {
-  FillLayerOptions: Partial<FillLayer>
+export class FillLayerBuilder extends LayerBase<FillLayerSpecification> {
+  FillLayerOptions: Partial<FillLayerSpecification>
 
   // ensures this class passes for `AnyLayer` type in MapBox
   type: 'fill' = 'fill' as const
 
-  constructor(id: string, source: string, FillLayerOptions?: Partial<FillLayer>) {
+  constructor(id: string, source: string, FillLayerOptions?: Partial<FillLayerSpecification>) {
     super(id, source)
     this.FillLayerOptions = FillLayerOptions || { id: this.id, source: this.source }
   }
-  buildLayer(): FillLayer {
+  buildLayer(): FillLayerSpecification {
     return {
       ...this.FillLayerOptions,
       id: this.id,

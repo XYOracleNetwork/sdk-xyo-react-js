@@ -1,6 +1,6 @@
-import { SymbolLayer } from 'mapbox-gl'
+import { SymbolLayerSpecification } from 'mapbox-gl'
 
-export const HeatMapSymbolLayerConfig: (color: string) => Partial<SymbolLayer> = (color) => ({
+export const HeatMapSymbolLayerConfig: (color: string) => Partial<SymbolLayerSpecification> = (color) => ({
   layout: {
     'text-anchor': 'center',
     'text-field': [

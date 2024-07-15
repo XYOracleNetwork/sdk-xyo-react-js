@@ -1,5 +1,5 @@
 import { useWindowSize } from '@xylabs/react-shared'
-import { MapboxOptions } from 'mapbox-gl'
+import { MapOptions } from 'mapbox-gl'
 import { useEffect, useState } from 'react'
 
 /**
@@ -49,7 +49,7 @@ const linearInterpolate = (aspectRatio: number, degreeRange: number[], aspectRat
 }
 
 const useDynamicPositioning = () => {
-  const [options, setOptions] = useState<Partial<MapboxOptions>>({})
+  const [options, setOptions] = useState<Partial<MapOptions>>({})
   const { width, height } = useWindowSize()
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { Feature, Point } from 'geojson'
 // eslint-disable-next-line no-restricted-imports
-import { FitBoundsOptions, LngLatBounds } from 'mapbox-gl'
+import { LngLatBounds, MapOptions } from 'mapbox-gl'
 
 import { MapBase, MapBaseConfig } from './MapBase.js'
 
@@ -16,7 +16,7 @@ export class MapPoints extends MapBase<Point> {
     this.config = config
   }
 
-  initialMapPositioning(options: FitBoundsOptions, initialBounds?: LngLatBounds) {
+  initialMapPositioning(options: MapOptions['fitBoundsOptions'], initialBounds?: LngLatBounds) {
     let bounds: LngLatBounds
 
     if (initialBounds) {

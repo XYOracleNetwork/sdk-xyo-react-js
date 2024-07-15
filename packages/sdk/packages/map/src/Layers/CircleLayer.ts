@@ -1,18 +1,17 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-// eslint-disable-next-line no-restricted-imports
-import { CircleLayer } from 'mapbox-gl'
+import { CircleLayerSpecification } from 'mapbox-gl'
 
-export class CircleLayerBuilder extends LayerBase<CircleLayer> {
-  CircleLayerOptions: Partial<CircleLayer>
+export class CircleLayerBuilder extends LayerBase<CircleLayerSpecification> {
+  CircleLayerOptions: Partial<CircleLayerSpecification>
 
   // ensures this class passes for `AnyLayer` type in MapBox
   type: 'circle' = 'circle' as const
 
-  constructor(id: string, source: string, CircleLayerOptions?: Partial<CircleLayer>) {
+  constructor(id: string, source: string, CircleLayerOptions?: Partial<CircleLayerSpecification>) {
     super(id, source)
     this.CircleLayerOptions = CircleLayerOptions || { id: this.id, source: this.source, type: 'circle' }
   }
-  buildLayer(): CircleLayer {
+  buildLayer(): CircleLayerSpecification {
     return {
       filter: ['==', '$type', 'Point'],
       layout: {},

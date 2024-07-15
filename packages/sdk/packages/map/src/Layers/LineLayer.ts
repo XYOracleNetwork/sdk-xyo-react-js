@@ -1,18 +1,17 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-// eslint-disable-next-line no-restricted-imports
-import { LineLayer } from 'mapbox-gl'
+import { LineLayerSpecification } from 'mapbox-gl'
 
-export class LineLayerBuilder extends LayerBase<LineLayer> {
-  LineLayerOptions: Partial<LineLayer>
+export class LineLayerBuilder extends LayerBase<LineLayerSpecification> {
+  LineLayerOptions: Partial<LineLayerSpecification>
 
   // ensures this class passes for `AnyLayer` type in MapBox
   type: 'line' = 'line' as const
 
-  constructor(id: string, source: string, LineLayerOptions?: Partial<LineLayer>) {
+  constructor(id: string, source: string, LineLayerOptions?: Partial<LineLayerSpecification>) {
     super(id, source)
     this.LineLayerOptions = LineLayerOptions || { id: this.id, source: this.source }
   }
-  buildLayer(): LineLayer {
+  buildLayer(): LineLayerSpecification {
     return {
       ...this.LineLayerOptions,
       id: this.id,

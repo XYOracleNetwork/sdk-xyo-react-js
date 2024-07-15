@@ -1,6 +1,6 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { Feature } from 'geojson'
-import { MapboxOptions } from 'mapbox-gl'
+import { MapOptions } from 'mapbox-gl'
 import { ReactNode } from 'react'
 
 import { MapLayer } from '../Layers/index.js'
@@ -14,7 +14,7 @@ export interface MapboxFlexBoxProps extends FlexBoxProps {
   fitToPointsPadding?: number
   layers?: MapLayer[]
   legend?: ReactNode
-  mapBoxOptions?: Partial<MapboxOptions>
+  mapBoxOptions?: Partial<MapOptions>
   requestLocation?: boolean
   zoom?: number
 }
