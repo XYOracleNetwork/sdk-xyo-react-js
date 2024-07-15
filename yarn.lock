@@ -8075,7 +8075,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/promise@npm:^3.5.9":
+"@xylabs/promise@npm:3.5.9, @xylabs/promise@npm:^3.5.9":
   version: 3.5.9
   resolution: "@xylabs/promise@npm:3.5.9"
   checksum: 10/a9b55777e781f4bec830ea2ab03516b918313298503ced00e5c14decf945d2648120579b52be7600f7f43930567e0ef661a7565468b0a81e8e79b1304b9b017c
@@ -10946,15 +10946,45 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-form-credit-card@workspace:packages/sdk/packages/form/packages/credit-card":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-form-credit-card@workspace:packages/sdk/packages/form/packages/credit-card"
+  dependencies:
+    "@mui/icons-material": "npm:^5.16.1"
+    "@storybook/react": "npm:^7.6.20"
+    "@xylabs/promise": "npm:3.5.9"
+    "@xylabs/ts-scripts-yarn3": "npm:^3.12.1"
+    "@xylabs/tsconfig-react": "npm:^3.12.1"
+    "@xyo-network/archivist-model": "npm:^2.110.5"
+    "@xyo-network/module-abstract": "npm:^2.110.5"
+    "@xyo-network/module-events": "npm:^2.110.5"
+    "@xyo-network/payload-model": "npm:^2.110.5"
+    react-router-dom: "npm:^6.24.1"
+    typescript: "npm:^5.5.3"
+  peerDependencies:
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    react: ^18
+    react-dom: ^18
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-form@workspace:packages/sdk/packages/form":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-form@workspace:packages/sdk/packages/form"
   dependencies:
     "@mui/icons-material": "npm:^5.16.1"
     "@storybook/react": "npm:^7.6.20"
-    "@xylabs/react-flexbox": "npm:^3.4.0"
+    "@xylabs/forget": "npm:^3.5.9"
+    "@xylabs/object": "npm:^3.5.9"
+    "@xylabs/promise": "npm:^3.5.9"
     "@xylabs/ts-scripts-yarn3": "npm:^3.12.1"
     "@xylabs/tsconfig-react": "npm:^3.12.1"
+    "@xyo-network/archivist-model": "npm:^2.110.5"
+    "@xyo-network/module-abstract": "npm:^2.110.5"
+    "@xyo-network/module-events": "npm:^2.110.5"
+    "@xyo-network/payload-model": "npm:^2.110.5"
+    "@xyo-network/react-shared": "workspace:^"
     react-router-dom: "npm:^6.24.1"
     typescript: "npm:^5.5.3"
   peerDependencies:
