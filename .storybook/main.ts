@@ -57,6 +57,19 @@ const config: StorybookConfig = {
       )
     );
 
+    /**
+     * Configure webpack to allow using .js extension for typescript file imports.
+     * 
+     * Source - https://github.com/storybookjs/storybook/issues/11587#issuecomment-1374816054
+     * Webpack Reference - https://webpack.js.org/configuration/resolve/#resolveextensionalias
+     */
+    const resolve = config?.resolve
+    if (resolve) {
+      resolve.extensionAlias = {
+        ".js": [".tsx", ".ts", ".js"],
+      };
+    }
+
     return config;
   },
 };
