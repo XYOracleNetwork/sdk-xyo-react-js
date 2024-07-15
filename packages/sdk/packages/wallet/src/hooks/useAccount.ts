@@ -51,7 +51,7 @@ export const useAccount = ({ wallet, account, index, required = false }: Account
 
   return [
     error ? undefined
-    : account ?? activeAccount ?? walletContextProvided ? null
+    : (account ?? activeAccount ?? walletContextProvided) ? null
     : undefined,
     error,
   ]
