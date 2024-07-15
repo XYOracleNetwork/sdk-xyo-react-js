@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
 
-import { NodeDetails } from './NodeDetails'
+import { NodeDetails } from './NodeDetails.js'
 
 export interface DebugDialogProps extends DialogProps {}
 

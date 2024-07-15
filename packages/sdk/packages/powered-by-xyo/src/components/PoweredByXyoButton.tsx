@@ -3,8 +3,8 @@ import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
-import { xyoColorLogoText } from '../img'
-import { XyoBusy } from './XyoBusy'
+import { xyoColorLogoText } from '../img/index.js'
+import { XyoBusy } from './XyoBusy.js'
 
 export interface PoweredByXyoButtonProps extends ButtonExProps {
   busy?: boolean

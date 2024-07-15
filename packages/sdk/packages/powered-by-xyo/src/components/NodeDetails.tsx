@@ -2,8 +2,8 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode, useWeakModulesFromNode } from '@xyo-network/react-node'
 
-import { ModuleAccordion } from './ModuleAccordion'
-import { ModuleDetailsProps } from './ModuleDetails'
+import { ModuleAccordion } from './ModuleAccordion.js'
+import { ModuleDetailsProps } from './ModuleDetails.js'
 
 export interface NodeViewerProps extends ModuleDetailsProps<NodeInstance> {}
 
