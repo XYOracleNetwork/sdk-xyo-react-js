@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WalletAccountDetails } from './WalletAccountDetails'
+import { WalletAccountDetails } from './WalletAccountDetails.js'
 
 const StorybookEntry = {
   argTypes: {},

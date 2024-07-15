@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 //import type { ProjectReflection } from 'typedoc'
-import { ProjectTwoPanelReflectionViewer } from './ProjectTwoPanelReflectionViewer'
+import { ProjectTwoPanelReflectionViewer } from './ProjectTwoPanelReflectionViewer.js'
 
 const StorybookEntry = {
   argTypes: {},

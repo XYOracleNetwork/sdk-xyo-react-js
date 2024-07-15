@@ -4,7 +4,7 @@ import { usePromise } from '@xylabs/react-promise'
 //import { Account } from '@xyo-network/account'
 //import { BoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 //import { Payload } from '@xyo-network/payload-model'
-import { ArchivistStats } from './ArchivistStats'
+import { ArchivistStats } from './ArchivistStats.js'
 
 //const account = Account.randomSync()
 //const payload = () => ({ schema: 'network.xyo.payload', timestamp: Date.now() })

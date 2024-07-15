@@ -6,8 +6,8 @@ import { LinkEx } from '@xylabs/react-link'
 import { MenuListItemContainer } from '@xyo-network/react-appbar'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WebAppChrome } from './Chrome'
-import { WebAppPage, WebAppPageProps } from './Page'
+import { WebAppChrome } from './Chrome.js'
+import { WebAppPage, WebAppPageProps } from './Page.js'
 
 const StorybookEntry = {
   argTypes: {},

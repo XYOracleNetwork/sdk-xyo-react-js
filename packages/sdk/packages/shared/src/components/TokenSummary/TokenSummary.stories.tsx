@@ -2,8 +2,8 @@ import { Link } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import * as tokenData from '../TokenData'
-import { TokenSummary } from './TokenSummary'
+import * as tokenData from '../TokenData/index.js'
+import { TokenSummary } from './TokenSummary.js'
 const StorybookEntry = {
   argTypes: {},
   component: TokenSummary,

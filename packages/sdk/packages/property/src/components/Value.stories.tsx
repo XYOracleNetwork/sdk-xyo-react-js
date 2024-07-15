@@ -1,8 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
-import { PayloadBuilder } from '@xyo-network/payload-builder'
-import { sampleBlock } from '@xyo-network/react-storybook'
 
-import { PropertyValue } from './Value'
+import { PropertyValue } from './Value.js'
 
 const StorybookEntry = {
   argTypes: {},
@@ -22,7 +20,9 @@ Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = { value: await PayloadBuilder.dataHash(sampleBlock) }
+WithData.args = {
+  // value: await PayloadBuilder.dataHash(sampleBlock)
+}
 
 export { Default, WithData }
 

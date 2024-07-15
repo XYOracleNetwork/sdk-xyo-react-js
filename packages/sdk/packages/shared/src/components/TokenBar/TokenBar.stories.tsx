@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { BrowserRouter } from 'react-router-dom'
 
-import { TokenBar } from './TokenBar'
+import { TokenBar } from './TokenBar.js'
 const StorybookEntry = {
   argTypes: {},
   component: TokenBar,

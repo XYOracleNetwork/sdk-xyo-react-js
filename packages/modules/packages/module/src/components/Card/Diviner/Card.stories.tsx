@@ -4,7 +4,7 @@ import { AddressHistoryDiviner, AddressHistoryDivinerConfigSchema } from '@xyo-n
 import { DivinerInstance } from '@xyo-network/diviner-model'
 import { useState } from 'react'
 
-import { DivinerCard } from './Card'
+import { DivinerCard } from './Card.js'
 
 const StorybookEntry = {
   title: 'modules/diviner/DivinerCard',

@@ -6,7 +6,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
-import { SeedPhraseDialog } from './SeedPhraseDialog'
+import { SeedPhraseDialog } from './SeedPhraseDialog.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

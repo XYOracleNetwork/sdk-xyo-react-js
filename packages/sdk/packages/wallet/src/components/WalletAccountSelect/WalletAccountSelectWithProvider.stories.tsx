@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { WalletAccountSelect } from './Select'
-import { WalletProviderDecorator } from './stories'
+import { WalletAccountSelect } from './Select.js'
+import { WalletProviderDecorator } from './stories/index.js'
 
 const StorybookEntry = {
   argTypes: {},

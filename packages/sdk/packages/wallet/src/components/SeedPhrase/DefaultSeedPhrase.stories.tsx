@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { DefaultSeedPhrase } from './DefaultSeedPhrase'
+import { DefaultSeedPhrase } from './DefaultSeedPhrase.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

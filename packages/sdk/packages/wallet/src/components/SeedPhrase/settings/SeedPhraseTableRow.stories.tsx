@@ -1,7 +1,7 @@
 import { Table, TableBody } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { SeedPhraseTableRow } from './SeedPhraseTableRow'
+import { SeedPhraseTableRow } from './SeedPhraseTableRow.js'
 
 const changeSeedPhrase = (phrase?: string) => alert(`Changed Seed Phrase to: ${phrase}`)
 

@@ -8,7 +8,7 @@ import { ArchivistInsertQuerySchema, ArchivistInstance } from '@xyo-network/arch
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { MemoryNode } from '@xyo-network/node-memory'
 
-import { ArchivistCard } from './Card'
+import { ArchivistCard } from './Card.js'
 
 const StorybookEntry = {
   component: ArchivistCard,

@@ -3,9 +3,9 @@ import { TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme } 
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 
-import { TableCellEx } from './TableCellEx'
-import { TableEx } from './TableEx'
-import { TableFooterEx } from './TableFooterEx'
+import { TableCellEx } from './TableCellEx.js'
+import { TableEx } from './TableEx.js'
+import { TableFooterEx } from './TableFooterEx.js'
 
 const ScrollableDecorator: Decorator = (Story, args) => (
   <div style={{ height: 'calc(100vh - 2rem)', inset: 0, position: 'absolute' }}>

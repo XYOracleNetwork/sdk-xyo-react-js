@@ -2,9 +2,9 @@ import { Meta, StoryFn } from '@storybook/react'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WalletProvider } from '../../contexts'
+import { WalletProvider } from '../../contexts/index.js'
 import { useWallet } from '../../hooks/index.js'
-import { WalletAccountDetails } from './WalletAccountDetails'
+import { WalletAccountDetails } from './WalletAccountDetails.js'
 
 const StorybookEntry = {
   argTypes: {},

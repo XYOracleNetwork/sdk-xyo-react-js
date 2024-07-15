@@ -2,11 +2,9 @@ import { Replay as ReplayIcon } from '@mui/icons-material'
 import { TextField } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { PayloadBuilder } from '@xyo-network/payload-builder'
-import { sampleBlock } from '@xyo-network/react-storybook'
 
-import { Property } from './Property'
-import { PropertyPaperProps, PropertyProps } from './Props'
+import { Property } from './Property.js'
+import { PropertyPaperProps, PropertyProps } from './Props.js'
 
 const StorybookEntry = {
   argTypes: {},
@@ -60,19 +58,30 @@ const WithUndefinedData = Template.bind({})
 WithUndefinedData.args = { title: 'Block Hash' }
 
 const WithData = Template.bind({})
-WithData.args = { title: 'Block Hash', value: await PayloadBuilder.dataHash(sampleBlock) }
+WithData.args = {
+  title: 'Block Hash',
+  // value: await PayloadBuilder.dataHash(sampleBlock),
+}
 
 const WithDataSmall = Template.bind({})
-WithDataSmall.args = { size: 'small', title: 'Block Hash', value: await PayloadBuilder.dataHash(sampleBlock) }
+WithDataSmall.args = {
+  size: 'small',
+  title: 'Block Hash',
+  // value: await PayloadBuilder.dataHash(sampleBlock),
+}
 
 const WithDataCompare = TemplateWithCompare.bind({})
-WithDataCompare.args = { tip: 'This is the block hash', title: 'Block Hash', value: await PayloadBuilder.dataHash(sampleBlock) }
+WithDataCompare.args = {
+  tip: 'This is the block hash',
+  title: 'Block Hash',
+  // value: await PayloadBuilder.dataHash(sampleBlock),
+}
 
 const WithDataCompareOutlined = TemplateWithCompare.bind({})
 WithDataCompareOutlined.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
   variant: 'outlined',
 }
 
@@ -80,7 +89,7 @@ const WithDataCompareElevation = TemplateWithCompare.bind({})
 WithDataCompareElevation.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
   variant: 'elevation',
 }
 
@@ -90,7 +99,7 @@ WithDataAndBadgeSmall.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 const WithDataAndBadgeMedium = Template.bind({})
@@ -99,7 +108,7 @@ WithDataAndBadgeMedium.args = {
   size: 'medium',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 const WithDataAndBadgeLarge = Template.bind({})
@@ -108,14 +117,14 @@ WithDataAndBadgeLarge.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 const WithTip = Template.bind({})
 WithTip.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 const WithTipAndBadge = Template.bind({})
@@ -123,7 +132,7 @@ WithTipAndBadge.args = {
   badge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 const WithActions = Template.bind({})
@@ -131,7 +140,7 @@ WithActions.args = {
   actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 const LargeWithValue = Template.bind({})
@@ -140,7 +149,7 @@ LargeWithValue.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 const LargeWithValueAndActions = Template.bind({})
@@ -150,7 +159,7 @@ LargeWithValueAndActions.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 const SmallWithValueAndActions = Template.bind({})
@@ -160,7 +169,7 @@ SmallWithValueAndActions.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  value: await PayloadBuilder.dataHash(sampleBlock),
+  // value: await PayloadBuilder.dataHash(sampleBlock),
 }
 
 export {

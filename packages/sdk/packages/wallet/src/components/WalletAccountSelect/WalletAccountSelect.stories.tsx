@@ -1,9 +1,9 @@
 import { Stack } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { WalletAccountSelect } from './Select'
-import { WalletProviderDecorator } from './stories'
-import { AccountInfo, RootWalletInfo, SelectedWalletInfo, WalletInfo } from './WalletInfo'
+import { WalletAccountSelect } from './Select.js'
+import { WalletProviderDecorator } from './stories/index.js'
+import { AccountInfo, RootWalletInfo, SelectedWalletInfo, WalletInfo } from './WalletInfo.js'
 
 const StorybookEntry = {
   argTypes: {},
