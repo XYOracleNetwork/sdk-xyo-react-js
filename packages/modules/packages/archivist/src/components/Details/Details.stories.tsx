@@ -21,7 +21,7 @@ const StorybookEntry = {
 const TemplateInner: StoryFn<typeof ArchivistDetails> = (args) => {
   const [archivist] = useWeakArchivistFromNode()
 
-  return <ArchivistDetails address={archivist?.address} {...args}></ArchivistDetails>
+  return <ArchivistDetails address={archivist?.deref()?.address} {...args}></ArchivistDetails>
 }
 
 const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
@@ -31,10 +31,10 @@ const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   useAsyncEffect(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
-      if (archivist) {
-        await archivist.insert([{ schema: 'network.xyo.test' }])
+      if (archivist?.deref()) {
+        await archivist.deref()?.insert([{ schema: 'network.xyo.test' }])
         if (mounted()) {
-          setArchivistWithData(archivist)
+          setArchivistWithData(archivist.deref())
         }
       }
     },
