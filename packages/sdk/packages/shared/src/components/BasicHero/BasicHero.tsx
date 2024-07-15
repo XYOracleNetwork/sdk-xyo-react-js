@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import { ReactElement } from 'react'
 
-import { useGradientStyles, useIsMobile } from '../../hooks/index.js'
+import { useGradientStyles, useIsSmall } from '../../hooks/index.js'
 
 export interface BasicHeroProps extends FlexBoxProps {
   backgroundColor?: string
@@ -59,7 +59,7 @@ const SubLinkSection: React.FC<SubLinkSectionProps> = ({ backgroundImageAlignmen
 }
 
 const ButtonSection: React.FC<ButtonSectionProps> = ({ href, to, buttonText }) => {
-  const isMobile = useIsMobile()
+  const isMobile = useIsSmall()
   return (
     <ButtonEx
       fullWidth={true}
@@ -102,7 +102,7 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
   sx,
   ...props
 }) => {
-  const isMobile = useIsMobile()
+  const isMobile = useIsSmall()
   const { classes } = useGradientStyles()
   return (
     <FlexGrowCol

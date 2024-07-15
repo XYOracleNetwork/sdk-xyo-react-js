@@ -4,8 +4,8 @@ import { ArchivistModule } from '@xyo-network/archivist-model'
 import { NodeProvider } from '@xyo-network/react-node'
 import { useState } from 'react'
 
-import { useArchivistFromNode } from '../../hooks/index.js'
-import { ArchivistDetails } from './Details'
+import { useWeakArchivistFromNode } from '../../hooks/index.js'
+import { ArchivistDetails } from './Details.js'
 
 const StorybookEntry = {
   argTypes: {},
@@ -19,13 +19,13 @@ const StorybookEntry = {
 } as Meta<typeof ArchivistDetails>
 
 const TemplateInner: StoryFn<typeof ArchivistDetails> = (args) => {
-  const [archivist] = useArchivistFromNode()
+  const [archivist] = useWeakArchivistFromNode()
 
   return <ArchivistDetails address={archivist?.address} {...args}></ArchivistDetails>
 }
 
 const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
-  const [archivist] = useArchivistFromNode()
+  const [archivist] = useWeakArchivistFromNode()
   const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
 
   useAsyncEffect(

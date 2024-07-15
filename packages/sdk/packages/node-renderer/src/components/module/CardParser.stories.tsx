@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 
-import { ModuleCardParser } from './CardParser'
+import { ModuleCardParser } from './CardParser.js'
 
 const meta: Meta<typeof ModuleCardParser> = {
   component: ModuleCardParser,
@@ -19,7 +19,7 @@ export const WithArchivist: Story = {
     async () => {
       const ParentArchivist = await MemoryArchivist.create({ config: { name: 'ParentArchivist', schema: MemoryArchivistConfigSchema } })
       return {
-        module: await MemoryArchivist.create({
+        mod: await MemoryArchivist.create({
           config: { name: 'MemoryArchivist', parents: { write: [ParentArchivist.address] }, schema: MemoryArchivistConfigSchema },
         }),
       }
@@ -30,7 +30,7 @@ export const WithArchivist: Story = {
 export const WithWitness: Story = {
   loaders: [
     async () => ({
-      module: await IdWitness.create({ config: { name: 'IdWitness', schema: IdWitnessConfigSchema } }),
+      mod: await IdWitness.create({ config: { name: 'IdWitness', schema: IdWitnessConfigSchema } }),
     }),
   ],
 }
