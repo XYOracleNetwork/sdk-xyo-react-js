@@ -1,18 +1,17 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-// eslint-disable-next-line no-restricted-imports
-import { SymbolLayer } from 'mapbox-gl'
+import { SymbolLayerSpecification } from 'mapbox-gl'
 
-export class SymbolLayerBuilder extends LayerBase<SymbolLayer> {
-  SymbolLayerOptions: Partial<SymbolLayer>
+export class SymbolLayerBuilder extends LayerBase<SymbolLayerSpecification> {
+  SymbolLayerOptions: Partial<SymbolLayerSpecification>
 
   // ensures this class passes for `AnyLayer` type in MapBox
   type: 'symbol' = 'symbol' as const
 
-  constructor(id: string, source: string, SymbolLayerOptions?: Partial<SymbolLayer>) {
+  constructor(id: string, source: string, SymbolLayerOptions?: Partial<SymbolLayerSpecification>) {
     super(id, source)
     this.SymbolLayerOptions = SymbolLayerOptions || { id: this.id, source: this.source }
   }
-  buildLayer(): SymbolLayer {
+  buildLayer(): SymbolLayerSpecification {
     return {
       ...this.SymbolLayerOptions,
       id: this.id,
