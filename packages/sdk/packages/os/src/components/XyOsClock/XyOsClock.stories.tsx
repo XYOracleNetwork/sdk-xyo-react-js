@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { BrowserRouter } from 'react-router-dom'
 
-import { XyOsClock } from './XyOsClock'
+import { XyOsClock } from './XyOsClock.js'
 const StorybookEntry = {
   argTypes: {},
   component: XyOsClock,
