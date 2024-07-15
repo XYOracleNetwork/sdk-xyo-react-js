@@ -10,7 +10,7 @@ import { PayloadValidationDetailsProps } from './ValidationDetailsProps.js'
 export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ skipBody = false, value, ...props }) => {
   const [validateErrors] = usePromise(async () => (value ? await new PayloadValidator(value).validate() : undefined), [value])
 
-  const bodyErrors = skipBody ? [] : validateErrors ?? []
+  const bodyErrors = skipBody ? [] : (validateErrors ?? [])
   const errors: Error[] = [...bodyErrors]
 
   let elevation = 2
