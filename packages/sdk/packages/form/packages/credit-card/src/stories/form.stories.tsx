@@ -7,13 +7,20 @@ import { CreditCardFormFlexboxWithFormGroupProvider } from '../components/index.
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'form/CreditCardForm',
-} as Meta
+} as Meta<typeof CreditCardFormFlexboxWithFormGroupProvider>
 
-const Template: StoryFn<React.FC> = (args) => {
+const Template: StoryFn<typeof CreditCardFormFlexboxWithFormGroupProvider> = (args) => {
   return <CreditCardFormFlexboxWithFormGroupProvider ConfirmationButton={Button} {...args} />
 }
 
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const WithCallbacks = Template.bind({})
+WithCallbacks.args = {
+  onFailedSubmit: (args: unknown[]) => console.log('onFailedSubmit', args),
+  onSuccessfulSubmit: () => console.log('onSuccessfulSubmit'),
+  onValidSubmit: (args: unknown[]) => console.log('onValidSubmit', args),
+}
+
+export { Default, WithCallbacks }
