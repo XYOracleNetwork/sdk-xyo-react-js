@@ -17,7 +17,7 @@ export const CreditCardEmailWithFormControl: React.FC<WithFormControlProps> = ({
       formControl={creditCardFormControl}
       formControlError={error}
       inputMode={inputMode}
-      inputProps={{ 'aria-label': `${fieldLabel} code for your card`, autoComplete, autoCorrect, id, name, spellCheck }}
+      inputProps={{ 'aria-label': `${fieldLabel} for your purchase`, autoComplete, autoCorrect, id, name, spellCheck }}
       inputRef={inputRef}
       value={value}
       {...cvcProps}
