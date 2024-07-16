@@ -1,5 +1,5 @@
 {
-  "name": "@xyo-network/react-form",
+  "name": "@xyo-network/react-form-group",
   "author": {
     "email": "support@xyo.network",
     "name": "XYO Development Team",
@@ -10,8 +10,15 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xyo-network/react-form-credit-card": "workspace:^",
-    "@xyo-network/react-form-group": "workspace:^"
+    "@mui/icons-material": "^5.16.1",
+    "@xylabs/forget": "^3.5.9",
+    "@xylabs/object": "^3.5.9",
+    "@xylabs/promise": "^3.5.9",
+    "@xyo-network/archivist-model": "^2.110.5",
+    "@xyo-network/module-abstract": "^2.110.5",
+    "@xyo-network/module-events": "^2.110.5",
+    "@xyo-network/payload-model": "^2.110.5",
+    "@xyo-network/react-shared": "workspace:^"
   },
   "peerDependencies": {
     "@mui/material": "^5",
@@ -20,6 +27,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@storybook/react": "^7.6.20",
     "@xylabs/ts-scripts-yarn3": "^3.12.1",
     "@xylabs/tsconfig-react": "^3.12.1",
     "typescript": "^5.5.3"

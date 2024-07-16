@@ -8075,7 +8075,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/promise@npm:3.5.9, @xylabs/promise@npm:^3.5.9":
+"@xylabs/promise@npm:^3.5.9":
   version: 3.5.9
   resolution: "@xylabs/promise@npm:3.5.9"
   checksum: 10/a9b55777e781f4bec830ea2ab03516b918313298503ced00e5c14decf945d2648120579b52be7600f7f43930567e0ef661a7565468b0a81e8e79b1304b9b017c
@@ -10946,32 +10946,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-form-credit-card@workspace:packages/sdk/packages/form/packages/credit-card":
+"@xyo-network/react-form-credit-card@workspace:^, @xyo-network/react-form-credit-card@workspace:packages/sdk/packages/form/packages/credit-card":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-form-credit-card@workspace:packages/sdk/packages/form/packages/credit-card"
   dependencies:
     "@mui/icons-material": "npm:^5.16.1"
     "@storybook/react": "npm:^7.6.20"
-    "@xylabs/promise": "npm:3.5.9"
+    "@xylabs/assert": "npm:^3.5.9"
+    "@xylabs/object": "npm:^3.5.9"
     "@xylabs/ts-scripts-yarn3": "npm:^3.12.1"
     "@xylabs/tsconfig-react": "npm:^3.12.1"
-    "@xyo-network/archivist-model": "npm:^2.110.5"
-    "@xyo-network/module-abstract": "npm:^2.110.5"
-    "@xyo-network/module-events": "npm:^2.110.5"
     "@xyo-network/payload-model": "npm:^2.110.5"
-    react-router-dom: "npm:^6.24.1"
+    "@xyo-network/react-form-group": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    card-validator: "npm:^10.0.0"
     typescript: "npm:^5.5.3"
   peerDependencies:
     "@mui/material": ^5
     "@mui/styles": ^5
     react: ^18
-    react-dom: ^18
   languageName: unknown
   linkType: soft
 
-"@xyo-network/react-form@workspace:packages/sdk/packages/form":
+"@xyo-network/react-form-group@workspace:^, @xyo-network/react-form-group@workspace:packages/sdk/packages/form/packages/group":
   version: 0.0.0-use.local
-  resolution: "@xyo-network/react-form@workspace:packages/sdk/packages/form"
+  resolution: "@xyo-network/react-form-group@workspace:packages/sdk/packages/form/packages/group"
   dependencies:
     "@mui/icons-material": "npm:^5.16.1"
     "@storybook/react": "npm:^7.6.20"
@@ -10985,7 +10984,23 @@ __metadata:
     "@xyo-network/module-events": "npm:^2.110.5"
     "@xyo-network/payload-model": "npm:^2.110.5"
     "@xyo-network/react-shared": "workspace:^"
-    react-router-dom: "npm:^6.24.1"
+    typescript: "npm:^5.5.3"
+  peerDependencies:
+    "@mui/material": ^5
+    "@mui/styles": ^5
+    react: ^18
+    react-dom: ^18
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-form@workspace:^, @xyo-network/react-form@workspace:packages/sdk/packages/form":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-form@workspace:packages/sdk/packages/form"
+  dependencies:
+    "@xylabs/ts-scripts-yarn3": "npm:^3.12.1"
+    "@xylabs/tsconfig-react": "npm:^3.12.1"
+    "@xyo-network/react-form-credit-card": "workspace:^"
+    "@xyo-network/react-form-group": "workspace:^"
     typescript: "npm:^5.5.3"
   peerDependencies:
     "@mui/material": ^5
@@ -11984,6 +11999,9 @@ __metadata:
     "@xyo-network/react-error": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
+    "@xyo-network/react-form": "workspace:^"
+    "@xyo-network/react-form-credit-card": "workspace:^"
+    "@xyo-network/react-form-group": "workspace:^"
     "@xyo-network/react-gas-price": "workspace:^"
     "@xyo-network/react-indexed-results": "workspace:^"
     "@xyo-network/react-manifest": "workspace:^"
@@ -14124,6 +14142,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"card-validator@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "card-validator@npm:10.0.0"
+  dependencies:
+    credit-card-type: "npm:^9.1.0"
+  checksum: 10/19f3017887b44e37b0ce35728abdeba59c690dc429de2afcb63d36f0f1288cc9cdf95e1832cccc8ef9fa61eb887ed43e5053f6cb8c12e0537df4b470fff6d94c
+  languageName: node
+  linkType: hard
+
 "case-sensitive-paths-webpack-plugin@npm:^2.4.0":
   version: 2.4.0
   resolution: "case-sensitive-paths-webpack-plugin@npm:2.4.0"
@@ -15049,6 +15076,13 @@ __metadata:
   version: 1.1.1
   resolution: "create-require@npm:1.1.1"
   checksum: 10/a9a1503d4390d8b59ad86f4607de7870b39cad43d929813599a23714831e81c520bddf61bcdd1f8e30f05fd3a2b71ae8538e946eb2786dc65c2bbc520f692eff
+  languageName: node
+  linkType: hard
+
+"credit-card-type@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "credit-card-type@npm:9.1.0"
+  checksum: 10/b766fc1506f1e2258a366d00eaf496e2ec2119f32f765bff6fcf61e4997d33ddb6bf36d19ff564e01e514c7de3d293767eef7de243d5c57e8d51e5f8750f877b
   languageName: node
   linkType: hard
 
