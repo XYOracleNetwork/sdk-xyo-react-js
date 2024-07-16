@@ -2,7 +2,6 @@ import { Payload } from '@xyo-network/payload-model'
 import { Context, PropsWithChildren, useMemo } from 'react'
 
 import { FormGroup, FormGroupParams } from '../FormGroup.js'
-import { FormGroupContext } from './Context.js'
 import { FormGroupContextWithPayloadState } from './State.js'
 
 export interface FormGroupPayloadProviderProps<TStorage extends Payload = Payload> extends PropsWithChildren {
@@ -27,14 +26,5 @@ export const FormGroupPayloadProvider = ({ children, Context, params, ...props }
     <Context.Provider value={{ formGroup, provided: true }} {...props}>
       {children}
     </Context.Provider>
-  )
-}
-
-export const FormGroupCreditCardProvider: React.FC<FormGroupPayloadProviderProps> = ({ children, ...props }: PropsWithChildren) => {
-  const Context = FormGroupContext['creditCardInput']
-  return (
-    <FormGroupPayloadProvider Context={Context} {...props}>
-      {children}
-    </FormGroupPayloadProvider>
   )
 }
