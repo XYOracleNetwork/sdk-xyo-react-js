@@ -1,6 +1,7 @@
 import { Stack } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { ErrorRender } from '@xyo-network/react-error'
+import { useState } from 'react'
 
 import { FormGroupCreditCardProvider, useFormGroupWithCreditCardInput } from '../../context/index.js'
 import { validateCreditCardInputs } from '../support/index.js'
@@ -10,47 +11,56 @@ import { useFormStorage } from './useFormStorage.js'
 
 export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({
   ConfirmationButton,
-  onFailedSubmit,
+  onErrorDuringSubmit,
+  onInvalidSubmit,
   onSuccessfulSubmit,
   onValidSubmit,
   ...props
 }) => {
   const { formGroup } = useFormGroupWithCreditCardInput(true)
+  const [error, setError] = useState<Error>()
 
   const handleConfirmPayment = async () => {
-    if (!formGroup) {
-      console.error('formGroup is not defined')
-      return
+    try {
+      if (!formGroup) {
+        throw new Error('formGroup is not defined')
+      }
+
+      formGroup.validateFields()
+
+      const errorSummary = formGroup.errorSummary
+
+      if (errorSummary.invalidFields.length > 0) {
+        onInvalidSubmit?.(errorSummary)
+      }
+
+      if (errorSummary.invalidFields.length > 0) return
+
+      const formOutput = validateCreditCardInputs(formGroup.values)
+
+      await onValidSubmit?.(formOutput)
+
+      onSuccessfulSubmit?.()
+    } catch (error) {
+      onErrorDuringSubmit?.(error as Error)
+      setError(error as Error)
     }
-
-    formGroup.validateFields()
-
-    const errorSummary = formGroup.errorSummary
-
-    if (errorSummary.invalidFields.length > 0) {
-      onFailedSubmit?.(errorSummary)
-    }
-
-    if (errorSummary.invalidFields.length > 0) return
-
-    const formOutput = validateCreditCardInputs(formGroup.values)
-
-    await onValidSubmit?.(formOutput)
-
-    onSuccessfulSubmit?.()
   }
 
   return (
-    <FlexCol sx={{ flexDirection: { md: 'row', xs: 'column' } }} width={'100%'} gap={2} {...props}>
-      <Stack flexDirection={'column'} sx={{ width: '100%' }} gap={2}>
-        <InputFieldsStack />
-        {ConfirmationButton ?
-          <ConfirmationButton onClick={handleConfirmPayment} variant="contained" sx={{ alignSelf: 'end' }}>
-            Confirm Payment
-          </ConfirmationButton>
-        : null}
-      </Stack>
-    </FlexCol>
+    <>
+      <ErrorRender error={error} />
+      <FlexCol sx={{ flexDirection: { md: 'row', xs: 'column' } }} width={'100%'} gap={2} {...props}>
+        <Stack flexDirection={'column'} sx={{ width: '100%' }} gap={2}>
+          <InputFieldsStack />
+          {ConfirmationButton ?
+            <ConfirmationButton onClick={handleConfirmPayment} variant="contained" sx={{ alignSelf: 'end' }}>
+              Confirm Payment
+            </ConfirmationButton>
+          : null}
+        </Stack>
+      </FlexCol>
+    </>
   )
 }
 
