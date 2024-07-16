@@ -1,6 +1,6 @@
 import { assertEx } from '@xylabs/assert'
 import { EmptyObject } from '@xylabs/object'
-import { AbstractControl, FormControlBase } from '@xyo-network/react-form-group'
+import { AbstractControl, FormControlBase, FormControlStatus } from '@xyo-network/react-form-group'
 import valid from 'card-validator'
 
 import { unmask } from '../utils/index.js'
@@ -43,14 +43,11 @@ export class CreditCardExpirationFormControl<TProps extends EmptyObject = EmptyO
     const unmasked = unmask(value)
     const expirationValid = valid.expirationDate(unmasked)
     if (!unmasked || (unmasked && unmasked.length !== 4)) {
-      this.setError('Your card expiration is incomplete.')
-      this.setStatus('INVALID')
+      this.setErrorAndValidity('Your card expiration is incomplete.', 'INVALID')
     } else if (expirationValid.isValid) {
-      this.setError('')
-      this.setStatus('VALID')
+      this.setErrorAndValidity('', 'VALID')
     } else {
-      this.setError("Your card's expiration year is in the past.")
-      this.setStatus('INVALID')
+      this.setErrorAndValidity("Your card's expiration year is in the past.", 'INVALID')
     }
   }
 
@@ -58,14 +55,11 @@ export class CreditCardExpirationFormControl<TProps extends EmptyObject = EmptyO
     const unmasked = this.unmask(value)
     const expirationValid = valid.expirationDate(unmasked)
     if (expirationValid.isPotentiallyValid) {
-      this.setError('')
-      this.setStatus('VALID')
+      this.setErrorAndValidity('', 'VALID')
     } else if (expirationValid.isValid) {
-      this.setError('')
-      this.setStatus('VALID')
+      this.setErrorAndValidity('', 'VALID')
     } else {
-      this.setError("Your card's expiration year is in the past.")
-      this.setStatus('INVALID')
+      this.setErrorAndValidity("Your card's expiration year is in the past.", 'INVALID')
     }
   }
 
@@ -90,5 +84,10 @@ export class CreditCardExpirationFormControl<TProps extends EmptyObject = EmptyO
 
       return output.join('')
     }
+  }
+
+  private setErrorAndValidity(error: string, status: FormControlStatus) {
+    this.setError(error)
+    this.setStatus(status)
   }
 }

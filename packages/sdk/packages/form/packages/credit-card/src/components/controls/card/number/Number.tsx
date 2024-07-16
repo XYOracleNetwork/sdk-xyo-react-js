@@ -1,5 +1,4 @@
 import { InputAdornment } from '@mui/material'
-import { useMemo } from 'react'
 
 import { CreditCardNumberFormControl } from '../../../../controls/index.js'
 import { WithFormControlProps } from '../../WithFormControlProps.js'
@@ -12,8 +11,7 @@ export const CreditCardNumberWithFormControl: React.FC<WithFormControlProps> = (
   formControlName = 'cardNumber',
   ...props
 }) => {
-  const control = useMemo(() => new CreditCardNumberFormControl(), [])
-  const { creditCardFormControl, error, inputRef, type, value } = useCreditCardNumberFormControl(formControlName, control)
+  const { creditCardFormControl, error, inputRef, type, value } = useCreditCardNumberFormControl(formControlName, CreditCardNumberFormControl)
   const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cardProps } = creditCardFormControl?.props ?? {}
 
   return (

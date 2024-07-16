@@ -1,7 +1,15 @@
 import { forget } from '@xylabs/forget'
 
-import { ControlValueAccessorBase, ControlValueAccessorBaseEvents, ValidControlValue } from './accessor/index.js'
-import { DISABLED, FormControlStatus, INVALID, PENDING, VALID } from './lib/index.js'
+import {
+  ControlValueAccessorBase,
+  ControlValueAccessorBaseEvents,
+  DISABLED,
+  FormControlStatus,
+  INVALID,
+  PENDING,
+  VALID,
+  ValidControlValue,
+} from './accessor/index.js'
 
 export type AbstractControlEvents<TValue> = ControlValueAccessorBaseEvents<TValue> & {
   statusChanged: { status: FormControlStatus }

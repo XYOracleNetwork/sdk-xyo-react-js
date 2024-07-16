@@ -1,6 +1,3 @@
-import { StandardTextFieldProps } from '@mui/material'
-import { useMemo } from 'react'
-
 import { CreditCardExpirationFormControl } from '../../../controls/index.js'
 import { WithFormControlProps } from '../WithFormControlProps.js'
 import { FormControlTextField } from './FormControlTextField.js'
@@ -11,8 +8,7 @@ export const CreditCardExpirationWithFormControl: React.FC<WithFormControlProps>
   fieldLabel = 'Expiration',
   ...props
 }) => {
-  const control = useMemo(() => new CreditCardExpirationFormControl<StandardTextFieldProps>(), [])
-  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, control)
+  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, CreditCardExpirationFormControl)
   const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...expirationProps } = creditCardFormControl?.props ?? {}
 
   return (

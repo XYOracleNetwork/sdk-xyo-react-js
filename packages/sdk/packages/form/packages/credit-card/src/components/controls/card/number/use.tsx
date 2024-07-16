@@ -6,7 +6,7 @@ import { CreditCardNumberFormControl } from '../../../../controls/index.js'
 import { CreditCardOptions } from '../Options.js'
 import { useCreditCardFormControl } from '../useCreditCardFormControl.js'
 
-export const useCreditCardNumberFormControl = (formControlName?: string, control?: FormControlBase<StandardTextFieldProps>) => {
+export const useCreditCardNumberFormControl = (formControlName?: string, control?: new () => FormControlBase<StandardTextFieldProps>) => {
   const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, control)
   const [type, setType] = useState('' as keyof CreditCardOptions)
 

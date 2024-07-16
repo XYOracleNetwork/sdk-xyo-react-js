@@ -17,8 +17,8 @@ export const NameWithFormControl: React.FC<NameWithFormControlProps> = ({
   tabIndex,
   ...props
 }) => {
-  const control = useMemo(() => new NameFormControl(fieldLabel, autoCompleteLabel, placeholder ?? ''), [autoCompleteLabel, fieldLabel, placeholder])
-  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, control)
+  const args = useMemo(() => [fieldLabel, autoCompleteLabel, placeholder ?? ''], [autoCompleteLabel, fieldLabel, placeholder])
+  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, NameFormControl, args)
   const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cvcProps } = creditCardFormControl?.props ?? {}
   return (
     <FormControlTextField

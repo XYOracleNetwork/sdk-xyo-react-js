@@ -9,7 +9,7 @@ import { useCreditCardFormControl } from '../useCreditCardFormControl.js'
 export const useCreditCardCvvFormControl = (
   formControlName?: string,
   cardNumberControlName = 'cardNumber',
-  control?: FormControlBase<StandardTextFieldProps>,
+  control?: new () => FormControlBase<StandardTextFieldProps>,
 ) => {
   const { creditCardFormControl, error, value, inputRef } = useCreditCardFormControl(formControlName, control)
 
