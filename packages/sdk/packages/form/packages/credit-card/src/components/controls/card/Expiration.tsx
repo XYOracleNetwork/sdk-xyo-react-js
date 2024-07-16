@@ -1,10 +1,10 @@
 import { StandardTextFieldProps } from '@mui/material'
 import { useMemo } from 'react'
 
-import { CreditCardExpirationFormControl } from '../../../../controls/CreditCardExpiry.js'
-import { WithFormControlProps } from '../../WithFormControlProps.js'
-import { FormControlTextField } from '../FormControlTextField.js'
-import { useCreditCardFormControl } from '../useCreditCardFormControl.js'
+import { CreditCardExpirationFormControl } from '../../../controls/index.js'
+import { WithFormControlProps } from '../WithFormControlProps.js'
+import { FormControlTextField } from './FormControlTextField.js'
+import { useCreditCardFormControl } from './useCreditCardFormControl.js'
 
 export const CreditCardExpirationWithFormControl: React.FC<WithFormControlProps> = ({
   formControlName = 'expiration',
