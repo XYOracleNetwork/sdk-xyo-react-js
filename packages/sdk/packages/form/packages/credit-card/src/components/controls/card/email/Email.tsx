@@ -1,15 +1,20 @@
+import { StandardTextFieldProps } from '@mui/material'
+import { useMemo } from 'react'
+
+import { CreditCardEmailFormControl } from '../../../../controls/Email.js'
 import { WithFormControlProps } from '../../WithFormControlProps.js'
 import { FormControlTextField } from '../FormControlTextField.js'
-import { useCreditCardEmailFormControl } from './use.js'
+import { useCreditCardFormControl } from '../useCreditCardFormControl.js'
 
 export const CreditCardEmailWithFormControl: React.FC<WithFormControlProps> = ({ formControlName = 'email', fieldLabel = 'Email', ...props }) => {
-  const { creditCardEmailFormControl, error, inputRef, value } = useCreditCardEmailFormControl(formControlName)
-  const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cvcProps } = creditCardEmailFormControl?.props ?? {}
+  const control = useMemo(() => new CreditCardEmailFormControl<StandardTextFieldProps>(), [])
+  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, control)
+  const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cvcProps } = creditCardFormControl?.props ?? {}
 
   return (
     <FormControlTextField
       fieldLabel={fieldLabel}
-      formControl={creditCardEmailFormControl}
+      formControl={creditCardFormControl}
       formControlError={error}
       inputMode={inputMode}
       inputProps={{ 'aria-label': `${fieldLabel} code for your card`, autoComplete, autoCorrect, id, name, spellCheck }}

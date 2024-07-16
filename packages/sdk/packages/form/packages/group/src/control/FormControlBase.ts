@@ -22,6 +22,10 @@ export abstract class FormControlBase<TProps extends EmptyObject = EmptyObject> 
 
   private _name: string | undefined = undefined
 
+  constructor() {
+    super()
+  }
+
   get name() {
     return this._name
   }
