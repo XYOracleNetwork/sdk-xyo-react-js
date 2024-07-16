@@ -1,4 +1,4 @@
-export type ErrorSummary = {
+export type InputError = {
   errorMessage: string
   invalidFields: string[]
 }

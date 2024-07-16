@@ -3,7 +3,7 @@ import { EventListener } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
 
 import { AbstractControl, ControlValueAccessorBaseEvents } from './control/index.js'
-import { InputError } from './InputError.js'
+import { ErrorSummary } from './InputError.js'
 import { FormGroupStorage } from './storage/index.js'
 
 export type PayloadWithTimestamp = Payload<{ timestamp?: number }>
@@ -44,7 +44,7 @@ export class FormGroup<
   }
 
   get errorSummary() {
-    const errorSummary: InputError = {
+    const errorSummary: ErrorSummary = {
       errorMessage: '',
       invalidFields: [],
     }
