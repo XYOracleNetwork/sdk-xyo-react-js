@@ -25,11 +25,9 @@ export class NameFormControl<TProps extends EmptyObject = EmptyObject> extends F
 
   override blurError(value: string) {
     if (value) {
-      this.setError('')
-      this.setStatus('VALID')
+      this.setErrorAndValidity('', 'VALID')
     } else {
-      this.setError(this.invalidMessage)
-      this.setStatus('INVALID')
+      this.setErrorAndValidity(this.invalidMessage, 'INVALID')
     }
   }
 

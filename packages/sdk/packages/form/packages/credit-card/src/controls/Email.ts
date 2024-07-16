@@ -39,11 +39,9 @@ export class CreditCardEmailFormControl<TProps extends EmptyObject = EmptyObject
 
   private updateValidation(match: RegExpMatchArray | null) {
     if (match) {
-      this.setError('')
-      this.setStatus('VALID')
+      this.setErrorAndValidity('', 'VALID')
     } else {
-      this.setError(this.invalidMessage)
-      this.setStatus('INVALID')
+      this.setErrorAndValidity(this.invalidMessage, 'INVALID')
     }
   }
 }

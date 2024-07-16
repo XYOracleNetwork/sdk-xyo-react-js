@@ -105,6 +105,11 @@ export class AbstractControl<TValue extends ValidControlValue = ValidControlValu
     return this.status === VALID
   }
 
+  setErrorAndValidity(error: string, status: FormControlStatus) {
+    this.setError(error)
+    this.setStatus(status)
+  }
+
   setStatus(status: FormControlStatus) {
     if (this._status === status) return
 

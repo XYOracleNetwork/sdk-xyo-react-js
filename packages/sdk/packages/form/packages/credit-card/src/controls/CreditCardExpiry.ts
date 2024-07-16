@@ -1,6 +1,6 @@
 import { assertEx } from '@xylabs/assert'
 import { EmptyObject } from '@xylabs/object'
-import { AbstractControl, FormControlBase, FormControlStatus } from '@xyo-network/react-form-group'
+import { AbstractControl, FormControlBase } from '@xyo-network/react-form-group'
 import valid from 'card-validator'
 
 import { unmask } from '../utils/index.js'
@@ -84,10 +84,5 @@ export class CreditCardExpirationFormControl<TProps extends EmptyObject = EmptyO
 
       return output.join('')
     }
-  }
-
-  private setErrorAndValidity(error: string, status: FormControlStatus) {
-    this.setError(error)
-    this.setStatus(status)
   }
 }

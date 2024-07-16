@@ -1,5 +1,5 @@
 import { EmptyObject } from '@xylabs/object'
-import { FormControlBase, FormControlStatus } from '@xyo-network/react-form-group'
+import { FormControlBase } from '@xyo-network/react-form-group'
 import valid from 'card-validator'
 
 import { unmask } from '../utils/index.js'
@@ -50,10 +50,5 @@ export class CreditCardZipFormControl<TProps extends EmptyObject = EmptyObject> 
     } else {
       this.setErrorAndValidity(this.invalidMessage, 'INVALID')
     }
-  }
-
-  private setErrorAndValidity(error: string, status: FormControlStatus) {
-    this.setError(error)
-    this.setStatus(status)
   }
 }

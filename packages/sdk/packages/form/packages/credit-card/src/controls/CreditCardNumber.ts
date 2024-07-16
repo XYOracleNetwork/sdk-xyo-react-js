@@ -38,12 +38,10 @@ export class CreditCardNumberFormControl<TProps extends EmptyObject = EmptyObjec
     const unmasked = unmask(value)
     const numberValidation = valid.number(unmasked)
     if (!numberValidation.isValid) {
-      this.setError(this.invalidMessage)
-      this.setStatus('INVALID')
+      this.setErrorAndValidity(this.invalidMessage, 'INVALID')
       return
     }
-    this.setError('')
-    this.setStatus('VALID')
+    this.setErrorAndValidity('', 'VALID')
   }
 
   override changeError(value: string) {
@@ -52,15 +50,12 @@ export class CreditCardNumberFormControl<TProps extends EmptyObject = EmptyObjec
     if (match) {
       const numberValidation = valid.number(unmasked)
       if (!numberValidation.isPotentiallyValid) {
-        this.setError(this.invalidMessage)
-        this.setStatus('INVALID')
+        this.setErrorAndValidity(this.invalidMessage, 'INVALID')
         return
       }
-      this.setError('')
-      this.setStatus('VALID')
+      this.setErrorAndValidity('', 'VALID')
     } else {
-      this.setError(this.invalidMessage)
-      this.setStatus('INVALID')
+      this.setErrorAndValidity(this.invalidMessage, 'INVALID')
     }
   }
 
