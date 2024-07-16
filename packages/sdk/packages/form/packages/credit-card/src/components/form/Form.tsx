@@ -11,6 +11,7 @@ import { useFormStorage } from './useFormStorage.js'
 
 export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({
   ConfirmationButton,
+  displayErrors,
   onErrorDuringSubmit,
   onInvalidSubmit,
   onSuccessfulSubmit,
@@ -43,7 +44,7 @@ export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({
       onSuccessfulSubmit?.()
     } catch (error) {
       onErrorDuringSubmit?.(error as Error)
-      setError(error as Error)
+      if (displayErrors) setError(error as Error)
     }
   }
 

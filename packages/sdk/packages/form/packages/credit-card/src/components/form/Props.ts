@@ -7,6 +7,7 @@ import { CreditCardInput } from '../../models/index.js'
 
 export interface CreditCardFormProps extends FlexBoxProps {
   ConfirmationButton?: ComponentType<ButtonProps>
+  displayErrors?: boolean
   onErrorDuringSubmit?: (error: Error) => void
   onInvalidSubmit?: (errorSummary: ErrorSummary) => void
   onSuccessfulSubmit?: () => void

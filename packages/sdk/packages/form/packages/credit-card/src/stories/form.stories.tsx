@@ -18,6 +18,7 @@ Default.args = {}
 
 const WithCallbacks = Template.bind({})
 WithCallbacks.args = {
+  displayErrors: true,
   onFailedSubmit: (args: unknown[]) => console.log('onFailedSubmit', args),
   onSuccessfulSubmit: () => console.log('onSuccessfulSubmit'),
   onValidSubmit: (args: unknown[]) => console.log('onValidSubmit', args),
