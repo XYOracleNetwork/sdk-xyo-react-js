@@ -1,5 +1,5 @@
 import { EmptyObject } from '@xylabs/object'
-import { FormControlBase } from '@xyo-network/react-form-group'
+import { FormControlBase, FormControlStatus } from '@xyo-network/react-form-group'
 import valid from 'card-validator'
 
 import { unmask } from '../utils/index.js'
@@ -31,11 +31,9 @@ export class CreditCardZipFormControl<TProps extends EmptyObject = EmptyObject> 
   override blurError(value: string) {
     const postalCodeValidation = valid.postalCode(value)
     if (postalCodeValidation.isValid) {
-      this.setError('')
-      this.setStatus('VALID')
+      this.setErrorAndValidity('', 'VALID')
     } else {
-      this.setError(this.invalidMessage)
-      this.setStatus('INVALID')
+      this.setErrorAndValidity(this.invalidMessage, 'INVALID')
     }
   }
 
@@ -45,15 +43,17 @@ export class CreditCardZipFormControl<TProps extends EmptyObject = EmptyObject> 
     if (match) {
       const postalCodeValidation = valid.postalCode(value)
       if (postalCodeValidation.isPotentiallyValid) {
-        this.setError('')
-        this.setStatus('VALID')
+        this.setErrorAndValidity('', 'VALID')
       } else {
-        this.setError('Your card cvc is invalid.')
-        this.setStatus('INVALID')
+        this.setErrorAndValidity('Your zip code is invalid.', 'INVALID')
       }
     } else {
-      this.setError(this.invalidMessage)
-      this.setStatus('INVALID')
+      this.setErrorAndValidity(this.invalidMessage, 'INVALID')
     }
+  }
+
+  private setErrorAndValidity(error: string, status: FormControlStatus) {
+    this.setError(error)
+    this.setStatus(status)
   }
 }
