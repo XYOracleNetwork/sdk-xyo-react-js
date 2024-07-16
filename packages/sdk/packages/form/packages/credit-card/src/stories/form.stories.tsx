@@ -1,8 +1,8 @@
 import { Button } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
-import React from 'react'
 
 import { CreditCardFormFlexboxWithFormGroupProvider } from '../components/index.js'
+import { CreditCardInput } from '../models/CreditCardInput.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -19,9 +19,10 @@ Default.args = {}
 const WithCallbacks = Template.bind({})
 WithCallbacks.args = {
   displayErrors: true,
-  onFailedSubmit: (args: unknown[]) => console.log('onFailedSubmit', args),
+  onErrorDuringSubmit: (error: Error) => console.log('onErrorDuringSubmit', error),
+  onInvalidSubmit: (errorSummary) => console.log('onInvalidSubmit', errorSummary),
   onSuccessfulSubmit: () => console.log('onSuccessfulSubmit'),
-  onValidSubmit: (args: unknown[]) => console.log('onValidSubmit', args),
+  onValidSubmit: (args: CreditCardInput) => Promise.resolve(console.log('onValidSubmit', args)),
 }
 
 export { Default, WithCallbacks }
