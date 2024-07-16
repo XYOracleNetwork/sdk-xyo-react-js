@@ -1,6 +1,7 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleError } from '@xyo-network/payload-model'
 import { ReactNode } from 'react'
+import { Location } from 'react-router-dom'
 
 export interface ErrorRenderProps extends FlexBoxProps {
   customError?: ReactNode
@@ -9,4 +10,5 @@ export interface ErrorRenderProps extends FlexBoxProps {
   noErrorDisplay?: boolean
   noReAuth?: boolean
   onCancel?: () => void
+  useLocation?: () => Location
 }

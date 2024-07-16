@@ -1,6 +1,5 @@
 import { FlexCol } from '@xylabs/react-flexbox'
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 
 import { ErrorAlert } from './ErrorAlert.js'
 import { ErrorRenderProps } from './Props.js'
@@ -12,15 +11,18 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
   customError = null,
   children,
   errorContext,
+  useLocation,
   ...props
 }) => {
-  const location = useLocation()
+  const location = useLocation?.()
   useEffect(() => {
-    // ensure we end up at the same place we are now after logging in
-    location.state = {
-      from: {
-        pathname: window.location.pathname,
-      },
+    if (location) {
+      // ensure we end up at the same place we are now after logging in
+      location.state = {
+        from: {
+          pathname: window.location.pathname,
+        },
+      }
     }
   }, [location])
 
