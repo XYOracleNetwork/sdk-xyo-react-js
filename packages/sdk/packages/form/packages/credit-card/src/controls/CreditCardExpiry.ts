@@ -39,6 +39,11 @@ export class CreditCardExpirationFormControl<TProps extends EmptyObject = EmptyO
     return assertEx(this._cardNumberFormControl, () => 'Card number form control is not set')
   }
 
+  // make it so the raw value is the same to preserve the / separator in the value
+  override get rawValue() {
+    return this.value
+  }
+
   override blurError(value: string) {
     const unmasked = unmask(value)
     const expirationValid = valid.expirationDate(unmasked)
