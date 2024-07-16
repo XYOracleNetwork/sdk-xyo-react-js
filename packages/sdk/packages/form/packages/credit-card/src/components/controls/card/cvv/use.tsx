@@ -1,31 +1,33 @@
 import { StandardTextFieldProps } from '@mui/material'
-import { ValidControlValue } from '@xyo-network/react-form-group'
-import { useMemo, useRef, useState } from 'react'
+import { FormControlBase } from '@xyo-network/react-form-group'
+import { useEffect } from 'react'
 
 import { useFormGroupWithCreditCardInput } from '../../../../context/index.js'
 import { CreditCardCvvFormControl } from '../../../../controls/index.js'
+import { useCreditCardFormControl } from '../useCreditCardFormControl.js'
 
-export const useCreditCardCvvFormControl = (formControlName?: string, cardNumberControlName = 'cardNumber') => {
-  const [error, setError] = useState('')
-  const [value, setValue] = useState<ValidControlValue>('')
-  const inputRef = useRef<HTMLInputElement>(null)
+export const useCreditCardCvvFormControl = (
+  formControlName?: string,
+  cardNumberControlName = 'cardNumber',
+  control?: FormControlBase<StandardTextFieldProps>,
+) => {
+  const { creditCardFormControl, error, value, inputRef } = useCreditCardFormControl(formControlName, control)
 
   // only use FormGroupContext when name is passed
   const { formGroup } = useFormGroupWithCreditCardInput(!!formControlName)
 
   const creditCardNumberFormControl = formGroup?.getControl?.(cardNumberControlName)
 
-  const creditCardCvvFormControl = useMemo(() => {
+  useEffect(() => {
     if (creditCardNumberFormControl) {
-      const instance = new CreditCardCvvFormControl<StandardTextFieldProps>()
-      instance.setCardNumberFormControl(creditCardNumberFormControl)
-      instance.registerOnErrorChange((newError: string) => setError(newError))
-      instance.registerOnChange((value: ValidControlValue) => setValue(value))
-
-      if (formControlName) formGroup?.registerControl?.(formControlName, instance)
-      return instance
+      const castControl = creditCardFormControl as CreditCardCvvFormControl
+      if (!castControl.setCardNumberFormControl) {
+        console.error('cannot setCardNumberFormControl on control because it is not a CreditCardCvvFormControl')
+        return
+      }
+      castControl.setCardNumberFormControl(creditCardNumberFormControl)
     }
-  }, [creditCardNumberFormControl, formControlName, formGroup])
+  }, [creditCardFormControl, creditCardNumberFormControl])
 
-  return { creditCardCvvFormControl, error, inputRef, value }
+  return { creditCardFormControl, error, inputRef, value }
 }

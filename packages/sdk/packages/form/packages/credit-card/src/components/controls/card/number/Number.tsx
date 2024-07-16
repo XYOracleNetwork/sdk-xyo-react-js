@@ -1,5 +1,7 @@
 import { InputAdornment } from '@mui/material'
+import { useMemo } from 'react'
 
+import { CreditCardNumberFormControl } from '../../../../controls/index.js'
 import { WithFormControlProps } from '../../WithFormControlProps.js'
 import { FormControlTextField } from '../FormControlTextField.js'
 import { CreditCardData } from '../Options.js'
@@ -10,13 +12,14 @@ export const CreditCardNumberWithFormControl: React.FC<WithFormControlProps> = (
   formControlName = 'cardNumber',
   ...props
 }) => {
-  const { creditCardNumberFormControl, error, inputRef, type, value } = useCreditCardNumberFormControl(formControlName)
-  const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cardProps } = creditCardNumberFormControl.props
+  const control = useMemo(() => new CreditCardNumberFormControl(), [])
+  const { creditCardFormControl, error, inputRef, type, value } = useCreditCardNumberFormControl(formControlName, control)
+  const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cardProps } = creditCardFormControl?.props ?? {}
 
   return (
     <FormControlTextField
       fieldLabel={fieldLabel}
-      formControl={creditCardNumberFormControl}
+      formControl={creditCardFormControl}
       formControlError={error}
       inputRef={inputRef}
       inputMode={inputMode}

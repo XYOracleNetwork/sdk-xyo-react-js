@@ -16,6 +16,11 @@ export const useCreditCardFormControl = (formControlName?: string, control?: For
     if (control) {
       control.registerOnErrorChange((newError: string) => setError(newError))
       control.registerOnChange((value: ValidControlValue) => setValue(value))
+      control.onCursorChange = (cursor: number | undefined) => {
+        if (inputRef.current && cursor) {
+          inputRef.current.setSelectionRange(cursor, cursor)
+        }
+      }
 
       if (formControlName) formGroup?.registerControl(formControlName, control)
       return control
