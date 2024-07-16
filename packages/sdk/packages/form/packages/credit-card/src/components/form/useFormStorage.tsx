@@ -2,6 +2,8 @@ import { usePromise } from '@xylabs/react-promise'
 import { StorageArchivist, StorageArchivistConfigSchema } from '@xyo-network/archivist-storage'
 import { ArchivistFormGroupStorage, FormGroupParams } from '@xyo-network/react-form-group'
 
+import { CreditCardInput } from '../../models/index.js'
+
 const StorageNameSpace = 'credit-card-fields'
 
 const calculateTTL = (months = 6) => {
@@ -24,6 +26,6 @@ export const useFormStorage = () => {
       storage: new ArchivistFormGroupStorage(localStorageArchivist),
     }
 
-    return { serialize: true, storage, ttlStorage: calculateTTL() } as FormGroupParams
+    return { serialize: true, storage, ttlStorage: calculateTTL() } as FormGroupParams<CreditCardInput>
   }, [])
 }
