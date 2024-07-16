@@ -12,12 +12,17 @@ export const useCreditCardNumberFormControl = (formControlName?: string, control
 
   useEffect(() => {
     if (creditCardFormControl) {
-      const castInstance = creditCardFormControl as CreditCardNumberFormControl<StandardTextFieldProps>
-      if (!castInstance.onCreditCardTypeChange) {
+      const castControl = creditCardFormControl as CreditCardNumberFormControl<StandardTextFieldProps>
+      if (!castControl.onCreditCardTypeChange) {
         console.error('cannot set onCreditCardTypeChange on control because it is not a CreditCardNumberFormControl')
         return
       }
-      castInstance.onCreditCardTypeChange = (type: string) => setType(type as keyof CreditCardOptions)
+      castControl.onCreditCardTypeChange = (type: string) => setType(type as keyof CreditCardOptions)
+      castControl.onCursorChange = (cursor: number | undefined) => {
+        if (inputRef.current && cursor) {
+          inputRef.current.setSelectionRange(cursor, cursor)
+        }
+      }
     }
   }, [creditCardFormControl, inputRef])
 

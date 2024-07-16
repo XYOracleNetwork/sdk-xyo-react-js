@@ -4,12 +4,15 @@ import { useMemo, useRef, useState } from 'react'
 
 import { useFormGroupWithCreditCardInput } from '../../../context/index.js'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const StableDefaultArgs: any[] = []
+
 export const useCreditCardFormControl = (
   formControlName?: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Control?: new (...args: any[]) => FormControlBase<StandardTextFieldProps>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  args: any[] = [],
+  args: any[] = StableDefaultArgs,
 ) => {
   const [error, setError] = useState('')
   const [value, setValue] = useState<ValidControlValue>('')
@@ -23,11 +26,6 @@ export const useCreditCardFormControl = (
       const control = new Control(...args)
       control.registerOnErrorChange((newError: string) => setError(newError))
       control.registerOnChange((value: ValidControlValue) => setValue(value))
-      control.onCursorChange = (cursor: number | undefined) => {
-        if (inputRef.current && cursor) {
-          inputRef.current.setSelectionRange(cursor, cursor)
-        }
-      }
 
       if (formControlName) formGroup?.registerControl(formControlName, control)
       return control
