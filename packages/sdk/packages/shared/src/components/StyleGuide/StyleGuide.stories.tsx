@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { StyleGuideExample } from './StyleGuide.example'
+import { StyleGuideExample } from './StyleGuide.example.js'
 
 const StorybookEntry = {
   argTypes: {},
