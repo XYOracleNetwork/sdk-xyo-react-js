@@ -6,8 +6,8 @@ import { TypographyEx } from '@xyo-network/react-shared'
 import { SyntheticEvent } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { MenuListItemContainer } from '../../SiteMenu'
-import { SystemToolbar } from './SystemToolbar'
+import { MenuListItemContainer } from '../../SiteMenu/index.js'
+import { SystemToolbar } from './SystemToolbar.js'
 
 const DefaultMenu = (
   <List>

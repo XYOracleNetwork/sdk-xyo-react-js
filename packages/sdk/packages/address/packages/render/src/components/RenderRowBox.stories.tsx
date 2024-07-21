@@ -4,8 +4,8 @@ import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
 import { useState } from 'react'
 
-import { FavoriteItemEvent } from './lib'
-import { AddressRenderRowBox } from './RenderRowBox'
+import { FavoriteItemEvent } from './lib/index.js'
+import { AddressRenderRowBox } from './RenderRowBox.js'
 
 const address: Address = toHex(randomBytes(20))
 

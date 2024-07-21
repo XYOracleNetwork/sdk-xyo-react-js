@@ -1,7 +1,7 @@
 /* eslint-disable import/no-internal-modules */
 import { Meta, StoryFn } from '@storybook/react'
 
-import { LoadResult } from './LoadResult'
+import { LoadResult } from './LoadResult.js'
 
 const StorybookEntry: Meta = {
   argTypes: {},

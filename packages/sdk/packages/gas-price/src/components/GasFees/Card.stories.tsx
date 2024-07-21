@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 
-import { GasFeeCard } from './Card'
+import { GasFeeCard } from './Card.js'
 
 const DefaultArgs = {
   gasPrice: 15.760_184_184_000_002,

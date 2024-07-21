@@ -10,7 +10,7 @@ import { NodeInstance } from '@xyo-network/node-model'
 import { NodeProvider } from '@xyo-network/react-node'
 import { useState } from 'react'
 
-import { PoweredByXyo, PoweredByXyoProps } from '../PoweredByXyo'
+import { PoweredByXyo, PoweredByXyoProps } from '../PoweredByXyo.js'
 import simpleNodeInlineManifest from './simple-node-inline-manifest.json'
 
 const StorybookEntry = {

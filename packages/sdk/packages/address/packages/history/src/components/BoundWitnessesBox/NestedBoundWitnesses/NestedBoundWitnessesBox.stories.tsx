@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { WithHashSelectionHistoryDefaultValues } from '../../stories'
-import { NestedBoundWitnessesBox } from './NestedBoundWitnessesBox'
+import { WithHashSelectionHistoryDefaultValues } from '../../stories/index.js'
+import { NestedBoundWitnessesBox } from './NestedBoundWitnessesBox.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

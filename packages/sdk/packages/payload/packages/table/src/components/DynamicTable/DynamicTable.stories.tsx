@@ -5,7 +5,7 @@ import { PayloadRenderPluginResolver, PayloadRenderPluginResolverProvider } from
 import { sampleCoinGeckoPayload, sampleIdPayload, sampleSystemInfoBrowserPayload, sampleUniswapPayload } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadDynamicTable } from './Table'
+import { PayloadDynamicTable } from './Table.js'
 
 const StorybookEntry = {
   argTypes: {},

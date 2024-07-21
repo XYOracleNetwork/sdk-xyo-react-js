@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 
-import { EmbedPluginContext, EmbedPluginState } from '../EmbedPluginContext'
-import { RefreshPayloadProvider } from '../RefreshPayloadContext'
-import { ResolvePayloadContext, ResolvePayloadState } from '../ResolvePayloadContext'
-import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider'
-import { useValidatePayload } from './use'
+import { EmbedPluginContext, EmbedPluginState } from '../EmbedPluginContext/index.js'
+import { RefreshPayloadProvider } from '../RefreshPayloadContext/index.js'
+import { ResolvePayloadContext, ResolvePayloadState } from '../ResolvePayloadContext/index.js'
+import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider.js'
+import { useValidatePayload } from './use.js'
 
 const EmbedDecorator: Decorator<ValidatePayloadProviderPropsEx> = (Story, { args }) => {
   const { xyoEmbedPluginContext, resolvePayloadContext, ...props } = args

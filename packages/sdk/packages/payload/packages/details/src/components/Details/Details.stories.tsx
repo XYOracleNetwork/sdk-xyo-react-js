@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { sampleIdPayload, samplePayloadFromBuilder } from '@xyo-network/react-storybook'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { PayloadDetails } from './Details'
+import { PayloadDetails } from './Details.js'
 
 const StorybookEntry = {
   argTypes: {},

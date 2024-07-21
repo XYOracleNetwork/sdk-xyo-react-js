@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { FullWidthCard } from './FullWidthCard'
+import { FullWidthCard } from './FullWidthCard.js'
 const StorybookEntry = {
   argTypes: {},
   component: FullWidthCard,

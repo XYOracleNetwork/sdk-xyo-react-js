@@ -7,8 +7,8 @@ import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
 
-import { PayloadProvider } from './Provider'
-import { usePayload } from './use'
+import { PayloadProvider } from './Provider.js'
+import { usePayload } from './use.js'
 
 const testPayload = { schema: 'network.xyo.payload' }
 

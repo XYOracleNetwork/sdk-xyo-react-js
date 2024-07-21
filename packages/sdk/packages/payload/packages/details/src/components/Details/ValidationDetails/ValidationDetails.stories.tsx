@@ -3,9 +3,9 @@ import { Payload } from '@xyo-network/payload-model'
 import { sampleIdPayload } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadDetails } from '../Details'
-import { PayloadValidationDetails } from './ValidationDetails'
-import { PayloadValidationDetailsProps } from './ValidationDetailsProps'
+import { PayloadDetails } from '../Details.js'
+import { PayloadValidationDetails } from './ValidationDetails.js'
+import { PayloadValidationDetailsProps } from './ValidationDetailsProps.js'
 
 const StorybookEntry: Meta = {
   argTypes: {},

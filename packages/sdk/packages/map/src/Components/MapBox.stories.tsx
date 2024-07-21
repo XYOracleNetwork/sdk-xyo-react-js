@@ -3,10 +3,10 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useRef } from 'react'
 
-import { MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts'
-import { DefaultMapSettings } from '../Settings'
-import { MapBox } from './MapBox'
-import { MapSettingsBox } from './MapSettingsComponents'
+import { MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.js'
+import { DefaultMapSettings } from '../Settings/index.js'
+import { MapBox } from './MapBox.js'
+import { MapSettingsBox } from './MapSettingsComponents/index.js'
 
 const WithMapboxProviders: Decorator = (Story, props) => {
   const defaultSettings = DefaultMapSettings()

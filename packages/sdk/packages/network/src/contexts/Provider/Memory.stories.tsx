@@ -2,9 +2,9 @@ import { Card, CardContent, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 
-import { defaultNetworkConfigs } from '../../lib'
-import { useNetwork } from '../use'
-import { NetworkMemoryProvider } from './Memory'
+import { defaultNetworkConfigs } from '../../lib/index.js'
+import { useNetwork } from '../use.js'
+import { NetworkMemoryProvider } from './Memory.js'
 
 const StorybookEntry: Meta = {
   component: NetworkMemoryProvider,

@@ -6,7 +6,7 @@ import { useEvent } from '@xyo-network/react-event'
 import { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadTable } from './Table'
+import { PayloadTable } from './Table.js'
 
 const newPayloads = () =>
   Array(50)

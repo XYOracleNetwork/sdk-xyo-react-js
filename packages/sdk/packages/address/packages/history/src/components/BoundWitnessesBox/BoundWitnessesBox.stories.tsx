@@ -9,7 +9,7 @@ import {
   WithHashSelectionHistoryDefaultValues,
   WithNestedBoundWitnessesDecorator,
 } from '../stories'
-import { BoundWitnessesBox } from './BoundWitnessesBox'
+import { BoundWitnessesBox } from './BoundWitnessesBox.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

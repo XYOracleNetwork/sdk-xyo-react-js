@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { BasicHero } from './BasicHero.js'
-import BackgroundImage from './default-desktop.svg'
+import BackgroundImage from './default-desktop.svg.js'
 const StorybookEntry = {
   argTypes: {},
   component: BasicHero,
