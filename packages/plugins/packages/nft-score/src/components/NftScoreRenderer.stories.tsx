@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { NftScoreRenderer } from './NftScoreRenderer'
-import { payloadDataFullScores, payloadDataPartialScores } from './storyPayloadData'
+import { NftScoreRenderer } from './NftScoreRenderer.js'
+import { payloadDataFullScores, payloadDataPartialScores } from './storyPayloadData.js'
 
 const StorybookEntry = {
   argTypes: {},

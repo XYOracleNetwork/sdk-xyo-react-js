@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { useState } from 'react'
 
-import { BWNavigationTabs } from './NavigationTabs'
+import { BWNavigationTabs } from './NavigationTabs.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { EthereumGasEthersSchema } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
 import { sampleEthersGasPricePayload } from '@xyo-network/react-storybook'
 
-import { EthersGasPriceDetailsBox } from './EthersGasPriceDetailsBox'
+import { EthersGasPriceDetailsBox } from './EthersGasPriceDetailsBox.js'
 
 const StorybookEntry = {
   argTypes: {},

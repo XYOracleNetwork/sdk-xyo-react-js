@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { payloadData, payloadDataMissingPairs } from './storyPayloadData'
-import { UniswapDetailsRender } from './UniswapDetailsRender'
+import { payloadData, payloadDataMissingPairs } from './storyPayloadData.js'
+import { UniswapDetailsRender } from './UniswapDetailsRender.js'
 
 const StorybookEntry = {
   argTypes: {},

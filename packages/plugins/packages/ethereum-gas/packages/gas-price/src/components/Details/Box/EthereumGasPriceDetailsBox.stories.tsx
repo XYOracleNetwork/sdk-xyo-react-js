@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { sampleEthereumGasDivinerPayload, sampleEthereumGasDivinerPayloadMissingFees } from '@xyo-network/react-storybook'
 
-import { EthereumGasPriceDetailsBox } from './EthereumGasPriceDetailsBox'
+import { EthereumGasPriceDetailsBox } from './EthereumGasPriceDetailsBox.js'
 
 const StorybookEntry = {
   argTypes: {},

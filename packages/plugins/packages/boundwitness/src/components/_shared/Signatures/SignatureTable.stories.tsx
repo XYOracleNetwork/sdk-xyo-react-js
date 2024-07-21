@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { sampleBlock } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
-import { BoundWitnessSignatureTable } from './SignatureTable'
+import { BoundWitnessSignatureTable } from './SignatureTable.js'
 
 const StorybookEntry = {
   argTypes: {},

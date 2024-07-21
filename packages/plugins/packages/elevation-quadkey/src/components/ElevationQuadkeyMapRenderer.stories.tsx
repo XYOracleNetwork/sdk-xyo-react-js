@@ -1,8 +1,8 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 
-import { ElevationQuadkeyMapWithSettingsRenderer } from './ElevationQuadkeyMap'
-import { elevationQuadKeyMapPayload } from './storyPayload'
+import { ElevationQuadkeyMapWithSettingsRenderer } from './ElevationQuadkeyMap.js'
+import { elevationQuadKeyMapPayload } from './storyPayload.js'
 
 const WithMapboxSetup: Decorator = (Story, context) => {
   return (

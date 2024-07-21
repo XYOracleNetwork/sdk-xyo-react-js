@@ -4,8 +4,8 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { ForecastPayloadSchema } from '@xyo-network/diviner-forecasting-model'
 import { RefObject, useRef, useState } from 'react'
 
-import { MockSourcePayloads } from '../lib'
-import { PriceForecastDetailsBox } from './DetailsBox'
+import { MockSourcePayloads } from '../lib/index.js'
+import { PriceForecastDetailsBox } from './DetailsBox.js'
 
 const tenMin = 600_000
 

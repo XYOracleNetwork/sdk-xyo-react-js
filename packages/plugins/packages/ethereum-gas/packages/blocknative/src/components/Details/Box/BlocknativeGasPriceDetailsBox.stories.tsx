@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { EthereumGasBlocknativeSchema } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
 import { sampleBlocknativeGasPricePayload } from '@xyo-network/react-storybook'
 
-import { BlocknativeGasPriceDetailsBox } from './BlocknativeGasPriceDetailsBox'
+import { BlocknativeGasPriceDetailsBox } from './BlocknativeGasPriceDetailsBox.js'
 
 const StorybookEntry = {
   argTypes: {},
