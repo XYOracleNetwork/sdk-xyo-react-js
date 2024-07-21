@@ -4,7 +4,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { MemoryNodeProvider, NodeDrawerProvider, useNodeDrawer } from '@xyo-network/react-node-provider'
 
-import { NodeDrawer } from './NodeDrawer'
+import { NodeDrawer } from './NodeDrawer.js'
 
 const ProviderDecorator: Decorator = (Story, args) => (
   <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
