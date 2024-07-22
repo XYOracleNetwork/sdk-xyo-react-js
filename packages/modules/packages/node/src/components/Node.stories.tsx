@@ -6,9 +6,9 @@ import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 
-import { useWeakProvidedNode } from '../hooks'
-import { NodeBox } from './Node'
-import { TestModule, TestModuleConfigSchema } from './TestModule'
+import { useWeakProvidedNode } from '../hooks/index.js'
+import { NodeBox } from './Node.js'
+import { TestModule, TestModuleConfigSchema } from './TestModule.js'
 
 const TestModuleName = 'TestModule'
 

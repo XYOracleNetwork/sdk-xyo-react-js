@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { GasPriceHeaderActionsBox } from './Actions'
+import { GasPriceHeaderActionsBox } from './Actions.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

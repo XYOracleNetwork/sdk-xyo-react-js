@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { CryptoAssetRenderer } from './CryptoAssetRenderer'
-import { payloadData, payloadDataMissingAssets } from './storyPayloadData'
+import { CryptoAssetRenderer } from './CryptoAssetRenderer.js'
+import { payloadData, payloadDataMissingAssets } from './storyPayloadData.js'
 
 const StorybookEntry = {
   argTypes: {},

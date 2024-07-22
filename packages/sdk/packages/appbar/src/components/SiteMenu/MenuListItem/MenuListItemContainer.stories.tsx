@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FaGlobeAmericas } from 'react-icons/fa'
 import { BrowserRouter } from 'react-router-dom'
 
-import { MenuListItemContainer, MenuListItemProps } from './MenuListItemContainer'
+import { MenuListItemContainer, MenuListItemProps } from './MenuListItemContainer.js'
 
 const StorybookEntry = {
   argTypes: {},

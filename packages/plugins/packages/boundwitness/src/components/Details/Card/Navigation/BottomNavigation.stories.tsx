@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { sampleBlock } from '@xyo-network/react-storybook'
 
-import { BoundWitnessBottomNavigation } from './BottomNavigation'
+import { BoundWitnessBottomNavigation } from './BottomNavigation.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

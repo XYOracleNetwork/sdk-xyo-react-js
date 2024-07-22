@@ -2,11 +2,11 @@ import { Divider, useTheme } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 
-import { CollapsibleProvider, useCollapsible } from '../../contexts'
-import { MenuSection } from '../SiteMenu'
-import { CollapseToggleFlex } from './CollapseToggle'
-import { CollapsibleDrawer } from './CollapsibleDrawer'
-import { menuDataBottom, menuDataTop } from './storyExampleMenuData'
+import { CollapsibleProvider, useCollapsible } from '../../contexts/index.js'
+import { MenuSection } from '../SiteMenu/index.js'
+import { CollapseToggleFlex } from './CollapseToggle.js'
+import { CollapsibleDrawer } from './CollapsibleDrawer.js'
+import { menuDataBottom, menuDataTop } from './storyExampleMenuData.js'
 
 const CollapseProviderDecorator: Decorator = (Story, args) => {
   return (

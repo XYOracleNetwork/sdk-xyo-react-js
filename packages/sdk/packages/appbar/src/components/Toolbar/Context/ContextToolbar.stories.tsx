@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ContextToolbar } from './ContextToolbar'
+import { ContextToolbar } from './ContextToolbar.js'
 
 const StorybookEntry = {
   argTypes: {},

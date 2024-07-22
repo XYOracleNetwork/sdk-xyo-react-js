@@ -5,7 +5,7 @@ import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import { SchemaCache } from '@xyo-network/schema-cache'
 import { useEffect, useState } from 'react'
 
-import { useGetSchemaPayload } from './useGetSchema'
+import { useGetSchemaPayload } from './useGetSchema.js'
 
 SchemaCache.instance.proxy = 'https://beta.api.archivist.xyo.network/domain'
 

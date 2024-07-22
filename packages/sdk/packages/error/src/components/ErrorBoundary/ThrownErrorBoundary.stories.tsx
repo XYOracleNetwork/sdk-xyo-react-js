@@ -2,7 +2,7 @@
 import { Alert } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 
-import { ThrownErrorBoundary } from './ThrownErrorBoundary'
+import { ThrownErrorBoundary } from './ThrownErrorBoundary.js'
 
 const StorybookEntry: Meta = {
   component: ThrownErrorBoundary,

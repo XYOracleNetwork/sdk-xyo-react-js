@@ -4,7 +4,7 @@ import { useEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
 
-import { BoundWitnessDetailsBox } from './DetailsBox'
+import { BoundWitnessDetailsBox } from './DetailsBox.js'
 
 const StorybookEntry = {
   argTypes: {},

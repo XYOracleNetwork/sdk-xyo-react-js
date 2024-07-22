@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { payloadData } from '../storyPayloadData'
-import { TableCellSummary } from './TableCellSummary'
+import { payloadData } from '../storyPayloadData.js'
+import { TableCellSummary } from './TableCellSummary.js'
 
 const StorybookEntry = {
   argTypes: {},

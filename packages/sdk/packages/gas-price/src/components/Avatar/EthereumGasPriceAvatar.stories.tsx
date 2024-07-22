@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { EthereumGasPriceAvatar } from './EthereumGasPriceAvatar'
+import { EthereumGasPriceAvatar } from './EthereumGasPriceAvatar.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { ManifestNodeProvider } from '@xyo-network/react-manifest'
 
 import { TestSentinel, UseFreshIndexedResult, UseIndexedResults, UseIndexedResultsNoPoll } from './components/index.js'
-import { ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode } from './nodes'
+import { ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode } from './nodes/index.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

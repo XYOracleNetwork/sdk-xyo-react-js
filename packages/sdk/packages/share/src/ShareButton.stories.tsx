@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { ShareButton } from './ShareButton'
+import { ShareButton } from './ShareButton.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

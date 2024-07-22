@@ -2,7 +2,7 @@ import { Divider, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { SectionSpacingRow } from './SectionSpacingRow'
+import { SectionSpacingRow } from './SectionSpacingRow.js'
 const StorybookEntry = {
   argTypes: {},
   component: SectionSpacingRow,

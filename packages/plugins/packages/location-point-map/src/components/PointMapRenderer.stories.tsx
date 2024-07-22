@@ -1,8 +1,8 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 
-import { PointMapWithSettingsRenderer } from './PointMapRenderer'
-import { locationPayload } from './storyPayload'
+import { PointMapWithSettingsRenderer } from './PointMapRenderer.js'
+import { locationPayload } from './storyPayload.js'
 
 const WithMapboxSetup: Decorator = (Story, context) => {
   return (

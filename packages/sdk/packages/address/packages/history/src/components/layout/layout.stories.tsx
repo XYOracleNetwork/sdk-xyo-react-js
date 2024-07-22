@@ -5,13 +5,13 @@ import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import { BrowserRouter } from 'react-router-dom'
 
 import { useActiveBoundWitness } from '../../hooks/index.js'
-import { AddressHistory } from '../AddressHistory'
-import { BoundWitnessesBox } from '../BoundWitnessesBox'
-import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories'
-import { ScrollableGridColumn } from './Column'
-import { ColumnHeadingTypography } from './ColumnHeading'
-import { WrappedContainer } from './Container'
-import { BlocksQuickTipButton, SelectedBlockQuickTipButton } from './QuickTips'
+import { AddressHistory } from '../AddressHistory/index.js'
+import { BoundWitnessesBox } from '../BoundWitnessesBox/index.js'
+import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories/index.js'
+import { ScrollableGridColumn } from './Column.js'
+import { ColumnHeadingTypography } from './ColumnHeading.js'
+import { WrappedContainer } from './Container.js'
+import { BlocksQuickTipButton, SelectedBlockQuickTipButton } from './QuickTips.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

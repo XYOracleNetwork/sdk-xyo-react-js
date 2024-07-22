@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { ProvidedNodeRenderer } from '@xyo-network/react-node-renderer'
 
-import type { SampleNodeModules } from './useBuildSampleNode'
-import { useBuildSampleNode } from './useBuildSampleNode'
+import type { SampleNodeModules } from './useBuildSampleNode.js'
+import { useBuildSampleNode } from './useBuildSampleNode.js'
 
 const modules: SampleNodeModules = {
   Bridge: 'Bridge',

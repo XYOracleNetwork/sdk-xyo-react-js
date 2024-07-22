@@ -6,8 +6,8 @@ import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
 import { createRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { BlockLinksDetails } from './BlockLinksDetails'
-import { BlockDetails } from './Details'
+import { BlockLinksDetails } from './BlockLinksDetails.js'
+import { BlockDetails } from './Details.js'
 
 const StorybookEntry = {
   argTypes: {},

@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { XyOsProfile } from './Profile'
+import { XyOsProfile } from './Profile.js'
 const StorybookEntry = {
   argTypes: {},
   component: XyOsProfile,

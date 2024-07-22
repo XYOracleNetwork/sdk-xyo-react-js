@@ -4,8 +4,8 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { NetworkMemoryProvider, NetworkRouteProvider, useNetwork } from '../../contexts'
-import { NetworkSelectEx } from './NetworkSelectEx'
+import { NetworkMemoryProvider, NetworkRouteProvider, useNetwork } from '../../contexts/index.js'
+import { NetworkSelectEx } from './NetworkSelectEx.js'
 
 const StorybookEntry = {
   argTypes: {

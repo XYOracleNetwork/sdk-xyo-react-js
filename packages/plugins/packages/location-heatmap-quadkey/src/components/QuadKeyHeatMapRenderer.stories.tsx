@@ -2,9 +2,9 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 import { BrowserRouter } from 'react-router-dom'
 
-import { QuadkeyHeatMapWithSettingsRenderer } from './QuadkeyHeatMapRenderer'
-import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings'
-import { quadKeyHeatMapPayload } from './storyPayload'
+import { QuadkeyHeatMapWithSettingsRenderer } from './QuadkeyHeatMapRenderer.js'
+import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings.js'
+import { quadKeyHeatMapPayload } from './storyPayload.js'
 
 const WithMapboxSetup: Decorator = (Story, context) => {
   return (

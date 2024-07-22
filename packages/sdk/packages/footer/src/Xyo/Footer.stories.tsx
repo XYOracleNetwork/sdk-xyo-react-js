@@ -2,7 +2,7 @@ import { Paper } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 
-import { XyoFooter } from './Footer'
+import { XyoFooter } from './Footer.js'
 
 const StorybookEntry = {
   argTypes: {},

@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { PropertyTitle } from './Title'
+import { PropertyTitle } from './Title.js'
 
 const StorybookEntry = {
   argTypes: {},

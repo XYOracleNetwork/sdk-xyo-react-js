@@ -3,7 +3,7 @@ import { toJson } from '@xylabs/object'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 
-import { RawInfoDialog } from './RawInfoDialog'
+import { RawInfoDialog } from './RawInfoDialog.js'
 
 type TestPayload = Payload<{ id: string; schema: string; type: string }, 'network.xyo.test'>
 const TestPayload: TestPayload = {

@@ -2,8 +2,8 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 
-import { SystemControls } from './SystemControls'
-import { SystemControlsType } from './SystemControlsType'
+import { SystemControls } from './SystemControls.js'
+import { SystemControlsType } from './SystemControlsType.js'
 
 const StorybookEntry: Meta = {
   argTypes: {},

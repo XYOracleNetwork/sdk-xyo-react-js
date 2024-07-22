@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { PoweredByXyoButton, PoweredByXyoButtonProps } from '../PoweredByXyoButton'
+import { PoweredByXyoButton, PoweredByXyoButtonProps } from '../PoweredByXyoButton.js'
 
 const StorybookEntry = {
   component: PoweredByXyoButton,

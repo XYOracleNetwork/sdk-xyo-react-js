@@ -4,7 +4,7 @@ import { AddressPayload, AddressSchema } from '@xyo-network/module-model'
 import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
 
-import { AddressMenuItemRenderer } from './MenuItemRenderer'
+import { AddressMenuItemRenderer } from './MenuItemRenderer.js'
 
 const address: Address = toHex(randomBytes(20))
 const payload: AddressPayload = {

@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 
-import { RawInfoIconButton } from './RawInfoIconButton'
+import { RawInfoIconButton } from './RawInfoIconButton.js'
 
 type TestPayload = Payload<{ id: string; schema: string; type: string }, 'network.xyo.test'>
 const TestPayload: TestPayload = {

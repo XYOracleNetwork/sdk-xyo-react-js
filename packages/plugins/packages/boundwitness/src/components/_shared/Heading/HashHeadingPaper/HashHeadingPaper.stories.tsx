@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 
-import { BackPaperAdornment } from './Adornment'
-import { HashHeadingPaper } from './HashHeadingPaper'
+import { BackPaperAdornment } from './Adornment/index.js'
+import { HashHeadingPaper } from './HashHeadingPaper.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {

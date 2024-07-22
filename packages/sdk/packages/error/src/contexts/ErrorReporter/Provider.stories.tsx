@@ -2,8 +2,8 @@ import { Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import Rollbar from 'rollbar'
 
-import { ErrorReporterProvider } from './Provider'
-import { useRollbar } from './useRollbar'
+import { ErrorReporterProvider } from './Provider.js'
+import { useRollbar } from './useRollbar.js'
 
 const StorybookEntry = {
   argTypes: {},

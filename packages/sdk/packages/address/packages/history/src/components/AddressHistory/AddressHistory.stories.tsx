@@ -2,8 +2,8 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import { randomizedSampleAddressHistory, sampleAddressHistory } from '@xyo-network/react-storybook'
 
-import { ActiveBWDecorator } from '../stories'
-import { AddressHistory } from './AddressHistory'
+import { ActiveBWDecorator } from '../stories/index.js'
+import { AddressHistory } from './AddressHistory.js'
 
 // eslint-disable-next-line import/no-default-export
 export default {
