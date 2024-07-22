@@ -26,9 +26,8 @@ export interface XyOsClockProps {
 export const XyOsClock: React.FC<XyOsClockProps> = ({ clockType, clockSize, ...props }) => {
   const [date, setDate] = useState(Date.now())
   useEffect(() => {
-    // using window to avoid conflicts with @types/node's setInterval
-    // see comments - https://stackoverflow.com/a/53189795/2803259
-    const timer = window.setInterval(() => setDate(Date.now()), 500)
+    const timerHandler: TimerHandler = () => setDate(Date.now())
+    const timer = setInterval(timerHandler, 500)
     return function cleanup() {
       clearInterval(timer)
     }
