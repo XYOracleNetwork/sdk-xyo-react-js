@@ -2,8 +2,8 @@ import { Grid } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 
-import CoinbaseWalletIcon from './coinbase-wallet.svg.js'
-import MoneyMedia from './money.jpg.js'
+import CoinbaseWalletIcon from './coinbase-wallet.svg'
+import MoneyMedia from './money.jpg'
 import { SimpleCard } from './SimpleCard.js'
 const StorybookEntry = {
   argTypes: {},
