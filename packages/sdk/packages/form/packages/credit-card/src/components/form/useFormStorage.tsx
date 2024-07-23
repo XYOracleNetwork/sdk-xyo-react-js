@@ -15,9 +15,11 @@ const calculateTTL = (months = 6) => {
 export const useFormStorage = () => {
   return usePromise(async () => {
     const localStorageArchivist = await StorageArchivist.create({
+      account: 'random',
       config: { namespace: StorageNameSpace, schema: StorageArchivistConfigSchema, type: 'local' },
     })
     const sessionStorageArchivist = await StorageArchivist.create({
+      account: 'random',
       config: { namespace: StorageNameSpace, schema: StorageArchivistConfigSchema, type: 'session' },
     })
 
