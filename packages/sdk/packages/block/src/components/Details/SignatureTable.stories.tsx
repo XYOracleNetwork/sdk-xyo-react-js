@@ -1,3 +1,4 @@
+/* eslint-disable deprecation/deprecation */
 /* eslint-disable import/no-deprecated */
 import { Meta, StoryFn } from '@storybook/react'
 import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
