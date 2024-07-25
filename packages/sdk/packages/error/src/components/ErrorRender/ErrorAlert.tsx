@@ -7,9 +7,10 @@ export interface ErrorAlertProps extends AlertProps {
   error?: ModuleError | Error
   errorContext?: string
   onCancel?: () => void
+  scope?: string
 }
 
-export const ErrorAlert: React.FC<ErrorAlertProps> = ({ onCancel, error, errorContext, ...props }) => {
+export const ErrorAlert: React.FC<ErrorAlertProps> = ({ onCancel, error, errorContext, scope, ...props }) => {
   return (
     <Alert severity="error" {...props}>
       <AlertTitle>Whoops! Something went wrong</AlertTitle>
@@ -17,6 +18,14 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({ onCancel, error, errorCo
         <Typography variant="caption" my={0.5} lineHeight="1" display="block">
           {errorContext}
         </Typography>
+      : null}
+      {scope ?
+        <>
+          <Typography variant="caption" mr={0.5} fontWeight="bold">
+            Scope:
+          </Typography>
+          <Typography variant="caption">{scope}</Typography>
+        </>
       : null}
       <Typography variant="caption" mr={0.5} fontWeight="bold">
         Error:

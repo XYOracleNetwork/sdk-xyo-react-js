@@ -11,6 +11,7 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
   customError = null,
   children,
   errorContext,
+  scope,
   useLocation,
   ...props
 }) => {
@@ -31,7 +32,7 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
         {noErrorDisplay ?
           customError
         : <FlexCol alignItems="center" {...props}>
-            <ErrorAlert error={error} errorContext={errorContext} onCancel={onCancel} />
+            <ErrorAlert error={error} errorContext={errorContext} onCancel={onCancel} scope={scope} />
           </FlexCol>
         }
       </FlexCol>
