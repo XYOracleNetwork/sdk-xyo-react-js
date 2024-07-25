@@ -11,6 +11,7 @@ export interface ThrownErrorBoundaryProps {
   rethrow?: boolean
   rollbar?: Rollbar
   scope?: string
+  title?: string
 }
 
 export interface ThrownErrorBoundaryState {
@@ -47,12 +48,12 @@ export class ThrownErrorBoundary extends Component<ThrownErrorBoundaryProps, Thr
 
   override render() {
     const { xyoError } = this.state
-    const { children, boundaryName, errorComponent, scope } = this.props
+    const { children, boundaryName, errorComponent, scope, title } = this.props
     if (xyoError) {
       if (errorComponent) {
         return errorComponent(xyoError)
       }
-      return <ErrorRender error={xyoError} errorContext={`${boundaryName} Boundary`} scope={scope} />
+      return <ErrorRender error={xyoError} errorContext={`${boundaryName} Boundary`} scope={scope} title={title} />
     }
 
     return children

@@ -8,6 +8,7 @@ export interface ErrorBoundaryProps {
   fallback?: ReactNode
   // fallback element that can receive the error as a prop
   fallbackWithError?: (error: Error) => ReactNode
+  scope?: string
 }
 
 export interface ErrorBoundaryState {
@@ -37,6 +38,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
         this.props.fallback ?? (
           <FlexCol>
             <Typography variant="h1">Something went wrong.</Typography>
+            {this.props.scope && <Typography variant="h2">[{this.props.scope}]</Typography>}
             <Typography variant="body1">[{this.state.error?.message}]</Typography>
           </FlexCol>
         )
