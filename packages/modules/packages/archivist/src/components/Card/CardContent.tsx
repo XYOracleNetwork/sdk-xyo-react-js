@@ -14,7 +14,6 @@ export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistInstance>
   const [wallet] = useWallet()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (wallet && mod) {
         const wrapper = ModuleWrapper.wrap(mod, wallet)

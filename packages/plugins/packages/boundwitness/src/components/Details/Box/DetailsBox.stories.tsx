@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
-import { createRef } from 'react'
+import React, { createRef } from 'react'
 
 import { BoundWitnessDetailsBox } from './DetailsBox.js'
 

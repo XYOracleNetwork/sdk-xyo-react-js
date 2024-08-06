@@ -8,9 +8,9 @@ import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import eulerLayout from 'cytoscape-euler'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 
-import { NodeRelationalGraphProps } from '../../lib/index.js'
+import { NodeRelationalGraphProps } from '../../lib/index.ts'
 
 const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
   cy?.layout({ name, ...options }).run()

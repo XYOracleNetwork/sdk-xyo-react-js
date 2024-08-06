@@ -1,6 +1,7 @@
 import { Check, InfoOutlined } from '@mui/icons-material'
 import { Button, IconButton, TableCell, Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { ConnectedWalletTableCellProps } from './lib/index.js'
 

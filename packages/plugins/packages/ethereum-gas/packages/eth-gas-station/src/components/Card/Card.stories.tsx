@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { EthereumGasEthgasstationSchema } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
 import { sampleEthGasStationGasPricePayload } from '@xyo-network/react-storybook'
+import React from 'react'
 
 import { EthgasstationGasPriceCard } from './Card.js'
 

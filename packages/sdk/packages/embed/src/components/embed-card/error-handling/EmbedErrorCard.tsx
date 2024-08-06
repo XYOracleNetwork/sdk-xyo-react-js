@@ -1,5 +1,6 @@
 import { Alert, AlertProps, AlertTitle, Card, CardContent, CardProps, Typography } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
+import React from 'react'
 
 interface EmbedErrorCardBaseProps {
   alertProps?: AlertProps

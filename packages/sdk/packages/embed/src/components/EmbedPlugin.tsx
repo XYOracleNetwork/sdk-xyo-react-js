@@ -1,6 +1,7 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { ErrorBoundary, ListModeProvider } from '@xyo-network/react-shared'
+import React from 'react'
 
 import { EmbedPluginProvider, RefreshPayloadProvider, ResolvePayloadProvider, ValidatePayloadProvider } from '../contexts/index.js'
 import { EmbedPluginProps } from '../types/index.js'

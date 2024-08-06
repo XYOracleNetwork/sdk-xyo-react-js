@@ -1,6 +1,6 @@
 import { compact } from '@xylabs/lodash'
 import { WithChildren } from '@xylabs/react-shared'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { useSchemaStats } from '../../../hooks/index.js'
 import { SchemaContext } from '../Context.js'
@@ -18,5 +18,7 @@ export const SchemaMemoryProvider: React.FC<WithChildren<SchemaProviderProps>> =
     }
   }, [fetchedSchemaStats])
 
-  return <SchemaContext.Provider value={{ provided: true, schema, schemaList: knownSchemaList ?? schemaList, setSchema, setSchemaList }} {...props} />
+  const value = useMemo(() => ({ provided: true, schema, schemaList: knownSchemaList ?? schemaList, setSchema, setSchemaList }), [schema, schemaList, knownSchemaList])
+
+  return <SchemaContext.Provider value={value} {...props} />
 }

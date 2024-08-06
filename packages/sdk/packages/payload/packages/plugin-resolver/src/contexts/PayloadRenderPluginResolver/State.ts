@@ -1,6 +1,6 @@
 import { Dispatch } from 'react'
 
-import { PayloadRenderPluginResolver } from '../../PayloadRenderPluginResolver.tsx'
+import { PayloadRenderPluginResolver } from '../../PayloadRenderPluginResolver.ts'
 
 export interface PayloadRenderPluginResolverState {
   resolver?: PayloadRenderPluginResolver

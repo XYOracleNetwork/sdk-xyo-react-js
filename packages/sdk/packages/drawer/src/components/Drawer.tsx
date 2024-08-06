@@ -1,6 +1,6 @@
 import { Drawer, DrawerProps, Paper, styled, Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { MouseEvent, PropsWithChildren, useMemo } from 'react'
+import React, { MouseEvent, PropsWithChildren, useMemo } from 'react'
 
 export interface DrawerExProps extends PropsWithChildren<DrawerProps> {
   heightVariant?: 'full' | 'auto'

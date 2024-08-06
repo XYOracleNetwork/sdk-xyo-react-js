@@ -1,5 +1,3 @@
-/* eslint-disable deprecation/deprecation */
-
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { DetailsRenderer } from './components/index.ts'

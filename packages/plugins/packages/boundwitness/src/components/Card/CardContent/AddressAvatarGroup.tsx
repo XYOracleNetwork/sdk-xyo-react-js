@@ -1,6 +1,6 @@
 import { Avatar, AvatarGroup, AvatarGroupProps } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
-import { useLayoutEffect, useRef, useState } from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 
 export interface AddressAvatarGroupProps extends AvatarGroupProps {
   addresses?: string[]

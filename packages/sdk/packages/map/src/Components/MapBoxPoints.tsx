@@ -2,7 +2,7 @@ import { Alert } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { Feature, Point } from 'geojson'
 import { MapOptions } from 'mapbox-gl'
-import { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts/index.js'
 import { MapboxFlexBoxProps } from '../lib/index.js'

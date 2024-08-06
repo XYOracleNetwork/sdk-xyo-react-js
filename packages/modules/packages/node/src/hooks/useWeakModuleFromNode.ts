@@ -45,7 +45,6 @@ export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
     }
     logger?.debug('Result: No Node')
     return
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [node, nameOrAddressOrInstance])
   return [result, nodeError ?? error]
 }

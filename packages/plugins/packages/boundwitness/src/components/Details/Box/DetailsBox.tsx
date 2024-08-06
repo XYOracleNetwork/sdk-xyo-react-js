@@ -4,7 +4,7 @@ import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-mode
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableHeightProvider } from '@xyo-network/react-table'
-import { forwardRef, useMemo } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
 // eslint-disable-next-line import/no-internal-modules

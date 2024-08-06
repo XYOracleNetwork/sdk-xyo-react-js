@@ -1,6 +1,7 @@
 import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { TypographyEx } from '@xyo-network/react-shared'
+import React from 'react'
 
 import { GweiLabelTypography } from './GweiLabelTypography.js'
 

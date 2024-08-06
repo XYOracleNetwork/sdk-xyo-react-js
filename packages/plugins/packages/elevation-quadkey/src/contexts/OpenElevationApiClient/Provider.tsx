@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { OpenElevationApiClient, OpenElevationApiClientConfig } from '../../classes/index.js'
 import { OpenElevationApiContext } from './Context.js'

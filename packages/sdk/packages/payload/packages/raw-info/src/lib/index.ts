@@ -1,1 +1,1 @@
-export * from './ExpansionProps.tsx'
+export * from './ExpansionProps.ts'

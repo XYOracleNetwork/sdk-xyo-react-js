@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
 import { BackPaperAdornment } from './Adornment/index.js'
 import { HashHeadingPaper } from './HashHeadingPaper.js'

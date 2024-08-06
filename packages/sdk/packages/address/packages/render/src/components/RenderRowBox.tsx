@@ -3,7 +3,7 @@ import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { useEvent } from '@xyo-network/react-event'
 import { EllipsizeBox, useShareForwardedRef } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { FavoriteIconButton } from './favorite/index.js'
 

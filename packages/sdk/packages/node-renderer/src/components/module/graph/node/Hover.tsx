@@ -1,7 +1,7 @@
 import { PopperProps, styled } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeSingular } from 'cytoscape'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 
 import { useNodeElement } from './hooks/index.js'
 
@@ -28,7 +28,6 @@ const StyledNodeGhostElementFlexCol = styled(FlexCol, { name: 'StyledNodeGhostEl
   // backgroundColor: '#fff',
   // opacity: 0.25,
 
-  // eslint-disable-next-line sort-keys-fix/sort-keys-fix
   cursor: 'pointer',
   pointerEvents: 'none',
   position: 'absolute',

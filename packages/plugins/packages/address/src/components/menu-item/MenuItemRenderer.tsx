@@ -2,7 +2,7 @@ import { Alert, CircularProgress, MenuItem, MenuItemProps } from '@mui/material'
 import { AddressPayload } from '@xyo-network/module-model'
 import { AddressRenderRowBox } from '@xyo-network/react-address-render'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, PayloadRenderProps & MenuItemProps>(({ children, payload, ...props }, ref) => {
   const { address } = (payload as AddressPayload) ?? {}

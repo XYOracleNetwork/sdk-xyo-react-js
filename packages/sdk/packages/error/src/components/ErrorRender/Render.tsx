@@ -1,5 +1,5 @@
 import { FlexCol } from '@xylabs/react-flexbox'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { ErrorAlert } from './ErrorAlert.js'
 import { ErrorRenderProps } from './Props.js'

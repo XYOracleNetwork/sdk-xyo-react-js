@@ -3,7 +3,7 @@ import { Card, CardProps, Divider, IconButton } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
-import { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 
 import { BoundWitnessCardHeader } from '../../Card/index.js'
 import { DetailsCardContent } from './DetailsCardContent.js'

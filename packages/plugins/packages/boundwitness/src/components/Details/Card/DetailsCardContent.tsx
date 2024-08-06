@@ -3,7 +3,7 @@ import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { CardContentEx, CardContentExProps } from '@xyo-network/react-card'
 import { useTableHeight } from '@xyo-network/react-table'
-import { Dispatch, forwardRef, SetStateAction, useState } from 'react'
+import React, { Dispatch, forwardRef, SetStateAction, useState } from 'react'
 
 import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../../_shared/index.js'
 import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation/index.js'

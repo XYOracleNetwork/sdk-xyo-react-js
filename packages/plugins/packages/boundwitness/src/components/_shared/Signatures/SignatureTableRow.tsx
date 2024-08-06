@@ -4,6 +4,7 @@ import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useEvent } from '@xyo-network/react-event'
 import { AddressTableCell, usePromise } from '@xyo-network/react-shared'
+import React from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 

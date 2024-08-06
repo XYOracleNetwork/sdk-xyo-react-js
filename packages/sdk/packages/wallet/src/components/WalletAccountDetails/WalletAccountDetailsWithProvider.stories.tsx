@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WalletProvider } from '../../contexts/index.js'

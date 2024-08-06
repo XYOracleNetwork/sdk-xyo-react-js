@@ -3,7 +3,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { Huri } from '@xyo-network/huri'
 import { ModuleError, ModuleErrorSchema, Payload } from '@xyo-network/payload-model'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useRefreshPayload } from '../RefreshPayloadContext/index.js'
 import { ResolvePayloadContext } from './Context.js'
@@ -17,6 +17,7 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
   const { refreshPayload, setRefreshPayload, onRefresh } = useRefreshPayload()
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     typeof huriPayload === 'string' ? setHuri(huriPayload) : undefined
     if (typeof huriPayload === 'object') {
       setPayload(huriPayload)
@@ -28,7 +29,6 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
   const [huriError, setHuriError] = useState<ModuleError>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (huri && !refreshPayload) {
         try {

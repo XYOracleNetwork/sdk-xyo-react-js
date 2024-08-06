@@ -2,7 +2,7 @@ import { IconButton, IconButtonProps, styled } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 
 import { FavoriteItemEvent, generateFavoriteEvent } from '../lib/index.js'
 import { FavoriteToggleSVG } from './FavoriteToggleSVG.js'

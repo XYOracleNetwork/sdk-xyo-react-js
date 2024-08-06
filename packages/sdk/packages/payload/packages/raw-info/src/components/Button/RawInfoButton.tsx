@@ -1,6 +1,6 @@
 import { toJson } from '@xylabs/object'
 import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
-import { MouseEventHandler, ReactNode, useMemo, useState } from 'react'
+import React, { MouseEventHandler, ReactNode, useMemo, useState } from 'react'
 
 import { ExpansionProps } from '../../lib/index.js'
 import { XyoColorLogo } from '../img/index.js'

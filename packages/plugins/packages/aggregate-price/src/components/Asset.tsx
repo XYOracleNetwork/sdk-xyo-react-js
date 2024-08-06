@@ -4,7 +4,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 
 export interface CryptoAssetProps extends CardProps {
   asset: string

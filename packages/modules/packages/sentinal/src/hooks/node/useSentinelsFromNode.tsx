@@ -6,7 +6,6 @@ export const useSentinelsFromNode = (
   filter?: ModuleFilter,
   config?: ModuleFromNodeConfig,
 ): [SentinelInstance[] | null | undefined, Error | undefined] => {
-  // eslint-disable-next-line deprecation/deprecation
   const [modules, error] = useModulesFromNode(filter, config)
   if (error) {
     return [null, error]

@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { BWNavigationTabs } from './NavigationTabs.js'
 

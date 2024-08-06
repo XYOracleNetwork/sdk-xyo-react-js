@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { defaultNetworkConfigs } from '../../lib/index.js'
 import { NetworkContext } from '../Context.js'
@@ -14,7 +14,9 @@ export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>>
 
   const [network, setNetwork] = useState(defaultNetworkConfig ?? resolvedDefaultNetworkConfig ?? defaultNetworkConfigs[0])
 
-  return <NetworkContext.Provider value={{ network, networks: defaultNetworkConfigs, provided: true, setNetwork }} {...props} />
+  const value = useMemo(() => ({ network, networks: defaultNetworkConfigs, provided: true, setNetwork }), [network, setNetwork])
+
+  return <NetworkContext.Provider value={value} {...props} />
 }
 
 /** @deprecated use NetworkMemoryProvider instead */

@@ -5,7 +5,7 @@ import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archi
 import { ArchivistInsertQuerySchema, ArchivistInstance } from '@xyo-network/archivist-model'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { MemoryNode } from '@xyo-network/node-memory'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { MemoryArchivistsStats } from './MemoryArchivistStats.js'
 
@@ -23,7 +23,6 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
   const [mod, setModule] = useState<ArchivistInstance>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (!mod) {
         const node = await MemoryNode.create()

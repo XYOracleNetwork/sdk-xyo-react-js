@@ -8,7 +8,6 @@ export type SchemaList = { name: string }
 export const useSchemaDefinitions = (schemaList?: SchemaList[]): SchemaPayload[] | undefined => {
   const [schemaPayloads, setSchemaPayloads] = useState<SchemaPayload[]>()
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (schemaList) {
         const promiseResults = await Promise.allSettled(schemaList?.map(({ name }) => SchemaCache.instance.get(name)))

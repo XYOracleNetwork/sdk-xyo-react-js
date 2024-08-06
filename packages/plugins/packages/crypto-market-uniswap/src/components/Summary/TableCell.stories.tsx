@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
 import { payloadData } from '../storyPayloadData.js'
 import { TableCellSummary } from './TableCellSummary.js'

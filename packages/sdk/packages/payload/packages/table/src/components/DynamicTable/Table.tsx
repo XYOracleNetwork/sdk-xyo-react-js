@@ -18,7 +18,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
-import { ReactNode, useEffect, useMemo, useState } from 'react'
+import React, { ReactNode, useEffect, useMemo, useState } from 'react'
 
 import { PayloadDynamicTableRow } from './DynamicTableRow.js'
 import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.js'

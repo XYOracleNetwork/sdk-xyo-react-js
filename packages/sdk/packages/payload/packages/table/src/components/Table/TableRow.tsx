@@ -11,7 +11,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig.js'
 
@@ -27,7 +27,7 @@ export interface PayloadTableRowProps extends TableRowProps {
 
 export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   archive,
-  columns = payloadTableColumnConfigDefaults(),
+  columns,
   exploreDomain,
   maxSchemaDepth,
   network: networkProp,
@@ -101,10 +101,12 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     valid,
   }
 
+  const columnsMemo = useMemo(() => columns ?? payloadTableColumnConfigDefaults(), [columns])
+
   return breakPoint
     ? (
         <TableRow style={{ maxWidth: '100vw' }} {...props}>
-          {columns[breakPoint]?.map((column) => {
+          {columnsMemo[breakPoint]?.map((column) => {
             return tableCells[column]({})
           })}
         </TableRow>

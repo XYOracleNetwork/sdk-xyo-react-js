@@ -6,7 +6,6 @@ import { useModulesFromNode } from './useModulesFromNode.js'
 
 /** @deprecated use useWeakNodesFromNode */
 export const useNodesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeConfig): [NodeInstance[] | null | undefined, Error | undefined] => {
-  // eslint-disable-next-line deprecation/deprecation
   const [modules, error] = useModulesFromNode(filter, config)
   if (error) {
     return [null, error]

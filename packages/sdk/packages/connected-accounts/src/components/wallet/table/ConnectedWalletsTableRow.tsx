@@ -1,6 +1,6 @@
 import { TableRow, TableRowProps } from '@mui/material'
 import { EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
-import { useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 
 import { ActiveProvider } from '../lib/index.js'
 import { ConnectedWalletTableCells } from './cells/index.js'

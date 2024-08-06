@@ -1,5 +1,6 @@
 import { Typography, useTheme } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { ColorGradientLegendProps } from '../../Colors/index.js'
 

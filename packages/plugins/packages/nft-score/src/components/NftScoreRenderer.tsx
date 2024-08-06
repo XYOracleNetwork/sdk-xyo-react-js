@@ -9,6 +9,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { NftScore, NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
 import { Score } from '@xyo-network/crypto-nft-score-model'
 import { Payload } from '@xyo-network/payload-model'
+import React from 'react'
 
 export interface NftScoreRendererProps extends FlexBoxProps {
   payload?: Payload

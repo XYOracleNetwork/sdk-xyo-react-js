@@ -1,5 +1,6 @@
 import { Chip } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
 export interface GasPriceEstimateActionsBoxProps extends FlexBoxProps {
   baseFee?: number

@@ -1,7 +1,7 @@
 import { CardContentProps } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Payload } from '@xyo-network/payload-model'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { AddressAvatarGroup } from './AddressAvatarGroup.js'
 import { CardColumnsFlex, CardColumnTitleH2, CardContentFlex } from './layout/index.js'

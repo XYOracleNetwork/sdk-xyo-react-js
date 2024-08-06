@@ -1,6 +1,6 @@
 import { PayloadDiviner } from '@xyo-network/diviner-payload-abstract'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { PayloadDivinerContext } from './Context.js'
 
@@ -18,13 +18,11 @@ export const PayloadDivinerProvider: React.FC<PayloadDivinerProviderProps> = ({ 
     }
   }, [divinerProp])
 
+  const value = useMemo(() => ({ diviner: diviner === divinerProp ? diviner : undefined, provided: true, setDiviner }), [diviner, divinerProp, setDiviner])
+
   return (
     <PayloadDivinerContext.Provider
-      value={{
-        diviner: diviner === divinerProp ? diviner : undefined,
-        provided: true,
-        setDiviner,
-      }}
+      value={value}
     >
       {diviner
         ? children

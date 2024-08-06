@@ -2,6 +2,7 @@ import { TableCell, TableCellProps } from '@mui/material'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { ThemeTokenAvatarGroup, TokenData, useGetTokenData } from '@xyo-network/react-shared'
 import { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import React from 'react'
 
 export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({ payload, ...props }) => {
   const payloadTyped = payload as UniswapCryptoMarketPayload

@@ -1,6 +1,7 @@
 import { Typography, useTheme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx, LinkExProps } from '@xylabs/react-link'
+import React from 'react'
 
 import { Logo } from './Logo.js'
 

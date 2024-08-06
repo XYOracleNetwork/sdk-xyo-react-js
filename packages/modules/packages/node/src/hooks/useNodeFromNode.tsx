@@ -8,7 +8,6 @@ export const useNodeFromNode = (
   nameOrAddressOrInstance?: string | NodeInstance,
   config?: ModuleFromNodeConfig,
 ): [NodeInstance | undefined, Error | undefined] => {
-  // eslint-disable-next-line deprecation/deprecation
   const [mod, error] = useModuleFromNode(nameOrAddressOrInstance, config)
   const instance = asNodeInstance(mod)
   if (mod && !instance) {

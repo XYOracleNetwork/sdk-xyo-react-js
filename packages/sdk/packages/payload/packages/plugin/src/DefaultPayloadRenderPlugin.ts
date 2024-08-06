@@ -9,7 +9,7 @@ import {
   PayloadEditorBox,
   PayloadTableCell,
 } from './components/index.ts'
-import { PayloadRenderPlugin } from './PayloadRenderPlugin.tsx'
+import { PayloadRenderPlugin } from './PayloadRenderPlugin.ts'
 
 export const DefaultPayloadRenderPlugin: PayloadRenderPlugin = {
   canRender: function (payload?: Payload): boolean {

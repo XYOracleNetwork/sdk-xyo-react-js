@@ -2,6 +2,7 @@ import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import { UniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import React from 'react'
 
 import { UniswapPairsCardView } from './Cards/index.js'
 import { UniswapPairsTableView } from './Table/index.js'

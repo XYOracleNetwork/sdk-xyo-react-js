@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { CollapsibleContext } from './context.js'
 

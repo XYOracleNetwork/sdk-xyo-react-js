@@ -5,7 +5,7 @@ import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 import { BWPreviousHashQuickTipButton } from './PreviousHash.js'
 import { BWVerification } from './Verification.js'

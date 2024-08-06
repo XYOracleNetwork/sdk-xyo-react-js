@@ -3,6 +3,7 @@ import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-mode
 import { PayloadTableProps } from '@xyo-network/react-payload-table'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
+import React from 'react'
 
 import { BoundWitnessFilteredPayloadTableBody, BoundWitnessPayloadTableHead } from './payloads-table/index.js'
 

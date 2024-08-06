@@ -1,5 +1,6 @@
 import { Typography, TypographyVariant } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
 export const TextsExample = () => {
   const variantList: TypographyVariant[] = [

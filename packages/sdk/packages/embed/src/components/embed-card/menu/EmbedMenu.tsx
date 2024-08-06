@@ -1,6 +1,6 @@
 import { MoreVert as MoreVertIcon } from '@mui/icons-material'
 import { IconButton, IconButtonProps, Menu } from '@mui/material'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { JsonMenuItem } from './JsonMenuItem.js'
 

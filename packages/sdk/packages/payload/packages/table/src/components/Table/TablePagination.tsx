@@ -1,6 +1,7 @@
 import { FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, LastPage as LastPageIcon } from '@mui/icons-material'
 import { Box, CircularProgress, IconButton, useTheme } from '@mui/material'
 import { useEvent } from '@xyo-network/react-event'
+import React from 'react'
 
 import { PaginationNouns } from './types/index.js'
 

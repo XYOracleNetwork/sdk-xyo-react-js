@@ -82,6 +82,7 @@ export const createPollingFunction = <T extends Payload = Payload>(
         if ((result && fresh) || result === null) {
           onResult?.(result as T[] | null)
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         pollComplete ? (activePolling = false) : await pollDivinersIndefinitely(initialDelay, pollingFunction)
       } catch (e) {
         console.error('error retrying diviner', e)

@@ -1,5 +1,6 @@
 import { OpenInNew as OpenInNewIcon } from '@mui/icons-material'
 import { ListItemIcon, ListItemText, MenuItem, MenuItemProps } from '@mui/material'
+import React from 'react'
 
 import { useResolvePayload } from '../../../contexts/index.js'
 

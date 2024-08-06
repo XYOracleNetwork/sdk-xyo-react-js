@@ -1,4 +1,5 @@
 import { Checkbox, FormControl, FormControlProps, FormLabel } from '@mui/material'
+import React from 'react'
 
 export interface CheckboxFormControlProps extends FormControlProps {
   onCheckChanged?: (checked: boolean) => void

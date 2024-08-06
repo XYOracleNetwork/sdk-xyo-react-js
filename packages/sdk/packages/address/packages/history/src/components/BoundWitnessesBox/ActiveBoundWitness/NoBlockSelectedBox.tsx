@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
 export const NoBlockSelectedBox: React.FC = () => (
   <FlexCol justifyContent="center">

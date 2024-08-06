@@ -1,5 +1,6 @@
 import { useTheme } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
+import React from 'react'
 
 import { useRefreshPayload, useResolvePayload } from '../../contexts/index.js'
 import { EmbedPluginProps } from '../../types/index.js'

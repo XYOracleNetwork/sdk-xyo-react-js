@@ -1,5 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { LoadResult } from '@xyo-network/react-shared'
+import React from 'react'
 
 import { useResolvePayload } from '../contexts/index.js'
 

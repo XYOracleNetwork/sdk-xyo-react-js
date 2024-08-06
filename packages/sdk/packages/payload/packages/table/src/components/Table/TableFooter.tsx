@@ -1,5 +1,6 @@
 import { styled, TablePagination, TableRow } from '@mui/material'
 import { TableFooterEx } from '@xyo-network/react-table'
+import React from 'react'
 
 import { TablePaginationActions } from './TablePagination.js'
 import { PayloadTableFooterProps } from './types/index.js'
@@ -9,8 +10,8 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
   variant,
   page,
   rowsPerPage,
-  handleChangePage = () => {},
-  handleChangeRowsPerPage = () => {},
+  handleChangePage,
+  handleChangeRowsPerPage,
   fetchMorePayloads,
   loading,
 }) => (
@@ -27,8 +28,8 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
           },
           native: true,
         }}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
+        onPageChange={handleChangePage ?? (() => {})}
+        onRowsPerPageChange={handleChangeRowsPerPage ?? (() => {})}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ActionsComponent={(props: any) => <TablePaginationActions enableNextPage={!!fetchMorePayloads} loading={loading} {...props} />}
       />

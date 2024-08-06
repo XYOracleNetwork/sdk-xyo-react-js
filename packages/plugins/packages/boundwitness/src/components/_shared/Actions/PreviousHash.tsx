@@ -5,7 +5,7 @@ import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { EllipsizeBox } from '@xyo-network/react-shared'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 export interface BWPreviousHashQuickTipButtonProps extends QuickTipButtonProps {
   boundwitness?: BoundWitness

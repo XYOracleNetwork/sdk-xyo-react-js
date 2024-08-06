@@ -9,6 +9,7 @@ import {
   MapSettingsProvider,
   useMapboxAccessToken,
 } from '@xyo-network/react-map'
+import React from 'react'
 
 import { PointsMapSettings } from './PointsMapSettings.js'
 

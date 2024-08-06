@@ -12,7 +12,7 @@ export const useElevationProcessor = (payload?: Payload) => {
   const { lookupLocations } = useOpenElevationApiClient()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       // Convert Single Payload from Quadkeys to GeoJson with Elevations
       if (payload && (payload as NetworkElevationQuadkeyAnswerPayload).result && lookupLocations && features === undefined) {

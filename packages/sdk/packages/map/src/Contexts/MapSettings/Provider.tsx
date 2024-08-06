@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { MapSettings } from '../../MapBoxClasses/index.js'
 import { MapSetting } from '../../Settings/index.js'

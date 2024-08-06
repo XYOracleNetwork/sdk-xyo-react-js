@@ -3,7 +3,7 @@ import { EventListener } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
 
 import { AbstractControl, ControlValueAccessorBaseEvents } from './control/index.ts'
-import { ErrorSummary } from './InputError.tsx'
+import { ErrorSummary } from './InputError.ts'
 import { FormGroupStorage } from './storage/index.ts'
 
 export type PayloadWithTimestamp = Payload<{ timestamp?: number }>

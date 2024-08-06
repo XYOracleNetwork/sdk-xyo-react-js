@@ -3,6 +3,7 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useEvent } from '@xyo-network/react-event'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import React from 'react'
 
 export type BoundWitnessLinksDetails = PropertyGroupProps & {
   value?: BoundWitness

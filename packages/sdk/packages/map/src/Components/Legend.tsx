@@ -1,5 +1,6 @@
 import { useMediaQuery, useTheme } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { ColorGradientLegendProps } from '../Colors/index.js'
 import { ColorGradientLegend } from './Legends/index.js'

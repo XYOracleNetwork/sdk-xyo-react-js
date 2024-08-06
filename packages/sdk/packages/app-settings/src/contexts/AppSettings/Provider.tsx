@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { ProviderProps, useState } from 'react'
+import React, { ProviderProps, useState } from 'react'
 
 import { WebAppNavigationType } from '../../WebAppNavigationType.js'
 import { AppSettingsContext, AppSettingsContextProps } from './Context.js'

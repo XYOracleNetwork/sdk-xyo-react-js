@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableCellProps, TableContainer, TableHead,
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { UniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { UniswapTableRowRender } from './TableRow.js'
 

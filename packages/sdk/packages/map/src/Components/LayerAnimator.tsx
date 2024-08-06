@@ -1,6 +1,6 @@
 import { useInterval, WithChildren } from '@xylabs/react-shared'
 import { Map } from 'mapbox-gl'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 import { MapLayer } from '../Layers/index.js'
 import { MapboxFlexBoxProps } from '../lib/index.js'

@@ -1,5 +1,6 @@
 import { TableCell, TableHead, TableRow, Typography } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
+import React from 'react'
 
 import { payloadColumnNames, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig.js'
 import { PayloadTableHeadProps } from './types/index.js'

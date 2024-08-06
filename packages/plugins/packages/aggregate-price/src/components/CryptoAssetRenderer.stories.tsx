@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
 import { CryptoAssetRenderer } from './CryptoAssetRenderer.js'
 import { payloadData, payloadDataMissingAssets } from './storyPayloadData.js'

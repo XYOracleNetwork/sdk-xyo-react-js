@@ -2,6 +2,7 @@ import { SyncAlt } from '@mui/icons-material'
 import { Typography } from '@mui/material'
 import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { xyoColorLogo } from '../../../../img/index.js'
 

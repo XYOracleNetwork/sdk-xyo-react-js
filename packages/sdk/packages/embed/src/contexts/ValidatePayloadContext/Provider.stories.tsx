@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
 import { EmbedPluginContext, EmbedPluginState } from '../EmbedPluginContext/index.js'
 import { RefreshPayloadProvider } from '../RefreshPayloadContext/index.js'

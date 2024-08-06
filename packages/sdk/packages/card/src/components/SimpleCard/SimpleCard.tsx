@@ -2,7 +2,7 @@ import { ArrowForwardRounded as ArrowForwardRoundedIcon } from '@mui/icons-mater
 import { alpha, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useIsMobile } from '@xyo-network/react-shared'
-import { ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
 import { CardEx, CardExProps } from '../CardEx.js'
@@ -37,9 +37,11 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
   const navigate = useNavigate()
   const isMobile = useIsMobile()
   const localRouteChange = (to: To | undefined) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     to ? navigate(to) : navigate('/404')
   }
   const externalRouteChange = (href: string | undefined) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     href ? window.open(href) : navigate('/404')
   }
   return (

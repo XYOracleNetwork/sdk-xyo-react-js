@@ -1,10 +1,10 @@
 import { CardActionArea, CardActionAreaProps } from '@mui/material'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { PayloadRenderProps } from '../PayloadRenderPlugin.js'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const PayloadCardActionArea = forwardRef<HTMLDivElement, PayloadRenderProps & CardActionAreaProps>(({ payload, ...props }) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, @eslint-react/ensure-forward-ref-using-ref
+export const PayloadCardActionArea = forwardRef<HTMLDivElement, PayloadRenderProps & CardActionAreaProps>(({ ref, payload, ...props }) => {
   return <CardActionArea {...props} />
 })
 

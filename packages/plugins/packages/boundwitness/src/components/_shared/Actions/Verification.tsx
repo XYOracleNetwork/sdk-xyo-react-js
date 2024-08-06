@@ -5,7 +5,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 const InvalidIcon = forwardRef<SVGSVGElement, SvgIconProps>((props, ref) => <CancelRoundedIcon color="error" ref={ref} {...props} />)
 InvalidIcon.displayName = 'InvalidIcon'

@@ -1,4 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
+import React from 'react'
 
 import { WalletServiceContext } from './Context.js'
 import { defaultState } from './defaultState.js'

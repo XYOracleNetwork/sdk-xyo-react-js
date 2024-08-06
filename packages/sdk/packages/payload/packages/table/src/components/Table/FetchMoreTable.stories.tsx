@@ -3,7 +3,7 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { delay } from '@xylabs/delay'
 import { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadTable } from './Table.js'
@@ -34,7 +34,6 @@ const NewPayloadsDecorator: Decorator = (Story, args) => {
     setTimeout(() => {
       addToTotalPayloads(testPayloads)
     }, 500)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const addPayloads = () => {

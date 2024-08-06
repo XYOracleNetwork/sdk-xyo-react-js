@@ -4,6 +4,7 @@ import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletAccountSelect, WalletProvider } from '@xyo-network/react-wallet'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SearchBar } from '../SearchBar/index.js'

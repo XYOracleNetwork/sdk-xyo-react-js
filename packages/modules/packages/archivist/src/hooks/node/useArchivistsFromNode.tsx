@@ -1,4 +1,3 @@
-/* eslint-disable deprecation/deprecation */
 import { ArchivistInstance, isArchivistInstance } from '@xyo-network/archivist-model'
 import { ModuleFilter } from '@xyo-network/module-model'
 import { ModuleFromNodeConfig, useModulesFromNode } from '@xyo-network/react-node'

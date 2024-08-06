@@ -9,7 +9,7 @@ import { NodeProvider, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox.js'
 
@@ -19,7 +19,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async () => {
       try {
         const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })

@@ -2,7 +2,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Payload } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { BoundWitnessPayloads, BoundWitnessSignatureDetails } from '../_shared/index.js'
 import { BoundWitnessValidationDetails } from './ValidationDetails.js'

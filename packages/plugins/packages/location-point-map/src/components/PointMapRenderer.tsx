@@ -10,7 +10,7 @@ import {
   useMapboxAccessToken,
 } from '@xyo-network/react-map'
 import { Feature, Point } from 'geojson'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { PointMapSettings } from './PointMapSettings.js'
 

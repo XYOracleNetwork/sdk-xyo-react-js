@@ -25,7 +25,6 @@ export const useDivinePayload = <T extends Payload = Payload>(
   }, [diviner])
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (huri && diviner && payload === undefined) {
         try {
@@ -61,7 +60,6 @@ export const useDivinePayloads = <T extends Payload = Payload>(
   }, [diviner])
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       console.log(`huriList: ${JSON.stringify(huriList, null, 2)}`)
       const payloads = await Promise.allSettled(

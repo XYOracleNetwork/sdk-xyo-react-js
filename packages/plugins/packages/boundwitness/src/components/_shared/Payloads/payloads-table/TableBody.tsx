@@ -3,7 +3,7 @@ import { EventNoun, useEvent } from '@xyo-network/react-event'
 import { PayloadTableBodyProps, TableRowNoData } from '@xyo-network/react-payload-table'
 import { HashTableCell } from '@xyo-network/react-shared'
 import { useTableHeight } from '@xyo-network/react-table'
-import { useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 
 export interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps {
   boundwitnessHash?: string

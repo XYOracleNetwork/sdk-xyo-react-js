@@ -1,7 +1,7 @@
 import { Hash } from '@xylabs/hex'
 import { Payload } from '@xyo-network/payload-model'
 import { TableEx, TableExProps } from '@xyo-network/react-table'
-import { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
+import React, { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
 
 import { PayloadTableColumnConfig } from './PayloadTableColumnConfig.js'
 import { PayloadTableBody } from './TableBody.js'

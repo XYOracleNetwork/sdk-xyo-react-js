@@ -1,4 +1,5 @@
 import { CardContent, CardContentProps } from '@mui/material'
+import React from 'react'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps.js'
 

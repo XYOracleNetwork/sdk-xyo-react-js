@@ -2,6 +2,7 @@ import { Link, Paper, PaperProps, useTheme } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import React from 'react'
 
 interface StaticTokenSummaryProps {
   tokenPayload: UniswapCryptoPair

@@ -1,6 +1,6 @@
 import { Card, CardProps } from '@mui/material'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { EtherchainV2GasPriceCardContent } from './CardContent.js'
 import { EtherchainV2GasPriceCardHeader } from './CardHeader.js'

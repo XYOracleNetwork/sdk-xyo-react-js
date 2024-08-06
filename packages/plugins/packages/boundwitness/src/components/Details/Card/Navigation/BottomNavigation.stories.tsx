@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { sampleBlock } from '@xyo-network/react-storybook'
+import React from 'react'
 
 import { BoundWitnessBottomNavigation } from './BottomNavigation.js'
 

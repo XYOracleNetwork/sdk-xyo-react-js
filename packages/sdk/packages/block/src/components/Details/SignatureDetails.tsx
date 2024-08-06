@@ -1,7 +1,6 @@
-/* eslint-disable deprecation/deprecation */
-
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import React from 'react'
 
 import { BlockSignatureTable } from './SignatureTable.js'
 

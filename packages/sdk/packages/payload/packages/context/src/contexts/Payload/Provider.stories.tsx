@@ -6,8 +6,8 @@ import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
 
-import { PayloadProvider } from './Provider.js'
-import { usePayload } from './use.js'
+import { PayloadProvider } from './Provider.tsx'
+import { usePayload } from './use.ts'
 
 const testPayload = { schema: 'network.xyo.payload' }
 
@@ -16,7 +16,6 @@ const PayloadProviderDecorator: Decorator = (Story, args) => {
   const testPayloadHash = usePayloadHash(testPayload)
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const memoryArchivist = await MemoryArchivist.create({ config: { schema: MemoryArchivistConfigSchema } })
       await memoryArchivist.insert([testPayload])

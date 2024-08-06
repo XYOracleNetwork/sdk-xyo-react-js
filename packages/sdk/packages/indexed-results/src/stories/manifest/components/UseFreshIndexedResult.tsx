@@ -12,7 +12,7 @@ import { useSentinelFromNode } from '@xyo-network/react-sentinel'
 import { asSentinelInstance } from '@xyo-network/sentinel-model'
 import { EvmAddress, EvmAddressSchema } from '@xyo-network/witness-evm-abstract'
 import { TimeStamp } from '@xyo-network/witness-timestamp'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
 import { useFreshIndexedResult, UseIndexedResultsConfig } from '../../../hooks/index.js'
 import { PollingStrategies } from '../../../interfaces/index.js'

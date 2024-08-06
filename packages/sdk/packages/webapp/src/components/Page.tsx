@@ -3,6 +3,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
 import { WithChildren } from '@xylabs/react-shared'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 
@@ -47,7 +48,6 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   const { pathname } = useLocation()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       await userEvents?.viewContent({ name: title ?? 'NodeBasePage', path: location.pathname })
     },

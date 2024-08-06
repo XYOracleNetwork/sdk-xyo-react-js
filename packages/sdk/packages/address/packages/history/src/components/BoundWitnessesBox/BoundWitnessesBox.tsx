@@ -3,7 +3,7 @@ import { Hash } from '@xylabs/hex'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { ThrownErrorBoundary, useRollbar } from '@xyo-network/react-error'
 import { EventNoun, EventVerb, useEvent } from '@xyo-network/react-event'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks/index.js'
 import { ActiveBWFlexBox } from './ActiveBoundWitness/index.js'

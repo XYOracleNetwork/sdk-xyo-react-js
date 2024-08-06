@@ -6,7 +6,7 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 

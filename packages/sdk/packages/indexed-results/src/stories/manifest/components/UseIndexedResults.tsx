@@ -3,7 +3,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
 import { Payload } from '@xyo-network/payload-model'
 import { useWeakArchivistFromNode } from '@xyo-network/react-archivist'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
 import { useIndexedResults, UseIndexedResultsConfig } from '../../../hooks/index.js'
 import { UseIndexedResultsProps } from './lib/index.js'

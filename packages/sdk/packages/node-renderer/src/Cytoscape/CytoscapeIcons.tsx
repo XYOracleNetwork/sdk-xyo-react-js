@@ -13,7 +13,6 @@ import { OverridableComponent } from '@mui/material/OverridableComponent.js'
 
 import { CyNodeModuleTypes } from './lib/index.js'
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export const CyIconSet: Record<CyNodeModuleTypes, OverridableComponent<SvgIconTypeMap<{}, 'svg'>>> = {
   archivist: Inventory2RoundedIcon,
   bridge: InsertLinkRoundedIcon,

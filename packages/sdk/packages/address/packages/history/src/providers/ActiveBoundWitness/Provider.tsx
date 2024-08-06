@@ -3,7 +3,7 @@ import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ActiveBoundWitnessContext } from '../../contexts/index.js'

@@ -1,4 +1,5 @@
 import { createSvgIcon } from '@mui/material'
+import React from 'react'
 
 export const XyoColorLogo = createSvgIcon(
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 238">

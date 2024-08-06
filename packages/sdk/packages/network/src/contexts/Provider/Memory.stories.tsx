@@ -1,6 +1,7 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { defaultNetworkConfigs } from '../../lib/index.js'
 import { useNetwork } from '../use.js'

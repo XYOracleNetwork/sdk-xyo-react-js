@@ -3,6 +3,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { AccountInstance } from '@xyo-network/account-model'
+import React from 'react'
 
 import { useRootWallet, useSelectedWalletAccount } from '../../contexts/index.js'
 import { useAccount, useWallet } from '../../hooks/index.js'

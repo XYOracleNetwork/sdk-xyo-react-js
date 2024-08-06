@@ -1,6 +1,6 @@
 import { Card, CardProps } from '@mui/material'
 import { useGradientStyles } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 export interface CardExProps extends CardProps {
   gradient?: 'border' | 'background'

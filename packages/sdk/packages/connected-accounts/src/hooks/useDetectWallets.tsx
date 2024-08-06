@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 const sortWallets = (wallets: DiscoveredWallets) =>
   // eslint-disable-next-line unicorn/no-array-reduce
   Object.values(wallets).reduce((acc, wallet) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     wallet.allowedAccounts.length > 0 ? acc.unshift(wallet) : acc.push(wallet)
     return acc
   }, [] as EIP6963Connector[])

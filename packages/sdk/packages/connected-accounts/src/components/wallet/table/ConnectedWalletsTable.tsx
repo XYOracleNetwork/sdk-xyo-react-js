@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow } from '@mui/material'
 import { EIP6963Connector } from '@xylabs/react-crypto'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs/index.js'
 import { ActiveProvider, WalletsTableHeadCells } from '../lib/index.js'

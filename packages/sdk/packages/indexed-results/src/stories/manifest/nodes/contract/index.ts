@@ -1,3 +1,3 @@
-export * from './ContractWitnessManifestNode.tsx'
-export * from './TokenDivinerIndexNode.tsx'
-export * from './TokenNode.tsx'
+export * from './ContractWitnessManifestNode.ts'
+export * from './TokenDivinerIndexNode.ts'
+export * from './TokenNode.ts'

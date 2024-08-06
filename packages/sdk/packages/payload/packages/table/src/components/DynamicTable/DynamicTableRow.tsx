@@ -13,7 +13,7 @@ import { useNetwork } from '@xyo-network/react-network'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import { HashTableCell, HashTableCellProps, usePayloadHash } from '@xyo-network/react-shared'
-import { ComponentType } from 'react'
+import React, { ComponentType, useMemo } from 'react'
 
 import {
   PayloadDynamicTableColumnConfig,
@@ -31,7 +31,7 @@ export interface PayloadDynamicTableRowProps extends TableRowProps {
 
 export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   archive,
-  columns = payloadDynamicTableColumnConfigDefaults(),
+  columns,
   exploreDomain,
   network: networkProp,
   payload,
@@ -114,10 +114,12 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     valid,
   }
 
+  const columnsMemo = useMemo(() => columns ?? payloadDynamicTableColumnConfigDefaults(), [columns])
+
   return breakPoint
     ? (
         <TableRow style={{ maxWidth: '100vw' }} {...props}>
-          {columns[breakPoint]?.map((column) => {
+          {columnsMemo[breakPoint]?.map((column) => {
             return column.slug ? tableCells[column.slug]({}) : null
           })}
         </TableRow>

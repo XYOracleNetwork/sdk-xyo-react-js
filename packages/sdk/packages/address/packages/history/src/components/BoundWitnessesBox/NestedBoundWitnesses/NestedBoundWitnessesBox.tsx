@@ -4,7 +4,7 @@ import { isEmpty } from '@xylabs/lodash'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import { EventNoun, EventVerb, useEvent } from '@xyo-network/react-event'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 
 import { usePayloadHashSelectionHistory } from '../../../hooks/index.js'
 import { useBoundWitnessClickHandler } from '../hooks/index.js'

@@ -8,6 +8,7 @@ import {
   BusyVariant,
   WithChildren,
 } from '@xylabs/react-shared'
+import React from 'react'
 
 export interface BusyCardProps extends CardProps {
   busy?: boolean

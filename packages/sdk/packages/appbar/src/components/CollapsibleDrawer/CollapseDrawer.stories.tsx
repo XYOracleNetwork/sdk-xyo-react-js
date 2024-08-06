@@ -1,6 +1,7 @@
 import { Divider, useTheme } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { CollapsibleProvider, useCollapsible } from '../../contexts/index.js'
 import { MenuSection } from '../SiteMenu/index.js'

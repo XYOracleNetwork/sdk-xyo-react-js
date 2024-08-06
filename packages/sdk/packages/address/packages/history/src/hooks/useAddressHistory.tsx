@@ -16,7 +16,7 @@ export const useAddressHistory = (address?: Address): [BoundWitness[] | undefine
   const refreshHistory = () => setRefresh(previous => previous + 1)
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       if (divinerError) {
         setBlocks(undefined)

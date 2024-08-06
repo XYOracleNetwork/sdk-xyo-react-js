@@ -1,5 +1,6 @@
 import { Decorator } from '@storybook/react'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
+import React from 'react'
 
 import { WalletProvider } from '../../../contexts/index.js'
 import { useWallet } from '../../../hooks/index.js'

@@ -1,6 +1,7 @@
 import { Paper, Theme, useMediaQuery } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { NetworkSelectEx } from '@xyo-network/react-network'
+import React from 'react'
 
 import { SystemControl } from './controls/index.js'
 import { SystemControlsType } from './SystemControlsType.js'

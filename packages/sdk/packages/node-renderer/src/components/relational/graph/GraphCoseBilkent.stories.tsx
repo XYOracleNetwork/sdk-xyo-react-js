@@ -10,7 +10,7 @@ import { NodeProvider, useWeakNodeFromNode, useWeakProvidedNode } from '@xyo-net
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts/index.js'
 import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.js'
@@ -25,7 +25,6 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       try {
         const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
@@ -104,7 +103,6 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
   const [idWitness, setIdWitness] = useState<IdWitness>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const witnessModule = await IdWitness.create({ config: { name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema } })
       setIdWitness(witnessModule)

@@ -2,6 +2,7 @@ import { Alert, AlertTitle } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
 import { Feature, Polygon } from 'geojson'
+import React from 'react'
 
 import { AnimatedHeatMapSettings } from '../AnimatedHeatMapSettings.js'
 import { useFindHashes, useHeatMapColors, useQuadKeyPayloadsToFeatures } from '../hooks/index.js'

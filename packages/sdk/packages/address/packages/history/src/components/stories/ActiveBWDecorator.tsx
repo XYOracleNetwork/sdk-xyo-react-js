@@ -3,7 +3,7 @@ import { Hash } from '@xylabs/hex'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { ActiveBoundWitnessContext } from '../../contexts/index.js'
 

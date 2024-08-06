@@ -3,7 +3,7 @@ import { isEmpty } from '@xylabs/lodash'
 import { GasFeeCard } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../lib/index.js'
 

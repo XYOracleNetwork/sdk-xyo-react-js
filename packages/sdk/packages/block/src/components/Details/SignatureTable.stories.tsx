@@ -1,7 +1,6 @@
-/* eslint-disable deprecation/deprecation */
-
 import { Meta, StoryFn } from '@storybook/react'
 import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { BlockSignatureTable } from './SignatureTable.js'

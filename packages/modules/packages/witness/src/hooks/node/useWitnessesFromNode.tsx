@@ -6,7 +6,6 @@ export const useWitnessesFromNode = (
   filter?: ModuleFilter,
   config?: ModuleFromNodeConfig,
 ): [WitnessInstance[] | null | undefined, Error | undefined] => {
-  // eslint-disable-next-line deprecation/deprecation
   const [modules, error] = useModulesFromNode(filter, config)
   if (error) {
     return [null, error]

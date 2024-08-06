@@ -1,7 +1,7 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { usePayloadHashSelectionHistory } from '../../hooks/index.js'

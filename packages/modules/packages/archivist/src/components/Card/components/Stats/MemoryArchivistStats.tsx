@@ -3,7 +3,7 @@ import { ArchivistAllQuerySchema, ArchivistInstance } from '@xyo-network/archivi
 import { asBoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { ArchivistStats } from './ArchivistStats.js'
 
@@ -40,7 +40,6 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
   }, [archivist, getAll])
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (archivist?.queries.includes(ArchivistAllQuerySchema)) {
         await getAll(archivist)

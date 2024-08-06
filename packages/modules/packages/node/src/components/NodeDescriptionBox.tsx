@@ -1,5 +1,6 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { NodeInstance } from '@xyo-network/node-model'
+import React from 'react'
 
 import { useWeakNodeDescription } from '../hooks/index.js'
 

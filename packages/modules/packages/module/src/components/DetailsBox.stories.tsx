@@ -5,7 +5,7 @@ import { MemoryArchivist } from '@xyo-network/archivist'
 import { CryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-plugin'
 import { DivinerInstance } from '@xyo-network/diviner-model'
 import { MemoryNode } from '@xyo-network/node-memory'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { ModuleDetailsBox } from './DetailsBox.js'
 
@@ -23,7 +23,7 @@ const StorybookEntry = {
 const NodeTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   const [node, setNode] = useState<MemoryNode>()
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       const node = await MemoryNode.create()
       if (mounted()) {
@@ -45,7 +45,7 @@ NodeDetails.args = {}
 const ArchivistTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   const [archivist, setArchivist] = useState<MemoryArchivist>()
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       const archivist = await MemoryArchivist.create()
       if (mounted()) {
@@ -67,7 +67,7 @@ ArchivistDetails.args = {}
 const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   const [diviner, setDiviner] = useState<DivinerInstance>()
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       const diviner = (await CryptoMarketAssetDiviner.create()) as DivinerInstance
       if (mounted()) {

@@ -1,5 +1,5 @@
 import { ModuleError, ModuleErrorSchema } from '@xyo-network/payload-model'
-import { Component, ErrorInfo, ReactNode } from 'react'
+import React, { Component, ErrorInfo, ReactNode } from 'react'
 import Rollbar from 'rollbar'
 
 import { ErrorRender } from '../ErrorRender/index.js'

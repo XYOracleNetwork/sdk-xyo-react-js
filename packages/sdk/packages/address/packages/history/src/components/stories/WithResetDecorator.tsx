@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
 import { Decorator } from '@storybook/react'
+import React from 'react'
 
 import { useActiveBoundWitness } from '../../hooks/index.js'
 

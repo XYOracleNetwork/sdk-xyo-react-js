@@ -1,7 +1,7 @@
 import { forget } from '@xylabs/forget'
 import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.js'
 import { useDynamicPositioning } from '../../hooks/index.js'

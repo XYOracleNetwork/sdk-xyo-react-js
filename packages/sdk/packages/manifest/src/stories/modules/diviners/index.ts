@@ -1,1 +1,1 @@
-export * from './AddDayDiviner.tsx'
+export * from './AddDayDiviner.ts'

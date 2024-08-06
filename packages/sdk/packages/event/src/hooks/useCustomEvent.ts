@@ -1,5 +1,5 @@
 import { assertEx } from '@xylabs/assert'
-import { createRef, RefObject, useEffect } from 'react'
+import { RefObject, useEffect, useRef } from 'react'
 
 export type CustomEventDispatch<T = unknown> = (detail: T) => boolean | void
 
@@ -8,7 +8,7 @@ export const useCustomEvent = <TElement extends HTMLElement, TDetail = unknown>(
   listener?: CustomEventDispatch<TDetail>,
   customRef?: RefObject<TElement>,
 ): [RefObject<TElement>, CustomEventDispatch<TDetail>] => {
-  const ref = customRef ?? createRef<TElement>()
+  const ref = customRef ?? useRef<TElement>()
   useEffect(() => {
     const element = ref?.current
     const currentListener = listener

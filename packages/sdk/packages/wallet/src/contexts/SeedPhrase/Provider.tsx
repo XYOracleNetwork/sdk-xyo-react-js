@@ -2,7 +2,7 @@ import { generateMnemonic, validateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { WithChildren } from '@xylabs/react-shared'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { SeedPhraseContext } from './Context.js'
 
@@ -75,24 +75,36 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   const validSeedPhrase = useMemo(() => validate?.(seedPhrase), [seedPhrase])
   const validPhrase = useMemo(() => validate?.(phrase), [phrase])
 
+  const value = useMemo(() => ({ handleCancelOverwrite,
+    handleChangeSeedPhrase,
+    handleClear,
+    handleGenerate,
+    handleSave,
+    overwriteWarning,
+    phrase,
+    provided: true,
+    seedPhrase,
+    setOverwriteWarning,
+    setPhrase,
+    validPhrase,
+    validSeedPhrase,
+    validate }), [handleCancelOverwrite,
+    handleChangeSeedPhrase,
+    handleClear,
+    handleGenerate,
+    handleSave,
+    overwriteWarning,
+    phrase,
+    seedPhrase,
+    setOverwriteWarning,
+    setPhrase,
+    validPhrase,
+    validSeedPhrase,
+    validate])
+
   return (
     <SeedPhraseContext.Provider
-      value={{
-        handleCancelOverwrite,
-        handleChangeSeedPhrase,
-        handleClear,
-        handleGenerate,
-        handleSave,
-        overwriteWarning,
-        phrase,
-        provided: true,
-        seedPhrase,
-        setOverwriteWarning,
-        setPhrase,
-        validPhrase,
-        validSeedPhrase,
-        validate,
-      }}
+      value={value}
     >
       {children}
     </SeedPhraseContext.Provider>

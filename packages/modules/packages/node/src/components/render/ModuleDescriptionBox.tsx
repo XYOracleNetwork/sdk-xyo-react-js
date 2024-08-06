@@ -3,7 +3,7 @@ import { styled, Typography } from '@mui/material'
 import { TreeView } from '@mui/x-tree-view'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module-model'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
 import { RenderModule } from './RenderModule.js'
 

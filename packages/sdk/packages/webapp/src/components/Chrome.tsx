@@ -4,7 +4,7 @@ import { WebAppNavigationType } from '@xyo-network/react-app-settings'
 import { ApplicationAppBar, SystemToolbar } from '@xyo-network/react-appbar'
 import { Footer } from '@xyo-network/react-footer'
 import { ErrorBoundary } from '@xyo-network/react-shared'
-import { forwardRef, ReactNode } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
 import { WebAppErrorPage } from './ErrorPage.js'

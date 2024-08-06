@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { EthereumGasEtherchainV2Schema } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import { sampleEtherchainV2GasPricePayload } from '@xyo-network/react-storybook'
+import React from 'react'
 
 import { EtherchainV2GasPriceDetailsBox } from './EtherchainV2GasPriceDetailsBox.js'
 

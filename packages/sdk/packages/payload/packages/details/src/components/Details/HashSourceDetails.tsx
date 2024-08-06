@@ -4,6 +4,7 @@ import { FlexBoxProps, FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexb
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { PayloadHasher } from '@xyo-network/hash'
 import { Payload } from '@xyo-network/payload-model'
+import React from 'react'
 
 export interface PayloadHashSourceDetailsProps extends FlexBoxProps {
   noTitle?: boolean

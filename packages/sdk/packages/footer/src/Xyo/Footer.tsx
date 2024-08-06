@@ -1,4 +1,5 @@
 import { Grid } from '@mui/material'
+import React from 'react'
 
 import { Footer, FooterProps } from '../Footer.js'
 import { copyrightLinkTitle } from '../lib/index.js'

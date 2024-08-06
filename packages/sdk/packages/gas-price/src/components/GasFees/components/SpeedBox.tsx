@@ -1,6 +1,7 @@
 import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { TypographyEx } from '@xyo-network/react-shared'
+import React from 'react'
 
 export interface SpeedBoxProps extends FlexBoxProps {
   speed?: string

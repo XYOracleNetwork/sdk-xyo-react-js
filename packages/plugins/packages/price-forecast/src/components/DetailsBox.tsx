@@ -18,7 +18,7 @@ import {
   Title,
   Tooltip,
 } from 'chart.js'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Line } from 'react-chartjs-2'
 
 import { ForecastLineChartConfigBuilder } from '../lib/index.js'
@@ -36,7 +36,7 @@ export const PriceForecastDetailsBox: React.FC<PriceForecastDetailsBoxProps> = (
   const [options, setOptions] = useState<ChartOptions<'line'>>({})
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       const { data, options } = await ForecastLineChartConfigBuilder.create(theme, priceForecastPayload, { fetch: true })
       if (mounted()) {

@@ -2,7 +2,7 @@ import { Chip } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { SchemaCache, SchemaNameToValidatorMap } from '@xyo-network/schema-cache'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { useResolvePayload } from '../ResolvePayloadContext/index.js'
 import { ValidatePayloadContext } from './Context.js'
@@ -18,7 +18,6 @@ export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProvi
   const [valid, setValid] = useState<boolean>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (payload && enabled) {
         await SchemaCache.instance.get(payload.schema)

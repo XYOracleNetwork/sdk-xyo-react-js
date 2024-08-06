@@ -1,5 +1,5 @@
 import { Stack, StackProps } from '@mui/material'
-import { PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 
 import {
   CreditCardCvvWithFormControl,
@@ -8,7 +8,7 @@ import {
   CreditCardNumberWithFormControl,
   CreditCardZipWithFormControl,
   NameWithFormControl,
-} from '../controls/index.js'
+} from '../controls/index.ts'
 
 export interface InputFieldsStackProps extends StackProps, PropsWithChildren {}
 

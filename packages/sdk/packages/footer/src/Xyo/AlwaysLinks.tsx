@@ -1,4 +1,5 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { FooterAlwaysLinks } from '../AlwaysLinks.js'
 import { copyrightLinkTitle } from '../lib/index.js'

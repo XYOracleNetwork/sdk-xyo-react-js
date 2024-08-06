@@ -1,6 +1,7 @@
 import { CardContent } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useListMode } from '@xyo-network/react-shared'
+import React from 'react'
 
 import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.js'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls/index.js'

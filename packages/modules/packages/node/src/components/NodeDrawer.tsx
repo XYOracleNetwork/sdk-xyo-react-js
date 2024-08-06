@@ -3,6 +3,7 @@ import { ClickAwayListener, Drawer, DrawerProps, IconButton } from '@mui/materia
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import type { WithChildren } from '@xylabs/react-shared'
 import { useNodeDrawer } from '@xyo-network/react-node-provider'
+import React from 'react'
 
 import { useWeakProvidedNode } from '../hooks/index.js'
 import { ModuleDescriptionBox } from './render/index.js'

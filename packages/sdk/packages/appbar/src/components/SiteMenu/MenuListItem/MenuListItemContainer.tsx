@@ -1,7 +1,7 @@
 import { ListItemProps, ListItemText, useTheme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { useCollapsible } from '../../../contexts/index.js'
 import { MenuListItemBase, NavListItemProps } from '../lib/index.js'

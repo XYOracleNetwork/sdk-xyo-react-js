@@ -11,7 +11,7 @@ export const useCytoscapeElements = (mod?: WeakRef<ModuleInstance> | null) => {
   const [elements, setElements] = useState<ElementDefinition[]>([])
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async () => {
       const moduleInstance = mod?.deref()
       if (moduleInstance) {

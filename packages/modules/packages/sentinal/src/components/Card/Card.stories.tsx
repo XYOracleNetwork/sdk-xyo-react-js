@@ -8,6 +8,7 @@ import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { ModuleFactory } from '@xyo-network/module-model'
 import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel-model'
 import { InfuraProvider } from 'ethers'
+import React from 'react'
 
 import { SentinelCard } from './Card.js'
 import NftSentinelManifest from './NftSentinel.json'

@@ -10,7 +10,7 @@ import { useNode } from '@xyo-network/react-node'
 import { asSentinelInstance } from '@xyo-network/sentinel-model'
 import { EvmAddress, EvmAddressSchema } from '@xyo-network/witness-evm-abstract'
 import { TimeStamp } from '@xyo-network/witness-timestamp'
-import { ReactNode, useCallback, useState } from 'react'
+import React, { ReactNode, useCallback, useState } from 'react'
 
 import { UseIndexedResultsProps } from './lib/index.js'
 

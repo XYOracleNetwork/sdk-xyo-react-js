@@ -1,7 +1,7 @@
 import { Collapse, CollapseProps } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { SystemControlsType } from '../SystemControlsType.js'
 

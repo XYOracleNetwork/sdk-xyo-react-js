@@ -2,7 +2,7 @@ import { ArrowRightRounded as ArrowRightRoundedIcon } from '@mui/icons-material'
 import { Collapse, IconButton, List, Paper, Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { ArchivistConfig } from '@xyo-network/archivist-model'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { ArchivistParent } from './ArchivistParent.js'
 

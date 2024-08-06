@@ -3,6 +3,7 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { MemoryNodeProvider, NodeDrawerProvider, useNodeDrawer } from '@xyo-network/react-node-provider'
+import React from 'react'
 
 import { NodeDrawer } from './NodeDrawer.js'
 

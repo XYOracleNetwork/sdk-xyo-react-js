@@ -1,7 +1,7 @@
 import { Grid, GridProps, styled } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { forwardRef, ReactNode } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 
 export interface AddressHistoryColumnProps extends GridProps, WithChildren {
   heading?: ReactNode

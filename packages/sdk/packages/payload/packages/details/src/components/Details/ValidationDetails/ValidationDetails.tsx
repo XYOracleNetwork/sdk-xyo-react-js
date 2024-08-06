@@ -4,8 +4,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { Property, PropertyGroup } from '@xyo-network/react-property'
 import { SchemaProperty } from '@xyo-network/react-schema'
+import React from 'react'
 
-import { PayloadValidationDetailsProps } from './ValidationDetailsProps.js'
+import { PayloadValidationDetailsProps } from './ValidationDetailsProps.ts'
 
 export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ skipBody = false, value, ...props }) => {
   const [validateErrors] = usePromise(async () => (value ? await new PayloadValidator(value).validate() : undefined), [value])

@@ -1,5 +1,6 @@
 import { TimerRounded as TimerRoundedIcon } from '@mui/icons-material'
 import { SentinelInstance } from '@xyo-network/sentinel-model'
+import React from 'react'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.js'
 

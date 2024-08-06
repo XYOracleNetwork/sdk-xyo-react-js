@@ -1,6 +1,7 @@
 import { Refresh as RefreshIcon } from '@mui/icons-material'
 import { Avatar, CardHeader, CardHeaderProps, Chip, Theme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.js'
 import { EmbedMenu } from '../menu/index.js'

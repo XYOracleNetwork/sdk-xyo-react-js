@@ -1,7 +1,7 @@
 import { Alert, TableBody, Typography } from '@mui/material'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 import { PayloadTableRow } from './TableRow.js'
 import { PayloadTableBodyProps } from './types/index.js'

@@ -3,7 +3,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
 import { ModuleRenderProps } from '@xyo-network/react-module'
 import { SentinelInstance } from '@xyo-network/sentinel-model'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { SentinelCardActions } from './CardActions.js'
 import { SentinelCardContent } from './CardContent.js'

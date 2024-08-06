@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
 import { ArchivistManifestNode, SentinelManifestNode } from '../stories/index.js'
 import { ManifestNodeProvider } from './ManifestNodeProvider.js'

@@ -1,4 +1,5 @@
 import { Grid, GridProps } from '@mui/material'
+import React from 'react'
 
 import { SimpleCard, SimpleCardProps } from '../SimpleCard/index.js'
 

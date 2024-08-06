@@ -1,7 +1,7 @@
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Geometry } from 'geojson'
 
-import { NetworkElevationQuadkeyAnswerPayload } from '../types.tsx'
+import { NetworkElevationQuadkeyAnswerPayload } from '../types.ts'
 import { LatLngBase, LocationElevation, OpenElevationApiClient } from './OpenElevation/index.ts'
 
 export interface ElevationPayloadProcessorConfig {

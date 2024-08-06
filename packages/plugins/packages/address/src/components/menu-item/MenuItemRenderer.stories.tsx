@@ -3,6 +3,7 @@ import { Address, toHex } from '@xylabs/hex'
 import { AddressPayload, AddressSchema } from '@xyo-network/module-model'
 import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
+import React from 'react'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer.js'
 

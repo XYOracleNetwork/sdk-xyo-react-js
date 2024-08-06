@@ -1,4 +1,5 @@
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { MapboxFlexBoxProps } from '../lib/index.js'
 import { MapBox } from './MapBox.js'

@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { IdWitness } from '@xyo-network/id-plugin'
+import React from 'react'
 
 import { WitnessCard } from './Card.js'
 

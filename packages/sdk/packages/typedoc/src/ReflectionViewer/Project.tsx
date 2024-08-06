@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 import type { ProjectReflection, ReflectionGroup } from 'typedoc'
 
 import { createLookup } from '../createLookup.js'

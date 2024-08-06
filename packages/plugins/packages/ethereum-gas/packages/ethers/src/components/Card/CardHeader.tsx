@@ -2,7 +2,7 @@ import { CardHeaderProps } from '@mui/material'
 import { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
 import { GasPriceWitnessCardHeader } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { useEthersTransformer } from '../hooks/index.js'
 import { RenderTitle } from '../lib/index.js'

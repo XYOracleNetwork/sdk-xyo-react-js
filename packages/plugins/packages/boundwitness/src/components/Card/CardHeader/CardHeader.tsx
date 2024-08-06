@@ -3,7 +3,7 @@ import { Identicon } from '@xylabs/react-identicon'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Payload } from '@xyo-network/payload-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
-import { forwardRef, ReactNode } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 
 import { BWActions, BWHeading } from '../../_shared/index.js'
 

@@ -2,7 +2,7 @@ import { Card, CardContent, Grid } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { CardViewType } from './CardViewType.js'
 import { DynamicTokenComparison } from './DynamicTokenComparison.js'

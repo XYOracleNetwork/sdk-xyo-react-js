@@ -15,7 +15,7 @@ import {
   useQuadKeyPayloadsToFeatures,
 } from '@xyo-network/react-map'
 import { Feature, Polygon } from 'geojson'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
 import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings.js'
 

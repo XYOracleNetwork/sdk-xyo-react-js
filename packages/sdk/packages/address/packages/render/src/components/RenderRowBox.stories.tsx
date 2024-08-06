@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Address, toHex } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { FavoriteItemEvent } from './lib/index.js'
 import { AddressRenderRowBox } from './RenderRowBox.js'

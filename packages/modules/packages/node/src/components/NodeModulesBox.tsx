@@ -1,6 +1,7 @@
 import { exists } from '@xylabs/exists'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { NodeInstance } from '@xyo-network/node-model'
+import React from 'react'
 
 import { useWeakModulesFromNode } from '../hooks/index.js'
 

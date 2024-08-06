@@ -1,7 +1,7 @@
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleBlock } from '@xyo-network/react-storybook'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
 import { BoundWitnessDetailsCard } from './DetailsCard.js'
 

@@ -3,6 +3,7 @@ import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-unisw
 import { DefaultPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { PayloadRenderPluginResolver, PayloadRenderPluginResolverProvider } from '@xyo-network/react-payload-plugin-resolver'
 import { sampleCoinGeckoPayload, sampleIdPayload, sampleSystemInfoBrowserPayload, sampleUniswapPayload } from '@xyo-network/react-storybook'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadDynamicTable } from './Table.js'

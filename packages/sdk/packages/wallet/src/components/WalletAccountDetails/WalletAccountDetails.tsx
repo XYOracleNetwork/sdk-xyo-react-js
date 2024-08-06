@@ -4,6 +4,7 @@ import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { NumberStatus } from '@xylabs/react-number-status'
 import { useNetwork } from '@xyo-network/react-network'
 import { WalletInstance } from '@xyo-network/wallet-model'
+import React from 'react'
 
 import { useAccount } from '../../hooks/index.js'
 

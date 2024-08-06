@@ -1,6 +1,6 @@
 import { Container, ContainerProps, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { FooterAlwaysLinks, FooterAlwaysLinksProps } from './AlwaysLinks.js'
 

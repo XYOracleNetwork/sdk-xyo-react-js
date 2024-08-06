@@ -50,6 +50,7 @@ export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, on
     }
   }, [cy, moduleAddress, foundModule, onFoundModule])
 
+  // eslint-disable-next-line complexity
   const onModuleDetails = (address?: string | null) => {
     const moduleNode = cy?.deref()?.nodes(`[id="${address}"]`)
     const rootModuleNode = cy?.deref()?.nodes(`[id="${rootModule?.deref()?.address}"]`)

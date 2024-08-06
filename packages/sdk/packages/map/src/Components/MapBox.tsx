@@ -2,7 +2,7 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 import { Map, MapOptions } from 'mapbox-gl'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts/index.js'
 import { useDynamicMapResize } from '../hooks/index.js'

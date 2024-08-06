@@ -8,7 +8,7 @@ import { useWitnessesFromNode } from '@xyo-network/react-witness'
 import { MemorySentinel } from '@xyo-network/sentinel-memory'
 import { SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel-model'
 import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { SentinelContext } from './Context.js'
 import { SentinelReportProgress, SentinelReportStatus } from './State.js'
@@ -34,7 +34,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   const [witnesses] = useWitnessesFromNode(filter)
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       const sentinel = await MemorySentinel.create({
         account,
@@ -110,7 +110,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
         }
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     [account, archivist, witnesses],
   )
 

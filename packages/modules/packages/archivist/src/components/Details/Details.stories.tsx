@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistModule } from '@xyo-network/archivist-model'
 import { NodeProvider } from '@xyo-network/react-node'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { useWeakArchivistFromNode } from '../../hooks/index.js'
 import { ArchivistDetails } from './Details.js'
@@ -29,7 +29,6 @@ const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (archivist?.deref()) {
         await archivist.deref()?.insert([{ schema: 'network.xyo.test' }])

@@ -4,7 +4,7 @@ import { EthAccountBox } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { Module } from '@xyo-network/module-model'
 import { findNetworkComponent } from '@xyo-network/react-shared'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { ModuleRenderProps } from '../ModuleRenderProps.js'
 

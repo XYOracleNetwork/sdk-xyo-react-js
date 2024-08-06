@@ -1,7 +1,7 @@
 import { CardActions, CardActionsProps, Chip } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexRow } from '@xylabs/react-flexbox'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { ModuleRenderProps } from '../../../ModuleRenderProps.js'
 import { DiscoverDialog } from './components/index.js'

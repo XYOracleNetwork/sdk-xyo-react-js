@@ -1,6 +1,6 @@
 import { Paper, Tab, TabProps, Tabs, TabsProps, useTheme } from '@mui/material'
 import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
-import { Dispatch, SetStateAction, SyntheticEvent } from 'react'
+import React, { Dispatch, SetStateAction, SyntheticEvent } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
 // eslint-disable-next-line import/no-internal-modules

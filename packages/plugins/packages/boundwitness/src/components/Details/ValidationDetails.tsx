@@ -4,6 +4,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import React from 'react'
 
 export type BoundWitnessValidationDetailsProps = PropertyGroupProps & {
   value?: BoundWitness

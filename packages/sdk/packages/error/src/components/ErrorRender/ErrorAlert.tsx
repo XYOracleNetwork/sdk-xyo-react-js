@@ -2,6 +2,7 @@ import { ExitToApp as ExitIcon } from '@mui/icons-material'
 import { Alert, AlertProps, AlertTitle, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { ModuleError } from '@xyo-network/payload-model'
+import React from 'react'
 
 export interface ErrorAlertProps extends AlertProps {
   error?: ModuleError | Error | string
@@ -11,7 +12,6 @@ export interface ErrorAlertProps extends AlertProps {
   scope?: string
 }
 
-// eslint-disable-next-line deprecation/deprecation
 export const ErrorAlert: React.FC<ErrorAlertProps> = ({
   title = 'Whoops! Something went wrong',
   onCancel,

@@ -1,6 +1,6 @@
 import { IconButton, IconButtonProps } from '@mui/material'
 import { toJson } from '@xylabs/object'
-import { forwardRef, MouseEventHandler, ReactNode, useMemo, useState } from 'react'
+import React, { forwardRef, MouseEventHandler, ReactNode, useMemo, useState } from 'react'
 
 import { ExpansionProps } from '../../lib/index.js'
 import { XyoColorLogo } from '../img/index.js'

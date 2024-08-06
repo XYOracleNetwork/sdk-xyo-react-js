@@ -2,7 +2,7 @@ import { darken, useTheme } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { AnimatedHeatMapColorProps } from '../Colors/index.js'
 import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.js'

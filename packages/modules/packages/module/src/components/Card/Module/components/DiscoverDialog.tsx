@@ -1,7 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogProps, DialogTitle, Divider, Paper } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import { ModuleInstance } from '@xyo-network/module-model'
-import { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
 export interface DiscoverDialogProps extends DialogProps {
   mod?: ModuleInstance

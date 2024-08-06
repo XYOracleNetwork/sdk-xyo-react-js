@@ -1,4 +1,5 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
+import React from 'react'
 
 import { ActiveProvider } from '../../lib/index.js'
 import { CheckboxFormControl } from './CheckboxFormControl.js'

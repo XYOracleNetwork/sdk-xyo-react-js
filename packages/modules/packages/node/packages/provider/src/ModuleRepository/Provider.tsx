@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { ModuleRepositoryContext, ResolverEntries } from '@xyo-network/react-node-context'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export interface ModuleRepositoryProviderProps extends WithChildren {
   defaultResolvers?: ResolverEntries

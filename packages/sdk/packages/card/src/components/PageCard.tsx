@@ -1,7 +1,7 @@
 import { Refresh as RefreshIcon } from '@mui/icons-material'
 import { CardHeader, CardHeaderProps, IconButton } from '@mui/material'
 import { TypographyEx } from '@xyo-network/react-shared'
-import { forwardRef, ReactNode } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 
 import { CardEx, CardExProps } from './CardEx.js'
 

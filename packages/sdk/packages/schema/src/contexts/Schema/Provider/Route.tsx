@@ -1,5 +1,5 @@
 import type { WithChildren } from '@xylabs/react-shared'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { SchemaContext } from '../Context.js'
@@ -50,7 +50,9 @@ const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
     }
   }, [routeSchema, schema, setSchemaParam, setSchema, setSchemaLocal])
 
-  return <SchemaContext.Provider value={{ provided: true, schema, schemaList, setSchema: setSchemaLocal }}>{children}</SchemaContext.Provider>
+  const value = useMemo(() => ({ provided: true, schema, schemaList, setSchema: setSchemaLocal }), [schema, schemaList, setSchemaLocal])
+
+  return <SchemaContext.Provider value={value}>{children}</SchemaContext.Provider>
 }
 
 export const SchemaRouteProvider: React.FC<WithChildren<SchemaProviderProps>> = ({ knownSchemaList, defaultSchema, ...props }) => {

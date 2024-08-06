@@ -1,10 +1,8 @@
-/* eslint-disable deprecation/deprecation */
-
 import { Meta, StoryFn } from '@storybook/react'
 import { Hash } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
-import { createRef } from 'react'
+import React, { createRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { BlockLinksDetails } from './BlockLinksDetails.js'
@@ -22,6 +20,7 @@ const StorybookEntry = {
 } as Meta<typeof BlockDetails>
 
 const Template: StoryFn<typeof BlockDetails> = (args) => {
+  // eslint-disable-next-line @eslint-react/no-create-ref
   const sharedRef = createRef<HTMLDivElement>()
   useEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`), sharedRef)
   useEvent<HTMLDivElement>(() => console.log('2nd Listener'), sharedRef)

@@ -1,4 +1,5 @@
 import { NotFound } from '@xyo-network/react-shared'
+import React from 'react'
 
 import { WebAppPage, WebAppPageProps } from '../Page.js'
 

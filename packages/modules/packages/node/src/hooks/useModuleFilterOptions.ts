@@ -1,6 +1,4 @@
-/* eslint-disable deprecation/deprecation */
-
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.tsx'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
 
 export const useModuleFilterOptions = (config?: ModuleFromNodeConfig) => {
   const { direction, identity, maxDepth } = config ?? {}

@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import Rollbar from 'rollbar'
 
 import { ErrorReporterProvider } from './Provider.js'

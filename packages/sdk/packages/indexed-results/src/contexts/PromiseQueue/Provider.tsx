@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from 'react'
+import React, { PropsWithChildren, useState } from 'react'
 
 import { PromiseQueue } from '../../classes/index.js'
 import { PromiseQueueContext } from './Context.js'

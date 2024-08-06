@@ -1,6 +1,6 @@
 import { Typography, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { useDetectedWallets } from '../hooks/index.js'
 import { ConnectedWalletsTable } from './wallet/index.js'

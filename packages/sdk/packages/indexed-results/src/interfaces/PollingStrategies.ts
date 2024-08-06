@@ -1,4 +1,4 @@
-import { PollingConfig } from './PollingConfig.tsx'
+import { PollingConfig } from './PollingConfig.ts'
 
 export type PollingStrategyNames = 'Continuous' | 'None' | 'TillComplete'
 

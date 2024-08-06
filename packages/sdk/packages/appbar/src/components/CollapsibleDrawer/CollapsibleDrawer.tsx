@@ -1,5 +1,6 @@
 import { Collapse, CollapseProps, styled, useTheme } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
+import React from 'react'
 
 import { useCollapsible } from '../../contexts/index.js'
 

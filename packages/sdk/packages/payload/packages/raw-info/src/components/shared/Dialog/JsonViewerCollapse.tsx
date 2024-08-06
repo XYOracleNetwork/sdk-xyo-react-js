@@ -5,6 +5,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { isAnyPayload } from '@xyo-network/payload-model'
 import { useDataState } from '@xyo-network/react-shared'
+import React from 'react'
 
 import { ExpansionProps } from '../../../lib/index.js'
 import { StyledChipLabel } from '../../styled/index.js'

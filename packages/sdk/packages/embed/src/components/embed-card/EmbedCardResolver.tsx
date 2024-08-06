@@ -2,6 +2,7 @@ import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { LoadResult } from '@xyo-network/react-shared'
+import React from 'react'
 
 import { useRefreshPayload, useResolvePayload } from '../../contexts/index.js'
 import { EmbedCardApiErrorRenderer } from './error-handling/index.js'

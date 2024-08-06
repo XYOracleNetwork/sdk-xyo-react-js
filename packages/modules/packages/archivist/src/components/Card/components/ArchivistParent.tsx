@@ -1,4 +1,5 @@
 import { ListItem, Typography } from '@mui/material'
+import React from 'react'
 
 export interface ArchivistTypeProps {
   archivistType?: 'Commit' | 'Read' | 'Write'

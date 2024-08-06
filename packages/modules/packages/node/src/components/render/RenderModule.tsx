@@ -2,7 +2,7 @@ import { styled } from '@mui/material'
 import { TreeItem } from '@mui/x-tree-view'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ModuleInstance } from '@xyo-network/module-model'
-import { MutableRefObject, useState } from 'react'
+import React, { MutableRefObject, useState } from 'react'
 
 interface RenderModuleProps {
   idRef: MutableRefObject<{
@@ -16,7 +16,7 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ mod, idRef }) => {
   const [childModules, setChildModules] = useState<WeakRef<ModuleInstance>[]>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       const moduleInstance = mod.deref()
       const { address } = moduleInstance ?? {}

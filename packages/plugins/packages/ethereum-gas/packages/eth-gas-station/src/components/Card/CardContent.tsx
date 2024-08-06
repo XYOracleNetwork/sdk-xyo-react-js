@@ -4,7 +4,7 @@ import { EthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethe
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { useEthgasstationTransformer } from '../hooks/index.js'
 
