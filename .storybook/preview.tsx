@@ -2,7 +2,6 @@ import { CssBaseline } from '@mui/material';
 import { Decorator } from '@storybook/react';
 import { FlexCol } from '@xylabs/react-flexbox';
 import { InvertibleCssVarsProvider, InvertibleThemeProvider } from '@xylabs/react-invertible-theme';
-import { AppSettingsProvider } from '@xyo-network/react-app-settings';
 import { appThemeOptions, osThemeOptions, themeOptions, webThemeOptions } from '@xyo-network/react-theme';
 import React from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
@@ -58,7 +57,6 @@ const withThemeProvider: Decorator = (Story, context) => {
   const themeOptions = getTheme(context.globals.theme)
 
   return (
-    <AppSettingsProvider value={{darkMode}}>
     <InvertibleThemeProvider dark={darkMode} options={themeOptions}>
       <InvertibleCssVarsProvider defaultMode={darkMode ? 'dark' : 'light'}>
         <CssBaseline enableColorScheme />
@@ -67,7 +65,6 @@ const withThemeProvider: Decorator = (Story, context) => {
         </FlexCol>
       </InvertibleCssVarsProvider>
     </InvertibleThemeProvider>
-    </AppSettingsProvider>
   );
 };
 

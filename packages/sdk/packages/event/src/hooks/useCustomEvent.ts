@@ -1,5 +1,5 @@
 import { assertEx } from '@xylabs/assert'
-import { RefObject, useEffect, useRef } from 'react'
+import { createRef, RefObject, useEffect } from 'react'
 
 export type CustomEventDispatch<T = unknown> = (detail: T) => boolean | void
 
@@ -8,7 +8,8 @@ export const useCustomEvent = <TElement extends HTMLElement, TDetail = unknown>(
   listener?: CustomEventDispatch<TDetail>,
   customRef?: RefObject<TElement>,
 ): [RefObject<TElement>, CustomEventDispatch<TDetail>] => {
-  const ref = customRef ?? useRef<TElement>()
+  // eslint-disable-next-line @eslint-react/no-create-ref
+  const ref = customRef ?? createRef<TElement>()
   useEffect(() => {
     const element = ref?.current
     const currentListener = listener

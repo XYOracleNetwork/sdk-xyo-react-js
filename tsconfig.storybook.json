@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "importHelpers": true,
+    "incremental": false,
+    "lib": ["ESNext"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "outDir": "dist",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ESNext",
+    "jsx": "react-jsx"
+  },
+  "exclude": ["node_modules", "dist", "./node_modules", "./**/node_modules", "./dist", "./**/dist", "./**/docs", ".*", "storybook-static"],
+  "extends": "@xylabs/tsconfig-react"
+}
