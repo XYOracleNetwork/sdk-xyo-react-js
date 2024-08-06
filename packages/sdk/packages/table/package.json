@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "@storybook/react": "^8.2.7",
-    "@xylabs/ts-scripts-yarn3": "^3.15.16",
-    "@xylabs/tsconfig-react": "^3.15.16",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.7",
+    "@xylabs/tsconfig-react": "^4.0.0-rc.7",
     "@xyo-network/react-storybook": "workspace:^",
     "typescript": "^5.5.4"
   },
@@ -31,31 +31,15 @@
   "docs": "dist/docs.json",
   "exports": {
     ".": {
-      "node": {
-        "import": {
-          "types": "./dist/node/index.d.mts",
-          "default": "./dist/node/index.mjs"
-        },
-        "require": {
-          "types": "./dist/node/index.d.cts",
-          "default": "./dist/node/index.cjs"
-        }
+      "import": {
+        "types": "./dist/browser/index.d.ts",
+        "default": "./dist/browser/index.mjs"
       },
-      "browser": {
-        "import": {
-          "types": "./dist/browser/index.d.mts",
-          "default": "./dist/browser/index.mjs"
-        },
-        "require": {
-          "types": "./dist/browser/index.d.cts",
-          "default": "./dist/browser/index.cjs"
-        }
-      },
+      "types": "./dist/browser/index.d.ts",
       "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/browser/index.cjs",
   "module": "dist/browser/index.mjs",
   "homepage": "https://xyo.network",
   "keywords": [
