@@ -3,7 +3,7 @@ import { generateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { WithChildren } from '@xylabs/react-shared'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export interface DefaultSeedPhraseProps extends WithChildren {
   changeSeedPhrase?: (seedPhrase: string) => void
@@ -24,19 +24,21 @@ export const DefaultSeedPhrase: React.FC<DefaultSeedPhraseProps> = ({ changeSeed
 
   return (
     <>
-      {hideDefaultSeedPhraseMessage ? null : (
-        <Snackbar
-          open={showSnackBar}
-          autoHideDuration={5000}
-          onClose={() => setShowSnackBar(false)}
-          anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
-        >
-          <Alert severity={'success'}>
-            <AlertTitle>Default Seed Phrase Generated</AlertTitle>
-            Go to application settings to save it.
-          </Alert>
-        </Snackbar>
-      )}
+      {hideDefaultSeedPhraseMessage
+        ? null
+        : (
+            <Snackbar
+              open={showSnackBar}
+              autoHideDuration={5000}
+              onClose={() => setShowSnackBar(false)}
+              anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
+            >
+              <Alert severity="success">
+                <AlertTitle>Default Seed Phrase Generated</AlertTitle>
+                Go to application settings to save it.
+              </Alert>
+            </Snackbar>
+          )}
       {children}
     </>
   )

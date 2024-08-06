@@ -1,9 +1,9 @@
 import { TypographyVariant } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { EllipsizeBox } from '@xyo-network/react-shared'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
-import { BWHeadingProps, HeadingTextSizes } from './HeadingProps.js'
+import { BWHeadingProps, HeadingTextSizes } from './HeadingProps.tsx'
 
 export const BWHeading: React.FC<BWHeadingProps> = ({
   AdornmentEnd,

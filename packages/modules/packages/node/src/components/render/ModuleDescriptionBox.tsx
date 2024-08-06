@@ -3,9 +3,9 @@ import { styled, Typography } from '@mui/material'
 import { TreeView } from '@mui/x-tree-view'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module-model'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
-import { RenderModule } from './RenderModule.js'
+import { RenderModule } from './RenderModule.tsx'
 
 export interface ModuleDescriptionProps extends FlexBoxProps {
   mod?: WeakRef<ModuleInstance> | null
@@ -15,21 +15,23 @@ export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ mod }) 
 
   return (
     <>
-      {mod ?
-        <>
-          <Typography variant="h4">Node Configuration</Typography>
-          <StyledTreeView
-            aria-label="file system navigator"
-            defaultCollapseIcon={<ExpandMoreIcon />}
-            defaultExpandIcon={<ChevronRightIcon />}
-            sx={{ flexGrow: 1 }}
-          >
-            <RenderModule mod={mod} idRef={idRef} />
-          </StyledTreeView>
-        </>
-      : mod === null ?
-        <Typography variant="h4">Node loading...</Typography>
-      : <Typography variant="h4">Node not found</Typography>}
+      {mod
+        ? (
+            <>
+              <Typography variant="h4">Node Configuration</Typography>
+              <StyledTreeView
+                aria-label="file system navigator"
+                defaultCollapseIcon={<ExpandMoreIcon />}
+                defaultExpandIcon={<ChevronRightIcon />}
+                sx={{ flexGrow: 1 }}
+              >
+                <RenderModule mod={mod} idRef={idRef} />
+              </StyledTreeView>
+            </>
+          )
+        : mod === null
+          ? <Typography variant="h4">Node loading...</Typography>
+          : <Typography variant="h4">Node not found</Typography>}
     </>
   )
 }

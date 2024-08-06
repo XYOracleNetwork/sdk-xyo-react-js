@@ -3,6 +3,7 @@ import { asDivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model
 import { ModuleInstance } from '@xyo-network/module-model'
 import { ArchivistCard } from '@xyo-network/react-archivist'
 import { DivinerCard, ModuleCard } from '@xyo-network/react-module'
+import React from 'react'
 
 export interface ModuleCardParserProps {
   mod?: ModuleInstance

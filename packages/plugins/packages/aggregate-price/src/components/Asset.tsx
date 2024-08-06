@@ -4,7 +4,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 
 export interface CryptoAssetProps extends CardProps {
   asset: string
@@ -34,11 +34,11 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
       <TokenSummary
         icon={tokenInfo.icon}
         symbol={asset}
-        symbolElement={
+        symbolElement={(
           <Link href={tokenInfo.coinmarketcapLink} underline="hover" target="_blank">
             {asset}
           </Link>
-        }
+        )}
         action={<QuickTipButton hoverText="The price of cryptos based on multiple inputs." disableDialog />}
       />
       <CardContent style={{ height: '100%' }}>

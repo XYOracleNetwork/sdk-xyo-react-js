@@ -1,8 +1,9 @@
 import { MenuItem } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/react-select'
+import React from 'react'
 
-import { useEmbedPluginState } from '../../contexts/index.js'
-import { EmbedFormControl } from './EmbedFormControl.js'
+import { useEmbedPluginState } from '../../contexts/index.ts'
+import { EmbedFormControl } from './EmbedFormControl.tsx'
 
 const renderSelectId = 'render-select-id'
 const renderSelectLabel = 'Renderer'
@@ -12,7 +13,7 @@ export const EmbedRenderSelect: React.FC<SelectExProps<string>> = (props) => {
   return (
     <EmbedFormControl formId={renderSelectId} formLabel={renderSelectLabel}>
       <SelectEx size="small" value={activePlugin?.name} {...props}>
-        {plugins?.map((plugin) => (
+        {plugins?.map(plugin => (
           <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin?.(plugin)}>
             {plugin.name}
           </MenuItem>

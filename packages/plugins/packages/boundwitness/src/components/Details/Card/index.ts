@@ -1,1 +1,1 @@
-export * from './DetailsCard.js'
+export * from './DetailsCard.tsx'

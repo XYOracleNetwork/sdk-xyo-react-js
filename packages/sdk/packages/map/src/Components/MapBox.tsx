@@ -2,11 +2,11 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 import { Map, MapOptions } from 'mapbox-gl'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-import { useMapBoxInstance, useMapSettings } from '../Contexts/index.js'
-import { useDynamicMapResize } from '../hooks/index.js'
-import { MapStyle } from '../lib/index.js'
+import { useMapBoxInstance, useMapSettings } from '../Contexts/index.ts'
+import { useDynamicMapResize } from '../hooks/index.ts'
+import { MapStyle } from '../lib/index.ts'
 
 export interface MapBoxProps {
   accessToken: string
@@ -60,7 +60,7 @@ export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, o
 
   return (
     <div
-      ref={(el) => (mapContainerRef.current = el)}
+      ref={el => (mapContainerRef.current = el)}
       style={{
         bottom: 0,
         left: 0,

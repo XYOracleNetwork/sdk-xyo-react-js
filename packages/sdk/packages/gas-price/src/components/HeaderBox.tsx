@@ -1,8 +1,9 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { GasPriceWitnessUIBasePayload } from '../types/index.js'
-import { GasPriceHeaderActionsBox, GasPriceHeaderTypography } from './HeaderComponents/index.js'
-import { StyledGasPriceHeaderBox } from './layout/index.js'
+import { GasPriceWitnessUIBasePayload } from '../types/index.ts'
+import { GasPriceHeaderActionsBox, GasPriceHeaderTypography } from './HeaderComponents/index.ts'
+import { StyledGasPriceHeaderBox } from './layout/index.ts'
 
 export interface GasPriceWitnessHeaderBoxProps extends FlexBoxProps {
   heading?: string

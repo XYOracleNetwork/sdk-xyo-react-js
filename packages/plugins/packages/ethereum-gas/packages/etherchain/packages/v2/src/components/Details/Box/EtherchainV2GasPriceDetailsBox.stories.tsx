@@ -1,8 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { EthereumGasEtherchainV2Schema } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import { sampleEtherchainV2GasPricePayload } from '@xyo-network/react-storybook'
+import React from 'react'
 
-import { EtherchainV2GasPriceDetailsBox } from './EtherchainV2GasPriceDetailsBox.js'
+import { EtherchainV2GasPriceDetailsBox } from './EtherchainV2GasPriceDetailsBox.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -15,7 +16,7 @@ const StorybookEntry = {
   title: 'plugin/blockchain/EtherchainV2GasPrice/DetailsBox',
 } as Meta<typeof EtherchainV2GasPriceDetailsBox>
 
-const Template: StoryFn<typeof EtherchainV2GasPriceDetailsBox> = (args) => <EtherchainV2GasPriceDetailsBox {...args} />
+const Template: StoryFn<typeof EtherchainV2GasPriceDetailsBox> = args => <EtherchainV2GasPriceDetailsBox {...args} />
 
 const Default = Template.bind({})
 Default.args = {}
@@ -28,5 +29,4 @@ WithMissingData.args = { payload: { schema: EthereumGasEtherchainV2Schema } }
 
 export { Default, WithData, WithMissingData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

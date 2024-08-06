@@ -2,8 +2,9 @@ import { SyncAlt } from '@mui/icons-material'
 import { Typography } from '@mui/material'
 import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { xyoColorLogo } from '../../../../img/index.js'
+import { xyoColorLogo } from '../../../../img/index.ts'
 
 export interface LinkedProvidersFlexboxProps extends FlexBoxProps {
   icon?: string
@@ -17,9 +18,9 @@ export const LinkedProvidersFlexbox: React.FC<LinkedProvidersFlexboxProps> = ({ 
         <img alt="XYO Logo" src={xyoColorLogo} style={{ height: '48px' }} />
         <Typography variant="subtitle1">XYO App</Typography>
       </FlexCol>
-      <SyncAlt fontSize={'large'} />
+      <SyncAlt fontSize="large" />
       <FlexCol gap={0.5}>
-        <ConstrainedImage constrainedValue={'48px'} src={icon} alt={providerName} style={{ height: '48px', maxWidth: '48px' }} />
+        <ConstrainedImage constrainedValue="48px" src={icon} alt={providerName} style={{ height: '48px', maxWidth: '48px' }} />
         <Typography variant="subtitle1">{providerName}</Typography>
       </FlexCol>
     </FlexRow>

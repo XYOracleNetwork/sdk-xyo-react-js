@@ -3,11 +3,11 @@ import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
 import { ModuleRenderProps } from '@xyo-network/react-module'
 import { SentinelInstance } from '@xyo-network/sentinel-model'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { SentinelCardActions } from './CardActions.js'
-import { SentinelCardContent } from './CardContent.js'
-import { SentinelCardHeader } from './CardHeader.js'
+import { SentinelCardActions } from './CardActions.tsx'
+import { SentinelCardContent } from './CardContent.tsx'
+import { SentinelCardHeader } from './CardHeader.tsx'
 
 export type SentinelCardProps = CardProps &
   ModuleRenderProps<SentinelInstance> & {

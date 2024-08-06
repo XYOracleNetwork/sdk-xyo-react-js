@@ -77,7 +77,7 @@ export class EnabledEthWalletConnections {
   subscribe(listener: WalletListener) {
     this.listeners = [...this.listeners, listener]
     return () => {
-      this.listeners = this.listeners.filter((existingListener) => existingListener !== listener)
+      this.listeners = this.listeners.filter(existingListener => existingListener !== listener)
     }
   }
 

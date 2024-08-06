@@ -5,10 +5,11 @@ import { NodeConfigSchema } from '@xyo-network/node-model'
 import { MemoryNodeProvider } from '@xyo-network/react-node-provider'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
+import React from 'react'
 
-import { useWeakProvidedNode } from '../hooks/index.js'
-import { NodeBox } from './Node.js'
-import { TestModule, TestModuleConfigSchema } from './TestModule.js'
+import { useWeakProvidedNode } from '../hooks/index.ts'
+import { NodeBox } from './Node.tsx'
+import { TestModule, TestModuleConfigSchema } from './TestModule.ts'
 
 const TestModuleName = 'TestModule'
 
@@ -24,7 +25,6 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/node/NodeBox',
 } as Meta
@@ -35,7 +35,7 @@ const Template: StoryFn<React.FC> = () => {
   const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async () => {
       const nodeInstance = node?.deref()
       if (nodeInstance && account) {

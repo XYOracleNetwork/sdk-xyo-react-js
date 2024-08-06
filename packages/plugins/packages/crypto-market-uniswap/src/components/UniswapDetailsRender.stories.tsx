@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { payloadData, payloadDataMissingPairs } from './storyPayloadData.js'
-import { UniswapDetailsRender } from './UniswapDetailsRender.js'
+import { payloadData, payloadDataMissingPairs } from './storyPayloadData.ts'
+import { UniswapDetailsRender } from './UniswapDetailsRender.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -14,7 +15,7 @@ const StorybookEntry = {
   title: 'plugin/uniswap/UniswapDetailsRender',
 } as Meta<typeof UniswapDetailsRender>
 
-const Template: StoryFn<typeof UniswapDetailsRender> = (args) => <UniswapDetailsRender {...args}></UniswapDetailsRender>
+const Template: StoryFn<typeof UniswapDetailsRender> = args => <UniswapDetailsRender {...args}></UniswapDetailsRender>
 
 const Default = Template.bind({})
 Default.args = {}
@@ -30,5 +31,4 @@ WithNoPairs.args = { listMode: 'table', payload: payloadDataMissingPairs }
 
 export { Default, WithData, WithNoPairs, WithTableData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

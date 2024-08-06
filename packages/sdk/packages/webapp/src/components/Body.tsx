@@ -2,7 +2,7 @@ import { Breakpoint, styled } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { ReactNode } from 'react'
 
-import { fixedContent, scrollableContent } from './lib/index.js'
+import { fixedContent, scrollableContent } from './lib/index.ts'
 
 const WebAppBodyName = 'WebAppBody'
 const propsNotForwarded = new Set(['mobileScrollingBreakpoint', 'variant', 'spacing', 'disableBreadcrumbGutter'])
@@ -83,11 +83,13 @@ export const WebAppBody: React.FC<WebAppBodyProps> = ({
 }) => {
   return (
     <WebAppBodyRoot mobileScrollingBreakpoint={mobileScrollingBreakpoint} spacing={spacing} variant={variant} {...props}>
-      {breadcrumbs ?
-        <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter} spacing={spacing}>
-          {breadcrumbs}
-        </WebAppBodyBreadcrumb>
-      : null}
+      {breadcrumbs
+        ? (
+            <WebAppBodyBreadcrumb disableBreadcrumbGutter={disableBreadcrumbGutter} spacing={spacing}>
+              {breadcrumbs}
+            </WebAppBodyBreadcrumb>
+          )
+        : null}
       <WebAppBodyScrollableWrapper>
         <WebAppBodyScrollable mobileScrollingBreakpoint={mobileScrollingBreakpoint} variant={variant}>
           {children}

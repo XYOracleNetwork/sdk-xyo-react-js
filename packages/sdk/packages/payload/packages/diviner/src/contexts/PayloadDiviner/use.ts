@@ -5,7 +5,7 @@ import { Payload, WithMeta } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'
 import { Dispatch, useEffect, useState } from 'react'
 
-import { PayloadDivinerContext } from './Context.js'
+import { PayloadDivinerContext } from './Context.ts'
 
 export const usePayloadDiviner = (required = false) => {
   return useContextEx(PayloadDivinerContext, 'PayloadDiviner', required)
@@ -25,7 +25,6 @@ export const useDivinePayload = <T extends Payload = Payload>(
   }, [diviner])
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (huri && diviner && payload === undefined) {
         try {
@@ -61,7 +60,6 @@ export const useDivinePayloads = <T extends Payload = Payload>(
   }, [diviner])
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       console.log(`huriList: ${JSON.stringify(huriList, null, 2)}`)
       const payloads = await Promise.allSettled(
@@ -72,17 +70,17 @@ export const useDivinePayloads = <T extends Payload = Payload>(
         }),
       )
       if (mounted()) {
-        setPayloads([...payloads.values()].map((value) => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
+        setPayloads([...payloads.values()].map(value => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
         setErrors(
           compact(
-            [...payloads.values()].map((value) => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined)),
+            [...payloads.values()].map(value => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined)),
           ),
         )
         if (mounted()) {
-          setPayloads([...payloads.values()].map((value) => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
+          setPayloads([...payloads.values()].map(value => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
           setErrors(
             compact(
-              [...payloads.values()].map((value) => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined)),
+              [...payloads.values()].map(value => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined)),
             ),
           )
         }

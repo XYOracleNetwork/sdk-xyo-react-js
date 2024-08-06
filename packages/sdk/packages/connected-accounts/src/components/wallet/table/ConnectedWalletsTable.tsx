@@ -1,11 +1,11 @@
 import { Table, TableBody, TableCell, TableHead, TableProps, TableRow } from '@mui/material'
 import { EIP6963Connector } from '@xylabs/react-crypto'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs/index.js'
-import { ActiveProvider, WalletsTableHeadCells } from '../lib/index.js'
-import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow.js'
-import { useActiveProviderDialogState } from './hooks/index.js'
+import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs/index.ts'
+import { ActiveProvider, WalletsTableHeadCells } from '../lib/index.ts'
+import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow.tsx'
+import { useActiveProviderDialogState } from './hooks/index.ts'
 
 export interface ConnectedWalletsTableProps extends TableProps {
   ignoreConnectDialog?: boolean
@@ -31,7 +31,7 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ ig
           </TableRow>
         </TableHead>
         <TableBody>
-          {(wallets ?? []).map((wallet) => (
+          {(wallets ?? []).map(wallet => (
             <WalletConnectionsTableRow
               ignoreConnectDialog={ignoreConnectDialog}
               key={wallet.providerInfo?.rdns}

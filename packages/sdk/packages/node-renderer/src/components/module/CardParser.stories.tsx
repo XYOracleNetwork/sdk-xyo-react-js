@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
+import React from 'react'
 
-import { ModuleCardParser } from './CardParser.js'
+import { ModuleCardParser } from './CardParser.tsx'
 
 const meta: Meta<typeof ModuleCardParser> = {
   component: ModuleCardParser,
@@ -10,7 +11,6 @@ const meta: Meta<typeof ModuleCardParser> = {
   title: 'node/renderer/ModuleCardParser',
 }
 
-// eslint-disable-next-line import/no-default-export
 export default meta
 type Story = StoryObj<typeof ModuleCardParser>
 

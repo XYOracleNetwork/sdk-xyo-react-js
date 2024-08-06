@@ -2,9 +2,10 @@ import { Replay as ReplayIcon } from '@mui/icons-material'
 import { TextField } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { Property } from './Property.js'
-import { PropertyPaperProps, PropertyProps } from './Props.js'
+import { Property } from './Property.tsx'
+import { PropertyPaperProps, PropertyProps } from './Props.ts'
 
 const StorybookEntry = {
   argTypes: {},
@@ -191,5 +192,4 @@ export {
   WithUndefinedData,
 }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

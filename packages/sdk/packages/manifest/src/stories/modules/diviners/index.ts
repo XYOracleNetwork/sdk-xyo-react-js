@@ -1,1 +1,1 @@
-export * from './AddDayDiviner.js'
+export * from './AddDayDiviner.ts'

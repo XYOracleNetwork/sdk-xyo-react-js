@@ -2,10 +2,10 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistModule } from '@xyo-network/archivist-model'
 import { NodeProvider } from '@xyo-network/react-node'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { useWeakArchivistFromNode } from '../../hooks/index.js'
-import { ArchivistDetails } from './Details.js'
+import { useWeakArchivistFromNode } from '../../hooks/index.ts'
+import { ArchivistDetails } from './Details.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -29,7 +29,6 @@ const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (archivist?.deref()) {
         await archivist.deref()?.insert([{ schema: 'network.xyo.test' }])
@@ -44,13 +43,13 @@ const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   return <ArchivistDetails address={archivistWithData?.address} {...args}></ArchivistDetails>
 }
 
-const TemplateWithNoData: StoryFn<typeof ArchivistDetails> = (args) => (
+const TemplateWithNoData: StoryFn<typeof ArchivistDetails> = args => (
   <NodeProvider>
     <TemplateInner {...args}></TemplateInner>
   </NodeProvider>
 )
 
-const TemplateWithData: StoryFn<typeof ArchivistDetails> = (args) => (
+const TemplateWithData: StoryFn<typeof ArchivistDetails> = args => (
   <NodeProvider>
     <TemplateInnerWithData {...args}></TemplateInnerWithData>
   </NodeProvider>
@@ -67,5 +66,4 @@ TemplateWithData.args = {}
 
 export { WithData, WithNoArchivist, WithNoData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

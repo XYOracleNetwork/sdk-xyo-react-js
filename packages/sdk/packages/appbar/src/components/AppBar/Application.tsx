@@ -1,8 +1,8 @@
 import { ToolbarProps } from '@mui/material'
 import { AppBarEx, AppBarExProps } from '@xylabs/react-appbar'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 
-import { ContextToolbar, SystemToolbar } from '../Toolbar/index.js'
+import { ContextToolbar, SystemToolbar } from '../Toolbar/index.ts'
 
 export interface ApplicationAppBarProps extends AppBarExProps {
   contextToolbar?: ReactElement<ToolbarProps>

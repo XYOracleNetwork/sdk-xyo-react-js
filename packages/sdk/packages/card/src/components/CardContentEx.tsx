@@ -1,6 +1,6 @@
 import { CardContent, CardContentProps, styled } from '@mui/material'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
-import { forwardRef, useEffect } from 'react'
+import React, { forwardRef, useEffect } from 'react'
 
 const CardContentExRoot = styled(CardContent, {
   name: 'CardContentEx',

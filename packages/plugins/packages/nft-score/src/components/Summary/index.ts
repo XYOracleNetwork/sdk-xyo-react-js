@@ -1,1 +1,1 @@
-export * from './TableCellSummary.js'
+export * from './TableCellSummary.tsx'

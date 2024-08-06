@@ -1,3 +1,3 @@
-export * from './Context.js'
-export * from './Provider.js'
-export * from './State.js'
+export * from './Context.ts'
+export * from './Provider.tsx'
+export * from './State.ts'

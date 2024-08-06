@@ -1,11 +1,12 @@
 import { CardContent } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { useListMode } from '@xyo-network/react-shared'
+import React from 'react'
 
-import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.js'
-import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls/index.js'
-import { BusyCard, BusyCardProps } from './BusyCard.js'
-import { EmbedCardHeader } from './EmbedCardHeader.js'
+import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.ts'
+import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls/index.ts'
+import { BusyCard, BusyCardProps } from './BusyCard.tsx'
+import { EmbedCardHeader } from './EmbedCardHeader.tsx'
 
 export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
   const { payload } = useResolvePayload()
@@ -17,20 +18,22 @@ export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
     <BusyCard {...props}>
       {hideElementsConfig?.hideCardHeader ? null : <EmbedCardHeader />}
       {/* Only show the row if the children are present */}
-      {(plugins && plugins.length > 0) || supportsListMode ?
-        <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" pb={1}>
-          {plugins && plugins.length > 1 ?
-            <EmbedRenderSelect />
-          : null}
-          {supportsListMode ?
-            <ListModeSelectFormControl />
-          : null}
-        </FlexGrowRow>
-      : null}
-      <CardContent sx={{ height: '100%' }}>
-        {ActivePlugin ?
-          <ActivePlugin.components.box.detailsBox payload={payload} {...(supportsListMode && { listMode })} />
+      {(plugins && plugins.length > 0) || supportsListMode
+        ? (
+            <FlexGrowRow columnGap={2} rowGap={2} flexWrap="wrap" pb={1}>
+              {plugins && plugins.length > 1
+                ? <EmbedRenderSelect />
+                : null}
+              {supportsListMode
+                ? <ListModeSelectFormControl />
+                : null}
+            </FlexGrowRow>
+          )
         : null}
+      <CardContent sx={{ height: '100%' }}>
+        {ActivePlugin
+          ? <ActivePlugin.components.box.detailsBox payload={payload} {...(supportsListMode && { listMode })} />
+          : null}
       </CardContent>
     </BusyCard>
   )

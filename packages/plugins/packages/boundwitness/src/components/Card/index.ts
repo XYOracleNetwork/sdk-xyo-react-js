@@ -1,3 +1,3 @@
-export * from './Card.js'
-export * from './CardContent/index.js'
-export * from './CardHeader/index.js'
+export * from './Card.tsx'
+export * from './CardContent/index.ts'
+export * from './CardHeader/index.ts'

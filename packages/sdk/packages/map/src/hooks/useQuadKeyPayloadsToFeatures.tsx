@@ -3,7 +3,7 @@ import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Geometry } from 'geojson'
 import { useEffect, useState } from 'react'
 
-import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.js'
+import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.ts'
 
 const quadKeyToFeature = ({ density, quadkey }: { density: number; quadkey: string }) => {
   const polygonFeature = new GeoJson(quadkey).polygonFeature()
@@ -30,9 +30,9 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkLocationHeatmapQuadkeyAn
     // Convert Multiple Payloads from Quadkey to GeoJson
     if (Array.isArray(payloads)) {
       if (compact(payloads).length > 0) {
-        const mappedFeatures = payloads?.map((payload) => payload?.result.map(quadKeyToFeature))
+        const mappedFeatures = payloads?.map(payload => payload?.result.map(quadKeyToFeature))
 
-        setMultipleFeatureSets(mappedFeatures.map((features) => features?.map(setDensity) ?? []))
+        setMultipleFeatureSets(mappedFeatures.map(features => features?.map(setDensity) ?? []))
       } else {
         setError(new Error('Cannot find payloads for provided hashes'))
       }

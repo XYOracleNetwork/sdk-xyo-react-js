@@ -1,10 +1,11 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { AppBarsExample } from './AppBars.example.js'
-import { ButtonsExample } from './Buttons.example.js'
-import { PapersExample } from './Papers.example.js'
-import { TextsExample } from './Texts.example.js'
+import { AppBarsExample } from './AppBars.example.tsx'
+import { ButtonsExample } from './Buttons.example.tsx'
+import { PapersExample } from './Papers.example.tsx'
+import { TextsExample } from './Texts.example.tsx'
 
 export const StyleGuideExample: React.FC = () => {
   return (

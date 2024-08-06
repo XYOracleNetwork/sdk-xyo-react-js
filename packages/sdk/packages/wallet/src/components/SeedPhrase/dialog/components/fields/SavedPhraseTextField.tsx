@@ -1,8 +1,8 @@
 import { Chip, FormControl, FormLabel, StandardTextFieldProps, TextField } from '@mui/material'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { useSeedPhrase } from '../../../../../contexts/index.js'
-import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages/index.js'
+import { useSeedPhrase } from '../../../../../contexts/index.ts'
+import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages/index.ts'
 
 export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
   fullWidth?: boolean
@@ -21,25 +21,29 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({ full
         onClick={() => setVisible(!visible)}
         sx={{ alignSelf: 'center' }}
       />
-      {visible ?
-        <>
-          {showPhraseHeader ?
-            <FormLabel>
-              <PhraseHeaderBox conditional={validSeedPhrase}>Saved Seed Phrase</PhraseHeaderBox>
-            </FormLabel>
-          : null}
-          <TextField
-            defaultValue={seedPhrase}
-            disabled
-            error={validSeedPhrase === false}
-            helperText={validSeedPhrase === false ? <InvalidPhraseTypography /> : null}
-            fullWidth
-            maxRows={Number.POSITIVE_INFINITY}
-            multiline
-            {...props}
-          />
-        </>
-      : null}
+      {visible
+        ? (
+            <>
+              {showPhraseHeader
+                ? (
+                    <FormLabel>
+                      <PhraseHeaderBox conditional={validSeedPhrase}>Saved Seed Phrase</PhraseHeaderBox>
+                    </FormLabel>
+                  )
+                : null}
+              <TextField
+                defaultValue={seedPhrase}
+                disabled
+                error={validSeedPhrase === false}
+                helperText={validSeedPhrase === false ? <InvalidPhraseTypography /> : null}
+                fullWidth
+                maxRows={Number.POSITIVE_INFINITY}
+                multiline
+                {...props}
+              />
+            </>
+          )
+        : null}
     </FormControl>
   )
 }

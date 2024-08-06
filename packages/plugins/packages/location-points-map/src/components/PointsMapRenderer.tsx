@@ -9,8 +9,9 @@ import {
   MapSettingsProvider,
   useMapboxAccessToken,
 } from '@xyo-network/react-map'
+import React from 'react'
 
-import { PointsMapSettings } from './PointsMapSettings.js'
+import { PointsMapSettings } from './PointsMapSettings.ts'
 
 export interface PointsMapInnerProps extends FlexBoxProps {
   accessToken?: string
@@ -33,18 +34,22 @@ const PointsMapInner: React.FC<PointsMapInnerProps> = ({ accessToken, payload, .
     )
   }
 
-  return accessTokenResolved ?
-      <MapboxPointsFlexBox
-        accessToken={accessTokenResolved}
-        features={features}
-        layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
-        height="100%"
-        {...props}
-      />
-    : <Alert severity={'error'}>
-        <AlertTitle>Mapbox Token Missing</AlertTitle>
-        Please add it to the environment variable or pass it directly to the component
-      </Alert>
+  return accessTokenResolved
+    ? (
+        <MapboxPointsFlexBox
+          accessToken={accessTokenResolved}
+          features={features}
+          layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
+          height="100%"
+          {...props}
+        />
+      )
+    : (
+        <Alert severity="error">
+          <AlertTitle>Mapbox Token Missing</AlertTitle>
+          Please add it to the environment variable or pass it directly to the component
+        </Alert>
+      )
 }
 
 const PointsMapWithSettingsRenderer: React.FC<PointsMapInnerProps> = ({ ...props }) => {

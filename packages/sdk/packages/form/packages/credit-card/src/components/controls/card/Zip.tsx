@@ -1,7 +1,9 @@
-import { CreditCardZipFormControl } from '../../../controls/index.js'
-import { WithFormControlProps } from '../WithFormControlProps.js'
-import { FormControlTextField } from './FormControlTextField.js'
-import { useCreditCardFormControl } from './useCreditCardFormControl.js'
+import React from 'react'
+
+import { CreditCardZipFormControl } from '../../../controls/index.ts'
+import { WithFormControlProps } from '../WithFormControlProps.ts'
+import { FormControlTextField } from './FormControlTextField.tsx'
+import { useCreditCardFormControl } from './useCreditCardFormControl.tsx'
 
 export const CreditCardZipWithFormControl: React.FC<WithFormControlProps> = ({ formControlName = 'zip', fieldLabel = 'Zip', ...props }) => {
   const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, CreditCardZipFormControl)

@@ -1,11 +1,11 @@
 import { IconButton, IconButtonProps } from '@mui/material'
 import { toJson } from '@xylabs/object'
-import { forwardRef, MouseEventHandler, ReactNode, useMemo, useState } from 'react'
+import React, { forwardRef, MouseEventHandler, ReactNode, useMemo, useState } from 'react'
 
-import { ExpansionProps } from '../../lib/index.js'
-import { XyoColorLogo } from '../img/index.js'
-import { RawInfoDialog } from '../shared/index.js'
-import { IconSize, presetIconSizeValue } from './lib/index.js'
+import { ExpansionProps } from '../../lib/index.ts'
+import { XyoColorLogo } from '../img/index.tsx'
+import { RawInfoDialog } from '../shared/index.ts'
+import { IconSize, presetIconSizeValue } from './lib/index.ts'
 
 export interface RawInfoIconProps extends IconButtonProps, ExpansionProps {
   dialogContent?: ReactNode
@@ -40,16 +40,18 @@ export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>
         <IconButton onClick={handleClick} ref={ref} {...props}>
           <XyoColorLogo sx={{ height: size ?? iconSize, width: size ?? iconSize }} />
         </IconButton>
-        {iconOnly ? null : (
-          <RawInfoDialog
-            defaultExpandedJson={defaultExpandedJson}
-            jsonValue={json}
-            onCloseCallback={onCloseCallBackWrapped}
-            dialogContent={dialogContent}
-            open={open}
-            updateExpandedJson={updateExpandedJson}
-          />
-        )}
+        {iconOnly
+          ? null
+          : (
+              <RawInfoDialog
+                defaultExpandedJson={defaultExpandedJson}
+                jsonValue={json}
+                onCloseCallback={onCloseCallBackWrapped}
+                dialogContent={dialogContent}
+                open={open}
+                updateExpandedJson={updateExpandedJson}
+              />
+            )}
       </>
     )
   },

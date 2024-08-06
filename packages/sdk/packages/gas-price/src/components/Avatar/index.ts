@@ -1,1 +1,1 @@
-export * from './EthereumGasPriceAvatar.js'
+export * from './EthereumGasPriceAvatar.tsx'

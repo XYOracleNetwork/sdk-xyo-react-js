@@ -1,5 +1,5 @@
-import { HeatMapFillLayerConfig } from '../Configs/index.js'
-import { FillLayerBuilder } from '../FillLayer.js'
+import { HeatMapFillLayerConfig } from '../Configs/index.ts'
+import { FillLayerBuilder } from '../FillLayer.ts'
 
 const MapHeatConstants = (index: number, type: string) => ({
   LocationDebugLayerId: `location-${type}-debug-id-${index}`,

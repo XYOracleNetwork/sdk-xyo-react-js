@@ -1,2 +1,2 @@
-export * from './Property/index.js'
-export * from './SelectEx/index.js'
+export * from './Property/index.ts'
+export * from './SelectEx/index.ts'

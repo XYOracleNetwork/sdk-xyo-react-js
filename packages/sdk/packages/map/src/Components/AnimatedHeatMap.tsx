@@ -2,13 +2,13 @@ import { darken, useTheme } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { AnimatedHeatMapColorProps } from '../Colors/index.js'
-import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.js'
-import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, MapLayer } from '../Layers/index.js'
-import { MapSetting } from '../Settings/index.js'
-import { MapboxHeatFlexBox } from './MapBoxHeat.js'
+import { AnimatedHeatMapColorProps } from '../Colors/index.ts'
+import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.ts'
+import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, MapLayer } from '../Layers/index.ts'
+import { MapSetting } from '../Settings/index.ts'
+import { MapboxHeatFlexBox } from './MapBoxHeat.tsx'
 
 export interface AnimatedHeatMapProps {
   accessToken: string
@@ -36,19 +36,21 @@ export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
     LocationHeatMapLayerBuilderAnimated(highUsageColor || darken(localStaticMapColor, 0.9), 1, 'animated'),
   ])
 
-  return animatedFeatureSets?.length ?
-      <MapBoxInstanceProvider>
-        <MapSettingsProvider defaultMapSettings={defaultMapSettings} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
-          <HeatMapInitializerProvider
-            features={staticFeatureSet}
-            layers={[layers[0]]}
-            featureSets={animatedFeatureSets}
-            featureSetsLayers={layers.slice(1, 3)}
-            heatMapColorProps={heatMapColorProps}
-          >
-            <MapboxHeatFlexBox accessToken={accessToken} {...props}></MapboxHeatFlexBox>
-          </HeatMapInitializerProvider>
-        </MapSettingsProvider>
-      </MapBoxInstanceProvider>
+  return animatedFeatureSets?.length
+    ? (
+        <MapBoxInstanceProvider>
+          <MapSettingsProvider defaultMapSettings={defaultMapSettings} debugLayerName={MapHeatConstants.LocationDebugLayerId}>
+            <HeatMapInitializerProvider
+              features={staticFeatureSet}
+              layers={[layers[0]]}
+              featureSets={animatedFeatureSets}
+              featureSetsLayers={layers.slice(1, 3)}
+              heatMapColorProps={heatMapColorProps}
+            >
+              <MapboxHeatFlexBox accessToken={accessToken} {...props}></MapboxHeatFlexBox>
+            </HeatMapInitializerProvider>
+          </MapSettingsProvider>
+        </MapBoxInstanceProvider>
+      )
     : <FlexCol minHeight={160} minWidth={160} busy />
 }

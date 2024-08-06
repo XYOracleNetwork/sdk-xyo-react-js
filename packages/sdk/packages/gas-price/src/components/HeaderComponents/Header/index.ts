@@ -1,2 +1,2 @@
-export * from './Header.js'
-export * from './Heading.js'
+export * from './Header.tsx'
+export * from './Heading.tsx'

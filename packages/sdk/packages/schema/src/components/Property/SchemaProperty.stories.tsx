@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
+import React from 'react'
 
-import { SchemaProperty, SchemaPropertyProps } from './SchemaProperty.js'
+import { SchemaProperty, SchemaPropertyProps } from './SchemaProperty.tsx'
 
 const StorybookEntry: Meta = {
   component: SchemaProperty,
@@ -38,5 +39,4 @@ WithUnverifiedValue.args = { value: 'network.xyo.blahblah' }
 
 export { Default, WithUnverifiedValue, WithVerifiedValue, WithVerifiedValuePaper }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

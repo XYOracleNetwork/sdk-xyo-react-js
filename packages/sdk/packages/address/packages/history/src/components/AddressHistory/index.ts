@@ -1,1 +1,1 @@
-export * from './AddressHistory.js'
+export * from './AddressHistory.tsx'

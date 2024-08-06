@@ -1,1 +1,1 @@
-export * from './contract/index.js'
+export * from './contract/index.ts'

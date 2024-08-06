@@ -4,8 +4,9 @@ import { Payload } from '@xyo-network/payload-model'
 import { CryptoAssetRenderer } from '@xyo-network/react-aggregate-price-plugin'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
+import React from 'react'
 
-import { useCoinGeckoToAssetPriceDiviner } from '../hooks/index.js'
+import { useCoinGeckoToAssetPriceDiviner } from '../hooks/index.ts'
 
 export interface CoinGeckoPricesRendererProps extends PayloadDetailsRenderProps {
   payload?: Payload

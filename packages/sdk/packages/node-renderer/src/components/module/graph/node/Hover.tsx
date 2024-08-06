@@ -1,9 +1,9 @@
 import { PopperProps, styled } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeSingular } from 'cytoscape'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 
-import { useNodeElement } from './hooks/index.js'
+import { useNodeElement } from './hooks/index.ts'
 
 export interface ModuleHoverProps {
   children?: (anchorElement?: PopperProps['anchorEl'], container?: PopperProps['container']) => ReactElement
@@ -16,9 +16,9 @@ export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ children, nod
   return (
     <>
       <StyledNodeGhostElementFlexCol ref={ref} left={boundingBox?.x1} height={boundingBox?.h} top={boundingBox?.y1} width={boundingBox?.w} />
-      {node ?
-        <>{children?.(currentElement)}</>
-      : null}
+      {node
+        ? <>{children?.(currentElement)}</>
+        : null}
     </>
   )
 }
@@ -28,7 +28,6 @@ const StyledNodeGhostElementFlexCol = styled(FlexCol, { name: 'StyledNodeGhostEl
   // backgroundColor: '#fff',
   // opacity: 0.25,
 
-  // eslint-disable-next-line sort-keys-fix/sort-keys-fix
   cursor: 'pointer',
   pointerEvents: 'none',
   position: 'absolute',

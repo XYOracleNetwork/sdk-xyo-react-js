@@ -1,10 +1,11 @@
 import { InputAdornment } from '@mui/material'
+import React from 'react'
 
-import { CreditCardNumberFormControl } from '../../../../controls/index.js'
-import { WithFormControlProps } from '../../WithFormControlProps.js'
-import { FormControlTextField } from '../FormControlTextField.js'
-import { CreditCardData } from '../Options.js'
-import { useCreditCardNumberFormControl } from './use.js'
+import { CreditCardNumberFormControl } from '../../../../controls/index.ts'
+import { WithFormControlProps } from '../../WithFormControlProps.ts'
+import { FormControlTextField } from '../FormControlTextField.tsx'
+import { CreditCardData } from '../Options.ts'
+import { useCreditCardNumberFormControl } from './use.ts'
 
 export const CreditCardNumberWithFormControl: React.FC<WithFormControlProps> = ({
   fieldLabel = 'Card Number',
@@ -24,11 +25,13 @@ export const CreditCardNumberWithFormControl: React.FC<WithFormControlProps> = (
       inputProps={{ 'aria-label': fieldLabel, autoComplete, autoCorrect, id, inputMode, name, spellCheck }}
       InputProps={{
         startAdornment:
-          type.length > 0 ?
-            <InputAdornment position="start">
-              <img height={'30px'} width={'40px'} src={CreditCardData[type].icon} />
-            </InputAdornment>
-          : null,
+          type.length > 0
+            ? (
+                <InputAdornment position="start">
+                  <img height="30px" width="40px" src={CreditCardData[type].icon} />
+                </InputAdornment>
+              )
+            : null,
       }}
       value={value}
       {...cardProps}

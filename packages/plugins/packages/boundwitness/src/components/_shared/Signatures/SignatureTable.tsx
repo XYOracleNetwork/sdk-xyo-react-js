@@ -3,8 +3,9 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableCellEx, TableEx, TableExProps } from '@xyo-network/react-table'
+import React from 'react'
 
-import { BoundWitnessSignatureTableRow } from './SignatureTableRow.js'
+import { BoundWitnessSignatureTableRow } from './SignatureTableRow.tsx'
 
 export interface BoundWitnessSignatureTableProps extends TableExProps {
   block?: BoundWitness
@@ -59,9 +60,9 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
         </TableRow>
       </TableHead>
       <TableBody>
-        {!signatureData || signatureData.length === 0 ?
-          <TableRowNoData additionalCells={3} />
-        : null}
+        {!signatureData || signatureData.length === 0
+          ? <TableRowNoData additionalCells={3} />
+          : null}
         {signatureData.map((data, index) => {
           return (
             <BoundWitnessSignatureTableRow

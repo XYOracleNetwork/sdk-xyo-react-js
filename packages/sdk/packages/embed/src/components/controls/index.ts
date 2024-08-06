@@ -1,3 +1,3 @@
-export * from './EmbedFormControl.js'
-export * from './ListModeSelect.js'
-export * from './RenderSelect.js'
+export * from './EmbedFormControl.tsx'
+export * from './ListModeSelect.tsx'
+export * from './RenderSelect.tsx'

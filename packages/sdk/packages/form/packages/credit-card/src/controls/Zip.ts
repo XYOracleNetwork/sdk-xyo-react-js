@@ -2,7 +2,7 @@ import { EmptyObject } from '@xylabs/object'
 import { FormControlBase } from '@xyo-network/react-form-group'
 import valid from 'card-validator'
 
-import { unmask } from '../utils/index.js'
+import { unmask } from '../utils/index.ts'
 
 const CONTROL_NAME = 'Zip'
 

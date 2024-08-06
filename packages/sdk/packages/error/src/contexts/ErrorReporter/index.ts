@@ -1,3 +1,3 @@
-export * from './Provider.js'
-export * from './State.js'
-export * from './useRollbar.js'
+export * from './Provider.tsx'
+export * from './State.ts'
+export * from './useRollbar.tsx'

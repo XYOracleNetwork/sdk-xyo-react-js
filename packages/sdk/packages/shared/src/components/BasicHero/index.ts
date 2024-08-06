@@ -1,1 +1,1 @@
-export * from './BasicHero.js'
+export * from './BasicHero.tsx'

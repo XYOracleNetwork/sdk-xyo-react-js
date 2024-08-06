@@ -3,12 +3,11 @@ import { CryptoAssetRenderPlugin } from '@xyo-network/react-aggregate-price-plug
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-plugin'
 import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { payloadData } from './storyPayload.js'
-import { Template, xyoEmbedStoryBase } from './storyShared.js'
+import { payloadData } from './storyPayload.ts'
+import { Template, xyoEmbedStoryBase } from './storyShared.tsx'
 
 const AggregatePricePointer = 'https://api.archivist.xyo.network/1948bf4eedf90ee2b8a1f63216b7c6b3b18d7bc2834330d85bcd6ab3d6428a20'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   ...xyoEmbedStoryBase,
   title: 'embed/EmbedPlugin/states',

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { BoundWitnessPayloadTableBody, BoundWitnessPayloadTableBodyProps } from './TableBody.js'
+import { BoundWitnessPayloadTableBody, BoundWitnessPayloadTableBodyProps } from './TableBody.tsx'
 
 export interface BoundWitnessFilteredPayloadTableBodyProps extends BoundWitnessPayloadTableBodyProps {
   bwFilterType?: 'equal' | 'notEqual'
@@ -10,8 +10,8 @@ export interface BoundWitnessFilteredPayloadTableBodyProps extends BoundWitnessP
 export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFilteredPayloadTableBodyProps> = ({
   bwFilterType = 'equal',
   eventNoun = 'payload',
-  payloadHashes = [],
-  payloadSchemas = [],
+  payloadHashes,
+  payloadSchemas,
   schemaFilter,
   ...props
 }) => {
@@ -36,7 +36,7 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
   }, [bwFilterType, payloadSchemas, schemaFilter])
 
   useEffect(() => {
-    if (payloadHashes && schemaFilter) {
+    if (payloadHashes && payloadSchemas && schemaFilter) {
       // eslint-disable-next-line unicorn/no-array-reduce
       const filteredHashes = payloadSchemas.reduce<string[]>((acc, schema, index) => {
         if (bwFilterType === 'equal' ? schema === schemaFilter : schema !== schemaFilter) {

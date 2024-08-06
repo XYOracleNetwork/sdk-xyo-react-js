@@ -1,8 +1,8 @@
 import { FormControl, StandardTextFieldProps, TextField } from '@mui/material'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
-import { useSeedPhrase } from '../../../../../contexts/index.js'
-import { colorParser, InvalidPhraseTypography } from './validation-messages/index.js'
+import { useSeedPhrase } from '../../../../../contexts/index.ts'
+import { colorParser, InvalidPhraseTypography } from './validation-messages/index.ts'
 
 export interface NewPhraseTextFieldProps extends StandardTextFieldProps {
   children?: ReactNode
@@ -23,7 +23,7 @@ export const NewPhraseTextField: React.FC<NewPhraseTextFieldProps> = ({ children
           fullWidth
           maxRows={Number.POSITIVE_INFINITY}
           multiline
-          onChange={(e) => setPhrase?.(e.target.value)}
+          onChange={e => setPhrase?.(e.target.value)}
           value={phrase}
           {...props}
         />

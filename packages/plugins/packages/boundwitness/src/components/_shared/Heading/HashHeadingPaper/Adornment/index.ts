@@ -1,3 +1,3 @@
-export * from './BackPaperAdornment.js'
-export * from './PaperAdornment.js'
-export * from './PaperAdornmentIconButton.js'
+export * from './BackPaperAdornment.tsx'
+export * from './PaperAdornment.tsx'
+export * from './PaperAdornmentIconButton.tsx'

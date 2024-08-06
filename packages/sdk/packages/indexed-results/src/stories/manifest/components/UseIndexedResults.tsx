@@ -3,10 +3,10 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
 import { Payload } from '@xyo-network/payload-model'
 import { useWeakArchivistFromNode } from '@xyo-network/react-archivist'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
-import { useIndexedResults, UseIndexedResultsConfig } from '../../../hooks/index.js'
-import { UseIndexedResultsProps } from './lib/index.js'
+import { useIndexedResults, UseIndexedResultsConfig } from '../../../hooks/index.ts'
+import { UseIndexedResultsProps } from './lib/index.ts'
 
 export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
   const [archivist] = useWeakArchivistFromNode('Archivist')
@@ -43,9 +43,9 @@ export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({ address, c
   return (
     <FlexCol alignItems="start">
       <h1>Polling Results from Hook</h1>
-      {results ?
-        <pre>{JSON.stringify(results, null, 2)}</pre>
-      : null}
+      {results
+        ? <pre>{JSON.stringify(results, null, 2)}</pre>
+        : null}
     </FlexCol>
   )
 }

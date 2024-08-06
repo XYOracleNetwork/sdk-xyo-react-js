@@ -1,1 +1,1 @@
-export * from './Plugin.js'
+export * from './Plugin.ts'

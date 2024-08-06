@@ -1,1 +1,1 @@
-export * from './useEtherchainV2Transformer.js'
+export * from './useEtherchainV2Transformer.tsx'

@@ -1,1 +1,1 @@
-export * from './useNodeElement.js'
+export * from './useNodeElement.tsx'

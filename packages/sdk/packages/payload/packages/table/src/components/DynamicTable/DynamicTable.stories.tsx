@@ -3,9 +3,10 @@ import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-unisw
 import { DefaultPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { PayloadRenderPluginResolver, PayloadRenderPluginResolverProvider } from '@xyo-network/react-payload-plugin-resolver'
 import { sampleCoinGeckoPayload, sampleIdPayload, sampleSystemInfoBrowserPayload, sampleUniswapPayload } from '@xyo-network/react-storybook'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadDynamicTable } from './Table.js'
+import { PayloadDynamicTable } from './Table.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -18,7 +19,7 @@ const StorybookEntry = {
   title: 'payload/DynamicTable',
 } as Meta<typeof PayloadDynamicTable>
 
-const Template: StoryFn<typeof PayloadDynamicTable> = (args) => (
+const Template: StoryFn<typeof PayloadDynamicTable> = args => (
   <PayloadRenderPluginResolverProvider
     resolver={new PayloadRenderPluginResolver().register(UniswapPairsRenderPlugin).register(DefaultPayloadRenderPlugin)}
   >
@@ -59,14 +60,13 @@ WithData.args = {
 }
 
 const WithError = Template.bind({})
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 const { ...badPayload } = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
 export { Default, WithData, WithError }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

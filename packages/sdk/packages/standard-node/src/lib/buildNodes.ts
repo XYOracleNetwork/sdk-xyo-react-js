@@ -3,15 +3,15 @@ import { defaultNetworkConfigs } from '@xyo-network/react-network'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { MemoryNodeBuilder } from './Builders/index.js'
-import { RemoteNodeArchivistOffsetPaths, RemoteNodeOffsetPaths } from './ModuleAccountPaths.js'
-import { RootStorageArchivist } from './ModuleNames.js'
+import { MemoryNodeBuilder } from './Builders/index.ts'
+import { RemoteNodeArchivistOffsetPaths, RemoteNodeOffsetPaths } from './ModuleAccountPaths.ts'
+import { RootStorageArchivist } from './ModuleNames.ts'
 
 const knownRemoteNodes = (): { apiDomain: string; name: string }[] => {
-  const networkNames = defaultNetworkConfigs.map((config) => config.name)
+  const networkNames = defaultNetworkConfigs.map(config => config.name)
   return networkNames.map((networkName) => {
     const name = assertDefinedEx<string>(networkName, 'missing name in network config')
-    const uri = defaultNetworkConfigs.find((config) => config.name === networkName)?.nodes?.filter((node) => node.type === 'archivist')[0].uri
+    const uri = defaultNetworkConfigs.find(config => config.name === networkName)?.nodes?.filter(node => node.type === 'archivist')[0].uri
     const apiDomain = assertDefinedEx<string>(uri, 'missing node type "archivist" in network config')
     return {
       apiDomain,

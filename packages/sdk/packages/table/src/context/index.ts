@@ -1,1 +1,1 @@
-export * from './TableHeight/index.js'
+export * from './TableHeight/index.ts'

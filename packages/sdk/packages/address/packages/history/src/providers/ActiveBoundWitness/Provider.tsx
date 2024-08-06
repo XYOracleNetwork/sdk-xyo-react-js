@@ -3,10 +3,10 @@ import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { ActiveBoundWitnessContext } from '../../contexts/index.js'
+import { ActiveBoundWitnessContext } from '../../contexts/index.ts'
 
 export interface ActiveBoundWitnessProviderProps extends ContextExProviderProps {
   activeBoundWitnessHash?: Hash
@@ -41,6 +41,7 @@ export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProp
 
   return (
     <ActiveBoundWitnessContext.Provider
+      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         activeBoundWitness,
         activeBoundWitnessHash,

@@ -1,8 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { sampleIdPayload, samplePayloadFromBuilder } from '@xyo-network/react-storybook'
+import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { PayloadDetails } from './Details.js'
+import { PayloadDetails } from './Details.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -15,7 +16,7 @@ const StorybookEntry = {
   title: 'payload/Details',
 } as Meta<typeof PayloadDetails>
 
-const Template: StoryFn<typeof PayloadDetails> = (args) => (
+const Template: StoryFn<typeof PayloadDetails> = args => (
   <BrowserRouter>
     <Routes>
       <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
@@ -50,5 +51,4 @@ WithArchiveLinkPaper.args = { paper: true, payload: samplePayloadFromBuilder }
 
 export { Default, DefaultPaper, WithArchiveLink, WithArchiveLinkPaper, WithBuilderSample, WithBuilderSamplePaper, WithSample, WithSamplePaper }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

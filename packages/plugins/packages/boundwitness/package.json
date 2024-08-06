@@ -10,16 +10,16 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/arraybuffer": "^3.6.4",
-    "@xylabs/eth-address": "^3.6.4",
-    "@xylabs/react-flexbox": "^3.4.1",
-    "@xylabs/react-identicon": "^3.4.1",
-    "@xylabs/react-promise": "^3.4.1",
-    "@xylabs/react-quick-tip-button": "^3.4.1",
-    "@xylabs/react-shared": "^3.4.1",
-    "@xyo-network/boundwitness-model": "^2.110.9",
-    "@xyo-network/boundwitness-validator": "^2.110.9",
-    "@xyo-network/payload-model": "^2.110.9",
+    "@xylabs/arraybuffer": "^3.6.12",
+    "@xylabs/eth-address": "^3.6.12",
+    "@xylabs/react-flexbox": "^3.4.2",
+    "@xylabs/react-identicon": "^3.4.2",
+    "@xylabs/react-promise": "^3.4.2",
+    "@xylabs/react-quick-tip-button": "^3.4.2",
+    "@xylabs/react-shared": "^3.4.2",
+    "@xyo-network/boundwitness-model": "^2.111.3",
+    "@xyo-network/boundwitness-validator": "^2.111.3",
+    "@xyo-network/payload-model": "^2.111.3",
     "@xyo-network/react-card": "workspace:^",
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-payload-details": "workspace:^",
@@ -31,12 +31,12 @@
     "@xyo-network/react-table": "workspace:^"
   },
   "devDependencies": {
-    "@storybook/react": "^7.6.20",
-    "@xylabs/hex": "^3.6.4",
-    "@xylabs/ts-scripts-yarn3": "^3.12.4",
-    "@xylabs/tsconfig-react": "^3.12.4",
+    "@storybook/react": "^8.2.7",
+    "@xylabs/hex": "^3.6.12",
+    "@xylabs/ts-scripts-yarn3": "^3.15.16",
+    "@xylabs/tsconfig-react": "^3.15.16",
     "@xyo-network/react-storybook": "workspace:^",
-    "react-router-dom": "^6.25.1",
+    "react-router-dom": "^6.26.0",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
@@ -56,7 +56,7 @@
       "node": {
         "import": {
           "types": "./dist/node/index.d.mts",
-          "default": "./dist/node/index.js"
+          "default": "./dist/node/index.mjs"
         },
         "require": {
           "types": "./dist/node/index.d.cts",
@@ -66,19 +66,19 @@
       "browser": {
         "import": {
           "types": "./dist/browser/index.d.mts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.mjs"
         },
         "require": {
           "types": "./dist/browser/index.d.cts",
           "default": "./dist/browser/index.cjs"
         }
       },
-      "default": "./dist/browser/index.js"
+      "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
   },
   "main": "dist/browser/index.cjs",
-  "module": "dist/browser/index.js",
+  "module": "dist/browser/index.mjs",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",

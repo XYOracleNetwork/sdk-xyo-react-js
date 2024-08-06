@@ -1,12 +1,12 @@
 import { Button } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
-import { MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.js'
-import { DefaultMapSettings } from '../Settings/index.js'
-import { MapBox } from './MapBox.js'
-import { MapSettingsBox } from './MapSettingsComponents/index.js'
+import { MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.ts'
+import { DefaultMapSettings } from '../Settings/index.ts'
+import { MapBox } from './MapBox.tsx'
+import { MapSettingsBox } from './MapSettingsComponents/index.ts'
 
 const WithMapboxProviders: Decorator = (Story, props) => {
   const defaultSettings = DefaultMapSettings()
@@ -31,7 +31,6 @@ const WithMapSettingsDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   args: {
     accessToken: process.env.STORYBOOK_MAPBOX_TOKEN,
@@ -69,7 +68,7 @@ const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
         Toggle Container minWidth
       </Button>
       <div
-        ref={(ref) => (containerRef.current = ref)}
+        ref={ref => (containerRef.current = ref)}
         style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}
       >
         <MapBox {...args} />

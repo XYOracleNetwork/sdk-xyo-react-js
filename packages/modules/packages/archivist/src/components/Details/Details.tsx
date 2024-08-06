@@ -5,9 +5,9 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema } from '@xyo-network/archivist-model'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { Payload } from '@xyo-network/payload-model'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { useWeakArchivistFromNode } from '../../hooks/index.js'
+import { useWeakArchivistFromNode } from '../../hooks/index.ts'
 
 const testQueryCommit = { schema: ArchivistCommitQuerySchema }
 const testQueryCommitBoundWitnessBuilder = new QueryBoundWitnessBuilder().query(testQueryCommit)
@@ -27,7 +27,6 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
   const [queryableClear, setQueryableClear] = useState(false)
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const instance = archivist?.deref()
       if (instance) {
@@ -41,7 +40,6 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
   )
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const payloads = await archivist?.deref()?.all?.()
       if (mounted()) {

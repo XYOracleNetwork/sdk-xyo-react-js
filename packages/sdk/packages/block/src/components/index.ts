@@ -1,2 +1,2 @@
-export * from './Details/index.js'
-export * from './Table/index.js'
+export * from './Details/index.ts'
+export * from './Table/index.ts'

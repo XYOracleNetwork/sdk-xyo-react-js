@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@mui/material'
 
-import { fontFamilyOs } from '../fontFamily.js'
+import { fontFamilyOs } from '../fontFamily.ts'
 
 export const typography: ThemeOptions['typography'] = {
   body1: {

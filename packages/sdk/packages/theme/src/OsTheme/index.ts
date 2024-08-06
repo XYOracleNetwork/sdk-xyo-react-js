@@ -1,1 +1,1 @@
-export * from './osThemeOptions.js'
+export * from './osThemeOptions.tsx'

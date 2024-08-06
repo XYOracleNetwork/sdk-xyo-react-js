@@ -1,4 +1,5 @@
 import { ListItem, Typography } from '@mui/material'
+import React from 'react'
 
 export interface ArchivistTypeProps {
   archivistType?: 'Commit' | 'Read' | 'Write'
@@ -11,8 +12,10 @@ export const ArchivistParent: React.FC<ArchivistTypeProps> = ({ archivistType, p
       return (
         <ListItem key={address}>
           <Typography variant="subtitle2">
-            {archivistType}:{' '}
-            <Typography variant={'caption'} sx={{ ml: 0.5 }}>
+            {archivistType}
+            :
+            {' '}
+            <Typography variant="caption" sx={{ ml: 0.5 }}>
               {address}
             </Typography>
           </Typography>

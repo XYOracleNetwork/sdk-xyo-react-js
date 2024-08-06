@@ -3,8 +3,9 @@ import { Address, toHex } from '@xylabs/hex'
 import { AddressPayload, AddressSchema } from '@xyo-network/module-model'
 import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
+import React from 'react'
 
-import { AddressMenuItemRenderer } from './MenuItemRenderer.js'
+import { AddressMenuItemRenderer } from './MenuItemRenderer.tsx'
 
 const address: Address = toHex(randomBytes(20))
 const payload: AddressPayload = {
@@ -46,5 +47,4 @@ WithName.args = {
 
 export { Default, WithAddress, WithName }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

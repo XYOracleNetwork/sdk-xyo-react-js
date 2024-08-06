@@ -1,3 +1,3 @@
-export * from './GasPriceBox.js'
-export * from './PriorityFeeBox.js'
-export * from './SpeedBox.js'
+export * from './GasPriceBox.tsx'
+export * from './PriorityFeeBox.tsx'
+export * from './SpeedBox.tsx'

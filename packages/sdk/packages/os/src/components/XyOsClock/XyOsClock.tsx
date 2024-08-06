@@ -1,7 +1,7 @@
 import { BoxProps, Paper, Typography } from '@mui/material'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { format } from 'date-fns'
-import { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 
 interface ClockProps extends BoxProps {
   date: number
@@ -50,7 +50,7 @@ export const XyOsClock: React.FC<XyOsClockProps> = ({ clockType, clockSize, ...p
       type: 'widget',
     },
   ]
-  return ClockComponents.find((component) => component.type === clockType)?.components[`${clockSize}`]
+  return ClockComponents.find(component => component.type === clockType)?.components[`${clockSize}`]
 }
 
 export const SmallAppBarClock: React.FC<ClockProps> = ({ date }) => {

@@ -1,8 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { XyOsClock } from './XyOsClock.js'
+import { XyOsClock } from './XyOsClock.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: XyOsClock,
@@ -14,10 +15,10 @@ const StorybookEntry = {
   title: 'shared/XyOsClock',
 } as Meta<typeof XyOsClock>
 
-const Template: StoryFn<typeof XyOsClock> = (args) => (
+const Template: StoryFn<typeof XyOsClock> = args => (
   <BrowserRouter>
-    <FlexGrowCol gap={2} alignItems={'center'} justifyContent={'center'}>
-      <FlexGrowCol alignItems={'center'} justifyContent={'center'}>
+    <FlexGrowCol gap={2} alignItems="center" justifyContent="center">
+      <FlexGrowCol alignItems="center" justifyContent="center">
         <XyOsClock {...args}></XyOsClock>
       </FlexGrowCol>
     </FlexGrowCol>
@@ -30,9 +31,8 @@ Default.args = {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

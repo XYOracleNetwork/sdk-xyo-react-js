@@ -1,9 +1,9 @@
-/* eslint-disable deprecation/deprecation */
 import { TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { AddressTableCell, usePromise } from '@xyo-network/react-shared'
+import React from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
@@ -38,11 +38,11 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ 
         </Typography>
       </TableCell>
       <TableCell key="valid" align="center">
-        {errors === undefined ?
-          <MdDone fontSize={18} color="gray" />
-        : errors?.length === 0 ?
-          <MdDone fontSize={18} color="green" />
-        : <MdClear color="red" fontSize={18} />}
+        {errors === undefined
+          ? <MdDone fontSize={18} color="gray" />
+          : errors?.length === 0
+            ? <MdDone fontSize={18} color="green" />
+            : <MdClear color="red" fontSize={18} />}
       </TableCell>
     </TableRow>
   )

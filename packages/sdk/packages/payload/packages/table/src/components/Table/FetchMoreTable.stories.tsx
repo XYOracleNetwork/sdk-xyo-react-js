@@ -3,10 +3,10 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { delay } from '@xylabs/delay'
 import { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadTable } from './Table.js'
+import { PayloadTable } from './Table.tsx'
 
 const newPayloads = () =>
   Array(50)
@@ -34,7 +34,6 @@ const NewPayloadsDecorator: Decorator = (Story, args) => {
     setTimeout(() => {
       addToTotalPayloads(testPayloads)
     }, 500)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const addPayloads = () => {
@@ -59,7 +58,10 @@ const NewPayloadsDecorator: Decorator = (Story, args) => {
 
   return (
     <>
-      <Typography>Max Payloads: {maxPayloads}</Typography>
+      <Typography>
+        Max Payloads:
+        {maxPayloads}
+      </Typography>
       <Button variant="contained" onClick={newPayloadList}>
         Simulate Network Change
       </Button>
@@ -94,5 +96,4 @@ Default.decorators = [NewPayloadsDecorator]
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

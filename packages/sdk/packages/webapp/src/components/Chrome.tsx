@@ -4,10 +4,10 @@ import { WebAppNavigationType } from '@xyo-network/react-app-settings'
 import { ApplicationAppBar, SystemToolbar } from '@xyo-network/react-appbar'
 import { Footer } from '@xyo-network/react-footer'
 import { ErrorBoundary } from '@xyo-network/react-shared'
-import { forwardRef, ReactNode } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
-import { WebAppErrorPage } from './ErrorPage.js'
+import { WebAppErrorPage } from './ErrorPage.tsx'
 
 export interface WebAppChromeProps extends FlexBoxProps {
   appName: string
@@ -29,22 +29,26 @@ export const WebAppChrome = forwardRef<HTMLDivElement, WebAppChromeProps>(
         </Helmet>
         {appbar ?? <ApplicationAppBar systemToolbar={<SystemToolbar menuItems={navigationType === 'menu' ? menuItems : undefined} />} />}
         <FlexGrowRow id="sidebar-nav-flex" overflow="hidden" alignItems="stretch">
-          {navigationType === 'menu' ? null : (
-            <>
-              {menuItems}
-              <Divider orientation="vertical" />
-            </>
-          )}
+          {navigationType === 'menu'
+            ? null
+            : (
+                <>
+                  {menuItems}
+                  <Divider orientation="vertical" />
+                </>
+              )}
           <FlexGrowCol id="main-flex" justifyContent="flex-start" alignItems="stretch">
-            {errorBoundary ?
-              <ErrorBoundary
-                fallbackWithError={(error) => {
-                  return errorPage ?? <WebAppErrorPage error={error} />
-                }}
-              >
-                {children}
-              </ErrorBoundary>
-            : children}
+            {errorBoundary
+              ? (
+                  <ErrorBoundary
+                    fallbackWithError={(error) => {
+                      return errorPage ?? <WebAppErrorPage error={error} />
+                    }}
+                  >
+                    {children}
+                  </ErrorBoundary>
+                )
+              : children}
           </FlexGrowCol>
         </FlexGrowRow>
         <FlexCol id="footer-flex" alignItems="stretch">

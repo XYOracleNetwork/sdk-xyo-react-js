@@ -1,6 +1,6 @@
 import { Stylesheet } from 'cytoscape'
 
-import { CyNodeModuleTypes } from './lib/index.js'
+import { CyNodeModuleTypes } from './lib/index.ts'
 
 export const NodeWithName = (color?: string, outlineColor?: string): Stylesheet => ({
   selector: 'node[name]',
@@ -21,10 +21,10 @@ export const Node = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string,
   style: {
     'background-color': bgColor,
     'background-height': '75%',
-    'background-image': (elem) => icons[elem.data('type') as CyNodeModuleTypes],
+    'background-image': elem => icons[elem.data('type') as CyNodeModuleTypes],
     'background-width': '24',
-    label: hideLabels ? undefined : 'data(name)',
-    shape: 'round-rectangle',
+    'label': hideLabels ? undefined : 'data(name)',
+    'shape': 'round-rectangle',
   },
 })
 
@@ -43,6 +43,6 @@ export const EdgeStyled = (lineColor?: string, targetArrowColor?: string) => ({
     'line-opacity': 0.1,
     'target-arrow-color': targetArrowColor,
     'target-arrow-shape': 'triangle',
-    width: 3,
+    'width': 3,
   },
 })

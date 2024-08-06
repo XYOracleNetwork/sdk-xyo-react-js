@@ -10,10 +10,10 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@storybook/react": "^7.6.20",
-    "@xylabs/hex": "^3.6.4",
-    "@xyo-network/boundwitness-model": "^2.110.9",
-    "@xyo-network/payload-model": "^2.110.9"
+    "@storybook/react": "^8.2.7",
+    "@xylabs/hex": "^3.6.12",
+    "@xyo-network/boundwitness-model": "^2.111.3",
+    "@xyo-network/payload-model": "^2.111.3"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
@@ -24,9 +24,9 @@
   },
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
-    "@storybook/react": "^7.6.20",
-    "@xylabs/ts-scripts-yarn3": "^3.12.4",
-    "@xylabs/tsconfig-react": "^3.12.4",
+    "@storybook/react": "^8.2.7",
+    "@xylabs/ts-scripts-yarn3": "^3.15.16",
+    "@xylabs/tsconfig-react": "^3.15.16",
     "typescript": "^5.5.4"
   },
   "docs": "dist/docs.json",
@@ -35,7 +35,7 @@
       "node": {
         "import": {
           "types": "./dist/node/index.d.mts",
-          "default": "./dist/node/index.js"
+          "default": "./dist/node/index.mjs"
         },
         "require": {
           "types": "./dist/node/index.d.cts",
@@ -45,19 +45,19 @@
       "browser": {
         "import": {
           "types": "./dist/browser/index.d.mts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.mjs"
         },
         "require": {
           "types": "./dist/browser/index.d.cts",
           "default": "./dist/browser/index.cjs"
         }
       },
-      "default": "./dist/browser/index.js"
+      "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
   },
   "main": "dist/browser/index.cjs",
-  "module": "dist/browser/index.js",
+  "module": "dist/browser/index.mjs",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",

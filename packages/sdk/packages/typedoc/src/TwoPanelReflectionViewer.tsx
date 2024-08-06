@@ -1,12 +1,12 @@
 import { Search } from '@mui/icons-material'
 import { TextField, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
-import { useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import type { ReflectionGroup } from 'typedoc'
 
-import { createLookup } from './createLookup.js'
-import { ContainerReflectionViewerProps, ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer/index.js'
-import { ReflectionTreeViewer } from './TreeViewer/index.js'
+import { createLookup } from './createLookup.ts'
+import { ContainerReflectionViewerProps, ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer/index.ts'
+import { ReflectionTreeViewer } from './TreeViewer/index.ts'
 
 export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({
   reflection,
@@ -39,6 +39,7 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
     })
   }, [itemRenderer, lookup, reflection, hiddenFlags])
 
+  // eslint-disable-next-line @eslint-react/no-nested-components
   const NavigationCol: React.FC<FlexBoxProps> = (props) => {
     return (
       <FlexCol {...props}>
@@ -71,6 +72,7 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
     )
   }
 
+  // eslint-disable-next-line @eslint-react/no-nested-components
   const DetailsCol: React.FC<FlexBoxProps> = (props) => {
     return (
       <FlexGrowCol {...props}>

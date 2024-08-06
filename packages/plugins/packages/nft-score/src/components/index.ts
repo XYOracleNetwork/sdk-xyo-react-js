@@ -1,1 +1,1 @@
-export * from './NftScoreRenderer.js'
+export * from './NftScoreRenderer.tsx'

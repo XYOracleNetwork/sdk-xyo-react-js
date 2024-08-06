@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { DrawerEx, DrawerExProps } from './Drawer.js'
+import { DrawerEx, DrawerExProps } from './Drawer.tsx'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/drawer/Ex',
 } as Meta

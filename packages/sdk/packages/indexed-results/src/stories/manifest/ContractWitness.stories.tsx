@@ -1,10 +1,10 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { ManifestNodeProvider } from '@xyo-network/react-manifest'
+import React from 'react'
 
-import { TestSentinel, UseFreshIndexedResult, UseIndexedResults, UseIndexedResultsNoPoll } from './components/index.js'
-import { ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode } from './nodes/index.js'
+import { TestSentinel, UseFreshIndexedResult, UseIndexedResults, UseIndexedResultsNoPoll } from './components/index.ts'
+import { ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode } from './nodes/index.ts'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/indexed-results/contract-witness',
 } as Meta
@@ -20,7 +20,7 @@ const Template: StoryFn = (args) => {
 const TemplateUseIndexedResults: StoryFn = (args) => {
   return (
     <ManifestNodeProvider {...args}>
-      <TestSentinel>{(props) => <UseIndexedResults {...props} />}</TestSentinel>
+      <TestSentinel>{props => <UseIndexedResults {...props} />}</TestSentinel>
     </ManifestNodeProvider>
   )
 }
@@ -28,7 +28,7 @@ const TemplateUseIndexedResults: StoryFn = (args) => {
 const TemplateUseFreshIndexedResults: StoryFn = (args) => {
   return (
     <ManifestNodeProvider {...args}>
-      <TestSentinel>{(props) => <UseFreshIndexedResult {...props} />}</TestSentinel>
+      <TestSentinel>{props => <UseFreshIndexedResult {...props} />}</TestSentinel>
     </ManifestNodeProvider>
   )
 }
@@ -36,7 +36,7 @@ const TemplateUseFreshIndexedResults: StoryFn = (args) => {
 const TemplateUseIndexedResultsNoPoll: StoryFn = (args) => {
   return (
     <ManifestNodeProvider {...args}>
-      <TestSentinel>{(props) => <UseIndexedResultsNoPoll {...props} />}</TestSentinel>
+      <TestSentinel>{props => <UseIndexedResultsNoPoll {...props} />}</TestSentinel>
     </ManifestNodeProvider>
   )
 }

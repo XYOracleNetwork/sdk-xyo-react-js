@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { ErrorAlert } from './ErrorAlert.js'
+import { ErrorAlert } from './ErrorAlert.tsx'
 
 const StorybookEntry: Meta = {
   argTypes: {},
@@ -38,5 +38,4 @@ WithErrorAndScopeAndTitle.args = { error: 'An error happened', scope: 'Storybook
 
 export { Default, WithError, WithErrorAndScope, WithErrorAndScopeAndTitle, WithScope, WithTitle }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

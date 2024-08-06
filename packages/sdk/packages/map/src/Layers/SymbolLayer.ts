@@ -11,6 +11,7 @@ export class SymbolLayerBuilder extends LayerBase<SymbolLayerSpecification> {
     super(id, source)
     this.SymbolLayerOptions = SymbolLayerOptions || { id: this.id, source: this.source }
   }
+
   buildLayer(): SymbolLayerSpecification {
     return {
       ...this.SymbolLayerOptions,

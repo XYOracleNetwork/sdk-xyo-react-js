@@ -1,14 +1,14 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { GasFeeCard } from './Card.js'
+import { GasFeeCard } from './Card.tsx'
 
 const DefaultArgs = {
   gasPrice: 15.760_184_184_000_002,
   priorityFee: 1.0625,
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: GasFeeCard,
   title: 'plugin/blockchain/GasPrice/GasFeeCard',

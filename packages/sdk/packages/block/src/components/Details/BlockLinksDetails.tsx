@@ -3,6 +3,7 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useEvent } from '@xyo-network/react-event'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import React from 'react'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export type PreviousBlockDetailsProps = PropertyGroupProps & {
@@ -10,7 +11,6 @@ export type PreviousBlockDetailsProps = PropertyGroupProps & {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-// eslint-disable-next-line deprecation/deprecation
 export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, ...props }) => {
   let elevation = 2
   if (props.paper) {
@@ -24,11 +24,13 @@ export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, 
       {value?.previous_hashes.map((hash) => {
         return (
           <Property key={hash} titleProps={{ elevation }} flexGrow={1} title="Previous Hash" tip={hash}>
-            {hash ?
-              <FlexRow ref={ref} onClick={() => dispatch?.('boundwitness', 'click', hash)}>
-                <Typography fontFamily="monospace">{hash}</Typography>
-              </FlexRow>
-            : 'None'}
+            {hash
+              ? (
+                  <FlexRow ref={ref} onClick={() => dispatch?.('boundwitness', 'click', hash)}>
+                    <Typography fontFamily="monospace">{hash}</Typography>
+                  </FlexRow>
+                )
+              : 'None'}
           </Property>
         )
       })}

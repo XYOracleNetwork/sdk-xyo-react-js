@@ -1,8 +1,7 @@
-/* eslint-disable import/no-internal-modules */
 import { Meta, StoryFn } from '@storybook/react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { ConnectedAccountsFlexbox } from './ConnectedAccountsFlexbox.js'
+import { ConnectedAccountsFlexbox } from './ConnectedAccountsFlexbox.tsx'
 
 const StorybookEntry: Meta = {
   argTypes: {},
@@ -32,5 +31,4 @@ const WithIgnoreDialog = TemplateWithIgnoreDialog.bind({})
 
 export { Default, WithIgnoreDialog }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

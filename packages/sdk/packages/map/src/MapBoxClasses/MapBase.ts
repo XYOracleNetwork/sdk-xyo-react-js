@@ -3,7 +3,7 @@ import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Geometry } from 'geojson'
 import { GeoJSONSource, Map } from 'mapbox-gl'
 
-import { MapLayer } from '../Layers/index.js'
+import { MapLayer } from '../Layers/index.ts'
 
 export interface MapBaseConfig<T extends Geometry> {
   features: Feature<T>[]

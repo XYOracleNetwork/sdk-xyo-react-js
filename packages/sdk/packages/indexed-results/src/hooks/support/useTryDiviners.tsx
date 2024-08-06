@@ -3,7 +3,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 import { useCallback } from 'react'
 
-import { IndexedResultsConfig, ProcessIndexedResults } from '../../interfaces/index.js'
+import { IndexedResultsConfig, ProcessIndexedResults } from '../../interfaces/index.ts'
 
 export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResultsConfig): (() => Promise<Payload[] | undefined | null>) => {
   const [node] = useProvidedNode()
@@ -28,7 +28,7 @@ export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResu
 
     if (config?.diviners && node) {
       const resolvedDiviners = await node.resolve({ name: config.diviners })
-      const diviners = resolvedDiviners.filter((mod) => isDivinerInstance(mod)) as DivinerInstance[]
+      const diviners = resolvedDiviners.filter(mod => isDivinerInstance(mod)) as DivinerInstance[]
 
       if (diviners && diviners?.length > 0) {
         while (divinerCount < diviners?.length && indexedQueries) {

@@ -1,8 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { ProvidedNodeRenderer } from '@xyo-network/react-node-renderer'
+import React from 'react'
 
-import type { SampleNodeModules } from './useBuildSampleNode.js'
-import { useBuildSampleNode } from './useBuildSampleNode.js'
+import type { SampleNodeModules } from './useBuildSampleNode.ts'
+import { useBuildSampleNode } from './useBuildSampleNode.tsx'
 
 const modules: SampleNodeModules = {
   Bridge: 'Bridge',
@@ -11,7 +12,6 @@ const modules: SampleNodeModules = {
   SystemInfoWitness: 'SystemInfoWitness',
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/node/useBuildSampleNode',
 } as Meta

@@ -1,6 +1,6 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { ModuleRepositoryContext, ResolverEntries } from '@xyo-network/react-node-context'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export interface ModuleRepositoryProviderProps extends WithChildren {
   defaultResolvers?: ResolverEntries
@@ -15,7 +15,7 @@ export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> =
 
   const updateResolvers = (resolverEntries?: ResolverEntries) => {
     if (resolverEntries) {
-      setResolvers((resolvers) => ({
+      setResolvers(resolvers => ({
         ...resolvers,
         ...resolverEntries,
       }))
@@ -42,6 +42,7 @@ export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> =
   }
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <ModuleRepositoryContext.Provider value={{ provided: true, removeResolvers, resolvers, updateResolvers }}>
       {children}
     </ModuleRepositoryContext.Provider>

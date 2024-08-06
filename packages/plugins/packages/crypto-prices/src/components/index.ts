@@ -1,1 +1,1 @@
-export * from './CryptoPricesRenderer.js'
+export * from './CryptoPricesRenderer.tsx'

@@ -1,5 +1,6 @@
 import { Typography, TypographyVariant } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
 export const TextsExample = () => {
   const variantList: TypographyVariant[] = [
@@ -20,9 +21,11 @@ export const TextsExample = () => {
 
   return (
     <FlexCol>
-      {variantList.map((variant) => (
+      {variantList.map(variant => (
         <Typography key={variant} variant={variant}>
-          {variant} - XYO Network
+          {variant}
+          {' '}
+          - XYO Network
         </Typography>
       ))}
     </FlexCol>

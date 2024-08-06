@@ -1,3 +1,3 @@
-export * from './builders/index.js'
-export * from './configs/index.js'
-export * from './FillExtrusionLayer.js'
+export * from './builders/index.ts'
+export * from './configs/index.ts'
+export * from './FillExtrusionLayer.ts'

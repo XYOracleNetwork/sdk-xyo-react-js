@@ -12,11 +12,11 @@ import { useSentinelFromNode } from '@xyo-network/react-sentinel'
 import { asSentinelInstance } from '@xyo-network/sentinel-model'
 import { EvmAddress, EvmAddressSchema } from '@xyo-network/witness-evm-abstract'
 import { TimeStamp } from '@xyo-network/witness-timestamp'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
-import { useFreshIndexedResult, UseIndexedResultsConfig } from '../../../hooks/index.js'
-import { PollingStrategies } from '../../../interfaces/index.js'
-import { UseIndexedResultsProps } from './lib/index.js'
+import { useFreshIndexedResult, UseIndexedResultsConfig } from '../../../hooks/index.ts'
+import { PollingStrategies } from '../../../interfaces/index.ts'
+import { UseIndexedResultsProps } from './lib/index.ts'
 
 export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
   const [archivist] = useWeakArchivistFromNode('Archivist')
@@ -55,7 +55,7 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
       },
       pollingConfig: {
         ...PollingStrategies.TillComplete,
-        onFoundResult: (result) => isEvmTokenInterfaceImplemented(result?.[0]),
+        onFoundResult: result => isEvmTokenInterfaceImplemented(result?.[0]),
       },
       trigger: !!node && !!archivist && !!contractSentinel,
     }
@@ -68,9 +68,9 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
   return (
     <FlexCol alignItems="start">
       <h1>Polling Results from Hook</h1>
-      {results ?
-        <pre>{JSON.stringify(results, null, 2)}</pre>
-      : null}
+      {results
+        ? <pre>{JSON.stringify(results, null, 2)}</pre>
+        : null}
     </FlexCol>
   )
 }

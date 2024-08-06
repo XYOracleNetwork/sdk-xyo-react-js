@@ -2,8 +2,9 @@ import { CardProps } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import { ModuleError } from '@xyo-network/payload-model'
 import { ErrorAlert, ErrorRender } from '@xyo-network/react-error'
+import React from 'react'
 
-import { EmbedErrorCard } from './EmbedErrorCard.js'
+import { EmbedErrorCard } from './EmbedErrorCard.tsx'
 
 interface EmbedCardApiErrorRendererProps extends CardProps {
   xyoError?: ModuleError

@@ -1,1 +1,1 @@
-export * from './cytoscape/index.js'
+export * from './cytoscape/index.ts'

@@ -1,11 +1,11 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
-import { MapSettings } from '../../MapBoxClasses/index.js'
-import { MapSetting } from '../../Settings/index.js'
-import { useMapBoxInstance } from '../MapBoxInstance/index.js'
-import { MapSettingsContext } from './Context.js'
-import { MapSettingsState } from './State.js'
+import { MapSettings } from '../../MapBoxClasses/index.ts'
+import { MapSetting } from '../../Settings/index.ts'
+import { useMapBoxInstance } from '../MapBoxInstance/index.ts'
+import { MapSettingsContext } from './Context.ts'
+import { MapSettingsState } from './State.ts'
 
 export interface MapSettingsProviderProps {
   debugLayerName?: string
@@ -24,10 +24,10 @@ export const MapSettingsProvider: React.FC<WithChildren<MapSettingsProviderProps
   const [mapSettings, setMapSettings] = useState<MapSetting>(defaultMapSettings || {})
   const { map, mapInitialized } = useMapBoxInstance()
 
-  const value: MapSettingsState = {
+  const value: MapSettingsState = useMemo(() => ({
     mapSettings,
     setMapSettings,
-  }
+  }), [mapSettings, setMapSettings])
 
   useEffect(() => {
     if (mapSettings && map && mapInitialized) {

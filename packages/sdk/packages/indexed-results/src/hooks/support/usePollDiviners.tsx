@@ -2,13 +2,13 @@ import { setTimeoutEx } from '@xylabs/timer'
 import { Payload } from '@xyo-network/payload-model'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.js'
-import { useTryDiviners } from './useTryDiviners.js'
+import { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.ts'
+import { useTryDiviners } from './useTryDiviners.tsx'
 
 export type FunctionToPoll = () => Promise<Payload[] | null | undefined>
 
 const DEFAULT_POLLING_CONFIG: PollingConfig = {
-  initialDelay: 100 / 3, //First time will be zero, second time will be 100
+  initialDelay: 100 / 3, // First time will be zero, second time will be 100
   maxDelay: 10_000,
   maxRetries: 8,
 }
@@ -47,7 +47,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
         let result: Payload[] | undefined | null
 
         const pollDivinersWithDelayInner = async (newDelay: number) => {
-          await new Promise((resolve) => setTimeoutEx(() => resolve(true), retries === 0 ? 0 : newDelay))
+          await new Promise(resolve => setTimeoutEx(() => resolve(true), retries === 0 ? 0 : newDelay))
           try {
             // Try for a fixed number of times
             if (retries < maxRetries) {
@@ -88,7 +88,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
       if (activePollingRef.current && functionToPoll) {
         let result: Payload[] | undefined | null
 
-        await new Promise((resolve) => setTimeoutEx(() => resolve(true), newDelay))
+        await new Promise(resolve => setTimeoutEx(() => resolve(true), newDelay))
         try {
           result = await functionToPoll()
 
@@ -98,6 +98,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
           if ((result && fresh) || result === null) {
             onResult?.(result as T[] | null)
           }
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           pollComplete ? (activePollingRef.current = false) : await pollDivinersIndefinitely(initialDelay, functionToPoll)
         } catch (e) {
           console.error('error retrying diviner', e)

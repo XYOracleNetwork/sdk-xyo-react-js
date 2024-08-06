@@ -2,13 +2,14 @@ import { Paper, useMediaQuery, useTheme } from '@mui/material'
 import { Payload } from '@xyo-network/payload-model'
 import { JsonViewerEx, JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import React from 'react'
 
 export type PayloadJsonDetailsProps = PropertyGroupProps & {
   jsonViewProps?: JsonViewerExProps
   payload?: Payload
 }
 
-export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonViewProps, payload = {}, ...props }) => {
+export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonViewProps, payload, ...props }) => {
   const { breakpoints, palette } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
 

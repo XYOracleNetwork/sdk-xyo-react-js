@@ -1,9 +1,10 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { FooterLink } from '../Link.js'
-import { FooterLinks } from '../Links.js'
+import { FooterLink } from '../Link.tsx'
+import { FooterLinks } from '../Links.tsx'
 
-export const DeveloperLinks: React.FC<FlexBoxProps> = (props) => (
+export const DeveloperLinks: React.FC<FlexBoxProps> = props => (
   <FooterLinks title="Developer" {...props}>
     <FooterLink href="https://xyo.network/developer">Overview</FooterLink>
     <FooterLink href="https://xyo.network/developer/get-started">Get Started</FooterLink>

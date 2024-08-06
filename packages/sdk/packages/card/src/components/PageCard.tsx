@@ -1,9 +1,9 @@
 import { Refresh as RefreshIcon } from '@mui/icons-material'
 import { CardHeader, CardHeaderProps, IconButton } from '@mui/material'
 import { TypographyEx } from '@xyo-network/react-shared'
-import { forwardRef, ReactNode } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 
-import { CardEx, CardExProps } from './CardEx.js'
+import { CardEx, CardExProps } from './CardEx.tsx'
 
 export interface PageCardProps extends CardExProps {
   action?: ReactNode
@@ -15,20 +15,22 @@ const PageCardWithRef = forwardRef<HTMLDivElement, PageCardProps>(({ subheader, 
   return (
     <CardEx style={{ backgroundColor: 'transparent', position: 'relative', ...style }} elevation={0} ref={ref} {...props}>
       <CardHeader
-        title={
+        title={(
           <TypographyEx variant="h5" gutterBottom>
             {title}
           </TypographyEx>
-        }
+        )}
         subheader={<TypographyEx variant="subtitle1">{subheader}</TypographyEx>}
         action={
           action ?? (
             <>
-              {onRefresh ?
-                <IconButton onClick={() => onRefresh?.()}>
-                  <RefreshIcon />
-                </IconButton>
-              : null}
+              {onRefresh
+                ? (
+                    <IconButton onClick={() => onRefresh?.()}>
+                      <RefreshIcon />
+                    </IconButton>
+                  )
+                : null}
             </>
           )
         }

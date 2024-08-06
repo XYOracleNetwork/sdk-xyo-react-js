@@ -18,10 +18,10 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { Payload } from '@xyo-network/payload-model'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
-import { ReactNode, useEffect, useMemo, useState } from 'react'
+import React, { ReactNode, useEffect, useMemo, useState } from 'react'
 
-import { PayloadDynamicTableRow } from './DynamicTableRow.js'
-import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.js'
+import { PayloadDynamicTableRow } from './DynamicTableRow.tsx'
+import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.ts'
 
 export interface PayloadDynamicTableProps extends TableProps {
   archive?: string
@@ -62,24 +62,24 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
   return (
     <Box sx={{ flexShrink: 0, ml: 2.5 }}>
       <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
-        {theme.direction === 'rtl' ?
-          <LastPageIcon />
-        : <FirstPageIcon />}
+        {theme.direction === 'rtl'
+          ? <LastPageIcon />
+          : <FirstPageIcon />}
       </IconButton>
       <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
-        {theme.direction === 'rtl' ?
-          <KeyboardArrowRight />
-        : <KeyboardArrowLeft />}
+        {theme.direction === 'rtl'
+          ? <KeyboardArrowRight />
+          : <KeyboardArrowLeft />}
       </IconButton>
       <IconButton onClick={handleNextButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="next page">
-        {theme.direction === 'rtl' ?
-          <KeyboardArrowLeft />
-        : <KeyboardArrowRight />}
+        {theme.direction === 'rtl'
+          ? <KeyboardArrowLeft />
+          : <KeyboardArrowRight />}
       </IconButton>
       <IconButton onClick={handleLastPageButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="last page">
-        {theme.direction === 'rtl' ?
-          <FirstPageIcon />
-        : <LastPageIcon />}
+        {theme.direction === 'rtl'
+          ? <FirstPageIcon />
+          : <LastPageIcon />}
       </IconButton>
     </Box>
   )
@@ -88,7 +88,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
   archive,
   children,
-  columns = payloadDynamicTableColumnConfigDefaults(),
+  columns,
   exploreDomain,
   onRowClick,
   rowsPerPage: rowsPerPageProp = 10,
@@ -119,71 +119,75 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
     setPage(0)
   }
 
-  return breakPoint ?
-      <Table stickyHeader {...props}>
-        <TableHead>
-          <TableRow>
-            {columns[breakPoint]?.map((column, index) => {
+  return breakPoint
+    ? (
+        <Table stickyHeader {...props}>
+          <TableHead>
+            <TableRow>
+              {(columns ?? payloadDynamicTableColumnConfigDefaults())[breakPoint]?.map((column, index) => {
+                return (
+                  <TableCell key={index} align={column.alignment ?? 'left'} width={column.width}>
+                    <Typography variant="body2" noWrap>
+                      {column.name}
+                    </Typography>
+                  </TableCell>
+                )
+              })}
+            </TableRow>
+          </TableHead>
+          <TableBody sx={{ overflowY: 'scroll ' }}>
+            {payloadPairs?.map(([payload, hash], index) => {
               return (
-                <TableCell key={index} align={column.alignment ?? 'left'} width={column.width}>
-                  <Typography variant="body2" noWrap>
-                    {column.name}
-                  </Typography>
-                </TableCell>
+                <ThrownErrorBoundary
+                  boundaryName="PayloadTableBody"
+                  key={`${hash}-${index}`}
+                  errorComponent={e => (
+                    <Alert severity="error">
+                      Error Loading Payload:
+                      {' '}
+                      <Typography fontWeight="bold">{e.message}</Typography>
+                    </Alert>
+                  )}
+                >
+                  <PayloadDynamicTableRow
+                    archive={archive}
+                    onClick={
+                      onRowClick
+                        ? () => {
+                            onRowClick(payload)
+                          }
+                        : undefined
+                    }
+                    exploreDomain={exploreDomain}
+                    payload={payload}
+                  />
+                </ThrownErrorBoundary>
               )
             })}
-          </TableRow>
-        </TableHead>
-        <TableBody sx={{ overflowY: 'scroll ' }}>
-          {payloadPairs?.map(([payload, hash], index) => {
-            return (
-              <ThrownErrorBoundary
-                boundaryName="PayloadTableBody"
-                key={`${hash}-${index}`}
-                errorComponent={(e) => (
-                  <Alert severity="error">
-                    Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>
-                  </Alert>
-                )}
-              >
-                <PayloadDynamicTableRow
-                  archive={archive}
-                  onClick={
-                    onRowClick ?
-                      () => {
-                        onRowClick(payload)
-                      }
-                    : undefined
-                  }
-                  exploreDomain={exploreDomain}
-                  payload={payload}
-                />
-              </ThrownErrorBoundary>
-            )
-          })}
-          {children}
-          {emptyRows ? (Array.from({ length: emptyRows }).fill(<PayloadDynamicTableRow />) as ReactNode[]) : null}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={5}
-              count={payloadCount}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
-          </TableRow>
-        </TableFooter>
-      </Table>
+            {children}
+            {emptyRows ? (Array.from({ length: emptyRows }).fill(<PayloadDynamicTableRow />) as ReactNode[]) : null}
+          </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                colSpan={5}
+                count={payloadCount}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                SelectProps={{
+                  inputProps: {
+                    'aria-label': 'rows per page',
+                  },
+                  native: true,
+                }}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                ActionsComponent={TablePaginationActions}
+              />
+            </TableRow>
+          </TableFooter>
+        </Table>
+      )
     : null
 }

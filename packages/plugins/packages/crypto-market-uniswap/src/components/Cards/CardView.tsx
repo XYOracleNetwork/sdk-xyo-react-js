@@ -2,11 +2,11 @@ import { Card, CardContent, Grid } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { CardViewType } from './CardViewType.js'
-import { DynamicTokenComparison } from './DynamicTokenComparison.js'
-import { StaticTokenComparison } from './StaticTokenComparison.js'
+import { CardViewType } from './CardViewType.ts'
+import { DynamicTokenComparison } from './DynamicTokenComparison.tsx'
+import { StaticTokenComparison } from './StaticTokenComparison.tsx'
 
 interface UniswapPairsCardsProps extends FlexBoxProps {
   payload?: Payload
@@ -25,9 +25,9 @@ export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload
           <Grid item xs={12} md={4} key={index}>
             <Card style={{ width: '100%' }}>
               <CardContent>
-                {cardViewStyle == CardViewType.Static ?
-                  <StaticTokenComparison tokenPayload={pair} />
-                : <DynamicTokenComparison tokenPayload={pair} />}
+                {cardViewStyle == CardViewType.Static
+                  ? <StaticTokenComparison tokenPayload={pair} />
+                  : <DynamicTokenComparison tokenPayload={pair} />}
               </CardContent>
             </Card>
           </Grid>

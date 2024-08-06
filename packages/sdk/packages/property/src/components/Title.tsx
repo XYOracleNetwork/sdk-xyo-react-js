@@ -2,7 +2,7 @@ import { darken, lighten, Typography, TypographyVariant, useTheme } from '@mui/m
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { SizeProp } from '@xyo-network/react-shared'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 export type TitleSizeProp = SizeProp | 'full'
 
@@ -43,9 +43,9 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, siz
   return (
     <FlexRow
       bgcolor={
-        theme.palette.mode === 'dark' ?
-          lighten(theme.palette.background.paper, 0.05 * elevation)
-        : darken(theme.palette.background.paper, 0.025 * elevation)
+        theme.palette.mode === 'dark'
+          ? lighten(theme.palette.background.paper, 0.05 * elevation)
+          : darken(theme.palette.background.paper, 0.025 * elevation)
       }
       alignItems="center"
       height={sizeTitleHeight[size]}
@@ -58,11 +58,13 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, siz
             <strong>{title}</strong>
           </small>
         </Typography>
-        {tip ?
-          <QuickTipButton style={{ fontSize: quickTipSize }} color="inherit" title={title ?? ''}>
-            {tip}
-          </QuickTipButton>
-        : null}
+        {tip
+          ? (
+              <QuickTipButton style={{ fontSize: quickTipSize }} color="inherit" title={title ?? ''}>
+                {tip}
+              </QuickTipButton>
+            )
+          : null}
       </FlexRow>
       {more}
     </FlexRow>

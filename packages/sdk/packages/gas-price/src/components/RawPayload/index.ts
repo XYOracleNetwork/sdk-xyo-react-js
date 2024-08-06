@@ -1,1 +1,1 @@
-export * from './ToggleRawPayloadBox.js'
+export * from './ToggleRawPayloadBox.tsx'

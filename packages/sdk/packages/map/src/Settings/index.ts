@@ -1,2 +1,2 @@
-export * from './DefaultMapSettings.js'
-export * from './MapSetting.js'
+export * from './DefaultMapSettings.ts'
+export * from './MapSetting.ts'

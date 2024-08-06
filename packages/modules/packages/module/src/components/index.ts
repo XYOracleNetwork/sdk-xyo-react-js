@@ -1,3 +1,3 @@
-export * from './Card/index.js'
-export * from './DetailsBox.js'
-export * from './TableCell.js'
+export * from './Card/index.ts'
+export * from './DetailsBox.tsx'
+export * from './TableCell.tsx'

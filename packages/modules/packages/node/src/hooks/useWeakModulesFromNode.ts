@@ -2,9 +2,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.js'
-import { useModuleFilterOptions } from './useModuleFilterOptions.js'
-import { useNode } from './useNode.js'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import { useModuleFilterOptions } from './useModuleFilterOptions.ts'
+import { useNode } from './useNode.ts'
 
 export const useWeakModulesFromNode = (
   filter?: ModuleFilter,
@@ -22,16 +22,16 @@ export const useWeakModulesFromNode = (
         const nodeInstance = node
         logger?.debug(`useModuleFromNode: moduleAttached [${mod.config.name ?? mod.address}]`)
         const moduleInstances = filter ? await nodeInstance?.resolve(filter, filterOptions) : await nodeInstance?.resolve('*', filterOptions)
-        setResult(moduleInstances?.map((mod) => new WeakRef(mod)))
+        setResult(moduleInstances?.map(mod => new WeakRef(mod)))
       })
       nodeInstance.on('moduleDetached', async ({ mod }) => {
         const nodeInstance = node
         logger?.debug(`useModuleFromNode: moduleDetached [${mod.config.name ?? mod.address}]`)
         const moduleInstances = filter ? await nodeInstance?.resolve(filter, filterOptions) : await nodeInstance?.resolve('*', filterOptions)
-        setResult(moduleInstances?.map((mod) => new WeakRef(mod)))
+        setResult(moduleInstances?.map(mod => new WeakRef(mod)))
       })
       const moduleInstances = filter ? await nodeInstance.resolve(filter, filterOptions) : await nodeInstance.resolve('*', filterOptions)
-      setResult(moduleInstances?.map((mod) => new WeakRef(mod)))
+      setResult(moduleInstances?.map(mod => new WeakRef(mod)))
       return moduleInstances
     }
     console.log('Result: No Node')

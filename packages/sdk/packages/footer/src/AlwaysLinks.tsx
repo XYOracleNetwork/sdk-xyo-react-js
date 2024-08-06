@@ -1,8 +1,9 @@
 import { MoreHoriz as MoreHorizIcon } from '@mui/icons-material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { LinkExProps } from '@xylabs/react-link'
+import React from 'react'
 
-import { FooterLink } from './Link.js'
+import { FooterLink } from './Link.tsx'
 
 export interface FooterAlwaysLinksProps extends FlexBoxProps {
   footerLinks?: LinkExProps[]
@@ -16,10 +17,12 @@ export const FooterAlwaysLinks: React.FC<FooterAlwaysLinksProps> = ({ style, foo
         <small>{footerLink.title}</small>
       </FooterLink>
     ))}
-    {onMore ?
-      <FlexRow style={{ cursor: 'pointer' }} paddingX={0.5} onClick={onMore}>
-        <MoreHorizIcon color="primary" fontSize="small" />
-      </FlexRow>
-    : null}
+    {onMore
+      ? (
+          <FlexRow style={{ cursor: 'pointer' }} paddingX={0.5} onClick={onMore}>
+            <MoreHorizIcon color="primary" fontSize="small" />
+          </FlexRow>
+        )
+      : null}
   </FlexRow>
 )

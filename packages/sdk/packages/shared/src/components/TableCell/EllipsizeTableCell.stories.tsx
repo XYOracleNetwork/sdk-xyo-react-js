@@ -1,8 +1,9 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { EllipsisTableCell } from './EllipsisTableCell.js'
+import { EllipsisTableCell } from './EllipsisTableCell.tsx'
 
 const TableDecorator: Decorator = (Story, args) => {
   return (
@@ -24,7 +25,6 @@ const TableDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: EllipsisTableCell,
   decorators: [TableDecorator],

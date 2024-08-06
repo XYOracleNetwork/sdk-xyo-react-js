@@ -1,1 +1,1 @@
-export * from './WalletProviderDecorator.js'
+export * from './WalletProviderDecorator.tsx'

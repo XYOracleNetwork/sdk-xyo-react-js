@@ -1,5 +1,3 @@
-export * from './components/index.js'
-export * from './Plugin.js'
-
-// eslint-disable-next-line import/no-default-export
-export { CryptoAssetRenderPlugin as default } from './Plugin.js'
+export * from './components/index.ts'
+export * from './Plugin.ts'
+export { CryptoAssetRenderPlugin as default } from './Plugin.ts'

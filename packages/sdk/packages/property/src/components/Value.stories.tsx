@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { PropertyValue } from './Value.js'
+import { PropertyValue } from './Value.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -13,7 +14,7 @@ const StorybookEntry = {
   title: 'property/Value',
 } as Meta<typeof PropertyValue>
 
-const Template: StoryFn<typeof PropertyValue> = (args) => <PropertyValue {...args}></PropertyValue>
+const Template: StoryFn<typeof PropertyValue> = args => <PropertyValue {...args}></PropertyValue>
 
 const Default = Template.bind({})
 Default.args = {}
@@ -26,5 +27,4 @@ WithData.args = {
 
 export { Default, WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

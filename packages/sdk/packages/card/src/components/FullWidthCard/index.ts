@@ -1,1 +1,1 @@
-export * from './FullWidthCard.js'
+export * from './FullWidthCard.tsx'

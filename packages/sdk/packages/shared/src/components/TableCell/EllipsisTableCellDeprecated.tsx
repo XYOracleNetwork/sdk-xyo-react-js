@@ -1,15 +1,15 @@
 import { TableCell, TableCellProps, useTheme } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { To } from 'react-router-dom'
 
-import { getActualPaddingX } from '../../lib/index.js'
-import { findParent } from './findParent.js'
-import { getRemainingRowWidth } from './getRemainingRowWidth.js'
-import { getSmallestParentWidth } from './getSmallestParentWidth.js'
+import { getActualPaddingX } from '../../lib/index.ts'
+import { findParent } from './findParent.ts'
+import { getRemainingRowWidth } from './getRemainingRowWidth.ts'
+import { getSmallestParentWidth } from './getSmallestParentWidth.ts'
 
 export interface EllipsisTableCellProps extends TableCellProps {
-  forCell?: number //cell index for ellipsized table cell
+  forCell?: number // cell index for ellipsized table cell
   href?: string | undefined
   to?: To | undefined
   value?: string
@@ -57,48 +57,53 @@ export const EllipsisTableCellDeprecated: React.FC<EllipsisTableCellProps> = ({ 
   return (
     <TableCell {...props}>
       <div ref={hashDivRef}>
-        {children ?
-          <span
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              minWidth: theme.spacing(10),
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {children}
-          </span>
-        : href || to ?
-          <LinkEx
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              minWidth: theme.spacing(10),
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-            to={to}
-            href={href}
-            target={href ? '_blank' : undefined}
-          >
-            {value}
-          </LinkEx>
-        : <span
-            style={{
-              display: 'block',
-              maxWidth: calcCellWidth,
-              minWidth: theme.spacing(10),
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {value}
-          </span>
-        }
+        {children
+          ? (
+              <span
+                style={{
+                  display: 'block',
+                  maxWidth: calcCellWidth,
+                  minWidth: theme.spacing(10),
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {children}
+              </span>
+            )
+          : href || to
+            ? (
+                <LinkEx
+                  style={{
+                    display: 'block',
+                    maxWidth: calcCellWidth,
+                    minWidth: theme.spacing(10),
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                  }}
+                  to={to}
+                  href={href}
+                  target={href ? '_blank' : undefined}
+                >
+                  {value}
+                </LinkEx>
+              )
+            : (
+                <span
+                  style={{
+                    display: 'block',
+                    maxWidth: calcCellWidth,
+                    minWidth: theme.spacing(10),
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {value}
+                </span>
+              )}
       </div>
     </TableCell>
   )

@@ -1,3 +1,3 @@
-export * from './Memory.js'
-export * from './Props.js'
-export * from './Route.js'
+export * from './Memory.tsx'
+export * from './Props.ts'
+export * from './Route.tsx'

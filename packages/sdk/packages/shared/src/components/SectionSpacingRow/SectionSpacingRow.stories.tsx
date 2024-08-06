@@ -1,8 +1,9 @@
 import { Divider, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { SectionSpacingRow } from './SectionSpacingRow.js'
+import { SectionSpacingRow } from './SectionSpacingRow.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: SectionSpacingRow,
@@ -14,7 +15,7 @@ const StorybookEntry = {
   title: 'shared/SectionSpacingRow',
 } as Meta<typeof SectionSpacingRow>
 
-const Template: StoryFn<typeof SectionSpacingRow> = (args) => (
+const Template: StoryFn<typeof SectionSpacingRow> = args => (
   <BrowserRouter>
     <Typography variant="subtitle2">No Spacing</Typography>
     <Typography textAlign="center">Hello World</Typography>
@@ -28,9 +29,8 @@ const Default = Template.bind({})
 Default.args = {}
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 
-import { useCollapsible } from '../../../contexts/index.js'
-import { MenuListItemProps } from '../MenuListItem/index.js'
+import { useCollapsible } from '../../../contexts/index.ts'
+import { MenuListItemProps } from '../MenuListItem/index.ts'
 
 export type DefaultSiteMenuListItemProps = Pick<MenuListItemProps, 'collapseEnd' | 'dense' | 'iconOnly' | 'sx'>
 
@@ -9,8 +9,8 @@ export const useMenuItemsShared = () => {
   const { collapse, collapseEnd, setCollapse, setCollapseEnd } = useCollapsible()
 
   const onMenuItemToggle = (open?: boolean) => {
-    setCollapse?.((previous) => (open ? false : previous))
-    setCollapseEnd?.((previous) => (open ? false : previous))
+    setCollapse?.(previous => (open ? false : previous))
+    setCollapseEnd?.(previous => (open ? false : previous))
   }
 
   const defaultSiteMenuListItemProps: DefaultSiteMenuListItemProps = useMemo(

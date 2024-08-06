@@ -4,6 +4,7 @@ import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { useGetTokenData } from '@xyo-network/react-shared'
 import { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import React from 'react'
 
 export interface TableRowProps {
   tokenPair: UniswapCryptoPair

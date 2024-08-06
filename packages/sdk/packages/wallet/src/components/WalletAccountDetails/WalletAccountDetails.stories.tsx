@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WalletAccountDetails } from './WalletAccountDetails.js'
+import { WalletAccountDetails } from './WalletAccountDetails.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -27,5 +28,4 @@ Default.args = {}
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

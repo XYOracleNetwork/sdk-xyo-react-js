@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { CryptoPricesRenderer } from './CryptoPricesRenderer.js'
-import { payloadData, payloadDataMissingAssets } from './storyPayloadData.js'
+import { CryptoPricesRenderer } from './CryptoPricesRenderer.tsx'
+import { payloadData, payloadDataMissingAssets } from './storyPayloadData.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -14,7 +15,7 @@ const StorybookEntry = {
   title: 'plugin/crypto-prices/CryptoPricesRenderer',
 } as Meta<typeof CryptoPricesRenderer>
 
-const Template: StoryFn<typeof CryptoPricesRenderer> = (args) => <CryptoPricesRenderer {...args}></CryptoPricesRenderer>
+const Template: StoryFn<typeof CryptoPricesRenderer> = args => <CryptoPricesRenderer {...args}></CryptoPricesRenderer>
 
 const Default = Template.bind({})
 Default.args = {}
@@ -27,5 +28,4 @@ WithMissingData.args = { payload: payloadDataMissingAssets }
 
 export { Default, WithData, WithMissingData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

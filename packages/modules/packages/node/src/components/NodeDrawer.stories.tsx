@@ -3,8 +3,9 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { MemoryNodeProvider, NodeDrawerProvider, useNodeDrawer } from '@xyo-network/react-node-provider'
+import React from 'react'
 
-import { NodeDrawer } from './NodeDrawer.js'
+import { NodeDrawer } from './NodeDrawer.tsx'
 
 const ProviderDecorator: Decorator = (Story, args) => (
   <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>
@@ -24,7 +25,7 @@ const Template: StoryFn<typeof NodeDrawer> = (args) => {
   const { setOpen } = useNodeDrawer()
   return (
     <FlexCol>
-      <Button onClick={() => setOpen?.((previous) => !previous)} variant="contained">
+      <Button onClick={() => setOpen?.(previous => !previous)} variant="contained">
         Toggle Drawer
       </Button>
       <NodeDrawer {...args}></NodeDrawer>
@@ -37,5 +38,4 @@ Default.args = {}
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

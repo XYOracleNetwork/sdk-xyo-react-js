@@ -1,9 +1,10 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import CoinbaseWalletIcon from './coinbase-wallet.svg'
 import MoneyMedia from './money.jpg'
-import { SimpleCardGrid } from './SimpleCardGrid.js'
+import { SimpleCardGrid } from './SimpleCardGrid.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: SimpleCardGrid,
@@ -15,7 +16,7 @@ const StorybookEntry = {
   title: 'shared/SimpleCardGrid',
 } as Meta<typeof SimpleCardGrid>
 
-const Template: StoryFn<typeof SimpleCardGrid> = (args) => (
+const Template: StoryFn<typeof SimpleCardGrid> = args => (
   <BrowserRouter>
     <SimpleCardGrid {...args}></SimpleCardGrid>
   </BrowserRouter>
@@ -69,9 +70,8 @@ Default.args = {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -1,5 +1,6 @@
 import { Paper, Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
 export const PapersExample: React.FC = ({ ...props }) => {
   return (
@@ -9,7 +10,10 @@ export const PapersExample: React.FC = ({ ...props }) => {
         {Array.from({ length: 5 }, () => {}).map((_, index) => (
           <FlexCol key={`paper-${index}`} marginRight={2}>
             <Paper key={`paper-${index}`} elevation={index * 2} color="secondary">
-              <Typography margin={1}>Elevation-{index * 3}</Typography>
+              <Typography margin={1}>
+                Elevation-
+                {index * 3}
+              </Typography>
             </Paper>
           </FlexCol>
         ))}

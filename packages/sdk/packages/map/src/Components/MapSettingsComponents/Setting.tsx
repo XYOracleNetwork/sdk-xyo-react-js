@@ -1,6 +1,7 @@
 import { FormControlLabel, Switch, SwitchProps } from '@mui/material'
+import React from 'react'
 
-import { useMapSettings } from '../../Contexts/index.js'
+import { useMapSettings } from '../../Contexts/index.ts'
 
 export interface MapSettingSwitchProps extends SwitchProps {
   developerMode?: boolean
@@ -24,7 +25,9 @@ export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({ developerMod
     return null
   }
 
-  return setting?.hidden ? null : (
-      <FormControlLabel label={setting?.label} control={<Switch checked={setting?.value} onChange={onLocalChange} {...props} />} />
-    )
+  return setting?.hidden
+    ? null
+    : (
+        <FormControlLabel label={setting?.label} control={<Switch checked={setting?.value} onChange={onLocalChange} {...props} />} />
+      )
 }

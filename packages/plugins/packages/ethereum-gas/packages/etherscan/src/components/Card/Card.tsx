@@ -1,9 +1,9 @@
 import { Card, CardProps } from '@mui/material'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
-import { EtherscanGasPriceCardContent } from './CardContent.js'
-import { EtherscanGasPriceCardHeader } from './CardHeader.js'
+import { EtherscanGasPriceCardContent } from './CardContent.tsx'
+import { EtherscanGasPriceCardHeader } from './CardHeader.tsx'
 
 export const EtherscanGasPriceCard = forwardRef<HTMLDivElement, PayloadRenderProps & CardProps>(({ payload, ...props }, ref) => {
   return (

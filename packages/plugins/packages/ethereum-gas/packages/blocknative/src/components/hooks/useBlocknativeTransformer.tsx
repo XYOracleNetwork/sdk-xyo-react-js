@@ -5,7 +5,7 @@ export const useBlocknativeTransformer = (payload?: EthereumGasBlocknativePayloa
   const blockPrices = payload?.blockPrices?.[0]
   if (blockPrices && blockPrices.estimatedPrices?.length) {
     const estimatedPrices = blockPrices?.estimatedPrices
-    const gasPrice = estimatedPrices.map((price) => ({
+    const gasPrice = estimatedPrices.map(price => ({
       price: {
         label: `Confidence - ${price.confidence}`,
         value: price.price,

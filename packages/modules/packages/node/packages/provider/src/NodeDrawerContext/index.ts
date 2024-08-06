@@ -1,2 +1,2 @@
-export * from './Provider.js'
-export * from './use.js'
+export * from './Provider.tsx'
+export * from './use.ts'

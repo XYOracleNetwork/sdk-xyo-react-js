@@ -1,8 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { EthereumGasEthgasstationSchema } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
 import { sampleEthGasStationGasPricePayload } from '@xyo-network/react-storybook'
+import React from 'react'
 
-import { EthgasstationGasPriceCard } from './Card.js'
+import { EthgasstationGasPriceCard } from './Card.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -15,7 +16,7 @@ const StorybookEntry = {
   title: 'plugin/blockchain/EthgasstationGasPrice/Card',
 } as Meta<typeof EthgasstationGasPriceCard>
 
-const Template: StoryFn<typeof EthgasstationGasPriceCard> = (args) => <EthgasstationGasPriceCard {...args} />
+const Template: StoryFn<typeof EthgasstationGasPriceCard> = args => <EthgasstationGasPriceCard {...args} />
 
 const Default = Template.bind({})
 Default.args = {}
@@ -28,5 +29,4 @@ WithMissingData.args = { payload: { schema: EthereumGasEthgasstationSchema } }
 
 export { Default, WithData, WithMissingData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

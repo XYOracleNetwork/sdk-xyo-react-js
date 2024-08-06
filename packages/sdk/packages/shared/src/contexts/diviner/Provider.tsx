@@ -1,8 +1,8 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { Context, useEffect, useState } from 'react'
+import React, { Context, useEffect, useMemo, useState } from 'react'
 
-import { ContextExProviderProps } from '../contextEx/index.js'
-import { ResolvedDivinerState } from './State.js'
+import { ContextExProviderProps } from '../contextEx/index.ts'
+import { ResolvedDivinerState } from './State.ts'
 
 export interface DivinerProviderProps<D> extends ContextExProviderProps, WithChildren {
   context: Context<ResolvedDivinerState<D>>
@@ -19,27 +19,29 @@ export const ResolvedDivinerProvider = <D,>({ diviner: divinerProp, required = f
     }
   }, [divinerProp, setDiviner])
 
-  const resolveDiviner = () => {
-    if (divinerProp) {
-      return diviner === divinerProp ? diviner : undefined
-    } else {
-      return diviner
+  const value = useMemo(() => {
+    const resolveDiviner = () => {
+      if (divinerProp) {
+        return diviner === divinerProp ? diviner : undefined
+      } else {
+        return diviner
+      }
     }
-  }
+    return { diviner: resolveDiviner(),
+      provided: true,
+      setDiviner }
+  }, [
+    setDiviner, divinerProp])
 
   return (
     <context.Provider
-      value={{
-        diviner: resolveDiviner(),
-        provided: true,
-        setDiviner,
-      }}
+      value={value}
     >
-      {diviner ?
-        children
-      : required ?
-        null
-      : children}
+      {diviner
+        ? children
+        : required
+          ? null
+          : children}
     </context.Provider>
   )
 }

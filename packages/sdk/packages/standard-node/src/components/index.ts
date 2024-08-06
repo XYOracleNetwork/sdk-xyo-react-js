@@ -1,1 +1,1 @@
-export * from './ActiveStandardNode.js'
+export * from './ActiveStandardNode.tsx'

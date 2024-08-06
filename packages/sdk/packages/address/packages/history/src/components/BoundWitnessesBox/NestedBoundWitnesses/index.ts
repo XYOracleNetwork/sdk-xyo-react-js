@@ -1,1 +1,1 @@
-export * from './NestedBoundWitnessesBox.js'
+export * from './NestedBoundWitnessesBox.tsx'

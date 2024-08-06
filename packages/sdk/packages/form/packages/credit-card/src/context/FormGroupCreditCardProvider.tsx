@@ -1,9 +1,9 @@
 import { Payload } from '@xyo-network/payload-model'
 import { FormGroup, FormGroupParams } from '@xyo-network/react-form-group'
-import { PropsWithChildren, useMemo } from 'react'
+import React, { PropsWithChildren, useMemo } from 'react'
 
-import { CreditCardInput } from '../models/CreditCardInput.js'
-import { FormGroupCreditCardContext } from './FormGroupCreditCardContext.js'
+import { CreditCardInput } from '../models/index.ts'
+import { FormGroupCreditCardContext } from './FormGroupCreditCardContext.ts'
 
 export interface FormGroupCreditCardProviderProps<TStorage extends Payload = Payload> extends PropsWithChildren {
   params?: FormGroupParams<TStorage>
@@ -16,6 +16,7 @@ export const FormGroupCreditCardProvider: React.FC<FormGroupCreditCardProviderPr
   }, [params])
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <FormGroupCreditCardContext.Provider value={{ formGroup, provided: true }} {...props}>
       {children}
     </FormGroupCreditCardContext.Provider>

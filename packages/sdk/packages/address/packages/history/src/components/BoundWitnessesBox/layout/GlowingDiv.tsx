@@ -1,8 +1,8 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { DetailedHTMLProps, forwardRef, HTMLAttributes, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes, useEffect, useLayoutEffect, useRef } from 'react'
 
-import { useNestedBoundWitnesses } from '../../../hooks/index.js'
-import { StyledGlowingDiv } from './StyledGlowingDiv.js'
+import { useNestedBoundWitnesses } from '../../../hooks/index.ts'
+import { StyledGlowingDiv } from './StyledGlowingDiv.tsx'
 
 export interface GlowingDivProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, WithChildren {
   hash?: string

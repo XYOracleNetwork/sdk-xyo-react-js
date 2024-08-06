@@ -1,2 +1,2 @@
-export * from './CheckboxFormControl.js'
-export * from './Dialog.js'
+export * from './CheckboxFormControl.tsx'
+export * from './Dialog.tsx'

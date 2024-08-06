@@ -1,8 +1,8 @@
 import { ModuleError, ModuleErrorSchema } from '@xyo-network/payload-model'
-import { Component, ErrorInfo, ReactNode } from 'react'
+import React, { Component, ErrorInfo, ReactNode } from 'react'
 import Rollbar from 'rollbar'
 
-import { ErrorRender } from '../ErrorRender/index.js'
+import { ErrorRender } from '../ErrorRender/index.ts'
 
 export interface ThrownErrorBoundaryProps {
   boundaryName?: string
@@ -29,9 +29,9 @@ export class ThrownErrorBoundary extends Component<ThrownErrorBoundaryProps, Thr
 
   static normalizeError(error: Error | ModuleError): ModuleError {
     return (
-      (error as ModuleError).schema === ModuleErrorSchema ?
-        error
-      : { message: error.message, schema: ModuleErrorSchema, sources: [] }) as ModuleError
+      (error as ModuleError).schema === ModuleErrorSchema
+        ? error
+        : { message: error.message, schema: ModuleErrorSchema, sources: [] }) as ModuleError
   }
 
   override componentDidCatch(error: Error, errorInfo: ErrorInfo) {

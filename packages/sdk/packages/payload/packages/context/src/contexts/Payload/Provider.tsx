@@ -3,9 +3,9 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { WithChildren } from '@xylabs/react-shared'
 import { ArchivistInstance, ArchivistModule } from '@xyo-network/archivist-model'
 import { Payload } from '@xyo-network/payload-model'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { PayloadContext } from './Context.js'
+import { PayloadContext } from './Context.ts'
 
 export interface PayloadProviderProps {
   /** @deprecated - no longer used */
@@ -46,7 +46,6 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
    * payload === null - tried to fetch and was unsuccessful
    */
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (hash && archivist && payload === undefined) {
         try {
@@ -63,7 +62,6 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
   )
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (cachePayload && archivist && payload) {
         await archivist.insert([payload])
@@ -73,12 +71,13 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
   )
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <PayloadContext.Provider value={{ clearPayload, payload, payloadError, provided: true, refreshPayload, setPayload }}>
-      {payload ?
-        children
-      : required ?
-        null
-      : children}
+      {payload
+        ? children
+        : required
+          ? null
+          : children}
     </PayloadContext.Provider>
   )
 }

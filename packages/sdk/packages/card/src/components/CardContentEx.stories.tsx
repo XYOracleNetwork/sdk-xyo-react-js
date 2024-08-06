@@ -1,12 +1,11 @@
-/* eslint-disable import/no-internal-modules */
 import { Button, Typography } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
-import { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 
-import { CardContentEx } from './CardContentEx.js'
-import { PageCard } from './PageCard.js'
+import { CardContentEx } from './CardContentEx.tsx'
+import { PageCard } from './PageCard.tsx'
 
 const ScrollableDecorator: Decorator = (Story, args) => {
   const [scrollToTop, setScrollToTop] = useState(0)
@@ -43,8 +42,11 @@ const Template: StoryFn<typeof CardContentEx> = (props) => {
   return (
     <PageCard title="Page Card" subheader="subheader">
       <CardContentEx {...props}>
-        {[...Array(100).keys()].map((item) => (
-          <Typography key={item}>{item}. - Item row</Typography>
+        {[...Array(100).keys()].map(item => (
+          <Typography key={item}>
+            {item}
+            . - Item row
+          </Typography>
         ))}
       </CardContentEx>
     </PageCard>
@@ -63,5 +65,4 @@ WithVariant.decorators = [ScrollableDecorator]
 
 export { Default, WithRef, WithVariant }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

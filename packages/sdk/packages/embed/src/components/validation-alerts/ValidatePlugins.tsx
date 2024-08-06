@@ -1,7 +1,8 @@
 import { Alert, AlertProps, AlertTitle } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
+import React from 'react'
 
-import { useEmbedPluginState, useResolvePayload } from '../../contexts/index.js'
+import { useEmbedPluginState, useResolvePayload } from '../../contexts/index.ts'
 
 export const ValidatePluginsAlert: React.FC<WithChildren<AlertProps>> = ({ children, ...props }) => {
   const { payload } = useResolvePayload()
@@ -10,7 +11,8 @@ export const ValidatePluginsAlert: React.FC<WithChildren<AlertProps>> = ({ child
   if (payload && plugins?.length === 0) {
     return (
       <Alert severity="warning" {...props}>
-        <AlertTitle>Missing plugins!</AlertTitle>Payload found but no plugins were present.
+        <AlertTitle>Missing plugins!</AlertTitle>
+        Payload found but no plugins were present.
       </Alert>
     )
   }

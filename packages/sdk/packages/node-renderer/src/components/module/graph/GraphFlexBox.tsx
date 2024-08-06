@@ -1,15 +1,15 @@
 import { Button } from '@mui/material'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module-model'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
-import { CytoscapeInstanceProvider } from '../../../contexts/index.js'
-import { useElements, useModuleDetails, useRelationalGraphOptions } from '../../../hooks/index.js'
-import { WithExtensions } from '../../cytoscape-extensions/index.js'
-import { NodeRelationalGraphFlexBox } from '../../relational/index.js'
-import { DetailsFlexbox } from './DetailsFlexbox.js'
-import { ModuleGraphNodeHover } from './node/index.js'
-import { StyledModuleHoverPopper } from './Popper.js'
+import { CytoscapeInstanceProvider } from '../../../contexts/index.ts'
+import { useElements, useModuleDetails, useRelationalGraphOptions } from '../../../hooks/index.ts'
+import { WithExtensions } from '../../cytoscape-extensions/index.ts'
+import { NodeRelationalGraphFlexBox } from '../../relational/index.ts'
+import { DetailsFlexbox } from './DetailsFlexbox.tsx'
+import { ModuleGraphNodeHover } from './node/index.ts'
+import { StyledModuleHoverPopper } from './Popper.tsx'
 
 export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   disableModuleDetails?: boolean
@@ -30,12 +30,15 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActi
     <WithExtensions>
       <NodeRelationalGraphFlexBox
         actions={
-          mod ? null
-          : hideActions ?
-            null
-          : <Button size={'small'} onClick={handleToggleLabels} variant="contained">
-              Toggle Labels
-            </Button>
+          mod
+            ? null
+            : hideActions
+              ? null
+              : (
+                  <Button size="small" onClick={handleToggleLabels} variant="contained">
+                    Toggle Labels
+                  </Button>
+                )
 
         }
         showDetails={!!mod}
@@ -46,7 +49,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActi
         {...props}
       >
         <ModuleGraphNodeHover node={hoveredNode}>
-          {(element) => (
+          {element => (
             <StyledModuleHoverPopper
               anchorEl={element}
               container={cytoscapeRef.current}
@@ -54,7 +57,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActi
               onClose={() => setHoveredNode(undefined)}
               onModuleExplore={toggleSelectedElement}
               onModuleDetails={disableModuleDetails ? undefined : onModuleDetails}
-              placement={'top'}
+              placement="top"
               open
             />
           )}

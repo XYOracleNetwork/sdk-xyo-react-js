@@ -11,6 +11,7 @@ export class FillExtrusionLayerBuilder extends LayerBase<FillExtrusionLayerSpeci
     super(id, source)
     this.FillExtrusionLayerOptions = FillExtrusionLayerOptions || { id: this.id, source: this.source }
   }
+
   buildLayer(): FillExtrusionLayerSpecification {
     return {
       ...this.FillExtrusionLayerOptions,

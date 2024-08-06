@@ -1,9 +1,9 @@
 import { Cancel as CancelIcon, RadioButtonChecked as RadioButtonCheckedIcon } from '@mui/icons-material'
 import { Button, ButtonGroup, TableCell, TableRow, TableRowProps } from '@mui/material'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { SeedPhraseIconButton } from '../_shared/index.js'
-import { SeedPhraseDialog } from '../dialog/index.js'
+import { SeedPhraseIconButton } from '../_shared/index.ts'
+import { SeedPhraseDialog } from '../dialog/index.ts'
 
 export interface SeedPhraseTableRowProps extends TableRowProps {
   changeSeedPhrase?: (seedPhrase: string) => void
@@ -19,12 +19,14 @@ export const SeedPhraseTableRow: React.FC<SeedPhraseTableRowProps> = ({ changeSe
   return (
     <TableRow {...props}>
       <TableCell>
-        Seed Phrase <SeedPhraseIconButton />
+        Seed Phrase
+        {' '}
+        <SeedPhraseIconButton />
       </TableCell>
       <TableCell align="center">
-        {seedPhrase ?
-          <RadioButtonCheckedIcon color="success" />
-        : <CancelIcon color="error" />}
+        {seedPhrase
+          ? <RadioButtonCheckedIcon color="success" />
+          : <CancelIcon color="error" />}
       </TableCell>
       <TableCell>
         <SeedPhraseDialog changeSeedPhrase={changeSeedPhrase} open={open} onClose={() => setOpen(false)} seedPhrase={seedPhrase} />

@@ -2,18 +2,18 @@ import { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { useActiveBoundWitness } from '../../hooks/index.js'
-import { AddressHistory } from '../AddressHistory/index.js'
-import { BoundWitnessesBox } from '../BoundWitnessesBox/index.js'
-import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories/index.js'
-import { ScrollableGridColumn } from './Column.js'
-import { ColumnHeadingTypography } from './ColumnHeading.js'
-import { WrappedContainer } from './Container.js'
-import { BlocksQuickTipButton, SelectedBlockQuickTipButton } from './QuickTips.js'
+import { useActiveBoundWitness } from '../../hooks/index.ts'
+import { AddressHistory } from '../AddressHistory/index.ts'
+import { BoundWitnessesBox } from '../BoundWitnessesBox/index.ts'
+import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories/index.ts'
+import { ScrollableGridColumn } from './Column.tsx'
+import { ColumnHeadingTypography } from './ColumnHeading.tsx'
+import { WrappedContainer } from './Container.tsx'
+import { BlocksQuickTipButton, SelectedBlockQuickTipButton } from './QuickTips.tsx'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: WrappedContainer,
   decorators: [ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator],
@@ -33,11 +33,13 @@ const Template: StoryFn<typeof WrappedContainer> = (props) => {
     <BrowserRouter>
       <WrappedContainer height="calc(100vh - 2rem)" spacing={3} {...props}>
         <ScrollableGridColumn
-          heading={
+          heading={(
             <ColumnHeadingTypography mr={2}>
-              Blocks <BlocksQuickTipButton fontSize="inherit" address="098765432" />
+              Blocks
+              {' '}
+              <BlocksQuickTipButton fontSize="inherit" address="098765432" />
             </ColumnHeadingTypography>
-          }
+          )}
           item
           lg={3}
           md={4}
@@ -47,11 +49,13 @@ const Template: StoryFn<typeof WrappedContainer> = (props) => {
           <AddressHistory ref={ref} addressHistory={sampleAddressHistory} sx={{ pr: 2, py: 2 }} />
         </ScrollableGridColumn>
         <ScrollableGridColumn
-          heading={
+          heading={(
             <ColumnHeadingTypography ml={2} mr={2}>
-              Active Block History <SelectedBlockQuickTipButton fontSize="inherit" boundwitnessHash="12345678" />
+              Active Block History
+              {' '}
+              <SelectedBlockQuickTipButton fontSize="inherit" boundwitnessHash="12345678" />
             </ColumnHeadingTypography>
-          }
+          )}
           item
           lg={9}
           md={8}

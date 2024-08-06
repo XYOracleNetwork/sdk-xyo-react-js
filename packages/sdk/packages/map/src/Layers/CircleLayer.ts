@@ -11,6 +11,7 @@ export class CircleLayerBuilder extends LayerBase<CircleLayerSpecification> {
     super(id, source)
     this.CircleLayerOptions = CircleLayerOptions || { id: this.id, source: this.source, type: 'circle' }
   }
+
   buildLayer(): CircleLayerSpecification {
     return {
       filter: ['==', '$type', 'Point'],

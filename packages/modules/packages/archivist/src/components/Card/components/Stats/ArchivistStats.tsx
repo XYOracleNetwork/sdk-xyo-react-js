@@ -1,6 +1,7 @@
 import { Badge, Tooltip } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
+import React from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { BsFileEarmarkCode } from 'react-icons/bs'
 // eslint-disable-next-line import/no-internal-modules
@@ -13,37 +14,45 @@ export interface ArchivistStatsProps {
   schemas?: Record<string, number>
 }
 
-export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses = {}, boundWitnesses, payloads, schemas = {} }) => {
+export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses, boundWitnesses, payloads, schemas }) => {
   return (
     <FlexRow gap={2} mr={0.5}>
-      {payloads?.length ?
-        <Tooltip title="Payloads">
-          <Badge badgeContent={payloads?.length} color="primary">
-            <VscSymbolNamespace size={20} />
-          </Badge>
-        </Tooltip>
-      : null}
-      {boundWitnesses?.length ?
-        <Tooltip title="Blocks">
-          <Badge badgeContent={boundWitnesses?.length} color="primary">
-            <VscSymbolMethod size={20} />
-          </Badge>
-        </Tooltip>
-      : null}
-      {Object.entries(schemas).length > 0 ?
-        <Tooltip title="Schemas">
-          <Badge badgeContent={Object.entries(schemas).length} color="primary">
-            <BsFileEarmarkCode size={20} />
-          </Badge>
-        </Tooltip>
-      : null}
-      {Object.entries(addresses).length > 0 ?
-        <Tooltip title="Addresses">
-          <Badge badgeContent={Object.entries(addresses).length} color="primary">
-            <VscOrganization size={20} />
-          </Badge>
-        </Tooltip>
-      : null}
+      {payloads?.length
+        ? (
+            <Tooltip title="Payloads">
+              <Badge badgeContent={payloads?.length} color="primary">
+                <VscSymbolNamespace size={20} />
+              </Badge>
+            </Tooltip>
+          )
+        : null}
+      {boundWitnesses?.length
+        ? (
+            <Tooltip title="Blocks">
+              <Badge badgeContent={boundWitnesses?.length} color="primary">
+                <VscSymbolMethod size={20} />
+              </Badge>
+            </Tooltip>
+          )
+        : null}
+      {Object.entries(schemas ?? {}).length > 0
+        ? (
+            <Tooltip title="Schemas">
+              <Badge badgeContent={Object.entries(schemas ?? {}).length} color="primary">
+                <BsFileEarmarkCode size={20} />
+              </Badge>
+            </Tooltip>
+          )
+        : null}
+      {Object.entries(addresses ?? {}).length > 0
+        ? (
+            <Tooltip title="Addresses">
+              <Badge badgeContent={Object.entries(addresses ?? {}).length} color="primary">
+                <VscOrganization size={20} />
+              </Badge>
+            </Tooltip>
+          )
+        : null}
     </FlexRow>
   )
 }

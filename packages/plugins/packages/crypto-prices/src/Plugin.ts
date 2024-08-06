@@ -1,7 +1,7 @@
 import { Payload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { CryptoPricesRenderer } from './components/index.js'
+import { CryptoPricesRenderer } from './components/index.ts'
 
 export const CryptoPricesRenderPlugin = {
   ...createPayloadRenderPlugin({

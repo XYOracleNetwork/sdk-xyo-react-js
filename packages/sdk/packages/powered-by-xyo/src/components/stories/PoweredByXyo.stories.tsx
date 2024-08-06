@@ -8,9 +8,9 @@ import { asArchivistInstance } from '@xyo-network/archivist-model'
 import { ManifestWrapper, PackageManifestPayload } from '@xyo-network/manifest'
 import { NodeInstance } from '@xyo-network/node-model'
 import { NodeProvider } from '@xyo-network/react-node'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { PoweredByXyo, PoweredByXyoProps } from '../PoweredByXyo.js'
+import { PoweredByXyo, PoweredByXyoProps } from '../PoweredByXyo.tsx'
 import simpleNodeInlineManifest from './simple-node-inline-manifest.json'
 
 const StorybookEntry = {
@@ -32,7 +32,6 @@ const TemplateContainer: StoryFn<typeof PoweredByXyo> = (props: PoweredByXyoProp
 const TemplateWithNodeContainer: StoryFn<typeof PoweredByXyo> = (props: PoweredByXyoProps) => {
   const [node, setNode] = useState<NodeInstance>()
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const wallet = await HDWallet.random()
       const manifest = new ManifestWrapper(simpleNodeInlineManifest as PackageManifestPayload, wallet)
@@ -77,5 +76,4 @@ WithNodeAndDebug.args = { debugDialog: true }
 
 export { Busy, Default, WithNode, WithNodeAndDebug }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

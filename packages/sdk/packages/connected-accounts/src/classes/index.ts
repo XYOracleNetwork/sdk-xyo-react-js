@@ -1,1 +1,1 @@
-export * from './EnabledWallets.js'
+export * from './EnabledWallets.ts'

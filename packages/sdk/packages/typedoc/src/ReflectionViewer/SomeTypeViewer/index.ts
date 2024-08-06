@@ -1,1 +1,1 @@
-export * from './SomeTypeViewer.js'
+export * from './SomeTypeViewer.tsx'

@@ -1,8 +1,9 @@
 import { Card, CardProps, Paper, useTheme } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { CardContentEx } from '@xyo-network/react-card'
+import React from 'react'
 
-import { GasPriceBox, PriorityFeeBox, SpeedBox } from './components/index.js'
+import { GasPriceBox, PriorityFeeBox, SpeedBox } from './components/index.ts'
 
 export interface GasFeeCardProps extends CardProps {
   gasPrice?: number
@@ -20,9 +21,9 @@ export const GasFeeCard: React.FC<GasFeeCardProps> = ({ gasPrice, speedPaperElev
       <CardContentEx removePadding sx={{ flexDirection: 'column', flexGrow: 1, p: 0, rowGap: 2 }}>
         <FlexGrowCol bgcolor={theme.palette.secondary.dark} alignItems="start" p={2} rowGap={1.5} color={theme.palette.common.white}>
           <GasPriceBox gasPrice={gasPrice} />
-          {priorityFee ?
-            <PriorityFeeBox priorityFee={priorityFee} priorityFeeLabel={priorityFeeLabel} />
-          : null}
+          {priorityFee
+            ? <PriorityFeeBox priorityFee={priorityFee} priorityFeeLabel={priorityFeeLabel} />
+            : null}
         </FlexGrowCol>
         <Paper elevation={speedPaperElevation} sx={{ borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px` }}>
           <SpeedBox speed={speed} />

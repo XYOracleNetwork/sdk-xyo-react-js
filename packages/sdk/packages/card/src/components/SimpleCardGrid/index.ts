@@ -1,1 +1,1 @@
-export * from './SimpleCardGrid.js'
+export * from './SimpleCardGrid.tsx'

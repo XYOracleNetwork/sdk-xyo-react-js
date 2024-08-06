@@ -2,8 +2,9 @@ import { LocalGasStationRounded as LocalGasStationRoundedIcon } from '@mui/icons
 import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { TypographyEx } from '@xyo-network/react-shared'
+import React from 'react'
 
-import { GweiLabelTypography } from './GweiLabelTypography.js'
+import { GweiLabelTypography } from './GweiLabelTypography.tsx'
 
 export interface PriorityFeeBoxProps extends FlexBoxProps {
   priorityFee?: number
@@ -18,7 +19,9 @@ export const PriorityFeeBox: React.FC<PriorityFeeBoxProps> = ({ priorityFee, pri
       <FlexCol alignItems="start">
         <TypographyEx>{priorityFeeLabel}</TypographyEx>
         <TypographyEx title={priorityFee?.toString() ?? ''}>
-          {priorityFee?.toFixed(2)} <GweiLabelTypography fontSize={theme.spacing(1)} />
+          {priorityFee?.toFixed(2)}
+          {' '}
+          <GweiLabelTypography fontSize={theme.spacing(1)} />
         </TypographyEx>
       </FlexCol>
       <LocalGasStationRoundedIcon />

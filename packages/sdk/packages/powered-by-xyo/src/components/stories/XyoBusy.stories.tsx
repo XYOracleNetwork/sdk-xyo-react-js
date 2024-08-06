@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { XyoBusy, XyoBusyProps } from '../XyoBusy.js'
+import { XyoBusy, XyoBusyProps } from '../XyoBusy.tsx'
 
 const StorybookEntry = {
   component: XyoBusy,
@@ -20,5 +21,4 @@ Busy.args = { busy: true }
 
 export { Busy, Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

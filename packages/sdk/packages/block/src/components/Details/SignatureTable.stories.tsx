@@ -1,10 +1,9 @@
-/* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-deprecated */
 import { Meta, StoryFn } from '@storybook/react'
 import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { BlockSignatureTable } from './SignatureTable.js'
+import { BlockSignatureTable } from './SignatureTable.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -17,7 +16,7 @@ const StorybookEntry = {
   title: 'block/SignatureTable',
 } as Meta<typeof BlockSignatureTable>
 
-const Template: StoryFn<typeof BlockSignatureTable> = (args) => (
+const Template: StoryFn<typeof BlockSignatureTable> = args => (
   <BrowserRouter>
     <DeprecateStory />
     <BlockSignatureTable {...args}></BlockSignatureTable>
@@ -32,5 +31,4 @@ WithData.args = { block: sampleBlock }
 
 export { Default, WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

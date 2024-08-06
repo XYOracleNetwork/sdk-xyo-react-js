@@ -4,9 +4,9 @@ import { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-paylo
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
-import { useEthersTransformer } from '../hooks/index.js'
+import { useEthersTransformer } from '../hooks/index.ts'
 
 export const EthersGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasEthersPayload) : undefined
@@ -18,10 +18,10 @@ export const EthersGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRende
 
   return (
     <CardContent ref={ref} sx={{ alignItems: 'start', display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
-      {parsedPayload &&
-        parsedPayload?.gasPrice?.map(({ price }) => (
-          <GasFeeCard key={price?.label} gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
-        ))}
+      {parsedPayload
+      && parsedPayload?.gasPrice?.map(({ price }) => (
+        <GasFeeCard key={price?.label} gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
+      ))}
       <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" pr={1} />
     </CardContent>
   )

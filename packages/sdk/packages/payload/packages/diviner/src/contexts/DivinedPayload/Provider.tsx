@@ -2,11 +2,12 @@ import type { WithChildren } from '@xylabs/react-shared'
 import { ModuleErrorSchema } from '@xyo-network/payload-model'
 import { ErrorRender } from '@xyo-network/react-error'
 import { useBuildHuri } from '@xyo-network/react-payload-huri'
+import React from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 
-import { useDivinePayload } from '../PayloadDiviner/index.js'
-import { DivinedPayloadContext } from './Context.js'
-import { useDivinedPayload } from './use.js'
+import { useDivinePayload } from '../PayloadDiviner/index.ts'
+import { DivinedPayloadContext } from './Context.ts'
+import { useDivinedPayload } from './use.ts'
 
 export interface DivinedPayloadProviderProps extends WithChildren {
   hash?: string
@@ -24,6 +25,7 @@ export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ 
 
   const [payload, setPayload, payloadError] = useDivinePayload(huriUri)
 
+  // eslint-disable-next-line @eslint-react/no-unstable-context-value
   return <DivinedPayloadContext.Provider value={{ payload, payloadError, provided: true, setPayload }}>{children}</DivinedPayloadContext.Provider>
 }
 

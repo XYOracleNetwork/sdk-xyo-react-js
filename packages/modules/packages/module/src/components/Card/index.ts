@@ -1,2 +1,2 @@
-export * from './Diviner/index.js'
-export * from './Module/index.js'
+export * from './Diviner/index.ts'
+export * from './Module/index.ts'

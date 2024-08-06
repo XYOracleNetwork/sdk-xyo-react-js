@@ -1,2 +1,2 @@
-export * from './DescriptionQuickTip.js'
-export * from './Header.js'
+export * from './DescriptionQuickTip.tsx'
+export * from './Header.tsx'

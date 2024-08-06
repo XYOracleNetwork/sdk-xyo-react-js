@@ -1,7 +1,8 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { NodeInstance } from '@xyo-network/node-model'
+import React from 'react'
 
-import { NodeDescriptionBox } from './NodeDescriptionBox.js'
+import { NodeDescriptionBox } from './NodeDescriptionBox.tsx'
 
 export interface NodeBoxProps extends FlexBoxProps {
   node?: string | WeakRef<NodeInstance>

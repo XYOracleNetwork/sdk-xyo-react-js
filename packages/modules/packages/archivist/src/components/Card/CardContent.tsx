@@ -7,14 +7,13 @@ import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
 import { useWallet } from '@xyo-network/react-wallet'
 import React, { useState } from 'react'
 
-import { ArchivistParents } from './components/index.js'
+import { ArchivistParents } from './components/index.ts'
 
 export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistInstance> & CardContentProps> = ({ children, mod, ...props }) => {
   const [config, setConfig] = useState<ArchivistConfig>()
   const [wallet] = useWallet()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (wallet && mod) {
         const wrapper = ModuleWrapper.wrap(mod, wallet)

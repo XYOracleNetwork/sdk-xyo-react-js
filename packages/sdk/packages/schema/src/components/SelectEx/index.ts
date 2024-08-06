@@ -1,1 +1,1 @@
-export * from './SchemaSelectEx.js'
+export * from './SchemaSelectEx.tsx'

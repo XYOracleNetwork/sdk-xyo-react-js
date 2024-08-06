@@ -1,8 +1,8 @@
 import { Container, ContainerProps, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { FooterAlwaysLinks, FooterAlwaysLinksProps } from './AlwaysLinks.js'
+import { FooterAlwaysLinks, FooterAlwaysLinksProps } from './AlwaysLinks.tsx'
 
 export interface FooterProps extends FlexBoxProps {
   alwaysFooterLinksProps?: FooterAlwaysLinksProps
@@ -26,28 +26,34 @@ export const Footer: React.FC<FooterProps> = ({ alwaysFooterLinksProps, children
       }}
       {...props}
     >
-      {more && dynamicHeight ?
-        <FlexCol alignItems="stretch">
-          <FlexRow bottom={-1} position="absolute" width="100%" bgcolor={theme.palette.background.default}>
-            {container && container !== 'none' ?
-              <Container>{children}</Container>
-            : children}
-          </FlexRow>
-        </FlexCol>
-      : null}
-      {dynamicHeight ? null : (
-        <FlexCol alignItems="stretch">
-          {container && container !== 'none' ?
-            <Container>{children}</Container>
-          : children}
-        </FlexCol>
-      )}
+      {more && dynamicHeight
+        ? (
+            <FlexCol alignItems="stretch">
+              <FlexRow bottom={-1} position="absolute" width="100%" bgcolor={theme.palette.background.default}>
+                {container && container !== 'none'
+                  ? <Container>{children}</Container>
+                  : children}
+              </FlexRow>
+            </FlexCol>
+          )
+        : null}
+      {dynamicHeight
+        ? null
+        : (
+            <FlexCol alignItems="stretch">
+              {container && container !== 'none'
+                ? <Container>{children}</Container>
+                : children}
+            </FlexCol>
+          )}
       <FlexRow>
-        {container && container !== 'none' ?
-          <Container>
-            <FooterAlwaysLinks {...alwaysFooterLinksProps} onMore={dynamicHeight ? onMore : undefined} />
-          </Container>
-        : <FooterAlwaysLinks {...alwaysFooterLinksProps} onMore={dynamicHeight ? onMore : undefined} />}
+        {container && container !== 'none'
+          ? (
+              <Container>
+                <FooterAlwaysLinks {...alwaysFooterLinksProps} onMore={dynamicHeight ? onMore : undefined} />
+              </Container>
+            )
+          : <FooterAlwaysLinks {...alwaysFooterLinksProps} onMore={dynamicHeight ? onMore : undefined} />}
       </FlexRow>
     </FlexCol>
   )

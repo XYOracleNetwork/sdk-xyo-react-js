@@ -1,1 +1,1 @@
-export * from './DetailsRenderer.js'
+export * from './DetailsRenderer.tsx'

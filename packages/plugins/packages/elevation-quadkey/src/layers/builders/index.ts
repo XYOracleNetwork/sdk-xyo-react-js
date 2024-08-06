@@ -1,1 +1,1 @@
-export * from './ElevationExtrusionLayerBuilder.js'
+export * from './ElevationExtrusionLayerBuilder.ts'

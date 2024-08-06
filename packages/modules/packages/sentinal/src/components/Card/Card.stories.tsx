@@ -8,8 +8,9 @@ import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { ModuleFactory } from '@xyo-network/module-model'
 import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel-model'
 import { InfuraProvider } from 'ethers'
+import React from 'react'
 
-import { SentinelCard } from './Card.js'
+import { SentinelCard } from './Card.tsx'
 import NftSentinelManifest from './NftSentinel.json'
 
 const loadFromManifest = async () => {
@@ -73,7 +74,7 @@ const NftSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
 
   const inPayloads = [
     {
-      address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', //Random ERC721
+      address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', // Random ERC721
       schema: EvmCallWitnessConfigSchema,
     },
   ]
@@ -111,7 +112,7 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
         console.log(`inPayloads: ${inPayloads?.length}`)
         console.log(`outPayloads: ${outPayloads?.length}`)
         const calls = Array(1000).map((_, index) => ({
-          address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', //Random ERC721
+          address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', // Random ERC721
           params: [index],
           schema: EvmCallWitnessConfigSchema,
         }))
@@ -123,7 +124,7 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
 
   const inPayloads = [
     {
-      address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', //Random ERC721
+      address: '0x562fC2927c77cB975680088566ADa1dC6cB8b5Ea', // Random ERC721
       schema: EvmCallWitnessConfigSchema,
     },
   ]
@@ -131,7 +132,7 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
   return (
     <FlexCol gap={2}>
       <SentinelCard mod={contractSentinel} inPayloads={inPayloads} />
-      {/*tokens ? <JsonViewerEx value={tokens} /> : null*/}
+      {/* tokens ? <JsonViewerEx value={tokens} /> : null */}
     </FlexCol>
   )
 }
@@ -140,5 +141,4 @@ const NftTokensSentinelCard = NftTokensSentinelTemplate.bind({})
 
 export { NftSentinelCard, NftTokensSentinelCard }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

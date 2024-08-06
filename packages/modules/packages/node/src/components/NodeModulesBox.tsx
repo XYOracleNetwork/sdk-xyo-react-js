@@ -1,8 +1,9 @@
 import { exists } from '@xylabs/exists'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { NodeInstance } from '@xyo-network/node-model'
+import React from 'react'
 
-import { useWeakModulesFromNode } from '../hooks/index.js'
+import { useWeakModulesFromNode } from '../hooks/index.ts'
 
 export interface NodeDescriptionBoxProps extends FlexBoxProps {
   node?: string | NodeInstance
@@ -14,7 +15,7 @@ export const NodeDescriptionBox: React.FC<NodeDescriptionBoxProps> = ({ node, ..
   return (
     <FlexCol {...props}>
       <code color={error ? 'red' : undefined}>
-        {error ? error.message : JSON.stringify(description?.map((desc) => desc.deref()).filter(exists), null, 2)}
+        {error ? error.message : JSON.stringify(description?.map(desc => desc.deref()).filter(exists), null, 2)}
       </code>
     </FlexCol>
   )

@@ -1,6 +1,6 @@
 import { Drawer, DrawerProps, Paper, styled, Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { MouseEvent, PropsWithChildren, useMemo } from 'react'
+import React, { MouseEvent, PropsWithChildren, useMemo } from 'react'
 
 export interface DrawerExProps extends PropsWithChildren<DrawerProps> {
   heightVariant?: 'full' | 'auto'
@@ -34,26 +34,30 @@ export const DrawerEx: React.FC<DrawerExProps> = ({
   }, [heightVariant, onClose, widthVariant])
 
   return (
-    <Drawer anchor={'top'} onClose={onClose} {...variantBasedProps} {...props}>
+    <Drawer anchor="top" onClose={onClose} {...variantBasedProps} {...props}>
       {/* Trap the event to prevent triggering the backdrop onClick */}
       <StyledDrawerContentPaper
         widthVariant={widthVariant}
         elevation={16}
-        onClick={(event) => event.stopPropagation()}
+        onClick={event => event.stopPropagation()}
         sx={{ width: widthVariant === 'full' ? '100%' : undefined }}
       >
-        {title || subTitle ?
-          <FlexCol alignItems="start" gap={1}>
-            {title ?
-              <StyledEllipsisTypography variant={'h3'}>{title}</StyledEllipsisTypography>
-            : null}
-            {subTitle ?
-              <Typography variant={'subtitle1'} textTransform="none">
-                {subTitle}
-              </Typography>
-            : null}
-          </FlexCol>
-        : null}
+        {title || subTitle
+          ? (
+              <FlexCol alignItems="start" gap={1}>
+                {title
+                  ? <StyledEllipsisTypography variant="h3">{title}</StyledEllipsisTypography>
+                  : null}
+                {subTitle
+                  ? (
+                      <Typography variant="subtitle1" textTransform="none">
+                        {subTitle}
+                      </Typography>
+                    )
+                  : null}
+              </FlexCol>
+            )
+          : null}
         {children}
       </StyledDrawerContentPaper>
     </Drawer>
@@ -69,7 +73,7 @@ const StyledEllipsisTypography = styled(Typography, { name: 'StyledEllipsisTypog
 
 const StyledDrawerContentPaper = styled(Paper, {
   name: 'StyledDrawerContentPaper',
-  shouldForwardProp: (prop) => !['widthVariant'].includes(prop as string),
+  shouldForwardProp: prop => !['widthVariant'].includes(prop as string),
 })<DrawerExProps>(({ theme, widthVariant }) => ({
   alignItems: 'stretch',
   borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,

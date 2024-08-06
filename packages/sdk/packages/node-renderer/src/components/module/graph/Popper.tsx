@@ -2,6 +2,7 @@ import { CancelRounded } from '@mui/icons-material'
 import { Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, PopperProps, styled } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 import { NodeSingular } from 'cytoscape'
+import React from 'react'
 
 export interface ModuleHoverPopperProps extends PopperProps {
   node?: NodeSingular
@@ -14,40 +15,48 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, 
   const { address, name } = node?.data() ?? {}
   return (
     <>
-      {anchorEl ?
-        <Popper anchorEl={anchorEl} {...props}>
-          <Card elevation={3}>
-            <CardHeader
-              action={
-                onClose ?
-                  <IconButton size="small" onClick={onClose}>
-                    <CancelRounded />
-                  </IconButton>
-                : null
-              }
-              avatar={
-                <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
-                  <Identicon value={address} size={24} />
-                </Paper>
-              }
-              title={name}
-              subheader={address}
-            />
-            <StyledCardActions>
-              {onModuleDetails ?
-                <Button onClick={() => onModuleDetails?.(address)} size="small" variant="contained">
-                  Details
-                </Button>
-              : null}
-              {onModuleExplore ?
-                <Button onClick={() => onModuleExplore?.(address)} size="small" variant="contained">
-                  Explore
-                </Button>
-              : null}
-            </StyledCardActions>
-          </Card>
-        </Popper>
-      : null}
+      {anchorEl
+        ? (
+            <Popper anchorEl={anchorEl} {...props}>
+              <Card elevation={3}>
+                <CardHeader
+                  action={
+                    onClose
+                      ? (
+                          <IconButton size="small" onClick={onClose}>
+                            <CancelRounded />
+                          </IconButton>
+                        )
+                      : null
+                  }
+                  avatar={(
+                    <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
+                      <Identicon value={address} size={24} />
+                    </Paper>
+                  )}
+                  title={name}
+                  subheader={address}
+                />
+                <StyledCardActions>
+                  {onModuleDetails
+                    ? (
+                        <Button onClick={() => onModuleDetails?.(address)} size="small" variant="contained">
+                          Details
+                        </Button>
+                      )
+                    : null}
+                  {onModuleExplore
+                    ? (
+                        <Button onClick={() => onModuleExplore?.(address)} size="small" variant="contained">
+                          Explore
+                        </Button>
+                      )
+                    : null}
+                </StyledCardActions>
+              </Card>
+            </Popper>
+          )
+        : null}
     </>
   )
 }

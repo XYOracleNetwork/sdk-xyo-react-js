@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { PropertyTitle } from './Title.js'
+import { PropertyTitle } from './Title.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -13,7 +14,7 @@ const StorybookEntry = {
   title: 'property/Title',
 } as Meta<typeof PropertyTitle>
 
-const Template: StoryFn<typeof PropertyTitle> = (args) => <PropertyTitle {...args}></PropertyTitle>
+const Template: StoryFn<typeof PropertyTitle> = args => <PropertyTitle {...args}></PropertyTitle>
 
 const Default = Template.bind({})
 Default.args = {}
@@ -28,5 +29,4 @@ WithDataAndActions.args = { title: 'Sample Title' }
 
 export { Default, WithData, WithDataAndActions }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

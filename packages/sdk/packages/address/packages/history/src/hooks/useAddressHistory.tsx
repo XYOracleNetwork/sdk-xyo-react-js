@@ -13,10 +13,10 @@ export const useAddressHistory = (address?: Address): [BoundWitness[] | undefine
   const [refresh, setRefresh] = useState(1)
   const [blocks, setBlocks] = useState<BoundWitness[]>()
   const [error, setError] = useState<Error>()
-  const refreshHistory = () => setRefresh((previous) => previous + 1)
+  const refreshHistory = () => setRefresh(previous => previous + 1)
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       if (divinerError) {
         setBlocks(undefined)
@@ -25,10 +25,10 @@ export const useAddressHistory = (address?: Address): [BoundWitness[] | undefine
         const instance = diviner?.deref()
         if (instance) {
           try {
-            const query =
-              address ?
-                [await new PayloadBuilder<AddressHistoryQueryPayload>({ schema: AddressHistoryQuerySchema }).fields({ address }).build()]
-              : undefined
+            const query
+              = address
+                ? [await new PayloadBuilder<AddressHistoryQueryPayload>({ schema: AddressHistoryQuerySchema }).fields({ address }).build()]
+                : undefined
             const blocks = (await instance.divine(query)) as WithSources<WithMeta<BoundWitness>>[]
             if (mounted()) {
               setBlocks(blocks)

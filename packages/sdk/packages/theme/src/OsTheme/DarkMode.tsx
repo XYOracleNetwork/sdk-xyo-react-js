@@ -1,7 +1,7 @@
 import { ThemeOptions } from '@mui/material'
 
-import { components } from './Components.js'
-import { typography } from './Typography.js'
+import { components } from './Components.tsx'
+import { typography } from './Typography.tsx'
 
 const palette: ThemeOptions['palette'] = {
   background: {

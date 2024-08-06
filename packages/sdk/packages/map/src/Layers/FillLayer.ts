@@ -11,6 +11,7 @@ export class FillLayerBuilder extends LayerBase<FillLayerSpecification> {
     super(id, source)
     this.FillLayerOptions = FillLayerOptions || { id: this.id, source: this.source }
   }
+
   buildLayer(): FillLayerSpecification {
     return {
       ...this.FillLayerOptions,

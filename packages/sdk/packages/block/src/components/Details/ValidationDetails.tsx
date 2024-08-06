@@ -1,10 +1,10 @@
-/* eslint-disable deprecation/deprecation */
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import React from 'react'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export type BlockValidationDetailsProps = PropertyGroupProps & {
@@ -28,13 +28,15 @@ export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ 
         title="Valid"
         value={errors.length === 0 ? 'True' : 'False'}
         tip={
-          errors.length > 0 ?
-            <FlexCol flexWrap="wrap">
-              {errors.map((error, index) => {
-                return <Typography key={index}>{error.toString()}</Typography>
-              })}
-            </FlexCol>
-          : <Typography>No Errors</Typography>
+          errors.length > 0
+            ? (
+                <FlexCol flexWrap="wrap">
+                  {errors.map((error, index) => {
+                    return <Typography key={index}>{error.toString()}</Typography>
+                  })}
+                </FlexCol>
+              )
+            : <Typography>No Errors</Typography>
         }
       />
     </PropertyGroup>

@@ -1,1 +1,1 @@
-export * from './Pixel/index.js'
+export * from './Pixel/index.ts'

@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { WithNestedBoundWitnessesDecorator } from '../../stories/index.js'
-import { GlowingDiv } from './GlowingDiv.js'
+import { WithNestedBoundWitnessesDecorator } from '../../stories/index.ts'
+import { GlowingDiv } from './GlowingDiv.tsx'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: GlowingDiv,
   decorators: [WithNestedBoundWitnessesDecorator],

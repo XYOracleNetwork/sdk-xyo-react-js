@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@scure/bip39": "^1.3.0",
-    "@xylabs/react-promise": "^3.4.1",
-    "@xyo-network/account": "^2.110.9",
-    "@xyo-network/manifest": "^2.110.9",
-    "@xyo-network/module-factory-locator": "^2.110.9",
+    "@xylabs/react-promise": "^3.4.2",
+    "@xyo-network/account": "^2.111.3",
+    "@xyo-network/manifest": "^2.111.3",
+    "@xyo-network/module-factory-locator": "^2.111.3",
     "@xyo-network/react-node-provider": "workspace:^",
-    "@xyo-network/wallet-model": "^2.110.9"
+    "@xyo-network/wallet-model": "^2.111.3"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
@@ -26,14 +26,14 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@storybook/react": "^7.6.20",
-    "@xylabs/ts-scripts-yarn3": "^3.12.4",
-    "@xylabs/tsconfig-react": "^3.12.4",
-    "@xyo-network/diviner-abstract": "^2.110.9",
-    "@xyo-network/diviner-model": "^2.110.9",
-    "@xyo-network/diviner-payload-memory": "^2.110.9",
-    "@xyo-network/payload-model": "^2.110.9",
-    "@xyo-network/witness-timestamp": "^2.110.9",
+    "@storybook/react": "^8.2.7",
+    "@xylabs/ts-scripts-yarn3": "^3.15.16",
+    "@xylabs/tsconfig-react": "^3.15.16",
+    "@xyo-network/diviner-abstract": "^2.111.3",
+    "@xyo-network/diviner-model": "^2.111.3",
+    "@xyo-network/diviner-payload-memory": "^2.111.3",
+    "@xyo-network/payload-model": "^2.111.3",
+    "@xyo-network/witness-timestamp": "^2.111.3",
     "typescript": "^5.5.4"
   },
   "description": "Common React library for all XYO projects that use React",
@@ -43,7 +43,7 @@
       "node": {
         "import": {
           "types": "./dist/node/index.d.mts",
-          "default": "./dist/node/index.js"
+          "default": "./dist/node/index.mjs"
         },
         "require": {
           "types": "./dist/node/index.d.cts",
@@ -53,19 +53,19 @@
       "browser": {
         "import": {
           "types": "./dist/browser/index.d.mts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.mjs"
         },
         "require": {
           "types": "./dist/browser/index.d.cts",
           "default": "./dist/browser/index.cjs"
         }
       },
-      "default": "./dist/browser/index.js"
+      "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
   },
   "main": "dist/browser/index.cjs",
-  "module": "dist/browser/index.js",
+  "module": "dist/browser/index.mjs",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",

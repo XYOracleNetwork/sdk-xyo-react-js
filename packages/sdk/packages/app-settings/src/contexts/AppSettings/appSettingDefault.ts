@@ -1,4 +1,4 @@
-import { AppSettingSlug } from './Slug.js'
+import { AppSettingSlug } from './Slug.ts'
 
 export const appSettingDefault = (): Record<string, unknown> => {
   return {

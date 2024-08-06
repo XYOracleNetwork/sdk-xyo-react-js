@@ -9,9 +9,9 @@ import { NodeProvider, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox.js'
+import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox.tsx'
 
 const nodeUrl = 'http://localhost:8080/node'
 
@@ -19,7 +19,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async () => {
       try {
         const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
@@ -66,13 +66,12 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: ModuleGraphFlexBoxWithProvider,
   title: 'node/renderer/ModuleGraphFlexBoxWithProvider',
 } as Meta
 
-const Template: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => <ModuleGraphFlexBoxWithProvider {...props} />
+const Template: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = props => <ModuleGraphFlexBoxWithProvider {...props} />
 
 const TemplateWithProvidedModule: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => {
   const [node] = useWeakProvidedNode()

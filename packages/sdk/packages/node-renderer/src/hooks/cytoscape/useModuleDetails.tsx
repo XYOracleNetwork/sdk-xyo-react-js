@@ -2,7 +2,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { ModuleInstance } from '@xyo-network/module-model'
 import { useEffect, useState } from 'react'
 
-import { useCytoscapeInstance } from '../../contexts/index.js'
+import { useCytoscapeInstance } from '../../contexts/index.ts'
 
 export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, onFoundModule?: () => void) => {
   const { cy } = useCytoscapeInstance()
@@ -50,6 +50,7 @@ export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, on
     }
   }, [cy, moduleAddress, foundModule, onFoundModule])
 
+  // eslint-disable-next-line complexity
   const onModuleDetails = (address?: string | null) => {
     const moduleNode = cy?.deref()?.nodes(`[id="${address}"]`)
     const rootModuleNode = cy?.deref()?.nodes(`[id="${rootModule?.deref()?.address}"]`)

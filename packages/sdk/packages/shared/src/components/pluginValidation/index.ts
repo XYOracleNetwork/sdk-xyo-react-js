@@ -1,1 +1,1 @@
-export * from './DataMissing.js'
+export * from './DataMissing.tsx'

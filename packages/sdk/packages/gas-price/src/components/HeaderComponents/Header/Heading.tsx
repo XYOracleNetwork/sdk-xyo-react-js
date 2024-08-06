@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material'
 import { TypographyEx, TypographyExProps } from '@xyo-network/react-shared'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 export interface GasPriceHeadingTypographyProps extends TypographyExProps {
   children?: ReactNode
@@ -12,7 +12,11 @@ export const GasPriceHeadingTypography: React.FC<GasPriceHeadingTypographyProps>
   const theme = useTheme()
   return (
     <TypographyEx fontSize={theme.spacing(6)} lineHeight={1} {...props}>
-      {heading} {networkIcon} {children}
+      {heading}
+      {' '}
+      {networkIcon}
+      {' '}
+      {children}
     </TypographyEx>
   )
 }

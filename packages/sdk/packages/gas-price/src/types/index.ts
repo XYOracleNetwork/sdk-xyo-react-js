@@ -1,1 +1,1 @@
-export * from './GasPriceWitnessPayload.js'
+export * from './GasPriceWitnessPayload.ts'

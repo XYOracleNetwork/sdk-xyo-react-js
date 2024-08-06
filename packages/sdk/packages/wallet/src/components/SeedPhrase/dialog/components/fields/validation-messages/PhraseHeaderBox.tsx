@@ -1,7 +1,7 @@
 import { CheckCircleOutline as CheckCircleOutlineIcon, HighlightOff as HighlightOffIcon } from '@mui/icons-material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
 interface PhraseHeaderBox extends FlexBoxProps, WithChildren {
   conditional?: boolean | null
@@ -37,7 +37,7 @@ export const PhraseHeaderBox: React.FC<PhraseHeaderBox> = ({ children, condition
   }, [state])
 
   return (
-    <FlexRow justifyContent={'start'} columnGap={1} {...props}>
+    <FlexRow justifyContent="start" columnGap={1} {...props}>
       {Icon}
       {children}
     </FlexRow>

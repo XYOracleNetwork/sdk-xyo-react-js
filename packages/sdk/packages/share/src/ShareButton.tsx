@@ -3,7 +3,7 @@ import { Popover } from '@mui/material'
 import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 export interface ShareButtonProps extends ButtonExProps {
   prepared?: boolean

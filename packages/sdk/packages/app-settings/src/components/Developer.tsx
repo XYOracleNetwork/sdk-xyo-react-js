@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-import { useAppSettings } from '../contexts/index.js'
+import { useAppSettings } from '../contexts/index.ts'
 
 export const Developer: React.FC<{ children: ReactElement }> = ({ children = null }) => {
   const { developerMode } = useAppSettings()

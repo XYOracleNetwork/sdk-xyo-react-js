@@ -4,22 +4,22 @@ import { WithChildren } from '@xylabs/react-shared'
 import { AttachableModuleInstance, ModuleParams } from '@xyo-network/module-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfig } from '@xyo-network/node-model'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { NodeProvider } from './Node/index.js'
+import { NodeProvider } from './Node/index.ts'
 
 export type MemoryNodeProviderProps = WithChildren<{
   moduleParams?: ModuleParams<NodeConfig>
   modules?: AttachableModuleInstance[]
   required?: boolean
 }> &
-  ModuleParams<NodeConfig>
+ModuleParams<NodeConfig>
 
 export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({ children, modules, moduleParams }) => {
   const [node, setNode] = useState<MemoryNode | null>(null)
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async () => {
       if (node && modules) {
         await Promise.all(
@@ -42,7 +42,7 @@ export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({ children
   )
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       const node = await MemoryNode.create(moduleParams)
       if (mounted()) {

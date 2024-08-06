@@ -1,2 +1,2 @@
-export * from './BottomNavigation.js'
-export * from './NavigationTabs.js'
+export * from './BottomNavigation.tsx'
+export * from './NavigationTabs.tsx'

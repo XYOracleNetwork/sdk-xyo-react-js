@@ -7,17 +7,16 @@ import { NodeProvider, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { EventObject } from 'cytoscape'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { CytoscapeInstanceProvider, useCytoscapeInstance } from '../../../contexts/index.js'
-import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.js'
-import { NodeRelationalGraphFlexBox } from './Graph.js'
+import { CytoscapeInstanceProvider, useCytoscapeInstance } from '../../../contexts/index.ts'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.ts'
+import { NodeRelationalGraphFlexBox } from './Graph.tsx'
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
 
@@ -43,7 +42,6 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: NodeRelationalGraphFlexBox,
   title: 'node/renderer/NodeRelationalGraphEvents',

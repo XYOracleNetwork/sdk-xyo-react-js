@@ -1,4 +1,4 @@
-import { MapSetting } from './MapSetting.js'
+import { MapSetting } from './MapSetting.ts'
 
 export const DefaultMapSettings: () => MapSetting = () => ({
   debugLayer: {

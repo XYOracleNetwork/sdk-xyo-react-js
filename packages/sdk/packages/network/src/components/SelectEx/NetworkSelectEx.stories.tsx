@@ -1,11 +1,11 @@
 import { Card, CardContent } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { NetworkMemoryProvider, NetworkRouteProvider, useNetwork } from '../../contexts/index.js'
-import { NetworkSelectEx } from './NetworkSelectEx.js'
+import { NetworkMemoryProvider, NetworkRouteProvider, useNetwork } from '../../contexts/index.ts'
+import { NetworkSelectEx } from './NetworkSelectEx.tsx'
 
 const StorybookEntry = {
   argTypes: {
@@ -66,7 +66,7 @@ const TemplateWithRouteProviderInner: StoryFn<typeof NetworkSelectEx> = (props) 
   const [uris, setUris] = useState<(string | undefined)[]>([])
 
   useEffect(() => {
-    setUris((previous) => [...previous, network?.nodes?.find((node) => node.type === 'archivist')?.uri])
+    setUris(previous => [...previous, network?.nodes?.find(node => node.type === 'archivist')?.uri])
   }, [network?.nodes])
 
   useEffect(() => {
@@ -78,7 +78,7 @@ const TemplateWithRouteProviderInner: StoryFn<typeof NetworkSelectEx> = (props) 
   return (
     <>
       <NetworkSelectEx {...props}></NetworkSelectEx>
-      {uris.map((uri) => (
+      {uris.map(uri => (
         <p key={uri}>{uri}</p>
       ))}
     </>
@@ -96,5 +96,4 @@ WithRouteProvider.args = {}
 
 export { Default, WithMemoryProvider, WithRouteProvider }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

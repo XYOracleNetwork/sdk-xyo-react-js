@@ -1,13 +1,13 @@
-/* eslint-disable import/no-internal-modules */
 import { Breadcrumbs, List } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import { MenuListItemContainer } from '@xyo-network/react-appbar'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WebAppChrome } from './Chrome.js'
-import { WebAppPage, WebAppPageProps } from './Page.js'
+import { WebAppChrome } from './Chrome.tsx'
+import { WebAppPage, WebAppPageProps } from './Page.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -22,13 +22,13 @@ const StorybookEntry = {
 
 const rowArray = [32, 64, 128, 256, 512, 1024]
 
-const Children: React.FC<WebAppPageProps> = (props) => (
+const Children: React.FC<WebAppPageProps> = props => (
   <WebAppPage
-    breadcrumbs={
+    breadcrumbs={(
       <Breadcrumbs>
         <LinkEx>BreadCrumbs</LinkEx>
       </Breadcrumbs>
-    }
+    )}
     {...props}
   >
     {rowArray.map((height) => {
@@ -45,14 +45,15 @@ const Template: StoryFn<typeof WebAppChrome> = (args) => {
   return (
     <BrowserRouter>
       <WebAppChrome
-        menuItems={
+        menuItems={(
           <List>
             <MenuListItemContainer primary="Hello" />
           </List>
-        }
+        )}
         height="calc(100vh - 2rem)"
         {...args}
-      ></WebAppChrome>
+      >
+      </WebAppChrome>
     </BrowserRouter>
   )
 }
@@ -68,5 +69,4 @@ WithFixedSizePage.args = { children: <Children variant="fixed" />, navigationTyp
 
 export { Default, DefaultSideBar, WithFixedSizePage }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

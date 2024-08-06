@@ -1,7 +1,7 @@
 import { FormControl as MuiFormControl, StandardTextFieldProps, TextField } from '@mui/material'
 import { FormControl } from '@xyo-network/react-form-group'
 import { LabeledTextFieldWrapper } from '@xyo-network/react-shared'
-import { ChangeEventHandler, FocusEventHandler, forwardRef, KeyboardEvent } from 'react'
+import React, { ChangeEventHandler, FocusEventHandler, forwardRef, KeyboardEvent } from 'react'
 
 export interface FormControlTextFieldProps extends StandardTextFieldProps {
   fieldLabel: string
@@ -45,7 +45,7 @@ export const FormControlTextField = forwardRef<HTMLDivElement, FormControlTextFi
               }}
               ref={ref}
               required={formControl?.required}
-              size={'small'}
+              size="small"
               variant="filled"
               {...props}
             />

@@ -1,1 +1,1 @@
-export * from './SearchBar.js'
+export * from './SearchBar.tsx'

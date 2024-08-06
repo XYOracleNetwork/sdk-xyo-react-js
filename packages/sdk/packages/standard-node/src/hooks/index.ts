@@ -1,1 +1,1 @@
-export * from './useActiveNodeAddress.js'
+export * from './useActiveNodeAddress.ts'

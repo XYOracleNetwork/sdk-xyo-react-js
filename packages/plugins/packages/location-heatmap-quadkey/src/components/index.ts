@@ -1,1 +1,1 @@
-export * from './QuadkeyHeatMapRenderer.js'
+export * from './QuadkeyHeatMapRenderer.tsx'

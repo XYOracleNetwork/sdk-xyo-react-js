@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { TestComponent, TestComponentProps } from './TestComponent.js'
+import { TestComponent, TestComponentProps } from './TestComponent.tsx'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/os/TestComponent',
 } as Meta

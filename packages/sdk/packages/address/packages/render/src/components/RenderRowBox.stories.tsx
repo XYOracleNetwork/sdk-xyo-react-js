@@ -2,10 +2,10 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Address, toHex } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { FavoriteItemEvent } from './lib/index.js'
-import { AddressRenderRowBox } from './RenderRowBox.js'
+import { FavoriteItemEvent } from './lib/index.ts'
+import { AddressRenderRowBox } from './RenderRowBox.tsx'
 
 const address: Address = toHex(randomBytes(20))
 
@@ -75,7 +75,7 @@ WithFavoriteAlias.args = {
 const WithChildren = Template.bind({})
 WithChildren.args = {
   address,
-  children: <span>{'[InsertedChild]'}</span>,
+  children: <span>[InsertedChild]</span>,
   favorite: true,
   icons: true,
   showFavorite: true,
@@ -83,5 +83,4 @@ WithChildren.args = {
 
 export { Default, WithAddress, WithChildren, WithFavorite, WithFavoriteAlias, WithIcon, WithIconOnly }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

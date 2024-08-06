@@ -1,1 +1,1 @@
-export * from './HashHeadingPaper.js'
+export * from './HashHeadingPaper.tsx'

@@ -1,2 +1,2 @@
-export * from './MapBoxBaseProps.js'
-export * from './MapStyle.js'
+export * from './MapBoxBaseProps.ts'
+export * from './MapStyle.ts'

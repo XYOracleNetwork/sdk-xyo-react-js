@@ -4,9 +4,9 @@ import { EthereumGasEtherchainV2Payload } from '@xyo-network/etherchain-ethereum
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
-import { useEtherchainV2Transformer } from '../hooks/index.js'
+import { useEtherchainV2Transformer } from '../hooks/index.ts'
 
 export const EtherchainV2GasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasEtherchainV2Payload) : undefined
@@ -19,12 +19,12 @@ export const EtherchainV2GasPriceCardContent = forwardRef<HTMLDivElement, Payloa
   return (
     <CardContent ref={ref} sx={{ display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
       <Grid container spacing={3}>
-        {parsedPayload &&
-          parsedPayload?.gasPrice?.map(({ price }) => (
-            <Grid key={price?.label} item xs={22} sm={6} lg={3}>
-              <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
-            </Grid>
-          ))}
+        {parsedPayload
+        && parsedPayload?.gasPrice?.map(({ price }) => (
+          <Grid key={price?.label} item xs={22} sm={6} lg={3}>
+            <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
+          </Grid>
+        ))}
       </Grid>
       <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" pr={2} />
     </CardContent>

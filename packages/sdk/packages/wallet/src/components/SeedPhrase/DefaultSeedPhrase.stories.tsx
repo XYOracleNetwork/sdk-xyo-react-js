@@ -1,14 +1,14 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { DefaultSeedPhrase } from './DefaultSeedPhrase.js'
+import { DefaultSeedPhrase } from './DefaultSeedPhrase.tsx'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: DefaultSeedPhrase,
   title: 'Wallet/DefaultSeedPhrase',
 } as Meta
 
-const Template: StoryFn<typeof DefaultSeedPhrase> = (props) => <DefaultSeedPhrase {...props} />
+const Template: StoryFn<typeof DefaultSeedPhrase> = props => <DefaultSeedPhrase {...props} />
 
 const Default = Template.bind({})
 Default.args = {

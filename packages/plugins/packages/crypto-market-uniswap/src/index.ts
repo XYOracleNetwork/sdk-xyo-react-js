@@ -1,4 +1,2 @@
-export * from './Plugin.js'
-
-// eslint-disable-next-line import/no-default-export
-export { UniswapPairsRenderPlugin as default } from './Plugin.js'
+export * from './Plugin.ts'
+export { UniswapPairsRenderPlugin as default } from './Plugin.ts'

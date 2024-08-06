@@ -1,1 +1,1 @@
-export * from './AppSettings/index.js'
+export * from './AppSettings/index.ts'

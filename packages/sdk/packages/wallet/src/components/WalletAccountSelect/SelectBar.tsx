@@ -1,6 +1,7 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { WalletAccountSelect } from './Select.js'
+import { WalletAccountSelect } from './Select.tsx'
 
 export interface WalletAccountSelectBarProps extends FlexBoxProps {
   addressNames?: Record<string, string | undefined>
@@ -13,7 +14,7 @@ export interface WalletAccountSelectBarProps extends FlexBoxProps {
 }
 
 export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({
-  addressNames = {},
+  addressNames,
   iconOnly,
   iconSize,
   icons,

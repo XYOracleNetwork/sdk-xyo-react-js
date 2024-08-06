@@ -1,6 +1,7 @@
 import { NotFound } from '@xyo-network/react-shared'
+import React from 'react'
 
-import { WebAppPage, WebAppPageProps } from '../Page.js'
+import { WebAppPage, WebAppPageProps } from '../Page.tsx'
 
 export const WebAppNotFoundPage: React.FC<WebAppPageProps> = ({ title, ...props }) => (
   <WebAppPage title={title ?? 'Sorry! Page Not Found'} {...props}>

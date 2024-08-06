@@ -1,7 +1,7 @@
 import { merge } from '@xylabs/lodash'
 
-import { DefaultPayloadRenderPlugin } from './DefaultPayloadRenderPlugin.js'
-import { PayloadRenderPlugin, PayloadRenderPluginConfig } from './PayloadRenderPlugin.js'
+import { DefaultPayloadRenderPlugin } from './DefaultPayloadRenderPlugin.ts'
+import { PayloadRenderPlugin, PayloadRenderPluginConfig } from './PayloadRenderPlugin.ts'
 
 export const createPayloadRenderPlugin = (plugin: PayloadRenderPluginConfig): PayloadRenderPlugin => {
   return merge({}, DefaultPayloadRenderPlugin, plugin)

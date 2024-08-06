@@ -1,7 +1,7 @@
 import type { IntersectionType } from 'typedoc'
 
-import { ReflectionViewerProps } from '../ReflectionViewerProps.js'
-import { TypeBuilder } from './TypeBuilder.js'
+import { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
+import { TypeBuilder } from './TypeBuilder.ts'
 
 export const buildIntersectionString = (typeObj: IntersectionType, reflectionViewer: React.FC<ReflectionViewerProps>, typeBuilder: TypeBuilder) => {
   const parts: string[] = []

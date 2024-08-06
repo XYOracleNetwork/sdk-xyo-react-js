@@ -1,8 +1,8 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Rollbar from 'rollbar'
 
-import { ErrorReporterContext } from './Context.js'
+import { ErrorReporterContext } from './Context.ts'
 
 export interface ErrorReporterProviderProps {
   rollbar: Rollbar
@@ -17,6 +17,7 @@ const ErrorReporterProvider: React.FC<WithChildren<ErrorReporterProviderProps>> 
     }
   }, [rollbar, rollbarInstance])
 
+  // eslint-disable-next-line @eslint-react/no-unstable-context-value
   return <ErrorReporterContext.Provider value={{ rollbar }}>{children}</ErrorReporterContext.Provider>
 }
 

@@ -1,6 +1,6 @@
 import { GeolocateControl, Map, MapEventOf, MapEventType, NavigationControl } from 'mapbox-gl'
 
-import { MapSetting } from '../Settings/index.js'
+import { MapSetting } from '../Settings/index.ts'
 
 export interface MapSettingsConfig {
   debugLayerName?: string
@@ -26,6 +26,7 @@ export class MapSettings {
       }
     },
   }
+
   static navControl: NavigationControl | undefined
   static requestLocation: boolean | undefined
 

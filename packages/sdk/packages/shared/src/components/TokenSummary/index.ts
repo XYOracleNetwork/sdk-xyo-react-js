@@ -1,1 +1,1 @@
-export * from './TokenSummary.js'
+export * from './TokenSummary.tsx'

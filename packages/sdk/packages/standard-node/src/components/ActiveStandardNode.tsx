@@ -2,10 +2,10 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { useNetwork } from '@xyo-network/react-network'
 import { useWeakNodeFromNode } from '@xyo-network/react-node'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { useStandardNodes } from '../contexts/index.js'
-import { useActiveNodeAddress } from '../hooks/index.js'
+import { useStandardNodes } from '../contexts/index.ts'
+import { useActiveNodeAddress } from '../hooks/index.ts'
 
 export interface ActiveStandardNodeProps extends WithChildren {
   nodeNameOrAddress?: string
@@ -21,7 +21,6 @@ export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({ children
 
   // Probably needs to rely on node events rather than provider values to ensure its registered
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const nodeInstance = node?.deref()
       if (nodeInstance && selectedNodeAddress) {

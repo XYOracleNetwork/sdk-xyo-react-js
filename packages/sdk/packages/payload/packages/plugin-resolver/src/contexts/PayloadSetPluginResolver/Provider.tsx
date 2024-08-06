@@ -1,8 +1,8 @@
 import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { PayloadSetPluginResolverContext } from './Context.js'
+import { PayloadSetPluginResolverContext } from './Context.ts'
 
 export type PayloadSetPluginResolverProviderProps = ContextExProviderProps<{
   resolver: PayloadSetPluginResolver
@@ -21,17 +21,18 @@ export const PayloadSetPluginResolverProvider: React.FC<PayloadSetPluginResolver
 
   return (
     <PayloadSetPluginResolverContext.Provider
+      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         provided: true,
         resolver,
         setResolver,
       }}
     >
-      {resolver ?
-        children
-      : required ?
-        null
-      : children}
+      {resolver
+        ? children
+        : required
+          ? null
+          : children}
     </PayloadSetPluginResolverContext.Provider>
   )
 }

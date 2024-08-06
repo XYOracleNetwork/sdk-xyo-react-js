@@ -1,1 +1,1 @@
-export * from './ThemeTokenAvatarGroup.js'
+export * from './ThemeTokenAvatarGroup.tsx'

@@ -1,2 +1,2 @@
-export * from './FeeDataPayload.js'
-export * from './FeePerGasToSpeed.js'
+export * from './FeeDataPayload.ts'
+export * from './FeePerGasToSpeed.ts'

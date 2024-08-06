@@ -1,9 +1,9 @@
 import { usePromise } from '@xylabs/react-promise'
 import { asNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
-import { useWeakProvidedNode } from './provided/index.js'
-import { useWeakNodeConfigNodeField } from './useWeakNodeConfigNodeField.js'
-import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.js'
+import { useWeakProvidedNode } from './provided/index.ts'
+import { useWeakNodeConfigNodeField } from './useWeakNodeConfigNodeField.ts'
+import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.ts'
 
 export const useWeakNode = (config?: WeakModuleFromNodeConfig | undefined): [WeakRef<NodeInstance> | undefined, Error | undefined] => {
   const [nodeAddress, nodeInstance] = useWeakNodeConfigNodeField(config)

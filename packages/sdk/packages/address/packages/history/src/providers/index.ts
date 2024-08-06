@@ -1,3 +1,3 @@
-export * from './ActiveBoundWitness/index.js'
-export * from './HashSelectionHistory/index.js'
-export * from './NestedBoundWitnesses/index.js'
+export * from './ActiveBoundWitness/index.ts'
+export * from './HashSelectionHistory/index.ts'
+export * from './NestedBoundWitnesses/index.tsx'

@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
-import { NameFormControl } from '../../../controls/index.js'
-import { WithFormControlProps } from '../WithFormControlProps.js'
-import { FormControlTextField } from './FormControlTextField.js'
-import { useCreditCardFormControl } from './useCreditCardFormControl.js'
+import { NameFormControl } from '../../../controls/index.ts'
+import { WithFormControlProps } from '../WithFormControlProps.ts'
+import { FormControlTextField } from './FormControlTextField.tsx'
+import { useCreditCardFormControl } from './useCreditCardFormControl.tsx'
 
 export interface NameWithFormControlProps extends WithFormControlProps {
   autoCompleteLabel: string

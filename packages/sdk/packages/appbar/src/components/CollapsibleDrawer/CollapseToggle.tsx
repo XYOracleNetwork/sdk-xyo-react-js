@@ -1,10 +1,10 @@
 import { Icon, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
-import { useState } from 'react'
+import React, { useState } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'
 
-import { useCollapsible } from '../../contexts/index.js'
+import { useCollapsible } from '../../contexts/index.ts'
 
 export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
   const { collapse, setCollapse, setCollapseEnd } = useCollapsible()
@@ -13,7 +13,7 @@ export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
 
   const handleCollapseToggle = () => {
     setCollapse?.(!collapse)
-    setCollapseEnd?.((previous) => (previous ? false : previous))
+    setCollapseEnd?.(previous => (previous ? false : previous))
   }
 
   return (
@@ -22,12 +22,12 @@ export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
         onClick={handleCollapseToggle}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        fontSize={'large'}
+        fontSize="large"
         sx={{ color: hover ? theme.palette.secondary.main : 'inherit', cursor: 'pointer' }}
       >
-        {collapse ?
-          <VscArrowSmallRight />
-        : <VscArrowSmallLeft />}
+        {collapse
+          ? <VscArrowSmallRight />
+          : <VscArrowSmallLeft />}
       </Icon>
     </FlexRow>
   )

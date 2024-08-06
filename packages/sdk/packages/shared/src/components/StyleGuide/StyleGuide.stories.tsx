@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { StyleGuideExample } from './StyleGuide.example.js'
+import { StyleGuideExample } from './StyleGuide.example.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -21,5 +22,4 @@ Default.decorators = []
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

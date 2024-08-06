@@ -1,11 +1,11 @@
 import type { WithChildren } from '@xylabs/react-shared'
-import { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { SchemaContext } from '../Context.js'
-import { useSchema } from '../use.js'
-import { SchemaMemoryProvider } from './Memory.js'
-import { SchemaProviderProps } from './Props.js'
+import { SchemaContext } from '../Context.ts'
+import { useSchema } from '../use.ts'
+import { SchemaMemoryProvider } from './Memory.tsx'
+import { SchemaProviderProps } from './Props.ts'
 
 const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const { schema, setSchema, schemaList } = useSchema()
@@ -14,7 +14,7 @@ const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
 
   const routeSchema = params.get('schema')
 
-  //update the network stored in the route
+  // update the network stored in the route
   const setSchemaParam = useCallback(
     (schema?: string) => {
       if (schema) {
@@ -28,7 +28,7 @@ const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
     [params, setParams, setSchema],
   )
 
-  //if the network is actively changed, update both memory and route
+  // if the network is actively changed, update both memory and route
   const setSchemaLocal = useCallback(
     (schema: string) => {
       setSchemaParam(schema)
@@ -37,20 +37,22 @@ const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
     [setSchemaParam, setSchema],
   )
 
-  //sync memory and route storage of network
+  // sync memory and route storage of network
   useEffect(() => {
     if (routeSchema !== schema) {
       if (routeSchema === undefined && schema !== undefined) {
-        //if the route does not have a network selected, use what is in the memory context
+        // if the route does not have a network selected, use what is in the memory context
         setSchemaLocal(schema)
       } else if (routeSchema) {
-        //if the route has a selection and it is different from memory, update memory
+        // if the route has a selection and it is different from memory, update memory
         setSchema?.(routeSchema)
       }
     }
   }, [routeSchema, schema, setSchemaParam, setSchema, setSchemaLocal])
 
-  return <SchemaContext.Provider value={{ provided: true, schema, schemaList, setSchema: setSchemaLocal }}>{children}</SchemaContext.Provider>
+  const value = useMemo(() => ({ provided: true, schema, schemaList, setSchema: setSchemaLocal }), [schema, schemaList, setSchemaLocal])
+
+  return <SchemaContext.Provider value={value}>{children}</SchemaContext.Provider>
 }
 
 export const SchemaRouteProvider: React.FC<WithChildren<SchemaProviderProps>> = ({ knownSchemaList, defaultSchema, ...props }) => {

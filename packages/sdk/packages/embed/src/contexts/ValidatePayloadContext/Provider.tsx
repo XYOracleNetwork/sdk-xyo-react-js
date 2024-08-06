@@ -2,10 +2,10 @@ import { Chip } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { WithChildren } from '@xylabs/react-shared'
 import { SchemaCache, SchemaNameToValidatorMap } from '@xyo-network/schema-cache'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { useResolvePayload } from '../ResolvePayloadContext/index.js'
-import { ValidatePayloadContext } from './Context.js'
+import { useResolvePayload } from '../ResolvePayloadContext/index.ts'
+import { ValidatePayloadContext } from './Context.ts'
 
 export interface ValidatePayloadProviderProps {
   // Opt-in flag to validate payloads for the plugin(s)
@@ -18,7 +18,6 @@ export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProvi
   const [valid, setValid] = useState<boolean>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (payload && enabled) {
         await SchemaCache.instance.get(payload.schema)
@@ -36,10 +35,11 @@ export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProvi
   )
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <ValidatePayloadContext.Provider value={{ enabled, provided: true, schema: payload?.schema, validPayload: valid }}>
-      {enabled ?
-        <>{initialized ? children : <Chip label="Validating Payload..." />}</>
-      : children}
+      {enabled
+        ? <>{initialized ? children : <Chip label="Validating Payload..." />}</>
+        : children}
     </ValidatePayloadContext.Provider>
   )
 }

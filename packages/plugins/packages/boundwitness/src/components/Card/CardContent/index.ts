@@ -1,2 +1,2 @@
-export * from './CardContent.js'
-export * from './layout/index.js'
+export * from './CardContent.tsx'
+export * from './layout/index.ts'

@@ -1,6 +1,6 @@
 import { BottomNavigation, BottomNavigationAction, BottomNavigationProps, styled } from '@mui/material'
 import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
-import { Dispatch, forwardRef, SetStateAction } from 'react'
+import React, { Dispatch, forwardRef, SetStateAction } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
 // eslint-disable-next-line import/no-internal-modules
@@ -14,15 +14,15 @@ export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps
 
 const BoundWitnessBottomNavigation = forwardRef<HTMLDivElement, BoundWitnessBottomNavigationProps>(
   ({ activeTab = 0, setActiveTab, boundWitness, ...props }, ref) => {
-    const payloadCount = boundWitness?.payload_schemas.filter((schema) => schema !== BoundWitnessSchema).length ?? 0
-    const boundWitnessCount = boundWitness?.payload_schemas.filter((schema) => schema === BoundWitnessSchema).length ?? 0
+    const payloadCount = boundWitness?.payload_schemas.filter(schema => schema !== BoundWitnessSchema).length ?? 0
+    const boundWitnessCount = boundWitness?.payload_schemas.filter(schema => schema === BoundWitnessSchema).length ?? 0
     const signers = boundWitness?.addresses.length ?? 0
 
     return (
       <StyledBottomNavigation
         showLabels
         value={activeTab}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
         onChange={(_event, newValue) => {
           setActiveTab?.(newValue)
         }}

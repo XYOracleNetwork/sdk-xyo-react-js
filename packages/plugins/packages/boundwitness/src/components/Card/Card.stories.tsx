@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { sampleBlock } from '@xyo-network/react-storybook'
+import React from 'react'
 
-import { BoundWitnessRendererCard } from './Card.js'
+import { BoundWitnessRendererCard } from './Card.tsx'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: BoundWitnessRendererCard,
   title: 'plugin/boundwitness/CardRenderer',

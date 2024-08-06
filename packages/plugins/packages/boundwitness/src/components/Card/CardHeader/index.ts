@@ -1,1 +1,1 @@
-export * from './CardHeader.js'
+export * from './CardHeader.tsx'

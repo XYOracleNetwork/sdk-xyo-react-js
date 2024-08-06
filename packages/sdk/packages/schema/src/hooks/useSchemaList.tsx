@@ -12,14 +12,14 @@ export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDivi
 
   const query: SchemaListQueryPayload[] | undefined = useMemo(
     () =>
-      address ?
-        [
-          {
-            address,
-            schema: SchemaListQuerySchema,
-          },
-        ]
-      : undefined,
+      address
+        ? [
+            {
+              address,
+              schema: SchemaListQuerySchema,
+            },
+          ]
+        : undefined,
     [address],
   )
 
@@ -31,7 +31,6 @@ export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDivi
   }, [diviner])
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps, require-await
     async (mounted) => {
       const divinerInstance = diviner?.deref()
       if (divinerInstance) {

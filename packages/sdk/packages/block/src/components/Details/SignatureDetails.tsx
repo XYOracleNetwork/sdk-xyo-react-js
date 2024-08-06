@@ -1,9 +1,8 @@
-/* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-deprecated */
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import React from 'react'
 
-import { BlockSignatureTable } from './SignatureTable.js'
+import { BlockSignatureTable } from './SignatureTable.tsx'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export type BlockSignatureDetailsProps = PropertyGroupProps & {

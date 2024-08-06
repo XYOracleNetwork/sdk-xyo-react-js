@@ -2,7 +2,7 @@ import { StandardTextFieldProps } from '@mui/material'
 import { FormControlBase, ValidControlValue } from '@xyo-network/react-form-group'
 import { useMemo, useRef, useState } from 'react'
 
-import { useFormGroupWithCreditCardInput } from '../../../context/index.js'
+import { useFormGroupWithCreditCardInput } from '../../../context/index.ts'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const StableDefaultArgs: any[] = []

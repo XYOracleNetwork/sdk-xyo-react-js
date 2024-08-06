@@ -1,1 +1,1 @@
-export * from './ColorGradient.js'
+export * from './ColorGradient.tsx'

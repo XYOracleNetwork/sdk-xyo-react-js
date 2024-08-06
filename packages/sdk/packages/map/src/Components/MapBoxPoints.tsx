@@ -2,13 +2,13 @@ import { Alert } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { Feature, Point } from 'geojson'
 import { MapOptions } from 'mapbox-gl'
-import { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
-import { useMapBoxInstance, useMapSettings } from '../Contexts/index.js'
-import { MapboxFlexBoxProps } from '../lib/index.js'
-import { MapPoints } from '../MapBoxClasses/index.js'
-import { MapBox } from './MapBox.js'
-import { MapSettingsBox } from './MapSettingsComponents/index.js'
+import { useMapBoxInstance, useMapSettings } from '../Contexts/index.ts'
+import { MapboxFlexBoxProps } from '../lib/index.ts'
+import { MapPoints } from '../MapBoxClasses/index.ts'
+import { MapBox } from './MapBox.tsx'
+import { MapSettingsBox } from './MapSettingsComponents/index.ts'
 
 export interface MapboxPointsFlexBoxProps extends MapboxFlexBoxProps {
   accessToken: string
@@ -81,12 +81,14 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
 
   return (
     <FlexCol alignItems="stretch" id="xyo-mapbox-wrap" {...props}>
-      {features ?
-        <>
-          <MapBox accessToken={accessToken} zoom={zoom} />
-          <MapSettingsBox />
-        </>
-      : <Alert severity="error">No data to show</Alert>}
+      {features
+        ? (
+            <>
+              <MapBox accessToken={accessToken} zoom={zoom} />
+              <MapSettingsBox />
+            </>
+          )
+        : <Alert severity="error">No data to show</Alert>}
     </FlexCol>
   )
 }

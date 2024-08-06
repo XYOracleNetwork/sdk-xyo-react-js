@@ -1,7 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogProps, DialogTitle, Divider, Paper } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import { ModuleInstance } from '@xyo-network/module-model'
-import { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
 export interface DiscoverDialogProps extends DialogProps {
   mod?: ModuleInstance
@@ -17,7 +17,10 @@ export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ mod, setOpen, ..
 
   return (
     <Dialog {...props}>
-      <DialogTitle>Supported Queries for {mod?.config.name || mod?.address}</DialogTitle>
+      <DialogTitle>
+        Supported Queries for
+        {mod?.config.name || mod?.address}
+      </DialogTitle>
       <Divider />
       <DialogContent>
         <Paper sx={{ p: 1 }}>
@@ -26,7 +29,7 @@ export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ mod, setOpen, ..
         </Paper>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => setOpen?.(false)} variant={'outlined'}>
+        <Button onClick={() => setOpen?.(false)} variant="outlined">
           Close
         </Button>
       </DialogActions>

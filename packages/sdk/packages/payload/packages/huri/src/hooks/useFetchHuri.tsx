@@ -3,7 +3,7 @@ import { HuriPayload, HuriSchema } from '@xyo-network/diviner-huri'
 import { DivinerInstance } from '@xyo-network/diviner-model'
 import { useMemo } from 'react'
 
-import { useBuildHuri } from './useBuildHuri.js'
+import { useBuildHuri } from './useBuildHuri.tsx'
 
 export const useFetchHuri = (hashOrHuri?: string, diviner?: DivinerInstance, token?: string) => {
   const huri = useBuildHuri(hashOrHuri) ?? hashOrHuri

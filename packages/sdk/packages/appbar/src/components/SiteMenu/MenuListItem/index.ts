@@ -1,1 +1,1 @@
-export * from './MenuListItemContainer.js'
+export * from './MenuListItemContainer.tsx'

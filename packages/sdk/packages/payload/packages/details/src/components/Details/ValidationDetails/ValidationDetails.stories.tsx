@@ -1,11 +1,12 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
 import { sampleIdPayload } from '@xyo-network/react-storybook'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadDetails } from '../Details.js'
-import { PayloadValidationDetails } from './ValidationDetails.js'
-import { PayloadValidationDetailsProps } from './ValidationDetailsProps.js'
+import { PayloadDetails } from '../Details.tsx'
+import { PayloadValidationDetails } from './ValidationDetails.tsx'
+import { PayloadValidationDetailsProps } from './ValidationDetailsProps.ts'
 
 const StorybookEntry: Meta = {
   argTypes: {},
@@ -57,5 +58,4 @@ SkipBody.args = {
 
 export { Default, SkipBody, WithErrorsInToolTip }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

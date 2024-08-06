@@ -1,8 +1,8 @@
 import { FlexCol } from '@xylabs/react-flexbox'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
-import { ErrorAlert } from './ErrorAlert.js'
-import { ErrorRenderProps } from './Props.js'
+import { ErrorAlert } from './ErrorAlert.tsx'
+import { ErrorRenderProps } from './Props.ts'
 
 export const ErrorRender: React.FC<ErrorRenderProps> = ({
   onCancel,
@@ -27,14 +27,17 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
     }
   }, [location])
 
-  return error ?
-      <FlexCol alignItems="stretch" {...props}>
-        {noErrorDisplay ?
-          customError
-        : <FlexCol alignItems="center" {...props}>
-            <ErrorAlert error={error} errorContext={errorContext} onCancel={onCancel} scope={scope} />
-          </FlexCol>
-        }
-      </FlexCol>
+  return error
+    ? (
+        <FlexCol alignItems="stretch" {...props}>
+          {noErrorDisplay
+            ? customError
+            : (
+                <FlexCol alignItems="center" {...props}>
+                  <ErrorAlert error={error} errorContext={errorContext} onCancel={onCancel} scope={scope} />
+                </FlexCol>
+              )}
+        </FlexCol>
+      )
     : (<>{children}</> ?? null)
 }

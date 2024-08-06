@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { NotFound } from '@xyo-network/react-shared'
+import React from 'react'
 
 const StorybookEntry = {
   argTypes: {},
@@ -21,5 +22,4 @@ Default.args = {}
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

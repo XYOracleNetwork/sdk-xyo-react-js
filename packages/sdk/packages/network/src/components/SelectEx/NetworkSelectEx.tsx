@@ -2,9 +2,10 @@ import { MenuItem } from '@mui/material'
 import { assertEx } from '@xylabs/assert'
 import { SelectEx, SelectExProps } from '@xylabs/react-select'
 import { useBreakpoint } from '@xylabs/react-shared'
+import React from 'react'
 
-import { useNetwork } from '../../contexts/index.js'
-import { findNetworkConfig } from '../../lib/index.js'
+import { useNetwork } from '../../contexts/index.ts'
+import { findNetworkConfig } from '../../lib/index.ts'
 
 export type NetworkSelectExProps = Omit<SelectExProps<string>, 'variant'> &
   Partial<SelectExProps<string>> & {

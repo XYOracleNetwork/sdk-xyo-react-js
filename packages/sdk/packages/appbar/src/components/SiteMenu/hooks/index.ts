@@ -1,1 +1,1 @@
-export * from './useMenuItemsShared.js'
+export * from './useMenuItemsShared.tsx'

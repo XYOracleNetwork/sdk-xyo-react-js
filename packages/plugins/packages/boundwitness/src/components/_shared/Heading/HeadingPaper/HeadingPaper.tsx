@@ -1,8 +1,8 @@
 import { Paper, PaperProps, styled } from '@mui/material'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
-import { BWHeading } from '../Heading.js'
-import { BWHeadingProps } from '../HeadingProps.js'
+import { BWHeading } from '../Heading.tsx'
+import { BWHeadingProps } from '../HeadingProps.tsx'
 
 export interface HeadingPaperProps extends BWHeadingProps {
   paperProps?: PaperProps
@@ -30,7 +30,7 @@ interface StyledHeadingPaperProps extends PaperProps {
 
 const StyledHeadingPaper = styled(Paper, {
   name: 'StyledHeadingPaper',
-  shouldForwardProp: (prop) => !['hasAdornmentEnd', 'hasAdornmentStart', 'paperProps'].includes(prop as string),
+  shouldForwardProp: prop => !['hasAdornmentEnd', 'hasAdornmentStart', 'paperProps'].includes(prop as string),
 })<StyledHeadingPaperProps>(({ hasAdornmentEnd, hasAdornmentStart, theme }) => ({
   alignItems: 'center',
   columnGap: theme.spacing(2),

@@ -1,13 +1,13 @@
 import { Stack } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { ErrorRender } from '@xyo-network/react-error'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { FormGroupCreditCardProvider, useFormGroupWithCreditCardInput } from '../../context/index.js'
-import { validateCreditCardInputs } from '../support/index.js'
-import { InputFieldsStack } from './InputFieldsStack.js'
-import { CreditCardFormProps } from './Props.js'
-import { useFormStorage } from './useFormStorage.js'
+import { FormGroupCreditCardProvider, useFormGroupWithCreditCardInput } from '../../context/index.ts'
+import { validateCreditCardInputs } from '../support/index.ts'
+import { InputFieldsStack } from './InputFieldsStack.tsx'
+import { CreditCardFormProps } from './Props.ts'
+import { useFormStorage } from './useFormStorage.tsx'
 
 export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({
   ConfirmationButton,
@@ -51,14 +51,16 @@ export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({
   return (
     <>
       <ErrorRender error={error} />
-      <FlexCol sx={{ flexDirection: { md: 'row', xs: 'column' } }} width={'100%'} gap={2} {...props}>
-        <Stack flexDirection={'column'} sx={{ width: '100%' }} gap={2}>
+      <FlexCol sx={{ flexDirection: { md: 'row', xs: 'column' } }} width="100%" gap={2} {...props}>
+        <Stack flexDirection="column" sx={{ width: '100%' }} gap={2}>
           <InputFieldsStack />
-          {ConfirmationButton ?
-            <ConfirmationButton onClick={handleConfirmPayment} variant="contained" sx={{ alignSelf: 'end' }}>
-              Confirm Payment
-            </ConfirmationButton>
-          : null}
+          {ConfirmationButton
+            ? (
+                <ConfirmationButton onClick={handleConfirmPayment} variant="contained" sx={{ alignSelf: 'end' }}>
+                  Confirm Payment
+                </ConfirmationButton>
+              )
+            : null}
         </Stack>
       </FlexCol>
     </>

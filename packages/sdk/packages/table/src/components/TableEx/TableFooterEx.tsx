@@ -1,11 +1,11 @@
 import { styled, TableFooter, TableFooterProps } from '@mui/material'
-import { PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 
-import { TableExVariants } from './types/index.js'
+import { TableExVariants } from './types/index.ts'
 
 const TableFooterExRoot = styled(TableFooter, {
   name: 'TableFooterEx',
-  shouldForwardProp: (propName) => propName !== 'scrollable',
+  shouldForwardProp: propName => propName !== 'scrollable',
   slot: 'Root',
 })<TableFooterExProps>(({ variant, theme }) => ({
   backgroundColor: theme.palette.background.default,

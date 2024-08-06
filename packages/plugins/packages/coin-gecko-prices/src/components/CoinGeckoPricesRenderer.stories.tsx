@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { CoinGeckoPricesRenderer } from './CoinGeckoPricesRenderer.js'
-import { payloadData, payloadDataMissingAssets } from './storyPayloadData.js'
+import { CoinGeckoPricesRenderer } from './CoinGeckoPricesRenderer.tsx'
+import { payloadData, payloadDataMissingAssets } from './storyPayloadData.ts'
 
 const StorybookEntry = {
   argTypes: {},
@@ -14,7 +15,7 @@ const StorybookEntry = {
   title: 'plugin/coin-gecko-prices/CoinGeckoPricesRenderer',
 } as Meta<typeof CoinGeckoPricesRenderer>
 
-const Template: StoryFn<typeof CoinGeckoPricesRenderer> = (args) => <CoinGeckoPricesRenderer {...args}></CoinGeckoPricesRenderer>
+const Template: StoryFn<typeof CoinGeckoPricesRenderer> = args => <CoinGeckoPricesRenderer {...args}></CoinGeckoPricesRenderer>
 
 const Default = Template.bind({})
 Default.args = {}
@@ -27,5 +28,4 @@ WithMissingData.args = { payload: payloadDataMissingAssets }
 
 export { Default, WithData, WithMissingData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

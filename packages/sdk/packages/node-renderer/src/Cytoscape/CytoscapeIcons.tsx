@@ -11,14 +11,13 @@ import { SvgIconTypeMap } from '@mui/material'
 // eslint-disable-next-line import/no-internal-modules
 import { OverridableComponent } from '@mui/material/OverridableComponent.js'
 
-import { CyNodeModuleTypes } from './lib/index.js'
+import { CyNodeModuleTypes } from './lib/index.ts'
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export const CyIconSet: Record<CyNodeModuleTypes, OverridableComponent<SvgIconTypeMap<{}, 'svg'>>> = {
   archivist: Inventory2RoundedIcon,
   bridge: InsertLinkRoundedIcon,
   diviner: BubbleChartRoundedIcon,
-  // eslint-disable-next-line id-denylist
+
   module: QuestionMarkRoundedIcon,
   node: HubIcon,
   sentinel: TimerRoundedIcon,

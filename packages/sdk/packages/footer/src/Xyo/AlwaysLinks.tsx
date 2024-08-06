@@ -1,13 +1,14 @@
 import { FlexBoxProps } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { FooterAlwaysLinks } from '../AlwaysLinks.js'
-import { copyrightLinkTitle } from '../lib/index.js'
+import { FooterAlwaysLinks } from '../AlwaysLinks.tsx'
+import { copyrightLinkTitle } from '../lib/index.ts'
 
 export interface XyoFooterAlwaysLinksProps extends FlexBoxProps {
   onMore?: () => void
 }
 
-export const XyoFooterAlwaysLinks: React.FC<XyoFooterAlwaysLinksProps> = (props) => (
+export const XyoFooterAlwaysLinks: React.FC<XyoFooterAlwaysLinksProps> = props => (
   <FooterAlwaysLinks
     footerLinks={[
       {
@@ -35,9 +36,9 @@ export const XyoFooterAlwaysLinks: React.FC<XyoFooterAlwaysLinksProps> = (props)
   />
 )
 
-/** @deprecated use FooterAlwaysLinksProps*/
+/** @deprecated use FooterAlwaysLinksProps */
 export type CopyrightProps = XyoFooterAlwaysLinksProps
 
-/** @deprecated use FooterAlwaysLinks*/
+/** @deprecated use FooterAlwaysLinks */
 
-export { FooterAlwaysLinks as Copyright } from '../AlwaysLinks.js'
+export { FooterAlwaysLinks as Copyright } from '../AlwaysLinks.tsx'

@@ -1,10 +1,11 @@
 import { Grid } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import CoinbaseWalletIcon from './coinbase-wallet.svg'
 import MoneyMedia from './money.jpg'
-import { SimpleCard } from './SimpleCard.js'
+import { SimpleCard } from './SimpleCard.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: SimpleCard,
@@ -16,7 +17,7 @@ const StorybookEntry = {
   title: 'shared/SimpleCard',
 } as Meta<typeof SimpleCard>
 
-const Template: StoryFn<typeof SimpleCard> = (args) => (
+const Template: StoryFn<typeof SimpleCard> = args => (
   <BrowserRouter>
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6} md={3}>
@@ -80,9 +81,8 @@ CardWithAllParameters.args = {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 
 export { CardWithAllParameters, Default, DefaultMediaCard, DefaultSmallCard, DefaultWithImage, VariantButton }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

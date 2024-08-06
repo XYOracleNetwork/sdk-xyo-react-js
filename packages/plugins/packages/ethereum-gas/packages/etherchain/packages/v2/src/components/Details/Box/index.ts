@@ -1,1 +1,1 @@
-export * from './EtherchainV2GasPriceDetailsBox.js'
+export * from './EtherchainV2GasPriceDetailsBox.tsx'

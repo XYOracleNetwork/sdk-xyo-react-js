@@ -1,1 +1,1 @@
-export * from './Application.js'
+export * from './Application.tsx'

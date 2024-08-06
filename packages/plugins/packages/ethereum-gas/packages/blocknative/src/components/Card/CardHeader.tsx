@@ -2,10 +2,10 @@ import { CardHeaderProps } from '@mui/material'
 import { EthereumGasBlocknativePayload } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
 import { GasPriceWitnessCardHeader } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
-import { useBlocknativeTransformer } from '../hooks/index.js'
-import { RenderTitle } from '../lib/index.js'
+import { useBlocknativeTransformer } from '../hooks/index.ts'
+import { RenderTitle } from '../lib/index.ts'
 
 export const BlocknativeGasPriceCardHeader = forwardRef<HTMLDivElement, PayloadRenderProps & CardHeaderProps>(({ payload }, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasBlocknativePayload) : undefined

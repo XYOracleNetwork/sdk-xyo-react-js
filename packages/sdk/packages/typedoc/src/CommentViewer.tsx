@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 import type { Comment } from 'typedoc'
 
 export interface CommentViewerProps extends FlexBoxProps {

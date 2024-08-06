@@ -1,12 +1,10 @@
-/* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-deprecated */
 import { usePromise } from '@xylabs/react-promise'
 import { ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.js'
-import { useModuleFilterOptions } from './useModuleFilterOptions.js'
-import { useNode } from './useNode.js'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import { useModuleFilterOptions } from './useModuleFilterOptions.ts'
+import { useNode } from './useNode.ts'
 
 /** @deprecated use useModulesFromNode */
 export const useModulesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeConfig): [ModuleInstance[] | undefined, Error | undefined] => {

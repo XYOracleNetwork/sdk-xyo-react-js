@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-deprecated
 import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
 import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
 
@@ -6,7 +5,6 @@ export const useWitnessFromNode = (
   nameOrAddressOrInstance?: string | WitnessInstance,
   config?: ModuleFromNodeConfig,
 ): [WitnessInstance | undefined, Error | undefined] => {
-  // eslint-disable-next-line deprecation/deprecation, import/no-deprecated
   const [mod, error] = useModuleFromNode(nameOrAddressOrInstance, config)
   const instance = asWitnessInstance(mod)
   if (mod && !instance) {

@@ -1,3 +1,3 @@
-export * from './contextEx/index.js'
-export * from './diviner/index.js'
-export * from './ListMode/index.js'
+export * from './contextEx/index.ts'
+export * from './diviner/index.ts'
+export * from './ListMode/index.ts'

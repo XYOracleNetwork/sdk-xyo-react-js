@@ -1,10 +1,11 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
-import { defaultNetworkConfigs } from '../../lib/index.js'
-import { useNetwork } from '../use.js'
-import { NetworkMemoryProvider } from './Memory.js'
+import { defaultNetworkConfigs } from '../../lib/index.ts'
+import { useNetwork } from '../use.ts'
+import { NetworkMemoryProvider } from './Memory.tsx'
 
 const StorybookEntry: Meta = {
   component: NetworkMemoryProvider,
@@ -28,7 +29,9 @@ const Template: StoryFn<typeof NetworkMemoryProvider> = (props) => {
   return (
     <NetworkMemoryProvider {...props}>
       <Typography>
-        Props: <pre>{JSON.stringify(props, null, 2)}</pre>
+        Props:
+        {' '}
+        <pre>{JSON.stringify(props, null, 2)}</pre>
       </Typography>
       <NetworkConfigOutput />
     </NetworkMemoryProvider>
@@ -48,7 +51,6 @@ DefaultNetworkConfig.args = {
   defaultNetworkConfig: defaultNetworkConfigs[2],
 }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry
 
 export { Default, DefaultNetworkConfig, DefaultNetworkName }

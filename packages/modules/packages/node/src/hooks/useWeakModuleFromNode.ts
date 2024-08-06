@@ -3,9 +3,9 @@ import { usePromise } from '@xylabs/react-promise'
 import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { useWeakModuleFilterOptions } from './useWeakModuleFilterOptions.js'
-import { useWeakNode } from './useWeakNode.js'
-import { useWeakModuleFromNodeConfigLogger, WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.js'
+import { useWeakModuleFilterOptions } from './useWeakModuleFilterOptions.ts'
+import { useWeakNode } from './useWeakNode.ts'
+import { useWeakModuleFromNodeConfigLogger, WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.ts'
 
 export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
   nameOrAddressOrInstance: string | (T extends ModuleInstance ? T : ModuleInstance) | undefined = undefined,
@@ -45,7 +45,6 @@ export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
     }
     logger?.debug('Result: No Node')
     return
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [node, nameOrAddressOrInstance])
   return [result, nodeError ?? error]
 }

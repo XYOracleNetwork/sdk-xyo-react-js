@@ -1,10 +1,10 @@
 import { Paper, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { typeOf } from '@xyo-network/typeof'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 
-import { PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps } from './Props.js'
-import { PropertyTitle } from './Title.js'
+import { PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps } from './Props.ts'
+import { PropertyTitle } from './Title.tsx'
 
 const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, children, title, tip, ...props }) => {
   const theme = useTheme()
@@ -13,17 +13,21 @@ const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, childre
     <FlexCol alignItems="stretch" overflow="hidden" {...props}>
       <FlexRow overflow="hidden" justifyContent="stretch" alignItems="stretch">
         <PropertyTitle alignItems="flex-start" size="full" title={title} tip={tip} {...titleProps} />
-        {childrenArray ?
-          <FlexGrowRow>
-            {childrenArray?.map((child, index) => {
-              return child ?
-                  <FlexGrowRow key={index} borderLeft={1} borderColor={theme.palette.divider}>
-                    {child}
-                  </FlexGrowRow>
-                : null
-            })}
-          </FlexGrowRow>
-        : <FlexGrowRow overflow="hidden">{children}</FlexGrowRow>}
+        {childrenArray
+          ? (
+              <FlexGrowRow>
+                {childrenArray?.map((child, index) => {
+                  return child
+                    ? (
+                        <FlexGrowRow key={index} borderLeft={1} borderColor={theme.palette.divider}>
+                          {child}
+                        </FlexGrowRow>
+                      )
+                    : null
+                })}
+              </FlexGrowRow>
+            )
+          : <FlexGrowRow overflow="hidden">{children}</FlexGrowRow>}
       </FlexRow>
     </FlexCol>
   )

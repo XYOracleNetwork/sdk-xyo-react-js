@@ -1,5 +1,6 @@
 import { Delete as DeleteIcon, Star as StarIcon } from '@mui/icons-material'
 import { Button, ButtonGroup, ButtonGroupProps } from '@mui/material'
+import React from 'react'
 
 export interface FavoritePopperProps extends ButtonGroupProps {
   favorite?: boolean
@@ -20,18 +21,20 @@ export const PopperButtonGroup: React.FC<FavoritePopperProps> = ({ name, onConfi
       >
         <StarIcon />
       </Button>
-      {favorite ?
-        <Button
-          title="Remove Favorite"
-          variant="contained"
-          onClick={(e) => {
-            e.stopPropagation()
-            onConfirmFavorite?.(name, false)
-          }}
-        >
-          <DeleteIcon />
-        </Button>
-      : null}
+      {favorite
+        ? (
+            <Button
+              title="Remove Favorite"
+              variant="contained"
+              onClick={(e) => {
+                e.stopPropagation()
+                onConfirmFavorite?.(name, false)
+              }}
+            >
+              <DeleteIcon />
+            </Button>
+          )
+        : null}
     </ButtonGroup>
   )
 }

@@ -1,17 +1,17 @@
 import { Table, TableBody } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { SeedPhraseTableRow } from './SeedPhraseTableRow.js'
+import { SeedPhraseTableRow } from './SeedPhraseTableRow.tsx'
 
 const changeSeedPhrase = (phrase?: string) => alert(`Changed Seed Phrase to: ${phrase}`)
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: SeedPhraseTableRow,
   title: 'Wallet/SeedPhraseTableRow',
 } as Meta
 
-const Template: StoryFn<typeof SeedPhraseTableRow> = (props) => (
+const Template: StoryFn<typeof SeedPhraseTableRow> = props => (
   <Table>
     <TableBody>
       <SeedPhraseTableRow {...props} />

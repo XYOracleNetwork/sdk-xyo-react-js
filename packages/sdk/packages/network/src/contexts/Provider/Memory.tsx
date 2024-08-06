@@ -1,20 +1,22 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
-import { defaultNetworkConfigs } from '../../lib/index.js'
-import { NetworkContext } from '../Context.js'
-import { NetworkProviderProps } from './Props.js'
+import { defaultNetworkConfigs } from '../../lib/index.ts'
+import { NetworkContext } from '../Context.ts'
+import { NetworkProviderProps } from './Props.ts'
 
 export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetworkConfig, defaultNetworkName, ...props }) => {
   if (defaultNetworkConfig && defaultNetworkName) {
     console.warn('Both defaultNetworkConfig and defaultNetworkName were passed to provider. Falling back to defaultNetworkConfig')
   }
 
-  const resolvedDefaultNetworkConfig = defaultNetworkName ? defaultNetworkConfigs.find((config) => config.name === defaultNetworkName) : undefined
+  const resolvedDefaultNetworkConfig = defaultNetworkName ? defaultNetworkConfigs.find(config => config.name === defaultNetworkName) : undefined
 
   const [network, setNetwork] = useState(defaultNetworkConfig ?? resolvedDefaultNetworkConfig ?? defaultNetworkConfigs[0])
 
-  return <NetworkContext.Provider value={{ network, networks: defaultNetworkConfigs, provided: true, setNetwork }} {...props} />
+  const value = useMemo(() => ({ network, networks: defaultNetworkConfigs, provided: true, setNetwork }), [network, setNetwork])
+
+  return <NetworkContext.Provider value={value} {...props} />
 }
 
 /** @deprecated use NetworkMemoryProvider instead */

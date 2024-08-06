@@ -3,7 +3,7 @@ import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ErrorSummary } from '@xyo-network/react-form-group'
 import { ComponentType } from 'react'
 
-import { CreditCardInput } from '../../models/index.js'
+import { CreditCardInput } from '../../models/index.ts'
 
 export interface CreditCardFormProps extends FlexBoxProps {
   ConfirmationButton?: ComponentType<ButtonProps>

@@ -2,7 +2,7 @@ import { exists } from '@xylabs/exists'
 import { ModuleInstance } from '@xyo-network/module-model'
 import { ElementDefinition } from 'cytoscape'
 
-import { parseModuleType } from './lib/index.js'
+import { parseModuleType } from './lib/index.ts'
 
 interface ModuleInfo {
   children: ModuleInfo[]

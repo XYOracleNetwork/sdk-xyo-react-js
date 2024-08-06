@@ -11,6 +11,7 @@ export class LineLayerBuilder extends LayerBase<LineLayerSpecification> {
     super(id, source)
     this.LineLayerOptions = LineLayerOptions || { id: this.id, source: this.source }
   }
+
   buildLayer(): LineLayerSpecification {
     return {
       ...this.LineLayerOptions,

@@ -1,16 +1,17 @@
 import { styled, TablePagination, TableRow } from '@mui/material'
 import { TableFooterEx } from '@xyo-network/react-table'
+import React from 'react'
 
-import { TablePaginationActions } from './TablePagination.js'
-import { PayloadTableFooterProps } from './types/index.js'
+import { TablePaginationActions } from './TablePagination.tsx'
+import { PayloadTableFooterProps } from './types/index.ts'
 
 export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
   count,
   variant,
   page,
   rowsPerPage,
-  handleChangePage = () => {},
-  handleChangeRowsPerPage = () => {},
+  handleChangePage,
+  handleChangeRowsPerPage,
   fetchMorePayloads,
   loading,
 }) => (
@@ -27,8 +28,8 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
           },
           native: true,
         }}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
+        onPageChange={handleChangePage ?? (() => {})}
+        onRowsPerPageChange={handleChangeRowsPerPage ?? (() => {})}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ActionsComponent={(props: any) => <TablePaginationActions enableNextPage={!!fetchMorePayloads} loading={loading} {...props} />}
       />
@@ -40,6 +41,6 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
   '& > .MuiToolbar-root': {
     paddingLeft: theme.spacing(1),
   },
-  borderTop: '1px solid',
-  borderTopColor: theme.palette.divider,
+  'borderTop': '1px solid',
+  'borderTopColor': theme.palette.divider,
 }))

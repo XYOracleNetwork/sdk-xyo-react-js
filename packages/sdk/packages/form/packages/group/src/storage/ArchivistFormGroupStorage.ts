@@ -1,7 +1,7 @@
 import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { Payload } from '@xyo-network/payload-model'
 
-import { FormGroupStorage } from './FormGroupStorage.js'
+import { FormGroupStorage } from './FormGroupStorage.ts'
 
 export class ArchivistFormGroupStorage implements FormGroupStorage {
   constructor(private archivist: ArchivistInstance) {}

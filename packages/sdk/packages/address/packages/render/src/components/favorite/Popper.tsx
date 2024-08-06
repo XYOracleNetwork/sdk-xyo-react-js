@@ -1,8 +1,8 @@
 import { Card, CardContent, ClickAwayListener, Fade, Popper, PopperProps, styled, TextField } from '@mui/material'
-import { forwardRef, RefObject, useEffect, useState } from 'react'
+import React, { forwardRef, RefObject, useEffect, useState } from 'react'
 
-import { popperId } from './lib/index.js'
-import { PopperButtonGroup } from './PopperButtonGroup.js'
+import { popperId } from './lib/index.ts'
+import { PopperButtonGroup } from './PopperButtonGroup.tsx'
 
 export interface FavoritePopperProps extends PopperProps {
   favorite?: boolean
@@ -17,9 +17,7 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
       name: nameProp,
       favorite,
       favoriteRef,
-      onClickAway = () => {
-        return
-      },
+      onClickAway,
       onConfirmFavorite,
       ...props
     },
@@ -31,12 +29,12 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
     }, [nameProp])
 
     return (
-      <ClickAwayListener onClickAway={onClickAway}>
+      <ClickAwayListener onClickAway={onClickAway ?? (() => null)}>
         <PopperStyled
           id={popperId}
           anchorEl={favoriteRef?.current}
-          onClick={(e) => e.stopPropagation()}
-          onTouchStart={(e) => e.stopPropagation()}
+          onClick={e => e.stopPropagation()}
+          onTouchStart={e => e.stopPropagation()}
           transition
           ref={ref}
           {...props}
@@ -51,7 +49,7 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
                     placeholder="optional"
                     size="small"
                     value={name ?? ''}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={e => setName(e.target.value)}
                   />
                   <PopperButtonGroup favorite={favorite} onConfirmFavorite={onConfirmFavorite} name={name} />
                 </CardContent>

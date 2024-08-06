@@ -1,9 +1,9 @@
 import { Menu as MenuIcon, Settings as SettingsIcon } from '@mui/icons-material'
 import { IconButton, List, SwipeableDrawer } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { MenuListItemContainer } from './MenuListItem/index.js'
+import { MenuListItemContainer } from './MenuListItem/index.ts'
 
 export interface SiteMenuProps extends FlexBoxProps {
   hideSettingsMenuItem?: boolean

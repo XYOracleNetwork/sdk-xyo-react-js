@@ -2,9 +2,9 @@ import { CardHeaderProps } from '@mui/material'
 import { MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import { ArchivistInstance } from '@xyo-network/archivist-model'
 import { ModuleCardHeader, ModuleRenderProps } from '@xyo-network/react-module'
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
-import { MemoryArchivistsStats } from './components/index.js'
+import { MemoryArchivistsStats } from './components/index.ts'
 
 const ArchivistStats = (archivist?: ArchivistInstance) => {
   switch (archivist?.config.schema) {

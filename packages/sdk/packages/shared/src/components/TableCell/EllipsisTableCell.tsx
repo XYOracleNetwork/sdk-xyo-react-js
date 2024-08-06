@@ -1,13 +1,13 @@
 import { styled, TableCell, TableCellProps } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
-import { forwardRef, useMemo } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import { To } from 'react-router-dom'
 
-import { EllipsizeBox } from '../Ellipsize.js'
+import { EllipsizeBox } from '../Ellipsize.tsx'
 
 const EllipsisTableCellRoot = styled(TableCell, {
   name: 'EllipsisTableCell',
-  shouldForwardProp: (prop) => prop !== 'width',
+  shouldForwardProp: prop => prop !== 'width',
   slot: 'Root',
 })(({ width = '100%' }) => ({
   width,

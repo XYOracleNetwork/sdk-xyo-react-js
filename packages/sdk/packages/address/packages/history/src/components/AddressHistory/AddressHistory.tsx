@@ -5,9 +5,9 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useEvent } from '@xyo-network/react-event'
 import { usePayloadHashes, useShareForwardedRef } from '@xyo-network/react-shared'
-import { forwardRef, Fragment } from 'react'
+import React, { forwardRef, Fragment } from 'react'
 
-import { orderedHistory, useActiveBoundWitness } from '../../hooks/index.js'
+import { orderedHistory, useActiveBoundWitness } from '../../hooks/index.ts'
 
 const AddressChainList = styled(List, { name: 'AddressChainList' })(() => ({
   overflow: 'scroll',
@@ -37,8 +37,8 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
 
   return (
     <AddressChainList ref={ulRef} {...props}>
-      {orderedAddressHistoryPairs ?
-        orderedAddressHistoryPairs.map(([bw, bwHash], index) => (
+      {orderedAddressHistoryPairs
+        ? orderedAddressHistoryPairs.map(([bw, bwHash], index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
             {index === 0 ? null : <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} />}
             <BoundWitnessRendererCard
@@ -49,12 +49,13 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
             />
           </Fragment>
         ))
-      : <>
-          {skeleton ?
-            <Skeleton variant="rounded" width="100%" sx={{ p: 2 }} />
-          : null}
-        </>
-      }
+        : (
+            <>
+              {skeleton
+                ? <Skeleton variant="rounded" width="100%" sx={{ p: 2 }} />
+                : null}
+            </>
+          )}
     </AddressChainList>
   )
 })

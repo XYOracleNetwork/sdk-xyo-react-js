@@ -8,9 +8,9 @@ import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import eulerLayout from 'cytoscape-euler'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 
-import { NodeRelationalGraphProps } from '../../lib/index.js'
+import { NodeRelationalGraphProps } from '../../lib/index.ts'
 
 const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
   cy?.layout({ name, ...options }).run()
@@ -46,11 +46,11 @@ const ModuleHoverDetails: React.FC<ModuleHoverDetailsProps> = ({ name, address, 
   return (
     <Card elevation={3} {...props}>
       <CardHeader
-        avatar={
+        avatar={(
           <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
             <Identicon value={address} size={24} />
           </Paper>
-        }
+        )}
         title={name}
         subheader={address}
       />
@@ -116,32 +116,39 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
 
     return (
       <FlexCol id="relational-graph-wrapper" ref={ref} {...props}>
-        {hoverAddress && hoverPosition ?
-          <Box position="absolute" top={hoverPosition.y1} left={hoverPosition.x1} zIndex={100}>
-            <ModuleHoverDetails address={hoverAddress} name={moduleInstance?.deref()?.id ?? 'Unknown'} />
-          </Box>
-        : null}
+        {hoverAddress && hoverPosition
+          ? (
+              <Box position="absolute" top={hoverPosition.y1} left={hoverPosition.x1} zIndex={100}>
+                <ModuleHoverDetails address={hoverAddress} name={moduleInstance?.deref()?.id ?? 'Unknown'} />
+              </Box>
+            )
+          : null}
         <FlexRow justifyContent="start" width="100%">
-          {actions === null ?
-            null
-          : actions ?
-            <ButtonGroup>
-              {actions}
-              <Button size={'small'} variant={'contained'} onClick={handleReset}>
-                Reset View
-              </Button>
-            </ButtonGroup>
-          : <Button size={'small'} variant={'contained'} onClick={handleReset}>
-              Reset
-            </Button>
-          }
+          {actions === null
+            ? null
+            : actions
+              ? (
+                  <ButtonGroup>
+                    {actions}
+                    <Button size="small" variant="contained" onClick={handleReset}>
+                      Reset View
+                    </Button>
+                  </ButtonGroup>
+                )
+              : (
+                  <Button size="small" variant="contained" onClick={handleReset}>
+                    Reset
+                  </Button>
+                )}
         </FlexRow>
         <FlexGrowRow width="100%" alignItems="start">
-          {showDetails ?
-            <FlexCol height="100%" width={'85%'}>
-              {detail}
-            </FlexCol>
-          : null}
+          {showDetails
+            ? (
+                <FlexCol height="100%" width="85%">
+                  {detail}
+                </FlexCol>
+              )
+            : null}
           <FlexCol
             justifyContent="start"
             classes="cytoscape-wrap"

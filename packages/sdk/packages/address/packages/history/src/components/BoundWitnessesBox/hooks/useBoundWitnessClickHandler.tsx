@@ -3,8 +3,8 @@ import { useMounted } from '@xylabs/react-shared'
 import { EventNoun } from '@xyo-network/react-event'
 import { useCallback } from 'react'
 
-import { useNestedBoundWitnesses, usePayloadHashSelectionHistory } from '../../../hooks/index.js'
-import { BoundwitnessClickType } from '../lib/index.js'
+import { useNestedBoundWitnesses, usePayloadHashSelectionHistory } from '../../../hooks/index.ts'
+import { BoundwitnessClickType } from '../lib/index.ts'
 
 export const useBoundWitnessClickHandler = () => {
   const mounted = useMounted()
@@ -12,6 +12,7 @@ export const useBoundWitnessClickHandler = () => {
   const { setClickedExistingHash, setLoading } = useNestedBoundWitnesses(false)
   const boundwitnessClick = useCallback(
     (noun: EventNoun, data?: Hash, clickType?: BoundwitnessClickType) => {
+      // eslint-disable-next-line complexity
       void (async () => {
         if (noun === 'boundwitness' && data) {
           if (clickType === 'activeBoundWitness' && !hashSelectionHistory?.includes(data)) {

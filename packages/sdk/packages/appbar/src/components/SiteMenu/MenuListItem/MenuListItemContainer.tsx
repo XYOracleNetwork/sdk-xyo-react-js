@@ -1,12 +1,12 @@
 import { ListItemProps, ListItemText, useTheme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { useCollapsible } from '../../../contexts/index.js'
-import { MenuListItemBase, NavListItemProps } from '../lib/index.js'
-import { ListItemTooltip, MenuIcon, MenuListItem } from './list-item-components/index.js'
-import { SubNavListItemsCollapse, SubNavToggleIconButton } from './sub-nav/index.js'
+import { useCollapsible } from '../../../contexts/index.ts'
+import { MenuListItemBase, NavListItemProps } from '../lib/index.ts'
+import { ListItemTooltip, MenuIcon, MenuListItem } from './list-item-components/index.ts'
+import { SubNavListItemsCollapse, SubNavToggleIconButton } from './sub-nav/index.ts'
 
 export interface MenuListItemProps extends NavListItemProps, MenuListItemBase, ListItemProps {
   iconMenuTextSpacing?: string
@@ -64,19 +64,21 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
           </FlexRow>
         </LinkEx>
         <FlexRow style={{ marginLeft: theme.spacing(1) }}>
-          {subNavListItems ?
-            <SubNavToggleIconButton setOpenSubNav={setOpenSubNav} openSubNav={openSubNav} />
-          : null}
-          {tooltip ?
-            <ListItemTooltip title={tooltip} />
-          : null}
+          {subNavListItems
+            ? <SubNavToggleIconButton setOpenSubNav={setOpenSubNav} openSubNav={openSubNav} />
+            : null}
+          {tooltip
+            ? <ListItemTooltip title={tooltip} />
+            : null}
         </FlexRow>
       </MenuListItem>
-      {subNavListItems ?
-        <SubNavListItemsCollapse openSubNav={openSubNav} collapse={collapse}>
-          {subNavListItems?.map((item, index) => <MenuListItemContainer dense={dense} sx={{ pl: theme.spacing(1) }} key={index} {...item} />)}
-        </SubNavListItemsCollapse>
-      : null}
+      {subNavListItems
+        ? (
+            <SubNavListItemsCollapse openSubNav={openSubNav} collapse={collapse}>
+              {subNavListItems?.map((item, index) => <MenuListItemContainer dense={dense} sx={{ pl: theme.spacing(1) }} key={index} {...item} />)}
+            </SubNavListItemsCollapse>
+          )
+        : null}
     </>
   )
 }

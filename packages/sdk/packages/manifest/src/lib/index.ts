@@ -1,1 +1,1 @@
-export * from './buildManifestNodes.js'
+export * from './buildManifestNodes.ts'

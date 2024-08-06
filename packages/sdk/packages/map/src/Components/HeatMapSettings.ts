@@ -1,4 +1,4 @@
-import { DefaultMapSettings } from '../Settings/index.js'
+import { DefaultMapSettings } from '../Settings/index.ts'
 
 const HeatMapSettings = DefaultMapSettings()
 const { debugLayer, scrollToZoom, fitToPoints } = HeatMapSettings

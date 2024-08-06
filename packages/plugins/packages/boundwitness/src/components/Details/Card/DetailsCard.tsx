@@ -3,10 +3,10 @@ import { Card, CardProps, Divider, IconButton } from '@mui/material'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
-import { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 
-import { BoundWitnessCardHeader } from '../../Card/index.js'
-import { DetailsCardContent } from './DetailsCardContent.js'
+import { BoundWitnessCardHeader } from '../../Card/index.ts'
+import { DetailsCardContent } from './DetailsCardContent.tsx'
 
 const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(({ visibleRows, ...props }, ref) => {
   return (
@@ -39,16 +39,16 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, PayloadDetailsRe
           hideJSONButton={false}
           hideValidation={false}
           hidePreviousHash={false}
-          additionalActions={
+          additionalActions={(
             <>
-              <Divider flexItem orientation={'vertical'} sx={{ ml: 2, mr: 1 }} />
+              <Divider flexItem orientation="vertical" sx={{ ml: 2, mr: 1 }} />
               <IconButton onClick={() => setCollapsed(!collapsed)}>
-                {collapsed ?
-                  <ExpandMoreRoundedIcon />
-                : <ExpandLessRoundedIcon />}
+                {collapsed
+                  ? <ExpandMoreRoundedIcon />
+                  : <ExpandLessRoundedIcon />}
               </IconButton>
             </>
-          }
+          )}
           sx={{ columnGap: 2 }}
         />
         <DetailsCardContent boundwitness={boundwitness} collapsed={collapsed} setCollapsed={setCollapsed} ref={ref} />

@@ -3,15 +3,16 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
 import { WithChildren } from '@xylabs/react-shared'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 
-import { WebAppBody, WebAppBodyProps } from './Body.js'
-import { fixedWrap, scrollableWrap } from './lib/index.js'
+import { WebAppBody, WebAppBodyProps } from './Body.tsx'
+import { fixedWrap, scrollableWrap } from './lib/index.ts'
 
 const WebAppPageRoot = styled(FlexGrowCol, {
   name: 'WebAppPage',
-  shouldForwardProp: (propName) => propName !== 'mobileScrollingBreakpoint' && propName !== 'variant',
+  shouldForwardProp: propName => propName !== 'mobileScrollingBreakpoint' && propName !== 'variant',
   slot: 'Root',
 })<WebAppPageProps>(({ theme, mobileScrollingBreakpoint = 'sm', variant }) => {
   const props = variant === 'scrollable' ? scrollableWrap : fixedWrap
@@ -47,7 +48,6 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   const { pathname } = useLocation()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       await userEvents?.viewContent({ name: title ?? 'NodeBasePage', path: location.pathname })
     },
@@ -57,33 +57,36 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   return (
     <WebAppPageRoot mobileScrollingBreakpoint={mobileScrollingBreakpoint} variant={variant} {...props}>
       <Helmet title={title} />
-      {container && container !== 'none' ?
-        <Container
-          disableGutters={disableGutters}
-          style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
-          maxWidth={container}
-        >
-          <WebAppBody
-            disableBreadcrumbGutter={disableBreadcrumbGutter}
-            breadcrumbs={breadcrumbs}
-            mobileScrollingBreakpoint={mobileScrollingBreakpoint}
-            variant={variant}
-            {...props}
-          >
-            {children}
-          </WebAppBody>
-        </Container>
-      : <WebAppBody
-          disableBreadcrumbGutter={disableBreadcrumbGutter}
-          breadcrumbs={breadcrumbs}
-          mobileScrollingBreakpoint={mobileScrollingBreakpoint}
-          paddingX={disableGutters ? 0 : 1}
-          variant={variant}
-          {...props}
-        >
-          {children}
-        </WebAppBody>
-      }
+      {container && container !== 'none'
+        ? (
+            <Container
+              disableGutters={disableGutters}
+              style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
+              maxWidth={container}
+            >
+              <WebAppBody
+                disableBreadcrumbGutter={disableBreadcrumbGutter}
+                breadcrumbs={breadcrumbs}
+                mobileScrollingBreakpoint={mobileScrollingBreakpoint}
+                variant={variant}
+                {...props}
+              >
+                {children}
+              </WebAppBody>
+            </Container>
+          )
+        : (
+            <WebAppBody
+              disableBreadcrumbGutter={disableBreadcrumbGutter}
+              breadcrumbs={breadcrumbs}
+              mobileScrollingBreakpoint={mobileScrollingBreakpoint}
+              paddingX={disableGutters ? 0 : 1}
+              variant={variant}
+              {...props}
+            >
+              {children}
+            </WebAppBody>
+          )}
     </WebAppPageRoot>
   )
 }

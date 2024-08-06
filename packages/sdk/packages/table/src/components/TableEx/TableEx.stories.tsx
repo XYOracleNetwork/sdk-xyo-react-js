@@ -1,11 +1,11 @@
-/* eslint-disable import/no-internal-modules */
 import { TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
+import React from 'react'
 
-import { TableCellEx } from './TableCellEx.js'
-import { TableEx } from './TableEx.js'
-import { TableFooterEx } from './TableFooterEx.js'
+import { TableCellEx } from './TableCellEx.tsx'
+import { TableEx } from './TableEx.tsx'
+import { TableFooterEx } from './TableFooterEx.tsx'
 
 const ScrollableDecorator: Decorator = (Story, args) => (
   <div style={{ height: 'calc(100vh - 2rem)', inset: 0, position: 'absolute' }}>
@@ -38,9 +38,12 @@ const Template: StoryFn<typeof TableEx> = (args) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {tableRows.map((row) => (
+        {tableRows.map(row => (
           <TableRow key={row}>
-            <TableCell>Row {row}</TableCell>
+            <TableCell>
+              Row
+              {row}
+            </TableCell>
             <TableCell>Cell 2</TableCell>
           </TableRow>
         ))}
@@ -84,5 +87,4 @@ WithScrollable.decorators = [ScrollableDecorator]
 
 export { Default, WithRef, WithScrollable }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

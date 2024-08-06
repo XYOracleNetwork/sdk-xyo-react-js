@@ -1,8 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
+import React from 'react'
 
-import { RawInfoButton } from './RawInfoButton.js'
+import { RawInfoButton } from './RawInfoButton.tsx'
 
 type TestPayload = Payload<{ id: string; schema: string; type: string }, 'network.xyo.test'>
 const TestPayload: TestPayload = {
@@ -11,13 +12,12 @@ const TestPayload: TestPayload = {
   type: 'test',
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: RawInfoButton,
   title: 'payload/RawInfoButton',
 } as Meta
 
-const Template: StoryFn<typeof RawInfoButton> = (args) => (
+const Template: StoryFn<typeof RawInfoButton> = args => (
   <FlexCol>
     <RawInfoButton {...args} />
   </FlexCol>

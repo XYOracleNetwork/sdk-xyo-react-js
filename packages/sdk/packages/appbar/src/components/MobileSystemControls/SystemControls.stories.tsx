@@ -1,9 +1,9 @@
-/* eslint-disable import/no-internal-modules */
 import { Meta, StoryFn } from '@storybook/react'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
+import React from 'react'
 
-import { SystemControls } from './SystemControls.js'
-import { SystemControlsType } from './SystemControlsType.js'
+import { SystemControls } from './SystemControls.tsx'
+import { SystemControlsType } from './SystemControlsType.ts'
 
 const StorybookEntry: Meta = {
   argTypes: {},
@@ -38,5 +38,4 @@ Top.args = {
 
 export { Left, Top }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

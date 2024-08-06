@@ -1,2 +1,2 @@
-export * from './CardParser.js'
-export * from './graph/index.js'
+export * from './CardParser.tsx'
+export * from './graph/index.ts'

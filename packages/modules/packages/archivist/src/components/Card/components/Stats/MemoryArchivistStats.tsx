@@ -3,9 +3,9 @@ import { ArchivistAllQuerySchema, ArchivistInstance } from '@xyo-network/archivi
 import { asBoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 
-import { ArchivistStats } from './ArchivistStats.js'
+import { ArchivistStats } from './ArchivistStats.tsx'
 
 export interface MemoryArchivistStatsProps {
   archivist?: ArchivistInstance
@@ -40,7 +40,6 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
   }, [archivist, getAll])
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       if (archivist?.queries.includes(ArchivistAllQuerySchema)) {
         await getAll(archivist)
@@ -51,8 +50,8 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
     [archivist, getAll],
   )
 
-  const payloads = useMemo(() => (all === null ? [] : all?.filter((payload) => payload.schema !== BoundWitnessSchema)), [all])
-  const boundWitnesses = useMemo(() => (all === null ? [] : all?.filter((payload) => payload.schema === BoundWitnessSchema)), [all])
+  const payloads = useMemo(() => (all === null ? [] : all?.filter(payload => payload.schema !== BoundWitnessSchema)), [all])
+  const boundWitnesses = useMemo(() => (all === null ? [] : all?.filter(payload => payload.schema === BoundWitnessSchema)), [all])
   const addresses = useMemo(
     () =>
       all?.reduce(

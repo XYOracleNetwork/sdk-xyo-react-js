@@ -10,13 +10,13 @@ import { NodeProvider, useWeakNodeFromNode, useWeakProvidedNode } from '@xyo-net
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { CytoscapeInstanceProvider } from '../../../contexts/index.js'
-import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.js'
-import { NodeRelationalGraphFlexBox } from './Graph.js'
-import { ProvidedNodeRenderer } from './ProvidedNodeRenderer.js'
-import { options } from './story/index.js'
+import { CytoscapeInstanceProvider } from '../../../contexts/index.ts'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.ts'
+import { NodeRelationalGraphFlexBox } from './Graph.tsx'
+import { ProvidedNodeRenderer } from './ProvidedNodeRenderer.tsx'
+import { options } from './story/index.ts'
 
 const nodeUrl = 'http://localhost:8080/node'
 
@@ -24,7 +24,6 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       try {
         const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
@@ -73,13 +72,12 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: NodeRelationalGraphFlexBox,
   title: 'node/renderer/NodeRelationalGraph',
 } as Meta
 
-const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox {...props} />
+const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = props => <NodeRelationalGraphFlexBox {...props} />
 
 const TemplateDescribe: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useWeakProvidedNode()
@@ -119,7 +117,6 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
   const [layout, setLayout] = useState<'dagre' | 'euler' | 'cose-bilkent' | 'cola'>('euler')
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const witnessModule = await IdWitness.create({ config: { name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema } })
       setIdWitness(witnessModule)

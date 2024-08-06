@@ -1,2 +1,2 @@
-export * from './ArchivistFormGroupStorage.js'
-export * from './FormGroupStorage.js'
+export * from './ArchivistFormGroupStorage.ts'
+export * from './FormGroupStorage.ts'

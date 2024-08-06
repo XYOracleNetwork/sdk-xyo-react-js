@@ -1,2 +1,2 @@
-export * from './components/index.js'
-export * from './SeedPhraseDialog.js'
+export * from './components/index.ts'
+export * from './SeedPhraseDialog.tsx'

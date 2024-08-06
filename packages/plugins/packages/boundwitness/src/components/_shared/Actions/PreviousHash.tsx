@@ -5,7 +5,7 @@ import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { EllipsizeBox } from '@xyo-network/react-shared'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 export interface BWPreviousHashQuickTipButtonProps extends QuickTipButtonProps {
   boundwitness?: BoundWitness
@@ -32,23 +32,25 @@ export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButton
       dialogProps={{ fullWidth: true, maxWidth: 'md' }}
       {...props}
     >
-      {previousHash === null ? null : (
-        <>
-          <FlexGrowRow columnGap={2}>
-            <ContentCopyIcon sx={{ cursor: 'pointer' }} onClick={onCopy} />
-            <EllipsizeBox flexGrow="1" typographyProps={{ variant: 'body1' }}>
-              {boundwitness?.previous_hashes.join(',')}
-            </EllipsizeBox>
-          </FlexGrowRow>
-          <FlexRow>
-            <Collapse in={copied} unmountOnExit>
-              <Alert>
-                <AlertTitle>Previous hash copied to clipboard</AlertTitle>
-              </Alert>
-            </Collapse>
-          </FlexRow>
-        </>
-      )}
+      {previousHash === null
+        ? null
+        : (
+            <>
+              <FlexGrowRow columnGap={2}>
+                <ContentCopyIcon sx={{ cursor: 'pointer' }} onClick={onCopy} />
+                <EllipsizeBox flexGrow="1" typographyProps={{ variant: 'body1' }}>
+                  {boundwitness?.previous_hashes.join(',')}
+                </EllipsizeBox>
+              </FlexGrowRow>
+              <FlexRow>
+                <Collapse in={copied} unmountOnExit>
+                  <Alert>
+                    <AlertTitle>Previous hash copied to clipboard</AlertTitle>
+                  </Alert>
+                </Collapse>
+              </FlexRow>
+            </>
+          )}
     </QuickTipButton>
   )
 }

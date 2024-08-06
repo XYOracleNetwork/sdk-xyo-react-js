@@ -1,5 +1,6 @@
 import { Tooltip, TooltipProps } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { VscInfo } from 'react-icons/vsc'
 

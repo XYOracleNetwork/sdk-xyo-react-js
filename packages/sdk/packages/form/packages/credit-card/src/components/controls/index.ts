@@ -1,2 +1,2 @@
-export * from './card/index.js'
-export * from './WithFormControlProps.js'
+export * from './card/index.ts'
+export * from './WithFormControlProps.ts'

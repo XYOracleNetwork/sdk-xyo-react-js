@@ -6,11 +6,11 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
-import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig.js'
+import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig.ts'
 
 export interface BlockTableRowProps extends TableRowProps {
   block?: BoundWitness
@@ -21,7 +21,7 @@ export interface BlockTableRowProps extends TableRowProps {
 
 export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   block,
-  columns = blockTableColumnConfigDefaults(),
+  columns,
   exploreDomain,
   network: networkProp,
   ...props
@@ -38,15 +38,19 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const payloads = (
     <TableCell key="payloads" align="center">
-      {compact(block?.payload_hashes ?? []).length}|{compact(block?.addresses ?? []).length}|{compact(block?.previous_hashes ?? [])?.length}
+      {compact(block?.payload_hashes ?? []).length}
+      |
+      {compact(block?.addresses ?? []).length}
+      |
+      {compact(block?.previous_hashes ?? [])?.length}
     </TableCell>
   )
 
   const valid = (
     <TableCell key="valid" align="center">
-      {errors.length === 0 ?
-        <MdDone fontSize={18} color="green" />
-      : <MdClear color="red" fontSize={18} />}
+      {errors.length === 0
+        ? <MdDone fontSize={18} color="green" />
+        : <MdClear color="red" fontSize={18} />}
     </TableCell>
   )
 
@@ -56,11 +60,13 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
     valid,
   }
 
-  return breakPoint ?
-      <TableRow style={{ maxWidth: '100vw' }} {...props}>
-        {columns[breakPoint]?.map((column) => {
-          return tableCells[column]
-        })}
-      </TableRow>
+  return breakPoint
+    ? (
+        <TableRow style={{ maxWidth: '100vw' }} {...props}>
+          {(columns ?? blockTableColumnConfigDefaults())[breakPoint]?.map((column) => {
+            return tableCells[column]
+          })}
+        </TableRow>
+      )
     : null
 }

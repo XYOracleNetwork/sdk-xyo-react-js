@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexBoxProps } from '@xylabs/react-flexbox'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import {
@@ -8,10 +9,9 @@ import {
   WithHashSelectionHistory,
   WithHashSelectionHistoryDefaultValues,
   WithNestedBoundWitnessesDecorator,
-} from '../stories/index.js'
-import { BoundWitnessesBox } from './BoundWitnessesBox.js'
+} from '../stories/index.ts'
+import { BoundWitnessesBox } from './BoundWitnessesBox.tsx'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: BoundWitnessesBox,
   decorators: [ActiveBWDecorator],

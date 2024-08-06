@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { WalletAccountSelect } from './Select.js'
-import { WalletProviderDecorator } from './stories/index.js'
+import { WalletAccountSelect } from './Select.tsx'
+import { WalletProviderDecorator } from './stories/index.ts'
 
 const StorybookEntry = {
   argTypes: {},
@@ -39,5 +40,4 @@ IconsOnlySmall.args = { iconOnly: true, icons: true, size: 'small' }
 
 export { Default, DefaultIcons, DefaultSmall, DefaultSmallIcon, IconsOnly, IconsOnlySmall }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -3,10 +3,10 @@ import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { CardContentEx, CardContentExProps } from '@xyo-network/react-card'
 import { useTableHeight } from '@xyo-network/react-table'
-import { Dispatch, forwardRef, SetStateAction, useState } from 'react'
+import React, { Dispatch, forwardRef, SetStateAction, useState } from 'react'
 
-import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../../_shared/index.js'
-import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation/index.js'
+import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../../_shared/index.ts'
+import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation/index.ts'
 
 export interface DetailsCardContentProps extends CardContentExProps {
   boundwitness?: BoundWitness
@@ -25,15 +25,15 @@ export const DetailsCardContent = forwardRef<HTMLDivElement, DetailsCardContentP
           <FlexRow alignItems="stretch" height={height !== undefined && collapsed ? height : 'auto'} {...props}>
             <BWNavigationTabs value={activeTab} setValue={setActiveTab} boundWitness={boundwitness} />
             <FlexGrowCol justifyContent="start" overflow="scroll" sx={{ borderLeft: '1px solid', borderLeftColor: 'divider' }}>
-              {activeTab === 0 ?
-                <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" />
-              : null}
-              {activeTab === 1 ?
-                <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} variant="scrollable" />
-              : null}
-              {activeTab === 2 ?
-                <BoundWitnessSignatureTable block={boundwitness} variant="scrollable" />
-              : null}
+              {activeTab === 0
+                ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" />
+                : null}
+              {activeTab === 1
+                ? <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} variant="scrollable" />
+                : null}
+              {activeTab === 2
+                ? <BoundWitnessSignatureTable block={boundwitness} variant="scrollable" />
+                : null}
             </FlexGrowCol>
           </FlexRow>
         </Collapse>

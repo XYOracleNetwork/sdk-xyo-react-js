@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ContextToolbar } from './ContextToolbar.js'
+import { ContextToolbar } from './ContextToolbar.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -14,7 +15,7 @@ const StorybookEntry = {
   title: 'appbar/Toolbar/Context',
 } as Meta<typeof ContextToolbar>
 
-const Template: StoryFn<typeof ContextToolbar> = (args) => (
+const Template: StoryFn<typeof ContextToolbar> = args => (
   <BrowserRouter>
     <ContextToolbar {...args}></ContextToolbar>
   </BrowserRouter>
@@ -28,5 +29,4 @@ WithVersion.args = { version: true }
 
 export { Default, WithVersion }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

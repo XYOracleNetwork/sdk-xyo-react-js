@@ -1,6 +1,6 @@
 import { RefObject } from 'react'
 
-import { useCustomEvent } from './useCustomEvent.js'
+import { useCustomEvent } from './useCustomEvent.ts'
 
 export type EventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature' | 'schema'
 export type EventVerb = 'click' | 'favorite'
@@ -19,11 +19,11 @@ export const useEvent = <T extends HTMLElement, TNoun = EventNoun, TVerb = Event
 ): [RefObject<T>, EventDispatch<TNoun, TVerb, TData>] => {
   const [ref, customDispatch] = useCustomEvent<T, Event<TNoun, TVerb, TData>>(
     'xyo',
-    listener ?
-      (detail: Event<TNoun, TVerb, TData>) => {
-        return listener(detail.noun, detail.verb, detail.data)
-      }
-    : undefined,
+    listener
+      ? (detail: Event<TNoun, TVerb, TData>) => {
+          return listener(detail.noun, detail.verb, detail.data)
+        }
+      : undefined,
     sharableRef,
   )
 

@@ -2,11 +2,11 @@ import { Card, CardProps } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import { ModuleRenderProps } from '@xyo-network/react-module'
 import { WitnessInstance } from '@xyo-network/witness-model'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-import { WitnessCardActions } from './CardActions.js'
-import { WitnessCardContent } from './CardContent.js'
-import { WitnessCardHeader } from './CardHeader.js'
+import { WitnessCardActions } from './CardActions.tsx'
+import { WitnessCardContent } from './CardContent.tsx'
+import { WitnessCardHeader } from './CardHeader.tsx'
 
 export const WitnessCard: React.FC<CardProps & ModuleRenderProps<WitnessInstance>> = ({ children, mod, ...props }) => {
   const [retry, setRetry] = useState(-1)

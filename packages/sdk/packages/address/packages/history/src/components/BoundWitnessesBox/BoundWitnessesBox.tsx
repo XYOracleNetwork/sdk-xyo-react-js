@@ -3,13 +3,13 @@ import { Hash } from '@xylabs/hex'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { ThrownErrorBoundary, useRollbar } from '@xyo-network/react-error'
 import { EventNoun, EventVerb, useEvent } from '@xyo-network/react-event'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
-import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks/index.js'
-import { ActiveBWFlexBox } from './ActiveBoundWitness/index.js'
-import { BWErrorAlert } from './Errors/index.js'
-import { useBoundWitnessClickHandler } from './hooks/index.js'
-import { NestedBoundWitnessesBox } from './NestedBoundWitnesses/index.js'
+import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks/index.ts'
+import { ActiveBWFlexBox } from './ActiveBoundWitness/index.ts'
+import { BWErrorAlert } from './Errors/index.ts'
+import { useBoundWitnessClickHandler } from './hooks/index.ts'
+import { NestedBoundWitnessesBox } from './NestedBoundWitnesses/index.ts'
 
 export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
   const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness(false)
@@ -22,11 +22,11 @@ export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props
   )
 
   return (
-    <ThrownErrorBoundary rollbar={rollbar} boundaryName={'BoundWitness Scrolling List'}>
+    <ThrownErrorBoundary rollbar={rollbar} boundaryName="BoundWitness Scrolling List">
       <FlexGrowCol alignItems="stretch" rowGap={3} justifyContent={activeBoundWitnessHash ? 'start' : 'center'} ref={ref} {...props}>
-        {loading ?
-          <LinearProgress sx={{ minHeight: '10px' }} />
-        : null}
+        {loading
+          ? <LinearProgress sx={{ minHeight: '10px' }} />
+          : null}
         <BWErrorAlert />
         <NestedBoundWitnessesBox />
         {activeBoundWitness ? null : <ActiveBWFlexBox />}

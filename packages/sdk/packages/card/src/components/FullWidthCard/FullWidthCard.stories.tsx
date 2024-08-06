@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { FullWidthCard } from './FullWidthCard.js'
+import { FullWidthCard } from './FullWidthCard.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: FullWidthCard,
@@ -13,7 +14,7 @@ const StorybookEntry = {
   title: 'shared/FullWidthCard',
 } as Meta<typeof FullWidthCard>
 
-const Template: StoryFn<typeof FullWidthCard> = (args) => (
+const Template: StoryFn<typeof FullWidthCard> = args => (
   <BrowserRouter>
     <FullWidthCard {...args}></FullWidthCard>
   </BrowserRouter>
@@ -30,5 +31,4 @@ Default.args = {
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

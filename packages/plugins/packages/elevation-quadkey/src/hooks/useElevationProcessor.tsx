@@ -3,16 +3,16 @@ import { Payload } from '@xyo-network/payload-model'
 import { Feature, Geometry } from 'geojson'
 import { useState } from 'react'
 
-import { ElevationPayloadProcessor } from '../classes/index.js'
-import { useOpenElevationApiClient } from '../contexts/index.js'
-import { NetworkElevationQuadkeyAnswerPayload } from '../types.js'
+import { ElevationPayloadProcessor } from '../classes/index.ts'
+import { useOpenElevationApiClient } from '../contexts/index.ts'
+import { NetworkElevationQuadkeyAnswerPayload } from '../types.ts'
 
 export const useElevationProcessor = (payload?: Payload) => {
   const [features, setFeatures] = useState<Feature<Geometry>[]>()
   const { lookupLocations } = useOpenElevationApiClient()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     async (mounted) => {
       // Convert Single Payload from Quadkeys to GeoJson with Elevations
       if (payload && (payload as NetworkElevationQuadkeyAnswerPayload).result && lookupLocations && features === undefined) {

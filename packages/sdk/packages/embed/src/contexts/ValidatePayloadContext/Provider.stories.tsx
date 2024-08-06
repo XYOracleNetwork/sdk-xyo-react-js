@@ -1,11 +1,12 @@
 import { Typography } from '@mui/material'
 import { Decorator, Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
-import { EmbedPluginContext, EmbedPluginState } from '../EmbedPluginContext/index.js'
-import { RefreshPayloadProvider } from '../RefreshPayloadContext/index.js'
-import { ResolvePayloadContext, ResolvePayloadState } from '../ResolvePayloadContext/index.js'
-import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider.js'
-import { useValidatePayload } from './use.js'
+import { EmbedPluginContext, EmbedPluginState } from '../EmbedPluginContext/index.ts'
+import { RefreshPayloadProvider } from '../RefreshPayloadContext/index.ts'
+import { ResolvePayloadContext, ResolvePayloadState } from '../ResolvePayloadContext/index.ts'
+import { ValidatePayloadProvider, ValidatePayloadProviderProps } from './Provider.tsx'
+import { useValidatePayload } from './use.ts'
 
 const EmbedDecorator: Decorator<ValidatePayloadProviderPropsEx> = (Story, { args }) => {
   const { xyoEmbedPluginContext, resolvePayloadContext, ...props } = args
@@ -70,5 +71,4 @@ ValidationFailed.args = {
 
 export { Default, ValidationFailed, ValidationSucceeded }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

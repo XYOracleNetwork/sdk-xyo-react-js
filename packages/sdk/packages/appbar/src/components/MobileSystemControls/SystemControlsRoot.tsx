@@ -1,7 +1,7 @@
 import { styled } from '@mui/material'
 
-import { SystemControlsType } from './SystemControlsType.js'
-import { SystemControlsUnstyled, SystemControlsUnstyledProps } from './SystemControlsUnstyled.js'
+import { SystemControlsType } from './SystemControlsType.ts'
+import { SystemControlsUnstyled, SystemControlsUnstyledProps } from './SystemControlsUnstyled.tsx'
 
 const SystemControlsRoot = styled(SystemControlsUnstyled, { name: 'SystemControls', slot: 'Root' })<SystemControlsUnstyledProps>(({ theme }) => ({
   // shared defaults
@@ -9,8 +9,8 @@ const SystemControlsRoot = styled(SystemControlsUnstyled, { name: 'SystemControl
     '.toggle': {
       backgroundColor: theme.palette.primary.main,
     },
-    alignItems: 'start',
-    zIndex: 1,
+    'alignItems': 'start',
+    'zIndex': 1,
   },
   // WindowShade System Controls styles
   [`&.system-controls-type-${SystemControlsType.WindowShade}`]: {
@@ -30,10 +30,10 @@ const SystemControlsRoot = styled(SystemControlsUnstyled, { name: 'SystemControl
       borderRadius: '0 0 5px 5px',
       padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
     },
-    flexDirection: 'row',
-    position: 'absolute',
-    top: 0,
-    width: '100%',
+    'flexDirection': 'row',
+    'position': 'absolute',
+    'top': 0,
+    'width': '100%',
   },
   // Left System Control styles
   [`&.system-controls-type-${SystemControlsType.Left}`]: {
@@ -50,11 +50,11 @@ const SystemControlsRoot = styled(SystemControlsUnstyled, { name: 'SystemControl
       padding: `${theme.spacing(1)} ${theme.spacing(0.5)}`,
       writingMode: 'vertical-rl',
     },
-    flexDirection: 'column',
-    left: 0,
-    position: 'fixed',
-    top: '30vh',
-    width: 'auto',
+    'flexDirection': 'column',
+    'left': 0,
+    'position': 'fixed',
+    'top': '30vh',
+    'width': 'auto',
   },
 }))
 

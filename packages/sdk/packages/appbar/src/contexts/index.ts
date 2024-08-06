@@ -1,1 +1,1 @@
-export * from './Collapsible/index.js'
+export * from './Collapsible/index.ts'

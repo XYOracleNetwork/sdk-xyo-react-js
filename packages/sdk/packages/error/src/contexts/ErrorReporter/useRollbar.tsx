@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 
-import { ErrorReporterContext } from './Context.js'
+import { ErrorReporterContext } from './Context.ts'
 
 const useRollbar = () => {
   const context = useContext(ErrorReporterContext)

@@ -1,5 +1,5 @@
 import { Alert, AlertTitle, Snackbar, SnackbarProps } from '@mui/material'
-import { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
 export interface OutOfBoundsSnackBarProps extends SnackbarProps {
   activeAccountIndex?: number
@@ -21,10 +21,14 @@ export const OutOfBoundsSnackBar: React.FC<OutOfBoundsSnackBarProps> = ({
       onClose={() => setShowSnackBar?.(false)}
       open={showSnackBar}
     >
-      <Alert severity={'error'} onClose={() => setShowSnackBar?.(false)}>
+      <Alert severity="error" onClose={() => setShowSnackBar?.(false)}>
         <AlertTitle>Maximum Accounts Error</AlertTitle>
-        Your currently selected account number ({activeAccountIndex === undefined ? '' : activeAccountIndex + 1}) cannot be greater than the desired
-        Maximum Accounts ({desiredMaximumAccounts}).
+        Your currently selected account number (
+        {activeAccountIndex === undefined ? '' : activeAccountIndex + 1}
+        ) cannot be greater than the desired
+        Maximum Accounts (
+        {desiredMaximumAccounts}
+        ).
       </Alert>
     </Snackbar>
   )

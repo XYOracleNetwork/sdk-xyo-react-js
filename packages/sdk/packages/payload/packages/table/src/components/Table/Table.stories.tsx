@@ -3,10 +3,10 @@ import { Meta, StoryFn } from '@storybook/react'
 import { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload } from '@xyo-network/react-storybook'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadTable } from './Table.js'
+import { PayloadTable } from './Table.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -25,9 +25,9 @@ const Template: StoryFn<typeof PayloadTable> = (args) => {
 
   return (
     <BrowserRouter>
-      {eventData ?
-        <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} />
-      : null}
+      {eventData
+        ? <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} />
+        : null}
       <PayloadTable ref={ref} {...args}></PayloadTable>
     </BrowserRouter>
   )
@@ -76,7 +76,7 @@ const WithInvalid = Template.bind({})
 const { schema, ...badPayload } = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 WithInvalid.args = { payloads: [sampleIdPayload, badPayload] }
 
 const WithNoResults = Template.bind({})
@@ -87,5 +87,4 @@ WithLoading.args = { loading: true, payloads: [] }
 
 export { Default, WithData, WithDataAndMaxSchemaDepth, WithInvalid, WithLoading, WithNoResults, WithOutStickyHeaderFooter }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

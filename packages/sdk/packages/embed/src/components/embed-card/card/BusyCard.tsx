@@ -8,6 +8,7 @@ import {
   BusyVariant,
   WithChildren,
 } from '@xylabs/react-shared'
+import React from 'react'
 
 export interface BusyCardProps extends CardProps {
   busy?: boolean
@@ -28,12 +29,12 @@ export const BusyCard: React.FC<WithChildren<BusyCardProps>> = ({
   return (
     <Card {...props}>
       {children}
-      {busyVariant === 'circular' && internalBusy ?
-        <BusyCircularProgress {...(busyVariantProps as BusyCircularProgressProps)} />
-      : null}
-      {busyVariant === 'linear' && internalBusy ?
-        <BusyLinearProgress {...(busyVariantProps as BusyLinearProgressProps)} />
-      : null}
+      {busyVariant === 'circular' && internalBusy
+        ? <BusyCircularProgress {...(busyVariantProps as BusyCircularProgressProps)} />
+        : null}
+      {busyVariant === 'linear' && internalBusy
+        ? <BusyLinearProgress {...(busyVariantProps as BusyLinearProgressProps)} />
+        : null}
     </Card>
   )
 }

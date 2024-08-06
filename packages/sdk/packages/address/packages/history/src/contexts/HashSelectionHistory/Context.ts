@@ -1,5 +1,5 @@
 import { createContextEx } from '@xyo-network/react-shared'
 
-import { HashSelectionHistoryState } from './State.js'
+import { HashSelectionHistoryState } from './State.ts'
 
 export const HashSelectionHistoryContext = createContextEx<HashSelectionHistoryState>()

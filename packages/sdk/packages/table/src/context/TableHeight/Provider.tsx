@@ -1,8 +1,8 @@
 import { WithChildren } from '@xylabs/react-shared'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
-import { TableHeightContext } from './Context.js'
+import { TableHeightContext } from './Context.ts'
 
 export interface TableHeightProviderProps extends ContextExProviderProps, WithChildren {
   /** @field Account for optional header and footer rows */
@@ -33,8 +33,10 @@ export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({
     }
   }, [defaultVisibleRows, rowHeight, visibleRows, additionalRows])
 
+  const value = useMemo(() => ({ height: formattedHeight, provided: true, rowHeight, setRowHeight, setVisibleRows, visibleRows }), [formattedHeight, rowHeight, setRowHeight, setVisibleRows, visibleRows])
+
   return (
-    <TableHeightContext.Provider value={{ height: formattedHeight, provided: true, rowHeight, setRowHeight, setVisibleRows, visibleRows }}>
+    <TableHeightContext.Provider value={value}>
       {children}
     </TableHeightContext.Provider>
   )

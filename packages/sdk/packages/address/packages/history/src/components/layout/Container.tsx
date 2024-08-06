@@ -1,7 +1,7 @@
 import { Grid, styled } from '@mui/material'
 import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
 import { WithChildren } from '@xylabs/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 const GridContainer = styled(Grid, { name: 'GridContainer' })(() => ({
   flexGrow: 1,

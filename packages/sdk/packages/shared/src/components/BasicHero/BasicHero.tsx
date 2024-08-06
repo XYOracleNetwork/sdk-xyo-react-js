@@ -2,9 +2,9 @@ import { Container, Grid, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexBoxProps, FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 
-import { useGradientStyles, useIsSmall } from '../../hooks/index.js'
+import { useGradientStyles, useIsSmall } from '../../hooks/index.ts'
 
 export interface BasicHeroProps extends FlexBoxProps {
   backgroundColor?: string
@@ -47,10 +47,18 @@ const SubLinkSection: React.FC<SubLinkSectionProps> = ({ backgroundImageAlignmen
       width="100%"
       sx={{ flexDirection: { md: 'row', xs: 'column' }, justifyContent: { md: backgroundImageAlignment ? 'flex-start' : 'center', xs: 'center' } }}
     >
-      {subLinkIcon ?
-        <span>{subLinkIcon}&nbsp;</span>
-      : null}
-      <Typography>{subLinkText1}&nbsp;</Typography>
+      {subLinkIcon
+        ? (
+            <span>
+              {subLinkIcon}
+&nbsp;
+            </span>
+          )
+        : null}
+      <Typography>
+        {subLinkText1}
+&nbsp;
+      </Typography>
       <LinkEx href={subLinkPath} underline="always" target="_blank" color="inherit">
         <Typography>{subLinkText2}</Typography>
       </LinkEx>
@@ -137,15 +145,20 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
           <Grid item xs={12} sm={8} md={backgroundImage ? 6 : 8} lg={backgroundImage ? 6 : 8}>
             <FlexGrowCol paddingY={2} sx={{ alignItems: { xs: backgroundImage && !isMobile ? 'flex-start' : 'center' } }}>
               <Typography variant="h1" component="h1" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
-                {title ?
-                  <span>{`${title} `}</span>
-                : null}
-                {gradientTitle ?
-                  <span className={classes().heading}> {` ${gradientTitle}`}</span>
-                : null}
-                {title2 ?
-                  <span>{` ${title2}`}</span>
-                : null}
+                {title
+                  ? <span>{`${title} `}</span>
+                  : null}
+                {gradientTitle
+                  ? (
+                      <span className={classes().heading}>
+                        {' '}
+                        {` ${gradientTitle}`}
+                      </span>
+                    )
+                  : null}
+                {title2
+                  ? <span>{` ${title2}`}</span>
+                  : null}
               </Typography>
               <Typography variant="body1" component="h2" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
                 {desc}
@@ -164,9 +177,9 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
             </FlexGrowCol>
           </Grid>
           <Grid item xs={12} md={6}>
-            {heroImage ?
-              <img src={heroImage} width="100%" />
-            : null}
+            {heroImage
+              ? <img src={heroImage} width="100%" />
+              : null}
           </Grid>
         </Grid>
       </Container>
