@@ -1,7 +1,7 @@
 import { forget } from '@xylabs/forget'
 import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.js'
 import { useDynamicPositioning } from '../../hooks/index.js'
@@ -37,10 +37,10 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
   const { mapSettings } = useMapSettings()
   const { map, mapInitialized } = useMapBoxInstance()
 
-  const value: HeatMapInitializerState = {
+  const value: HeatMapInitializerState = useMemo(() => ({
     MapHeat: mapHeat,
     heatMapColorProps,
-  }
+  }), [mapHeat, heatMapColorProps])
 
   useEffect(() => {
     if (mapInitialized && featureSets?.length && featureSets[0].length > 0 && map && featureSetsLayers?.length) {

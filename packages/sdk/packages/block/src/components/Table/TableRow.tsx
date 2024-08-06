@@ -21,7 +21,7 @@ export interface BlockTableRowProps extends TableRowProps {
 
 export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   block,
-  columns = blockTableColumnConfigDefaults(),
+  columns,
   exploreDomain,
   network: networkProp,
   ...props
@@ -63,7 +63,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   return breakPoint
     ? (
         <TableRow style={{ maxWidth: '100vw' }} {...props}>
-          {columns[breakPoint]?.map((column) => {
+          {(columns ?? blockTableColumnConfigDefaults())[breakPoint]?.map((column) => {
             return tableCells[column]
           })}
         </TableRow>

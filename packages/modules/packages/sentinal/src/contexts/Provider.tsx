@@ -119,6 +119,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   }, [sentinel])
 
   return !required || sentinel
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     ? <SentinelContext.Provider value={{ history, progress, provided: true, reportingErrors, sentinel, status }}>{children}</SentinelContext.Provider>
     : null
 }

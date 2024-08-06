@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import React, { ProviderProps, useState } from 'react'
+import React, { ProviderProps, useMemo, useState } from 'react'
 
 import { WebAppNavigationType } from '../../WebAppNavigationType.js'
 import { AppSettingsContext, AppSettingsContextProps } from './Context.js'
@@ -10,50 +10,52 @@ export interface AppSettingsProviderProps<T extends AppSettingsContextProps = Ap
 }
 
 export const AppSettingsProvider: React.FC<WithChildren<AppSettingsProviderProps>> = ({
-  storage = new AppSettingsStorage(),
+  storage,
   value,
   children,
   ...props
 }) => {
-  const [developerMode, setDeveloperMode] = useState(storage.developerMode)
-  const [darkMode, setDarkMode] = useState(storage.darkMode)
-  const [navigationType, setNavigationType] = useState(storage.navigationType)
-  const [navigationCollapsed, setNavigationCollapsed] = useState(storage.navigationCollapsed)
-  const [seedPhrase, setSeedPhrase] = useState(storage.seedPhrase)
-  const [maxAccounts, setMaxAccounts] = useState(storage.maxAccounts)
+  const storageMemo = useMemo(() => storage ?? new AppSettingsStorage(), [storage])
+  const [developerMode, setDeveloperMode] = useState(storageMemo.developerMode)
+  const [darkMode, setDarkMode] = useState(storageMemo.darkMode)
+  const [navigationType, setNavigationType] = useState(storageMemo.navigationType)
+  const [navigationCollapsed, setNavigationCollapsed] = useState(storageMemo.navigationCollapsed)
+  const [seedPhrase, setSeedPhrase] = useState(storageMemo.seedPhrase)
+  const [maxAccounts, setMaxAccounts] = useState(storageMemo.maxAccounts)
 
   const enableDeveloperMode = (value: boolean) => {
-    storage.developerMode = value
-    setDeveloperMode(storage.developerMode)
+    storageMemo.developerMode = value
+    setDeveloperMode(storageMemo.developerMode)
   }
 
   const enableDarkMode = (value: boolean) => {
-    storage.darkMode = value
-    setDarkMode(storage.darkMode)
+    storageMemo.darkMode = value
+    setDarkMode(storageMemo.darkMode)
   }
 
   const changeNavigationType = (value: WebAppNavigationType) => {
-    storage.navigationType = value
+    storageMemo.navigationType = value
     setNavigationType(value)
   }
 
   const changeNavigationCollapsed = (value: boolean) => {
-    storage.navigationCollapsed = value
+    storageMemo.navigationCollapsed = value
     setNavigationCollapsed(value)
   }
 
   const changeSeedPhrase = (value: string) => {
-    storage.seedPhrase = value
+    storageMemo.seedPhrase = value
     setSeedPhrase(value)
   }
 
   const changeMaxAccounts = (value: number) => {
-    storage.maxAccounts = value
+    storageMemo.maxAccounts = value
     setMaxAccounts(value)
   }
 
   return (
     <AppSettingsContext.Provider
+      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         changeMaxAccounts,
         changeNavigationCollapsed,

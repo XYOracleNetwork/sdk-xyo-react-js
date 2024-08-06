@@ -11,5 +11,6 @@ export const NodeProvider: React.FC<WithChildren<NodeProviderProps>> = ({ node, 
   // save a reference to it
   const memoNode = useMemo(() => node, [node])
 
+  // eslint-disable-next-line @eslint-react/no-unstable-context-value
   return <NodeContext.Provider value={{ node: memoNode, provided: true }}>{children}</NodeContext.Provider>
 }

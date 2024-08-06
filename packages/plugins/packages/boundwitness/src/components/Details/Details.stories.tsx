@@ -21,6 +21,7 @@ const StorybookEntry = {
 } as Meta<typeof BoundWitnessDetails>
 
 const Template: StoryFn<typeof BoundWitnessDetails> = (args) => {
+  // eslint-disable-next-line @eslint-react/no-create-ref
   const sharedRef = createRef<HTMLDivElement>()
   useEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`), sharedRef)
   useEvent<HTMLDivElement>(() => console.log('2nd Listener'), sharedRef)

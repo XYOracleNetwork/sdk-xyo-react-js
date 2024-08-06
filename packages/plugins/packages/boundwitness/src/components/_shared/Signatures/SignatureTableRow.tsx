@@ -22,7 +22,7 @@ export interface BoundWitnessSignatureTableRowProps extends TableRowProps {
 export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableRowProps> = ({
   address,
   archive,
-  clickableFields = [],
+  clickableFields,
   hash,
   previousHash,
   signature,
@@ -46,7 +46,7 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
         archive={archive}
         value={address}
         onClick={() => addressDispatch('address', 'click', address)}
-        link={clickableFields.includes('address')}
+        link={clickableFields?.includes('address')}
       />
       <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center">
         <Typography variant="body2" fontFamily="monospace">
@@ -55,7 +55,7 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
       </TableCell>
       <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center">
         <Typography variant="body2" fontFamily="monospace" ref={signatureRef} onClick={() => signatureDispatch('signature', 'click', signature)}>
-          {clickableFields.includes('signature')
+          {clickableFields?.includes('signature')
             ? <Link>{formattedHash(signature)}</Link>
             : formattedHash(signature)}
         </Typography>

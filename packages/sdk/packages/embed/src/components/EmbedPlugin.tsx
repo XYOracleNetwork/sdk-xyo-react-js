@@ -10,7 +10,7 @@ import { ValidatePayloadAlert, ValidatePluginsAlert } from './validation-alerts/
 
 export const EmbedPluginInner: React.FC<WithChildren<EmbedPluginProps>> = ({
   validateSchema,
-  plugins = [],
+  plugins,
   huriPayload,
   refreshTitle = '',
   timestampLabel = 'Data From',

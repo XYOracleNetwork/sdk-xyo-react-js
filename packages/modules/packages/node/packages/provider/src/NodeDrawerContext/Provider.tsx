@@ -13,5 +13,6 @@ export const NodeDrawerProvider: React.FC<NodeDrawerProviderProps> = ({ children
     setOpen(defaultOpen)
   }, [defaultOpen])
 
+  // eslint-disable-next-line @eslint-react/no-unstable-context-value
   return <NodeDrawerContext.Provider value={{ open, provided: true, setOpen }}>{children}</NodeDrawerContext.Provider>
 }

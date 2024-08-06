@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { MapSettings } from '../../MapBoxClasses/index.js'
 import { MapSetting } from '../../Settings/index.js'
@@ -24,10 +24,10 @@ export const MapSettingsProvider: React.FC<WithChildren<MapSettingsProviderProps
   const [mapSettings, setMapSettings] = useState<MapSetting>(defaultMapSettings || {})
   const { map, mapInitialized } = useMapBoxInstance()
 
-  const value: MapSettingsState = {
+  const value: MapSettingsState = useMemo(() => ({
     mapSettings,
     setMapSettings,
-  }
+  }), [mapSettings, setMapSettings])
 
   useEffect(() => {
     if (mapSettings && map && mapInitialized) {

@@ -10,5 +10,6 @@ export interface MapboxAccessTokenProviderProps {
 export const MapboxAccessTokenProvider: React.FC<WithChildren<MapboxAccessTokenProviderProps>> = ({ defaultAccessToken, ...props }) => {
   const [accessToken, setAccessToken] = useState<string>()
 
+  // eslint-disable-next-line @eslint-react/no-unstable-context-value
   return <MapboxAccessTokenContext.Provider value={{ accessToken: accessToken ?? defaultAccessToken, provided: true, setAccessToken }} {...props} />
 }

@@ -19,6 +19,7 @@ export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
 }
 
 export const BoundWitnessCardHeader = forwardRef<HTMLElement, BoundWitnessCardHeaderProps>(
+  // eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
   ({
     active = false,
     activeBgColor = true,

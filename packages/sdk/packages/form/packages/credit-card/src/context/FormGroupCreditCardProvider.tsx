@@ -16,6 +16,7 @@ export const FormGroupCreditCardProvider: React.FC<FormGroupCreditCardProviderPr
   }, [params])
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <FormGroupCreditCardContext.Provider value={{ formGroup, provided: true }} {...props}>
       {children}
     </FormGroupCreditCardContext.Provider>

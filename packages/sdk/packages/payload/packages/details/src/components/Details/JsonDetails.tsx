@@ -9,7 +9,7 @@ export type PayloadJsonDetailsProps = PropertyGroupProps & {
   payload?: Payload
 }
 
-export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonViewProps, payload = {}, ...props }) => {
+export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonViewProps, payload, ...props }) => {
   const { breakpoints, palette } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
 

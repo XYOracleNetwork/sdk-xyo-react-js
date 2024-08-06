@@ -88,7 +88,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
   archive,
   children,
-  columns = payloadDynamicTableColumnConfigDefaults(),
+  columns,
   exploreDomain,
   onRowClick,
   rowsPerPage: rowsPerPageProp = 10,
@@ -124,7 +124,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
         <Table stickyHeader {...props}>
           <TableHead>
             <TableRow>
-              {columns[breakPoint]?.map((column, index) => {
+              {(columns ?? payloadDynamicTableColumnConfigDefaults())[breakPoint]?.map((column, index) => {
                 return (
                   <TableCell key={index} align={column.alignment ?? 'left'} width={column.width}>
                     <Typography variant="body2" noWrap>

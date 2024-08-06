@@ -1,6 +1,6 @@
 import { PayloadPluginResolver } from '@xyo-network/payload-plugin'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { PayloadPluginResolverContext } from './Context.js'
 
@@ -15,13 +15,11 @@ export const PayloadPluginResolverProvider: React.FC<PayloadPluginResolverProvid
 }) => {
   const [resolver, setResolver] = useState<PayloadPluginResolver>(resolverProp)
 
+  const value = useMemo(() => ({ provided: true, resolver, setResolver }), [resolver, setResolver])
+
   return (
     <PayloadPluginResolverContext.Provider
-      value={{
-        provided: true,
-        resolver,
-        setResolver,
-      }}
+      value={value}
     >
       {resolver
         ? children

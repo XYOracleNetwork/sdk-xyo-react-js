@@ -1,5 +1,5 @@
 import { WithChildren } from '@xylabs/react-shared'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { NestedBoundWitnessesContext } from '../../contexts/index.js'
 
@@ -8,6 +8,7 @@ export const NestedBoundWitnessesProvider: React.FC<WithChildren> = ({ children 
   const [clickedExistingHash, setClickedExistingHash] = useState<string>()
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <NestedBoundWitnessesContext.Provider value={{ clickedExistingHash, loading, provided: true, setClickedExistingHash, setLoading }}>
       {children}
     </NestedBoundWitnessesContext.Provider>

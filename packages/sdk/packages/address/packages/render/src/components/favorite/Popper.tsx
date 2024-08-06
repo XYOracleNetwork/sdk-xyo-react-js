@@ -17,9 +17,7 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
       name: nameProp,
       favorite,
       favoriteRef,
-      onClickAway = () => {
-        return
-      },
+      onClickAway,
       onConfirmFavorite,
       ...props
     },
@@ -31,7 +29,7 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
     }, [nameProp])
 
     return (
-      <ClickAwayListener onClickAway={onClickAway}>
+      <ClickAwayListener onClickAway={onClickAway ?? (() => null)}>
         <PopperStyled
           id={popperId}
           anchorEl={favoriteRef?.current}

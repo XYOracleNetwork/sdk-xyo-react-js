@@ -25,6 +25,7 @@ export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ 
 
   const [payload, setPayload, payloadError] = useDivinePayload(huriUri)
 
+  // eslint-disable-next-line @eslint-react/no-unstable-context-value
   return <DivinedPayloadContext.Provider value={{ payload, payloadError, provided: true, setPayload }}>{children}</DivinedPayloadContext.Provider>
 }
 

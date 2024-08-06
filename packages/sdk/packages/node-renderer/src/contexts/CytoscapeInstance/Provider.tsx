@@ -14,5 +14,6 @@ export const CytoscapeInstanceProvider: React.FC<CytoscapeInstanceProviderProps>
     setCy(defaultInstance)
   }, [defaultInstance])
 
+  // eslint-disable-next-line @eslint-react/no-unstable-context-value
   return <CytoscapeInstanceContext.Provider value={{ cy, provided: true, setCy }}>{children}</CytoscapeInstanceContext.Provider>
 }

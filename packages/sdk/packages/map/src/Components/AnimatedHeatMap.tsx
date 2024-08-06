@@ -30,6 +30,7 @@ export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
   const { staticMapColor, lowUsageColor, highUsageColor } = heatMapColorProps || {}
   const localStaticMapColor = staticMapColor ?? theme.palette.primary.light
 
+  // eslint-disable-next-line @eslint-react/hooks-extra/prefer-use-state-lazy-initialization
   const [layers] = useState<MapLayer[]>([
     LocationHeatMapLayerBuilderAnimated(localStaticMapColor, 0, 'static'),
     LocationHeatMapLayerBuilderAnimated(lowUsageColor || localStaticMapColor, 0, 'animated'),

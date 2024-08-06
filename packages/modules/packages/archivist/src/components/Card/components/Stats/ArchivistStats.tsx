@@ -14,7 +14,7 @@ export interface ArchivistStatsProps {
   schemas?: Record<string, number>
 }
 
-export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses = {}, boundWitnesses, payloads, schemas = {} }) => {
+export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses, boundWitnesses, payloads, schemas }) => {
   return (
     <FlexRow gap={2} mr={0.5}>
       {payloads?.length
@@ -35,19 +35,19 @@ export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses = {}, 
             </Tooltip>
           )
         : null}
-      {Object.entries(schemas).length > 0
+      {Object.entries(schemas ?? {}).length > 0
         ? (
             <Tooltip title="Schemas">
-              <Badge badgeContent={Object.entries(schemas).length} color="primary">
+              <Badge badgeContent={Object.entries(schemas ?? {}).length} color="primary">
                 <BsFileEarmarkCode size={20} />
               </Badge>
             </Tooltip>
           )
         : null}
-      {Object.entries(addresses).length > 0
+      {Object.entries(addresses ?? {}).length > 0
         ? (
             <Tooltip title="Addresses">
-              <Badge badgeContent={Object.entries(addresses).length} color="primary">
+              <Badge badgeContent={Object.entries(addresses ?? {}).length} color="primary">
                 <VscOrganization size={20} />
               </Badge>
             </Tooltip>

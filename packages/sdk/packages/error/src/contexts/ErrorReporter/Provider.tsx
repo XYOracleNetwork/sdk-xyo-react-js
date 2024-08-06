@@ -17,6 +17,7 @@ const ErrorReporterProvider: React.FC<WithChildren<ErrorReporterProviderProps>> 
     }
   }, [rollbar, rollbarInstance])
 
+  // eslint-disable-next-line @eslint-react/no-unstable-context-value
   return <ErrorReporterContext.Provider value={{ rollbar }}>{children}</ErrorReporterContext.Provider>
 }
 

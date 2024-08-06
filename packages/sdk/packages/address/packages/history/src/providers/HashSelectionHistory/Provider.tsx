@@ -5,7 +5,7 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { ModuleError, WithMeta } from '@xyo-network/payload-model'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
-import { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import { HashSelectionHistoryContext, NestedBoundWitnesses } from '../../contexts/index.js'
 import { useActiveBoundWitness } from '../../hooks/index.js'
@@ -19,13 +19,13 @@ export interface HashSelectionHistoryProviderProps extends WithChildren, Context
 export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProviderProps> = ({
   archivist,
   children,
-  defaultHashSelectionHistory = [],
-  defaultNestedBoundWitnesses = {},
+  defaultHashSelectionHistory,
+  defaultNestedBoundWitnesses,
 }) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   const mounted = useMounted()
-  const [hashSelectionHistory, setHashSelectionHistory] = useState<Hash[]>(defaultHashSelectionHistory)
-  const [nestedBoundWitnesses, setNestedBoundWitnesses] = useState<NestedBoundWitnesses>(defaultNestedBoundWitnesses)
+  const [hashSelectionHistory, setHashSelectionHistory] = useState<Hash[]>(defaultHashSelectionHistory ?? [])
+  const [nestedBoundWitnesses, setNestedBoundWitnesses] = useState<NestedBoundWitnesses>(defaultNestedBoundWitnesses ?? {})
   const [error, setError] = useState<ModuleError>()
 
   const clearHistory = useCallback(() => {
@@ -80,6 +80,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
 
   return (
     <HashSelectionHistoryContext.Provider
+      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         addSelection,
         clearHistory,

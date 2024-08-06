@@ -12,6 +12,7 @@ export interface BoundWitnessCardContentProps extends CardContentProps {
   payload?: Payload
 }
 
+// eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
 export const BoundWitnessCardContent = forwardRef<HTMLElement, BoundWitnessCardContentProps>(({ payload, active, ...props }) => {
   const boundwitness = payload as Payload<BoundWitness>
 

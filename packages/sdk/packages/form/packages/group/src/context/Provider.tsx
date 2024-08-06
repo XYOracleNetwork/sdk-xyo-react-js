@@ -18,6 +18,7 @@ export const FormGroupPayloadProvider = ({ children, params, ...props }: FormGro
   }, [params])
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <FormGroupBaseContext.Provider value={{ formGroup, provided: true }} {...props}>
       {children}
     </FormGroupBaseContext.Provider>

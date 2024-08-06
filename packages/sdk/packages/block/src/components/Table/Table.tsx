@@ -12,7 +12,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
   exploreDomain,
   onRowClick,
   blocks,
-  columns = blockTableColumnConfigDefaults(),
+  columns,
   children,
   variant = 'scrollable',
   ...props
@@ -24,7 +24,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
         <TableEx variant={variant} {...props}>
           <TableHead>
             <TableRow>
-              {columns[breakPoint]?.map((column, index) => {
+              {(columns ?? blockTableColumnConfigDefaults())[breakPoint]?.map((column, index) => {
                 return (
                   <TableCell key={index} width={index > 0 ? '10px' : undefined} align={index === 0 ? 'left' : 'center'}>
                     {blockColumnNames[column]}

@@ -34,12 +34,12 @@ const footerLinks = [
 ]
 
 export const XyoFooter: React.FC<FooterProps> = ({
-  alwaysFooterLinksProps = { footerLinks },
+  alwaysFooterLinksProps,
 
   ...props
 }) => {
   return (
-    <Footer alwaysFooterLinksProps={alwaysFooterLinksProps} {...props}>
+    <Footer alwaysFooterLinksProps={alwaysFooterLinksProps ?? { footerLinks }} {...props}>
       <Grid container>
         <Grid item xs={12} md={2}>
           <SocialLinks alignItems="flex-start" />

@@ -35,6 +35,7 @@ export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProvi
   )
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <ValidatePayloadContext.Provider value={{ enabled, provided: true, schema: payload?.schema, validPayload: valid }}>
       {enabled
         ? <>{initialized ? children : <Chip label="Validating Payload..." />}</>

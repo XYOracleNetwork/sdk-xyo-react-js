@@ -42,6 +42,7 @@ export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> =
   }
 
   return (
+    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <ModuleRepositoryContext.Provider value={{ provided: true, removeResolvers, resolvers, updateResolvers }}>
       {children}
     </ModuleRepositoryContext.Provider>
