@@ -5,7 +5,7 @@ import { NodeInstance } from '@xyo-network/node-model'
 import { useWeakModulesFromNode } from '@xyo-network/react-node'
 import React from 'react'
 
-import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.js'
+import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.tsx'
 
 export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ mod, ...props }) => {
   const [manifest] = usePromise(async () => {

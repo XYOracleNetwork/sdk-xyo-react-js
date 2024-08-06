@@ -3,7 +3,7 @@ import { Button, IconButton, TableCell, Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { ConnectedWalletTableCellProps } from './lib/index.js'
+import { ConnectedWalletTableCellProps } from './lib/index.ts'
 
 export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletTableCellProps> = ({ connected, onConnect, onRevoke, tableCellProps }) => {
   return (

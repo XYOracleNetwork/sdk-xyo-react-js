@@ -3,14 +3,14 @@ import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
 import React, { useEffect, useMemo, useState } from 'react'
 
-import { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.js'
-import { useDynamicPositioning } from '../../hooks/index.js'
-import { MapLayer } from '../../Layers/index.js'
-import { MapHeat } from '../../MapBoxClasses/index.js'
-import { useMapBoxInstance } from '../MapBoxInstance/index.js'
-import { useMapSettings } from '../MapSettings/index.js'
-import { HeatMapInitializerContext } from './Context.js'
-import { HeatMapInitializerState } from './State.js'
+import { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.ts'
+import { useDynamicPositioning } from '../../hooks/index.ts'
+import { MapLayer } from '../../Layers/index.ts'
+import { MapHeat } from '../../MapBoxClasses/index.ts'
+import { useMapBoxInstance } from '../MapBoxInstance/index.ts'
+import { useMapSettings } from '../MapSettings/index.ts'
+import { HeatMapInitializerContext } from './Context.ts'
+import { HeatMapInitializerState } from './State.ts'
 
 export interface MapInitializerProviderProps {
   featureSets?: Feature<Polygon>[][]

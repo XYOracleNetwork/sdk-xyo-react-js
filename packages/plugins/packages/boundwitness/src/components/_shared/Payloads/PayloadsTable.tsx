@@ -5,7 +5,7 @@ import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
 import React from 'react'
 
-import { BoundWitnessFilteredPayloadTableBody, BoundWitnessPayloadTableHead } from './payloads-table/index.js'
+import { BoundWitnessFilteredPayloadTableBody, BoundWitnessPayloadTableHead } from './payloads-table/index.ts'
 
 export interface BoundWitnessPayloadTableProps extends PayloadTableProps {
   boundwitness?: BoundWitness

@@ -2,7 +2,7 @@ import { DarkModeRounded as DarkModeRoundedIcon, LightModeRounded as LightModeRo
 import { IconButton, IconButtonProps } from '@mui/material'
 import React from 'react'
 
-import { useAppSettings } from '../contexts/index.js'
+import { useAppSettings } from '../contexts/index.ts'
 
 export const DarkModeIconButton: React.FC<IconButtonProps> = (props) => {
   const { darkMode, enableDarkMode } = useAppSettings()

@@ -3,7 +3,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { NodeSingular } from 'cytoscape'
 import React, { ReactElement } from 'react'
 
-import { useNodeElement } from './hooks/index.js'
+import { useNodeElement } from './hooks/index.ts'
 
 export interface ModuleHoverProps {
   children?: (anchorElement?: PopperProps['anchorEl'], container?: PopperProps['container']) => ReactElement

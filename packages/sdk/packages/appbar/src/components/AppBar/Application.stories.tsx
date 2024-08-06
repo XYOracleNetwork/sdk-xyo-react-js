@@ -7,10 +7,10 @@ import { useWallet, WalletAccountSelect, WalletProvider } from '@xyo-network/rea
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { SearchBar } from '../SearchBar/index.js'
-import { MenuListItemContainer } from '../SiteMenu/index.js'
-import { SystemToolbar } from '../Toolbar/index.js'
-import { ApplicationAppBar } from './Application.js'
+import { SearchBar } from '../SearchBar/index.ts'
+import { MenuListItemContainer } from '../SiteMenu/index.ts'
+import { SystemToolbar } from '../Toolbar/index.ts'
+import { ApplicationAppBar } from './Application.tsx'
 
 const StorybookEntry = {
   argTypes: {},

@@ -2,8 +2,8 @@ import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle 
 import { JsonValue } from '@xylabs/object'
 import React, { MouseEventHandler, ReactNode } from 'react'
 
-import { ExpansionProps } from '../../../lib/index.js'
-import { JsonViewerCollapse } from './JsonViewerCollapse.js'
+import { ExpansionProps } from '../../../lib/index.ts'
+import { JsonViewerCollapse } from './JsonViewerCollapse.tsx'
 
 export interface RawInfoDialogProps extends DialogProps, ExpansionProps {
   dialogContent?: ReactNode

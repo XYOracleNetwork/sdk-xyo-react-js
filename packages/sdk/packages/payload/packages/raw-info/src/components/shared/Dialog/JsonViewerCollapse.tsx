@@ -7,9 +7,9 @@ import { isAnyPayload } from '@xyo-network/payload-model'
 import { useDataState } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { ExpansionProps } from '../../../lib/index.js'
-import { StyledChipLabel } from '../../styled/index.js'
-import { JsonViewerEx } from '../JsonViewerEx.js'
+import { ExpansionProps } from '../../../lib/index.ts'
+import { StyledChipLabel } from '../../styled/index.ts'
+import { JsonViewerEx } from '../JsonViewerEx.tsx'
 
 export interface RawInfoPayloadCollapse extends CollapseProps, ExpansionProps {
   jsonValue?: JsonValue

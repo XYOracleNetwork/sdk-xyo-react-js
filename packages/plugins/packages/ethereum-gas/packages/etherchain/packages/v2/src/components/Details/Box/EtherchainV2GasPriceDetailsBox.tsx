@@ -7,8 +7,8 @@ import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { useEtherchainV2Transformer } from '../../hooks/index.js'
-import { RenderTitle } from '../../lib/index.js'
+import { useEtherchainV2Transformer } from '../../hooks/index.ts'
+import { RenderTitle } from '../../lib/index.ts'
 
 export const EtherchainV2GasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

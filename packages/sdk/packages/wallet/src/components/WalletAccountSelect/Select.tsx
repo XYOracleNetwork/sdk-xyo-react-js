@@ -3,8 +3,8 @@ import { SelectEx } from '@xylabs/react-select'
 import { AddressRenderRowBox, AddressRenderRowBoxProps } from '@xyo-network/react-address-render'
 import React from 'react'
 
-import { useWalletContext } from '../../contexts/index.js'
-import { useWallet } from '../../hooks/index.js'
+import { useWalletContext } from '../../contexts/index.ts'
+import { useWallet } from '../../hooks/index.ts'
 
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxProps, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 

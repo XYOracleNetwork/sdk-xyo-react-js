@@ -3,7 +3,7 @@ import { LinkEx } from '@xylabs/react-link'
 import React, { forwardRef, useMemo } from 'react'
 import { To } from 'react-router-dom'
 
-import { EllipsizeBox } from '../Ellipsize.js'
+import { EllipsizeBox } from '../Ellipsize.tsx'
 
 const EllipsisTableCellRoot = styled(TableCell, {
   name: 'EllipsisTableCell',

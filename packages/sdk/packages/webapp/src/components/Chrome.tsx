@@ -7,7 +7,7 @@ import { ErrorBoundary } from '@xyo-network/react-shared'
 import React, { forwardRef, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
-import { WebAppErrorPage } from './ErrorPage.js'
+import { WebAppErrorPage } from './ErrorPage.tsx'
 
 export interface WebAppChromeProps extends FlexBoxProps {
   appName: string

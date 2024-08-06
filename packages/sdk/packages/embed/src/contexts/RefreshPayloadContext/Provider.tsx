@@ -1,7 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import React, { useState } from 'react'
 
-import { RefreshPayloadContext } from './Context.js'
+import { RefreshPayloadContext } from './Context.ts'
 
 export interface RefreshPayloadProps {
   onRefresh?: () => void

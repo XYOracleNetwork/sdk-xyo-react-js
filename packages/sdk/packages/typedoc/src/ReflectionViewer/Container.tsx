@@ -1,10 +1,10 @@
 import React from 'react'
 import type { ContainerReflection, ReflectionGroup } from 'typedoc'
 
-import { createLookup } from '../createLookup.js'
-import { ReflectionGroupViewer } from './ReflectionGroupViewer.js'
-import { ReflectionViewer } from './ReflectionViewer.js'
-import { ReflectionViewerProps } from './ReflectionViewerProps.js'
+import { createLookup } from '../createLookup.ts'
+import { ReflectionGroupViewer } from './ReflectionGroupViewer.tsx'
+import { ReflectionViewer } from './ReflectionViewer.tsx'
+import { ReflectionViewerProps } from './ReflectionViewerProps.tsx'
 
 export interface ContainerReflectionViewerProps<T extends ContainerReflection = ContainerReflection> extends ReflectionViewerProps<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

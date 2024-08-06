@@ -4,7 +4,7 @@ import { DarkModeIconButton } from '@xyo-network/react-app-settings'
 import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'
 import React, { ReactNode } from 'react'
 
-import { SiteMenu, SiteMenuProps } from '../../SiteMenu/index.js'
+import { SiteMenu, SiteMenuProps } from '../../SiteMenu/index.ts'
 
 export interface SystemToolbarProps extends ToolbarProps {
   darkModeButton?: boolean

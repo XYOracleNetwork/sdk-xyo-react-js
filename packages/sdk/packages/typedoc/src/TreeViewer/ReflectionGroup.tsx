@@ -2,9 +2,9 @@ import { Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { JsonViewerButton } from '../JsonViewerButton.js'
-import { ReflectionGroupViewerProps, ReflectionViewer } from '../ReflectionViewer/index.js'
-import { resolveChildren } from '../resolveChildren.js'
+import { JsonViewerButton } from '../JsonViewerButton.tsx'
+import { ReflectionGroupViewerProps, ReflectionViewer } from '../ReflectionViewer/index.ts'
+import { resolveChildren } from '../resolveChildren.ts'
 
 export const ReflectionGroupTreeViewer: React.FC<ReflectionGroupViewerProps> = ({
   variant,

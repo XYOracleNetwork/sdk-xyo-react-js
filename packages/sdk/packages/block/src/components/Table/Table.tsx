@@ -4,9 +4,9 @@ import { usePayloadHashes } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
 import React from 'react'
 
-import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig.js'
-import { BlockTableProps } from './BlockTableProps.js'
-import { BlockTableRowWithErrorBoundary } from './TableRowWithErrorBoundary.js'
+import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig.ts'
+import { BlockTableProps } from './BlockTableProps.ts'
+import { BlockTableRowWithErrorBoundary } from './TableRowWithErrorBoundary.tsx'
 
 export const BlockTable: React.FC<BlockTableProps> = ({
   exploreDomain,

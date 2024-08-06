@@ -1,7 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import React, { useState } from 'react'
 
-import { MapboxAccessTokenContext } from './Context.js'
+import { MapboxAccessTokenContext } from './Context.ts'
 
 export interface MapboxAccessTokenProviderProps {
   defaultAccessToken?: string

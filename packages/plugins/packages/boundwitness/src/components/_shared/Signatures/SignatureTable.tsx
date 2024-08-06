@@ -5,7 +5,7 @@ import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableCellEx, TableEx, TableExProps } from '@xyo-network/react-table'
 import React from 'react'
 
-import { BoundWitnessSignatureTableRow } from './SignatureTableRow.js'
+import { BoundWitnessSignatureTableRow } from './SignatureTableRow.tsx'
 
 export interface BoundWitnessSignatureTableProps extends TableExProps {
   block?: BoundWitness

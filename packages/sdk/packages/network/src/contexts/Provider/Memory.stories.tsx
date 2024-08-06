@@ -3,9 +3,9 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { defaultNetworkConfigs } from '../../lib/index.js'
-import { useNetwork } from '../use.js'
-import { NetworkMemoryProvider } from './Memory.js'
+import { defaultNetworkConfigs } from '../../lib/index.ts'
+import { useNetwork } from '../use.ts'
+import { NetworkMemoryProvider } from './Memory.tsx'
 
 const StorybookEntry: Meta = {
   component: NetworkMemoryProvider,

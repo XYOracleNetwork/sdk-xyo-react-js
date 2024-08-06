@@ -4,7 +4,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import React from 'react'
 
-import { RawInfoDialog } from './RawInfoDialog.js'
+import { RawInfoDialog } from './RawInfoDialog.tsx'
 
 type TestPayload = Payload<{ id: string; schema: string; type: string }, 'network.xyo.test'>
 const TestPayload: TestPayload = {

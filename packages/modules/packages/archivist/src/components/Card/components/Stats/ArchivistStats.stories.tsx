@@ -5,7 +5,7 @@ import React from 'react'
 // import { Account } from '@xyo-network/account'
 // import { BoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 // import { Payload } from '@xyo-network/payload-model'
-import { ArchivistStats } from './ArchivistStats.js'
+import { ArchivistStats } from './ArchivistStats.tsx'
 
 // const account = Account.randomSync()
 // const payload = () => ({ schema: 'network.xyo.payload', timestamp: Date.now() })

@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { sampleEthereumGasDivinerPayload, sampleEthereumGasDivinerPayloadMissingFees } from '@xyo-network/react-storybook'
 import React from 'react'
 
-import { EthereumGasPriceCard } from './Card.js'
+import { EthereumGasPriceCard } from './Card.tsx'
 
 const StorybookEntry = {
   argTypes: {},

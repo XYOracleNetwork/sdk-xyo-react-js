@@ -1,9 +1,9 @@
 import { Typography, TypographyProps } from '@mui/material'
 import React from 'react'
 
-import { SomeReflection } from '../../SomeReflection.js'
-import { ReflectionViewerProps } from '../ReflectionViewerProps.js'
-import { buildTypeString } from './buildTypeString.js'
+import { SomeReflection } from '../../SomeReflection.ts'
+import { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
+import { buildTypeString } from './buildTypeString.tsx'
 
 export interface SomeTypeViewerProps extends TypographyProps {
   opacity?: number

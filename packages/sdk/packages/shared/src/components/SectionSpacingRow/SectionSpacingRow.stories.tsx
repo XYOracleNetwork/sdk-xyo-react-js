@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { SectionSpacingRow } from './SectionSpacingRow.js'
+import { SectionSpacingRow } from './SectionSpacingRow.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: SectionSpacingRow,

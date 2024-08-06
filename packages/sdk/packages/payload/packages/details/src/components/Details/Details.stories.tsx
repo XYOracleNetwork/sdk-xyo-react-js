@@ -3,7 +3,7 @@ import { sampleIdPayload, samplePayloadFromBuilder } from '@xyo-network/react-st
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { PayloadDetails } from './Details.js'
+import { PayloadDetails } from './Details.tsx'
 
 const StorybookEntry = {
   argTypes: {},

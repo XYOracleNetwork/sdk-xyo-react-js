@@ -21,7 +21,7 @@ import {
 import React, { useState } from 'react'
 import { Line } from 'react-chartjs-2'
 
-import { ForecastLineChartConfigBuilder } from '../lib/index.js'
+import { ForecastLineChartConfigBuilder } from '../lib/index.ts'
 
 ChartJS.register(CategoryScale, TimeScale, PointElement, LineElement, LinearScale, Title, Tooltip, Legend)
 

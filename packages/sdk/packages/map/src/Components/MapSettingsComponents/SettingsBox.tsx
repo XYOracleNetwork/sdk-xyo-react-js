@@ -3,8 +3,8 @@ import { FlexBoxProps, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { useAppSettings } from '@xyo-network/react-app-settings'
 import React from 'react'
 
-import { useMapSettings } from '../../Contexts/index.js'
-import { MapSettingSwitch } from './Setting.js'
+import { useMapSettings } from '../../Contexts/index.ts'
+import { MapSettingSwitch } from './Setting.tsx'
 
 export interface MapSettingsBoxProps extends FlexBoxProps {
   developerMode?: boolean

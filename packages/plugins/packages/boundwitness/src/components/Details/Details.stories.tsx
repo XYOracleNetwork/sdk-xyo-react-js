@@ -6,8 +6,8 @@ import { sampleBlock } from '@xyo-network/react-storybook'
 import React, { createRef } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { BoundWitnessLinksDetails } from './BoundWitnessLinksDetails.js'
-import { BoundWitnessDetails } from './Details.js'
+import { BoundWitnessLinksDetails } from './BoundWitnessLinksDetails.tsx'
+import { BoundWitnessDetails } from './Details.tsx'
 
 const StorybookEntry = {
   argTypes: {},

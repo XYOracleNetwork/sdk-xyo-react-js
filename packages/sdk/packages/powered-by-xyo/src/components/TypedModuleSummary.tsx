@@ -6,13 +6,13 @@ import { isSentinelInstance } from '@xyo-network/sentinel-model'
 import { isWitnessInstance } from '@xyo-network/witness-model'
 import React from 'react'
 
-import { ArchivistSummary } from './ArchivistSummary.js'
-import { BridgeSummary } from './BridgeSummary.js'
-import { DivinerSummary } from './DivinerSummary.js'
-import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.js'
-import { NodeSummary } from './NodeSummary.js'
-import { SentinelSummary } from './SentinelSummary.js'
-import { WitnessSummary } from './WitnessSummary.js'
+import { ArchivistSummary } from './ArchivistSummary.tsx'
+import { BridgeSummary } from './BridgeSummary.tsx'
+import { DivinerSummary } from './DivinerSummary.tsx'
+import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.tsx'
+import { NodeSummary } from './NodeSummary.tsx'
+import { SentinelSummary } from './SentinelSummary.tsx'
+import { WitnessSummary } from './WitnessSummary.tsx'
 
 export const TypedModuleSummary: React.FC<ModuleSummaryProps> = ({ mod, ...props }) => {
   if (isArchivistInstance(mod)) {

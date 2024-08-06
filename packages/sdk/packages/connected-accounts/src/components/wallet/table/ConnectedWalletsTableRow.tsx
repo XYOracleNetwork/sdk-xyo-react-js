@@ -2,8 +2,8 @@ import { TableRow, TableRowProps } from '@mui/material'
 import { EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
 import React, { useCallback, useMemo } from 'react'
 
-import { ActiveProvider } from '../lib/index.js'
-import { ConnectedWalletTableCells } from './cells/index.js'
+import { ActiveProvider } from '../lib/index.ts'
+import { ConnectedWalletTableCells } from './cells/index.ts'
 
 export interface WalletConnectionsTableRowProps extends TableRowProps {
   ignoreConnectDialog?: boolean

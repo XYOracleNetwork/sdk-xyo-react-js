@@ -1,10 +1,10 @@
 import { ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ConcentricLayout } from '../../Cytoscape/index.js'
-import { useCytoscapeElements } from './elements/index.js'
-import { useCytoscapeOptions } from './useCytoscapeOptions.js'
-import { useCytoscapeStyle } from './useCytoscapeStyle.js'
+import { ConcentricLayout } from '../../Cytoscape/index.ts'
+import { useCytoscapeElements } from './elements/index.ts'
+import { useCytoscapeOptions } from './useCytoscapeOptions.ts'
+import { useCytoscapeStyle } from './useCytoscapeStyle.tsx'
 
 export const useRelationalGraphOptions = (mod?: WeakRef<ModuleInstance>) => {
   const [hideLabels, setHideLabels] = useState(true)

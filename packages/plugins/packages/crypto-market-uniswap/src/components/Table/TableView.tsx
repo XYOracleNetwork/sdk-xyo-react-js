@@ -4,7 +4,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { UniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React, { useState } from 'react'
 
-import { UniswapTableRowRender } from './TableRow.js'
+import { UniswapTableRowRender } from './TableRow.tsx'
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {

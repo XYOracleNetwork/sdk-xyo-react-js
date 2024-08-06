@@ -15,7 +15,7 @@ import {
   // eslint-disable-next-line import/no-internal-modules
 } from 'react-icons/vsc'
 
-import { MenuListItemProps } from '../SiteMenu/index.js'
+import { MenuListItemProps } from '../SiteMenu/index.ts'
 
 export const menuDataTop: MenuListItemProps[] = [
   {

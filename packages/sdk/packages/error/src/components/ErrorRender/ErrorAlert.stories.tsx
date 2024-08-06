@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { ErrorAlert } from './ErrorAlert.js'
+import { ErrorAlert } from './ErrorAlert.tsx'
 
 const StorybookEntry: Meta = {
   argTypes: {},

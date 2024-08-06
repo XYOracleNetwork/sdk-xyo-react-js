@@ -4,7 +4,7 @@ import { ErrorRender } from '@xyo-network/react-error'
 import { LoadResult } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { useAddressHistory } from '../../hooks/index.js'
+import { useAddressHistory } from '../../hooks/index.ts'
 
 export interface AddressHistoryArchivistProps extends WithChildren {
   address?: Address

@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { LoadResult } from './LoadResult.js'
+import { LoadResult } from './LoadResult.tsx'
 
 const StorybookEntry: Meta = {
   argTypes: {},

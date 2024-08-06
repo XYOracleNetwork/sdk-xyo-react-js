@@ -4,7 +4,7 @@ import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { BlockTableRow, BlockTableRowProps } from './TableRow.js'
+import { BlockTableRow, BlockTableRowProps } from './TableRow.tsx'
 
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
   exploreDomain?: string

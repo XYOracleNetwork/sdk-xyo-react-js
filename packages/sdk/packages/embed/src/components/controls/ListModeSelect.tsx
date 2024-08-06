@@ -3,7 +3,7 @@ import { SelectEx, SelectExProps } from '@xylabs/react-select'
 import { ListMode, useListMode } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { EmbedFormControl } from './EmbedFormControl.js'
+import { EmbedFormControl } from './EmbedFormControl.tsx'
 
 const listModeSelectId = 'listmode-select-id'
 const listModeSelectLabel = 'List Mode'

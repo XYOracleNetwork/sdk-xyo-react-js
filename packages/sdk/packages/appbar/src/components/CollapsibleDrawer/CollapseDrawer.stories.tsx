@@ -3,11 +3,11 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { CollapsibleProvider, useCollapsible } from '../../contexts/index.js'
-import { MenuSection } from '../SiteMenu/index.js'
-import { CollapseToggleFlex } from './CollapseToggle.js'
-import { CollapsibleDrawer } from './CollapsibleDrawer.js'
-import { menuDataBottom, menuDataTop } from './storyExampleMenuData.js'
+import { CollapsibleProvider, useCollapsible } from '../../contexts/index.ts'
+import { MenuSection } from '../SiteMenu/index.ts'
+import { CollapseToggleFlex } from './CollapseToggle.tsx'
+import { CollapsibleDrawer } from './CollapsibleDrawer.tsx'
+import { menuDataBottom, menuDataTop } from './storyExampleMenuData.tsx'
 
 const CollapseProviderDecorator: Decorator = (Story, args) => {
   return (

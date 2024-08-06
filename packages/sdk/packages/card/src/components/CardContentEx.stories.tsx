@@ -4,8 +4,8 @@ import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 import React, { useRef, useState } from 'react'
 
-import { CardContentEx } from './CardContentEx.js'
-import { PageCard } from './PageCard.js'
+import { CardContentEx } from './CardContentEx.tsx'
+import { PageCard } from './PageCard.tsx'
 
 const ScrollableDecorator: Decorator = (Story, args) => {
   const [scrollToTop, setScrollToTop] = useState(0)

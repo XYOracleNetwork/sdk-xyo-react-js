@@ -6,7 +6,7 @@ import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { useEtherchainV2Transformer } from '../hooks/index.js'
+import { useEtherchainV2Transformer } from '../hooks/index.ts'
 
 export const EtherchainV2GasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasEtherchainV2Payload) : undefined

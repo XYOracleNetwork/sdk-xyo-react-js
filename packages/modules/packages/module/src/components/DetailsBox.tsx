@@ -6,7 +6,7 @@ import { Module } from '@xyo-network/module-model'
 import { findNetworkComponent } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
 
-import { ModuleRenderProps } from '../ModuleRenderProps.js'
+import { ModuleRenderProps } from '../ModuleRenderProps.tsx'
 
 const getModuleIcon = (moduleType: string, mod: Module) => {
   return mod?.queries.find(query => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null

@@ -2,10 +2,10 @@ import type { WithChildren } from '@xylabs/react-shared'
 import React, { useCallback, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-import { SchemaContext } from '../Context.js'
-import { useSchema } from '../use.js'
-import { SchemaMemoryProvider } from './Memory.js'
-import { SchemaProviderProps } from './Props.js'
+import { SchemaContext } from '../Context.ts'
+import { useSchema } from '../use.ts'
+import { SchemaMemoryProvider } from './Memory.tsx'
+import { SchemaProviderProps } from './Props.ts'
 
 const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const { schema, setSchema, schemaList } = useSchema()

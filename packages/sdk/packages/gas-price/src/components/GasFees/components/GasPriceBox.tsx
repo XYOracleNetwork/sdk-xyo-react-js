@@ -3,7 +3,7 @@ import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { TypographyEx } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { GweiLabelTypography } from './GweiLabelTypography.js'
+import { GweiLabelTypography } from './GweiLabelTypography.tsx'
 
 export interface GasPriceBoxProps extends FlexBoxProps {
   gasPrice?: number

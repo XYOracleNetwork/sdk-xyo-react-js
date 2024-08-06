@@ -4,7 +4,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { IdWitness } from '@xyo-network/id-plugin'
 import React from 'react'
 
-import { WitnessCard } from './Card.js'
+import { WitnessCard } from './Card.tsx'
 
 const StorybookEntry = {
   component: WitnessCard,

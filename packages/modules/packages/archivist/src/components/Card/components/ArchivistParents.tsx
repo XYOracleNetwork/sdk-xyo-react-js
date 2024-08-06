@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { ArchivistConfig } from '@xyo-network/archivist-model'
 import React, { useState } from 'react'
 
-import { ArchivistParent } from './ArchivistParent.js'
+import { ArchivistParent } from './ArchivistParent.tsx'
 
 export interface ArchivistParentsProps extends FlexBoxProps {
   config?: ArchivistConfig

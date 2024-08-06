@@ -3,7 +3,7 @@ import { FlexGrowCol } from '@xylabs/react-flexbox'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { XyOsClock } from './XyOsClock.js'
+import { XyOsClock } from './XyOsClock.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: XyOsClock,

@@ -3,7 +3,7 @@ import { GasPriceHeaderActionsBox, GasPriceHeaderTypography, StyledCardHeader } 
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import React, { forwardRef } from 'react'
 
-import { FeeDataPayload } from '../lib/index.js'
+import { FeeDataPayload } from '../lib/index.ts'
 
 export const EthereumGasPriceCardHeader = forwardRef<HTMLDivElement, PayloadRenderProps & CardHeaderProps>(({ payload }, ref) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined

@@ -2,7 +2,7 @@ import { WithChildren } from '@xylabs/react-shared'
 import { ContextExProviderProps } from '@xyo-network/react-shared'
 import React, { useEffect, useMemo, useState } from 'react'
 
-import { TableHeightContext } from './Context.js'
+import { TableHeightContext } from './Context.ts'
 
 export interface TableHeightProviderProps extends ContextExProviderProps, WithChildren {
   /** @field Account for optional header and footer rows */

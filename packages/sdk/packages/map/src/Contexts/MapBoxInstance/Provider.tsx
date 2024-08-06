@@ -2,7 +2,7 @@ import { WithChildren } from '@xylabs/react-shared'
 import { Map } from 'mapbox-gl'
 import React, { useEffect, useMemo, useState } from 'react'
 
-import { MapBoxInstanceContext } from './Context.js'
+import { MapBoxInstanceContext } from './Context.ts'
 
 export const MapBoxInstanceProvider: React.FC<WithChildren> = ({ children }) => {
   const [map, setMapBoxInstance] = useState<Map>()

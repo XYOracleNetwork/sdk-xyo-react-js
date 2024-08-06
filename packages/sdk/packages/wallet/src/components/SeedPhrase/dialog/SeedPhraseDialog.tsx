@@ -1,8 +1,8 @@
 import { Dialog, DialogContent, DialogProps, DialogTitle, FormLabel } from '@mui/material'
 import React from 'react'
 
-import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts/index.js'
-import { SeedPhraseIconButton } from '../_shared/index.js'
+import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts/index.ts'
+import { SeedPhraseIconButton } from '../_shared/index.ts'
 import {
   DialogActionButtons,
   NewPhraseTextField,
@@ -10,7 +10,7 @@ import {
   PhraseDialogActions,
   PhraseHeaderBox,
   SavedPhraseTextField,
-} from './components/index.js'
+} from './components/index.ts'
 
 export interface SeedPhraseDialogProps extends DialogProps {
   changeSeedPhrase?: (value: string) => void

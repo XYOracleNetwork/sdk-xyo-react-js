@@ -5,14 +5,14 @@ import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { useActiveBoundWitness } from '../../hooks/index.js'
-import { AddressHistory } from '../AddressHistory/index.js'
-import { BoundWitnessesBox } from '../BoundWitnessesBox/index.js'
-import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories/index.js'
-import { ScrollableGridColumn } from './Column.js'
-import { ColumnHeadingTypography } from './ColumnHeading.js'
-import { WrappedContainer } from './Container.js'
-import { BlocksQuickTipButton, SelectedBlockQuickTipButton } from './QuickTips.js'
+import { useActiveBoundWitness } from '../../hooks/index.ts'
+import { AddressHistory } from '../AddressHistory/index.ts'
+import { BoundWitnessesBox } from '../BoundWitnessesBox/index.ts'
+import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories/index.ts'
+import { ScrollableGridColumn } from './Column.tsx'
+import { ColumnHeadingTypography } from './ColumnHeading.tsx'
+import { WrappedContainer } from './Container.tsx'
+import { BlocksQuickTipButton, SelectedBlockQuickTipButton } from './QuickTips.tsx'
 
 export default {
   component: WrappedContainer,

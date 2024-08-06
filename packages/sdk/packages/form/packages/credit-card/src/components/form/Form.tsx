@@ -3,11 +3,11 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { ErrorRender } from '@xyo-network/react-error'
 import React, { useState } from 'react'
 
-import { FormGroupCreditCardProvider, useFormGroupWithCreditCardInput } from '../../context/index.js'
-import { validateCreditCardInputs } from '../support/index.js'
-import { InputFieldsStack } from './InputFieldsStack.js'
-import { CreditCardFormProps } from './Props.js'
-import { useFormStorage } from './useFormStorage.js'
+import { FormGroupCreditCardProvider, useFormGroupWithCreditCardInput } from '../../context/index.ts'
+import { validateCreditCardInputs } from '../support/index.ts'
+import { InputFieldsStack } from './InputFieldsStack.tsx'
+import { CreditCardFormProps } from './Props.ts'
+import { useFormStorage } from './useFormStorage.tsx'
 
 export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({
   ConfirmationButton,

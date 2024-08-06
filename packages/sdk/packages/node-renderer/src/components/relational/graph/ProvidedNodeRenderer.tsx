@@ -3,9 +3,9 @@ import { NodeInstance } from '@xyo-network/node-model'
 import { useWeakProvidedNode } from '@xyo-network/react-node'
 import React from 'react'
 
-import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.js'
-import { NodeRelationalGraphProps } from '../../lib/index.js'
-import { NodeRelationalGraphFlexBox } from './Graph.js'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.ts'
+import { NodeRelationalGraphProps } from '../../lib/index.ts'
+import { NodeRelationalGraphFlexBox } from './Graph.tsx'
 
 export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   account?: AccountInstance

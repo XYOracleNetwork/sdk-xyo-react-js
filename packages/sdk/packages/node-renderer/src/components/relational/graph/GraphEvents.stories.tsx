@@ -9,8 +9,8 @@ import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { EventObject } from 'cytoscape'
 import React, { useEffect, useState } from 'react'
 
-import { CytoscapeInstanceProvider, useCytoscapeInstance } from '../../../contexts/index.js'
-import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.js'
+import { CytoscapeInstanceProvider, useCytoscapeInstance } from '../../../contexts/index.ts'
+import { useCytoscapeElements, useCytoscapeOptions } from '../../../hooks/index.ts'
 import { NodeRelationalGraphFlexBox } from './Graph.tsx'
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {

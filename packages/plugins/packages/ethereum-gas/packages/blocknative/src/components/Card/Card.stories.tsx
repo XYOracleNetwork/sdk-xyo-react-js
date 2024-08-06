@@ -3,7 +3,7 @@ import { EthereumGasBlocknativeSchema } from '@xyo-network/blocknative-ethereum-
 import { sampleBlocknativeGasPricePayload } from '@xyo-network/react-storybook'
 import React from 'react'
 
-import { BlocknativeGasPriceCard } from './Card.js'
+import { BlocknativeGasPriceCard } from './Card.tsx'
 
 const StorybookEntry = {
   argTypes: {},

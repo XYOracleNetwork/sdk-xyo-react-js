@@ -7,7 +7,7 @@ import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
 import { Property } from '@xyo-network/react-property'
 import React from 'react'
 
-import { JsonViewerButton } from './JsonViewerButton.js'
+import { JsonViewerButton } from './JsonViewerButton.tsx'
 
 export interface ModuleDetailsProps<T extends ModuleInstance = ModuleInstance> extends FlexBoxProps {
   mod?: T

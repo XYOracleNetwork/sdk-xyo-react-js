@@ -3,7 +3,7 @@ import { EthereumGasEtherscanSchema } from '@xyo-network/etherscan-ethereum-gas-
 import { sampleEtherscanGasPricePayload } from '@xyo-network/react-storybook'
 import React from 'react'
 
-import { EtherscanGasPriceDetailsBox } from './EtherscanGasPriceDetailsBox.js'
+import { EtherscanGasPriceDetailsBox } from './EtherscanGasPriceDetailsBox.tsx'
 
 const StorybookEntry = {
   argTypes: {},

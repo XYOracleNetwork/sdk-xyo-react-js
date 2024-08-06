@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { ShareButton } from './ShareButton.js'
+import { ShareButton } from './ShareButton.tsx'
 
 export default {
   title: 'modules/ShareButton',

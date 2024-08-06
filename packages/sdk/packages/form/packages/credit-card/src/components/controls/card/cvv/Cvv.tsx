@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { CreditCardCvvFormControl } from '../../../../controls/index.js'
-import { WithFormControlProps } from '../../WithFormControlProps.js'
-import { FormControlTextField } from '../FormControlTextField.js'
-import { useCreditCardCvvFormControl } from './use.js'
+import { CreditCardCvvFormControl } from '../../../../controls/index.ts'
+import { WithFormControlProps } from '../../WithFormControlProps.ts'
+import { FormControlTextField } from '../FormControlTextField.tsx'
+import { useCreditCardCvvFormControl } from './use.ts'
 
 export const CreditCardCvvWithFormControl: React.FC<WithFormControlProps> = ({ formControlName = 'cvc', fieldLabel = 'CVC', ...props }) => {
   const { creditCardFormControl, error, inputRef, value } = useCreditCardCvvFormControl(formControlName, undefined, CreditCardCvvFormControl)

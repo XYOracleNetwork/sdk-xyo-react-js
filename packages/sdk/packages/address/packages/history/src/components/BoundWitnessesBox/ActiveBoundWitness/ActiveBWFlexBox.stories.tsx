@@ -2,8 +2,8 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import React from 'react'
 
-import { ActiveBWDecoratorWithDefaultValues, WithResetDecorator } from '../../stories/index.js'
-import { ActiveBWFlexBox } from './ActiveBWFlexBox.js'
+import { ActiveBWDecoratorWithDefaultValues, WithResetDecorator } from '../../stories/index.ts'
+import { ActiveBWFlexBox } from './ActiveBWFlexBox.tsx'
 
 const WithRefDecorator: Decorator = (Story, args) => {
   const [ref] = useEvent((noun, verb, data) => console.log(noun, verb, data))

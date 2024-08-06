@@ -4,11 +4,11 @@ import { WithChildren } from '@xylabs/react-shared'
 import { Feature, Polygon } from 'geojson'
 import React, { useState } from 'react'
 
-import { AnimatedHeatMapColorProps } from '../Colors/index.js'
-import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.js'
-import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, MapLayer } from '../Layers/index.js'
-import { MapSetting } from '../Settings/index.js'
-import { MapboxHeatFlexBox } from './MapBoxHeat.js'
+import { AnimatedHeatMapColorProps } from '../Colors/index.ts'
+import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.ts'
+import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, MapLayer } from '../Layers/index.ts'
+import { MapSetting } from '../Settings/index.ts'
+import { MapboxHeatFlexBox } from './MapBoxHeat.tsx'
 
 export interface AnimatedHeatMapProps {
   accessToken: string
@@ -30,7 +30,6 @@ export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
   const { staticMapColor, lowUsageColor, highUsageColor } = heatMapColorProps || {}
   const localStaticMapColor = staticMapColor ?? theme.palette.primary.light
 
-  // eslint-disable-next-line @eslint-react/hooks-extra/prefer-use-state-lazy-initialization
   const [layers] = useState<MapLayer[]>([
     LocationHeatMapLayerBuilderAnimated(localStaticMapColor, 0, 'static'),
     LocationHeatMapLayerBuilderAnimated(lowUsageColor || localStaticMapColor, 0, 'animated'),

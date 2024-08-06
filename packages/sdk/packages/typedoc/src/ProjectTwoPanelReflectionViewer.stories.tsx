@@ -4,7 +4,7 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 // import type { ProjectReflection } from 'typedoc'
-import { ProjectTwoPanelReflectionViewer } from './ProjectTwoPanelReflectionViewer.js'
+import { ProjectTwoPanelReflectionViewer } from './ProjectTwoPanelReflectionViewer.tsx'
 
 const StorybookEntry = {
   argTypes: {},

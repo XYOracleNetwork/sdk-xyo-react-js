@@ -2,8 +2,8 @@ import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import * as tokenData from '../TokenData/index.js'
-import { ThemeTokenAvatar } from './ThemeTokenAvatar.js'
+import * as tokenData from '../TokenData/index.ts'
+import { ThemeTokenAvatar } from './ThemeTokenAvatar.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: ThemeTokenAvatar,

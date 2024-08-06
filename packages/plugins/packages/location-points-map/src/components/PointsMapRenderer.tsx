@@ -11,7 +11,7 @@ import {
 } from '@xyo-network/react-map'
 import React from 'react'
 
-import { PointsMapSettings } from './PointsMapSettings.js'
+import { PointsMapSettings } from './PointsMapSettings.ts'
 
 export interface PointsMapInnerProps extends FlexBoxProps {
   accessToken?: string

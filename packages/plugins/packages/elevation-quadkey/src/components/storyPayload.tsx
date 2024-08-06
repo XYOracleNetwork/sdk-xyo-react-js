@@ -1,4 +1,4 @@
-import { NetworkElevationQuadkeyAnswerSchema } from '../types.js'
+import { NetworkElevationQuadkeyAnswerSchema } from '../types.ts'
 
 export const elevationQuadKeyMapPayload = {
   result: [

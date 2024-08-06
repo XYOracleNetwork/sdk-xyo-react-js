@@ -6,7 +6,7 @@ import { ContextExProviderProps } from '@xyo-network/react-shared'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { ActiveBoundWitnessContext } from '../../contexts/index.js'
+import { ActiveBoundWitnessContext } from '../../contexts/index.ts'
 
 export interface ActiveBoundWitnessProviderProps extends ContextExProviderProps {
   activeBoundWitnessHash?: Hash

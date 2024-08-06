@@ -4,8 +4,8 @@ import { Payload } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import React, { forwardRef } from 'react'
 
-import { BoundWitnessPayloads, BoundWitnessSignatureDetails } from '../_shared/index.js'
-import { BoundWitnessValidationDetails } from './ValidationDetails.js'
+import { BoundWitnessPayloads, BoundWitnessSignatureDetails } from '../_shared/index.ts'
+import { BoundWitnessValidationDetails } from './ValidationDetails.tsx'
 
 export interface BoundWitnessDetailsProps extends FlexBoxProps {
   payload?: Payload

@@ -5,8 +5,8 @@ import { CardContentEx, CardContentExProps } from '@xyo-network/react-card'
 import { useTableHeight } from '@xyo-network/react-table'
 import React, { Dispatch, forwardRef, SetStateAction, useState } from 'react'
 
-import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../../_shared/index.js'
-import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation/index.js'
+import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../../_shared/index.ts'
+import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation/index.ts'
 
 export interface DetailsCardContentProps extends CardContentExProps {
   boundwitness?: BoundWitness

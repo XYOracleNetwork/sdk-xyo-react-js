@@ -1,7 +1,7 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
 import React from 'react'
 
-import { NodeDetails } from './NodeDetails.js'
+import { NodeDetails } from './NodeDetails.tsx'
 
 export interface DebugDialogProps extends DialogProps {}
 

@@ -1,8 +1,8 @@
 import { FlexCol } from '@xylabs/react-flexbox'
 import React, { useEffect } from 'react'
 
-import { ErrorAlert } from './ErrorAlert.js'
-import { ErrorRenderProps } from './Props.js'
+import { ErrorAlert } from './ErrorAlert.tsx'
+import { ErrorRenderProps } from './Props.ts'
 
 export const ErrorRender: React.FC<ErrorRenderProps> = ({
   onCancel,

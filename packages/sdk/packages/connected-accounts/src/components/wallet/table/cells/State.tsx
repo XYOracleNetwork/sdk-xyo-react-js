@@ -1,8 +1,8 @@
 import { Switch, TableCell } from '@mui/material'
 import React, { ChangeEvent, useMemo } from 'react'
 
-import { useEnabledWallets } from '../../../../hooks/index.js'
-import { ConnectedWalletTableCellProps } from './lib/index.js'
+import { useEnabledWallets } from '../../../../hooks/index.ts'
+import { ConnectedWalletTableCellProps } from './lib/index.ts'
 
 export const ConnectedWalletState: React.FC<ConnectedWalletTableCellProps> = ({ connected, walletRdns, tableCellProps }) => {
   const { disableWallet, enableWallet, wallets } = useEnabledWallets()

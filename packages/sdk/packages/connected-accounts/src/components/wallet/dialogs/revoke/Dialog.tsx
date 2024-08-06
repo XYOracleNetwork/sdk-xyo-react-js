@@ -3,7 +3,7 @@ import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { ActiveProvider } from '../../lib/index.js'
+import { ActiveProvider } from '../../lib/index.ts'
 
 export interface RevokeWalletConnectionDialogProps extends DialogProps {
   activeProvider?: ActiveProvider

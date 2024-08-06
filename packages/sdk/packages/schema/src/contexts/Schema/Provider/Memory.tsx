@@ -2,9 +2,9 @@ import { compact } from '@xylabs/lodash'
 import { WithChildren } from '@xylabs/react-shared'
 import React, { useEffect, useMemo, useState } from 'react'
 
-import { useSchemaStats } from '../../../hooks/index.js'
-import { SchemaContext } from '../Context.js'
-import { SchemaProviderProps } from './Props.js'
+import { useSchemaStats } from '../../../hooks/index.ts'
+import { SchemaContext } from '../Context.ts'
+import { SchemaProviderProps } from './Props.ts'
 
 export const SchemaMemoryProvider: React.FC<WithChildren<SchemaProviderProps>> = ({ defaultSchema, knownSchemaList, ...props }) => {
   const [schema, setSchema] = useState(defaultSchema)

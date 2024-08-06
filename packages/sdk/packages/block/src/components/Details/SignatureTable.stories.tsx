@@ -3,7 +3,7 @@ import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { BlockSignatureTable } from './SignatureTable.js'
+import { BlockSignatureTable } from './SignatureTable.tsx'
 
 const StorybookEntry = {
   argTypes: {},

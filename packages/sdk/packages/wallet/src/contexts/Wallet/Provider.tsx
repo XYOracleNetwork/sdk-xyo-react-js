@@ -3,7 +3,7 @@ import { WithChildren } from '@xylabs/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import React, { useEffect, useMemo, useState } from 'react'
 
-import { WalletContext } from './Context.js'
+import { WalletContext } from './Context.ts'
 
 export interface WalletProviderProps {
   defaultActiveAccountIndex?: number

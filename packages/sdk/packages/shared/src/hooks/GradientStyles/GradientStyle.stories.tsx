@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { useGradientStyles } from './GradientStyles.js'
+import { useGradientStyles } from './GradientStyles.tsx'
 
 const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
   const { classes } = useGradientStyles()

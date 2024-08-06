@@ -3,7 +3,7 @@ import { Box, CircularProgress, IconButton, useTheme } from '@mui/material'
 import { useEvent } from '@xyo-network/react-event'
 import React from 'react'
 
-import { PaginationNouns } from './types/index.js'
+import { PaginationNouns } from './types/index.ts'
 
 export interface TablePaginationActionsProps {
   count: number

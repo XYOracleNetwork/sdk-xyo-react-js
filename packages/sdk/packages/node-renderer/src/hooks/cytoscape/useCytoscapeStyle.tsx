@@ -2,8 +2,8 @@ import { useTheme } from '@mui/material'
 import { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
-import { EdgeStyled, Node, NodeAsRoot, NodeWithName } from '../../Cytoscape/index.js'
-import { useIcons } from './useIcons.js'
+import { EdgeStyled, Node, NodeAsRoot, NodeWithName } from '../../Cytoscape/index.ts'
+import { useIcons } from './useIcons.tsx'
 
 export const useCytoscapeStyle = (hideLabels = false) => {
   const theme = useTheme()

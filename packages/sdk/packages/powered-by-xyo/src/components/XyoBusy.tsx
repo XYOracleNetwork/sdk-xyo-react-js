@@ -1,7 +1,7 @@
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
-import { xyoColorLogo } from '../img/index.js'
+import { xyoColorLogo } from '../img/index.ts'
 
 export type XyoBusyProps = Omit<FlexBoxProps, 'children'> & {
   busy?: boolean

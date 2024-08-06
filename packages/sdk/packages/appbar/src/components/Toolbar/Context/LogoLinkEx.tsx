@@ -3,7 +3,7 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx, LinkExProps } from '@xylabs/react-link'
 import React from 'react'
 
-import { Logo } from './Logo.js'
+import { Logo } from './Logo.tsx'
 
 export interface LogoLinkExProps extends LinkExProps {
   version?: boolean | string

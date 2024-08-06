@@ -1,8 +1,8 @@
 import { ModuleFilter } from '@xyo-network/module-model'
 import { isNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.js'
-import { useModulesFromNode } from './useModulesFromNode.js'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import { useModulesFromNode } from './useModulesFromNode.ts'
 
 /** @deprecated use useWeakNodesFromNode */
 export const useNodesFromNode = (filter?: ModuleFilter, config?: ModuleFromNodeConfig): [NodeInstance[] | null | undefined, Error | undefined] => {

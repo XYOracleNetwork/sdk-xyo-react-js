@@ -3,7 +3,7 @@ import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import React from 'react'
 
-import { ModuleRenderProps } from '../ModuleRenderProps.js'
+import { ModuleRenderProps } from '../ModuleRenderProps.tsx'
 
 export const ModuleTableCell: React.FC<ModuleRenderProps & TableCellProps> = ({ children, mod, ...props }) => {
   return (

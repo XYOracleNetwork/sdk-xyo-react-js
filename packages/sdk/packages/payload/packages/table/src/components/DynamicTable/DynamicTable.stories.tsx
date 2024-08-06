@@ -6,7 +6,7 @@ import { sampleCoinGeckoPayload, sampleIdPayload, sampleSystemInfoBrowserPayload
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadDynamicTable } from './Table.js'
+import { PayloadDynamicTable } from './Table.tsx'
 
 const StorybookEntry = {
   argTypes: {},

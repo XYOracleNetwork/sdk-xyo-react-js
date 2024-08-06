@@ -7,7 +7,7 @@ import { DivinerInstance } from '@xyo-network/diviner-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import React, { useState } from 'react'
 
-import { ModuleDetailsBox } from './DetailsBox.js'
+import { ModuleDetailsBox } from './DetailsBox.tsx'
 
 const StorybookEntry = {
   argTypes: {},

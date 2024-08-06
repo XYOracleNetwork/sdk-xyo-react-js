@@ -3,8 +3,8 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { Payload } from '@xyo-network/payload-model'
 import React from 'react'
 
-import { BoundWitnessCardContent } from './CardContent/index.js'
-import { BoundWitnessCardHeader } from './CardHeader/index.js'
+import { BoundWitnessCardContent } from './CardContent/index.ts'
+import { BoundWitnessCardHeader } from './CardHeader/index.ts'
 
 export interface BoundWitnessCardProps extends CardProps {
   active?: boolean

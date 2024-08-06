@@ -3,7 +3,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ArchivistInstance, MemoryArchivist } from '@xyo-network/archivist'
 import React, { useState } from 'react'
 
-import { ModuleCard } from './Card.js'
+import { ModuleCard } from './Card.tsx'
 
 const StorybookEntry = {
   argTypes: {

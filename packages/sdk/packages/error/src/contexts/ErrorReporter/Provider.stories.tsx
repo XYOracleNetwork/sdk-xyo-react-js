@@ -3,8 +3,8 @@ import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 import Rollbar from 'rollbar'
 
-import { ErrorReporterProvider } from './Provider.js'
-import { useRollbar } from './useRollbar.js'
+import { ErrorReporterProvider } from './Provider.tsx'
+import { useRollbar } from './useRollbar.tsx'
 
 const StorybookEntry = {
   argTypes: {},

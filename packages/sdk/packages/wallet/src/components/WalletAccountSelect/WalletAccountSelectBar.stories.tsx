@@ -2,9 +2,9 @@ import { Meta, StoryFn } from '@storybook/react'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import React from 'react'
 
-import { useWallets } from '../../hooks/index.js'
-import { WalletAccountSelectBar } from './SelectBar.js'
-import { WalletProviderDecorator } from './stories/index.js'
+import { useWallets } from '../../hooks/index.ts'
+import { WalletAccountSelectBar } from './SelectBar.tsx'
+import { WalletProviderDecorator } from './stories/index.ts'
 
 const PATHS = { paths: ['0', '3', '5'] }
 

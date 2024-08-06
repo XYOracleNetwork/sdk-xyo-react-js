@@ -3,8 +3,8 @@ import { useEvent } from '@xyo-network/react-event'
 import { randomizedSampleAddressHistory, sampleAddressHistory } from '@xyo-network/react-storybook'
 import React from 'react'
 
-import { ActiveBWDecorator } from '../stories/index.js'
-import { AddressHistory } from './AddressHistory.js'
+import { ActiveBWDecorator } from '../stories/index.ts'
+import { AddressHistory } from './AddressHistory.tsx'
 
 export default {
   component: AddressHistory,

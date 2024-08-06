@@ -9,8 +9,8 @@ import { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 import React, { KeyboardEvent, useMemo, useState } from 'react'
 
-import { DebugDialog } from './DebugDialog.js'
-import { PoweredByXyoButton, PoweredByXyoButtonProps } from './PoweredByXyoButton.js'
+import { DebugDialog } from './DebugDialog.tsx'
+import { PoweredByXyoButton, PoweredByXyoButtonProps } from './PoweredByXyoButton.tsx'
 
 export interface PoweredByXyoProps extends FlexBoxProps {
   autoStop?: boolean

@@ -1,7 +1,7 @@
 import type { UnionType } from 'typedoc'
 
-import { ReflectionViewerProps } from '../ReflectionViewerProps.js'
-import { TypeBuilder } from './TypeBuilder.js'
+import { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
+import { TypeBuilder } from './TypeBuilder.ts'
 
 export const buildUnionString = (typeObj: UnionType, reflectionViewer: React.FC<ReflectionViewerProps>, typeBuilder: TypeBuilder) => {
   const parts: string[] = []

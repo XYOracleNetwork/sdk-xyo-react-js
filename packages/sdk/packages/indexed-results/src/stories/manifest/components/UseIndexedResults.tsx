@@ -5,8 +5,8 @@ import { Payload } from '@xyo-network/payload-model'
 import { useWeakArchivistFromNode } from '@xyo-network/react-archivist'
 import React, { useMemo } from 'react'
 
-import { useIndexedResults, UseIndexedResultsConfig } from '../../../hooks/index.js'
-import { UseIndexedResultsProps } from './lib/index.js'
+import { useIndexedResults, UseIndexedResultsConfig } from '../../../hooks/index.ts'
+import { UseIndexedResultsProps } from './lib/index.ts'
 
 export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
   const [archivist] = useWeakArchivistFromNode('Archivist')

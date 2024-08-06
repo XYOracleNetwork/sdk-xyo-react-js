@@ -7,9 +7,9 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import React from 'react'
 
-import { useWeakProvidedNode } from '../hooks/index.js'
-import { NodeBox } from './Node.js'
-import { TestModule, TestModuleConfigSchema } from './TestModule.js'
+import { useWeakProvidedNode } from '../hooks/index.ts'
+import { NodeBox } from './Node.tsx'
+import { TestModule, TestModuleConfigSchema } from './TestModule.ts'
 
 const TestModuleName = 'TestModule'
 

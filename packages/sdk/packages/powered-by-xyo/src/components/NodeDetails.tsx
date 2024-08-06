@@ -3,8 +3,8 @@ import { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode, useWeakModulesFromNode } from '@xyo-network/react-node'
 import React from 'react'
 
-import { ModuleAccordion } from './ModuleAccordion.js'
-import { ModuleDetailsProps } from './ModuleDetails.js'
+import { ModuleAccordion } from './ModuleAccordion.tsx'
+import { ModuleDetailsProps } from './ModuleDetails.tsx'
 
 export interface NodeViewerProps extends ModuleDetailsProps<NodeInstance> {}
 

@@ -1,7 +1,7 @@
 import { TableCell, Tooltip, Typography } from '@mui/material'
 import React from 'react'
 
-import { ConnectedWalletTableCellProps } from './lib/index.js'
+import { ConnectedWalletTableCellProps } from './lib/index.ts'
 
 export const ConnectedWalletsAccountsTableCell: React.FC<ConnectedWalletTableCellProps> = ({
   additionalAccounts,

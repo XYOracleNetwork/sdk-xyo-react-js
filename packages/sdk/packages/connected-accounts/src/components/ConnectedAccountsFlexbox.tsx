@@ -2,8 +2,8 @@ import { Typography, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import React, { forwardRef } from 'react'
 
-import { useDetectedWallets } from '../hooks/index.js'
-import { ConnectedWalletsTable } from './wallet/index.js'
+import { useDetectedWallets } from '../hooks/index.ts'
+import { ConnectedWalletsTable } from './wallet/index.ts'
 
 export interface ConnectedAccountsFlexboxProps extends FlexBoxProps {
   ignoreConnectDialog?: boolean

@@ -1,7 +1,7 @@
-import { useHoveredNode } from './useHoveredNode.js'
-import { useNewElements } from './useNewElements.js'
-import { useRenderNewElements } from './useRenderNewElements.js'
-import { useSelectedElement } from './useSelectedElement.js'
+import { useHoveredNode } from './useHoveredNode.tsx'
+import { useNewElements } from './useNewElements.tsx'
+import { useRenderNewElements } from './useRenderNewElements.tsx'
+import { useSelectedElement } from './useSelectedElement.tsx'
 
 export const useElements = (hideLabels: boolean) => {
   const { selectedElement, toggleSelectedElement } = useSelectedElement()

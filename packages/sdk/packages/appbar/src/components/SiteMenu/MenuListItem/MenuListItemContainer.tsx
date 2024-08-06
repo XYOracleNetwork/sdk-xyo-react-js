@@ -3,10 +3,10 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import React, { useState } from 'react'
 
-import { useCollapsible } from '../../../contexts/index.js'
-import { MenuListItemBase, NavListItemProps } from '../lib/index.js'
-import { ListItemTooltip, MenuIcon, MenuListItem } from './list-item-components/index.js'
-import { SubNavListItemsCollapse, SubNavToggleIconButton } from './sub-nav/index.js'
+import { useCollapsible } from '../../../contexts/index.ts'
+import { MenuListItemBase, NavListItemProps } from '../lib/index.ts'
+import { ListItemTooltip, MenuIcon, MenuListItem } from './list-item-components/index.ts'
+import { SubNavListItemsCollapse, SubNavToggleIconButton } from './sub-nav/index.ts'
 
 export interface MenuListItemProps extends NavListItemProps, MenuListItemBase, ListItemProps {
   iconMenuTextSpacing?: string

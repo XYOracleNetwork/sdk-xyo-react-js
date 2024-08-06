@@ -5,7 +5,7 @@ import { useIsMobile } from '@xyo-network/react-shared'
 import React, { ReactNode, useState } from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
-import { CardEx, CardExProps } from '../CardEx.js'
+import { CardEx, CardExProps } from '../CardEx.tsx'
 
 export interface SimpleCardProps extends CardExProps {
   desc?: ReactNode

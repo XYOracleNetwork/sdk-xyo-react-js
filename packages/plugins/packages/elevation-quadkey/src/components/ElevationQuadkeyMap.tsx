@@ -12,10 +12,10 @@ import {
 import { Feature, Polygon } from 'geojson'
 import React, { useMemo } from 'react'
 
-import { OpenElevationApiProvider } from '../contexts/index.js'
-import { useElevationProcessor } from '../hooks/index.js'
-import { ElevationExtrusionLayerBuilder, ExtrusionLayerBuilderConstants } from '../layers/index.js'
-import { ElevationQuadkeyMapSettings } from './ElevationQuadkeyMapSettings.js'
+import { OpenElevationApiProvider } from '../contexts/index.ts'
+import { useElevationProcessor } from '../hooks/index.ts'
+import { ElevationExtrusionLayerBuilder, ExtrusionLayerBuilderConstants } from '../layers/index.ts'
+import { ElevationQuadkeyMapSettings } from './ElevationQuadkeyMapSettings.ts'
 
 export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
   accessToken?: string

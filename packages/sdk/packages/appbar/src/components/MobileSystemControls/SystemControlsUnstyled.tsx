@@ -3,8 +3,8 @@ import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { NetworkSelectEx } from '@xyo-network/react-network'
 import React from 'react'
 
-import { SystemControl } from './controls/index.js'
-import { SystemControlsType } from './SystemControlsType.js'
+import { SystemControl } from './controls/index.ts'
+import { SystemControlsType } from './SystemControlsType.ts'
 
 interface SystemControlsUnstyledProps extends FlexBoxProps {
   systemControlsType?: SystemControlsType

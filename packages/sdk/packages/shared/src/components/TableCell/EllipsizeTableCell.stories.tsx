@@ -3,7 +3,7 @@ import { Decorator, Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { EllipsisTableCell } from './EllipsisTableCell.js'
+import { EllipsisTableCell } from './EllipsisTableCell.tsx'
 
 const TableDecorator: Decorator = (Story, args) => {
   return (

@@ -4,8 +4,8 @@ import { ArchivistModule } from '@xyo-network/archivist-model'
 import { NodeProvider } from '@xyo-network/react-node'
 import React, { useState } from 'react'
 
-import { useWeakArchivistFromNode } from '../../hooks/index.js'
-import { ArchivistDetails } from './Details.js'
+import { useWeakArchivistFromNode } from '../../hooks/index.ts'
+import { ArchivistDetails } from './Details.tsx'
 
 const StorybookEntry = {
   argTypes: {},

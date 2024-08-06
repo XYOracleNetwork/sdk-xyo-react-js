@@ -3,7 +3,7 @@ import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import { LinkExProps } from '@xylabs/react-link'
 import React from 'react'
 
-import { FooterLink } from './Link.js'
+import { FooterLink } from './Link.tsx'
 
 export interface FooterAlwaysLinksProps extends FlexBoxProps {
   footerLinks?: LinkExProps[]

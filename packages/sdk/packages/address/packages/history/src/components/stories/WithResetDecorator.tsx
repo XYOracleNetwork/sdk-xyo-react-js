@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import { Decorator } from '@storybook/react'
 import React from 'react'
 
-import { useActiveBoundWitness } from '../../hooks/index.js'
+import { useActiveBoundWitness } from '../../hooks/index.ts'
 
 export const WithResetDecorator: Decorator = (Story, args) => {
   const { activeBoundWitness, setActiveBoundWitnessHash } = useActiveBoundWitness()

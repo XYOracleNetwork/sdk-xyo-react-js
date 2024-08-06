@@ -3,7 +3,7 @@ import { sampleBlock } from '@xyo-network/react-storybook'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { BoundWitnessSignatureTable } from './SignatureTable.js'
+import { BoundWitnessSignatureTable } from './SignatureTable.tsx'
 
 const StorybookEntry = {
   argTypes: {},

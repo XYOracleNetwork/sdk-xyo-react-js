@@ -2,7 +2,7 @@ import { ButtonGroup, TableCell, TableRow, TableRowProps, Typography } from '@mu
 import { ButtonEx } from '@xylabs/react-button'
 import React, { useState } from 'react'
 
-import { OutOfBoundsSnackBar } from './OutOfBoundsSnackBar.js'
+import { OutOfBoundsSnackBar } from './OutOfBoundsSnackBar.tsx'
 
 export interface MaxAccountsTableRow extends TableRowProps {
   activeAccountIndex?: number

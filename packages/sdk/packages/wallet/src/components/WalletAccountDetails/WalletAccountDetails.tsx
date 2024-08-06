@@ -6,7 +6,7 @@ import { useNetwork } from '@xyo-network/react-network'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import React from 'react'
 
-import { useAccount } from '../../hooks/index.js'
+import { useAccount } from '../../hooks/index.ts'
 
 export interface WalletAccountDetailsProps extends FlexBoxProps {
   account?: WalletInstance

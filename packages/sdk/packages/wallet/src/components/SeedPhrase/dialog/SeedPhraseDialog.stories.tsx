@@ -6,7 +6,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
-import { SeedPhraseDialog } from './SeedPhraseDialog.js'
+import { SeedPhraseDialog } from './SeedPhraseDialog.tsx'
 
 export default {
   component: SeedPhraseDialog,

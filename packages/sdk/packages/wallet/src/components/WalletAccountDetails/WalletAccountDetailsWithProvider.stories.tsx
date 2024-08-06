@@ -3,9 +3,9 @@ import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WalletProvider } from '../../contexts/index.js'
-import { useWallet } from '../../hooks/index.js'
-import { WalletAccountDetails } from './WalletAccountDetails.js'
+import { WalletProvider } from '../../contexts/index.ts'
+import { useWallet } from '../../hooks/index.ts'
+import { WalletAccountDetails } from './WalletAccountDetails.tsx'
 
 const StorybookEntry = {
   argTypes: {},

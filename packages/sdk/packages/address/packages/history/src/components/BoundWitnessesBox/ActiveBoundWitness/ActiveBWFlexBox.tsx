@@ -3,8 +3,8 @@ import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import { TableHeightState } from '@xyo-network/react-table'
 import React, { forwardRef } from 'react'
 
-import { useActiveBoundWitness } from '../../../hooks/index.js'
-import { NoBlockSelectedBox } from './NoBlockSelectedBox.js'
+import { useActiveBoundWitness } from '../../../hooks/index.ts'
+import { NoBlockSelectedBox } from './NoBlockSelectedBox.tsx'
 
 export interface ActiveBWFlexBoxProps extends FlexBoxProps {
   visibleRows?: TableHeightState['visibleRows']

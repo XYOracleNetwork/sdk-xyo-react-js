@@ -4,7 +4,7 @@ import { PayloadHasher } from '@xyo-network/hash'
 import { ScrollTableOnSm, usePromise } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { BlockSignatureTableRow } from './SignatureTableRow.js'
+import { BlockSignatureTableRow } from './SignatureTableRow.tsx'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockSignatureTableProps extends TableProps {

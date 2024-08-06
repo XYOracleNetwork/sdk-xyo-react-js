@@ -3,7 +3,7 @@ import { WithChildren } from '@xylabs/react-shared'
 import { TypographyExProps, useGetTokenData } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { GasPriceHeadingTypography } from './Heading.js'
+import { GasPriceHeadingTypography } from './Heading.tsx'
 
 export interface GasPriceHeaderTypographyProps extends TypographyExProps, WithChildren {
   heading?: string

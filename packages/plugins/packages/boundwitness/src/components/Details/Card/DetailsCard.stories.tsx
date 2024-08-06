@@ -3,7 +3,7 @@ import { useEvent } from '@xyo-network/react-event'
 import { sampleBlock } from '@xyo-network/react-storybook'
 import React, { useRef } from 'react'
 
-import { BoundWitnessDetailsCard } from './DetailsCard.js'
+import { BoundWitnessDetailsCard } from './DetailsCard.tsx'
 
 const WithEventDecorator: Decorator = (Story, args) => {
   const ref = useRef<HTMLDivElement | null>(null)

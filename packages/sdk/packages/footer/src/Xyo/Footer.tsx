@@ -1,14 +1,14 @@
 import { Grid } from '@mui/material'
 import React from 'react'
 
-import { Footer, FooterProps } from '../Footer.js'
-import { copyrightLinkTitle } from '../lib/index.js'
-import { DeveloperLinks } from './DeveloperLinks.js'
-import { MoreLinks } from './MoreLinks.js'
-import { NetworkLinks } from './NetworkLinks.js'
-import { SocialLinks } from './SocialLinks.js'
-import { SupportLinks } from './SupportLinks.js'
-import { TokenLinks } from './TokenLinks.js'
+import { Footer, FooterProps } from '../Footer.tsx'
+import { copyrightLinkTitle } from '../lib/index.ts'
+import { DeveloperLinks } from './DeveloperLinks.tsx'
+import { MoreLinks } from './MoreLinks.tsx'
+import { NetworkLinks } from './NetworkLinks.tsx'
+import { SocialLinks } from './SocialLinks.tsx'
+import { SupportLinks } from './SupportLinks.tsx'
+import { TokenLinks } from './TokenLinks.tsx'
 
 const footerLinks = [
   {

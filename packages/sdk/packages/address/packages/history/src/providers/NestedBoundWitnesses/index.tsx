@@ -1,7 +1,7 @@
 import { WithChildren } from '@xylabs/react-shared'
 import React, { useState } from 'react'
 
-import { NestedBoundWitnessesContext } from '../../contexts/index.js'
+import { NestedBoundWitnessesContext } from '../../contexts/index.ts'
 
 export const NestedBoundWitnessesProvider: React.FC<WithChildren> = ({ children }) => {
   const [loading, setLoading] = useState(false)

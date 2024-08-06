@@ -3,7 +3,7 @@ import { ButtonEx } from '@xylabs/react-button'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { PropertyActionsProps } from './ActionsProps.js'
+import { PropertyActionsProps } from './ActionsProps.ts'
 
 export const PropertyActions: React.FC<PropertyActionsProps> = ({ buttons = false, actions, ...props }) => {
   if (actions) {

@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { DefaultSeedPhrase } from './DefaultSeedPhrase.js'
+import { DefaultSeedPhrase } from './DefaultSeedPhrase.tsx'
 
 export default {
   component: DefaultSeedPhrase,

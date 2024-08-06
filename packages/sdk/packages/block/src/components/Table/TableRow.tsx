@@ -10,7 +10,7 @@ import React, { ReactElement } from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
-import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig.js'
+import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig.ts'
 
 export interface BlockTableRowProps extends TableRowProps {
   block?: BoundWitness

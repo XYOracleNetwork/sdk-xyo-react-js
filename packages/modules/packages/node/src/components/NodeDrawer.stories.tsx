@@ -5,7 +5,7 @@ import { NodeConfigSchema } from '@xyo-network/node-model'
 import { MemoryNodeProvider, NodeDrawerProvider, useNodeDrawer } from '@xyo-network/react-node-provider'
 import React from 'react'
 
-import { NodeDrawer } from './NodeDrawer.js'
+import { NodeDrawer } from './NodeDrawer.tsx'
 
 const ProviderDecorator: Decorator = (Story, args) => (
   <MemoryNodeProvider config={{ schema: NodeConfigSchema }}>

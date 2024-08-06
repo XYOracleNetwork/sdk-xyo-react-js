@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
-import { BWNavigationTabs } from './NavigationTabs.js'
+import { BWNavigationTabs } from './NavigationTabs.tsx'
 
 export default {
   component: BWNavigationTabs,

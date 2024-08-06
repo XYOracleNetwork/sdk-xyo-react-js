@@ -3,8 +3,8 @@ import { ButtonEx } from '@xylabs/react-button'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
-import { ModuleRenderProps } from '../../../ModuleRenderProps.js'
-import { DiscoverDialog } from './components/index.js'
+import { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
+import { DiscoverDialog } from './components/index.ts'
 
 export const ModuleCardActions: React.FC<CardActionsProps & ModuleRenderProps> = ({ children, mod, sx, ...props }) => {
   const [discoverDialogOpen, setDiscoverDialogOpen] = useState(false)

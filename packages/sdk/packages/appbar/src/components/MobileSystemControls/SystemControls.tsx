@@ -1,8 +1,8 @@
 import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { SystemControlsRoot } from './SystemControlsRoot.js'
-import { SystemControlsUnstyledProps } from './SystemControlsUnstyled.js'
+import { SystemControlsRoot } from './SystemControlsRoot.tsx'
+import { SystemControlsUnstyledProps } from './SystemControlsUnstyled.tsx'
 
 const SystemControls: React.FC<SystemControlsUnstyledProps> = (props) => {
   return (

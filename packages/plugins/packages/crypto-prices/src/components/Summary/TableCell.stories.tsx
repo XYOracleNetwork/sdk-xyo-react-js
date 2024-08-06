@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { sampleUniswapPayload } from '@xyo-network/react-storybook'
 import React from 'react'
 
-import { TableCellSummary } from './TableCellSummary.js'
+import { TableCellSummary } from './TableCellSummary.tsx'
 
 const StorybookEntry = {
   argTypes: {},

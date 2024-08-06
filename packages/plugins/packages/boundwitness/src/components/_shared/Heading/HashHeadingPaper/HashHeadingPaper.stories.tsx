@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { BackPaperAdornment } from './Adornment/index.js'
-import { HashHeadingPaper } from './HashHeadingPaper.js'
+import { BackPaperAdornment } from './Adornment/index.ts'
+import { HashHeadingPaper } from './HashHeadingPaper.tsx'
 
 export default {
   component: HashHeadingPaper,

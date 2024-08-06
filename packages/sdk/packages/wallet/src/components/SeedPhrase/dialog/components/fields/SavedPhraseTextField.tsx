@@ -1,8 +1,8 @@
 import { Chip, FormControl, FormLabel, StandardTextFieldProps, TextField } from '@mui/material'
 import React, { useState } from 'react'
 
-import { useSeedPhrase } from '../../../../../contexts/index.js'
-import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages/index.js'
+import { useSeedPhrase } from '../../../../../contexts/index.ts'
+import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages/index.ts'
 
 export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
   fullWidth?: boolean

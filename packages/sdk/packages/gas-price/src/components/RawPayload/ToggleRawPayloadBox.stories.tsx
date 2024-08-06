@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { ToggleRawPayloadBox } from './ToggleRawPayloadBox.js'
+import { ToggleRawPayloadBox } from './ToggleRawPayloadBox.tsx'
 
 export default {
   component: ToggleRawPayloadBox,

@@ -3,7 +3,7 @@ import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { CardContentEx } from '@xyo-network/react-card'
 import React from 'react'
 
-import { GasPriceBox, PriorityFeeBox, SpeedBox } from './components/index.js'
+import { GasPriceBox, PriorityFeeBox, SpeedBox } from './components/index.ts'
 
 export interface GasFeeCardProps extends CardProps {
   gasPrice?: number

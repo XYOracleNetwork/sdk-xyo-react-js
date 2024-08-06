@@ -3,7 +3,7 @@ import { usePayloadHash } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import React from 'react'
 
-import { HashSelectionHistoryProvider } from '../../providers/index.js'
+import { HashSelectionHistoryProvider } from '../../providers/index.ts'
 
 export const WithHashSelectionHistory: Decorator = (Story, args) => {
   return (

@@ -2,11 +2,11 @@ import { useTheme } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
 import React from 'react'
 
-import { useRefreshPayload, useResolvePayload } from '../../contexts/index.js'
-import { EmbedPluginProps } from '../../types/index.js'
-import { EmbedPluginInner } from '../EmbedPlugin.js'
-import { BusyCardProps, EmbedPluginCard } from './card/index.js'
-import { EmbedCardApiErrorRenderer } from './error-handling/index.js'
+import { useRefreshPayload, useResolvePayload } from '../../contexts/index.ts'
+import { EmbedPluginProps } from '../../types/index.ts'
+import { EmbedPluginInner } from '../EmbedPlugin.tsx'
+import { BusyCardProps, EmbedPluginCard } from './card/index.ts'
+import { EmbedCardApiErrorRenderer } from './error-handling/index.ts'
 
 export interface EmbedPluginCardProps extends WithChildren, EmbedPluginProps, BusyCardProps {}
 
@@ -63,4 +63,4 @@ export const EmbedPluginCardInner: React.FC<BusyCardProps> = (props) => {
 
 /** @deprecated - use EmbedPluginCard and use CardProps instead of FlexBoxProps */
 
-export { EmbedPluginCard as EmbedPlugin } from './card/index.js'
+export { EmbedPluginCard as EmbedPlugin } from './card/index.ts'

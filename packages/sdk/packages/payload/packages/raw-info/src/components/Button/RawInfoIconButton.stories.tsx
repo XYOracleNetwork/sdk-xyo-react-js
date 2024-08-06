@@ -3,7 +3,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import React from 'react'
 
-import { RawInfoIconButton } from './RawInfoIconButton.js'
+import { RawInfoIconButton } from './RawInfoIconButton.tsx'
 
 type TestPayload = Payload<{ id: string; schema: string; type: string }, 'network.xyo.test'>
 const TestPayload: TestPayload = {

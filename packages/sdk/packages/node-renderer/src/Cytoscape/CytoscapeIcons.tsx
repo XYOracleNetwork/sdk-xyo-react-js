@@ -11,7 +11,7 @@ import { SvgIconTypeMap } from '@mui/material'
 // eslint-disable-next-line import/no-internal-modules
 import { OverridableComponent } from '@mui/material/OverridableComponent.js'
 
-import { CyNodeModuleTypes } from './lib/index.js'
+import { CyNodeModuleTypes } from './lib/index.ts'
 
 export const CyIconSet: Record<CyNodeModuleTypes, OverridableComponent<SvgIconTypeMap<{}, 'svg'>>> = {
   archivist: Inventory2RoundedIcon,

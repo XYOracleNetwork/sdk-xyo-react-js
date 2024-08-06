@@ -3,7 +3,7 @@ import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { TokenBar } from './TokenBar.js'
+import { TokenBar } from './TokenBar.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: TokenBar,

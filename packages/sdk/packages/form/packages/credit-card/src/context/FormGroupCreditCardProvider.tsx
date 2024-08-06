@@ -3,7 +3,7 @@ import { FormGroup, FormGroupParams } from '@xyo-network/react-form-group'
 import React, { PropsWithChildren, useMemo } from 'react'
 
 import { CreditCardInput } from '../models/index.ts'
-import { FormGroupCreditCardContext } from './FormGroupCreditCardContext.js'
+import { FormGroupCreditCardContext } from './FormGroupCreditCardContext.ts'
 
 export interface FormGroupCreditCardProviderProps<TStorage extends Payload = Payload> extends PropsWithChildren {
   params?: FormGroupParams<TStorage>

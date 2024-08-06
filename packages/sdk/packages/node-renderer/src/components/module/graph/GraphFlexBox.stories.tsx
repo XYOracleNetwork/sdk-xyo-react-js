@@ -11,7 +11,7 @@ import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
 import React, { useState } from 'react'
 
-import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox.js'
+import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox.tsx'
 
 const nodeUrl = 'http://localhost:8080/node'
 

@@ -9,8 +9,8 @@ import {
   WithHashSelectionHistory,
   WithHashSelectionHistoryDefaultValues,
   WithNestedBoundWitnessesDecorator,
-} from '../stories/index.js'
-import { BoundWitnessesBox } from './BoundWitnessesBox.js'
+} from '../stories/index.ts'
+import { BoundWitnessesBox } from './BoundWitnessesBox.tsx'
 
 export default {
   component: BoundWitnessesBox,

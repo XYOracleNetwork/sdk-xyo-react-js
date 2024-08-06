@@ -2,8 +2,8 @@ import { usePromise } from '@xylabs/react-promise'
 import { NodeProvider } from '@xyo-network/react-node-provider'
 import React, { PropsWithChildren } from 'react'
 
-import { buildManifestNodes } from '../lib/index.js'
-import { CreatablePackageManifest } from '../types/index.js'
+import { buildManifestNodes } from '../lib/index.ts'
+import { CreatablePackageManifest } from '../types/index.ts'
 
 export interface ManifestNodeProviderProps extends PropsWithChildren {
   manifestNodes?: CreatablePackageManifest[]

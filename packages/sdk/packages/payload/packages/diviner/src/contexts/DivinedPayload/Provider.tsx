@@ -5,9 +5,9 @@ import { useBuildHuri } from '@xyo-network/react-payload-huri'
 import React from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 
-import { useDivinePayload } from '../PayloadDiviner/index.js'
-import { DivinedPayloadContext } from './Context.js'
-import { useDivinedPayload } from './use.js'
+import { useDivinePayload } from '../PayloadDiviner/index.ts'
+import { DivinedPayloadContext } from './Context.ts'
+import { useDivinedPayload } from './use.ts'
 
 export interface DivinedPayloadProviderProps extends WithChildren {
   hash?: string

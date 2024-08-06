@@ -13,7 +13,7 @@ import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import React, { useMemo } from 'react'
 
-import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig.js'
+import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig.ts'
 
 export interface PayloadTableRowProps extends TableRowProps {
   archive?: string

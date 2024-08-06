@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 import React, { useState } from 'react'
 
-import { PageCard } from './PageCard.js'
+import { PageCard } from './PageCard.tsx'
 
 const StorybookEntry: Meta = {
   argTypes: {

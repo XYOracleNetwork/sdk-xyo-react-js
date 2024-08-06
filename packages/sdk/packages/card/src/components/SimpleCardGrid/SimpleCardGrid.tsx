@@ -1,7 +1,7 @@
 import { Grid, GridProps } from '@mui/material'
 import React from 'react'
 
-import { SimpleCard, SimpleCardProps } from '../SimpleCard/index.js'
+import { SimpleCard, SimpleCardProps } from '../SimpleCard/index.ts'
 
 export interface SimpleCardGridProps extends GridProps {
   cards?: SimpleCardProps[]

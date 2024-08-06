@@ -1,8 +1,8 @@
 import { WithChildren } from '@xylabs/react-shared'
 import React, { useMemo, useState } from 'react'
 
-import { ListMode } from '../../models/index.js'
-import { ListModeContext } from './Context.js'
+import { ListMode } from '../../models/index.ts'
+import { ListModeContext } from './Context.ts'
 
 export interface ListModeProviderProps {
   defaultListMode?: ListMode

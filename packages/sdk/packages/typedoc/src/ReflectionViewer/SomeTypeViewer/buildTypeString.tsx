@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
 import type { SomeType, Type } from 'typedoc'
 
-import { ReflectionViewerProps } from '../ReflectionViewerProps.js'
-import { buildArrayString } from './buildArrayString.js'
-import { buildIntersectionString } from './buildIntersectionString.js'
-import { buildReferenceString } from './buildReferenceString.js'
-import { buildReflectionString } from './buildReflectionString.js'
-import { buildUnionString } from './buildUnionString.js'
-import { TypeBuilder } from './TypeBuilder.js'
+import { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
+import { buildArrayString } from './buildArrayString.tsx'
+import { buildIntersectionString } from './buildIntersectionString.tsx'
+import { buildReferenceString } from './buildReferenceString.ts'
+import { buildReflectionString } from './buildReflectionString.tsx'
+import { buildUnionString } from './buildUnionString.tsx'
+import { TypeBuilder } from './TypeBuilder.ts'
 
 export const buildTypeString: TypeBuilder = (type: SomeType | Type, reflectionViewer: React.FC<ReflectionViewerProps>): ReactNode => {
   const someType = type as SomeType

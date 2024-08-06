@@ -1,9 +1,9 @@
 import { usePromise } from '@xylabs/react-promise'
 import { Payload } from '@xyo-network/payload-model'
 
-import { usePollDiviners } from './support/index.js'
-import { UseIndexedResultsConfig } from './types/index.js'
-import { useTriggerFreshIndexedResult } from './useTriggerFreshIndexedResult.js'
+import { usePollDiviners } from './support/index.ts'
+import { UseIndexedResultsConfig } from './types/index.ts'
+import { useTriggerFreshIndexedResult } from './useTriggerFreshIndexedResult.tsx'
 
 export const useFreshIndexedResult = <TResult extends Payload = Payload>(config?: UseIndexedResultsConfig) => {
   const { indexedResultsConfig, pollingConfig, queueConfig, trigger } = config ?? {}

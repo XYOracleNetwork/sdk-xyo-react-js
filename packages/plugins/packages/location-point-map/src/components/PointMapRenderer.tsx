@@ -12,7 +12,7 @@ import {
 import { Feature, Point } from 'geojson'
 import React, { useEffect, useState } from 'react'
 
-import { PointMapSettings } from './PointMapSettings.js'
+import { PointMapSettings } from './PointMapSettings.ts'
 
 export interface PointMapInnerProps extends FlexBoxProps {
   accessToken?: string

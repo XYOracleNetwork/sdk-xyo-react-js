@@ -2,7 +2,7 @@ import { MoreVert as MoreVertIcon } from '@mui/icons-material'
 import { IconButton, IconButtonProps, Menu } from '@mui/material'
 import React, { useState } from 'react'
 
-import { JsonMenuItem } from './JsonMenuItem.js'
+import { JsonMenuItem } from './JsonMenuItem.tsx'
 
 export const EmbedMenu: React.FC<IconButtonProps> = (props) => {
   // TODO - link to explore website

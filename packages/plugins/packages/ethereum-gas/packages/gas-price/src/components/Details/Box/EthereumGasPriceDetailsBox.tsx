@@ -6,8 +6,8 @@ import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../../lib/index.js'
-import { GasPriceHeaderBox } from './components/index.js'
+import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../../lib/index.ts'
+import { GasPriceHeaderBox } from './components/index.ts'
 
 export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

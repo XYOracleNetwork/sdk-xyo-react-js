@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { PropertyTitle } from './Title.js'
+import { PropertyTitle } from './Title.tsx'
 
 const StorybookEntry = {
   argTypes: {},

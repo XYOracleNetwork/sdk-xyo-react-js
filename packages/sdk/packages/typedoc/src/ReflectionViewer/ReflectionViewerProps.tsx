@@ -3,7 +3,7 @@ import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { ReactElement } from 'react'
 import type { Reflection } from 'typedoc'
 
-import { ReflectionLookup } from '../ReflectionLookup.js'
+import { ReflectionLookup } from '../ReflectionLookup.ts'
 
 export type FlagFilter = 'isPublic' | 'isPrivate' | 'isProtected'
 

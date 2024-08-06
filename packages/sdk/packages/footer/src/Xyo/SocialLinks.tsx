@@ -4,8 +4,8 @@ import React from 'react'
 // eslint-disable-next-line import/no-internal-modules
 import { FaDiscord } from 'react-icons/fa'
 
-import { FooterLink } from '../Link.js'
-import { FooterLinks } from '../Links.js'
+import { FooterLink } from '../Link.tsx'
+import { FooterLinks } from '../Links.tsx'
 
 export const SocialLinks: React.FC<FlexBoxProps> = (props) => {
   return (

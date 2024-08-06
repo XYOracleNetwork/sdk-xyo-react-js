@@ -1,4 +1,4 @@
-import { TokenData } from './TokenData.js'
+import { TokenData } from './TokenData.ts'
 
 export const useGetTokenData = (symbols: (string | undefined)[]) => {
   return symbols?.map((symbol) => {

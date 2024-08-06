@@ -2,7 +2,7 @@ import { BubbleChartRounded as BubbleChartRoundedIcon } from '@mui/icons-materia
 import { DivinerInstance } from '@xyo-network/diviner-model'
 import React from 'react'
 
-import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.js'
+import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.tsx'
 
 export const DivinerSummary: React.FC<ModuleSummaryProps<DivinerInstance>> = ({ mod, ...props }) => {
   return <ModuleSummary mod={mod} icon={<BubbleChartRoundedIcon />} {...props} />

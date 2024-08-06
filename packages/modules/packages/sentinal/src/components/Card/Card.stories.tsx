@@ -10,7 +10,7 @@ import { asSentinelInstance, ReportEndEventArgs } from '@xyo-network/sentinel-mo
 import { InfuraProvider } from 'ethers'
 import React from 'react'
 
-import { SentinelCard } from './Card.js'
+import { SentinelCard } from './Card.tsx'
 import NftSentinelManifest from './NftSentinel.json'
 
 const loadFromManifest = async () => {

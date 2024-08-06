@@ -2,7 +2,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { StorageArchivist, StorageArchivistConfigSchema } from '@xyo-network/archivist-storage'
 import { ArchivistFormGroupStorage, FormGroupParams } from '@xyo-network/react-form-group'
 
-import { CreditCardInput } from '../../models/index.js'
+import { CreditCardInput } from '../../models/index.ts'
 
 const StorageNameSpace = 'credit-card-fields'
 

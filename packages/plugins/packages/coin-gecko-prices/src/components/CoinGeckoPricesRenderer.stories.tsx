@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { CoinGeckoPricesRenderer } from './CoinGeckoPricesRenderer.js'
-import { payloadData, payloadDataMissingAssets } from './storyPayloadData.js'
+import { CoinGeckoPricesRenderer } from './CoinGeckoPricesRenderer.tsx'
+import { payloadData, payloadDataMissingAssets } from './storyPayloadData.ts'
 
 const StorybookEntry = {
   argTypes: {},

@@ -5,8 +5,8 @@ import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { AccountInstance } from '@xyo-network/account-model'
 import React from 'react'
 
-import { useRootWallet, useSelectedWalletAccount } from '../../contexts/index.js'
-import { useAccount, useWallet } from '../../hooks/index.js'
+import { useRootWallet, useSelectedWalletAccount } from '../../contexts/index.ts'
+import { useAccount, useWallet } from '../../hooks/index.ts'
 
 export interface WalletErrorProps {
   error?: Error

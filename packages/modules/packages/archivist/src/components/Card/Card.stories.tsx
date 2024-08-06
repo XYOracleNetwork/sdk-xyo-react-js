@@ -9,7 +9,7 @@ import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { MemoryNode } from '@xyo-network/node-memory'
 import React from 'react'
 
-import { ArchivistCard } from './Card.js'
+import { ArchivistCard } from './Card.tsx'
 
 const StorybookEntry = {
   component: ArchivistCard,

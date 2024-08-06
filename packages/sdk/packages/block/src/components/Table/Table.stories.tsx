@@ -6,7 +6,7 @@ import { sampleBlock } from '@xyo-network/react-storybook'
 import React, { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { BlockTable } from './Table.js'
+import { BlockTable } from './Table.tsx'
 
 const StorybookEntry = {
   argTypes: {},

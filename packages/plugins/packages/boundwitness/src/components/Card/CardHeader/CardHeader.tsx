@@ -5,7 +5,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React, { forwardRef, ReactNode } from 'react'
 
-import { BWActions, BWHeading } from '../../_shared/index.js'
+import { BWActions, BWHeading } from '../../_shared/index.ts'
 
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   active?: boolean

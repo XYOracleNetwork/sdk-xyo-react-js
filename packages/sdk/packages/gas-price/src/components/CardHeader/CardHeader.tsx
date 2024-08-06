@@ -1,9 +1,9 @@
 import { CardProps } from '@mui/material'
 import React, { forwardRef } from 'react'
 
-import { GasPriceWitnessUIBasePayload } from '../../types/index.js'
-import { GasPriceHeaderActionsBox, GasPriceHeaderTypography } from '../HeaderComponents/index.js'
-import { StyledCardHeader } from '../layout/index.js'
+import { GasPriceWitnessUIBasePayload } from '../../types/index.ts'
+import { GasPriceHeaderActionsBox, GasPriceHeaderTypography } from '../HeaderComponents/index.ts'
+import { StyledCardHeader } from '../layout/index.ts'
 
 export interface GasPriceCardHeaderProps extends CardProps {
   parsedPayload?: GasPriceWitnessUIBasePayload

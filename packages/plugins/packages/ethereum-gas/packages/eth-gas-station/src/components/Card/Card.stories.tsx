@@ -3,7 +3,7 @@ import { EthereumGasEthgasstationSchema } from '@xyo-network/ethgasstation-ether
 import { sampleEthGasStationGasPricePayload } from '@xyo-network/react-storybook'
 import React from 'react'
 
-import { EthgasstationGasPriceCard } from './Card.js'
+import { EthgasstationGasPriceCard } from './Card.tsx'
 
 const StorybookEntry = {
   argTypes: {},

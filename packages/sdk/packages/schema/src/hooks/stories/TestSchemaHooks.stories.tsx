@@ -12,9 +12,9 @@ import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { SchemaCache } from '@xyo-network/schema-cache'
 import React, { useState } from 'react'
 
-import { useSchemaDefinitions } from '../useSchemaDefinitions.js'
-import { useSchemaList } from '../useSchemaList.js'
-import { useSchemaStats } from '../useSchemaStats.js'
+import { useSchemaDefinitions } from '../useSchemaDefinitions.tsx'
+import { useSchemaList } from '../useSchemaList.tsx'
+import { useSchemaStats } from '../useSchemaStats.tsx'
 
 const apiConfig = { apiDomain: 'https://api.archivist.xyo.network' }
 const nodeUrl = 'http://localhost:8080/node'

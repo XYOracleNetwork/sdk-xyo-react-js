@@ -7,7 +7,7 @@ import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { MemoryNode } from '@xyo-network/node-memory'
 import React, { useState } from 'react'
 
-import { MemoryArchivistsStats } from './MemoryArchivistStats.js'
+import { MemoryArchivistsStats } from './MemoryArchivistStats.tsx'
 
 const StorybookEntry = {
   component: MemoryArchivistsStats,

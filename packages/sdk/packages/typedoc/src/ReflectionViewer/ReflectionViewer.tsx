@@ -2,10 +2,10 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 import type { ReflectionFlags } from 'typedoc'
 
-import { CommentViewer } from '../CommentViewer.js'
-import { SomeReflection } from '../SomeReflection.js'
-import { NameViewer } from './NameViewer.js'
-import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps.js'
+import { CommentViewer } from '../CommentViewer.tsx'
+import { SomeReflection } from '../SomeReflection.ts'
+import { NameViewer } from './NameViewer.tsx'
+import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps.tsx'
 
 const hide = (flags?: ReflectionFlags, hiddenFlags: FlagFilter[] = []) => {
   let hide = false

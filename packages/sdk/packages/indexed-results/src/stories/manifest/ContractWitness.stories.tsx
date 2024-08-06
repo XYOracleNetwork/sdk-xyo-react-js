@@ -2,8 +2,8 @@ import { Meta, StoryFn } from '@storybook/react'
 import { ManifestNodeProvider } from '@xyo-network/react-manifest'
 import React from 'react'
 
-import { TestSentinel, UseFreshIndexedResult, UseIndexedResults, UseIndexedResultsNoPoll } from './components/index.js'
-import { ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode } from './nodes/index.js'
+import { TestSentinel, UseFreshIndexedResult, UseIndexedResults, UseIndexedResultsNoPoll } from './components/index.ts'
+import { ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode } from './nodes/index.ts'
 
 export default {
   title: 'modules/indexed-results/contract-witness',

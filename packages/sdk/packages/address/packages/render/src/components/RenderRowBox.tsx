@@ -5,7 +5,7 @@ import { useEvent } from '@xyo-network/react-event'
 import { EllipsizeBox, useShareForwardedRef } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { FavoriteIconButton } from './favorite/index.js'
+import { FavoriteIconButton } from './favorite/index.ts'
 
 export interface AddressRenderRowBoxProps extends FlexBoxProps {
   address?: string | null

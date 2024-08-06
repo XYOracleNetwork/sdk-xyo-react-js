@@ -7,8 +7,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 
-import { WebAppBody, WebAppBodyProps } from './Body.js'
-import { fixedWrap, scrollableWrap } from './lib/index.js'
+import { WebAppBody, WebAppBodyProps } from './Body.tsx'
+import { fixedWrap, scrollableWrap } from './lib/index.ts'
 
 const WebAppPageRoot = styled(FlexGrowCol, {
   name: 'WebAppPage',

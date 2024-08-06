@@ -1,7 +1,7 @@
 import { AvatarGroup, AvatarGroupProps } from '@mui/material'
 import React from 'react'
 
-import { ThemeTokenAvatar } from '../ThemeTokenAvatar/index.js'
+import { ThemeTokenAvatar } from '../ThemeTokenAvatar/index.ts'
 
 export interface ThemeTokenAvatarGroupProps extends AvatarGroupProps {
   images?: string[]

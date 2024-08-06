@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import CoinbaseWalletIcon from './coinbase-wallet.svg'
 import MoneyMedia from './money.jpg'
-import { SimpleCardGrid } from './SimpleCardGrid.js'
+import { SimpleCardGrid } from './SimpleCardGrid.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: SimpleCardGrid,

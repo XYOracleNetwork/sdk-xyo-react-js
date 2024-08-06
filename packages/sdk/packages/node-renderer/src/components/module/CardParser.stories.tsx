@@ -3,7 +3,7 @@ import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archi
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import React from 'react'
 
-import { ModuleCardParser } from './CardParser.js'
+import { ModuleCardParser } from './CardParser.tsx'
 
 const meta: Meta<typeof ModuleCardParser> = {
   component: ModuleCardParser,

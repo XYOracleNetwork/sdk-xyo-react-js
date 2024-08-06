@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { CreditCardFormFlexboxWithFormGroupProvider } from '../components/index.js'
+import { CreditCardFormFlexboxWithFormGroupProvider } from '../components/index.ts'
 import { CreditCardInput } from '../models/index.ts'
 
 export default {

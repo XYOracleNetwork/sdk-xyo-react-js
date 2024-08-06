@@ -20,8 +20,8 @@ import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import React, { ReactNode, useEffect, useMemo, useState } from 'react'
 
-import { PayloadDynamicTableRow } from './DynamicTableRow.js'
-import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.js'
+import { PayloadDynamicTableRow } from './DynamicTableRow.tsx'
+import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.ts'
 
 export interface PayloadDynamicTableProps extends TableProps {
   archive?: string

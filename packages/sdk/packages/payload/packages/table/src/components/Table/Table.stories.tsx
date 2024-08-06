@@ -6,7 +6,7 @@ import { sampleIdPayload, sampleSystemInfoBrowserPayload } from '@xyo-network/re
 import React, { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { PayloadTable } from './Table.js'
+import { PayloadTable } from './Table.tsx'
 
 const StorybookEntry = {
   argTypes: {},

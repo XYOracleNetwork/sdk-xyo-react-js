@@ -2,8 +2,8 @@ import { Cancel as CancelIcon, RadioButtonChecked as RadioButtonCheckedIcon } fr
 import { Button, ButtonGroup, TableCell, TableRow, TableRowProps } from '@mui/material'
 import React, { useState } from 'react'
 
-import { SeedPhraseIconButton } from '../_shared/index.js'
-import { SeedPhraseDialog } from '../dialog/index.js'
+import { SeedPhraseIconButton } from '../_shared/index.ts'
+import { SeedPhraseDialog } from '../dialog/index.ts'
 
 export interface SeedPhraseTableRowProps extends TableRowProps {
   changeSeedPhrase?: (seedPhrase: string) => void

@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { XyoFooter } from './Footer.js'
+import { XyoFooter } from './Footer.tsx'
 
 const StorybookEntry = {
   argTypes: {},

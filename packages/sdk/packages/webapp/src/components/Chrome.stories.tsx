@@ -6,8 +6,8 @@ import { MenuListItemContainer } from '@xyo-network/react-appbar'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WebAppChrome } from './Chrome.js'
-import { WebAppPage, WebAppPageProps } from './Page.js'
+import { WebAppChrome } from './Chrome.tsx'
+import { WebAppPage, WebAppPageProps } from './Page.tsx'
 
 const StorybookEntry = {
   argTypes: {},

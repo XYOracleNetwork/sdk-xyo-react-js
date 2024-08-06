@@ -4,7 +4,7 @@ import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { xyoColorLogo } from '../../../../img/index.js'
+import { xyoColorLogo } from '../../../../img/index.ts'
 
 export interface LinkedProvidersFlexboxProps extends FlexBoxProps {
   icon?: string

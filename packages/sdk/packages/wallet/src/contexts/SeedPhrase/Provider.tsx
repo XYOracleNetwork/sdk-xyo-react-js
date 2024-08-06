@@ -4,7 +4,7 @@ import { wordlist } from '@scure/bip39/wordlists/english'
 import { WithChildren } from '@xylabs/react-shared'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 
-import { SeedPhraseContext } from './Context.js'
+import { SeedPhraseContext } from './Context.ts'
 
 export interface SeedPhraseProviderProps extends WithChildren {
   defaultPhrase?: string

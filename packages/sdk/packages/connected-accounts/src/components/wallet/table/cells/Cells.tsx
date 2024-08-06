@@ -1,11 +1,11 @@
 import { ComponentType } from 'react'
 
-import { ConnectedWalletsAccountsTableCell } from './Accounts.js'
-import { ConnectedWalletsActionsTableCell } from './Actions.js'
-import { ConnectedWalletsChainNameTableCell } from './ChainName.js'
-import { ConnectedWalletTableCellProps } from './lib/index.js'
-import { ConnectedWalletState } from './State.js'
-import { ConnectedWalletsWalletTableCell } from './Wallet.js'
+import { ConnectedWalletsAccountsTableCell } from './Accounts.tsx'
+import { ConnectedWalletsActionsTableCell } from './Actions.tsx'
+import { ConnectedWalletsChainNameTableCell } from './ChainName.tsx'
+import { ConnectedWalletTableCellProps } from './lib/index.ts'
+import { ConnectedWalletState } from './State.tsx'
+import { ConnectedWalletsWalletTableCell } from './Wallet.tsx'
 
 export const ConnectedWalletTableCells: ComponentType<ConnectedWalletTableCellProps>[] = [
   ConnectedWalletsWalletTableCell,

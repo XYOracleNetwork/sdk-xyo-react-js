@@ -1,8 +1,8 @@
 import { Card, CardContent, ClickAwayListener, Fade, Popper, PopperProps, styled, TextField } from '@mui/material'
 import React, { forwardRef, RefObject, useEffect, useState } from 'react'
 
-import { popperId } from './lib/index.js'
-import { PopperButtonGroup } from './PopperButtonGroup.js'
+import { popperId } from './lib/index.ts'
+import { PopperButtonGroup } from './PopperButtonGroup.tsx'
 
 export interface FavoritePopperProps extends PopperProps {
   favorite?: boolean

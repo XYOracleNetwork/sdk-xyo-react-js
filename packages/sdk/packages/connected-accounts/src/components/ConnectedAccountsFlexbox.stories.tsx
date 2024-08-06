@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import React, { useState } from 'react'
 
-import { ConnectedAccountsFlexbox } from './ConnectedAccountsFlexbox.js'
+import { ConnectedAccountsFlexbox } from './ConnectedAccountsFlexbox.tsx'
 
 const StorybookEntry: Meta = {
   argTypes: {},
