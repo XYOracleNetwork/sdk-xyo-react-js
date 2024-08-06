@@ -18,32 +18,34 @@ export const BlockTable: React.FC<BlockTableProps> = ({
 }) => {
   const breakPoint = useBreakpoint()
   const blockPairs = usePayloadHashes(blocks)
-  return breakPoint ?
-      <TableEx variant={variant} {...props}>
-        <TableHead>
-          <TableRow>
-            {columns[breakPoint]?.map((column, index) => {
-              return (
-                <TableCell key={index} width={index > 0 ? '10px' : undefined} align={index === 0 ? 'left' : 'center'}>
-                  {blockColumnNames[column]}
-                </TableCell>
-              )
-            })}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {blockPairs?.map(([block, hash], index) => (
-            <BlockTableRowWithErrorBoundary
-              key={hash}
-              block={block}
-              index={index}
-              exploreDomain={exploreDomain}
-              onRowClick={onRowClick}
-              columns={columns}
-            />
-          ))}
-          {children}
-        </TableBody>
-      </TableEx>
+  return breakPoint
+    ? (
+        <TableEx variant={variant} {...props}>
+          <TableHead>
+            <TableRow>
+              {columns[breakPoint]?.map((column, index) => {
+                return (
+                  <TableCell key={index} width={index > 0 ? '10px' : undefined} align={index === 0 ? 'left' : 'center'}>
+                    {blockColumnNames[column]}
+                  </TableCell>
+                )
+              })}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {blockPairs?.map(([block, hash], index) => (
+              <BlockTableRowWithErrorBoundary
+                key={hash}
+                block={block}
+                index={index}
+                exploreDomain={exploreDomain}
+                onRowClick={onRowClick}
+                columns={columns}
+              />
+            ))}
+            {children}
+          </TableBody>
+        </TableEx>
+      )
     : null
 }

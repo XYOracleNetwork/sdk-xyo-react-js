@@ -1,2 +1,2 @@
-export * from './IconSize.js'
-export * from './presetIconSize.js'
+export * from './IconSize.ts'
+export * from './presetIconSize.ts'

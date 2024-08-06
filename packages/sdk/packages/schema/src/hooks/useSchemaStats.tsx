@@ -18,7 +18,7 @@ export const useSchemaStats = (
   const [refresh, setRefresh] = useState(1)
   const [diviner, divinerError] = useWeakDivinerFromNode(nameOrAddress)
   const [error, setError] = useState<Error>()
-  const refreshHistory = () => setRefresh((previous) => previous + 1)
+  const refreshHistory = () => setRefresh(previous => previous + 1)
 
   const [schemaList, setSchemaList] = useState<WithSources<WithMeta<SchemaStatsPayload>>[]>()
 
@@ -31,7 +31,6 @@ export const useSchemaStats = (
   )
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const instance = diviner?.deref()
       if (instance) {

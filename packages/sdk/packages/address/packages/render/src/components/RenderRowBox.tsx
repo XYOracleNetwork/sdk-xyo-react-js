@@ -40,25 +40,29 @@ export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxPr
         }}
         {...props}
       >
-        {icons && address ?
-          <ListItemIcon sx={{ minWidth: 0 }}>
-            <Identicon size={iconSize} value={address} />
-          </ListItemIcon>
-        : null}
-        {iconOnly ? null : (
-          <EllipsizeBox
-            disableSharedRef={disableSharedRef}
-            ellipsisPosition={'end'}
-            width="100%"
-            typographyProps={{ fontSize: theme.typography.body1.fontSize }}
-          >
-            {name ?? address}
-          </EllipsizeBox>
-        )}
+        {icons && address
+          ? (
+              <ListItemIcon sx={{ minWidth: 0 }}>
+                <Identicon size={iconSize} value={address} />
+              </ListItemIcon>
+            )
+          : null}
+        {iconOnly
+          ? null
+          : (
+              <EllipsizeBox
+                disableSharedRef={disableSharedRef}
+                ellipsisPosition="end"
+                width="100%"
+                typographyProps={{ fontSize: theme.typography.body1.fontSize }}
+              >
+                {name ?? address}
+              </EllipsizeBox>
+            )}
         {children}
-        {showFavorite && address ?
-          <FavoriteIconButton name={name} size={'small'} value={address} valueType={'address'} favorite={favoriteProp} />
-        : null}
+        {showFavorite && address
+          ? <FavoriteIconButton name={name} size="small" value={address} valueType="address" favorite={favoriteProp} />
+          : null}
       </FlexRow>
     )
   },

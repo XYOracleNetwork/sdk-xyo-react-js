@@ -1,1 +1,1 @@
-export * from './SentinelNode.js'
+export * from './SentinelNode.tsx'

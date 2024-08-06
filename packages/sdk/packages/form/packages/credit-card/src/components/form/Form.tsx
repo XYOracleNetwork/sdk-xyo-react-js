@@ -51,14 +51,16 @@ export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({
   return (
     <>
       <ErrorRender error={error} />
-      <FlexCol sx={{ flexDirection: { md: 'row', xs: 'column' } }} width={'100%'} gap={2} {...props}>
-        <Stack flexDirection={'column'} sx={{ width: '100%' }} gap={2}>
+      <FlexCol sx={{ flexDirection: { md: 'row', xs: 'column' } }} width="100%" gap={2} {...props}>
+        <Stack flexDirection="column" sx={{ width: '100%' }} gap={2}>
           <InputFieldsStack />
-          {ConfirmationButton ?
-            <ConfirmationButton onClick={handleConfirmPayment} variant="contained" sx={{ alignSelf: 'end' }}>
-              Confirm Payment
-            </ConfirmationButton>
-          : null}
+          {ConfirmationButton
+            ? (
+                <ConfirmationButton onClick={handleConfirmPayment} variant="contained" sx={{ alignSelf: 'end' }}>
+                  Confirm Payment
+                </ConfirmationButton>
+              )
+            : null}
         </Stack>
       </FlexCol>
     </>

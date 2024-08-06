@@ -7,7 +7,7 @@ import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { forwardRef } from 'react'
 
-const InvalidIcon = forwardRef<SVGSVGElement, SvgIconProps>((props, ref) => <CancelRoundedIcon color={'error'} ref={ref} {...props} />)
+const InvalidIcon = forwardRef<SVGSVGElement, SvgIconProps>((props, ref) => <CancelRoundedIcon color="error" ref={ref} {...props} />)
 InvalidIcon.displayName = 'InvalidIcon'
 
 export interface BWVerification extends QuickTipButtonProps {
@@ -22,13 +22,15 @@ export const BWVerification: React.FC<BWVerification> = ({ boundwitness }) => {
       Icon={errors.length > 0 ? InvalidIcon : CheckCircleOutlineRoundedIcon}
       hoverText={errors.length > 0 ? 'Invalid Bound Witness' : 'Valid'}
     >
-      {errors.length > 0 ?
-        <FlexCol flexWrap="wrap" alignItems="start">
-          {errors.map((error, index) => {
-            return <Typography key={index}>{error.toString()}</Typography>
-          })}
-        </FlexCol>
-      : <Typography>No Errors</Typography>}
+      {errors.length > 0
+        ? (
+            <FlexCol flexWrap="wrap" alignItems="start">
+              {errors.map((error, index) => {
+                return <Typography key={index}>{error.toString()}</Typography>
+              })}
+            </FlexCol>
+          )
+        : <Typography>No Errors</Typography>}
     </QuickTipButton>
   )
 }

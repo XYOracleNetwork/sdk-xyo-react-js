@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import { SchemaCache } from '@xyo-network/schema-cache'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useGetSchemaPayload } from './useGetSchema.js'
 
@@ -37,7 +37,7 @@ const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
         ))}
       </Typography>
       <FormControl>
-        <TextField value={schemaFieldValue} label="Schema Name" onChange={(e) => setSchemaFieldValue(e.target.value)} />
+        <TextField value={schemaFieldValue} label="Schema Name" onChange={e => setSchemaFieldValue(e.target.value)} />
       </FormControl>
       <FlexRow my={3} justifyContent="start">
         <JsonViewerEx value={schemaPayload || {}} />
@@ -69,5 +69,4 @@ Domain.args = { schema: 'network.xyo.domain' }
 
 export { Default, Domain }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

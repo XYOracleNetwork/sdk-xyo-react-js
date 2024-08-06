@@ -1,4 +1,3 @@
-/* eslint-disable import/no-internal-modules */
 import { List } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
@@ -31,7 +30,7 @@ const StorybookEntry: Meta = {
   title: 'appbar/Toolbar/System',
 }
 
-const Template: StoryFn<typeof SystemToolbar> = (args) => (
+const Template: StoryFn<typeof SystemToolbar> = args => (
   <BrowserRouter>
     <NetworkMemoryProvider>
       <SystemToolbar {...args} />
@@ -54,10 +53,9 @@ PrecedingChildren.args = {
 const WithOnMenuToggle = Template.bind({})
 WithOnMenuToggle.args = {
   menuItems: DefaultMenu,
-  onMenuToggle: (state) => console.log(state),
+  onMenuToggle: state => console.log(state),
 }
 
 export { Default, PrecedingChildren, WithOnMenuToggle }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

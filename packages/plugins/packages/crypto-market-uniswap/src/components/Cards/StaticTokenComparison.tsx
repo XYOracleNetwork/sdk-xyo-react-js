@@ -25,11 +25,11 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
       <TokenSummary
         {...token0}
         icon={tokenInfo0.icon}
-        symbolElement={
+        symbolElement={(
           <Link href={tokenInfo0.coinmarketcapLink} underline="hover" target="_blank">
             {tokenInfo0.tokenSymbol}
           </Link>
-        }
+        )}
         sx={{ pt: 0, px: 0 }}
       />
       <Paper elevation={0} sx={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, mb: 3, overflow: 'hidden' }}>
@@ -38,11 +38,11 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
       <TokenSummary
         {...token1}
         icon={tokenInfo1.icon}
-        symbolElement={
+        symbolElement={(
           <Link href={tokenInfo1.coinmarketcapLink} underline="hover" target="_blank">
             {tokenInfo1.tokenSymbol}
           </Link>
-        }
+        )}
         sx={{ px: 0 }}
       />
       <Paper elevation={0} sx={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>

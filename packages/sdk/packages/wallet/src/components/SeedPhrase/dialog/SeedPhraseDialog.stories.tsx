@@ -4,11 +4,10 @@ import { generateMnemonic } from '@scure/bip39'
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { SeedPhraseDialog } from './SeedPhraseDialog.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: SeedPhraseDialog,
   title: 'Wallet/SeedPhraseDialog',
@@ -20,7 +19,7 @@ const Template: StoryFn<typeof SeedPhraseDialog> = (props) => {
   const [open, setOpen] = useState(false)
   return (
     <FlexCol rowGap={3}>
-      <Button variant={'contained'} onClick={() => setOpen(true)}>
+      <Button variant="contained" onClick={() => setOpen(true)}>
         Open Dialog
       </Button>
       <Typography>Seed Phrase</Typography>

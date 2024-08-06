@@ -74,11 +74,11 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
 
   return (
     <PayloadContext.Provider value={{ clearPayload, payload, payloadError, provided: true, refreshPayload, setPayload }}>
-      {payload ?
-        children
-      : required ?
-        null
-      : children}
+      {payload
+        ? children
+        : required
+          ? null
+          : children}
     </PayloadContext.Provider>
   )
 }

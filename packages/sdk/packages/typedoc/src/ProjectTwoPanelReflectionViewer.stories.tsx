@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react'
-// eslint-disable-next-line import/no-internal-modules
-//import clientDocs from '@xyo-network/core/dist/docs.json'
+import React from 'react'
+// import clientDocs from '@xyo-network/core/dist/docs.json'
 import { BrowserRouter } from 'react-router-dom'
 
-//import type { ProjectReflection } from 'typedoc'
+// import type { ProjectReflection } from 'typedoc'
 import { ProjectTwoPanelReflectionViewer } from './ProjectTwoPanelReflectionViewer.js'
 
 const StorybookEntry = {
@@ -26,12 +26,11 @@ const Template: StoryFn<typeof ProjectTwoPanelReflectionViewer> = ({ reflection,
 }
 
 const Client = Template.bind({})
-/*const clientDocsWithProject = { ...clientDocs }
+/* const clientDocsWithProject = { ...clientDocs }
 Client.args = {
   reflection: clientDocsWithProject as unknown as ProjectReflection,
-}*/
+} */
 
 export { Client }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

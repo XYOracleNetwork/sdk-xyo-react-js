@@ -1,6 +1,6 @@
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { PriceForecastDetailsBox } from './components/index.js'
+import { PriceForecastDetailsBox } from './components/index.ts'
 
 export const PriceForecastRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

@@ -14,12 +14,11 @@ const StorybookEntry = {
   title: 'plugin/crypto-prices/TableCellSummary',
 } as Meta<typeof TableCellSummary>
 
-const Template: StoryFn<typeof TableCellSummary> = (args) => <TableCellSummary {...args}></TableCellSummary>
+const Template: StoryFn<typeof TableCellSummary> = args => <TableCellSummary {...args}></TableCellSummary>
 
 const WithData = Template.bind({})
 WithData.args = { payload: sampleUniswapPayload }
 
 export { WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

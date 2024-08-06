@@ -12,7 +12,7 @@ export const useWrapperAccount = (
 ): [AccountInstance | null | undefined, Error | undefined, PromiseState | undefined] => {
   return usePromise(async () => {
     return await globalWrapperWalletMutex.runExclusive(async () => {
-      //if we are expecting to receive a wallet or did receive on, return the override account
+      // if we are expecting to receive a wallet or did receive on, return the override account
       if (account !== undefined) {
         return account
       }

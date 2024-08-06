@@ -1,1 +1,1 @@
-export * from './useBlocknativeTransformer.js'
+export * from './useBlocknativeTransformer.tsx'

@@ -13,12 +13,12 @@ export const useWeakNodesFromNode = (
   if (error) {
     return [null, error]
   }
-  return modules ?
-      [
+  return modules
+    ? [
         modules
-          .map((mod) => asNodeInstance(mod?.deref()))
+          .map(mod => asNodeInstance(mod?.deref()))
           .filter(exists)
-          .map((mod) => new WeakRef(mod)),
+          .map(mod => new WeakRef(mod)),
         undefined,
       ]
     : [modules, error]

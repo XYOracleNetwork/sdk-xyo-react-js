@@ -1,3 +1,3 @@
-export * from './useBuildHuri.js'
-export * from './useFetchHuri.js'
-export * from './useParseHuriFromRoute.js'
+export * from './useBuildHuri.tsx'
+export * from './useFetchHuri.tsx'
+export * from './useParseHuriFromRoute.tsx'

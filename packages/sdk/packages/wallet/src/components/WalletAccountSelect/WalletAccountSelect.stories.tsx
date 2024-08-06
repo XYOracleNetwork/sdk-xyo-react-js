@@ -1,5 +1,6 @@
 import { Stack } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
 import { WalletAccountSelect } from './Select.js'
 import { WalletProviderDecorator } from './stories/index.js'
@@ -43,5 +44,4 @@ WithWallet.args = {}
 
 export { Default, WithWallet }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

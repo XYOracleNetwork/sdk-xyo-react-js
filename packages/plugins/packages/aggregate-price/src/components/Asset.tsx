@@ -34,11 +34,11 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
       <TokenSummary
         icon={tokenInfo.icon}
         symbol={asset}
-        symbolElement={
+        symbolElement={(
           <Link href={tokenInfo.coinmarketcapLink} underline="hover" target="_blank">
             {asset}
           </Link>
-        }
+        )}
         action={<QuickTipButton hoverText="The price of cryptos based on multiple inputs." disableDialog />}
       />
       <CardContent style={{ height: '100%' }}>

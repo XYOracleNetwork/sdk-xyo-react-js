@@ -38,38 +38,43 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc
         '&:hover': {
           cursor: 'pointer',
         },
-        backgroundColor: alpha(theme.palette.primary.light, 0.05),
+        'backgroundColor': alpha(theme.palette.primary.light, 0.05),
       }}
       onMouseEnter={() =>
-        isMobile ? null
-        : cardIsButton ? setRaised(true)
-        : null
-      }
+        isMobile
+          ? null
+          : cardIsButton
+            ? setRaised(true)
+            : null}
       onMouseLeave={() =>
-        isMobile ? null
-        : cardIsButton ? setRaised(false)
-        : null
-      }
+        isMobile
+          ? null
+          : cardIsButton
+            ? setRaised(false)
+            : null}
       onClick={() =>
-        cardIsButton ?
-          href ? externalRouteChange(href)
-          : to ? localRouteChange(to)
-          : navigate('/404')
-        : null
-      }
+        cardIsButton
+          ? href
+            ? externalRouteChange(href)
+            : to
+              ? localRouteChange(to)
+              : navigate('/404')
+          : null}
     >
-      {media ?
-        <CardMedia component="img" height="100" image={media} alt="" />
-      : null}
+      {media
+        ? <CardMedia component="img" height="100" image={media} alt="" />
+        : null}
 
       <CardContent>
         <Grid container alignItems="center" paddingY={2} paddingX={2}>
           <Grid item xs={12} md={6}>
-            {typeof name === 'string' ?
-              <Typography fontWeight={700} variant="h2" textAlign="left" paddingBottom={1}>
-                {name}
-              </Typography>
-            : name}
+            {typeof name === 'string'
+              ? (
+                  <Typography fontWeight={700} variant="h2" textAlign="left" paddingBottom={1}>
+                    {name}
+                  </Typography>
+                )
+              : name}
           </Grid>
           <Grid item xs={12} md={5}>
             <Typography variant="body1" fontWeight={400} textAlign="left">
@@ -82,10 +87,11 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc
                 color="primary"
                 size={small ? 'small' : 'medium'}
                 onClick={() =>
-                  href ? externalRouteChange(href)
-                  : to ? localRouteChange(to)
-                  : navigate('/404')
-                }
+                  href
+                    ? externalRouteChange(href)
+                    : to
+                      ? localRouteChange(to)
+                      : navigate('/404')}
                 disableFocusRipple
                 disableRipple
                 disableTouchRipple
@@ -102,10 +108,11 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc
             color="primary"
             size={small ? 'small' : 'medium'}
             onClick={() =>
-              href ? externalRouteChange(href)
-              : to ? localRouteChange(to)
-              : navigate('/404')
-            }
+              href
+                ? externalRouteChange(href)
+                : to
+                  ? localRouteChange(to)
+                  : navigate('/404')}
             disableFocusRipple
             disableRipple
             disableTouchRipple

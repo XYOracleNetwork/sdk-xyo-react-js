@@ -44,13 +44,13 @@ const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   return <ArchivistDetails address={archivistWithData?.address} {...args}></ArchivistDetails>
 }
 
-const TemplateWithNoData: StoryFn<typeof ArchivistDetails> = (args) => (
+const TemplateWithNoData: StoryFn<typeof ArchivistDetails> = args => (
   <NodeProvider>
     <TemplateInner {...args}></TemplateInner>
   </NodeProvider>
 )
 
-const TemplateWithData: StoryFn<typeof ArchivistDetails> = (args) => (
+const TemplateWithData: StoryFn<typeof ArchivistDetails> = args => (
   <NodeProvider>
     <TemplateInnerWithData {...args}></TemplateInnerWithData>
   </NodeProvider>
@@ -67,5 +67,4 @@ TemplateWithData.args = {}
 
 export { WithData, WithNoArchivist, WithNoData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

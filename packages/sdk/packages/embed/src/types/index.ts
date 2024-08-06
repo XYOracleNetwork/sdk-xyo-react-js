@@ -1,1 +1,1 @@
-export * from './EmbedPluginProps.js'
+export * from './EmbedPluginProps.ts'

@@ -31,5 +31,4 @@ const IdWitnessCard = IdWitnessTemplate.bind({})
 
 export { IdWitnessCard }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

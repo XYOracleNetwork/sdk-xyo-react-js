@@ -1,1 +1,1 @@
-export * from './NetworkSelectEx.js'
+export * from './NetworkSelectEx.tsx'

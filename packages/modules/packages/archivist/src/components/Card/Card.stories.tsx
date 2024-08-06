@@ -7,6 +7,7 @@ import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archi
 import { ArchivistInsertQuerySchema, ArchivistInstance } from '@xyo-network/archivist-model'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { MemoryNode } from '@xyo-network/node-memory'
+import React from 'react'
 
 import { ArchivistCard } from './Card.js'
 
@@ -64,10 +65,10 @@ const Template: StoryFn<typeof ArchivistCard> = () => {
   return (
     <FlexCol gap={2}>
       <ArchivistCard mod={mod} />
-      <Button onClick={() => insertPayload(mod)} variant={'contained'}>
+      <Button onClick={() => insertPayload(mod)} variant="contained">
         Insert Into Archivist
       </Button>
-      <Button onClick={() => clearArchivist(mod)} variant={'contained'}>
+      <Button onClick={() => clearArchivist(mod)} variant="contained">
         Clear Archivist
       </Button>
     </FlexCol>
@@ -78,5 +79,4 @@ const SingleModule = Template.bind({})
 
 export { SingleModule }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

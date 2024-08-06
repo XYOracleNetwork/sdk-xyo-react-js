@@ -39,5 +39,4 @@ const SingleModule = Template.bind({})
 
 export { SingleModule }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

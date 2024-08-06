@@ -21,9 +21,9 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ mod, idRef }) => {
       const moduleInstance = mod.deref()
       const { address } = moduleInstance ?? {}
       if (moduleInstance) {
-        const children = (await moduleInstance.resolve('*')).filter((childModule) => childModule.address !== address)
+        const children = (await moduleInstance.resolve('*')).filter(childModule => childModule.address !== address)
         if (mounted()) {
-          setChildModules(children.map((childModule) => new WeakRef(childModule)))
+          setChildModules(children.map(childModule => new WeakRef(childModule)))
         }
       }
     },
@@ -44,14 +44,16 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ mod, idRef }) => {
       {queries?.map((query, index) => {
         return <TreeItem key={query} nodeId={increment()} label={`query : ${query}`} sx={{ mb: index === queries.length - 1 ? 1.5 : 0.5 }} />
       })}
-      {childModules && childModules.length > 0 ?
-        <TreeItem nodeId={increment()} label={'children'} sx={{ mb: 0.5 }}>
-          {childModules.map((childModuleRef) => {
-            const childModule = childModuleRef.deref()
-            return childModule ? <RenderModule key={childModule?.address} mod={childModuleRef} idRef={idRef} /> : null
-          })}
-        </TreeItem>
-      : null}
+      {childModules && childModules.length > 0
+        ? (
+            <TreeItem nodeId={increment()} label="children" sx={{ mb: 0.5 }}>
+              {childModules.map((childModuleRef) => {
+                const childModule = childModuleRef.deref()
+                return childModule ? <RenderModule key={childModule?.address} mod={childModuleRef} idRef={idRef} /> : null
+              })}
+            </TreeItem>
+          )
+        : null}
     </StyledAddressTreeItem>
   )
 }

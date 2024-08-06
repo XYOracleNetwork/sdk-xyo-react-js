@@ -47,17 +47,19 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRen
       />
       <Divider flexItem />
       <FlexCol alignItems="stretch" rowGap={1} mb={1}>
-        <HeadingPaper IconComponent={<VscSymbolNamespace />} heading={'Payloads'} />
+        <HeadingPaper IconComponent={<VscSymbolNamespace />} heading="Payloads" />
         <BoundWitnessPayloadsTable boundwitness={boundwitness} />
       </FlexCol>
-      {hasBWPayloads ?
-        <FlexCol alignItems="stretch" rowGap={1} mb={1}>
-          <HeadingPaper IconComponent={<VscSymbolMethod />} heading={'Bound Witnesses'} />
-          <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} />
-        </FlexCol>
-      : null}
+      {hasBWPayloads
+        ? (
+            <FlexCol alignItems="stretch" rowGap={1} mb={1}>
+              <HeadingPaper IconComponent={<VscSymbolMethod />} heading="Bound Witnesses" />
+              <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} />
+            </FlexCol>
+          )
+        : null}
       <FlexCol alignItems="stretch" rowGap={1} mb={1}>
-        <HeadingPaper IconComponent={<FaSignature />} heading={'Signatures'} />
+        <HeadingPaper IconComponent={<FaSignature />} heading="Signatures" />
         <BoundWitnessSignatureTable block={boundwitness} />
       </FlexCol>
     </FlexCol>

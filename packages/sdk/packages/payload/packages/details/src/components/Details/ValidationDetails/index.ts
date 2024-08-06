@@ -1,2 +1,2 @@
-export * from './ValidationDetails.js'
-export * from './ValidationDetailsProps.js'
+export * from './ValidationDetails.tsx'
+export * from './ValidationDetailsProps.ts'

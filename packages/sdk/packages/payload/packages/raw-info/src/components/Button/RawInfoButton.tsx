@@ -54,16 +54,18 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
       >
         {children ?? <span>Data</span>}
       </ButtonEx>
-      {iconOnly ? null : (
-        <RawInfoDialog
-          defaultExpandedJson={defaultExpandedJson}
-          jsonValue={json}
-          onCloseCallback={onCloseCallBackWrapped}
-          dialogContent={dialogContent}
-          open={open}
-          updateExpandedJson={updateExpandedJson}
-        />
-      )}
+      {iconOnly
+        ? null
+        : (
+            <RawInfoDialog
+              defaultExpandedJson={defaultExpandedJson}
+              jsonValue={json}
+              onCloseCallback={onCloseCallBackWrapped}
+              dialogContent={dialogContent}
+              open={open}
+              updateExpandedJson={updateExpandedJson}
+            />
+          )}
     </span>
   )
 }

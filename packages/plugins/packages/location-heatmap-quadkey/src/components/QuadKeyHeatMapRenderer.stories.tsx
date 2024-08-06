@@ -14,7 +14,6 @@ const WithMapboxSetup: Decorator = (Story, context) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   argTypes: {
     minHeight: {

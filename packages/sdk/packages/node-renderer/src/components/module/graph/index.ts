@@ -1,1 +1,1 @@
-export * from './GraphFlexBox.js'
+export * from './GraphFlexBox.tsx'

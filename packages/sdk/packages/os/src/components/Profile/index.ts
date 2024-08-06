@@ -1,1 +1,1 @@
-export * from './Profile.js'
+export * from './Profile.tsx'

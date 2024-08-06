@@ -11,7 +11,7 @@ import { fixedWrap, scrollableWrap } from './lib/index.js'
 
 const WebAppPageRoot = styled(FlexGrowCol, {
   name: 'WebAppPage',
-  shouldForwardProp: (propName) => propName !== 'mobileScrollingBreakpoint' && propName !== 'variant',
+  shouldForwardProp: propName => propName !== 'mobileScrollingBreakpoint' && propName !== 'variant',
   slot: 'Root',
 })<WebAppPageProps>(({ theme, mobileScrollingBreakpoint = 'sm', variant }) => {
   const props = variant === 'scrollable' ? scrollableWrap : fixedWrap
@@ -57,33 +57,36 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
   return (
     <WebAppPageRoot mobileScrollingBreakpoint={mobileScrollingBreakpoint} variant={variant} {...props}>
       <Helmet title={title} />
-      {container && container !== 'none' ?
-        <Container
-          disableGutters={disableGutters}
-          style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
-          maxWidth={container}
-        >
-          <WebAppBody
-            disableBreadcrumbGutter={disableBreadcrumbGutter}
-            breadcrumbs={breadcrumbs}
-            mobileScrollingBreakpoint={mobileScrollingBreakpoint}
-            variant={variant}
-            {...props}
-          >
-            {children}
-          </WebAppBody>
-        </Container>
-      : <WebAppBody
-          disableBreadcrumbGutter={disableBreadcrumbGutter}
-          breadcrumbs={breadcrumbs}
-          mobileScrollingBreakpoint={mobileScrollingBreakpoint}
-          paddingX={disableGutters ? 0 : 1}
-          variant={variant}
-          {...props}
-        >
-          {children}
-        </WebAppBody>
-      }
+      {container && container !== 'none'
+        ? (
+            <Container
+              disableGutters={disableGutters}
+              style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
+              maxWidth={container}
+            >
+              <WebAppBody
+                disableBreadcrumbGutter={disableBreadcrumbGutter}
+                breadcrumbs={breadcrumbs}
+                mobileScrollingBreakpoint={mobileScrollingBreakpoint}
+                variant={variant}
+                {...props}
+              >
+                {children}
+              </WebAppBody>
+            </Container>
+          )
+        : (
+            <WebAppBody
+              disableBreadcrumbGutter={disableBreadcrumbGutter}
+              breadcrumbs={breadcrumbs}
+              mobileScrollingBreakpoint={mobileScrollingBreakpoint}
+              paddingX={disableGutters ? 0 : 1}
+              variant={variant}
+              {...props}
+            >
+              {children}
+            </WebAppBody>
+          )}
     </WebAppPageRoot>
   )
 }

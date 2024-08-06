@@ -5,6 +5,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { ModuleDescriptionPayload, ModuleDescriptionSchema, ModuleInstance } from '@xyo-network/module-model'
 import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
 import { Property } from '@xyo-network/react-property'
+import React from 'react'
 
 import { JsonViewerButton } from './JsonViewerButton.js'
 
@@ -36,31 +37,41 @@ export const ModuleDetails: React.FC<ModuleDetailsProps> = ({ mod, ...props }) =
 
       <FlexRow gap={1} justifyContent="space-between">
         <ButtonGroup>
-          {manifest ?
-            <JsonViewerButton variant="contained" src={manifest}>
-              Manifest
-            </JsonViewerButton>
-          : null}
-          {config ?
-            <JsonViewerButton variant="contained" src={config}>
-              Config
-            </JsonViewerButton>
-          : null}
-          {discover ?
-            <JsonViewerButton variant="contained" src={discover}>
-              Discover
-            </JsonViewerButton>
-          : null}
-          {describe ?
-            <JsonViewerButton variant="contained" src={describe}>
-              Describe
-            </JsonViewerButton>
-          : null}
-          {queries ?
-            <JsonViewerButton variant="contained" src={queries}>
-              Queries
-            </JsonViewerButton>
-          : null}
+          {manifest
+            ? (
+                <JsonViewerButton variant="contained" src={manifest}>
+                  Manifest
+                </JsonViewerButton>
+              )
+            : null}
+          {config
+            ? (
+                <JsonViewerButton variant="contained" src={config}>
+                  Config
+                </JsonViewerButton>
+              )
+            : null}
+          {discover
+            ? (
+                <JsonViewerButton variant="contained" src={discover}>
+                  Discover
+                </JsonViewerButton>
+              )
+            : null}
+          {describe
+            ? (
+                <JsonViewerButton variant="contained" src={describe}>
+                  Describe
+                </JsonViewerButton>
+              )
+            : null}
+          {queries
+            ? (
+                <JsonViewerButton variant="contained" src={queries}>
+                  Queries
+                </JsonViewerButton>
+              )
+            : null}
         </ButtonGroup>
         <ButtonGroup>
           <ButtonEx target="_blank" href={`https://explore.xyo.network/block?network=main&address=${mod?.address}`} variant="outlined">

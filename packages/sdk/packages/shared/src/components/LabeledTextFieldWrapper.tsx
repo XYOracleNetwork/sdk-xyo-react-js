@@ -1,4 +1,5 @@
 import { Stack, StackProps, Typography } from '@mui/material'
+import React from 'react'
 
 export interface LabeledTextFieldWrapperProps extends StackProps {
   label: string

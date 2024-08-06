@@ -59,7 +59,10 @@ const NewPayloadsDecorator: Decorator = (Story, args) => {
 
   return (
     <>
-      <Typography>Max Payloads: {maxPayloads}</Typography>
+      <Typography>
+        Max Payloads:
+        {maxPayloads}
+      </Typography>
       <Button variant="contained" onClick={newPayloadList}>
         Simulate Network Change
       </Button>
@@ -94,5 +97,4 @@ Default.decorators = [NewPayloadsDecorator]
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -10,13 +10,12 @@ const WithRefDecorator: Decorator = (Story, args) => {
   return <Story {...args} />
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: ActiveBWFlexBox,
   title: 'address/history/ActiveBWFlexBox',
 } as Meta
 
-const Template: StoryFn<typeof ActiveBWFlexBox> = (props) => <ActiveBWFlexBox {...props} />
+const Template: StoryFn<typeof ActiveBWFlexBox> = props => <ActiveBWFlexBox {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

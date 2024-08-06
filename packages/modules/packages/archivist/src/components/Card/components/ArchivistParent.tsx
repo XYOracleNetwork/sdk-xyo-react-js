@@ -11,8 +11,10 @@ export const ArchivistParent: React.FC<ArchivistTypeProps> = ({ archivistType, p
       return (
         <ListItem key={address}>
           <Typography variant="subtitle2">
-            {archivistType}:{' '}
-            <Typography variant={'caption'} sx={{ ml: 0.5 }}>
+            {archivistType}
+            :
+            {' '}
+            <Typography variant="caption" sx={{ ml: 0.5 }}>
               {address}
             </Typography>
           </Typography>

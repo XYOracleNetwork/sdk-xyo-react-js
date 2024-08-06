@@ -11,7 +11,7 @@ const tenMin = 600_000
 
 const ForecastingDivinerPayload = {
   schema: ForecastPayloadSchema,
-  values: [1, 2, 3, 4, 5, 6, 7, 8].map((item) => ({
+  values: [1, 2, 3, 4, 5, 6, 7, 8].map(item => ({
     error: 0,
     timestamp: Date.now() + tenMin * item,
     value: 100 * item,
@@ -52,12 +52,16 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
       </FlexCol>
       <pre>
         <Typography ref={forecastPayloadRef}>
-          ForecastPayload: <code>{JSON.stringify(args.payload, null, 2)}</code>
+          ForecastPayload:
+          {' '}
+          <code>{JSON.stringify(args.payload, null, 2)}</code>
         </Typography>
       </pre>
       <pre>
         <Typography ref={sourcePayloadsRef}>
-          SourcePayloads: <pre>{JSON.stringify(MockSourcePayloads(), null, 2)}</pre>
+          SourcePayloads:
+          {' '}
+          <pre>{JSON.stringify(MockSourcePayloads(), null, 2)}</pre>
         </Typography>
       </pre>
     </>
@@ -74,5 +78,4 @@ WithData.args = {
 
 export { Default, WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -30,7 +30,7 @@ interface StyledHeadingPaperProps extends PaperProps {
 
 const StyledHeadingPaper = styled(Paper, {
   name: 'StyledHeadingPaper',
-  shouldForwardProp: (prop) => !['hasAdornmentEnd', 'hasAdornmentStart', 'paperProps'].includes(prop as string),
+  shouldForwardProp: prop => !['hasAdornmentEnd', 'hasAdornmentStart', 'paperProps'].includes(prop as string),
 })<StyledHeadingPaperProps>(({ hasAdornmentEnd, hasAdornmentStart, theme }) => ({
   alignItems: 'center',
   columnGap: theme.spacing(2),

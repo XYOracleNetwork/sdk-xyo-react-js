@@ -1,4 +1,3 @@
-/* eslint-disable import/no-internal-modules */
 import { Box, Button, CircularProgress } from '@mui/material'
 import { Decorator, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
@@ -56,13 +55,13 @@ const Template: StoryFn<React.FC> = () => {
       <Button variant="contained" onClick={handleClear}>
         Clear Payload
       </Button>
-      {payload === undefined ?
-        <CircularProgress />
-      : null}
+      {payload === undefined
+        ? <CircularProgress />
+        : null}
       {payload === null ? null : null}
-      {payload ?
-        <pre>{JSON.stringify(payload, null, 2)}</pre>
-      : null}
+      {payload
+        ? <pre>{JSON.stringify(payload, null, 2)}</pre>
+        : null}
     </Box>
   )
 }
@@ -73,5 +72,4 @@ Default.args = {}
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -2,13 +2,12 @@ import { Meta, StoryFn } from '@storybook/react'
 
 import { ToggleRawPayloadBox } from './ToggleRawPayloadBox.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: ToggleRawPayloadBox,
   title: 'plugin/blockchain/GasPrice/ToggleRawPayloadBox',
 } as Meta
 
-const Template: StoryFn<typeof ToggleRawPayloadBox> = (props) => <ToggleRawPayloadBox {...props} />
+const Template: StoryFn<typeof ToggleRawPayloadBox> = props => <ToggleRawPayloadBox {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

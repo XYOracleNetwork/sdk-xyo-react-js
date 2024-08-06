@@ -1,2 +1,2 @@
-export * from './ModuleDescriptionBox.js'
-export * from './RenderModule.js'
+export * from './ModuleDescriptionBox.tsx'
+export * from './RenderModule.tsx'

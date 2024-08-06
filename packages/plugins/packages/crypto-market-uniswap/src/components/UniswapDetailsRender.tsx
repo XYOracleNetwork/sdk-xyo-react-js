@@ -16,9 +16,9 @@ export const UniswapDetailsRender: React.FC<PayloadDetailsRenderProps & FlexBoxP
 
   return (
     <>
-      {listMode === 'table' ?
-        <UniswapPairsTableView {...props} />
-      : <UniswapPairsCardView {...props} />}
+      {listMode === 'table'
+        ? <UniswapPairsTableView {...props} />
+        : <UniswapPairsCardView {...props} />}
     </>
   )
 }

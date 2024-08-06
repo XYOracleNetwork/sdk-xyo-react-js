@@ -13,7 +13,7 @@ const StorybookEntry = {
   title: 'shared/XyOsProfile',
 } as Meta<typeof XyOsProfile>
 
-const Template: StoryFn<typeof XyOsProfile> = (args) => (
+const Template: StoryFn<typeof XyOsProfile> = args => (
   <BrowserRouter>
     <XyOsProfile {...args}></XyOsProfile>
   </BrowserRouter>
@@ -25,9 +25,8 @@ Default.args = {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

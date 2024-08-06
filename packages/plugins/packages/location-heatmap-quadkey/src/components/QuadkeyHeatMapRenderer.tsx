@@ -36,20 +36,23 @@ const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode
   }, [theme.palette.secondary.main])
 
   return (
-    <ErrorRender error={error} errorContext={'QuadKeyHeatMapRenderer'}>
-      {accessTokenResolved ?
-        <HeatMapInitializerProvider
-          features={features as Feature<Polygon>[]}
-          heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
-          layers={layers}
-        >
-          <MapboxHeatFlexBox accessToken={accessTokenResolved} features={features as Feature<Polygon>[]} developerMode={developerMode} {...props} />
-        </HeatMapInitializerProvider>
-      : <Alert severity={'error'}>
-          <AlertTitle>Mapbox Token Missing</AlertTitle>
-          Please add it to the environment variable or pass it directly to the component
-        </Alert>
-      }
+    <ErrorRender error={error} errorContext="QuadKeyHeatMapRenderer">
+      {accessTokenResolved
+        ? (
+            <HeatMapInitializerProvider
+              features={features as Feature<Polygon>[]}
+              heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
+              layers={layers}
+            >
+              <MapboxHeatFlexBox accessToken={accessTokenResolved} features={features as Feature<Polygon>[]} developerMode={developerMode} {...props} />
+            </HeatMapInitializerProvider>
+          )
+        : (
+            <Alert severity="error">
+              <AlertTitle>Mapbox Token Missing</AlertTitle>
+              Please add it to the environment variable or pass it directly to the component
+            </Alert>
+          )}
     </ErrorRender>
   )
 }

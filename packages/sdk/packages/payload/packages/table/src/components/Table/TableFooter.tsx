@@ -40,6 +40,6 @@ const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
   '& > .MuiToolbar-root': {
     paddingLeft: theme.spacing(1),
   },
-  borderTop: '1px solid',
-  borderTopColor: theme.palette.divider,
+  'borderTop': '1px solid',
+  'borderTopColor': theme.palette.divider,
 }))

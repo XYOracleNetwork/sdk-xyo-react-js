@@ -1,3 +1,3 @@
-export * from './DynamicTableRow.js'
-export * from './PayloadDynamicTableColumnConfig.js'
-export * from './Table.js'
+export * from './DynamicTableRow.tsx'
+export * from './PayloadDynamicTableColumnConfig.ts'
+export * from './Table.tsx'

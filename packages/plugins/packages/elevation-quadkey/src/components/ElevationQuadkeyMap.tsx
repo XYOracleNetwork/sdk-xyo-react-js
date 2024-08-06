@@ -29,30 +29,36 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ pay
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
-  return accessTokenResolved ?
-      <>
-        {features && features.length > 0 ?
-          <HeatMapInitializerProvider
-            features={features as Feature<Polygon>[]}
-            heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
-            layers={ElevationExtrusionLayerBuilder(theme.palette.secondary.main)}
-          >
-            <MapboxHeatFlexBox
-              developerMode={developerMode}
-              accessToken={accessTokenResolved}
-              features={features as Feature<Polygon>[]}
-              mapBoxOptions={{ pitch: 40 }}
-              {...props}
-            >
-              {/* TODO - pass elevation settings as children */}
-            </MapboxHeatFlexBox>
-          </HeatMapInitializerProvider>
-        : <FlexCol busy minHeight={400} />}
-      </>
-    : <Alert severity={'error'}>
-        <AlertTitle>Mapbox Token Missing</AlertTitle>
-        Please add it to the environment variable or pass it directly to the component
-      </Alert>
+  return accessTokenResolved
+    ? (
+        <>
+          {features && features.length > 0
+            ? (
+                <HeatMapInitializerProvider
+                  features={features as Feature<Polygon>[]}
+                  heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
+                  layers={ElevationExtrusionLayerBuilder(theme.palette.secondary.main)}
+                >
+                  <MapboxHeatFlexBox
+                    developerMode={developerMode}
+                    accessToken={accessTokenResolved}
+                    features={features as Feature<Polygon>[]}
+                    mapBoxOptions={{ pitch: 40 }}
+                    {...props}
+                  >
+                    {/* TODO - pass elevation settings as children */}
+                  </MapboxHeatFlexBox>
+                </HeatMapInitializerProvider>
+              )
+            : <FlexCol busy minHeight={400} />}
+        </>
+      )
+    : (
+        <Alert severity="error">
+          <AlertTitle>Mapbox Token Missing</AlertTitle>
+          Please add it to the environment variable or pass it directly to the component
+        </Alert>
+      )
 }
 
 const WithProviders: React.FC<WithChildren> = ({ children }) => (

@@ -15,9 +15,9 @@ export const SentinelCardContent: React.FC<SentinelCardContentProps> = ({ childr
   return (
     <ModuleCardContent mod={mod} {...props}>
       <FlexGrowRow flexWrap="wrap" justifyContent="start" gap={2}>
-        {report ?
-          <JsonViewerEx value={report} />
-        : null}
+        {report
+          ? <JsonViewerEx value={report} />
+          : null}
         {children}
       </FlexGrowRow>
     </ModuleCardContent>

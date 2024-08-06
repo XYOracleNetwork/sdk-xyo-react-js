@@ -12,7 +12,7 @@ export interface GasPriceCardHeaderProps extends CardProps {
 export const GasPriceWitnessCardHeader = forwardRef<HTMLDivElement, GasPriceCardHeaderProps>(({ title, parsedPayload, ...props }, ref) => (
   <StyledCardHeader
     title={<GasPriceHeaderTypography heading={title} />}
-    action={
+    action={(
       <GasPriceHeaderActionsBox
         timestamp={parsedPayload?.timestamp}
         baseFee={parsedPayload?.baseFee?.value}
@@ -20,7 +20,7 @@ export const GasPriceWitnessCardHeader = forwardRef<HTMLDivElement, GasPriceCard
         blockNumber={parsedPayload?.blockNumber?.value}
         blockNumberLabel={parsedPayload?.blockNumber?.label}
       />
-    }
+    )}
     ref={ref}
     {...props}
   />

@@ -11,7 +11,7 @@ export type WitnessCardActionsProps = ModuleRenderProps<WitnessInstance> &
 export const WitnessCardActions: React.FC<WitnessCardActionsProps> = ({ onObserve, mod, ...props }) => {
   return (
     <ModuleCardActions mod={mod} {...props}>
-      <ButtonEx onClick={() => onObserve?.(mod)} size={'small'} variant={'outlined'}>
+      <ButtonEx onClick={() => onObserve?.(mod)} size="small" variant="outlined">
         Observe
       </ButtonEx>
     </ModuleCardActions>

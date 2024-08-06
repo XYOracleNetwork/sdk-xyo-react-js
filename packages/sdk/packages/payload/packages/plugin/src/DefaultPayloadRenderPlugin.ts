@@ -8,8 +8,8 @@ import {
   PayloadDetailsBox,
   PayloadEditorBox,
   PayloadTableCell,
-} from './components/index.js'
-import { PayloadRenderPlugin } from './PayloadRenderPlugin.js'
+} from './components/index.ts'
+import { PayloadRenderPlugin } from './PayloadRenderPlugin.tsx'
 
 export const DefaultPayloadRenderPlugin: PayloadRenderPlugin = {
   canRender: function (payload?: Payload): boolean {

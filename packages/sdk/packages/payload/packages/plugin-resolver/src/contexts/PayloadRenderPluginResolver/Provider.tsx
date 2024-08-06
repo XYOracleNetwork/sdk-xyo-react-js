@@ -23,11 +23,11 @@ export const PayloadRenderPluginResolverProvider: React.FC<PayloadRenderPluginRe
         setResolver,
       }}
     >
-      {resolver ?
-        children
-      : required ?
-        null
-      : children}
+      {resolver
+        ? children
+        : required
+          ? null
+          : children}
     </PayloadRenderPluginResolverContext.Provider>
   )
 }

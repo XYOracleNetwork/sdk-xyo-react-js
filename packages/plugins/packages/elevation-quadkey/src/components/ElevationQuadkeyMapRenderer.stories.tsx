@@ -12,7 +12,6 @@ const WithMapboxSetup: Decorator = (Story, context) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   args: {
     // calc used to account for the offset provided by storybook wrapper

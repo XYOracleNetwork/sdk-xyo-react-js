@@ -50,7 +50,7 @@ export const XyOsClock: React.FC<XyOsClockProps> = ({ clockType, clockSize, ...p
       type: 'widget',
     },
   ]
-  return ClockComponents.find((component) => component.type === clockType)?.components[`${clockSize}`]
+  return ClockComponents.find(component => component.type === clockType)?.components[`${clockSize}`]
 }
 
 export const SmallAppBarClock: React.FC<ClockProps> = ({ date }) => {

@@ -1,2 +1,2 @@
-export * from './GlowingDiv.js'
-export * from './StyledGlowingDiv.js'
+export * from './GlowingDiv.tsx'
+export * from './StyledGlowingDiv.tsx'

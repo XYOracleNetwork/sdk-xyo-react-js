@@ -1,3 +1,3 @@
-export * from './SystemControls.js'
-export * from './SystemControlsType.js'
-export * from './SystemControlsUnstyled.js'
+export * from './SystemControls.tsx'
+export * from './SystemControlsType.ts'
+export * from './SystemControlsUnstyled.tsx'

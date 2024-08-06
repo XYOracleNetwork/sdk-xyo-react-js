@@ -1,10 +1,9 @@
-/* eslint-disable import/no-deprecated */
 /* eslint-disable deprecation/deprecation */
 import { ArchivistInstance, isArchivistInstance } from '@xyo-network/archivist-model'
 import { ModuleFilter } from '@xyo-network/module-model'
 import { ModuleFromNodeConfig, useModulesFromNode } from '@xyo-network/react-node'
 
-/** @deprecated use useWeakArchivistsFromNode*/
+/** @deprecated use useWeakArchivistsFromNode */
 export const useArchivistsFromNode = (
   filter?: ModuleFilter,
   config?: ModuleFromNodeConfig,
@@ -13,8 +12,8 @@ export const useArchivistsFromNode = (
   if (error) {
     return [null, error]
   }
-  return modules ?
-      [
+  return modules
+    ? [
         // eslint-disable-next-line unicorn/no-array-reduce
         modules.reduce<ArchivistInstance[]>((prev, mod) => {
           if (isArchivistInstance(mod)) {

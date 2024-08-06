@@ -15,7 +15,7 @@ const StorybookEntry = {
   title: 'boundwitness/SignatureTable',
 } as Meta<typeof BoundWitnessSignatureTable>
 
-const Template: StoryFn<typeof BoundWitnessSignatureTable> = (args) => (
+const Template: StoryFn<typeof BoundWitnessSignatureTable> = args => (
   <BrowserRouter>
     <BoundWitnessSignatureTable {...args}></BoundWitnessSignatureTable>
   </BrowserRouter>
@@ -29,5 +29,4 @@ WithData.args = { block: sampleBlock }
 
 export { Default, WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

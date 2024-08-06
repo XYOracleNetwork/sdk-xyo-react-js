@@ -2,8 +2,8 @@ import { forget } from '@xylabs/forget'
 import { BaseParams } from '@xylabs/object'
 import { BaseEmitter } from '@xyo-network/module-abstract'
 
-import { ControlSerializeSettings, ControlValueAccessor, SetOptions } from './ControlValueAccessor.js'
-import { ValidControlValue } from './ValidControlValue.js'
+import { ControlSerializeSettings, ControlValueAccessor, SetOptions } from './ControlValueAccessor.tsx'
+import { ValidControlValue } from './ValidControlValue.tsx'
 
 export type ControlValueAccessorBaseConfig = {
   disableEvents?: boolean
@@ -21,12 +21,11 @@ export type ControlValueAccessorBaseEvents<TValue = ValidControlValue> = {
  * The base class for control value accessors interface
  */
 export class ControlValueAccessorBase<
-    TValue = ValidControlValue,
-    TEventData extends ControlValueAccessorBaseEvents<TValue> = ControlValueAccessorBaseEvents<TValue>,
-  >
+  TValue = ValidControlValue,
+  TEventData extends ControlValueAccessorBaseEvents<TValue> = ControlValueAccessorBaseEvents<TValue>,
+>
   extends BaseEmitter<BaseParams, TEventData>
-  implements ControlValueAccessor<TValue>
-{
+  implements ControlValueAccessor<TValue> {
   private _error: string = ''
 
   private _previousValue = undefined as TValue

@@ -18,7 +18,9 @@ export const PriorityFeeBox: React.FC<PriorityFeeBoxProps> = ({ priorityFee, pri
       <FlexCol alignItems="start">
         <TypographyEx>{priorityFeeLabel}</TypographyEx>
         <TypographyEx title={priorityFee?.toString() ?? ''}>
-          {priorityFee?.toFixed(2)} <GweiLabelTypography fontSize={theme.spacing(1)} />
+          {priorityFee?.toFixed(2)}
+          {' '}
+          <GweiLabelTypography fontSize={theme.spacing(1)} />
         </TypographyEx>
       </FlexCol>
       <LocalGasStationRoundedIcon />

@@ -1,1 +1,1 @@
-export * from './useElevationProcessor.js'
+export * from './useElevationProcessor.tsx'

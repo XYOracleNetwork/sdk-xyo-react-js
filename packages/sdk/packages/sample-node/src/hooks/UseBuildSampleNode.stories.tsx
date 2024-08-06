@@ -11,7 +11,6 @@ const modules: SampleNodeModules = {
   SystemInfoWitness: 'SystemInfoWitness',
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/node/useBuildSampleNode',
 } as Meta

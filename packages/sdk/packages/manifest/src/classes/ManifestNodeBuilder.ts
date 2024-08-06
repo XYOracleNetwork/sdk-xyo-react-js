@@ -6,7 +6,7 @@ import { Manifest, ManifestWrapper, ModuleManifest, PackageManifestPayload } fro
 import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { WalletInstance } from '@xyo-network/wallet-model'
 
-import { CreatablePackageManifest } from '../types/index.js'
+import { CreatablePackageManifest } from '../types/index.ts'
 
 export class ManifestNodeBuilder {
   locatedManifests: Manifest[] = []
@@ -20,14 +20,14 @@ export class ManifestNodeBuilder {
   ) {}
 
   async create() {
-    this.locatedManifests = (await Promise.all(this.manifestNodes.map((manifestNode) => manifestNode(this.locator).nodes))).flat()
+    this.locatedManifests = (await Promise.all(this.manifestNodes.map(manifestNode => manifestNode(this.locator).nodes))).flat()
     return this
   }
 
   async loadNodes() {
     const wallet = this.wallet ?? (await this.randomWallet())
     const topLevelManifestNode = this.locatedManifests[this.topLevelNodeIndex]
-    const publicChildren = this.locatedManifests.filter((node) => node !== topLevelManifestNode) as ModuleManifest[]
+    const publicChildren = this.locatedManifests.filter(node => node !== topLevelManifestNode) as ModuleManifest[]
     const wrapper = new ManifestWrapper(topLevelManifestNode as PackageManifestPayload, wallet, this.locator, publicChildren)
     const [node] = await wrapper.loadNodes()
     return node

@@ -10,26 +10,26 @@
     "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/exists": "^3.6.4",
-    "@xylabs/hex": "^3.6.4",
-    "@xylabs/react-async-effect": "^3.4.1",
-    "@xylabs/react-flexbox": "^3.4.1",
-    "@xylabs/react-identicon": "^3.4.1",
-    "@xylabs/react-promise": "^3.4.1",
-    "@xylabs/react-shared": "^3.4.1",
-    "@xyo-network/account-model": "^2.110.9",
-    "@xyo-network/archivist-model": "^2.110.9",
-    "@xyo-network/bridge-model": "^2.110.9",
-    "@xyo-network/diviner-model": "^2.110.9",
-    "@xyo-network/module-events": "^2.110.9",
-    "@xyo-network/module-model": "^2.110.9",
-    "@xyo-network/node-model": "^2.110.9",
+    "@xylabs/exists": "^3.6.12",
+    "@xylabs/hex": "^3.6.12",
+    "@xylabs/react-async-effect": "^3.4.2",
+    "@xylabs/react-flexbox": "^3.4.2",
+    "@xylabs/react-identicon": "^3.4.2",
+    "@xylabs/react-promise": "^3.4.2",
+    "@xylabs/react-shared": "^3.4.2",
+    "@xyo-network/account-model": "^2.111.3",
+    "@xyo-network/archivist-model": "^2.111.3",
+    "@xyo-network/bridge-model": "^2.111.3",
+    "@xyo-network/diviner-model": "^2.111.3",
+    "@xyo-network/module-events": "^2.111.3",
+    "@xyo-network/module-model": "^2.111.3",
+    "@xyo-network/node-model": "^2.111.3",
     "@xyo-network/react-archivist": "workspace:^",
     "@xyo-network/react-module": "workspace:^",
     "@xyo-network/react-node": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/sentinel-model": "^2.110.9",
-    "@xyo-network/witness-model": "^2.110.9",
+    "@xyo-network/sentinel-model": "^2.111.3",
+    "@xyo-network/witness-model": "^2.111.3",
     "cytoscape": "^3.30.1",
     "cytoscape-cola": "^2.5.1",
     "cytoscape-cose-bilkent": "^4.1.0",
@@ -49,16 +49,16 @@
     "@types/cytoscape-dagre": "^2.3.3",
     "@types/cytoscape-euler": "^1.2.3",
     "@types/react-dom": "^18.3.0",
-    "@xylabs/ts-scripts-yarn3": "^3.12.4",
-    "@xylabs/tsconfig-react": "^3.12.4",
-    "@xyo-network/archivist": "^2.110.9",
-    "@xyo-network/bridge-http": "^2.110.9",
-    "@xyo-network/bridge-model": "^2.110.9",
-    "@xyo-network/id-plugin": "^2.99.4",
-    "@xyo-network/node-memory": "^2.110.9",
+    "@xylabs/ts-scripts-yarn3": "^3.15.16",
+    "@xylabs/tsconfig-react": "^3.15.16",
+    "@xyo-network/archivist": "^2.111.3",
+    "@xyo-network/bridge-http": "^2.111.3",
+    "@xyo-network/bridge-model": "^2.111.3",
+    "@xyo-network/id-plugin": "^2.99.6",
+    "@xyo-network/node-memory": "^2.111.3",
     "@xyo-network/react-storybook": "workspace:^",
     "@xyo-network/react-wallet": "workspace:^",
-    "@xyo-network/sentinel": "^2.110.9",
+    "@xyo-network/sentinel": "^2.111.3",
     "typescript": "^5.5.4"
   },
   "description": "Common React library for all XYO projects that use React",
@@ -68,7 +68,7 @@
       "node": {
         "import": {
           "types": "./dist/node/index.d.mts",
-          "default": "./dist/node/index.js"
+          "default": "./dist/node/index.mjs"
         },
         "require": {
           "types": "./dist/node/index.d.cts",
@@ -78,19 +78,19 @@
       "browser": {
         "import": {
           "types": "./dist/browser/index.d.mts",
-          "default": "./dist/browser/index.js"
+          "default": "./dist/browser/index.mjs"
         },
         "require": {
           "types": "./dist/browser/index.d.cts",
           "default": "./dist/browser/index.cjs"
         }
       },
-      "default": "./dist/browser/index.js"
+      "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
   },
   "main": "dist/browser/index.cjs",
-  "module": "dist/browser/index.js",
+  "module": "dist/browser/index.mjs",
   "homepage": "https://xyo.network",
   "keywords": [
     "xyo",

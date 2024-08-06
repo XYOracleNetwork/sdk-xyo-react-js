@@ -1,4 +1,5 @@
 import { assertEx } from '@xylabs/assert'
+import React from 'react'
 import type { ProjectReflection } from 'typedoc'
 
 import { ContainerReflectionViewerProps, DeclarationContainerReflectionViewer } from './ReflectionViewer/index.js'

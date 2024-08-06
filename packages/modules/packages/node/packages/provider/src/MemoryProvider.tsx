@@ -13,7 +13,7 @@ export type MemoryNodeProviderProps = WithChildren<{
   modules?: AttachableModuleInstance[]
   required?: boolean
 }> &
-  ModuleParams<NodeConfig>
+ModuleParams<NodeConfig>
 
 export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({ children, modules, moduleParams }) => {
   const [node, setNode] = useState<MemoryNode | null>(null)

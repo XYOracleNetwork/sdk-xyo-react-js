@@ -1,3 +1,4 @@
+import React from 'react'
 import type { ContainerReflection, ReflectionGroup } from 'typedoc'
 
 import { createLookup } from '../createLookup.js'

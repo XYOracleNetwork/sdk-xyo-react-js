@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { Component, ErrorInfo, ReactNode } from 'react'
+import React, { Component, ErrorInfo, ReactNode } from 'react'
 
 export interface ErrorBoundaryProps {
   children: ReactNode
@@ -38,8 +38,18 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
         this.props.fallback ?? (
           <FlexCol>
             <Typography variant="h1">Something went wrong.</Typography>
-            {this.props.scope && <Typography variant="h2">[{this.props.scope}]</Typography>}
-            <Typography variant="body1">[{this.state.error?.message}]</Typography>
+            {this.props.scope && (
+              <Typography variant="h2">
+                [
+                {this.props.scope}
+                ]
+              </Typography>
+            )}
+            <Typography variant="body1">
+              [
+              {this.state.error?.message}
+              ]
+            </Typography>
           </FlexCol>
         )
       )

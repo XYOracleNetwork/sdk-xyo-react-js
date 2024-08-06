@@ -13,13 +13,12 @@ const WithEventDecorator: Decorator = (Story, args) => {
   return <Story {...args} />
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: BoundWitnessDetailsCard,
   title: 'plugin/boundwitness/DetailsCard',
 } as Meta
 
-const Template: StoryFn<typeof BoundWitnessDetailsCard> = (props) => <BoundWitnessDetailsCard {...props} />
+const Template: StoryFn<typeof BoundWitnessDetailsCard> = props => <BoundWitnessDetailsCard {...props} />
 
 const Default = Template.bind({})
 Default.args = { payload: sampleBlock }

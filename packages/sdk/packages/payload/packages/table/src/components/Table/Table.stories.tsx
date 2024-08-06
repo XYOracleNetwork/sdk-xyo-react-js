@@ -25,9 +25,9 @@ const Template: StoryFn<typeof PayloadTable> = (args) => {
 
   return (
     <BrowserRouter>
-      {eventData ?
-        <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} />
-      : null}
+      {eventData
+        ? <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} />
+        : null}
       <PayloadTable ref={ref} {...args}></PayloadTable>
     </BrowserRouter>
   )
@@ -76,7 +76,7 @@ const WithInvalid = Template.bind({})
 const { schema, ...badPayload } = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 WithInvalid.args = { payloads: [sampleIdPayload, badPayload] }
 
 const WithNoResults = Template.bind({})
@@ -87,5 +87,4 @@ WithLoading.args = { loading: true, payloads: [] }
 
 export { Default, WithData, WithDataAndMaxSchemaDepth, WithInvalid, WithLoading, WithNoResults, WithOutStickyHeaderFooter }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -8,7 +8,6 @@ import { Template, xyoEmbedStoryBase } from './storyShared.js'
 
 const AggregatePricePointer = 'https://api.archivist.xyo.network/1948bf4eedf90ee2b8a1f63216b7c6b3b18d7bc2834330d85bcd6ab3d6428a20'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   ...xyoEmbedStoryBase,
   title: 'embed/EmbedPlugin/states',

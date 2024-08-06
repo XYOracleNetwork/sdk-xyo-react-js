@@ -41,7 +41,7 @@ const Template: StoryFn<typeof CollapsibleDrawer> = (args) => {
           <CollapseToggleFlex />
         </CollapsibleDrawer>
       </FlexCol>
-      <Divider flexItem orientation={'vertical'} />
+      <Divider flexItem orientation="vertical" />
     </FlexRow>
   )
 }
@@ -53,5 +53,4 @@ Default.args = {
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

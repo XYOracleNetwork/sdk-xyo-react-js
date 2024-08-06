@@ -1,4 +1,3 @@
-/* eslint-disable import/no-internal-modules */
 import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 
@@ -32,5 +31,4 @@ const WithIgnoreDialog = TemplateWithIgnoreDialog.bind({})
 
 export { Default, WithIgnoreDialog }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

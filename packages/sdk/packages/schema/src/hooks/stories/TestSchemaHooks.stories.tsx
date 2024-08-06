@@ -10,7 +10,7 @@ import { NodeProvider } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { SchemaCache } from '@xyo-network/schema-cache'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { useSchemaDefinitions } from '../useSchemaDefinitions.js'
 import { useSchemaList } from '../useSchemaList.js'
@@ -23,7 +23,6 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const node = await MemoryNode.create({ config: { schema: NodeConfigSchema } })
       const bridge = await HttpBridge.create({ config: { nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } } })
@@ -45,7 +44,6 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   decorators: [MemoryNodeDecorator],
   title: 'schema/Hooks',
@@ -57,29 +55,29 @@ const Template: StoryFn<React.FC> = () => {
   const [address, setAddress] = useState<Address>()
   const [schemaStats, schemaStatsError] = useSchemaStats(address)
   const [schemaList, schemaListError] = useSchemaList(address)
-  const mappedSchemaList = schemaList?.schemas?.map((name) => ({ name })) as { name: string }[]
+  const mappedSchemaList = schemaList?.schemas?.map(name => ({ name })) as { name: string }[]
   const schemaDefinitions = useSchemaDefinitions(mappedSchemaList)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
-      {schemaStatsError ?
-        <Alert severity={'error'}>{schemaStatsError.message ?? schemaListError?.message}</Alert>
-      : null}
+      {schemaStatsError
+        ? <Alert severity="error">{schemaStatsError.message ?? schemaListError?.message}</Alert>
+        : null}
       <FlexGrowRow columnGap={4}>
-        <TextField fullWidth size="small" value={address} label="Address" onChange={(event) => setAddressText(event.target.value as Address)} />
+        <TextField fullWidth size="small" value={address} label="Address" onChange={event => setAddressText(event.target.value as Address)} />
         <Button variant="contained" onClick={() => setAddress(addressText)} sx={{ whiteSpace: 'nowrap' }}>
           Get Stats
         </Button>
       </FlexGrowRow>
-      <Typography variant={'h2'}>Schema Stats</Typography>
+      <Typography variant="h2">Schema Stats</Typography>
       <code>
         <pre>{JSON.stringify(schemaStats, null, 2)}</pre>
       </code>
-      <Typography variant={'h2'}>Schema List</Typography>
+      <Typography variant="h2">Schema List</Typography>
       <code>
         <pre>{JSON.stringify(schemaList, null, 2)}</pre>
       </code>
-      <Typography variant={'h2'}>Schema Definitions</Typography>
+      <Typography variant="h2">Schema Definitions</Typography>
       <pre>
         <code>{JSON.stringify(schemaDefinitions, null, 2)}</code>
       </pre>

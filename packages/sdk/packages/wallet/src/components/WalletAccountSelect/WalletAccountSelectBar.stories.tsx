@@ -29,13 +29,13 @@ const WithFavoritesTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => 
   return (
     <WalletAccountSelectBar
       addressNames={
-        castWallets ?
-          {
-            [castWallets[0]?.address]: 'first address',
-            [castWallets[1]?.address]: undefined,
-            [castWallets[2]?.address]: 'sixth address',
-          }
-        : {}
+        castWallets
+          ? {
+              [castWallets[0]?.address]: 'first address',
+              [castWallets[1]?.address]: undefined,
+              [castWallets[2]?.address]: 'sixth address',
+            }
+          : {}
       }
       icons={true}
       maxAccounts={10}
@@ -61,5 +61,4 @@ const WithAccountFavorites = WithFavoritesTemplate.bind({})
 
 export { Default, WithAccountFavorites, WithAdditionalAccounts, WithWallet, WithWalletIcon }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

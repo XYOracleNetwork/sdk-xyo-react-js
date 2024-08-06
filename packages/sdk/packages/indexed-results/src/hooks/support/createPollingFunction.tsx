@@ -6,7 +6,7 @@ import { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.js'
 export type PollingFunction = () => Promise<Payload[] | null | undefined>
 
 export const DEFAULT_POLLING_CONFIG: PollingConfig = {
-  initialDelay: 100 / 3, //First time will be zero, second time will be 100
+  initialDelay: 100 / 3, // First time will be zero, second time will be 100
   maxDelay: 10_000,
   maxRetries: 8,
 }
@@ -34,7 +34,7 @@ export const createPollingFunction = <T extends Payload = Payload>(
       let result: Payload[] | undefined | null
 
       const pollDivinersWithDelayInner = async (newDelay: number) => {
-        await new Promise((resolve) => setTimeoutEx(() => resolve(true), retries === 0 ? 0 : newDelay))
+        await new Promise(resolve => setTimeoutEx(() => resolve(true), retries === 0 ? 0 : newDelay))
         try {
           // Try for a fixed number of times
           if (retries < maxRetries) {
@@ -72,7 +72,7 @@ export const createPollingFunction = <T extends Payload = Payload>(
     if (activePolling && pollingFunction) {
       let result: Payload[] | undefined | null
 
-      await new Promise((resolve) => setTimeoutEx(() => resolve(true), newDelay))
+      await new Promise(resolve => setTimeoutEx(() => resolve(true), newDelay))
       try {
         result = await pollingFunction()
 
@@ -92,9 +92,9 @@ export const createPollingFunction = <T extends Payload = Payload>(
 
   /** Function to invoke polling by determining a polling strategy */
   const poll = async () => {
-    return await (maxRetries === null ?
-      pollDivinersIndefinitely(initialDelay, pollingFunction)
-    : pollDivinersWithDelay(initialDelay, pollingFunction))
+    return await (maxRetries === null
+      ? pollDivinersIndefinitely(initialDelay, pollingFunction)
+      : pollDivinersWithDelay(initialDelay, pollingFunction))
   }
 
   const setActive = (value: boolean) => {

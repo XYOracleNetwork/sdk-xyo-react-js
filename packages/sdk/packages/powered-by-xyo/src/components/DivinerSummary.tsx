@@ -1,5 +1,6 @@
 import { BubbleChartRounded as BubbleChartRoundedIcon } from '@mui/icons-material'
 import { DivinerInstance } from '@xyo-network/diviner-model'
+import React from 'react'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.js'
 

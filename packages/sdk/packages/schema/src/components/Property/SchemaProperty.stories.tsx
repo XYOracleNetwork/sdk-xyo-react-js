@@ -38,5 +38,4 @@ WithUnverifiedValue.args = { value: 'network.xyo.blahblah' }
 
 export { Default, WithUnverifiedValue, WithVerifiedValue, WithVerifiedValuePaper }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

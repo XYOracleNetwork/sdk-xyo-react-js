@@ -3,8 +3,8 @@ import { FlexBoxProps } from '@xylabs/react-flexbox'
 import { SizeProp } from '@xyo-network/react-shared'
 import { ReactNode } from 'react'
 
-import { PropertyAction } from './Action.js'
-import { PropertyTitleProps } from './Title.js'
+import { PropertyAction } from './Action.ts'
+import { PropertyTitleProps } from './Title.tsx'
 
 export interface PropertyBaseProps {
   paper?: boolean

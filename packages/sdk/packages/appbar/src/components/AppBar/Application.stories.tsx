@@ -1,4 +1,3 @@
-/* eslint-disable import/no-internal-modules */
 import { List, Paper } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
@@ -30,17 +29,18 @@ const Template: StoryFn<typeof ApplicationAppBar> = (args) => {
       <BrowserRouter>
         <NetworkMemoryProvider>
           <ApplicationAppBar
-            systemToolbar={
+            systemToolbar={(
               <SystemToolbar
-                menuItems={
+                menuItems={(
                   <List>
                     <MenuListItemContainer primary="Hello" />
                   </List>
-                }
+                )}
               />
-            }
+            )}
             {...args}
-          ></ApplicationAppBar>
+          >
+          </ApplicationAppBar>
         </NetworkMemoryProvider>
       </BrowserRouter>
     </WalletProvider>
@@ -52,16 +52,16 @@ Default.args = {}
 
 const WithSearchBar = Template.bind({})
 WithSearchBar.args = {
-  children: <SearchBar flexGrow={1} onSearch={(term) => alert(term)} />,
+  children: <SearchBar flexGrow={1} onSearch={term => alert(term)} />,
   color: 'primary',
   systemToolbar: (
     <SystemToolbar
       darkModeButton
-      menuItems={
+      menuItems={(
         <List>
           <MenuListItemContainer primary="Hello" />
         </List>
-      }
+      )}
     />
   ),
 }
@@ -81,5 +81,4 @@ WithWalletSelectBar.args = {
 
 export { Default, WithSearchBar, WithWalletSelectBar }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

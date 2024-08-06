@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 import { BWNavigationTabs } from './NavigationTabs.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: BWNavigationTabs,
   parameters: {

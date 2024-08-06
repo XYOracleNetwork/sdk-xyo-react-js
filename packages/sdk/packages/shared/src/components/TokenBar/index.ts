@@ -1,1 +1,1 @@
-export * from './TokenBar.js'
+export * from './TokenBar.tsx'

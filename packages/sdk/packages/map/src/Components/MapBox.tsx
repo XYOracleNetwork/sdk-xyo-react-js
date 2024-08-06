@@ -60,7 +60,7 @@ export const MapBox: React.FC<MapBoxProps> = ({ accessToken, darkMode = false, o
 
   return (
     <div
-      ref={(el) => (mapContainerRef.current = el)}
+      ref={el => (mapContainerRef.current = el)}
       style={{
         bottom: 0,
         left: 0,

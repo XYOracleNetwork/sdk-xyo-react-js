@@ -1,1 +1,1 @@
-export * from './useActiveProviderDialogState.js'
+export * from './useActiveProviderDialogState.tsx'

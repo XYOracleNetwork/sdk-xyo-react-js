@@ -34,7 +34,6 @@ const Template: StoryFn<typeof BlockTable> = ({ blocks: blocksParam, ...args }) 
 const Default = Template.bind({})
 Default.args = {}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const badBlock = sampleBlock
 
 const WithData = Template.bind({})
@@ -46,5 +45,4 @@ WithError.args = { blocks: [sampleBlock, badBlock as BoundWitness] }
 
 export { Default, WithData, WithError }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

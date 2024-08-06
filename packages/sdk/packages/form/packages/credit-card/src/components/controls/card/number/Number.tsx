@@ -24,11 +24,13 @@ export const CreditCardNumberWithFormControl: React.FC<WithFormControlProps> = (
       inputProps={{ 'aria-label': fieldLabel, autoComplete, autoCorrect, id, inputMode, name, spellCheck }}
       InputProps={{
         startAdornment:
-          type.length > 0 ?
-            <InputAdornment position="start">
-              <img height={'30px'} width={'40px'} src={CreditCardData[type].icon} />
-            </InputAdornment>
-          : null,
+          type.length > 0
+            ? (
+                <InputAdornment position="start">
+                  <img height="30px" width="40px" src={CreditCardData[type].icon} />
+                </InputAdornment>
+              )
+            : null,
       }}
       value={value}
       {...cardProps}

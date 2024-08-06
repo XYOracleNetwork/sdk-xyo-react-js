@@ -3,7 +3,6 @@ import { Meta, StoryFn } from '@storybook/react'
 import { WithNestedBoundWitnessesDecorator } from '../../stories/index.js'
 import { GlowingDiv } from './GlowingDiv.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: GlowingDiv,
   decorators: [WithNestedBoundWitnessesDecorator],

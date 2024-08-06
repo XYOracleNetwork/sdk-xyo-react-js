@@ -1,4 +1,4 @@
-import { AmexIcon, DiscoverIcon, MastercardIcon, VisaIcon } from '../../img/index.js'
+import { AmexIcon, DiscoverIcon, MastercardIcon, VisaIcon } from '../../img/index.ts'
 
 export interface CreditCardInfo {
   icon: string

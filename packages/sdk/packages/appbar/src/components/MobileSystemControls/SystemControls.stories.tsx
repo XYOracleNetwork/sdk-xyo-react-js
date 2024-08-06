@@ -1,4 +1,3 @@
-/* eslint-disable import/no-internal-modules */
 import { Meta, StoryFn } from '@storybook/react'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 
@@ -38,5 +37,4 @@ Top.args = {
 
 export { Left, Top }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

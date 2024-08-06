@@ -39,16 +39,16 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, PayloadDetailsRe
           hideJSONButton={false}
           hideValidation={false}
           hidePreviousHash={false}
-          additionalActions={
+          additionalActions={(
             <>
-              <Divider flexItem orientation={'vertical'} sx={{ ml: 2, mr: 1 }} />
+              <Divider flexItem orientation="vertical" sx={{ ml: 2, mr: 1 }} />
               <IconButton onClick={() => setCollapsed(!collapsed)}>
-                {collapsed ?
-                  <ExpandMoreRoundedIcon />
-                : <ExpandLessRoundedIcon />}
+                {collapsed
+                  ? <ExpandMoreRoundedIcon />
+                  : <ExpandLessRoundedIcon />}
               </IconButton>
             </>
-          }
+          )}
           sx={{ columnGap: 2 }}
         />
         <DetailsCardContent boundwitness={boundwitness} collapsed={collapsed} setCollapsed={setCollapsed} ref={ref} />

@@ -14,10 +14,10 @@ const StorybookEntry = {
   title: 'shared/XyOsClock',
 } as Meta<typeof XyOsClock>
 
-const Template: StoryFn<typeof XyOsClock> = (args) => (
+const Template: StoryFn<typeof XyOsClock> = args => (
   <BrowserRouter>
-    <FlexGrowCol gap={2} alignItems={'center'} justifyContent={'center'}>
-      <FlexGrowCol alignItems={'center'} justifyContent={'center'}>
+    <FlexGrowCol gap={2} alignItems="center" justifyContent="center">
+      <FlexGrowCol alignItems="center" justifyContent="center">
         <XyOsClock {...args}></XyOsClock>
       </FlexGrowCol>
     </FlexGrowCol>
@@ -30,9 +30,8 @@ Default.args = {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

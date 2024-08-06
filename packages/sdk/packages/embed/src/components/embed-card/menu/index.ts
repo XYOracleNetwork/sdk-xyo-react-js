@@ -1,1 +1,1 @@
-export * from './EmbedMenu.js'
+export * from './EmbedMenu.tsx'

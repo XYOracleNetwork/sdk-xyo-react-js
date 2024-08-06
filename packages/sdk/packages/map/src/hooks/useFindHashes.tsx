@@ -20,7 +20,7 @@ const staticAnswerHashConst: Hash = 'c7bbf61f61cfd4a1b2def160c28136fc1d100d39fbd
 
 export const useFindHashes = () => {
   const { network } = useNetwork()
-  const exploreMapHashes = (network?.nodes?.find((node) => node.type === 'archivist') as ArchivistPreset)?.explorerMapHashes
+  const exploreMapHashes = (network?.nodes?.find(node => node.type === 'archivist') as ArchivistPreset)?.explorerMapHashes
   const animatedAnswerHashes = exploreMapHashes?.animatedAnswerHashes || animatedAnswerHashesConst
   const staticAnswerHash = exploreMapHashes?.staticAnswerHash || staticAnswerHashConst
   const foundHashes = useMemo(() => [staticAnswerHash, ...animatedAnswerHashes], [animatedAnswerHashes, staticAnswerHash])

@@ -12,7 +12,7 @@ export const EmbedRenderSelect: React.FC<SelectExProps<string>> = (props) => {
   return (
     <EmbedFormControl formId={renderSelectId} formLabel={renderSelectLabel}>
       <SelectEx size="small" value={activePlugin?.name} {...props}>
-        {plugins?.map((plugin) => (
+        {plugins?.map(plugin => (
           <MenuItem value={plugin.name} key={plugin.name} onClick={() => setActivePlugin?.(plugin)}>
             {plugin.name}
           </MenuItem>

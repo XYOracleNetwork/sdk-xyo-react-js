@@ -19,12 +19,12 @@ export const EtherchainV2GasPriceCardContent = forwardRef<HTMLDivElement, Payloa
   return (
     <CardContent ref={ref} sx={{ display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
       <Grid container spacing={3}>
-        {parsedPayload &&
-          parsedPayload?.gasPrice?.map(({ price }) => (
-            <Grid key={price?.label} item xs={22} sm={6} lg={3}>
-              <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
-            </Grid>
-          ))}
+        {parsedPayload
+        && parsedPayload?.gasPrice?.map(({ price }) => (
+          <Grid key={price?.label} item xs={22} sm={6} lg={3}>
+            <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
+          </Grid>
+        ))}
       </Grid>
       <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" pr={2} />
     </CardContent>

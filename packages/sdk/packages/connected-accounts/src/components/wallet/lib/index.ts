@@ -1,2 +1,2 @@
-export * from './ActiveProvider.js'
-export * from './TableHeadData.js'
+export * from './ActiveProvider.ts'
+export * from './TableHeadData.ts'

@@ -23,7 +23,7 @@ export const useDetectedWallets = () => {
    */
   useEffect(() => {
     const listener: (event: CustomEventInit) => void = () => {
-      setRefresh((refresh) => refresh + 1)
+      setRefresh(refresh => refresh + 1)
     }
     window.addEventListener(AccountsChangedEventName, listener)
 

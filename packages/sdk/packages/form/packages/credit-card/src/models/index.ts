@@ -1,1 +1,1 @@
-export * from './CreditCardInput.js'
+export * from './CreditCardInput.ts'

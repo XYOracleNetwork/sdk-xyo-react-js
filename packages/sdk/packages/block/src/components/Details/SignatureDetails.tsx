@@ -1,5 +1,5 @@
 /* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-deprecated */
+
 import { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
 

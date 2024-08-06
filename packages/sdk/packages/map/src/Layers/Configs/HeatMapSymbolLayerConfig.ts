@@ -1,6 +1,6 @@
 import { SymbolLayerSpecification } from 'mapbox-gl'
 
-export const HeatMapSymbolLayerConfig: (color: string) => Partial<SymbolLayerSpecification> = (color) => ({
+export const HeatMapSymbolLayerConfig: (color: string) => Partial<SymbolLayerSpecification> = color => ({
   layout: {
     'text-anchor': 'center',
     'text-field': [
@@ -12,7 +12,7 @@ export const HeatMapSymbolLayerConfig: (color: string) => Partial<SymbolLayerSpe
       ['to-string', ['get', 'count']],
     ],
     'text-size': 10,
-    visibility: 'none',
+    'visibility': 'none',
   },
   paint: {
     'text-color': color,

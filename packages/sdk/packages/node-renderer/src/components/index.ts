@@ -1,3 +1,3 @@
-export * from './lib/index.js'
-export * from './module/index.js'
-export * from './relational/index.js'
+export * from './lib/index.ts'
+export * from './module/index.ts'
+export * from './relational/index.ts'

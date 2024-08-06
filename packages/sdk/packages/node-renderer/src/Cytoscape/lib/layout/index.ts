@@ -1,2 +1,2 @@
-export * from './ColaLayout.js'
-export * from './ConcentricLayout.js'
+export * from './ColaLayout.ts'
+export * from './ConcentricLayout.ts'

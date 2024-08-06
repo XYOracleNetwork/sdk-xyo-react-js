@@ -13,8 +13,8 @@ export interface BWNavigationTabs extends TabsProps {
 }
 
 export const BWNavigationTabs: React.FC<BWNavigationTabs> = ({ setValue, value, boundWitness, ...props }) => {
-  const payloadCount = boundWitness?.payload_schemas.filter((schema) => schema !== BoundWitnessSchema).length ?? 0
-  const boundWitnessCount = boundWitness?.payload_schemas.filter((schema) => schema === BoundWitnessSchema).length ?? 0
+  const payloadCount = boundWitness?.payload_schemas.filter(schema => schema !== BoundWitnessSchema).length ?? 0
+  const boundWitnessCount = boundWitness?.payload_schemas.filter(schema => schema === BoundWitnessSchema).length ?? 0
   const signers = boundWitness?.addresses.length ?? 0
   const theme = useTheme()
 

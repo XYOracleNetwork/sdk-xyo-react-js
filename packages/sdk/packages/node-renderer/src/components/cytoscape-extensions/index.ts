@@ -1,1 +1,1 @@
-export * from './WithExtensions.js'
+export * from './WithExtensions.tsx'

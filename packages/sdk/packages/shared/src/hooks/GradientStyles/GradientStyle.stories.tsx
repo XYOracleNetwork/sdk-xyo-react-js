@@ -1,6 +1,7 @@
 import { Divider, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { useGradientStyles } from './GradientStyles.js'
@@ -18,7 +19,9 @@ const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
       <Typography variant="h5" gutterBottom>
-        Lorem ipsum dolor sit amet consectetur, <span className={classNames.heading}>adipisicing elit.</span>
+        Lorem ipsum dolor sit amet consectetur,
+        {' '}
+        <span className={classNames.heading}>adipisicing elit.</span>
       </Typography>
       <Typography variant="subtitle2" gutterBottom paddingTop={3}>
         Body Text
@@ -55,7 +58,7 @@ const StorybookEntry = {
   title: 'shared/GradientText',
 } as Meta<typeof GradientTextExample>
 
-const Template: StoryFn<typeof GradientTextExample> = (args) => (
+const Template: StoryFn<typeof GradientTextExample> = args => (
   <BrowserRouter>
     <GradientTextExample {...args}></GradientTextExample>
   </BrowserRouter>
@@ -64,5 +67,4 @@ const Template: StoryFn<typeof GradientTextExample> = (args) => (
 export const Default = Template.bind({})
 Default.args = {}
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

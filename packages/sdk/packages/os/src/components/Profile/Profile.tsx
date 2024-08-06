@@ -14,31 +14,34 @@ export const XyOsProfile: React.FC<XyOsProfileProps> = ({ xns, pfp, ...props }) 
   return (
     <FlexGrowCol gap={1} alignItems="flex-start">
       <FlexGrowRow gap={1}>
-        <Avatar alt={xns} src={'https://arietrouw.com/assets/img/arie.jpg'} sx={{ height: 100, width: 100 }} />
-        <FlexGrowCol width="100%" alignItems={'flex-start'}>
+        <Avatar alt={xns} src="https://arietrouw.com/assets/img/arie.jpg" sx={{ height: 100, width: 100 }} />
+        <FlexGrowCol width="100%" alignItems="flex-start">
           <Typography variant="h5">{xns}</Typography>
-          <Typography variant="subtitle2">Last Active: {format(subHours(Date.now(), 4), 'pp')}</Typography>
+          <Typography variant="subtitle2">
+            Last Active:
+            {format(subHours(Date.now(), 4), 'pp')}
+          </Typography>
         </FlexGrowCol>
       </FlexGrowRow>
       <Paper sx={{ padding: 1 }}>
         <FlexGrowRow paddingBottom={1} width="100%" alignItems="center" justifyContent="space-between">
-          <Typography variant="body1" fontWeight={'medium'}>
+          <Typography variant="body1" fontWeight="medium">
             2024 Stats
           </Typography>
           <StatsModal />
         </FlexGrowRow>
         <FlexGrowRow justifyContent="flex-start" width="100%" gap={1}>
-          <FlexGrowCol alignItems={'flex-start'}>
+          <FlexGrowCol alignItems="flex-start">
             <Typography variant="h5">3,921</Typography>
             <Typography variant="body2">Bound Witnesses</Typography>
           </FlexGrowCol>
           <Divider flexItem orientation="vertical"></Divider>
-          <FlexGrowCol alignItems={'flex-start'}>
+          <FlexGrowCol alignItems="flex-start">
             <Typography variant="h5">30</Typography>
             <Typography variant="body2">Connected Bridges</Typography>
           </FlexGrowCol>
           <Divider flexItem orientation="vertical"></Divider>
-          <FlexGrowCol alignItems={'flex-start'}>
+          <FlexGrowCol alignItems="flex-start">
             <Typography variant="h5">3,921</Typography>
             <Typography variant="body2">Bound Witnesses</Typography>
           </FlexGrowCol>

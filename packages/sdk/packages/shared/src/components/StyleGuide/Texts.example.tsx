@@ -20,9 +20,11 @@ export const TextsExample = () => {
 
   return (
     <FlexCol>
-      {variantList.map((variant) => (
+      {variantList.map(variant => (
         <Typography key={variant} variant={variant}>
-          {variant} - XYO Network
+          {variant}
+          {' '}
+          - XYO Network
         </Typography>
       ))}
     </FlexCol>

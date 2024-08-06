@@ -14,7 +14,7 @@ const StorybookEntry = {
   title: 'plugin/crypto-prices/CryptoPricesRenderer',
 } as Meta<typeof CryptoPricesRenderer>
 
-const Template: StoryFn<typeof CryptoPricesRenderer> = (args) => <CryptoPricesRenderer {...args}></CryptoPricesRenderer>
+const Template: StoryFn<typeof CryptoPricesRenderer> = args => <CryptoPricesRenderer {...args}></CryptoPricesRenderer>
 
 const Default = Template.bind({})
 Default.args = {}
@@ -27,5 +27,4 @@ WithMissingData.args = { payload: payloadDataMissingAssets }
 
 export { Default, WithData, WithMissingData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

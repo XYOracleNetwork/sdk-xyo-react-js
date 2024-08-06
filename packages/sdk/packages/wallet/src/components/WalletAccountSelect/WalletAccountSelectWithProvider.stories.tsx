@@ -39,5 +39,4 @@ IconsOnlySmall.args = { iconOnly: true, icons: true, size: 'small' }
 
 export { Default, DefaultIcons, DefaultSmall, DefaultSmallIcon, IconsOnly, IconsOnlySmall }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

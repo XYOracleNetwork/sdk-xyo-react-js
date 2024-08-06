@@ -1,2 +1,2 @@
-export * from './useCytoscapeElements.js'
-export * from './useElements.js'
+export * from './useCytoscapeElements.ts'
+export * from './useElements.tsx'

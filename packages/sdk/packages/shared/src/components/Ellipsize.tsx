@@ -1,6 +1,6 @@
 import { Box, BoxProps, styled, Typography, TypographyProps, TypographyTypeMap } from '@mui/material'
 import { WithChildren } from '@xylabs/react-shared'
-import { forwardRef, useCallback, useState } from 'react'
+import React, { forwardRef, useCallback, useState } from 'react'
 
 import { useShareForwardedRef } from '../hooks/index.js'
 
@@ -16,7 +16,7 @@ export interface EllipsizeRootProps extends BoxProps {
 
 const EllipsizeRoot = styled(Box, {
   name: ComponentName,
-  shouldForwardProp: (prop) => prop !== 'beforeLineHeight',
+  shouldForwardProp: prop => prop !== 'beforeLineHeight',
   slot: 'Root',
 })<EllipsizeRootProps>(({ beforeLineHeight }) => ({
   '&': {
@@ -43,7 +43,7 @@ const EllipsizeInnerWrap = styled(Box, {
 
 const EllipsizeContentWrap = styled(Typography, {
   name: ComponentName,
-  shouldForwardProp: (prop) => prop !== 'ellipsisPosition',
+  shouldForwardProp: prop => prop !== 'ellipsisPosition',
   slot: 'contentWrap',
 })<TypographyWithComponentProps>(({ theme, ellipsisPosition, fontFamily }) => {
   return theme.unstable_sx({
@@ -54,12 +54,12 @@ const EllipsizeContentWrap = styled(Typography, {
     right: 0,
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    ...(ellipsisPosition === 'start' ?
-      {
-        direction: 'rtl',
-        textAlign: 'left',
-      }
-    : {}),
+    ...(ellipsisPosition === 'start'
+      ? {
+          direction: 'rtl',
+          textAlign: 'left',
+        }
+      : {}),
   })
 })
 
@@ -75,8 +75,6 @@ const useClientHeight = () => {
   return { contentWrapHeight, contentWrapRef }
 }
 
-// See - https://mui.com/material-ui/guides/composition/#with-typescript
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type TypographyWithComponentProps<D extends React.ElementType = TypographyTypeMap['defaultComponent'], P = {}> = TypographyProps<D, P> & {
   ellipsisPosition?: 'start' | 'end'
 }
@@ -96,7 +94,7 @@ export const EllipsizeBox = forwardRef<HTMLDivElement, WithChildren<EllipsizeBox
     return (
       <EllipsizeRoot beforeLineHeight={!!sharedRef && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={ref}>
         <EllipsizeInnerWrap>
-          <EllipsizeContentWrap ref={contentWrapRef} component={'span'} ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
+          <EllipsizeContentWrap ref={contentWrapRef} component="span" ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
             {children}
           </EllipsizeContentWrap>
         </EllipsizeInnerWrap>

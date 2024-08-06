@@ -1,7 +1,7 @@
-import { WebAppNavigationType } from '../../WebAppNavigationType.js'
-import { appSettingDefault } from './appSettingDefault.js'
-import { AppSettingSlug } from './Slug.js'
-import { AppSettingsStorageBase } from './StorageBase.js'
+import { WebAppNavigationType } from '../../WebAppNavigationType.ts'
+import { appSettingDefault } from './appSettingDefault.ts'
+import { AppSettingSlug } from './Slug.ts'
+import { AppSettingsStorageBase } from './StorageBase.ts'
 
 export class AppSettingsStorage extends AppSettingsStorageBase {
   constructor(prefix = 'AppSettings', defaults?: Record<string, unknown>) {

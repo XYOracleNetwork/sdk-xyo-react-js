@@ -2,6 +2,7 @@ import { Menu as MenuIcon } from '@mui/icons-material'
 import { Button, IconButton, Toolbar, Typography } from '@mui/material'
 import { AppBarEx } from '@xylabs/react-appbar'
 import { FlexCol } from '@xylabs/react-flexbox'
+import React from 'react'
 
 export const AppBarsExample = () => {
   const contextToolbar = (

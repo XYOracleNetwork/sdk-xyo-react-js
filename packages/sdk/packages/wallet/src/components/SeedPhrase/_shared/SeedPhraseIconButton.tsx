@@ -12,7 +12,7 @@ import {
   ListItem,
   Typography,
 } from '@mui/material'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 export const SeedPhraseIconButton: React.FC<IconButtonProps> = (props) => {
   const [open, setOpen] = useState(false)
@@ -26,10 +26,12 @@ export const SeedPhraseIconButton: React.FC<IconButtonProps> = (props) => {
         <DialogTitle>Understanding your Seed Phrase</DialogTitle>
         <DialogContent>
           <Typography>
-            Your Seed Phrase should adhere to the{' '}
-            <Link target={'_blank'} href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">
+            Your Seed Phrase should adhere to the
+            {' '}
+            <Link target="_blank" href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">
               bip39 specification
-            </Link>{' '}
+            </Link>
+            {' '}
             and is used to generate accounts which identify your data on the XYO Network.
           </Typography>
           <List>

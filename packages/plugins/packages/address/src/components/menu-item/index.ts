@@ -1,1 +1,1 @@
-export * from './MenuItemRenderer.js'
+export * from './MenuItemRenderer.tsx'

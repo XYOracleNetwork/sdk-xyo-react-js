@@ -1,1 +1,1 @@
-export * from './SeedPhraseTableRow.js'
+export * from './SeedPhraseTableRow.tsx'

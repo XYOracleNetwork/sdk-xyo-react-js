@@ -1,5 +1,6 @@
 import { Inventory2Rounded as Inventory2RoundedIcon } from '@mui/icons-material'
 import { ArchivistInstance } from '@xyo-network/archivist-model'
+import React from 'react'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.js'
 

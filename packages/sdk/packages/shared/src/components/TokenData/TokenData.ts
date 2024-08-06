@@ -1,4 +1,4 @@
-import * as tokenImages from './img/index.js'
+import * as tokenImages from './img/index.ts'
 
 export interface TokenData {
   coinmarketcapLink: string

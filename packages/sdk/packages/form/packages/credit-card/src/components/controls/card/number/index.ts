@@ -1,2 +1,2 @@
-export * from './Number.js'
-export * from './use.js'
+export * from './Number.tsx'
+export * from './use.ts'

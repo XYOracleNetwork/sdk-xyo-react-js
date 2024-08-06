@@ -1,1 +1,1 @@
-export * from './BoundwitnessClickType.js'
+export * from './BoundwitnessClickType.tsx'

@@ -24,25 +24,29 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({
   return (
     <Alert severity="error" {...props}>
       <AlertTitle>{title}</AlertTitle>
-      {finalScope ?
-        <div>
-          <Typography variant="caption" mr={0.5} fontWeight="bold">
-            Scope:
-          </Typography>
-          <Typography variant="caption">{finalScope}</Typography>
-        </div>
-      : null}
+      {finalScope
+        ? (
+            <div>
+              <Typography variant="caption" mr={0.5} fontWeight="bold">
+                Scope:
+              </Typography>
+              <Typography variant="caption">{finalScope}</Typography>
+            </div>
+          )
+        : null}
       <div>
         <Typography variant="caption" mr={0.5} fontWeight="bold">
           Error:
         </Typography>
         <Typography variant="caption">{typeof error === 'string' ? error : error?.message}</Typography>
       </div>
-      {onCancel ?
-        <ButtonEx variant="outlined" size="small" onClick={onCancel} position="absolute" style={{ right: 8, top: 8 }}>
-          <ExitIcon fontSize="small" />
-        </ButtonEx>
-      : null}
+      {onCancel
+        ? (
+            <ButtonEx variant="outlined" size="small" onClick={onCancel} position="absolute" style={{ right: 8, top: 8 }}>
+              <ExitIcon fontSize="small" />
+            </ButtonEx>
+          )
+        : null}
     </Alert>
   )
 }

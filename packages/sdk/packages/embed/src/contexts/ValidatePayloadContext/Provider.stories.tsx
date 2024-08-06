@@ -70,5 +70,4 @@ ValidationFailed.args = {
 
 export { Default, ValidationFailed, ValidationSucceeded }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

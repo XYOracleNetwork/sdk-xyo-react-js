@@ -16,10 +16,12 @@ export const FooterAlwaysLinks: React.FC<FooterAlwaysLinksProps> = ({ style, foo
         <small>{footerLink.title}</small>
       </FooterLink>
     ))}
-    {onMore ?
-      <FlexRow style={{ cursor: 'pointer' }} paddingX={0.5} onClick={onMore}>
-        <MoreHorizIcon color="primary" fontSize="small" />
-      </FlexRow>
-    : null}
+    {onMore
+      ? (
+          <FlexRow style={{ cursor: 'pointer' }} paddingX={0.5} onClick={onMore}>
+            <MoreHorizIcon color="primary" fontSize="small" />
+          </FlexRow>
+        )
+      : null}
   </FlexRow>
 )

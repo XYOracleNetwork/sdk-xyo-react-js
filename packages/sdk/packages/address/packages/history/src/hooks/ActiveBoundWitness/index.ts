@@ -1,1 +1,1 @@
-export * from './use.js'
+export * from './use.ts'

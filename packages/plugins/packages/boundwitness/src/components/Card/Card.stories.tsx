@@ -3,7 +3,6 @@ import { sampleBlock } from '@xyo-network/react-storybook'
 
 import { BoundWitnessRendererCard } from './Card.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: BoundWitnessRendererCard,
   title: 'plugin/boundwitness/CardRenderer',

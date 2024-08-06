@@ -10,7 +10,6 @@ const meta: Meta<typeof ModuleCardParser> = {
   title: 'node/renderer/ModuleCardParser',
 }
 
-// eslint-disable-next-line import/no-default-export
 export default meta
 type Story = StoryObj<typeof ModuleCardParser>
 

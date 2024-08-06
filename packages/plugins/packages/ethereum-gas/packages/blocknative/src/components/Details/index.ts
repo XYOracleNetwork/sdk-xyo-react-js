@@ -1,1 +1,1 @@
-export * from './Box/index.js'
+export * from './Box/index.ts'

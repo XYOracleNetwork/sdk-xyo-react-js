@@ -10,7 +10,7 @@ export const useRelationalGraphOptions = (mod?: WeakRef<ModuleInstance>) => {
   const [hideLabels, setHideLabels] = useState(true)
 
   const handleToggleLabels = () => {
-    setHideLabels((oldValue) => !oldValue)
+    setHideLabels(oldValue => !oldValue)
   }
 
   const elements = useCytoscapeElements(mod)

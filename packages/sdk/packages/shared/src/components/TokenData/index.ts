@@ -1,2 +1,2 @@
-export * from './TokenData.js'
-export * from './useGetTokenData.js'
+export * from './TokenData.ts'
+export * from './useGetTokenData.tsx'

@@ -1,8 +1,7 @@
 import { Feature, Point } from 'geojson'
-// eslint-disable-next-line no-restricted-imports
 import { LngLatBounds, MapOptions } from 'mapbox-gl'
 
-import { MapBase, MapBaseConfig } from './MapBase.js'
+import { MapBase, MapBaseConfig } from './MapBase.ts'
 
 export interface MapPointsConfig extends MapBaseConfig<Point> {
   features: Feature<Point>[]

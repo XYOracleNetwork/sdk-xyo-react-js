@@ -1,7 +1,7 @@
 import { CircularProgress, Paper, TypographyVariant } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { SizeProp } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 import { PropertyActionsMenu } from './ActionsMenu.js'
 import { IdenticonCorner } from './IdenticonCorner.js'
@@ -25,15 +25,17 @@ const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
 
     return (
       <FlexRow ref={ref} flexDirection="column" minWidth={0} alignItems="stretch" overflow="hidden" {...props}>
-        {title === undefined ? null : (
-          <PropertyTitle
-            tip={tip}
-            title={required ? `${title}*` : title}
-            size={size}
-            more={<PropertyActionsMenu actions={actions} />}
-            {...titleProps}
-          />
-        )}
+        {title === undefined
+          ? null
+          : (
+              <PropertyTitle
+                tip={tip}
+                title={required ? `${title}*` : title}
+                size={size}
+                more={<PropertyActionsMenu actions={actions} />}
+                {...titleProps}
+              />
+            )}
         <FlexRow
           pl={1}
           columnGap={1}
@@ -41,14 +43,14 @@ const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
           overflow="hidden"
           height={sizeValueHeight[size]}
         >
-          {(children ?? value === undefined) ?
-            <CircularProgress size={16} />
-          : <PropertyValue value={value} typographyVariant={sizeVariants[size]} />}
-          {value === undefined ?
-            null
-          : badge ?
-            <IdenticonCorner value={value} />
-          : null}
+          {(children ?? value === undefined)
+            ? <CircularProgress size={16} />
+            : <PropertyValue value={value} typographyVariant={sizeVariants[size]} />}
+          {value === undefined
+            ? null
+            : badge
+              ? <IdenticonCorner value={value} />
+              : null}
         </FlexRow>
       </FlexRow>
     )

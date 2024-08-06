@@ -1,2 +1,2 @@
-export * from './DarkModeIconButton.js'
-export * from './Developer.js'
+export * from './DarkModeIconButton.tsx'
+export * from './Developer.tsx'

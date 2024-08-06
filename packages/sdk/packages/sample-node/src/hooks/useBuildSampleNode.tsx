@@ -21,7 +21,6 @@ export const useBuildSampleNode = (sampleModules: SampleNodeModules, apiDomain?:
   const [node, setNode] = useState<WeakRef<NodeInstance>>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       try {
         if ('Node' in sampleModules) {

@@ -15,23 +15,25 @@ const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({
   systemControlsType = SystemControlsType.WindowShade,
   ...props
 }) => {
-  const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
+  const isSmall = useMediaQuery<Theme>(theme => theme.breakpoints.down('sm'))
 
-  return visible || isSmall ?
-      <FlexCol {...props} className={`${props.className} system-controls-type-${systemControlsType}`}>
-        <SystemControl
-          systemControlsType={systemControlsType}
-          controlElement={
-            <>
-              <FlexRow className={'control-wrap'}>
-                <Paper variant="elevation" elevation={0}>
-                  <NetworkSelectEx responsive={false} className="network-ex" />
-                </Paper>
-              </FlexRow>
-            </>
-          }
-        />
-      </FlexCol>
+  return visible || isSmall
+    ? (
+        <FlexCol {...props} className={`${props.className} system-controls-type-${systemControlsType}`}>
+          <SystemControl
+            systemControlsType={systemControlsType}
+            controlElement={(
+              <>
+                <FlexRow className="control-wrap">
+                  <Paper variant="elevation" elevation={0}>
+                    <NetworkSelectEx responsive={false} className="network-ex" />
+                  </Paper>
+                </FlexRow>
+              </>
+            )}
+          />
+        </FlexCol>
+      )
     : <FlexCol />
 }
 

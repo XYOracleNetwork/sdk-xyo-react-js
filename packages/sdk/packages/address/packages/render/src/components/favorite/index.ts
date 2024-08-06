@@ -1,1 +1,1 @@
-export * from './FavoriteIconButton.js'
+export * from './FavoriteIconButton.tsx'

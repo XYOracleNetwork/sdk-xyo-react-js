@@ -38,7 +38,7 @@ const style: CytoscapeOptions['style'] = [
       'line-color': '#ccc',
       'target-arrow-color': '#ccc',
       'target-arrow-shape': 'triangle',
-      width: 3,
+      'width': 3,
     },
   },
 ]

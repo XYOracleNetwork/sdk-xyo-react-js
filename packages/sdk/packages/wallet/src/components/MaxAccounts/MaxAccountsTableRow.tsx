@@ -1,6 +1,6 @@
 import { ButtonGroup, TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { OutOfBoundsSnackBar } from './OutOfBoundsSnackBar.js'
 
@@ -45,14 +45,14 @@ export const MaxAccountsTableRow: React.FC<MaxAccountsTableRow> = ({ activeAccou
     <TableRow>
       <TableCell>Maximum Accounts</TableCell>
       <TableCell align="center">
-        <Typography variant={'caption'}>{maxAccounts}</Typography>
+        <Typography variant="caption">{maxAccounts}</Typography>
       </TableCell>
       <TableCell align="center">
         <ButtonGroup>
-          <ButtonEx onClick={() => handleChangeMaxAccounts('decrease')} variant={'contained'} size={'small'}>
+          <ButtonEx onClick={() => handleChangeMaxAccounts('decrease')} variant="contained" size="small">
             -
           </ButtonEx>
-          <ButtonEx onClick={() => handleChangeMaxAccounts('increase')} variant={'contained'} size={'small'}>
+          <ButtonEx onClick={() => handleChangeMaxAccounts('increase')} variant="contained" size="small">
             +
           </ButtonEx>
         </ButtonGroup>

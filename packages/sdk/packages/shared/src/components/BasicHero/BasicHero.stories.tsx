@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { BasicHero } from './BasicHero.js'
@@ -14,7 +15,7 @@ const StorybookEntry = {
   title: 'shared/BasicHero',
 } as Meta<typeof BasicHero>
 
-const Template: StoryFn<typeof BasicHero> = (args) => (
+const Template: StoryFn<typeof BasicHero> = args => (
   <BrowserRouter>
     <BasicHero {...args}></BasicHero>
   </BrowserRouter>
@@ -50,9 +51,8 @@ WithBackgroundImage.args = {
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 
 export { Default, WithBackgroundImage }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

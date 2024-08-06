@@ -18,10 +18,10 @@ export const EthersGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRende
 
   return (
     <CardContent ref={ref} sx={{ alignItems: 'start', display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
-      {parsedPayload &&
-        parsedPayload?.gasPrice?.map(({ price }) => (
-          <GasFeeCard key={price?.label} gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
-        ))}
+      {parsedPayload
+      && parsedPayload?.gasPrice?.map(({ price }) => (
+        <GasFeeCard key={price?.label} gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
+      ))}
       <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" pr={1} />
     </CardContent>
   )

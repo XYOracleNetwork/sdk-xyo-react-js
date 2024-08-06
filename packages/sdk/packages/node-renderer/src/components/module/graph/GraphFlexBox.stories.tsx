@@ -66,13 +66,12 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: ModuleGraphFlexBoxWithProvider,
   title: 'node/renderer/ModuleGraphFlexBoxWithProvider',
 } as Meta
 
-const Template: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => <ModuleGraphFlexBoxWithProvider {...props} />
+const Template: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = props => <ModuleGraphFlexBoxWithProvider {...props} />
 
 const TemplateWithProvidedModule: StoryFn<typeof ModuleGraphFlexBoxWithProvider> = (props) => {
   const [node] = useWeakProvidedNode()

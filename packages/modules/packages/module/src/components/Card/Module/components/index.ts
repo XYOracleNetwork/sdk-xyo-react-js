@@ -1,1 +1,1 @@
-export * from './DiscoverDialog.js'
+export * from './DiscoverDialog.tsx'

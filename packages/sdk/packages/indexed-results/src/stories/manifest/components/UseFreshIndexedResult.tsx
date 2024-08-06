@@ -55,7 +55,7 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
       },
       pollingConfig: {
         ...PollingStrategies.TillComplete,
-        onFoundResult: (result) => isEvmTokenInterfaceImplemented(result?.[0]),
+        onFoundResult: result => isEvmTokenInterfaceImplemented(result?.[0]),
       },
       trigger: !!node && !!archivist && !!contractSentinel,
     }
@@ -68,9 +68,9 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
   return (
     <FlexCol alignItems="start">
       <h1>Polling Results from Hook</h1>
-      {results ?
-        <pre>{JSON.stringify(results, null, 2)}</pre>
-      : null}
+      {results
+        ? <pre>{JSON.stringify(results, null, 2)}</pre>
+        : null}
     </FlexCol>
   )
 }

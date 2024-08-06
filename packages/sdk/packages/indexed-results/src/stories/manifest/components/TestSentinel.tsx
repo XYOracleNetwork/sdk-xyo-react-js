@@ -66,7 +66,7 @@ export const TestSentinel: React.FC<TestSentinelProps> = ({ children }) => {
             const sentinelName = `${tokenInterface}TokenInterfaceImplementedSentinel`
             const tokenSentinel = asSentinelInstance(await node.resolve(sentinelName))
             const tokenReport = await tokenSentinel?.report([contract])
-            const implemented = tokenReport?.filter(isEvmTokenInterfaceImplemented).some((i) => i.implemented)
+            const implemented = tokenReport?.filter(isEvmTokenInterfaceImplemented).some(i => i.implemented)
             setValid(implemented)
             setTimeout(() => setValid(undefined), 4000)
           }
@@ -80,21 +80,23 @@ export const TestSentinel: React.FC<TestSentinelProps> = ({ children }) => {
 
   return (
     <FlexCol gap={2} alignItems="start">
-      <TextField defaultValue={address} onChange={(e) => setAddressField(e.target.value)} />
-      <Select defaultValue={supportedTokenInterfaces[0]} onChange={(e) => setTokenInterfaceField(e.target.value)}>
-        {supportedTokenInterfaces.map((tokenInterface) => (
+      <TextField defaultValue={address} onChange={e => setAddressField(e.target.value)} />
+      <Select defaultValue={supportedTokenInterfaces[0]} onChange={e => setTokenInterfaceField(e.target.value)}>
+        {supportedTokenInterfaces.map(tokenInterface => (
           <MenuItem key={tokenInterface} value={tokenInterface}>
             {tokenInterface}
           </MenuItem>
         ))}
       </Select>
-      <Button variant={'contained'} onClick={handleReport}>
+      <Button variant="contained" onClick={handleReport}>
         Report
       </Button>
       {valid === undefined ? null : <Alert severity={valid ? 'success' : 'error'}>{valid ? 'Valid Interface' : 'Not a valid Interface'}</Alert>}
-      {indexedResult === undefined ? null : (
-        <Alert severity={indexedResult ? 'success' : 'error'}>{indexedResult ? 'Indexed Result Found' : 'Not an indexed result'}</Alert>
-      )}
+      {indexedResult === undefined
+        ? null
+        : (
+            <Alert severity={indexedResult ? 'success' : 'error'}>{indexedResult ? 'Indexed Result Found' : 'Not an indexed result'}</Alert>
+          )}
       {children?.({ address: addressField, chainId: 1, diviners: [IndexedDivinerName], tokenInterface: tokenInterfaceField })}
     </FlexCol>
   )

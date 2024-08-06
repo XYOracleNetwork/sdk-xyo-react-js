@@ -15,7 +15,7 @@ export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> =
 
   const updateResolvers = (resolverEntries?: ResolverEntries) => {
     if (resolverEntries) {
-      setResolvers((resolvers) => ({
+      setResolvers(resolvers => ({
         ...resolvers,
         ...resolverEntries,
       }))

@@ -14,7 +14,7 @@ const StorybookEntry = {
   title: 'shared/ThemeTokenAvatarGroup',
 } as Meta<typeof ThemeTokenAvatarGroup>
 
-const Template: StoryFn<typeof ThemeTokenAvatarGroup> = (args) => (
+const Template: StoryFn<typeof ThemeTokenAvatarGroup> = args => (
   <BrowserRouter>
     <ThemeTokenAvatarGroup {...args}></ThemeTokenAvatarGroup>
   </BrowserRouter>
@@ -38,5 +38,4 @@ WithData.args = {
 
 export { WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

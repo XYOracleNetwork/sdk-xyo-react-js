@@ -1,6 +1,6 @@
 import { Payload } from '@xyo-network/payload-model'
 
-import { EmbedPluginBase, EmbedPluginVisibilityConfig } from '../contexts/index.js'
+import { EmbedPluginBase, EmbedPluginVisibilityConfig } from '../contexts/index.ts'
 
 export interface EmbedPluginProps extends EmbedPluginBase {
   hideElementsConfig?: EmbedPluginVisibilityConfig

@@ -1,5 +1,5 @@
-/* eslint-disable import/no-internal-modules */
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 
 import { LoadResult } from './LoadResult.js'
 
@@ -32,5 +32,4 @@ SearchResult.args = { children: <h1>Shown when there is a valid result</h1>, sea
 
 export { ApiError, Default, NotFound, SearchResult }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

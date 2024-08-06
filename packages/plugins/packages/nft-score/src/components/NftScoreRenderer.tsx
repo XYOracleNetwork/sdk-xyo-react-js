@@ -41,36 +41,40 @@ export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScore) : undefined
   const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(isScore) : undefined
   const sources = nftScorePayload?.sources?.length ? nftScorePayload.sources.join(', ') : undefined
-  //this is temporary so that we can add the ability to get a timestamp via diviner later
+  // this is temporary so that we can add the ability to get a timestamp via diviner later
   const timestamp = Date.now()
   return (
     <FlexCol {...props}>
       <Typography variant="h1">{sources ? `NFT Scores (${sources})` : 'NFT Scores'}</Typography>
-      {timestamp ?
-        <Typography variant="h4">{`[${new Date(timestamp).toLocaleString()}]`}</Typography>
-      : null}
-      {categories ?
-        <Table>
-          <TableHead>
-            <TableCell key="Spacer"></TableCell>
-            <TableCell key="Actual">{'Actual'}</TableCell>
-            <TableCell key="Possible">{'Possible'}</TableCell>
-            <TableCell key="Rating">{'Rating'}</TableCell>
-          </TableHead>
-          <TableBody>
-            {categories.map(([category, score]) => {
-              return score ?
-                  <TableRow key={category}>
-                    <TableCell key="Category">{category}</TableCell>
-                    <TableCell key="Actual">{score[0]}</TableCell>
-                    <TableCell key="Possible">{score[1]}</TableCell>
-                    <TableCell key="Rating">{getScoreIcon(score)}</TableCell>
-                  </TableRow>
-                : null
-            })}
-          </TableBody>
-        </Table>
-      : null}
+      {timestamp
+        ? <Typography variant="h4">{`[${new Date(timestamp).toLocaleString()}]`}</Typography>
+        : null}
+      {categories
+        ? (
+            <Table>
+              <TableHead>
+                <TableCell key="Spacer"></TableCell>
+                <TableCell key="Actual">Actual</TableCell>
+                <TableCell key="Possible">Possible</TableCell>
+                <TableCell key="Rating">Rating</TableCell>
+              </TableHead>
+              <TableBody>
+                {categories.map(([category, score]) => {
+                  return score
+                    ? (
+                        <TableRow key={category}>
+                          <TableCell key="Category">{category}</TableCell>
+                          <TableCell key="Actual">{score[0]}</TableCell>
+                          <TableCell key="Possible">{score[1]}</TableCell>
+                          <TableCell key="Rating">{getScoreIcon(score)}</TableCell>
+                        </TableRow>
+                      )
+                    : null
+                })}
+              </TableBody>
+            </Table>
+          )
+        : null}
     </FlexCol>
   )
 }

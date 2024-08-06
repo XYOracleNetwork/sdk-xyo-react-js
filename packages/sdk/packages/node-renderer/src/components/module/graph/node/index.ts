@@ -1,1 +1,1 @@
-export * from './Hover.js'
+export * from './Hover.tsx'

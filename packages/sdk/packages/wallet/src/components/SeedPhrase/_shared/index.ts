@@ -1,1 +1,1 @@
-export * from './SeedPhraseIconButton.js'
+export * from './SeedPhraseIconButton.tsx'

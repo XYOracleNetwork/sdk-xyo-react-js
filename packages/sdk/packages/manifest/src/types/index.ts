@@ -1,1 +1,1 @@
-export * from './CreatablePackageManifest.js'
+export * from './CreatablePackageManifest.ts'

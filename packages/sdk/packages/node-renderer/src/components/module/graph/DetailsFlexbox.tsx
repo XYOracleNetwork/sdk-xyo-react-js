@@ -10,7 +10,7 @@ export const DetailsFlexbox: React.FC<DetailsFlexboxProps> = ({ children, onClos
   return (
     <FlexGrowCol alignItems="end" justifyContent="start" id="module-detail" width="100%" p={2} gap={2}>
       <FlexRow justifyContent="end">
-        <IconButton onClick={onClose} size={'small'}>
+        <IconButton onClick={onClose} size="small">
           <CancelRounded />
         </IconButton>
       </FlexRow>

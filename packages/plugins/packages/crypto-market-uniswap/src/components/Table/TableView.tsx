@@ -88,7 +88,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell) => (
+        {headCells.map(headCell => (
           <TableCell
             key={headCell.id}
             align={headCell.align}
@@ -142,7 +142,7 @@ export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ pay
           <EnhancedTableHead order={order} orderBy={orderBy} onRequestSort={handleRequestSort} rowCount={uniswapPayload?.pairs.length ?? 0} />
           <TableBody>
             {[...(uniswapPayload?.pairs ?? [])]
-              //.sort(getComparator(order, orderBy))
+              // .sort(getComparator(order, orderBy))
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((pair, index: number) => {
                 return <UniswapTableRowRender key={index} tokenPair={pair} />

@@ -1,2 +1,2 @@
-export * from './useDetectWallets.js'
-export * from './useEnabledWallets.js'
+export * from './useDetectWallets.tsx'
+export * from './useEnabledWallets.tsx'

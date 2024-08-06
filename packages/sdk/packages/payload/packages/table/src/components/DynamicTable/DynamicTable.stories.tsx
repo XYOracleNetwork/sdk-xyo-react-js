@@ -18,7 +18,7 @@ const StorybookEntry = {
   title: 'payload/DynamicTable',
 } as Meta<typeof PayloadDynamicTable>
 
-const Template: StoryFn<typeof PayloadDynamicTable> = (args) => (
+const Template: StoryFn<typeof PayloadDynamicTable> = args => (
   <PayloadRenderPluginResolverProvider
     resolver={new PayloadRenderPluginResolver().register(UniswapPairsRenderPlugin).register(DefaultPayloadRenderPlugin)}
   >
@@ -59,14 +59,13 @@ WithData.args = {
 }
 
 const WithError = Template.bind({})
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 const { ...badPayload } = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
+// @ts-ignore
 WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
 export { Default, WithData, WithError }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -5,7 +5,7 @@ import { LinkEx } from '@xylabs/react-link'
 import { EventDispatch, EventNoun, useEvent } from '@xyo-network/react-event'
 import { Property, PropertyProps, PropertyValue } from '@xyo-network/react-property'
 import { SchemaCache, SchemaCacheEntry } from '@xyo-network/schema-cache'
-import { forwardRef, useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 
 export type SchemaPropertyProps = PropertyProps & {
   showLinkNames?: boolean
@@ -17,7 +17,6 @@ export type SchemaPropertyProps = PropertyProps & {
 const useResolveSchema = (schema?: string) => {
   const [entry, setEntry] = useState<SchemaCacheEntry | null>()
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       if (schema) {
         const entry = await SchemaCache.instance.get(schema)
@@ -50,34 +49,46 @@ export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
 
     return (
       <Property ref={forwardedRef} title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
-        {value && showStatusIcon ?
-          resolvedSchema === null ?
-            <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
-              <NewReleasesIcon color="warning" fontSize="inherit" />
-            </IconButton>
-          : resolvedSchema === undefined ?
-            <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
-              <NewReleasesIcon color="disabled" fontSize="inherit" />
-            </IconButton>
-          : <IconButton rel="noopener noreferrer" size="small" target="_blank" href={resolvedSchema?.huri?.href ?? ''}>
-              <VerifiedIcon color="success" fontSize="inherit" />
-            </IconButton>
+        {value && showStatusIcon
+          ? resolvedSchema === null
+            ? (
+                <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
+                  <NewReleasesIcon color="warning" fontSize="inherit" />
+                </IconButton>
+              )
+            : resolvedSchema === undefined
+              ? (
+                  <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
+                    <NewReleasesIcon color="disabled" fontSize="inherit" />
+                  </IconButton>
+                )
+              : (
+                  <IconButton rel="noopener noreferrer" size="small" target="_blank" href={resolvedSchema?.huri?.href ?? ''}>
+                    <VerifiedIcon color="success" fontSize="inherit" />
+                  </IconButton>
+                )
 
-        : null}
-        {value ?
-          <>
-            {showLinkNames ?
-              <LinkEx display="block" width="100%" sx={{ cursor: 'pointer' }}>
-                <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
-              </LinkEx>
-            : <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />}
-            {showOpenNewWindowLink ?
-              <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch, true)}>
-                <OpenInNewIcon fontSize="inherit" />
-              </IconButton>
-            : null}
-          </>
-        : null}
+          : null}
+        {value
+          ? (
+              <>
+                {showLinkNames
+                  ? (
+                      <LinkEx display="block" width="100%" sx={{ cursor: 'pointer' }}>
+                        <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
+                      </LinkEx>
+                    )
+                  : <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />}
+                {showOpenNewWindowLink
+                  ? (
+                      <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch, true)}>
+                        <OpenInNewIcon fontSize="inherit" />
+                      </IconButton>
+                    )
+                  : null}
+              </>
+            )
+          : null}
       </Property>
     )
   },

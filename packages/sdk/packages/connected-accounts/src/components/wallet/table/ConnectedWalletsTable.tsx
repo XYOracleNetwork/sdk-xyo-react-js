@@ -31,7 +31,7 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ ig
           </TableRow>
         </TableHead>
         <TableBody>
-          {(wallets ?? []).map((wallet) => (
+          {(wallets ?? []).map(wallet => (
             <WalletConnectionsTableRow
               ignoreConnectDialog={ignoreConnectDialog}
               key={wallet.providerInfo?.rdns}

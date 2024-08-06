@@ -1,3 +1,3 @@
-export * from './provider.js'
-export * from './State.js'
-export * from './use.js'
+export * from './provider.tsx'
+export * from './State.ts'
+export * from './use.ts'

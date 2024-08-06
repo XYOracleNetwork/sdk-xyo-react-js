@@ -1,2 +1,2 @@
-export * from './Context/index.js'
-export * from './System/index.js'
+export * from './Context/index.ts'
+export * from './System/index.ts'

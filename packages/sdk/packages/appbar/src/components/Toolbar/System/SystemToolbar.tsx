@@ -29,20 +29,22 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
   return (
     <Toolbar {...props}>
       {precedingChildren}
-      {hideNetworkSelect ? null : (
-        <FlexRow marginX={0.5}>
-          <Paper variant="elevation">
-            <NetworkSelectEx fullWidth {...networkSelectProps} />
-          </Paper>
-        </FlexRow>
-      )}
+      {hideNetworkSelect
+        ? null
+        : (
+            <FlexRow marginX={0.5}>
+              <Paper variant="elevation">
+                <NetworkSelectEx fullWidth {...networkSelectProps} />
+              </Paper>
+            </FlexRow>
+          )}
       {children}
-      {darkModeButton ?
-        <DarkModeIconButton color="inherit" />
-      : null}
-      {menuItems ?
-        <SiteMenu onMenuToggle={onMenuToggle}>{menuItems}</SiteMenu>
-      : null}
+      {darkModeButton
+        ? <DarkModeIconButton color="inherit" />
+        : null}
+      {menuItems
+        ? <SiteMenu onMenuToggle={onMenuToggle}>{menuItems}</SiteMenu>
+        : null}
     </Toolbar>
   )
 }

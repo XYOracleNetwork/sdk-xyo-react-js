@@ -22,5 +22,4 @@ export const EthereumGasPricePayloadPlugins: PayloadRenderPlugin[] = [
   ...EthereumGasPriceEtherchainPlugins,
 ]
 
-// eslint-disable-next-line import/no-default-export
 export default EthereumGasPricePayloadPlugins

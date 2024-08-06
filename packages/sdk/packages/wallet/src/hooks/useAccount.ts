@@ -3,7 +3,7 @@ import { AccountInstance } from '@xyo-network/account-model'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useRootWallet, useWalletContext, useWalletProvided } from '../contexts/index.js'
+import { useRootWallet, useWalletContext, useWalletProvided } from '../contexts/index.ts'
 
 export interface AccountHookParams {
   account?: AccountInstance
@@ -50,9 +50,11 @@ export const useAccount = ({ wallet, account, index, required = false }: Account
   }
 
   return [
-    error ? undefined
-    : (account ?? activeAccount ?? walletContextProvided) ? null
-    : undefined,
+    error
+      ? undefined
+      : (account ?? activeAccount ?? walletContextProvided)
+          ? null
+          : undefined,
     error,
   ]
 }

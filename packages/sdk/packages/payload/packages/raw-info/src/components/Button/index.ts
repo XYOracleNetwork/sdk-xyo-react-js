@@ -1,2 +1,2 @@
-export * from './RawInfoButton.js'
-export * from './RawInfoIconButton.js'
+export * from './RawInfoButton.tsx'
+export * from './RawInfoIconButton.tsx'

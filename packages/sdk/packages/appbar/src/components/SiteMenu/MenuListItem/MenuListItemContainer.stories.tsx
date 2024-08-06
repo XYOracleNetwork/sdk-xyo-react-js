@@ -51,5 +51,4 @@ WithChildren.args = {
 
 export { Default, WithChildren }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

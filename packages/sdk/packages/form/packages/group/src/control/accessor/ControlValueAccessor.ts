@@ -1,4 +1,4 @@
-import { ValidControlValue } from './ValidControlValue.js'
+import { ValidControlValue } from './ValidControlValue.tsx'
 
 export interface SetOptions {
   disableEmit?: boolean

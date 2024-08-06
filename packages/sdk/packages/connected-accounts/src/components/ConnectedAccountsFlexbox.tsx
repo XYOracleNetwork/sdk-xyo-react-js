@@ -20,14 +20,18 @@ export const ConnectedAccountsFlexbox = forwardRef<HTMLDivElement, ConnectedAcco
     return (
       <FlexCol alignItems="stretch" justifyContent="start" gap={2} ref={ref} {...props}>
         <FlexCol alignItems="start">
-          <Typography variant={'h2'} sx={{ mb: 0.5 }}>
+          <Typography variant="h2" sx={{ mb: 0.5 }}>
             Detected Web3 Wallets
           </Typography>
-          {totalConnectedAccounts ?
-            <Typography variant={'subtitle1'} color={theme.palette.secondary.main} sx={{ opacity: 0.5 }}>
-              Total Connected Accounts: {totalConnectedAccounts}
-            </Typography>
-          : null}
+          {totalConnectedAccounts
+            ? (
+                <Typography variant="subtitle1" color={theme.palette.secondary.main} sx={{ opacity: 0.5 }}>
+                  Total Connected Accounts:
+                  {' '}
+                  {totalConnectedAccounts}
+                </Typography>
+              )
+            : null}
         </FlexCol>
         <ConnectedWalletsTable wallets={sortedWallets} ignoreConnectDialog={ignoreConnectDialog} onIgnoreConnectDialog={onIgnoreConnectDialog} />
       </FlexCol>

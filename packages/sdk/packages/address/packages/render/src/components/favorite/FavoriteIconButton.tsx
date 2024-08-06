@@ -49,7 +49,7 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
           event.stopPropagation()
           setOpenPopper(!openPopper)
         }}
-        onMouseDown={(e) => e.stopPropagation()}
+        onMouseDown={e => e.stopPropagation()}
         sx={{ lineHeight: 0, p: 0.25 }}
         {...props}
       >

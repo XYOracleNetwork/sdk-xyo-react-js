@@ -3,6 +3,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { NodeManifest } from '@xyo-network/manifest'
 import { NodeInstance } from '@xyo-network/node-model'
 import { useWeakModulesFromNode } from '@xyo-network/react-node'
+import React from 'react'
 
 import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.js'
 
@@ -21,9 +22,9 @@ export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ mod, .
 
   return (
     <ModuleSummary mod={mod} icon={<HubRoundedIcon />} {...props}>
-      {manifestPublicModules !== undefined && downModulesFromResolve !== undefined && upModulesFromResolve !== undefined ?
-        `[${manifestPublicModules}m/${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
-      : null}
+      {manifestPublicModules !== undefined && downModulesFromResolve !== undefined && upModulesFromResolve !== undefined
+        ? `[${manifestPublicModules}m/${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
+        : null}
     </ModuleSummary>
   )
 }

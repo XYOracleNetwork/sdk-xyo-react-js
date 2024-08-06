@@ -1,5 +1,5 @@
 /* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-deprecated */
+
 import { Meta, StoryFn } from '@storybook/react'
 import { Hash } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
@@ -64,5 +64,4 @@ WithArchiveLinkPaper.args = { block: sampleBlock, paper: true }
 
 export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithPreviousHash }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

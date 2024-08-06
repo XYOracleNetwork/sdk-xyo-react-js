@@ -55,11 +55,11 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
     }
     const result = (await archivist.insert([boundwitness]))?.[0]
     if (result && mounted()) {
-      setNestedBoundWitnesses((value) => ({
+      setNestedBoundWitnesses(value => ({
         ...value,
         [hash]: boundwitness,
       }))
-      setHashSelectionHistory((previous) => [hash, ...previous])
+      setHashSelectionHistory(previous => [hash, ...previous])
       return result as WithMeta<BoundWitness>
     }
     return null

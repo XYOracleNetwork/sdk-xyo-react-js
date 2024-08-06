@@ -1,9 +1,9 @@
 /* eslint-disable deprecation/deprecation */
-/* eslint-disable import/no-deprecated */
+
 import { NodeInstance } from '@xyo-network/node-model'
 import { useMemo } from 'react'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.js'
+import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.tsx'
 
 export const useNodeConfigNodeField = (config?: ModuleFromNodeConfig | undefined): [string | undefined, NodeInstance | undefined] => {
   const nodeAddress = useMemo(() => (typeof config?.node === 'string' ? config?.node : undefined), [config?.node])

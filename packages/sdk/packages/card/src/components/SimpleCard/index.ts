@@ -1,1 +1,1 @@
-export * from './SimpleCard.js'
+export * from './SimpleCard.tsx'

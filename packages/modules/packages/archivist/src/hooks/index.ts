@@ -1,2 +1,2 @@
-export * from './node/index.js'
-export * from './queries/index.js'
+export * from './node/index.ts'
+export * from './queries/index.ts'

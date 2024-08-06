@@ -1,1 +1,1 @@
-export * from './UseIndexedResultsConfig.js'
+export * from './UseIndexedResultsConfig.ts'

@@ -15,7 +15,7 @@ const StorybookEntry = {
   title: 'plugin/blockchain/EtherchainV2GasPrice/DetailsBox',
 } as Meta<typeof EtherchainV2GasPriceDetailsBox>
 
-const Template: StoryFn<typeof EtherchainV2GasPriceDetailsBox> = (args) => <EtherchainV2GasPriceDetailsBox {...args} />
+const Template: StoryFn<typeof EtherchainV2GasPriceDetailsBox> = args => <EtherchainV2GasPriceDetailsBox {...args} />
 
 const Default = Template.bind({})
 Default.args = {}
@@ -28,5 +28,4 @@ WithMissingData.args = { payload: { schema: EthereumGasEtherchainV2Schema } }
 
 export { Default, WithData, WithMissingData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

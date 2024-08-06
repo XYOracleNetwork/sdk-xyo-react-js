@@ -15,7 +15,7 @@ const StorybookEntry = {
   title: 'payload/Details',
 } as Meta<typeof PayloadDetails>
 
-const Template: StoryFn<typeof PayloadDetails> = (args) => (
+const Template: StoryFn<typeof PayloadDetails> = args => (
   <BrowserRouter>
     <Routes>
       <Route path="temp" element={<h1>Successfully navigated to archivePath</h1>} />
@@ -50,5 +50,4 @@ WithArchiveLinkPaper.args = { paper: true, payload: samplePayloadFromBuilder }
 
 export { Default, DefaultPaper, WithArchiveLink, WithArchiveLinkPaper, WithBuilderSample, WithBuilderSamplePaper, WithSample, WithSamplePaper }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

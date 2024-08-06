@@ -10,7 +10,7 @@ export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>>
     console.warn('Both defaultNetworkConfig and defaultNetworkName were passed to provider. Falling back to defaultNetworkConfig')
   }
 
-  const resolvedDefaultNetworkConfig = defaultNetworkName ? defaultNetworkConfigs.find((config) => config.name === defaultNetworkName) : undefined
+  const resolvedDefaultNetworkConfig = defaultNetworkName ? defaultNetworkConfigs.find(config => config.name === defaultNetworkName) : undefined
 
   const [network, setNetwork] = useState(defaultNetworkConfig ?? resolvedDefaultNetworkConfig ?? defaultNetworkConfigs[0])
 

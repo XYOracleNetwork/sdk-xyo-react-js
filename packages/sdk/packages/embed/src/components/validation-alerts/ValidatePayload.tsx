@@ -9,7 +9,11 @@ export const ValidatePayloadAlert: React.FC<WithChildren<AlertProps>> = ({ child
   if (enabled && validPayload === false) {
     return (
       <Alert severity="error" title="Invalid Payload!" {...props}>
-        Payload schema claimed to be {schema} but failed to validate.
+        Payload schema claimed to be
+        {' '}
+        {schema}
+        {' '}
+        but failed to validate.
       </Alert>
     )
   }

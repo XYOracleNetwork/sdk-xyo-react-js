@@ -15,20 +15,22 @@ const PageCardWithRef = forwardRef<HTMLDivElement, PageCardProps>(({ subheader, 
   return (
     <CardEx style={{ backgroundColor: 'transparent', position: 'relative', ...style }} elevation={0} ref={ref} {...props}>
       <CardHeader
-        title={
+        title={(
           <TypographyEx variant="h5" gutterBottom>
             {title}
           </TypographyEx>
-        }
+        )}
         subheader={<TypographyEx variant="subtitle1">{subheader}</TypographyEx>}
         action={
           action ?? (
             <>
-              {onRefresh ?
-                <IconButton onClick={() => onRefresh?.()}>
-                  <RefreshIcon />
-                </IconButton>
-              : null}
+              {onRefresh
+                ? (
+                    <IconButton onClick={() => onRefresh?.()}>
+                      <RefreshIcon />
+                    </IconButton>
+                  )
+                : null}
             </>
           )
         }

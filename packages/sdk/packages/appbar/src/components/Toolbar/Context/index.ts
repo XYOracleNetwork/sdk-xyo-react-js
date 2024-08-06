@@ -1,1 +1,1 @@
-export * from './ContextToolbar.js'
+export * from './ContextToolbar.tsx'

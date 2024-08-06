@@ -1,2 +1,2 @@
-export * from './Dialog/index.js'
-export * from './JsonViewerEx.js'
+export * from './Dialog/index.ts'
+export * from './JsonViewerEx.tsx'

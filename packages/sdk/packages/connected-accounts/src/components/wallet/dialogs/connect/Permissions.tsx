@@ -15,7 +15,8 @@ export const WalletPermissionsFlexbox: React.FC<WalletPermissionsFlexBoxProps> =
       </ul>
       <Typography variant="subtitle1" sx={{ textAlign: 'center' }}>
         You control what accounts to share and what blockchains to view. You can see or revoke access via your wallet&apos;s settings at anytime. View
-        more on XYO&apos;s sovereign data philosophy{' '}
+        more on XYO&apos;s sovereign data philosophy
+        {' '}
         <Link
           href="https://cointelegraph.com/innovation-circle/decentralization-and-sovereignty-debunking-our-approach-to-digital-sovereignty"
           sx={{ fontWeight: 'bold' }}

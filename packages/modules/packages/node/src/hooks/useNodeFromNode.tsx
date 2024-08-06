@@ -1,7 +1,6 @@
 import { asNodeInstance, NodeInstance } from '@xyo-network/node-model'
 
 import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.js'
-// eslint-disable-next-line import/no-deprecated
 import { useModuleFromNode } from './useModuleFromNode.js'
 
 /** @deprecated use useWeakNodeFromNode instead */
@@ -9,7 +8,7 @@ export const useNodeFromNode = (
   nameOrAddressOrInstance?: string | NodeInstance,
   config?: ModuleFromNodeConfig,
 ): [NodeInstance | undefined, Error | undefined] => {
-  // eslint-disable-next-line import/no-deprecated, deprecation/deprecation
+  // eslint-disable-next-line deprecation/deprecation
   const [mod, error] = useModuleFromNode(nameOrAddressOrInstance, config)
   const instance = asNodeInstance(mod)
   if (mod && !instance) {

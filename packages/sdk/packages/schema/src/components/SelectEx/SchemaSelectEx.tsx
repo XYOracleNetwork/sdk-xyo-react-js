@@ -1,5 +1,6 @@
 import { MenuItem, Typography } from '@mui/material'
 import { SelectEx, SelectExProps } from '@xylabs/react-select'
+import React from 'react'
 
 import { useSchema } from '../../contexts/index.js'
 

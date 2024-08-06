@@ -4,6 +4,7 @@ import { isDivinerInstance } from '@xyo-network/diviner-model'
 import { isNodeInstance } from '@xyo-network/node-model'
 import { isSentinelInstance } from '@xyo-network/sentinel-model'
 import { isWitnessInstance } from '@xyo-network/witness-model'
+import React from 'react'
 
 import { ArchivistSummary } from './ArchivistSummary.js'
 import { BridgeSummary } from './BridgeSummary.js'

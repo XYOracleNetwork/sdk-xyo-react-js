@@ -37,9 +37,9 @@ export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProvi
 
   return (
     <ValidatePayloadContext.Provider value={{ enabled, provided: true, schema: payload?.schema, validPayload: valid }}>
-      {enabled ?
-        <>{initialized ? children : <Chip label="Validating Payload..." />}</>
-      : children}
+      {enabled
+        ? <>{initialized ? children : <Chip label="Validating Payload..." />}</>
+        : children}
     </ValidatePayloadContext.Provider>
   )
 }

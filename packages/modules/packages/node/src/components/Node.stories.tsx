@@ -24,7 +24,6 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/node/NodeBox',
 } as Meta

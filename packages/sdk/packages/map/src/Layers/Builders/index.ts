@@ -1,3 +1,3 @@
-export * from './LocationHeatMapLayerBuilder.js'
-export * from './LocationHeatMapLayerBuilderAnimated.js'
-export * from './LocationPointsMapLayerBuilder.js'
+export * from './LocationHeatMapLayerBuilder.ts'
+export * from './LocationHeatMapLayerBuilderAnimated.ts'
+export * from './LocationPointsMapLayerBuilder.ts'

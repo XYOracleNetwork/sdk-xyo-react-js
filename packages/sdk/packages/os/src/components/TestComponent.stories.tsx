@@ -2,7 +2,6 @@ import { Meta, StoryFn } from '@storybook/react'
 
 import { TestComponent, TestComponentProps } from './TestComponent.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: 'modules/os/TestComponent',
 } as Meta

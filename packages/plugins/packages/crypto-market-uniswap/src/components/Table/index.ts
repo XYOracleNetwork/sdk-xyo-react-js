@@ -1,1 +1,1 @@
-export * from './TableView.js'
+export * from './TableView.tsx'

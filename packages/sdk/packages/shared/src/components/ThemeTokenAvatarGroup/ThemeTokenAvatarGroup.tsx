@@ -1,4 +1,5 @@
 import { AvatarGroup, AvatarGroupProps } from '@mui/material'
+import React from 'react'
 
 import { ThemeTokenAvatar } from '../ThemeTokenAvatar/index.js'
 

@@ -1,1 +1,1 @@
-export * from './ErrorAlert.js'
+export * from './ErrorAlert.tsx'

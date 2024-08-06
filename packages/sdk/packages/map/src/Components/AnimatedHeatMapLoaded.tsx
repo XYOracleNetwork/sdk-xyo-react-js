@@ -28,24 +28,27 @@ export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ ac
 
   return (
     <FlexCol alignItems="stretch" {...props}>
-      {xyoError ?
-        <Alert sx={{ mt: 2 }}>
-          <AlertTitle>Error Loading Map</AlertTitle>
-          {xyoError.message ? `Error: ${xyoError.message}` : null}
-          You might try authenticating again.
-        </Alert>
-      : null}
-      {hashes === undefined ?
-        <Alert>Missing answer hash for heat map query</Alert>
-      : <AnimatedHeatMap
-          accessToken={accessToken}
-          defaultMapSettings={AnimatedHeatMapSettings}
-          animatedFeatureSets={multipleFeatureSets.slice(1, multipleFeatureSets.length) as Feature<Polygon>[][]}
-          staticFeatureSet={multipleFeatureSets[0] as Feature<Polygon>[]}
-          heatMapColorProps={heatMapColorProps}
-          {...MapBoxHeatProps}
-        />
-      }
+      {xyoError
+        ? (
+            <Alert sx={{ mt: 2 }}>
+              <AlertTitle>Error Loading Map</AlertTitle>
+              {xyoError.message ? `Error: ${xyoError.message}` : null}
+              You might try authenticating again.
+            </Alert>
+          )
+        : null}
+      {hashes === undefined
+        ? <Alert>Missing answer hash for heat map query</Alert>
+        : (
+            <AnimatedHeatMap
+              accessToken={accessToken}
+              defaultMapSettings={AnimatedHeatMapSettings}
+              animatedFeatureSets={multipleFeatureSets.slice(1) as Feature<Polygon>[][]}
+              staticFeatureSet={multipleFeatureSets[0] as Feature<Polygon>[]}
+              heatMapColorProps={heatMapColorProps}
+              {...MapBoxHeatProps}
+            />
+          )}
     </FlexCol>
   )
 }

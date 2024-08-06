@@ -1,4 +1,5 @@
 import { useTheme } from '@mui/material'
+import React from 'react'
 import { useLocation } from 'react-router-dom'
 import type { DeclarationReflection } from 'typedoc'
 

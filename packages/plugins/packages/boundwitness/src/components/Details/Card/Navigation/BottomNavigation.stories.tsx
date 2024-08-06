@@ -4,7 +4,6 @@ import { sampleBlock } from '@xyo-network/react-storybook'
 
 import { BoundWitnessBottomNavigation } from './BottomNavigation.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: BoundWitnessBottomNavigation,
   title: 'plugin/boundwitness/BottomNavigation',

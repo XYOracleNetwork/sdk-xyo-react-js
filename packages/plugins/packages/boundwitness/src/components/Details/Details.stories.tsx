@@ -74,5 +74,4 @@ WithArchiveLinkPaper.args = { paper: true, payload: sampleBlock }
 
 export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithNoData, WithPreviousHash }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

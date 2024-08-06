@@ -1,2 +1,2 @@
-export * from './ValidatePayload.js'
-export * from './ValidatePlugins.js'
+export * from './ValidatePayload.tsx'
+export * from './ValidatePlugins.tsx'

@@ -46,5 +46,4 @@ WithName.args = {
 
 export { Default, WithAddress, WithName }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

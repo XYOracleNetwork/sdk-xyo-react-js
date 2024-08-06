@@ -12,7 +12,11 @@ export const GasPriceHeadingTypography: React.FC<GasPriceHeadingTypographyProps>
   const theme = useTheme()
   return (
     <TypographyEx fontSize={theme.spacing(6)} lineHeight={1} {...props}>
-      {heading} {networkIcon} {children}
+      {heading}
+      {' '}
+      {networkIcon}
+      {' '}
+      {children}
     </TypographyEx>
   )
 }

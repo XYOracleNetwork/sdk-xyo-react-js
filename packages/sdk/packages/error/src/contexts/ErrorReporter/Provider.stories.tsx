@@ -20,7 +20,14 @@ const RollbarComponent = () => {
   const { rollbar } = useRollbar()
   const rollbarFound = typeof rollbar?.error === 'function'
 
-  return <Typography color={rollbarFound ? 'green' : 'red'}>Rollbar instance {rollbarFound ? '' : 'NOT'} found from context!</Typography>
+  return (
+    <Typography color={rollbarFound ? 'green' : 'red'}>
+      Rollbar instance
+      {rollbarFound ? '' : 'NOT'}
+      {' '}
+      found from context!
+    </Typography>
+  )
 }
 
 const Template: StoryFn<typeof ErrorReporterProvider> = () => {
@@ -36,5 +43,4 @@ const Default = Template.bind({})
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -1,2 +1,2 @@
-export * from './MenuListItemBase.js'
-export * from './NavListItemProps.js'
+export * from './MenuListItemBase.tsx'
+export * from './NavListItemProps.ts'

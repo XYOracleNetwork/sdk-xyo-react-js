@@ -1,1 +1,1 @@
-export * from './MaxAccountsTableRow.js'
+export * from './MaxAccountsTableRow.tsx'

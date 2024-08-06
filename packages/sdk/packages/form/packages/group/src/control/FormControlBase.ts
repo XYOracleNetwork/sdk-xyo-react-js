@@ -1,8 +1,8 @@
 import { EmptyObject } from '@xylabs/object'
 
-import { AbstractControl } from './AbstractControl.js'
-import { SetOptions } from './accessor/index.js'
-import { CursorPosition, FormControl } from './FormControl.js'
+import { AbstractControl } from './AbstractControl.ts'
+import { SetOptions } from './accessor/index.ts'
+import { CursorPosition, FormControl } from './FormControl.ts'
 
 const AllowAllRegex = /^.*$/s
 
@@ -72,6 +72,7 @@ export abstract class FormControlBase<TProps extends EmptyObject = EmptyObject> 
   override validate(): boolean {
     const normalizedValue = this.value ?? ''
     // prefer the blurError function since validation assumes the user is done typing
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     this.blurError ? this.blurError(normalizedValue) : this.changeError?.(normalizedValue)
     return !this.error
   }

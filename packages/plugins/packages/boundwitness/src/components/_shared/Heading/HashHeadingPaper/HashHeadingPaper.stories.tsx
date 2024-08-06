@@ -3,13 +3,12 @@ import { Meta, StoryFn } from '@storybook/react'
 import { BackPaperAdornment } from './Adornment/index.js'
 import { HashHeadingPaper } from './HashHeadingPaper.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: HashHeadingPaper,
   title: 'plugin/boundwitness/HashHeadingPaper',
 } as Meta
 
-const Template: StoryFn<typeof HashHeadingPaper> = (props) => <HashHeadingPaper {...props} />
+const Template: StoryFn<typeof HashHeadingPaper> = props => <HashHeadingPaper {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

@@ -40,16 +40,18 @@ export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>
         <IconButton onClick={handleClick} ref={ref} {...props}>
           <XyoColorLogo sx={{ height: size ?? iconSize, width: size ?? iconSize }} />
         </IconButton>
-        {iconOnly ? null : (
-          <RawInfoDialog
-            defaultExpandedJson={defaultExpandedJson}
-            jsonValue={json}
-            onCloseCallback={onCloseCallBackWrapped}
-            dialogContent={dialogContent}
-            open={open}
-            updateExpandedJson={updateExpandedJson}
-          />
-        )}
+        {iconOnly
+          ? null
+          : (
+              <RawInfoDialog
+                defaultExpandedJson={defaultExpandedJson}
+                jsonValue={json}
+                onCloseCallback={onCloseCallBackWrapped}
+                dialogContent={dialogContent}
+                open={open}
+                updateExpandedJson={updateExpandedJson}
+              />
+            )}
       </>
     )
   },

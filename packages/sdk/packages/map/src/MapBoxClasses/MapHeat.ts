@@ -3,10 +3,10 @@ import { delay } from '@xylabs/delay'
 import { forget } from '@xylabs/forget'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import { Feature, Polygon } from 'geojson'
-import { GeoJSONSource, LngLatBounds, Map, MapOptions, VectorSourceSpecification } from 'mapbox-gl'
+import { GeoJSONSource, GeoJSONSourceSpecification, LngLatBounds, Map, MapOptions } from 'mapbox-gl'
 
-import { MapLayer } from '../Layers/index.js'
-import { MapBase, MapBaseConfig } from './MapBase.js'
+import { MapLayer } from '../Layers/index.ts'
+import { MapBase, MapBaseConfig } from './MapBase.ts'
 
 export class MapHeat extends MapBase<Polygon> {
   static animationStarted = false
@@ -90,7 +90,7 @@ export class MapHeat extends MapBase<Polygon> {
       ]
     }
 
-    const fadedIn: boolean[] = layers.map((_) => false)
+    const fadedIn: boolean[] = layers.map(_ => false)
 
     const fadeIn = async (id: string, index: number) => {
       for (let i = steps; i >= 1; i--) {
@@ -145,7 +145,7 @@ export class MapHeat extends MapBase<Polygon> {
     await startAnimation()
   }
 
-  private static updateLayer(map: Map, layer: MapLayer, source: VectorSourceSpecification) {
+  private static updateLayer(map: Map, layer: MapLayer, source: GeoJSONSourceSpecification) {
     const existingSource = map.getSource(layer.source as string) as GeoJSONSource
     if (existingSource && source.data) {
       existingSource.setData(source.data as GeoJSON.Feature<GeoJSON.Geometry> | GeoJSON.FeatureCollection<GeoJSON.Geometry>)

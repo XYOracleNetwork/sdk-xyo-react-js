@@ -16,13 +16,15 @@ export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({ schemas, m
   const resolveSchemaToIcon = useCallback(
     (schema: string, index: number) => {
       const SchemaAvatar = resolver?.resolve({ schema })?.components.avatar.image
-      return SchemaAvatar ?
-          <SchemaAvatar key={index + schema} />
-        : <Avatar key={index + schema} title={schema} sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
-            {schema === BoundWitnessSchema ?
-              <VscSymbolMethod />
-            : <VscSymbolNamespace />}
-          </Avatar>
+      return SchemaAvatar
+        ? <SchemaAvatar key={index + schema} />
+        : (
+            <Avatar key={index + schema} title={schema} sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+              {schema === BoundWitnessSchema
+                ? <VscSymbolMethod />
+                : <VscSymbolNamespace />}
+            </Avatar>
+          )
     },
     [resolver],
   )

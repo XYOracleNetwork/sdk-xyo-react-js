@@ -1,6 +1,6 @@
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { DetailsRenderer } from './components/index.js'
+import { DetailsRenderer } from './components/index.ts'
 
 export const DefaultRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

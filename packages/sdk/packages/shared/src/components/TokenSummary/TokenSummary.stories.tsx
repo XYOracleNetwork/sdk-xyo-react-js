@@ -1,5 +1,6 @@
 import { Link } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import * as tokenData from '../TokenData/index.js'
@@ -15,7 +16,7 @@ const StorybookEntry = {
   title: 'shared/TokenSummary',
 } as Meta<typeof TokenSummary>
 
-const Template: StoryFn<typeof TokenSummary> = (args) => (
+const Template: StoryFn<typeof TokenSummary> = args => (
   <BrowserRouter>
     <TokenSummary {...args}></TokenSummary>
   </BrowserRouter>
@@ -37,5 +38,4 @@ SymbolElement.args = {
 
 export { SymbolElement, WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

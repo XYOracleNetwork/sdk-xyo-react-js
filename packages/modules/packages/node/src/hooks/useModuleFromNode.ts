@@ -1,13 +1,11 @@
-/* eslint-disable import/no-deprecated */
-/* eslint-disable deprecation/deprecation */
 import { TypeCheck } from '@xylabs/object'
 import { usePromise } from '@xylabs/react-promise'
 import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig.js'
-import { useModuleFilterOptions } from './useModuleFilterOptions.js'
-import { useNode } from './useNode.js'
+import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig.ts'
+import { useModuleFilterOptions } from './useModuleFilterOptions.ts'
+import { useNode } from './useNode.ts'
 
 /** @deprecated use useWeakModuleFromNode */
 export const useModuleFromNode = <T extends ModuleInstance | void = void>(
@@ -47,7 +45,6 @@ export const useModuleFromNode = <T extends ModuleInstance | void = void>(
     }
     logger?.debug('Result: No Node')
     return
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [node, nameOrAddressOrInstance])
   return [result, nodeError ?? error]
 }

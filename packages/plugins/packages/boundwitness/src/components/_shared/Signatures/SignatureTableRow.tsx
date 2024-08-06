@@ -54,17 +54,17 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
       </TableCell>
       <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center">
         <Typography variant="body2" fontFamily="monospace" ref={signatureRef} onClick={() => signatureDispatch('signature', 'click', signature)}>
-          {clickableFields.includes('signature') ?
-            <Link>{formattedHash(signature)}</Link>
-          : formattedHash(signature)}
+          {clickableFields.includes('signature')
+            ? <Link>{formattedHash(signature)}</Link>
+            : formattedHash(signature)}
         </Typography>
       </TableCell>
       <TableCell key="valid" align="center">
-        {errors === undefined ?
-          <MdDone fontSize={18} color="gray" />
-        : errors?.length === 0 ?
-          <MdDone fontSize={18} color="green" />
-        : <MdClear color="red" fontSize={18} />}
+        {errors === undefined
+          ? <MdDone fontSize={18} color="gray" />
+          : errors?.length === 0
+            ? <MdDone fontSize={18} color="green" />
+            : <MdClear color="red" fontSize={18} />}
       </TableCell>
     </TableRow>
   )

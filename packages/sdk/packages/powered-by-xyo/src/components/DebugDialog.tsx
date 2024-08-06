@@ -12,7 +12,7 @@ export const DebugDialog: React.FC<DebugDialogProps> = ({ onClose, ...props }) =
         <NodeDetails width="100%" />
       </DialogContent>
       <DialogActions>
-        <Button onClick={(event) => onClose?.(event, 'backdropClick')}>Close</Button>
+        <Button onClick={event => onClose?.(event, 'backdropClick')}>Close</Button>
       </DialogActions>
     </Dialog>
   )

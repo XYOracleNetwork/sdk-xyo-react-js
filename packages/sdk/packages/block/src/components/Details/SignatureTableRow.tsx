@@ -38,11 +38,11 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ 
         </Typography>
       </TableCell>
       <TableCell key="valid" align="center">
-        {errors === undefined ?
-          <MdDone fontSize={18} color="gray" />
-        : errors?.length === 0 ?
-          <MdDone fontSize={18} color="green" />
-        : <MdClear color="red" fontSize={18} />}
+        {errors === undefined
+          ? <MdDone fontSize={18} color="gray" />
+          : errors?.length === 0
+            ? <MdDone fontSize={18} color="green" />
+            : <MdClear color="red" fontSize={18} />}
       </TableCell>
     </TableRow>
   )

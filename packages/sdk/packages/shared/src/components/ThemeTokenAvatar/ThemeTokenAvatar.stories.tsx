@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import * as tokenData from '../TokenData/index.js'
@@ -14,7 +15,7 @@ const StorybookEntry = {
   title: 'shared/ThemeTokenAvatar',
 } as Meta<typeof ThemeTokenAvatar>
 
-const Template: StoryFn<typeof ThemeTokenAvatar> = (args) => (
+const Template: StoryFn<typeof ThemeTokenAvatar> = args => (
   <BrowserRouter>
     <ThemeTokenAvatar {...args}></ThemeTokenAvatar>
   </BrowserRouter>
@@ -25,5 +26,4 @@ WithData.args = { src: tokenData.TokenData[0].icon }
 
 export { WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

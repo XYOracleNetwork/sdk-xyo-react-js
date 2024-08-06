@@ -16,12 +16,14 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
 
   return (
     <FlexCol alignItems="stretch" {...props}>
-      {noTitle ? null : (
-        <FlexRow margin={1} justifyContent="flex-start">
-          <Typography>Hash Source</Typography>
-          <QuickTipButton title="Hash Source">The actual string used to generate the hash (SHA256)</QuickTipButton>
-        </FlexRow>
-      )}
+      {noTitle
+        ? null
+        : (
+            <FlexRow margin={1} justifyContent="flex-start">
+              <Typography>Hash Source</Typography>
+              <QuickTipButton title="Hash Source">The actual string used to generate the hash (SHA256)</QuickTipButton>
+            </FlexRow>
+          )}
       <FlexRow>
         <FlexGrowRow background border={1} borderColor={theme.palette.divider} justifyContent="start">
           <Typography padding={2} fontFamily="monospace" variant="body1" sx={{ overflowWrap: 'break-word', wordBreak: 'break-all' }}>
@@ -32,13 +34,15 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
           <ContentCopyIcon />
         </IconButton>
       </FlexRow>
-      {noTitle ?
-        <FlexRow margin={1} justifyContent="flex-start">
-          <Typography variant="body2">
-            The actual string used to generate the hash (SHA256). This can be used to validate the hash manually.
-          </Typography>
-        </FlexRow>
-      : null}
+      {noTitle
+        ? (
+            <FlexRow margin={1} justifyContent="flex-start">
+              <Typography variant="body2">
+                The actual string used to generate the hash (SHA256). This can be used to validate the hash manually.
+              </Typography>
+            </FlexRow>
+          )
+        : null}
     </FlexCol>
   )
 }

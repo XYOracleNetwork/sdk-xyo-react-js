@@ -39,19 +39,19 @@ export function TablePaginationActions({ count, enableNextPage, loading, onPageC
 
   return (
     <>
-      {loading ?
-        <CircularProgress size={'small'} sx={{ height: theme.spacing(2), position: 'absolute', width: theme.spacing(2) }} />
-      : null}
+      {loading
+        ? <CircularProgress size="small" sx={{ height: theme.spacing(2), position: 'absolute', width: theme.spacing(2) }} />
+        : null}
       <Box sx={{ flexShrink: 0, ml: 2.5 }}>
         <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
-          {theme.direction === 'rtl' ?
-            <LastPageIcon />
-          : <FirstPageIcon />}
+          {theme.direction === 'rtl'
+            ? <LastPageIcon />
+            : <FirstPageIcon />}
         </IconButton>
         <IconButton ref={paginationRef} onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
-          {theme.direction === 'rtl' ?
-            <KeyboardArrowRight />
-          : <KeyboardArrowLeft />}
+          {theme.direction === 'rtl'
+            ? <KeyboardArrowRight />
+            : <KeyboardArrowLeft />}
         </IconButton>
         <IconButton
           ref={paginationRef}
@@ -59,14 +59,14 @@ export function TablePaginationActions({ count, enableNextPage, loading, onPageC
           disabled={!enableNextPage && page >= Math.ceil(count / rowsPerPage) - 1}
           aria-label="next page"
         >
-          {theme.direction === 'rtl' ?
-            <KeyboardArrowLeft />
-          : <KeyboardArrowRight />}
+          {theme.direction === 'rtl'
+            ? <KeyboardArrowLeft />
+            : <KeyboardArrowRight />}
         </IconButton>
         <IconButton onClick={handleLastPageButtonClick} disabled={page >= Math.ceil(count / rowsPerPage) - 1} aria-label="last page">
-          {theme.direction === 'rtl' ?
-            <FirstPageIcon />
-          : <LastPageIcon />}
+          {theme.direction === 'rtl'
+            ? <FirstPageIcon />
+            : <LastPageIcon />}
         </IconButton>
       </Box>
     </>

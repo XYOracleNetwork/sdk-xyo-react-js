@@ -8,7 +8,6 @@ const DefaultArgs = {
   priorityFee: 1.0625,
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: GasFeeCard,
   title: 'plugin/blockchain/GasPrice/GasFeeCard',

@@ -38,5 +38,4 @@ WithErrorAndScopeAndTitle.args = { error: 'An error happened', scope: 'Storybook
 
 export { Default, WithError, WithErrorAndScope, WithErrorAndScopeAndTitle, WithScope, WithTitle }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

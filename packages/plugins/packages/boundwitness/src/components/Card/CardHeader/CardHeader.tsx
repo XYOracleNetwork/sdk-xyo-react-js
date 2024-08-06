@@ -38,20 +38,20 @@ export const BoundWitnessCardHeader = forwardRef<HTMLElement, BoundWitnessCardHe
       <CardHeaderHash
         active={active}
         activeBgColor={activeBgColor}
-        title={
+        title={(
           <BWHeading
             heading={hash}
-            IconComponent={
+            IconComponent={(
               <Identicon
                 size={Number.parseInt(theme.spacing(2.5).replace('px', ''))}
                 p={0.5}
                 value={hash}
                 sx={{ background: theme.palette.background.paper }}
               />
-            }
+            )}
           />
-        }
-        action={
+        )}
+        action={(
           <BWActions
             hideJSONButton={hideJSONButton}
             hideValidation={hideValidation}
@@ -60,7 +60,7 @@ export const BoundWitnessCardHeader = forwardRef<HTMLElement, BoundWitnessCardHe
             boundwitness={boundwitness}
             additionalActions={additionalActions}
           />
-        }
+        )}
         {...props}
       />
     )
@@ -76,7 +76,7 @@ interface CardHeaderHashProps extends CardHeaderProps {
 
 const CardHeaderHash = styled(CardHeader, {
   name: 'CardHeaderHash',
-  shouldForwardProp: (prop) => !['active', 'activeBgColor'].includes(prop as string),
+  shouldForwardProp: prop => !['active', 'activeBgColor'].includes(prop as string),
 })<CardHeaderHashProps>(({ theme, active, activeBgColor }) => ({
   '& .MuiCardHeader-action': {
     marginBottom: 0,
@@ -91,5 +91,5 @@ const CardHeaderHash = styled(CardHeader, {
     paddingBottom: theme.spacing(1),
     paddingTop: theme.spacing(1),
   },
-  padding: `${theme.spacing(0.5)} ${theme.spacing(2)}`,
+  'padding': `${theme.spacing(0.5)} ${theme.spacing(2)}`,
 }))

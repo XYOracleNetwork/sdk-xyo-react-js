@@ -12,13 +12,12 @@ const TestPayload: TestPayload = {
   type: 'test',
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: RawInfoDialog,
   title: 'payload/RawInfoDialog',
 } as Meta
 
-const Template: StoryFn<typeof RawInfoDialog> = (args) => (
+const Template: StoryFn<typeof RawInfoDialog> = args => (
   <FlexCol>
     <RawInfoDialog {...args} />
   </FlexCol>

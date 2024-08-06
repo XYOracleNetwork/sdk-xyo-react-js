@@ -8,7 +8,7 @@ export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = (
   const makeTokenList = (payloadData: UniswapCryptoPair[]) => {
     const tokenList: string[] = []
     {
-      payloadData.map((pair) => pair.tokens.map((token) => (tokenList.includes(token.symbol) ? null : tokenList.push(token.symbol))))
+      payloadData.map(pair => pair.tokens.map(token => (tokenList.includes(token.symbol) ? null : tokenList.push(token.symbol))))
     }
     console.log(tokenList)
     return tokenList
@@ -17,7 +17,7 @@ export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = (
   const makeTokenImageList = (tokenNameData: TokenData[]) => {
     const tokenImageList: string[] = []
     {
-      tokenNameData.map((token) => (tokenImageList.includes(token.icon) ? null : tokenImageList.push(token.icon)))
+      tokenNameData.map(token => (tokenImageList.includes(token.icon) ? null : tokenImageList.push(token.icon)))
     }
     console.log(tokenImageList)
     return tokenImageList

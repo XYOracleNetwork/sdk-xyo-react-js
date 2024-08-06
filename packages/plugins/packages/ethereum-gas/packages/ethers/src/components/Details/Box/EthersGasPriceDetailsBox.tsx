@@ -17,23 +17,24 @@ export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetail
 
     return (
       <>
-        {isEmpty(gasPricePayload) || !gasPricePayload.maxFeePerGas ?
-          <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
-        : <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
-            <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
-            {parsedPayload &&
-              parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
-                <GasFeeCard
-                  key={price?.label}
-                  gasPrice={price?.value}
-                  speed={price?.label}
-                  priorityFee={priorityFee?.value}
-                  priorityFeeLabel={priorityFee?.label}
-                />
-              ))}
-            <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
-          </FlexCol>
-        }
+        {isEmpty(gasPricePayload) || !gasPricePayload.maxFeePerGas
+          ? <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
+          : (
+              <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+                <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
+                {parsedPayload
+                && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
+                  <GasFeeCard
+                    key={price?.label}
+                    gasPrice={price?.value}
+                    speed={price?.label}
+                    priorityFee={priorityFee?.value}
+                    priorityFeeLabel={priorityFee?.label}
+                  />
+                ))}
+                <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
+              </FlexCol>
+            )}
       </>
     )
   },

@@ -44,8 +44,8 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
 
           schema: SentinelConfigSchema,
           synchronous: true,
-          // eslint-disable-next-line id-denylist
-          tasks: witnesses?.map((mod) => ({ mod: mod.address })),
+
+          tasks: witnesses?.map(mod => ({ mod: mod.address })),
         } as SentinelConfig,
       })
       const offCallbacks: (() => void)[] = []
@@ -104,7 +104,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
         }
       setSentinel(sentinel as MemorySentinel)
       return () => {
-        //unsubscribe from events
+        // unsubscribe from events
         for (const callback of offCallbacks) {
           callback()
         }
@@ -118,7 +118,7 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
     setHistory(sentinel?.history as BoundWitness[])
   }, [sentinel])
 
-  return !required || sentinel ?
-      <SentinelContext.Provider value={{ history, progress, provided: true, reportingErrors, sentinel, status }}>{children}</SentinelContext.Provider>
+  return !required || sentinel
+    ? <SentinelContext.Provider value={{ history, progress, provided: true, reportingErrors, sentinel, status }}>{children}</SentinelContext.Provider>
     : null
 }

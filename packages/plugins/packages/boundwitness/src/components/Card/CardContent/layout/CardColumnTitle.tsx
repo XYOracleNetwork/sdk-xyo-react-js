@@ -5,4 +5,4 @@ export const CardColumnTitle = styled(Typography, { name: 'CardColumnTitle' })((
   fontWeight: 500,
 }))
 
-export const CardColumnTitleH2: React.FC<TypographyProps> = (props) => <CardColumnTitle {...props} />
+export const CardColumnTitleH2: React.FC<TypographyProps> = props => <CardColumnTitle {...props} />

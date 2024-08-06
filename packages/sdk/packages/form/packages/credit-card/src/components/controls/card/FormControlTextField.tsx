@@ -45,7 +45,7 @@ export const FormControlTextField = forwardRef<HTMLDivElement, FormControlTextFi
               }}
               ref={ref}
               required={formControl?.required}
-              size={'small'}
+              size="small"
               variant="filled"
               {...props}
             />

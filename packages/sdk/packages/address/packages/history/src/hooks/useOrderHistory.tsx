@@ -6,7 +6,7 @@ import { PayloadHasher } from '@xyo-network/hash'
 const findYoungestBW = async (addressHistory: BoundWitness[]): Promise<BoundWitness | undefined> => {
   const addressHistoryPairs = await PayloadHasher.hashPairs(addressHistory)
   return addressHistoryPairs?.find(([_, bwHash]) => {
-    const isChild = addressHistory.some((nestedBW) => nestedBW.previous_hashes.includes(bwHash))
+    const isChild = addressHistory.some(nestedBW => nestedBW.previous_hashes.includes(bwHash))
     return !isChild
   })?.[0]
 }
@@ -14,7 +14,7 @@ const findYoungestBW = async (addressHistory: BoundWitness[]): Promise<BoundWitn
 // find the index in addressHistory of the parent by comparing possible parent hashes
 // to the current child's previous_hashes[0]
 const findParent = (hashes: string[], addressHistory: BoundWitness[], currentChild?: BoundWitness) => {
-  const nextParentIndex = hashes?.findIndex((hash) => hash === currentChild?.previous_hashes[0])
+  const nextParentIndex = hashes?.findIndex(hash => hash === currentChild?.previous_hashes[0])
   return addressHistory[nextParentIndex]
 }
 

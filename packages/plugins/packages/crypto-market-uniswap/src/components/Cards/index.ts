@@ -1,1 +1,1 @@
-export * from './CardView.js'
+export * from './CardView.tsx'

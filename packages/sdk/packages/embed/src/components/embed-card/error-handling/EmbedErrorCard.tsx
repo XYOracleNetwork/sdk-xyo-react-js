@@ -24,18 +24,26 @@ const DefaultErrorAlert: React.FC<EmbedErrorCardBaseProps> = ({ alertProps, scop
   return (
     <Alert severity="error" {...alertProps}>
       <AlertTitle>Whoops! Something went wrong</AlertTitle>
-      {scope ?
-        <Typography variant="caption">Scope: {scope}</Typography>
-      : null}
-      {!hideErrorDetails && error ?
-        <>
-          <Typography variant="caption">Error: </Typography>
-          <Typography variant="caption">{error?.message}</Typography>
-        </>
-      : <Typography variant="caption" fontSize="small">
-          Error Loading Plugin
-        </Typography>
-      }
+      {scope
+        ? (
+            <Typography variant="caption">
+              Scope:
+              {scope}
+            </Typography>
+          )
+        : null}
+      {!hideErrorDetails && error
+        ? (
+            <>
+              <Typography variant="caption">Error: </Typography>
+              <Typography variant="caption">{error?.message}</Typography>
+            </>
+          )
+        : (
+            <Typography variant="caption" fontSize="small">
+              Error Loading Plugin
+            </Typography>
+          )}
     </Alert>
   )
 }

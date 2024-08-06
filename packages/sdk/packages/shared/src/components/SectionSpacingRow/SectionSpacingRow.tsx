@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material'
 import { FlexBoxProps, FlexGrowRow } from '@xylabs/react-flexbox'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 export const SectionSpacingRow = forwardRef<HTMLDivElement, FlexBoxProps>(({ children, sx, ...props }, ref) => {
   const theme = useTheme()

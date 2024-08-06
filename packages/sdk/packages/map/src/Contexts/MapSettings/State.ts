@@ -1,6 +1,6 @@
 import { Dispatch } from 'react'
 
-import { MapSetting } from '../../Settings/index.js'
+import { MapSetting } from '../../Settings/index.ts'
 
 export interface MapSettingsState {
   mapSettings?: MapSetting

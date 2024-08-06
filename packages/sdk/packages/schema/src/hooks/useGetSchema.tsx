@@ -15,7 +15,6 @@ const useGetSchemaPayload = (schema?: string) => {
   const [schemaLocal, setSchemaLocal] = useState<string>()
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async (mounted) => {
       const firstRequest = !notFound && !schemaCacheEntry && !xyoError
       const schemaChanged = schema !== schemaLocal

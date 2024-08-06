@@ -31,6 +31,6 @@ export class PayloadRenderPluginResolver {
   }
 
   resolve(payload: Payload) {
-    return this.schemaDefaultPlugin.get(payload.schema) ?? [...this.plugins.values()].find((plugin) => plugin.canRender(payload))
+    return this.schemaDefaultPlugin.get(payload.schema) ?? [...this.plugins.values()].find(plugin => plugin.canRender(payload))
   }
 }

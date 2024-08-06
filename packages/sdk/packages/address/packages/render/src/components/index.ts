@@ -1,3 +1,3 @@
-export * from './favorite/index.js'
-export * from './lib/index.js'
-export * from './RenderRowBox.js'
+export * from './favorite/index.ts'
+export * from './lib/index.ts'
+export * from './RenderRowBox.tsx'

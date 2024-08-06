@@ -10,7 +10,8 @@ export const ValidatePluginsAlert: React.FC<WithChildren<AlertProps>> = ({ child
   if (payload && plugins?.length === 0) {
     return (
       <Alert severity="warning" {...props}>
-        <AlertTitle>Missing plugins!</AlertTitle>Payload found but no plugins were present.
+        <AlertTitle>Missing plugins!</AlertTitle>
+        Payload found but no plugins were present.
       </Alert>
     )
   }

@@ -1,1 +1,1 @@
-export * from './FavoriteItemEvent.js'
+export * from './FavoriteItemEvent.ts'

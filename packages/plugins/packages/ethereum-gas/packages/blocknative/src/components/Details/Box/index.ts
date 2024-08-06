@@ -1,1 +1,1 @@
-export * from './BlocknativeGasPriceDetailsBox.js'
+export * from './BlocknativeGasPriceDetailsBox.tsx'

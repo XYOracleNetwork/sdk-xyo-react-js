@@ -1,4 +1,3 @@
-/* eslint-disable import/no-internal-modules */
 import { Alert } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 
@@ -22,10 +21,14 @@ Default.args = {}
 
 const CustomErrorComponent = Template.bind({})
 CustomErrorComponent.args = {
-  errorComponent: (e) => <Alert severity="error">Using Custom Error Component with error: {e.message}</Alert>,
+  errorComponent: e => (
+    <Alert severity="error">
+      Using Custom Error Component with error:
+      {e.message}
+    </Alert>
+  ),
 }
 
 export { CustomErrorComponent, Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

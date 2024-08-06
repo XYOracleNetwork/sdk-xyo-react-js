@@ -1,4 +1,5 @@
 import { styled, TableCell, TableRow, TableRowProps, Typography, TypographyProps } from '@mui/material'
+import React from 'react'
 
 export interface TableRowNoDataProps extends TableRowProps {
   additionalCells?: number
@@ -14,11 +15,11 @@ export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ additionalCells,
           No Data To Display...
         </Typography>
       </StyledTableCell>
-      {additionalCells ?
-        Array.from({ length: additionalCells })
+      {additionalCells
+        ? Array.from({ length: additionalCells })
           .fill(null)
           .map((_fill, index) => <StyledTableCell key={index} hideBorder={hideBorder} />)
-      : null}
+        : null}
     </TableRow>
   )
 }

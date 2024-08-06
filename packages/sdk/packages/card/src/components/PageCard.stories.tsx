@@ -1,4 +1,3 @@
-/* eslint-disable import/no-internal-modules */
 import { CardContent, Typography } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
@@ -29,7 +28,10 @@ const Template: StoryFn<typeof PageCard> = (props) => {
     <PageCard title="Page Card" subheader="subheader" onRefresh={() => setRefreshedValue(Math.random())} {...props}>
       <CardContent>
         <Typography variant="body1">Page Card Content</Typography>
-        <Typography variant="body1">Refreshed Value: {refreshedValue?.toString()}</Typography>
+        <Typography variant="body1">
+          Refreshed Value:
+          {refreshedValue?.toString()}
+        </Typography>
       </CardContent>
     </PageCard>
   )
@@ -62,5 +64,4 @@ WithRef.decorators = [WithRefDecorator]
 
 export { Default, WithNoOnRefresh, WithRef }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

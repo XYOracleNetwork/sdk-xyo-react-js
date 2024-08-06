@@ -64,5 +64,4 @@ WithNestedBWPayloads.args = {
 
 export { Default, WithData, WithNestedBWPayloads, WithNoData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

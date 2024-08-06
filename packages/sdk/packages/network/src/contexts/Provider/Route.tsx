@@ -18,7 +18,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const slug = params.get('network')
   const routeNetwork = slug ? findNetworkConfig(slug) : undefined
 
-  //update the network stored in the route
+  // update the network stored in the route
   const setNetworkParam = useCallback(
     (network?: NetworkPayload) => {
       if (network) {
@@ -32,7 +32,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
     [params, setParams, setNetwork],
   )
 
-  //if the network is actively changed, update both memory and route
+  // if the network is actively changed, update both memory and route
   const setNetworkLocal = useCallback(
     (network: NetworkPayload) => {
       setNetworkParam(network)
@@ -41,14 +41,14 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
     [setNetworkParam, setNetwork],
   )
 
-  //sync memory and route storage of network
+  // sync memory and route storage of network
   useEffect(() => {
     if (routeNetwork !== network) {
       if (routeNetwork === undefined && network !== undefined) {
-        //if the route does not have a network selected, use what is in the memory context
+        // if the route does not have a network selected, use what is in the memory context
         setNetworkParam(network)
       } else if (routeNetwork) {
-        //if the route has a selection and it is different from memory, update memory
+        // if the route has a selection and it is different from memory, update memory
         setNetwork?.(routeNetwork)
       }
     }

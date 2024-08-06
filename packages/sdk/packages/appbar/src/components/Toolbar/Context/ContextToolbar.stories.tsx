@@ -14,7 +14,7 @@ const StorybookEntry = {
   title: 'appbar/Toolbar/Context',
 } as Meta<typeof ContextToolbar>
 
-const Template: StoryFn<typeof ContextToolbar> = (args) => (
+const Template: StoryFn<typeof ContextToolbar> = args => (
   <BrowserRouter>
     <ContextToolbar {...args}></ContextToolbar>
   </BrowserRouter>
@@ -28,5 +28,4 @@ WithVersion.args = { version: true }
 
 export { Default, WithVersion }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

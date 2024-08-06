@@ -11,13 +11,12 @@ const TestPayload: TestPayload = {
   type: 'test',
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: RawInfoIconButton,
   title: 'payload/RawInfoIconButton',
 } as Meta
 
-const Template: StoryFn<typeof RawInfoIconButton> = (args) => (
+const Template: StoryFn<typeof RawInfoIconButton> = args => (
   <FlexCol>
     <RawInfoIconButton {...args} />
   </FlexCol>

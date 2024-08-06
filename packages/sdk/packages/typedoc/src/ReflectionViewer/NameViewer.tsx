@@ -1,5 +1,6 @@
 import { Chip, Stack, Typography, TypographyVariant } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import React from 'react'
 
 import { JsonViewerButton } from '../JsonViewerButton.js'
 import { SomeReflection } from '../SomeReflection.js'
@@ -19,19 +20,19 @@ export const NameViewer: React.FC<NameViewerProps> = ({ reflectionViewer, varian
       <FlexRow marginRight={1}>
         <Typography variant={variant} noWrap>
           {reflection.name}
-          {reflection.type ?
-            <>:&nbsp;</>
-          : null}
+          {reflection.type
+            ? <>:&nbsp;</>
+            : null}
         </Typography>
         <SomeTypeViewer reflection={reflection} reflectionViewer={reflectionViewer} />
       </FlexRow>
       <Stack direction="row" spacing={1}>
         <Chip size="small" label={reflection.kind} />
-        {reflection.flags ?
-          Object.entries(reflection.flags).map(([flag, value]) => {
+        {reflection.flags
+          ? Object.entries(reflection.flags).map(([flag, value]) => {
             return value ? <Chip size="small" key={flag} label={trimFlagLabel(flag)} variant="outlined" /> : null
           })
-        : null}
+          : null}
       </Stack>
       {document && document?.location.hostname === 'localhost' && (
         <JsonViewerButton size="small" variant="contained" padding={0} marginX={1} src={reflection} />

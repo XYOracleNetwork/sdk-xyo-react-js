@@ -5,7 +5,6 @@ import { randomizedSampleAddressHistory, sampleAddressHistory } from '@xyo-netwo
 import { ActiveBWDecorator } from '../stories/index.js'
 import { AddressHistory } from './AddressHistory.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: AddressHistory,
   decorators: [ActiveBWDecorator],

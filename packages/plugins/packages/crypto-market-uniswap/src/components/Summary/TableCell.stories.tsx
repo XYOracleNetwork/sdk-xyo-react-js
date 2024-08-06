@@ -14,12 +14,11 @@ const StorybookEntry = {
   title: 'plugin/uniswap/TableCellSummary',
 } as Meta<typeof TableCellSummary>
 
-const Template: StoryFn<typeof TableCellSummary> = (args) => <TableCellSummary {...args}></TableCellSummary>
+const Template: StoryFn<typeof TableCellSummary> = args => <TableCellSummary {...args}></TableCellSummary>
 
 const WithData = Template.bind({})
 WithData.args = { payload: payloadData }
 
 export { WithData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

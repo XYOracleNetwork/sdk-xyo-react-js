@@ -64,19 +64,21 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
           </FlexRow>
         </LinkEx>
         <FlexRow style={{ marginLeft: theme.spacing(1) }}>
-          {subNavListItems ?
-            <SubNavToggleIconButton setOpenSubNav={setOpenSubNav} openSubNav={openSubNav} />
-          : null}
-          {tooltip ?
-            <ListItemTooltip title={tooltip} />
-          : null}
+          {subNavListItems
+            ? <SubNavToggleIconButton setOpenSubNav={setOpenSubNav} openSubNav={openSubNav} />
+            : null}
+          {tooltip
+            ? <ListItemTooltip title={tooltip} />
+            : null}
         </FlexRow>
       </MenuListItem>
-      {subNavListItems ?
-        <SubNavListItemsCollapse openSubNav={openSubNav} collapse={collapse}>
-          {subNavListItems?.map((item, index) => <MenuListItemContainer dense={dense} sx={{ pl: theme.spacing(1) }} key={index} {...item} />)}
-        </SubNavListItemsCollapse>
-      : null}
+      {subNavListItems
+        ? (
+            <SubNavListItemsCollapse openSubNav={openSubNav} collapse={collapse}>
+              {subNavListItems?.map((item, index) => <MenuListItemContainer dense={dense} sx={{ pl: theme.spacing(1) }} key={index} {...item} />)}
+            </SubNavListItemsCollapse>
+          )
+        : null}
     </>
   )
 }

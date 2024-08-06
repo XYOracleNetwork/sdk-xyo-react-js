@@ -14,7 +14,7 @@ const StorybookEntry = {
   title: 'plugin/aggregate-price/CryptoAssetRenderer',
 } as Meta<typeof CryptoAssetRenderer>
 
-const Template: StoryFn<typeof CryptoAssetRenderer> = (args) => <CryptoAssetRenderer {...args}></CryptoAssetRenderer>
+const Template: StoryFn<typeof CryptoAssetRenderer> = args => <CryptoAssetRenderer {...args}></CryptoAssetRenderer>
 
 const Default = Template.bind({})
 Default.args = {}
@@ -27,5 +27,4 @@ WithMissingData.args = { payload: payloadDataMissingAssets }
 
 export { Default, WithData, WithMissingData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

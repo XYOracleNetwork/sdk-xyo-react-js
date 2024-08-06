@@ -1,2 +1,2 @@
-export * from './JsonViewerCollapse.js'
-export * from './RawInfoDialog.js'
+export * from './JsonViewerCollapse.tsx'
+export * from './RawInfoDialog.tsx'

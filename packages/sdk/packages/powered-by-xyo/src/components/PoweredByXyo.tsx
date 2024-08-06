@@ -7,7 +7,7 @@ import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { Module } from '@xyo-network/module-model'
 import { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode } from '@xyo-network/react-node'
-import { KeyboardEvent, useMemo, useState } from 'react'
+import React, { KeyboardEvent, useMemo, useState } from 'react'
 
 import { DebugDialog } from './DebugDialog.js'
 import { PoweredByXyoButton, PoweredByXyoButtonProps } from './PoweredByXyoButton.js'
@@ -28,7 +28,7 @@ export interface PoweredByXyoProps extends FlexBoxProps {
 export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   autoStop,
   busy,
-  buttonProps = {},
+  buttonProps,
   debugDialog = false,
   disableAnimation = false,
   href = 'https://xyo.network',
@@ -41,21 +41,20 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   const [node] = useProvidedNode()
   const [debugDialogOpen, setDebugDialogOpen] = useState(false)
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const busyMap: Record<string, boolean> = useMemo(() => ({}), [node])
 
   const activeBusy = busy ?? Object.values(busyMap).includes(true)
 
-  const activeOnButtonClick: PoweredByXyoProps['onButtonClick'] =
-    (debugDialog ?
-      (event) => {
-        if (event.shiftKey && event.altKey) {
-          setDebugDialogOpen(true)
-        } else if (href) {
-          window.open(href)
+  const activeOnButtonClick: PoweredByXyoProps['onButtonClick']
+    = (debugDialog
+      ? (event) => {
+          if (event.shiftKey && event.altKey) {
+            setDebugDialogOpen(true)
+          } else if (href) {
+            window.open(href)
+          }
         }
-      }
-    : undefined) ?? onButtonClick
+      : undefined) ?? onButtonClick
 
   const activeHref = activeOnButtonClick ? undefined : href
 
@@ -66,7 +65,6 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   }
 
   useAsyncEffect(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async () => {
       const activeNode = propNode ?? node
       if (disableAnimation) {
@@ -115,9 +113,9 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
           {...buttonProps}
         />
       </Paper>
-      {debugDialog && debugDialogOpen ?
-        <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} onKeyDown={onKeyDownEscListener} />
-      : null}
+      {debugDialog && debugDialogOpen
+        ? <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} onKeyDown={onKeyDownEscListener} />
+        : null}
     </FlexCol>
   )
 }

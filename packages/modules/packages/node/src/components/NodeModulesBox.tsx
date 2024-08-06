@@ -14,7 +14,7 @@ export const NodeDescriptionBox: React.FC<NodeDescriptionBoxProps> = ({ node, ..
   return (
     <FlexCol {...props}>
       <code color={error ? 'red' : undefined}>
-        {error ? error.message : JSON.stringify(description?.map((desc) => desc.deref()).filter(exists), null, 2)}
+        {error ? error.message : JSON.stringify(description?.map(desc => desc.deref()).filter(exists), null, 2)}
       </code>
     </FlexCol>
   )

@@ -1,4 +1,4 @@
-import { archivistPresets } from './archivistPresets.js'
+import { archivistPresets } from './archivistPresets.ts'
 
 export const archivistUriToName = () => {
   // eslint-disable-next-line unicorn/no-array-reduce

@@ -1,3 +1,4 @@
+import React from 'react'
 import type { ReflectionType } from 'typedoc'
 
 import { ReflectionViewerProps } from '../ReflectionViewerProps.js'

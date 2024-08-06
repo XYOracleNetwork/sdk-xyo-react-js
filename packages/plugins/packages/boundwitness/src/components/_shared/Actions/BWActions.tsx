@@ -32,16 +32,20 @@ export const BWActions: React.FC<BWActionsProps> = ({
 
   return (
     <FlexRow {...props}>
-      {hideTimestamp || boundwitness?.timestamp === undefined ? null : (
-        <Chip sx={{ mr: 1 }} label={new Date(boundwitness.timestamp).toLocaleString()} />
-      )}
+      {hideTimestamp || boundwitness?.timestamp === undefined
+        ? null
+        : (
+            <Chip sx={{ mr: 1 }} label={new Date(boundwitness.timestamp).toLocaleString()} />
+          )}
       {hidePreviousHash || boundwitness?.previous_hashes.length === 0 ? null : <BWPreviousHashQuickTipButton boundwitness={boundwitness} />}
       {hideValidation ? null : <BWVerification boundwitness={boundwitness} />}
-      {hideJSONButton ? null : (
-        <QuickTipButton Icon={DataObjectIcon} title={`JSON for ${ellipsize(hash ?? '', 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
-          <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
-        </QuickTipButton>
-      )}
+      {hideJSONButton
+        ? null
+        : (
+            <QuickTipButton Icon={DataObjectIcon} title={`JSON for ${ellipsize(hash ?? '', 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
+              <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
+            </QuickTipButton>
+          )}
       {additionalActions}
     </FlexRow>
   )

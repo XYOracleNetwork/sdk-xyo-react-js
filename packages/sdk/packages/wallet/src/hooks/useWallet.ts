@@ -3,7 +3,7 @@ import { HDWallet } from '@xyo-network/account'
 import { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
-import { useSelectedWalletAccount, useWalletContext } from '../contexts/index.js'
+import { useSelectedWalletAccount, useWalletContext } from '../contexts/index.ts'
 
 export interface WalletHookParams {
   mnemonic?: string

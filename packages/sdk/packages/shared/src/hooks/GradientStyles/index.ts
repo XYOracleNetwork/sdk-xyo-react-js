@@ -1,1 +1,1 @@
-export * from './GradientStyles.js'
+export * from './GradientStyles.tsx'

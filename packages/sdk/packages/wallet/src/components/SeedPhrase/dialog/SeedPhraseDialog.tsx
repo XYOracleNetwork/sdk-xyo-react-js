@@ -1,4 +1,5 @@
 import { Dialog, DialogContent, DialogProps, DialogTitle, FormLabel } from '@mui/material'
+import React from 'react'
 
 import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts/index.js'
 import { SeedPhraseIconButton } from '../_shared/index.js'
@@ -33,9 +34,11 @@ export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) =>
   const { overwriteWarning, seedPhrase, validPhrase } = useSeedPhrase()
 
   return (
-    <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" fullWidth maxWidth={'sm'} {...props}>
+    <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" fullWidth maxWidth="sm" {...props}>
       <DialogTitle id="alert-dialog-title">
-        Update Your Seed Phrase <SeedPhraseIconButton />
+        Update Your Seed Phrase
+        {' '}
+        <SeedPhraseIconButton />
       </DialogTitle>
       <DialogContent sx={{ display: 'flex', flexDirection: 'column', rowGap: 2 }}>
         <NewPhraseTextField>
@@ -44,12 +47,12 @@ export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) =>
           </FormLabel>
         </NewPhraseTextField>
         <PhraseDialogActions />
-        {seedPhrase ?
-          <SavedPhraseTextField />
-        : null}
-        {overwriteWarning ?
-          <OverwriteWarning />
-        : null}
+        {seedPhrase
+          ? <SavedPhraseTextField />
+          : null}
+        {overwriteWarning
+          ? <OverwriteWarning />
+          : null}
       </DialogContent>
       <DialogActionButtons onClose={props.onClose} />
     </Dialog>

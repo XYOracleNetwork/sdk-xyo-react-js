@@ -1,4 +1,5 @@
 import { Alert, AlertTitle } from '@mui/material'
+import React from 'react'
 
 export const DeprecateStory: React.FC<{ message?: string }> = ({ message }) => {
   return (

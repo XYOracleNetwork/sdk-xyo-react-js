@@ -1,6 +1,6 @@
 import { LineLayerSpecification } from 'mapbox-gl'
 
-export const HeatMapLineLayerConfig: (color: string) => Partial<LineLayerSpecification> = (color) => ({
+export const HeatMapLineLayerConfig: (color: string) => Partial<LineLayerSpecification> = color => ({
   layout: {
     // Enable for debugging
     visibility: 'none',

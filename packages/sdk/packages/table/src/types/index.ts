@@ -1,1 +1,1 @@
-export * from './TableHead.js'
+export * from './TableHead.ts'

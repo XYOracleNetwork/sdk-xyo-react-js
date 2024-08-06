@@ -15,21 +15,23 @@ export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ mod }) 
 
   return (
     <>
-      {mod ?
-        <>
-          <Typography variant="h4">Node Configuration</Typography>
-          <StyledTreeView
-            aria-label="file system navigator"
-            defaultCollapseIcon={<ExpandMoreIcon />}
-            defaultExpandIcon={<ChevronRightIcon />}
-            sx={{ flexGrow: 1 }}
-          >
-            <RenderModule mod={mod} idRef={idRef} />
-          </StyledTreeView>
-        </>
-      : mod === null ?
-        <Typography variant="h4">Node loading...</Typography>
-      : <Typography variant="h4">Node not found</Typography>}
+      {mod
+        ? (
+            <>
+              <Typography variant="h4">Node Configuration</Typography>
+              <StyledTreeView
+                aria-label="file system navigator"
+                defaultCollapseIcon={<ExpandMoreIcon />}
+                defaultExpandIcon={<ChevronRightIcon />}
+                sx={{ flexGrow: 1 }}
+              >
+                <RenderModule mod={mod} idRef={idRef} />
+              </StyledTreeView>
+            </>
+          )
+        : mod === null
+          ? <Typography variant="h4">Node loading...</Typography>
+          : <Typography variant="h4">Node not found</Typography>}
     </>
   )
 }

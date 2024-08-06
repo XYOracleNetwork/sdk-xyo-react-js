@@ -1,1 +1,1 @@
-export * from './useBoundWitnessClickHandler.js'
+export * from './useBoundWitnessClickHandler.tsx'

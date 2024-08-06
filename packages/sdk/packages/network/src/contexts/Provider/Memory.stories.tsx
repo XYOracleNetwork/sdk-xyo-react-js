@@ -28,7 +28,9 @@ const Template: StoryFn<typeof NetworkMemoryProvider> = (props) => {
   return (
     <NetworkMemoryProvider {...props}>
       <Typography>
-        Props: <pre>{JSON.stringify(props, null, 2)}</pre>
+        Props:
+        {' '}
+        <pre>{JSON.stringify(props, null, 2)}</pre>
       </Typography>
       <NetworkConfigOutput />
     </NetworkMemoryProvider>
@@ -48,7 +50,6 @@ DefaultNetworkConfig.args = {
   defaultNetworkConfig: defaultNetworkConfigs[2],
 }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry
 
 export { Default, DefaultNetworkConfig, DefaultNetworkName }

@@ -1,3 +1,3 @@
-export * from './Details.js'
-export * from './Payloads.js'
-export * from './ValidationDetails.js'
+export * from './Details.tsx'
+export * from './Payloads.tsx'
+export * from './ValidationDetails.tsx'

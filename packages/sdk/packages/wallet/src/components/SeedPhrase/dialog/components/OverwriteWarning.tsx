@@ -9,7 +9,7 @@ export const OverwriteWarning = () => {
     <Alert
       variant="outlined"
       severity="warning"
-      action={
+      action={(
         <FlexRow sx={{ columnGap: 1 }}>
           <Button variant="outlined" color="inherit" size="small" onClick={handleSave}>
             Overwrite
@@ -18,7 +18,7 @@ export const OverwriteWarning = () => {
             Cancel
           </Button>
         </FlexRow>
-      }
+      )}
     >
       Are you sure you want to overwrite existing seed phrase? This action cannot be undone.
     </Alert>

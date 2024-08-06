@@ -1,2 +1,2 @@
-export * from './ArchivistStats.js'
-export * from './MemoryArchivistStats.js'
+export * from './ArchivistStats.tsx'
+export * from './MemoryArchivistStats.tsx'

@@ -14,7 +14,7 @@ const StorybookEntry = {
   title: 'plugin/uniswap/UniswapDetailsRender',
 } as Meta<typeof UniswapDetailsRender>
 
-const Template: StoryFn<typeof UniswapDetailsRender> = (args) => <UniswapDetailsRender {...args}></UniswapDetailsRender>
+const Template: StoryFn<typeof UniswapDetailsRender> = args => <UniswapDetailsRender {...args}></UniswapDetailsRender>
 
 const Default = Template.bind({})
 Default.args = {}
@@ -30,5 +30,4 @@ WithNoPairs.args = { listMode: 'table', payload: payloadDataMissingPairs }
 
 export { Default, WithData, WithNoPairs, WithTableData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

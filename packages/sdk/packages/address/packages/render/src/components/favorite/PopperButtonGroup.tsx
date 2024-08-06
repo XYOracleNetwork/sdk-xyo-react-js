@@ -20,18 +20,20 @@ export const PopperButtonGroup: React.FC<FavoritePopperProps> = ({ name, onConfi
       >
         <StarIcon />
       </Button>
-      {favorite ?
-        <Button
-          title="Remove Favorite"
-          variant="contained"
-          onClick={(e) => {
-            e.stopPropagation()
-            onConfirmFavorite?.(name, false)
-          }}
-        >
-          <DeleteIcon />
-        </Button>
-      : null}
+      {favorite
+        ? (
+            <Button
+              title="Remove Favorite"
+              variant="contained"
+              onClick={(e) => {
+                e.stopPropagation()
+                onConfirmFavorite?.(name, false)
+              }}
+            >
+              <DeleteIcon />
+            </Button>
+          )
+        : null}
     </ButtonGroup>
   )
 }

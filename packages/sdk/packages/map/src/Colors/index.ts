@@ -1,1 +1,1 @@
-export * from './MapColorProps.js'
+export * from './MapColorProps.ts'

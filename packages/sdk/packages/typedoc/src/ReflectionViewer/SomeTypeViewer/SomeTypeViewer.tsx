@@ -1,4 +1,5 @@
 import { Typography, TypographyProps } from '@mui/material'
+import React from 'react'
 
 import { SomeReflection } from '../../SomeReflection.js'
 import { ReflectionViewerProps } from '../ReflectionViewerProps.js'

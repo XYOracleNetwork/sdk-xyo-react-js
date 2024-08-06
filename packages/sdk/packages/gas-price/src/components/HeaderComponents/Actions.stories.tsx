@@ -2,13 +2,12 @@ import { Meta, StoryFn } from '@storybook/react'
 
 import { GasPriceHeaderActionsBox } from './Actions.js'
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: GasPriceHeaderActionsBox,
   title: 'plugin/blockchain/GasPrice/GasPriceHeaderActionsBox',
 } as Meta
 
-const Template: StoryFn<typeof GasPriceHeaderActionsBox> = (props) => <GasPriceHeaderActionsBox {...props} />
+const Template: StoryFn<typeof GasPriceHeaderActionsBox> = props => <GasPriceHeaderActionsBox {...props} />
 
 const Default = Template.bind({})
 Default.args = {}

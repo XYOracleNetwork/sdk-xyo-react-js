@@ -15,7 +15,7 @@ const StorybookEntry = {
   title: 'plugin/blockchain/EthgasstationGasPrice/Card',
 } as Meta<typeof EthgasstationGasPriceCard>
 
-const Template: StoryFn<typeof EthgasstationGasPriceCard> = (args) => <EthgasstationGasPriceCard {...args} />
+const Template: StoryFn<typeof EthgasstationGasPriceCard> = args => <EthgasstationGasPriceCard {...args} />
 
 const Default = Template.bind({})
 Default.args = {}
@@ -28,5 +28,4 @@ WithMissingData.args = { payload: { schema: EthereumGasEthgasstationSchema } }
 
 export { Default, WithData, WithMissingData }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

@@ -9,7 +9,7 @@ import {
   PENDING,
   VALID,
   ValidControlValue,
-} from './accessor/index.js'
+} from './accessor/index.ts'
 
 export type AbstractControlEvents<TValue> = ControlValueAccessorBaseEvents<TValue> & {
   statusChanged: { status: FormControlStatus }
@@ -62,7 +62,7 @@ export class AbstractControl<TValue extends ValidControlValue = ValidControlValu
 
   /**
    * A control is `invalid` when its `status` is `INVALID`.
-   
+
    *
    * @returns True if this control has failed one or more of its validation checks,
    * false otherwise.

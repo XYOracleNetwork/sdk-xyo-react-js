@@ -1,1 +1,1 @@
-export * from './umask.js'
+export * from './umask.ts'

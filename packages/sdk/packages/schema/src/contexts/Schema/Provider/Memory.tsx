@@ -1,6 +1,6 @@
 import { compact } from '@xylabs/lodash'
 import { WithChildren } from '@xylabs/react-shared'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useSchemaStats } from '../../../hooks/index.js'
 import { SchemaContext } from '../Context.js'

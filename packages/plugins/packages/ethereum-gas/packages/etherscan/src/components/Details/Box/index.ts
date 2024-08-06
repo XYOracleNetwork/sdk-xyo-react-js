@@ -1,1 +1,1 @@
-export * from './EtherscanGasPriceDetailsBox.js'
+export * from './EtherscanGasPriceDetailsBox.tsx'

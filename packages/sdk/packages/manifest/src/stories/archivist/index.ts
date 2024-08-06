@@ -1,1 +1,1 @@
-export * from './ArchivistNode.js'
+export * from './ArchivistNode.tsx'

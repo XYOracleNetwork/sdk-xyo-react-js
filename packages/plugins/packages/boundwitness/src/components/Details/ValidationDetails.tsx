@@ -25,13 +25,15 @@ export const BoundWitnessValidationDetails: React.FC<BoundWitnessValidationDetai
         title="Valid"
         value={errors.length === 0 ? 'True' : 'False'}
         tip={
-          errors.length > 0 ?
-            <FlexCol flexWrap="wrap">
-              {errors.map((error, index) => {
-                return <Typography key={index}>{error.toString()}</Typography>
-              })}
-            </FlexCol>
-          : <Typography>No Errors</Typography>
+          errors.length > 0
+            ? (
+                <FlexCol flexWrap="wrap">
+                  {errors.map((error, index) => {
+                    return <Typography key={index}>{error.toString()}</Typography>
+                  })}
+                </FlexCol>
+              )
+            : <Typography>No Errors</Typography>
         }
       />
     </PropertyGroup>

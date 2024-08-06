@@ -17,7 +17,10 @@ export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ mod, setOpen, ..
 
   return (
     <Dialog {...props}>
-      <DialogTitle>Supported Queries for {mod?.config.name || mod?.address}</DialogTitle>
+      <DialogTitle>
+        Supported Queries for
+        {mod?.config.name || mod?.address}
+      </DialogTitle>
       <Divider />
       <DialogContent>
         <Paper sx={{ p: 1 }}>
@@ -26,7 +29,7 @@ export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ mod, setOpen, ..
         </Paper>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => setOpen?.(false)} variant={'outlined'}>
+        <Button onClick={() => setOpen?.(false)} variant="outlined">
           Close
         </Button>
       </DialogActions>

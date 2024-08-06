@@ -1,3 +1,3 @@
-export * from './CardColumnsFlex.js'
-export * from './CardColumnTitle.js'
-export * from './CardContentFlex.js'
+export * from './CardColumnsFlex.tsx'
+export * from './CardColumnTitle.tsx'
+export * from './CardContentFlex.tsx'

@@ -9,8 +9,8 @@ export const useMenuItemsShared = () => {
   const { collapse, collapseEnd, setCollapse, setCollapseEnd } = useCollapsible()
 
   const onMenuItemToggle = (open?: boolean) => {
-    setCollapse?.((previous) => (open ? false : previous))
-    setCollapseEnd?.((previous) => (open ? false : previous))
+    setCollapse?.(previous => (open ? false : previous))
+    setCollapseEnd?.(previous => (open ? false : previous))
   }
 
   const defaultSiteMenuListItemProps: DefaultSiteMenuListItemProps = useMemo(

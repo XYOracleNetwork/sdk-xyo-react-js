@@ -20,12 +20,12 @@ export const BlocknativeGasPriceCardContent = forwardRef<HTMLDivElement, Omit<Pa
     return (
       <CardContent ref={ref} sx={{ display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
         <Grid container spacing={3} columns={{ lg: 15, md: 15, sm: 12, xs: 12 }}>
-          {parsedPayload &&
-            parsedPayload?.gasPrice?.map(({ price }) => (
-              <Grid key={price?.label} item xs={12} sm={6} md={5} lg={3}>
-                <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
-              </Grid>
-            ))}
+          {parsedPayload
+          && parsedPayload?.gasPrice?.map(({ price }) => (
+            <Grid key={price?.label} item xs={12} sm={6} md={5} lg={3}>
+              <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
+            </Grid>
+          ))}
         </Grid>
         <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" pr={1} />
       </CardContent>

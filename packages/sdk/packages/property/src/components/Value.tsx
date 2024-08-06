@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-internal-modules
 import { Variant } from '@mui/material/styles/createTypography.js'
 import { EllipsizeBox, EllipsizeBoxProps } from '@xyo-network/react-shared'
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 
 export interface PropertyValueProps extends Omit<EllipsizeBoxProps, 'ref'> {
   typographyVariant?: Variant
@@ -8,16 +9,18 @@ export interface PropertyValueProps extends Omit<EllipsizeBoxProps, 'ref'> {
 }
 
 export const PropertyValue = forwardRef<HTMLDivElement, PropertyValueProps>(({ typographyVariant = 'body1', value, ...props }, ref) => {
-  return value === undefined ? null : (
-      <EllipsizeBox
-        typographyProps={{ component: undefined, title: value?.toString(), variant: typographyVariant }}
-        width="100%"
-        ref={ref}
-        {...props}
-      >
-        {value}
-      </EllipsizeBox>
-    )
+  return value === undefined
+    ? null
+    : (
+        <EllipsizeBox
+          typographyProps={{ component: undefined, title: value?.toString(), variant: typographyVariant }}
+          width="100%"
+          ref={ref}
+          {...props}
+        >
+          {value}
+        </EllipsizeBox>
+      )
 })
 
 PropertyValue.displayName = 'PropertyValue'

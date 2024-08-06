@@ -15,8 +15,8 @@ export const useSchemaDefinitions = (schemaList?: SchemaList[]): SchemaPayload[]
         if (mounted()) {
           setSchemaPayloads(
             promiseResults
-              .map((result) => (result.status === 'fulfilled' ? result.value?.payload : undefined))
-              .filter((item) => item !== undefined && item !== null) as SchemaPayload[],
+              .map(result => (result.status === 'fulfilled' ? result.value?.payload : undefined))
+              .filter(item => item !== undefined && item !== null) as SchemaPayload[],
           )
         }
       }

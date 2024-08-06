@@ -81,12 +81,14 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
 
   return (
     <FlexCol alignItems="stretch" id="xyo-mapbox-wrap" {...props}>
-      {features ?
-        <>
-          <MapBox accessToken={accessToken} zoom={zoom} />
-          <MapSettingsBox />
-        </>
-      : <Alert severity="error">No data to show</Alert>}
+      {features
+        ? (
+            <>
+              <MapBox accessToken={accessToken} zoom={zoom} />
+              <MapSettingsBox />
+            </>
+          )
+        : <Alert severity="error">No data to show</Alert>}
     </FlexCol>
   )
 }

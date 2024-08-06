@@ -13,31 +13,35 @@ export const CryptoPricesRenderer: React.FC<CryptoPricesRendererProps> = ({ payl
   return (
     <FlexCol {...props}>
       <Typography variant="h1">Crypto Prices</Typography>
-      {cryptoMarketPayload?.timestamp ?
-        <Typography variant="h4">{`[${new Date(cryptoMarketPayload?.timestamp).toLocaleString()}]`}</Typography>
-      : null}
-      {assets ?
-        <Table>
-          <TableHead>
-            <TableCell key="spacer"></TableCell>
-            {Object.entries(Object.values(assets)).map(([key]) => {
-              return <TableCell key={key}>{key}</TableCell>
-            })}
-          </TableHead>
-          <TableBody>
-            {Object.entries(cryptoMarketPayload.assets).map(([key, value]) => {
-              return value ?
-                  <TableRow key={key}>
-                    <TableCell key="asset">{key}</TableCell>
-                    {Object.entries(value).map(([key, value]) => {
-                      return <TableCell key={`${key}`}>{value}</TableCell>
-                    })}
-                  </TableRow>
-                : null
-            })}
-          </TableBody>
-        </Table>
-      : null}
+      {cryptoMarketPayload?.timestamp
+        ? <Typography variant="h4">{`[${new Date(cryptoMarketPayload?.timestamp).toLocaleString()}]`}</Typography>
+        : null}
+      {assets
+        ? (
+            <Table>
+              <TableHead>
+                <TableCell key="spacer"></TableCell>
+                {Object.entries(Object.values(assets)).map(([key]) => {
+                  return <TableCell key={key}>{key}</TableCell>
+                })}
+              </TableHead>
+              <TableBody>
+                {Object.entries(cryptoMarketPayload.assets).map(([key, value]) => {
+                  return value
+                    ? (
+                        <TableRow key={key}>
+                          <TableCell key="asset">{key}</TableCell>
+                          {Object.entries(value).map(([key, value]) => {
+                            return <TableCell key={`${key}`}>{value}</TableCell>
+                          })}
+                        </TableRow>
+                      )
+                    : null
+                })}
+              </TableBody>
+            </Table>
+          )
+        : null}
     </FlexCol>
   )
 }

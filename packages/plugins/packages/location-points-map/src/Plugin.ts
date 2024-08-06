@@ -1,7 +1,7 @@
 import { Payload } from '@xyo-network/payload-model'
 import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { PointsMapWithSettingsRenderer } from './components/index.js'
+import { PointsMapWithSettingsRenderer } from './components/index.ts'
 
 export const PointsMapRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

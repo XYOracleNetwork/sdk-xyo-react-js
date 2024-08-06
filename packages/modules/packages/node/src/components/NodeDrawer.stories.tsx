@@ -24,7 +24,7 @@ const Template: StoryFn<typeof NodeDrawer> = (args) => {
   const { setOpen } = useNodeDrawer()
   return (
     <FlexCol>
-      <Button onClick={() => setOpen?.((previous) => !previous)} variant="contained">
+      <Button onClick={() => setOpen?.(previous => !previous)} variant="contained">
         Toggle Drawer
       </Button>
       <NodeDrawer {...args}></NodeDrawer>
@@ -37,5 +37,4 @@ Default.args = {}
 
 export { Default }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

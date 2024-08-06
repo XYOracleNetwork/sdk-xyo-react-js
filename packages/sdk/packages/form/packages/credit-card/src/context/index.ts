@@ -1,3 +1,3 @@
-export * from './FormGroupCreditCardContext.js'
-export * from './FormGroupCreditCardProvider.js'
-export * from './useFormGroupWithCreditCard.js'
+export * from './FormGroupCreditCardContext.ts'
+export * from './FormGroupCreditCardProvider.tsx'
+export * from './useFormGroupWithCreditCard.tsx'

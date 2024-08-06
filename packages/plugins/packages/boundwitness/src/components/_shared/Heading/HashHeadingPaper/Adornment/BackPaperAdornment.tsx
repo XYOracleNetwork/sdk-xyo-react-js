@@ -5,7 +5,7 @@ import { PaperAdornmentIconButton } from './PaperAdornmentIconButton.js'
 
 type BackPaperAdornmentProps = IconButtonProps
 
-export const BackPaperAdornment: React.FC<BackPaperAdornmentProps> = (props) => (
+export const BackPaperAdornment: React.FC<BackPaperAdornmentProps> = props => (
   <PaperAdornmentIconButton {...props}>
     <ArrowBackRounded />
   </PaperAdornmentIconButton>

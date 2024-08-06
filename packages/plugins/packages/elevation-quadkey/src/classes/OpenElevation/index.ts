@@ -1,2 +1,2 @@
-export * from './OpenElevationApiClient.js'
-export * from './types.js'
+export * from './OpenElevationApiClient.ts'
+export * from './types.ts'

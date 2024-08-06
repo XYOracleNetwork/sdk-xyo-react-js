@@ -1,2 +1,2 @@
-export * from './PayloadsPropertyGroup.js'
-export * from './PayloadsTable.js'
+export * from './PayloadsPropertyGroup.tsx'
+export * from './PayloadsTable.tsx'

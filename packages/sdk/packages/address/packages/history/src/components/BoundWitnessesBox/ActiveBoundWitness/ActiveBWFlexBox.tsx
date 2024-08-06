@@ -14,9 +14,9 @@ const ActiveBWFlexBox = forwardRef<HTMLDivElement, ActiveBWFlexBoxProps>(({ visi
   const { activeBoundWitness } = useActiveBoundWitness(false)
   return (
     <FlexGrowCol alignItems="stretch" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>
-      {activeBoundWitness ?
-        <BoundWitnessDetailsCard visibleRows={visibleRows} payload={activeBoundWitness} />
-      : <NoBlockSelectedBox />}
+      {activeBoundWitness
+        ? <BoundWitnessDetailsCard visibleRows={visibleRows} payload={activeBoundWitness} />
+        : <NoBlockSelectedBox />}
     </FlexGrowCol>
   )
 })

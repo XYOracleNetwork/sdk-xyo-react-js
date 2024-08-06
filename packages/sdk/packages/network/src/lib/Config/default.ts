@@ -1,7 +1,7 @@
 import { NetworkPayload, NetworkSchema } from '@xyo-network/network'
 
-import { findArchivistPreset } from '../archivistPresets.js'
-import { findDivinerPreset } from '../divinerPresets.js'
+import { findArchivistPreset } from '../archivistPresets.ts'
+import { findDivinerPreset } from '../divinerPresets.ts'
 
 export const defaultNetworkConfigs: NetworkPayload[] = [
   {

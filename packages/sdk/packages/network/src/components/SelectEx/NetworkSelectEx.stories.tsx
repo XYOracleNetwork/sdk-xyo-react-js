@@ -66,7 +66,7 @@ const TemplateWithRouteProviderInner: StoryFn<typeof NetworkSelectEx> = (props) 
   const [uris, setUris] = useState<(string | undefined)[]>([])
 
   useEffect(() => {
-    setUris((previous) => [...previous, network?.nodes?.find((node) => node.type === 'archivist')?.uri])
+    setUris(previous => [...previous, network?.nodes?.find(node => node.type === 'archivist')?.uri])
   }, [network?.nodes])
 
   useEffect(() => {
@@ -78,7 +78,7 @@ const TemplateWithRouteProviderInner: StoryFn<typeof NetworkSelectEx> = (props) 
   return (
     <>
       <NetworkSelectEx {...props}></NetworkSelectEx>
-      {uris.map((uri) => (
+      {uris.map(uri => (
         <p key={uri}>{uri}</p>
       ))}
     </>
@@ -96,5 +96,4 @@ WithRouteProvider.args = {}
 
 export { Default, WithMemoryProvider, WithRouteProvider }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

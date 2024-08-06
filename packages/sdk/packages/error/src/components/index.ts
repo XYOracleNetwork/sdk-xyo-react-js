@@ -1,2 +1,2 @@
-export * from './ErrorBoundary/index.js'
-export * from './ErrorRender/index.js'
+export * from './ErrorBoundary/index.ts'
+export * from './ErrorRender/index.ts'

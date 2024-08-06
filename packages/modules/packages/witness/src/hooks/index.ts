@@ -1,1 +1,1 @@
-export * from './node/index.js'
+export * from './node/index.ts'

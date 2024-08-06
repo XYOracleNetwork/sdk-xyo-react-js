@@ -1,1 +1,1 @@
-export * from './ThrownErrorBoundary.js'
+export * from './ThrownErrorBoundary.tsx'

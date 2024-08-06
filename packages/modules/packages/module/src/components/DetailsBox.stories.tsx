@@ -88,5 +88,4 @@ DivinerDetails.args = {}
 
 export { ArchivistDetails, DivinerDetails, NodeDetails }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

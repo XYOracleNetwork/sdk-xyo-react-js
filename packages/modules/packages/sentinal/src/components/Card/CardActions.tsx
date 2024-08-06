@@ -11,7 +11,7 @@ export type SentinelCardActionsProps = ModuleRenderProps<SentinelInstance> &
 export const SentinelCardActions: React.FC<SentinelCardActionsProps> = ({ onReport, mod, ...props }) => {
   return (
     <ModuleCardActions mod={mod} {...props}>
-      <ButtonEx onClick={() => onReport?.(mod)} size={'small'} variant={'outlined'}>
+      <ButtonEx onClick={() => onReport?.(mod)} size="small" variant="outlined">
         Report
       </ButtonEx>
     </ModuleCardActions>

@@ -16,24 +16,25 @@ export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDeta
 
     return (
       <>
-        {[isEmpty(gasPricePayload?.feePerGas), isEmpty(gasPricePayload?.priorityFeePerGas)].some(Boolean) ?
-          <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
-        : <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
-            <GasPriceHeaderBox heading={'Gas Fee Estimate'} timestamp={gasPricePayload?.timestamp} baseFee={gasPricePayload?.baseFee} />
-            <Grid container spacing={3}>
-              {gasPricePayload &&
-                FeePerGasValues.map((value) => (
-                  <Grid key={value} item xs={12} sm={6} lg={3}>
-                    <GasFeeCard
-                      gasPrice={gasPricePayload?.feePerGas[value]}
-                      priorityFee={gasPricePayload.priorityFeePerGas[value]}
-                      speed={FeePerGasToSpeed[value].toUpperCase()}
-                    />
-                  </Grid>
-                ))}
-            </Grid>
-          </FlexCol>
-        }
+        {[isEmpty(gasPricePayload?.feePerGas), isEmpty(gasPricePayload?.priorityFeePerGas)].some(Boolean)
+          ? <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
+          : (
+              <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+                <GasPriceHeaderBox heading="Gas Fee Estimate" timestamp={gasPricePayload?.timestamp} baseFee={gasPricePayload?.baseFee} />
+                <Grid container spacing={3}>
+                  {gasPricePayload
+                  && FeePerGasValues.map(value => (
+                    <Grid key={value} item xs={12} sm={6} lg={3}>
+                      <GasFeeCard
+                        gasPrice={gasPricePayload?.feePerGas[value]}
+                        priorityFee={gasPricePayload.priorityFeePerGas[value]}
+                        speed={FeePerGasToSpeed[value].toUpperCase()}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
+              </FlexCol>
+            )}
       </>
     )
   },

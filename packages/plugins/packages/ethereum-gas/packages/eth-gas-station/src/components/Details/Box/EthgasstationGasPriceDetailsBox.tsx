@@ -18,27 +18,28 @@ export const EthgasstationGasPriceDetailsBox = forwardRef<HTMLDivElement, Payloa
 
     return (
       <>
-        {isEmpty(gasPricePayload) || isEmpty(gasPricePayload.gasPrice) ?
-          <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
-        : <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
-            <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
-            <Grid container spacing={3}>
-              {parsedPayload &&
-                parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
-                  <Grid key={price?.label} item xs={12} sm={6} lg={4}>
-                    <GasFeeCard
-                      key={price?.label}
-                      gasPrice={price?.value}
-                      speed={price?.label}
-                      priorityFee={priorityFee?.value}
-                      priorityFeeLabel={priorityFee?.label}
-                    />
-                  </Grid>
-                ))}
-            </Grid>
-            <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
-          </FlexCol>
-        }
+        {isEmpty(gasPricePayload) || isEmpty(gasPricePayload.gasPrice)
+          ? <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
+          : (
+              <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+                <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
+                <Grid container spacing={3}>
+                  {parsedPayload
+                  && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
+                    <Grid key={price?.label} item xs={12} sm={6} lg={4}>
+                      <GasFeeCard
+                        key={price?.label}
+                        gasPrice={price?.value}
+                        speed={price?.label}
+                        priorityFee={priorityFee?.value}
+                        priorityFeeLabel={priorityFee?.label}
+                      />
+                    </Grid>
+                  ))}
+                </Grid>
+                <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
+              </FlexCol>
+            )}
       </>
     )
   },

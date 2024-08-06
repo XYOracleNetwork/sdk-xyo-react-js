@@ -15,7 +15,7 @@ const StorybookEntry = {
   title: 'footer/Footer',
 } as Meta<typeof XyoFooter>
 
-const Template: StoryFn<typeof XyoFooter> = (args) => (
+const Template: StoryFn<typeof XyoFooter> = args => (
   <FlexCol minHeight="80vh" alignItems="stretch">
     <Paper style={{ alignItems: 'center', display: 'flex', flexGrow: 1, justifyContent: 'center' }}>Test Content</Paper>
     <XyoFooter {...args} />
@@ -30,5 +30,4 @@ DynamicHeight.args = { dynamicHeight: true }
 
 export { Default, DynamicHeight }
 
-// eslint-disable-next-line import/no-default-export
 export default StorybookEntry

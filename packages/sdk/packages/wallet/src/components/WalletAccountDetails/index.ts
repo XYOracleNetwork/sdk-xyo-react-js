@@ -1,1 +1,1 @@
-export * from './WalletAccountDetails.js'
+export * from './WalletAccountDetails.tsx'

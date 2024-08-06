@@ -11,6 +11,7 @@ import { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
+import React from 'react'
 
 import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig.js'
 
@@ -40,7 +41,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const [errors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = errors.length === 0
 
-  const hash: React.FC<TableCellProps> = (props) => (
+  const hash: React.FC<TableCellProps> = props => (
     <HashTableCell
       key="hash"
       archive={archive}
@@ -73,7 +74,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     return schema
   }
 
-  const schema: React.FC<TableCellProps> = (props) => (
+  const schema: React.FC<TableCellProps> = props => (
     <TableCell title={payload?.schema} key="payloads" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {reduceSchemaDepth(payload?.schema, maxSchemaDepth)}
@@ -81,16 +82,16 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     </TableCell>
   )
 
-  const valid: React.FC<TableCellProps> = (props) => (
+  const valid: React.FC<TableCellProps> = props => (
     <TableCell key="valid" align="center" {...props}>
-      {isValid === undefined && payload != undefined ?
-        <WarningAmberRoundedIcon fontSize="small" color="warning" />
-      : isValid === true ?
-        <CheckCircleOutlineRoundedIcon fontSize="small" color="success" />
-      : isValid === false ?
-        <ErrorOutlineRoundedIcon color="error" fontSize="small" />
-        //to keep row height consistent when no data provided, may need fix later
-      : <ErrorOutlineRoundedIcon sx={{ color: alpha('#fff', 0) }} fontSize="small" />}
+      {isValid === undefined && payload != undefined
+        ? <WarningAmberRoundedIcon fontSize="small" color="warning" />
+        : isValid === true
+          ? <CheckCircleOutlineRoundedIcon fontSize="small" color="success" />
+          : isValid === false
+            ? <ErrorOutlineRoundedIcon color="error" fontSize="small" />
+          // to keep row height consistent when no data provided, may need fix later
+            : <ErrorOutlineRoundedIcon sx={{ color: alpha('#fff', 0) }} fontSize="small" />}
     </TableCell>
   )
 
@@ -100,11 +101,13 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     valid,
   }
 
-  return breakPoint ?
-      <TableRow style={{ maxWidth: '100vw' }} {...props}>
-        {columns[breakPoint]?.map((column) => {
-          return tableCells[column]({})
-        })}
-      </TableRow>
+  return breakPoint
+    ? (
+        <TableRow style={{ maxWidth: '100vw' }} {...props}>
+          {columns[breakPoint]?.map((column) => {
+            return tableCells[column]({})
+          })}
+        </TableRow>
+      )
     : null
 }

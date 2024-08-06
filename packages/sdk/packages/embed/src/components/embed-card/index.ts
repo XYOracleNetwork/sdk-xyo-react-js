@@ -1,2 +1,2 @@
-export * from './card/index.js'
-export * from './EmbedPluginCard.js'
+export * from './card/index.ts'
+export * from './EmbedPluginCard.tsx'

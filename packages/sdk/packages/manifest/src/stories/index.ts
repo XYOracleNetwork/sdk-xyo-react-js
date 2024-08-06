@@ -1,2 +1,2 @@
-export * from './archivist/index.js'
-export * from './sentinel/index.js'
+export * from './archivist/index.ts'
+export * from './sentinel/index.ts'

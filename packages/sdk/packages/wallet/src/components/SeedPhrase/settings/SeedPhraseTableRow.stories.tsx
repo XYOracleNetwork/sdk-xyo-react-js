@@ -5,13 +5,12 @@ import { SeedPhraseTableRow } from './SeedPhraseTableRow.js'
 
 const changeSeedPhrase = (phrase?: string) => alert(`Changed Seed Phrase to: ${phrase}`)
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: SeedPhraseTableRow,
   title: 'Wallet/SeedPhraseTableRow',
 } as Meta
 
-const Template: StoryFn<typeof SeedPhraseTableRow> = (props) => (
+const Template: StoryFn<typeof SeedPhraseTableRow> = props => (
   <Table>
     <TableBody>
       <SeedPhraseTableRow {...props} />

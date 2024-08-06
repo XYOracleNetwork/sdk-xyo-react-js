@@ -1,1 +1,1 @@
-export * from './PointMapRenderer.js'
+export * from './PointMapRenderer.tsx'

@@ -1,2 +1,2 @@
-export * from './components/index.js'
-export * from './contexts/index.js'
+export * from './components/index.ts'
+export * from './contexts/index.ts'

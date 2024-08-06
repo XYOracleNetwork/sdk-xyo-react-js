@@ -4,7 +4,7 @@ import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { ModuleInstance } from '@xyo-network/module-model'
 import { useWeakModulesFromNode } from '@xyo-network/react-node'
 import { TypographyEx } from '@xyo-network/react-shared'
-import { ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 
 export interface ModuleSummaryProps<T extends ModuleInstance = ModuleInstance> extends FlexBoxProps {
   icon?: ReactNode
@@ -32,9 +32,9 @@ export const ModuleSummary: React.FC<ModuleSummaryProps> = ({ children, icon, mo
           <TypographyEx color={busy ? 'gray' : undefined}>{icon ?? <ExtensionIcon />}</TypographyEx>
           <TypographyEx marginX={1}>{mod?.config?.name ?? '<Unknown>'}</TypographyEx>
         </FlexRow>
-        {(children ?? (downModulesFromResolve !== undefined && upModulesFromResolve !== undefined)) ?
-          `[${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
-        : null}
+        {(children ?? (downModulesFromResolve !== undefined && upModulesFromResolve !== undefined))
+          ? `[${downModulesFromResolve}↓/${upModulesFromResolve}↑]`
+          : null}
       </FlexRow>
     </FlexCol>
   )

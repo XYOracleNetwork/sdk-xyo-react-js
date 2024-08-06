@@ -1,2 +1,2 @@
-export * from './Node.js'
-export * from './NodeDrawer.js'
+export * from './Node.tsx'
+export * from './NodeDrawer.tsx'

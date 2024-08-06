@@ -1,7 +1,7 @@
 import { usePromise } from '@xylabs/react-promise'
 import { WithChildren } from '@xylabs/react-shared'
 import { WalletInstance } from '@xyo-network/wallet-model'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { WalletContext } from './Context.js'
 
@@ -26,15 +26,18 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
 
   const [activeAccount = null] = usePromise(async () => await rootWallet?.derivePath(activeAccountIndex.toString()), [activeAccountIndex, rootWallet])
 
+  const value = useMemo(() => ({ activeAccount,
+    activeAccountIndex,
+    provided: true,
+    rootWallet,
+    setActiveAccountIndex }), [activeAccount,
+    activeAccountIndex,
+    rootWallet,
+    setActiveAccountIndex])
+
   return (
     <WalletContext.Provider
-      value={{
-        activeAccount,
-        activeAccountIndex,
-        provided: true,
-        rootWallet,
-        setActiveAccountIndex,
-      }}
+      value={value}
       {...props}
     >
       {children}

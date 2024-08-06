@@ -1,6 +1,6 @@
 import { assertEx } from '@xylabs/assert'
 
-import { CreditCardInput, CreditCardInputSchema } from '../../models/index.js'
+import { CreditCardInput, CreditCardInputSchema } from '../../models/index.ts'
 
 export const validateCreditCardInputs = (values: CreditCardInput): CreditCardInput => {
   return {

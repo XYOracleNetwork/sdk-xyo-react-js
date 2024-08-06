@@ -1,2 +1,2 @@
-export * from './Reflection.js'
-export * from './ReflectionGroup.js'
+export * from './Reflection.tsx'
+export * from './ReflectionGroup.tsx'

@@ -74,13 +74,12 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   component: NodeRelationalGraphFlexBox,
   title: 'node/renderer/dagre/NodeRelationalGraph',
 } as Meta
 
-const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => <NodeRelationalGraphFlexBox layout="dagre" {...props} />
+const Template: StoryFn<typeof NodeRelationalGraphFlexBox> = props => <NodeRelationalGraphFlexBox layout="dagre" {...props} />
 
 const TemplateDescribe: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useWeakProvidedNode()
@@ -96,7 +95,7 @@ const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props
   return <NodeRelationalGraphFlexBox layout="dagre" options={options} {...props} />
 }
 
-const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => <ProvidedNodeRenderer layout="dagre" {...props} />
+const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = props => <ProvidedNodeRenderer layout="dagre" {...props} />
 
 const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props) => {
   const [node] = useWeakNodeFromNode('ChildNode')

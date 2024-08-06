@@ -2,9 +2,9 @@ import { forget } from '@xylabs/forget'
 import { EventListener } from '@xyo-network/module-events'
 import { Payload } from '@xyo-network/payload-model'
 
-import { AbstractControl, ControlValueAccessorBaseEvents } from './control/index.js'
-import { ErrorSummary } from './InputError.js'
-import { FormGroupStorage } from './storage/index.js'
+import { AbstractControl, ControlValueAccessorBaseEvents } from './control/index.ts'
+import { ErrorSummary } from './InputError.tsx'
+import { FormGroupStorage } from './storage/index.ts'
 
 export type PayloadWithTimestamp = Payload<{ timestamp?: number }>
 
@@ -76,11 +76,11 @@ export class FormGroup<
   }
 
   override get touched() {
-    return Object.values<AbstractControl>(this._controls).some((control) => control.touched)
+    return Object.values<AbstractControl>(this._controls).some(control => control.touched)
   }
 
   override get valid() {
-    return Object.values<AbstractControl>(this._controls).every((control) => control.valid)
+    return Object.values<AbstractControl>(this._controls).every(control => control.valid)
   }
 
   get values(): TValue {

@@ -23,17 +23,19 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
 
   return (
     <TableBody {...props}>
-      {noResults && NoResultRowComponent ?
-        <NoResultRowComponent />
-      : null}
+      {noResults && NoResultRowComponent
+        ? <NoResultRowComponent />
+        : null}
       {payloadPairs?.map(([payload, hash], index) => {
         return (
           <ThrownErrorBoundary
             boundaryName="PayloadTableBody"
             key={`${hash}-${index}`}
-            errorComponent={(e) => (
+            errorComponent={e => (
               <Alert severity="error">
-                Error Loading Payload: <Typography fontWeight="bold">{e.message}</Typography>
+                Error Loading Payload:
+                {' '}
+                <Typography fontWeight="bold">{e.message}</Typography>
               </Alert>
             )}
           >
@@ -41,11 +43,11 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
               maxSchemaDepth={maxSchemaDepth}
               archive={archive}
               onClick={
-                onRowClick ?
-                  () => {
-                    onRowClick(payload)
-                  }
-                : undefined
+                onRowClick
+                  ? () => {
+                      onRowClick(payload)
+                    }
+                  : undefined
               }
               onHashClick={onHashClick}
               exploreDomain={exploreDomain}

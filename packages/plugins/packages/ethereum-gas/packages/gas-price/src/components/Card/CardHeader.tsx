@@ -11,13 +11,13 @@ export const EthereumGasPriceCardHeader = forwardRef<HTMLDivElement, PayloadRend
   return (
     <StyledCardHeader
       title={<GasPriceHeaderTypography heading="Gas Fee Estimate" />}
-      action={
+      action={(
         <GasPriceHeaderActionsBox
           timestamp={gasPricePayload?.timestamp}
           baseFee={gasPricePayload?.baseFee}
           blockNumber={gasPricePayload?.blockNumber ? Number.parseInt(gasPricePayload?.blockNumber) : undefined}
         />
-      }
+      )}
       ref={ref}
     />
   )

@@ -1,1 +1,1 @@
-export * from './SectionSpacingRow.js'
+export * from './SectionSpacingRow.tsx'

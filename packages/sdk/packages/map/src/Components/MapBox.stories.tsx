@@ -31,7 +31,6 @@ const WithMapSettingsDecorator: Decorator = (Story, args) => {
   )
 }
 
-// eslint-disable-next-line import/no-default-export
 export default {
   args: {
     accessToken: process.env.STORYBOOK_MAPBOX_TOKEN,
@@ -69,7 +68,7 @@ const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
         Toggle Container minWidth
       </Button>
       <div
-        ref={(ref) => (containerRef.current = ref)}
+        ref={ref => (containerRef.current = ref)}
         style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}
       >
         <MapBox {...args} />
