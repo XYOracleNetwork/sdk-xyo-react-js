@@ -1,1 +1,1 @@
-export * from './ShareButton.tsx'
+export * from './button/index.ts'
