@@ -12,20 +12,6 @@ const Template: StoryFn<typeof ShareOutDialog> = (props) => {
   return <ShareOutDialog {...props} />
 }
 
-const TemplateWithTrigger: StoryFn<typeof ShareOutDialog> = (props) => {
-  const [open, setOpen] = React.useState(false)
-  const onClose = () => setOpen(false)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { open: unused, ...restProps } = props
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)} variant="contained">Open</Button>
-      <ShareOutDialog onClose={onClose} open={open} title="Share Out Dialog" subtitle="With a subtitle" {...restProps} />
-    </>
-  )
-}
-
 const TemplateWithContent: StoryFn<typeof ShareOutDialog> = (props) => {
   const [open, setOpen] = useState(false)
   const onClose = () => setOpen(false)
@@ -46,12 +32,11 @@ const TemplateWithContent: StoryFn<typeof ShareOutDialog> = (props) => {
 }
 
 const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  open: true,
+}
 
 const WithContent = TemplateWithContent.bind({})
 WithContent.args = {}
 
-const WithTrigger = TemplateWithTrigger.bind({})
-WithTrigger.args = {}
-
-export { Default, WithContent, WithTrigger }
+export { Default, WithContent }
