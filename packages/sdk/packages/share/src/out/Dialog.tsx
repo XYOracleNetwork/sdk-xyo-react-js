@@ -4,7 +4,7 @@ import React, { ComponentType, ReactNode } from 'react'
 
 export interface ShareOutDialogProps extends DialogProps {
   ShareOutDialogActions?: ComponentType<{ onClose?: () => void }>
-  cardImg?: string
+  cardImg?: ReactNode
   shareOutDialogContent?: ReactNode
   subtitle?: string
   title?: string
@@ -27,7 +27,7 @@ export const ShareOutDialog: React.FC<ShareOutDialogProps> = ({ ShareOutDialogAc
             </Typography>
           </FlexGrowCol>
           <FlexGrowCol alignItems="flex-end" width="40%">
-            {cardImg ? <img src={cardImg} height="100px" width="100px" /> : null}
+            {cardImg}
           </FlexGrowCol>
         </Stack>
       </DialogTitle>
