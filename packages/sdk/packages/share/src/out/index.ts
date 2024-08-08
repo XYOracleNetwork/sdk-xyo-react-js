@@ -1,2 +1,6 @@
-export * from './dialog/index.ts'
+export * from './CopyLinkTextField.tsx'
+export * from './Dialog.tsx'
 export * from './Explanation.tsx'
+export * from './GenerateShareLinkButton.tsx'
+export * from './HeadingFlexbox.tsx'
+export * from './SocialButtonsFlexbox.tsx'

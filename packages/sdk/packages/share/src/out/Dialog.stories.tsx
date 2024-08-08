@@ -3,11 +3,11 @@ import { Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { useMemo, useState } from 'react'
 
-import { CopyLinkTextField } from '../CopyLinkTextField.tsx'
-import { GenerateShareLinkButton } from '../GenerateShareLinkButton.tsx'
-import { ShareOutHeadingFlexbox } from '../HeadingFlexbox.tsx'
-import { SocialButtonsFlexbox } from '../SocialButtonsFlexbox.tsx'
+import { CopyLinkTextField } from './CopyLinkTextField.tsx'
+import { GenerateShareLinkButton } from './GenerateShareLinkButton.tsx'
+import { ShareOutHeadingFlexbox } from './HeadingFlexbox.tsx'
 import { ShareOutDialog } from './ShareOutDialog.tsx'
+import { SocialButtonsFlexbox } from './SocialButtonsFlexbox.tsx'
 
 export default {
   title: 'modules/ShareOut/Dialog',
