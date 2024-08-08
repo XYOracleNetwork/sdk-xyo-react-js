@@ -9,7 +9,7 @@ export interface ShareOutExplanationProps {
 
 export const ShareOutExplanation: React.FC<ShareOutExplanationProps> = ({ toolTipTitle }) => {
   const theme = useTheme()
-  const title = toolTipTitle ?? 'In order for your data to be publicly viewable, it needs to be saved to the XYO Network Archivist.  From their, social media platforms can generate a preview of your data.'
+  const title = toolTipTitle ?? 'In order for your data to be publicly viewable, it needs to be saved to the XYO Network Public Archivist.  Public data can be seen by your friends, and XYO can generate preview images for easier sharing on social media.'
   return (
     <>
       <FlexGrowRow alignItems="center">
