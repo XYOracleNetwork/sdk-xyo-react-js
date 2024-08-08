@@ -1,12 +1,13 @@
-import { Button, Typography } from '@mui/material'
+import { Button } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
-import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import React, { useMemo, useState } from 'react'
 
 import { CopyLinkTextField } from './CopyLinkTextField.tsx'
+import { ShareOutDialog } from './Dialog.tsx'
+import { ShareOutExplanation } from './Explanation.tsx'
 import { GenerateShareLinkButton } from './GenerateShareLinkButton.tsx'
 import { ShareOutHeadingFlexbox } from './HeadingFlexbox.tsx'
-import { ShareOutDialog } from './ShareOutDialog.tsx'
 import { SocialButtonsFlexbox } from './SocialButtonsFlexbox.tsx'
 
 export default {
@@ -26,7 +27,7 @@ const TemplateWithContent: StoryFn<typeof ShareOutDialog> = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { open: unused, ...restProps } = props
 
-  const cardImg = 'https://picsum.photos/100/100'
+  const cardImg = <img src="https://picsum.photos/100/100" height="100px" width="100px" />
   const shareLinkName = 'My Share Link'
 
   const generateLink = async () => {
@@ -49,10 +50,11 @@ const TemplateWithContent: StoryFn<typeof ShareOutDialog> = (props) => {
             </>
           )
         : <GenerateShareLinkButton loading={loading} onClick={generateLink} />}
+      <ShareOutExplanation />
     </FlexGrowCol>
   ), [loading, generateLink, shareLinkName, shareUrl])
 
-  const shareOutDialogActions = ({ onClose }: { onClose?: () => void }) => <Button onClick={onClose} variant="outlined">Cancel</Button>
+  const shareOutDialogActions = ({ onClose }: { onClose?: () => void }) => <Button onClick={onClose} variant="outlined">Close</Button>
 
   return (
     <>
