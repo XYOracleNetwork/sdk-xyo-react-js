@@ -1,1 +1,1 @@
-export * from './DynamicShare.tsx'
+export * from './DynamicShareImage.tsx'
