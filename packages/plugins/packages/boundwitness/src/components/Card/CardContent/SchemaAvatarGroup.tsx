@@ -2,7 +2,7 @@ import { Avatar, AvatarGroup, AvatarGroupProps } from '@mui/material'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import React, { useCallback } from 'react'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 interface SchemaAvatarGroupProps extends AvatarGroupProps {

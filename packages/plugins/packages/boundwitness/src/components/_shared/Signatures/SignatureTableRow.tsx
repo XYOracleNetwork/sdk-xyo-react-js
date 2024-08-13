@@ -5,7 +5,7 @@ import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useEvent } from '@xyo-network/react-event'
 import { AddressTableCell, usePromise } from '@xyo-network/react-shared'
 import React from 'react'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
 type clickableFields = 'address' | 'signature'

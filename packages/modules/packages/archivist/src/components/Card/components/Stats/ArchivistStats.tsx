@@ -2,9 +2,9 @@ import { Badge, Tooltip } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { Payload } from '@xyo-network/payload-model'
 import React from 'react'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { BsFileEarmarkCode } from 'react-icons/bs'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { VscOrganization, VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 export interface ArchivistStatsProps {

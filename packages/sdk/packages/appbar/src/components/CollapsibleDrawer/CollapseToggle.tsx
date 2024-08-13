@@ -1,7 +1,7 @@
 import { Icon, useTheme } from '@mui/material'
 import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'
 
 import { useCollapsible } from '../../contexts/index.ts'

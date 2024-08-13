@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 import { Map, MapOptions } from 'mapbox-gl'

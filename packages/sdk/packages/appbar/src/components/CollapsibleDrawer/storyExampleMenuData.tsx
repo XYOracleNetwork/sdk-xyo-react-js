@@ -12,7 +12,7 @@ import {
   VscSymbolMethod,
   VscSymbolNamespace,
   VscTable,
-  // eslint-disable-next-line import/no-internal-modules
+  // eslint-disable-next-line import-x/no-internal-modules
 } from 'react-icons/vsc'
 
 import { MenuListItemProps } from '../SiteMenu/index.ts'

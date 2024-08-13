@@ -1,7 +1,7 @@
 import { List } from '@mui/material'
 import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { FaGlobeAmericas } from 'react-icons/fa'
 import { BrowserRouter } from 'react-router-dom'
 

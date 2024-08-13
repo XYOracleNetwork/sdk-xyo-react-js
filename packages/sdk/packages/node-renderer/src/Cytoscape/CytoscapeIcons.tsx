@@ -8,7 +8,7 @@ import {
   VisibilityRounded as VisibilityRoundedIcon,
 } from '@mui/icons-material'
 import { SvgIconTypeMap } from '@mui/material'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { OverridableComponent } from '@mui/material/OverridableComponent.js'
 
 import { CyNodeModuleTypes } from './lib/index.ts'

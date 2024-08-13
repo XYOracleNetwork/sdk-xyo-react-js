@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { renderToStaticMarkup } from 'react-dom/server'
 
 const dataUri = 'data:image/svg+xml,'

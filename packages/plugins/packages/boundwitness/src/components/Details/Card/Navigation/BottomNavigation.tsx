@@ -1,9 +1,9 @@
 import { BottomNavigation, BottomNavigationAction, BottomNavigationProps, styled } from '@mui/material'
 import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import React, { Dispatch, forwardRef, SetStateAction } from 'react'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
-// eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line import-x/no-internal-modules
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps {
