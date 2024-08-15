@@ -2,7 +2,6 @@ import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
 import { IFrameRenderer } from './IFrameRenderer.tsx'
-import { payloadDataFullScores, payloadDataPartialScores } from './storyPayloadData.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -20,12 +19,9 @@ const Template: StoryFn<typeof IFrameRenderer> = args => <IFrameRenderer {...arg
 const Default = Template.bind({})
 Default.args = {}
 
-const WithFullScores = Template.bind({})
-WithFullScores.args = { payload: payloadDataFullScores }
+const WithOpenCorsUri = Template.bind({})
+WithOpenCorsUri.args = { uri: 'https://cors-anywhere.herokuapp.com/https://www.google.com' }
 
-const WithPartialScores = Template.bind({})
-WithPartialScores.args = { payload: payloadDataPartialScores }
-
-export { Default, WithFullScores, WithPartialScores }
+export { Default, WithOpenCorsUri }
 
 export default StorybookEntry
