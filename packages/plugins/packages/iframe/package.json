@@ -1,0 +1,71 @@
+{
+  "name": "@xyo-network/react-iframe-plugin",
+  "author": {
+    "email": "support@xyo.network",
+    "name": "XYO Development Team",
+    "url": "https://xyo.network"
+  },
+  "bugs": {
+    "email": "support@xyo.network",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+  },
+  "dependencies": {
+    "@xylabs/react-flexbox": "^4.0.1",
+    "@xyo-network/crypto-nft-payload-plugin": "^3.0.0",
+    "@xyo-network/crypto-nft-score-model": "^3.0.0",
+    "@xyo-network/payload-model": "^3.0.2",
+    "@xyo-network/react-payload-plugin": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^"
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^5",
+    "@mui/material": "^5",
+    "@mui/styles": "^5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@storybook/react": "^8.2.9",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.15",
+    "@xylabs/tsconfig-react": "^4.0.0-rc.15",
+    "@xyo-network/react-storybook": "workspace:^",
+    "typescript": "^5.5.4"
+  },
+  "description": "Common React library for all XYO projects that use React",
+  "docs": "dist/docs.json",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/browser/index.d.ts",
+        "default": "./dist/browser/index.mjs"
+      },
+      "types": "./dist/browser/index.d.ts",
+      "default": "./dist/browser/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "dist/browser/index.mjs",
+  "homepage": "https://xyo.network",
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
+  ],
+  "license": "LGPL-3.0-only",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "scripts": {
+    "lint-pkg": "npmPkgJsonLint .",
+    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
+  },
+  "sideEffects": false,
+  "types": "dist/browser/index.d.ts",
+  "version": "3.0.1",
+  "type": "module"
+}
