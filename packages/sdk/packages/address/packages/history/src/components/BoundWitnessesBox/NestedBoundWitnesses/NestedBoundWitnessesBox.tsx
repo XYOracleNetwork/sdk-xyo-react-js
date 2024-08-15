@@ -1,6 +1,5 @@
 import { Slide } from '@mui/material'
 import { Hash } from '@xylabs/hex'
-import { isEmpty } from '@xylabs/lodash'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import { EventNoun, EventVerb, useEvent } from '@xyo-network/react-event'
@@ -11,6 +10,8 @@ import { useBoundWitnessClickHandler } from '../hooks/index.ts'
 import { GlowingDiv } from '../layout/index.ts'
 
 export type NestedBoundWitnessesProps = FlexBoxProps
+
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const NestedBoundWitnessesBox: React.FC<NestedBoundWitnessesProps> = (props) => {
   const { nestedBoundWitnesses, hashSelectionHistory } = usePayloadHashSelectionHistory(false)
@@ -25,9 +26,9 @@ export const NestedBoundWitnessesBox: React.FC<NestedBoundWitnessesProps> = (pro
         <FlexCol alignItems="stretch" ref={nestedBWRef} rowGap={3} {...props}>
           {hashSelectionHistory?.map((hash, index) => (
             <Fragment key={hash}>
-              <Slide direction="down" in={!!nestedBoundWitnesses[hash]}>
+              <Slide direction="down" in={!!nestedBoundWitnesses?.[hash]}>
                 <GlowingDiv hash={hash}>
-                  <BoundWitnessDetailsCard payload={nestedBoundWitnesses[hash]} active={index !== 0} />
+                  <BoundWitnessDetailsCard payload={nestedBoundWitnesses?.[hash]} active={index !== 0} />
                 </GlowingDiv>
               </Slide>
             </Fragment>

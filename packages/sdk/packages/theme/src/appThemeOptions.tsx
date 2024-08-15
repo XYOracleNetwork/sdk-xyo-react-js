@@ -1,5 +1,4 @@
 import { ThemeOptions } from '@mui/material'
-import { merge } from '@xylabs/lodash'
 
 import { themeOptions } from './themeOptions.ts'
 
@@ -27,4 +26,4 @@ const partialAppThemeOptions: ThemeOptions = {
   spacing: 8,
 }
 
-export const appThemeOptions = merge({}, themeOptions, partialAppThemeOptions)
+export const appThemeOptions = { ...themeOptions, ...partialAppThemeOptions }

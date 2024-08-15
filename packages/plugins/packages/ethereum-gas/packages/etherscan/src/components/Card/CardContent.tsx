@@ -1,5 +1,4 @@
 import { CardContent, CardContentProps, Grid } from '@mui/material'
-import { isEmpty } from '@xylabs/lodash'
 import { EthereumGasEtherscanPayload } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
@@ -8,11 +7,13 @@ import React, { forwardRef } from 'react'
 
 import { useEtherscanTransformer } from '../hooks/index.ts'
 
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
+
 export const EtherscanGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasEtherscanPayload) : undefined
   const parsedPayload = useEtherscanTransformer(gasPricePayload)
 
-  if (isEmpty(gasPricePayload) || gasPricePayload.status !== '1') {
+  if (isEmpty(gasPricePayload) || gasPricePayload?.status !== '1') {
     return <PayloadDataMissing alertBody="Payload is missing valid gas fee data." sx={{ m: 1 }} />
   }
 

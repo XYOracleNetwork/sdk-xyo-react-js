@@ -1,4 +1,3 @@
-import { isEmpty } from '@xylabs/lodash'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
 import { GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
@@ -9,6 +8,8 @@ import React, { forwardRef } from 'react'
 import { useEthersTransformer } from '../../hooks/index.ts'
 import { RenderTitle } from '../../lib/index.ts'
 
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
+
 export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ payload, listMode, ...props }, ref) => {
@@ -17,7 +18,7 @@ export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetail
 
     return (
       <>
-        {isEmpty(gasPricePayload) || !gasPricePayload.maxFeePerGas
+        {isEmpty(gasPricePayload) || !gasPricePayload?.maxFeePerGas
           ? <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
           : (
               <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>

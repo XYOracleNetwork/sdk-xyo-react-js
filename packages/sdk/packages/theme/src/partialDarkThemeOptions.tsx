@@ -1,5 +1,4 @@
 import { darken, ThemeOptions } from '@mui/material'
-import { merge } from '@xylabs/lodash'
 
 const appComponents: ThemeOptions['components'] = {
   MuiPaper: {
@@ -25,4 +24,4 @@ export const partialDarkThemeOptions: ThemeOptions = {
   },
 }
 
-export const partialAppDarkThemeOptions: ThemeOptions = merge({}, partialDarkThemeOptions, { components: appComponents })
+export const partialAppDarkThemeOptions: ThemeOptions = { ...partialDarkThemeOptions, components: appComponents }

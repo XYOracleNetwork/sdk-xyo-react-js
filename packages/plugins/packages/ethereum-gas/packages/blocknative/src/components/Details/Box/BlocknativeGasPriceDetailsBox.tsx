@@ -1,5 +1,4 @@
 import { Grid } from '@mui/material'
-import { isEmpty } from '@xylabs/lodash'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { EthereumGasBlocknativePayload } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
 import { GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
@@ -10,6 +9,8 @@ import React, { forwardRef } from 'react'
 import { useBlocknativeTransformer } from '../../hooks/index.ts'
 import { RenderTitle } from '../../lib/index.ts'
 
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
+
 export const BlocknativeGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ payload, listMode, ...props }, ref) => {
@@ -18,7 +19,7 @@ export const BlocknativeGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadD
 
     return (
       <>
-        {isEmpty(gasPricePayload) || !gasPricePayload.blockPrices?.length
+        {isEmpty(gasPricePayload) || !gasPricePayload?.blockPrices?.length
           ? <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
           : (
               <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>

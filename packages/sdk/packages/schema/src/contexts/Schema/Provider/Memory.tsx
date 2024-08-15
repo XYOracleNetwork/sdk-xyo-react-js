@@ -1,4 +1,4 @@
-import { compact } from '@xylabs/lodash'
+import { exists } from '@xylabs/exists'
 import { WithChildren } from '@xylabs/react-shared'
 import React, { useEffect, useMemo, useState } from 'react'
 
@@ -13,7 +13,7 @@ export const SchemaMemoryProvider: React.FC<WithChildren<SchemaProviderProps>> =
 
   useEffect(() => {
     if (fetchedSchemaStats) {
-      const schemaList = compact(fetchedSchemaStats.map(({ name }) => name))
+      const schemaList = (fetchedSchemaStats.map(({ name }) => name)).filter(exists)
       setSchemaList(schemaList)
     }
   }, [fetchedSchemaStats])

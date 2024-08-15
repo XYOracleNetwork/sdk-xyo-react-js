@@ -1,5 +1,4 @@
 import { CardContent, CardContentProps, Grid } from '@mui/material'
-import { isEmpty } from '@xylabs/lodash'
 import { EthereumGasBlocknativePayload } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
@@ -8,12 +7,14 @@ import React, { forwardRef } from 'react'
 
 import { useBlocknativeTransformer } from '../hooks/index.ts'
 
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
+
 export const BlocknativeGasPriceCardContent = forwardRef<HTMLDivElement, Omit<PayloadRenderProps & CardContentProps, 'ref'>>(
   ({ payload, ...props }, ref) => {
     const gasPricePayload = payload ? (payload as EthereumGasBlocknativePayload) : undefined
     const parsedPayload = useBlocknativeTransformer(gasPricePayload)
 
-    if (isEmpty(gasPricePayload) || !gasPricePayload.blockPrices?.length) {
+    if (isEmpty(gasPricePayload) || !gasPricePayload?.blockPrices?.length) {
       return <PayloadDataMissing alertBody="Payload is missing valid gas fee data." sx={{ m: 1 }} />
     }
 

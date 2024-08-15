@@ -1,5 +1,5 @@
 import { TableCell, TableRow, TableRowProps } from '@mui/material'
-import { compact } from '@xylabs/lodash'
+import { exists } from '@xylabs/exists'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { BoundWitness } from '@xyo-network/boundwitness-model'
@@ -38,11 +38,11 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const payloads = (
     <TableCell key="payloads" align="center">
-      {compact(block?.payload_hashes ?? []).length}
+      {(block?.payload_hashes ?? []).filter(exists).length}
       |
-      {compact(block?.addresses ?? []).length}
+      {(block?.addresses ?? []).filter(exists).length}
       |
-      {compact(block?.previous_hashes ?? [])?.length}
+      {(block?.previous_hashes ?? [])?.filter(exists).length}
     </TableCell>
   )
 

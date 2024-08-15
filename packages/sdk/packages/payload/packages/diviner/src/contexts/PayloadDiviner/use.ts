@@ -1,4 +1,4 @@
-import { compact } from '@xylabs/lodash'
+import { exists } from '@xylabs/exists'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { HuriPayload, HuriSchema } from '@xyo-network/diviner-huri'
 import { Payload, WithMeta } from '@xyo-network/payload-model'
@@ -72,16 +72,16 @@ export const useDivinePayloads = <T extends Payload = Payload>(
       if (mounted()) {
         setPayloads([...payloads.values()].map(value => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
         setErrors(
-          compact(
-            [...payloads.values()].map(value => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined)),
-          ),
+          (
+            [...payloads.values()].map(value => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined))
+          ).filter(exists),
         )
         if (mounted()) {
           setPayloads([...payloads.values()].map(value => (value.status === 'rejected' ? null : value.value)) as (T | null)[])
           setErrors(
-            compact(
-              [...payloads.values()].map(value => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined)),
-            ),
+            (
+              [...payloads.values()].map(value => (value.status === 'rejected' ? new Error('divine failed', { cause: value.reason }) : undefined))
+            ).filter(exists),
           )
         }
       }

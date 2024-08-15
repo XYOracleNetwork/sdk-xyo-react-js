@@ -1,11 +1,12 @@
 import { CardContent, CardContentProps, Grid } from '@mui/material'
-import { isEmpty } from '@xylabs/lodash'
 import { GasFeeCard } from '@xyo-network/react-gas-price'
 import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
 import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../lib/index.ts'
+
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined

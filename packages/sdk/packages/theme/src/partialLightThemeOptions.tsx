@@ -1,5 +1,4 @@
 import { ThemeOptions } from '@mui/material'
-import { merge } from '@xylabs/lodash'
 
 export const partialLightThemeOptions: ThemeOptions = {
   palette: {
@@ -13,4 +12,4 @@ export const partialLightThemeOptions: ThemeOptions = {
   },
 }
 
-export const partialAppLightThemeOptions: ThemeOptions = merge({}, partialLightThemeOptions)
+export const partialAppLightThemeOptions: ThemeOptions = { ...partialLightThemeOptions }

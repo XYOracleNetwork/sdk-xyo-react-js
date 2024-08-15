@@ -1,5 +1,4 @@
 import { Grid } from '@mui/material'
-import { isEmpty } from '@xylabs/lodash'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { CryptoMarketAssetPayload } from '@xyo-network/crypto-asset-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
@@ -12,6 +11,8 @@ import { CryptoAsset } from './Asset.tsx'
 export interface CryptoAssetRendererProps extends PayloadDetailsRenderProps {
   payload?: Payload
 }
+
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payload, ...props }) => {
   const cryptoAssetPayload = payload ? (payload as CryptoMarketAssetPayload) : undefined

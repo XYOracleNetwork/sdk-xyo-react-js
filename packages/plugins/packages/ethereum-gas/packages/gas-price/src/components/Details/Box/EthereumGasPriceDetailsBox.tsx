@@ -1,5 +1,4 @@
 import { Grid } from '@mui/material'
-import { isEmpty } from '@xylabs/lodash'
 import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
 import { GasFeeCard } from '@xyo-network/react-gas-price'
 import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
@@ -8,6 +7,8 @@ import React, { forwardRef } from 'react'
 
 import { FeeDataPayload, FeePerGasToSpeed, FeePerGasValues } from '../../lib/index.ts'
 import { GasPriceHeaderBox } from './components/index.ts'
+
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

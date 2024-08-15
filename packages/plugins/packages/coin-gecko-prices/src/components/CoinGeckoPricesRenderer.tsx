@@ -1,4 +1,3 @@
-import { isEmpty } from '@xylabs/lodash'
 import { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import { Payload } from '@xyo-network/payload-model'
 import { CryptoAssetRenderer } from '@xyo-network/react-aggregate-price-plugin'
@@ -11,6 +10,8 @@ import { useCoinGeckoToAssetPriceDiviner } from '../hooks/index.ts'
 export interface CoinGeckoPricesRendererProps extends PayloadDetailsRenderProps {
   payload?: Payload
 }
+
+const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const CoinGeckoPricesRenderer: React.FC<CoinGeckoPricesRendererProps> = ({ payload, ...props }) => {
   const coinGeckoPricesPayload = payload ? (payload as CoingeckoCryptoMarketPayload) : undefined
