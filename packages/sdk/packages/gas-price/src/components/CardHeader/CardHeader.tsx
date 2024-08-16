@@ -1,7 +1,7 @@
-import { CardProps } from '@mui/material'
+import type { CardProps } from '@mui/material'
 import React, { forwardRef } from 'react'
 
-import { GasPriceWitnessUIBasePayload } from '../../types/index.ts'
+import type { GasPriceWitnessUIBasePayload } from '../../types/index.ts'
 import { GasPriceHeaderActionsBox, GasPriceHeaderTypography } from '../HeaderComponents/index.ts'
 import { StyledCardHeader } from '../layout/index.ts'
 

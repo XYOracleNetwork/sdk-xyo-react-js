@@ -1,11 +1,13 @@
-import { TypeCheck } from '@xylabs/object'
+import type { TypeCheck } from '@xylabs/object'
 import { usePromise } from '@xylabs/react-promise'
-import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
+import type { ModuleInstance } from '@xyo-network/module-model'
+import { isModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
 import { useWeakModuleFilterOptions } from './useWeakModuleFilterOptions.ts'
 import { useWeakNode } from './useWeakNode.ts'
-import { useWeakModuleFromNodeConfigLogger, WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.ts'
+import type { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.ts'
+import { useWeakModuleFromNodeConfigLogger } from './WeakModuleFromNodeConfig.ts'
 
 export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
   nameOrAddressOrInstance: string | (T extends ModuleInstance ? T : ModuleInstance) | undefined = undefined,

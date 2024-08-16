@@ -1,4 +1,5 @@
-import { Card, CardProps, Paper, useTheme } from '@mui/material'
+import type { CardProps } from '@mui/material'
+import { Card, Paper, useTheme } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { CardContentEx } from '@xyo-network/react-card'
 import React from 'react'

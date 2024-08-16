@@ -1,4 +1,5 @@
-import { NetworkNodePayload, NetworkNodeSchema } from '@xyo-network/network'
+import type { NetworkNodePayload } from '@xyo-network/network'
+import { NetworkNodeSchema } from '@xyo-network/network'
 
 export const findDivinerPreset = (slug: string) => {
   return (

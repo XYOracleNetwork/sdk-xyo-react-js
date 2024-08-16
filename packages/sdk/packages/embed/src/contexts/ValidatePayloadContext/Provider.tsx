@@ -1,7 +1,8 @@
 import { Chip } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { WithChildren } from '@xylabs/react-shared'
-import { SchemaCache, SchemaNameToValidatorMap } from '@xyo-network/schema-cache'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { SchemaNameToValidatorMap } from '@xyo-network/schema-cache'
+import { SchemaCache } from '@xyo-network/schema-cache'
 import React, { useState } from 'react'
 
 import { useResolvePayload } from '../ResolvePayloadContext/index.ts'

@@ -1,4 +1,5 @@
-import { Dialog, DialogContent, DialogProps, DialogTitle, FormLabel } from '@mui/material'
+import type { DialogProps } from '@mui/material'
+import { Dialog, DialogContent, DialogTitle, FormLabel } from '@mui/material'
 import React from 'react'
 
 import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts/index.ts'

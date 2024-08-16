@@ -2,7 +2,8 @@ import { assertEx } from '@xylabs/assert'
 import React from 'react'
 import type { ProjectReflection } from 'typedoc'
 
-import { ContainerReflectionViewerProps, DeclarationContainerReflectionViewer } from './ReflectionViewer/index.ts'
+import type { ContainerReflectionViewerProps } from './ReflectionViewer/index.ts'
+import { DeclarationContainerReflectionViewer } from './ReflectionViewer/index.ts'
 import { TwoPanelReflectionViewer } from './TwoPanelReflectionViewer.tsx'
 
 export const ProjectTwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps<ProjectReflection>> = ({

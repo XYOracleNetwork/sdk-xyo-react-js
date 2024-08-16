@@ -1,6 +1,7 @@
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
-import { TableHeightState } from '@xyo-network/react-table'
+import type { TableHeightState } from '@xyo-network/react-table'
 import React, { forwardRef } from 'react'
 
 import { useActiveBoundWitness } from '../../../hooks/index.ts'

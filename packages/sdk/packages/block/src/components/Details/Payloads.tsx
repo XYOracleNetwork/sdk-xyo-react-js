@@ -1,6 +1,8 @@
-import { Payload } from '@xyo-network/payload-model'
-import { PayloadTable, PayloadTableProps } from '@xyo-network/react-payload-table'
-import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import type { Payload } from '@xyo-network/payload-model'
+import type { PayloadTableProps } from '@xyo-network/react-payload-table'
+import { PayloadTable } from '@xyo-network/react-payload-table'
+import type { PropertyGroupProps } from '@xyo-network/react-property'
+import { PropertyGroup } from '@xyo-network/react-property'
 import React from 'react'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */

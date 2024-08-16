@@ -1,6 +1,7 @@
 import { useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { WithChildren } from '@xylabs/react-shared'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
+import type { WithChildren } from '@xylabs/react-shared'
 import { LoadResult } from '@xyo-network/react-shared'
 import React from 'react'
 

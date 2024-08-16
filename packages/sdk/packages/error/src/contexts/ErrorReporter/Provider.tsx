@@ -1,6 +1,6 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import React, { useEffect, useState } from 'react'
-import Rollbar from 'rollbar'
+import type Rollbar from 'rollbar'
 
 import { ErrorReporterContext } from './Context.ts'
 

@@ -1,10 +1,11 @@
-import { Meta, StoryFn } from '@storybook/react'
-import { Address, toHex } from '@xylabs/hex'
+import type { Meta, StoryFn } from '@storybook/react'
+import type { Address } from '@xylabs/hex'
+import { toHex } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
 import React, { useState } from 'react'
 
-import { FavoriteItemEvent } from './lib/index.ts'
+import type { FavoriteItemEvent } from './lib/index.ts'
 import { AddressRenderRowBox } from './RenderRowBox.tsx'
 
 const address: Address = toHex(randomBytes(20))

@@ -1,6 +1,6 @@
-import { EmptyObject } from '@xylabs/object'
+import type { EmptyObject } from '@xylabs/object'
 
-import { AbstractControl } from './AbstractControl.ts'
+import type { AbstractControl } from './AbstractControl.ts'
 
 export type CursorPosition = {
   current: number | undefined

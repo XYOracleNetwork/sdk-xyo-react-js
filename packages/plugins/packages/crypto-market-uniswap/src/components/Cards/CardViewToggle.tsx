@@ -1,6 +1,8 @@
 import { Button, ButtonGroup } from '@mui/material'
-import { FlexBoxProps, FlexGrowRow } from '@xylabs/react-flexbox'
-import React, { Dispatch, SetStateAction } from 'react'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowRow } from '@xylabs/react-flexbox'
+import type { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 
 import { CardViewType } from './CardViewType.ts'
 

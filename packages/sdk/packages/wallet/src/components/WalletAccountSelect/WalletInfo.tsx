@@ -1,8 +1,9 @@
 import { Circle as LoadingIcon, ErrorOutlined as ErrorIcon } from '@mui/icons-material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { AccountInstance } from '@xyo-network/account-model'
+import type { AccountInstance } from '@xyo-network/account-model'
 import React from 'react'
 
 import { useRootWallet, useSelectedWalletAccount } from '../../contexts/index.ts'

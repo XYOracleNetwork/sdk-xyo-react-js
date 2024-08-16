@@ -1,4 +1,4 @@
-import { SymbolLayerSpecification } from 'mapbox-gl'
+import type { SymbolLayerSpecification } from 'mapbox-gl'
 
 export const ElevationSymbolLayerConfig: (color: string) => Partial<SymbolLayerSpecification> = color => ({
   layout: {

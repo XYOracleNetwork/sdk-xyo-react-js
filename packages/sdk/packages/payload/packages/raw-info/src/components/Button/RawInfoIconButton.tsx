@@ -1,11 +1,14 @@
-import { IconButton, IconButtonProps } from '@mui/material'
+import type { IconButtonProps } from '@mui/material'
+import { IconButton } from '@mui/material'
 import { toJson } from '@xylabs/object'
-import React, { forwardRef, MouseEventHandler, ReactNode, useMemo, useState } from 'react'
+import type { MouseEventHandler, ReactNode } from 'react'
+import React, { forwardRef, useMemo, useState } from 'react'
 
-import { ExpansionProps } from '../../lib/index.ts'
+import type { ExpansionProps } from '../../lib/index.ts'
 import { XyoColorLogo } from '../img/index.tsx'
 import { RawInfoDialog } from '../shared/index.ts'
-import { IconSize, presetIconSizeValue } from './lib/index.ts'
+import type { IconSize } from './lib/index.ts'
+import { presetIconSizeValue } from './lib/index.ts'
 
 export interface RawInfoIconProps extends IconButtonProps, ExpansionProps {
   dialogContent?: ReactNode

@@ -1,4 +1,6 @@
 import { FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, LastPage as LastPageIcon } from '@mui/icons-material'
+import type {
+  TableProps } from '@mui/material'
 import {
   Alert,
   Box,
@@ -9,19 +11,20 @@ import {
   TableFooter,
   TableHead,
   TablePagination,
-  TableProps,
   TableRow,
   Typography,
   useTheme,
 } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
-import React, { ReactNode, useEffect, useMemo, useState } from 'react'
+import type { ReactNode } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { PayloadDynamicTableRow } from './DynamicTableRow.tsx'
-import { PayloadDynamicTableColumnConfig, payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.ts'
+import type { PayloadDynamicTableColumnConfig } from './PayloadDynamicTableColumnConfig.ts'
+import { payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.ts'
 
 export interface PayloadDynamicTableProps extends TableProps {
   archive?: string

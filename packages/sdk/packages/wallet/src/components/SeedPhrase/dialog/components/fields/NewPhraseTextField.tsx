@@ -1,5 +1,7 @@
-import { FormControl, StandardTextFieldProps, TextField } from '@mui/material'
-import React, { ReactNode } from 'react'
+import type { StandardTextFieldProps } from '@mui/material'
+import { FormControl, TextField } from '@mui/material'
+import type { ReactNode } from 'react'
+import React from 'react'
 
 import { useSeedPhrase } from '../../../../../contexts/index.ts'
 import { colorParser, InvalidPhraseTypography } from './validation-messages/index.ts'

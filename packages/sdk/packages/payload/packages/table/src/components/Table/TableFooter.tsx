@@ -3,7 +3,7 @@ import { TableFooterEx } from '@xyo-network/react-table'
 import React from 'react'
 
 import { TablePaginationActions } from './TablePagination.tsx'
-import { PayloadTableFooterProps } from './types/index.ts'
+import type { PayloadTableFooterProps } from './types/index.ts'
 
 export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
   count,

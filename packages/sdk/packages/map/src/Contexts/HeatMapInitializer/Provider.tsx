@@ -1,16 +1,16 @@
 import { forget } from '@xylabs/forget'
-import { WithChildren } from '@xylabs/react-shared'
-import { Feature, Polygon } from 'geojson'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { Feature, Polygon } from 'geojson'
 import React, { useEffect, useMemo, useState } from 'react'
 
-import { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.ts'
+import type { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.ts'
 import { useDynamicPositioning } from '../../hooks/index.ts'
-import { MapLayer } from '../../Layers/index.ts'
+import type { MapLayer } from '../../Layers/index.ts'
 import { MapHeat } from '../../MapBoxClasses/index.ts'
 import { useMapBoxInstance } from '../MapBoxInstance/index.ts'
 import { useMapSettings } from '../MapSettings/index.ts'
 import { HeatMapInitializerContext } from './Context.ts'
-import { HeatMapInitializerState } from './State.ts'
+import type { HeatMapInitializerState } from './State.ts'
 
 export interface MapInitializerProviderProps {
   featureSets?: Feature<Polygon>[][]

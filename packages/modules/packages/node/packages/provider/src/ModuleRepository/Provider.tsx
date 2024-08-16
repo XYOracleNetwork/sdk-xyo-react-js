@@ -1,5 +1,6 @@
-import { WithChildren } from '@xylabs/react-shared'
-import { ModuleRepositoryContext, ResolverEntries } from '@xyo-network/react-node-context'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { ResolverEntries } from '@xyo-network/react-node-context'
+import { ModuleRepositoryContext } from '@xyo-network/react-node-context'
 import React, { useEffect, useState } from 'react'
 
 export interface ModuleRepositoryProviderProps extends WithChildren {

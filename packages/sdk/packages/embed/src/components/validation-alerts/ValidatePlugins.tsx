@@ -1,5 +1,6 @@
-import { Alert, AlertProps, AlertTitle } from '@mui/material'
-import { WithChildren } from '@xylabs/react-shared'
+import type { AlertProps } from '@mui/material'
+import { Alert, AlertTitle } from '@mui/material'
+import type { WithChildren } from '@xylabs/react-shared'
 import React from 'react'
 
 import { useEmbedPluginState, useResolvePayload } from '../../contexts/index.ts'

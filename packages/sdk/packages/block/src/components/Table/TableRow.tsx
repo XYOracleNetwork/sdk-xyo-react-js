@@ -1,16 +1,19 @@
-import { TableCell, TableRow, TableRowProps } from '@mui/material'
+import type { TableRowProps } from '@mui/material'
+import { TableCell, TableRow } from '@mui/material'
 import { exists } from '@xylabs/exists'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react'
+import React from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
-import { BlockTableColumnConfig, blockTableColumnConfigDefaults, BlockTableColumnSlug } from './BlockTableColumnConfig.ts'
+import type { BlockTableColumnConfig, BlockTableColumnSlug } from './BlockTableColumnConfig.ts'
+import { blockTableColumnConfigDefaults } from './BlockTableColumnConfig.ts'
 
 export interface BlockTableRowProps extends TableRowProps {
   block?: BoundWitness

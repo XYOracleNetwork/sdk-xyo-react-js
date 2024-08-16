@@ -1,8 +1,9 @@
 import { styled } from '@mui/material'
 import { TreeItem } from '@mui/x-tree-view'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ModuleInstance } from '@xyo-network/module-model'
-import React, { MutableRefObject, useState } from 'react'
+import type { ModuleInstance } from '@xyo-network/module-model'
+import type { MutableRefObject } from 'react'
+import React, { useState } from 'react'
 
 interface RenderModuleProps {
   idRef: MutableRefObject<{

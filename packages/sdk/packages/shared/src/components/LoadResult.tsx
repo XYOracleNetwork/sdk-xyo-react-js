@@ -1,5 +1,6 @@
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import React, { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 
 import { NotFound } from './NotFound.tsx'
 

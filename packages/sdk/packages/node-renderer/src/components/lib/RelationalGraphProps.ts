@@ -1,8 +1,8 @@
-import { Address } from '@xylabs/hex'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { NodeInstance } from '@xyo-network/node-model'
-import { CytoscapeOptions } from 'cytoscape'
-import { PropsWithChildren, ReactNode } from 'react'
+import type { Address } from '@xylabs/hex'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { NodeInstance } from '@xyo-network/node-model'
+import type { CytoscapeOptions } from 'cytoscape'
+import type { PropsWithChildren, ReactNode } from 'react'
 
 export interface NodeRelationalGraphProps extends PropsWithChildren<FlexBoxProps> {
   actions?: ReactNode

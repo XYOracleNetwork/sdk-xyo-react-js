@@ -1,4 +1,4 @@
-import { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.ts'
+import type { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.ts'
 
 export const useWeakModuleFilterOptions = (config?: WeakModuleFromNodeConfig) => {
   const { direction, identity, maxDepth } = config ?? {}

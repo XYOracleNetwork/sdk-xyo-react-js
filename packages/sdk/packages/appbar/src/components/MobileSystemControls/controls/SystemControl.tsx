@@ -1,6 +1,8 @@
-import { Collapse, CollapseProps } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { WithChildren } from '@xylabs/react-shared'
+import type { CollapseProps } from '@mui/material'
+import { Collapse } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import type { WithChildren } from '@xylabs/react-shared'
 import React, { useState } from 'react'
 
 import { SystemControlsType } from '../SystemControlsType.ts'

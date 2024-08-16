@@ -1,4 +1,4 @@
-import { NetworkNames } from './NetworkNames.ts'
+import type { NetworkNames } from './NetworkNames.ts'
 
 export type SiteName = 'explore' | 'node'
 

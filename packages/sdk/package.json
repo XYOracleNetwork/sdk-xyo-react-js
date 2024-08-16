@@ -7,7 +7,7 @@
   },
   "bugs": {
     "email": "support@xyo.network",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
     "@xyo-network/react-address": "workspace:^",
@@ -41,8 +41,8 @@
     "@xyo-network/react-wallet-service": "workspace:^"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.15",
-    "@xylabs/tsconfig-react": "^4.0.0-rc.15",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.20",
+    "@xylabs/tsconfig-react": "^4.0.0-rc.20",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
@@ -85,13 +85,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
     "lint-pkg": "npmPkgJsonLint .",
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module"
 }

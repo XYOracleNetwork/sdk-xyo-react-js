@@ -1,7 +1,8 @@
 import { ButtonEx } from '@xylabs/react-button'
 import React from 'react'
 
-import { WebAppPage, WebAppPageProps } from './Page.tsx'
+import type { WebAppPageProps } from './Page.tsx'
+import { WebAppPage } from './Page.tsx'
 
 export interface WebAppErrorPageProps extends WebAppPageProps {
   error?: Error

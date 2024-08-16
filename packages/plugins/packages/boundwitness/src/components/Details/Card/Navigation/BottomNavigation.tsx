@@ -1,6 +1,9 @@
-import { BottomNavigation, BottomNavigationAction, BottomNavigationProps, styled } from '@mui/material'
-import { BoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
-import React, { Dispatch, forwardRef, SetStateAction } from 'react'
+import type { BottomNavigationProps } from '@mui/material'
+import { BottomNavigation, BottomNavigationAction, styled } from '@mui/material'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
+import type { Dispatch, SetStateAction } from 'react'
+import React, { forwardRef } from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
 // eslint-disable-next-line import-x/no-internal-modules

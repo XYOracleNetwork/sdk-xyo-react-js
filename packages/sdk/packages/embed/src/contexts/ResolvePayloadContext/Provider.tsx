@@ -1,13 +1,14 @@
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import { Huri } from '@xyo-network/huri'
-import { ModuleError, ModuleErrorSchema, Payload } from '@xyo-network/payload-model'
+import type { ModuleError, Payload } from '@xyo-network/payload-model'
+import { ModuleErrorSchema } from '@xyo-network/payload-model'
 import React, { useEffect, useState } from 'react'
 
 import { useRefreshPayload } from '../RefreshPayloadContext/index.ts'
 import { ResolvePayloadContext } from './Context.ts'
-import { ResolvePayloadState } from './State.ts'
+import type { ResolvePayloadState } from './State.ts'
 
 export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided'>
 

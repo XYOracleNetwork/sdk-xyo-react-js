@@ -1,4 +1,4 @@
-import { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
+import type { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
 
 const DEFAULT_LOCAL_STORAGE_KEY = 'XYO|EnabledWallets'
 

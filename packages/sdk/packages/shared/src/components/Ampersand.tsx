@@ -1,4 +1,5 @@
-import { Typography, TypographyProps } from '@mui/material'
+import type { TypographyProps } from '@mui/material'
+import { Typography } from '@mui/material'
 import React from 'react'
 
 export const Ampersand: React.FC<TypographyProps> = (props) => {

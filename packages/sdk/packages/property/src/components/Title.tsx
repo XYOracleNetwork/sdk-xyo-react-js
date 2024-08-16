@@ -1,8 +1,11 @@
-import { darken, lighten, Typography, TypographyVariant, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import type { TypographyVariant } from '@mui/material'
+import { darken, lighten, Typography, useTheme } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { SizeProp } from '@xyo-network/react-shared'
-import React, { ReactNode } from 'react'
+import type { SizeProp } from '@xyo-network/react-shared'
+import type { ReactNode } from 'react'
+import React from 'react'
 
 export type TitleSizeProp = SizeProp | 'full'
 

@@ -1,9 +1,11 @@
-import { Table, TableBody, TableCell, TableHead, TableProps, TableRow } from '@mui/material'
-import { EIP6963Connector } from '@xylabs/react-crypto'
+import type { TableProps } from '@mui/material'
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import type { EIP6963Connector } from '@xylabs/react-crypto'
 import React, { useState } from 'react'
 
 import { ConnectWalletDialog, RevokeWalletConnectionDialog } from '../dialogs/index.ts'
-import { ActiveProvider, WalletsTableHeadCells } from '../lib/index.ts'
+import type { ActiveProvider } from '../lib/index.ts'
+import { WalletsTableHeadCells } from '../lib/index.ts'
 import { WalletConnectionsTableRow } from './ConnectedWalletsTableRow.tsx'
 import { useActiveProviderDialogState } from './hooks/index.ts'
 

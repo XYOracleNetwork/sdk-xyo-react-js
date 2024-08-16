@@ -1,7 +1,7 @@
-import { ContextExProviderProps } from '@xyo-network/react-shared'
+import type { ContextExProviderProps } from '@xyo-network/react-shared'
 import React, { useMemo, useState } from 'react'
 
-import { PayloadRenderPluginResolver } from '../../PayloadRenderPluginResolver.ts'
+import type { PayloadRenderPluginResolver } from '../../PayloadRenderPluginResolver.ts'
 import { PayloadRenderPluginResolverContext } from './Context.ts'
 
 export type PayloadRenderPluginResolverProviderProps = ContextExProviderProps<{

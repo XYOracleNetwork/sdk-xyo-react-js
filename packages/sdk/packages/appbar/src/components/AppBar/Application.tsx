@@ -1,6 +1,8 @@
-import { ToolbarProps } from '@mui/material'
-import { AppBarEx, AppBarExProps } from '@xylabs/react-appbar'
-import React, { ReactElement } from 'react'
+import type { ToolbarProps } from '@mui/material'
+import type { AppBarExProps } from '@xylabs/react-appbar'
+import { AppBarEx } from '@xylabs/react-appbar'
+import type { ReactElement } from 'react'
+import React from 'react'
 
 import { ContextToolbar, SystemToolbar } from '../Toolbar/index.ts'
 

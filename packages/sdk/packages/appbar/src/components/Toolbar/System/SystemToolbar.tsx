@@ -1,10 +1,14 @@
-import { Paper, Toolbar, ToolbarProps } from '@mui/material'
+import type { ToolbarProps } from '@mui/material'
+import { Paper, Toolbar } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { DarkModeIconButton } from '@xyo-network/react-app-settings'
-import { NetworkSelectEx, NetworkSelectExProps } from '@xyo-network/react-network'
-import React, { ReactNode } from 'react'
+import type { NetworkSelectExProps } from '@xyo-network/react-network'
+import { NetworkSelectEx } from '@xyo-network/react-network'
+import type { ReactNode } from 'react'
+import React from 'react'
 
-import { SiteMenu, SiteMenuProps } from '../../SiteMenu/index.ts'
+import type { SiteMenuProps } from '../../SiteMenu/index.ts'
+import { SiteMenu } from '../../SiteMenu/index.ts'
 
 export interface SystemToolbarProps extends ToolbarProps {
   darkModeButton?: boolean

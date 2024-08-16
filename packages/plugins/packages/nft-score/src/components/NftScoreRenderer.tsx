@@ -5,10 +5,12 @@ import {
   ReportProblem as ReportProblemIcon,
 } from '@mui/icons-material'
 import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { NftScore, NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
-import { Score } from '@xyo-network/crypto-nft-score-model'
-import { Payload } from '@xyo-network/payload-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
+import type { NftScore } from '@xyo-network/crypto-nft-payload-plugin'
+import { NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
+import type { Score } from '@xyo-network/crypto-nft-score-model'
+import type { Payload } from '@xyo-network/payload-model'
 import React from 'react'
 
 export interface NftScoreRendererProps extends FlexBoxProps {

@@ -1,4 +1,5 @@
-import { IconButton, IconButtonProps, styled } from '@mui/material'
+import type { IconButtonProps } from '@mui/material'
+import { IconButton, styled } from '@mui/material'
 
 export interface PaperAdornmentIconButton extends IconButtonProps {
   themePadding?: number

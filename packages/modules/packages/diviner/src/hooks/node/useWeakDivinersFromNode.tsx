@@ -1,7 +1,9 @@
 import { exists } from '@xylabs/exists'
-import { asDivinerInstance, DivinerInstance } from '@xyo-network/diviner-model'
-import { ModuleFilter } from '@xyo-network/module-model'
-import { ModuleFromNodeConfig, useWeakModulesFromNode } from '@xyo-network/react-node'
+import type { DivinerInstance } from '@xyo-network/diviner-model'
+import { asDivinerInstance } from '@xyo-network/diviner-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useWeakModulesFromNode } from '@xyo-network/react-node'
 
 export const useWeakDivinersFromNode = (
   filter?: ModuleFilter,

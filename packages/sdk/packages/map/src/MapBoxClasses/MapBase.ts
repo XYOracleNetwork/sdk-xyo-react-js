@@ -1,9 +1,9 @@
 import { assertEx } from '@xylabs/assert'
 import { GeoJson } from '@xyo-network/sdk-geo'
-import { Feature, Geometry } from 'geojson'
-import { GeoJSONSource, Map } from 'mapbox-gl'
+import type { Feature, Geometry } from 'geojson'
+import type { GeoJSONSource, Map } from 'mapbox-gl'
 
-import { MapLayer } from '../Layers/index.ts'
+import type { MapLayer } from '../Layers/index.ts'
 
 export interface MapBaseConfig<T extends Geometry> {
   features: Feature<T>[]

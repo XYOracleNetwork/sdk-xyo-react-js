@@ -7,11 +7,11 @@ import {
   TimerRounded as TimerRoundedIcon,
   VisibilityRounded as VisibilityRoundedIcon,
 } from '@mui/icons-material'
-import { SvgIconTypeMap } from '@mui/material'
+import type { SvgIconTypeMap } from '@mui/material'
 // eslint-disable-next-line import-x/no-internal-modules
-import { OverridableComponent } from '@mui/material/OverridableComponent.js'
+import type { OverridableComponent } from '@mui/material/OverridableComponent.js'
 
-import { CyNodeModuleTypes } from './lib/index.ts'
+import type { CyNodeModuleTypes } from './lib/index.ts'
 
 export const CyIconSet: Record<CyNodeModuleTypes, OverridableComponent<SvgIconTypeMap<{}, 'svg'>>> = {
   archivist: Inventory2RoundedIcon,

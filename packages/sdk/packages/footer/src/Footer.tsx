@@ -1,8 +1,11 @@
-import { Container, ContainerProps, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import type { ContainerProps } from '@mui/material'
+import { Container, useTheme } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
-import { FooterAlwaysLinks, FooterAlwaysLinksProps } from './AlwaysLinks.tsx'
+import type { FooterAlwaysLinksProps } from './AlwaysLinks.tsx'
+import { FooterAlwaysLinks } from './AlwaysLinks.tsx'
 
 export interface FooterProps extends FlexBoxProps {
   alwaysFooterLinksProps?: FooterAlwaysLinksProps

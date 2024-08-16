@@ -1,4 +1,4 @@
-import { Decorator, Meta, StoryFn } from '@storybook/react'
+import type { Decorator, Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import React from 'react'
 

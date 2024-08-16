@@ -1,5 +1,5 @@
 import { TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme } from '@mui/material'
-import { Decorator, Meta, StoryFn } from '@storybook/react'
+import type { Decorator, Meta, StoryFn } from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 import React from 'react'
 

@@ -1,9 +1,10 @@
-import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
-import { Payload } from '@xyo-network/payload-model'
+import type { DivinerInstance } from '@xyo-network/diviner-model'
+import { isDivinerInstance } from '@xyo-network/diviner-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { useProvidedNode } from '@xyo-network/react-node'
 import { useCallback } from 'react'
 
-import { IndexedResultsConfig, ProcessIndexedResults } from '../../interfaces/index.ts'
+import type { IndexedResultsConfig, ProcessIndexedResults } from '../../interfaces/index.ts'
 
 export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResultsConfig): (() => Promise<Payload[] | undefined | null>) => {
   const [node] = useProvidedNode()

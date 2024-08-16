@@ -1,5 +1,5 @@
 import type { WithChildren } from '@xylabs/react-shared'
-import { Core } from 'cytoscape'
+import type { Core } from 'cytoscape'
 import React, { useEffect, useState } from 'react'
 
 import { CytoscapeInstanceContext } from './Context.ts'

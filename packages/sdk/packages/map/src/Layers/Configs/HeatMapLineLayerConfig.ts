@@ -1,4 +1,4 @@
-import { LineLayerSpecification } from 'mapbox-gl'
+import type { LineLayerSpecification } from 'mapbox-gl'
 
 export const HeatMapLineLayerConfig: (color: string) => Partial<LineLayerSpecification> = color => ({
   layout: {

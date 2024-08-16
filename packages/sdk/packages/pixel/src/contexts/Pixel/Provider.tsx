@@ -1,5 +1,5 @@
 import { XyPixel } from '@xylabs/pixel'
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import React, { useMemo } from 'react'
 
 import { PixelContext } from './Context.ts'

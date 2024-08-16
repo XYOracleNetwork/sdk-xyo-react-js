@@ -1,4 +1,5 @@
-import { ButtonGroup, TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
+import type { TableRowProps } from '@mui/material'
+import { ButtonGroup, TableCell, TableRow, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import React, { useState } from 'react'
 

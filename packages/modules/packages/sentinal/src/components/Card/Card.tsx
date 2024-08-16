@@ -1,8 +1,9 @@
-import { Card, CardProps } from '@mui/material'
+import type { CardProps } from '@mui/material'
+import { Card } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
-import { Payload } from '@xyo-network/payload-model'
-import { ModuleRenderProps } from '@xyo-network/react-module'
-import { SentinelInstance } from '@xyo-network/sentinel-model'
+import type { Payload } from '@xyo-network/payload-model'
+import type { ModuleRenderProps } from '@xyo-network/react-module'
+import type { SentinelInstance } from '@xyo-network/sentinel-model'
 import React, { useState } from 'react'
 
 import { SentinelCardActions } from './CardActions.tsx'

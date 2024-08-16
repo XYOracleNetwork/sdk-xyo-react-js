@@ -1,5 +1,5 @@
 import { Divider, useTheme } from '@mui/material'
-import { Decorator, Meta, StoryFn } from '@storybook/react'
+import type { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 

@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
 import { FacebookSvgIcon, XTwitterSvgIcon } from '../icons/index.ts'

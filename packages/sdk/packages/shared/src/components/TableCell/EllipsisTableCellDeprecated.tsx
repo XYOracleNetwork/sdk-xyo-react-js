@@ -1,7 +1,8 @@
-import { TableCell, TableCellProps, useTheme } from '@mui/material'
+import type { TableCellProps } from '@mui/material'
+import { TableCell, useTheme } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
 import React, { useEffect, useRef, useState } from 'react'
-import { To } from 'react-router-dom'
+import type { To } from 'react-router-dom'
 
 import { getActualPaddingX } from '../../lib/index.ts'
 import { findParent } from './findParent.ts'

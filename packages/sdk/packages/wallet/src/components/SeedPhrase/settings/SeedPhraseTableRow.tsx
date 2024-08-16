@@ -1,5 +1,6 @@
 import { Cancel as CancelIcon, RadioButtonChecked as RadioButtonCheckedIcon } from '@mui/icons-material'
-import { Button, ButtonGroup, TableCell, TableRow, TableRowProps } from '@mui/material'
+import type { TableRowProps } from '@mui/material'
+import { Button, ButtonGroup, TableCell, TableRow } from '@mui/material'
 import React, { useState } from 'react'
 
 import { SeedPhraseIconButton } from '../_shared/index.ts'

@@ -1,5 +1,6 @@
-import { EmptyObject } from '@xylabs/object'
-import { FormControlBase, SetOptions, ValidControlValue } from '@xyo-network/react-form-group'
+import type { EmptyObject } from '@xylabs/object'
+import type { SetOptions, ValidControlValue } from '@xyo-network/react-form-group'
+import { FormControlBase } from '@xyo-network/react-form-group'
 import valid from 'card-validator'
 
 import { unmask } from '../utils/index.ts'

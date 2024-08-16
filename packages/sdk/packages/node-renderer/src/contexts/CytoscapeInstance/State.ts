@@ -1,6 +1,6 @@
-import { ContextExState } from '@xyo-network/react-shared'
-import { Core } from 'cytoscape'
-import { Dispatch, SetStateAction } from 'react'
+import type { ContextExState } from '@xyo-network/react-shared'
+import type { Core } from 'cytoscape'
+import type { Dispatch, SetStateAction } from 'react'
 
 export interface CytoscapeInstanceState extends ContextExState {
   cy?: WeakRef<Core>

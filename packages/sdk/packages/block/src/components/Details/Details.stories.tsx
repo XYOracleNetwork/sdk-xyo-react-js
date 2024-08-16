@@ -1,5 +1,5 @@
-import { Meta, StoryFn } from '@storybook/react'
-import { Hash } from '@xylabs/hex'
+import type { Meta, StoryFn } from '@storybook/react'
+import type { Hash } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
 import React, { createRef } from 'react'

@@ -1,10 +1,11 @@
 import { forget } from '@xylabs/forget'
-import { EventListener } from '@xyo-network/module-events'
-import { Payload } from '@xyo-network/payload-model'
+import type { EventListener } from '@xyo-network/module-events'
+import type { Payload } from '@xyo-network/payload-model'
 
-import { AbstractControl, ControlValueAccessorBaseEvents } from './control/index.ts'
-import { ErrorSummary } from './InputError.ts'
-import { FormGroupStorage } from './storage/index.ts'
+import type { ControlValueAccessorBaseEvents } from './control/index.ts'
+import { AbstractControl } from './control/index.ts'
+import type { ErrorSummary } from './InputError.ts'
+import type { FormGroupStorage } from './storage/index.ts'
 
 export type PayloadWithTimestamp = Payload<{ timestamp?: number }>
 

@@ -1,4 +1,5 @@
-import { styled, TableCell, TableRow, TableRowProps, Typography, TypographyProps } from '@mui/material'
+import type { TableRowProps, TypographyProps } from '@mui/material'
+import { styled, TableCell, TableRow, Typography } from '@mui/material'
 import React from 'react'
 
 export interface TableRowNoDataProps extends TableRowProps {

@@ -1,5 +1,6 @@
-import { ContextExState, createContextEx } from '@xyo-network/react-shared'
-import { Dispatch, SetStateAction } from 'react'
+import type { ContextExState } from '@xyo-network/react-shared'
+import { createContextEx } from '@xyo-network/react-shared'
+import type { Dispatch, SetStateAction } from 'react'
 
 export interface NestedBoundWitnessesState extends ContextExState {
   clickedExistingHash?: string

@@ -1,5 +1,5 @@
-import { HeatMapColorProps } from '../../Colors/index.ts'
-import { MapHeat } from '../../MapBoxClasses/index.ts'
+import type { HeatMapColorProps } from '../../Colors/index.ts'
+import type { MapHeat } from '../../MapBoxClasses/index.ts'
 
 export interface HeatMapInitializerState {
   MapHeat?: MapHeat

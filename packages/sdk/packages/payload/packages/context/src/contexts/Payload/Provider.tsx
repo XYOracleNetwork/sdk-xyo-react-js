@@ -1,8 +1,8 @@
-import { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { WithChildren } from '@xylabs/react-shared'
-import { ArchivistInstance, ArchivistModule } from '@xyo-network/archivist-model'
-import { Payload } from '@xyo-network/payload-model'
+import type { ArchivistInstance, ArchivistModule } from '@xyo-network/archivist-model'
+import type { Payload } from '@xyo-network/payload-model'
 import React, { useEffect, useState } from 'react'
 
 import { PayloadContext } from './Context.ts'

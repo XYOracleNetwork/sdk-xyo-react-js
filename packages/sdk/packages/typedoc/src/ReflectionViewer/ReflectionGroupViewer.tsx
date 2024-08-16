@@ -7,7 +7,7 @@ import type { ContainerReflection, ReflectionFlags, ReflectionGroup } from 'type
 import { JsonViewerButton } from '../JsonViewerButton.tsx'
 import { resolveChildren } from '../resolveChildren.ts'
 import { ReflectionViewer } from './ReflectionViewer.tsx'
-import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps.tsx'
+import type { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps.tsx'
 
 export interface ReflectionGroupViewerProps extends ReflectionViewerProps<ContainerReflection> {
   autoScroll?: boolean

@@ -3,17 +3,19 @@ import {
   ErrorOutlineRounded as ErrorOutlineRoundedIcon,
   WarningAmberRounded as WarningAmberRoundedIcon,
 } from '@mui/icons-material'
-import { alpha, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
-import { Hash } from '@xylabs/hex'
+import type { TableCellProps, TableRowProps } from '@mui/material'
+import { alpha, TableCell, TableRow, Typography } from '@mui/material'
+import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import React, { useMemo } from 'react'
 
-import { PayloadTableColumnConfig, payloadTableColumnConfigDefaults, PayloadTableColumnSlug } from './PayloadTableColumnConfig.ts'
+import type { PayloadTableColumnConfig, PayloadTableColumnSlug } from './PayloadTableColumnConfig.ts'
+import { payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig.ts'
 
 export interface PayloadTableRowProps extends TableRowProps {
   archive?: string

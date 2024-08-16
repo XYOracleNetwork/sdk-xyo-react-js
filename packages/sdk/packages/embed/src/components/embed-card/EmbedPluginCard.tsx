@@ -1,11 +1,12 @@
 import { useTheme } from '@mui/material'
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import React from 'react'
 
 import { useRefreshPayload, useResolvePayload } from '../../contexts/index.ts'
-import { EmbedPluginProps } from '../../types/index.ts'
+import type { EmbedPluginProps } from '../../types/index.ts'
 import { EmbedPluginInner } from '../EmbedPlugin.tsx'
-import { BusyCardProps, EmbedPluginCard } from './card/index.ts'
+import type { BusyCardProps } from './card/index.ts'
+import { EmbedPluginCard } from './card/index.ts'
 import { EmbedCardApiErrorRenderer } from './error-handling/index.ts'
 
 export interface EmbedPluginCardProps extends WithChildren, EmbedPluginProps, BusyCardProps {}

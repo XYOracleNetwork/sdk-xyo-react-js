@@ -1,9 +1,9 @@
-import { TypographyVariant } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ReactElement } from 'react'
+import type { TypographyVariant } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { ReactElement } from 'react'
 import type { Reflection } from 'typedoc'
 
-import { ReflectionLookup } from '../ReflectionLookup.ts'
+import type { ReflectionLookup } from '../ReflectionLookup.ts'
 
 export type FlagFilter = 'isPublic' | 'isPrivate' | 'isProtected'
 

@@ -1,4 +1,4 @@
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 
 export type ParseIndexedResults<TPayload extends Payload = Payload> = (payloads: Payload[]) => Promise<TPayload[] | undefined>
 

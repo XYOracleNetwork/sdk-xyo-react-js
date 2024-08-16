@@ -3,7 +3,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import React, { useMemo } from 'react'
 
 import { payloadColumnNames, payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig.ts'
-import { PayloadTableHeadProps } from './types/index.ts'
+import type { PayloadTableHeadProps } from './types/index.ts'
 
 export const PayloadTableHead: React.FC<PayloadTableHeadProps> = ({ columns, ...props }) => {
   const breakPoint = useBreakpoint()

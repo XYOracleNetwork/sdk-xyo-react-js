@@ -1,8 +1,8 @@
 import { MemoryPayloadDiviner } from '@xyo-network/diviner-payload-memory'
-import { PackageManifestPayload } from '@xyo-network/manifest'
-import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
+import type { PackageManifestPayload } from '@xyo-network/manifest'
+import type { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 
-import { CreatablePackageManifest } from '../../types/index.ts'
+import type { CreatablePackageManifest } from '../../types/index.ts'
 import archivistManifest from './archivist-manifest.json'
 
 export const ArchivistManifestNode: CreatablePackageManifest = (locator: ModuleFactoryLocator): PackageManifestPayload => {

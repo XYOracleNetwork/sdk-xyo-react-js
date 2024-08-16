@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { renderToStaticMarkup } from 'react-dom/server'
 

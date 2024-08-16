@@ -1,7 +1,9 @@
 import { exists } from '@xylabs/exists'
-import { ModuleFilter } from '@xyo-network/module-model'
-import { ModuleFromNodeConfig, useWeakModulesFromNode } from '@xyo-network/react-node'
-import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useWeakModulesFromNode } from '@xyo-network/react-node'
+import type { WitnessInstance } from '@xyo-network/witness-model'
+import { asWitnessInstance } from '@xyo-network/witness-model'
 
 export const useWeakWitnessesFromNode = (
   filter?: ModuleFilter,

@@ -1,5 +1,6 @@
 import { useTheme } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { TypographyEx } from '@xyo-network/react-shared'
 import React from 'react'
 

@@ -1,6 +1,8 @@
-import { DivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
-import { ModuleFilter } from '@xyo-network/module-model'
-import { ModuleFromNodeConfig, useModulesFromNode } from '@xyo-network/react-node'
+import type { DivinerInstance } from '@xyo-network/diviner-model'
+import { isDivinerInstance } from '@xyo-network/diviner-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useModulesFromNode } from '@xyo-network/react-node'
 
 /** @deprecated use useWeakDivinersFromNode */
 export const useDivinersFromNode = (

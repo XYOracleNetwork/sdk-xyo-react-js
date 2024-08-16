@@ -1,5 +1,6 @@
 import { styled, Typography } from '@mui/material'
-import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
+import type { QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
+import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import React from 'react'
 
 export interface BlocksQuickTipButtonProps extends QuickTipButtonProps {

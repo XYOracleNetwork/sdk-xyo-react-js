@@ -1,7 +1,9 @@
-import { Feature, Point } from 'geojson'
-import { LngLatBounds, MapOptions } from 'mapbox-gl'
+import type { Feature, Point } from 'geojson'
+import type { MapOptions } from 'mapbox-gl'
+import { LngLatBounds } from 'mapbox-gl'
 
-import { MapBase, MapBaseConfig } from './MapBase.ts'
+import type { MapBaseConfig } from './MapBase.ts'
+import { MapBase } from './MapBase.ts'
 
 export interface MapPointsConfig extends MapBaseConfig<Point> {
   features: Feature<Point>[]

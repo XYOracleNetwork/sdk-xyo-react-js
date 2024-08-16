@@ -1,12 +1,13 @@
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material'
-import { ModuleInstance } from '@xyo-network/module-model'
+import type { ModuleInstance } from '@xyo-network/module-model'
 import React from 'react'
 
 export interface ModuleAccordionProps<T extends ModuleInstance = ModuleInstance> extends Omit<AccordionProps, 'children'> {
   mod?: T
 }
 
-import { Accordion, AccordionDetails, AccordionProps, AccordionSummary } from '@mui/material'
+import type { AccordionProps } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 
 import { ModuleDetails } from './ModuleDetails.tsx'
 import { TypedModuleSummary } from './TypedModuleSummary.tsx'

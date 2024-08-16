@@ -1,4 +1,5 @@
-import { Avatar, Divider, Paper, PaperProps, Typography, useTheme } from '@mui/material'
+import type { PaperProps } from '@mui/material'
+import { Avatar, Divider, Paper, Typography, useTheme } from '@mui/material'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { format, subHours } from 'date-fns'
 import React from 'react'

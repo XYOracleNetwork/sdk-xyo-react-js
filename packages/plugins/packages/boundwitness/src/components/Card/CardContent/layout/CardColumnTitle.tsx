@@ -1,4 +1,5 @@
-import { styled, Typography, TypographyProps } from '@mui/material'
+import type { TypographyProps } from '@mui/material'
+import { styled, Typography } from '@mui/material'
 import React from 'react'
 
 export const CardColumnTitle = styled(Typography, { name: 'CardColumnTitle' })(({ theme }) => ({

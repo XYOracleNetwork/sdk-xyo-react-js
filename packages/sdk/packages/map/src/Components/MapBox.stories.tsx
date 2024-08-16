@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import { Decorator, Meta, StoryFn } from '@storybook/react'
+import type { Decorator, Meta, StoryFn } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import React, { useRef } from 'react'
 

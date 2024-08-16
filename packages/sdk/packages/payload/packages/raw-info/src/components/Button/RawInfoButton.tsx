@@ -1,11 +1,14 @@
 import { toJson } from '@xylabs/object'
-import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
-import React, { MouseEventHandler, ReactNode, useMemo, useState } from 'react'
+import type { ButtonExProps } from '@xylabs/react-button'
+import { ButtonEx } from '@xylabs/react-button'
+import type { MouseEventHandler, ReactNode } from 'react'
+import React, { useMemo, useState } from 'react'
 
-import { ExpansionProps } from '../../lib/index.ts'
+import type { ExpansionProps } from '../../lib/index.ts'
 import { XyoColorLogo } from '../img/index.tsx'
 import { RawInfoDialog } from '../shared/index.ts'
-import { IconSize, presetIconSizeValue } from './lib/index.ts'
+import type { IconSize } from './lib/index.ts'
+import { presetIconSizeValue } from './lib/index.ts'
 
 export interface RawInfoButtonProps extends ButtonExProps, ExpansionProps {
   dialogContent?: ReactNode

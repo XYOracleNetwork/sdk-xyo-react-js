@@ -1,6 +1,8 @@
-import { CircularProgress, MenuItem, SelectProps } from '@mui/material'
+import type { SelectProps } from '@mui/material'
+import { CircularProgress, MenuItem } from '@mui/material'
 import { SelectEx } from '@xylabs/react-select'
-import { AddressRenderRowBox, AddressRenderRowBoxProps } from '@xyo-network/react-address-render'
+import type { AddressRenderRowBoxProps } from '@xyo-network/react-address-render'
+import { AddressRenderRowBox } from '@xyo-network/react-address-render'
 import React from 'react'
 
 import { useWalletContext } from '../../contexts/index.ts'

@@ -1,6 +1,6 @@
-import { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
-import { ContextExState, ListMode } from '@xyo-network/react-shared'
-import { Dispatch, SetStateAction } from 'react'
+import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import type { ContextExState, ListMode } from '@xyo-network/react-shared'
+import type { Dispatch, SetStateAction } from 'react'
 
 export interface EmbedPluginVisibilityConfig {
   hideAvatar?: boolean

@@ -1,7 +1,7 @@
-import { NodeInstance } from '@xyo-network/node-model'
-import { Payload } from '@xyo-network/payload-model'
+import type { NodeInstance } from '@xyo-network/node-model'
+import type { Payload } from '@xyo-network/payload-model'
 
-import { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.ts'
+import type { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.ts'
 import { createPollingFunction, DEFAULT_POLLING_CONFIG } from './createPollingFunction.tsx'
 import { divineIndexedResults } from './divineIndexedResults.tsx'
 

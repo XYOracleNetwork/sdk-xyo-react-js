@@ -1,11 +1,12 @@
-import { CircularProgress, Paper, TypographyVariant } from '@mui/material'
+import type { TypographyVariant } from '@mui/material'
+import { CircularProgress, Paper } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
-import { SizeProp } from '@xyo-network/react-shared'
+import type { SizeProp } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
 import { PropertyActionsMenu } from './ActionsMenu.tsx'
 import { IdenticonCorner } from './IdenticonCorner.tsx'
-import { PropertyBoxProps, PropertyPaperProps, PropertyProps } from './Props.ts'
+import type { PropertyBoxProps, PropertyPaperProps, PropertyProps } from './Props.ts'
 import { PropertyTitle } from './Title.tsx'
 import { PropertyValue } from './Value.tsx'
 

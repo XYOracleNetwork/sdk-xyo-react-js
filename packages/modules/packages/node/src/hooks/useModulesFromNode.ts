@@ -1,8 +1,8 @@
 import { usePromise } from '@xylabs/react-promise'
-import { ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
+import type { ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
 import { useModuleFilterOptions } from './useModuleFilterOptions.ts'
 import { useNode } from './useNode.ts'
 

@@ -1,4 +1,4 @@
-import { CytoscapeOptions } from 'cytoscape'
+import type { CytoscapeOptions } from 'cytoscape'
 
 const elements: CytoscapeOptions['elements'] = [
   {

@@ -1,4 +1,4 @@
-import { NodeInstance } from '@xyo-network/node-model'
+import type { NodeInstance } from '@xyo-network/node-model'
 import { NodeContext } from '@xyo-network/react-node-context'
 import { useContext } from 'react'
 

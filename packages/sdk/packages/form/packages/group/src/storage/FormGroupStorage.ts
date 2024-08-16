@@ -1,5 +1,5 @@
-import { Promisable } from '@xylabs/promise'
-import { Payload } from '@xyo-network/payload-model'
+import type { Promisable } from '@xylabs/promise'
+import type { Payload } from '@xyo-network/payload-model'
 
 export interface FormGroupStorage<TValue extends Payload = Payload> {
   clear: () => Promisable<void>

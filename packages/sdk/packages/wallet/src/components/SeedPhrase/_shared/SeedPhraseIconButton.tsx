@@ -1,4 +1,6 @@
 import { HelpOutline as HelpOutlineIcon } from '@mui/icons-material'
+import type {
+  IconButtonProps } from '@mui/material'
 import {
   Button,
   Dialog,
@@ -6,7 +8,6 @@ import {
   DialogContent,
   DialogTitle,
   IconButton,
-  IconButtonProps,
   Link,
   List,
   ListItem,

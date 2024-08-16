@@ -1,7 +1,9 @@
-import { Table, TableBody, TableCell, TableCellProps, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { Payload } from '@xyo-network/payload-model'
-import { UniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import type { TableCellProps } from '@mui/material'
+import { Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
+import type { Payload } from '@xyo-network/payload-model'
+import type { UniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React, { useState } from 'react'
 
 import { UniswapTableRowRender } from './TableRow.tsx'

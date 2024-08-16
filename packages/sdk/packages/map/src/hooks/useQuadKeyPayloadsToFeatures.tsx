@@ -1,9 +1,9 @@
 import { exists } from '@xylabs/exists'
 import { GeoJson } from '@xyo-network/sdk-geo'
-import { Feature, Geometry } from 'geojson'
+import type { Feature, Geometry } from 'geojson'
 import { useEffect, useState } from 'react'
 
-import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.ts'
+import type { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.ts'
 
 const quadKeyToFeature = ({ density, quadkey }: { density: number; quadkey: string }) => {
   const polygonFeature = new GeoJson(quadkey).polygonFeature()

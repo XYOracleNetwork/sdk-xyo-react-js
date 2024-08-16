@@ -1,7 +1,8 @@
-import { State as PromiseState, usePromise } from '@xylabs/react-promise'
+import type { State as PromiseState } from '@xylabs/react-promise'
+import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
-import { AccountInstance } from '@xyo-network/account-model'
-import { WalletInstance } from '@xyo-network/wallet-model'
+import type { AccountInstance } from '@xyo-network/account-model'
+import type { WalletInstance } from '@xyo-network/wallet-model'
 import { Mutex } from 'async-mutex'
 
 let globalWrapperWallet: WalletInstance | undefined

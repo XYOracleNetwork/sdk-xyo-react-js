@@ -1,9 +1,11 @@
 import { exists } from '@xylabs/exists'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { HuriPayload, HuriSchema } from '@xyo-network/diviner-huri'
-import { Payload, WithMeta } from '@xyo-network/payload-model'
+import type { HuriPayload } from '@xyo-network/diviner-huri'
+import { HuriSchema } from '@xyo-network/diviner-huri'
+import type { Payload, WithMeta } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'
-import { Dispatch, useEffect, useState } from 'react'
+import type { Dispatch } from 'react'
+import { useEffect, useState } from 'react'
 
 import { PayloadDivinerContext } from './Context.ts'
 

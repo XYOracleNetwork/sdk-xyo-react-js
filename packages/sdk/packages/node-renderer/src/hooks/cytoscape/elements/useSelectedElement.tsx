@@ -1,4 +1,4 @@
-import { NodeSingular } from 'cytoscape'
+import type { NodeSingular } from 'cytoscape'
 import { useState } from 'react'
 
 import { useCytoscapeInstance } from '../../../contexts/index.ts'

@@ -1,10 +1,11 @@
 import { Alert, TableBody, Typography } from '@mui/material'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 
 import { PayloadTableRow } from './TableRow.tsx'
-import { PayloadTableBodyProps } from './types/index.ts'
+import type { PayloadTableBodyProps } from './types/index.ts'
 
 export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   children,

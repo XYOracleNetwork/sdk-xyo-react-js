@@ -1,5 +1,5 @@
-import { TableExVariants } from '@xyo-network/react-table'
-import { ChangeEvent, MouseEvent } from 'react'
+import type { TableExVariants } from '@xyo-network/react-table'
+import type { ChangeEvent, MouseEvent } from 'react'
 
 export interface PayloadTableFooterProps {
   count?: number

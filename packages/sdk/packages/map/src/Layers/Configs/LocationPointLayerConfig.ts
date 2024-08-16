@@ -1,4 +1,4 @@
-import { CircleLayerSpecification } from 'mapbox-gl'
+import type { CircleLayerSpecification } from 'mapbox-gl'
 
 export const LocationPointLayerConfig: (color: string, circleRadius: number, circleOpacity: number) => Partial<CircleLayerSpecification> = (
   color,

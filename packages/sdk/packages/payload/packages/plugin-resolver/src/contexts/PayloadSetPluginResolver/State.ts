@@ -1,5 +1,5 @@
-import { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
-import { Dispatch } from 'react'
+import type { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
+import type { Dispatch } from 'react'
 
 export interface PayloadSetPluginResolverState {
   resolver?: PayloadSetPluginResolver

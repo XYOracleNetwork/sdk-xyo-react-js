@@ -1,4 +1,5 @@
-import { Button, ButtonTypeMap, Typography } from '@mui/material'
+import type { ButtonTypeMap } from '@mui/material'
+import { Button, Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { Fragment } from 'react'
 

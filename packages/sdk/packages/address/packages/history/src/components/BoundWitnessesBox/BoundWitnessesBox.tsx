@@ -1,8 +1,10 @@
 import { LinearProgress, Slide } from '@mui/material'
-import { Hash } from '@xylabs/hex'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
+import type { Hash } from '@xylabs/hex'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { ThrownErrorBoundary, useRollbar } from '@xyo-network/react-error'
-import { EventNoun, EventVerb, useEvent } from '@xyo-network/react-event'
+import type { EventNoun, EventVerb } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
 import React, { forwardRef } from 'react'
 
 import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks/index.ts'

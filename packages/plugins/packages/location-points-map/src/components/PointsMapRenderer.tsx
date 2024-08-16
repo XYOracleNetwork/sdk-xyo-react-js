@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { Payload } from '@xyo-network/payload-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { Payload } from '@xyo-network/payload-model'
 import {
   isNetworkLocationAnswer,
   LocationPointsMapLayerBuilder,

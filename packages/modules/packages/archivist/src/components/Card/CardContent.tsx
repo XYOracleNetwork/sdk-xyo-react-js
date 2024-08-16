@@ -1,9 +1,10 @@
-import { CardContentProps } from '@mui/material'
+import type { CardContentProps } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { ArchivistConfig, ArchivistInstance } from '@xyo-network/archivist-model'
+import type { ArchivistConfig, ArchivistInstance } from '@xyo-network/archivist-model'
 import { ModuleWrapper } from '@xyo-network/module-wrapper'
-import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
+import type { ModuleRenderProps } from '@xyo-network/react-module'
+import { ModuleCardContent } from '@xyo-network/react-module'
 import { useWallet } from '@xyo-network/react-wallet'
 import React, { useState } from 'react'
 

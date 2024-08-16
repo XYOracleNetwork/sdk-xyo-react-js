@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import React, { useState } from 'react'
 
 import { NestedBoundWitnessesContext } from '../../contexts/index.ts'

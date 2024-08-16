@@ -1,10 +1,10 @@
-import { PaperProps } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { SizeProp } from '@xyo-network/react-shared'
-import { ReactNode } from 'react'
+import type { PaperProps } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { SizeProp } from '@xyo-network/react-shared'
+import type { ReactNode } from 'react'
 
-import { PropertyAction } from './Action.ts'
-import { PropertyTitleProps } from './Title.tsx'
+import type { PropertyAction } from './Action.ts'
+import type { PropertyTitleProps } from './Title.tsx'
 
 export interface PropertyBaseProps {
   paper?: boolean

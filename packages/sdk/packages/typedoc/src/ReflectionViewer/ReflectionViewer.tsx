@@ -3,9 +3,9 @@ import React from 'react'
 import type { ReflectionFlags } from 'typedoc'
 
 import { CommentViewer } from '../CommentViewer.tsx'
-import { SomeReflection } from '../SomeReflection.ts'
+import type { SomeReflection } from '../SomeReflection.ts'
 import { NameViewer } from './NameViewer.tsx'
-import { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps.tsx'
+import type { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps.tsx'
 
 const hide = (flags?: ReflectionFlags, hiddenFlags: FlagFilter[] = []) => {
   let hide = false

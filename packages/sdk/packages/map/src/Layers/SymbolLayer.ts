@@ -1,5 +1,5 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-import { SymbolLayerSpecification } from 'mapbox-gl'
+import type { SymbolLayerSpecification } from 'mapbox-gl'
 
 export class SymbolLayerBuilder extends LayerBase<SymbolLayerSpecification> {
   SymbolLayerOptions: Partial<SymbolLayerSpecification>

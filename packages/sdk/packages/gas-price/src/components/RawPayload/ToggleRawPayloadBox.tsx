@@ -1,5 +1,6 @@
 import { Button, Collapse, Paper } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
 export interface ToggleRawPayloadBoxProps extends FlexBoxProps {

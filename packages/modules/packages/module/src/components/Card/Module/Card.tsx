@@ -1,7 +1,8 @@
-import { Card, CardProps } from '@mui/material'
+import type { CardProps } from '@mui/material'
+import { Card } from '@mui/material'
 import React from 'react'
 
-import { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
+import type { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
 import { ModuleCardActions } from './CardActions.tsx'
 import { ModuleCardContent } from './CardContent.tsx'
 import { ModuleCardHeader } from './CardHeader.tsx'

@@ -1,6 +1,6 @@
-import { ListItemProps, ListItemTextProps } from '@mui/material'
-import { ReactNode } from 'react'
-import { To } from 'react-router-dom'
+import type { ListItemProps, ListItemTextProps } from '@mui/material'
+import type { ReactNode } from 'react'
+import type { To } from 'react-router-dom'
 
 export interface NavListItemProps {
   href?: string

@@ -2,11 +2,13 @@ import { assertEx } from '@xylabs/assert'
 import { delay } from '@xylabs/delay'
 import { forget } from '@xylabs/forget'
 import { GeoJson } from '@xyo-network/sdk-geo'
-import { Feature, Polygon } from 'geojson'
-import { GeoJSONSource, GeoJSONSourceSpecification, LngLatBounds, Map, MapOptions } from 'mapbox-gl'
+import type { Feature, Polygon } from 'geojson'
+import type { GeoJSONSource, GeoJSONSourceSpecification, Map, MapOptions } from 'mapbox-gl'
+import { LngLatBounds } from 'mapbox-gl'
 
-import { MapLayer } from '../Layers/index.ts'
-import { MapBase, MapBaseConfig } from './MapBase.ts'
+import type { MapLayer } from '../Layers/index.ts'
+import type { MapBaseConfig } from './MapBase.ts'
+import { MapBase } from './MapBase.ts'
 
 export class MapHeat extends MapBase<Polygon> {
   static animationStarted = false

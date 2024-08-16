@@ -3,7 +3,8 @@ import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
 import { JsonViewerButton } from '../JsonViewerButton.tsx'
-import { ReflectionGroupViewerProps, ReflectionViewer } from '../ReflectionViewer/index.ts'
+import type { ReflectionGroupViewerProps } from '../ReflectionViewer/index.ts'
+import { ReflectionViewer } from '../ReflectionViewer/index.ts'
 import { resolveChildren } from '../resolveChildren.ts'
 
 export const ReflectionGroupTreeViewer: React.FC<ReflectionGroupViewerProps> = ({

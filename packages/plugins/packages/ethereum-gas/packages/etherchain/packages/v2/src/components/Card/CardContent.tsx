@@ -1,7 +1,8 @@
-import { CardContent, CardContentProps, Grid } from '@mui/material'
-import { EthereumGasEtherchainV2Payload } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
+import type { CardContentProps } from '@mui/material'
+import { CardContent, Grid } from '@mui/material'
+import type { EthereumGasEtherchainV2Payload } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
-import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 

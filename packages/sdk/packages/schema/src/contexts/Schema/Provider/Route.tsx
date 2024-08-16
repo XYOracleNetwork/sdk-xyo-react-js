@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 import { SchemaContext } from '../Context.ts'
 import { useSchema } from '../use.ts'
 import { SchemaMemoryProvider } from './Memory.tsx'
-import { SchemaProviderProps } from './Props.ts'
+import type { SchemaProviderProps } from './Props.ts'
 
 const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const { schema, setSchema, schemaList } = useSchema()

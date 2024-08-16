@@ -1,5 +1,5 @@
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { NodeInstance } from '@xyo-network/node-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { NodeInstance } from '@xyo-network/node-model'
 import React from 'react'
 
 import { NodeDescriptionBox } from './NodeDescriptionBox.tsx'

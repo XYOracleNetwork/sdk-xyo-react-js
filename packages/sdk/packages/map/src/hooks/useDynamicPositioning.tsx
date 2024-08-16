@@ -1,5 +1,5 @@
 import { useWindowSize } from '@xylabs/react-shared'
-import { MapOptions } from 'mapbox-gl'
+import type { MapOptions } from 'mapbox-gl'
 import { useEffect, useState } from 'react'
 
 /**

@@ -1,8 +1,10 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
-import { ModuleError, ModuleErrorSchema } from '@xyo-network/payload-model'
-import { SchemaCache, SchemaCacheEntry } from '@xyo-network/schema-cache'
-import { SchemaPayload } from '@xyo-network/schema-payload-plugin'
+import type { ModuleError } from '@xyo-network/payload-model'
+import { ModuleErrorSchema } from '@xyo-network/payload-model'
+import type { SchemaCacheEntry } from '@xyo-network/schema-cache'
+import { SchemaCache } from '@xyo-network/schema-cache'
+import type { SchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { useState } from 'react'
 
 /**

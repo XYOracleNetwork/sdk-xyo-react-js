@@ -1,6 +1,8 @@
-import { ArchivistInstance, isArchivistInstance } from '@xyo-network/archivist-model'
-import { ModuleFilter } from '@xyo-network/module-model'
-import { ModuleFromNodeConfig, useModulesFromNode } from '@xyo-network/react-node'
+import type { ArchivistInstance } from '@xyo-network/archivist-model'
+import { isArchivistInstance } from '@xyo-network/archivist-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useModulesFromNode } from '@xyo-network/react-node'
 
 /** @deprecated use useWeakArchivistsFromNode */
 export const useArchivistsFromNode = (

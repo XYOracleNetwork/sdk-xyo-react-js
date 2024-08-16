@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { ProvidedNodeRenderer } from '@xyo-network/react-node-renderer'
 import React from 'react'
 

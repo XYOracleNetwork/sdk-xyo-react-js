@@ -1,7 +1,8 @@
 import { CancelRounded } from '@mui/icons-material'
-import { Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, PopperProps, styled } from '@mui/material'
+import type { PopperProps } from '@mui/material'
+import { Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, styled } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
-import { NodeSingular } from 'cytoscape'
+import type { NodeSingular } from 'cytoscape'
 import React from 'react'
 
 export interface ModuleHoverPopperProps extends PopperProps {

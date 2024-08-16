@@ -1,9 +1,10 @@
 import { Paper, useTheme } from '@mui/material'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { typeOf } from '@xyo-network/typeof'
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react'
+import React from 'react'
 
-import { PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps } from './Props.ts'
+import type { PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps } from './Props.ts'
 import { PropertyTitle } from './Title.tsx'
 
 const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, children, title, tip, ...props }) => {

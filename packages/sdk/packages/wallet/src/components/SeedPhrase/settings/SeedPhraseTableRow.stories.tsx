@@ -1,5 +1,5 @@
 import { Table, TableBody } from '@mui/material'
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
 import { SeedPhraseTableRow } from './SeedPhraseTableRow.tsx'

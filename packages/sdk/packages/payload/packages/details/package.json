@@ -7,17 +7,17 @@
   },
   "bugs": {
     "email": "support@xyo.network",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/forget": "^4.0.1",
-    "@xylabs/react-button": "^4.0.1",
-    "@xylabs/react-flexbox": "^4.0.1",
-    "@xylabs/react-promise": "^4.0.1",
-    "@xylabs/react-quick-tip-button": "^4.0.1",
-    "@xyo-network/hash": "^3.0.2",
-    "@xyo-network/payload-model": "^3.0.2",
-    "@xyo-network/payload-validator": "^3.0.2",
+    "@xylabs/forget": "^4.0.2",
+    "@xylabs/react-button": "^4.0.3",
+    "@xylabs/react-flexbox": "^4.0.3",
+    "@xylabs/react-promise": "^4.0.3",
+    "@xylabs/react-quick-tip-button": "^4.0.3",
+    "@xyo-network/hash": "^3.0.3",
+    "@xyo-network/payload-model": "^3.0.3",
+    "@xyo-network/payload-validator": "^3.0.3",
     "@xyo-network/react-payload-raw-info": "workspace:^",
     "@xyo-network/react-property": "workspace:^",
     "@xyo-network/react-schema": "workspace:^",
@@ -25,10 +25,10 @@
   },
   "devDependencies": {
     "@storybook/react": "^8.2.9",
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.15",
-    "@xylabs/tsconfig-react": "^4.0.0-rc.15",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.20",
+    "@xylabs/tsconfig-react": "^4.0.0-rc.20",
     "@xyo-network/react-storybook": "workspace:^",
-    "react-router-dom": "^6.26.0",
+    "react-router-dom": "^6.26.1",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
@@ -67,7 +67,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
     "lint-pkg": "npmPkgJsonLint .",
@@ -75,6 +75,6 @@
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module"
 }

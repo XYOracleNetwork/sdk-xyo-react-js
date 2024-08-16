@@ -1,10 +1,10 @@
 import { FlexCol } from '@xylabs/react-flexbox'
-import { NodeInstance } from '@xyo-network/node-model'
+import type { NodeInstance } from '@xyo-network/node-model'
 import { useProvidedNode, useWeakModulesFromNode } from '@xyo-network/react-node'
 import React from 'react'
 
 import { ModuleAccordion } from './ModuleAccordion.tsx'
-import { ModuleDetailsProps } from './ModuleDetails.tsx'
+import type { ModuleDetailsProps } from './ModuleDetails.tsx'
 
 export interface NodeViewerProps extends ModuleDetailsProps<NodeInstance> {}
 

@@ -4,7 +4,7 @@ import { EthereumGasPriceEthersPlugin } from '@xyo-network/react-ethereum-gas-pr
 import { EthereumGasPriceEtherscanPlugin } from '@xyo-network/react-ethereum-gas-price-etherscan-plugin'
 import { EthereumGasPriceEthgasstationPlugin } from '@xyo-network/react-ethereum-gas-price-ethgasstation-plugin'
 import { EthereumGasPricePlugin } from '@xyo-network/react-ethereum-gas-price-plugin'
-import { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 export * from '@xyo-network/react-ethereum-gas-price-blocknative-plugin'
 export * from '@xyo-network/react-ethereum-gas-price-etherchain-plugins'

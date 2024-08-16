@@ -10,10 +10,10 @@ import {
 } from '@xyo-network/diviner-temporal-indexing-memory'
 import { EvmContractWitness } from '@xyo-network/evm-contract-witness'
 import { EvmTokenInterfaceImplementedDiviner } from '@xyo-network/evm-token-interface-diviner'
-import { PackageManifestPayload } from '@xyo-network/manifest'
-import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
+import type { PackageManifestPayload } from '@xyo-network/manifest'
+import type { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { ModuleFactory } from '@xyo-network/module-model'
-import { CreatablePackageManifest } from '@xyo-network/react-manifest'
+import type { CreatablePackageManifest } from '@xyo-network/react-manifest'
 import { TimestampWitness } from '@xyo-network/witness-timestamp'
 import { InfuraProvider } from 'ethers'
 

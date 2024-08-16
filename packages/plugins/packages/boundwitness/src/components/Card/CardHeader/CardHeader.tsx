@@ -1,9 +1,11 @@
-import { CardHeader, CardHeaderProps, styled, useTheme } from '@mui/material'
+import type { CardHeaderProps } from '@mui/material'
+import { CardHeader, styled, useTheme } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { Payload } from '@xyo-network/payload-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
-import React, { forwardRef, ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React, { forwardRef } from 'react'
 
 import { BWActions, BWHeading } from '../../_shared/index.ts'
 

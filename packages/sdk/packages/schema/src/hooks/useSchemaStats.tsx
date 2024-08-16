@@ -1,15 +1,18 @@
-import { Address } from '@xylabs/hex'
+import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import type {
+  SchemaStatsPayload,
+  SchemaStatsQueryPayload } from '@xyo-network/diviner-schema-stats-model'
 import {
   SchemaStatsDivinerSchema,
-  SchemaStatsPayload,
-  SchemaStatsQueryPayload,
   SchemaStatsQuerySchema,
 } from '@xyo-network/diviner-schema-stats-model'
 import { TYPES } from '@xyo-network/node-core-types'
-import { isPayloadOfSchemaTypeWithMeta, WithMeta, WithSources } from '@xyo-network/payload-model'
+import type { WithMeta, WithSources } from '@xyo-network/payload-model'
+import { isPayloadOfSchemaTypeWithMeta } from '@xyo-network/payload-model'
 import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
-import { Dispatch, SetStateAction, useMemo, useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+import { useMemo, useState } from 'react'
 
 export const useSchemaStats = (
   statsAddress?: Address,

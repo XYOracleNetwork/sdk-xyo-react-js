@@ -1,5 +1,5 @@
-import { EthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
-import { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
+import type { EthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
+import type { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
 export const useEthgasstationTransformer = (payload?: EthereumGasEthgasstationPayload): GasPriceWitnessUIBasePayload | undefined => {
   if (payload) {

@@ -1,4 +1,4 @@
-import { WebAppNavigationType } from '../../WebAppNavigationType.ts'
+import type { WebAppNavigationType } from '../../WebAppNavigationType.ts'
 import { appSettingDefault } from './appSettingDefault.ts'
 import { AppSettingSlug } from './Slug.ts'
 import { AppSettingsStorageBase } from './StorageBase.ts'

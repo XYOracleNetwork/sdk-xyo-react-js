@@ -1,8 +1,8 @@
 import { ChevronRight as ChevronRightIcon, ExpandMore as ExpandMoreIcon } from '@mui/icons-material'
 import { styled, Typography } from '@mui/material'
 import { TreeView } from '@mui/x-tree-view'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ModuleInstance } from '@xyo-network/module-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { ModuleInstance } from '@xyo-network/module-model'
 import React, { useRef } from 'react'
 
 import { RenderModule } from './RenderModule.tsx'

@@ -1,4 +1,4 @@
-import { Address } from '@xylabs/hex'
+import type { Address } from '@xylabs/hex'
 import type { WithChildren } from '@xylabs/react-shared'
 import { ErrorRender } from '@xyo-network/react-error'
 import { LoadResult } from '@xyo-network/react-shared'

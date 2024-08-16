@@ -1,5 +1,5 @@
 import { Breadcrumbs, List } from '@mui/material'
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import { MenuListItemContainer } from '@xyo-network/react-appbar'
@@ -7,7 +7,8 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WebAppChrome } from './Chrome.tsx'
-import { WebAppPage, WebAppPageProps } from './Page.tsx'
+import type { WebAppPageProps } from './Page.tsx'
+import { WebAppPage } from './Page.tsx'
 
 const StorybookEntry = {
   argTypes: {},

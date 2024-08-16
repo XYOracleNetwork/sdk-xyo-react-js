@@ -1,7 +1,8 @@
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { WithChildren } from '@xylabs/react-shared'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { Payload } from '@xyo-network/payload-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import React, { forwardRef } from 'react'
 

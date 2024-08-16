@@ -1,4 +1,5 @@
-import { styled, TableCell, TableCellProps } from '@mui/material'
+import type { TableCellProps } from '@mui/material'
+import { styled, TableCell } from '@mui/material'
 
 export interface TableCellExProps extends TableCellProps {
   noBgColor?: boolean

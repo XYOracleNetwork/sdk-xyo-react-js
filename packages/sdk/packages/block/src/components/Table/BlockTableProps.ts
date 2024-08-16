@@ -1,7 +1,7 @@
-import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { TableExProps } from '@xyo-network/react-table'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { TableExProps } from '@xyo-network/react-table'
 
-import { BlockTableColumnConfig } from './BlockTableColumnConfig.ts'
+import type { BlockTableColumnConfig } from './BlockTableColumnConfig.ts'
 
 export interface BlockTableProps extends TableExProps {
   blocks?: BoundWitness[] | null

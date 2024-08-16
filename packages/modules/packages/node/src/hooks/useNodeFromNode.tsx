@@ -1,6 +1,7 @@
-import { asNodeInstance, NodeInstance } from '@xyo-network/node-model'
+import type { NodeInstance } from '@xyo-network/node-model'
+import { asNodeInstance } from '@xyo-network/node-model'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
 import { useModuleFromNode } from './useModuleFromNode.ts'
 
 /** @deprecated use useWeakNodeFromNode instead */

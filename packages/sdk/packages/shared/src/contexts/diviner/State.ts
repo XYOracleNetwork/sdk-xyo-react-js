@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { ContextExState } from '../contextEx/index.ts'
+import type { ContextExState } from '../contextEx/index.ts'
 
 export interface ResolvedDivinerState<T> extends ContextExState {
   diviner?: T

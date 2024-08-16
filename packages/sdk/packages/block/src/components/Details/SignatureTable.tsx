@@ -1,5 +1,6 @@
-import { Table, TableBody, TableCell, TableHead, TableProps, TableRow, Typography } from '@mui/material'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { TableProps } from '@mui/material'
+import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/hash'
 import { ScrollTableOnSm, usePromise } from '@xyo-network/react-shared'
 import React from 'react'

@@ -1,5 +1,6 @@
-import { Hash } from '@xylabs/hex'
-import { ArchivistPreset, useNetwork } from '@xyo-network/react-network'
+import type { Hash } from '@xylabs/hex'
+import type { ArchivistPreset } from '@xyo-network/react-network'
+import { useNetwork } from '@xyo-network/react-network'
 import { useMemo } from 'react'
 
 const animatedAnswerHashesConst: Hash[] = [

@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import { CSSProperties } from 'react'
+import type { CSSProperties } from 'react'
 
 export interface GradientStyles {
   background: CSSProperties

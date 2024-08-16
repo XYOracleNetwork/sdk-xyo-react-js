@@ -1,7 +1,8 @@
 // eslint-disable-next-line import-x/no-internal-modules
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-import { Map, MapOptions } from 'mapbox-gl'
+import type { MapOptions } from 'mapbox-gl'
+import { Map } from 'mapbox-gl'
 import React, { useEffect, useRef, useState } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts/index.ts'

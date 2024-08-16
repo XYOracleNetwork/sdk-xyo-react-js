@@ -1,7 +1,7 @@
 import type { ReferenceType } from 'typedoc'
 
-import { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
-import { TypeBuilder } from './TypeBuilder.ts'
+import type { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
+import type { TypeBuilder } from './TypeBuilder.ts'
 
 export const buildReferenceString = (typeObj: ReferenceType, reflectionViewer: React.FC<ReflectionViewerProps>, typeBuilder: TypeBuilder) => {
   const parts: string[] = []

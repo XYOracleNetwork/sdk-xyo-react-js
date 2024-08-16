@@ -1,8 +1,9 @@
-import { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import React, { useRef } from 'react'
 
-import { EllipsisTableCell, EllipsisTableCellProps } from './EllipsisTableCell.tsx'
+import type { EllipsisTableCellProps } from './EllipsisTableCell.tsx'
+import { EllipsisTableCell } from './EllipsisTableCell.tsx'
 
 export interface HashTableCellProps extends EllipsisTableCellProps {
   archive?: string

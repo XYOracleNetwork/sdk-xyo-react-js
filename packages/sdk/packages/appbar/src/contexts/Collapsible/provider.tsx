@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import React, { useEffect, useState } from 'react'
 
 import { CollapsibleContext } from './context.ts'

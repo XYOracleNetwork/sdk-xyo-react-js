@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import { CryptoAssetRenderPlugin } from '@xyo-network/react-aggregate-price-plugin'
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-plugin'
 

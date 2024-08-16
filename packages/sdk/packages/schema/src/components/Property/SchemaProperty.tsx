@@ -2,9 +2,12 @@ import { NewReleases as NewReleasesIcon, OpenInNew as OpenInNewIcon, Verified as
 import { IconButton } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { LinkEx } from '@xylabs/react-link'
-import { EventDispatch, EventNoun, useEvent } from '@xyo-network/react-event'
-import { Property, PropertyProps, PropertyValue } from '@xyo-network/react-property'
-import { SchemaCache, SchemaCacheEntry } from '@xyo-network/schema-cache'
+import type { EventDispatch, EventNoun } from '@xyo-network/react-event'
+import { useEvent } from '@xyo-network/react-event'
+import type { PropertyProps } from '@xyo-network/react-property'
+import { Property, PropertyValue } from '@xyo-network/react-property'
+import type { SchemaCacheEntry } from '@xyo-network/schema-cache'
+import { SchemaCache } from '@xyo-network/schema-cache'
 import React, { forwardRef, useState } from 'react'
 
 export type SchemaPropertyProps = PropertyProps & {

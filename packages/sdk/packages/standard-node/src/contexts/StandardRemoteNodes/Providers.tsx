@@ -1,14 +1,14 @@
 import { usePromise } from '@xylabs/react-promise'
-import { WithChildren } from '@xylabs/react-shared'
-import { MemoryNode } from '@xyo-network/node-memory'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { MemoryNode } from '@xyo-network/node-memory'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useWalletContext } from '@xyo-network/react-wallet'
-import { WalletInstance } from '@xyo-network/wallet-model'
+import type { WalletInstance } from '@xyo-network/wallet-model'
 import React, { useEffect, useMemo, useState } from 'react'
 
 import { BuildStandardNodes } from '../../lib/index.ts'
 import { StandardNodesContext } from './Context.ts'
-import { StandardNodesState } from './State.ts'
+import type { StandardNodesState } from './State.ts'
 
 export interface StandardNodesProviderProps extends WithChildren {
   defaultRemoteNodes?: StandardNodesState['nodes']

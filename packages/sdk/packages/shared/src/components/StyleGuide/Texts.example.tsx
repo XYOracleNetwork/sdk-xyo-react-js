@@ -1,4 +1,5 @@
-import { Typography, TypographyVariant } from '@mui/material'
+import type { TypographyVariant } from '@mui/material'
+import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 

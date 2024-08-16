@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import React, { Component, ErrorInfo, ReactNode } from 'react'
+import type { ErrorInfo, ReactNode } from 'react'
+import React, { Component } from 'react'
 
 export interface ErrorBoundaryProps {
   children: ReactNode

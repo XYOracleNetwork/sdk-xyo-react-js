@@ -1,7 +1,7 @@
-import { CardHeaderProps } from '@mui/material'
-import { EthereumGasEtherscanPayload } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
+import type { CardHeaderProps } from '@mui/material'
+import type { EthereumGasEtherscanPayload } from '@xyo-network/etherscan-ethereum-gas-payload-plugin'
 import { GasPriceWitnessCardHeader } from '@xyo-network/react-gas-price'
-import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import React, { forwardRef } from 'react'
 
 import { useEtherscanTransformer } from '../hooks/index.ts'

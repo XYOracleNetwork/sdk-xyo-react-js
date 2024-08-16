@@ -1,16 +1,33 @@
 // eslint.config.mjs
 
-import { config as xylabsConfig } from '@xylabs/eslint-config-react-flat'
+import {   typescriptConfig,
+  unicornConfig,
+  workspacesConfig,
+  rulesConfig,
+  ignores,
+  importConfig } from '@xylabs/eslint-config-flat'
+import { reactConfig } from '@xylabs/eslint-config-react-flat'
 
 export default [
   {
-    ignores: ['.yarn/**', 'jest.config.cjs', '**/dist/**', 'dist', 'build/**', 'node_modules/**', 'public', 'storybook-static', '.storybook'],
+    ignores: [...ignores, '.yarn/**', 'jest.config.cjs', '**/dist/**', 'dist', 'build/**', 'node_modules/**', 'public', '.storybook', 'storybook-static', 'eslint.config.mjs'],
   },
-  ...xylabsConfig,
+  reactConfig,
+  unicornConfig,
+  workspacesConfig,
+  rulesConfig,
+  importConfig,
   {
     rules: {
-      '@typescript-eslint/no-misused-promises': ['off'],
-      '@eslint-react/no-array-index-key': ['off'],
+      '@eslint-react/no-array-index-key': ['off']
     },
   },
+  {
+    ...typescriptConfig,
+    rules: {
+      ...typescriptConfig.rules,
+      '@typescript-eslint/no-misused-promises': ['off'],
+      '@typescript-eslint/consistent-type-imports': ['warn']
+    },
+  }
 ]

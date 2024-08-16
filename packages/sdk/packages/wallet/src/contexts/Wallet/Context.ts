@@ -1,5 +1,5 @@
 import { createContextEx } from '@xyo-network/react-shared'
 
-import { WalletContextState } from './State.ts'
+import type { WalletContextState } from './State.ts'
 
 export const WalletContext = createContextEx<WalletContextState>()

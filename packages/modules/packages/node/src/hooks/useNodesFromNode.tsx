@@ -1,7 +1,8 @@
-import { ModuleFilter } from '@xyo-network/module-model'
-import { isNodeInstance, NodeInstance } from '@xyo-network/node-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
+import type { NodeInstance } from '@xyo-network/node-model'
+import { isNodeInstance } from '@xyo-network/node-model'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
 import { useModulesFromNode } from './useModulesFromNode.ts'
 
 /** @deprecated use useWeakNodesFromNode */

@@ -1,5 +1,5 @@
-import { StandardTextFieldProps } from '@mui/material'
-import { FormControlBase, ValidControlValue } from '@xyo-network/react-form-group'
+import type { StandardTextFieldProps } from '@mui/material'
+import type { FormControlBase, ValidControlValue } from '@xyo-network/react-form-group'
 import { useMemo, useRef, useState } from 'react'
 
 import { useFormGroupWithCreditCardInput } from '../../../context/index.ts'

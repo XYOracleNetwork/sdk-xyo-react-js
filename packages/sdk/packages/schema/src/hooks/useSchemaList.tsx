@@ -1,7 +1,8 @@
-import { Address } from '@xylabs/hex'
+import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { SchemaListPayload, SchemaListQueryPayload, SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
-import { WithMeta } from '@xyo-network/payload-model'
+import type { SchemaListPayload, SchemaListQueryPayload } from '@xyo-network/diviner-schema-list-model'
+import { SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
+import type { WithMeta } from '@xyo-network/payload-model'
 import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
 import { useEffect, useMemo, useState } from 'react'
 

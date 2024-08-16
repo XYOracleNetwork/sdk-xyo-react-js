@@ -1,5 +1,6 @@
-import { Button, Chip, Collapse, CollapseProps, Typography } from '@mui/material'
-import { JsonValue } from '@xylabs/object'
+import type { CollapseProps } from '@mui/material'
+import { Button, Chip, Collapse, Typography } from '@mui/material'
+import type { JsonValue } from '@xylabs/object'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
@@ -7,7 +8,7 @@ import { isAnyPayload } from '@xyo-network/payload-model'
 import { useDataState } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { ExpansionProps } from '../../../lib/index.ts'
+import type { ExpansionProps } from '../../../lib/index.ts'
 import { StyledChipLabel } from '../../styled/index.ts'
 import { JsonViewerEx } from '../JsonViewerEx.tsx'
 

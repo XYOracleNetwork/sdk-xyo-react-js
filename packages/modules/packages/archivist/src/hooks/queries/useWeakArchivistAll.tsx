@@ -1,5 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import { ArchivistInstance } from '@xyo-network/archivist-model'
+import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import { useRefresh } from '@xyo-network/react-module'
 import { useState } from 'react'
 

@@ -1,8 +1,10 @@
-import { Payload } from '@xyo-network/payload-model'
-import { FormGroup, FormGroupParams } from '@xyo-network/react-form-group'
-import React, { PropsWithChildren, useMemo } from 'react'
+import type { Payload } from '@xyo-network/payload-model'
+import type { FormGroupParams } from '@xyo-network/react-form-group'
+import { FormGroup } from '@xyo-network/react-form-group'
+import type { PropsWithChildren } from 'react'
+import React, { useMemo } from 'react'
 
-import { CreditCardInput } from '../models/index.ts'
+import type { CreditCardInput } from '../models/index.ts'
 import { FormGroupCreditCardContext } from './FormGroupCreditCardContext.ts'
 
 export interface FormGroupCreditCardProviderProps<TStorage extends Payload = Payload> extends PropsWithChildren {

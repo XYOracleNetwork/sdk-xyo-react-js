@@ -3,22 +3,26 @@ import {
   ErrorOutlineRounded as ErrorOutlineRoundedIcon,
   WarningAmberRounded as WarningAmberRoundedIcon,
 } from '@mui/icons-material'
-import { AvatarProps, TableCell, TableCellProps, TableRow, TableRowProps, Typography } from '@mui/material'
+import type { AvatarProps, TableCellProps, TableRowProps } from '@mui/material'
+import { TableCell, TableRow, Typography } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadHasher } from '@xyo-network/hash'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
-import { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
-import { HashTableCell, HashTableCellProps, usePayloadHash } from '@xyo-network/react-shared'
-import React, { ComponentType, useMemo } from 'react'
+import type { HashTableCellProps } from '@xyo-network/react-shared'
+import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
+import type { ComponentType } from 'react'
+import React, { useMemo } from 'react'
 
-import {
+import type {
   PayloadDynamicTableColumnConfig,
+  PayloadDynamicTableColumnSlug } from './PayloadDynamicTableColumnConfig.ts'
+import {
   payloadDynamicTableColumnConfigDefaults,
-  PayloadDynamicTableColumnSlug,
 } from './PayloadDynamicTableColumnConfig.ts'
 
 export interface PayloadDynamicTableRowProps extends TableRowProps {

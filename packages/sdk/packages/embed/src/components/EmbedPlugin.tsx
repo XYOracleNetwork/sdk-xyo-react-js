@@ -1,10 +1,10 @@
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { WithChildren } from '@xylabs/react-shared'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { WithChildren } from '@xylabs/react-shared'
 import { ErrorBoundary, ListModeProvider } from '@xyo-network/react-shared'
 import React from 'react'
 
 import { EmbedPluginProvider, RefreshPayloadProvider, ResolvePayloadProvider, ValidatePayloadProvider } from '../contexts/index.ts'
-import { EmbedPluginProps } from '../types/index.ts'
+import type { EmbedPluginProps } from '../types/index.ts'
 import { EmbedResolver } from './EmbedResolver.tsx'
 import { ValidatePayloadAlert, ValidatePluginsAlert } from './validation-alerts/index.ts'
 

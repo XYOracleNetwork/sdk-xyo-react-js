@@ -1,6 +1,6 @@
 import { Chip } from '@mui/material'
-import { Meta, StoryFn } from '@storybook/react'
-import { Payload } from '@xyo-network/payload-model'
+import type { Meta, StoryFn } from '@storybook/react'
+import type { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload } from '@xyo-network/react-storybook'
 import React, { useState } from 'react'

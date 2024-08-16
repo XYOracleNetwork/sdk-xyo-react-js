@@ -1,6 +1,6 @@
-import { Feature, Polygon } from 'geojson'
+import type { Feature, Polygon } from 'geojson'
 
-import { MapLayer } from '../Layers/index.ts'
+import type { MapLayer } from '../Layers/index.ts'
 
 export interface FeaturesToLayersMap {
   features: Feature<Polygon>[]

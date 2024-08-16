@@ -1,4 +1,4 @@
-import { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import type { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 
 const mapAssetsToString = (assetValues: Partial<Record<string, number>> | undefined) => {
   return assetValues

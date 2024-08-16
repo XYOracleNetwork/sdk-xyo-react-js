@@ -1,5 +1,6 @@
 import { DarkModeRounded as DarkModeRoundedIcon, LightModeRounded as LightModeRoundedIcon } from '@mui/icons-material'
-import { IconButton, IconButtonProps } from '@mui/material'
+import type { IconButtonProps } from '@mui/material'
+import { IconButton } from '@mui/material'
 import React from 'react'
 
 import { useAppSettings } from '../contexts/index.ts'

@@ -1,8 +1,10 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
-import { JsonValue } from '@xylabs/object'
-import React, { MouseEventHandler, ReactNode } from 'react'
+import type { DialogProps } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
+import type { JsonValue } from '@xylabs/object'
+import type { MouseEventHandler, ReactNode } from 'react'
+import React from 'react'
 
-import { ExpansionProps } from '../../../lib/index.ts'
+import type { ExpansionProps } from '../../../lib/index.ts'
 import { JsonViewerCollapse } from './JsonViewerCollapse.tsx'
 
 export interface RawInfoDialogProps extends DialogProps, ExpansionProps {

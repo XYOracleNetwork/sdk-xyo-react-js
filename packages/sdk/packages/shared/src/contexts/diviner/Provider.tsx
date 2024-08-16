@@ -1,8 +1,9 @@
-import { WithChildren } from '@xylabs/react-shared'
-import React, { Context, useEffect, useMemo, useState } from 'react'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { Context } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
-import { ContextExProviderProps } from '../contextEx/index.ts'
-import { ResolvedDivinerState } from './State.ts'
+import type { ContextExProviderProps } from '../contextEx/index.ts'
+import type { ResolvedDivinerState } from './State.ts'
 
 export interface DivinerProviderProps<D> extends ContextExProviderProps, WithChildren {
   context: Context<ResolvedDivinerState<D>>

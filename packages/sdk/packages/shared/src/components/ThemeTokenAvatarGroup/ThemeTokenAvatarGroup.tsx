@@ -1,4 +1,5 @@
-import { AvatarGroup, AvatarGroupProps } from '@mui/material'
+import type { AvatarGroupProps } from '@mui/material'
+import { AvatarGroup } from '@mui/material'
 import React from 'react'
 
 import { ThemeTokenAvatar } from '../ThemeTokenAvatar/index.ts'

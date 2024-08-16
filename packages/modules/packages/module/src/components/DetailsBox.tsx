@@ -1,12 +1,13 @@
 import { EthAddress } from '@xylabs/eth-address'
 import { ButtonEx } from '@xylabs/react-button'
 import { EthAccountBox } from '@xylabs/react-crypto'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { Module } from '@xyo-network/module-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import type { Module } from '@xyo-network/module-model'
 import { findNetworkComponent } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
 
-import { ModuleRenderProps } from '../ModuleRenderProps.tsx'
+import type { ModuleRenderProps } from '../ModuleRenderProps.tsx'
 
 const getModuleIcon = (moduleType: string, mod: Module) => {
   return mod?.queries.find(query => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null

@@ -1,5 +1,5 @@
-import { PayloadDiviner } from '@xyo-network/diviner-payload-abstract'
-import { ContextExProviderProps } from '@xyo-network/react-shared'
+import type { PayloadDiviner } from '@xyo-network/diviner-payload-abstract'
+import type { ContextExProviderProps } from '@xyo-network/react-shared'
 import React, { useEffect, useMemo, useState } from 'react'
 
 import { PayloadDivinerContext } from './Context.ts'

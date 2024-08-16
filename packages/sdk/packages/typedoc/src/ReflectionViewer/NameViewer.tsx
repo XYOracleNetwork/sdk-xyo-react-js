@@ -1,11 +1,13 @@
-import { Chip, Stack, Typography, TypographyVariant } from '@mui/material'
-import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import type { TypographyVariant } from '@mui/material'
+import { Chip, Stack, Typography } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
 import { JsonViewerButton } from '../JsonViewerButton.tsx'
-import { SomeReflection } from '../SomeReflection.ts'
+import type { SomeReflection } from '../SomeReflection.ts'
 import { trimFlagLabel } from '../trimFlagLabel.ts'
-import { ReflectionViewerProps } from './ReflectionViewerProps.tsx'
+import type { ReflectionViewerProps } from './ReflectionViewerProps.tsx'
 import { SomeTypeViewer } from './SomeTypeViewer/index.ts'
 
 export interface NameViewerProps extends FlexBoxProps {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { CreditCardExpirationFormControl } from '../../../controls/index.ts'
-import { WithFormControlProps } from '../WithFormControlProps.ts'
+import type { WithFormControlProps } from '../WithFormControlProps.ts'
 import { FormControlTextField } from './FormControlTextField.tsx'
 import { useCreditCardFormControl } from './useCreditCardFormControl.tsx'
 

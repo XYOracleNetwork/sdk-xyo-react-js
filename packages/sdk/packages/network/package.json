@@ -7,16 +7,16 @@
   },
   "bugs": {
     "email": "support@xyo.network",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/assert": "^4.0.1",
-    "@xylabs/hex": "^4.0.1",
-    "@xylabs/react-select": "^4.0.1",
-    "@xylabs/react-shared": "^4.0.1",
-    "@xyo-network/network": "^3.0.2",
+    "@xylabs/assert": "^4.0.2",
+    "@xylabs/hex": "^4.0.2",
+    "@xylabs/react-select": "^4.0.3",
+    "@xylabs/react-shared": "^4.0.3",
+    "@xyo-network/network": "^3.0.3",
     "@xyo-network/react-shared": "workspace:^",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.1"
   },
   "peerDependencies": {
     "@mui/icons-material": "^5",
@@ -28,9 +28,9 @@
   "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@storybook/react": "^8.2.9",
-    "@xylabs/react-flexbox": "^4.0.1",
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.15",
-    "@xylabs/tsconfig-react": "^4.0.0-rc.15",
+    "@xylabs/react-flexbox": "^4.0.3",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.20",
+    "@xylabs/tsconfig-react": "^4.0.0-rc.20",
     "typescript": "^5.5.4"
   },
   "docs": "dist/docs.json",
@@ -59,7 +59,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
     "lint-pkg": "npmPkgJsonLint .",
@@ -67,6 +67,6 @@
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module"
 }

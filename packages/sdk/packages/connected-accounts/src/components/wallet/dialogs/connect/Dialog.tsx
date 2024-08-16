@@ -1,7 +1,8 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
+import type { DialogProps } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import React from 'react'
 
-import { ActiveProvider } from '../../lib/index.ts'
+import type { ActiveProvider } from '../../lib/index.ts'
 import { CheckboxFormControl } from './CheckboxFormControl.tsx'
 import { LinkedProvidersFlexbox } from './LinkedProvidersFlexbox.tsx'
 import { WalletPermissionsFlexbox } from './Permissions.tsx'

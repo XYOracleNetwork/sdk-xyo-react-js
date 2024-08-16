@@ -1,5 +1,5 @@
-import { Meta, StoryFn } from '@storybook/react'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { Meta, StoryFn } from '@storybook/react'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 

@@ -1,4 +1,5 @@
-import { AccountsChangedEventName, DiscoveredWallets, EIP6963Connector, useWalletDiscovery } from '@xylabs/react-crypto'
+import type { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
+import { AccountsChangedEventName, useWalletDiscovery } from '@xylabs/react-crypto'
 import { useEffect, useMemo, useState } from 'react'
 
 const sortWallets = (wallets: DiscoveredWallets) =>

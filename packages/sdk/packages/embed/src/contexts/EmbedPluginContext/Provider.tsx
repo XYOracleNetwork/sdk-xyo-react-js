@@ -1,9 +1,9 @@
-import { WithChildren } from '@xylabs/react-shared'
-import { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import React, { useEffect, useState } from 'react'
 
 import { EmbedPluginContext } from './Context.ts'
-import { EmbedPluginBase } from './State.ts'
+import type { EmbedPluginBase } from './State.ts'
 
 export type EmbedPluginProviderProps = EmbedPluginBase
 

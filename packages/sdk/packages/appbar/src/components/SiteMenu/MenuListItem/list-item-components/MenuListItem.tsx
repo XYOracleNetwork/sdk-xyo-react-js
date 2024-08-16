@@ -1,7 +1,8 @@
-import { ListItem, ListItemProps } from '@mui/material'
+import type { ListItemProps } from '@mui/material'
+import { ListItem } from '@mui/material'
 import React from 'react'
 
-import { MenuListItemBase } from '../../lib/index.ts'
+import type { MenuListItemBase } from '../../lib/index.ts'
 
 export interface ListItemExProps extends MenuListItemBase, ListItemProps {}
 

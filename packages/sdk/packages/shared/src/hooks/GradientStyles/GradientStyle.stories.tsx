@@ -1,6 +1,7 @@
 import { Divider, Typography } from '@mui/material'
-import { Meta, StoryFn } from '@storybook/react'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { Meta, StoryFn } from '@storybook/react'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 

@@ -1,8 +1,10 @@
-import { WithChildren } from '@xylabs/react-shared'
-import React, { ProviderProps, useMemo, useState } from 'react'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { ProviderProps } from 'react'
+import React, { useMemo, useState } from 'react'
 
-import { WebAppNavigationType } from '../../WebAppNavigationType.ts'
-import { AppSettingsContext, AppSettingsContextProps } from './Context.ts'
+import type { WebAppNavigationType } from '../../WebAppNavigationType.ts'
+import type { AppSettingsContextProps } from './Context.ts'
+import { AppSettingsContext } from './Context.ts'
 import { AppSettingsStorage } from './Storage.ts'
 
 export interface AppSettingsProviderProps<T extends AppSettingsContextProps = AppSettingsContextProps> extends ProviderProps<T> {

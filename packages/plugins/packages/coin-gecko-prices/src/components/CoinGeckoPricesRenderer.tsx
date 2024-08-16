@@ -1,7 +1,7 @@
-import { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
-import { Payload } from '@xyo-network/payload-model'
+import type { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import type { Payload } from '@xyo-network/payload-model'
 import { CryptoAssetRenderer } from '@xyo-network/react-aggregate-price-plugin'
-import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React from 'react'
 

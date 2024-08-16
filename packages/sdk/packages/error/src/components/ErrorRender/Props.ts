@@ -1,7 +1,7 @@
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ModuleError } from '@xyo-network/payload-model'
-import { ReactNode } from 'react'
-import { Location } from 'react-router-dom'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { ModuleError } from '@xyo-network/payload-model'
+import type { ReactNode } from 'react'
+import type { Location } from 'react-router-dom'
 
 export interface ErrorRenderProps extends FlexBoxProps {
   customError?: ReactNode

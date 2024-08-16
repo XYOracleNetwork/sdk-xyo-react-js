@@ -1,6 +1,7 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ArchivistInstance, MemoryArchivist } from '@xyo-network/archivist'
+import type { ArchivistInstance } from '@xyo-network/archivist'
+import { MemoryArchivist } from '@xyo-network/archivist'
 import React, { useState } from 'react'
 
 import { ModuleCard } from './Card.tsx'

@@ -1,17 +1,20 @@
 /* eslint-disable unicorn/no-array-push-push */
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { WithChildren } from '@xylabs/react-shared'
-import { AccountInstance } from '@xyo-network/account-model'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { ModuleFilter } from '@xyo-network/module-model'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { AccountInstance } from '@xyo-network/account-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
 import { useWitnessesFromNode } from '@xyo-network/react-witness'
 import { MemorySentinel } from '@xyo-network/sentinel-memory'
-import { SentinelConfig, SentinelConfigSchema } from '@xyo-network/sentinel-model'
-import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
+import type { SentinelConfig } from '@xyo-network/sentinel-model'
+import { SentinelConfigSchema } from '@xyo-network/sentinel-model'
+import type { WitnessInstance } from '@xyo-network/witness-model'
+import { asWitnessInstance } from '@xyo-network/witness-model'
 import React, { useEffect, useState } from 'react'
 
 import { SentinelContext } from './Context.ts'
-import { SentinelReportProgress, SentinelReportStatus } from './State.ts'
+import type { SentinelReportProgress } from './State.ts'
+import { SentinelReportStatus } from './State.ts'
 
 export interface SentinelProviderProps {
   /** Account used by the sentinel for signing */

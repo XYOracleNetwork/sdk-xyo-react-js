@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 
-import { EllipsisTableCell, EllipsisTableCellProps } from './EllipsisTableCell.tsx'
+import type { EllipsisTableCellProps } from './EllipsisTableCell.tsx'
+import { EllipsisTableCell } from './EllipsisTableCell.tsx'
 
 export interface AddressTableCellProps extends Omit<EllipsisTableCellProps, 'ref'> {
   /** @deprecated - archives are no longer supported */

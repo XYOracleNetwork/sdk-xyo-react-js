@@ -1,8 +1,10 @@
 import { Container, Grid, Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { FlexBoxProps, FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react'
+import React from 'react'
 
 import { useGradientStyles, useIsSmall } from '../../hooks/index.ts'
 

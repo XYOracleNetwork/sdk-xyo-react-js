@@ -1,4 +1,5 @@
-import { NftScore, NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
+import type { NftScore } from '@xyo-network/crypto-nft-payload-plugin'
+import { NftScoreSchema } from '@xyo-network/crypto-nft-payload-plugin'
 
 export const payloadDataFullScores = {
   'Animation URL': [1, 1],

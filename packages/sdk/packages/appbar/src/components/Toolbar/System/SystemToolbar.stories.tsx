@@ -1,8 +1,9 @@
 import { List } from '@mui/material'
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { TypographyEx } from '@xyo-network/react-shared'
-import React, { SyntheticEvent } from 'react'
+import type { SyntheticEvent } from 'react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { MenuListItemContainer } from '../../SiteMenu/index.ts'

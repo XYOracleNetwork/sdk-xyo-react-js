@@ -1,5 +1,6 @@
 import { Refresh as RefreshIcon } from '@mui/icons-material'
-import { Avatar, CardHeader, CardHeaderProps, Chip, Theme } from '@mui/material'
+import type { CardHeaderProps, Theme } from '@mui/material'
+import { Avatar, CardHeader, Chip } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 

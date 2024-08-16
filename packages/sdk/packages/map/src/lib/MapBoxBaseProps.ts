@@ -1,9 +1,9 @@
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { Feature } from 'geojson'
-import { MapOptions } from 'mapbox-gl'
-import { ReactNode } from 'react'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { Feature } from 'geojson'
+import type { MapOptions } from 'mapbox-gl'
+import type { ReactNode } from 'react'
 
-import { MapLayer } from '../Layers/index.ts'
+import type { MapLayer } from '../Layers/index.ts'
 
 export interface MapboxFlexBoxProps extends FlexBoxProps {
   accessToken: string

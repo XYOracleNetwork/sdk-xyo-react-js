@@ -1,7 +1,7 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import React, { useMemo, useState } from 'react'
 
-import { ListMode } from '../../models/index.ts'
+import type { ListMode } from '../../models/index.ts'
 import { ListModeContext } from './Context.ts'
 
 export interface ListModeProviderProps {

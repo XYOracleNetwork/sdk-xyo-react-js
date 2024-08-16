@@ -1,6 +1,7 @@
 import { CancelRounded } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
 export interface DetailsFlexboxProps extends FlexBoxProps {

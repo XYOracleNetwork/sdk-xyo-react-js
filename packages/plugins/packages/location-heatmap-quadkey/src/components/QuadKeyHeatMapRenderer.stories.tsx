@@ -1,4 +1,4 @@
-import { Decorator, Meta, StoryFn } from '@storybook/react'
+import type { Decorator, Meta, StoryFn } from '@storybook/react'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'

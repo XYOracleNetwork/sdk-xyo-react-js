@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { sampleUniswapPayload } from '@xyo-network/react-storybook'
 import React from 'react'
 

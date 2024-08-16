@@ -1,14 +1,16 @@
-import { Hash } from '@xylabs/hex'
-import { Payload } from '@xyo-network/payload-model'
-import { TableEx, TableExProps } from '@xyo-network/react-table'
-import React, { ComponentType, forwardRef, useEffect, useMemo, useState } from 'react'
+import type { Hash } from '@xylabs/hex'
+import type { Payload } from '@xyo-network/payload-model'
+import type { TableExProps } from '@xyo-network/react-table'
+import { TableEx } from '@xyo-network/react-table'
+import type { ComponentType } from 'react'
+import React, { forwardRef, useEffect, useMemo, useState } from 'react'
 
-import { PayloadTableColumnConfig } from './PayloadTableColumnConfig.ts'
+import type { PayloadTableColumnConfig } from './PayloadTableColumnConfig.ts'
 import { PayloadTableBody } from './TableBody.tsx'
 import { PayloadTableFooter } from './TableFooter.tsx'
 import { PayloadTableHead } from './TableHead.tsx'
 import { TableRowNoData } from './TableRowNoData.tsx'
-import { PayloadTableBodyProps, PayloadTableFooterProps, PayloadTableHeadProps } from './types/index.ts'
+import type { PayloadTableBodyProps, PayloadTableFooterProps, PayloadTableHeadProps } from './types/index.ts'
 
 export interface PayloadTableProps extends TableExProps {
   PayloadTableBodyComponent?: ComponentType<PayloadTableBodyProps>

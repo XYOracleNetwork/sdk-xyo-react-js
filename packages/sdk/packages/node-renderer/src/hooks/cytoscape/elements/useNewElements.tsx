@@ -1,5 +1,5 @@
 import { useWeakModuleFromNode } from '@xyo-network/react-node'
-import { NodeSingular } from 'cytoscape'
+import type { NodeSingular } from 'cytoscape'
 import { useMemo } from 'react'
 
 import { useCytoscapeElements } from './useCytoscapeElements.ts'

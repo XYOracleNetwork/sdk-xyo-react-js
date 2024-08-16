@@ -1,8 +1,8 @@
-import { Hash } from '@xylabs/hex'
-import { ArchivistInstance } from '@xyo-network/archivist-model'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { Hash } from '@xylabs/hex'
+import type { ArchivistInstance } from '@xyo-network/archivist-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
-import { ContextExProviderProps } from '@xyo-network/react-shared'
+import type { ContextExProviderProps } from '@xyo-network/react-shared'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 

@@ -1,13 +1,16 @@
-import { Container, ContainerProps, styled } from '@mui/material'
+import type { ContainerProps } from '@mui/material'
+import { Container, styled } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { FlexBoxProps, FlexGrowCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 
-import { WebAppBody, WebAppBodyProps } from './Body.tsx'
+import type { WebAppBodyProps } from './Body.tsx'
+import { WebAppBody } from './Body.tsx'
 import { fixedWrap, scrollableWrap } from './lib/index.ts'
 
 const WebAppPageRoot = styled(FlexGrowCol, {

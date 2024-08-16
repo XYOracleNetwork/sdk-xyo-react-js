@@ -1,7 +1,7 @@
-import { MemoryNode } from '@xyo-network/node-memory'
+import type { MemoryNode } from '@xyo-network/node-memory'
 import { defaultNetworkConfigs } from '@xyo-network/react-network'
 import { assertDefinedEx } from '@xyo-network/react-shared'
-import { WalletInstance } from '@xyo-network/wallet-model'
+import type { WalletInstance } from '@xyo-network/wallet-model'
 
 import { MemoryNodeBuilder } from './Builders/index.ts'
 import { RemoteNodeArchivistOffsetPaths, RemoteNodeOffsetPaths } from './ModuleAccountPaths.ts'

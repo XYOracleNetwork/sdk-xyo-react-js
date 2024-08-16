@@ -1,7 +1,9 @@
-import { FormControl as MuiFormControl, StandardTextFieldProps, TextField } from '@mui/material'
-import { FormControl } from '@xyo-network/react-form-group'
+import type { StandardTextFieldProps } from '@mui/material'
+import { FormControl as MuiFormControl, TextField } from '@mui/material'
+import type { FormControl } from '@xyo-network/react-form-group'
 import { LabeledTextFieldWrapper } from '@xyo-network/react-shared'
-import React, { ChangeEventHandler, FocusEventHandler, forwardRef, KeyboardEvent } from 'react'
+import type { ChangeEventHandler, FocusEventHandler, KeyboardEvent } from 'react'
+import React, { forwardRef } from 'react'
 
 export interface FormControlTextFieldProps extends StandardTextFieldProps {
   fieldLabel: string

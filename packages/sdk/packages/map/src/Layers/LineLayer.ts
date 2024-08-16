@@ -1,5 +1,5 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-import { LineLayerSpecification } from 'mapbox-gl'
+import type { LineLayerSpecification } from 'mapbox-gl'
 
 export class LineLayerBuilder extends LayerBase<LineLayerSpecification> {
   LineLayerOptions: Partial<LineLayerSpecification>

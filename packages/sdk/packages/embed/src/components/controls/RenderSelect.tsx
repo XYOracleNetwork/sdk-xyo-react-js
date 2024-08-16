@@ -1,5 +1,6 @@
 import { MenuItem } from '@mui/material'
-import { SelectEx, SelectExProps } from '@xylabs/react-select'
+import type { SelectExProps } from '@xylabs/react-select'
+import { SelectEx } from '@xylabs/react-select'
 import React from 'react'
 
 import { useEmbedPluginState } from '../../contexts/index.ts'

@@ -1,6 +1,6 @@
 import { exists } from '@xylabs/exists'
-import { ModuleInstance } from '@xyo-network/module-model'
-import { ElementDefinition } from 'cytoscape'
+import type { ModuleInstance } from '@xyo-network/module-model'
+import type { ElementDefinition } from 'cytoscape'
 
 import { parseModuleType } from './lib/index.ts'
 

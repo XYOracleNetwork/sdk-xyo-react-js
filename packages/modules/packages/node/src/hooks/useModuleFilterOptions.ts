@@ -1,4 +1,4 @@
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
 
 export const useModuleFilterOptions = (config?: ModuleFromNodeConfig) => {
   const { direction, identity, maxDepth } = config ?? {}

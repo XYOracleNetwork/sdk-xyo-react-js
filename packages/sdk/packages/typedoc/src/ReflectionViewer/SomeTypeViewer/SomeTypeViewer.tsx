@@ -1,8 +1,9 @@
-import { Typography, TypographyProps } from '@mui/material'
+import type { TypographyProps } from '@mui/material'
+import { Typography } from '@mui/material'
 import React from 'react'
 
-import { SomeReflection } from '../../SomeReflection.ts'
-import { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
+import type { SomeReflection } from '../../SomeReflection.ts'
+import type { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
 import { buildTypeString } from './buildTypeString.tsx'
 
 export interface SomeTypeViewerProps extends TypographyProps {

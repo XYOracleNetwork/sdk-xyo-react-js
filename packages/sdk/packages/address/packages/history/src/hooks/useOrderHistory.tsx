@@ -1,4 +1,4 @@
-import { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/hash'
 
 // If a boundwitness hash is not found in any other previous_hashes in the history,

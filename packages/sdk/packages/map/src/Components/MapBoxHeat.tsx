@@ -1,7 +1,7 @@
 import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { MapboxFlexBoxProps } from '../lib/index.ts'
+import type { MapboxFlexBoxProps } from '../lib/index.ts'
 import { MapBox } from './MapBox.tsx'
 import { MapSettingsBox } from './MapSettingsComponents/index.ts'
 

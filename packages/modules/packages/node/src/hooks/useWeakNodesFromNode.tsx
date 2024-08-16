@@ -1,8 +1,9 @@
 import { exists } from '@xylabs/exists'
-import { ModuleFilter } from '@xyo-network/module-model'
-import { asNodeInstance, NodeInstance } from '@xyo-network/node-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
+import type { NodeInstance } from '@xyo-network/node-model'
+import { asNodeInstance } from '@xyo-network/node-model'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
 import { useWeakModulesFromNode } from './useWeakModulesFromNode.ts'
 
 export const useWeakNodesFromNode = (

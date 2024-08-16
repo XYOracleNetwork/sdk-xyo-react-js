@@ -1,8 +1,9 @@
-import { Card, CardContent, CardProps, Divider, Link, Paper, PaperProps, useTheme } from '@mui/material'
+import type { CardProps, PaperProps } from '@mui/material'
+import { Card, CardContent, Divider, Link, Paper, useTheme } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
+import type { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
 import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
 import React, { Fragment } from 'react'
 

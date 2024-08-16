@@ -1,7 +1,8 @@
-import { Card, CardProps } from '@mui/material'
+import type { CardProps } from '@mui/material'
+import { Card } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
-import { ModuleRenderProps } from '@xyo-network/react-module'
-import { WitnessInstance } from '@xyo-network/witness-model'
+import type { ModuleRenderProps } from '@xyo-network/react-module'
+import type { WitnessInstance } from '@xyo-network/witness-model'
 import React, { useState } from 'react'
 
 import { WitnessCardActions } from './CardActions.tsx'

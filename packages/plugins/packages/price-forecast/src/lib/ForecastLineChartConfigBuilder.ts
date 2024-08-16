@@ -1,6 +1,6 @@
-import { Theme } from '@mui/material'
-import { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
-import { ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChartOptions } from 'chart.js'
+import type { Theme } from '@mui/material'
+import type { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
+import type { ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChartOptions } from 'chart.js'
 
 import { DataLineStyles } from './DataLineStyles.ts'
 import { DataPointStyles } from './DataPointStyles.ts'

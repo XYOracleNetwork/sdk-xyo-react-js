@@ -1,5 +1,7 @@
-import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
-import { asWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
+import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useModuleFromNode } from '@xyo-network/react-node'
+import type { WitnessInstance } from '@xyo-network/witness-model'
+import { asWitnessInstance } from '@xyo-network/witness-model'
 
 export const useWitnessFromNode = (
   nameOrAddressOrInstance?: string | WitnessInstance,

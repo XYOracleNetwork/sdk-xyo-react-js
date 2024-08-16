@@ -1,4 +1,5 @@
-import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { AddressMenuItemRenderer } from './components/index.ts'
 

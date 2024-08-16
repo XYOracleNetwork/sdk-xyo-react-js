@@ -1,4 +1,4 @@
-import { EmptyObject } from '@xyo-network/object'
+import type { EmptyObject } from '@xyo-network/object'
 
 const DEFAULT_ACTIVE_PROMISE_LIMIT = 6
 

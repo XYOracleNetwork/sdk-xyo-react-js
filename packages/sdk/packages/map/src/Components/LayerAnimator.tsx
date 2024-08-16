@@ -1,9 +1,10 @@
-import { useInterval, WithChildren } from '@xylabs/react-shared'
-import { Map } from 'mapbox-gl'
+import type { WithChildren } from '@xylabs/react-shared'
+import { useInterval } from '@xylabs/react-shared'
+import type { Map } from 'mapbox-gl'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-import { MapLayer } from '../Layers/index.ts'
-import { MapboxFlexBoxProps } from '../lib/index.ts'
+import type { MapLayer } from '../Layers/index.ts'
+import type { MapboxFlexBoxProps } from '../lib/index.ts'
 
 export interface LayerAnimatorProps {
   animateLayers?: boolean

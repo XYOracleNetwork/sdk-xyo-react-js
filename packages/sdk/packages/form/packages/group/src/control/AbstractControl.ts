@@ -1,14 +1,15 @@
 import { forget } from '@xylabs/forget'
 
+import type {
+  ControlValueAccessorBaseEvents,
+  FormControlStatus,
+  ValidControlValue } from './accessor/index.ts'
 import {
   ControlValueAccessorBase,
-  ControlValueAccessorBaseEvents,
   DISABLED,
-  FormControlStatus,
   INVALID,
   PENDING,
   VALID,
-  ValidControlValue,
 } from './accessor/index.ts'
 
 export type AbstractControlEvents<TValue> = ControlValueAccessorBaseEvents<TValue> & {

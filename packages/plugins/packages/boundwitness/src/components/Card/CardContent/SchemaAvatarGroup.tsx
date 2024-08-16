@@ -1,4 +1,5 @@
-import { Avatar, AvatarGroup, AvatarGroupProps } from '@mui/material'
+import type { AvatarGroupProps } from '@mui/material'
+import { Avatar, AvatarGroup } from '@mui/material'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import React, { useCallback } from 'react'

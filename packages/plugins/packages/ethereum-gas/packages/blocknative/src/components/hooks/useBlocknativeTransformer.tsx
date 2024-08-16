@@ -1,5 +1,5 @@
-import { EthereumGasBlocknativePayload } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
-import { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
+import type { EthereumGasBlocknativePayload } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
+import type { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
 export const useBlocknativeTransformer = (payload?: EthereumGasBlocknativePayload): GasPriceWitnessUIBasePayload | undefined => {
   const blockPrices = payload?.blockPrices?.[0]

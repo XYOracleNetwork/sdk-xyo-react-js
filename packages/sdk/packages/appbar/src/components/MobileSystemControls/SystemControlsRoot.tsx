@@ -1,7 +1,8 @@
 import { styled } from '@mui/material'
 
 import { SystemControlsType } from './SystemControlsType.ts'
-import { SystemControlsUnstyled, SystemControlsUnstyledProps } from './SystemControlsUnstyled.tsx'
+import type { SystemControlsUnstyledProps } from './SystemControlsUnstyled.tsx'
+import { SystemControlsUnstyled } from './SystemControlsUnstyled.tsx'
 
 const SystemControlsRoot = styled(SystemControlsUnstyled, { name: 'SystemControls', slot: 'Root' })<SystemControlsUnstyledProps>(({ theme }) => ({
   // shared defaults

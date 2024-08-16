@@ -1,5 +1,7 @@
-import { Button, DialogActions, DialogActionsProps, DialogProps } from '@mui/material'
-import React, { MouseEvent } from 'react'
+import type { DialogActionsProps, DialogProps } from '@mui/material'
+import { Button, DialogActions } from '@mui/material'
+import type { MouseEvent } from 'react'
+import React from 'react'
 
 import { useSeedPhrase } from '../../../../contexts/index.ts'
 

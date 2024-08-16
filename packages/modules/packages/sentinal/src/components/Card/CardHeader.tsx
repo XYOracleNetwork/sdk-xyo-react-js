@@ -1,6 +1,7 @@
-import { CardHeaderProps } from '@mui/material'
-import { ModuleCardHeader, ModuleRenderProps } from '@xyo-network/react-module'
-import { SentinelInstance } from '@xyo-network/sentinel-model'
+import type { CardHeaderProps } from '@mui/material'
+import type { ModuleRenderProps } from '@xyo-network/react-module'
+import { ModuleCardHeader } from '@xyo-network/react-module'
+import type { SentinelInstance } from '@xyo-network/sentinel-model'
 import React from 'react'
 
 export const SentinelCardHeader: React.FC<ModuleRenderProps<SentinelInstance> & CardHeaderProps> = ({ title, mod, ...props }) => {

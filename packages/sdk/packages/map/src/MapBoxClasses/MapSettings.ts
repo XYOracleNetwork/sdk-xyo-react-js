@@ -1,6 +1,7 @@
-import { GeolocateControl, Map, MapEventOf, MapEventType, NavigationControl } from 'mapbox-gl'
+import type { Map, MapEventOf, MapEventType } from 'mapbox-gl'
+import { GeolocateControl, NavigationControl } from 'mapbox-gl'
 
-import { MapSetting } from '../Settings/index.ts'
+import type { MapSetting } from '../Settings/index.ts'
 
 export interface MapSettingsConfig {
   debugLayerName?: string

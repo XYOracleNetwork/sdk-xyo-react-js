@@ -1,5 +1,5 @@
-import { Payload } from '@xyo-network/payload-model'
-import { Point } from 'chart.js'
+import type { Payload } from '@xyo-network/payload-model'
+import type { Point } from 'chart.js'
 
 import { MockSourcePayloads } from './MockSourcePayloads.ts'
 

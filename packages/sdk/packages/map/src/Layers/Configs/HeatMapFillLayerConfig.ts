@@ -1,4 +1,4 @@
-import { FillLayerSpecification } from 'mapbox-gl'
+import type { FillLayerSpecification } from 'mapbox-gl'
 
 export const HeatMapFillLayerConfig: (color: string) => Partial<FillLayerSpecification> = color => ({
   paint: {

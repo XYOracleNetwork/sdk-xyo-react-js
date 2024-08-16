@@ -1,9 +1,9 @@
-import { StandardTextFieldProps } from '@mui/material'
-import { FormControlBase } from '@xyo-network/react-form-group'
+import type { StandardTextFieldProps } from '@mui/material'
+import type { FormControlBase } from '@xyo-network/react-form-group'
 import { useEffect, useState } from 'react'
 
-import { CreditCardNumberFormControl } from '../../../../controls/index.ts'
-import { CreditCardOptions } from '../Options.ts'
+import type { CreditCardNumberFormControl } from '../../../../controls/index.ts'
+import type { CreditCardOptions } from '../Options.ts'
 import { useCreditCardFormControl } from '../useCreditCardFormControl.tsx'
 
 export const useCreditCardNumberFormControl = (formControlName?: string, control?: new () => FormControlBase<StandardTextFieldProps>) => {

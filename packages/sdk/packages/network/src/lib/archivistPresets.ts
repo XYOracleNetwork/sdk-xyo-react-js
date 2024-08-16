@@ -1,5 +1,6 @@
-import { Hash } from '@xylabs/hex'
-import { NetworkNodePayload, NetworkNodeSchema } from '@xyo-network/network'
+import type { Hash } from '@xylabs/hex'
+import type { NetworkNodePayload } from '@xyo-network/network'
+import { NetworkNodeSchema } from '@xyo-network/network'
 
 import { ExplorerMapHashes } from './ExplorerMapHashes.ts'
 

@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import { useNetwork } from '@xyo-network/react-network'
 import { useWeakNodeFromNode } from '@xyo-network/react-node'
 import React, { useState } from 'react'

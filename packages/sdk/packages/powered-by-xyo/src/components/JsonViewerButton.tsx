@@ -1,6 +1,8 @@
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
-import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
-import { JsonViewerEx, JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
+import type { ButtonExProps } from '@xylabs/react-button'
+import { ButtonEx } from '@xylabs/react-button'
+import type { JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
+import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import React, { useState } from 'react'
 
 export interface JsonViewerButtonProps extends ButtonExProps {

@@ -1,8 +1,8 @@
-import { EmptyObject } from '@xylabs/object'
+import type { EmptyObject } from '@xylabs/object'
 
 import { AbstractControl } from './AbstractControl.ts'
-import { SetOptions } from './accessor/index.ts'
-import { CursorPosition, FormControl } from './FormControl.ts'
+import type { SetOptions } from './accessor/index.ts'
+import type { CursorPosition, FormControl } from './FormControl.ts'
 
 const AllowAllRegex = /^.*$/s
 

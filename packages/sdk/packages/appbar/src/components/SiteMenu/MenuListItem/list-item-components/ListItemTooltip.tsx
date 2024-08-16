@@ -1,4 +1,5 @@
-import { Tooltip, TooltipProps } from '@mui/material'
+import type { TooltipProps } from '@mui/material'
+import { Tooltip } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 // eslint-disable-next-line import-x/no-internal-modules

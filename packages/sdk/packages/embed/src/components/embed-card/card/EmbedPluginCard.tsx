@@ -5,7 +5,8 @@ import React from 'react'
 
 import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.ts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls/index.ts'
-import { BusyCard, BusyCardProps } from './BusyCard.tsx'
+import type { BusyCardProps } from './BusyCard.tsx'
+import { BusyCard } from './BusyCard.tsx'
 import { EmbedCardHeader } from './EmbedCardHeader.tsx'
 
 export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {

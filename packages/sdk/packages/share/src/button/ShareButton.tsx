@@ -1,6 +1,7 @@
 import { Facebook as FacebookIcon, Share as ShareIcon, Twitter as TwitterIcon } from '@mui/icons-material'
 import { Popover } from '@mui/material'
-import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
+import type { ButtonExProps } from '@xylabs/react-button'
+import { ButtonEx } from '@xylabs/react-button'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import React, { useRef, useState } from 'react'

@@ -1,6 +1,6 @@
-import { ModuleError, Payload } from '@xyo-network/payload-model'
-import { ContextExState } from '@xyo-network/react-shared'
-import { Dispatch, SetStateAction } from 'react'
+import type { ModuleError, Payload } from '@xyo-network/payload-model'
+import type { ContextExState } from '@xyo-network/react-shared'
+import type { Dispatch, SetStateAction } from 'react'
 
 export interface ResolvePayloadState extends ContextExState {
   huri?: string

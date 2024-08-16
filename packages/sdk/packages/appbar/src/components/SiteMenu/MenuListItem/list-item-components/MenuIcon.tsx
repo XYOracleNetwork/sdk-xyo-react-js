@@ -1,5 +1,7 @@
-import { Typography, TypographyProps } from '@mui/material'
-import React, { ReactNode } from 'react'
+import type { TypographyProps } from '@mui/material'
+import { Typography } from '@mui/material'
+import type { ReactNode } from 'react'
+import React from 'react'
 
 export interface MenuIconProps extends TypographyProps {
   icon?: ReactNode

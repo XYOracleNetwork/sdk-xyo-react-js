@@ -1,9 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { MemoryArchivist } from '@xyo-network/archivist'
 import { CryptoMarketAssetDiviner } from '@xyo-network/crypto-asset-plugin'
-import { DivinerInstance } from '@xyo-network/diviner-model'
+import type { DivinerInstance } from '@xyo-network/diviner-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import React, { useState } from 'react'
 

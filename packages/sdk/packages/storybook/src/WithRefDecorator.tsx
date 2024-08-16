@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react'
 import React, { useRef } from 'react'
 
 export const WithRefDecorator: Decorator = (Story, args) => {

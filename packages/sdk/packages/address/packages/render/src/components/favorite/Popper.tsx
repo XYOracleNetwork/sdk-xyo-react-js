@@ -1,5 +1,7 @@
-import { Card, CardContent, ClickAwayListener, Fade, Popper, PopperProps, styled, TextField } from '@mui/material'
-import React, { forwardRef, RefObject, useEffect, useState } from 'react'
+import type { PopperProps } from '@mui/material'
+import { Card, CardContent, ClickAwayListener, Fade, Popper, styled, TextField } from '@mui/material'
+import type { RefObject } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 
 import { popperId } from './lib/index.ts'
 import { PopperButtonGroup } from './PopperButtonGroup.tsx'

@@ -1,4 +1,4 @@
-import { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'

@@ -1,4 +1,4 @@
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 
 import {
   PayloadAvatar,
@@ -9,7 +9,7 @@ import {
   PayloadEditorBox,
   PayloadTableCell,
 } from './components/index.ts'
-import { PayloadRenderPlugin } from './PayloadRenderPlugin.ts'
+import type { PayloadRenderPlugin } from './PayloadRenderPlugin.ts'
 
 export const DefaultPayloadRenderPlugin: PayloadRenderPlugin = {
   canRender: function (payload?: Payload): boolean {

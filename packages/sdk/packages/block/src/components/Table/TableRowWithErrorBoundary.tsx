@@ -1,10 +1,11 @@
 import { Alert, Typography } from '@mui/material'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { BlockTableRow, BlockTableRowProps } from './TableRow.tsx'
+import type { BlockTableRowProps } from './TableRow.tsx'
+import { BlockTableRow } from './TableRow.tsx'
 
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
   exploreDomain?: string

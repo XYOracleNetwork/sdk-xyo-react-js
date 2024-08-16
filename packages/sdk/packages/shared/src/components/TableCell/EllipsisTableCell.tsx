@@ -1,7 +1,8 @@
-import { styled, TableCell, TableCellProps } from '@mui/material'
+import type { TableCellProps } from '@mui/material'
+import { styled, TableCell } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
 import React, { forwardRef, useMemo } from 'react'
-import { To } from 'react-router-dom'
+import type { To } from 'react-router-dom'
 
 import { EllipsizeBox } from '../Ellipsize.tsx'
 

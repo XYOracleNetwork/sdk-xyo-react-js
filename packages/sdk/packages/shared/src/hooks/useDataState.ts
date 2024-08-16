@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction, useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+import { useState } from 'react'
 
 export const useDataState = <T>(defaultValue: T | undefined): [T | undefined, Dispatch<SetStateAction<T | undefined>>] => {
   const [state, setState] = useState(defaultValue)

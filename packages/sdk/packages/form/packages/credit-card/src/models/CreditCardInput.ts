@@ -1,4 +1,5 @@
-import { isPayloadOfSchemaTypeWithMeta, Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
+import { isPayloadOfSchemaTypeWithMeta } from '@xyo-network/payload-model'
 
 export const CreditCardInputSchema = 'network.xyo.credit.card.input' as const
 export type CreditCardInputSchema = typeof CreditCardInputSchema

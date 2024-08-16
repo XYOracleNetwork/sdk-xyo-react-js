@@ -1,12 +1,12 @@
-import { Meta, StoryFn } from '@storybook/react'
-import { Payload } from '@xyo-network/payload-model'
+import type { Meta, StoryFn } from '@storybook/react'
+import type { Payload } from '@xyo-network/payload-model'
 import { sampleIdPayload } from '@xyo-network/react-storybook'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadDetails } from '../Details.tsx'
 import { PayloadValidationDetails } from './ValidationDetails.tsx'
-import { PayloadValidationDetailsProps } from './ValidationDetailsProps.ts'
+import type { PayloadValidationDetailsProps } from './ValidationDetailsProps.ts'
 
 const StorybookEntry: Meta = {
   argTypes: {},

@@ -1,6 +1,7 @@
 import { LocalGasStationRounded as LocalGasStationRoundedIcon } from '@mui/icons-material'
 import { useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { TypographyEx } from '@xyo-network/react-shared'
 import React from 'react'
 

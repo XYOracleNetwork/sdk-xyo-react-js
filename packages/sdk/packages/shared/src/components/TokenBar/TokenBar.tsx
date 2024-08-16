@@ -1,6 +1,8 @@
-import { Paper, PaperProps, Typography, TypographyProps } from '@mui/material'
+import type { PaperProps, TypographyProps } from '@mui/material'
+import { Paper, Typography } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 export interface TokenBarProps extends PaperProps {
   text1?: ReactNode
   text1Props?: TypographyProps

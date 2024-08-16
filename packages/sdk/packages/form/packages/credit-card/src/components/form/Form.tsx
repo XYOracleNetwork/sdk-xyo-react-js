@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 import { FormGroupCreditCardProvider, useFormGroupWithCreditCardInput } from '../../context/index.ts'
 import { validateCreditCardInputs } from '../support/index.ts'
 import { InputFieldsStack } from './InputFieldsStack.tsx'
-import { CreditCardFormProps } from './Props.ts'
+import type { CreditCardFormProps } from './Props.ts'
 import { useFormStorage } from './useFormStorage.tsx'
 
 export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({

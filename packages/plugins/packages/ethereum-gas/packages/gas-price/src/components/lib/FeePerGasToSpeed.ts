@@ -1,4 +1,4 @@
-import { FeePerGas } from '@xyo-network/gas-price-payload-plugin'
+import type { FeePerGas } from '@xyo-network/gas-price-payload-plugin'
 
 export type FeePerGasValue = keyof FeePerGas
 export type Speed = 'slowest' | 'slow' | 'fast' | 'fastest'

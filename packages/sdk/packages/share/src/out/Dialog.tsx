@@ -1,6 +1,8 @@
-import { Dialog, DialogActions, DialogContent, DialogProps, DialogTitle, Stack, Typography } from '@mui/material'
+import type { DialogProps } from '@mui/material'
+import { Dialog, DialogActions, DialogContent, DialogTitle, Stack, Typography } from '@mui/material'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
-import React, { ComponentType, ReactNode } from 'react'
+import type { ComponentType, ReactNode } from 'react'
+import React from 'react'
 
 export interface ShareOutDialogProps extends DialogProps {
   ShareOutDialogActions?: ComponentType<{ onClose?: () => void }>

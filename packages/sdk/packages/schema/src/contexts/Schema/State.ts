@@ -1,5 +1,5 @@
-import { ContextExState } from '@xyo-network/react-shared'
-import { Dispatch } from 'react'
+import type { ContextExState } from '@xyo-network/react-shared'
+import type { Dispatch } from 'react'
 
 export interface SchemaContextState extends ContextExState {
   /** @field The currently selected XYO Schema */

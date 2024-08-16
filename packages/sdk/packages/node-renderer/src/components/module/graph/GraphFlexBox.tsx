@@ -1,6 +1,6 @@
 import { Button } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ModuleInstance } from '@xyo-network/module-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { ModuleInstance } from '@xyo-network/module-model'
 import React, { useRef } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts/index.ts'

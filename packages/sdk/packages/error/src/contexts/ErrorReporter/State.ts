@@ -1,4 +1,4 @@
-import Rollbar from 'rollbar'
+import type Rollbar from 'rollbar'
 
 export interface ErrorReporterContextState {
   rollbar?: Rollbar

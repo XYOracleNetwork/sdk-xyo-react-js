@@ -1,9 +1,10 @@
-import { CardActions, CardActionsProps, Chip } from '@mui/material'
+import type { CardActionsProps } from '@mui/material'
+import { CardActions, Chip } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
-import { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
+import type { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
 import { DiscoverDialog } from './components/index.ts'
 
 export const ModuleCardActions: React.FC<CardActionsProps & ModuleRenderProps> = ({ children, mod, sx, ...props }) => {

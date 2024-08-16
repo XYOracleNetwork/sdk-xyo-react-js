@@ -1,4 +1,4 @@
-import { EthWallet } from '@xylabs/react-crypto'
+import type { EthWallet } from '@xylabs/react-crypto'
 
 export interface ActiveProvider {
   connectWallet?: EthWallet['connectWallet']

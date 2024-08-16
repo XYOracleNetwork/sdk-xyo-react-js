@@ -1,5 +1,6 @@
 import { useTheme } from '@mui/material'
-import { JsonViewer, JsonViewerProps } from '@textea/json-viewer'
+import type { JsonViewerProps } from '@textea/json-viewer'
+import { JsonViewer } from '@textea/json-viewer'
 import { useColorSchemeEx } from '@xylabs/react-invertible-theme'
 import React from 'react'
 

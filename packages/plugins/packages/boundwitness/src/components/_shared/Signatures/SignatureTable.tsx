@@ -1,8 +1,9 @@
 import { TableBody, TableHead, TableRow, Typography } from '@mui/material'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { usePayloadHash } from '@xyo-network/react-shared'
-import { TableCellEx, TableEx, TableExProps } from '@xyo-network/react-table'
+import type { TableExProps } from '@xyo-network/react-table'
+import { TableCellEx, TableEx } from '@xyo-network/react-table'
 import React from 'react'
 
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow.tsx'

@@ -1,7 +1,8 @@
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
+import type { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
 import { GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
-import { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 

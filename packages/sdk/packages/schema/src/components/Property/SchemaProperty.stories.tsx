@@ -1,8 +1,9 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import React from 'react'
 
-import { SchemaProperty, SchemaPropertyProps } from './SchemaProperty.tsx'
+import type { SchemaPropertyProps } from './SchemaProperty.tsx'
+import { SchemaProperty } from './SchemaProperty.tsx'
 
 const StorybookEntry: Meta = {
   component: SchemaProperty,

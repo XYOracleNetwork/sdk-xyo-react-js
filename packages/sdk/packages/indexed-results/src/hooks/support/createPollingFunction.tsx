@@ -1,7 +1,7 @@
 import { setTimeoutEx } from '@xylabs/timer'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 
-import { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.ts'
+import type { IndexedResultsConfig, PollingConfig } from '../../interfaces/index.ts'
 
 export type PollingFunction = () => Promise<Payload[] | null | undefined>
 

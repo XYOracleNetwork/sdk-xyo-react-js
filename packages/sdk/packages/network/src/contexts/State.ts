@@ -1,6 +1,6 @@
-import { NetworkPayload } from '@xyo-network/network'
-import { ContextExState } from '@xyo-network/react-shared'
-import { Dispatch } from 'react'
+import type { NetworkPayload } from '@xyo-network/network'
+import type { ContextExState } from '@xyo-network/react-shared'
+import type { Dispatch } from 'react'
 
 export interface NetworkContextState extends ContextExState {
   /** @field The currently selected XYO Network */

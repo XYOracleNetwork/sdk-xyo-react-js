@@ -1,8 +1,8 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { EventUnsubscribeFunction } from '@xyo-network/module-events'
-import { ModuleInstance } from '@xyo-network/module-model'
+import type { EventUnsubscribeFunction } from '@xyo-network/module-events'
+import type { ModuleInstance } from '@xyo-network/module-model'
 import { isNodeInstance } from '@xyo-network/node-model'
-import { ElementDefinition } from 'cytoscape'
+import type { ElementDefinition } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
 import { CytoscapeElements } from '../../../Cytoscape/index.ts'

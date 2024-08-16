@@ -1,11 +1,12 @@
 import { HubRounded as HubRoundedIcon } from '@mui/icons-material'
 import { usePromise } from '@xylabs/react-promise'
-import { NodeManifest } from '@xyo-network/manifest'
-import { NodeInstance } from '@xyo-network/node-model'
+import type { NodeManifest } from '@xyo-network/manifest'
+import type { NodeInstance } from '@xyo-network/node-model'
 import { useWeakModulesFromNode } from '@xyo-network/react-node'
 import React from 'react'
 
-import { ModuleSummary, ModuleSummaryProps } from './ModuleSummary.tsx'
+import type { ModuleSummaryProps } from './ModuleSummary.tsx'
+import { ModuleSummary } from './ModuleSummary.tsx'
 
 export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ mod, ...props }) => {
   const [manifest] = usePromise(async () => {

@@ -1,5 +1,6 @@
 import { useTheme } from '@mui/material'
-import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import React, { useEffect, useRef, useState } from 'react'
 

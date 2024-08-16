@@ -1,8 +1,10 @@
 import { useTheme } from '@mui/material'
-import { Identicon, IdenticonProps } from '@xylabs/react-identicon'
+import type { IdenticonProps } from '@xylabs/react-identicon'
+import { Identicon } from '@xylabs/react-identicon'
 import React, { forwardRef } from 'react'
 
-import { HeadingPaper, HeadingPaperProps } from '../HeadingPaper/index.ts'
+import type { HeadingPaperProps } from '../HeadingPaper/index.ts'
+import { HeadingPaper } from '../HeadingPaper/index.ts'
 
 export interface HashHeadingPaperProps extends HeadingPaperProps {
   hash?: string

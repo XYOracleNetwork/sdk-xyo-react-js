@@ -1,5 +1,7 @@
-import { Alert, AlertTitle, Snackbar, SnackbarProps } from '@mui/material'
-import React, { Dispatch, SetStateAction } from 'react'
+import type { SnackbarProps } from '@mui/material'
+import { Alert, AlertTitle, Snackbar } from '@mui/material'
+import type { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 
 export interface OutOfBoundsSnackBarProps extends SnackbarProps {
   activeAccountIndex?: number

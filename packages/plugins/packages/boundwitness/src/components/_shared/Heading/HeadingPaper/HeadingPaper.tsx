@@ -1,8 +1,9 @@
-import { Paper, PaperProps, styled } from '@mui/material'
+import type { PaperProps } from '@mui/material'
+import { Paper, styled } from '@mui/material'
 import React, { forwardRef } from 'react'
 
 import { BWHeading } from '../Heading.tsx'
-import { BWHeadingProps } from '../HeadingProps.tsx'
+import type { BWHeadingProps } from '../HeadingProps.tsx'
 
 export interface HeadingPaperProps extends BWHeadingProps {
   paperProps?: PaperProps

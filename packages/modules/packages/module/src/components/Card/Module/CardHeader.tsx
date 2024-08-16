@@ -1,9 +1,10 @@
-import { CardHeader, CardHeaderProps } from '@mui/material'
-import { Module } from '@xyo-network/module-model'
+import type { CardHeaderProps } from '@mui/material'
+import { CardHeader } from '@mui/material'
+import type { Module } from '@xyo-network/module-model'
 import { findNetworkComponent } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
+import type { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
 
 const moduleTypes = ['sentinel', 'bridge', 'archivist', 'diviner', 'node', 'witness']
 

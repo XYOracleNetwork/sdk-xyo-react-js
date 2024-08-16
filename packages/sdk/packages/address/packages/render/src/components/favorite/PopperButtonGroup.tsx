@@ -1,5 +1,6 @@
 import { Delete as DeleteIcon, Star as StarIcon } from '@mui/icons-material'
-import { Button, ButtonGroup, ButtonGroupProps } from '@mui/material'
+import type { ButtonGroupProps } from '@mui/material'
+import { Button, ButtonGroup } from '@mui/material'
 import React from 'react'
 
 export interface FavoritePopperProps extends ButtonGroupProps {

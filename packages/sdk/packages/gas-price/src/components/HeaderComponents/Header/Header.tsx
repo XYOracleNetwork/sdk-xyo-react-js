@@ -1,6 +1,7 @@
 import { useTheme } from '@mui/material'
-import { WithChildren } from '@xylabs/react-shared'
-import { TypographyExProps, useGetTokenData } from '@xyo-network/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { TypographyExProps } from '@xyo-network/react-shared'
+import { useGetTokenData } from '@xyo-network/react-shared'
 import React from 'react'
 
 import { GasPriceHeadingTypography } from './Heading.tsx'

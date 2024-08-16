@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import { BoundWitnessPayloadTableBody, BoundWitnessPayloadTableBodyProps } from './TableBody.tsx'
+import type { BoundWitnessPayloadTableBodyProps } from './TableBody.tsx'
+import { BoundWitnessPayloadTableBody } from './TableBody.tsx'
 
 export interface BoundWitnessFilteredPayloadTableBodyProps extends BoundWitnessPayloadTableBodyProps {
   bwFilterType?: 'equal' | 'notEqual'

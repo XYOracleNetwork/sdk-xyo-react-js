@@ -1,5 +1,5 @@
-import { WithChildren } from '@xylabs/react-shared'
-import { ContextExProviderProps } from '@xyo-network/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { ContextExProviderProps } from '@xyo-network/react-shared'
 import React, { useEffect, useMemo, useState } from 'react'
 
 import { TableHeightContext } from './Context.ts'

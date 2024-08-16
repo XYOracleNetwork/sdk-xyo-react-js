@@ -1,7 +1,9 @@
-import { PopperProps, styled } from '@mui/material'
+import type { PopperProps } from '@mui/material'
+import { styled } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { NodeSingular } from 'cytoscape'
-import React, { ReactElement } from 'react'
+import type { NodeSingular } from 'cytoscape'
+import type { ReactElement } from 'react'
+import React from 'react'
 
 import { useNodeElement } from './hooks/index.ts'
 

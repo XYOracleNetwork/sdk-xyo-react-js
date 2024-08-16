@@ -1,6 +1,9 @@
-import { Breakpoint, styled } from '@mui/material'
-import { FlexBoxProps, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
-import React, { ReactNode } from 'react'
+import type { Breakpoint } from '@mui/material'
+import { styled } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import type { ReactNode } from 'react'
+import React from 'react'
 
 import { fixedContent, scrollableContent } from './lib/index.ts'
 

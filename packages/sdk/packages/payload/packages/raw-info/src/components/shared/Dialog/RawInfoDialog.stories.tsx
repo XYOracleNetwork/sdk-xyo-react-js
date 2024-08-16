@@ -1,7 +1,7 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { toJson } from '@xylabs/object'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import React from 'react'
 
 import { RawInfoDialog } from './RawInfoDialog.tsx'

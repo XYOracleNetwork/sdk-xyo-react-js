@@ -1,6 +1,7 @@
-import { Dispatch, SetStateAction, useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+import { useState } from 'react'
 
-import { ActiveProvider } from '../../lib/index.ts'
+import type { ActiveProvider } from '../../lib/index.ts'
 
 export const useActiveProviderDialogState = (
   setActiveProvider: Dispatch<SetStateAction<ActiveProvider | undefined>>,

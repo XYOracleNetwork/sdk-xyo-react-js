@@ -1,9 +1,9 @@
-import { ButtonProps } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ErrorSummary } from '@xyo-network/react-form-group'
-import { ComponentType } from 'react'
+import type { ButtonProps } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { ErrorSummary } from '@xyo-network/react-form-group'
+import type { ComponentType } from 'react'
 
-import { CreditCardInput } from '../../models/index.ts'
+import type { CreditCardInput } from '../../models/index.ts'
 
 export interface CreditCardFormProps extends FlexBoxProps {
   ConfirmationButton?: ComponentType<ButtonProps>

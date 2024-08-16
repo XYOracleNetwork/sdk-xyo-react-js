@@ -1,4 +1,5 @@
-import { CardContent, CardContentProps, styled } from '@mui/material'
+import type { CardContentProps } from '@mui/material'
+import { CardContent, styled } from '@mui/material'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import React, { forwardRef, useEffect } from 'react'
 

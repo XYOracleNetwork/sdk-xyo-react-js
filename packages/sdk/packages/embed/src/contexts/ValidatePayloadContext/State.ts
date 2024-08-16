@@ -1,4 +1,4 @@
-import { ContextExState } from '@xyo-network/react-shared'
+import type { ContextExState } from '@xyo-network/react-shared'
 
 export interface ValidatePayloadState extends ContextExState {
   enabled?: boolean

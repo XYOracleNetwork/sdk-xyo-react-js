@@ -2,14 +2,16 @@ import 'chartjs-adapter-luxon'
 
 import { useTheme } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
-import { Payload } from '@xyo-network/payload-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
+import type { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
+import type { Payload } from '@xyo-network/payload-model'
+import type {
+  ChartData,
+  ChartOptions } from 'chart.js'
 import {
   CategoryScale,
   Chart as ChartJS,
-  ChartData,
-  ChartOptions,
   Legend,
   LinearScale,
   LineElement,

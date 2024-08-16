@@ -1,9 +1,11 @@
-import { TypeCheck } from '@xylabs/object'
+import type { TypeCheck } from '@xylabs/object'
 import { usePromise } from '@xylabs/react-promise'
-import { isModuleInstance, ModuleInstance } from '@xyo-network/module-model'
+import type { ModuleInstance } from '@xyo-network/module-model'
+import { isModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { ModuleFromNodeConfig, useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig.ts'
+import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import { useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig.ts'
 import { useModuleFilterOptions } from './useModuleFilterOptions.ts'
 import { useNode } from './useNode.ts'
 

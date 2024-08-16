@@ -1,7 +1,9 @@
-import { BoxProps, Paper, Typography } from '@mui/material'
+import type { BoxProps } from '@mui/material'
+import { Paper, Typography } from '@mui/material'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { format } from 'date-fns'
-import React, { ReactElement, useEffect, useState } from 'react'
+import type { ReactElement } from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface ClockProps extends BoxProps {
   date: number

@@ -1,4 +1,5 @@
-import { Avatar, AvatarGroup, AvatarGroupProps } from '@mui/material'
+import type { AvatarGroupProps } from '@mui/material'
+import { Avatar, AvatarGroup } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 import React, { useLayoutEffect, useRef, useState } from 'react'
 

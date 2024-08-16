@@ -1,9 +1,9 @@
 import { forget } from '@xylabs/forget'
-import { BaseParams } from '@xylabs/object'
+import type { BaseParams } from '@xylabs/object'
 import { BaseEmitter } from '@xyo-network/module-abstract'
 
-import { ControlSerializeSettings, ControlValueAccessor, SetOptions } from './ControlValueAccessor.ts'
-import { ValidControlValue } from './ValidControlValue.ts'
+import type { ControlSerializeSettings, ControlValueAccessor, SetOptions } from './ControlValueAccessor.ts'
+import type { ValidControlValue } from './ValidControlValue.ts'
 
 export type ControlValueAccessorBaseConfig = {
   disableEvents?: boolean

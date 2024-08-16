@@ -1,10 +1,12 @@
 import { Extension as ExtensionIcon } from '@mui/icons-material'
 import { delay } from '@xylabs/delay'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { ModuleInstance } from '@xyo-network/module-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import type { ModuleInstance } from '@xyo-network/module-model'
 import { useWeakModulesFromNode } from '@xyo-network/react-node'
 import { TypographyEx } from '@xyo-network/react-shared'
-import React, { ReactNode, useState } from 'react'
+import type { ReactNode } from 'react'
+import React, { useState } from 'react'
 
 export interface ModuleSummaryProps<T extends ModuleInstance = ModuleInstance> extends FlexBoxProps {
   icon?: ReactNode

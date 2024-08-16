@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material'
-import { CytoscapeOptions } from 'cytoscape'
+import type { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
 import { EdgeStyled, Node, NodeAsRoot, NodeWithName } from '../../Cytoscape/index.ts'

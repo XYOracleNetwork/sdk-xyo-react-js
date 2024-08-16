@@ -1,4 +1,4 @@
-import { IndexedResultsConfig, IndexedResultsQueue, PollingConfig } from '../../interfaces/index.ts'
+import type { IndexedResultsConfig, IndexedResultsQueue, PollingConfig } from '../../interfaces/index.ts'
 
 export interface UseIndexedResultsConfig {
   /** Indexed Results Configuration */

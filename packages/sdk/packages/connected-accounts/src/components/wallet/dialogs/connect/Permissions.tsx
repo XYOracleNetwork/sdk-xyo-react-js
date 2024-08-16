@@ -1,5 +1,6 @@
 import { Link, Typography } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 
 export interface WalletPermissionsFlexBoxProps extends FlexBoxProps {}

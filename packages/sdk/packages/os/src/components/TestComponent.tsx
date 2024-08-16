@@ -1,5 +1,6 @@
 import { FlexRow } from '@xylabs/react-flexbox'
-import React, { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 
 export interface TestComponentProps extends PropsWithChildren {}
 

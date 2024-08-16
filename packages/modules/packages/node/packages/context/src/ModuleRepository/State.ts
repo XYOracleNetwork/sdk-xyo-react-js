@@ -1,5 +1,5 @@
-import { ModuleResolver } from '@xyo-network/module-model'
-import { ContextExState } from '@xyo-network/react-shared'
+import type { ModuleResolver } from '@xyo-network/module-model'
+import type { ContextExState } from '@xyo-network/react-shared'
 
 export interface ResolverEntries {
   [name: string]: ModuleResolver

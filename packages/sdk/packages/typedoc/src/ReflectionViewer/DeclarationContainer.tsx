@@ -3,7 +3,8 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import type { DeclarationReflection } from 'typedoc'
 
-import { ContainerReflectionViewer, ContainerReflectionViewerProps } from './Container.tsx'
+import type { ContainerReflectionViewerProps } from './Container.tsx'
+import { ContainerReflectionViewer } from './Container.tsx'
 import { DeclarationReflectionViewer } from './Declaration.tsx'
 
 export interface DeclarationContainerReflectionViewerProps extends ContainerReflectionViewerProps {

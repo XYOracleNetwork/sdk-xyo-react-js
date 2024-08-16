@@ -1,5 +1,5 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-import { FillLayerSpecification } from 'mapbox-gl'
+import type { FillLayerSpecification } from 'mapbox-gl'
 
 export class FillLayerBuilder extends LayerBase<FillLayerSpecification> {
   FillLayerOptions: Partial<FillLayerSpecification>

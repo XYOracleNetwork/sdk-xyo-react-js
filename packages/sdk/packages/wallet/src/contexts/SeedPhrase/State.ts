@@ -1,5 +1,5 @@
-import { ContextExState } from '@xyo-network/react-shared'
-import { Dispatch, SetStateAction } from 'react'
+import type { ContextExState } from '@xyo-network/react-shared'
+import type { Dispatch, SetStateAction } from 'react'
 
 export interface SeedPhraseContextState extends ContextExState {
   handleCancelOverwrite?: () => void

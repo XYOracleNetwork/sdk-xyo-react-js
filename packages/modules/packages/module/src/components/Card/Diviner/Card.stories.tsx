@@ -1,7 +1,7 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { AddressHistoryDiviner, AddressHistoryDivinerConfigSchema } from '@xyo-network/diviner-address-history'
-import { DivinerInstance } from '@xyo-network/diviner-model'
+import type { DivinerInstance } from '@xyo-network/diviner-model'
 import React, { useState } from 'react'
 
 import { DivinerCard } from './Card.tsx'

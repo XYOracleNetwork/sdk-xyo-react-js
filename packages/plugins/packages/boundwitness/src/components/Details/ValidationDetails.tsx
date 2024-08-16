@@ -1,9 +1,10 @@
 import { Typography } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
-import { Property, PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import type { PropertyGroupProps } from '@xyo-network/react-property'
+import { Property, PropertyGroup } from '@xyo-network/react-property'
 import React from 'react'
 
 export type BoundWitnessValidationDetailsProps = PropertyGroupProps & {

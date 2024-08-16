@@ -5,7 +5,7 @@ import { TableEx } from '@xyo-network/react-table'
 import React from 'react'
 
 import { blockColumnNames, blockTableColumnConfigDefaults } from './BlockTableColumnConfig.ts'
-import { BlockTableProps } from './BlockTableProps.ts'
+import type { BlockTableProps } from './BlockTableProps.ts'
 import { BlockTableRowWithErrorBoundary } from './TableRowWithErrorBoundary.tsx'
 
 export const BlockTable: React.FC<BlockTableProps> = ({

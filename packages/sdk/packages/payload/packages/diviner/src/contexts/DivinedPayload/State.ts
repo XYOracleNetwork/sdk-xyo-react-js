@@ -1,6 +1,6 @@
-import { Payload } from '@xyo-network/payload-model'
-import { ContextExState } from '@xyo-network/react-shared'
-import { Dispatch } from 'react'
+import type { Payload } from '@xyo-network/payload-model'
+import type { ContextExState } from '@xyo-network/react-shared'
+import type { Dispatch } from 'react'
 
 export interface DivinedPayloadState extends ContextExState {
   payload?: Payload | null

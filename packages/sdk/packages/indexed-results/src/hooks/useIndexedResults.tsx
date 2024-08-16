@@ -1,9 +1,9 @@
 import { usePromise } from '@xylabs/react-promise'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { Semaphore } from 'async-mutex'
 
 import { usePollDiviners } from './support/index.ts'
-import { UseIndexedResultsConfig } from './types/index.ts'
+import type { UseIndexedResultsConfig } from './types/index.ts'
 
 let semaphoreLimit = 100
 const semaphore = new Semaphore(semaphoreLimit)

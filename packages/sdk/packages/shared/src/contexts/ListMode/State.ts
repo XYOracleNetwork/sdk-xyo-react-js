@@ -1,7 +1,7 @@
-import { Dispatch } from 'react'
+import type { Dispatch } from 'react'
 
-import { ListMode } from '../../models/index.ts'
-import { ContextExState } from '../contextEx/index.ts'
+import type { ListMode } from '../../models/index.ts'
+import type { ContextExState } from '../contextEx/index.ts'
 
 export interface ListModeContextState extends ContextExState {
   listMode: ListMode

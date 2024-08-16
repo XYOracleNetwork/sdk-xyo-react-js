@@ -1,9 +1,10 @@
-import { CardContentProps } from '@mui/material'
+import type { CardContentProps } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { Payload } from '@xyo-network/payload-model'
-import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
+import type { Payload } from '@xyo-network/payload-model'
+import type { ModuleRenderProps } from '@xyo-network/react-module'
+import { ModuleCardContent } from '@xyo-network/react-module'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
-import { SentinelInstance } from '@xyo-network/sentinel-model'
+import type { SentinelInstance } from '@xyo-network/sentinel-model'
 import React from 'react'
 
 export type SentinelCardContentProps = ModuleRenderProps<SentinelInstance> &

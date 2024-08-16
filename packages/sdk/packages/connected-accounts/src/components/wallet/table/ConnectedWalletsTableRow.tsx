@@ -1,8 +1,10 @@
-import { TableRow, TableRowProps } from '@mui/material'
-import { EthWalletConnectorBase, useEthWallet } from '@xylabs/react-crypto'
+import type { TableRowProps } from '@mui/material'
+import { TableRow } from '@mui/material'
+import type { EthWalletConnectorBase } from '@xylabs/react-crypto'
+import { useEthWallet } from '@xylabs/react-crypto'
 import React, { useCallback, useMemo } from 'react'
 
-import { ActiveProvider } from '../lib/index.ts'
+import type { ActiveProvider } from '../lib/index.ts'
 import { ConnectedWalletTableCells } from './cells/index.ts'
 
 export interface WalletConnectionsTableRowProps extends TableRowProps {

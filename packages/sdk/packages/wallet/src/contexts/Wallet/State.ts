@@ -1,6 +1,6 @@
-import { ContextExState } from '@xyo-network/react-shared'
-import { WalletInstance } from '@xyo-network/wallet-model'
-import { Dispatch } from 'react'
+import type { ContextExState } from '@xyo-network/react-shared'
+import type { WalletInstance } from '@xyo-network/wallet-model'
+import type { Dispatch } from 'react'
 
 export interface WalletContextState extends ContextExState {
   /** Currently selected account */

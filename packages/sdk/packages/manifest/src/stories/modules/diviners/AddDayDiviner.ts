@@ -1,7 +1,8 @@
 import { AbstractDiviner } from '@xyo-network/diviner-abstract'
-import { DivinerParams } from '@xyo-network/diviner-model'
-import { Payload, Schema } from '@xyo-network/payload-model'
-import { isTimestamp, TimeStamp } from '@xyo-network/witness-timestamp'
+import type { DivinerParams } from '@xyo-network/diviner-model'
+import type { Payload, Schema } from '@xyo-network/payload-model'
+import type { TimeStamp } from '@xyo-network/witness-timestamp'
+import { isTimestamp } from '@xyo-network/witness-timestamp'
 
 export const AddDayDivinerResultSchema = 'network.xyo.timestamp.add.day'
 export type AddDayDivinerResultSchema = 'network.xyo.timestamp.add.day'

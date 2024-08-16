@@ -1,5 +1,7 @@
-import { ModuleFromNodeConfig, useModuleFromNode } from '@xyo-network/react-node'
-import { asSentinelInstance, SentinelInstance } from '@xyo-network/sentinel-model'
+import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useModuleFromNode } from '@xyo-network/react-node'
+import type { SentinelInstance } from '@xyo-network/sentinel-model'
+import { asSentinelInstance } from '@xyo-network/sentinel-model'
 
 export const useSentinelFromNode = (
   nameOrAddressOrInstance?: string | SentinelInstance,

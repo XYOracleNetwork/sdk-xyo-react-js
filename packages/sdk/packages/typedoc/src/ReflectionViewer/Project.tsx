@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import type { ProjectReflection, ReflectionGroup } from 'typedoc'
 
 import { createLookup } from '../createLookup.ts'
-import { ContainerReflectionViewerProps } from './Container.tsx'
+import type { ContainerReflectionViewerProps } from './Container.tsx'
 import { ReflectionGroupViewer } from './ReflectionGroupViewer.tsx'
 import { ReflectionViewer } from './ReflectionViewer.tsx'
 

@@ -1,5 +1,5 @@
-import { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
-import { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
+import type { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
+import type { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
 export const useEthersTransformer = (payload?: EthereumGasEthersPayload): GasPriceWitnessUIBasePayload | undefined => {
   if (payload) {

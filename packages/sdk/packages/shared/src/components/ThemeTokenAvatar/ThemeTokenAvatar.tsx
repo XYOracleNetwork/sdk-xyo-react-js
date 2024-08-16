@@ -1,4 +1,5 @@
-import { Avatar, AvatarProps, useTheme } from '@mui/material'
+import type { AvatarProps } from '@mui/material'
+import { Avatar, useTheme } from '@mui/material'
 import React from 'react'
 
 export const ThemeTokenAvatar: React.FC<AvatarProps> = ({ ...props }) => {

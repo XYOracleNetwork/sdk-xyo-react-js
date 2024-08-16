@@ -1,6 +1,6 @@
-import { NetworkPayload } from '@xyo-network/network'
+import type { NetworkPayload } from '@xyo-network/network'
 
-import { NetworkNames } from '../../lib/index.ts'
+import type { NetworkNames } from '../../lib/index.ts'
 
 export interface NetworkProviderProps {
   /** @deprecated use defaultNetworkConfig instead */

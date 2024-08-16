@@ -1,6 +1,6 @@
-import { Logger } from '@xylabs/logger'
-import { ModuleFilterOptions } from '@xyo-network/module-model'
-import { NodeInstance } from '@xyo-network/node-model'
+import type { Logger } from '@xylabs/logger'
+import type { ModuleFilterOptions } from '@xyo-network/module-model'
+import type { NodeInstance } from '@xyo-network/node-model'
 
 export type WeakModuleFromNodeConfig = ModuleFilterOptions & {
   logger?: Logger

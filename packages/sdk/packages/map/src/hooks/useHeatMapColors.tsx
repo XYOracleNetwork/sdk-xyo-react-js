@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material'
 
-import { AnimatedHeatMapColorProps, ColorGradientLegendProps } from '../Colors/index.ts'
+import type { AnimatedHeatMapColorProps, ColorGradientLegendProps } from '../Colors/index.ts'
 
 const useHeatMapColors = () => {
   const theme = useTheme()

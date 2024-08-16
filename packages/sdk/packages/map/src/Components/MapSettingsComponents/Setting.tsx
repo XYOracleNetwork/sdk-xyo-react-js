@@ -1,4 +1,5 @@
-import { FormControlLabel, Switch, SwitchProps } from '@mui/material'
+import type { SwitchProps } from '@mui/material'
+import { FormControlLabel, Switch } from '@mui/material'
 import React from 'react'
 
 import { useMapSettings } from '../../Contexts/index.ts'

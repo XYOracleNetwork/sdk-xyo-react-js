@@ -1,4 +1,5 @@
-import { Link, TableCell, TableRow, TableRowProps, Typography } from '@mui/material'
+import type { TableRowProps } from '@mui/material'
+import { Link, TableCell, TableRow, Typography } from '@mui/material'
 import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'

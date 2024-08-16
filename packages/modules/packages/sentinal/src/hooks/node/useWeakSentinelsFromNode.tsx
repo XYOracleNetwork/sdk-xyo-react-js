@@ -1,7 +1,9 @@
 import { exists } from '@xylabs/exists'
-import { ModuleFilter } from '@xyo-network/module-model'
-import { ModuleFromNodeConfig, useWeakModulesFromNode } from '@xyo-network/react-node'
-import { asSentinelInstance, SentinelInstance } from '@xyo-network/sentinel-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useWeakModulesFromNode } from '@xyo-network/react-node'
+import type { SentinelInstance } from '@xyo-network/sentinel-model'
+import { asSentinelInstance } from '@xyo-network/sentinel-model'
 
 export const useWeakSentinelsFromNode = (
   filter?: ModuleFilter,

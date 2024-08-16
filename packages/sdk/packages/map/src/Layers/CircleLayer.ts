@@ -1,5 +1,5 @@
 import { LayerBase } from '@xyo-network/sdk-geo'
-import { CircleLayerSpecification } from 'mapbox-gl'
+import type { CircleLayerSpecification } from 'mapbox-gl'
 
 export class CircleLayerBuilder extends LayerBase<CircleLayerSpecification> {
   CircleLayerOptions: Partial<CircleLayerSpecification>

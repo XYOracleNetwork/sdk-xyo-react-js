@@ -1,7 +1,7 @@
-import { Hash } from '@xylabs/hex'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { ModuleError } from '@xyo-network/payload-model'
-import { ContextExState } from '@xyo-network/react-shared'
+import type { Hash } from '@xylabs/hex'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { ModuleError } from '@xyo-network/payload-model'
+import type { ContextExState } from '@xyo-network/react-shared'
 
 export interface NestedBoundWitnesses {
   [hash: Hash]: BoundWitness

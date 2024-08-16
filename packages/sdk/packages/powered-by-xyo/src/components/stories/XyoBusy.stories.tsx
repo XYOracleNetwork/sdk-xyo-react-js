@@ -1,7 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { XyoBusy, XyoBusyProps } from '../XyoBusy.tsx'
+import type { XyoBusyProps } from '../XyoBusy.tsx'
+import { XyoBusy } from '../XyoBusy.tsx'
 
 const StorybookEntry = {
   component: XyoBusy,

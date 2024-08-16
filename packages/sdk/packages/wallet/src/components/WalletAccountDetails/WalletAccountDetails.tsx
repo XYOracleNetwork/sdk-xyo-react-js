@@ -1,9 +1,10 @@
 import { EthAddress } from '@xylabs/eth-address'
 import { EthAccountButton } from '@xylabs/react-crypto'
-import { FlexBoxProps, FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { NumberStatus } from '@xylabs/react-number-status'
 import { useNetwork } from '@xyo-network/react-network'
-import { WalletInstance } from '@xyo-network/wallet-model'
+import type { WalletInstance } from '@xyo-network/wallet-model'
 import React from 'react'
 
 import { useAccount } from '../../hooks/index.ts'

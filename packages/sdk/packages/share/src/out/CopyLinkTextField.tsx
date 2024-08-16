@@ -1,5 +1,6 @@
 import { CopyAllRounded } from '@mui/icons-material'
-import { IconButton, InputAdornment, StandardTextFieldProps, TextField } from '@mui/material'
+import type { StandardTextFieldProps } from '@mui/material'
+import { IconButton, InputAdornment, TextField } from '@mui/material'
 import { forget } from '@xylabs/forget'
 import React, { useState } from 'react'
 

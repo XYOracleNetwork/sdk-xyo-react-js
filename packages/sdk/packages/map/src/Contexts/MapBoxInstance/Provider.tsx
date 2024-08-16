@@ -1,5 +1,5 @@
-import { WithChildren } from '@xylabs/react-shared'
-import { Map } from 'mapbox-gl'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { Map } from 'mapbox-gl'
 import React, { useEffect, useMemo, useState } from 'react'
 
 import { MapBoxInstanceContext } from './Context.ts'

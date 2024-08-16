@@ -1,6 +1,7 @@
 import { assertEx } from '@xylabs/assert'
-import { EmptyObject } from '@xylabs/object'
-import { AbstractControl, FormControlBase } from '@xyo-network/react-form-group'
+import type { EmptyObject } from '@xylabs/object'
+import type { AbstractControl } from '@xyo-network/react-form-group'
+import { FormControlBase } from '@xyo-network/react-form-group'
 import valid from 'card-validator'
 
 import { unmask } from '../utils/index.ts'

@@ -1,4 +1,5 @@
-import { ForwardedRef, useEffect, useRef } from 'react'
+import type { ForwardedRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 export const useShareForwardedRef = <T>(forwardedRef: ForwardedRef<T>, refresh = 0) => {
   // final ref that will share value with forward ref. this is the one to be attached to components

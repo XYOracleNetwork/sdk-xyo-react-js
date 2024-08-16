@@ -1,8 +1,9 @@
-import { Collapse, CollapseProps, List } from '@mui/material'
-import { WithChildren } from '@xylabs/react-shared'
+import type { CollapseProps } from '@mui/material'
+import { Collapse, List } from '@mui/material'
+import type { WithChildren } from '@xylabs/react-shared'
 import React from 'react'
 
-import { NavListItemProps } from '../../lib/index.ts'
+import type { NavListItemProps } from '../../lib/index.ts'
 
 export interface SubNavListItemsCollapseProps extends WithChildren, CollapseProps {
   collapse?: boolean

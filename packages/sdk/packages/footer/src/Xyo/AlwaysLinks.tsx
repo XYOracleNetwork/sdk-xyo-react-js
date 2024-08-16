@@ -1,4 +1,4 @@
-import { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import React from 'react'
 
 import { FooterAlwaysLinks } from '../AlwaysLinks.tsx'

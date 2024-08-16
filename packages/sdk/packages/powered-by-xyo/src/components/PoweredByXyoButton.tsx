@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material'
-import { ButtonEx, ButtonExProps } from '@xylabs/react-button'
+import type { ButtonExProps } from '@xylabs/react-button'
+import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 

@@ -1,4 +1,5 @@
-import { Chip, FormControl, FormLabel, StandardTextFieldProps, TextField } from '@mui/material'
+import type { StandardTextFieldProps } from '@mui/material'
+import { Chip, FormControl, FormLabel, TextField } from '@mui/material'
 import React, { useState } from 'react'
 
 import { useSeedPhrase } from '../../../../../contexts/index.ts'

@@ -1,5 +1,6 @@
-import { Alert, AlertProps } from '@mui/material'
-import { WithChildren } from '@xylabs/react-shared'
+import type { AlertProps } from '@mui/material'
+import { Alert } from '@mui/material'
+import type { WithChildren } from '@xylabs/react-shared'
 import React from 'react'
 
 import { useValidatePayload } from '../../contexts/index.ts'

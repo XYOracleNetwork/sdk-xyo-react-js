@@ -1,6 +1,7 @@
-import { Toolbar, ToolbarProps } from '@mui/material'
+import type { ToolbarProps } from '@mui/material'
+import { Toolbar } from '@mui/material'
 import React from 'react'
-import { To } from 'react-router-dom'
+import type { To } from 'react-router-dom'
 
 import { LogoLinkEx } from './LogoLinkEx.tsx'
 

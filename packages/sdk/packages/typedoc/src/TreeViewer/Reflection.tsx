@@ -1,13 +1,14 @@
 import { Add, Remove } from '@mui/icons-material'
 import { Typography } from '@mui/material'
 import { TreeItem, TreeView } from '@mui/x-tree-view'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { ContainerReflection, Reflection } from 'typedoc'
 
-import { ReflectionLookup } from '../ReflectionLookup.ts'
-import { FlagFilter } from '../ReflectionViewer/index.ts'
+import type { ReflectionLookup } from '../ReflectionLookup.ts'
+import type { FlagFilter } from '../ReflectionViewer/index.ts'
 
 export interface ReflectionTreeViewerProps<T extends Reflection = ContainerReflection> extends FlexBoxProps {
   hiddenFlags?: FlagFilter[]

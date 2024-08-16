@@ -1,6 +1,6 @@
 import { Alert, Button, TextField, Typography } from '@mui/material'
-import { Decorator, Meta, StoryFn } from '@storybook/react'
-import { Address } from '@xylabs/hex'
+import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'

@@ -1,6 +1,7 @@
 import { Menu as MenuIcon, Settings as SettingsIcon } from '@mui/icons-material'
 import { IconButton, List, SwipeableDrawer } from '@mui/material'
-import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexRow } from '@xylabs/react-flexbox'
 import React, { useEffect, useState } from 'react'
 
 import { MenuListItemContainer } from './MenuListItem/index.ts'

@@ -1,6 +1,8 @@
 import { useTheme } from '@mui/material'
-import { TypographyEx, TypographyExProps } from '@xyo-network/react-shared'
-import React, { ReactNode } from 'react'
+import type { TypographyExProps } from '@xyo-network/react-shared'
+import { TypographyEx } from '@xyo-network/react-shared'
+import type { ReactNode } from 'react'
+import React from 'react'
 
 export interface GasPriceHeadingTypographyProps extends TypographyExProps {
   children?: ReactNode

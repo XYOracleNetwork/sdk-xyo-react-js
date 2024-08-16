@@ -2,11 +2,12 @@ import { generateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import-x/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { HDWallet } from '@xyo-network/account'
-import { Manifest, ManifestWrapper, ModuleManifest, PackageManifestPayload } from '@xyo-network/manifest'
+import type { Manifest, ModuleManifest, PackageManifestPayload } from '@xyo-network/manifest'
+import { ManifestWrapper } from '@xyo-network/manifest'
 import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
-import { WalletInstance } from '@xyo-network/wallet-model'
+import type { WalletInstance } from '@xyo-network/wallet-model'
 
-import { CreatablePackageManifest } from '../types/index.ts'
+import type { CreatablePackageManifest } from '../types/index.ts'
 
 export class ManifestNodeBuilder {
   locatedManifests: Manifest[] = []

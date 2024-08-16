@@ -1,5 +1,5 @@
-import { PopperProps } from '@mui/material'
-import { NodeSingular } from 'cytoscape'
+import type { PopperProps } from '@mui/material'
+import type { NodeSingular } from 'cytoscape'
 import { useEffect, useRef, useState } from 'react'
 
 export const useNodeElement = (node?: NodeSingular) => {

@@ -1,7 +1,9 @@
 import { Paper, useMediaQuery, useTheme } from '@mui/material'
-import { Payload } from '@xyo-network/payload-model'
-import { JsonViewerEx, JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
-import { PropertyGroup, PropertyGroupProps } from '@xyo-network/react-property'
+import type { Payload } from '@xyo-network/payload-model'
+import type { JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
+import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
+import type { PropertyGroupProps } from '@xyo-network/react-property'
+import { PropertyGroup } from '@xyo-network/react-property'
 import React from 'react'
 
 export type PayloadJsonDetailsProps = PropertyGroupProps & {

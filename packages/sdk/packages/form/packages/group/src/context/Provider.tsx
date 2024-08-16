@@ -1,7 +1,9 @@
-import { Payload } from '@xyo-network/payload-model'
-import React, { PropsWithChildren, useMemo } from 'react'
+import type { Payload } from '@xyo-network/payload-model'
+import type { PropsWithChildren } from 'react'
+import React, { useMemo } from 'react'
 
-import { FormGroup, FormGroupParams } from '../FormGroup.ts'
+import type { FormGroupParams } from '../FormGroup.ts'
+import { FormGroup } from '../FormGroup.ts'
 import { FormGroupBaseContext } from './Context.ts'
 
 export interface FormGroupPayloadProviderProps<TStorage extends Payload = Payload> extends PropsWithChildren {

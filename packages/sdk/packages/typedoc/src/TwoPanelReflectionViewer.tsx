@@ -1,11 +1,13 @@
 import { Search } from '@mui/icons-material'
 import { TextField, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { useMemo, useState } from 'react'
 import type { ReflectionGroup } from 'typedoc'
 
 import { createLookup } from './createLookup.ts'
-import { ContainerReflectionViewerProps, ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer/index.ts'
+import type { ContainerReflectionViewerProps } from './ReflectionViewer/index.ts'
+import { ReflectionGroupViewer, ReflectionViewer } from './ReflectionViewer/index.ts'
 import { ReflectionTreeViewer } from './TreeViewer/index.ts'
 
 export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> = ({

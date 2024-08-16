@@ -1,4 +1,5 @@
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 
 import { WalletAccountSelect } from './Select.tsx'

@@ -1,5 +1,6 @@
 import { Icon, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexRow } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'

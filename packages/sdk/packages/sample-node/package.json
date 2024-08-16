@@ -7,18 +7,18 @@
   },
   "bugs": {
     "email": "support@xyo.network",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/react-async-effect": "^4.0.1",
-    "@xyo-network/bowser-system-info-plugin": "^3.0.0",
-    "@xyo-network/node-model": "^3.0.2",
+    "@xylabs/react-async-effect": "^4.0.3",
+    "@xyo-network/bowser-system-info-plugin": "^3.0.3",
+    "@xyo-network/node-model": "^3.0.3",
     "@xyo-network/react-standard-node": "workspace:^"
   },
   "devDependencies": {
     "@storybook/react": "^8.2.9",
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.15",
-    "@xylabs/tsconfig-react": "^4.0.0-rc.15",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.20",
+    "@xylabs/tsconfig-react": "^4.0.0-rc.20",
     "@xyo-network/react-node-renderer": "workspace:^",
     "typescript": "^5.5.4"
   },
@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
     "lint-pkg": "npmPkgJsonLint .",
@@ -64,6 +64,6 @@
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module"
 }

@@ -1,7 +1,7 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { GeographicCoordinateSystemLocationPayload } from '@xyo-network/location-payload-plugin'
-import { Payload } from '@xyo-network/payload-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { GeographicCoordinateSystemLocationPayload } from '@xyo-network/location-payload-plugin'
+import type { Payload } from '@xyo-network/payload-model'
 import {
   LocationPointsMapLayerBuilder,
   MapBoxInstanceProvider,
@@ -9,7 +9,7 @@ import {
   MapSettingsProvider,
   useMapboxAccessToken,
 } from '@xyo-network/react-map'
-import { Feature, Point } from 'geojson'
+import type { Feature, Point } from 'geojson'
 import React, { useEffect, useState } from 'react'
 
 import { PointMapSettings } from './PointMapSettings.ts'

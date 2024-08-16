@@ -1,13 +1,14 @@
 import { darken, useTheme } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { WithChildren } from '@xylabs/react-shared'
-import { Feature, Polygon } from 'geojson'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { Feature, Polygon } from 'geojson'
 import React, { useState } from 'react'
 
-import { AnimatedHeatMapColorProps } from '../Colors/index.ts'
+import type { AnimatedHeatMapColorProps } from '../Colors/index.ts'
 import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.ts'
-import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants, MapLayer } from '../Layers/index.ts'
-import { MapSetting } from '../Settings/index.ts'
+import type { MapLayer } from '../Layers/index.ts'
+import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants } from '../Layers/index.ts'
+import type { MapSetting } from '../Settings/index.ts'
 import { MapboxHeatFlexBox } from './MapBoxHeat.tsx'
 
 export interface AnimatedHeatMapProps {

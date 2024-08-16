@@ -1,7 +1,8 @@
 import { Grid } from '@mui/material'
 import React from 'react'
 
-import { Footer, FooterProps } from '../Footer.tsx'
+import type { FooterProps } from '../Footer.tsx'
+import { Footer } from '../Footer.tsx'
 import { copyrightLinkTitle } from '../lib/index.ts'
 import { DeveloperLinks } from './DeveloperLinks.tsx'
 import { MoreLinks } from './MoreLinks.tsx'

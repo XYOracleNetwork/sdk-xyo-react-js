@@ -1,5 +1,7 @@
-import { Stack, StackProps } from '@mui/material'
-import React, { PropsWithChildren } from 'react'
+import type { StackProps } from '@mui/material'
+import { Stack } from '@mui/material'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 
 import {
   CreditCardCvvWithFormControl,

@@ -1,4 +1,4 @@
-import { PromiseQueue } from '../classes/index.ts'
+import type { PromiseQueue } from '../classes/index.ts'
 
 export interface IndexedResultsQueue {
   /** Optional queue to manage polling requests */

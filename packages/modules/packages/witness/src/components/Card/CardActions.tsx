@@ -1,7 +1,8 @@
-import { CardActionsProps } from '@mui/material'
+import type { CardActionsProps } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import { ModuleCardActions, ModuleRenderProps } from '@xyo-network/react-module'
-import { WitnessInstance } from '@xyo-network/witness-model'
+import type { ModuleRenderProps } from '@xyo-network/react-module'
+import { ModuleCardActions } from '@xyo-network/react-module'
+import type { WitnessInstance } from '@xyo-network/witness-model'
 import React from 'react'
 
 export type WitnessCardActionsProps = ModuleRenderProps<WitnessInstance> &

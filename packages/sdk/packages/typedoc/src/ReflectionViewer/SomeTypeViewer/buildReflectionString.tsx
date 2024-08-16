@@ -1,7 +1,7 @@
 import React from 'react'
 import type { ReflectionType } from 'typedoc'
 
-import { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
+import type { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
 
 export const buildReflectionString = (typeObj: ReflectionType, reflectionViewer: React.FC<ReflectionViewerProps>) => {
   if (typeObj.declaration) {

@@ -1,5 +1,5 @@
 import { createContextEx } from '@xyo-network/react-shared'
 
-import { NodeContextState } from './State.ts'
+import type { NodeContextState } from './State.ts'
 
 export const NodeContext = createContextEx<NodeContextState>()

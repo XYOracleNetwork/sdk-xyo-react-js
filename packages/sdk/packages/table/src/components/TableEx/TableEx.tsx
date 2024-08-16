@@ -1,7 +1,9 @@
-import { Table, TableProps } from '@mui/material'
-import React, { forwardRef, PropsWithChildren } from 'react'
+import type { TableProps } from '@mui/material'
+import { Table } from '@mui/material'
+import type { PropsWithChildren } from 'react'
+import React, { forwardRef } from 'react'
 
-import { TableExVariants } from './types/index.ts'
+import type { TableExVariants } from './types/index.ts'
 
 export interface TableExProps extends PropsWithChildren, TableProps {
   variant?: TableExVariants

@@ -9,7 +9,7 @@
   },
   "bugs": {
     "email": "support@xyo.network",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "workspaces": [
     "packages/**/*"
@@ -52,19 +52,19 @@
     "@storybook/react-vite": "^8.2.9",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^8.2.9",
-    "@stylistic/eslint-plugin": "^2.6.2",
+    "@stylistic/eslint-plugin": "^2.6.4",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
-    "@xylabs/eslint-config-flat": "^4.0.0-rc.15",
-    "@xylabs/eslint-config-react-flat": "^4.0.0-rc.15",
+    "@xylabs/eslint-config-flat": "^4.0.0-rc.20",
+    "@xylabs/eslint-config-react-flat": "^4.0.0-rc.20",
     "@xylabs/pixel": "^2.0.1",
-    "@xylabs/react-button": "^4.0.1",
-    "@xylabs/react-flexbox": "^4.0.1",
-    "@xylabs/react-invertible-theme": "^4.0.1",
-    "@xylabs/react-pixel": "^4.0.1",
-    "@xylabs/react-shared": "^4.0.1",
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.15",
-    "@xylabs/tsconfig-react": "^4.0.0-rc.15",
+    "@xylabs/react-button": "^4.0.3",
+    "@xylabs/react-flexbox": "^4.0.3",
+    "@xylabs/react-invertible-theme": "^4.0.3",
+    "@xylabs/react-pixel": "^4.0.3",
+    "@xylabs/react-shared": "^4.0.3",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.20",
+    "@xylabs/tsconfig-react": "^4.0.0-rc.20",
     "chromatic": "^11.7.1",
     "copyfiles": "^2.4.1",
     "eslint": "^9.9.0",
@@ -86,7 +86,7 @@
     "ts-jest": "^29.2.4",
     "typedoc": "^0.26.5",
     "typescript": "^5.5.4",
-    "vite": "^5.4.0"
+    "vite": "^5.4.1"
   },
   "docs": "dist/docs.json",
   "exports": {
@@ -119,7 +119,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
     "build": "xy build",
@@ -130,7 +130,7 @@
     "build-typedoc-site": "typedoc"
   },
   "sideEffects": false,
-  "version": "3.0.1",
+  "version": "3.0.2",
   "packageManager": "yarn@4.4.0",
   "volta": {
     "node": "22.3.0",

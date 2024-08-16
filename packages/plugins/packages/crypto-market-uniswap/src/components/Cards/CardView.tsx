@@ -1,7 +1,8 @@
 import { Card, CardContent, Grid } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
-import { Payload } from '@xyo-network/payload-model'
-import { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
+import type { Payload } from '@xyo-network/payload-model'
+import type { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React, { useState } from 'react'
 
 import { CardViewType } from './CardViewType.ts'

@@ -1,11 +1,11 @@
 import { Replay as ReplayIcon } from '@mui/icons-material'
 import { TextField } from '@mui/material'
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
 import { Property } from './Property.tsx'
-import { PropertyProps } from './Props.ts'
+import type { PropertyProps } from './Props.ts'
 
 const StorybookEntry = {
   argTypes: {},

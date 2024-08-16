@@ -1,5 +1,6 @@
-import { Box, BoxProps, styled, Typography, TypographyProps, TypographyTypeMap } from '@mui/material'
-import { WithChildren } from '@xylabs/react-shared'
+import type { BoxProps, TypographyProps, TypographyTypeMap } from '@mui/material'
+import { Box, styled, Typography } from '@mui/material'
+import type { WithChildren } from '@xylabs/react-shared'
 import React, { forwardRef, useCallback, useState } from 'react'
 
 import { useShareForwardedRef } from '../hooks/index.ts'

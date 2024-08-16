@@ -1,10 +1,11 @@
 import { ButtonGroup, Typography } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { ButtonEx } from '@xylabs/react-button'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { ArchivistClearQuerySchema, ArchivistCommitQuerySchema } from '@xyo-network/archivist-model'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import React, { useState } from 'react'
 
 import { useWeakArchivistFromNode } from '../../hooks/index.ts'

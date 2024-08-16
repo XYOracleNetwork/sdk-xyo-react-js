@@ -1,5 +1,6 @@
 import { Link } from '@mui/material'
-import { QuickTipButton, QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
+import type { QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
+import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { TypographyEx } from '@xyo-network/react-shared'
 import React from 'react'
 

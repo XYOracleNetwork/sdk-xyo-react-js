@@ -1,4 +1,5 @@
-import { MapLayer, SymbolLayerBuilder } from '@xyo-network/react-map'
+import type { MapLayer } from '@xyo-network/react-map'
+import { SymbolLayerBuilder } from '@xyo-network/react-map'
 
 import { ElevationExtrusionLayerConfig, ElevationSymbolLayerConfig } from '../configs/index.ts'
 import { FillExtrusionLayerBuilder } from '../FillExtrusionLayer.ts'

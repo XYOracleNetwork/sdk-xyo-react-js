@@ -1,4 +1,5 @@
-import { Card, CardProps } from '@mui/material'
+import type { CardProps } from '@mui/material'
+import { Card } from '@mui/material'
 import { useGradientStyles } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 

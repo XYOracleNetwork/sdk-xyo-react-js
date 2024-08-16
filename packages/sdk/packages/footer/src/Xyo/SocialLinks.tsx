@@ -1,5 +1,6 @@
 import { Facebook, Instagram, LinkedIn, Reddit, Telegram, Twitter, YouTube } from '@mui/icons-material'
-import { FlexBoxProps, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { FaDiscord } from 'react-icons/fa'

@@ -1,6 +1,6 @@
 import { asArchivistInstance, isArchivistInstance } from '@xyo-network/archivist-model'
 import { asDivinerInstance, isDivinerInstance } from '@xyo-network/diviner-model'
-import { ModuleInstance } from '@xyo-network/module-model'
+import type { ModuleInstance } from '@xyo-network/module-model'
 import { ArchivistCard } from '@xyo-network/react-archivist'
 import { DivinerCard, ModuleCard } from '@xyo-network/react-module'
 import React from 'react'

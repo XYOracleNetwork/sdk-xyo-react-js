@@ -1,9 +1,12 @@
 import { ArrowForwardRounded as ArrowForwardRoundedIcon } from '@mui/icons-material'
-import { alpha, Card, CardActions, CardContent, CardMedia, CardProps, Grid, IconButton, Typography, useTheme, Zoom } from '@mui/material'
+import type { CardProps } from '@mui/material'
+import { alpha, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography, useTheme, Zoom } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useIsMobile } from '@xyo-network/react-shared'
-import React, { ReactNode, useState } from 'react'
-import { To, useNavigate } from 'react-router-dom'
+import type { ReactNode } from 'react'
+import React, { useState } from 'react'
+import type { To } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export interface FullWidthCardProps extends CardProps {
   cardIsButton?: boolean

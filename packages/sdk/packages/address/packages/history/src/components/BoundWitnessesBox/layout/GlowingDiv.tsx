@@ -1,5 +1,6 @@
-import { WithChildren } from '@xylabs/react-shared'
-import React, { DetailedHTMLProps, forwardRef, HTMLAttributes, useEffect, useLayoutEffect, useRef } from 'react'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { DetailedHTMLProps, HTMLAttributes } from 'react'
+import React, { forwardRef, useEffect, useLayoutEffect, useRef } from 'react'
 
 import { useNestedBoundWitnesses } from '../../../hooks/index.ts'
 import { StyledGlowingDiv } from './StyledGlowingDiv.tsx'

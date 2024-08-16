@@ -1,4 +1,4 @@
-import { CytoscapeOptions } from 'cytoscape'
+import type { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
 import { ConcentricLayout } from '../../Cytoscape/index.ts'

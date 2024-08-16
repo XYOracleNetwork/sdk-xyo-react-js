@@ -1,9 +1,10 @@
-import { CardHeader, CardHeaderProps } from '@mui/material'
+import type { CardHeaderProps } from '@mui/material'
+import { CardHeader } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
+import type { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
 
 // eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
 export const PayloadCardHeader = forwardRef<HTMLElement, PayloadRenderProps & CardHeaderProps>(({ payload, ...props }) => {

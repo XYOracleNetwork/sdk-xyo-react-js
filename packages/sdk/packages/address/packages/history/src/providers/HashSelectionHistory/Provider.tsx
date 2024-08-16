@@ -1,13 +1,15 @@
-import { Hash } from '@xylabs/hex'
-import { useMounted, WithChildren } from '@xylabs/react-shared'
-import { ArchivistInstance } from '@xyo-network/archivist-model'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { Hash } from '@xylabs/hex'
+import type { WithChildren } from '@xylabs/react-shared'
+import { useMounted } from '@xylabs/react-shared'
+import type { ArchivistInstance } from '@xyo-network/archivist-model'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
-import { ModuleError, WithMeta } from '@xyo-network/payload-model'
-import { ContextExProviderProps } from '@xyo-network/react-shared'
+import type { ModuleError, WithMeta } from '@xyo-network/payload-model'
+import type { ContextExProviderProps } from '@xyo-network/react-shared'
 import React, { useCallback, useEffect, useState } from 'react'
 
-import { HashSelectionHistoryContext, NestedBoundWitnesses } from '../../contexts/index.ts'
+import type { NestedBoundWitnesses } from '../../contexts/index.ts'
+import { HashSelectionHistoryContext } from '../../contexts/index.ts'
 import { useActiveBoundWitness } from '../../hooks/index.ts'
 
 export interface HashSelectionHistoryProviderProps extends WithChildren, ContextExProviderProps {

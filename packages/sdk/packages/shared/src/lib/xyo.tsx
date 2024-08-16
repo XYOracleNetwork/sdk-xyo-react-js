@@ -1,4 +1,5 @@
-import { SvgIcon, SvgIconProps } from '@mui/material'
+import type { SvgIconProps } from '@mui/material'
+import { SvgIcon } from '@mui/material'
 import React from 'react'
 
 export const Logo: React.FC<SvgIconProps> = (props) => {

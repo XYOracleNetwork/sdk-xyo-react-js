@@ -1,5 +1,6 @@
 import { Paper, Stack } from '@mui/material'
-import { FlexBoxProps, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { useAppSettings } from '@xyo-network/react-app-settings'
 import React from 'react'
 

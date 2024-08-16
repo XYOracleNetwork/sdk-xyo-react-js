@@ -1,9 +1,10 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle, Typography } from '@mui/material'
+import type { DialogProps } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material'
 import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { ActiveProvider } from '../../lib/index.ts'
+import type { ActiveProvider } from '../../lib/index.ts'
 
 export interface RevokeWalletConnectionDialogProps extends DialogProps {
   activeProvider?: ActiveProvider

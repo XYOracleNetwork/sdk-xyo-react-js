@@ -1,4 +1,5 @@
-import { Button, ButtonProps, CircularProgress, styled } from '@mui/material'
+import type { ButtonProps } from '@mui/material'
+import { Button, CircularProgress, styled } from '@mui/material'
 import React from 'react'
 
 export interface GenerateShareLinkButtonProps extends ButtonProps {

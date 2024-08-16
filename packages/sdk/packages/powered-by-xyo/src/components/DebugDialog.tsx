@@ -1,4 +1,5 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogProps, DialogTitle } from '@mui/material'
+import type { DialogProps } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import React from 'react'
 
 import { NodeDetails } from './NodeDetails.tsx'

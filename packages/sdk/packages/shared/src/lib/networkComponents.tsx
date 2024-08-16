@@ -6,8 +6,9 @@ import {
   TimerRounded as TimerRoundedIcon,
   VisibilityRounded as VisibilityRoundedIcon,
 } from '@mui/icons-material'
-import { SvgIconProps } from '@mui/material'
-import React, { ReactElement } from 'react'
+import type { SvgIconProps } from '@mui/material'
+import type { ReactElement } from 'react'
+import React from 'react'
 
 export type NetworkComponentSlug = 'sentinel' | 'bridge' | 'archivist' | 'diviner' | 'node' | 'witness'
 

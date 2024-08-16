@@ -7,28 +7,28 @@
   },
   "bugs": {
     "email": "support@xyo.network",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/delay": "^4.0.1",
-    "@xylabs/forget": "^4.0.1",
-    "@xylabs/react-async-effect": "^4.0.1",
-    "@xylabs/react-button": "^4.0.1",
-    "@xylabs/react-flexbox": "^4.0.1",
-    "@xylabs/react-promise": "^4.0.1",
-    "@xyo-network/archivist-model": "^3.0.2",
-    "@xyo-network/bridge-model": "^3.0.2",
-    "@xyo-network/diviner-model": "^3.0.2",
-    "@xyo-network/manifest": "^3.0.2",
-    "@xyo-network/module-model": "^3.0.2",
-    "@xyo-network/node-model": "^3.0.2",
-    "@xyo-network/payload-model": "^3.0.2",
+    "@xylabs/delay": "^4.0.2",
+    "@xylabs/forget": "^4.0.2",
+    "@xylabs/react-async-effect": "^4.0.3",
+    "@xylabs/react-button": "^4.0.3",
+    "@xylabs/react-flexbox": "^4.0.3",
+    "@xylabs/react-promise": "^4.0.3",
+    "@xyo-network/archivist-model": "^3.0.3",
+    "@xyo-network/bridge-model": "^3.0.3",
+    "@xyo-network/diviner-model": "^3.0.3",
+    "@xyo-network/manifest": "^3.0.3",
+    "@xyo-network/module-model": "^3.0.3",
+    "@xyo-network/node-model": "^3.0.3",
+    "@xyo-network/payload-model": "^3.0.3",
     "@xyo-network/react-node": "workspace:^",
     "@xyo-network/react-payload-raw-info": "workspace:^",
     "@xyo-network/react-property": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/sentinel-model": "^3.0.2",
-    "@xyo-network/witness-model": "^3.0.2"
+    "@xyo-network/sentinel-model": "^3.0.3",
+    "@xyo-network/witness-model": "^3.0.3"
   },
   "peerDependencies": {
     "@emotion/react": "^11",
@@ -41,8 +41,8 @@
   },
   "devDependencies": {
     "@storybook/react": "^8.2.9",
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.15",
-    "@xyo-network/account": "^3.0.2",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.20",
+    "@xyo-network/account": "^3.0.3",
     "typescript": "^5.5.4"
   },
   "description": "Common React library for all XYO projects that use React",
@@ -72,7 +72,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
     "lint-pkg": "npmPkgJsonLint .",
@@ -80,6 +80,6 @@
   },
   "sideEffects": false,
   "types": "dist/browser/index.d.ts",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module"
 }

@@ -1,5 +1,7 @@
-import { AvatarProps, CardHeader, CardHeaderProps, Typography } from '@mui/material'
-import React, { ReactNode } from 'react'
+import type { AvatarProps, CardHeaderProps } from '@mui/material'
+import { CardHeader, Typography } from '@mui/material'
+import type { ReactNode } from 'react'
+import React from 'react'
 
 import { ThemeTokenAvatar } from '../ThemeTokenAvatar/index.ts'
 

@@ -1,5 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import { WalletInstance } from '@xyo-network/wallet-model'
+import type { WalletInstance } from '@xyo-network/wallet-model'
 
 import { useWalletContext } from '../contexts/index.ts'
 import { useWallet } from './useWallet.ts'

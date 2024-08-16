@@ -1,7 +1,7 @@
-import { Hash } from '@xylabs/hex'
-import { BoundWitness } from '@xyo-network/boundwitness-model'
-import { ContextExState } from '@xyo-network/react-shared'
-import { Dispatch, SetStateAction } from 'react'
+import type { Hash } from '@xylabs/hex'
+import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { ContextExState } from '@xyo-network/react-shared'
+import type { Dispatch, SetStateAction } from 'react'
 
 export interface ActiveBoundWitnessState extends ContextExState {
   activeBoundWitness?: BoundWitness

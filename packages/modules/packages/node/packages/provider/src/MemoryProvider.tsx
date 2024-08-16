@@ -1,9 +1,9 @@
 import { forget } from '@xylabs/forget'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { WithChildren } from '@xylabs/react-shared'
-import { AttachableModuleInstance, ModuleParams } from '@xyo-network/module-model'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { AttachableModuleInstance, ModuleParams } from '@xyo-network/module-model'
 import { MemoryNode } from '@xyo-network/node-memory'
-import { NodeConfig } from '@xyo-network/node-model'
+import type { NodeConfig } from '@xyo-network/node-model'
 import React, { useState } from 'react'
 
 import { NodeProvider } from './Node/index.ts'

@@ -1,7 +1,8 @@
 import { EthereumGasEtherchainV2Schema } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { EthereumGasPriceAvatar } from '@xyo-network/react-gas-price'
-import { createPayloadRenderPlugin, PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 import { EtherchainV2GasPriceCardContent, EtherchainV2GasPriceCardHeader, EtherchainV2GasPriceDetailsBox } from './components/index.ts'
 

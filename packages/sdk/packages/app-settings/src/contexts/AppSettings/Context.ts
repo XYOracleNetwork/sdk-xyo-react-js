@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-import { WebAppNavigationType } from '../../WebAppNavigationType.ts'
+import type { WebAppNavigationType } from '../../WebAppNavigationType.ts'
 import { appSettingDefault } from './appSettingDefault.ts'
 
 export interface AppSettingsContextProps {

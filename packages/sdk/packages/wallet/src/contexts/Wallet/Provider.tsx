@@ -1,6 +1,6 @@
 import { usePromise } from '@xylabs/react-promise'
-import { WithChildren } from '@xylabs/react-shared'
-import { WalletInstance } from '@xyo-network/wallet-model'
+import type { WithChildren } from '@xylabs/react-shared'
+import type { WalletInstance } from '@xyo-network/wallet-model'
 import React, { useEffect, useMemo, useState } from 'react'
 
 import { WalletContext } from './Context.ts'

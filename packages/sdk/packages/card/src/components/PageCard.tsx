@@ -1,9 +1,12 @@
 import { Refresh as RefreshIcon } from '@mui/icons-material'
-import { CardHeader, CardHeaderProps, IconButton } from '@mui/material'
+import type { CardHeaderProps } from '@mui/material'
+import { CardHeader, IconButton } from '@mui/material'
 import { TypographyEx } from '@xyo-network/react-shared'
-import React, { forwardRef, ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React, { forwardRef } from 'react'
 
-import { CardEx, CardExProps } from './CardEx.tsx'
+import type { CardExProps } from './CardEx.tsx'
+import { CardEx } from './CardEx.tsx'
 
 export interface PageCardProps extends CardExProps {
   action?: ReactNode

@@ -1,4 +1,4 @@
-import { CollectionReturnValue, ElementDefinition } from 'cytoscape'
+import type { CollectionReturnValue, ElementDefinition } from 'cytoscape'
 import { useEffect, useState } from 'react'
 
 import { useCytoscapeInstance } from '../../../contexts/index.ts'

@@ -1,4 +1,4 @@
-import {
+import type {
   AvatarProps,
   CardActionAreaProps,
   CardContentProps,
@@ -8,10 +8,10 @@ import {
   MenuListProps,
   TableCellProps,
 } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { Payload } from '@xyo-network/payload-model'
-import { ListMode } from '@xyo-network/react-shared'
-import { ComponentType, ForwardRefExoticComponent, PropsWithoutRef } from 'react'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { Payload } from '@xyo-network/payload-model'
+import type { ListMode } from '@xyo-network/react-shared'
+import type { ComponentType, ForwardRefExoticComponent, PropsWithoutRef } from 'react'
 
 export interface PayloadRenderProps<T extends Payload = Payload> {
   payload?: T

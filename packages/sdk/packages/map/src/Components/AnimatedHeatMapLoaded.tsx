@@ -1,12 +1,13 @@
 import { Alert, AlertTitle } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
-import { Feature, Polygon } from 'geojson'
+import type { Feature, Polygon } from 'geojson'
 import React from 'react'
 
 import { AnimatedHeatMapSettings } from '../AnimatedHeatMapSettings.ts'
 import { useFindHashes, useHeatMapColors, useQuadKeyPayloadsToFeatures } from '../hooks/index.ts'
-import { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.ts'
+import type { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.ts'
 import { AnimatedHeatMap } from './AnimatedHeatMap.tsx'
 import { AnimatedHeatMapLegend } from './Legend.tsx'
 

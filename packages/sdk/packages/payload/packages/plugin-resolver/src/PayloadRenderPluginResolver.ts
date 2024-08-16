@@ -1,6 +1,6 @@
 import { assertEx } from '@xylabs/assert'
-import { Payload } from '@xyo-network/payload-model'
-import { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
+import type { Payload } from '@xyo-network/payload-model'
+import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 export class PayloadRenderPluginResolver {
   protected plugins: PayloadRenderPlugin[] = []

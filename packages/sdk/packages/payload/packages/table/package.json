@@ -7,15 +7,15 @@
   },
   "bugs": {
     "email": "support@xyo.network",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
   },
   "dependencies": {
-    "@xylabs/hex": "^4.0.1",
-    "@xylabs/react-promise": "^4.0.1",
-    "@xylabs/react-shared": "^4.0.1",
-    "@xyo-network/hash": "^3.0.2",
-    "@xyo-network/payload-model": "^3.0.2",
-    "@xyo-network/payload-validator": "^3.0.2",
+    "@xylabs/hex": "^4.0.2",
+    "@xylabs/react-promise": "^4.0.3",
+    "@xylabs/react-shared": "^4.0.3",
+    "@xyo-network/hash": "^3.0.3",
+    "@xyo-network/payload-model": "^3.0.3",
+    "@xyo-network/payload-validator": "^3.0.3",
     "@xyo-network/react-error": "workspace:^",
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-network": "workspace:^",
@@ -26,12 +26,12 @@
   },
   "devDependencies": {
     "@storybook/react": "^8.2.9",
-    "@xylabs/delay": "^4.0.1",
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.15",
-    "@xylabs/tsconfig-react": "^4.0.0-rc.15",
+    "@xylabs/delay": "^4.0.2",
+    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.20",
+    "@xylabs/tsconfig-react": "^4.0.0-rc.20",
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^",
     "@xyo-network/react-storybook": "workspace:^",
-    "react-router-dom": "^6.26.0",
+    "react-router-dom": "^6.26.1",
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
@@ -71,13 +71,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
   },
   "scripts": {
     "lint-pkg": "npmPkgJsonLint .",
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
   },
   "sideEffects": false,
-  "version": "3.0.1",
+  "version": "3.0.2",
   "type": "module"
 }

@@ -1,7 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { TestComponent, TestComponentProps } from './TestComponent.tsx'
+import type { TestComponentProps } from './TestComponent.tsx'
+import { TestComponent } from './TestComponent.tsx'
 
 export default {
   title: 'modules/os/TestComponent',

@@ -1,10 +1,11 @@
-import { ListItemProps, ListItemText, useTheme } from '@mui/material'
+import type { ListItemProps } from '@mui/material'
+import { ListItemText, useTheme } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import React, { useState } from 'react'
 
 import { useCollapsible } from '../../../contexts/index.ts'
-import { MenuListItemBase, NavListItemProps } from '../lib/index.ts'
+import type { MenuListItemBase, NavListItemProps } from '../lib/index.ts'
 import { ListItemTooltip, MenuIcon, MenuListItem } from './list-item-components/index.ts'
 import { SubNavListItemsCollapse, SubNavToggleIconButton } from './sub-nav/index.ts'
 

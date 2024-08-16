@@ -1,8 +1,9 @@
 import { Button, ButtonGroup, Typography } from '@mui/material'
-import { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { ForecastPayloadSchema } from '@xyo-network/diviner-forecasting-model'
-import React, { RefObject, useRef, useState } from 'react'
+import type { RefObject } from 'react'
+import React, { useRef, useState } from 'react'
 
 import { MockSourcePayloads } from '../lib/index.ts'
 import { PriceForecastDetailsBox } from './DetailsBox.tsx'

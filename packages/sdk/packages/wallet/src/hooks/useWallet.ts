@@ -1,6 +1,6 @@
 import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
-import { WalletInstance } from '@xyo-network/wallet-model'
+import type { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 
 import { useSelectedWalletAccount, useWalletContext } from '../contexts/index.ts'

@@ -1,12 +1,13 @@
-import { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/hex'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { useWeakArchivistFromNode } from '@xyo-network/react-archivist'
 import React, { useMemo } from 'react'
 
-import { useIndexedResults, UseIndexedResultsConfig } from '../../../hooks/index.ts'
-import { UseIndexedResultsProps } from './lib/index.ts'
+import type { UseIndexedResultsConfig } from '../../../hooks/index.ts'
+import { useIndexedResults } from '../../../hooks/index.ts'
+import type { UseIndexedResultsProps } from './lib/index.ts'
 
 export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
   const [archivist] = useWeakArchivistFromNode('Archivist')

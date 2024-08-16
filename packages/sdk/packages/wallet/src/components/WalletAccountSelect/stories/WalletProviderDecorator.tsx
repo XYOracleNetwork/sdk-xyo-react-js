@@ -1,4 +1,4 @@
-import { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import React from 'react'
 

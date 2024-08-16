@@ -1,7 +1,8 @@
 import { usePromise } from '@xylabs/react-promise'
-import { asNodeInstance, NodeInstance } from '@xyo-network/node-model'
+import type { NodeInstance } from '@xyo-network/node-model'
+import { asNodeInstance } from '@xyo-network/node-model'
 
-import { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
+import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
 import { useProvidedNode } from './provided/index.ts'
 import { useNodeConfigNodeField } from './useNodeConfigNodeField.ts'
 

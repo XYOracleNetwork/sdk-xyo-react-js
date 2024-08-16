@@ -1,4 +1,5 @@
-import { darken, ThemeOptions } from '@mui/material'
+import type { ThemeOptions } from '@mui/material'
+import { darken } from '@mui/material'
 
 const appComponents: ThemeOptions['components'] = {
   MuiPaper: {

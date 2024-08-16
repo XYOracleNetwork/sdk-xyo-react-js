@@ -1,4 +1,4 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import { NodeDrawerContext } from '@xyo-network/react-node-context'
 import React, { useEffect, useState } from 'react'
 

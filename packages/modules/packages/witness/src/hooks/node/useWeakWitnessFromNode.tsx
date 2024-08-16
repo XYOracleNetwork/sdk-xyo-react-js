@@ -1,5 +1,7 @@
-import { useWeakModuleFromNode, WeakModuleFromNodeConfig } from '@xyo-network/react-node'
-import { isWitnessInstance, WitnessInstance } from '@xyo-network/witness-model'
+import type { WeakModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useWeakModuleFromNode } from '@xyo-network/react-node'
+import type { WitnessInstance } from '@xyo-network/witness-model'
+import { isWitnessInstance } from '@xyo-network/witness-model'
 
 export const useWeakWitnessFromNode = (
   nameOrAddressOrInstance?: string | WitnessInstance,

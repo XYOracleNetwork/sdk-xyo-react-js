@@ -1,16 +1,19 @@
-import { Box, Button, ButtonGroup, Card, CardHeader, CardProps, Paper, useTheme } from '@mui/material'
-import { Address, asAddress } from '@xylabs/hex'
+import type { CardProps } from '@mui/material'
+import { Box, Button, ButtonGroup, Card, CardHeader, Paper, useTheme } from '@mui/material'
+import type { Address } from '@xylabs/hex'
+import { asAddress } from '@xylabs/hex'
 import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { useWeakModuleFromNode } from '@xyo-network/react-node'
-import cytoscape, { Core, NodeSingular } from 'cytoscape'
+import type { Core, NodeSingular } from 'cytoscape'
+import cytoscape from 'cytoscape'
 import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import eulerLayout from 'cytoscape-euler'
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
 
-import { NodeRelationalGraphProps } from '../../lib/index.ts'
+import type { NodeRelationalGraphProps } from '../../lib/index.ts'
 
 const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
   cy?.layout({ name, ...options }).run()

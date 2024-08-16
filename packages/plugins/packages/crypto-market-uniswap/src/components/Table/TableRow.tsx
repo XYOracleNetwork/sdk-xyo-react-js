@@ -3,7 +3,7 @@ import { TableCell, TableRow } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { useGetTokenData } from '@xyo-network/react-shared'
-import { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
+import type { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React from 'react'
 
 export interface TableRowProps {

@@ -1,6 +1,6 @@
-import { TypographyProps } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ReactNode } from 'react'
+import type { TypographyProps } from '@mui/material'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { ReactNode } from 'react'
 
 export type HeadingTextSizes = 'small' | 'medium' | 'large'
 

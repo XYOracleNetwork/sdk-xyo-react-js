@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { SchemaCache } from '@xyo-network/schema-cache'
-import { SchemaPayload } from '@xyo-network/schema-payload-plugin'
+import type { SchemaPayload } from '@xyo-network/schema-payload-plugin'
 import { useState } from 'react'
 
 export type SchemaList = { name: string }

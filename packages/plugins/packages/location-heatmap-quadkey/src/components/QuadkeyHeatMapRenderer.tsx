@@ -1,20 +1,21 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
-import { FlexBoxProps } from '@xylabs/react-flexbox'
-import { Payload } from '@xyo-network/payload-model'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { Payload } from '@xyo-network/payload-model'
 import { ErrorRender } from '@xyo-network/react-error'
+import type {
+  MapSetting,
+  NetworkLocationHeatmapQuadkeyAnswerPayload } from '@xyo-network/react-map'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,
   MapboxHeatFlexBox,
   MapBoxInstanceProvider,
   MapHeatConstants,
-  MapSetting,
   MapSettingsProvider,
-  NetworkLocationHeatmapQuadkeyAnswerPayload,
   useMapboxAccessToken,
   useQuadKeyPayloadsToFeatures,
 } from '@xyo-network/react-map'
-import { Feature, Polygon } from 'geojson'
+import type { Feature, Polygon } from 'geojson'
 import React, { useMemo } from 'react'
 
 import { QuadkeyHeatMapSettings } from './QuadKeyHeatMapSettings.ts'

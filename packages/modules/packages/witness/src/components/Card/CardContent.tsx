@@ -1,9 +1,10 @@
-import { CardContentProps } from '@mui/material'
+import type { CardContentProps } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { Payload } from '@xyo-network/payload-model'
-import { ModuleCardContent, ModuleRenderProps } from '@xyo-network/react-module'
+import type { Payload } from '@xyo-network/payload-model'
+import type { ModuleRenderProps } from '@xyo-network/react-module'
+import { ModuleCardContent } from '@xyo-network/react-module'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
-import { WitnessInstance } from '@xyo-network/witness-model'
+import type { WitnessInstance } from '@xyo-network/witness-model'
 import React from 'react'
 
 export type WitnessCardContentProps = ModuleRenderProps<WitnessInstance> &

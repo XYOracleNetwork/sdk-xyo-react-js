@@ -1,11 +1,11 @@
-import { WithChildren } from '@xylabs/react-shared'
+import type { WithChildren } from '@xylabs/react-shared'
 import React, { useEffect, useMemo, useState } from 'react'
 
 import { MapSettings } from '../../MapBoxClasses/index.ts'
-import { MapSetting } from '../../Settings/index.ts'
+import type { MapSetting } from '../../Settings/index.ts'
 import { useMapBoxInstance } from '../MapBoxInstance/index.ts'
 import { MapSettingsContext } from './Context.ts'
-import { MapSettingsState } from './State.ts'
+import type { MapSettingsState } from './State.ts'
 
 export interface MapSettingsProviderProps {
   debugLayerName?: string

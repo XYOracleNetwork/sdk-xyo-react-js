@@ -1,8 +1,10 @@
 import { Collapse, ListSubheader } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
 
-import { MenuListItemContainer, MenuListItemProps } from './MenuListItem/index.ts'
+import type { MenuListItemProps } from './MenuListItem/index.ts'
+import { MenuListItemContainer } from './MenuListItem/index.ts'
 
 export interface MenuSectionProps extends FlexBoxProps {
   iconMenuTextSpacing?: string

@@ -1,7 +1,8 @@
-import { CardContent, CardContentProps } from '@mui/material'
+import type { CardContentProps } from '@mui/material'
+import { CardContent } from '@mui/material'
 import React from 'react'
 
-import { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
+import type { ModuleRenderProps } from '../../../ModuleRenderProps.tsx'
 
 export const ModuleCardContent: React.FC<ModuleRenderProps & CardContentProps> = ({ children, ...props }) => {
   return <CardContent {...props}>{children}</CardContent>

@@ -1,4 +1,4 @@
-import { TableHeadCell } from '@xyo-network/react-table'
+import type { TableHeadCell } from '@xyo-network/react-table'
 
 export const WalletsTableHeadCells: TableHeadCell[] = [
   {

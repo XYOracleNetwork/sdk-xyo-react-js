@@ -1,7 +1,9 @@
 import { exists } from '@xylabs/exists'
-import { ArchivistInstance, asArchivistInstance } from '@xyo-network/archivist-model'
-import { ModuleFilter } from '@xyo-network/module-model'
-import { ModuleFromNodeConfig, useWeakModulesFromNode } from '@xyo-network/react-node'
+import type { ArchivistInstance } from '@xyo-network/archivist-model'
+import { asArchivistInstance } from '@xyo-network/archivist-model'
+import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
+import { useWeakModulesFromNode } from '@xyo-network/react-node'
 
 export const useWeakArchivistsFromNode = (
   filter?: ModuleFilter,

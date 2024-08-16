@@ -1,7 +1,8 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
 import { Mutex } from 'async-mutex'
-import { DependencyList, useEffect, useMemo, useState } from 'react'
+import type { DependencyList } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 export enum State {
   pending = 'pending',

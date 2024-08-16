@@ -1,4 +1,4 @@
-import { EmptyObject } from '@xylabs/object'
+import type { EmptyObject } from '@xylabs/object'
 import { FormControlBase } from '@xyo-network/react-form-group'
 
 export class NameFormControl<TProps extends EmptyObject = EmptyObject> extends FormControlBase<TProps> {

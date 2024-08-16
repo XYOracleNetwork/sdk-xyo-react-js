@@ -1,4 +1,5 @@
-import { Link, Typography, TypographyProps } from '@mui/material'
+import type { TypographyProps } from '@mui/material'
+import { Link, Typography } from '@mui/material'
 import React from 'react'
 
 export const InvalidPhraseTypography: React.FC<TypographyProps> = props => (

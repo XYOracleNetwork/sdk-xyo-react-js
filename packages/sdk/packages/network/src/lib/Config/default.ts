@@ -1,4 +1,5 @@
-import { NetworkPayload, NetworkSchema } from '@xyo-network/network'
+import type { NetworkPayload } from '@xyo-network/network'
+import { NetworkSchema } from '@xyo-network/network'
 
 import { findArchivistPreset } from '../archivistPresets.ts'
 import { findDivinerPreset } from '../divinerPresets.ts'

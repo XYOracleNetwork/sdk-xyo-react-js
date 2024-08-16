@@ -1,7 +1,8 @@
 import { Alert, AlertTitle, useTheme } from '@mui/material'
-import { FlexBoxProps, FlexCol } from '@xylabs/react-flexbox'
+import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import { FlexCol } from '@xylabs/react-flexbox'
 import type { WithChildren } from '@xylabs/react-shared'
-import { Payload } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import {
   HeatMapInitializerProvider,
   MapboxHeatFlexBox,
@@ -9,7 +10,7 @@ import {
   MapSettingsProvider,
   useMapboxAccessToken,
 } from '@xyo-network/react-map'
-import { Feature, Polygon } from 'geojson'
+import type { Feature, Polygon } from 'geojson'
 import React, { useMemo } from 'react'
 
 import { OpenElevationApiProvider } from '../contexts/index.ts'
