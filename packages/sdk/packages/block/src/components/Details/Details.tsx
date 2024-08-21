@@ -17,7 +17,9 @@ export interface BlockDetailsProps extends WithChildren, FlexBoxProps {
   payloads?: Payload[]
 }
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-const BlockDetails = forwardRef<unknown, BlockDetailsProps>(({ paper, block, payloads, children, ...props }, ref) => {
+const BlockDetails = forwardRef<unknown, BlockDetailsProps>(({
+  paper, block, payloads, children, ...props
+}, ref) => {
   return (
     <FlexCol justifyContent="flex-start" alignItems="stretch" gap={1} ref={ref} {...props}>
       <PayloadDataDetails paper={paper} payload={block} size="large" badge />

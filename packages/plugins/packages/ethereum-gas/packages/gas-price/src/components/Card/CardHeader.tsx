@@ -1,5 +1,7 @@
 import type { CardHeaderProps } from '@mui/material'
-import { GasPriceHeaderActionsBox, GasPriceHeaderTypography, StyledCardHeader } from '@xyo-network/react-gas-price'
+import {
+  GasPriceHeaderActionsBox, GasPriceHeaderTypography, StyledCardHeader,
+} from '@xyo-network/react-gas-price'
 import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import React, { forwardRef } from 'react'
 

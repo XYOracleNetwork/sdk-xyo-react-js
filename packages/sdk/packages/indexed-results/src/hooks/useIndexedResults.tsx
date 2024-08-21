@@ -14,10 +14,16 @@ export const setIndexedResultsLimit = (limit: number) => {
 }
 
 export const useIndexedResults = <TResult extends Payload = Payload>(config?: UseIndexedResultsConfig) => {
-  const { indexedResultsConfig, pollingConfig, queueConfig, trigger } = config ?? {}
-  const { queue, taskId } = queueConfig ?? {}
+  const {
+    indexedResultsConfig, pollingConfig, queueConfig, trigger,
+  } = config ?? {}
+  const {
+    queue, taskId,
+  } = queueConfig ?? {}
 
-  const { pollDiviners, pollResults } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
+  const {
+    pollDiviners, pollResults,
+  } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
 
   // Start the polling and wait for the results elsewhere
   const [, error, state] = usePromise(async () => {

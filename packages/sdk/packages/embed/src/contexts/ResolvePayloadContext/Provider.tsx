@@ -12,10 +12,14 @@ import type { ResolvePayloadState } from './State.ts'
 
 export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided'>
 
-export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload }) => {
+export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({
+  children, huriPayload,
+}) => {
   const [payload, setPayload] = useState<Payload>()
   const [huri, setHuri] = useState<string>()
-  const { refreshPayload, setRefreshPayload, onRefresh } = useRefreshPayload()
+  const {
+    refreshPayload, setRefreshPayload, onRefresh,
+  } = useRefreshPayload()
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -45,7 +49,9 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
           }
         } catch (e) {
           const error = e as Error
-          setHuriError({ message: error.message, schema: ModuleErrorSchema, sources: [] })
+          setHuriError({
+            message: error.message, schema: ModuleErrorSchema, sources: [],
+          })
         }
       }
     },
@@ -61,7 +67,10 @@ export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProvide
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <ResolvePayloadContext.Provider value={{ huri, huriError, notFound, payload, provided: true, refreshHuri, setPayload }}>
+    <ResolvePayloadContext.Provider value={{
+      huri, huriError, notFound, payload, provided: true, refreshHuri, setPayload,
+    }}
+    >
       {children}
     </ResolvePayloadContext.Provider>
   )

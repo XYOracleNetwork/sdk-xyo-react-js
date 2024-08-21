@@ -1,5 +1,5 @@
 import type { WithChildren } from '@xylabs/react-shared'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { CollapsibleContext } from './context.ts'
 
@@ -8,21 +8,18 @@ export interface CollapsibleProviderProps extends WithChildren {
   defaultCollapseEnd?: boolean
 }
 
-export const CollapsibleProvider: React.FC<CollapsibleProviderProps> = ({ defaultCollapse = false, defaultCollapseEnd = false, children }) => {
-  const [collapse, setCollapse] = useState(defaultCollapse)
-  const [collapseEnd, setCollapseEnd] = useState(defaultCollapseEnd)
-
-  useEffect(() => {
-    setCollapse(defaultCollapse)
-  }, [defaultCollapse])
-
-  useEffect(() => {
-    setCollapseEnd(defaultCollapseEnd)
-  }, [defaultCollapseEnd])
+export const CollapsibleProvider: React.FC<CollapsibleProviderProps> = ({
+  defaultCollapse = false, defaultCollapseEnd = false, children,
+}) => {
+  const [collapse, setCollapse] = useState(() => defaultCollapse)
+  const [collapseEnd, setCollapseEnd] = useState(() => defaultCollapseEnd)
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <CollapsibleContext.Provider value={{ collapse, collapseEnd, provided: true, setCollapse, setCollapseEnd }}>
+    <CollapsibleContext.Provider value={{
+      collapse, collapseEnd, provided: true, setCollapse, setCollapseEnd,
+    }}
+    >
       {children}
     </CollapsibleContext.Provider>
   )

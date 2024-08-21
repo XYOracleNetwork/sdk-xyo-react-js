@@ -1,5 +1,7 @@
 import type { DrawerProps } from '@mui/material'
-import { Drawer, Paper, styled, Typography } from '@mui/material'
+import {
+  Drawer, Paper, styled, Typography,
+} from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { MouseEvent, PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
@@ -76,7 +78,9 @@ const StyledEllipsisTypography = styled(Typography, { name: 'StyledEllipsisTypog
 const StyledDrawerContentPaper = styled(Paper, {
   name: 'StyledDrawerContentPaper',
   shouldForwardProp: prop => !['widthVariant'].includes(prop as string),
-})<DrawerExProps>(({ theme, widthVariant }) => ({
+})<DrawerExProps>(({
+  theme, widthVariant,
+}) => ({
   alignItems: 'stretch',
   borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
   display: 'flex',

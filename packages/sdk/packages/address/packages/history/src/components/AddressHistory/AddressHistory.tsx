@@ -1,5 +1,7 @@
 import type { ListProps } from '@mui/material'
-import { Divider, List, Skeleton, styled, useTheme } from '@mui/material'
+import {
+  Divider, List, Skeleton, styled, useTheme,
+} from '@mui/material'
 import type { Address, Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
@@ -22,9 +24,13 @@ export interface AddressChainProps extends ListProps {
   skeleton?: boolean
 }
 
-const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ address, addressHistory, selectable, skeleton = true, ...props }, ref) => {
+const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({
+  address, addressHistory, selectable, skeleton = true, ...props
+}, ref) => {
   const theme = useTheme()
-  const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
+  const {
+    setActiveBoundWitnessHash, activeBoundWitnessHash,
+  } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
   const [ulRef, dispatch] = useEvent<HTMLUListElement>(undefined, sharedRef)
   const [orderedAddressHistory] = usePromise(() => orderedHistory(addressHistory), [addressHistory])
@@ -41,7 +47,17 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({ addres
       {orderedAddressHistoryPairs
         ? orderedAddressHistoryPairs.map(([bw, bwHash], index) => (
           <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
-            {index === 0 ? null : <Divider flexItem orientation="vertical" sx={{ height: theme.spacing(4), my: 1, width: '50%' }} />}
+            {index === 0
+              ? null
+              : (
+                  <Divider
+                    flexItem
+                    orientation="vertical"
+                    sx={{
+                      height: theme.spacing(4), my: 1, width: '50%',
+                    }}
+                  />
+                )}
             <BoundWitnessRendererCard
               payload={bw}
               onClick={() => handleClick(bwHash)}

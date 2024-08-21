@@ -17,7 +17,9 @@ export interface ReflectionTreeViewerProps<T extends Reflection = ContainerRefle
   searchTerm?: string
 }
 
-export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({ lookup, reflection, searchTerm, ...props }) => {
+export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({
+  lookup, reflection, searchTerm, ...props
+}) => {
   const navigate = useNavigate()
   return (
     <FlexCol alignItems="stretch" {...props}>

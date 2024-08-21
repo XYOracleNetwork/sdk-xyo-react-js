@@ -15,7 +15,9 @@ export type SentinelCardProps = CardProps &
     inPayloads?: Payload[]
   }
 
-export const SentinelCard: React.FC<SentinelCardProps> = ({ children, inPayloads, mod, ...props }) => {
+export const SentinelCard: React.FC<SentinelCardProps> = ({
+  children, inPayloads, mod, ...props
+}) => {
   const [retry, setRetry] = useState(-1)
   const [report] = usePromise(async () => {
     if (retry >= 0) {

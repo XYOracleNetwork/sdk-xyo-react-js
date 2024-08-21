@@ -1,6 +1,5 @@
 import { HelpOutline as HelpOutlineIcon } from '@mui/icons-material'
-import type {
-  IconButtonProps } from '@mui/material'
+import type { IconButtonProps } from '@mui/material'
 import {
   Button,
   Dialog,

@@ -1,4 +1,6 @@
-import { TableCell, Tooltip, Typography } from '@mui/material'
+import {
+  TableCell, Tooltip, Typography,
+} from '@mui/material'
 import React from 'react'
 
 import type { ConnectedWalletTableCellProps } from './lib/index.ts'

@@ -27,6 +27,8 @@ WithData.args = { payload: sampleEthersGasPricePayload }
 const WithMissingData = Template.bind({})
 WithMissingData.args = { payload: { schema: EthereumGasEthersSchema } }
 
-export { Default, WithData, WithMissingData }
+export {
+  Default, WithData, WithMissingData,
+}
 
 export default StorybookEntry

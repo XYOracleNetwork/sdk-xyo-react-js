@@ -10,7 +10,9 @@ export interface GasPriceHeadingTypographyProps extends TypographyExProps {
   networkIcon?: ReactNode
 }
 
-export const GasPriceHeadingTypography: React.FC<GasPriceHeadingTypographyProps> = ({ children, heading, networkIcon, ...props }) => {
+export const GasPriceHeadingTypography: React.FC<GasPriceHeadingTypographyProps> = ({
+  children, heading, networkIcon, ...props
+}) => {
   const theme = useTheme()
   return (
     <TypographyEx fontSize={theme.spacing(6)} lineHeight={1} {...props}>

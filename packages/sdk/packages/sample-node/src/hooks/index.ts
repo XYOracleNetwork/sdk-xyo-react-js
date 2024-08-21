@@ -1,1 +1,1 @@
-export * from './useBuildSampleNode.tsx'
+export * from './useBuildSampleNode.ts'

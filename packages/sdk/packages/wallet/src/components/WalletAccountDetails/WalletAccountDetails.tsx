@@ -14,7 +14,9 @@ export interface WalletAccountDetailsProps extends FlexBoxProps {
   exploreUrl?: string
 }
 
-export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({ exploreUrl = 'https://explore.xyo.network', account, ...props }) => {
+export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({
+  exploreUrl = 'https://explore.xyo.network', account, ...props
+}) => {
   const [accountToUse] = useAccount({ account })
   const { network } = useNetwork()
   const exploreAddressUrl = `${exploreUrl}/recent?account=${accountToUse?.address}&network=${network?.name ?? 'main'}`

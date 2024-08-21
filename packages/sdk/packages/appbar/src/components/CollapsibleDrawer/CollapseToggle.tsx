@@ -8,7 +8,9 @@ import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'
 import { useCollapsible } from '../../contexts/index.ts'
 
 export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
-  const { collapse, setCollapse, setCollapseEnd } = useCollapsible()
+  const {
+    collapse, setCollapse, setCollapseEnd,
+  } = useCollapsible()
   const [hover, setHover] = useState(false)
   const theme = useTheme()
 
@@ -24,7 +26,9 @@ export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         fontSize="large"
-        sx={{ color: hover ? theme.palette.secondary.main : 'inherit', cursor: 'pointer' }}
+        sx={{
+          color: hover ? theme.palette.secondary.main : 'inherit', cursor: 'pointer',
+        }}
       >
         {collapse
           ? <VscArrowSmallRight />

@@ -32,7 +32,9 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
   variant = 'outlined',
   ...props
 }) => {
-  const { activeAccountIndex = 0, setActiveAccountIndex, rootWallet } = useWalletContext()
+  const {
+    activeAccountIndex = 0, setActiveAccountIndex, rootWallet,
+  } = useWalletContext()
   const disabled = !rootWallet || activeAccountIndex === undefined
 
   return (
@@ -45,11 +47,18 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
               renderValue={(selectedAccountIndex) => {
                 // eslint-disable-next-line @eslint-react/no-nested-components
                 const Item: React.FC = () => {
-                  const [selectedAccount] = useWallet({ path: selectedAccountIndex.toString(), wallet: rootWallet })
+                  const [selectedAccount] = useWallet({
+                    path: selectedAccountIndex.toString(), wallet: rootWallet,
+                  })
                   const customName = selectedAccount ? addressNames?.[selectedAccount.address] : undefined
                   const favorite = !!selectedAccount && selectedAccount.address in (addressNames ?? {})
                   return (
-                    <MenuItem value={selectedAccountIndex} sx={{ minHeight: 0, paddingBottom: 0, paddingTop: 0 }}>
+                    <MenuItem
+                      value={selectedAccountIndex}
+                      sx={{
+                        minHeight: 0, paddingBottom: 0, paddingTop: 0,
+                      }}
+                    >
                       <AddressRenderRowBox
                         disableSharedRef={true}
                         flexGrow={1}
@@ -75,11 +84,19 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
               {arrayRange(maxAccounts).map((index) => {
                 // eslint-disable-next-line @eslint-react/no-nested-components
                 const Item: React.FC = () => {
-                  const [account] = useWallet({ path: index.toString(), wallet: rootWallet })
+                  const [account] = useWallet({
+                    path: index.toString(), wallet: rootWallet,
+                  })
                   const customName = account ? addressNames?.[account.address] : undefined
                   const favorite = !!account && account.address in (addressNames ?? {})
                   return (
-                    <MenuItem key={account?.address} value={index} sx={{ minHeight: 0, paddingBottom: 0, paddingTop: 0 }}>
+                    <MenuItem
+                      key={account?.address}
+                      value={index}
+                      sx={{
+                        minHeight: 0, paddingBottom: 0, paddingTop: 0,
+                      }}
+                    >
                       <AddressRenderRowBox
                         disableSharedRef={true}
                         flexGrow={1}

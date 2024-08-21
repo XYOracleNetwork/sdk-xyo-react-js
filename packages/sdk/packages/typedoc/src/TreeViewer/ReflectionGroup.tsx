@@ -24,7 +24,13 @@ export const ReflectionGroupTreeViewer: React.FC<ReflectionGroupViewerProps> = (
       {resolveChildren(group, lookup).map((reflection) => {
         return reflection
         // I wrap this in a div since React does not understand that they have keys using the Renderer
-          ? <div key={reflection.id}>{renderer({ lookup, margin: 1, reflection })}</div>
+          ? (
+              <div key={reflection.id}>
+                {renderer({
+                  lookup, margin: 1, reflection,
+                })}
+              </div>
+            )
           : null
       })}
       {children}

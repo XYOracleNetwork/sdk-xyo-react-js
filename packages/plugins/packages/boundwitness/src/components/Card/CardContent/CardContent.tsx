@@ -4,7 +4,9 @@ import type { Payload } from '@xyo-network/payload-model'
 import React, { forwardRef } from 'react'
 
 import { AddressAvatarGroup } from './AddressAvatarGroup.tsx'
-import { CardColumnsFlex, CardColumnTitleH2, CardContentFlex } from './layout/index.ts'
+import {
+  CardColumnsFlex, CardColumnTitleH2, CardContentFlex,
+} from './layout/index.ts'
 import { SchemaAvatarGroup } from './SchemaAvatarGroup.tsx'
 
 export interface BoundWitnessCardContentProps extends CardContentProps {
@@ -13,7 +15,9 @@ export interface BoundWitnessCardContentProps extends CardContentProps {
 }
 
 // eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
-export const BoundWitnessCardContent = forwardRef<HTMLElement, BoundWitnessCardContentProps>(({ payload, active, ...props }) => {
+export const BoundWitnessCardContent = forwardRef<HTMLElement, BoundWitnessCardContentProps>(({
+  payload, active, ...props
+}) => {
   const boundwitness = payload as Payload<BoundWitness>
 
   return (

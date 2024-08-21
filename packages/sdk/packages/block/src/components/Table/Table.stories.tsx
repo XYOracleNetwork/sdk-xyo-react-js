@@ -19,7 +19,9 @@ const StorybookEntry = {
   title: 'block/Table',
 } as Meta<typeof BlockTable>
 
-const Template: StoryFn<typeof BlockTable> = ({ blocks: blocksParam, ...args }) => {
+const Template: StoryFn<typeof BlockTable> = ({
+  blocks: blocksParam, ...args
+}) => {
   const [blocks, setBlocks] = useState<BoundWitness[]>(blocksParam ?? [])
   return (
     <BrowserRouter>
@@ -43,6 +45,8 @@ WithData.args = { blocks: sampleBlocks }
 const WithError = Template.bind({})
 WithError.args = { blocks: [sampleBlock, badBlock as BoundWitness] }
 
-export { Default, WithData, WithError }
+export {
+  Default, WithData, WithError,
+}
 
 export default StorybookEntry

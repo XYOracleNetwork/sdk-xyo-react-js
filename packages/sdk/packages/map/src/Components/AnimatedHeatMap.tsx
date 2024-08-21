@@ -5,7 +5,9 @@ import type { Feature, Polygon } from 'geojson'
 import React, { useState } from 'react'
 
 import type { AnimatedHeatMapColorProps } from '../Colors/index.ts'
-import { HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.ts'
+import {
+  HeatMapInitializerProvider, MapBoxInstanceProvider, MapSettingsProvider,
+} from '../Contexts/index.ts'
 import type { MapLayer } from '../Layers/index.ts'
 import { LocationHeatMapLayerBuilderAnimated, MapHeatConstants } from '../Layers/index.ts'
 import type { MapSetting } from '../Settings/index.ts'
@@ -28,10 +30,12 @@ export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
   ...props
 }) => {
   const theme = useTheme()
-  const { staticMapColor, lowUsageColor, highUsageColor } = heatMapColorProps || {}
+  const {
+    staticMapColor, lowUsageColor, highUsageColor,
+  } = heatMapColorProps || {}
   const localStaticMapColor = staticMapColor ?? theme.palette.primary.light
 
-  const [layers] = useState<MapLayer[]>([
+  const [layers] = useState<MapLayer[]>(() => [
     LocationHeatMapLayerBuilderAnimated(localStaticMapColor, 0, 'static'),
     LocationHeatMapLayerBuilderAnimated(lowUsageColor || localStaticMapColor, 0, 'animated'),
     LocationHeatMapLayerBuilderAnimated(highUsageColor || darken(localStaticMapColor, 0.9), 1, 'animated'),

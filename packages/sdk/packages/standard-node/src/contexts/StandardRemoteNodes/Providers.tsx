@@ -4,7 +4,9 @@ import type { MemoryNode } from '@xyo-network/node-memory'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useWalletContext } from '@xyo-network/react-wallet'
 import type { WalletInstance } from '@xyo-network/wallet-model'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, {
+  useEffect, useMemo, useState,
+} from 'react'
 
 import { BuildStandardNodes } from '../../lib/index.ts'
 import { StandardNodesContext } from './Context.ts'
@@ -15,7 +17,9 @@ export interface StandardNodesProviderProps extends WithChildren {
   wallet?: WalletInstance | null
 }
 
-export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ children, defaultRemoteNodes, wallet }) => {
+export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({
+  children, defaultRemoteNodes, wallet,
+}) => {
   const [nodes, setNodes] = useState<StandardNodesState['nodes']>(defaultRemoteNodes)
 
   useEffect(() => {
@@ -40,9 +44,11 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({ ch
     return nodes?.find(node => node.config.name === validNetworkName)?.address
   }
 
-  const value = useMemo(() => ({ findAddressByName,
+  const value = useMemo(() => ({
+    findAddressByName,
     nodes,
-    provided: true }), [findAddressByName,
+    provided: true,
+  }), [findAddressByName,
     nodes])
 
   return (

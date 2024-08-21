@@ -2,7 +2,9 @@ import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
-import { EvmCallDiviner, EvmCallWitness, EvmCallWitnessConfigSchema } from '@xyo-network/evm-call-witness'
+import {
+  EvmCallDiviner, EvmCallWitness, EvmCallWitnessConfigSchema,
+} from '@xyo-network/evm-call-witness'
 import type { PackageManifestPayload } from '@xyo-network/manifest'
 import { ManifestWrapper } from '@xyo-network/manifest'
 import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
@@ -66,7 +68,9 @@ const NftSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
     if (node) {
       const sentinel = asSentinelInstance(await node.resolve('NftInfoSentinel'))
       sentinel?.on('reportEnd', (args) => {
-        const { inPayloads, outPayloads } = args as ReportEndEventArgs
+        const {
+          inPayloads, outPayloads,
+        } = args as ReportEndEventArgs
         console.log(`inPayloads: ${inPayloads?.length}`)
         console.log(`outPayloads: ${outPayloads?.length}`)
       })
@@ -97,7 +101,9 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
     if (node) {
       const sentinel = asSentinelInstance(await node.resolve('NftTokenInfoSentinel'))
       sentinel?.on('reportEnd', (args) => {
-        const { inPayloads, outPayloads } = args as ReportEndEventArgs
+        const {
+          inPayloads, outPayloads,
+        } = args as ReportEndEventArgs
         console.log(`tokensSentinelInPayloads: ${inPayloads?.length}`)
         console.log(`tokensSentinelOutPayloads: ${outPayloads?.length}`)
         console.log(`tokens: ${JSON.stringify(outPayloads, null, 2)}`)
@@ -110,7 +116,9 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
     if (node) {
       const sentinel = asSentinelInstance(await node.resolve('NftInfoSentinel'))
       sentinel?.on('reportEnd', async (args) => {
-        const { inPayloads, outPayloads } = args as ReportEndEventArgs
+        const {
+          inPayloads, outPayloads,
+        } = args as ReportEndEventArgs
         console.log(`inPayloads: ${inPayloads?.length}`)
         console.log(`outPayloads: ${outPayloads?.length}`)
         const calls = Array(1000).map((_, index) => ({

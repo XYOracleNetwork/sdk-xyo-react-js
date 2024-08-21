@@ -1,4 +1,6 @@
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import React from 'react'
 
@@ -33,4 +35,6 @@ const WithActiveBWReset = Template.bind({})
 WithActiveBWReset.args = {}
 WithActiveBWReset.decorators = [WithResetDecorator, ActiveBWDecoratorWithDefaultValues]
 
-export { Default, WithActiveBW, WithActiveBWRef, WithActiveBWReset }
+export {
+  Default, WithActiveBW, WithActiveBWRef, WithActiveBWReset,
+}

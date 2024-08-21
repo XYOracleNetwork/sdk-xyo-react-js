@@ -1,11 +1,17 @@
-import { alpha, CardContent, styled } from '@mui/material'
+import {
+  alpha, CardContent, styled,
+} from '@mui/material'
 
 export interface CardContentFlexProps {
   active?: boolean
 }
 
-export const CardContentFlex = styled(CardContent, { name: 'CardContentFlex', shouldForwardProp: prop => prop !== 'active' })<CardContentFlexProps>(
-  ({ theme, active }) => ({
+export const CardContentFlex = styled(CardContent, {
+  name: 'CardContentFlex', shouldForwardProp: prop => prop !== 'active',
+})<CardContentFlexProps>(
+  ({
+    theme, active,
+  }) => ({
     [':last-child']: {
       paddingBottom: theme.spacing(1),
     },

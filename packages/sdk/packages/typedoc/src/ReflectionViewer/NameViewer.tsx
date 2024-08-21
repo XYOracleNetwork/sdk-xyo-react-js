@@ -1,5 +1,7 @@
 import type { TypographyVariant } from '@mui/material'
-import { Chip, Stack, Typography } from '@mui/material'
+import {
+  Chip, Stack, Typography,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
@@ -16,7 +18,9 @@ export interface NameViewerProps extends FlexBoxProps {
   variant?: TypographyVariant
 }
 
-export const NameViewer: React.FC<NameViewerProps> = ({ reflectionViewer, variant, reflection, ...props }) => {
+export const NameViewer: React.FC<NameViewerProps> = ({
+  reflectionViewer, variant, reflection, ...props
+}) => {
   return (
     <FlexRow justifyContent="flex-start" {...props}>
       <FlexRow marginRight={1}>

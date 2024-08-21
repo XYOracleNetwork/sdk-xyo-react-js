@@ -1,6 +1,8 @@
 import { ExitToApp as ExitIcon } from '@mui/icons-material'
 import type { AlertProps } from '@mui/material'
-import { Alert, AlertTitle, Typography } from '@mui/material'
+import {
+  Alert, AlertTitle, Typography,
+} from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import type { ModuleError } from '@xyo-network/payload-model'
 import React from 'react'
@@ -43,7 +45,15 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({
       </div>
       {onCancel
         ? (
-            <ButtonEx variant="outlined" size="small" onClick={onCancel} position="absolute" style={{ right: 8, top: 8 }}>
+            <ButtonEx
+              variant="outlined"
+              size="small"
+              onClick={onCancel}
+              position="absolute"
+              style={{
+                right: 8, top: 8,
+              }}
+            >
               <ExitIcon fontSize="small" />
             </ButtonEx>
           )

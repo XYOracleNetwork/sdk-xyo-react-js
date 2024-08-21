@@ -13,8 +13,11 @@ import { GasPriceHeaderBox } from './components/index.ts'
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const EthereumGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ payload, listMode, ...props }, ref) => {
+
+  ({
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    payload, listMode, ...props
+  }, ref) => {
     const gasPricePayload: FeeDataPayload | undefined = payload ? (payload as FeeDataPayload) : undefined
 
     return (

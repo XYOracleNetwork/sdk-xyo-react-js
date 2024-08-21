@@ -9,7 +9,9 @@ export interface PaperAdornmentProps extends FlexBoxProps {
 export const PaperAdornment = styled(FlexCol, {
   name: 'PaperAdornment',
   shouldForwardProp: (prop: string) => !['clickable'].includes(prop),
-})<PaperAdornmentProps>(({ theme, clickable }) => ({
+})<PaperAdornmentProps>(({
+  theme, clickable,
+}) => ({
   backgroundColor: theme.palette.secondary.dark,
   cursor: clickable ? 'pointer' : 'auto',
 }))

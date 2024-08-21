@@ -23,7 +23,9 @@ const Template: StoryFn<typeof TokenSummary> = args => (
 )
 
 const WithData = Template.bind({})
-WithData.args = { icon: tokenData.TokenData[0].icon, symbol: 'string' }
+WithData.args = {
+  icon: tokenData.TokenData[0].icon, symbol: 'string',
+}
 
 const SymbolElement = Template.bind({})
 SymbolElement.args = {

@@ -63,11 +63,17 @@ const Default = Template.bind({})
 Default.args = {}
 
 const DefaultSideBar = Template.bind({})
-DefaultSideBar.args = { children: <Children />, navigationType: 'sidebar' }
+DefaultSideBar.args = {
+  children: <Children />, navigationType: 'sidebar',
+}
 
 const WithFixedSizePage = Template.bind({})
-WithFixedSizePage.args = { children: <Children variant="fixed" />, navigationType: 'sidebar' }
+WithFixedSizePage.args = {
+  children: <Children variant="fixed" />, navigationType: 'sidebar',
+}
 
-export { Default, DefaultSideBar, WithFixedSizePage }
+export {
+  Default, DefaultSideBar, WithFixedSizePage,
+}
 
 export default StorybookEntry

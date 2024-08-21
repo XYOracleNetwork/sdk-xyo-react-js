@@ -1,4 +1,6 @@
-import { Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
+import {
+  Dialog, DialogActions, DialogContent, DialogTitle,
+} from '@mui/material'
 import type { ButtonExProps } from '@xylabs/react-button'
 import { ButtonEx } from '@xylabs/react-button'
 import type { JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
@@ -10,7 +12,9 @@ export interface JsonViewerButtonProps extends ButtonExProps {
   src: object
 }
 
-export const JsonViewerButton: React.FC<JsonViewerButtonProps> = ({ children, jsonViewProps, src, title, ...props }) => {
+export const JsonViewerButton: React.FC<JsonViewerButtonProps> = ({
+  children, jsonViewProps, src, title, ...props
+}) => {
   const [open, setOpen] = useState(false)
   return (
     <>

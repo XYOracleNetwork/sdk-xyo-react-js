@@ -1,5 +1,7 @@
 import type { DialogProps } from '@mui/material'
-import { Dialog, DialogContent, DialogTitle, FormLabel } from '@mui/material'
+import {
+  Dialog, DialogContent, DialogTitle, FormLabel,
+} from '@mui/material'
 import React from 'react'
 
 import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts/index.ts'
@@ -18,7 +20,9 @@ export interface SeedPhraseDialogProps extends DialogProps {
   seedPhrase?: string
 }
 
-export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({ changeSeedPhrase, seedPhrase, ...props }) => {
+export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
+  changeSeedPhrase, seedPhrase, ...props
+}) => {
   return (
     <SeedPhraseProvider
       seedPhrase={seedPhrase}
@@ -32,7 +36,9 @@ export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({ changeSeedPh
 }
 
 export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) => {
-  const { overwriteWarning, seedPhrase, validPhrase } = useSeedPhrase()
+  const {
+    overwriteWarning, seedPhrase, validPhrase,
+  } = useSeedPhrase()
 
   return (
     <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" fullWidth maxWidth="sm" {...props}>
@@ -41,7 +47,10 @@ export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) =>
         {' '}
         <SeedPhraseIconButton />
       </DialogTitle>
-      <DialogContent sx={{ display: 'flex', flexDirection: 'column', rowGap: 2 }}>
+      <DialogContent sx={{
+        display: 'flex', flexDirection: 'column', rowGap: 2,
+      }}
+      >
         <NewPhraseTextField>
           <FormLabel>
             <PhraseHeaderBox conditional={validPhrase}>New Seed Phrase</PhraseHeaderBox>

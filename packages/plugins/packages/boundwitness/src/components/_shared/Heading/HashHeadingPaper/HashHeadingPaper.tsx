@@ -11,7 +11,9 @@ export interface HashHeadingPaperProps extends HeadingPaperProps {
   identiconProps?: IdenticonProps
 }
 
-const HashHeadingPaper = forwardRef<HTMLDivElement, HashHeadingPaperProps>(({ hash, identiconProps, ...props }, ref) => {
+const HashHeadingPaper = forwardRef<HTMLDivElement, HashHeadingPaperProps>(({
+  hash, identiconProps, ...props
+}, ref) => {
   const theme = useTheme()
 
   return (

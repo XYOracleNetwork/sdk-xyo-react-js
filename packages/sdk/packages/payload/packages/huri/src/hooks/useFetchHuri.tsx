@@ -9,7 +9,11 @@ import { useBuildHuri } from './useBuildHuri.tsx'
 export const useFetchHuri = (hashOrHuri?: string, diviner?: DivinerInstance, token?: string) => {
   const huri = useBuildHuri(hashOrHuri) ?? hashOrHuri
   const huriPayload: HuriPayload | undefined = useMemo(
-    () => (huri ? { huri: [huri], schema: HuriSchema, tokens: token ? [token] : undefined } : undefined),
+    () => (huri
+      ? {
+          huri: [huri], schema: HuriSchema, tokens: token ? [token] : undefined,
+        }
+      : undefined),
     [huri, token],
   )
 

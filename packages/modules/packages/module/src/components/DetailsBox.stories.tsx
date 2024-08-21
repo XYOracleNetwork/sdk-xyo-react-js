@@ -86,6 +86,8 @@ const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
 const DivinerDetails = DivinerTemplate.bind({})
 DivinerDetails.args = {}
 
-export { ArchivistDetails, DivinerDetails, NodeDetails }
+export {
+  ArchivistDetails, DivinerDetails, NodeDetails,
+}
 
 export default StorybookEntry

@@ -1,6 +1,8 @@
 import type { WithChildren } from '@xylabs/react-shared'
 import type { NetworkPayload } from '@xyo-network/network'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, {
+  useCallback, useEffect, useState,
+} from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { defaultNetworkConfigs, findNetworkConfig } from '../../lib/index.ts'
@@ -11,7 +13,9 @@ import type { NetworkProviderProps } from './Props.ts'
 
 const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const [initialized, setInitialized] = useState(false)
-  const { network, setNetwork } = useNetwork()
+  const {
+    network, setNetwork,
+  } = useNetwork()
 
   const [params, setParams] = useSearchParams()
 
@@ -57,13 +61,18 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <NetworkContext.Provider value={{ network, networks: defaultNetworkConfigs, provided: true, setNetwork: setNetworkLocal }}>
+    <NetworkContext.Provider value={{
+      network, networks: defaultNetworkConfigs, provided: true, setNetwork: setNetworkLocal,
+    }}
+    >
       {initialized ? children : null}
     </NetworkContext.Provider>
   )
 }
 
-export const NetworkRouteProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetworkConfig, defaultNetworkName, ...props }) => {
+export const NetworkRouteProvider: React.FC<WithChildren<NetworkProviderProps>> = ({
+  defaultNetworkConfig, defaultNetworkName, ...props
+}) => {
   return (
     <NetworkMemoryProvider defaultNetworkConfig={defaultNetworkConfig} defaultNetworkName={defaultNetworkName}>
       <NetworkRouteProviderInner {...props} />

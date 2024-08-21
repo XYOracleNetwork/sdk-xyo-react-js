@@ -1,7 +1,9 @@
 import { Search } from '@mui/icons-material'
 import { TextField, useTheme } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
-import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import {
+  FlexCol, FlexGrowCol, FlexRow,
+} from '@xylabs/react-flexbox'
 import React, { useMemo, useState } from 'react'
 import type { ReflectionGroup } from 'typedoc'
 

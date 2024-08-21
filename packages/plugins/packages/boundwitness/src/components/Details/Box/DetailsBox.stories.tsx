@@ -63,6 +63,8 @@ WithNestedBWPayloads.args = {
   } as Payload,
 }
 
-export { Default, WithData, WithNestedBWPayloads, WithNoData }
+export {
+  Default, WithData, WithNestedBWPayloads, WithNoData,
+}
 
 export default StorybookEntry

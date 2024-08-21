@@ -1,6 +1,8 @@
 import type { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
 import { AccountsChangedEventName, useWalletDiscovery } from '@xylabs/react-crypto'
-import { useEffect, useMemo, useState } from 'react'
+import {
+  useEffect, useMemo, useState,
+} from 'react'
 
 const sortWallets = (wallets: DiscoveredWallets) =>
   // eslint-disable-next-line unicorn/no-array-reduce
@@ -27,6 +29,7 @@ export const useDetectedWallets = () => {
     const listener: (event: CustomEventInit) => void = () => {
       setRefresh(refresh => refresh + 1)
     }
+    // eslint-disable-next-line @eslint-react/web-api/no-leaked-event-listener
     window.addEventListener(AccountsChangedEventName, listener)
 
     return () => {
@@ -39,5 +42,7 @@ export const useDetectedWallets = () => {
     [sortedWallets],
   )
 
-  return { sortedWallets, totalConnectedAccounts }
+  return {
+    sortedWallets, totalConnectedAccounts,
+  }
 }

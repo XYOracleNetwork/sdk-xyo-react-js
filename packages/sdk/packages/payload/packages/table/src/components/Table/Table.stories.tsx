@@ -72,8 +72,11 @@ WithDataAndMaxSchemaDepth.args = {
 }
 
 const WithInvalid = Template.bind({})
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { schema, ...badPayload } = sampleIdPayload
+
+const {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  schema, ...badPayload
+} = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -83,8 +86,12 @@ const WithNoResults = Template.bind({})
 WithNoResults.args = { payloads: [] }
 
 const WithLoading = Template.bind({})
-WithLoading.args = { loading: true, payloads: [] }
+WithLoading.args = {
+  loading: true, payloads: [],
+}
 
-export { Default, WithData, WithDataAndMaxSchemaDepth, WithInvalid, WithLoading, WithNoResults, WithOutStickyHeaderFooter }
+export {
+  Default, WithData, WithDataAndMaxSchemaDepth, WithInvalid, WithLoading, WithNoResults, WithOutStickyHeaderFooter,
+}
 
 export default StorybookEntry

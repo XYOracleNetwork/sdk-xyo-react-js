@@ -11,7 +11,9 @@ export interface SubNavListItemsCollapseProps extends WithChildren, CollapseProp
   subNavListItems?: NavListItemProps[]
 }
 
-export const SubNavListItemsCollapse: React.FC<SubNavListItemsCollapseProps> = ({ collapse, openSubNav, children, ...props }) => {
+export const SubNavListItemsCollapse: React.FC<SubNavListItemsCollapseProps> = ({
+  collapse, openSubNav, children, ...props
+}) => {
   return (
     <Collapse in={collapse == true ? false : openSubNav} {...props}>
       <List>{children}</List>

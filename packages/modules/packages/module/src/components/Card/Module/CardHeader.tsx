@@ -12,7 +12,9 @@ const getModuleIcons = (moduleType: string, mod: Module) => {
   return mod?.queries.find(query => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon : null
 }
 
-export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = ({ subheader, avatar, title, mod, ...props }) => {
+export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = ({
+  subheader, avatar, title, mod, ...props
+}) => {
   return (
     <CardHeader
       title={title ?? mod?.config.name ?? 'Module'}

@@ -10,7 +10,9 @@ export interface GasPriceBoxProps extends FlexBoxProps {
   gasPrice?: number
 }
 
-export const GasPriceBox: React.FC<GasPriceBoxProps> = ({ gasPrice, ...props }) => {
+export const GasPriceBox: React.FC<GasPriceBoxProps> = ({
+  gasPrice, ...props
+}) => {
   const theme = useTheme()
   return (
     <FlexRow columnGap={1.5} rowGap={1.5} alignItems="end" {...props}>

@@ -1,4 +1,6 @@
-import type { ParameterReflection, Reflection, SomeType } from 'typedoc'
+import type {
+  ParameterReflection, Reflection, SomeType,
+} from 'typedoc'
 
 export type WithSomeType<T> = T & { type?: SomeType }
 

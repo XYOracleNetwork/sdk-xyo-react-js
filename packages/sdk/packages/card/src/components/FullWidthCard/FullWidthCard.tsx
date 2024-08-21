@@ -1,6 +1,8 @@
 import { ArrowForwardRounded as ArrowForwardRoundedIcon } from '@mui/icons-material'
 import type { CardProps } from '@mui/material'
-import { alpha, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography, useTheme, Zoom } from '@mui/material'
+import {
+  alpha, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography, useTheme, Zoom,
+} from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useIsMobile } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
@@ -19,7 +21,9 @@ export interface FullWidthCardProps extends CardProps {
   to?: To
 }
 
-export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc, href, media, name, small, to, ...props }) => {
+export const FullWidthCard: React.FC<FullWidthCardProps> = ({
+  cardIsButton, desc, href, media, name, small, to, ...props
+}) => {
   const theme = useTheme()
   const [raised, setRaised] = useState(false)
   const navigate = useNavigate()
@@ -37,7 +41,9 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({ cardIsButton, desc
   return (
     <Card
       elevation={raised ? 3 : 0}
-      style={{ height: '100%', width: '100%' }}
+      style={{
+        height: '100%', width: '100%',
+      }}
       {...props}
       sx={{
         '&:hover': {

@@ -34,7 +34,9 @@ export class StorageArchivistBuilder {
 
   async buildArchivist() {
     const config = this.buildConfig()
-    return (await StorageArchivist.create({ account: this.account, config })) as StorageArchivist
+    return (await StorageArchivist.create({
+      account: this.account, config,
+    })) as StorageArchivist
   }
 
   buildConfig(): StorageArchivistConfig {

@@ -9,7 +9,9 @@ export interface FavoritePopperProps extends ButtonGroupProps {
   onConfirmFavorite?: (name?: string, newFavoriteState?: boolean) => void
 }
 
-export const PopperButtonGroup: React.FC<FavoritePopperProps> = ({ name, onConfirmFavorite, favorite, ...props }) => {
+export const PopperButtonGroup: React.FC<FavoritePopperProps> = ({
+  name, onConfirmFavorite, favorite, ...props
+}) => {
   return (
     <ButtonGroup {...props}>
       <Button

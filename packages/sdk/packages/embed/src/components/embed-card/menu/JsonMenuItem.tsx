@@ -1,6 +1,8 @@
 import { OpenInNew as OpenInNewIcon } from '@mui/icons-material'
 import type { MenuItemProps } from '@mui/material'
-import { ListItemIcon, ListItemText, MenuItem } from '@mui/material'
+import {
+  ListItemIcon, ListItemText, MenuItem,
+} from '@mui/material'
 import React from 'react'
 
 import { useResolvePayload } from '../../../contexts/index.ts'

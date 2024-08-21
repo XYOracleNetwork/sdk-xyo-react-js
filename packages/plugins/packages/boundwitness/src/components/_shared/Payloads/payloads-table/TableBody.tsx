@@ -1,4 +1,7 @@
-import { TableBody, TableCell, TableRow } from '@mui/material'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  TableBody, TableCell, TableRow,
+} from '@mui/material'
 import type { EventNoun } from '@xyo-network/react-event'
 import { useEvent } from '@xyo-network/react-event'
 import type { PayloadTableBodyProps } from '@xyo-network/react-payload-table'
@@ -21,8 +24,9 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
   payloadSchemas,
   ...props
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows, noResults, NoResultRowComponent, ...tableProps } = props
+  const {
+    payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows, noResults, NoResultRowComponent, ...tableProps
+  } = props
   const ref = useRef<HTMLTableSectionElement | null>(null)
   const [tableRef, dispatch] = useEvent<HTMLTableSectionElement>(undefined, ref)
 

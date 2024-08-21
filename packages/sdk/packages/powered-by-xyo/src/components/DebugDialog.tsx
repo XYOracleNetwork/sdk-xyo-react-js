@@ -1,12 +1,16 @@
 import type { DialogProps } from '@mui/material'
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
+import {
+  Button, Dialog, DialogActions, DialogContent, DialogTitle,
+} from '@mui/material'
 import React from 'react'
 
 import { NodeDetails } from './NodeDetails.tsx'
 
 export interface DebugDialogProps extends DialogProps {}
 
-export const DebugDialog: React.FC<DebugDialogProps> = ({ onClose, ...props }) => {
+export const DebugDialog: React.FC<DebugDialogProps> = ({
+  onClose, ...props
+}) => {
   return (
     <Dialog {...props}>
       <DialogTitle>Xyo Module Viewer</DialogTitle>

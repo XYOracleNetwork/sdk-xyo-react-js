@@ -2,7 +2,9 @@ import type { Meta, StoryFn } from '@storybook/react'
 import { UniswapPairsRenderPlugin } from '@xyo-network/react-crypto-market-uniswap-plugin'
 import { DefaultPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { PayloadRenderPluginResolver, PayloadRenderPluginResolverProvider } from '@xyo-network/react-payload-plugin-resolver'
-import { sampleCoinGeckoPayload, sampleIdPayload, sampleSystemInfoBrowserPayload, sampleUniswapPayload } from '@xyo-network/react-storybook'
+import {
+  sampleCoinGeckoPayload, sampleIdPayload, sampleSystemInfoBrowserPayload, sampleUniswapPayload,
+} from '@xyo-network/react-storybook'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -67,6 +69,8 @@ const { ...badPayload } = sampleIdPayload
 // @ts-ignore
 WithError.args = { payloads: [sampleIdPayload, badPayload] }
 
-export { Default, WithData, WithError }
+export {
+  Default, WithData, WithError,
+}
 
 export default StorybookEntry

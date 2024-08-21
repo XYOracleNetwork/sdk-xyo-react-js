@@ -6,7 +6,9 @@ import { ThemeTokenAvatarGroup, useGetTokenData } from '@xyo-network/react-share
 import type { UniswapCryptoMarketPayload, UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React from 'react'
 
-export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({ payload, ...props }) => {
+export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({
+  payload, ...props
+}) => {
   const payloadTyped = payload as UniswapCryptoMarketPayload
   const makeTokenList = (payloadData: UniswapCryptoPair[]) => {
     const tokenList: string[] = []

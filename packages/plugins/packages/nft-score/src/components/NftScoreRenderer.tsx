@@ -4,7 +4,9 @@ import {
   EmojiEvents as EmojiEventsIcon,
   ReportProblem as ReportProblemIcon,
 } from '@mui/icons-material'
-import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
+import {
+  Table, TableBody, TableCell, TableHead, TableRow, Typography,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { NftScore } from '@xyo-network/crypto-nft-payload-plugin'
@@ -40,7 +42,9 @@ const getScoreIcon = (score: Score) => {
   return <DangerousIcon />
 }
 
-export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...props }) => {
+export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({
+  payload, ...props
+}) => {
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScore) : undefined
   const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(isScore) : undefined
   const sources = nftScorePayload?.sources?.length ? nftScorePayload.sources.join(', ') : undefined

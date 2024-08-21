@@ -1,5 +1,7 @@
 import { InfoOutlined } from '@mui/icons-material'
-import { Tooltip, Typography, useTheme } from '@mui/material'
+import {
+  Tooltip, Typography, useTheme,
+} from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
@@ -9,6 +11,7 @@ export interface ShareOutExplanationProps {
 
 export const ShareOutExplanation: React.FC<ShareOutExplanationProps> = ({ toolTipTitle }) => {
   const theme = useTheme()
+  // eslint-disable-next-line @stylistic/max-len
   const title = toolTipTitle ?? 'In order for your data to be publicly viewable, it needs to be saved to the XYO Network Public Archivist.  Public data can be seen by your friends, and XYO can generate preview images for easier sharing on social media.'
   return (
     <>

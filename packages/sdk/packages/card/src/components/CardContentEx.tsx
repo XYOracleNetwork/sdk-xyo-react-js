@@ -7,7 +7,9 @@ const CardContentExRoot = styled(CardContent, {
   name: 'CardContentEx',
   shouldForwardProp: (prop: string) => !['variant', 'removePadding'].includes(prop),
   slot: 'Root',
-})<CardContentExProps>(({ variant, removePadding }) => ({
+})<CardContentExProps>(({
+  variant, removePadding,
+}) => ({
   ...((variant === 'scrollable' || removePadding) && {
     [':last-child']: {
       paddingBottom: 0,
@@ -25,12 +27,16 @@ export type CardContentExProps = CardContentProps & {
   variant?: 'scrollable' | 'normal'
 }
 
-export const CardContentExWithRef = forwardRef<HTMLDivElement | null, CardContentExProps>(({ scrollToTop = 0, refreshRef = 0, ...props }, ref) => {
+export const CardContentExWithRef = forwardRef<HTMLDivElement | null, CardContentExProps>(({
+  scrollToTop = 0, refreshRef = 0, ...props
+}, ref) => {
   const sharedRef = useShareForwardedRef<HTMLDivElement>(ref, refreshRef)
 
   useEffect(() => {
     if (sharedRef && scrollToTop) {
-      sharedRef.current?.scroll({ behavior: 'smooth', top: 0 })
+      sharedRef.current?.scroll({
+        behavior: 'smooth', top: 0,
+      })
     }
   }, [sharedRef, scrollToTop])
 

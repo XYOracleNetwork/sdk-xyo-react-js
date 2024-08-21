@@ -28,7 +28,9 @@ export const useEvent = <T extends HTMLElement, TNoun = EventNoun, TVerb = Event
   )
 
   const dispatch: EventDispatch<TNoun, TVerb, TData> = (noun: TNoun, verb: TVerb, data?: TData) => {
-    return customDispatch({ data, noun, verb })
+    return customDispatch({
+      data, noun, verb,
+    })
   }
   return [ref, dispatch]
 }

@@ -1,5 +1,7 @@
 import type { TableCellProps } from '@mui/material'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from '@mui/material'
+import {
+  Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
@@ -82,7 +84,9 @@ interface EnhancedTableProps {
 }
 
 function EnhancedTableHead(props: EnhancedTableProps) {
-  const { order, orderBy } = props
+  const {
+    order, orderBy,
+  } = props
   // const createSortHandler = (property: string) => (event: React.MouseEvent<unknown>) => {
   //   onRequestSort(event, property)
   // }
@@ -116,7 +120,9 @@ interface UniswapPairsRendererProps extends FlexBoxProps {
   payload?: Payload
 }
 
-export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ payload, ...props }) => {
+export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({
+  payload, ...props
+}) => {
   const [order, setOrder] = useState<Order>('asc')
   const [orderBy, setOrderBy] = useState<string>('symbol')
   const [page, setPage] = useState(0)

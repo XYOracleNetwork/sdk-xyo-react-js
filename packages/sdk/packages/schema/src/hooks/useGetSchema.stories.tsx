@@ -1,4 +1,6 @@
-import { FormControl, TextField, Typography } from '@mui/material'
+import {
+  FormControl, TextField, Typography,
+} from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
@@ -30,7 +32,9 @@ const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
             mx={1}
             key={index}
             onClick={() => setSchemaFieldValue(schema)}
-            sx={{ cursor: 'pointer', textDecoration: 'underline' }}
+            sx={{
+              cursor: 'pointer', textDecoration: 'underline',
+            }}
           >
             {schema}
           </Typography>

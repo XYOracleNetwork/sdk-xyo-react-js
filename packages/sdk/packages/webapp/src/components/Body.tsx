@@ -17,7 +17,9 @@ const WebAppBodyRoot = styled(FlexGrowCol, {
   ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Root',
-})<WebAppBodyProps>(({ spacing, theme, mobileScrollingBreakpoint = 'sm', variant }) => {
+})<WebAppBodyProps>(({
+  spacing, theme, mobileScrollingBreakpoint = 'sm', variant,
+}) => {
   const scrollable = variant === 'scrollable'
   return theme.unstable_sx({
     alignItems: 'stretch',
@@ -36,12 +38,13 @@ const WebAppBodyBreadcrumb = styled(FlexRow, {
   ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Breadcrumb',
-})<WebAppBodyProps>(({ theme, disableBreadcrumbGutter, spacing }) =>
+})<WebAppBodyProps>(({
+  theme, disableBreadcrumbGutter, spacing,
+}) =>
   theme.unstable_sx({
     justifyContent: 'start',
     marginX: disableBreadcrumbGutter ? 0 : spacing,
-  }),
-)
+  }))
 
 const WebAppBodyScrollableWrapper = styled(FlexGrowCol, {
   name: WebAppBodyName,
@@ -54,7 +57,9 @@ const WebAppBodyScrollable = styled(FlexGrowCol, {
   ...defaultStyledOptions,
   name: WebAppBodyName,
   slot: 'Scrollable',
-})<WebAppBodyProps>(({ theme, mobileScrollingBreakpoint = 'sm', variant }) => {
+})<WebAppBodyProps>(({
+  theme, mobileScrollingBreakpoint = 'sm', variant,
+}) => {
   const props = variant === 'scrollable' ? scrollableContent : fixedContent
   return {
     ...props,

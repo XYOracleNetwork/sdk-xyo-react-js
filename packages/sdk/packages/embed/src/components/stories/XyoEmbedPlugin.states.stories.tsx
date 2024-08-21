@@ -87,4 +87,6 @@ WithOnRefresh.args = {
   plugins: [CryptoAssetRenderPlugin],
 }
 
-export { ApiError, Default, HiddenElements, ThrownError, WithOnRefresh, WithPassedPayload, WithSetBusyExternally }
+export {
+  ApiError, Default, HiddenElements, ThrownError, WithOnRefresh, WithPassedPayload, WithSetBusyExternally,
+}

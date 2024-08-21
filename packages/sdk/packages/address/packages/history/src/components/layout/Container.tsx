@@ -14,7 +14,9 @@ export interface WrappedContainerProps extends FlexBoxProps, WithChildren {
   spacing?: number
 }
 
-const WrappedContainer = forwardRef<HTMLDivElement, WrappedContainerProps>(({ children, spacing, ...props }, ref) => (
+const WrappedContainer = forwardRef<HTMLDivElement, WrappedContainerProps>(({
+  children, spacing, ...props
+}, ref) => (
   <FlexGrowCol ref={ref} {...props}>
     <GridContainer container spacing={spacing}>
       {children}

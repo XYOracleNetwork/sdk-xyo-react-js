@@ -41,4 +41,6 @@ WithLabel.args = {
   speed: 'CustomSpeedLabel',
 }
 
-export { Contained, Default, WithData, WithLabel }
+export {
+  Contained, Default, WithData, WithLabel,
+}

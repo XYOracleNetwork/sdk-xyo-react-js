@@ -21,12 +21,18 @@ export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRowProps>
   wallet,
   ...props
 }) => {
-  const { currentAccount: currentAccountFromWallet, additionalAccounts, chainName, connectWallet, providerInfo } = useEthWallet(wallet)
+  const {
+    currentAccount: currentAccountFromWallet, additionalAccounts, chainName, connectWallet, providerInfo,
+  } = useEthWallet(wallet)
 
   const currentAccount = currentAccountFromWallet?.toString() ? [currentAccountFromWallet.toString()] : []
   const totalAccounts = (additionalAccounts?.length ?? 0) + (currentAccount?.length ?? 0)
   const connected = !!(currentAccount?.length ?? 0 > 0)
-  const { icon, name, rdns } = useMemo(() => providerInfo ?? { icon: undefined, name: undefined, rdns: undefined }, [providerInfo])
+  const {
+    icon, name, rdns,
+  } = useMemo(() => providerInfo ?? {
+    icon: undefined, name: undefined, rdns: undefined,
+  }, [providerInfo])
 
   const activeProvider = useMemo<ActiveProvider>(
     () => ({

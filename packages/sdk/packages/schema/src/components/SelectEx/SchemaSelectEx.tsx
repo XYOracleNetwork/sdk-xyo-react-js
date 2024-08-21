@@ -7,8 +7,12 @@ import { useSchema } from '../../contexts/index.ts'
 
 export type SchemaSelectExProps = SelectExProps<string>
 
-export const SchemaSelectEx: React.FC<SchemaSelectExProps> = ({ onChange, variant = 'outlined', ...props }) => {
-  const { schema, setSchema, schemaList } = useSchema(false)
+export const SchemaSelectEx: React.FC<SchemaSelectExProps> = ({
+  onChange, variant = 'outlined', ...props
+}) => {
+  const {
+    schema, setSchema, schemaList,
+  } = useSchema(false)
 
   return (
     <SelectEx

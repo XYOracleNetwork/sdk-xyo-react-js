@@ -1,5 +1,9 @@
-import { Alert, Button, TextField, Typography } from '@mui/material'
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import {
+  Alert, Button, TextField, Typography,
+} from '@mui/material'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
@@ -25,7 +29,11 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   useAsyncEffect(
     async () => {
       const node = await MemoryNode.create({ config: { schema: NodeConfigSchema } })
-      const bridge = await HttpBridge.create({ config: { nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } } })
+      const bridge = await HttpBridge.create({
+        config: {
+          nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
+        },
+      })
       await node.register(bridge)
       await node.attach(bridge.address, true)
       setNode(node)
@@ -59,7 +67,10 @@ const Template: StoryFn<React.FC> = () => {
   const schemaDefinitions = useSchemaDefinitions(mappedSchemaList)
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', rowGap: '16px' }}>
+    <div style={{
+      display: 'flex', flexDirection: 'column', rowGap: '16px',
+    }}
+    >
       {schemaStatsError
         ? <Alert severity="error">{schemaStatsError.message ?? schemaListError?.message}</Alert>
         : null}

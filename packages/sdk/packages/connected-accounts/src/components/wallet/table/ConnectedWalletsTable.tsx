@@ -1,5 +1,7 @@
 import type { TableProps } from '@mui/material'
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import {
+  Table, TableBody, TableCell, TableHead, TableRow,
+} from '@mui/material'
 import type { EIP6963Connector } from '@xylabs/react-crypto'
 import React, { useState } from 'react'
 
@@ -15,7 +17,9 @@ export interface ConnectedWalletsTableProps extends TableProps {
   wallets?: EIP6963Connector[]
 }
 
-export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ ignoreConnectDialog, onIgnoreConnectDialog, wallets, ...props }) => {
+export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({
+  ignoreConnectDialog, onIgnoreConnectDialog, wallets, ...props
+}) => {
   const [activeProvider, setActiveProvider] = useState<ActiveProvider>()
   const [showConnect, onSetActiveProviderConnect, onConnectClose] = useActiveProviderDialogState(setActiveProvider)
   const [showRevoke, onSetActiveProviderRevoke, onRevokeClose] = useActiveProviderDialogState(setActiveProvider)
@@ -25,7 +29,9 @@ export const ConnectedWalletsTable: React.FC<ConnectedWalletsTableProps> = ({ ig
       <Table {...props}>
         <TableHead>
           <TableRow>
-            {WalletsTableHeadCells.map(({ disablePadding, id, label, align, width }) => (
+            {WalletsTableHeadCells.map(({
+              disablePadding, id, label, align, width,
+            }) => (
               <TableCell align={align} key={id} padding={disablePadding ? 'none' : 'normal'} width={width ?? 'auto'}>
                 {label}
               </TableCell>

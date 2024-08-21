@@ -7,7 +7,9 @@ import type { CreditCardOptions } from '../Options.ts'
 import { useCreditCardFormControl } from '../useCreditCardFormControl.tsx'
 
 export const useCreditCardNumberFormControl = (formControlName?: string, control?: new () => FormControlBase<StandardTextFieldProps>) => {
-  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, control)
+  const {
+    creditCardFormControl, error, inputRef, value,
+  } = useCreditCardFormControl(formControlName, control)
   const [type, setType] = useState('' as keyof CreditCardOptions)
 
   useEffect(() => {
@@ -26,5 +28,7 @@ export const useCreditCardNumberFormControl = (formControlName?: string, control
     }
   }, [creditCardFormControl, inputRef])
 
-  return { creditCardFormControl, error, inputRef, type, value }
+  return {
+    creditCardFormControl, error, inputRef, type, value,
+  }
 }

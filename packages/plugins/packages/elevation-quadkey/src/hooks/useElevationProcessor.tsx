@@ -17,7 +17,9 @@ export const useElevationProcessor = (payload?: Payload) => {
       // Convert Single Payload from Quadkeys to GeoJson with Elevations
       if (payload && (payload as NetworkElevationQuadkeyAnswerPayload).result && lookupLocations && features === undefined) {
         const singlePayload = payload as NetworkElevationQuadkeyAnswerPayload
-        const elevationProcessor = new ElevationPayloadProcessor({ lookupLocations, payload: singlePayload })
+        const elevationProcessor = new ElevationPayloadProcessor({
+          lookupLocations, payload: singlePayload,
+        })
         elevationProcessor.buildFeatures()
 
         const featuresWithElevations = await elevationProcessor.buildElevations()

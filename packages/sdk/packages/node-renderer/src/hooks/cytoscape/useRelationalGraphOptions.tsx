@@ -17,5 +17,7 @@ export const useRelationalGraphOptions = (mod?: WeakRef<ModuleInstance>) => {
   const style = useCytoscapeStyle(hideLabels)
   const options = useCytoscapeOptions(elements, style, ConcentricLayout)
 
-  return { handleToggleLabels, hideLabels, options }
+  return {
+    handleToggleLabels, hideLabels, options,
+  }
 }

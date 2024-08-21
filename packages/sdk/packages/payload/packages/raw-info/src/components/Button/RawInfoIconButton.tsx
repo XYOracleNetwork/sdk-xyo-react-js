@@ -2,7 +2,9 @@ import type { IconButtonProps } from '@mui/material'
 import { IconButton } from '@mui/material'
 import { toJson } from '@xylabs/object'
 import type { MouseEventHandler, ReactNode } from 'react'
-import React, { forwardRef, useMemo, useState } from 'react'
+import React, {
+  forwardRef, useMemo, useState,
+} from 'react'
 
 import type { ExpansionProps } from '../../lib/index.ts'
 import { XyoColorLogo } from '../img/index.tsx'
@@ -21,7 +23,9 @@ export interface RawInfoIconProps extends IconButtonProps, ExpansionProps {
 
 export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>(
   (
-    { defaultExpandedJson = true, dialogContent, iconOnly, iconSize = 32, onCloseCallback, rawValue, presetIconSize, updateExpandedJson, ...props },
+    {
+      defaultExpandedJson = true, dialogContent, iconOnly, iconSize = 32, onCloseCallback, rawValue, presetIconSize, updateExpandedJson, ...props
+    },
     ref,
   ) => {
     const [open, setOpen] = useState(false)
@@ -41,7 +45,10 @@ export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>
     return (
       <>
         <IconButton onClick={handleClick} ref={ref} {...props}>
-          <XyoColorLogo sx={{ height: size ?? iconSize, width: size ?? iconSize }} />
+          <XyoColorLogo sx={{
+            height: size ?? iconSize, width: size ?? iconSize,
+          }}
+          />
         </IconButton>
         {iconOnly
           ? null

@@ -18,7 +18,9 @@ export class SourcePayloads {
 
     const paths = jsonPath.split('.')
     instance.sourcePrices = sourcePayloads.map((payload) => {
-      return { x: payload.timestamp, y: instance.jsonPathTraverser(payload, paths) }
+      return {
+        x: payload.timestamp, y: instance.jsonPathTraverser(payload, paths),
+      }
     })
     return instance
   }

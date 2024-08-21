@@ -8,7 +8,9 @@ export interface ShareOutHeadingFlexboxProps extends FlexBoxProps {
   shareUrl?: string
 }
 
-export const ShareOutHeadingFlexbox: React.FC<ShareOutHeadingFlexboxProps> = ({ children, shareLinkName, shareUrl, ...props }) => {
+export const ShareOutHeadingFlexbox: React.FC<ShareOutHeadingFlexboxProps> = ({
+  children, shareLinkName, shareUrl, ...props
+}) => {
   const GenerateShareLinkExplanation = "When you generate your share link, we'll make a small amount of your data public so friends can check it out!"
 
   return (

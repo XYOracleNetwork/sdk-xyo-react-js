@@ -4,7 +4,9 @@ import {
   WarningAmberRounded as WarningAmberRoundedIcon,
 } from '@mui/icons-material'
 import type { TableCellProps, TableRowProps } from '@mui/material'
-import { alpha, TableCell, TableRow, Typography } from '@mui/material'
+import {
+  alpha, TableCell, TableRow, Typography,
+} from '@mui/material'
 import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'

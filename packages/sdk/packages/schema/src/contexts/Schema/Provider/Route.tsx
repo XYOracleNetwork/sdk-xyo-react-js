@@ -1,5 +1,7 @@
 import type { WithChildren } from '@xylabs/react-shared'
-import React, { useCallback, useEffect, useMemo } from 'react'
+import React, {
+  useCallback, useEffect, useMemo,
+} from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { SchemaContext } from '../Context.ts'
@@ -8,7 +10,9 @@ import { SchemaMemoryProvider } from './Memory.tsx'
 import type { SchemaProviderProps } from './Props.ts'
 
 const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
-  const { schema, setSchema, schemaList } = useSchema()
+  const {
+    schema, setSchema, schemaList,
+  } = useSchema()
 
   const [params, setParams] = useSearchParams()
 
@@ -50,12 +54,16 @@ const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
     }
   }, [routeSchema, schema, setSchemaParam, setSchema, setSchemaLocal])
 
-  const value = useMemo(() => ({ provided: true, schema, schemaList, setSchema: setSchemaLocal }), [schema, schemaList, setSchemaLocal])
+  const value = useMemo(() => ({
+    provided: true, schema, schemaList, setSchema: setSchemaLocal,
+  }), [schema, schemaList, setSchemaLocal])
 
   return <SchemaContext.Provider value={value}>{children}</SchemaContext.Provider>
 }
 
-export const SchemaRouteProvider: React.FC<WithChildren<SchemaProviderProps>> = ({ knownSchemaList, defaultSchema, ...props }) => {
+export const SchemaRouteProvider: React.FC<WithChildren<SchemaProviderProps>> = ({
+  knownSchemaList, defaultSchema, ...props
+}) => {
   return (
     <SchemaMemoryProvider knownSchemaList={knownSchemaList} defaultSchema={defaultSchema}>
       <SchemaRouteProviderInner {...props} />

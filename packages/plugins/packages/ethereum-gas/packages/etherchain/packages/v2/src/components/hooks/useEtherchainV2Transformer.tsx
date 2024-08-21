@@ -1,6 +1,7 @@
 import type { EthereumGasEtherchainV2Payload } from '@xyo-network/etherchain-ethereum-gas-v2-payload-plugin'
 import type { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
+// eslint-disable-next-line @eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks
 export const useEtherchainV2Transformer = (payload?: EthereumGasEtherchainV2Payload): GasPriceWitnessUIBasePayload | undefined => {
   if (payload) {
     return {

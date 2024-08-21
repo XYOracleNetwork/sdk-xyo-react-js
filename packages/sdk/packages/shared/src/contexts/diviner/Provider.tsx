@@ -1,6 +1,8 @@
 import type { WithChildren } from '@xylabs/react-shared'
 import type { Context } from 'react'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, {
+  useEffect, useMemo, useState,
+} from 'react'
 
 import type { ContextExProviderProps } from '../contextEx/index.ts'
 import type { ResolvedDivinerState } from './State.ts'
@@ -11,7 +13,9 @@ export interface DivinerProviderProps<D> extends ContextExProviderProps, WithChi
 }
 
 /** Exposes a resolved diviner */
-export const ResolvedDivinerProvider = <D,>({ diviner: divinerProp, required = false, children, context }: DivinerProviderProps<D>) => {
+export const ResolvedDivinerProvider = <D,>({
+  diviner: divinerProp, required = false, children, context,
+}: DivinerProviderProps<D>) => {
   const [diviner, setDiviner] = useState<D | undefined>(divinerProp)
 
   useEffect(() => {
@@ -28,9 +32,11 @@ export const ResolvedDivinerProvider = <D,>({ diviner: divinerProp, required = f
         return diviner
       }
     }
-    return { diviner: resolveDiviner(),
+    return {
+      diviner: resolveDiviner(),
       provided: true,
-      setDiviner }
+      setDiviner,
+    }
   }, [
     setDiviner, divinerProp])
 

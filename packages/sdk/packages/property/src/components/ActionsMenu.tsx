@@ -1,11 +1,15 @@
 import { MoreHoriz as MoreHorizIcon } from '@mui/icons-material'
-import { IconButton, Menu, MenuItem } from '@mui/material'
+import {
+  IconButton, Menu, MenuItem,
+} from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
 import type { PropertyActionsProps } from './ActionsProps.ts'
 
-export const PropertyActionsMenu: React.FC<PropertyActionsProps> = ({ actions, ...props }) => {
+export const PropertyActionsMenu: React.FC<PropertyActionsProps> = ({
+  actions, ...props
+}) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = !!anchorEl
 

@@ -18,7 +18,12 @@ const StorybookEntry = {
 
 const Template: StoryFn<typeof XyoFooter> = args => (
   <FlexCol minHeight="80vh" alignItems="stretch">
-    <Paper style={{ alignItems: 'center', display: 'flex', flexGrow: 1, justifyContent: 'center' }}>Test Content</Paper>
+    <Paper style={{
+      alignItems: 'center', display: 'flex', flexGrow: 1, justifyContent: 'center',
+    }}
+    >
+      Test Content
+    </Paper>
     <XyoFooter {...args} />
   </FlexCol>
 )

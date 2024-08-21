@@ -1,4 +1,6 @@
-import { AmexIcon, DiscoverIcon, MastercardIcon, VisaIcon } from '../../img/index.ts'
+import {
+  AmexIcon, DiscoverIcon, MastercardIcon, VisaIcon,
+} from '../../img/index.ts'
 
 export interface CreditCardInfo {
   icon: string
@@ -13,8 +15,16 @@ export interface CreditCardOptions {
 }
 
 export const CreditCardData: CreditCardOptions = {
-  amex: { icon: AmexIcon, name: 'American Express' },
-  discover: { icon: DiscoverIcon, name: 'Discover' },
-  mastercard: { icon: MastercardIcon, name: 'Mastercard' },
-  visa: { icon: VisaIcon, name: 'Visa' },
+  amex: {
+    icon: AmexIcon, name: 'American Express',
+  },
+  discover: {
+    icon: DiscoverIcon, name: 'Discover',
+  },
+  mastercard: {
+    icon: MastercardIcon, name: 'Mastercard',
+  },
+  visa: {
+    icon: VisaIcon, name: 'Visa',
+  },
 }

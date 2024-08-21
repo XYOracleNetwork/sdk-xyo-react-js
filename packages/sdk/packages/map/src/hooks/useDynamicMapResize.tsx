@@ -1,6 +1,8 @@
 import type { Map } from 'mapbox-gl'
 import type { MutableRefObject } from 'react'
-import { useEffect, useMemo, useState } from 'react'
+import {
+  useEffect, useMemo, useState,
+} from 'react'
 
 /**
  * Inspired by - https://bl.ocks.org/danswick/fc56f37c10d40be62e4feac5984250d2

@@ -11,6 +11,7 @@ const mapAssetsToString = (assetValues: Partial<Record<string, number>> | undefi
 }
 
 /** InMemory Transform Diviner to get payload to shape used by AggregatePrice Plugin */
+// eslint-disable-next-line @eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks
 export const useCoinGeckoToAssetPriceDiviner = (payload?: CoingeckoCryptoMarketPayload) => {
   if (payload) {
     // eslint-disable-next-line unicorn/no-array-reduce

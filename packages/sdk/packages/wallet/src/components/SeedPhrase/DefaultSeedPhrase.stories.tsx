@@ -26,4 +26,6 @@ WithHiddenDefaultSeedPhrase.args = {
   ...WithoutDefaultSeedPhrase.args,
 }
 
-export { Default, WithHiddenDefaultSeedPhrase, WithoutDefaultSeedPhrase }
+export {
+  Default, WithHiddenDefaultSeedPhrase, WithoutDefaultSeedPhrase,
+}

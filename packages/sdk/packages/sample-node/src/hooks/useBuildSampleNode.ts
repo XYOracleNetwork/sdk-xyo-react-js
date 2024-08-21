@@ -12,7 +12,9 @@ export type SampleNodeModules = Partial<Record<SampleNodeModuleNames, string>>
 
 const buildSystemInfoWitness = async (moduleName?: string) => {
   const sysInfoWitness = await BowserSystemInfoWitness.create({
-    config: { name: moduleName, schema: BowserSystemInfoWitnessConfigSchema },
+    config: {
+      name: moduleName, schema: BowserSystemInfoWitnessConfigSchema,
+    },
   })
   return sysInfoWitness
 }

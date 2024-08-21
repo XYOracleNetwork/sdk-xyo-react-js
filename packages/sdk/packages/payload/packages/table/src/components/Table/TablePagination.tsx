@@ -1,5 +1,9 @@
-import { FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, LastPage as LastPageIcon } from '@mui/icons-material'
-import { Box, CircularProgress, IconButton, useTheme } from '@mui/material'
+import {
+  FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, LastPage as LastPageIcon,
+} from '@mui/icons-material'
+import {
+  Box, CircularProgress, IconButton, useTheme,
+} from '@mui/material'
 import { useEvent } from '@xyo-network/react-event'
 import React from 'react'
 
@@ -14,7 +18,9 @@ export interface TablePaginationActionsProps {
   rowsPerPage: number
 }
 
-export function TablePaginationActions({ count, enableNextPage, loading, onPageChange, page, rowsPerPage }: TablePaginationActionsProps) {
+export function TablePaginationActions({
+  count, enableNextPage, loading, onPageChange, page, rowsPerPage,
+}: TablePaginationActionsProps) {
   const theme = useTheme()
   const [paginationRef, paginationDispatch] = useEvent<HTMLButtonElement, PaginationNouns>()
 
@@ -41,9 +47,19 @@ export function TablePaginationActions({ count, enableNextPage, loading, onPageC
   return (
     <>
       {loading
-        ? <CircularProgress size="small" sx={{ height: theme.spacing(2), position: 'absolute', width: theme.spacing(2) }} />
+        ? (
+            <CircularProgress
+              size="small"
+              sx={{
+                height: theme.spacing(2), position: 'absolute', width: theme.spacing(2),
+              }}
+            />
+          )
         : null}
-      <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+      <Box sx={{
+        flexShrink: 0, ml: 2.5,
+      }}
+      >
         <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
           {theme.direction === 'rtl'
             ? <LastPageIcon />

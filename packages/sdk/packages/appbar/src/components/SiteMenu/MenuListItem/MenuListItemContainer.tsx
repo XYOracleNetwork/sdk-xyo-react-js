@@ -6,7 +6,9 @@ import React, { useState } from 'react'
 
 import { useCollapsible } from '../../../contexts/index.ts'
 import type { MenuListItemBase, NavListItemProps } from '../lib/index.ts'
-import { ListItemTooltip, MenuIcon, MenuListItem } from './list-item-components/index.ts'
+import {
+  ListItemTooltip, MenuIcon, MenuListItem,
+} from './list-item-components/index.ts'
 import { SubNavListItemsCollapse, SubNavToggleIconButton } from './sub-nav/index.ts'
 
 export interface MenuListItemProps extends NavListItemProps, MenuListItemBase, ListItemProps {
@@ -43,8 +45,12 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
         iconOnly={iconOnly}
         onClick={onButtonClick}
         dense={dense}
-        sx={{ justifyContent: 'space-between', ...sx }}
-        style={{ whiteSpace: 'nowrap', ...style }}
+        sx={{
+          justifyContent: 'space-between', ...sx,
+        }}
+        style={{
+          whiteSpace: 'nowrap', ...style,
+        }}
         {...props}
       >
         <LinkEx

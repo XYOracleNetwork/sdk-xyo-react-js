@@ -2,7 +2,7 @@ import type { WithChildren } from '@xylabs/react-shared'
 import { ModuleErrorSchema } from '@xyo-network/payload-model'
 import { ErrorRender } from '@xyo-network/react-error'
 import { useBuildHuri } from '@xyo-network/react-payload-huri'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 
 import { useDivinePayload } from '../PayloadDiviner/index.ts'
@@ -13,7 +13,9 @@ export interface DivinedPayloadProviderProps extends WithChildren {
   hash?: string
 }
 
-export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ children, hash }) => {
+export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({
+  children, hash,
+}) => {
   const { hash: hashParam } = useParams()
 
   const huriFromHashParam = useBuildHuri(hashParam)
@@ -25,8 +27,15 @@ export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ 
 
   const [payload, setPayload, payloadError] = useDivinePayload(huriUri)
 
-  // eslint-disable-next-line @eslint-react/no-unstable-context-value
-  return <DivinedPayloadContext.Provider value={{ payload, payloadError, provided: true, setPayload }}>{children}</DivinedPayloadContext.Provider>
+  const value = useMemo(() => ({
+    payload, payloadError, provided: true, setPayload,
+  }), [payload, payloadError, setPayload])
+
+  return (
+    <DivinedPayloadContext.Provider value={value}>
+      {children}
+    </DivinedPayloadContext.Provider>
+  )
 }
 
 export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children }) => {
@@ -34,7 +43,11 @@ export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children
 
   return (
     <ErrorRender
-      error={payloadError ? { message: payloadError.message, schema: ModuleErrorSchema, sources: [] } : undefined}
+      error={payloadError
+        ? {
+            message: payloadError.message, schema: ModuleErrorSchema, sources: [],
+          }
+        : undefined}
       errorContext="Divined Payload Provider"
     >
       {children}
@@ -42,7 +55,9 @@ export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children
   )
 }
 
-export const DivinedPayloadWithHandleProvider: React.FC<DivinedPayloadProviderProps> = ({ children, ...props }) => {
+export const DivinedPayloadWithHandleProvider: React.FC<DivinedPayloadProviderProps> = ({
+  children, ...props
+}) => {
   return (
     <DivinedPayloadProvider {...props}>
       <DivinedPayloadWithHandleInner>{children}</DivinedPayloadWithHandleInner>

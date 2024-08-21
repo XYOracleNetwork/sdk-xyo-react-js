@@ -1,10 +1,14 @@
 import type { CardProps } from '@mui/material'
-import { Card, Paper, useTheme } from '@mui/material'
+import {
+  Card, Paper, useTheme,
+} from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { CardContentEx } from '@xyo-network/react-card'
 import React from 'react'
 
-import { GasPriceBox, PriorityFeeBox, SpeedBox } from './components/index.ts'
+import {
+  GasPriceBox, PriorityFeeBox, SpeedBox,
+} from './components/index.ts'
 
 export interface GasFeeCardProps extends CardProps {
   gasPrice?: number
@@ -14,12 +18,19 @@ export interface GasFeeCardProps extends CardProps {
   speedPaperElevation?: number
 }
 
-export const GasFeeCard: React.FC<GasFeeCardProps> = ({ gasPrice, speedPaperElevation, priorityFee, priorityFeeLabel, speed = 'low', ...props }) => {
+export const GasFeeCard: React.FC<GasFeeCardProps> = ({
+  gasPrice, speedPaperElevation, priorityFee, priorityFeeLabel, speed = 'low', ...props
+}) => {
   const theme = useTheme()
 
   return (
     <Card sx={{ p: 0 }} {...props}>
-      <CardContentEx removePadding sx={{ flexDirection: 'column', flexGrow: 1, p: 0, rowGap: 2 }}>
+      <CardContentEx
+        removePadding
+        sx={{
+          flexDirection: 'column', flexGrow: 1, p: 0, rowGap: 2,
+        }}
+      >
         <FlexGrowCol bgcolor={theme.palette.secondary.dark} alignItems="start" p={2} rowGap={1.5} color={theme.palette.common.white}>
           <GasPriceBox gasPrice={gasPrice} />
           {priorityFee

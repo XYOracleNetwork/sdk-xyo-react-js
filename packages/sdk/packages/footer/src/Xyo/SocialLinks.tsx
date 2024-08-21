@@ -1,4 +1,6 @@
-import { Facebook, Instagram, LinkedIn, Reddit, Telegram, Twitter, YouTube } from '@mui/icons-material'
+import {
+  Facebook, Instagram, LinkedIn, Reddit, Telegram, Twitter, YouTube,
+} from '@mui/icons-material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'

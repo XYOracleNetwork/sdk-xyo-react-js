@@ -8,7 +8,9 @@ import { BrowserRouter } from 'react-router-dom'
 import { useActiveBoundWitness } from '../../hooks/index.ts'
 import { AddressHistory } from '../AddressHistory/index.ts'
 import { BoundWitnessesBox } from '../BoundWitnessesBox/index.ts'
-import { ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator } from '../stories/index.ts'
+import {
+  ActiveBWDecorator, WithHashSelectionHistory, WithNestedBoundWitnessesDecorator,
+} from '../stories/index.ts'
 import { ScrollableGridColumn } from './Column.tsx'
 import { ColumnHeadingTypography } from './ColumnHeading.tsx'
 import { WrappedContainer } from './Container.tsx'
@@ -46,7 +48,13 @@ const Template: StoryFn<typeof WrappedContainer> = (props) => {
           sm={4}
           xs={12}
         >
-          <AddressHistory ref={ref} addressHistory={sampleAddressHistory} sx={{ pr: 2, py: 2 }} />
+          <AddressHistory
+            ref={ref}
+            addressHistory={sampleAddressHistory}
+            sx={{
+              pr: 2, py: 2,
+            }}
+          />
         </ScrollableGridColumn>
         <ScrollableGridColumn
           heading={(

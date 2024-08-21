@@ -11,15 +11,24 @@ export interface FormGroupCreditCardProviderProps<TStorage extends Payload = Pay
   params?: FormGroupParams<TStorage>
 }
 
-export const FormGroupCreditCardProvider: React.FC<FormGroupCreditCardProviderProps<CreditCardInput>> = ({ children, params, ...props }) => {
+export const FormGroupCreditCardProvider: React.FC<FormGroupCreditCardProviderProps<CreditCardInput>> = ({
+  children, params, ...props
+}) => {
   const formGroup = useMemo(() => {
     const formGroup = new FormGroup<CreditCardInput, CreditCardInput>(params)
     return formGroup
   }, [params])
 
+  const value = useMemo(() => ({
+    formGroup, provided: true,
+  }), [formGroup])
+
   return (
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <FormGroupCreditCardContext.Provider value={{ formGroup, provided: true }} {...props}>
+
+    <FormGroupCreditCardContext.Provider
+      value={value}
+      {...props}
+    >
       {children}
     </FormGroupCreditCardContext.Provider>
   )

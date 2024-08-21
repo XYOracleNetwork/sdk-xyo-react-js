@@ -5,7 +5,9 @@ import React from 'react'
 import { useActiveBoundWitness } from '../../hooks/index.ts'
 
 export const WithResetDecorator: Decorator = (Story, args) => {
-  const { activeBoundWitness, setActiveBoundWitnessHash } = useActiveBoundWitness()
+  const {
+    activeBoundWitness, setActiveBoundWitnessHash,
+  } = useActiveBoundWitness()
   return (
     <>
       {activeBoundWitness

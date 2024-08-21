@@ -1,5 +1,7 @@
 import type { DialogProps } from '@mui/material'
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material'
+import {
+  Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography,
+} from '@mui/material'
 import { ConstrainedImage } from '@xylabs/react-crypto'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
@@ -10,7 +12,9 @@ export interface RevokeWalletConnectionDialogProps extends DialogProps {
   activeProvider?: ActiveProvider
 }
 
-export const RevokeWalletConnectionDialog: React.FC<RevokeWalletConnectionDialogProps> = ({ activeProvider, ...props }) => {
+export const RevokeWalletConnectionDialog: React.FC<RevokeWalletConnectionDialogProps> = ({
+  activeProvider, ...props
+}) => {
   return (
     <Dialog {...props}>
       <FlexRow gap={2} justifyContent="start" pl={2}>

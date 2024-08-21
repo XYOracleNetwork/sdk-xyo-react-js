@@ -1,12 +1,16 @@
 import type { ButtonProps } from '@mui/material'
-import { Button, CircularProgress, styled } from '@mui/material'
+import {
+  Button, CircularProgress, styled,
+} from '@mui/material'
 import React from 'react'
 
 export interface GenerateShareLinkButtonProps extends ButtonProps {
   loading?: boolean
 }
 
-export const GenerateShareLinkButton: React.FC<GenerateShareLinkButtonProps> = ({ children = 'Generate My Share Link', loading, ...props }) => {
+export const GenerateShareLinkButton: React.FC<GenerateShareLinkButtonProps> = ({
+  children = 'Generate My Share Link', loading, ...props
+}) => {
   return (
     <Button
       variant="contained"

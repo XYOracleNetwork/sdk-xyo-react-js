@@ -33,7 +33,9 @@ export class CreditCardExpirationFormControl<TProps extends EmptyObject = EmptyO
   constructor() {
     super()
     super.setName(CONTROL_NAME)
-    this.setSerializeSettings({ sensitive: true, serializable: true })
+    this.setSerializeSettings({
+      sensitive: true, serializable: true,
+    })
   }
 
   get cardNumberFormControl() {

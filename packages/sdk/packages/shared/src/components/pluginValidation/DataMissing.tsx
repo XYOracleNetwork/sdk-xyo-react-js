@@ -6,7 +6,9 @@ export interface PayloadDataMissingProps extends AlertProps {
   alertBody?: string
 }
 
-export const PayloadDataMissing: React.FC<PayloadDataMissingProps> = ({ alertBody, ...props }) => {
+export const PayloadDataMissing: React.FC<PayloadDataMissingProps> = ({
+  alertBody, ...props
+}) => {
   return (
     <Alert severity="warning" {...props}>
       <AlertTitle>Missing Data</AlertTitle>

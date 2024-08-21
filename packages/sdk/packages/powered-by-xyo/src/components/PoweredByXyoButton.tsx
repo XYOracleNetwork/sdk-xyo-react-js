@@ -30,7 +30,15 @@ export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   img.src = xyoColorLogoText
   return imageLoaded
     ? (
-        <ButtonEx href={href} target={target} variant={variant} sx={{ borderRadius: 0, padding: 0, ...sx }} {...props}>
+        <ButtonEx
+          href={href}
+          target={target}
+          variant={variant}
+          sx={{
+            borderRadius: 0, padding: 0, ...sx,
+          }}
+          {...props}
+        >
           <FlexCol padding={0.5}>
             <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
               Powered by

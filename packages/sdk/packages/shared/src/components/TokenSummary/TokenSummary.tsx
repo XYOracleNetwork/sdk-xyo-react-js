@@ -12,7 +12,9 @@ export interface TokenSummaryProps extends CardHeaderProps {
   symbolElement?: ReactNode
 }
 
-export const TokenSummary: React.FC<TokenSummaryProps> = ({ icon, symbol, symbolElement, children, ...props }) => {
+export const TokenSummary: React.FC<TokenSummaryProps> = ({
+  icon, symbol, symbolElement, children, ...props
+}) => {
   return (
     <>
       <CardHeader

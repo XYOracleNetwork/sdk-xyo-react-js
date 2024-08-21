@@ -8,7 +8,9 @@ export interface DetailsFlexboxProps extends FlexBoxProps {
   onClose?: () => void
 }
 
-export const DetailsFlexbox: React.FC<DetailsFlexboxProps> = ({ children, onClose }) => {
+export const DetailsFlexbox: React.FC<DetailsFlexboxProps> = ({
+  children, onClose,
+}) => {
   return (
     <FlexGrowCol alignItems="end" justifyContent="start" id="module-detail" width="100%" p={2} gap={2}>
       <FlexRow justifyContent="end">

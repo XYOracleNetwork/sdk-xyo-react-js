@@ -13,8 +13,12 @@ export type NetworkSelectExProps = Omit<SelectExProps<string>, 'variant'> &
     responsive?: boolean
   }
 
-export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({ onChange, variant = 'outlined', responsive = true, ...props }) => {
-  const { network, setNetwork, networks } = useNetwork(false)
+export const NetworkSelectEx: React.FC<NetworkSelectExProps> = ({
+  onChange, variant = 'outlined', responsive = true, ...props
+}) => {
+  const {
+    network, setNetwork, networks,
+  } = useNetwork(false)
   const sm = useBreakpoint() === 'sm'
   return (
     <SelectEx

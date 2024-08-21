@@ -23,5 +23,7 @@ export const blockTableColumnConfigDefaults = (): BlockTableColumnConfig => {
   const md: BlockTableColumnSlug[] = ['hash', 'payloads', 'valid']
   const lg: BlockTableColumnSlug[] = ['hash', 'payloads', 'valid']
   const xl: BlockTableColumnSlug[] = ['hash', 'payloads', 'valid']
-  return { lg, md, sm, xl, xs }
+  return {
+    lg, md, sm, xl, xs,
+  }
 }

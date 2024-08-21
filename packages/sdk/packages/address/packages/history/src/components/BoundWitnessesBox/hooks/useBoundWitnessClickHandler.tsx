@@ -8,8 +8,12 @@ import type { BoundwitnessClickType } from '../lib/index.ts'
 
 export const useBoundWitnessClickHandler = () => {
   const mounted = useMounted()
-  const { hashSelectionHistory, fetchFromHash, addSelection, clearHistory } = usePayloadHashSelectionHistory(false)
-  const { setClickedExistingHash, setLoading } = useNestedBoundWitnesses(false)
+  const {
+    hashSelectionHistory, fetchFromHash, addSelection, clearHistory,
+  } = usePayloadHashSelectionHistory(false)
+  const {
+    setClickedExistingHash, setLoading,
+  } = useNestedBoundWitnesses(false)
   const boundwitnessClick = useCallback(
     (noun: EventNoun, data?: Hash, clickType?: BoundwitnessClickType) => {
       // eslint-disable-next-line complexity

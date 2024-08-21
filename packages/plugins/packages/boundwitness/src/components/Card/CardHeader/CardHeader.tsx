@@ -1,5 +1,7 @@
 import type { CardHeaderProps } from '@mui/material'
-import { CardHeader, styled, useTheme } from '@mui/material'
+import {
+  CardHeader, styled, useTheme,
+} from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { Payload } from '@xyo-network/payload-model'
@@ -80,7 +82,9 @@ interface CardHeaderHashProps extends CardHeaderProps {
 const CardHeaderHash = styled(CardHeader, {
   name: 'CardHeaderHash',
   shouldForwardProp: prop => !['active', 'activeBgColor'].includes(prop as string),
-})<CardHeaderHashProps>(({ theme, active, activeBgColor }) => ({
+})<CardHeaderHashProps>(({
+  theme, active, activeBgColor,
+}) => ({
   '& .MuiCardHeader-action': {
     marginBottom: 0,
     marginTop: 0,

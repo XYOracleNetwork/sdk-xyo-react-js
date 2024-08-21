@@ -4,7 +4,9 @@ import type { SchemaListPayload, SchemaListQueryPayload } from '@xyo-network/div
 import { SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
 import type { WithMeta } from '@xyo-network/payload-model'
 import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
-import { useEffect, useMemo, useState } from 'react'
+import {
+  useEffect, useMemo, useState,
+} from 'react'
 
 export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDiviner'): [SchemaListPayload | null | undefined, Error | undefined] => {
   const [schemaList, setSchemaList] = useState<SchemaListPayload | null>()

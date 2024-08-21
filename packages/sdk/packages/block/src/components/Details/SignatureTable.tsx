@@ -1,5 +1,7 @@
 import type { TableProps } from '@mui/material'
-import { Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material'
+import {
+  Table, TableBody, TableCell, TableHead, TableRow, Typography,
+} from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/hash'
 import { ScrollTableOnSm, usePromise } from '@xyo-network/react-shared'
@@ -32,7 +34,9 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
+export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({
+  block, ...props
+}) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
   const [hash] = usePromise(async () => block ? await PayloadHasher.hash(block) : undefined, [block])
 
@@ -46,12 +50,28 @@ export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block,
                 <strong>Address</strong>
               </Typography>
             </TableCell>
-            <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center" width="10px">
+            <TableCell
+              sx={{
+                display: {
+                  md: 'table-cell', xs: 'none',
+                },
+              }}
+              align="center"
+              width="10px"
+            >
               <Typography variant="caption">
                 <strong>Previous</strong>
               </Typography>
             </TableCell>
-            <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center" width="10px">
+            <TableCell
+              sx={{
+                display: {
+                  sm: 'table-cell', xs: 'none',
+                },
+              }}
+              align="center"
+              width="10px"
+            >
               <Typography variant="caption">
                 <strong>Signature</strong>
               </Typography>

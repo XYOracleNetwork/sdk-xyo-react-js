@@ -1,4 +1,6 @@
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
@@ -32,7 +34,9 @@ export default {
 const Template: StoryFn<React.FC> = () => {
   const [node] = useWeakProvidedNode() as [WeakRef<MemoryNode>]
 
-  const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
+  const [account] = useWallet({
+    mnemonic: DefaultSeedPhrase, path: '0',
+  })
 
   useAsyncEffect(
 
@@ -40,7 +44,12 @@ const Template: StoryFn<React.FC> = () => {
       const nodeInstance = node?.deref()
       if (nodeInstance && account) {
         try {
-          const mod = await TestModule.create({ account, config: { name: TestModuleName, schema: TestModuleConfigSchema } })
+          const mod = await TestModule.create({
+            account,
+            config: {
+              name: TestModuleName, schema: TestModuleConfigSchema,
+            },
+          })
           await nodeInstance.register(mod)
           await nodeInstance.attach(mod.address, true)
         } catch (e) {

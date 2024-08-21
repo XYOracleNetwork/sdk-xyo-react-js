@@ -11,7 +11,9 @@ interface CardViewToggleProps extends FlexBoxProps {
   setCardViewStyle: Dispatch<SetStateAction<CardViewType>>
 }
 
-export const CardViewToggle: React.FC<CardViewToggleProps> = ({ cardViewStyle, setCardViewStyle }) => {
+export const CardViewToggle: React.FC<CardViewToggleProps> = ({
+  cardViewStyle, setCardViewStyle,
+}) => {
   return (
     <FlexGrowRow paddingBottom={3} alignContent="flex-start" alignItems="start" width="100%">
       <ButtonGroup variant="contained" color="secondary" aria-label="outlined primary button group">

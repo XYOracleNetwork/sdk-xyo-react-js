@@ -5,7 +5,9 @@ import type { MapboxFlexBoxProps } from '../lib/index.ts'
 import { MapBox } from './MapBox.tsx'
 import { MapSettingsBox } from './MapSettingsComponents/index.ts'
 
-export const MapboxHeatFlexBox: React.FC<MapboxFlexBoxProps> = ({ accessToken, children, mapBoxOptions, zoom, legend, developerMode, ...props }) => {
+export const MapboxHeatFlexBox: React.FC<MapboxFlexBoxProps> = ({
+  accessToken, children, mapBoxOptions, zoom, legend, developerMode, ...props
+}) => {
   return (
     <FlexCol {...props}>
       <MapBox accessToken={accessToken} options={mapBoxOptions} zoom={zoom} />

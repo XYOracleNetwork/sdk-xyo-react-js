@@ -1,12 +1,16 @@
 import { Button, ButtonGroup } from '@mui/material'
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
-import { NodeProvider, useWeakNodeFromNode, useWeakProvidedNode } from '@xyo-network/react-node'
+import {
+  NodeProvider, useWeakNodeFromNode, useWeakProvidedNode,
+} from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
 import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
@@ -27,25 +31,45 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   useAsyncEffect(
     async () => {
       try {
-        const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
-        const node1 = await MemoryNode.create({ config: { name: 'ChildNode', schema: NodeConfigSchema } })
+        const node = await MemoryNode.create({
+          config: {
+            name: 'GlobalNode', schema: NodeConfigSchema,
+          },
+        })
+        const node1 = await MemoryNode.create({
+          config: {
+            name: 'ChildNode', schema: NodeConfigSchema,
+          },
+        })
         const bridge = await HttpBridge.create({
-          config: { name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
+          config: {
+            name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
+          },
         })
         await node.register(bridge)
         await node.attach(bridge.address, true)
 
-        const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: MemoryArchivistConfigSchema } })
+        const archivist = await MemoryArchivist.create({
+          config: {
+            name: 'RootStorageArchivist', schema: MemoryArchivistConfigSchema,
+          },
+        })
         await node.register(archivist)
         await node.attach(archivist.address, true)
 
         const sentinel = await MemorySentinel.create({
-          config: { name: 'MemorySentinel', schema: SentinelConfigSchema, synchronous: true, tasks: [] },
+          config: {
+            name: 'MemorySentinel', schema: SentinelConfigSchema, synchronous: true, tasks: [],
+          },
         })
         await node.register(sentinel)
         await node.attach(sentinel.address, true)
 
-        const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: MemoryArchivistConfigSchema } })
+        const archivist1 = await MemoryArchivist.create({
+          config: {
+            name: 'RootStorageArchivist1', schema: MemoryArchivistConfigSchema,
+          },
+        })
         await node1.register(archivist1)
         await node1.attach(archivist1.address, true)
 
@@ -105,7 +129,11 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
   useAsyncEffect(
 
     async () => {
-      const witnessModule = await IdWitness.create({ config: { name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema } })
+      const witnessModule = await IdWitness.create({
+        config: {
+          name: 'IdWitness', salt: 'test', schema: IdWitnessConfigSchema,
+        },
+      })
       setIdWitness(witnessModule)
     },
     [],
@@ -150,7 +178,9 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { options, ...defaultProps }
+WithData.args = {
+  options, ...defaultProps,
+}
 
 const WithDescribe = TemplateDescribe.bind({})
 WithDescribe.args = { ...defaultProps }
@@ -168,4 +198,6 @@ const WithProvidedNodeRenderer = TemplateProvidedNodeRenderer.bind({})
 WithProvidedNodeRenderer.args = { ...defaultProps }
 WithProvidedNodeRenderer.decorators = [MemoryNodeDecorator]
 
-export { Default, WithAttachDetach, WithCustomAddress, WithData, WithDescribe, WithProvidedNodeRenderer }
+export {
+  Default, WithAttachDetach, WithCustomAddress, WithData, WithDescribe, WithProvidedNodeRenderer,
+}

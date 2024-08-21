@@ -3,7 +3,9 @@ import type { Hash } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
 import React, { createRef } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter, Route, Routes,
+} from 'react-router-dom'
 
 import { BlockLinksDetails } from './BlockLinksDetails.tsx'
 import { BlockDetails } from './Details.tsx'
@@ -47,7 +49,9 @@ const WithArchiveLink = Template.bind({})
 WithArchiveLink.args = { block: sampleBlock }
 
 const WithPreviousHash = Template.bind({})
-const block = { ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] as Hash[] }
+const block = {
+  ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] as Hash[],
+}
 WithPreviousHash.args = {
   block,
   children: (
@@ -59,8 +63,12 @@ WithPreviousHash.args = {
 }
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = { block: sampleBlock, paper: true }
+WithArchiveLinkPaper.args = {
+  block: sampleBlock, paper: true,
+}
 
-export { Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithPreviousHash }
+export {
+  Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithPreviousHash,
+}
 
 export default StorybookEntry

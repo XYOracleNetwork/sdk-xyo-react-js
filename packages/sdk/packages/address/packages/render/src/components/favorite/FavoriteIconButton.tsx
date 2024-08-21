@@ -3,7 +3,9 @@ import { IconButton, styled } from '@mui/material'
 import type { WithChildren } from '@xylabs/react-shared'
 import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
-import React, { forwardRef, useEffect, useRef, useState } from 'react'
+import React, {
+  forwardRef, useEffect, useRef, useState,
+} from 'react'
 
 import type { FavoriteItemEvent } from '../lib/index.ts'
 import { generateFavoriteEvent } from '../lib/index.ts'
@@ -19,7 +21,9 @@ export interface FavoriteIconButtonProps extends WithChildren, IconButtonProps {
 }
 
 export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButtonProps>(
-  ({ children, favorite: favoriteProp, name, valueType, value, ...props }, ref) => {
+  ({
+    children, favorite: favoriteProp, name, valueType, value, ...props
+  }, ref) => {
     const [openPopper, setOpenPopper] = useState(false)
 
     const [favorite, setFavorite] = useState(favoriteProp)
@@ -52,7 +56,9 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
           setOpenPopper(!openPopper)
         }}
         onMouseDown={e => e.stopPropagation()}
-        sx={{ lineHeight: 0, p: 0.25 }}
+        sx={{
+          lineHeight: 0, p: 0.25,
+        }}
         {...props}
       >
         <span ref={starRef}>

@@ -1,5 +1,7 @@
 import type { AlertProps, CardProps } from '@mui/material'
-import { Alert, AlertTitle, Card, CardContent, Typography } from '@mui/material'
+import {
+  Alert, AlertTitle, Card, CardContent, Typography,
+} from '@mui/material'
 import type { WithChildren } from '@xylabs/react-shared'
 import React from 'react'
 
@@ -13,8 +15,12 @@ interface EmbedErrorCardBaseProps {
 interface EmbedErrorCardProps extends EmbedErrorCardBaseProps, CardProps {}
 
 export const EmbedErrorCard: React.FC<WithChildren<EmbedErrorCardProps>> = (props) => {
-  const { alertProps, error, scope, hideErrorDetails = true, children, ...cardProps } = props
-  const errorProps = { alertProps, error, hideErrorDetails, scope }
+  const {
+    alertProps, error, scope, hideErrorDetails = true, children, ...cardProps
+  } = props
+  const errorProps = {
+    alertProps, error, hideErrorDetails, scope,
+  }
   return (
     <Card {...cardProps}>
       <CardContent>{children ?? <DefaultErrorAlert {...errorProps} />}</CardContent>
@@ -22,7 +28,9 @@ export const EmbedErrorCard: React.FC<WithChildren<EmbedErrorCardProps>> = (prop
   )
 }
 
-const DefaultErrorAlert: React.FC<EmbedErrorCardBaseProps> = ({ alertProps, scope, hideErrorDetails, error }) => {
+const DefaultErrorAlert: React.FC<EmbedErrorCardBaseProps> = ({
+  alertProps, scope, hideErrorDetails, error,
+}) => {
   return (
     <Alert severity="error" {...alertProps}>
       <AlertTitle>Whoops! Something went wrong</AlertTitle>

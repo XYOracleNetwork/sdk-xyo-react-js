@@ -4,7 +4,9 @@ import { ArchivistAllQuerySchema } from '@xyo-network/archivist-model'
 import { asBoundWitness, BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import type { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import type { Payload } from '@xyo-network/payload-model'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, {
+  useCallback, useEffect, useMemo, useState,
+} from 'react'
 
 import { ArchivistStats } from './ArchivistStats.tsx'
 

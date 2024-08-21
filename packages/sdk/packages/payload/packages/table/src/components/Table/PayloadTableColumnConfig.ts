@@ -23,5 +23,7 @@ export const payloadTableColumnConfigDefaults = (): PayloadTableColumnConfig => 
   const md: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
   const lg: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
   const xl: PayloadTableColumnSlug[] = ['hash', 'schema', 'valid']
-  return { lg, md, sm, xl, xs }
+  return {
+    lg, md, sm, xl, xs,
+  }
 }

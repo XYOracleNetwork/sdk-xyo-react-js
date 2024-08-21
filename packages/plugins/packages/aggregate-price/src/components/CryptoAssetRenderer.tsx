@@ -14,7 +14,9 @@ export interface CryptoAssetRendererProps extends PayloadDetailsRenderProps {
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payload, ...props }) => {
+export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({
+  payload, ...props
+}) => {
   const cryptoAssetPayload = payload ? (payload as CryptoMarketAssetPayload) : undefined
 
   if (isEmpty(cryptoAssetPayload?.assets)) {

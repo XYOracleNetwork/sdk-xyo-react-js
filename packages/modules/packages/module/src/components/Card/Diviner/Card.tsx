@@ -8,7 +8,9 @@ import { ModuleCardActions } from '../Module/index.ts'
 import { DivinerCardContent } from './CardContent.tsx'
 import { DivinerCardHeader } from './CardHeader.tsx'
 
-export const DivinerCard: React.FC<CardProps & ModuleRenderProps<DivinerInstance>> = ({ children, mod, ...props }) => {
+export const DivinerCard: React.FC<CardProps & ModuleRenderProps<DivinerInstance>> = ({
+  children, mod, ...props
+}) => {
   return (
     <Card {...props}>
       <DivinerCardHeader mod={mod} />

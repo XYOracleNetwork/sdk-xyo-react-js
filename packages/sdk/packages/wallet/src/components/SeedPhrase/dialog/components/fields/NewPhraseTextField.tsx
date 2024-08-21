@@ -11,11 +11,21 @@ export interface NewPhraseTextFieldProps extends StandardTextFieldProps {
   disableColor?: boolean
 }
 
-export const NewPhraseTextField: React.FC<NewPhraseTextFieldProps> = ({ children, disableColor, ...props }) => {
-  const { phrase, setPhrase, validPhrase } = useSeedPhrase()
+export const NewPhraseTextField: React.FC<NewPhraseTextFieldProps> = ({
+  children, disableColor, ...props
+}) => {
+  const {
+    phrase, setPhrase, validPhrase,
+  } = useSeedPhrase()
   return (
     <>
-      <FormControl fullWidth size="small" sx={{ display: 'flex', flexDirection: 'column', rowGap: 1 }}>
+      <FormControl
+        fullWidth
+        size="small"
+        sx={{
+          display: 'flex', flexDirection: 'column', rowGap: 1,
+        }}
+      >
         {children}
         <TextField
           focused

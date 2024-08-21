@@ -1,4 +1,6 @@
-import { Alert, Button, MenuItem, Select, TextField } from '@mui/material'
+import {
+  Alert, Button, MenuItem, Select, TextField,
+} from '@mui/material'
 import { forget } from '@xylabs/forget'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
@@ -53,7 +55,9 @@ export const TestSentinel: React.FC<TestSentinelProps> = ({ children }) => {
         try {
           // test indexed call
           const diviner = asDivinerInstance(await node.resolve(IndexedDivinerName))
-          const query = { address, chainId: 1, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }
+          const query = {
+            address, chainId: 1, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface,
+          }
           const result = await diviner?.divine([query])
           if (result?.length) {
             setIndexedResult(true)
@@ -62,7 +66,9 @@ export const TestSentinel: React.FC<TestSentinelProps> = ({ children }) => {
             setIndexedResult(false)
             setTimeout(() => setValid(undefined), 4000)
             const contractSentinel = asSentinelInstance(await node.resolve('EvmContractSentinel'))
-            const collectionCallPayload: EvmAddress = { address, chainId: 1, schema: EvmAddressSchema }
+            const collectionCallPayload: EvmAddress = {
+              address, chainId: 1, schema: EvmAddressSchema,
+            }
             const report = await contractSentinel?.report([collectionCallPayload])
             const contract = ((report as [BoundWitness, TimeStamp, EvmContract]) ?? [])[2]
             const sentinelName = `${tokenInterface}TokenInterfaceImplementedSentinel`
@@ -99,7 +105,9 @@ export const TestSentinel: React.FC<TestSentinelProps> = ({ children }) => {
         : (
             <Alert severity={indexedResult ? 'success' : 'error'}>{indexedResult ? 'Indexed Result Found' : 'Not an indexed result'}</Alert>
           )}
-      {children?.({ address: addressField, chainId: 1, diviners: [IndexedDivinerName], tokenInterface: tokenInterfaceField })}
+      {children?.({
+        address: addressField, chainId: 1, diviners: [IndexedDivinerName], tokenInterface: tokenInterfaceField,
+      })}
     </FlexCol>
   )
 }

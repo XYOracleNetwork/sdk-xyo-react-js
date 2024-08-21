@@ -12,7 +12,9 @@ export interface LinkedProvidersFlexboxProps extends FlexBoxProps {
   providerName?: string
 }
 
-export const LinkedProvidersFlexbox: React.FC<LinkedProvidersFlexboxProps> = ({ icon, providerName, ...props }) => {
+export const LinkedProvidersFlexbox: React.FC<LinkedProvidersFlexboxProps> = ({
+  icon, providerName, ...props
+}) => {
   return (
     <FlexRow gap={4} justifyContent="space-evenly" {...props}>
       <FlexCol gap={0.5}>
@@ -21,7 +23,14 @@ export const LinkedProvidersFlexbox: React.FC<LinkedProvidersFlexboxProps> = ({ 
       </FlexCol>
       <SyncAlt fontSize="large" />
       <FlexCol gap={0.5}>
-        <ConstrainedImage constrainedValue="48px" src={icon} alt={providerName} style={{ height: '48px', maxWidth: '48px' }} />
+        <ConstrainedImage
+          constrainedValue="48px"
+          src={icon}
+          alt={providerName}
+          style={{
+            height: '48px', maxWidth: '48px',
+          }}
+        />
         <Typography variant="subtitle1">{providerName}</Typography>
       </FlexCol>
     </FlexRow>

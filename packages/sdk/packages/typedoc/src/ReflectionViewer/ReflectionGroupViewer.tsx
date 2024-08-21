@@ -2,7 +2,9 @@ import { Typography } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import type { ContainerReflection, ReflectionFlags, ReflectionGroup } from 'typedoc'
+import type {
+  ContainerReflection, ReflectionFlags, ReflectionGroup,
+} from 'typedoc'
 
 import { JsonViewerButton } from '../JsonViewerButton.tsx'
 import { resolveChildren } from '../resolveChildren.ts'
@@ -63,7 +65,9 @@ export const ReflectionGroupViewer: React.FC<ReflectionGroupViewerProps> = ({
               // I wrap this in a div since React does not understand that they have keys using the Renderer
               ? (
                   <div id={reflection.name} key={reflection.id}>
-                    {renderer({ hiddenFlags, lookup, margin: 1, padding: 1, reflection })}
+                    {renderer({
+                      hiddenFlags, lookup, margin: 1, padding: 1, reflection,
+                    })}
                   </div>
                 )
               : null

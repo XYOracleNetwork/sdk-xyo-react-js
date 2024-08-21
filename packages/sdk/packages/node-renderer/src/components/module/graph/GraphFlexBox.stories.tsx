@@ -1,5 +1,7 @@
 import { Button, ButtonGroup } from '@mui/material'
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
@@ -22,25 +24,45 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 
     async () => {
       try {
-        const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
-        const node1 = await MemoryNode.create({ config: { name: 'ChildNode', schema: NodeConfigSchema } })
+        const node = await MemoryNode.create({
+          config: {
+            name: 'GlobalNode', schema: NodeConfigSchema,
+          },
+        })
+        const node1 = await MemoryNode.create({
+          config: {
+            name: 'ChildNode', schema: NodeConfigSchema,
+          },
+        })
         const bridge = await HttpBridge.create({
-          config: { name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true } },
+          config: {
+            name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
+          },
         })
         await node.register(bridge)
         await node.attach(bridge.address, true)
 
-        const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: MemoryArchivistConfigSchema } })
+        const archivist = await MemoryArchivist.create({
+          config: {
+            name: 'RootStorageArchivist', schema: MemoryArchivistConfigSchema,
+          },
+        })
         await node.register(archivist)
         await node.attach(archivist.address, true)
 
         const sentinel = await MemorySentinel.create({
-          config: { name: 'MemorySentinel', schema: SentinelConfigSchema, synchronous: true, tasks: [] },
+          config: {
+            name: 'MemorySentinel', schema: SentinelConfigSchema, synchronous: true, tasks: [],
+          },
         })
         await node.register(sentinel)
         await node.attach(sentinel.address, true)
 
-        const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: MemoryArchivistConfigSchema } })
+        const archivist1 = await MemoryArchivist.create({
+          config: {
+            name: 'RootStorageArchivist1', schema: MemoryArchivistConfigSchema,
+          },
+        })
         await node1.register(archivist1)
         await node1.attach(archivist1.address, true)
 
@@ -103,7 +125,11 @@ WithProvidedNode.args = { ...defaultProps }
 WithProvidedNode.decorators = [MemoryNodeDecorator]
 
 const WithDisabledDetails = TemplateWithProvidedModule.bind({})
-WithDisabledDetails.args = { ...defaultProps, disableModuleDetails: true }
+WithDisabledDetails.args = {
+  ...defaultProps, disableModuleDetails: true,
+}
 WithDisabledDetails.decorators = [MemoryNodeDecorator]
 
-export { Default, WithDisabledDetails, WithProvidedNode }
+export {
+  Default, WithDisabledDetails, WithProvidedNode,
+}

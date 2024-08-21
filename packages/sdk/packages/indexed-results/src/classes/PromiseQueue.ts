@@ -36,7 +36,9 @@ export class PromiseQueue {
       // A second request with the same id param is assumed to be from the same caller.
       return new Promise((resolve, reject) => {
         // Dummy task to maintain queue consistency
-        this.queue.push({ id, reject, resolve, task: () => Promise.resolve({} as TValue) })
+        this.queue.push({
+          id, reject, resolve, task: () => Promise.resolve({} as TValue),
+        })
         // Process the queue to resolve/reject the existing promise
         void this.processQueue()
       })
@@ -46,7 +48,9 @@ export class PromiseQueue {
 
     return new Promise<TValue>((resolve, reject) => {
       const castResult = resolve as QueueItem['resolve']
-      this.queue.push({ id, reject, resolve: castResult, task })
+      this.queue.push({
+        id, reject, resolve: castResult, task,
+      })
       void this.processQueue()
     })
   }
@@ -60,7 +64,9 @@ export class PromiseQueue {
         continue
       }
 
-      const { task, resolve, reject, id } = this.queue.shift()!
+      const {
+        task, resolve, reject, id,
+      } = this.queue.shift()!
       const promise = task()
 
       // Add the promise to the set of running promises

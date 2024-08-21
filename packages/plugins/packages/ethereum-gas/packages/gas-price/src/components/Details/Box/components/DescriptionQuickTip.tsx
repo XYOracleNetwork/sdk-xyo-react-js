@@ -7,7 +7,10 @@ import React from 'react'
 export type DescriptionQuickTipProps = QuickTipButtonProps
 
 export const DescriptionQuickTip: React.FC<DescriptionQuickTipProps> = ({ ...props }) => (
-  <span style={{ lineHeight: 0, verticalAlign: 'super' }}>
+  <span style={{
+    lineHeight: 0, verticalAlign: 'super',
+  }}
+  >
     <QuickTipButton hoverText="More Info" {...props}>
       <TypographyEx>
         Ethereum gas price estimates derived by combining pricing from Blocknative, Etherchain, Ethers, and Etherscan. Learn more about recent changes

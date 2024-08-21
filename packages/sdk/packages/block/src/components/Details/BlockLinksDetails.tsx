@@ -12,7 +12,9 @@ export type PreviousBlockDetailsProps = PropertyGroupProps & {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({ value, ...props }) => {
+export const BlockLinksDetails: React.FC<PreviousBlockDetailsProps> = ({
+  value, ...props
+}) => {
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0

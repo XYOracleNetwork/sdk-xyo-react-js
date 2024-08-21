@@ -25,4 +25,6 @@ export const partialDarkThemeOptions: ThemeOptions = {
   },
 }
 
-export const partialAppDarkThemeOptions: ThemeOptions = { ...partialDarkThemeOptions, components: appComponents }
+export const partialAppDarkThemeOptions: ThemeOptions = {
+  ...partialDarkThemeOptions, components: appComponents,
+}

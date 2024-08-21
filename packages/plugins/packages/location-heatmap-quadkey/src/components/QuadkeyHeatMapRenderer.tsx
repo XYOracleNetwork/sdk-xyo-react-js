@@ -1,10 +1,13 @@
-import { Alert, AlertTitle, useTheme } from '@mui/material'
+import {
+  Alert, AlertTitle, useTheme,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
 import { ErrorRender } from '@xyo-network/react-error'
 import type {
   MapSetting,
-  NetworkLocationHeatmapQuadkeyAnswerPayload } from '@xyo-network/react-map'
+  NetworkLocationHeatmapQuadkeyAnswerPayload,
+} from '@xyo-network/react-map'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,
@@ -26,8 +29,12 @@ export interface QuadkeyHeatMapInnerProps extends FlexBoxProps {
   payload?: Payload
 }
 
-const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({ developerMode, payload, accessToken, ...props }) => {
-  const { error, features } = useQuadKeyPayloadsToFeatures((payload ?? {}) as NetworkLocationHeatmapQuadkeyAnswerPayload)
+const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({
+  developerMode, payload, accessToken, ...props
+}) => {
+  const {
+    error, features,
+  } = useQuadKeyPayloadsToFeatures((payload ?? {}) as NetworkLocationHeatmapQuadkeyAnswerPayload)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
   const accessTokenResolved = accessToken ?? accessTokenFromContext
@@ -62,7 +69,9 @@ export interface QuadkeyHeatMapSettings extends QuadkeyHeatMapInnerProps {
   settings?: MapSetting
 }
 
-export const QuadkeyHeatMapWithSettingsRenderer: React.FC<QuadkeyHeatMapSettings> = ({ settings, ...props }) => {
+export const QuadkeyHeatMapWithSettingsRenderer: React.FC<QuadkeyHeatMapSettings> = ({
+  settings, ...props
+}) => {
   return (
     <MapBoxInstanceProvider>
       <MapSettingsProvider defaultMapSettings={settings ?? QuadkeyHeatMapSettings()} debugLayerName={MapHeatConstants.LocationDebugLayerId}>

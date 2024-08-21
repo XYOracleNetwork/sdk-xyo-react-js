@@ -7,7 +7,9 @@ import { useTableHeight } from '@xyo-network/react-table'
 import type { Dispatch, SetStateAction } from 'react'
 import React, { forwardRef, useState } from 'react'
 
-import { BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable } from '../../_shared/index.ts'
+import {
+  BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable,
+} from '../../_shared/index.ts'
 import { BoundWitnessBottomNavigation, BWNavigationTabs } from './Navigation/index.ts'
 
 export interface DetailsCardContentProps extends CardContentExProps {
@@ -16,7 +18,9 @@ export interface DetailsCardContentProps extends CardContentExProps {
   setCollapsed?: Dispatch<SetStateAction<boolean>>
 }
 
-export const DetailsCardContent = forwardRef<HTMLDivElement, DetailsCardContentProps>(({ collapsed, boundwitness, setCollapsed, ...props }, ref) => {
+export const DetailsCardContent = forwardRef<HTMLDivElement, DetailsCardContentProps>(({
+  collapsed, boundwitness, setCollapsed, ...props
+}, ref) => {
   const { height } = useTableHeight()
   const [activeTab, setActiveTab] = useState(0)
 
@@ -26,7 +30,13 @@ export const DetailsCardContent = forwardRef<HTMLDivElement, DetailsCardContentP
         <Collapse in={collapsed}>
           <FlexRow alignItems="stretch" height={height !== undefined && collapsed ? height : 'auto'} {...props}>
             <BWNavigationTabs value={activeTab} setValue={setActiveTab} boundWitness={boundwitness} />
-            <FlexGrowCol justifyContent="start" overflow="scroll" sx={{ borderLeft: '1px solid', borderLeftColor: 'divider' }}>
+            <FlexGrowCol
+              justifyContent="start"
+              overflow="scroll"
+              sx={{
+                borderLeft: '1px solid', borderLeftColor: 'divider',
+              }}
+            >
               {activeTab === 0
                 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" />
                 : null}

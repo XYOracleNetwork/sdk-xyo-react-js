@@ -4,7 +4,9 @@ import React from 'react'
 
 import { WalletAccountSelect } from './Select.tsx'
 import { WalletProviderDecorator } from './stories/index.ts'
-import { AccountInfo, RootWalletInfo, SelectedWalletInfo, WalletInfo } from './WalletInfo.tsx'
+import {
+  AccountInfo, RootWalletInfo, SelectedWalletInfo, WalletInfo,
+} from './WalletInfo.tsx'
 
 const StorybookEntry = {
   argTypes: {},

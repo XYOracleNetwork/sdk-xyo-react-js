@@ -1,4 +1,6 @@
-import { Card, CardContent, Typography } from '@mui/material'
+import {
+  Card, CardContent, Typography,
+} from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
@@ -53,4 +55,6 @@ DefaultNetworkConfig.args = {
 
 export default StorybookEntry
 
-export { Default, DefaultNetworkConfig, DefaultNetworkName }
+export {
+  Default, DefaultNetworkConfig, DefaultNetworkName,
+}

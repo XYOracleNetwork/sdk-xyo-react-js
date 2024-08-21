@@ -11,7 +11,9 @@ export const useCreditCardCvvFormControl = (
   cardNumberControlName = 'cardNumber',
   control?: new () => FormControlBase<StandardTextFieldProps>,
 ) => {
-  const { creditCardFormControl, error, value, inputRef } = useCreditCardFormControl(formControlName, control)
+  const {
+    creditCardFormControl, error, value, inputRef,
+  } = useCreditCardFormControl(formControlName, control)
 
   // only use FormGroupContext when name is passed
   const { formGroup } = useFormGroupWithCreditCardInput(!!formControlName)
@@ -29,5 +31,7 @@ export const useCreditCardCvvFormControl = (
     }
   }, [creditCardFormControl, creditCardNumberFormControl])
 
-  return { creditCardFormControl, error, inputRef, value }
+  return {
+    creditCardFormControl, error, inputRef, value,
+  }
 }

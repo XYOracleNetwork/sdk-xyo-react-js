@@ -47,6 +47,8 @@ WithName.args = {
   } as AddressPayload,
 }
 
-export { Default, WithAddress, WithName }
+export {
+  Default, WithAddress, WithName,
+}
 
 export default StorybookEntry

@@ -13,7 +13,10 @@ export abstract class FormControlBase<TProps extends EmptyObject = EmptyObject> 
   /**
    * The current and previous cursor position of the input element.
    */
-  cursorPosition: CursorPosition = { current: undefined, previous: undefined }
+  cursorPosition: CursorPosition = {
+    current: undefined, previous: undefined,
+  }
+
   invalidMessage = 'Invalid input'
   pattern = AllowAllRegex
   patternStrict = AllowAllRegex

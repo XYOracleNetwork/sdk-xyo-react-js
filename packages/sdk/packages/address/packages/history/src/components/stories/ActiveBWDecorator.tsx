@@ -13,7 +13,9 @@ export const ActiveBWDecorator: Decorator = (Story, args) => {
   return (
     <ActiveBoundWitnessContext.Provider
       // eslint-disable-next-line @eslint-react/no-unstable-context-value
-      value={{ activeBoundWitness, activeBoundWitnessHash, provided: true, setActiveBoundWitness, setActiveBoundWitnessHash }}
+      value={{
+        activeBoundWitness, activeBoundWitnessHash, provided: true, setActiveBoundWitness, setActiveBoundWitnessHash,
+      }}
     >
       <Story {...args} />
     </ActiveBoundWitnessContext.Provider>
@@ -25,7 +27,10 @@ export const ActiveBWDecoratorWithDefaultValues: Decorator = (Story, args) => {
   const activeBoundWitnessHash = usePayloadHash(activeBoundWitness)
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <ActiveBoundWitnessContext.Provider value={{ activeBoundWitness, activeBoundWitnessHash, provided: true, setActiveBoundWitness }}>
+    <ActiveBoundWitnessContext.Provider value={{
+      activeBoundWitness, activeBoundWitnessHash, provided: true, setActiveBoundWitness,
+    }}
+    >
       <Story {...args} />
     </ActiveBoundWitnessContext.Provider>
   )

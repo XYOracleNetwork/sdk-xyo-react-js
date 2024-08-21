@@ -8,7 +8,9 @@ export interface SourceViewerProps extends FlexBoxProps {
   source: SourceReference
 }
 
-export const SourceViewer: React.FC<SourceViewerProps> = ({ source, ...props }) => {
+export const SourceViewer: React.FC<SourceViewerProps> = ({
+  source, ...props
+}) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
       <Typography style={{ opacity: 0.5 }} variant="body2">

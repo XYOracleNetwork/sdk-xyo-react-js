@@ -8,7 +8,9 @@ import type { ModuleDetailsProps } from './ModuleDetails.tsx'
 
 export interface NodeViewerProps extends ModuleDetailsProps<NodeInstance> {}
 
-export const NodeDetails: React.FC<NodeViewerProps> = ({ mod, ...props }) => {
+export const NodeDetails: React.FC<NodeViewerProps> = ({
+  mod, ...props
+}) => {
   const [node = mod] = useProvidedNode()
 
   const [children] = useWeakModulesFromNode(undefined, { node: node ?? undefined })

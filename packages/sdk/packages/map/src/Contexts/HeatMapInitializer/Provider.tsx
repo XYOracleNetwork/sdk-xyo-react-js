@@ -1,7 +1,9 @@
 import { forget } from '@xylabs/forget'
 import type { WithChildren } from '@xylabs/react-shared'
 import type { Feature, Polygon } from 'geojson'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, {
+  useEffect, useMemo, useState,
+} from 'react'
 
 import type { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.ts'
 import { useDynamicPositioning } from '../../hooks/index.ts'
@@ -35,7 +37,9 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
   const [mapHeat, setMapHeat] = useState<MapHeat>()
   const { options } = useDynamicPositioning()
   const { mapSettings } = useMapSettings()
-  const { map, mapInitialized } = useMapBoxInstance()
+  const {
+    map, mapInitialized,
+  } = useMapBoxInstance()
 
   const value: HeatMapInitializerState = useMemo(() => ({
     MapHeat: mapHeat,
@@ -44,7 +48,9 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
 
   useEffect(() => {
     if (mapInitialized && featureSets?.length && featureSets[0].length > 0 && map && featureSetsLayers?.length) {
-      const { lowUsageColor, highUsageColor } = heatMapColorProps as AnimatedHeatMapColorProps
+      const {
+        lowUsageColor, highUsageColor,
+      } = heatMapColorProps as AnimatedHeatMapColorProps
       forget(MapHeat.initializeAnimatedHeatMapSource(featureSetsLayers, featureSets, map, lowUsageColor, highUsageColor))
     }
 
@@ -66,7 +72,11 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
       if (map) {
         if (fitToPoints?.value === true) {
           MapHeat.initialMapPositioning(
-            { padding: { bottom: fitToPadding, left: fitToPadding, right: fitToPadding, top: fitToPadding } },
+            {
+              padding: {
+                bottom: fitToPadding, left: fitToPadding, right: fitToPadding, top: fitToPadding,
+              },
+            },
             map,
             features,
           )
@@ -81,7 +91,9 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
   useEffect(() => {
     if (map && features?.length) {
       // Every time we get a new map or features, we make a new class
-      setMapHeat(new MapHeat({ features, map, zoom }))
+      setMapHeat(new MapHeat({
+        features, map, zoom,
+      }))
     }
   }, [map, features, zoom])
 

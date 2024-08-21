@@ -8,7 +8,9 @@ import React from 'react'
 import { ArchivistCardContent } from './CardContent.tsx'
 import { ArchivistCardHeader } from './CardHeader.tsx'
 
-export const ArchivistCard: React.FC<CardProps & ModuleRenderProps<ArchivistInstance>> = ({ children, mod, ...props }) => {
+export const ArchivistCard: React.FC<CardProps & ModuleRenderProps<ArchivistInstance>> = ({
+  children, mod, ...props
+}) => {
   return (
     <Card {...props}>
       <ArchivistCardHeader mod={mod} />

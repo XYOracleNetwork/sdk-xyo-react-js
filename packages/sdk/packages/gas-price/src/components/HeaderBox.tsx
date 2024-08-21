@@ -10,7 +10,9 @@ export interface GasPriceWitnessHeaderBoxProps extends FlexBoxProps {
   parsedPayload?: GasPriceWitnessUIBasePayload
 }
 
-export const GasPriceWitnessHeaderBox: React.FC<GasPriceWitnessHeaderBoxProps> = ({ heading, parsedPayload, ...props }) => {
+export const GasPriceWitnessHeaderBox: React.FC<GasPriceWitnessHeaderBoxProps> = ({
+  heading, parsedPayload, ...props
+}) => {
   return (
     <StyledGasPriceHeaderBox {...props}>
       <GasPriceHeaderTypography heading={heading} />

@@ -1,6 +1,8 @@
 import { Divider, Paper } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
-import { FlexCol, FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
+import {
+  FlexCol, FlexGrowCol, FlexGrowRow,
+} from '@xylabs/react-flexbox'
 import type { WebAppNavigationType } from '@xyo-network/react-app-settings'
 import { ApplicationAppBar, SystemToolbar } from '@xyo-network/react-appbar'
 import { Footer } from '@xyo-network/react-footer'
@@ -23,7 +25,9 @@ export interface WebAppChromeProps extends FlexBoxProps {
 }
 
 export const WebAppChrome = forwardRef<HTMLDivElement, WebAppChromeProps>(
-  ({ appName, appbar, children, errorBoundary, errorPage, footer, footerElevation = 4, menuItems, navigationType = 'menu', ...props }, ref) => {
+  ({
+    appName, appbar, children, errorBoundary, errorPage, footer, footerElevation = 4, menuItems, navigationType = 'menu', ...props
+  }, ref) => {
     return (
       <FlexCol id="web-chrome-flex" alignItems="stretch" overflow="hidden" height="100vh" ref={ref} {...props}>
         <Helmet defaultTitle={appName} titleTemplate={`%s | ${appName}`}>

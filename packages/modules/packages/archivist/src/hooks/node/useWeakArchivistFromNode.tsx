@@ -7,5 +7,7 @@ export const useWeakArchivistFromNode = (
   nameOrAddressOrInstance?: string | ArchivistInstance,
   config?: WeakModuleFromNodeConfig,
 ): [WeakRef<ArchivistInstance> | undefined, Error | undefined] => {
-  return useWeakModuleFromNode<ArchivistInstance>(nameOrAddressOrInstance, { identity: isArchivistInstance, ...config })
+  return useWeakModuleFromNode<ArchivistInstance>(nameOrAddressOrInstance, {
+    identity: isArchivistInstance, ...config,
+  })
 }

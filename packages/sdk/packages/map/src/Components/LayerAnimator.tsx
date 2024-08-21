@@ -1,7 +1,9 @@
 import type { WithChildren } from '@xylabs/react-shared'
 import { useInterval } from '@xylabs/react-shared'
 import type { Map } from 'mapbox-gl'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, {
+  useCallback, useEffect, useRef, useState,
+} from 'react'
 
 import type { MapLayer } from '../Layers/index.ts'
 import type { MapboxFlexBoxProps } from '../lib/index.ts'
@@ -16,7 +18,9 @@ export interface LayerAnimatorProps {
 const timeIncrement = 2000
 const animatedLayerCount = 3
 
-export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ animateLayers, children, layers, layersInitialized, map }) => {
+export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({
+  animateLayers, children, layers, layersInitialized, map,
+}) => {
   const [fillLayers, setFillLayers] = useState<MapLayer[]>([])
   const layerIndexQueue = useRef<number[]>([])
 
@@ -74,7 +78,9 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({ anim
         layers.filter((layer) => {
           const fillLayer = layer.id.startsWith('location-fill')
           if (fillLayer) {
-            map.setPaintProperty(layer.id, 'fill-opacity-transition', { delay: 0, duration: 4000 })
+            map.setPaintProperty(layer.id, 'fill-opacity-transition', {
+              delay: 0, duration: 4000,
+            })
           }
           return fillLayer
         }),

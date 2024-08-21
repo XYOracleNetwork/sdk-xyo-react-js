@@ -1,4 +1,6 @@
-import { Alert, AlertTitle, useTheme } from '@mui/material'
+import {
+  Alert, AlertTitle, useTheme,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { GeographicCoordinateSystemLocationPayload } from '@xyo-network/location-payload-plugin'
 import type { Payload } from '@xyo-network/payload-model'
@@ -19,7 +21,9 @@ export interface PointMapInnerProps extends FlexBoxProps {
   payload?: Payload
 }
 
-const PointMapInner: React.FC<PointMapInnerProps> = ({ accessToken, payload, ...props }) => {
+const PointMapInner: React.FC<PointMapInnerProps> = ({
+  accessToken, payload, ...props
+}) => {
   const theme = useTheme()
   const [feature, setFeature] = useState<Feature<Point>>()
   const locationPayload = payload ? (payload as GeographicCoordinateSystemLocationPayload) : undefined

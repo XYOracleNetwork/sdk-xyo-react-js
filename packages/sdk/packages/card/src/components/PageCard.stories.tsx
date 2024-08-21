@@ -62,6 +62,8 @@ WithNoOnRefresh.parameters = {
 const WithRef = Template.bind({})
 WithRef.decorators = [WithRefDecorator]
 
-export { Default, WithNoOnRefresh, WithRef }
+export {
+  Default, WithNoOnRefresh, WithRef,
+}
 
 export default StorybookEntry

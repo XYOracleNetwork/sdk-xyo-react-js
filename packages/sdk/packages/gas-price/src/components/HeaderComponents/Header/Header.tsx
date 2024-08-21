@@ -10,7 +10,9 @@ export interface GasPriceHeaderTypographyProps extends TypographyExProps, WithCh
   heading?: string
 }
 
-export const GasPriceHeaderTypography: React.FC<GasPriceHeaderTypographyProps> = ({ heading, children, ...props }) => {
+export const GasPriceHeaderTypography: React.FC<GasPriceHeaderTypographyProps> = ({
+  heading, children, ...props
+}) => {
   const theme = useTheme()
   const [ethData] = useGetTokenData(['eth'])
   const networkIcon = <img height={theme.spacing(4)} src={ethData.icon} />

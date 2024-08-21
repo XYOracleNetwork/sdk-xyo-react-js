@@ -56,6 +56,8 @@ SkipBody.args = {
   } as Payload,
 }
 
-export { Default, SkipBody, WithErrorsInToolTip }
+export {
+  Default, SkipBody, WithErrorsInToolTip,
+}
 
 export default StorybookEntry

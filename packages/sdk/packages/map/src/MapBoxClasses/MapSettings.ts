@@ -1,4 +1,6 @@
-import type { Map, MapEventOf, MapEventType } from 'mapbox-gl'
+import type {
+  Map, MapEventOf, MapEventType,
+} from 'mapbox-gl'
 import { GeolocateControl, NavigationControl } from 'mapbox-gl'
 
 import type { MapSetting } from '../Settings/index.ts'
@@ -76,8 +78,12 @@ export class MapSettings {
   }
 
   static updateSettings(config: MapSettingsConfig) {
-    const { settings, map, zoom, requestLocation, debugLayerName = '' } = config
-    const { scrollToZoom, enableControls, debugLayer, debugLogging } = settings
+    const {
+      settings, map, zoom, requestLocation, debugLayerName = '',
+    } = config
+    const {
+      scrollToZoom, enableControls, debugLayer, debugLogging,
+    } = settings
 
     MapSettings.toggleControls(enableControls?.value, map, zoom, requestLocation)
       .toggleScrollToZoom(scrollToZoom?.value, map)

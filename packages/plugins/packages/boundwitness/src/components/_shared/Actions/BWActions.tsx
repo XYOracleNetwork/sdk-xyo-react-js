@@ -44,7 +44,13 @@ export const BWActions: React.FC<BWActionsProps> = ({
       {hideJSONButton
         ? null
         : (
-            <QuickTipButton Icon={DataObjectIcon} title={`JSON for ${ellipsize(hash ?? '', 8)}`} dialogProps={{ fullWidth: true, maxWidth: 'md' }}>
+            <QuickTipButton
+              Icon={DataObjectIcon}
+              title={`JSON for ${ellipsize(hash ?? '', 8)}`}
+              dialogProps={{
+                fullWidth: true, maxWidth: 'md',
+              }}
+            >
               <pre style={{ wordBreak: 'break-all' }}>{boundwitness ? JSON.stringify(boundwitness, null, 2) : null}</pre>
             </QuickTipButton>
           )}

@@ -11,7 +11,9 @@ import { EmbedCardHeader } from './EmbedCardHeader.tsx'
 
 export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
   const { payload } = useResolvePayload()
-  const { activePlugin: ActivePlugin, plugins, hideElementsConfig } = useEmbedPluginState()
+  const {
+    activePlugin: ActivePlugin, plugins, hideElementsConfig,
+  } = useEmbedPluginState()
   const { listMode } = useListMode()
   const supportsListMode = ActivePlugin?.components?.box?.listModes?.length ?? 0 > 1
 

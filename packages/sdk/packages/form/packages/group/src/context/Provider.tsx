@@ -13,15 +13,24 @@ export interface FormGroupPayloadProviderProps<TStorage extends Payload = Payloa
 /**
  * Provides a FormGroup to child components.
  */
-export const FormGroupPayloadProvider = ({ children, params, ...props }: FormGroupPayloadProviderProps) => {
+export const FormGroupPayloadProvider = ({
+  children, params, ...props
+}: FormGroupPayloadProviderProps) => {
   const formGroup = useMemo(() => {
     const formGroup = new FormGroup<Payload, Payload>(params)
     return formGroup
   }, [params])
 
+  const value = useMemo(() => ({
+    formGroup, provided: true,
+  }), [formGroup])
+
   return (
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <FormGroupBaseContext.Provider value={{ formGroup, provided: true }} {...props}>
+
+    <FormGroupBaseContext.Provider
+      value={value}
+      {...props}
+    >
       {children}
     </FormGroupBaseContext.Provider>
   )

@@ -1,4 +1,6 @@
-import { NewReleases as NewReleasesIcon, OpenInNew as OpenInNewIcon, Verified as VerifiedIcon } from '@mui/icons-material'
+import {
+  NewReleases as NewReleasesIcon, OpenInNew as OpenInNewIcon, Verified as VerifiedIcon,
+} from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { LinkEx } from '@xylabs/react-link'
@@ -34,7 +36,9 @@ const useResolveSchema = (schema?: string) => {
 }
 
 export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
-  ({ showLinkNames = true, showOpenNewWindowLink = true, showStatusIcon = true, titleProps, value, ...props }, forwardedRef) => {
+  ({
+    showLinkNames = true, showOpenNewWindowLink = true, showStatusIcon = true, titleProps, value, ...props
+  }, forwardedRef) => {
     const resolvedSchema = useResolveSchema(value)
     const [buttonRef, buttonDispatch] = useEvent<HTMLButtonElement>()
     const [divRef, divDispatch] = useEvent<HTMLDivElement>()

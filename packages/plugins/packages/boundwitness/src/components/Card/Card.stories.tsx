@@ -17,6 +17,8 @@ const Default = Template.bind({})
 Default.args = { payload: sampleBlock }
 
 const WithActive = Template.bind({})
-WithActive.args = { active: true, payload: sampleBlock }
+WithActive.args = {
+  active: true, payload: sampleBlock,
+}
 
 export { Default, WithActive }

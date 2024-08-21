@@ -5,7 +5,9 @@ import React from 'react'
 
 import type { ConnectedWalletTableCellProps } from './lib/index.ts'
 
-export const ConnectedWalletsWalletTableCell: React.FC<ConnectedWalletTableCellProps> = ({ icon, walletName, tableCellProps }) => {
+export const ConnectedWalletsWalletTableCell: React.FC<ConnectedWalletTableCellProps> = ({
+  icon, walletName, tableCellProps,
+}) => {
   const theme = useTheme()
 
   return (

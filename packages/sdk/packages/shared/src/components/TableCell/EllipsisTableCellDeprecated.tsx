@@ -1,7 +1,9 @@
 import type { TableCellProps } from '@mui/material'
 import { TableCell, useTheme } from '@mui/material'
 import { LinkEx } from '@xylabs/react-link'
-import React, { useEffect, useRef, useState } from 'react'
+import React, {
+  useEffect, useRef, useState,
+} from 'react'
 import type { To } from 'react-router-dom'
 
 import { getActualPaddingX } from '../../lib/index.ts'
@@ -17,7 +19,9 @@ export interface EllipsisTableCellProps extends TableCellProps {
 }
 
 /** @deprecated - use new EllipsisTableCell */
-export const EllipsisTableCellDeprecated: React.FC<EllipsisTableCellProps> = ({ children, value, to, forCell, href, ...props }) => {
+export const EllipsisTableCellDeprecated: React.FC<EllipsisTableCellProps> = ({
+  children, value, to, forCell, href, ...props
+}) => {
   const [calcCellWidth, setCalcCellWidth] = useState<number>(0)
   const hashDivRef = useRef<HTMLDivElement>(null)
   const theme = useTheme()

@@ -11,7 +11,9 @@ export interface BoundWitnessCardProps extends CardProps {
   active?: boolean
   payload?: Payload
 }
-export const BoundWitnessRendererCard: React.FC<BoundWitnessCardProps> = ({ payload, active, ...props }) => {
+export const BoundWitnessRendererCard: React.FC<BoundWitnessCardProps> = ({
+  payload, active, ...props
+}) => {
   const boundwitness = payload as Payload<BoundWitness>
 
   return (

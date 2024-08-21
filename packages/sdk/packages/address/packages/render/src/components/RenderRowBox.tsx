@@ -21,7 +21,9 @@ export interface AddressRenderRowBoxProps extends FlexBoxProps {
 
 export const AddressRenderRowBox = forwardRef<HTMLElement, AddressRenderRowBoxProps>(
   (
-    { address, children, disableSharedRef, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, name, showFavorite = false, ...props },
+    {
+      address, children, disableSharedRef, favorite: favoriteProp = false, iconOnly, iconSize = 24, icons, name, showFavorite = false, ...props
+    },
     ref,
   ) => {
     const theme = useTheme()

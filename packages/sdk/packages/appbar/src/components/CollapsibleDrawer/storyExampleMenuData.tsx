@@ -46,9 +46,15 @@ export const menuDataTop: MenuListItemProps[] = [
     icon: <VscServer fontSize="body1" />,
     primary: 'Archives',
     subNavListItems: [
-      { icon: <VscDashboard fontSize="body2" />, primary: 'Dashboard', to: '', tooltip: 'View data for all archives on this network.' },
-      { icon: <VscAdd fontSize="body2" />, primary: 'Create Archive', to: '', tooltip: 'Create a new archive on this network.' },
-      { icon: <VscTable fontSize="body2" />, primary: 'Archive Table', to: '', tooltip: 'View all archives on this network as a table.' },
+      {
+        icon: <VscDashboard fontSize="body2" />, primary: 'Dashboard', to: '', tooltip: 'View data for all archives on this network.',
+      },
+      {
+        icon: <VscAdd fontSize="body2" />, primary: 'Create Archive', to: '', tooltip: 'Create a new archive on this network.',
+      },
+      {
+        icon: <VscTable fontSize="body2" />, primary: 'Archive Table', to: '', tooltip: 'View all archives on this network as a table.',
+      },
     ],
     to: '',
     tooltip: 'The most recent blocks seen in the in temp archive on your current network.',

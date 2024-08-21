@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 import { Grid } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
@@ -83,6 +84,8 @@ CardWithAllParameters.args = {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 
-export { CardWithAllParameters, Default, DefaultMediaCard, DefaultSmallCard, DefaultWithImage, VariantButton }
+export {
+  CardWithAllParameters, Default, DefaultMediaCard, DefaultSmallCard, DefaultWithImage, VariantButton,
+}
 
 export default StorybookEntry

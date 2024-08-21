@@ -1,5 +1,7 @@
 import type { DialogProps } from '@mui/material'
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Paper } from '@mui/material'
+import {
+  Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Paper,
+} from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import type { Dispatch, SetStateAction } from 'react'
@@ -12,7 +14,9 @@ export interface DiscoverDialogProps extends DialogProps {
 
 // Add a dialogue title and quick tip to show description of discover query
 
-export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({ mod, setOpen, ...props }) => {
+export const DiscoverDialog: React.FC<DiscoverDialogProps> = ({
+  mod, setOpen, ...props
+}) => {
   const [discoverPayloads] = usePromise(async () => {
     return await mod?.state()
   }, [mod])

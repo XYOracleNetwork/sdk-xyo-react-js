@@ -14,5 +14,9 @@ export class TestModule extends AbstractModuleInstance<ModuleParams<ModuleConfig
 }
 
 export const init = async () => {
-  await TestModule.create({ config: { name: 'TestModule', schema: TestModuleConfigSchema } })
+  await TestModule.create({
+    config: {
+      name: 'TestModule', schema: TestModuleConfigSchema,
+    },
+  })
 }

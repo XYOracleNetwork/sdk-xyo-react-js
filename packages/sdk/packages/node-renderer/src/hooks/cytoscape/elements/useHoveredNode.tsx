@@ -1,6 +1,8 @@
 import type { NodeCollection, NodeSingular } from 'cytoscape'
 import type { Dispatch, SetStateAction } from 'react'
-import { useCallback, useEffect, useState } from 'react'
+import {
+  useCallback, useEffect, useState,
+} from 'react'
 
 import { useCytoscapeInstance } from '../../../contexts/index.ts'
 

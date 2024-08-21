@@ -4,7 +4,9 @@ import React from 'react'
 
 import type { ColorGradientLegendProps } from '../../Colors/index.ts'
 
-const ColorGradientLegend: React.FC<ColorGradientLegendProps> = ({ startColor, endColor, startLabel, endLabel, heading, textColor, ...props }) => {
+const ColorGradientLegend: React.FC<ColorGradientLegendProps> = ({
+  startColor, endColor, startLabel, endLabel, heading, textColor, ...props
+}) => {
   const theme = useTheme()
 
   return (

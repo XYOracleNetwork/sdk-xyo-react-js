@@ -1,4 +1,6 @@
-import { TableBody, TableCell, TableHead, TableRow } from '@mui/material'
+import {
+  TableBody, TableCell, TableHead, TableRow,
+} from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'

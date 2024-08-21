@@ -31,11 +31,17 @@ const WithScope = Template.bind({})
 WithScope.args = { scope: 'Storybook' }
 
 const WithErrorAndScope = Template.bind({})
-WithErrorAndScope.args = { error: 'An error happened', scope: 'Storybook' }
+WithErrorAndScope.args = {
+  error: 'An error happened', scope: 'Storybook',
+}
 
 const WithErrorAndScopeAndTitle = Template.bind({})
-WithErrorAndScopeAndTitle.args = { error: 'An error happened', scope: 'Storybook', title: 'Oh No!' }
+WithErrorAndScopeAndTitle.args = {
+  error: 'An error happened', scope: 'Storybook', title: 'Oh No!',
+}
 
-export { Default, WithError, WithErrorAndScope, WithErrorAndScopeAndTitle, WithScope, WithTitle }
+export {
+  Default, WithError, WithErrorAndScope, WithErrorAndScopeAndTitle, WithScope, WithTitle,
+}
 
 export default StorybookEntry

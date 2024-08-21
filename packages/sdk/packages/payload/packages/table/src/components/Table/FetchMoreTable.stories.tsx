@@ -1,5 +1,7 @@
 import { Button, Typography } from '@mui/material'
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { delay } from '@xylabs/delay'
 import type { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
@@ -12,7 +14,9 @@ const newPayloads = () =>
   Array(50)
     // eslint-disable-next-line unicorn/no-useless-undefined
     .fill(undefined)
-    .map((_, index) => ({ index, random: Math.random(), schema: 'network.xyo.stories.test' }))
+    .map((_, index) => ({
+      index, random: Math.random(), schema: 'network.xyo.stories.test',
+    }))
 
 // simulating the end of the list
 const maxPayloads = 200
@@ -31,9 +35,10 @@ const NewPayloadsDecorator: Decorator = (Story, args) => {
 
   useEffect(() => {
     // simulate initial async payloads
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       addToTotalPayloads(testPayloads)
     }, 500)
+    return () => clearTimeout(timeout)
   }, [])
 
   const addPayloads = () => {

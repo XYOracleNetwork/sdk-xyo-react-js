@@ -10,19 +10,30 @@ export interface SocialButtonsFlexboxProps extends FlexBoxProps {
   shareUrl?: string
 }
 
-export const SocialButtonsFlexbox: React.FC<SocialButtonsFlexboxProps> = ({ shareUrl, ...props }) => {
+export const SocialButtonsFlexbox: React.FC<SocialButtonsFlexboxProps> = ({
+  shareUrl, ...props
+}) => {
   return (
     <FlexGrowCol alignItems="stretch" paddingTop={2} {...props}>
       <Typography variant="body1" gutterBottom>
         <strong>Share on Social Media</strong>
       </Typography>
-      <FlexRow gap={0.5} sx={{ flexDirection: { md: 'row', xs: 'column' } }}>
+      <FlexRow
+        gap={0.5}
+        sx={{
+          flexDirection: {
+            md: 'row', xs: 'column',
+          },
+        }}
+      >
         {shareUrl
           ? (
               <>
                 <ButtonEx
                   variant="contained"
-                  style={{ backgroundColor: '#000', color: '#fff' }}
+                  style={{
+                    backgroundColor: '#000', color: '#fff',
+                  }}
                   onClick={() => {
                     window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`)
                   }}
@@ -32,7 +43,9 @@ export const SocialButtonsFlexbox: React.FC<SocialButtonsFlexboxProps> = ({ shar
                 </ButtonEx>
                 <ButtonEx
                   variant="contained"
-                  style={{ backgroundColor: '#4267b2', color: '#fff' }}
+                  style={{
+                    backgroundColor: '#4267b2', color: '#fff',
+                  }}
                   onClick={() => {
                     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`)
                   }}

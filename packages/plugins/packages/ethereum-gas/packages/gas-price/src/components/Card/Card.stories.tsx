@@ -26,6 +26,8 @@ WithData.args = { payload: sampleEthereumGasDivinerPayload }
 const WithMissingData = Template.bind({})
 WithMissingData.args = { payload: sampleEthereumGasDivinerPayloadMissingFees }
 
-export { Default, WithData, WithMissingData }
+export {
+  Default, WithData, WithMissingData,
+}
 
 export default StorybookEntry

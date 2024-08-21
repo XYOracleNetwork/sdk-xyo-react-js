@@ -27,6 +27,8 @@ const WithDataAndActions = Template.bind({})
 
 WithDataAndActions.args = { title: 'Sample Title' }
 
-export { Default, WithData, WithDataAndActions }
+export {
+  Default, WithData, WithDataAndActions,
+}
 
 export default StorybookEntry

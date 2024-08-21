@@ -25,11 +25,17 @@ const NotFound = Template.bind({})
 NotFound.args = { notFound: true }
 
 const ApiError = Template.bind({})
-ApiError.args = { children: <h1>Shown in case of error</h1>, error: true }
+ApiError.args = {
+  children: <h1>Shown in case of error</h1>, error: true,
+}
 
 const SearchResult = Template.bind({})
-SearchResult.args = { children: <h1>Shown when there is a valid result</h1>, searchResult: 'foo' }
+SearchResult.args = {
+  children: <h1>Shown when there is a valid result</h1>, searchResult: 'foo',
+}
 
-export { ApiError, Default, NotFound, SearchResult }
+export {
+  ApiError, Default, NotFound, SearchResult,
+}
 
 export default StorybookEntry

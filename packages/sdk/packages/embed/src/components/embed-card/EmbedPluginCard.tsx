@@ -11,7 +11,9 @@ import { EmbedCardApiErrorRenderer } from './error-handling/index.ts'
 
 export interface EmbedPluginCardProps extends WithChildren, EmbedPluginProps, BusyCardProps {}
 
-export const ApiEmbedPluginCard: React.FC<EmbedPluginCardProps> = ({ children, ...props }) => {
+export const ApiEmbedPluginCard: React.FC<EmbedPluginCardProps> = ({
+  children, ...props
+}) => {
   const {
     validateSchema,
     plugins = [],
@@ -44,7 +46,9 @@ export const ApiEmbedPluginCard: React.FC<EmbedPluginCardProps> = ({ children, .
 }
 
 export const EmbedPluginCardInner: React.FC<BusyCardProps> = (props) => {
-  const { payload, huriError } = useResolvePayload()
+  const {
+    payload, huriError,
+  } = useResolvePayload()
   const { refreshPayload } = useRefreshPayload()
   const theme = useTheme()
 
@@ -54,7 +58,11 @@ export const EmbedPluginCardInner: React.FC<BusyCardProps> = (props) => {
         elevation={3}
         variant="elevation"
         busy={Boolean(!refreshPayload && payload)}
-        busyVariantProps={{ style: { alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2 } }}
+        busyVariantProps={{
+          style: {
+            alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2,
+          },
+        }}
         sx={{ position: 'relative' }}
         {...props}
       />

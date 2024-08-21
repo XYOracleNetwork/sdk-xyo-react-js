@@ -2,7 +2,9 @@ import type { StandardTextFieldProps } from '@mui/material'
 import { FormControl as MuiFormControl, TextField } from '@mui/material'
 import type { FormControl } from '@xyo-network/react-form-group'
 import { LabeledTextFieldWrapper } from '@xyo-network/react-shared'
-import type { ChangeEventHandler, FocusEventHandler, KeyboardEvent } from 'react'
+import type {
+  ChangeEventHandler, FocusEventHandler, KeyboardEvent,
+} from 'react'
 import React, { forwardRef } from 'react'
 
 export interface FormControlTextFieldProps extends StandardTextFieldProps {
@@ -12,7 +14,9 @@ export interface FormControlTextFieldProps extends StandardTextFieldProps {
 }
 
 export const FormControlTextField = forwardRef<HTMLDivElement, FormControlTextFieldProps>(
-  ({ formControl, formControlError, fieldLabel = '', ...props }, ref) => {
+  ({
+    formControl, formControlError, fieldLabel = '', ...props
+  }, ref) => {
     const { name } = formControl?.props ?? {}
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {

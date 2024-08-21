@@ -11,7 +11,9 @@ interface SchemaAvatarGroupProps extends AvatarGroupProps {
   schemas?: string[]
 }
 
-export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({ schemas, maxAvatars = 4, ...props }) => {
+export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({
+  schemas, maxAvatars = 4, ...props
+}) => {
   const { resolver } = usePayloadRenderPluginResolver()
 
   const resolveSchemaToIcon = useCallback(
@@ -20,7 +22,13 @@ export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({ schemas, m
       return SchemaAvatar
         ? <SchemaAvatar key={index + schema} />
         : (
-            <Avatar key={index + schema} title={schema} sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+            <Avatar
+              key={index + schema}
+              title={schema}
+              sx={{
+                bgcolor: 'primary.main', color: 'primary.contrastText',
+              }}
+            >
               {schema === BoundWitnessSchema
                 ? <VscSymbolMethod />
                 : <VscSymbolNamespace />}

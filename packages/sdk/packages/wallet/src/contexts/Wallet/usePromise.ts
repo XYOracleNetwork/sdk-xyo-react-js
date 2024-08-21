@@ -2,7 +2,9 @@
 
 import { Mutex } from 'async-mutex'
 import type { DependencyList } from 'react'
-import { useEffect, useMemo, useState } from 'react'
+import {
+  useEffect, useMemo, useState,
+} from 'react'
 
 export enum State {
   pending = 'pending',

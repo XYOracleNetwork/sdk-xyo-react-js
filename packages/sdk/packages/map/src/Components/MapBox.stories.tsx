@@ -1,5 +1,7 @@
 import { Button } from '@mui/material'
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import React, { useRef } from 'react'
 
@@ -47,7 +49,10 @@ export default {
 
 const Template: StoryFn<typeof MapBox> = (args) => {
   return (
-    <div style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}>
+    <div style={{
+      minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease',
+    }}
+    >
       <MapBox {...args} />
     </div>
   )
@@ -69,7 +74,9 @@ const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
       </Button>
       <div
         ref={ref => (containerRef.current = ref)}
-        style={{ minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease' }}
+        style={{
+          minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease',
+        }}
       >
         <MapBox {...args} />
       </div>
@@ -85,4 +92,6 @@ const WithContainerResize = ContainerResizeTemplate.bind({})
 const WithMapSettings = Template.bind({})
 WithMapSettings.decorators = [WithMapSettingsDecorator]
 
-export { Default, WithContainerResize, WithMapSettings }
+export {
+  Default, WithContainerResize, WithMapSettings,
+}

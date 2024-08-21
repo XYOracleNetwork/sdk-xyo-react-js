@@ -26,6 +26,8 @@ WithData.args = { payload: payloadData }
 const WithMissingData = Template.bind({})
 WithMissingData.args = { payload: payloadDataMissingAssets }
 
-export { Default, WithData, WithMissingData }
+export {
+  Default, WithData, WithMissingData,
+}
 
 export default StorybookEntry

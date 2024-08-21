@@ -24,11 +24,17 @@ const WithData = Template.bind({})
 WithData.args = { payload: payloadData }
 
 const WithTableData = Template.bind({})
-WithTableData.args = { listMode: 'table', payload: payloadData }
+WithTableData.args = {
+  listMode: 'table', payload: payloadData,
+}
 
 const WithNoPairs = Template.bind({})
-WithNoPairs.args = { listMode: 'table', payload: payloadDataMissingPairs }
+WithNoPairs.args = {
+  listMode: 'table', payload: payloadDataMissingPairs,
+}
 
-export { Default, WithData, WithNoPairs, WithTableData }
+export {
+  Default, WithData, WithNoPairs, WithTableData,
+}
 
 export default StorybookEntry

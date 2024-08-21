@@ -7,7 +7,9 @@ export const MapPointsConstants = {
 }
 
 export const LocationPointsMapLayerBuilder = (color: string, circleRadius = 6, circleOpacity = 0.8) => {
-  const { LocationDotsLayerId, LocationDotsLayerSource } = MapPointsConstants
+  const {
+    LocationDotsLayerId, LocationDotsLayerSource,
+  } = MapPointsConstants
 
   const dotLayerConfig = LocationPointLayerConfig(color, circleRadius, circleOpacity)
 

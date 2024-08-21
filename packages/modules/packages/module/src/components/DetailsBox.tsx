@@ -13,7 +13,9 @@ const getModuleIcon = (moduleType: string, mod: Module) => {
   return mod?.queries.find(query => query.startsWith(`network.xyo.query.${moduleType}`)) ? findNetworkComponent(moduleType)?.icon() : null
 }
 
-export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({ children, mod, ...props }) => {
+export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({
+  children, mod, ...props
+}) => {
   const [showQueries, setShowQueries] = useState(false)
   return (
     <FlexCol {...props}>

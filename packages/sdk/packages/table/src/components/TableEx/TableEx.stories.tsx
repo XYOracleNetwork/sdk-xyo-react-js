@@ -1,5 +1,9 @@
-import { TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme } from '@mui/material'
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import {
+  TableBody, TableCell, TableHead, TablePagination, TableRow, useTheme,
+} from '@mui/material'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 import React from 'react'
 
@@ -8,7 +12,10 @@ import { TableEx } from './TableEx.tsx'
 import { TableFooterEx } from './TableFooterEx.tsx'
 
 const ScrollableDecorator: Decorator = (Story, args) => (
-  <div style={{ height: 'calc(100vh - 2rem)', inset: 0, position: 'absolute' }}>
+  <div style={{
+    height: 'calc(100vh - 2rem)', inset: 0, position: 'absolute',
+  }}
+  >
     <Story {...args} />
   </div>
 )
@@ -51,11 +58,15 @@ const Template: StoryFn<typeof TableEx> = (args) => {
       <TableFooterEx variant={variant}>
         <TableRow>
           <TablePagination
-            rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+            rowsPerPageOptions={[5, 10, 25, {
+              label: 'All', value: -1,
+            }]}
             count={25}
             page={1}
             rowsPerPage={5}
-            style={{ borderTop: '1px solid', borderTopColor: theme.palette.divider }}
+            style={{
+              borderTop: '1px solid', borderTopColor: theme.palette.divider,
+            }}
             SelectProps={{
               inputProps: {
                 'aria-label': 'rows per page',
@@ -85,6 +96,8 @@ const WithScrollable = Template.bind({})
 WithScrollable.args = { variant: 'scrollable' }
 WithScrollable.decorators = [ScrollableDecorator]
 
-export { Default, WithRef, WithScrollable }
+export {
+  Default, WithRef, WithScrollable,
+}
 
 export default StorybookEntry

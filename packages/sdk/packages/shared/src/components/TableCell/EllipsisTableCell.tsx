@@ -29,7 +29,9 @@ export interface EllipsisTableCellProps extends Omit<TableCellProps, 'ref'> {
 }
 
 export const EllipsisTableCellWithRef = forwardRef<HTMLElement, EllipsisTableCellProps>(
-  ({ children, href, link = false, to, value, ...props }, ref) => {
+  ({
+    children, href, link = false, to, value, ...props
+  }, ref) => {
     const data = useMemo(() => {
       if (children) {
         return children

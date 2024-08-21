@@ -35,4 +35,6 @@ WithData.decorators = [ActiveBWDecoratorWithDefaultValues, WithHashSelectionHist
 const WithNested = Template.bind({})
 WithNested.decorators = [ActiveBWDecoratorWithDefaultValues, WithHashSelectionHistoryDefaultValues, WithNestedBoundWitnessesDecorator]
 
-export { Default, WithData, WithNested }
+export {
+  Default, WithData, WithNested,
+}

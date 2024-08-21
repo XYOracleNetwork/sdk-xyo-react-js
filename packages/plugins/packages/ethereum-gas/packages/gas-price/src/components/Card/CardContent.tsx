@@ -10,7 +10,9 @@ import { FeePerGasToSpeed, FeePerGasValues } from '../lib/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
+export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({
+  payload, ...props
+}, ref) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined
 
   if ([isEmpty(gasPricePayload?.feePerGas), isEmpty(gasPricePayload?.priorityFeePerGas)].some(Boolean)) {

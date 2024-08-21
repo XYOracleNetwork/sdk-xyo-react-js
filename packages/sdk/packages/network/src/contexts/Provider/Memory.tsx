@@ -5,7 +5,9 @@ import { defaultNetworkConfigs } from '../../lib/index.ts'
 import { NetworkContext } from '../Context.ts'
 import type { NetworkProviderProps } from './Props.ts'
 
-export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({ defaultNetworkConfig, defaultNetworkName, ...props }) => {
+export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({
+  defaultNetworkConfig, defaultNetworkName, ...props
+}) => {
   if (defaultNetworkConfig && defaultNetworkName) {
     console.warn('Both defaultNetworkConfig and defaultNetworkName were passed to provider. Falling back to defaultNetworkConfig')
   }
@@ -14,7 +16,9 @@ export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>>
 
   const [network, setNetwork] = useState(defaultNetworkConfig ?? resolvedDefaultNetworkConfig ?? defaultNetworkConfigs[0])
 
-  const value = useMemo(() => ({ network, networks: defaultNetworkConfigs, provided: true, setNetwork }), [network, setNetwork])
+  const value = useMemo(() => ({
+    network, networks: defaultNetworkConfigs, provided: true, setNetwork,
+  }), [network, setNetwork])
 
   return <NetworkContext.Provider value={value} {...props} />
 }

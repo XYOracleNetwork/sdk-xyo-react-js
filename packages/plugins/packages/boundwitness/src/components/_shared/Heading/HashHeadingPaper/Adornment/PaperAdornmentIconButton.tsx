@@ -6,7 +6,9 @@ export interface PaperAdornmentIconButton extends IconButtonProps {
 }
 
 export const PaperAdornmentIconButton = styled(IconButton, { name: 'PaperAdornmentIconButton' })<PaperAdornmentIconButton>(
-  ({ theme, themePadding = 1 }) => ({
+  ({
+    theme, themePadding = 1,
+  }) => ({
     borderRadius: 0,
     padding: theme.spacing(themePadding),
   }),

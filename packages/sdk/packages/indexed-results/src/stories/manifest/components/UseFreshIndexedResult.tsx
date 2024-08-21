@@ -20,13 +20,17 @@ import { useFreshIndexedResult } from '../../../hooks/index.ts'
 import { PollingStrategies } from '../../../interfaces/index.ts'
 import type { UseIndexedResultsProps } from './lib/index.ts'
 
-export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
+export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({
+  address, chainId, diviners, tokenInterface,
+}) => {
   const [archivist] = useWeakArchivistFromNode('Archivist')
   const [contractSentinel] = useSentinelFromNode('EvmContractSentinel')
   const [node] = useNode()
 
   const config: UseIndexedResultsConfig = useMemo(() => {
-    const indexedQueries = [{ address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }]
+    const indexedQueries = [{
+      address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface,
+    }]
     const config: UseIndexedResultsConfig = {
       indexedResultsConfig: {
         diviners,
@@ -46,7 +50,9 @@ export const UseFreshIndexedResult: React.FC<UseIndexedResultsProps> = ({ addres
           },
         },
         refresh: async () => {
-          const collectionCallPayload: EvmAddress = { address, chainId: 1, schema: EvmAddressSchema }
+          const collectionCallPayload: EvmAddress = {
+            address, chainId: 1, schema: EvmAddressSchema,
+          }
           const report = await contractSentinel?.report([collectionCallPayload])
           const contract = ((report as [BoundWitness, TimeStamp, EvmContract]) ?? [])[2]
           const sentinelName = `${tokenInterface}TokenInterfaceImplementedSentinel`

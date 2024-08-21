@@ -14,14 +14,15 @@ import { useBoundWitnessClickHandler } from './hooks/index.ts'
 import { NestedBoundWitnessesBox } from './NestedBoundWitnesses/index.ts'
 
 export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
-  const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness(false)
+  const {
+    activeBoundWitness, activeBoundWitnessHash,
+  } = useActiveBoundWitness(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
   const { rollbar } = useRollbar()
   const { loading } = useNestedBoundWitnesses(false)
 
   const [activeBWref] = useEvent<HTMLDivElement, EventNoun, EventVerb, Hash>((noun, _verb, data) =>
-    boundwitnessClick(noun, data, 'activeBoundWitness'),
-  )
+    boundwitnessClick(noun, data, 'activeBoundWitness'))
 
   return (
     <ThrownErrorBoundary rollbar={rollbar} boundaryName="BoundWitness Scrolling List">

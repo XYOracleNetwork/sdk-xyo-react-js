@@ -1,7 +1,9 @@
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-payload-plugin'
-import { GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
+import {
+  GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox,
+} from '@xyo-network/react-gas-price'
 import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
@@ -12,8 +14,11 @@ import { RenderTitle } from '../../lib/index.ts'
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ payload, listMode, ...props }, ref) => {
+
+  ({
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    payload, listMode, ...props
+  }, ref) => {
     const gasPricePayload = payload ? (payload as EthereumGasEthersPayload) : undefined
     const parsedPayload = useEthersTransformer(gasPricePayload)
 
@@ -25,7 +30,9 @@ export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetail
               <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
                 <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
                 {parsedPayload
-                && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
+                && parsedPayload?.gasPrice?.map(({
+                  price, priorityFee,
+                }) => (
                   <GasFeeCard
                     key={price?.label}
                     gasPrice={price?.value}

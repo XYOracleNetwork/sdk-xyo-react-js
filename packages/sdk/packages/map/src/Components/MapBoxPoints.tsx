@@ -2,7 +2,9 @@ import { Alert } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { Feature, Point } from 'geojson'
 import type { MapOptions } from 'mapbox-gl'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, {
+  useCallback, useEffect, useState,
+} from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts/index.ts'
 import type { MapboxFlexBoxProps } from '../lib/index.ts'
@@ -25,7 +27,9 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
 }) => {
   const [mapPoints, setMapPoints] = useState<MapPoints>()
   const { mapSettings } = useMapSettings()
-  const { map, mapInitialized } = useMapBoxInstance()
+  const {
+    map, mapInitialized,
+  } = useMapBoxInstance()
 
   /**
    * Needed because of a bug in mapbox taking undefined values for the config options of fitToBounds
@@ -52,7 +56,9 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
 
     if (mapPoints && map && fitToPoints?.value === true) {
       mapPoints.initialMapPositioning({
-        padding: { bottom: fitToPointsPadding, left: fitToPointsPadding, right: fitToPointsPadding, top: fitToPointsPadding },
+        padding: {
+          bottom: fitToPointsPadding, left: fitToPointsPadding, right: fitToPointsPadding, top: fitToPointsPadding,
+        },
         ...customFitToBoundsOptions(zoom),
       })
     }
@@ -60,7 +66,9 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
 
   const reInitializeMap = useCallback(() => {
     mapPoints?.initialMapPositioning({
-      padding: { bottom: fitToPointsPadding, left: fitToPointsPadding, right: fitToPointsPadding, top: fitToPointsPadding },
+      padding: {
+        bottom: fitToPointsPadding, left: fitToPointsPadding, right: fitToPointsPadding, top: fitToPointsPadding,
+      },
       ...customFitToBoundsOptions(zoom),
     })
     updateFeatures()
@@ -68,7 +76,9 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
 
   useEffect(() => {
     if (map && features?.length) {
-      setMapPoints(new MapPoints({ features, map, zoom }))
+      setMapPoints(new MapPoints({
+        features, map, zoom,
+      }))
     }
   }, [map, features, zoom])
 

@@ -3,8 +3,12 @@ import {
   ErrorOutlineRounded as ErrorOutlineRoundedIcon,
   WarningAmberRounded as WarningAmberRoundedIcon,
 } from '@mui/icons-material'
-import type { AvatarProps, TableCellProps, TableRowProps } from '@mui/material'
-import { TableCell, TableRow, Typography } from '@mui/material'
+import type {
+  AvatarProps, TableCellProps, TableRowProps,
+} from '@mui/material'
+import {
+  TableCell, TableRow, Typography,
+} from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
 import { PayloadHasher } from '@xyo-network/hash'
@@ -20,7 +24,8 @@ import React, { useMemo } from 'react'
 
 import type {
   PayloadDynamicTableColumnConfig,
-  PayloadDynamicTableColumnSlug } from './PayloadDynamicTableColumnConfig.ts'
+  PayloadDynamicTableColumnSlug,
+} from './PayloadDynamicTableColumnConfig.ts'
 import {
   payloadDynamicTableColumnConfigDefaults,
 } from './PayloadDynamicTableColumnConfig.ts'

@@ -1,7 +1,13 @@
-import type { BoxProps, TypographyProps, TypographyTypeMap } from '@mui/material'
-import { Box, styled, Typography } from '@mui/material'
+import type {
+  BoxProps, TypographyProps, TypographyTypeMap,
+} from '@mui/material'
+import {
+  Box, styled, Typography,
+} from '@mui/material'
 import type { WithChildren } from '@xylabs/react-shared'
-import React, { forwardRef, useCallback, useState } from 'react'
+import React, {
+  forwardRef, useCallback, useState,
+} from 'react'
 
 import { useShareForwardedRef } from '../hooks/index.ts'
 
@@ -46,7 +52,9 @@ const EllipsizeContentWrap = styled(Typography, {
   name: ComponentName,
   shouldForwardProp: prop => prop !== 'ellipsisPosition',
   slot: 'contentWrap',
-})<TypographyWithComponentProps>(({ theme, ellipsisPosition, fontFamily }) => {
+})<TypographyWithComponentProps>(({
+  theme, ellipsisPosition, fontFamily,
+}) => {
   return theme.unstable_sx({
     fontFamily: fontFamily ?? 'monospace',
     left: 0,
@@ -73,7 +81,9 @@ const useClientHeight = () => {
     }
   }, [])
 
-  return { contentWrapHeight, contentWrapRef }
+  return {
+    contentWrapHeight, contentWrapRef,
+  }
 }
 
 export type TypographyWithComponentProps<D extends React.ElementType = TypographyTypeMap['defaultComponent'], P = {}> = TypographyProps<D, P> & {
@@ -87,9 +97,13 @@ export interface EllipsizeBoxProps extends BoxProps {
 }
 
 export const EllipsizeBox = forwardRef<HTMLDivElement, WithChildren<EllipsizeBoxProps>>(
-  ({ children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props }, ref) => {
+  ({
+    children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props
+  }, ref) => {
     // Allow syncing of :before pseudo element height with contentWrapHeight
-    const { contentWrapRef, contentWrapHeight } = useClientHeight()
+    const {
+      contentWrapRef, contentWrapHeight,
+    } = useClientHeight()
     const sharedRef = useShareForwardedRef(ref)
 
     return (

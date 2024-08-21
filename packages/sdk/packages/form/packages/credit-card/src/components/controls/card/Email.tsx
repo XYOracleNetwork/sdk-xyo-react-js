@@ -10,8 +10,12 @@ export const CreditCardEmailWithFormControl: React.FC<WithFormControlProps> = ({
   fieldLabel = 'Email',
   ...props
 }) => {
-  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, CreditCardEmailFormControl)
-  const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cvcProps } = creditCardFormControl?.props ?? {}
+  const {
+    creditCardFormControl, error, inputRef, value,
+  } = useCreditCardFormControl(formControlName, CreditCardEmailFormControl)
+  const {
+    autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cvcProps
+  } = creditCardFormControl?.props ?? {}
 
   return (
     <FormControlTextField
@@ -19,7 +23,9 @@ export const CreditCardEmailWithFormControl: React.FC<WithFormControlProps> = ({
       formControl={creditCardFormControl}
       formControlError={error}
       inputMode={inputMode}
-      inputProps={{ 'aria-label': `${fieldLabel} for your purchase`, autoComplete, autoCorrect, id, name, spellCheck }}
+      inputProps={{
+        'aria-label': `${fieldLabel} for your purchase`, autoComplete, autoCorrect, id, name, spellCheck,
+      }}
       inputRef={inputRef}
       value={value}
       {...cvcProps}

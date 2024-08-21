@@ -3,7 +3,9 @@ import { EthereumGasPriceAvatar } from '@xyo-network/react-gas-price'
 import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { EthereumGasPriceCardContent, EthereumGasPriceCardHeader, EthereumGasPriceDetailsBox } from './components/index.ts'
+import {
+  EthereumGasPriceCardContent, EthereumGasPriceCardHeader, EthereumGasPriceDetailsBox,
+} from './components/index.ts'
 
 export const EthereumGasPricePlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

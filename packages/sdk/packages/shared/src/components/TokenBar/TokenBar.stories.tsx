@@ -22,10 +22,14 @@ const Template: StoryFn<typeof TokenBar> = args => (
 )
 
 const WithData = Template.bind({})
-WithData.args = { text1: 'Hello', text2: 'World' }
+WithData.args = {
+  text1: 'Hello', text2: 'World',
+}
 
 const WithSuffixes = Template.bind({})
-WithSuffixes.args = { text1: 'ETH', text2: '0.062342', text2Suffix: <QuickTipButton title="0.06234298345834958" /> }
+WithSuffixes.args = {
+  text1: 'ETH', text2: '0.062342', text2Suffix: <QuickTipButton title="0.06234298345834958" />,
+}
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

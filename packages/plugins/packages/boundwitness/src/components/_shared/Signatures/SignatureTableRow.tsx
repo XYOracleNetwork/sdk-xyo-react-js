@@ -1,5 +1,7 @@
 import type { TableRowProps } from '@mui/material'
-import { Link, TableCell, TableRow, Typography } from '@mui/material'
+import {
+  Link, TableCell, TableRow, Typography,
+} from '@mui/material'
 import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
@@ -49,12 +51,26 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
         onClick={() => addressDispatch('address', 'click', address)}
         link={clickableFields?.includes('address')}
       />
-      <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center">
+      <TableCell
+        sx={{
+          display: {
+            md: 'table-cell', xs: 'none',
+          },
+        }}
+        align="center"
+      >
         <Typography variant="body2" fontFamily="monospace">
           {formattedHash(previousHash)}
         </Typography>
       </TableCell>
-      <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center">
+      <TableCell
+        sx={{
+          display: {
+            sm: 'table-cell', xs: 'none',
+          },
+        }}
+        align="center"
+      >
         <Typography variant="body2" fontFamily="monospace" ref={signatureRef} onClick={() => signatureDispatch('signature', 'click', signature)}>
           {clickableFields?.includes('signature')
             ? <Link>{formattedHash(signature)}</Link>

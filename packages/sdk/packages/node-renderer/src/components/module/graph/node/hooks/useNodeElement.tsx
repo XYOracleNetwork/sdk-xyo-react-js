@@ -1,6 +1,8 @@
 import type { PopperProps } from '@mui/material'
 import type { NodeSingular } from 'cytoscape'
-import { useEffect, useRef, useState } from 'react'
+import {
+  useEffect, useRef, useState,
+} from 'react'
 
 export const useNodeElement = (node?: NodeSingular) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -33,5 +35,7 @@ export const useNodeElement = (node?: NodeSingular) => {
     setCurrentElement(ref.current)
   }, [boundingBox])
 
-  return { boundingBox, currentElement, ref }
+  return {
+    boundingBox, currentElement, ref,
+  }
 }

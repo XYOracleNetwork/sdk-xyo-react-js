@@ -1,4 +1,6 @@
-import { styled, TablePagination, TableRow } from '@mui/material'
+import {
+  styled, TablePagination, TableRow,
+} from '@mui/material'
 import { TableFooterEx } from '@xyo-network/react-table'
 import React from 'react'
 
@@ -18,7 +20,9 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
   <TableFooterEx variant={variant}>
     <TableRow>
       <StyledTablePagination
-        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+        rowsPerPageOptions={[5, 10, 25, {
+          label: 'All', value: -1,
+        }]}
         count={count ?? 0}
         rowsPerPage={rowsPerPage ?? 10}
         page={page ?? 0}

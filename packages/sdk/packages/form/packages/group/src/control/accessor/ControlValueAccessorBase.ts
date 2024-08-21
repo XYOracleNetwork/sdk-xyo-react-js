@@ -2,7 +2,9 @@ import { forget } from '@xylabs/forget'
 import type { BaseParams } from '@xylabs/object'
 import { BaseEmitter } from '@xyo-network/module-abstract'
 
-import type { ControlSerializeSettings, ControlValueAccessor, SetOptions } from './ControlValueAccessor.ts'
+import type {
+  ControlSerializeSettings, ControlValueAccessor, SetOptions,
+} from './ControlValueAccessor.ts'
 import type { ValidControlValue } from './ValidControlValue.ts'
 
 export type ControlValueAccessorBaseConfig = {
@@ -30,7 +32,9 @@ export class ControlValueAccessorBase<
 
   private _previousValue = undefined as TValue
 
-  private _serializeSettings: ControlSerializeSettings = { sensitive: false, serializable: false }
+  private _serializeSettings: ControlSerializeSettings = {
+    sensitive: false, serializable: false,
+  }
 
   private _touched: boolean = false
 

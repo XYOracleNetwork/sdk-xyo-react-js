@@ -5,8 +5,12 @@ import React, { useMemo } from 'react'
 import { useEnabledWallets } from '../../../../hooks/index.ts'
 import type { ConnectedWalletTableCellProps } from './lib/index.ts'
 
-export const ConnectedWalletState: React.FC<ConnectedWalletTableCellProps> = ({ connected, walletRdns, tableCellProps }) => {
-  const { disableWallet, enableWallet, wallets } = useEnabledWallets()
+export const ConnectedWalletState: React.FC<ConnectedWalletTableCellProps> = ({
+  connected, walletRdns, tableCellProps,
+}) => {
+  const {
+    disableWallet, enableWallet, wallets,
+  } = useEnabledWallets()
 
   const enabled = useMemo(() => (walletRdns ? wallets[walletRdns].enabled : false), [wallets, walletRdns])
 

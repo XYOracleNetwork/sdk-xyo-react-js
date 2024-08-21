@@ -2,7 +2,9 @@ import { SwapHorizRounded as SwapHorizRoundedIcon } from '@mui/icons-material'
 import { Divider, IconButton } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
-import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
+import {
+  TokenBar, TokenSummary, useGetTokenData,
+} from '@xyo-network/react-shared'
 import type { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React, { useState } from 'react'
 

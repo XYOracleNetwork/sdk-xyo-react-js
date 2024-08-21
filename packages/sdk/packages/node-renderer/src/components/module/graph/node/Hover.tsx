@@ -12,8 +12,12 @@ export interface ModuleHoverProps {
   node?: NodeSingular
 }
 
-export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({ children, node }) => {
-  const { boundingBox, ref, currentElement } = useNodeElement(node)
+export const ModuleGraphNodeHover: React.FC<ModuleHoverProps> = ({
+  children, node,
+}) => {
+  const {
+    boundingBox, ref, currentElement,
+  } = useNodeElement(node)
 
   return (
     <>

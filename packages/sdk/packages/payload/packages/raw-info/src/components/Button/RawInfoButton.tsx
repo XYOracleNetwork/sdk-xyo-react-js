@@ -50,7 +50,12 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
       <ButtonEx
         variant="outlined"
         size="small"
-        startIcon={<XyoColorLogo sx={{ height: size ?? iconSize, width: size ?? iconSize }} />}
+        startIcon={(
+          <XyoColorLogo sx={{
+            height: size ?? iconSize, width: size ?? iconSize,
+          }}
+          />
+        )}
         onClick={handleClick}
         disabled={iconOnly ? false : !rawValue}
         {...props}

@@ -1,6 +1,8 @@
 import type { Theme } from '@mui/material'
 import type { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
-import type { ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChartOptions } from 'chart.js'
+import type {
+  ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChartOptions,
+} from 'chart.js'
 
 import { DataLineStyles } from './DataLineStyles.ts'
 import { DataPointStyles } from './DataPointStyles.ts'
@@ -152,7 +154,9 @@ export class ForecastLineChartConfigBuilder {
     return {
       borderDash: [5],
       borderDashOffset: 0.5,
-      data: this.forecastPayload.values.map(price => ({ x: price.timestamp ?? 0, y: price.value })),
+      data: this.forecastPayload.values.map(price => ({
+        x: price.timestamp ?? 0, y: price.value,
+      })),
       label: 'Forecast Price',
       ...DataPointStyles(this.themeColors?.dataSetColorPrimary),
       ...DataLineStyles(this.themeColors?.dataSetColorPrimary),

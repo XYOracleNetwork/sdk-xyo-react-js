@@ -25,5 +25,7 @@ export const divineSingleIndexedResults = async <TPayload extends Payload = Payl
   interval = 100,
   backoff = 2,
 ): Promise<TPayload[] | null | undefined> => {
-  return await retry(() => divineSingleIndexedResultsInner(diviner, indexedQueries, parseIndexedResults), { backoff, interval, retries })
+  return await retry(() => divineSingleIndexedResultsInner(diviner, indexedQueries, parseIndexedResults), {
+    backoff, interval, retries,
+  })
 }

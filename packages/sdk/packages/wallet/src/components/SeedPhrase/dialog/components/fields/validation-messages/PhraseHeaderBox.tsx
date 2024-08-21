@@ -8,7 +8,9 @@ interface PhraseHeaderBox extends FlexBoxProps, WithChildren {
   conditional?: boolean | null
 }
 
-export const PhraseHeaderBox: React.FC<PhraseHeaderBox> = ({ children, conditional, ...props }) => {
+export const PhraseHeaderBox: React.FC<PhraseHeaderBox> = ({
+  children, conditional, ...props
+}) => {
   const state = useMemo(() => {
     switch (conditional) {
       case true: {

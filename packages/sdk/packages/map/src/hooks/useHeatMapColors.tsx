@@ -22,7 +22,9 @@ const useHeatMapColors = () => {
     textColor: theme.palette.common.white,
   }
 
-  return { heatMapColorProps, legendProps }
+  return {
+    heatMapColorProps, legendProps,
+  }
 }
 
 export { useHeatMapColors }

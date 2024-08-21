@@ -11,7 +11,9 @@ import { useBlocknativeTransformer } from '../hooks/index.ts'
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const BlocknativeGasPriceCardContent = forwardRef<HTMLDivElement, Omit<PayloadRenderProps & CardContentProps, 'ref'>>(
-  ({ payload, ...props }, ref) => {
+  ({
+    payload, ...props
+  }, ref) => {
     const gasPricePayload = payload ? (payload as EthereumGasBlocknativePayload) : undefined
     const parsedPayload = useBlocknativeTransformer(gasPricePayload)
 
@@ -20,8 +22,20 @@ export const BlocknativeGasPriceCardContent = forwardRef<HTMLDivElement, Omit<Pa
     }
 
     return (
-      <CardContent ref={ref} sx={{ display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
-        <Grid container spacing={3} columns={{ lg: 15, md: 15, sm: 12, xs: 12 }}>
+      <CardContent
+        ref={ref}
+        sx={{
+          display: 'flex', flexDirection: 'column', rowGap: 4,
+        }}
+        {...props}
+      >
+        <Grid
+          container
+          spacing={3}
+          columns={{
+            lg: 15, md: 15, sm: 12, xs: 12,
+          }}
+        >
           {parsedPayload
           && parsedPayload?.gasPrice?.map(({ price }) => (
             <Grid key={price?.label} item xs={12} sm={6} md={5} lg={3}>

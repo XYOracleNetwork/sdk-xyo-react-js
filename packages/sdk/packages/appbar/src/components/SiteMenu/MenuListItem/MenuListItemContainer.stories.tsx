@@ -47,7 +47,9 @@ const WithChildren = Template.bind({})
 WithChildren.args = {
   icon: <FaGlobeAmericas />,
   primary: 'Explore',
-  subNavListItems: [{ primary: 'Explore', to: '/explore', tooltip: 'View global archivist data on a world map.' }],
+  subNavListItems: [{
+    primary: 'Explore', to: '/explore', tooltip: 'View global archivist data on a world map.',
+  }],
   tooltip: 'View global archivist data on a world map.',
 }
 

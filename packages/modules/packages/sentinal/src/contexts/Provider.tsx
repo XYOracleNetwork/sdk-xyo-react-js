@@ -10,7 +10,9 @@ import type { SentinelConfig } from '@xyo-network/sentinel-model'
 import { SentinelConfigSchema } from '@xyo-network/sentinel-model'
 import type { WitnessInstance } from '@xyo-network/witness-model'
 import { asWitnessInstance } from '@xyo-network/witness-model'
-import React, { useEffect, useState } from 'react'
+import React, {
+  useEffect, useMemo, useState,
+} from 'react'
 
 import { SentinelContext } from './Context.ts'
 import type { SentinelReportProgress } from './State.ts'
@@ -28,7 +30,9 @@ export interface SentinelProviderProps {
   witnesses?: WitnessInstance[]
 }
 
-export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = ({ account, archivist, children, filter, name, required = false }) => {
+export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = ({
+  account, archivist, children, filter, name, required = false,
+}) => {
   const [sentinel, setSentinel] = useState<MemorySentinel>()
   const [history, setHistory] = useState<BoundWitness[]>()
   const [progress, setProgress] = useState<SentinelReportProgress>({})
@@ -53,7 +57,9 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       })
       const offCallbacks: (() => void)[] = []
       offCallbacks.push(
-        sentinel.on('reportEnd', ({ mod, outPayloads }) => {
+        sentinel.on('reportEnd', ({
+          mod, outPayloads,
+        }) => {
           if (mounted()) {
             setProgress({
               archivists: progress.archivists,
@@ -67,7 +73,9 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       offCallbacks.push(
         sentinel.on('reportStart', () => {
           if (mounted()) {
-            setProgress({ archivists: {}, witnesses: {} })
+            setProgress({
+              archivists: {}, witnesses: {},
+            })
             setStatus(SentinelReportStatus.Started)
           }
         }),
@@ -75,7 +83,9 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
       if (witnesses)
         for (const witness of witnesses) {
           offCallbacks.push(
-            witness.on('observeEnd', ({ mod, outPayloads }) => {
+            witness.on('observeEnd', ({
+              mod, outPayloads,
+            }) => {
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
@@ -118,11 +128,20 @@ export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = (
   )
 
   useEffect(() => {
+    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setHistory(sentinel?.history as BoundWitness[])
   }, [sentinel])
 
+  const value = useMemo(() => ({
+    history, progress, provided: true, reportingErrors, sentinel, status,
+  }), [history, progress, reportingErrors, sentinel, status])
+
   return !required || sentinel
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    ? <SentinelContext.Provider value={{ history, progress, provided: true, reportingErrors, sentinel, status }}>{children}</SentinelContext.Provider>
+
+    ? (
+        <SentinelContext.Provider value={value}>
+          {children}
+        </SentinelContext.Provider>
+      )
     : null
 }

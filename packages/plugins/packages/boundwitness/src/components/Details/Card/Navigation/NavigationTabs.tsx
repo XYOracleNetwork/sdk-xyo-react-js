@@ -1,8 +1,12 @@
 import type { TabProps, TabsProps } from '@mui/material'
-import { Paper, Tab, Tabs, useTheme } from '@mui/material'
+import {
+  Paper, Tab, Tabs, useTheme,
+} from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
-import type { Dispatch, SetStateAction, SyntheticEvent } from 'react'
+import type {
+  Dispatch, SetStateAction, SyntheticEvent,
+} from 'react'
 import React from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
@@ -15,7 +19,9 @@ export interface BWNavigationTabs extends TabsProps {
   value?: number
 }
 
-export const BWNavigationTabs: React.FC<BWNavigationTabs> = ({ setValue, value, boundWitness, ...props }) => {
+export const BWNavigationTabs: React.FC<BWNavigationTabs> = ({
+  setValue, value, boundWitness, ...props
+}) => {
   const payloadCount = boundWitness?.payload_schemas.filter(schema => schema !== BoundWitnessSchema).length ?? 0
   const boundWitnessCount = boundWitness?.payload_schemas.filter(schema => schema === BoundWitnessSchema).length ?? 0
   const signers = boundWitness?.addresses.length ?? 0
@@ -27,7 +33,9 @@ export const BWNavigationTabs: React.FC<BWNavigationTabs> = ({ setValue, value, 
 
   const tabProps: TabProps = {
     iconPosition: 'start',
-    sx: { boxShadow: 'none', fontSize: theme.spacing(1.75), justifyContent: 'start', lineHeight: 3, minHeight: 0, overflow: 'hidden' },
+    sx: {
+      boxShadow: 'none', fontSize: theme.spacing(1.75), justifyContent: 'start', lineHeight: 3, minHeight: 0, overflow: 'hidden',
+    },
   }
 
   return (

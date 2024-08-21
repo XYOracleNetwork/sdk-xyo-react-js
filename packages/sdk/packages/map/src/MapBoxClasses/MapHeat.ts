@@ -3,7 +3,9 @@ import { delay } from '@xylabs/delay'
 import { forget } from '@xylabs/forget'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import type { Feature, Polygon } from 'geojson'
-import type { GeoJSONSource, GeoJSONSourceSpecification, Map, MapOptions } from 'mapbox-gl'
+import type {
+  GeoJSONSource, GeoJSONSourceSpecification, Map, MapOptions,
+} from 'mapbox-gl'
 import { LngLatBounds } from 'mapbox-gl'
 
 import type { MapLayer } from '../Layers/index.ts'

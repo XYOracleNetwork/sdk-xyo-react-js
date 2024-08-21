@@ -19,12 +19,24 @@ export interface NetworkComponentDetails {
 }
 
 export const networkComponents: NetworkComponentDetails[] = [
-  { icon: props => <HubRoundedIcon {...props} />, name: 'Node', slug: 'node' },
-  { icon: props => <TimerRoundedIcon {...props} />, name: 'Sentinel', slug: 'sentinel' },
-  { icon: props => <InsertLinkRoundedIcon {...props} />, name: 'Bridge', slug: 'bridge' },
-  { icon: props => <Inventory2RoundedIcon {...props} />, name: 'Archivist', slug: 'archivist' },
-  { icon: props => <BubbleChartRoundedIcon {...props} />, name: 'Diviner', slug: 'diviner' },
-  { icon: props => <VisibilityRoundedIcon {...props} />, name: 'Witness', slug: 'witness' },
+  {
+    icon: props => <HubRoundedIcon {...props} />, name: 'Node', slug: 'node',
+  },
+  {
+    icon: props => <TimerRoundedIcon {...props} />, name: 'Sentinel', slug: 'sentinel',
+  },
+  {
+    icon: props => <InsertLinkRoundedIcon {...props} />, name: 'Bridge', slug: 'bridge',
+  },
+  {
+    icon: props => <Inventory2RoundedIcon {...props} />, name: 'Archivist', slug: 'archivist',
+  },
+  {
+    icon: props => <BubbleChartRoundedIcon {...props} />, name: 'Diviner', slug: 'diviner',
+  },
+  {
+    icon: props => <VisibilityRoundedIcon {...props} />, name: 'Witness', slug: 'witness',
+  },
 ]
 
 export const findNetworkComponentIndex = (slug: string) => {

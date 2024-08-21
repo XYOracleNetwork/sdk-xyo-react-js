@@ -15,7 +15,9 @@ export const PayloadRenderPluginResolverProvider: React.FC<PayloadRenderPluginRe
 }) => {
   const [resolver, setResolver] = useState<PayloadRenderPluginResolver>(resolverProp)
 
-  const value = useMemo(() => ({ resolver, provided: true, setResolver }), [resolver, setResolver])
+  const value = useMemo(() => ({
+    resolver, provided: true, setResolver,
+  }), [resolver, setResolver])
 
   return (
     <PayloadRenderPluginResolverContext.Provider

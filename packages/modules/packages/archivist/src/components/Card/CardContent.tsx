@@ -10,7 +10,9 @@ import React, { useState } from 'react'
 
 import { ArchivistParents } from './components/index.ts'
 
-export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistInstance> & CardContentProps> = ({ children, mod, ...props }) => {
+export const ArchivistCardContent: React.FC<ModuleRenderProps<ArchivistInstance> & CardContentProps> = ({
+  children, mod, ...props
+}) => {
   const [config, setConfig] = useState<ArchivistConfig>()
   const [wallet] = useWallet()
 

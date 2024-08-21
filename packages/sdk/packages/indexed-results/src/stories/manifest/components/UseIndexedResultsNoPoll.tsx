@@ -9,11 +9,15 @@ import type { UseIndexedResultsConfig } from '../../../hooks/index.ts'
 import { useIndexedResults } from '../../../hooks/index.ts'
 import type { UseIndexedResultsProps } from './lib/index.ts'
 
-export const UseIndexedResultsNoPoll: React.FC<UseIndexedResultsProps> = ({ address, chainId, diviners, tokenInterface }) => {
+export const UseIndexedResultsNoPoll: React.FC<UseIndexedResultsProps> = ({
+  address, chainId, diviners, tokenInterface,
+}) => {
   const [archivist] = useWeakArchivistFromNode('Archivist')
 
   const config = useMemo(() => {
-    const indexedQueries = [{ address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface }]
+    const indexedQueries = [{
+      address, chainId, implemented: true, schema: PayloadDivinerQuerySchema, tokenInterface,
+    }]
     const config: UseIndexedResultsConfig = {
       indexedResultsConfig: {
         diviners,

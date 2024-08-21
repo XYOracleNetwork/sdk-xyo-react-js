@@ -25,7 +25,9 @@ export interface XyOsClockProps {
   clockType: 'appbar' | 'widget'
 }
 
-export const XyOsClock: React.FC<XyOsClockProps> = ({ clockType, clockSize, ...props }) => {
+export const XyOsClock: React.FC<XyOsClockProps> = ({
+  clockType, clockSize, ...props
+}) => {
   const [date, setDate] = useState(Date.now())
   useEffect(() => {
     const timerHandler: TimerHandler = () => setDate(Date.now())

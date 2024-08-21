@@ -15,7 +15,9 @@ export type PayloadDetailsProps = FlexBoxProps & {
   payload?: Payload
 }
 
-export const PayloadDetails = forwardRef<HTMLDivElement, PayloadDetailsProps>(({ paper, payload, ...props }, ref) => {
+export const PayloadDetails = forwardRef<HTMLDivElement, PayloadDetailsProps>(({
+  paper, payload, ...props
+}, ref) => {
   return (
     <FlexCol gap={1} justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} ref={ref} {...props}>
       <PayloadDataDetails paper={paper} size="large" badge payload={payload} />

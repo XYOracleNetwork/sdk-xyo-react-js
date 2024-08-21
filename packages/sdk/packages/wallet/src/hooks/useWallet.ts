@@ -13,7 +13,9 @@ export interface WalletHookParams {
   wallet?: WalletInstance | null
 }
 
-export const useWallet = ({ mnemonic, wallet, path, required = false, seed }: WalletHookParams = {}): [
+export const useWallet = ({
+  mnemonic, wallet, path, required = false, seed,
+}: WalletHookParams = {}): [
   WalletInstance | null | undefined,
   Error | undefined,
 ] => {

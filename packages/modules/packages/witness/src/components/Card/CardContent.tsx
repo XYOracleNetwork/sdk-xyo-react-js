@@ -12,7 +12,9 @@ export type WitnessCardContentProps = ModuleRenderProps<WitnessInstance> &
     observation?: Payload[]
   }
 
-export const WitnessCardContent: React.FC<WitnessCardContentProps> = ({ children, observation, mod, ...props }) => {
+export const WitnessCardContent: React.FC<WitnessCardContentProps> = ({
+  children, observation, mod, ...props
+}) => {
   return (
     <ModuleCardContent mod={mod} {...props}>
       <FlexGrowRow flexWrap="wrap" justifyContent="start" gap={2}>

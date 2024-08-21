@@ -1,5 +1,7 @@
 import type { SnackbarProps } from '@mui/material'
-import { Alert, AlertTitle, Snackbar } from '@mui/material'
+import {
+  Alert, AlertTitle, Snackbar,
+} from '@mui/material'
 import type { Dispatch, SetStateAction } from 'react'
 import React from 'react'
 
@@ -18,7 +20,9 @@ export const OutOfBoundsSnackBar: React.FC<OutOfBoundsSnackBarProps> = ({
 }) => {
   return (
     <Snackbar
-      anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
+      anchorOrigin={{
+        horizontal: 'center', vertical: 'top',
+      }}
       autoHideDuration={5000}
       onClose={() => setShowSnackBar?.(false)}
       open={showSnackBar}

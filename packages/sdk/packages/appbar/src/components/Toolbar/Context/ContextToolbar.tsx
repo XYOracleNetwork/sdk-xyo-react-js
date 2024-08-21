@@ -10,7 +10,9 @@ export interface ContextToolbarProps extends ToolbarProps {
   version?: boolean
 }
 
-export const ContextToolbar: React.FC<ContextToolbarProps> = ({ logoTo = '/', version = false, ...props }) => {
+export const ContextToolbar: React.FC<ContextToolbarProps> = ({
+  logoTo = '/', version = false, ...props
+}) => {
   return (
     <Toolbar {...props}>
       <LogoLinkEx version={version} to={logoTo} />

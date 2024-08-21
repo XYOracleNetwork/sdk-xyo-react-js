@@ -10,7 +10,9 @@ export type XyoBusyProps = Omit<FlexBoxProps, 'children'> & {
   widthInPixels?: number
 }
 
-export const XyoBusy: React.FC<XyoBusyProps> = ({ widthInPixels, busy, spinsPerSecond = 0.5, ...props }) => {
+export const XyoBusy: React.FC<XyoBusyProps> = ({
+  widthInPixels, busy, spinsPerSecond = 0.5, ...props
+}) => {
   // preloading image to prevent shifting
   const [imageLoaded, setImageLoaded] = useState(false)
   if (!imageLoaded) {

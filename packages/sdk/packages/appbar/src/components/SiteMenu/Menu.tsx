@@ -1,5 +1,7 @@
 import { Menu as MenuIcon, Settings as SettingsIcon } from '@mui/icons-material'
-import { IconButton, List, SwipeableDrawer } from '@mui/material'
+import {
+  IconButton, List, SwipeableDrawer,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React, { useEffect, useState } from 'react'
@@ -12,7 +14,9 @@ export interface SiteMenuProps extends FlexBoxProps {
   side?: 'left' | 'right' | 'top' | 'bottom'
 }
 
-export const SiteMenu: React.FC<SiteMenuProps> = ({ children, onMenuToggle, side = 'right', ...props }) => {
+export const SiteMenu: React.FC<SiteMenuProps> = ({
+  children, onMenuToggle, side = 'right', ...props
+}) => {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {

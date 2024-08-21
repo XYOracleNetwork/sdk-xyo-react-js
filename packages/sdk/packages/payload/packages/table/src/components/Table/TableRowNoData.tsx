@@ -1,5 +1,7 @@
 import type { TableRowProps, TypographyProps } from '@mui/material'
-import { styled, TableCell, TableRow, Typography } from '@mui/material'
+import {
+  styled, TableCell, TableRow, Typography,
+} from '@mui/material'
 import React from 'react'
 
 export interface TableRowNoDataProps extends TableRowProps {
@@ -8,7 +10,9 @@ export interface TableRowNoDataProps extends TableRowProps {
   typographyProps?: TypographyProps
 }
 
-export const TableRowNoData: React.FC<TableRowNoDataProps> = ({ additionalCells, hideBorder = false, typographyProps, ...props }) => {
+export const TableRowNoData: React.FC<TableRowNoDataProps> = ({
+  additionalCells, hideBorder = false, typographyProps, ...props
+}) => {
   return (
     <TableRow {...props}>
       <StyledTableCell hideBorder={hideBorder}>

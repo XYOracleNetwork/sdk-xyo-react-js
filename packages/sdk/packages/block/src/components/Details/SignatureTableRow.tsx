@@ -1,5 +1,7 @@
 import type { TableRowProps } from '@mui/material'
-import { TableCell, TableRow, Typography } from '@mui/material'
+import {
+  TableCell, TableRow, Typography,
+} from '@mui/material'
 import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
@@ -18,7 +20,9 @@ export interface BlockSignatureTableRowProps extends TableRowProps {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ hash, address, previousHash, signature, archive, ...props }) => {
+export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({
+  hash, address, previousHash, signature, archive, ...props
+}) => {
   const [errors] = usePromise(
     async () =>
       hash && address ? await BoundWitnessValidator.validateSignature(toUint8Array(hash), toUint8Array(address), toUint8Array(signature)) : [],
@@ -28,12 +32,26 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({ 
   return (
     <TableRow {...props}>
       <AddressTableCell archive={archive} value={address} />
-      <TableCell sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center">
+      <TableCell
+        sx={{
+          display: {
+            md: 'table-cell', xs: 'none',
+          },
+        }}
+        align="center"
+      >
         <Typography variant="body2" fontFamily="monospace">
           {previousHash ? ellipsize(previousHash, 8) : '-'}
         </Typography>
       </TableCell>
-      <TableCell sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center">
+      <TableCell
+        sx={{
+          display: {
+            sm: 'table-cell', xs: 'none',
+          },
+        }}
+        align="center"
+      >
         <Typography variant="body2" fontFamily="monospace">
           {signature ? ellipsize(signature, 8) : '-'}
         </Typography>

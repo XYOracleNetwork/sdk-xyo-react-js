@@ -1,4 +1,6 @@
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleBlock } from '@xyo-network/react-storybook'
 import React, { useRef } from 'react'
@@ -28,6 +30,10 @@ WithRef.decorators = [WithEventDecorator]
 WithRef.args = { payload: sampleBlock }
 
 const WithVisibleRows = Template.bind({})
-WithVisibleRows.args = { payload: sampleBlock, visibleRows: 3 }
+WithVisibleRows.args = {
+  payload: sampleBlock, visibleRows: 3,
+}
 
-export { Default, WithRef, WithVisibleRows }
+export {
+  Default, WithRef, WithVisibleRows,
+}

@@ -35,7 +35,14 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
     <FlexGrowRow columnGap={2} {...props}>
       {AdornmentStart}
       {IconComponent}
-      <EllipsizeBox title={headingText} width="100%" typographyProps={{ variant: sizeParser(size), ...headingProps }} ref={ellipsizeRef}>
+      <EllipsizeBox
+        title={headingText}
+        width="100%"
+        typographyProps={{
+          variant: sizeParser(size), ...headingProps,
+        }}
+        ref={ellipsizeRef}
+      >
         {headingText}
       </EllipsizeBox>
       {AdornmentEnd}

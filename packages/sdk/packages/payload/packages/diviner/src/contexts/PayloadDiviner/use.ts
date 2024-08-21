@@ -30,7 +30,9 @@ export const useDivinePayload = <T extends Payload = Payload>(
     async (mounted) => {
       if (huri && diviner && payload === undefined) {
         try {
-          const huriPayload: HuriPayload = { huri: [huri], schema: HuriSchema }
+          const huriPayload: HuriPayload = {
+            huri: [huri], schema: HuriSchema,
+          }
           const [payload] = (await diviner?.divine([huriPayload])) ?? []
           if (mounted()) {
             setPayload(payload ? (payload as WithMeta<T>) : null)
@@ -66,7 +68,9 @@ export const useDivinePayloads = <T extends Payload = Payload>(
       console.log(`huriList: ${JSON.stringify(huriList, null, 2)}`)
       const payloads = await Promise.allSettled(
         huriList.map(async (huri) => {
-          const huriPayload: HuriPayload = { huri: [huri], schema: HuriSchema }
+          const huriPayload: HuriPayload = {
+            huri: [huri], schema: HuriSchema,
+          }
           const [payload] = (await diviner?.divine([huriPayload])) ?? []
           return payload
         }),

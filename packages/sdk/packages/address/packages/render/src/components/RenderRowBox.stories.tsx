@@ -82,6 +82,8 @@ WithChildren.args = {
   showFavorite: true,
 }
 
-export { Default, WithAddress, WithChildren, WithFavorite, WithFavoriteAlias, WithIcon, WithIconOnly }
+export {
+  Default, WithAddress, WithChildren, WithFavorite, WithFavoriteAlias, WithIcon, WithIconOnly,
+}
 
 export default StorybookEntry

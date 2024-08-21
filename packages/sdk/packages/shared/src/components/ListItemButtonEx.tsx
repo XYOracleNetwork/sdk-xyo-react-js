@@ -11,7 +11,9 @@ export interface ListItemButtonExProps extends ListItemButtonProps {
   toOptions?: NavigateOptions
 }
 
-export const ListItemButtonExTo: React.FC<ListItemButtonExProps> = ({ to, toOptions, onClick, ...props }) => {
+export const ListItemButtonExTo: React.FC<ListItemButtonExProps> = ({
+  to, toOptions, onClick, ...props
+}) => {
   const navigate = useNavigate()
   const localOnClick = (event: MouseEvent<HTMLDivElement>) => {
     onClick?.(event)
@@ -23,6 +25,8 @@ export const ListItemButtonExTo: React.FC<ListItemButtonExProps> = ({ to, toOpti
   return <ListItemButton onClick={localOnClick} {...props} />
 }
 
-export const ListItemButtonEx: React.FC<ListItemButtonExProps> = ({ to, ...props }) => {
+export const ListItemButtonEx: React.FC<ListItemButtonExProps> = ({
+  to, ...props
+}) => {
   return to ? <ListItemButtonExTo to={to} {...props} /> : <ListItemButton {...props} />
 }

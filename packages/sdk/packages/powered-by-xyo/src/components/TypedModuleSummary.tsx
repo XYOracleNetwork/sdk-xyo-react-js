@@ -15,7 +15,9 @@ import { NodeSummary } from './NodeSummary.tsx'
 import { SentinelSummary } from './SentinelSummary.tsx'
 import { WitnessSummary } from './WitnessSummary.tsx'
 
-export const TypedModuleSummary: React.FC<ModuleSummaryProps> = ({ mod, ...props }) => {
+export const TypedModuleSummary: React.FC<ModuleSummaryProps> = ({
+  mod, ...props
+}) => {
   if (isArchivistInstance(mod)) {
     return <ArchivistSummary mod={mod} {...props} />
   }

@@ -6,12 +6,16 @@ import React, { forwardRef } from 'react'
 
 import { PropertyActionsMenu } from './ActionsMenu.tsx'
 import { IdenticonCorner } from './IdenticonCorner.tsx'
-import type { PropertyBoxProps, PropertyPaperProps, PropertyProps } from './Props.ts'
+import type {
+  PropertyBoxProps, PropertyPaperProps, PropertyProps,
+} from './Props.ts'
 import { PropertyTitle } from './Title.tsx'
 import { PropertyValue } from './Value.tsx'
 
 const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
-  ({ titleProps, title, value, children, size = 'medium', tip, actions, required, badge = false, ...props }, ref) => {
+  ({
+    titleProps, title, value, children, size = 'medium', tip, actions, required, badge = false, ...props
+  }, ref) => {
     const sizeValueHeight: Record<SizeProp, number> = {
       large: 48,
       medium: 36,
@@ -59,9 +63,19 @@ const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
 )
 PropertyBox.displayName = 'PropertyBox'
 
-const PropertyPaper = forwardRef<HTMLDivElement, PropertyPaperProps>(({ style, variant, elevation = 2, square, ...props }, ref) => {
+const PropertyPaper = forwardRef<HTMLDivElement, PropertyPaperProps>(({
+  style, variant, elevation = 2, square, ...props
+}, ref) => {
   return (
-    <Paper ref={ref} style={{ minWidth: 0, overflow: 'hidden', ...style }} variant={variant} elevation={elevation} square={square}>
+    <Paper
+      ref={ref}
+      style={{
+        minWidth: 0, overflow: 'hidden', ...style,
+      }}
+      variant={variant}
+      elevation={elevation}
+      square={square}
+    >
       <PropertyBox {...props} paper={false} />
     </Paper>
   )

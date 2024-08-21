@@ -18,15 +18,21 @@ export const NameWithFormControl: React.FC<NameWithFormControlProps> = ({
   ...props
 }) => {
   const args = useMemo(() => [fieldLabel, autoCompleteLabel, placeholder ?? ''], [autoCompleteLabel, fieldLabel, placeholder])
-  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, NameFormControl, args)
-  const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cvcProps } = creditCardFormControl?.props ?? {}
+  const {
+    creditCardFormControl, error, inputRef, value,
+  } = useCreditCardFormControl(formControlName, NameFormControl, args)
+  const {
+    autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cvcProps
+  } = creditCardFormControl?.props ?? {}
   return (
     <FormControlTextField
       fieldLabel={fieldLabel}
       formControl={creditCardFormControl}
       formControlError={error}
       inputMode={inputMode}
-      inputProps={{ 'aria-label': `${fieldLabel} name on your card`, autoComplete, autoCorrect, id, name, spellCheck, tabIndex }}
+      inputProps={{
+        'aria-label': `${fieldLabel} name on your card`, autoComplete, autoCorrect, id, name, spellCheck, tabIndex,
+      }}
       inputRef={inputRef}
       value={value}
       {...cvcProps}

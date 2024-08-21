@@ -32,7 +32,9 @@ const useGetSchemaPayload = (schema?: string) => {
           const error = e as Error
           console.error(e)
           if (mounted()) {
-            setError({ message: error.message, schema: ModuleErrorSchema, sources: [] })
+            setError({
+              message: error.message, schema: ModuleErrorSchema, sources: [],
+            })
           }
         }
       }

@@ -16,7 +16,9 @@ export abstract class MapBase<T extends Geometry> {
   private _config: MapBaseConfig<T>
 
   constructor(config: MapBaseConfig<T>) {
-    this._config = { requestLocation: true, zoom: 2, ...config }
+    this._config = {
+      requestLocation: true, zoom: 2, ...config,
+    }
   }
 
   get isMapReady() {

@@ -1,6 +1,8 @@
 import { Close as CloseIcon } from '@mui/icons-material'
 import type { DrawerProps } from '@mui/material'
-import { ClickAwayListener, Drawer, IconButton } from '@mui/material'
+import {
+  ClickAwayListener, Drawer, IconButton,
+} from '@mui/material'
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
 import type { WithChildren } from '@xylabs/react-shared'
 import { useNodeDrawer } from '@xyo-network/react-node-provider'
@@ -11,8 +13,12 @@ import { ModuleDescriptionBox } from './render/index.ts'
 
 export interface NodeDrawerProps extends WithChildren, Omit<DrawerProps, 'open'> {}
 
-export const NodeDrawer: React.FC<NodeDrawerProps> = ({ children, ...props }) => {
-  const { open, setOpen } = useNodeDrawer()
+export const NodeDrawer: React.FC<NodeDrawerProps> = ({
+  children, ...props
+}) => {
+  const {
+    open, setOpen,
+  } = useNodeDrawer()
   const [node] = useWeakProvidedNode()
 
   return (

@@ -57,6 +57,8 @@ WithOnMenuToggle.args = {
   onMenuToggle: state => console.log(state),
 }
 
-export { Default, PrecedingChildren, WithOnMenuToggle }
+export {
+  Default, PrecedingChildren, WithOnMenuToggle,
+}
 
 export default StorybookEntry

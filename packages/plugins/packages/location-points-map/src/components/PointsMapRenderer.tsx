@@ -1,4 +1,6 @@
-import { Alert, AlertTitle, useTheme } from '@mui/material'
+import {
+  Alert, AlertTitle, useTheme,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
 import {
@@ -18,7 +20,9 @@ export interface PointsMapInnerProps extends FlexBoxProps {
   payload?: Payload
 }
 
-const PointsMapInner: React.FC<PointsMapInnerProps> = ({ accessToken, payload, ...props }) => {
+const PointsMapInner: React.FC<PointsMapInnerProps> = ({
+  accessToken, payload, ...props
+}) => {
   const theme = useTheme()
   const locationAnswerPayload = payload && isNetworkLocationAnswer(payload) ? payload : undefined
   const features = locationAnswerPayload?.result?.features

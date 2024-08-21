@@ -4,8 +4,10 @@ import type { Payload } from '@xyo-network/payload-model'
 import React from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { BsFileEarmarkCode } from 'react-icons/bs'
+import {
+  VscOrganization, VscSymbolMethod, VscSymbolNamespace,
 // eslint-disable-next-line import-x/no-internal-modules
-import { VscOrganization, VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
+} from 'react-icons/vsc'
 
 export interface ArchivistStatsProps {
   addresses?: Record<string, number>
@@ -14,7 +16,9 @@ export interface ArchivistStatsProps {
   schemas?: Record<string, number>
 }
 
-export const ArchivistStats: React.FC<ArchivistStatsProps> = ({ addresses, boundWitnesses, payloads, schemas }) => {
+export const ArchivistStats: React.FC<ArchivistStatsProps> = ({
+  addresses, boundWitnesses, payloads, schemas,
+}) => {
   return (
     <FlexRow gap={2} mr={0.5}>
       {payloads?.length

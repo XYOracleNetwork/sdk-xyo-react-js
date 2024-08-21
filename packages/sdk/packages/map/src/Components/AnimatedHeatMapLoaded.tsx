@@ -6,7 +6,9 @@ import type { Feature, Polygon } from 'geojson'
 import React from 'react'
 
 import { AnimatedHeatMapSettings } from '../AnimatedHeatMapSettings.ts'
-import { useFindHashes, useHeatMapColors, useQuadKeyPayloadsToFeatures } from '../hooks/index.ts'
+import {
+  useFindHashes, useHeatMapColors, useQuadKeyPayloadsToFeatures,
+} from '../hooks/index.ts'
 import type { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.ts'
 import { AnimatedHeatMap } from './AnimatedHeatMap.tsx'
 import { AnimatedHeatMapLegend } from './Legend.tsx'
@@ -16,12 +18,16 @@ export interface AnimatedHeatMapLoadedProps extends FlexBoxProps {
   archivistNameOrAddress: string
 }
 
-export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({ accessToken, archivistNameOrAddress, ...props }) => {
+export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({
+  accessToken, archivistNameOrAddress, ...props
+}) => {
   const hashes = useFindHashes()
   const [archivist] = useWeakArchivistFromNode(archivistNameOrAddress)
   const [payloads, xyoError] = useWeakArchivistGet<NetworkLocationHeatmapQuadkeyAnswerPayload>(archivist, hashes)
   const { multipleFeatureSets } = useQuadKeyPayloadsToFeatures(payloads)
-  const { heatMapColorProps, legendProps } = useHeatMapColors()
+  const {
+    heatMapColorProps, legendProps,
+  } = useHeatMapColors()
 
   const MapBoxHeatProps = {
     flexGrow: 1,

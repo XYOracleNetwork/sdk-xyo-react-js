@@ -14,7 +14,9 @@ export interface LoadResultProps<T> {
 }
 
 export function LoadResult<T>(props: PropsWithChildren<LoadResultProps<T>>) {
-  const { notFound, error, searchResult, children } = props
+  const {
+    notFound, error, searchResult, children,
+  } = props
   if (notFound) {
     return <NotFound />
   }

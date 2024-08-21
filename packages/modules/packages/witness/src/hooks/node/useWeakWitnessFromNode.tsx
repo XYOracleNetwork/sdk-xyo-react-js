@@ -7,5 +7,7 @@ export const useWeakWitnessFromNode = (
   nameOrAddressOrInstance?: string | WitnessInstance,
   config?: WeakModuleFromNodeConfig,
 ): [WeakRef<WitnessInstance> | undefined, Error | undefined] => {
-  return useWeakModuleFromNode<WitnessInstance>(nameOrAddressOrInstance, { identity: isWitnessInstance, ...config })
+  return useWeakModuleFromNode<WitnessInstance>(nameOrAddressOrInstance, {
+    identity: isWitnessInstance, ...config,
+  })
 }

@@ -9,7 +9,9 @@ export class CircleLayerBuilder extends LayerBase<CircleLayerSpecification> {
 
   constructor(id: string, source: string, CircleLayerOptions?: Partial<CircleLayerSpecification>) {
     super(id, source)
-    this.CircleLayerOptions = CircleLayerOptions || { id: this.id, source: this.source, type: 'circle' }
+    this.CircleLayerOptions = CircleLayerOptions || {
+      id: this.id, source: this.source, type: 'circle',
+    }
   }
 
   buildLayer(): CircleLayerSpecification {

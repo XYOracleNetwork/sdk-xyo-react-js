@@ -11,8 +11,17 @@ export interface FooterAlwaysLinksProps extends FlexBoxProps {
   onMore?: () => void
 }
 
-export const FooterAlwaysLinks: React.FC<FooterAlwaysLinksProps> = ({ style, footerLinks, onMore, ...props }) => (
-  <FlexRow flexWrap="wrap" textTransform="uppercase" style={{ opacity: 0.6, ...style }} {...props}>
+export const FooterAlwaysLinks: React.FC<FooterAlwaysLinksProps> = ({
+  style, footerLinks, onMore, ...props
+}) => (
+  <FlexRow
+    flexWrap="wrap"
+    textTransform="uppercase"
+    style={{
+      opacity: 0.6, ...style,
+    }}
+    {...props}
+  >
     {footerLinks?.map((footerLink, index) => (
       <FooterLink noWrap key={index} paddingX={1} margin={0} {...footerLink}>
         <small>{footerLink.title}</small>

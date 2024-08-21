@@ -13,7 +13,9 @@ export interface HashTableCellProps extends EllipsisTableCellProps {
   onHashClick?: (value: Hash) => void
 }
 
-export const HashTableCell: React.FC<HashTableCellProps> = ({ value, archive, dataType, network, exploreDomain, onHashClick, ...props }) => {
+export const HashTableCell: React.FC<HashTableCellProps> = ({
+  value, archive, dataType, network, exploreDomain, onHashClick, ...props
+}) => {
   const ref = useRef<HTMLTableCellElement | null>(null)
   const [tableCellRef, dispatch] = useEvent<HTMLTableCellElement>(undefined, ref)
   const hashPath = `/${dataType}/hash/${value}?network=${network ?? 'main'}`

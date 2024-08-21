@@ -5,8 +5,12 @@ import React from 'react'
 
 import { useValidatePayload } from '../../contexts/index.ts'
 
-export const ValidatePayloadAlert: React.FC<WithChildren<AlertProps>> = ({ children, ...props }) => {
-  const { validPayload, enabled, schema } = useValidatePayload()
+export const ValidatePayloadAlert: React.FC<WithChildren<AlertProps>> = ({
+  children, ...props
+}) => {
+  const {
+    validPayload, enabled, schema,
+  } = useValidatePayload()
 
   if (enabled && validPayload === false) {
     return (

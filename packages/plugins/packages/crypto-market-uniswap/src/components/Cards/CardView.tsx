@@ -1,4 +1,6 @@
-import { Card, CardContent, Grid } from '@mui/material'
+import {
+  Card, CardContent, Grid,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
@@ -13,7 +15,9 @@ interface UniswapPairsCardsProps extends FlexBoxProps {
   payload?: Payload
 }
 
-export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload, ...props }) => {
+export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({
+  payload, ...props
+}) => {
   const uniswapPayload = payload ? (payload as UniswapCryptoMarketPayload) : undefined
   const [cardViewStyle] = useState(CardViewType.Static)
 

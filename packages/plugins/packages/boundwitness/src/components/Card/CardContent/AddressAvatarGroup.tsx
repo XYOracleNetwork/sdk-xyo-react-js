@@ -1,14 +1,18 @@
 import type { AvatarGroupProps } from '@mui/material'
 import { Avatar, AvatarGroup } from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
-import React, { useLayoutEffect, useRef, useState } from 'react'
+import React, {
+  useLayoutEffect, useRef, useState,
+} from 'react'
 
 export interface AddressAvatarGroupProps extends AvatarGroupProps {
   addresses?: string[]
   maxAvatars?: number
 }
 
-export const AddressAvatarGroup: React.FC<AddressAvatarGroupProps> = ({ addresses, maxAvatars = 4, ...props }) => {
+export const AddressAvatarGroup: React.FC<AddressAvatarGroupProps> = ({
+  addresses, maxAvatars = 4, ...props
+}) => {
   const [size, setSize] = useState<number>()
   const ref = useRef<HTMLDivElement | null>(null)
 

@@ -2,7 +2,8 @@ import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type {
   SchemaStatsPayload,
-  SchemaStatsQueryPayload } from '@xyo-network/diviner-schema-stats-model'
+  SchemaStatsQueryPayload,
+} from '@xyo-network/diviner-schema-stats-model'
 import {
   SchemaStatsDivinerSchema,
   SchemaStatsQuerySchema,

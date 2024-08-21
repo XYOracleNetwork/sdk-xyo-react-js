@@ -5,7 +5,7 @@ import { ArchivistFormGroupStorage } from '@xyo-network/react-form-group'
 
 import type { CreditCardInput } from '../../models/index.ts'
 
-const StorageNameSpace = 'credit-card-fields'
+const STORAGE_NAME_SPACE = 'credit-card-fields' as const
 
 const calculateTTL = (months = 6) => {
   const MS_PER_DAY = 24 * 60 * 60 * 1000
@@ -17,11 +17,15 @@ export const useFormStorage = () => {
   return usePromise(async () => {
     const localStorageArchivist = await StorageArchivist.create({
       account: 'random',
-      config: { namespace: StorageNameSpace, schema: StorageArchivistConfigSchema, type: 'local' },
+      config: {
+        namespace: STORAGE_NAME_SPACE, schema: StorageArchivistConfigSchema, type: 'local',
+      },
     })
     const sessionStorageArchivist = await StorageArchivist.create({
       account: 'random',
-      config: { namespace: StorageNameSpace, schema: StorageArchivistConfigSchema, type: 'session' },
+      config: {
+        namespace: STORAGE_NAME_SPACE, schema: StorageArchivistConfigSchema, type: 'session',
+      },
     })
 
     const storage = {
@@ -29,6 +33,8 @@ export const useFormStorage = () => {
       storage: new ArchivistFormGroupStorage(localStorageArchivist),
     }
 
-    return { serialize: true, storage, ttlStorage: calculateTTL() } as FormGroupParams<CreditCardInput>
+    return {
+      serialize: true, storage, ttlStorage: calculateTTL(),
+    } as FormGroupParams<CreditCardInput>
   }, [])
 }

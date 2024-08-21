@@ -1,4 +1,6 @@
-import { Facebook as FacebookIcon, Share as ShareIcon, Twitter as TwitterIcon } from '@mui/icons-material'
+import {
+  Facebook as FacebookIcon, Share as ShareIcon, Twitter as TwitterIcon,
+} from '@mui/icons-material'
 import { Popover } from '@mui/material'
 import type { ButtonExProps } from '@xylabs/react-button'
 import { ButtonEx } from '@xylabs/react-button'
@@ -11,7 +13,9 @@ export interface ShareButtonProps extends ButtonExProps {
   shareLink?: string
 }
 
-export const ShareButton: React.FC<ShareButtonProps> = ({ prepared = true, shareLink, ...props }) => {
+export const ShareButton: React.FC<ShareButtonProps> = ({
+  prepared = true, shareLink, ...props
+}) => {
   const [expanded, setExpanded] = useState(false)
   const anchorRef = useRef(null)
   const link = shareLink ?? window.location.href

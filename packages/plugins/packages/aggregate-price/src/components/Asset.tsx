@@ -1,10 +1,14 @@
 import type { CardProps, PaperProps } from '@mui/material'
-import { Card, CardContent, Divider, Link, Paper, useTheme } from '@mui/material'
+import {
+  Card, CardContent, Divider, Link, Paper, useTheme,
+} from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import type { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
-import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
+import {
+  TokenBar, TokenSummary, useGetTokenData,
+} from '@xyo-network/react-shared'
 import React, { Fragment } from 'react'
 
 export interface CryptoAssetProps extends CardProps {
@@ -12,7 +16,9 @@ export interface CryptoAssetProps extends CardProps {
   priceInfo?: AssetInfo
 }
 
-export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...props }) => {
+export const CryptoAsset: React.FC<CryptoAssetProps> = ({
+  asset, priceInfo, ...props
+}) => {
   const theme = useTheme()
   const isLightMode = theme.palette.mode !== 'dark'
 
@@ -45,7 +51,12 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({ asset, priceInfo, ...p
       <CardContent style={{ height: '100%' }}>
         <FlexCol alignItems="stretch" height="100%" justifyContent="flex-start">
           <FlexCol alignItems="stretch" justifyContent="flex-start">
-            <Paper sx={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }} elevation={0}>
+            <Paper
+              sx={{
+                alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden',
+              }}
+              elevation={0}
+            >
               {Object.entries(priceInfo?.value ?? {}).map(([currency, price], index, arr) => (
                 <Fragment key={currency}>
                   <TokenBar square text1={currency.toUpperCase()} text2={formattedPrice(price)} text2Props={{ title: price }} {...tokenBarBgProps} />

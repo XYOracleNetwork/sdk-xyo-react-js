@@ -10,7 +10,9 @@ import { useEthgasstationTransformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthgasstationGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
+export const EthgasstationGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({
+  payload, ...props
+}, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasEthgasstationPayload) : undefined
   const parsedPayload = useEthgasstationTransformer(gasPricePayload)
 
@@ -19,7 +21,13 @@ export const EthgasstationGasPriceCardContent = forwardRef<HTMLDivElement, Paylo
   }
 
   return (
-    <CardContent ref={ref} sx={{ display: 'flex', flexDirection: 'column', rowGap: 4 }} {...props}>
+    <CardContent
+      ref={ref}
+      sx={{
+        display: 'flex', flexDirection: 'column', rowGap: 4,
+      }}
+      {...props}
+    >
       <Grid container spacing={3}>
         {parsedPayload
         && parsedPayload?.gasPrice?.map(({ price }) => (

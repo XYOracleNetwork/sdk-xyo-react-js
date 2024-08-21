@@ -10,7 +10,9 @@ interface EmbedCardApiErrorRendererProps extends CardProps {
   xyoError?: ModuleError
 }
 
-export const EmbedCardApiErrorRenderer: React.FC<WithChildren<EmbedCardApiErrorRendererProps>> = ({ xyoError, children, ...props }) => {
+export const EmbedCardApiErrorRenderer: React.FC<WithChildren<EmbedCardApiErrorRendererProps>> = ({
+  xyoError, children, ...props
+}) => {
   return (
     <ErrorRender error={xyoError} noReAuth noErrorDisplay customError={<CustomApiErrorCard xyoError={xyoError} {...props} />}>
       {children}
@@ -18,7 +20,9 @@ export const EmbedCardApiErrorRenderer: React.FC<WithChildren<EmbedCardApiErrorR
   )
 }
 
-const CustomApiErrorCard: React.FC<EmbedCardApiErrorRendererProps> = ({ xyoError, ...props }) => {
+const CustomApiErrorCard: React.FC<EmbedCardApiErrorRendererProps> = ({
+  xyoError, ...props
+}) => {
   return (
     <EmbedErrorCard {...props}>
       <ErrorAlert error={xyoError} />

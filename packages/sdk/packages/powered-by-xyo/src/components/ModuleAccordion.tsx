@@ -7,12 +7,16 @@ export interface ModuleAccordionProps<T extends ModuleInstance = ModuleInstance>
 }
 
 import type { AccordionProps } from '@mui/material'
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import {
+  Accordion, AccordionDetails, AccordionSummary,
+} from '@mui/material'
 
 import { ModuleDetails } from './ModuleDetails.tsx'
 import { TypedModuleSummary } from './TypedModuleSummary.tsx'
 
-export const ModuleAccordion: React.FC<ModuleAccordionProps> = ({ mod, ...props }) => {
+export const ModuleAccordion: React.FC<ModuleAccordionProps> = ({
+  mod, ...props
+}) => {
   return (
     <Accordion {...props}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>

@@ -15,7 +15,9 @@ export type MemoryNodeProviderProps = WithChildren<{
 }> &
 ModuleParams<NodeConfig>
 
-export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({ children, modules, moduleParams }) => {
+export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({
+  children, modules, moduleParams,
+}) => {
   const [node, setNode] = useState<MemoryNode | null>(null)
 
   useAsyncEffect(

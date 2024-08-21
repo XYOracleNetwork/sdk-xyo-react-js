@@ -1,4 +1,6 @@
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 import React from 'react'
 
@@ -52,4 +54,6 @@ WithNoData.args = {
   payload: missingData,
 }
 
-export { Default, WithData, WithNoData }
+export {
+  Default, WithData, WithNoData,
+}

@@ -1,5 +1,9 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import {
+  Table, TableBody, TableCell, TableHead, TableRow,
+} from '@mui/material'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -96,4 +100,6 @@ WithMultiple.args = {}
 const WithMultipleRows = TemplateWithMultipleRows.bind({})
 WithMultipleRows.args = {}
 
-export { Default, WithMultiple, WithMultipleRows }
+export {
+  Default, WithMultiple, WithMultipleRows,
+}

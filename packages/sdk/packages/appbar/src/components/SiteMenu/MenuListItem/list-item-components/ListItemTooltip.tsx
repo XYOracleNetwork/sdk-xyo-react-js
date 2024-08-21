@@ -9,7 +9,9 @@ export interface ListItemTooltipProps extends Omit<TooltipProps, 'children'> {
   title: string
 }
 
-export const ListItemTooltip: React.FC<ListItemTooltipProps> = ({ title, ...props }) => {
+export const ListItemTooltip: React.FC<ListItemTooltipProps> = ({
+  title, ...props
+}) => {
   return (
     <Tooltip title={title} placement="right" {...props}>
       {/* Needs div so it can work, the hovering doesn't work with a FlexCol */}

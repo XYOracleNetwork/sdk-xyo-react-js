@@ -13,7 +13,9 @@ interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
   onRowClick?: (value: BoundWitness) => void
 }
 
-const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({ block, columns, onRowClick, index, exploreDomain }) => {
+const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({
+  block, columns, onRowClick, index, exploreDomain,
+}) => {
   const hash = usePayloadHash(block)
   return (
     <>

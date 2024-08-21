@@ -2,13 +2,17 @@ import { useTheme } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
-import React, { useEffect, useRef, useState } from 'react'
+import React, {
+  useEffect, useRef, useState,
+} from 'react'
 
 export interface IdenticonCornerProps extends FlexBoxProps {
   value?: string | number | boolean | null
 }
 
-export const IdenticonCorner: React.FC<IdenticonCornerProps> = ({ value, ...props }) => {
+export const IdenticonCorner: React.FC<IdenticonCornerProps> = ({
+  value, ...props
+}) => {
   const theme = useTheme()
   const [parentHeight, setParentHeight] = useState<number>()
   const ref = useRef<HTMLDivElement>(null)

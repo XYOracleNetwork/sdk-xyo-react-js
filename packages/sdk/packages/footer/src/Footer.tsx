@@ -13,7 +13,9 @@ export interface FooterProps extends FlexBoxProps {
   dynamicHeight?: boolean
 }
 
-export const Footer: React.FC<FooterProps> = ({ alwaysFooterLinksProps, children, container, dynamicHeight = false, ...props }) => {
+export const Footer: React.FC<FooterProps> = ({
+  alwaysFooterLinksProps, children, container, dynamicHeight = false, ...props
+}) => {
   const [more, setMore] = useState(false)
   const onMore = () => {
     setMore(!more)

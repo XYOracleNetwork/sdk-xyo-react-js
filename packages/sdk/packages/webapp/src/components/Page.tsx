@@ -17,7 +17,9 @@ const WebAppPageRoot = styled(FlexGrowCol, {
   name: 'WebAppPage',
   shouldForwardProp: propName => propName !== 'mobileScrollingBreakpoint' && propName !== 'variant',
   slot: 'Root',
-})<WebAppPageProps>(({ theme, mobileScrollingBreakpoint = 'sm', variant }) => {
+})<WebAppPageProps>(({
+  theme, mobileScrollingBreakpoint = 'sm', variant,
+}) => {
   const props = variant === 'scrollable' ? scrollableWrap : fixedWrap
   return {
     ...props,
@@ -52,7 +54,9 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
 
   useAsyncEffect(
     async () => {
-      await userEvents?.viewContent({ name: title ?? 'NodeBasePage', path: location.pathname })
+      await userEvents?.viewContent({
+        name: title ?? 'NodeBasePage', path: location.pathname,
+      })
     },
     [pathname, title, userEvents],
   )
@@ -64,7 +68,9 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
         ? (
             <Container
               disableGutters={disableGutters}
-              style={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start' }}
+              style={{
+                alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'flex-start',
+              }}
               maxWidth={container}
             >
               <WebAppBody

@@ -12,8 +12,12 @@ export const CreditCardNumberWithFormControl: React.FC<WithFormControlProps> = (
   formControlName = 'cardNumber',
   ...props
 }) => {
-  const { creditCardFormControl, error, inputRef, type, value } = useCreditCardNumberFormControl(formControlName, CreditCardNumberFormControl)
-  const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cardProps } = creditCardFormControl?.props ?? {}
+  const {
+    creditCardFormControl, error, inputRef, type, value,
+  } = useCreditCardNumberFormControl(formControlName, CreditCardNumberFormControl)
+  const {
+    autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...cardProps
+  } = creditCardFormControl?.props ?? {}
 
   return (
     <FormControlTextField
@@ -22,7 +26,9 @@ export const CreditCardNumberWithFormControl: React.FC<WithFormControlProps> = (
       formControlError={error}
       inputRef={inputRef}
       inputMode={inputMode}
-      inputProps={{ 'aria-label': fieldLabel, autoComplete, autoCorrect, id, inputMode, name, spellCheck }}
+      inputProps={{
+        'aria-label': fieldLabel, autoComplete, autoCorrect, id, inputMode, name, spellCheck,
+      }}
       InputProps={{
         startAdornment:
           type.length > 0

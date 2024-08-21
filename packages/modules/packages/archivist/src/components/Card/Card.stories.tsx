@@ -24,7 +24,9 @@ const StorybookEntry = {
 
 const insertPayload = async (archivist?: ArchivistInstance) => {
   if (archivist) {
-    const payload = { schema: 'network.xyo.payload', timestamp: Date.now() }
+    const payload = {
+      schema: 'network.xyo.payload', timestamp: Date.now(),
+    }
     const insertQuery = { schema: ArchivistInsertQuerySchema }
     const account = await Account.random()
     const builder = await new QueryBoundWitnessBuilder().payloads([insertQuery, payload]).signer(account).query(insertQuery)
@@ -51,7 +53,9 @@ const Template: StoryFn<typeof ArchivistCard> = () => {
       const newModule = await MemoryArchivist.create({
         config: {
           name: 'MemoryArchivist',
-          parents: { commit: [newParentModule.address], read: [newParentModule.address], write: [newParentModule.address] },
+          parents: {
+            commit: [newParentModule.address], read: [newParentModule.address], write: [newParentModule.address],
+          },
           schema: MemoryArchivistConfigSchema,
         },
       })

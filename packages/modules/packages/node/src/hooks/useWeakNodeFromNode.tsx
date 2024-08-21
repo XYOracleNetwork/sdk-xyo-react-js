@@ -8,5 +8,7 @@ export const useWeakNodeFromNode = (
   nameOrAddressOrInstance?: string | NodeInstance,
   config?: WeakModuleFromNodeConfig,
 ): [WeakRef<NodeInstance> | undefined, Error | undefined] => {
-  return useWeakModuleFromNode<NodeInstance>(nameOrAddressOrInstance, { identity: isNodeInstance, ...config })
+  return useWeakModuleFromNode<NodeInstance>(nameOrAddressOrInstance, {
+    identity: isNodeInstance, ...config,
+  })
 }

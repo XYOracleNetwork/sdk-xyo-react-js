@@ -11,7 +11,9 @@ export type BoundWitnessPayloadsProps = PropertyGroupProps & {
   payloadTableProps?: PayloadTableProps
 }
 
-export const BoundWitnessPayloads: React.FC<BoundWitnessPayloadsProps> = ({ payload: boundwitness, payloadTableProps, ...props }) => {
+export const BoundWitnessPayloads: React.FC<BoundWitnessPayloadsProps> = ({
+  payload: boundwitness, payloadTableProps, ...props
+}) => {
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0

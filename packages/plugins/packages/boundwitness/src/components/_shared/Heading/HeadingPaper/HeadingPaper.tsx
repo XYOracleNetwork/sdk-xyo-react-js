@@ -10,9 +10,14 @@ export interface HeadingPaperProps extends BWHeadingProps {
 }
 
 const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>((props, ref) => {
-  const { AdornmentStart, AdornmentEnd, paperProps } = props
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { paperProps: excludedPaperProps, ...bwHeadingProps } = props
+  const {
+    AdornmentStart, AdornmentEnd, paperProps,
+  } = props
+
+  const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    paperProps: excludedPaperProps, ...bwHeadingProps
+  } = props
   return (
     <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...paperProps}>
       <BWHeading {...bwHeadingProps} />
@@ -32,7 +37,9 @@ interface StyledHeadingPaperProps extends PaperProps {
 const StyledHeadingPaper = styled(Paper, {
   name: 'StyledHeadingPaper',
   shouldForwardProp: prop => !['hasAdornmentEnd', 'hasAdornmentStart', 'paperProps'].includes(prop as string),
-})<StyledHeadingPaperProps>(({ hasAdornmentEnd, hasAdornmentStart, theme }) => ({
+})<StyledHeadingPaperProps>(({
+  hasAdornmentEnd, hasAdornmentStart, theme,
+}) => ({
   alignItems: 'center',
   columnGap: theme.spacing(2),
   display: 'flex',
@@ -41,6 +48,8 @@ const StyledHeadingPaper = styled(Paper, {
   padding: theme.spacing(1),
   ...(hasAdornmentStart && { paddingLeft: 0 }),
   ...(hasAdornmentEnd && { paddingRight: 0 }),
-  ...((hasAdornmentStart || hasAdornmentEnd) && { paddingBottom: 0, paddingTop: 0 }),
+  ...((hasAdornmentStart || hasAdornmentEnd) && {
+    paddingBottom: 0, paddingTop: 0,
+  }),
   paddingRight: theme.spacing(1),
 }))

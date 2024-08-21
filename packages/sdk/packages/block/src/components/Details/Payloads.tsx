@@ -12,7 +12,9 @@ export type BlockPayloadsProps = PropertyGroupProps & {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-export const BlockPayloads: React.FC<BlockPayloadsProps> = ({ payloads, payloadTableProps, ...props }) => {
+export const BlockPayloads: React.FC<BlockPayloadsProps> = ({
+  payloads, payloadTableProps, ...props
+}) => {
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0

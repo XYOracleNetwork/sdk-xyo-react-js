@@ -11,7 +11,9 @@ const isNftScorePayload = (payload?: Payload): payload is NftScore => {
   return payload?.schema === NftScoreSchema
 }
 
-export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({ payload, ...props }) => {
+export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({
+  payload, ...props
+}) => {
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScore) : undefined
   const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(([key]) => key === 'schema') : undefined
 

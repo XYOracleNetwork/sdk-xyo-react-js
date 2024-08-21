@@ -21,7 +21,9 @@ import {
   HeadingPaper,
 } from '../../_shared/index.ts'
 
-const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({ visibleRows, ...props }, ref) => {
+const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({
+  visibleRows, ...props
+}, ref) => {
   return (
     <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
       <BoundWitnessDetailsBoxInner ref={ref} {...props} />
@@ -31,7 +33,9 @@ const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderPr
 
 BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
-const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
+const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({
+  payload, ...props
+}, ref) => {
   const boundwitness = payload as BoundWitness
   const hash = usePayloadHash(payload)
 
@@ -45,7 +49,9 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRen
           sx: { p: 2 },
         }}
         AdornmentEnd={<BWActions boundwitness={boundwitness} />}
-        identiconProps={{ p: 0.75, size: 24 }}
+        identiconProps={{
+          p: 0.75, size: 24,
+        }}
       />
       <Divider flexItem />
       <FlexCol alignItems="stretch" rowGap={1} mb={1}>

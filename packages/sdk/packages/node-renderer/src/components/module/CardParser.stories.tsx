@@ -17,10 +17,16 @@ type Story = StoryObj<typeof ModuleCardParser>
 export const WithArchivist: Story = {
   loaders: [
     async () => {
-      const ParentArchivist = await MemoryArchivist.create({ config: { name: 'ParentArchivist', schema: MemoryArchivistConfigSchema } })
+      const ParentArchivist = await MemoryArchivist.create({
+        config: {
+          name: 'ParentArchivist', schema: MemoryArchivistConfigSchema,
+        },
+      })
       return {
         mod: await MemoryArchivist.create({
-          config: { name: 'MemoryArchivist', parents: { write: [ParentArchivist.address] }, schema: MemoryArchivistConfigSchema },
+          config: {
+            name: 'MemoryArchivist', parents: { write: [ParentArchivist.address] }, schema: MemoryArchivistConfigSchema,
+          },
         }),
       }
     },
@@ -30,7 +36,11 @@ export const WithArchivist: Story = {
 export const WithWitness: Story = {
   loaders: [
     async () => ({
-      mod: await IdWitness.create({ config: { name: 'IdWitness', schema: IdWitnessConfigSchema } }),
+      mod: await IdWitness.create({
+        config: {
+          name: 'IdWitness', schema: IdWitnessConfigSchema,
+        },
+      }),
     }),
   ],
 }

@@ -1,6 +1,10 @@
 import { Divider, useTheme } from '@mui/material'
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
-import { FlexCol, FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
+import {
+  FlexCol, FlexGrowCol, FlexRow,
+} from '@xylabs/react-flexbox'
 import React from 'react'
 
 import { CollapsibleProvider, useCollapsible } from '../../contexts/index.ts'
@@ -30,7 +34,9 @@ const StorybookEntry = {
 } as Meta<typeof CollapsibleDrawer>
 
 const Template: StoryFn<typeof CollapsibleDrawer> = (args) => {
-  const { collapse, setCollapseEnd } = useCollapsible()
+  const {
+    collapse, setCollapseEnd,
+  } = useCollapsible()
   const theme = useTheme()
   return (
     <FlexRow justifyContent="start">

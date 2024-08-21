@@ -15,7 +15,9 @@ export interface ModuleDetailsProps<T extends ModuleInstance = ModuleInstance> e
   mod?: T
 }
 
-export const ModuleDetails: React.FC<ModuleDetailsProps> = ({ mod, ...props }) => {
+export const ModuleDetails: React.FC<ModuleDetailsProps> = ({
+  mod, ...props
+}) => {
   const [manifest] = usePromise(async () => {
     return await mod?.manifest()
   }, [mod])

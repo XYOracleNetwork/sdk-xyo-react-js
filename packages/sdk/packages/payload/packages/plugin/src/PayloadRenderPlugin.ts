@@ -11,7 +11,9 @@ import type {
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
 import type { ListMode } from '@xyo-network/react-shared'
-import type { ComponentType, ForwardRefExoticComponent, PropsWithoutRef } from 'react'
+import type {
+  ComponentType, ForwardRefExoticComponent, PropsWithoutRef,
+} from 'react'
 
 export interface PayloadRenderProps<T extends Payload = Payload> {
   payload?: T

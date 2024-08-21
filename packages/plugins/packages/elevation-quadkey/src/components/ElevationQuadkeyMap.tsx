@@ -1,4 +1,6 @@
-import { Alert, AlertTitle, useTheme } from '@mui/material'
+import {
+  Alert, AlertTitle, useTheme,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { WithChildren } from '@xylabs/react-shared'
@@ -24,7 +26,9 @@ export interface ElevationQuadkeyMapInnerProps extends FlexBoxProps {
   payload?: Payload
 }
 
-const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({ payload, developerMode, accessToken, ...props }) => {
+const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({
+  payload, developerMode, accessToken, ...props
+}) => {
   const { features } = useElevationProcessor(payload)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)

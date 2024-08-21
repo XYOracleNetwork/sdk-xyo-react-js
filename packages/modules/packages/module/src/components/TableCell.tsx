@@ -6,7 +6,9 @@ import React from 'react'
 
 import type { ModuleRenderProps } from '../ModuleRenderProps.tsx'
 
-export const ModuleTableCell: React.FC<ModuleRenderProps & TableCellProps> = ({ children, mod, ...props }) => {
+export const ModuleTableCell: React.FC<ModuleRenderProps & TableCellProps> = ({
+  children, mod, ...props
+}) => {
   return (
     <TableCell {...props}>
       <EthAccountBox address={EthAddress.fromString(mod?.address)} />

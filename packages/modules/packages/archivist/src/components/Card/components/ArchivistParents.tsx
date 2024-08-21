@@ -1,5 +1,7 @@
 import { ArrowRightRounded as ArrowRightRoundedIcon } from '@mui/icons-material'
-import { Collapse, IconButton, List, Paper, Typography } from '@mui/material'
+import {
+  Collapse, IconButton, List, Paper, Typography,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { ArchivistConfig } from '@xyo-network/archivist-model'
@@ -11,10 +13,14 @@ export interface ArchivistParentsProps extends FlexBoxProps {
   config?: ArchivistConfig
 }
 
-export const ArchivistParents: React.FC<ArchivistParentsProps> = ({ config, ...props }) => {
+export const ArchivistParents: React.FC<ArchivistParentsProps> = ({
+  config, ...props
+}) => {
   const [parentArchivistCollapse, setParentArchivistCollapse] = useState(false)
 
-  const { commit, read, write } = config?.parents ?? {}
+  const {
+    commit, read, write,
+  } = config?.parents ?? {}
 
   return (
     <>
@@ -22,11 +28,19 @@ export const ArchivistParents: React.FC<ArchivistParentsProps> = ({ config, ...p
         ? (
             <FlexCol alignItems="start" {...props}>
               <span onClick={() => setParentArchivistCollapse(!parentArchivistCollapse)}>
-                <Typography variant="subtitle2" sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    cursor: 'pointer', display: 'inline-block',
+                  }}
+                >
                   Parents
                 </Typography>
                 <IconButton size="small">
-                  <ArrowRightRoundedIcon sx={{ rotate: parentArchivistCollapse ? '90deg' : '0deg', transition: 'all .25s' }} />
+                  <ArrowRightRoundedIcon sx={{
+                    rotate: parentArchivistCollapse ? '90deg' : '0deg', transition: 'all .25s',
+                  }}
+                  />
                 </IconButton>
               </span>
               <Collapse in={parentArchivistCollapse}>

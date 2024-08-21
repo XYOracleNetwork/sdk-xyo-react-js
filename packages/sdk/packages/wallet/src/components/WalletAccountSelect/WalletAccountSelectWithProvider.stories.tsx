@@ -30,14 +30,22 @@ const DefaultSmall = Template.bind({})
 DefaultSmall.args = { size: 'small' }
 
 const DefaultSmallIcon = Template.bind({})
-DefaultSmallIcon.args = { icons: true, size: 'small' }
+DefaultSmallIcon.args = {
+  icons: true, size: 'small',
+}
 
 const IconsOnly = Template.bind({})
-IconsOnly.args = { iconOnly: true, icons: true }
+IconsOnly.args = {
+  iconOnly: true, icons: true,
+}
 
 const IconsOnlySmall = Template.bind({})
-IconsOnlySmall.args = { iconOnly: true, icons: true, size: 'small' }
+IconsOnlySmall.args = {
+  iconOnly: true, icons: true, size: 'small',
+}
 
-export { Default, DefaultIcons, DefaultSmall, DefaultSmallIcon, IconsOnly, IconsOnlySmall }
+export {
+  Default, DefaultIcons, DefaultSmall, DefaultSmallIcon, IconsOnly, IconsOnlySmall,
+}
 
 export default StorybookEntry

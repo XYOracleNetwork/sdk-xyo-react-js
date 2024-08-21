@@ -1,5 +1,7 @@
 import type { StandardTextFieldProps } from '@mui/material'
-import { Chip, FormControl, FormLabel, TextField } from '@mui/material'
+import {
+  Chip, FormControl, FormLabel, TextField,
+} from '@mui/material'
 import React, { useState } from 'react'
 
 import { useSeedPhrase } from '../../../../../contexts/index.ts'
@@ -10,13 +12,23 @@ export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
   showPhraseHeader?: boolean
 }
 
-export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({ fullWidth, showPhraseHeader, ...props }) => {
-  const { validSeedPhrase, seedPhrase } = useSeedPhrase()
+export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
+  fullWidth, showPhraseHeader, ...props
+}) => {
+  const {
+    validSeedPhrase, seedPhrase,
+  } = useSeedPhrase()
 
   const [visible, setVisible] = useState(false)
 
   return (
-    <FormControl fullWidth={fullWidth} size="small" sx={{ display: 'flex', flexDirection: 'column', rowGap: 1 }}>
+    <FormControl
+      fullWidth={fullWidth}
+      size="small"
+      sx={{
+        display: 'flex', flexDirection: 'column', rowGap: 1,
+      }}
+    >
       <Chip
         label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'}
         onClick={() => setVisible(!visible)}

@@ -9,7 +9,9 @@ export class LineLayerBuilder extends LayerBase<LineLayerSpecification> {
 
   constructor(id: string, source: string, LineLayerOptions?: Partial<LineLayerSpecification>) {
     super(id, source)
-    this.LineLayerOptions = LineLayerOptions || { id: this.id, source: this.source }
+    this.LineLayerOptions = LineLayerOptions || {
+      id: this.id, source: this.source,
+    }
   }
 
   buildLayer(): LineLayerSpecification {

@@ -17,9 +17,13 @@ export const createPollingFunction = <T extends Payload = Payload>(
   pollingFunction?: PollingFunction,
   onResult?: (result: T[] | null) => void,
 ) => {
-  const { indexedQueries, processIndexedResults } = config ?? {}
+  const {
+    indexedQueries, processIndexedResults,
+  } = config ?? {}
   const { isFresh } = processIndexedResults ?? {}
-  const { maxDelay = 10_000, maxRetries, initialDelay = 100, onFoundResult } = pollDivinerConfig
+  const {
+    maxDelay = 10_000, maxRetries, initialDelay = 100, onFoundResult,
+  } = pollDivinerConfig
 
   let activePolling = true
 
@@ -102,5 +106,7 @@ export const createPollingFunction = <T extends Payload = Payload>(
     activePolling = value
   }
 
-  return { poll, setActive }
+  return {
+    poll, setActive,
+  }
 }

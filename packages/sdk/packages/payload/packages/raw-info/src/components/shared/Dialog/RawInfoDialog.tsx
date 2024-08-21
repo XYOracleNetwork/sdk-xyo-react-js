@@ -1,5 +1,7 @@
 import type { DialogProps } from '@mui/material'
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
+import {
+  Button, Dialog, DialogActions, DialogContent, DialogTitle,
+} from '@mui/material'
 import type { JsonValue } from '@xylabs/object'
 import type { MouseEventHandler, ReactNode } from 'react'
 import React from 'react'
@@ -31,7 +33,10 @@ export const RawInfoDialog: React.FC<RawInfoDialogProps> = ({
     <span onClick={onDialogClick}>
       <Dialog fullWidth maxWidth="lg" onClose={() => onCloseCallback?.()} open={open} {...props}>
         <DialogTitle>Raw Data</DialogTitle>
-        <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <DialogContent sx={{
+          display: 'flex', flexDirection: 'column', gap: 2,
+        }}
+        >
           {dialogContent}
           <JsonViewerCollapse defaultExpandedJson={defaultExpandedJson} jsonValue={jsonObject} updateExpandedJson={updateExpandedJson} />
         </DialogContent>

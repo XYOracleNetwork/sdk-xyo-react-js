@@ -30,4 +30,6 @@ WithArchivistAndSentinel.args = {
   manifestNodes: [ArchivistManifestNode, SentinelManifestNode],
 }
 
-export { Default, WithArchivist, WithArchivistAndSentinel, WithSentinel }
+export {
+  Default, WithArchivist, WithArchivistAndSentinel, WithSentinel,
+}

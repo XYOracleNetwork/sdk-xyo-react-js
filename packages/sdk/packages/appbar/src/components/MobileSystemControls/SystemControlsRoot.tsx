@@ -4,7 +4,9 @@ import { SystemControlsType } from './SystemControlsType.ts'
 import type { SystemControlsUnstyledProps } from './SystemControlsUnstyled.tsx'
 import { SystemControlsUnstyled } from './SystemControlsUnstyled.tsx'
 
-const SystemControlsRoot = styled(SystemControlsUnstyled, { name: 'SystemControls', slot: 'Root' })<SystemControlsUnstyledProps>(({ theme }) => ({
+const SystemControlsRoot = styled(SystemControlsUnstyled, {
+  name: 'SystemControls', slot: 'Root',
+})<SystemControlsUnstyledProps>(({ theme }) => ({
   // shared defaults
   ['&']: {
     '.toggle': {

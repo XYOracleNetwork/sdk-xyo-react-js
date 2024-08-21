@@ -2,7 +2,9 @@ import type { Payload } from '@xyo-network/payload-model'
 import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 import { createPayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
-import { BoundWitnessCardContent, BoundWitnessCardHeader, BoundWitnessDetailsBox } from './components/index.ts'
+import {
+  BoundWitnessCardContent, BoundWitnessCardHeader, BoundWitnessDetailsBox,
+} from './components/index.ts'
 
 export const BoundWitnessRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({

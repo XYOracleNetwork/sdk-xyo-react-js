@@ -3,13 +3,19 @@ import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
 import React, { forwardRef } from 'react'
 
-export const SectionSpacingRow = forwardRef<HTMLDivElement, FlexBoxProps>(({ children, sx, ...props }, ref) => {
+export const SectionSpacingRow = forwardRef<HTMLDivElement, FlexBoxProps>(({
+  children, sx, ...props
+}, ref) => {
   const theme = useTheme()
   return (
     <FlexGrowRow
       sx={{
-        paddingBottom: { md: theme.spacing(5), xs: theme.spacing(5) },
-        paddingTop: { md: theme.spacing(5), xs: theme.spacing(5) },
+        paddingBottom: {
+          md: theme.spacing(5), xs: theme.spacing(5),
+        },
+        paddingTop: {
+          md: theme.spacing(5), xs: theme.spacing(5),
+        },
         ...sx,
       }}
       width="100%"

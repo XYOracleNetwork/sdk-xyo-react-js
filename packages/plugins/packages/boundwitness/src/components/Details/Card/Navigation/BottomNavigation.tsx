@@ -1,5 +1,7 @@
 import type { BottomNavigationProps } from '@mui/material'
-import { BottomNavigation, BottomNavigationAction, styled } from '@mui/material'
+import {
+  BottomNavigation, BottomNavigationAction, styled,
+} from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import type { Dispatch, SetStateAction } from 'react'
@@ -16,7 +18,9 @@ export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps
 }
 
 const BoundWitnessBottomNavigation = forwardRef<HTMLDivElement, BoundWitnessBottomNavigationProps>(
-  ({ activeTab = 0, setActiveTab, boundWitness, ...props }, ref) => {
+  ({
+    activeTab = 0, setActiveTab, boundWitness, ...props
+  }, ref) => {
     const payloadCount = boundWitness?.payload_schemas.filter(schema => schema !== BoundWitnessSchema).length ?? 0
     const boundWitnessCount = boundWitness?.payload_schemas.filter(schema => schema === BoundWitnessSchema).length ?? 0
     const signers = boundWitness?.addresses.length ?? 0

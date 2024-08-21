@@ -32,8 +32,14 @@ export const CytoscapeElements = {
   },
 
   async buildElementsFromInfo(info: ModuleInfo, root?: ElementDefinition, classes: string[] = []): Promise<ElementDefinition[]> {
-    const newNode = CytoscapeElements.buildNode(info.mod, { childCount: info.children.length, depth: info.depth }, classes)
-    const newEdge = root ? CytoscapeElements.buildEdge(root, newNode, { depth: info.depth, siblingCount: info.children.length }) : undefined
+    const newNode = CytoscapeElements.buildNode(info.mod, {
+      childCount: info.children.length, depth: info.depth,
+    }, classes)
+    const newEdge = root
+      ? CytoscapeElements.buildEdge(root, newNode, {
+        depth: info.depth, siblingCount: info.children.length,
+      })
+      : undefined
     const newElements: ElementDefinition[] = [newNode]
     if (newEdge) {
       newElements.push(newEdge)
@@ -47,7 +53,9 @@ export const CytoscapeElements = {
   },
 
   buildNode(mod: ModuleInstance, properties?: { [key: string]: unknown }, classes?: string[]): ElementDefinition {
-    const { address, id } = mod
+    const {
+      address, id,
+    } = mod
     return {
       classes,
       data: {
@@ -71,10 +79,14 @@ export const CytoscapeElements = {
   },
 
   async recurseNodes(root: ModuleInstance, maxDepth = 10, depth = 1): Promise<ModuleInfo> {
-    const info: ModuleInfo = { children: [], depth, mod: root }
+    const info: ModuleInfo = {
+      children: [], depth, mod: root,
+    }
 
     if (maxDepth > 0) {
-      const children = await root.resolve('*', { direction: 'down', maxDepth: 1 })
+      const children = await root.resolve('*', {
+        direction: 'down', maxDepth: 1,
+      })
       info.children = (
         await Promise.all(
           children.map(async (child) => {

@@ -1,18 +1,20 @@
 import type { StandardTextFieldProps } from '@mui/material'
 import type { FormControlBase, ValidControlValue } from '@xyo-network/react-form-group'
-import { useMemo, useRef, useState } from 'react'
+import {
+  useMemo, useRef, useState,
+} from 'react'
 
 import { useFormGroupWithCreditCardInput } from '../../../context/index.ts'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const StableDefaultArgs: any[] = []
+const STABLE_DEFAULT_ARGS: any[] = [] as const
 
 export const useCreditCardFormControl = (
   formControlName?: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Control?: new (...args: any[]) => FormControlBase<StandardTextFieldProps>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  args: any[] = StableDefaultArgs,
+  args: any[] = STABLE_DEFAULT_ARGS,
 ) => {
   const [error, setError] = useState('')
   const [value, setValue] = useState<ValidControlValue>('')
@@ -32,5 +34,7 @@ export const useCreditCardFormControl = (
     }
   }, [Control, args, formControlName, formGroup])
 
-  return { creditCardFormControl, error, inputRef, value }
+  return {
+    creditCardFormControl, error, inputRef, value,
+  }
 }

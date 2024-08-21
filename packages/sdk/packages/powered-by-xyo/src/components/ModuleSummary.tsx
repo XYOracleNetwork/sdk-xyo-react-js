@@ -13,7 +13,9 @@ export interface ModuleSummaryProps<T extends ModuleInstance = ModuleInstance> e
   mod?: T
 }
 
-export const ModuleSummary: React.FC<ModuleSummaryProps> = ({ children, icon, mod, ...props }) => {
+export const ModuleSummary: React.FC<ModuleSummaryProps> = ({
+  children, icon, mod, ...props
+}) => {
   const [downModules] = useWeakModulesFromNode(undefined, { direction: 'down' })
   const [upModules] = useWeakModulesFromNode(undefined, { direction: 'up' })
   const [busy, setBusy] = useState(false)

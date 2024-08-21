@@ -3,7 +3,8 @@ import { forget } from '@xylabs/forget'
 import type {
   ControlValueAccessorBaseEvents,
   FormControlStatus,
-  ValidControlValue } from './accessor/index.ts'
+  ValidControlValue,
+} from './accessor/index.ts'
 import {
   ControlValueAccessorBase,
   DISABLED,

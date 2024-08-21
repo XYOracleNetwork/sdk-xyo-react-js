@@ -12,7 +12,9 @@ export interface BoundWitnessBoxWithAddressRouterProps extends FlexBoxProps {
 }
 
 export const BoundWitnessBoxWithAddressRouter = forwardRef<HTMLDivElement, BoundWitnessBoxWithAddressRouterProps>(
-  ({ baseRoute = '/address/', ...props }, ref) => {
+  ({
+    baseRoute = '/address/', ...props
+  }, ref) => {
     const navigate = useNavigate()
     const { clearHistory } = usePayloadHashSelectionHistory()
 

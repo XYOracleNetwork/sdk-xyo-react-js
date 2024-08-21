@@ -1,4 +1,6 @@
-import { HeatMapFillLayerConfig, HeatMapLineLayerConfig, HeatMapSymbolLayerConfig } from '../Configs/index.ts'
+import {
+  HeatMapFillLayerConfig, HeatMapLineLayerConfig, HeatMapSymbolLayerConfig,
+} from '../Configs/index.ts'
 import { FillLayerBuilder } from '../FillLayer.ts'
 import { LineLayerBuilder } from '../LineLayer.ts'
 import { SymbolLayerBuilder } from '../SymbolLayer.ts'

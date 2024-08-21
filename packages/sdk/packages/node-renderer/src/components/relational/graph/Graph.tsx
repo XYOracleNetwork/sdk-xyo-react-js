@@ -1,8 +1,12 @@
 import type { CardProps } from '@mui/material'
-import { Box, Button, ButtonGroup, Card, CardHeader, Paper, useTheme } from '@mui/material'
+import {
+  Box, Button, ButtonGroup, Card, CardHeader, Paper, useTheme,
+} from '@mui/material'
 import type { Address } from '@xylabs/hex'
 import { asAddress } from '@xylabs/hex'
-import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
+import {
+  FlexCol, FlexGrowRow, FlexRow,
+} from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
 import { useWeakModuleFromNode } from '@xyo-network/react-node'
 import type { Core, NodeSingular } from 'cytoscape'
@@ -11,12 +15,16 @@ import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import eulerLayout from 'cytoscape-euler'
-import React, { forwardRef, useEffect, useRef, useState } from 'react'
+import React, {
+  forwardRef, useEffect, useRef, useState,
+} from 'react'
 
 import type { NodeRelationalGraphProps } from '../../lib/index.ts'
 
 const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
-  cy?.layout({ name, ...options }).run()
+  cy?.layout({
+    name, ...options,
+  }).run()
 }
 
 const loadLayout = (layout = 'cola') => {
@@ -45,12 +53,19 @@ type ModuleHoverDetailsProps = CardProps & {
   name: string
 }
 
-const ModuleHoverDetails: React.FC<ModuleHoverDetailsProps> = ({ name, address, ...props }) => {
+const ModuleHoverDetails: React.FC<ModuleHoverDetailsProps> = ({
+  name, address, ...props
+}) => {
   return (
     <Card elevation={3} {...props}>
       <CardHeader
         avatar={(
-          <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
+          <Paper
+            elevation={6}
+            sx={{
+              bgcolor: '#fff', p: 1,
+            }}
+          >
             <Identicon value={address} size={24} />
           </Paper>
         )}
@@ -62,7 +77,9 @@ const ModuleHoverDetails: React.FC<ModuleHoverDetailsProps> = ({ name, address, 
 }
 
 export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(
-  ({ actions, children, node, layout, layoutOptions, showDetails, detail, options, onHover, ...props }, ref) => {
+  ({
+    actions, children, node, layout, layoutOptions, showDetails, detail, options, onHover, ...props
+  }, ref) => {
     const theme = useTheme()
     const [cy, setCy] = useState<Core>()
     const cytoscapeRef = useRef<HTMLDivElement>()

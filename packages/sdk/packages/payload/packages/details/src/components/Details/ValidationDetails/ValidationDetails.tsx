@@ -8,7 +8,9 @@ import React from 'react'
 
 import type { PayloadValidationDetailsProps } from './ValidationDetailsProps.ts'
 
-export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({ skipBody = false, value, ...props }) => {
+export const PayloadValidationDetails: React.FC<PayloadValidationDetailsProps> = ({
+  skipBody = false, value, ...props
+}) => {
   const [validateErrors] = usePromise(async () => (value ? await new PayloadValidator(value).validate() : undefined), [value])
 
   const bodyErrors = skipBody ? [] : (validateErrors ?? [])

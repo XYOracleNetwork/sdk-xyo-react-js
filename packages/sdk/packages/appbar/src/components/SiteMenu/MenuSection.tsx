@@ -13,7 +13,9 @@ export interface MenuSectionProps extends FlexBoxProps {
   title: string
 }
 
-export const MenuSection: React.FC<MenuSectionProps> = ({ iconMenuTextSpacing, listItems, showTitle = true, title, ...props }) => {
+export const MenuSection: React.FC<MenuSectionProps> = ({
+  iconMenuTextSpacing, listItems, showTitle = true, title, ...props
+}) => {
   return (
     <FlexCol alignItems="stretch" {...props}>
       <Collapse in={showTitle} timeout={700}>

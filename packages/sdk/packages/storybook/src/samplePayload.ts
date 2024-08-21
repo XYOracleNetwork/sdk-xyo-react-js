@@ -9,7 +9,9 @@ type TestPayload = Payload<
 
 // needs to be in a function since cjs doesn't support top level awaits
 export const samplePayloadFromBuilder = {
-  ...({ schema: 'network.xyo.temp', test: 'hello' } as TestPayload),
+  ...({
+    schema: 'network.xyo.temp', test: 'hello',
+  } as TestPayload),
   _archive: 'temp',
 }
 

@@ -64,6 +64,8 @@ TemplateWithNoData.args = {}
 const WithData = TemplateWithData.bind({})
 TemplateWithData.args = {}
 
-export { WithData, WithNoArchivist, WithNoData }
+export {
+  WithData, WithNoArchivist, WithNoData,
+}
 
 export default StorybookEntry

@@ -1,7 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react'
 import { sampleIdPayload, samplePayloadFromBuilder } from '@xyo-network/react-storybook'
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter, Route, Routes,
+} from 'react-router-dom'
 
 import { PayloadDetails } from './Details.tsx'
 
@@ -41,14 +43,22 @@ const DefaultPaper = Template.bind({})
 DefaultPaper.args = { paper: true }
 
 const WithSamplePaper = Template.bind({})
-WithSamplePaper.args = { paper: true, payload: sampleIdPayload }
+WithSamplePaper.args = {
+  paper: true, payload: sampleIdPayload,
+}
 
 const WithBuilderSamplePaper = Template.bind({})
-WithBuilderSamplePaper.args = { paper: true, payload: samplePayloadFromBuilder }
+WithBuilderSamplePaper.args = {
+  paper: true, payload: samplePayloadFromBuilder,
+}
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = { paper: true, payload: samplePayloadFromBuilder }
+WithArchiveLinkPaper.args = {
+  paper: true, payload: samplePayloadFromBuilder,
+}
 
-export { Default, DefaultPaper, WithArchiveLink, WithArchiveLinkPaper, WithBuilderSample, WithBuilderSamplePaper, WithSample, WithSamplePaper }
+export {
+  Default, DefaultPaper, WithArchiveLink, WithArchiveLinkPaper, WithBuilderSample, WithBuilderSamplePaper, WithSample, WithSamplePaper,
+}
 
 export default StorybookEntry

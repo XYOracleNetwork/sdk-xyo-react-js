@@ -9,7 +9,9 @@ export interface WalletsHookParams {
   wallet?: WalletInstance | null
 }
 
-export const useWallets = ({ wallet, paths }: WalletsHookParams): [WalletInstance[] | null | undefined, Error | undefined] => {
+export const useWallets = ({
+  wallet, paths,
+}: WalletsHookParams): [WalletInstance[] | null | undefined, Error | undefined] => {
   const walletContextProvided = useWalletContext(false)
   const [foundWallet] = useWallet({ wallet })
   const [wallets, error] = usePromise(

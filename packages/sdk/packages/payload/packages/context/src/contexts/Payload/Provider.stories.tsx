@@ -1,4 +1,6 @@
-import { Box, Button, CircularProgress } from '@mui/material'
+import {
+  Box, Button, CircularProgress,
+} from '@mui/material'
 import type { Decorator, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
@@ -36,7 +38,9 @@ const StorybookEntry = {
 }
 
 const Template: StoryFn<React.FC> = () => {
-  const { clearPayload, payload, refreshPayload } = usePayload()
+  const {
+    clearPayload, payload, refreshPayload,
+  } = usePayload()
 
   const handleRefresh = () => {
     refreshPayload?.()

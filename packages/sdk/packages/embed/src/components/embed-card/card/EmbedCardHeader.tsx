@@ -1,6 +1,8 @@
 import { Refresh as RefreshIcon } from '@mui/icons-material'
 import type { CardHeaderProps, Theme } from '@mui/material'
-import { Avatar, CardHeader, Chip } from '@mui/material'
+import {
+  Avatar, CardHeader, Chip,
+} from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 
@@ -8,14 +10,22 @@ import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.
 import { EmbedMenu } from '../menu/index.ts'
 
 export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
-  const { refreshHuri, huri } = useResolvePayload()
-  const { activePlugin, timestampLabel, hideElementsConfig } = useEmbedPluginState()
-  const { hideAvatar, hideTitle, hideRefreshButton, hideTimestamp, hideCardActions } = hideElementsConfig ?? {}
+  const {
+    refreshHuri, huri,
+  } = useResolvePayload()
+  const {
+    activePlugin, timestampLabel, hideElementsConfig,
+  } = useEmbedPluginState()
+  const {
+    hideAvatar, hideTitle, hideRefreshButton, hideTimestamp, hideCardActions,
+  } = hideElementsConfig ?? {}
   // this is temporary so that we can add the ability to get a timestamp via diviner later
   const timestamp = Date.now()
   return (
     <CardHeader
-      sx={{ flexWrap: 'wrap', rowGap: 1 }}
+      sx={{
+        flexWrap: 'wrap', rowGap: 1,
+      }}
       avatar={
         hideAvatar
           ? <></>

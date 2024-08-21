@@ -1,6 +1,8 @@
 import { CancelRounded } from '@mui/icons-material'
 import type { PopperProps } from '@mui/material'
-import { Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, styled } from '@mui/material'
+import {
+  Button, Card, CardActions, CardHeader, IconButton, Paper, Popper, styled,
+} from '@mui/material'
 import { Identicon } from '@xylabs/react-identicon'
 import type { NodeSingular } from 'cytoscape'
 import React from 'react'
@@ -12,8 +14,12 @@ export interface ModuleHoverPopperProps extends PopperProps {
   onModuleExplore?: (address?: string) => void
 }
 
-export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, onClose, onModuleDetails, onModuleExplore, node, ...props }) => {
-  const { address, name } = node?.data() ?? {}
+export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({
+  anchorEl, onClose, onModuleDetails, onModuleExplore, node, ...props
+}) => {
+  const {
+    address, name,
+  } = node?.data() ?? {}
   return (
     <>
       {anchorEl
@@ -31,7 +37,12 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({ anchorEl, 
                       : null
                   }
                   avatar={(
-                    <Paper elevation={6} sx={{ bgcolor: '#fff', p: 1 }}>
+                    <Paper
+                      elevation={6}
+                      sx={{
+                        bgcolor: '#fff', p: 1,
+                      }}
+                    >
                       <Identicon value={address} size={24} />
                     </Paper>
                   )}

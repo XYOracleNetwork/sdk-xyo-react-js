@@ -5,7 +5,9 @@ import { useStandardNodes } from '../contexts/index.ts'
 
 export const useActiveNodeAddress = (networkName?: string) => {
   const [node] = useProvidedNode()
-  const { nodes, findAddressByName } = useStandardNodes()
+  const {
+    nodes, findAddressByName,
+  } = useStandardNodes()
 
   const activeNodeAddress = useMemo(() => {
     if (node && nodes && findAddressByName && networkName) {

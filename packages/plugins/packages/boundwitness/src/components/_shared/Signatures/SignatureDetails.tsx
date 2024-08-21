@@ -9,7 +9,9 @@ export type BoundWitnessSignatureDetailsProps = PropertyGroupProps & {
   block?: BoundWitness
 }
 
-export const BoundWitnessSignatureDetails: React.FC<BoundWitnessSignatureDetailsProps> = ({ block, ...props }) => {
+export const BoundWitnessSignatureDetails: React.FC<BoundWitnessSignatureDetailsProps> = ({
+  block, ...props
+}) => {
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0

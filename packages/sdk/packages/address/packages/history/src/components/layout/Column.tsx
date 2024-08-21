@@ -29,7 +29,9 @@ const Scrollable = styled(FlexCol, { name: 'Scrollable' })(({ theme }) => ({
   },
 }))
 
-const ScrollableGridColumn = forwardRef<HTMLDivElement, AddressHistoryColumnProps>(({ children, heading, scrollableProps, ...props }, ref) => {
+const ScrollableGridColumn = forwardRef<HTMLDivElement, AddressHistoryColumnProps>(({
+  children, heading, scrollableProps, ...props
+}, ref) => {
   return (
     <GridColumn ref={ref} {...props}>
       {heading}

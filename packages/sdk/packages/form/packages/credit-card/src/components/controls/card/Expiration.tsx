@@ -10,8 +10,12 @@ export const CreditCardExpirationWithFormControl: React.FC<WithFormControlProps>
   fieldLabel = 'Expiration',
   ...props
 }) => {
-  const { creditCardFormControl, error, inputRef, value } = useCreditCardFormControl(formControlName, CreditCardExpirationFormControl)
-  const { autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...expirationProps } = creditCardFormControl?.props ?? {}
+  const {
+    creditCardFormControl, error, inputRef, value,
+  } = useCreditCardFormControl(formControlName, CreditCardExpirationFormControl)
+  const {
+    autoComplete, autoCorrect, id, inputMode, name, spellCheck, ...expirationProps
+  } = creditCardFormControl?.props ?? {}
 
   return (
     <FormControlTextField
@@ -20,7 +24,9 @@ export const CreditCardExpirationWithFormControl: React.FC<WithFormControlProps>
       fieldLabel={fieldLabel}
       formControlError={error}
       inputMode={inputMode}
-      inputProps={{ 'aria-label': `${fieldLabel} of the card`, autoComplete, autoCorrect, id, name, spellCheck }}
+      inputProps={{
+        'aria-label': `${fieldLabel} of the card`, autoComplete, autoCorrect, id, name, spellCheck,
+      }}
       value={value}
       {...expirationProps}
       {...props}

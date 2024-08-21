@@ -70,5 +70,7 @@ export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, on
     setModuleAddress(address)
   }
 
-  return { mod: foundModule, onModuleDetails }
+  return {
+    mod: foundModule, onModuleDetails,
+  }
 }

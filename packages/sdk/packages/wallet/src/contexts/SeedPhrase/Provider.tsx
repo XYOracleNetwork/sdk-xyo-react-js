@@ -2,7 +2,9 @@ import { generateMnemonic, validateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import-x/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import type { WithChildren } from '@xylabs/react-shared'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, {
+  useCallback, useEffect, useMemo, useState,
+} from 'react'
 
 import { SeedPhraseContext } from './Context.ts'
 
@@ -75,7 +77,8 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   const validSeedPhrase = useMemo(() => validate?.(seedPhrase), [seedPhrase])
   const validPhrase = useMemo(() => validate?.(phrase), [phrase])
 
-  const value = useMemo(() => ({ handleCancelOverwrite,
+  const value = useMemo(() => ({
+    handleCancelOverwrite,
     handleChangeSeedPhrase,
     handleClear,
     handleGenerate,
@@ -88,7 +91,8 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
     setPhrase,
     validPhrase,
     validSeedPhrase,
-    validate }), [handleCancelOverwrite,
+    validate,
+  }), [handleCancelOverwrite,
     handleChangeSeedPhrase,
     handleClear,
     handleGenerate,

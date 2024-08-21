@@ -1,5 +1,7 @@
 import type { DialogProps } from '@mui/material'
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
+import {
+  Button, Dialog, DialogActions, DialogContent, DialogTitle,
+} from '@mui/material'
 import React from 'react'
 
 import type { ActiveProvider } from '../../lib/index.ts'
@@ -12,8 +14,12 @@ export interface ConnectWalletDialogProps extends DialogProps {
   onIgnoreConnectDialog?: (checked: boolean) => void
 }
 
-export const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = ({ activeProvider, onIgnoreConnectDialog, ...props }) => {
-  const { icon, providerName } = activeProvider ?? {}
+export const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = ({
+  activeProvider, onIgnoreConnectDialog, ...props
+}) => {
+  const {
+    icon, providerName,
+  } = activeProvider ?? {}
 
   const onConnect = async () => {
     try {
@@ -25,9 +31,19 @@ export const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = ({ active
   }
 
   return (
-    <Dialog PaperProps={{ sx: { display: 'flex', gap: 4 } }} {...props}>
+    <Dialog
+      PaperProps={{
+        sx: {
+          display: 'flex', gap: 4,
+        },
+      }}
+      {...props}
+    >
       <DialogTitle sx={{ textAlign: 'center' }}>XYO Wants To Access The Blockchain on Your Behalf</DialogTitle>
-      <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <DialogContent sx={{
+        display: 'flex', flexDirection: 'column', gap: 4,
+      }}
+      >
         <LinkedProvidersFlexbox icon={icon} providerName={providerName} />
         <WalletPermissionsFlexbox />
         <CheckboxFormControl onCheckChanged={onIgnoreConnectDialog} />

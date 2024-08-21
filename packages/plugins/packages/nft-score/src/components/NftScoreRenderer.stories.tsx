@@ -26,6 +26,8 @@ WithFullScores.args = { payload: payloadDataFullScores }
 const WithPartialScores = Template.bind({})
 WithPartialScores.args = { payload: payloadDataPartialScores }
 
-export { Default, WithFullScores, WithPartialScores }
+export {
+  Default, WithFullScores, WithPartialScores,
+}
 
 export default StorybookEntry

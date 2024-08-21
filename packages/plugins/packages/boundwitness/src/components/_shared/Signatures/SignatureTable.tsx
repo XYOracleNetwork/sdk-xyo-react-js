@@ -1,4 +1,6 @@
-import { TableBody, TableHead, TableRow, Typography } from '@mui/material'
+import {
+  TableBody, TableHead, TableRow, Typography,
+} from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { usePayloadHash } from '@xyo-network/react-shared'
@@ -30,7 +32,9 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
   return result
 }
 
-export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProps> = ({ block, ...props }) => {
+export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProps> = ({
+  block, ...props
+}) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
   const hash = usePayloadHash(block)
 
@@ -43,12 +47,28 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
               <strong>Address</strong>
             </Typography>
           </TableCellEx>
-          <TableCellEx sx={{ display: { md: 'table-cell', xs: 'none' } }} align="center" width="10px">
+          <TableCellEx
+            sx={{
+              display: {
+                md: 'table-cell', xs: 'none',
+              },
+            }}
+            align="center"
+            width="10px"
+          >
             <Typography variant="caption">
               <strong>Previous</strong>
             </Typography>
           </TableCellEx>
-          <TableCellEx sx={{ display: { sm: 'table-cell', xs: 'none' } }} align="center" width="10px">
+          <TableCellEx
+            sx={{
+              display: {
+                sm: 'table-cell', xs: 'none',
+              },
+            }}
+            align="center"
+            width="10px"
+          >
             <Typography variant="caption">
               <strong>Signature</strong>
             </Typography>

@@ -7,7 +7,9 @@ interface SystemControlTextProps extends FlexBoxProps {
   value?: string
 }
 
-const ControlText: React.FC<SystemControlTextProps> = ({ value, ...props }) => {
+const ControlText: React.FC<SystemControlTextProps> = ({
+  value, ...props
+}) => {
   return (
     <FlexCol className={`${props.className} toggle`} {...props}>
       <Typography variant="caption" color="white" fontWeight="bold">

@@ -4,7 +4,9 @@ import type { ModuleInstance } from '@xyo-network/module-model'
 import React, { useRef } from 'react'
 
 import { CytoscapeInstanceProvider } from '../../../contexts/index.ts'
-import { useElements, useModuleDetails, useRelationalGraphOptions } from '../../../hooks/index.ts'
+import {
+  useElements, useModuleDetails, useRelationalGraphOptions,
+} from '../../../hooks/index.ts'
 import { WithExtensions } from '../../cytoscape-extensions/index.ts'
 import { NodeRelationalGraphFlexBox } from '../../relational/index.ts'
 import { DetailsFlexbox } from './DetailsFlexbox.tsx'
@@ -19,12 +21,20 @@ export interface ModuleGraphFlexBoxProps extends FlexBoxProps {
   rootModule?: WeakRef<ModuleInstance> | null
 }
 
-export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({ hideActions, rootModule, disableModuleDetails, ...props }) => {
+export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({
+  hideActions, rootModule, disableModuleDetails, ...props
+}) => {
   const cytoscapeRef = useRef<HTMLDivElement>(null)
-  const { handleToggleLabels, hideLabels, options } = useRelationalGraphOptions(rootModule ?? undefined)
-  const { hoveredNode, setHoveredNode, toggleSelectedElement } = useElements(hideLabels)
+  const {
+    handleToggleLabels, hideLabels, options,
+  } = useRelationalGraphOptions(rootModule ?? undefined)
+  const {
+    hoveredNode, setHoveredNode, toggleSelectedElement,
+  } = useElements(hideLabels)
 
-  const { mod, onModuleDetails } = useModuleDetails(rootModule, () => setHoveredNode(undefined))
+  const {
+    mod, onModuleDetails,
+  } = useModuleDetails(rootModule, () => setHoveredNode(undefined))
 
   return (
     <WithExtensions>

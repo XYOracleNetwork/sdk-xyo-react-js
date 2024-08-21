@@ -4,7 +4,9 @@ import React from 'react'
 import { useSeedPhrase } from '../../../../../contexts/index.ts'
 
 export const PhraseDialogActions = () => {
-  const { handleClear, handleGenerate, overwriteWarning } = useSeedPhrase()
+  const {
+    handleClear, handleGenerate, overwriteWarning,
+  } = useSeedPhrase()
   return (
     <DialogActions sx={{ justifyContent: 'center' }}>
       <Button disabled={overwriteWarning} variant="outlined" onClick={handleGenerate}>

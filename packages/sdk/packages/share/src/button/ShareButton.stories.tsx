@@ -20,4 +20,6 @@ WithUnPrepared.args = { prepared: false }
 const WithCustomShareLink = Template.bind({})
 WithCustomShareLink.args = { shareLink: 'http://explore.xyo.network' }
 
-export { Default, WithCustomShareLink, WithUnPrepared }
+export {
+  Default, WithCustomShareLink, WithUnPrepared,
+}

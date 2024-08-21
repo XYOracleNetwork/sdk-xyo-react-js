@@ -1,15 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ExpandLessRounded as ExpandLessRoundedIcon, ExpandMoreRounded as ExpandMoreRoundedIcon } from '@mui/icons-material'
 import type { CardProps } from '@mui/material'
-import { Card, Divider, IconButton } from '@mui/material'
+import {
+  Card, Divider, IconButton,
+} from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, {
+  forwardRef, useEffect, useState,
+} from 'react'
 
 import { BoundWitnessCardHeader } from '../../Card/index.ts'
 import { DetailsCardContent } from './DetailsCardContent.tsx'
 
-const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(({ visibleRows, ...props }, ref) => {
+const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(({
+  visibleRows, ...props
+}, ref) => {
   return (
     <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
       <BoundWitnessDetailsCardInner ref={ref} {...props} />
@@ -22,8 +29,10 @@ BoundWitnessDetailsCard.displayName = 'BoundWitnessDetailsCard'
 export { BoundWitnessDetailsCard }
 
 const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ payload, active: activeProp, listMode, visibleRows, ...props }, ref) => {
+
+  ({
+    payload, active: activeProp, listMode, visibleRows, ...props
+  }, ref) => {
     const boundwitness = payload as BoundWitness
     const [collapsed, setCollapsed] = useState(!activeProp)
 
@@ -42,7 +51,13 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, PayloadDetailsRe
           hidePreviousHash={false}
           additionalActions={(
             <>
-              <Divider flexItem orientation="vertical" sx={{ ml: 2, mr: 1 }} />
+              <Divider
+                flexItem
+                orientation="vertical"
+                sx={{
+                  ml: 2, mr: 1,
+                }}
+              />
               <IconButton onClick={() => setCollapsed(!collapsed)}>
                 {collapsed
                   ? <ExpandMoreRoundedIcon />

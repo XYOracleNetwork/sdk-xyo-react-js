@@ -17,7 +17,9 @@ const hide = (flags?: ReflectionFlags, hiddenFlags: FlagFilter[] = []) => {
   return hide
 }
 
-export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({ variant, nameViewer, children, reflection, hiddenFlags, ...props }) => {
+export const ReflectionViewer: React.FC<ReflectionViewerProps> = ({
+  variant, nameViewer, children, reflection, hiddenFlags, ...props
+}) => {
   const someReflection = reflection as SomeReflection
 
   return hide(reflection?.flags, hiddenFlags)

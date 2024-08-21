@@ -12,7 +12,9 @@ export interface BoundWitnessPayloadTableProps extends PayloadTableProps {
   boundwitness?: BoundWitness
 }
 
-export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> = ({ boundwitness, ...props }) => {
+export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> = ({
+  boundwitness, ...props
+}) => {
   const hash = usePayloadHash(boundwitness)
   return (
     <BoundWitnessPayloadsTableInner {...props}>
@@ -29,7 +31,9 @@ export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> 
   )
 }
 
-export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableProps> = ({ boundwitness, ...props }) => {
+export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableProps> = ({
+  boundwitness, ...props
+}) => {
   const hash = usePayloadHash(boundwitness)
   return (
     <BoundWitnessPayloadsTableInner {...props}>
@@ -45,7 +49,9 @@ export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableP
   )
 }
 
-export const BoundWitnessPayloadsTableInner: React.FC<WithChildren<BoundWitnessPayloadTableProps>> = ({ children, ...props }) => (
+export const BoundWitnessPayloadsTableInner: React.FC<WithChildren<BoundWitnessPayloadTableProps>> = ({
+  children, ...props
+}) => (
   <TableEx {...props}>
     <BoundWitnessPayloadTableHead />
     {children}

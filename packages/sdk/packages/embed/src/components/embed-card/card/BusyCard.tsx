@@ -5,7 +5,8 @@ import type {
   BusyCircularProgressProps,
   BusyLinearProgressProps,
   BusyVariant,
-  WithChildren } from '@xylabs/react-shared'
+  WithChildren,
+} from '@xylabs/react-shared'
 import {
   BusyCircularProgress,
   BusyLinearProgress,

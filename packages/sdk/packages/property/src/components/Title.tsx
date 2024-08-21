@@ -1,5 +1,7 @@
 import type { TypographyVariant } from '@mui/material'
-import { darken, lighten, Typography, useTheme } from '@mui/material'
+import {
+  darken, lighten, Typography, useTheme,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
@@ -17,7 +19,9 @@ export interface PropertyTitleProps extends FlexBoxProps {
   title?: string
 }
 
-export const PropertyTitle: React.FC<PropertyTitleProps> = ({ elevation = 1, size = 'medium', tip, more, title, ...props }) => {
+export const PropertyTitle: React.FC<PropertyTitleProps> = ({
+  elevation = 1, size = 'medium', tip, more, title, ...props
+}) => {
   const sizeVariants: Record<TitleSizeProp, TypographyVariant> = {
     full: 'caption',
     large: 'caption',

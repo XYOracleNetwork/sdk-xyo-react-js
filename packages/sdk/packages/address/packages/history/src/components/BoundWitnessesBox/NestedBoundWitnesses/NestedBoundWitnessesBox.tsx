@@ -16,11 +16,12 @@ export type NestedBoundWitnessesProps = FlexBoxProps
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const NestedBoundWitnessesBox: React.FC<NestedBoundWitnessesProps> = (props) => {
-  const { nestedBoundWitnesses, hashSelectionHistory } = usePayloadHashSelectionHistory(false)
+  const {
+    nestedBoundWitnesses, hashSelectionHistory,
+  } = usePayloadHashSelectionHistory(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
   const [nestedBWRef] = useEvent<HTMLDivElement, EventNoun, EventVerb, Hash>((noun, _verb, data) =>
-    boundwitnessClick(noun, data, 'nestedBoundWitnesses'),
-  )
+    boundwitnessClick(noun, data, 'nestedBoundWitnesses'))
 
   return isEmpty(nestedBoundWitnesses)
     ? null

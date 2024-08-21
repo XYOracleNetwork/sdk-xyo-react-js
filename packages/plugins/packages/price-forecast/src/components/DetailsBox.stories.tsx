@@ -1,4 +1,6 @@
-import { Button, ButtonGroup, Typography } from '@mui/material'
+import {
+  Button, ButtonGroup, Typography,
+} from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { ForecastPayloadSchema } from '@xyo-network/diviner-forecasting-model'
@@ -36,7 +38,9 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
   const sourcePayloadsRef = useRef<HTMLParagraphElement>(null)
   const handleClick = (ref: RefObject<HTMLParagraphElement>) => {
     setShowPayloads(!showPayloads)
-    if (ref.current) ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (ref.current) ref.current.scrollIntoView({
+      behavior: 'smooth', block: 'start',
+    })
   }
   return (
     <>

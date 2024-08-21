@@ -12,7 +12,9 @@ export interface PriorityFeeBoxProps extends FlexBoxProps {
   priorityFeeLabel?: string
 }
 
-export const PriorityFeeBox: React.FC<PriorityFeeBoxProps> = ({ priorityFee, priorityFeeLabel = 'Priority Fee', ...props }) => {
+export const PriorityFeeBox: React.FC<PriorityFeeBoxProps> = ({
+  priorityFee, priorityFeeLabel = 'Priority Fee', ...props
+}) => {
   const theme = useTheme()
 
   return (

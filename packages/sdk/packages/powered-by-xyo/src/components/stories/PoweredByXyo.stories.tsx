@@ -76,6 +76,8 @@ const WithNode = TemplateWithNodeContainer.bind({})
 const WithNodeAndDebug = TemplateWithNodeContainer.bind({})
 WithNodeAndDebug.args = { debugDialog: true }
 
-export { Busy, Default, WithNode, WithNodeAndDebug }
+export {
+  Busy, Default, WithNode, WithNodeAndDebug,
+}
 
 export default StorybookEntry

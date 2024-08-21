@@ -33,11 +33,15 @@ const WithVerifiedValue = Template.bind({})
 WithVerifiedValue.args = { value: 'network.xyo.schema' }
 
 const WithVerifiedValuePaper = Template.bind({})
-WithVerifiedValuePaper.args = { paper: true, value: 'network.xyo.schema' }
+WithVerifiedValuePaper.args = {
+  paper: true, value: 'network.xyo.schema',
+}
 
 const WithUnverifiedValue = Template.bind({})
 WithUnverifiedValue.args = { value: 'network.xyo.blahblah' }
 
-export { Default, WithUnverifiedValue, WithVerifiedValue, WithVerifiedValuePaper }
+export {
+  Default, WithUnverifiedValue, WithVerifiedValue, WithVerifiedValuePaper,
+}
 
 export default StorybookEntry

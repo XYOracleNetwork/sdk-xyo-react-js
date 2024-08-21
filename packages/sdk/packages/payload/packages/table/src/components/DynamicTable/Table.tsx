@@ -1,6 +1,7 @@
-import { FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, LastPage as LastPageIcon } from '@mui/icons-material'
-import type {
-  TableProps } from '@mui/material'
+import {
+  FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, LastPage as LastPageIcon,
+} from '@mui/icons-material'
+import type { TableProps } from '@mui/material'
 import {
   Alert,
   Box,
@@ -20,7 +21,9 @@ import type { Payload } from '@xyo-network/payload-model'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, {
+  useEffect, useMemo, useState,
+} from 'react'
 
 import { PayloadDynamicTableRow } from './DynamicTableRow.tsx'
 import type { PayloadDynamicTableColumnConfig } from './PayloadDynamicTableColumnConfig.ts'
@@ -44,7 +47,9 @@ interface TablePaginationActionsProps {
 
 function TablePaginationActions(props: TablePaginationActionsProps) {
   const theme = useTheme()
-  const { count, page, rowsPerPage, onPageChange } = props
+  const {
+    count, page, rowsPerPage, onPageChange,
+  } = props
 
   const handleFirstPageButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     onPageChange(event, 0)
@@ -63,7 +68,10 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
   }
 
   return (
-    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+    <Box sx={{
+      flexShrink: 0, ml: 2.5,
+    }}
+    >
       <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
         {theme.direction === 'rtl'
           ? <LastPageIcon />
@@ -173,7 +181,9 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
           <TableFooter>
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                rowsPerPageOptions={[5, 10, 25, {
+                  label: 'All', value: -1,
+                }]}
                 colSpan={5}
                 count={payloadCount}
                 rowsPerPage={rowsPerPage}

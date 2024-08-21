@@ -24,8 +24,10 @@ const TemplateWithContent: StoryFn<typeof ShareOutDialog> = (props) => {
   const [shareUrl, setShareUrl] = useState('')
   const [loading, setLoading] = useState(false)
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { open: unused, ...restProps } = props
+  const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    open: unused, ...restProps
+  } = props
 
   const cardImg = <img src="https://picsum.photos/100/100" height="100px" width="100px" />
   const shareLinkName = 'My Share Link'
@@ -59,7 +61,16 @@ const TemplateWithContent: StoryFn<typeof ShareOutDialog> = (props) => {
   return (
     <>
       <Button onClick={() => setOpen(true)} variant="contained">Open</Button>
-      <ShareOutDialog cardImg={cardImg} onClose={onClose} ShareOutDialogActions={shareOutDialogActions} shareOutDialogContent={shareOutDialogContent} open={open} title="Share Out Dialog" subtitle="With a subtitle" {...restProps} />
+      <ShareOutDialog
+        cardImg={cardImg}
+        onClose={onClose}
+        ShareOutDialogActions={shareOutDialogActions}
+        shareOutDialogContent={shareOutDialogContent}
+        open={open}
+        title="Share Out Dialog"
+        subtitle="With a subtitle"
+        {...restProps}
+      />
     </>
   )
 }

@@ -8,8 +8,12 @@ import React from 'react'
 import { useRefreshPayload, useResolvePayload } from '../../contexts/index.ts'
 import { EmbedCardApiErrorRenderer } from './error-handling/index.ts'
 
-export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({ children, ...props }) => {
-  const { payload, notFound, huriError } = useResolvePayload()
+export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({
+  children, ...props
+}) => {
+  const {
+    payload, notFound, huriError,
+  } = useResolvePayload()
   const { refreshPayload } = useRefreshPayload()
   const theme = useTheme()
 
@@ -21,7 +25,11 @@ export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({
           alignItems="stretch"
           justifyContent="start"
           busy={Boolean(!refreshPayload && payload)}
-          busyCircularProps={{ style: { alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2 } }}
+          busyCircularProps={{
+            style: {
+              alignItems: 'start', paddingTop: theme.spacing(2), zIndex: 2,
+            },
+          }}
           {...props}
         >
           {children}

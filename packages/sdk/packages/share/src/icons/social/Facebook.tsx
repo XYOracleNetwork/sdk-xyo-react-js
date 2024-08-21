@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 import { createSvgIcon } from '@mui/material'
 import React from 'react'
 

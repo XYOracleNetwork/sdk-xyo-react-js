@@ -10,7 +10,9 @@ export interface LogoLinkExProps extends LinkExProps {
   version?: boolean | string
 }
 
-export const LogoLinkEx: React.FC<LogoLinkExProps> = ({ to = '/', version = false, ...props }) => {
+export const LogoLinkEx: React.FC<LogoLinkExProps> = ({
+  to = '/', version = false, ...props
+}) => {
   const theme = useTheme()
   return (
     <LinkEx to={to} {...props}>

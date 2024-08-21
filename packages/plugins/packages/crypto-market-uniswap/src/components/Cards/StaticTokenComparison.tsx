@@ -1,7 +1,11 @@
 import type { PaperProps } from '@mui/material'
-import { Link, Paper, useTheme } from '@mui/material'
+import {
+  Link, Paper, useTheme,
+} from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
-import { TokenBar, TokenSummary, useGetTokenData } from '@xyo-network/react-shared'
+import {
+  TokenBar, TokenSummary, useGetTokenData,
+} from '@xyo-network/react-shared'
 import type { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React from 'react'
 
@@ -32,9 +36,16 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
             {tokenInfo0.tokenSymbol}
           </Link>
         )}
-        sx={{ pt: 0, px: 0 }}
+        sx={{
+          pt: 0, px: 0,
+        }}
       />
-      <Paper elevation={0} sx={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, mb: 3, overflow: 'hidden' }}>
+      <Paper
+        elevation={0}
+        sx={{
+          alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, mb: 3, overflow: 'hidden',
+        }}
+      >
         <TokenBar text1={toDecimalPrecision(token0.value, 6)} text2={token1.symbol} text1Props={{ title: token0.value.toString() }} {...paperProps} />
       </Paper>
       <TokenSummary
@@ -47,7 +58,12 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
         )}
         sx={{ px: 0 }}
       />
-      <Paper elevation={0} sx={{ alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
+      <Paper
+        elevation={0}
+        sx={{
+          alignItems: 'stretch', display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden',
+        }}
+      >
         <TokenBar text1={toDecimalPrecision(token1.value, 6)} text1Props={{ title: token1.value.toString() }} text2={token0.symbol} {...paperProps} />
       </Paper>
     </>

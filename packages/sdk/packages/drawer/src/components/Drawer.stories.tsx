@@ -10,7 +10,10 @@ export default {
 
 const Template: StoryFn<React.FC<DrawerExProps>> = (props) => {
   return (
-    <div style={{ height: 'calc(100vh - 2rem)', width: '100vw' }}>
+    <div style={{
+      height: 'calc(100vh - 2rem)', width: '100vw',
+    }}
+    >
       <DrawerEx {...props} />
     </div>
   )
@@ -38,4 +41,6 @@ WithTitles.args = {
   title: 'Title',
 }
 
-export { Default, WithFullScreen, WithOpen, WithTitles }
+export {
+  Default, WithFullScreen, WithOpen, WithTitles,
+}

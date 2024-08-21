@@ -1,4 +1,6 @@
-import type { Decorator, Meta, StoryFn } from '@storybook/react'
+import type {
+  Decorator, Meta, StoryFn,
+} from '@storybook/react'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
 import React from 'react'
 
@@ -46,4 +48,6 @@ WithDevMode.args = {
   payload: elevationQuadKeyMapPayload,
 }
 
-export { Default, WithData, WithDevMode }
+export {
+  Default, WithData, WithDevMode,
+}

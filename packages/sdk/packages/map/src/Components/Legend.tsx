@@ -6,7 +6,9 @@ import type { ColorGradientLegendProps } from '../Colors/index.ts'
 import { ColorGradientLegend } from './Legends/index.ts'
 
 const AnimatedHeatMapLegend: React.FC<ColorGradientLegendProps> = ({ ...legendProps }) => {
-  const { startColor, endColor, startLabel, endLabel, heading, textColor } = legendProps
+  const {
+    startColor, endColor, startLabel, endLabel, heading, textColor,
+  } = legendProps
   const theme = useTheme()
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
 

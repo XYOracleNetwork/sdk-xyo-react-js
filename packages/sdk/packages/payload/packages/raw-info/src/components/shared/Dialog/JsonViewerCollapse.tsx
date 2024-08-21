@@ -1,5 +1,7 @@
 import type { CollapseProps } from '@mui/material'
-import { Button, Chip, Collapse, Typography } from '@mui/material'
+import {
+  Button, Chip, Collapse, Typography,
+} from '@mui/material'
 import type { JsonValue } from '@xylabs/object'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
@@ -16,7 +18,9 @@ export interface RawInfoPayloadCollapse extends CollapseProps, ExpansionProps {
   jsonValue?: JsonValue
 }
 
-export const JsonViewerCollapse: React.FC<RawInfoPayloadCollapse> = ({ defaultExpandedJson, jsonValue, updateExpandedJson, ...props }) => {
+export const JsonViewerCollapse: React.FC<RawInfoPayloadCollapse> = ({
+  defaultExpandedJson, jsonValue, updateExpandedJson, ...props
+}) => {
   const [expandedJson, setExpandedJson] = useDataState(defaultExpandedJson)
 
   const [hash] = usePromise(async () => {

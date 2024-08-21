@@ -1,5 +1,7 @@
 import type { TableRowProps } from '@mui/material'
-import { ButtonGroup, TableCell, TableRow, Typography } from '@mui/material'
+import {
+  ButtonGroup, TableCell, TableRow, Typography,
+} from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import React, { useState } from 'react'
 
@@ -11,7 +13,9 @@ export interface MaxAccountsTableRow extends TableRowProps {
   maxAccounts?: number
 }
 
-export const MaxAccountsTableRow: React.FC<MaxAccountsTableRow> = ({ activeAccountIndex, changeMaxAccounts, maxAccounts }) => {
+export const MaxAccountsTableRow: React.FC<MaxAccountsTableRow> = ({
+  activeAccountIndex, changeMaxAccounts, maxAccounts,
+}) => {
   const [desiredMaximumAccounts, setDesiredMaximumAccounts] = useState<number | undefined>()
   const [showSnackBar, setShowSnackBar] = useState(false)
 

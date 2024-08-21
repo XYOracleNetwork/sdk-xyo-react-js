@@ -1,4 +1,6 @@
-import { Paper, useMediaQuery, useTheme } from '@mui/material'
+import {
+  Paper, useMediaQuery, useTheme,
+} from '@mui/material'
 import type { Payload } from '@xyo-network/payload-model'
 import type { JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
@@ -11,8 +13,12 @@ export type PayloadJsonDetailsProps = PropertyGroupProps & {
   payload?: Payload
 }
 
-export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonViewProps, payload, ...props }) => {
-  const { breakpoints, palette } = useTheme()
+export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({
+  jsonViewProps, payload, ...props
+}) => {
+  const {
+    breakpoints, palette,
+  } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
 
   let elevation = 2
@@ -24,10 +30,18 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({ jsonView
 
   return (
     <PropertyGroup titleProps={{ elevation }} title="JSON" tip="The raw JSON of the payload" {...props}>
-      <Paper square variant="elevation" style={{ overflow: 'hidden', padding: '16px', width: '100%' }}>
+      <Paper
+        square
+        variant="elevation"
+        style={{
+          overflow: 'hidden', padding: '16px', width: '100%',
+        }}
+      >
         <JsonViewerEx
           groupArraysAfterLength={20}
-          style={{ backgroundColor: undefined, overflow: 'hidden' }}
+          style={{
+            backgroundColor: undefined, overflow: 'hidden',
+          }}
           value={payload}
           enableClipboard
           theme={jsonTheme}

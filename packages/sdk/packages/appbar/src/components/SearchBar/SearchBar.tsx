@@ -9,14 +9,27 @@ export interface SearchBarProps extends FlexBoxProps {
   onSearch?: (term?: string) => void
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ defaultValue, onSearch, ...props }) => {
+export const SearchBar: React.FC<SearchBarProps> = ({
+  defaultValue, onSearch, ...props
+}) => {
   const [term, setTerm] = useState<string>()
 
   return (
     <FlexRow alignItems="stretch" {...props}>
-      <Paper variant="elevation" elevation={0} style={{ display: 'flex', overflow: 'hidden', width: '100%' }}>
+      <Paper
+        variant="elevation"
+        elevation={0}
+        style={{
+          display: 'flex', overflow: 'hidden', width: '100%',
+        }}
+      >
         <TextField
-          InputProps={{ color: 'secondary', style: { borderBottomRightRadius: 0, borderTopRightRadius: 0, borderWidth: 0 } }}
+          InputProps={{
+            color: 'secondary',
+            style: {
+              borderBottomRightRadius: 0, borderTopRightRadius: 0, borderWidth: 0,
+            },
+          }}
           variant="outlined"
           size="small"
           defaultValue={defaultValue}
@@ -26,7 +39,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({ defaultValue, onSearch, ..
             if (event.key === 'Enter') onSearch?.(term)
           }}
         />
-        <ButtonEx variant="contained" style={{ borderRadius: 0, borderTopLeftRadius: 0 }} color="secondary" onClick={() => onSearch?.(term)}>
+        <ButtonEx
+          variant="contained"
+          style={{
+            borderRadius: 0, borderTopLeftRadius: 0,
+          }}
+          color="secondary"
+          onClick={() => onSearch?.(term)}
+        >
           <SearchIcon />
         </ButtonEx>
       </Paper>

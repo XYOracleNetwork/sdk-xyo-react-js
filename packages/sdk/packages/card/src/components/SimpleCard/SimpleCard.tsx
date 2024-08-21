@@ -1,5 +1,7 @@
 import { ArrowForwardRounded as ArrowForwardRoundedIcon } from '@mui/icons-material'
-import { alpha, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material'
+import {
+  alpha, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme,
+} from '@mui/material'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
 import { useIsMobile } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'

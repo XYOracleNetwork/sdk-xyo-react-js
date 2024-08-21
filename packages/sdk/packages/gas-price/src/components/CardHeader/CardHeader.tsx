@@ -9,7 +9,9 @@ export interface GasPriceCardHeaderProps extends CardProps {
   parsedPayload?: GasPriceWitnessUIBasePayload
   title?: string
 }
-export const GasPriceWitnessCardHeader = forwardRef<HTMLDivElement, GasPriceCardHeaderProps>(({ title, parsedPayload, ...props }, ref) => (
+export const GasPriceWitnessCardHeader = forwardRef<HTMLDivElement, GasPriceCardHeaderProps>(({
+  title, parsedPayload, ...props
+}, ref) => (
   <StyledCardHeader
     title={<GasPriceHeaderTypography heading={title} />}
     action={(

@@ -7,7 +7,9 @@ export interface ModuleRepositoryProviderProps extends WithChildren {
   defaultResolvers?: ResolverEntries
 }
 
-export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> = ({ children, defaultResolvers }) => {
+export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> = ({
+  children, defaultResolvers,
+}) => {
   const [resolvers, setResolvers] = useState<ResolverEntries | undefined>(defaultResolvers)
 
   useEffect(() => {
@@ -44,7 +46,10 @@ export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> =
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <ModuleRepositoryContext.Provider value={{ provided: true, removeResolvers, resolvers, updateResolvers }}>
+    <ModuleRepositoryContext.Provider value={{
+      provided: true, removeResolvers, resolvers, updateResolvers,
+    }}
+    >
       {children}
     </ModuleRepositoryContext.Provider>
   )

@@ -21,7 +21,9 @@ const StorybookEntry = {
   title: 'modules/archivist/ArchivistStats',
 } as Meta<typeof ArchivistStats>
 
-const Template: StoryFn<typeof ArchivistStats> = ({ boundWitnesses, ...props }) => {
+const Template: StoryFn<typeof ArchivistStats> = ({
+  boundWitnesses, ...props
+}) => {
   const [boundWitnessesProp] = usePromise(async () => (boundWitnesses ? await Promise.all(boundWitnesses) : []), [boundWitnesses])
   return boundWitnessesProp ? <ArchivistStats boundWitnesses={boundWitnessesProp} {...props} /> : <div />
 }
@@ -32,7 +34,9 @@ WithStats.args = {
   // addresses: { [account.address]: 1 },
   // boundWitnesses: [boundWitness() as unknown as Payload],
   // payloads: [payload(), boundWitness() as unknown as Payload],
-  schemas: { 'network.xyo.boundwitness': 1, 'network.xyo.payload': 1 },
+  schemas: {
+    'network.xyo.boundwitness': 1, 'network.xyo.payload': 1,
+  },
 }
 
 export { Default, WithStats }

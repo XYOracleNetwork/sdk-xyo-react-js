@@ -7,7 +7,9 @@ export interface MenuIconProps extends TypographyProps {
   icon?: ReactNode
 }
 
-export const MenuIcon: React.FC<MenuIconProps> = ({ icon, ...props }) => {
+export const MenuIcon: React.FC<MenuIconProps> = ({
+  icon, ...props
+}) => {
   return (
     <Typography display="flex" {...props}>
       {icon}

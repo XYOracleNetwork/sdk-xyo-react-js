@@ -1,4 +1,6 @@
-import { Container, Grid, Typography } from '@mui/material'
+import {
+  Container, Grid, Typography,
+} from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
@@ -43,11 +45,20 @@ interface ButtonSectionProps {
   href?: string
   to?: string
 }
-const SubLinkSection: React.FC<SubLinkSectionProps> = ({ backgroundImageAlignment, subLinkIcon, subLinkPath, subLinkText1, subLinkText2 }) => {
+const SubLinkSection: React.FC<SubLinkSectionProps> = ({
+  backgroundImageAlignment, subLinkIcon, subLinkPath, subLinkText1, subLinkText2,
+}) => {
   return (
     <FlexGrowRow
       width="100%"
-      sx={{ flexDirection: { md: 'row', xs: 'column' }, justifyContent: { md: backgroundImageAlignment ? 'flex-start' : 'center', xs: 'center' } }}
+      sx={{
+        flexDirection: {
+          md: 'row', xs: 'column',
+        },
+        justifyContent: {
+          md: backgroundImageAlignment ? 'flex-start' : 'center', xs: 'center',
+        },
+      }}
     >
       {subLinkIcon
         ? (
@@ -68,7 +79,9 @@ const SubLinkSection: React.FC<SubLinkSectionProps> = ({ backgroundImageAlignmen
   )
 }
 
-const ButtonSection: React.FC<ButtonSectionProps> = ({ href, to, buttonText }) => {
+const ButtonSection: React.FC<ButtonSectionProps> = ({
+  href, to, buttonText,
+}) => {
   const isMobile = useIsSmall()
   return (
     <ButtonEx
@@ -118,7 +131,9 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
     <FlexGrowCol
       sx={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundPosition: { lg: 'bottom', md: 'center left', xs: 'top left' },
+        backgroundPosition: {
+          lg: 'bottom', md: 'center left', xs: 'top left',
+        },
         minHeight: {
           md: '500px',
           sm: '400px',
@@ -165,7 +180,15 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
               <Typography variant="body1" component="h2" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
                 {desc}
               </Typography>
-              <FlexGrowRow sx={{ flexDirection: { lg: 'row', xs: 'column' } }} width="100%" marginTop={1}>
+              <FlexGrowRow
+                sx={{
+                  flexDirection: {
+                    lg: 'row', xs: 'column',
+                  },
+                }}
+                width="100%"
+                marginTop={1}
+              >
                 <ButtonSection href={button1Href} to={button1To} buttonText={button1Text} />
                 <ButtonSection href={button2Href} to={button2To} buttonText={button2Text} />
               </FlexGrowRow>

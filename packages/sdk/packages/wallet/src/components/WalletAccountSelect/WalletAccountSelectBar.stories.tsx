@@ -56,10 +56,14 @@ const WithWalletIcon = Template.bind({})
 WithWalletIcon.args = { icons: true }
 
 const WithAdditionalAccounts = Template.bind({})
-WithAdditionalAccounts.args = { icons: true, maxAccounts: 10 }
+WithAdditionalAccounts.args = {
+  icons: true, maxAccounts: 10,
+}
 
 const WithAccountFavorites = WithFavoritesTemplate.bind({})
 
-export { Default, WithAccountFavorites, WithAdditionalAccounts, WithWallet, WithWalletIcon }
+export {
+  Default, WithAccountFavorites, WithAdditionalAccounts, WithWallet, WithWalletIcon,
+}
 
 export default StorybookEntry

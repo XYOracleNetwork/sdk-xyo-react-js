@@ -9,8 +9,12 @@ interface DialogActionButtonsProps extends DialogActionsProps {
   onClose?: DialogProps['onClose']
 }
 
-export const DialogActionButtons: React.FC<DialogActionButtonsProps> = ({ onClose, ...props }) => {
-  const { handleSave, setPhrase } = useSeedPhrase()
+export const DialogActionButtons: React.FC<DialogActionButtonsProps> = ({
+  onClose, ...props
+}) => {
+  const {
+    handleSave, setPhrase,
+  } = useSeedPhrase()
 
   const wrappedOnClose = (e: MouseEvent<HTMLElement>) => {
     // clear local copy of phrase when modal closes

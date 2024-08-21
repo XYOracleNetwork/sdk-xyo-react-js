@@ -33,7 +33,9 @@ export class CreditCardCvvFormControl<TProps extends EmptyObject = EmptyObject> 
   constructor() {
     super()
     super.setName(CONTROL_NAME)
-    this.setSerializeSettings({ sensitive: true, serializable: true })
+    this.setSerializeSettings({
+      sensitive: true, serializable: true,
+    })
   }
 
   get cardNumberFormControl() {

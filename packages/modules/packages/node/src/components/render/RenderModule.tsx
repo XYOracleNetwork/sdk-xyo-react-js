@@ -13,7 +13,9 @@ interface RenderModuleProps {
   mod: WeakRef<ModuleInstance>
 }
 
-export const RenderModule: React.FC<RenderModuleProps> = ({ mod, idRef }) => {
+export const RenderModule: React.FC<RenderModuleProps> = ({
+  mod, idRef,
+}) => {
   const [childModules, setChildModules] = useState<WeakRef<ModuleInstance>[]>()
 
   useAsyncEffect(
@@ -38,7 +40,9 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ mod, idRef }) => {
   }
 
   const moduleInstance = mod.deref()
-  const { queries, address } = moduleInstance ?? {}
+  const {
+    queries, address,
+  } = moduleInstance ?? {}
 
   return (
     <StyledAddressTreeItem nodeId={increment()} label={`address: ${address}`}>

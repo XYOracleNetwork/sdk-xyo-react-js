@@ -10,7 +10,9 @@ const renderSelectId = 'render-select-id'
 const renderSelectLabel = 'Renderer'
 
 export const EmbedRenderSelect: React.FC<SelectExProps<string>> = (props) => {
-  const { activePlugin, setActivePlugin, plugins } = useEmbedPluginState()
+  const {
+    activePlugin, setActivePlugin, plugins,
+  } = useEmbedPluginState()
   return (
     <EmbedFormControl formId={renderSelectId} formLabel={renderSelectLabel}>
       <SelectEx size="small" value={activePlugin?.name} {...props}>

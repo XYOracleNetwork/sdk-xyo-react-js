@@ -1,5 +1,7 @@
 import { ContentCopy as ContentCopyIcon, LinkRounded as LinkRoundedIcon } from '@mui/icons-material'
-import { Alert, AlertTitle, Collapse } from '@mui/material'
+import {
+  Alert, AlertTitle, Collapse,
+} from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import type { QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
@@ -12,7 +14,9 @@ export interface BWPreviousHashQuickTipButtonProps extends QuickTipButtonProps {
   boundwitness?: BoundWitness
 }
 
-export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButtonProps> = ({ boundwitness, ...props }) => {
+export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButtonProps> = ({
+  boundwitness, ...props
+}) => {
   const previousHash = boundwitness?.previous_hashes[0] ?? null
   const formattedPreviousHash = previousHash === null ? 'No Previous Hash' : `Previous Hash - ${ellipsize(previousHash, 8)}`
   const [copied, setCopied] = useState(false)
@@ -30,7 +34,9 @@ export const BWPreviousHashQuickTipButton: React.FC<BWPreviousHashQuickTipButton
       Icon={LinkRoundedIcon}
       hoverText={formattedPreviousHash}
       disableDialog={previousHash === null}
-      dialogProps={{ fullWidth: true, maxWidth: 'md' }}
+      dialogProps={{
+        fullWidth: true, maxWidth: 'md',
+      }}
       {...props}
     >
       {previousHash === null

@@ -6,7 +6,9 @@ import type { MenuListItemProps } from '../MenuListItem/index.ts'
 export type DefaultSiteMenuListItemProps = Pick<MenuListItemProps, 'collapseEnd' | 'dense' | 'iconOnly' | 'sx'>
 
 export const useMenuItemsShared = () => {
-  const { collapse, collapseEnd, setCollapse, setCollapseEnd } = useCollapsible()
+  const {
+    collapse, collapseEnd, setCollapse, setCollapseEnd,
+  } = useCollapsible()
 
   const onMenuItemToggle = (open?: boolean) => {
     setCollapse?.(previous => (open ? false : previous))
@@ -25,5 +27,7 @@ export const useMenuItemsShared = () => {
     [collapse, collapseEnd],
   )
 
-  return { defaultSiteMenuListItemProps, onMenuItemToggle }
+  return {
+    defaultSiteMenuListItemProps, onMenuItemToggle,
+  }
 }

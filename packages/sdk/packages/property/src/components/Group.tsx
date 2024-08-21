@@ -1,13 +1,19 @@
 import { Paper, useTheme } from '@mui/material'
-import { FlexCol, FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
+import {
+  FlexCol, FlexGrowRow, FlexRow,
+} from '@xylabs/react-flexbox'
 import { typeOf } from '@xyo-network/typeof'
 import type { ReactElement } from 'react'
 import React from 'react'
 
-import type { PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps } from './Props.ts'
+import type {
+  PropertyGroupBoxProps, PropertyGroupPaperProps, PropertyGroupProps,
+} from './Props.ts'
 import { PropertyTitle } from './Title.tsx'
 
-const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, children, title, tip, ...props }) => {
+const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({
+  titleProps, children, title, tip, ...props
+}) => {
   const theme = useTheme()
   const childrenArray = typeOf(children) === 'array' ? (children as ReactElement[]) : undefined
   return (
@@ -34,9 +40,18 @@ const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({ titleProps, childre
   )
 }
 
-const PropertyGroupPaper: React.FC<PropertyGroupPaperProps> = ({ style, variant, elevation, square, ...props }) => {
+const PropertyGroupPaper: React.FC<PropertyGroupPaperProps> = ({
+  style, variant, elevation, square, ...props
+}) => {
   return (
-    <Paper style={{ minWidth: 0, overflow: 'hidden', ...style }} variant={variant} elevation={elevation} square={square}>
+    <Paper
+      style={{
+        minWidth: 0, overflow: 'hidden', ...style,
+      }}
+      variant={variant}
+      elevation={elevation}
+      square={square}
+    >
       <PropertyGroupBox {...props} paper={false} />
     </Paper>
   )

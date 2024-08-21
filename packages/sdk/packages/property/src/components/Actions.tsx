@@ -5,7 +5,9 @@ import React from 'react'
 
 import type { PropertyActionsProps } from './ActionsProps.ts'
 
-export const PropertyActions: React.FC<PropertyActionsProps> = ({ buttons = false, actions, ...props }) => {
+export const PropertyActions: React.FC<PropertyActionsProps> = ({
+  buttons = false, actions, ...props
+}) => {
   if (actions) {
     return (actions?.length ?? 0) > 0
       ? (
