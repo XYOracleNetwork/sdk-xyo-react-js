@@ -54,9 +54,7 @@ export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
 
   useAsyncEffect(
     async () => {
-      await userEvents?.viewContent({
-        name: title ?? 'NodeBasePage', path: location.pathname,
-      })
+      await userEvents?.viewContent({ name: title ?? 'NodeBasePage', path: location.pathname })
     },
     [pathname, title, userEvents],
   )

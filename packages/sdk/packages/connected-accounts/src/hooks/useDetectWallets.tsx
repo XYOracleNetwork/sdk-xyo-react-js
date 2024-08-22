@@ -42,7 +42,5 @@ export const useDetectedWallets = () => {
     [sortedWallets],
   )
 
-  return {
-    sortedWallets, totalConnectedAccounts,
-  }
+  return { sortedWallets, totalConnectedAccounts }
 }

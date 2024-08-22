@@ -11,11 +11,7 @@ import { PayloadTable } from './Table.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: PayloadTable,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'payload/Table',
 } as Meta<typeof PayloadTable>
 
@@ -55,9 +51,7 @@ const payloads: Payload[] = [
 ]
 
 const WithData = Template.bind({})
-WithData.args = {
-  payloads,
-}
+WithData.args = { payloads }
 
 const WithOutStickyHeaderFooter = Template.bind({})
 WithOutStickyHeaderFooter.args = {
@@ -86,9 +80,7 @@ const WithNoResults = Template.bind({})
 WithNoResults.args = { payloads: [] }
 
 const WithLoading = Template.bind({})
-WithLoading.args = {
-  loading: true, payloads: [],
-}
+WithLoading.args = { loading: true, payloads: [] }
 
 export {
   Default, WithData, WithDataAndMaxSchemaDepth, WithInvalid, WithLoading, WithNoResults, WithOutStickyHeaderFooter,

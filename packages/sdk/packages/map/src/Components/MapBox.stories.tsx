@@ -34,16 +34,10 @@ const WithMapSettingsDecorator: Decorator = (Story, args) => {
 }
 
 export default {
-  args: {
-    accessToken: process.env.STORYBOOK_MAPBOX_TOKEN,
-  },
+  args: { accessToken: process.env.STORYBOOK_MAPBOX_TOKEN },
   component: MapBox,
   decorators: [WithMapboxProviders],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'map/Mapbox',
 } as Meta
 

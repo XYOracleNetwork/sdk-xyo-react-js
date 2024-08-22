@@ -24,6 +24,4 @@ export const BoundWitnessPayloadTableHead: React.FC<PayloadTableHeadProps> = (pr
   )
 }
 
-const TableCellTypography = styled(Typography, { name: 'TableCellTypography' })(() => ({
-  fontWeight: 'bold',
-}))
+const TableCellTypography = styled(Typography, { name: 'TableCellTypography' })(() => ({ fontWeight: 'bold' }))

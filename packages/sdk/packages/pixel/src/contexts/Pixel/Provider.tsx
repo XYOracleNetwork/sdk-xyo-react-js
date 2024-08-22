@@ -9,9 +9,7 @@ export interface PixelProviderProps {
 }
 
 export const PixelProvider: React.FC<WithChildren<PixelProviderProps>> = (props) => {
-  const {
-    children, id,
-  } = props
+  const { children, id } = props
   XyPixel.init(id)
 
   const value = useMemo(() => ({

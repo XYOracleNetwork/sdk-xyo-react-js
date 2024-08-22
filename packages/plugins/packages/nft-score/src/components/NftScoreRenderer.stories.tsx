@@ -7,11 +7,7 @@ import { payloadDataFullScores, payloadDataPartialScores } from './storyPayloadD
 const StorybookEntry = {
   argTypes: {},
   component: NftScoreRenderer,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/nft-score/NftScoreRenderer',
 } as Meta<typeof NftScoreRenderer>
 

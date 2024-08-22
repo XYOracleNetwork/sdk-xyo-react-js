@@ -16,9 +16,7 @@ export type PayloadJsonDetailsProps = PropertyGroupProps & {
 export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({
   jsonViewProps, payload, ...props
 }) => {
-  const {
-    breakpoints, palette,
-  } = useTheme()
+  const { breakpoints, palette } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
 
   let elevation = 2
@@ -39,9 +37,7 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({
       >
         <JsonViewerEx
           groupArraysAfterLength={20}
-          style={{
-            backgroundColor: undefined, overflow: 'hidden',
-          }}
+          style={{ backgroundColor: undefined, overflow: 'hidden' }}
           value={payload}
           enableClipboard
           theme={jsonTheme}

@@ -9,9 +9,7 @@ export class FillLayerBuilder extends LayerBase<FillLayerSpecification> {
 
   constructor(id: string, source: string, FillLayerOptions?: Partial<FillLayerSpecification>) {
     super(id, source)
-    this.FillLayerOptions = FillLayerOptions || {
-      id: this.id, source: this.source,
-    }
+    this.FillLayerOptions = FillLayerOptions || { id: this.id, source: this.source }
   }
 
   buildLayer(): FillLayerSpecification {

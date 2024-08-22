@@ -8,11 +8,7 @@ import { EtherchainV2GasPriceDetailsBox } from './EtherchainV2GasPriceDetailsBox
 const StorybookEntry = {
   argTypes: {},
   component: EtherchainV2GasPriceDetailsBox,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/blockchain/EtherchainV2GasPrice/DetailsBox',
 } as Meta<typeof EtherchainV2GasPriceDetailsBox>
 

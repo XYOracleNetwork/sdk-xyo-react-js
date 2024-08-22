@@ -49,9 +49,7 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
       <FlexCol {...props}>
         <TextField
           fullWidth
-          InputProps={{
-            startAdornment: <Search />,
-          }}
+          InputProps={{ startAdornment: <Search /> }}
           onChange={onSearchTermChange}
         />
         <FlexGrowCol marginTop={1} alignItems="stretch">

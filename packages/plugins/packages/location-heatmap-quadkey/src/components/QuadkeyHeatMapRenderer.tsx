@@ -32,9 +32,7 @@ export interface QuadkeyHeatMapInnerProps extends FlexBoxProps {
 const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({
   developerMode, payload, accessToken, ...props
 }) => {
-  const {
-    error, features,
-  } = useQuadKeyPayloadsToFeatures((payload ?? {}) as NetworkLocationHeatmapQuadkeyAnswerPayload)
+  const { error, features } = useQuadKeyPayloadsToFeatures((payload ?? {}) as NetworkLocationHeatmapQuadkeyAnswerPayload)
   const theme = useTheme()
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken(true)
   const accessTokenResolved = accessToken ?? accessTokenFromContext
@@ -69,9 +67,7 @@ export interface QuadkeyHeatMapSettings extends QuadkeyHeatMapInnerProps {
   settings?: MapSetting
 }
 
-export const QuadkeyHeatMapWithSettingsRenderer: React.FC<QuadkeyHeatMapSettings> = ({
-  settings, ...props
-}) => {
+export const QuadkeyHeatMapWithSettingsRenderer: React.FC<QuadkeyHeatMapSettings> = ({ settings, ...props }) => {
   return (
     <MapBoxInstanceProvider>
       <MapSettingsProvider defaultMapSettings={settings ?? QuadkeyHeatMapSettings()} debugLayerName={MapHeatConstants.LocationDebugLayerId}>

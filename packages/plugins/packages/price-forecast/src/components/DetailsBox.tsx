@@ -32,9 +32,7 @@ export interface PriceForecastDetailsBoxProps extends FlexBoxProps {
   payload?: Payload
 }
 
-export const PriceForecastDetailsBox: React.FC<PriceForecastDetailsBoxProps> = ({
-  payload, ...props
-}) => {
+export const PriceForecastDetailsBox: React.FC<PriceForecastDetailsBoxProps> = ({ payload, ...props }) => {
   const priceForecastPayload = payload as ForecastPayload | undefined
   const theme = useTheme()
   const [data, setData] = useState<ChartData<'line'>>({ datasets: [] })
@@ -43,9 +41,7 @@ export const PriceForecastDetailsBox: React.FC<PriceForecastDetailsBoxProps> = (
   useAsyncEffect(
 
     async (mounted) => {
-      const {
-        data, options,
-      } = await ForecastLineChartConfigBuilder.create(theme, priceForecastPayload, { fetch: true })
+      const { data, options } = await ForecastLineChartConfigBuilder.create(theme, priceForecastPayload, { fetch: true })
       if (mounted()) {
         setData(data)
         setOptions(options)

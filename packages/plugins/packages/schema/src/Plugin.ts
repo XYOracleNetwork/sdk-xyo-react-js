@@ -7,10 +7,6 @@ import { DetailsBox } from './Details.tsx'
 
 export const SchemaRenderPlugin: PayloadRenderPlugin = createPayloadRenderPlugin({
   canRender: (payload?: Payload) => payload?.schema === SchemaSchema,
-  components: {
-    box: {
-      details: DetailsBox,
-    },
-  },
+  components: { box: { details: DetailsBox } },
   name: 'Schema',
 })

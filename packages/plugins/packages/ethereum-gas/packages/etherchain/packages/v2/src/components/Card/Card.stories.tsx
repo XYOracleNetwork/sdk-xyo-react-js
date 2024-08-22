@@ -8,11 +8,7 @@ import { EtherchainV2GasPriceCard } from './Card.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: EtherchainV2GasPriceCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/blockchain/EtherchainV2GasPrice/Card',
 } as Meta<typeof EtherchainV2GasPriceCard>
 

@@ -7,11 +7,7 @@ import { UniswapDetailsRender } from './UniswapDetailsRender.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: UniswapDetailsRender,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/uniswap/UniswapDetailsRender',
 } as Meta<typeof UniswapDetailsRender>
 
@@ -24,14 +20,10 @@ const WithData = Template.bind({})
 WithData.args = { payload: payloadData }
 
 const WithTableData = Template.bind({})
-WithTableData.args = {
-  listMode: 'table', payload: payloadData,
-}
+WithTableData.args = { listMode: 'table', payload: payloadData }
 
 const WithNoPairs = Template.bind({})
-WithNoPairs.args = {
-  listMode: 'table', payload: payloadDataMissingPairs,
-}
+WithNoPairs.args = { listMode: 'table', payload: payloadDataMissingPairs }
 
 export {
   Default, WithData, WithNoPairs, WithTableData,

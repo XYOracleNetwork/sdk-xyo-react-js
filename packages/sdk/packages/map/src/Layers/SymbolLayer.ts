@@ -9,9 +9,7 @@ export class SymbolLayerBuilder extends LayerBase<SymbolLayerSpecification> {
 
   constructor(id: string, source: string, SymbolLayerOptions?: Partial<SymbolLayerSpecification>) {
     super(id, source)
-    this.SymbolLayerOptions = SymbolLayerOptions || {
-      id: this.id, source: this.source,
-    }
+    this.SymbolLayerOptions = SymbolLayerOptions || { id: this.id, source: this.source }
   }
 
   buildLayer(): SymbolLayerSpecification {

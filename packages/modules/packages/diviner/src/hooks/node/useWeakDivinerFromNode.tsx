@@ -7,7 +7,5 @@ export const useWeakDivinerFromNode = (
   nameOrAddressOrInstance?: string | DivinerInstance,
   config?: WeakModuleFromNodeConfig,
 ): [WeakRef<DivinerInstance> | undefined, Error | undefined] => {
-  return useWeakModuleFromNode<DivinerInstance>(nameOrAddressOrInstance, {
-    identity: isDivinerInstance, ...config,
-  })
+  return useWeakModuleFromNode<DivinerInstance>(nameOrAddressOrInstance, { identity: isDivinerInstance, ...config })
 }

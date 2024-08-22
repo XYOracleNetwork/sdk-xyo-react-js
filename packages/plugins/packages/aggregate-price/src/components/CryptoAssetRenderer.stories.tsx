@@ -7,11 +7,7 @@ import { payloadData, payloadDataMissingAssets } from './storyPayloadData.ts'
 const StorybookEntry = {
   argTypes: {},
   component: CryptoAssetRenderer,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/aggregate-price/CryptoAssetRenderer',
 } as Meta<typeof CryptoAssetRenderer>
 

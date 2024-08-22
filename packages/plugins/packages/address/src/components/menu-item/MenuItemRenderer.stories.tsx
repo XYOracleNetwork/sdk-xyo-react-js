@@ -18,11 +18,7 @@ const payload: AddressPayload = {
 const StorybookEntry = {
   argTypes: {},
   component: AddressMenuItemRenderer,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/address/MenuItem',
 } as Meta<typeof AddressMenuItemRenderer>
 
@@ -35,9 +31,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithAddress = Template.bind({})
-WithAddress.args = {
-  payload,
-}
+WithAddress.args = { payload }
 
 const WithName = Template.bind({})
 WithName.args = {

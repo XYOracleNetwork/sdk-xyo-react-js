@@ -42,9 +42,7 @@ const getScoreIcon = (score: Score) => {
   return <DangerousIcon />
 }
 
-export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({
-  payload, ...props
-}) => {
+export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...props }) => {
   const nftScorePayload = payload && isNftScorePayload(payload) ? (payload as NftScore) : undefined
   const categories = nftScorePayload ? Object.entries(nftScorePayload).filter(isScore) : undefined
   const sources = nftScorePayload?.sources?.length ? nftScorePayload.sources.join(', ') : undefined

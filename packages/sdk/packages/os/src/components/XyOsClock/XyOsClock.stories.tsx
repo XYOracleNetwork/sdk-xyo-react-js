@@ -7,11 +7,7 @@ import { XyOsClock } from './XyOsClock.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: XyOsClock,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/XyOsClock',
 } as Meta<typeof XyOsClock>
 
@@ -26,9 +22,7 @@ const Template: StoryFn<typeof XyOsClock> = args => (
 )
 
 const Default = Template.bind({})
-Default.args = {
-  clockType: 'appbar',
-}
+Default.args = { clockType: 'appbar' }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

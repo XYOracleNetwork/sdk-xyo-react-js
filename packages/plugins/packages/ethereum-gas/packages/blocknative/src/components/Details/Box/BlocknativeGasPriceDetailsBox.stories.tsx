@@ -8,11 +8,7 @@ import { BlocknativeGasPriceDetailsBox } from './BlocknativeGasPriceDetailsBox.t
 const StorybookEntry = {
   argTypes: {},
   component: BlocknativeGasPriceDetailsBox,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/blockchain/BlocknativeGasPrice/DetailsBox',
 } as Meta<typeof BlocknativeGasPriceDetailsBox>
 

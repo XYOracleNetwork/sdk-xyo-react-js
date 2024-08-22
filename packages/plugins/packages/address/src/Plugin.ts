@@ -6,11 +6,7 @@ import { AddressMenuItemRenderer } from './components/index.ts'
 export const AddressRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: () => true,
-    components: {
-      menu: {
-        item: AddressMenuItemRenderer,
-      },
-    },
+    components: { menu: { item: AddressMenuItemRenderer } },
     name: 'Address',
   }),
 }

@@ -23,11 +23,7 @@ const ScrollableDecorator: Decorator = (Story, args) => (
 const StorybookEntry = {
   argTypes: {},
   component: TableEx,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/TableEx',
 } as Meta<typeof TableEx>
 
@@ -58,19 +54,13 @@ const Template: StoryFn<typeof TableEx> = (args) => {
       <TableFooterEx variant={variant}>
         <TableRow>
           <TablePagination
-            rowsPerPageOptions={[5, 10, 25, {
-              label: 'All', value: -1,
-            }]}
+            rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
             count={25}
             page={1}
             rowsPerPage={5}
-            style={{
-              borderTop: '1px solid', borderTopColor: theme.palette.divider,
-            }}
+            style={{ borderTop: '1px solid', borderTopColor: theme.palette.divider }}
             SelectProps={{
-              inputProps: {
-                'aria-label': 'rows per page',
-              },
+              inputProps: { 'aria-label': 'rows per page' },
               native: true,
             }}
             onPageChange={() => {

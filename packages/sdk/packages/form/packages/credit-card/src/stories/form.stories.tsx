@@ -5,9 +5,7 @@ import React from 'react'
 import { CreditCardFormFlexboxWithFormGroupProvider } from '../components/index.ts'
 import type { CreditCardInput } from '../models/index.ts'
 
-export default {
-  title: 'form/CreditCardForm',
-} as Meta<typeof CreditCardFormFlexboxWithFormGroupProvider>
+export default { title: 'form/CreditCardForm' } as Meta<typeof CreditCardFormFlexboxWithFormGroupProvider>
 
 const Template: StoryFn<typeof CreditCardFormFlexboxWithFormGroupProvider> = (args) => {
   return <CreditCardFormFlexboxWithFormGroupProvider ConfirmationButton={Button} {...args} />

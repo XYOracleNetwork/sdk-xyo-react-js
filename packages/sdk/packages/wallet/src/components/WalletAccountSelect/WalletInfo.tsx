@@ -18,9 +18,7 @@ export const WalletError: React.FC<WalletErrorProps> = ({ error }) => {
     ? (
         <div>
           <ErrorIcon
-            style={{
-              fontSize: '12px', position: 'absolute',
-            }}
+            style={{ fontSize: '12px', position: 'absolute' }}
             color="error"
           />
           <QuickTipButton
@@ -41,9 +39,7 @@ export interface WalletIdenticonProps {
   name: string
 }
 
-export const WalletIdenticon: React.FC<WalletIdenticonProps> = ({
-  account, name,
-}) => {
+export const WalletIdenticon: React.FC<WalletIdenticonProps> = ({ account, name }) => {
   return (
     <div style={{ width: 20 }}>
       {account

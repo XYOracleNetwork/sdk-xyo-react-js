@@ -78,9 +78,7 @@ const StyledEllipsisTypography = styled(Typography, { name: 'StyledEllipsisTypog
 const StyledDrawerContentPaper = styled(Paper, {
   name: 'StyledDrawerContentPaper',
   shouldForwardProp: prop => !['widthVariant'].includes(prop as string),
-})<DrawerExProps>(({
-  theme, widthVariant,
-}) => ({
+})<DrawerExProps>(({ theme, widthVariant }) => ({
   alignItems: 'stretch',
   borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
   display: 'flex',
@@ -90,10 +88,6 @@ const StyledDrawerContentPaper = styled(Paper, {
   maxWidth: '100%',
   overflowX: 'hidden',
   padding: theme.spacing(3),
-  [theme.breakpoints.up('lg')]: {
-    width: widthVariant === 'full' ? '100%' : '50%',
-  },
-  [theme.breakpoints.up('md')]: {
-    width: widthVariant === 'full' ? '100%' : '75%',
-  },
+  [theme.breakpoints.up('lg')]: { width: widthVariant === 'full' ? '100%' : '50%' },
+  [theme.breakpoints.up('md')]: { width: widthVariant === 'full' ? '100%' : '75%' },
 }))

@@ -27,9 +27,7 @@ export const LinkedProvidersFlexbox: React.FC<LinkedProvidersFlexboxProps> = ({
           constrainedValue="48px"
           src={icon}
           alt={providerName}
-          style={{
-            height: '48px', maxWidth: '48px',
-          }}
+          style={{ height: '48px', maxWidth: '48px' }}
         />
         <Typography variant="subtitle1">{providerName}</Typography>
       </FlexCol>

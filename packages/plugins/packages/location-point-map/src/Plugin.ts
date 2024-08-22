@@ -8,11 +8,7 @@ import { PointMapWithSettingsRenderer } from './components/index.ts'
 export const PointMapRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: (payload?: Payload) => payload?.schema === LocationSchema,
-    components: {
-      box: {
-        detailsBox: PointMapWithSettingsRenderer,
-      },
-    },
+    components: { box: { detailsBox: PointMapWithSettingsRenderer } },
     name: 'Point Map',
   }),
 }

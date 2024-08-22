@@ -2,9 +2,7 @@ import type { Address } from '@xylabs/hex'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 
 export const sampleBlock: BoundWitness = {
-  $meta: {
-    signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
-  },
+  $meta: { signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'] },
   addresses: ['9c6df83b84297985d3ccc1f721ba1c2e3608c751', 'BF005E04EF223aa18c0fBFF6B41BbB0227c45A48'.toLowerCase() as Address],
   payload_hashes: [
     '43df96261884ec99e0d7667120d036065c1f6a88dbb999f30d7c820dc9a37ee5',
@@ -27,9 +25,7 @@ export const sampleBlock: BoundWitness = {
   timestamp: Date.now(),
 }
 export const sampleBlockWithBoundWitnessPayload: BoundWitness = {
-  $meta: {
-    signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
-  },
+  $meta: { signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'] },
   addresses: ['9c6df83b84297985d3ccc1f721ba1c2e3608c751', 'BF005E04EF223aa18c0fBFF6B41BbB0227c45A48'.toLowerCase() as Address],
   payload_hashes: [
     '43df96261884ec99e0d7667120d036065c1f6a88dbb999f30d7c820dc9a37ee5',

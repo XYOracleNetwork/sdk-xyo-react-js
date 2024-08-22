@@ -14,9 +14,7 @@ import React, {
 import { BoundWitnessCardHeader } from '../../Card/index.ts'
 import { DetailsCardContent } from './DetailsCardContent.tsx'
 
-const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(({
-  visibleRows, ...props
-}, ref) => {
+const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(({ visibleRows, ...props }, ref) => {
   return (
     <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
       <BoundWitnessDetailsCardInner ref={ref} {...props} />
@@ -54,9 +52,7 @@ const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, PayloadDetailsRe
               <Divider
                 flexItem
                 orientation="vertical"
-                sx={{
-                  ml: 2, mr: 1,
-                }}
+                sx={{ ml: 2, mr: 1 }}
               />
               <IconButton onClick={() => setCollapsed(!collapsed)}>
                 {collapsed

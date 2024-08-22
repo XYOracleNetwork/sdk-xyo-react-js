@@ -6,11 +6,7 @@ import { BWNavigationTabs } from './NavigationTabs.tsx'
 
 export default {
   component: BWNavigationTabs,
-  parameters: {
-    actions: {
-      argTypesRegex: '(?!^onChange)^on[A-Z].*',
-    },
-  },
+  parameters: { actions: { argTypesRegex: '(?!^onChange)^on[A-Z].*' } },
   title: 'plugin/boundwitness/BWNavigationTabs',
 } as Meta
 

@@ -12,11 +12,7 @@ import { MemoryArchivistsStats } from './MemoryArchivistStats.tsx'
 
 const StorybookEntry = {
   component: MemoryArchivistsStats,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'modules/archivist/MemoryArchivistsStats',
 } as Meta<typeof MemoryArchivistsStats>
 

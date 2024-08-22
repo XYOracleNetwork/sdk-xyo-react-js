@@ -5,11 +5,7 @@ import React from 'react'
 const StorybookEntry = {
   argTypes: {},
   component: NotFound,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'webapp/NotFound',
 } as Meta<typeof NotFound>
 

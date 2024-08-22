@@ -15,16 +15,8 @@ export interface CreditCardOptions {
 }
 
 export const CreditCardData: CreditCardOptions = {
-  amex: {
-    icon: AmexIcon, name: 'American Express',
-  },
-  discover: {
-    icon: DiscoverIcon, name: 'Discover',
-  },
-  mastercard: {
-    icon: MastercardIcon, name: 'Mastercard',
-  },
-  visa: {
-    icon: VisaIcon, name: 'Visa',
-  },
+  amex: { icon: AmexIcon, name: 'American Express' },
+  discover: { icon: DiscoverIcon, name: 'Discover' },
+  mastercard: { icon: MastercardIcon, name: 'Mastercard' },
+  visa: { icon: VisaIcon, name: 'Visa' },
 }

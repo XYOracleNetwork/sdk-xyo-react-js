@@ -21,9 +21,7 @@ export const usePollingFunction = <T extends Payload = Payload>(
   functionToPoll?: FunctionToPoll,
   onResult?: (result: T[] | null) => void,
 ) => {
-  const {
-    indexedQueries, processIndexedResults,
-  } = config ?? {}
+  const { indexedQueries, processIndexedResults } = config ?? {}
   const { isFresh } = processIndexedResults ?? {}
   const {
     maxDelay = 10_000, maxRetries, initialDelay = 100, onFoundResult,
@@ -134,7 +132,5 @@ export const usePollDiviners = <T extends Payload = Payload>(
   const onResultLocal = useCallback((results: T[] | null) => (onResult ? onResult(results) : setResults(results)), [onResult])
 
   const { poll } = usePollingFunction(config, pollDivinerConfig, tryDiviners, onResultLocal)
-  return {
-    pollDiviners: poll, pollResults: results,
-  }
+  return { pollDiviners: poll, pollResults: results }
 }

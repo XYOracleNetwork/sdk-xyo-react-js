@@ -15,11 +15,7 @@ export const payloadData = {
         btc: '0.00004369', eth: '0.00062074', eur: '0.980451', usd: '1.001',
       },
     },
-    dai: {
-      value: {
-        usdc: '1.00004', xyo: '114.394',
-      },
-    },
+    dai: { value: { usdc: '1.00004', xyo: '114.394' } },
     doge: {
       value: {
         btc: '0.00000293', eth: '0.00004157', eur: '0.065655', usd: '0.067013',

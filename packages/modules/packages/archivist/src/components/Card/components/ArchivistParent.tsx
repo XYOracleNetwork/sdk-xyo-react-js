@@ -6,9 +6,7 @@ export interface ArchivistTypeProps {
   parentArchivists?: string[]
 }
 
-export const ArchivistParent: React.FC<ArchivistTypeProps> = ({
-  archivistType, parentArchivists,
-}) => (
+export const ArchivistParent: React.FC<ArchivistTypeProps> = ({ archivistType, parentArchivists }) => (
   <>
     {parentArchivists?.map((address) => {
       return (

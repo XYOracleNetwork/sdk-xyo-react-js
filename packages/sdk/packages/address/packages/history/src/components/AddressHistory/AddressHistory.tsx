@@ -28,9 +28,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({
   address, addressHistory, selectable, skeleton = true, ...props
 }, ref) => {
   const theme = useTheme()
-  const {
-    setActiveBoundWitnessHash, activeBoundWitnessHash,
-  } = useActiveBoundWitness(!!selectable)
+  const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
   const [ulRef, dispatch] = useEvent<HTMLUListElement>(undefined, sharedRef)
   const [orderedAddressHistory] = usePromise(() => orderedHistory(addressHistory), [addressHistory])

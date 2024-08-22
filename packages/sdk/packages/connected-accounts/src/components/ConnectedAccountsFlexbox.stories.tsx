@@ -8,9 +8,7 @@ const StorybookEntry: Meta = {
   component: ConnectedAccountsFlexbox,
   parameters: {
     actions: { argTypesRegex: '!(^on.*)' },
-    docs: {
-      page: null,
-    },
+    docs: { page: null },
   },
   title: 'connectedAccounts/Flexbox',
 }

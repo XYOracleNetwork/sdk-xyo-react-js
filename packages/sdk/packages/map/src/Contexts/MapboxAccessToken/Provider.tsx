@@ -7,9 +7,7 @@ export interface MapboxAccessTokenProviderProps {
   defaultAccessToken?: string
 }
 
-export const MapboxAccessTokenProvider: React.FC<WithChildren<MapboxAccessTokenProviderProps>> = ({
-  defaultAccessToken, ...props
-}) => {
+export const MapboxAccessTokenProvider: React.FC<WithChildren<MapboxAccessTokenProviderProps>> = ({ defaultAccessToken, ...props }) => {
   const [accessToken, setAccessToken] = useState<string>()
 
   const value = useMemo(() => ({

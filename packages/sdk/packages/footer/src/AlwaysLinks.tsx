@@ -17,9 +17,7 @@ export const FooterAlwaysLinks: React.FC<FooterAlwaysLinksProps> = ({
   <FlexRow
     flexWrap="wrap"
     textTransform="uppercase"
-    style={{
-      opacity: 0.6, ...style,
-    }}
+    style={{ opacity: 0.6, ...style }}
     {...props}
   >
     {footerLinks?.map((footerLink, index) => (

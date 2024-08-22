@@ -22,16 +22,8 @@ export const components: ThemeOptions['components'] = {
     },
   },
   MuiLink: {
-    defaultProps: {
-      underline: 'none',
-    },
-    styleOverrides: {
-      root: {
-        '&:hover': {
-          filter: 'brightness(75%)',
-        },
-      },
-    },
+    defaultProps: { underline: 'none' },
+    styleOverrides: { root: { '&:hover': { filter: 'brightness(75%)' } } },
   },
   MuiTableCell: {
     styleOverrides: {
@@ -48,12 +40,8 @@ export const components: ThemeOptions['components'] = {
 }
 
 export const typography: ThemeOptions['typography'] = {
-  body1: {
-    lineHeight: 1.57,
-  },
-  body2: {
-    lineHeight: 1.57,
-  },
+  body1: { lineHeight: 1.57 },
+  body2: { lineHeight: 1.57 },
   button: {
     fontSize: '1rem',
     textTransform: 'inherit',
@@ -75,28 +63,16 @@ export const typography: ThemeOptions['typography'] = {
     fontFamily: fontFamilyPrimary,
     fontSize: '2.24rem',
   },
-  h4: {
-    fontSize: '2rem',
-  },
-  h5: {
-    fontSize: '1.5rem',
-  },
-  h6: {
-    fontSize: '1.1rem',
-  },
-  subtitle1: {
-    opacity: '70%',
-  },
-  subtitle2: {
-    opacity: '70%',
-  },
+  h4: { fontSize: '2rem' },
+  h5: { fontSize: '1.5rem' },
+  h6: { fontSize: '1.1rem' },
+  subtitle1: { opacity: '70%' },
+  subtitle2: { opacity: '70%' },
 }
 
 export const themeOptions: ThemeOptions = {
   components,
-  shape: {
-    borderRadius: 8,
-  },
+  shape: { borderRadius: 8 },
   spacing: 16,
   typography,
 }

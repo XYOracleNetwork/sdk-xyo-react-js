@@ -11,14 +11,10 @@ export default {
 const Template: StoryFn<typeof DefaultSeedPhrase> = props => <DefaultSeedPhrase {...props} />
 
 const Default = Template.bind({})
-Default.args = {
-  seedPhrase: 'test me',
-}
+Default.args = { seedPhrase: 'test me' }
 
 const WithoutDefaultSeedPhrase = Template.bind({})
-WithoutDefaultSeedPhrase.args = {
-  changeSeedPhrase: (mnemonic?: string) => alert(`Generated Default Seed Phrase: ${mnemonic}`),
-}
+WithoutDefaultSeedPhrase.args = { changeSeedPhrase: (mnemonic?: string) => alert(`Generated Default Seed Phrase: ${mnemonic}`) }
 
 const WithHiddenDefaultSeedPhrase = Template.bind({})
 WithHiddenDefaultSeedPhrase.args = {

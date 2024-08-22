@@ -6,11 +6,7 @@ import { CryptoPricesRenderer } from './components/index.ts'
 export const CryptoPricesRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: (payload?: Payload) => payload?.schema === 'network.xyo.crypto.market',
-    components: {
-      box: {
-        detailsBox: CryptoPricesRenderer,
-      },
-    },
+    components: { box: { detailsBox: CryptoPricesRenderer } },
     name: 'Crypto Prices',
   }),
 }

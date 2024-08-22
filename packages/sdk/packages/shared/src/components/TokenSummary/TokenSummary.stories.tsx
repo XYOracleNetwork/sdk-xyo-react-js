@@ -8,11 +8,7 @@ import { TokenSummary } from './TokenSummary.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: TokenSummary,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/TokenSummary',
 } as Meta<typeof TokenSummary>
 
@@ -23,9 +19,7 @@ const Template: StoryFn<typeof TokenSummary> = args => (
 )
 
 const WithData = Template.bind({})
-WithData.args = {
-  icon: tokenData.TokenData[0].icon, symbol: 'string',
-}
+WithData.args = { icon: tokenData.TokenData[0].icon, symbol: 'string' }
 
 const SymbolElement = Template.bind({})
 SymbolElement.args = {

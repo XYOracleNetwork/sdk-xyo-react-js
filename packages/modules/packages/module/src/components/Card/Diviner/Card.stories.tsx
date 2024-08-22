@@ -6,9 +6,7 @@ import React, { useState } from 'react'
 
 import { DivinerCard } from './Card.tsx'
 
-const StorybookEntry = {
-  title: 'modules/diviner/DivinerCard',
-} as Meta<typeof DivinerCard>
+const StorybookEntry = { title: 'modules/diviner/DivinerCard' } as Meta<typeof DivinerCard>
 
 const Template: StoryFn<typeof DivinerCard> = () => {
   const [mod, setModule] = useState<DivinerInstance>()

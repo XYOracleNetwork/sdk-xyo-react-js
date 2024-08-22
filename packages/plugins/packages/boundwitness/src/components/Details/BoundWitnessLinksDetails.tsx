@@ -10,9 +10,7 @@ export type BoundWitnessLinksDetails = PropertyGroupProps & {
   value?: BoundWitness
 }
 
-export const BoundWitnessLinksDetails: React.FC<BoundWitnessLinksDetails> = ({
-  value, ...props
-}) => {
+export const BoundWitnessLinksDetails: React.FC<BoundWitnessLinksDetails> = ({ value, ...props }) => {
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0

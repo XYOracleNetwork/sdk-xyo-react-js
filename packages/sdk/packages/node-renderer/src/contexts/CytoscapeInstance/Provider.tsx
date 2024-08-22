@@ -8,9 +8,7 @@ export interface CytoscapeInstanceProviderProps extends WithChildren {
   defaultInstance?: WeakRef<Core>
 }
 
-export const CytoscapeInstanceProvider: React.FC<CytoscapeInstanceProviderProps> = ({
-  children, defaultInstance,
-}) => {
+export const CytoscapeInstanceProvider: React.FC<CytoscapeInstanceProviderProps> = ({ children, defaultInstance }) => {
   const [cy, setCy] = useState<WeakRef<Core> | undefined>(() => defaultInstance)
 
   const value = useMemo(() => ({

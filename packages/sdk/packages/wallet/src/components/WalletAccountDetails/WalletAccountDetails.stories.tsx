@@ -7,11 +7,7 @@ import { WalletAccountDetails } from './WalletAccountDetails.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: WalletAccountDetails,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'wallet/WalletAccountDetails',
 } as Meta<typeof WalletAccountDetails>
 

@@ -17,11 +17,7 @@ export const useCoinGeckoToAssetPriceDiviner = (payload?: CoingeckoCryptoMarketP
     // eslint-disable-next-line unicorn/no-array-reduce
     const modifiedAssets = Object.entries(payload.assets).reduce(
       (accumulator, [assetName, assetValues]) => {
-        accumulator[assetName] = {
-          value: {
-            ...mapAssetsToString(assetValues),
-          },
-        }
+        accumulator[assetName] = { value: { ...mapAssetsToString(assetValues) } }
         return accumulator
       },
       {} as Record<string, { value: Partial<Record<string, string>> }>,

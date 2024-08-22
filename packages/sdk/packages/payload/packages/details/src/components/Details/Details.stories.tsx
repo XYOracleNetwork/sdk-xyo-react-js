@@ -10,11 +10,7 @@ import { PayloadDetails } from './Details.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: PayloadDetails,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'payload/Details',
 } as Meta<typeof PayloadDetails>
 
@@ -43,19 +39,13 @@ const DefaultPaper = Template.bind({})
 DefaultPaper.args = { paper: true }
 
 const WithSamplePaper = Template.bind({})
-WithSamplePaper.args = {
-  paper: true, payload: sampleIdPayload,
-}
+WithSamplePaper.args = { paper: true, payload: sampleIdPayload }
 
 const WithBuilderSamplePaper = Template.bind({})
-WithBuilderSamplePaper.args = {
-  paper: true, payload: samplePayloadFromBuilder,
-}
+WithBuilderSamplePaper.args = { paper: true, payload: samplePayloadFromBuilder }
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = {
-  paper: true, payload: samplePayloadFromBuilder,
-}
+WithArchiveLinkPaper.args = { paper: true, payload: samplePayloadFromBuilder }
 
 export {
   Default, DefaultPaper, WithArchiveLink, WithArchiveLinkPaper, WithBuilderSample, WithBuilderSamplePaper, WithSample, WithSamplePaper,

@@ -25,9 +25,7 @@ export const AnimatedHeatMapLoaded: React.FC<AnimatedHeatMapLoadedProps> = ({
   const [archivist] = useWeakArchivistFromNode(archivistNameOrAddress)
   const [payloads, xyoError] = useWeakArchivistGet<NetworkLocationHeatmapQuadkeyAnswerPayload>(archivist, hashes)
   const { multipleFeatureSets } = useQuadKeyPayloadsToFeatures(payloads)
-  const {
-    heatMapColorProps, legendProps,
-  } = useHeatMapColors()
+  const { heatMapColorProps, legendProps } = useHeatMapColors()
 
   const MapBoxHeatProps = {
     flexGrow: 1,

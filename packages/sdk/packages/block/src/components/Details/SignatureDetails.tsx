@@ -11,9 +11,7 @@ export type BlockSignatureDetailsProps = PropertyGroupProps & {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-export const BlockSignatureDetails: React.FC<BlockSignatureDetailsProps> = ({
-  block, ...props
-}) => {
+export const BlockSignatureDetails: React.FC<BlockSignatureDetailsProps> = ({ block, ...props }) => {
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0

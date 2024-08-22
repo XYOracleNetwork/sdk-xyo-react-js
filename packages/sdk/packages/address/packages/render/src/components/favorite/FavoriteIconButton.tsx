@@ -56,9 +56,7 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
           setOpenPopper(!openPopper)
         }}
         onMouseDown={e => e.stopPropagation()}
-        sx={{
-          lineHeight: 0, p: 0.25,
-        }}
+        sx={{ lineHeight: 0, p: 0.25 }}
         {...props}
       >
         <span ref={starRef}>

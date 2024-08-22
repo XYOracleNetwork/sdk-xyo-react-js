@@ -89,9 +89,7 @@ const CardHeaderHash = styled(CardHeader, {
     marginBottom: 0,
     marginTop: 0,
   },
-  '& .MuiCardHeader-content': {
-    overflow: 'visible',
-  },
+  '& .MuiCardHeader-content': { overflow: 'visible' },
   '&.MuiCardHeader-root': {
     ...(active && activeBgColor && { backgroundColor: theme.palette.info.dark }),
     borderBottom: `1px solid ${theme.palette.divider}`,

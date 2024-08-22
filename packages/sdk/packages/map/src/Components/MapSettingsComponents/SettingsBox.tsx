@@ -11,9 +11,7 @@ export interface MapSettingsBoxProps extends FlexBoxProps {
   developerMode?: boolean
 }
 
-export const MapSettingsBox: React.FC<MapSettingsBoxProps> = ({
-  developerMode, ...props
-}) => {
+export const MapSettingsBox: React.FC<MapSettingsBoxProps> = ({ developerMode, ...props }) => {
   const { mapSettings } = useMapSettings()
   const { developerMode: devModeFromContext } = useAppSettings()
   const resolveDeveloperMode = developerMode ?? devModeFromContext

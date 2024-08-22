@@ -33,9 +33,7 @@ const PayloadProviderDecorator: Decorator = (Story, args) => {
   )
 }
 
-const StorybookEntry = {
-  title: 'payload/PayloadProvider',
-}
+const StorybookEntry = { title: 'payload/PayloadProvider' }
 
 const Template: StoryFn<React.FC> = () => {
   const {

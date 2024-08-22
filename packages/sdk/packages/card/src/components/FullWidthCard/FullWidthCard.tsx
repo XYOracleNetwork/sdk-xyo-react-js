@@ -41,14 +41,10 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({
   return (
     <Card
       elevation={raised ? 3 : 0}
-      style={{
-        height: '100%', width: '100%',
-      }}
+      style={{ height: '100%', width: '100%' }}
       {...props}
       sx={{
-        '&:hover': {
-          cursor: 'pointer',
-        },
+        '&:hover': { cursor: 'pointer' },
         'backgroundColor': alpha(theme.palette.primary.light, 0.05),
       }}
       onMouseEnter={() =>

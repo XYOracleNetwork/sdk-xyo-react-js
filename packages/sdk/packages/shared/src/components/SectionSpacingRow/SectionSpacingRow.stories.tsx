@@ -7,11 +7,7 @@ import { SectionSpacingRow } from './SectionSpacingRow.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: SectionSpacingRow,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/SectionSpacingRow',
 } as Meta<typeof SectionSpacingRow>
 

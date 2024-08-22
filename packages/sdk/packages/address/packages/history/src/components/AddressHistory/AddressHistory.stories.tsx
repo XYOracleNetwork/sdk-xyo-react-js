@@ -16,9 +16,7 @@ const Template: StoryFn<typeof AddressHistory> = (props) => {
   const [ref] = useEvent<HTMLUListElement>((noun, verb, data) => console.log(noun, verb, data))
   return (
     <AddressHistory
-      sx={{
-        minHeight: '200px', minWidth: '100px',
-      }}
+      sx={{ minHeight: '200px', minWidth: '100px' }}
       ref={ref}
       {...props}
     />
@@ -32,14 +30,10 @@ const WithData = Template.bind({})
 WithData.args = { addressHistory: sampleAddressHistory }
 
 const WithDataOrdering = Template.bind({})
-WithDataOrdering.args = {
-  addressHistory: randomizedSampleAddressHistory, selectable: true,
-}
+WithDataOrdering.args = { addressHistory: randomizedSampleAddressHistory, selectable: true }
 
 const WithDataActive = Template.bind({})
-WithDataActive.args = {
-  addressHistory: sampleAddressHistory, selectable: true,
-}
+WithDataActive.args = { addressHistory: sampleAddressHistory, selectable: true }
 
 export {
   Default, WithData, WithDataActive, WithDataOrdering,

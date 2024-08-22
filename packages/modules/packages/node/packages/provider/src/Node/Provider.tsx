@@ -7,15 +7,11 @@ export interface NodeProviderProps {
   node?: NodeInstance | null
 }
 
-export const NodeProvider: React.FC<WithChildren<NodeProviderProps>> = ({
-  node, children,
-}) => {
+export const NodeProvider: React.FC<WithChildren<NodeProviderProps>> = ({ node, children }) => {
   // save a reference to it
   const memoNode = useMemo(() => node, [node])
 
-  const value = useMemo(() => ({
-    node: memoNode, provided: true,
-  }), [memoNode])
+  const value = useMemo(() => ({ node: memoNode, provided: true }), [memoNode])
 
   return (
     <NodeContext.Provider value={value}>

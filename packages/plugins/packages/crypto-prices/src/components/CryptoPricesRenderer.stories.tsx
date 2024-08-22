@@ -7,11 +7,7 @@ import { payloadData, payloadDataMissingAssets } from './storyPayloadData.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: CryptoPricesRenderer,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/crypto-prices/CryptoPricesRenderer',
 } as Meta<typeof CryptoPricesRenderer>
 

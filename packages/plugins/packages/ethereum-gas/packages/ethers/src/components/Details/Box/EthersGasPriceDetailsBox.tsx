@@ -30,9 +30,7 @@ export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetail
               <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
                 <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
                 {parsedPayload
-                && parsedPayload?.gasPrice?.map(({
-                  price, priorityFee,
-                }) => (
+                && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
                   <GasFeeCard
                     key={price?.label}
                     gasPrice={price?.value}

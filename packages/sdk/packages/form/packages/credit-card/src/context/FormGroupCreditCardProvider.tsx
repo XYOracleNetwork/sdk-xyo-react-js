@@ -19,9 +19,7 @@ export const FormGroupCreditCardProvider: React.FC<FormGroupCreditCardProviderPr
     return formGroup
   }, [params])
 
-  const value = useMemo(() => ({
-    formGroup, provided: true,
-  }), [formGroup])
+  const value = useMemo(() => ({ formGroup, provided: true }), [formGroup])
 
   return (
 

@@ -11,10 +11,6 @@ export const fixedWrap: CSSProperties = {
 } as const
 
 // Making a scrollable vs fixed wrapper and content is an inversion of the wrap and content styles
-export const scrollableContent: CSSProperties = {
-  ...fixedWrap,
-} as const
+export const scrollableContent: CSSProperties = { ...fixedWrap } as const
 
-export const fixedContent: CSSProperties = {
-  ...scrollableWrap,
-} as const
+export const fixedContent: CSSProperties = { ...scrollableWrap } as const

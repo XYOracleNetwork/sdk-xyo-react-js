@@ -7,11 +7,7 @@ import { ContextToolbar } from './ContextToolbar.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: ContextToolbar,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'appbar/Toolbar/Context',
 } as Meta<typeof ContextToolbar>
 

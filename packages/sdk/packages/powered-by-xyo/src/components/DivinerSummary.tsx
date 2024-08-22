@@ -5,8 +5,6 @@ import React from 'react'
 import type { ModuleSummaryProps } from './ModuleSummary.tsx'
 import { ModuleSummary } from './ModuleSummary.tsx'
 
-export const DivinerSummary: React.FC<ModuleSummaryProps<DivinerInstance>> = ({
-  mod, ...props
-}) => {
+export const DivinerSummary: React.FC<ModuleSummaryProps<DivinerInstance>> = ({ mod, ...props }) => {
   return <ModuleSummary mod={mod} icon={<BubbleChartRoundedIcon />} {...props} />
 }

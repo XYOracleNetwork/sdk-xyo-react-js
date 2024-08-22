@@ -12,11 +12,7 @@ const StorybookEntry = {
   argTypes: {},
   component: WalletAccountSelectBar,
   decorators: [WalletProviderDecorator],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'wallet/WalletAccountSelectBar',
 } as Meta<typeof WalletAccountSelectBar>
 
@@ -56,9 +52,7 @@ const WithWalletIcon = Template.bind({})
 WithWalletIcon.args = { icons: true }
 
 const WithAdditionalAccounts = Template.bind({})
-WithAdditionalAccounts.args = {
-  icons: true, maxAccounts: 10,
-}
+WithAdditionalAccounts.args = { icons: true, maxAccounts: 10 }
 
 const WithAccountFavorites = WithFavoritesTemplate.bind({})
 

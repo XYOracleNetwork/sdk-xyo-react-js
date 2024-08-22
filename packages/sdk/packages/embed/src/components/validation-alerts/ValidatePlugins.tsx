@@ -5,9 +5,7 @@ import React from 'react'
 
 import { useEmbedPluginState, useResolvePayload } from '../../contexts/index.ts'
 
-export const ValidatePluginsAlert: React.FC<WithChildren<AlertProps>> = ({
-  children, ...props
-}) => {
+export const ValidatePluginsAlert: React.FC<WithChildren<AlertProps>> = ({ children, ...props }) => {
   const { payload } = useResolvePayload()
   const { plugins } = useEmbedPluginState()
 

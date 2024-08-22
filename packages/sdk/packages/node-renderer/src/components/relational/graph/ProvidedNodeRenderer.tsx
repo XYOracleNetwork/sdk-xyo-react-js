@@ -14,9 +14,7 @@ export interface ProvidedNodeRendererProps extends NodeRelationalGraphProps {
   node?: WeakRef<NodeInstance>
 }
 
-export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({
-  node, ...props
-}) => {
+export const ProvidedNodeRenderer: React.FC<ProvidedNodeRendererProps> = ({ node, ...props }) => {
   const [providedNode] = useWeakProvidedNode()
   const elements = useCytoscapeElements(node ?? providedNode)
   const options = useCytoscapeOptions(elements)

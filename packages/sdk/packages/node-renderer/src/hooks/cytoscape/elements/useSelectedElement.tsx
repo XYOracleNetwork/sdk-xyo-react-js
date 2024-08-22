@@ -21,7 +21,5 @@ export const useSelectedElement = () => {
     }
   }
 
-  return {
-    selectedElement, toggleSelectedElement,
-  }
+  return { selectedElement, toggleSelectedElement }
 }

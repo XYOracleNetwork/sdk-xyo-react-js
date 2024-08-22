@@ -11,9 +11,7 @@ const MapHeatConstants = (index: number, type: string) => ({
 })
 
 export const LocationHeatMapLayerBuilderAnimated = (color: string, index: number, type = '') => {
-  const {
-    LocationFillLayerId, LocationFillLayerSource,
-  } = MapHeatConstants(index, type)
+  const { LocationFillLayerId, LocationFillLayerSource } = MapHeatConstants(index, type)
 
   const fillLayerConfig = HeatMapFillLayerConfig(color)
 

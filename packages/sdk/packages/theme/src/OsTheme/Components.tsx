@@ -2,9 +2,7 @@ import type { ThemeOptions } from '@mui/material'
 
 export const components: ThemeOptions['components'] = {
   MuiCard: {
-    defaultProps: {
-      elevation: 0,
-    },
+    defaultProps: { elevation: 0 },
     styleOverrides: {
       root: {
         display: 'flex',
@@ -23,22 +21,10 @@ export const components: ThemeOptions['components'] = {
     },
   },
   MuiLink: {
-    defaultProps: {
-      underline: 'none',
-    },
-    styleOverrides: {
-      root: {
-        '&:hover': {
-          filter: 'brightness(75%)',
-        },
-      },
-    },
+    defaultProps: { underline: 'none' },
+    styleOverrides: { root: { '&:hover': { filter: 'brightness(75%)' } } },
   },
-  MuiPaper: {
-    defaultProps: {
-      elevation: 0,
-    },
-  },
+  MuiPaper: { defaultProps: { elevation: 0 } },
   MuiTableCell: {
     styleOverrides: {
       body: {

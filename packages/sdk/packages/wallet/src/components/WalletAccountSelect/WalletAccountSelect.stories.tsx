@@ -12,11 +12,7 @@ const StorybookEntry = {
   argTypes: {},
   component: WalletAccountSelect,
   decorators: [WalletProviderDecorator],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'wallet/WalletAccountSelect',
 } as Meta<typeof WalletAccountSelect>
 

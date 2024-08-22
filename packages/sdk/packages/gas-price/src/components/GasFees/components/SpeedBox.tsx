@@ -8,9 +8,7 @@ export interface SpeedBoxProps extends FlexBoxProps {
   speed?: string
 }
 
-export const SpeedBox: React.FC<SpeedBoxProps> = ({
-  speed, ...props
-}) => {
+export const SpeedBox: React.FC<SpeedBoxProps> = ({ speed, ...props }) => {
   const theme = useTheme()
 
   return speed

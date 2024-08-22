@@ -10,9 +10,7 @@ import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.
 import { EmbedMenu } from '../menu/index.ts'
 
 export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
-  const {
-    refreshHuri, huri,
-  } = useResolvePayload()
+  const { refreshHuri, huri } = useResolvePayload()
   const {
     activePlugin, timestampLabel, hideElementsConfig,
   } = useEmbedPluginState()
@@ -23,9 +21,7 @@ export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
   const timestamp = Date.now()
   return (
     <CardHeader
-      sx={{
-        flexWrap: 'wrap', rowGap: 1,
-      }}
+      sx={{ flexWrap: 'wrap', rowGap: 1 }}
       avatar={
         hideAvatar
           ? <></>

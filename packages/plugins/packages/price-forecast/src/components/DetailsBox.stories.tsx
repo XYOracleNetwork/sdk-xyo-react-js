@@ -24,11 +24,7 @@ const ForecastingDivinerPayload = {
 const StorybookEntry = {
   argTypes: {},
   component: PriceForecastDetailsBox,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/price-forecast/DetailsBox',
 } as Meta<typeof PriceForecastDetailsBox>
 
@@ -38,9 +34,7 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
   const sourcePayloadsRef = useRef<HTMLParagraphElement>(null)
   const handleClick = (ref: RefObject<HTMLParagraphElement>) => {
     setShowPayloads(!showPayloads)
-    if (ref.current) ref.current.scrollIntoView({
-      behavior: 'smooth', block: 'start',
-    })
+    if (ref.current) ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
   return (
     <>
@@ -77,9 +71,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = {
-  payload: ForecastingDivinerPayload,
-}
+WithData.args = { payload: ForecastingDivinerPayload }
 
 export { Default, WithData }
 

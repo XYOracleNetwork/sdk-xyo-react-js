@@ -25,8 +25,6 @@ export const ListItemButtonExTo: React.FC<ListItemButtonExProps> = ({
   return <ListItemButton onClick={localOnClick} {...props} />
 }
 
-export const ListItemButtonEx: React.FC<ListItemButtonExProps> = ({
-  to, ...props
-}) => {
+export const ListItemButtonEx: React.FC<ListItemButtonExProps> = ({ to, ...props }) => {
   return to ? <ListItemButtonExTo to={to} {...props} /> : <ListItemButton {...props} />
 }

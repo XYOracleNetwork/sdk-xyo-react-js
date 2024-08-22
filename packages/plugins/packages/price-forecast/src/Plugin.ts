@@ -6,11 +6,7 @@ import { PriceForecastDetailsBox } from './components/index.ts'
 export const PriceForecastRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: () => true,
-    components: {
-      box: {
-        detailsBox: PriceForecastDetailsBox,
-      },
-    },
+    components: { box: { detailsBox: PriceForecastDetailsBox } },
     name: 'PriceForecast',
   }),
 }

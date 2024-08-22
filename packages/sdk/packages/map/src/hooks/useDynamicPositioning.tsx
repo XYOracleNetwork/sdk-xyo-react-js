@@ -50,9 +50,7 @@ const linearInterpolate = (aspectRatio: number, degreeRange: number[], aspectRat
 
 const useDynamicPositioning = () => {
   const [options, setOptions] = useState<Partial<MapOptions>>({})
-  const {
-    width, height,
-  } = useWindowSize()
+  const { width, height } = useWindowSize()
 
   useEffect(() => {
     if (width && height) {

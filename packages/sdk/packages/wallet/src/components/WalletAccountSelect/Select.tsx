@@ -47,9 +47,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
               renderValue={(selectedAccountIndex) => {
                 // eslint-disable-next-line @eslint-react/no-nested-components
                 const Item: React.FC = () => {
-                  const [selectedAccount] = useWallet({
-                    path: selectedAccountIndex.toString(), wallet: rootWallet,
-                  })
+                  const [selectedAccount] = useWallet({ path: selectedAccountIndex.toString(), wallet: rootWallet })
                   const customName = selectedAccount ? addressNames?.[selectedAccount.address] : undefined
                   const favorite = !!selectedAccount && selectedAccount.address in (addressNames ?? {})
                   return (
@@ -84,9 +82,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
               {arrayRange(maxAccounts).map((index) => {
                 // eslint-disable-next-line @eslint-react/no-nested-components
                 const Item: React.FC = () => {
-                  const [account] = useWallet({
-                    path: index.toString(), wallet: rootWallet,
-                  })
+                  const [account] = useWallet({ path: index.toString(), wallet: rootWallet })
                   const customName = account ? addressNames?.[account.address] : undefined
                   const favorite = !!account && account.address in (addressNames ?? {})
                   return (

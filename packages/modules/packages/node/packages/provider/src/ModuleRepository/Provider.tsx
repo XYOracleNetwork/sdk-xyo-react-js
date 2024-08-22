@@ -7,9 +7,7 @@ export interface ModuleRepositoryProviderProps extends WithChildren {
   defaultResolvers?: ResolverEntries
 }
 
-export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> = ({
-  children, defaultResolvers,
-}) => {
+export const ModuleRepositoryProvider: React.FC<ModuleRepositoryProviderProps> = ({ children, defaultResolvers }) => {
   const [resolvers, setResolvers] = useState<ResolverEntries | undefined>(defaultResolvers)
 
   useEffect(() => {

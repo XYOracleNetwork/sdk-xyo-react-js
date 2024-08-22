@@ -8,9 +8,7 @@ import React from 'react'
 import type { ModuleSummaryProps } from './ModuleSummary.tsx'
 import { ModuleSummary } from './ModuleSummary.tsx'
 
-export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({
-  mod, ...props
-}) => {
+export const NodeSummary: React.FC<ModuleSummaryProps<NodeInstance>> = ({ mod, ...props }) => {
   const [manifest] = usePromise(async () => {
     return (await mod?.manifest()) as NodeManifest
   }, [mod])

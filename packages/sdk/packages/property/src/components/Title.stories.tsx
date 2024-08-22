@@ -6,11 +6,7 @@ import { PropertyTitle } from './Title.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: PropertyTitle,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'property/Title',
 } as Meta<typeof PropertyTitle>
 

@@ -30,9 +30,7 @@ WithRef.decorators = [WithEventDecorator]
 WithRef.args = { payload: sampleBlock }
 
 const WithVisibleRows = Template.bind({})
-WithVisibleRows.args = {
-  payload: sampleBlock, visibleRows: 3,
-}
+WithVisibleRows.args = { payload: sampleBlock, visibleRows: 3 }
 
 export {
   Default, WithRef, WithVisibleRows,

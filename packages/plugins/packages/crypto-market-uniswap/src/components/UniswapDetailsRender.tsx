@@ -7,9 +7,7 @@ import React from 'react'
 import { UniswapPairsCardView } from './Cards/index.ts'
 import { UniswapPairsTableView } from './Table/index.ts'
 
-export const UniswapDetailsRender: React.FC<PayloadDetailsRenderProps & FlexBoxProps> = ({
-  listMode, ...props
-}) => {
+export const UniswapDetailsRender: React.FC<PayloadDetailsRenderProps & FlexBoxProps> = ({ listMode, ...props }) => {
   const { payload } = props
   const uniswapPayload = payload ? (payload as UniswapCryptoMarketPayload) : undefined
 

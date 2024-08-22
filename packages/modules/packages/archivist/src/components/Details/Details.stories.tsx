@@ -10,11 +10,7 @@ import { ArchivistDetails } from './Details.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: ArchivistDetails,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'modules/archivist/Details',
 } as Meta<typeof ArchivistDetails>
 

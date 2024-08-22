@@ -52,11 +52,7 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
         link={clickableFields?.includes('address')}
       />
       <TableCell
-        sx={{
-          display: {
-            md: 'table-cell', xs: 'none',
-          },
-        }}
+        sx={{ display: { md: 'table-cell', xs: 'none' } }}
         align="center"
       >
         <Typography variant="body2" fontFamily="monospace">
@@ -64,11 +60,7 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
         </Typography>
       </TableCell>
       <TableCell
-        sx={{
-          display: {
-            sm: 'table-cell', xs: 'none',
-          },
-        }}
+        sx={{ display: { sm: 'table-cell', xs: 'none' } }}
         align="center"
       >
         <Typography variant="body2" fontFamily="monospace" ref={signatureRef} onClick={() => signatureDispatch('signature', 'click', signature)}>

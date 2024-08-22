@@ -9,15 +9,11 @@ export const useFreshIndexedResult = <TResult extends Payload = Payload>(config?
   const {
     indexedResultsConfig, pollingConfig, queueConfig, trigger,
   } = config ?? {}
-  const {
-    queue, taskId,
-  } = queueConfig ?? {}
+  const { queue, taskId } = queueConfig ?? {}
 
   const freshResult = useTriggerFreshIndexedResult(indexedResultsConfig, trigger)
 
-  const {
-    pollDiviners, pollResults,
-  } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
+  const { pollDiviners, pollResults } = usePollDiviners<TResult>(indexedResultsConfig, pollingConfig)
 
   // Start the polling and wait for the results elsewhere
   const [, error, state] = usePromise(async () => {

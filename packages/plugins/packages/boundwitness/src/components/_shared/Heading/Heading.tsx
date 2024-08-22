@@ -38,9 +38,7 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
       <EllipsizeBox
         title={headingText}
         width="100%"
-        typographyProps={{
-          variant: sizeParser(size), ...headingProps,
-        }}
+        typographyProps={{ variant: sizeParser(size), ...headingProps }}
         ref={ellipsizeRef}
       >
         {headingText}

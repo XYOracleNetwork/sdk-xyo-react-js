@@ -4,14 +4,10 @@ import { SystemControlsType } from './SystemControlsType.ts'
 import type { SystemControlsUnstyledProps } from './SystemControlsUnstyled.tsx'
 import { SystemControlsUnstyled } from './SystemControlsUnstyled.tsx'
 
-const SystemControlsRoot = styled(SystemControlsUnstyled, {
-  name: 'SystemControls', slot: 'Root',
-})<SystemControlsUnstyledProps>(({ theme }) => ({
+const SystemControlsRoot = styled(SystemControlsUnstyled, { name: 'SystemControls', slot: 'Root' })<SystemControlsUnstyledProps>(({ theme }) => ({
   // shared defaults
   ['&']: {
-    '.toggle': {
-      backgroundColor: theme.palette.primary.main,
-    },
+    '.toggle': { backgroundColor: theme.palette.primary.main },
     'alignItems': 'start',
     'zIndex': 1,
   },
@@ -45,9 +41,7 @@ const SystemControlsRoot = styled(SystemControlsUnstyled, {
       flexDirection: 'column',
       padding: `${theme.spacing(2)} ${theme.spacing(2.5)}`,
     },
-    '.control-wrap': {
-      marginBottom: `${theme.spacing(2)}`,
-    },
+    '.control-wrap': { marginBottom: `${theme.spacing(2)}` },
     '.toggle': {
       borderRadius: '0 5px 5px 0',
       padding: `${theme.spacing(1)} ${theme.spacing(0.5)}`,

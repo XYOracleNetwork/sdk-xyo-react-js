@@ -7,11 +7,7 @@ import { EthereumGasPriceDetailsBox } from './EthereumGasPriceDetailsBox.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: EthereumGasPriceDetailsBox,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/blockchain/EthereumGasPrice/DetailsBox',
 } as Meta<typeof EthereumGasPriceDetailsBox>
 

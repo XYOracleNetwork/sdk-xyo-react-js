@@ -38,9 +38,7 @@ export const BlocknativeGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadD
                   }}
                 >
                   {parsedPayload
-                  && parsedPayload?.gasPrice?.map(({
-                    price, priorityFee,
-                  }) => (
+                  && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
                     <Grid key={price?.label} item xs={12} sm={6} md={5} lg={3}>
                       <GasFeeCard
                         key={price?.label}

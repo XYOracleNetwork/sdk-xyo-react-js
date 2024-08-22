@@ -20,9 +20,7 @@ export const EmbedCardApiErrorRenderer: React.FC<WithChildren<EmbedCardApiErrorR
   )
 }
 
-const CustomApiErrorCard: React.FC<EmbedCardApiErrorRendererProps> = ({
-  xyoError, ...props
-}) => {
+const CustomApiErrorCard: React.FC<EmbedCardApiErrorRendererProps> = ({ xyoError, ...props }) => {
   return (
     <EmbedErrorCard {...props}>
       <ErrorAlert error={xyoError} />

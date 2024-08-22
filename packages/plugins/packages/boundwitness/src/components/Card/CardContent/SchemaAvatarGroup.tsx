@@ -25,9 +25,7 @@ export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({
             <Avatar
               key={index + schema}
               title={schema}
-              sx={{
-                bgcolor: 'primary.main', color: 'primary.contrastText',
-              }}
+              sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}
             >
               {schema === BoundWitnessSchema
                 ? <VscSymbolMethod />

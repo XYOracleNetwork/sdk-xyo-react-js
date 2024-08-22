@@ -44,9 +44,7 @@ const EllipsizeRoot = styled(Box, {
 const EllipsizeInnerWrap = styled(Box, {
   name: ComponentName,
   slot: 'innerWrap',
-})(() => ({
-  position: 'relative',
-}))
+})(() => ({ position: 'relative' }))
 
 const EllipsizeContentWrap = styled(Typography, {
   name: ComponentName,
@@ -81,9 +79,7 @@ const useClientHeight = () => {
     }
   }, [])
 
-  return {
-    contentWrapHeight, contentWrapRef,
-  }
+  return { contentWrapHeight, contentWrapRef }
 }
 
 export type TypographyWithComponentProps<D extends React.ElementType = TypographyTypeMap['defaultComponent'], P = {}> = TypographyProps<D, P> & {
@@ -101,9 +97,7 @@ export const EllipsizeBox = forwardRef<HTMLDivElement, WithChildren<EllipsizeBox
     children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props
   }, ref) => {
     // Allow syncing of :before pseudo element height with contentWrapHeight
-    const {
-      contentWrapRef, contentWrapHeight,
-    } = useClientHeight()
+    const { contentWrapRef, contentWrapHeight } = useClientHeight()
     const sharedRef = useShareForwardedRef(ref)
 
     return (

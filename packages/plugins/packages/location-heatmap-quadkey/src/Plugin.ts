@@ -6,10 +6,6 @@ import { QuadkeyHeatMapWithSettingsRenderer } from './components/index.ts'
 
 export const QuadkeyHeatMapRenderPlugin: PayloadRenderPlugin = createPayloadRenderPlugin({
   canRender: (payload?: Payload) => payload?.schema === 'network.xyo.location.heatmap.quadkey.answer',
-  components: {
-    box: {
-      details: QuadkeyHeatMapWithSettingsRenderer,
-    },
-  },
+  components: { box: { details: QuadkeyHeatMapWithSettingsRenderer } },
   name: 'Heat Map',
 })

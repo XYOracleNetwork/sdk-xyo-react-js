@@ -19,11 +19,7 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
   useEffect(() => {
     if (location) {
       // ensure we end up at the same place we are now after logging in
-      location.state = {
-        from: {
-          pathname: window.location.pathname,
-        },
-      }
+      location.state = { from: { pathname: window.location.pathname } }
     }
   }, [location])
 

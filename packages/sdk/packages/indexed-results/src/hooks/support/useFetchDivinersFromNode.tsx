@@ -18,7 +18,5 @@ export const useFetchDivinersFromNode = (config?: IndexedResultsConfig) => {
     }
   }, [divinerNames, node])
 
-  return {
-    diviners,
-  }
+  return { diviners }
 }

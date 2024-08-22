@@ -22,11 +22,7 @@ export default {
   },
   component: PointMapWithSettingsRenderer,
   decorators: [WithMapboxSetup],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/point-map/PointMap',
 } as Meta
 
@@ -38,21 +34,15 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = {
-  payload: locationPayload,
-}
+WithData.args = { payload: locationPayload }
 
 const missingData = {
-  result: {
-    features: [],
-  },
+  result: { features: [] },
   schema: 'network.xyo.location',
 }
 
 const WithNoData = Template.bind({})
-WithNoData.args = {
-  payload: missingData,
-}
+WithNoData.args = { payload: missingData }
 
 export {
   Default, WithData, WithNoData,

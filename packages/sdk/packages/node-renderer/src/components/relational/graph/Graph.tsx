@@ -22,9 +22,7 @@ import React, {
 import type { NodeRelationalGraphProps } from '../../lib/index.ts'
 
 const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
-  cy?.layout({
-    name, ...options,
-  }).run()
+  cy?.layout({ name, ...options }).run()
 }
 
 const loadLayout = (layout = 'cola') => {
@@ -62,9 +60,7 @@ const ModuleHoverDetails: React.FC<ModuleHoverDetailsProps> = ({
         avatar={(
           <Paper
             elevation={6}
-            sx={{
-              bgcolor: '#fff', p: 1,
-            }}
+            sx={{ bgcolor: '#fff', p: 1 }}
           >
             <Identicon value={address} size={24} />
           </Paper>

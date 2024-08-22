@@ -35,9 +35,7 @@ export const UseIndexedResults: React.FC<UseIndexedResultsProps> = ({
           },
         },
       },
-      pollingConfig: {
-        maxRetries: null,
-      },
+      pollingConfig: { maxRetries: null },
       trigger: !!archivist,
     }
     return config

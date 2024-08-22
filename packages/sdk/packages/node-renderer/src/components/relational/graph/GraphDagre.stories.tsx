@@ -31,16 +31,8 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   useAsyncEffect(
     async () => {
       try {
-        const node = await MemoryNode.create({
-          config: {
-            name: 'GlobalNode', schema: NodeConfigSchema,
-          },
-        })
-        const node1 = await MemoryNode.create({
-          config: {
-            name: 'ChildNode', schema: NodeConfigSchema,
-          },
-        })
+        const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
+        const node1 = await MemoryNode.create({ config: { name: 'ChildNode', schema: NodeConfigSchema } })
         const bridge = await HttpBridge.create({
           config: {
             name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
@@ -49,11 +41,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
         await node.register(bridge)
         await node.attach(bridge.address, true)
 
-        const archivist = await MemoryArchivist.create({
-          config: {
-            name: 'RootStorageArchivist', schema: MemoryArchivistConfigSchema,
-          },
-        })
+        const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: MemoryArchivistConfigSchema } })
         await node.register(archivist)
         await node.attach(archivist.address, true)
 
@@ -65,11 +53,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
         await node.register(sentinel)
         await node.attach(sentinel.address, true)
 
-        const archivist1 = await MemoryArchivist.create({
-          config: {
-            name: 'RootStorageArchivist1', schema: MemoryArchivistConfigSchema,
-          },
-        })
+        const archivist1 = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist1', schema: MemoryArchivistConfigSchema } })
         await node1.register(archivist1)
         await node1.attach(archivist1.address, true)
 
@@ -178,9 +162,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = {
-  options, ...defaultProps,
-}
+WithData.args = { options, ...defaultProps }
 
 const WithDescribe = TemplateDescribe.bind({})
 WithDescribe.args = { ...defaultProps }

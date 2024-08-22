@@ -6,10 +6,6 @@ import { DetailsBox } from './Details.tsx'
 
 export const PointerRenderPlugin: PayloadRenderPlugin = createPayloadRenderPlugin({
   canRender: (payload?: Payload) => payload?.schema === 'network.xyo.pointer',
-  components: {
-    box: {
-      details: DetailsBox,
-    },
-  },
+  components: { box: { details: DetailsBox } },
   name: 'Pointer',
 })

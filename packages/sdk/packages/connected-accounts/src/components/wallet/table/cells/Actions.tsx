@@ -15,10 +15,7 @@ export const ConnectedWalletsActionsTableCell: React.FC<ConnectedWalletTableCell
       <FlexRow gap={2} justifyContent="start">
         {connected
           ? (
-              <Typography sx={{
-                display: 'inline-flex', gap: 0.5,
-              }}
-              >
+              <Typography sx={{ display: 'inline-flex', gap: 0.5 }}>
                 <Check />
                 Connected
               </Typography>

@@ -38,32 +38,22 @@ export class ElevationPayloadProcessor {
     return this
   }
 
-  private featuresIterator = ({
-    quadkey, elevation,
-  }: { elevation: number; quadkey: string }) => {
+  private featuresIterator = ({ quadkey, elevation }: { elevation: number; quadkey: string }) => {
     // elevation at center of the quadkey
     const geojson = new GeoJson(quadkey)
 
-    const {
-      lat, lng,
-    } = geojson.center()
-    this.locations.push({
-      latitude: lat, longitude: lng,
-    })
+    const { lat, lng } = geojson.center()
+    this.locations.push({ latitude: lat, longitude: lng })
 
     const polygonFeature = new GeoJson(quadkey).polygonFeature()
-    polygonFeature.properties = {
-      elevation,
-    }
+    polygonFeature.properties = { elevation }
     return polygonFeature
   }
 
   private featuresWithElevationsIterator = (feature: Feature, index: number, locationElevations?: LocationElevation[]) => {
     if (feature.properties) {
       feature.properties.quadkeyElevation = locationElevations?.[index]?.elevation
-      const {
-        quadkeyElevation, elevation,
-      } = feature.properties
+      const { quadkeyElevation, elevation } = feature.properties
       feature.properties.variance = quadkeyElevation - elevation
     }
     return feature

@@ -8,9 +8,7 @@ export interface ErrorReporterProviderProps {
   rollbar: Rollbar
 }
 
-const ErrorReporterProvider: React.FC<WithChildren<ErrorReporterProviderProps>> = ({
-  children, rollbar,
-}) => {
+const ErrorReporterProvider: React.FC<WithChildren<ErrorReporterProviderProps>> = ({ children, rollbar }) => {
   const [rollbarInstance, setRollBarInstance] = useState<Rollbar>()
 
   useEffect(() => {

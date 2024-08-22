@@ -12,9 +12,7 @@ export const UniswapPairsRenderPlugin: PayloadRenderPlugin = {
         detailsBox: UniswapDetailsRender,
         listModes: ['table', 'grid'],
       },
-      table: {
-        cell: TableCellSummary,
-      },
+      table: { cell: TableCellSummary },
     },
     name: 'Uniswap Pairs View',
   }),

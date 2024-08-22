@@ -21,14 +21,10 @@ export interface ThrownErrorBoundaryState {
 }
 
 export class ThrownErrorBoundary extends Component<ThrownErrorBoundaryProps, ThrownErrorBoundaryState> {
-  override state: ThrownErrorBoundaryState = {
-    xyoError: undefined,
-  }
+  override state: ThrownErrorBoundaryState = { xyoError: undefined }
 
   static getDerivedStateFromError(error: Error) {
-    return {
-      hasError: true, xyoError: ThrownErrorBoundary.normalizeError(error),
-    } as ThrownErrorBoundaryState
+    return { hasError: true, xyoError: ThrownErrorBoundary.normalizeError(error) } as ThrownErrorBoundaryState
   }
 
   static normalizeError(error: Error | ModuleError): ModuleError {
@@ -41,9 +37,7 @@ export class ThrownErrorBoundary extends Component<ThrownErrorBoundaryProps, Thr
   }
 
   override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    const {
-      rethrow, rollbar,
-    } = this.props
+    const { rethrow, rollbar } = this.props
     const { xyoError } = this.state
 
     rollbar?.error(error)

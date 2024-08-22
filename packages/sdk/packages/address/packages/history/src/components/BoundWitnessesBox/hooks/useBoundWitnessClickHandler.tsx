@@ -11,9 +11,7 @@ export const useBoundWitnessClickHandler = () => {
   const {
     hashSelectionHistory, fetchFromHash, addSelection, clearHistory,
   } = usePayloadHashSelectionHistory(false)
-  const {
-    setClickedExistingHash, setLoading,
-  } = useNestedBoundWitnesses(false)
+  const { setClickedExistingHash, setLoading } = useNestedBoundWitnesses(false)
   const boundwitnessClick = useCallback(
     (noun: EventNoun, data?: Hash, clickType?: BoundwitnessClickType) => {
       // eslint-disable-next-line complexity

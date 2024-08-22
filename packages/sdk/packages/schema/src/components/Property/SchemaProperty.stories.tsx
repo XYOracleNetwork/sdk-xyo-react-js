@@ -7,11 +7,7 @@ import { SchemaProperty } from './SchemaProperty.tsx'
 
 const StorybookEntry: Meta = {
   component: SchemaProperty,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'Schema/SchemaProperty',
 }
 
@@ -33,9 +29,7 @@ const WithVerifiedValue = Template.bind({})
 WithVerifiedValue.args = { value: 'network.xyo.schema' }
 
 const WithVerifiedValuePaper = Template.bind({})
-WithVerifiedValuePaper.args = {
-  paper: true, value: 'network.xyo.schema',
-}
+WithVerifiedValuePaper.args = { paper: true, value: 'network.xyo.schema' }
 
 const WithUnverifiedValue = Template.bind({})
 WithUnverifiedValue.args = { value: 'network.xyo.blahblah' }

@@ -18,9 +18,7 @@ const WithHash = Template.bind({})
 WithHash.args = { hash: '7982da0e0da76819700079ee21511333d73395805cbeb3e44f25e2d584c8586e' }
 
 const WithSizes = Template.bind({})
-WithSizes.args = {
-  hash: '7982da0e0da76819700079ee21511333d73395805cbeb3e44f25e2d584c8586e', size: 'large',
-}
+WithSizes.args = { hash: '7982da0e0da76819700079ee21511333d73395805cbeb3e44f25e2d584c8586e', size: 'large' }
 
 const WithAdornment = Template.bind({})
 WithAdornment.args = {

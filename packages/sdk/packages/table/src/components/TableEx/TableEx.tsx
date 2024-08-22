@@ -9,9 +9,7 @@ export interface TableExProps extends PropsWithChildren, TableProps {
   variant?: TableExVariants
 }
 
-const TableExInner = forwardRef<HTMLTableElement, TableExProps>(({
-  children, ...props
-}, ref) => {
+const TableExInner = forwardRef<HTMLTableElement, TableExProps>(({ children, ...props }, ref) => {
   return (
     <Table ref={ref} {...props}>
       {children}

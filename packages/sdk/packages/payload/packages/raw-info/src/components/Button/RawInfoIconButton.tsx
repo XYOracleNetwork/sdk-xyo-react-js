@@ -45,10 +45,7 @@ export const RawInfoIconButton = forwardRef<HTMLButtonElement, RawInfoIconProps>
     return (
       <>
         <IconButton onClick={handleClick} ref={ref} {...props}>
-          <XyoColorLogo sx={{
-            height: size ?? iconSize, width: size ?? iconSize,
-          }}
-          />
+          <XyoColorLogo sx={{ height: size ?? iconSize, width: size ?? iconSize }} />
         </IconButton>
         {iconOnly
           ? null

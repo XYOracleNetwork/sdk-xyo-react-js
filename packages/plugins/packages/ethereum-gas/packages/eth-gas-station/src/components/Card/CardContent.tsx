@@ -10,9 +10,7 @@ import { useEthgasstationTransformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthgasstationGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({
-  payload, ...props
-}, ref) => {
+export const EthgasstationGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasEthgasstationPayload) : undefined
   const parsedPayload = useEthgasstationTransformer(gasPricePayload)
 

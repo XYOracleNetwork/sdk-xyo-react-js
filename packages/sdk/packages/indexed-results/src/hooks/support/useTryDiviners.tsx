@@ -8,9 +8,7 @@ import type { IndexedResultsConfig, ProcessIndexedResults } from '../../interfac
 
 export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResultsConfig): (() => Promise<Payload[] | undefined | null>) => {
   const [node] = useProvidedNode()
-  const {
-    indexedQueries, processIndexedResults,
-  } = config ?? {}
+  const { indexedQueries, processIndexedResults } = config ?? {}
   const parseIndexedResults = processIndexedResults?.parseIndexedResults
 
   const tryDiviner = useCallback(

@@ -14,9 +14,7 @@ export interface GlowingDivProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
 export const GlowingDiv = forwardRef<HTMLDivElement, GlowingDivProps>(({
   hash, children, ...props
 }, ref) => {
-  const {
-    clickedExistingHash, setClickedExistingHash,
-  } = useNestedBoundWitnesses()
+  const { clickedExistingHash, setClickedExistingHash } = useNestedBoundWitnesses()
   const internalRef = useRef<HTMLDivElement | null>(null)
 
   useLayoutEffect(() => {

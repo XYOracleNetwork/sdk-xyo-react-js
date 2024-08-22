@@ -9,9 +9,7 @@ import { fixedContent, scrollableContent } from './lib/index.ts'
 
 const WebAppBodyName = 'WebAppBody'
 const propsNotForwarded = new Set(['mobileScrollingBreakpoint', 'variant', 'spacing', 'disableBreadcrumbGutter'])
-const defaultStyledOptions = {
-  shouldForwardProp: (prop: string) => !propsNotForwarded.has(prop),
-}
+const defaultStyledOptions = { shouldForwardProp: (prop: string) => !propsNotForwarded.has(prop) }
 
 const WebAppBodyRoot = styled(FlexGrowCol, {
   ...defaultStyledOptions,
@@ -28,9 +26,7 @@ const WebAppBodyRoot = styled(FlexGrowCol, {
     overflowX: 'visible',
     overflowY: scrollable ? 'scroll' : 'hidden',
     paddingY: spacing,
-    [theme.breakpoints.down(mobileScrollingBreakpoint)]: {
-      overflowY: 'scroll',
-    },
+    [theme.breakpoints.down(mobileScrollingBreakpoint)]: { overflowY: 'scroll' },
   })
 })
 
@@ -49,9 +45,7 @@ const WebAppBodyBreadcrumb = styled(FlexRow, {
 const WebAppBodyScrollableWrapper = styled(FlexGrowCol, {
   name: WebAppBodyName,
   slot: 'ScrollableWrapper',
-})<WebAppBodyProps>(() => ({
-  alignItems: 'stretch',
-}))
+})<WebAppBodyProps>(() => ({ alignItems: 'stretch' }))
 
 const WebAppBodyScrollable = styled(FlexGrowCol, {
   ...defaultStyledOptions,

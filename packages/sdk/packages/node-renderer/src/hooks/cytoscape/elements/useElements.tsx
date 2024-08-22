@@ -4,9 +4,7 @@ import { useRenderNewElements } from './useRenderNewElements.tsx'
 import { useSelectedElement } from './useSelectedElement.tsx'
 
 export const useElements = (hideLabels: boolean) => {
-  const {
-    selectedElement, toggleSelectedElement,
-  } = useSelectedElement()
+  const { selectedElement, toggleSelectedElement } = useSelectedElement()
   const newElements = useNewElements(selectedElement)
   const renderedElements = useRenderNewElements(newElements, hideLabels)
   const [hoveredNode, setHoveredNode] = useHoveredNode(renderedElements)

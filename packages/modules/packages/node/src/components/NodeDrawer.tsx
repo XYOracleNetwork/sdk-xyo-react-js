@@ -13,12 +13,8 @@ import { ModuleDescriptionBox } from './render/index.ts'
 
 export interface NodeDrawerProps extends WithChildren, Omit<DrawerProps, 'open'> {}
 
-export const NodeDrawer: React.FC<NodeDrawerProps> = ({
-  children, ...props
-}) => {
-  const {
-    open, setOpen,
-  } = useNodeDrawer()
+export const NodeDrawer: React.FC<NodeDrawerProps> = ({ children, ...props }) => {
+  const { open, setOpen } = useNodeDrawer()
   const [node] = useWeakProvidedNode()
 
   return (

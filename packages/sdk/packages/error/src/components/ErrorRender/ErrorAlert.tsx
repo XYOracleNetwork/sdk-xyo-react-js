@@ -50,9 +50,7 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({
               size="small"
               onClick={onCancel}
               position="absolute"
-              style={{
-                right: 8, top: 8,
-              }}
+              style={{ right: 8, top: 8 }}
             >
               <ExitIcon fontSize="small" />
             </ButtonEx>

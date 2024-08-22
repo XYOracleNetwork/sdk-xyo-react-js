@@ -7,9 +7,7 @@ export interface BlocksQuickTipButtonProps extends QuickTipButtonProps {
   address?: string
 }
 
-export const BlocksQuickTipButton: React.FC<BlocksQuickTipButtonProps> = ({
-  address, ...props
-}) => (
+export const BlocksQuickTipButton: React.FC<BlocksQuickTipButtonProps> = ({ address, ...props }) => (
   <StyledQuickTipButton superScriptIcon {...props}>
     <Typography>
       Blockchain history for the current address:
@@ -23,9 +21,7 @@ export interface SelectedBlockQuickTipButtonProps extends QuickTipButtonProps {
   boundwitnessHash?: string
 }
 
-export const SelectedBlockQuickTipButton: React.FC<SelectedBlockQuickTipButtonProps> = ({
-  boundwitnessHash, ...props
-}) => (
+export const SelectedBlockQuickTipButton: React.FC<SelectedBlockQuickTipButtonProps> = ({ boundwitnessHash, ...props }) => (
   <StyledQuickTipButton superScriptIcon {...props}>
     <Typography>
       Browse the history for the selected block:
@@ -44,9 +40,7 @@ export interface StyledQuickTipButtonProps extends QuickTipButtonProps {
 const StyledQuickTipButton = styled(QuickTipButton, {
   name: 'StyledQuickTipButton',
   shouldForwardProp: propName => propName !== 'superScriptIcon',
-})<StyledQuickTipButtonProps>(({
-  superScriptIcon, theme,
-}) => ({
+})<StyledQuickTipButtonProps>(({ superScriptIcon, theme }) => ({
   // less than ideal but tough to get a negative value from a theme value that returns in px
   ...(superScriptIcon && { top: -Math.abs(Number.parseInt(theme.spacing(0.75).replace('px', ''))) }),
 }))

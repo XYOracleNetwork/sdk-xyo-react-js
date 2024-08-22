@@ -13,9 +13,7 @@ export interface DivinedPayloadProviderProps extends WithChildren {
   hash?: string
 }
 
-export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({
-  children, hash,
-}) => {
+export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ children, hash }) => {
   const { hash: hashParam } = useParams()
 
   const huriFromHashParam = useBuildHuri(hashParam)
@@ -55,9 +53,7 @@ export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children
   )
 }
 
-export const DivinedPayloadWithHandleProvider: React.FC<DivinedPayloadProviderProps> = ({
-  children, ...props
-}) => {
+export const DivinedPayloadWithHandleProvider: React.FC<DivinedPayloadProviderProps> = ({ children, ...props }) => {
   return (
     <DivinedPayloadProvider {...props}>
       <DivinedPayloadWithHandleInner>{children}</DivinedPayloadWithHandleInner>

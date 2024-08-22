@@ -10,12 +10,8 @@ export const SectionSpacingRow = forwardRef<HTMLDivElement, FlexBoxProps>(({
   return (
     <FlexGrowRow
       sx={{
-        paddingBottom: {
-          md: theme.spacing(5), xs: theme.spacing(5),
-        },
-        paddingTop: {
-          md: theme.spacing(5), xs: theme.spacing(5),
-        },
+        paddingBottom: { md: theme.spacing(5), xs: theme.spacing(5) },
+        paddingTop: { md: theme.spacing(5), xs: theme.spacing(5) },
         ...sx,
       }}
       width="100%"

@@ -36,6 +36,4 @@ interface StyledTableCellProps {
 const StyledTableCell = styled(TableCell, {
   name: 'StyledTableCell',
   shouldForwardProp: (prop: string) => prop !== 'hideBorder',
-})<StyledTableCellProps>(({ hideBorder }) => ({
-  ...(hideBorder && { border: 'none' }),
-}))
+})<StyledTableCellProps>(({ hideBorder }) => ({ ...(hideBorder && { border: 'none' }) }))

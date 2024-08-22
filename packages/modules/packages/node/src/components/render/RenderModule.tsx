@@ -13,9 +13,7 @@ interface RenderModuleProps {
   mod: WeakRef<ModuleInstance>
 }
 
-export const RenderModule: React.FC<RenderModuleProps> = ({
-  mod, idRef,
-}) => {
+export const RenderModule: React.FC<RenderModuleProps> = ({ mod, idRef }) => {
   const [childModules, setChildModules] = useState<WeakRef<ModuleInstance>[]>()
 
   useAsyncEffect(
@@ -40,9 +38,7 @@ export const RenderModule: React.FC<RenderModuleProps> = ({
   }
 
   const moduleInstance = mod.deref()
-  const {
-    queries, address,
-  } = moduleInstance ?? {}
+  const { queries, address } = moduleInstance ?? {}
 
   return (
     <StyledAddressTreeItem nodeId={increment()} label={`address: ${address}`}>
@@ -63,8 +59,6 @@ export const RenderModule: React.FC<RenderModuleProps> = ({
   )
 }
 
-const StyledAddressTreeItem = styled(TreeItem, { name: 'StyledAddressTreeItem' })(({ theme }) => ({
-  '& .MuiTreeItem-content': {
-    marginBottom: theme.spacing(0.25),
-  },
-}))
+const StyledAddressTreeItem = styled(TreeItem, { name: 'StyledAddressTreeItem' })(({ theme }) => (
+  { '& .MuiTreeItem-content': { marginBottom: theme.spacing(0.25) } }
+))

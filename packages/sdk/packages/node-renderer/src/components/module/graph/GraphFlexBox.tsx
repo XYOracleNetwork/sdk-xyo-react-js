@@ -32,9 +32,7 @@ export const ModuleGraphFlexBox: React.FC<ModuleGraphFlexBoxProps> = ({
     hoveredNode, setHoveredNode, toggleSelectedElement,
   } = useElements(hideLabels)
 
-  const {
-    mod, onModuleDetails,
-  } = useModuleDetails(rootModule, () => setHoveredNode(undefined))
+  const { mod, onModuleDetails } = useModuleDetails(rootModule, () => setHoveredNode(undefined))
 
   return (
     <WithExtensions>

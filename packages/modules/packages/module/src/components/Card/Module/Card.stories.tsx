@@ -14,11 +14,7 @@ const StorybookEntry = {
     },
   },
   component: ModuleCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'modules/module/ModuleCard',
 } as Meta<typeof ModuleCard>
 

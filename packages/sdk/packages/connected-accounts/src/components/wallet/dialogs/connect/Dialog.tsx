@@ -17,9 +17,7 @@ export interface ConnectWalletDialogProps extends DialogProps {
 export const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = ({
   activeProvider, onIgnoreConnectDialog, ...props
 }) => {
-  const {
-    icon, providerName,
-  } = activeProvider ?? {}
+  const { icon, providerName } = activeProvider ?? {}
 
   const onConnect = async () => {
     try {
@@ -32,11 +30,7 @@ export const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = ({
 
   return (
     <Dialog
-      PaperProps={{
-        sx: {
-          display: 'flex', gap: 4,
-        },
-      }}
+      PaperProps={{ sx: { display: 'flex', gap: 4 } }}
       {...props}
     >
       <DialogTitle sx={{ textAlign: 'center' }}>XYO Wants To Access The Blockchain on Your Behalf</DialogTitle>

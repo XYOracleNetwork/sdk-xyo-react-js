@@ -13,11 +13,7 @@ import { WebAppPage } from './Page.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: WebAppChrome,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'webapp/WebAppChrome',
 } as Meta<typeof WebAppChrome>
 
@@ -63,14 +59,10 @@ const Default = Template.bind({})
 Default.args = {}
 
 const DefaultSideBar = Template.bind({})
-DefaultSideBar.args = {
-  children: <Children />, navigationType: 'sidebar',
-}
+DefaultSideBar.args = { children: <Children />, navigationType: 'sidebar' }
 
 const WithFixedSizePage = Template.bind({})
-WithFixedSizePage.args = {
-  children: <Children variant="fixed" />, navigationType: 'sidebar',
-}
+WithFixedSizePage.args = { children: <Children variant="fixed" />, navigationType: 'sidebar' }
 
 export {
   Default, DefaultSideBar, WithFixedSizePage,

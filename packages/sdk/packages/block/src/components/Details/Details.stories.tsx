@@ -13,11 +13,7 @@ import { BlockDetails } from './Details.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: BlockDetails,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'block/Details',
 } as Meta<typeof BlockDetails>
 
@@ -49,9 +45,7 @@ const WithArchiveLink = Template.bind({})
 WithArchiveLink.args = { block: sampleBlock }
 
 const WithPreviousHash = Template.bind({})
-const block = {
-  ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] as Hash[],
-}
+const block = { ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] as Hash[] }
 WithPreviousHash.args = {
   block,
   children: (
@@ -63,9 +57,7 @@ WithPreviousHash.args = {
 }
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = {
-  block: sampleBlock, paper: true,
-}
+WithArchiveLinkPaper.args = { block: sampleBlock, paper: true }
 
 export {
   Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithPreviousHash,

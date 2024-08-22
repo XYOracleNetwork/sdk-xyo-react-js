@@ -13,9 +13,7 @@ export interface ValidatePayloadProviderProps {
   enabled?: boolean
 }
 
-export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProviderProps>> = ({
-  children, enabled = false,
-}) => {
+export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProviderProps>> = ({ children, enabled = false }) => {
   const { payload } = useResolvePayload()
   const [initialized, setInitialized] = useState(false)
   const [valid, setValid] = useState<boolean>()

@@ -14,9 +14,7 @@ import {
 import { ModuleDetails } from './ModuleDetails.tsx'
 import { TypedModuleSummary } from './TypedModuleSummary.tsx'
 
-export const ModuleAccordion: React.FC<ModuleAccordionProps> = ({
-  mod, ...props
-}) => {
+export const ModuleAccordion: React.FC<ModuleAccordionProps> = ({ mod, ...props }) => {
   return (
     <Accordion {...props}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>

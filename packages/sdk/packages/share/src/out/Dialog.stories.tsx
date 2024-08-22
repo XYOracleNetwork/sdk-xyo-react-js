@@ -10,9 +10,7 @@ import { GenerateShareLinkButton } from './GenerateShareLinkButton.tsx'
 import { ShareOutHeadingFlexbox } from './HeadingFlexbox.tsx'
 import { SocialButtonsFlexbox } from './SocialButtonsFlexbox.tsx'
 
-export default {
-  title: 'modules/ShareOut/Dialog',
-} as Meta<typeof ShareOutDialog>
+export default { title: 'modules/ShareOut/Dialog' } as Meta<typeof ShareOutDialog>
 
 const Template: StoryFn<typeof ShareOutDialog> = (props) => {
   return <ShareOutDialog {...props} />

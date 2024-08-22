@@ -7,11 +7,7 @@ import { TokenBar } from './TokenBar.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: TokenBar,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/TokenBar',
 } as Meta<typeof TokenBar>
 
@@ -22,9 +18,7 @@ const Template: StoryFn<typeof TokenBar> = args => (
 )
 
 const WithData = Template.bind({})
-WithData.args = {
-  text1: 'Hello', text2: 'World',
-}
+WithData.args = { text1: 'Hello', text2: 'World' }
 
 const WithSuffixes = Template.bind({})
 WithSuffixes.args = {

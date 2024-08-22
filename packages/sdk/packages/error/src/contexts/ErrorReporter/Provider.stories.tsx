@@ -9,11 +9,7 @@ import { useRollbar } from './useRollbar.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: ErrorReporterProvider,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'auth-service/ErrorReporterProvider',
 } as Meta<typeof ErrorReporterProvider>
 

@@ -11,11 +11,7 @@ import { MenuListItemContainer } from './MenuListItemContainer.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: MenuListItemContainer,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'appbar/MenuListItemContainer',
 } as Meta<typeof MenuListItemContainer>
 

@@ -20,14 +20,10 @@ export const useMenuItemsShared = () => {
       collapseEnd,
       dense: true,
       iconOnly: collapse,
-      sx: {
-        px: '8px',
-      },
+      sx: { px: '8px' },
     }),
     [collapse, collapseEnd],
   )
 
-  return {
-    defaultSiteMenuListItemProps, onMenuItemToggle,
-  }
+  return { defaultSiteMenuListItemProps, onMenuItemToggle }
 }

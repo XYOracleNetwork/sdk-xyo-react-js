@@ -4,9 +4,7 @@ import React from 'react'
 import type { WebAppPageProps } from '../Page.tsx'
 import { WebAppPage } from '../Page.tsx'
 
-export const WebAppNotFoundPage: React.FC<WebAppPageProps> = ({
-  title, ...props
-}) => (
+export const WebAppNotFoundPage: React.FC<WebAppPageProps> = ({ title, ...props }) => (
   <WebAppPage title={title ?? 'Sorry! Page Not Found'} {...props}>
     <NotFound />
   </WebAppPage>

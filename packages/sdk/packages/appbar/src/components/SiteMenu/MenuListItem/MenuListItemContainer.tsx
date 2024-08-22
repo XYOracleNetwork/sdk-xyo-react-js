@@ -45,12 +45,8 @@ export const MenuListItemContainer: React.FC<MenuListItemProps> = ({
         iconOnly={iconOnly}
         onClick={onButtonClick}
         dense={dense}
-        sx={{
-          justifyContent: 'space-between', ...sx,
-        }}
-        style={{
-          whiteSpace: 'nowrap', ...style,
-        }}
+        sx={{ justifyContent: 'space-between', ...sx }}
+        style={{ whiteSpace: 'nowrap', ...style }}
         {...props}
       >
         <LinkEx

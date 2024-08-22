@@ -9,9 +9,7 @@ export interface OpenElevationApiProviderProps extends WithChildren {
   openElevationApiConfig?: OpenElevationApiClientConfig
 }
 
-export const OpenElevationApiProvider: React.FC<OpenElevationApiProviderProps> = ({
-  children, openElevationApiConfig,
-}) => {
+export const OpenElevationApiProvider: React.FC<OpenElevationApiProviderProps> = ({ children, openElevationApiConfig }) => {
   const [client, setClient] = useState(new OpenElevationApiClient(openElevationApiConfig))
 
   const lookupLocations: OpenElevationApiClient['lookupPost'] = async (locations) => {

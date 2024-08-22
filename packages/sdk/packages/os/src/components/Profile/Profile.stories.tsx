@@ -6,11 +6,7 @@ import { XyOsProfile } from './Profile.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: XyOsProfile,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/XyOsProfile',
 } as Meta<typeof XyOsProfile>
 
@@ -21,9 +17,7 @@ const Template: StoryFn<typeof XyOsProfile> = args => (
 )
 
 const Default = Template.bind({})
-Default.args = {
-  xns: '@arietrouw',
-}
+Default.args = { xns: '@arietrouw' }
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

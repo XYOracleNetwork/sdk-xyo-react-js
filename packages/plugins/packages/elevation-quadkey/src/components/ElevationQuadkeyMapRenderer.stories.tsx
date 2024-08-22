@@ -22,11 +22,7 @@ export default {
   },
   component: ElevationQuadkeyMapWithSettingsRenderer,
   decorators: [WithMapboxSetup],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/elevation-map/ElevationQuadkeyMap',
 } as Meta
 
@@ -38,9 +34,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = {
-  payload: elevationQuadKeyMapPayload,
-}
+WithData.args = { payload: elevationQuadKeyMapPayload }
 
 const WithDevMode = Template.bind({})
 WithDevMode.args = {

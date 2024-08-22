@@ -29,19 +29,12 @@ export const StatsModal: React.FC = () => {
         onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-          },
-        }}
+        slotProps={{ backdrop: { timeout: 500 } }}
       >
         <Fade in={open}>
           <Box sx={style}>
             <FlexGrowCol alignItems="center">
-              <Avatar sx={{
-                height: '200px', width: '200px',
-              }}
-              >
+              <Avatar sx={{ height: '200px', width: '200px' }}>
               </Avatar>
               <Typography id="transition-modal-description" align="center" sx={{ mt: 2 }}>
                 Duis mollis, est non commodo luctus, nisi erat porttitor ligula.

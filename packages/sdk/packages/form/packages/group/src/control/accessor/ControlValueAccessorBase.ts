@@ -32,9 +32,7 @@ export class ControlValueAccessorBase<
 
   private _previousValue = undefined as TValue
 
-  private _serializeSettings: ControlSerializeSettings = {
-    sensitive: false, serializable: false,
-  }
+  private _serializeSettings: ControlSerializeSettings = { sensitive: false, serializable: false }
 
   private _touched: boolean = false
 

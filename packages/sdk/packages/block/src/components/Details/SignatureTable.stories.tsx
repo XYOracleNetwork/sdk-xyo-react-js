@@ -8,11 +8,7 @@ import { BlockSignatureTable } from './SignatureTable.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: BlockSignatureTable,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'block/SignatureTable',
 } as Meta<typeof BlockSignatureTable>
 

@@ -36,9 +36,7 @@ export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ token
             {tokenInfo0.tokenSymbol}
           </Link>
         )}
-        sx={{
-          pt: 0, px: 0,
-        }}
+        sx={{ pt: 0, px: 0 }}
       />
       <Paper
         elevation={0}

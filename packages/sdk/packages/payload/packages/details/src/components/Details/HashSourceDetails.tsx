@@ -38,9 +38,7 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
             padding={2}
             fontFamily="monospace"
             variant="body1"
-            sx={{
-              overflowWrap: 'break-word', wordBreak: 'break-all',
-            }}
+            sx={{ overflowWrap: 'break-word', wordBreak: 'break-all' }}
           >
             {payloadString}
           </Typography>

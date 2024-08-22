@@ -6,11 +6,7 @@ import { PoweredByXyoButton } from '../PoweredByXyoButton.tsx'
 
 const StorybookEntry = {
   component: PoweredByXyoButton,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'Badge/PoweredByXyoButton',
 } as Meta<typeof PoweredByXyoButton>
 

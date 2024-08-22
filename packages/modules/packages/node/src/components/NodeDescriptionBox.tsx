@@ -9,9 +9,7 @@ export interface NodeDescriptionBoxProps extends FlexBoxProps {
   node?: string | WeakRef<NodeInstance>
 }
 
-export const NodeDescriptionBox: React.FC<NodeDescriptionBoxProps> = ({
-  node, ...props
-}) => {
+export const NodeDescriptionBox: React.FC<NodeDescriptionBoxProps> = ({ node, ...props }) => {
   const [description, error] = useWeakNodeDescription({ node })
 
   return (

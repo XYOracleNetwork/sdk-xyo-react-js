@@ -11,9 +11,7 @@ export class NameFormControl<TProps extends EmptyObject = EmptyObject> extends F
   ) {
     super()
     super.setName(nameLabel)
-    this.setSerializeSettings({
-      sensitive: false, serializable: true,
-    })
+    this.setSerializeSettings({ sensitive: false, serializable: true })
     this.invalidMessage = `${nameLabel} name is missing.`
     this.props = {
       autoComplete: autoCompleteLabel,

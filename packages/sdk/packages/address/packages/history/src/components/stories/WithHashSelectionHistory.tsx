@@ -18,9 +18,7 @@ export const WithHashSelectionHistoryDefaultValues: Decorator = (Story, args) =>
   const defaultHashSelectionHistory = hash ? [hash] : undefined
   const defaultNestedBoundWitnesses
     = hash
-      ? {
-          [hash]: sampleAddressHistory[1],
-        }
+      ? { [hash]: sampleAddressHistory[1] }
       : undefined
   return (
     <HashSelectionHistoryProvider

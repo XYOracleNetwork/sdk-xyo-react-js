@@ -12,9 +12,7 @@ export interface RevokeWalletConnectionDialogProps extends DialogProps {
   activeProvider?: ActiveProvider
 }
 
-export const RevokeWalletConnectionDialog: React.FC<RevokeWalletConnectionDialogProps> = ({
-  activeProvider, ...props
-}) => {
+export const RevokeWalletConnectionDialog: React.FC<RevokeWalletConnectionDialogProps> = ({ activeProvider, ...props }) => {
   return (
     <Dialog {...props}>
       <FlexRow gap={2} justifyContent="start" pl={2}>

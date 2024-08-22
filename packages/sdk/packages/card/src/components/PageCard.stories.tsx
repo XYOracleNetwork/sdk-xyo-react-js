@@ -6,19 +6,9 @@ import React, { useState } from 'react'
 import { PageCard } from './PageCard.tsx'
 
 const StorybookEntry: Meta = {
-  argTypes: {
-    onRefresh: {
-      table: {
-        disable: true,
-      },
-    },
-  },
+  argTypes: { onRefresh: { table: { disable: true } } },
   component: PageCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/PageCard',
 }
 
@@ -49,15 +39,11 @@ const TemplateWithNoOnRefresh: StoryFn<typeof PageCard> = (props) => {
 
 const Default = Template.bind({})
 Default.args = {}
-Default.parameters = {
-  actions: { argTypesRegex: '' },
-}
+Default.parameters = { actions: { argTypesRegex: '' } }
 
 const WithNoOnRefresh = TemplateWithNoOnRefresh.bind({})
 WithNoOnRefresh.args = {}
-WithNoOnRefresh.parameters = {
-  actions: { argTypesRegex: '' },
-}
+WithNoOnRefresh.parameters = { actions: { argTypesRegex: '' } }
 
 const WithRef = Template.bind({})
 WithRef.decorators = [WithRefDecorator]

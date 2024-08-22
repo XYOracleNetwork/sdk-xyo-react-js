@@ -9,18 +9,14 @@ export interface ToggleRawPayloadBoxProps extends FlexBoxProps {
   gasPricePayload?: object
 }
 
-export const ToggleRawPayloadBox: React.FC<ToggleRawPayloadBoxProps> = ({
-  gasPricePayload, ...props
-}) => {
+export const ToggleRawPayloadBox: React.FC<ToggleRawPayloadBoxProps> = ({ gasPricePayload, ...props }) => {
   const [collapse, setCollapse] = useState(false)
   return gasPricePayload
     ? (
         <FlexCol rowGap={1} {...props}>
           <Button
             color="secondary"
-            sx={{
-              bgcolor: 'secondary.dark', color: 'white',
-            }}
+            sx={{ bgcolor: 'secondary.dark', color: 'white' }}
             variant="contained"
             onClick={() => setCollapse(!collapse)}
           >

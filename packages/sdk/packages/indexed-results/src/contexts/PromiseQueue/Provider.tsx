@@ -7,9 +7,7 @@ import { PromiseQueueContext } from './Context.ts'
 export const PromiseQueueProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [queue] = useState<PromiseQueue>(new PromiseQueue())
 
-  const value = useMemo(() => ({
-    provided: true, queue,
-  }), [queue])
+  const value = useMemo(() => ({ provided: true, queue }), [queue])
 
   return (
     <PromiseQueueContext.Provider value={value}>

@@ -23,9 +23,7 @@ const knownRemoteNodes = (): { apiDomain: string; name: string }[] => {
 export const BuildStandardNodes = async (wallet: WalletInstance, onNodeBuilt?: (node: MemoryNode) => void): Promise<MemoryNode[]> => {
   try {
     return await Promise.all(
-      knownRemoteNodes().map(async ({
-        apiDomain, name,
-      }) => {
+      knownRemoteNodes().map(async ({ apiDomain, name }) => {
         const remoteNodeOffset = RemoteNodeOffsetPaths[name]
         const remoteNodeWallet = await wallet.derivePath?.(remoteNodeOffset)
 

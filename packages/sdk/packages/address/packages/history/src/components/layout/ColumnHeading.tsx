@@ -4,9 +4,7 @@ import type { TypographyExProps } from '@xyo-network/react-shared'
 import { TypographyEx } from '@xyo-network/react-shared'
 import React from 'react'
 
-export const ColumnHeadingTypography: React.FC<WithChildren<TypographyExProps>> = ({
-  children, ...props
-}) => {
+export const ColumnHeadingTypography: React.FC<WithChildren<TypographyExProps>> = ({ children, ...props }) => {
   return <StyledColumnHeadingTypography {...props}>{children}</StyledColumnHeadingTypography>
 }
 

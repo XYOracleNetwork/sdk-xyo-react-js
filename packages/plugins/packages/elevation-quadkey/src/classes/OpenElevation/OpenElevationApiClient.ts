@@ -16,9 +16,7 @@ export class OpenElevationApiClient {
   private apiDomain = `https://api.open-elevation.com/api/${this.version}`
 
   constructor(config?: OpenElevationApiClientConfig) {
-    const {
-      apiDomain, version,
-    } = config ?? {}
+    const { apiDomain, version } = config ?? {}
     if (apiDomain) {
       this.apiDomain = apiDomain
     }

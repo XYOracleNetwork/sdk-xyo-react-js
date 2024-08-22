@@ -10,9 +10,7 @@ export interface IdenticonCornerProps extends FlexBoxProps {
   value?: string | number | boolean | null
 }
 
-export const IdenticonCorner: React.FC<IdenticonCornerProps> = ({
-  value, ...props
-}) => {
+export const IdenticonCorner: React.FC<IdenticonCornerProps> = ({ value, ...props }) => {
   const theme = useTheme()
   const [parentHeight, setParentHeight] = useState<number>()
   const ref = useRef<HTMLDivElement>(null)

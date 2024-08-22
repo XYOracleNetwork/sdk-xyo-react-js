@@ -14,11 +14,7 @@ import { BoundWitnessDetails } from './Details.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: BoundWitnessDetails,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/boundwitness/Details',
 } as Meta<typeof BoundWitnessDetails>
 
@@ -61,9 +57,7 @@ const WithArchiveLink = Template.bind({})
 WithArchiveLink.args = { payload: sampleBlock }
 
 const WithPreviousHash = Template.bind({})
-const payload = {
-  ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] as Hash[],
-}
+const payload = { ...sampleBlock, previous_hashes: ['ebeb156c9aa0db6e5bf9fe3bfcab5e7f2765235587667adc34c1e8966f899349'] as Hash[] }
 WithPreviousHash.args = {
   children: (
     <>
@@ -75,9 +69,7 @@ WithPreviousHash.args = {
 }
 
 const WithArchiveLinkPaper = Template.bind({})
-WithArchiveLinkPaper.args = {
-  paper: true, payload: sampleBlock,
-}
+WithArchiveLinkPaper.args = { paper: true, payload: sampleBlock }
 
 export {
   Default, WithArchiveLink, WithArchiveLinkPaper, WithData, WithNoData, WithPreviousHash,

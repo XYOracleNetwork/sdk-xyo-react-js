@@ -48,8 +48,6 @@ const StyledHeadingPaper = styled(Paper, {
   padding: theme.spacing(1),
   ...(hasAdornmentStart && { paddingLeft: 0 }),
   ...(hasAdornmentEnd && { paddingRight: 0 }),
-  ...((hasAdornmentStart || hasAdornmentEnd) && {
-    paddingBottom: 0, paddingTop: 0,
-  }),
+  ...((hasAdornmentStart || hasAdornmentEnd) && { paddingBottom: 0, paddingTop: 0 }),
   paddingRight: theme.spacing(1),
 }))

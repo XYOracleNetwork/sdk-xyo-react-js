@@ -12,9 +12,7 @@ export const payloadData: CoingeckoCryptoMarketPayload = {
     busd: {
       btc: 0.000_043_69, eth: 0.000_620_74, eur: 0.980_451, usd: 1.001,
     },
-    dai: {
-      usdc: 1.000_04, xyo: 114.394,
-    },
+    dai: { usdc: 1.000_04, xyo: 114.394 },
     doge: {
       btc: 0.000_002_93, eth: 0.000_041_57, eur: 0.065_655, usd: 0.067_013,
     },

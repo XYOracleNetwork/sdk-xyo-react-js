@@ -26,9 +26,7 @@ import type {
   PayloadDynamicTableColumnConfig,
   PayloadDynamicTableColumnSlug,
 } from './PayloadDynamicTableColumnConfig.ts'
-import {
-  payloadDynamicTableColumnConfigDefaults,
-} from './PayloadDynamicTableColumnConfig.ts'
+import { payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.ts'
 
 export interface PayloadDynamicTableRowProps extends TableRowProps {
   archive?: string

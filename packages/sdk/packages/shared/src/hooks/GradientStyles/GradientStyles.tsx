@@ -10,9 +10,7 @@ export interface GradientStyles {
 
 export const colorfulGradientLightMode = () => {
   return {
-    background: {
-      backgroundImage: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
-    },
+    background: { backgroundImage: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)' },
     border: {
       borderImage: '-webkit-linear-gradient(232deg, #e17751, #d84e7a, #5898dd, #8c8ee5)',
       borderImageSlice: 1,
@@ -32,9 +30,7 @@ export const colorfulGradientLightMode = () => {
 
 export const colorfulGradientDarkMode = () => {
   return {
-    background: {
-      backgroundImage: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
-    },
+    background: { backgroundImage: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)' },
     border: {
       borderImage: '-webkit-linear-gradient(232deg, #F17938, #FF5BDC, #5898dd, #B2FFFD)',
       borderImageSlice: 1,
@@ -56,7 +52,5 @@ export const useGradientStyles = () => {
   const theme = useTheme()
   const styles = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
   const classes = makeStyles(styles)
-  return {
-    classes, styles,
-  }
+  return { classes, styles }
 }

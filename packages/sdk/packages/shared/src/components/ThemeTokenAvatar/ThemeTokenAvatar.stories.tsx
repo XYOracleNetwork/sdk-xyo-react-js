@@ -7,11 +7,7 @@ import { ThemeTokenAvatar } from './ThemeTokenAvatar.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: ThemeTokenAvatar,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/ThemeTokenAvatar',
 } as Meta<typeof ThemeTokenAvatar>
 

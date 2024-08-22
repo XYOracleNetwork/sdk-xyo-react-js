@@ -9,9 +9,7 @@ export class FillExtrusionLayerBuilder extends LayerBase<FillExtrusionLayerSpeci
 
   constructor(id: string, source: string, FillExtrusionLayerOptions?: Partial<FillExtrusionLayerSpecification>) {
     super(id, source)
-    this.FillExtrusionLayerOptions = FillExtrusionLayerOptions || {
-      id: this.id, source: this.source,
-    }
+    this.FillExtrusionLayerOptions = FillExtrusionLayerOptions || { id: this.id, source: this.source }
   }
 
   buildLayer(): FillExtrusionLayerSpecification {

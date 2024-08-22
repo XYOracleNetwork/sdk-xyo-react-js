@@ -11,17 +11,11 @@ import { BlockTable } from './Table.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: BlockTable,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'block/Table',
 } as Meta<typeof BlockTable>
 
-const Template: StoryFn<typeof BlockTable> = ({
-  blocks: blocksParam, ...args
-}) => {
+const Template: StoryFn<typeof BlockTable> = ({ blocks: blocksParam, ...args }) => {
   const [blocks, setBlocks] = useState<BoundWitness[]>(blocksParam ?? [])
   return (
     <BrowserRouter>

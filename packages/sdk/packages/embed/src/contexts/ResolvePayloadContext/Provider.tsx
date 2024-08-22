@@ -12,9 +12,7 @@ import type { ResolvePayloadState } from './State.ts'
 
 export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided'>
 
-export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({
-  children, huriPayload,
-}) => {
+export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload }) => {
   const [payload, setPayload] = useState<Payload>()
   const [huri, setHuri] = useState<string>()
   const {

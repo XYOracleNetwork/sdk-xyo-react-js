@@ -33,11 +33,7 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({
     <TableRow {...props}>
       <AddressTableCell archive={archive} value={address} />
       <TableCell
-        sx={{
-          display: {
-            md: 'table-cell', xs: 'none',
-          },
-        }}
+        sx={{ display: { md: 'table-cell', xs: 'none' } }}
         align="center"
       >
         <Typography variant="body2" fontFamily="monospace">
@@ -45,11 +41,7 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({
         </Typography>
       </TableCell>
       <TableCell
-        sx={{
-          display: {
-            sm: 'table-cell', xs: 'none',
-          },
-        }}
+        sx={{ display: { sm: 'table-cell', xs: 'none' } }}
         align="center"
       >
         <Typography variant="body2" fontFamily="monospace">

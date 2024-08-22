@@ -8,11 +8,7 @@ import { BlocknativeGasPriceCard } from './Card.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: BlocknativeGasPriceCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/blockchain/BlocknativeGasPrice/Card',
 } as Meta<typeof BlocknativeGasPriceCard>
 

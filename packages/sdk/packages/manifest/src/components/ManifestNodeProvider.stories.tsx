@@ -16,19 +16,13 @@ const Template: StoryFn<typeof ManifestNodeProvider> = (args) => {
 const Default = Template.bind({})
 
 const WithArchivist = Template.bind({})
-WithArchivist.args = {
-  manifestNodes: [ArchivistManifestNode],
-}
+WithArchivist.args = { manifestNodes: [ArchivistManifestNode] }
 
 const WithSentinel = Template.bind({})
-WithSentinel.args = {
-  manifestNodes: [SentinelManifestNode],
-}
+WithSentinel.args = { manifestNodes: [SentinelManifestNode] }
 
 const WithArchivistAndSentinel = Template.bind({})
-WithArchivistAndSentinel.args = {
-  manifestNodes: [ArchivistManifestNode, SentinelManifestNode],
-}
+WithArchivistAndSentinel.args = { manifestNodes: [ArchivistManifestNode, SentinelManifestNode] }
 
 export {
   Default, WithArchivist, WithArchivistAndSentinel, WithSentinel,

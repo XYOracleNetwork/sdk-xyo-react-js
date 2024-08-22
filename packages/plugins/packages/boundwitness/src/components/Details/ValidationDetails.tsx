@@ -11,9 +11,7 @@ export type BoundWitnessValidationDetailsProps = PropertyGroupProps & {
   value?: BoundWitness
 }
 
-export const BoundWitnessValidationDetails: React.FC<BoundWitnessValidationDetailsProps> = ({
-  value, ...props
-}) => {
+export const BoundWitnessValidationDetails: React.FC<BoundWitnessValidationDetailsProps> = ({ value, ...props }) => {
   const [errors = []] = usePromise(async () => await (value ? new BoundWitnessValidator(value).validate() : undefined), [value])
 
   let elevation = 2

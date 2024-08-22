@@ -24,9 +24,7 @@ export const MapBox: React.FC<MapBoxProps> = ({
   const [map, setMap] = useState<Map>()
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
   const mapCanvasRef = useRef<HTMLCanvasElement | null>(null)
-  const {
-    setMapBoxInstance, map: mapInstance,
-  } = useMapBoxInstance()
+  const { setMapBoxInstance, map: mapInstance } = useMapBoxInstance()
   const { mapSettings } = useMapSettings()
 
   const activeResize = mapSettings?.dynamicMapResize.value

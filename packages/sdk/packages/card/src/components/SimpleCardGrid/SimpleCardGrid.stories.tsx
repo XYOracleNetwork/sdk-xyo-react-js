@@ -9,11 +9,7 @@ import { SimpleCardGrid } from './SimpleCardGrid.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: SimpleCardGrid,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/SimpleCardGrid',
 } as Meta<typeof SimpleCardGrid>
 

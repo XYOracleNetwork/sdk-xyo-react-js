@@ -9,11 +9,7 @@ import { BoundWitnessDetailsBox } from './DetailsBox.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: BoundWitnessDetailsBox,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/boundwitness/DetailsBox',
 } as Meta<typeof BoundWitnessDetailsBox>
 

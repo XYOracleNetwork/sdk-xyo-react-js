@@ -6,11 +6,7 @@ import { ErrorAlert } from './ErrorAlert.tsx'
 const StorybookEntry: Meta = {
   argTypes: {},
   component: ErrorAlert,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'error/ErrorAlert',
 }
 
@@ -31,9 +27,7 @@ const WithScope = Template.bind({})
 WithScope.args = { scope: 'Storybook' }
 
 const WithErrorAndScope = Template.bind({})
-WithErrorAndScope.args = {
-  error: 'An error happened', scope: 'Storybook',
-}
+WithErrorAndScope.args = { error: 'An error happened', scope: 'Storybook' }
 
 const WithErrorAndScopeAndTitle = Template.bind({})
 WithErrorAndScopeAndTitle.args = {

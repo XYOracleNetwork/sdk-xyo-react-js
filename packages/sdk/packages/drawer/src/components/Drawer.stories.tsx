@@ -4,16 +4,11 @@ import React from 'react'
 import type { DrawerExProps } from './Drawer.tsx'
 import { DrawerEx } from './Drawer.tsx'
 
-export default {
-  title: 'modules/drawer/Ex',
-} as Meta
+export default { title: 'modules/drawer/Ex' } as Meta
 
 const Template: StoryFn<React.FC<DrawerExProps>> = (props) => {
   return (
-    <div style={{
-      height: 'calc(100vh - 2rem)', width: '100vw',
-    }}
-    >
+    <div style={{ height: 'calc(100vh - 2rem)', width: '100vw' }}>
       <DrawerEx {...props} />
     </div>
   )
@@ -23,9 +18,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithOpen = Template.bind({})
-WithOpen.args = {
-  open: true,
-}
+WithOpen.args = { open: true }
 
 const WithFullScreen = Template.bind({})
 WithFullScreen.args = {

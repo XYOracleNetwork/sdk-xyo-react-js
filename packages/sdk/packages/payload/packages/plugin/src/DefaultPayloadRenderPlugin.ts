@@ -16,9 +16,7 @@ export const DefaultPayloadRenderPlugin: PayloadRenderPlugin = {
     return !!payload?.schema
   },
   components: {
-    avatar: {
-      image: PayloadAvatar,
-    },
+    avatar: { image: PayloadAvatar },
     box: {
       detailsBox: PayloadDetailsBox,
       editor: PayloadEditorBox,
@@ -28,9 +26,7 @@ export const DefaultPayloadRenderPlugin: PayloadRenderPlugin = {
       content: PayloadCardContent,
       header: PayloadCardHeader,
     },
-    table: {
-      cell: PayloadTableCell,
-    },
+    table: { cell: PayloadTableCell },
   },
   name: 'Payload',
 }

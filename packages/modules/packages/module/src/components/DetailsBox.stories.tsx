@@ -12,11 +12,7 @@ import { ModuleDetailsBox } from './DetailsBox.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: ModuleDetailsBox,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'modules/module/DetailsBox',
 } as Meta<typeof ModuleDetailsBox>
 

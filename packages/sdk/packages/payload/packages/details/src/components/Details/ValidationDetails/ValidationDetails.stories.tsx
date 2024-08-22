@@ -10,17 +10,9 @@ import type { PayloadValidationDetailsProps } from './ValidationDetailsProps.ts'
 
 const StorybookEntry: Meta = {
   argTypes: {},
-  args: {
-    value: {
-      schema: 'network.xyo.schema',
-    },
-  },
+  args: { value: { schema: 'network.xyo.schema' } },
   component: PayloadDetails,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'payload/ValidationDetails',
 }
 

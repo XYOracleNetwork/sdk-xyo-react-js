@@ -54,9 +54,7 @@ const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({
   )
 }
 
-const WithValidators: React.FC<WithChildren<{ validateSchema?: boolean }>> = ({
-  children, validateSchema,
-}) => {
+const WithValidators: React.FC<WithChildren<{ validateSchema?: boolean }>> = ({ children, validateSchema }) => {
   return (
     <ValidatePayloadProvider enabled={validateSchema}>
       <ValidatePluginsAlert>

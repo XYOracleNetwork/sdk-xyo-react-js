@@ -68,10 +68,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
   }
 
   return (
-    <Box sx={{
-      flexShrink: 0, ml: 2.5,
-    }}
-    >
+    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
       <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
         {theme.direction === 'rtl'
           ? <LastPageIcon />
@@ -181,17 +178,13 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
           <TableFooter>
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[5, 10, 25, {
-                  label: 'All', value: -1,
-                }]}
+                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                 colSpan={5}
                 count={payloadCount}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 SelectProps={{
-                  inputProps: {
-                    'aria-label': 'rows per page',
-                  },
+                  inputProps: { 'aria-label': 'rows per page' },
                   native: true,
                 }}
                 onPageChange={handleChangePage}

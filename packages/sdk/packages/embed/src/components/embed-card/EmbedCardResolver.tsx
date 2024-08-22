@@ -8,9 +8,7 @@ import React from 'react'
 import { useRefreshPayload, useResolvePayload } from '../../contexts/index.ts'
 import { EmbedCardApiErrorRenderer } from './error-handling/index.ts'
 
-export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({
-  children, ...props
-}) => {
+export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({ children, ...props }) => {
   const {
     payload, notFound, huriError,
   } = useResolvePayload()

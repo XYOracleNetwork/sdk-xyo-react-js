@@ -20,9 +20,7 @@ const Template: StoryFn<typeof SeedPhraseTableRow> = props => (
 )
 
 const Default = Template.bind({})
-Default.args = {
-  changeSeedPhrase,
-}
+Default.args = { changeSeedPhrase }
 
 const WithSeedPhrase = Template.bind({})
 WithSeedPhrase.args = {

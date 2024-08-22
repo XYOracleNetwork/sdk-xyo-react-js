@@ -32,9 +32,7 @@ const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
             mx={1}
             key={index}
             onClick={() => setSchemaFieldValue(schema)}
-            sx={{
-              cursor: 'pointer', textDecoration: 'underline',
-            }}
+            sx={{ cursor: 'pointer', textDecoration: 'underline' }}
           >
             {schema}
           </Typography>
@@ -53,11 +51,7 @@ const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
 const StorybookEntry: Meta = {
   argTypes: {},
   component: UseGetSchemaComponent,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'payload/useGetSchema',
 }
 

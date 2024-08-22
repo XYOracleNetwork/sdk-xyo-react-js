@@ -12,12 +12,8 @@ export const EthereumGasPriceEtherchainV2Plugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: (payload?: Payload) => payload?.schema === EthereumGasEtherchainV2Schema,
     components: {
-      avatar: {
-        image: EthereumGasPriceAvatar,
-      },
-      box: {
-        detailsBox: EtherchainV2GasPriceDetailsBox,
-      },
+      avatar: { image: EthereumGasPriceAvatar },
+      box: { detailsBox: EtherchainV2GasPriceDetailsBox },
       card: {
         content: EtherchainV2GasPriceCardContent,
         header: EtherchainV2GasPriceCardHeader,

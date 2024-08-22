@@ -5,9 +5,7 @@ import { useEffect, useState } from 'react'
 
 import type { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.ts'
 
-const quadKeyToFeature = ({
-  density, quadkey,
-}: { density: number; quadkey: string }) => {
+const quadKeyToFeature = ({ density, quadkey }: { density: number; quadkey: string }) => {
   const polygonFeature = new GeoJson(quadkey).polygonFeature()
   polygonFeature.properties = {
     count: density,

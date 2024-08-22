@@ -7,11 +7,7 @@ import BackgroundImage from './default-desktop.svg'
 const StorybookEntry = {
   argTypes: {},
   component: BasicHero,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/BasicHero',
 } as Meta<typeof BasicHero>
 

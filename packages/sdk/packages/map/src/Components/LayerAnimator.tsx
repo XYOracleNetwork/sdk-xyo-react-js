@@ -78,9 +78,7 @@ export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({
         layers.filter((layer) => {
           const fillLayer = layer.id.startsWith('location-fill')
           if (fillLayer) {
-            map.setPaintProperty(layer.id, 'fill-opacity-transition', {
-              delay: 0, duration: 4000,
-            })
+            map.setPaintProperty(layer.id, 'fill-opacity-transition', { delay: 0, duration: 4000 })
           }
           return fillLayer
         }),

@@ -32,11 +32,7 @@ const ScrollableDecorator: Decorator = (Story, args) => {
 const StorybookEntry: Meta = {
   argTypes: {},
   component: CardContentEx,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/CardContentEx',
 }
 

@@ -13,9 +13,7 @@ export interface ArchivistParentsProps extends FlexBoxProps {
   config?: ArchivistConfig
 }
 
-export const ArchivistParents: React.FC<ArchivistParentsProps> = ({
-  config, ...props
-}) => {
+export const ArchivistParents: React.FC<ArchivistParentsProps> = ({ config, ...props }) => {
   const [parentArchivistCollapse, setParentArchivistCollapse] = useState(false)
 
   const {
@@ -30,17 +28,12 @@ export const ArchivistParents: React.FC<ArchivistParentsProps> = ({
               <span onClick={() => setParentArchivistCollapse(!parentArchivistCollapse)}>
                 <Typography
                   variant="subtitle2"
-                  sx={{
-                    cursor: 'pointer', display: 'inline-block',
-                  }}
+                  sx={{ cursor: 'pointer', display: 'inline-block' }}
                 >
                   Parents
                 </Typography>
                 <IconButton size="small">
-                  <ArrowRightRoundedIcon sx={{
-                    rotate: parentArchivistCollapse ? '90deg' : '0deg', transition: 'all .25s',
-                  }}
-                  />
+                  <ArrowRightRoundedIcon sx={{ rotate: parentArchivistCollapse ? '90deg' : '0deg', transition: 'all .25s' }} />
                 </IconButton>
               </span>
               <Collapse in={parentArchivistCollapse}>

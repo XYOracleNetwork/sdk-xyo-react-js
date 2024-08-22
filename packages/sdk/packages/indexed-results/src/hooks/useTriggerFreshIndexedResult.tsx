@@ -3,9 +3,7 @@ import { useCallback } from 'react'
 import type { IndexedResultsConfig } from '../interfaces/index.ts'
 
 export const useTriggerFreshIndexedResult = (indexedResultsConfig?: IndexedResultsConfig, trigger?: boolean) => {
-  const {
-    processIndexedResults, refresh,
-  } = indexedResultsConfig ?? {}
+  const { processIndexedResults, refresh } = indexedResultsConfig ?? {}
 
   const freshResult = useCallback(async () => {
     if (refresh && trigger) {

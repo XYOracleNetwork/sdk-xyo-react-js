@@ -32,9 +32,7 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
   return result
 }
 
-export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProps> = ({
-  block, ...props
-}) => {
+export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
   const hash = usePayloadHash(block)
 
@@ -48,11 +46,7 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
             </Typography>
           </TableCellEx>
           <TableCellEx
-            sx={{
-              display: {
-                md: 'table-cell', xs: 'none',
-              },
-            }}
+            sx={{ display: { md: 'table-cell', xs: 'none' } }}
             align="center"
             width="10px"
           >
@@ -61,11 +55,7 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
             </Typography>
           </TableCellEx>
           <TableCellEx
-            sx={{
-              display: {
-                sm: 'table-cell', xs: 'none',
-              },
-            }}
+            sx={{ display: { sm: 'table-cell', xs: 'none' } }}
             align="center"
             width="10px"
           >

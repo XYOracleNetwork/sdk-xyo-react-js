@@ -14,9 +14,7 @@ import { useBoundWitnessClickHandler } from './hooks/index.ts'
 import { NestedBoundWitnessesBox } from './NestedBoundWitnesses/index.ts'
 
 export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
-  const {
-    activeBoundWitness, activeBoundWitnessHash,
-  } = useActiveBoundWitness(false)
+  const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
   const { rollbar } = useRollbar()
   const { loading } = useNestedBoundWitnesses(false)

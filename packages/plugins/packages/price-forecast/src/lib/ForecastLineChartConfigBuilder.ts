@@ -20,18 +20,12 @@ interface ThemeColors {
 }
 
 const defaultOptions: () => ChartOptions<'line'> = () => ({
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-  },
+  plugins: { legend: { position: 'top' as const } },
   responsive: true,
 })
 
 export class ForecastLineChartConfigBuilder {
-  data: ChartData<'line'> = {
-    datasets: [],
-  }
+  data: ChartData<'line'> = { datasets: [] }
 
   options: ChartOptions<'line'> = defaultOptions()
   themeColors: ThemeColors | undefined
@@ -82,9 +76,7 @@ export class ForecastLineChartConfigBuilder {
       forecastData.data.unshift(lastSourceDataItem)
     }
 
-    this.data = {
-      datasets,
-    }
+    this.data = { datasets }
 
     return this
   }
@@ -116,19 +108,11 @@ export class ForecastLineChartConfigBuilder {
   protected generateScales() {
     return {
       x: {
-        grid: {
-          color: this.themeColors?.gridColor,
-        },
-        time: {
-          unit: 'minute',
-        },
+        grid: { color: this.themeColors?.gridColor },
+        time: { unit: 'minute' },
         type: 'time',
       },
-      y: {
-        grid: {
-          color: this.themeColors?.gridColor,
-        },
-      },
+      y: { grid: { color: this.themeColors?.gridColor } },
     } as unknown as ScaleChartOptions<'line'>['scales']
   }
 
@@ -154,9 +138,7 @@ export class ForecastLineChartConfigBuilder {
     return {
       borderDash: [5],
       borderDashOffset: 0.5,
-      data: this.forecastPayload.values.map(price => ({
-        x: price.timestamp ?? 0, y: price.value,
-      })),
+      data: this.forecastPayload.values.map(price => ({ x: price.timestamp ?? 0, y: price.value })),
       label: 'Forecast Price',
       ...DataPointStyles(this.themeColors?.dataSetColorPrimary),
       ...DataLineStyles(this.themeColors?.dataSetColorPrimary),

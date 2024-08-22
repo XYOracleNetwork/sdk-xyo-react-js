@@ -17,9 +17,7 @@ export interface ModuleHoverPopperProps extends PopperProps {
 export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({
   anchorEl, onClose, onModuleDetails, onModuleExplore, node, ...props
 }) => {
-  const {
-    address, name,
-  } = node?.data() ?? {}
+  const { address, name } = node?.data() ?? {}
   return (
     <>
       {anchorEl
@@ -39,9 +37,7 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({
                   avatar={(
                     <Paper
                       elevation={6}
-                      sx={{
-                        bgcolor: '#fff', p: 1,
-                      }}
+                      sx={{ bgcolor: '#fff', p: 1 }}
                     >
                       <Identicon value={address} size={24} />
                     </Paper>
@@ -73,9 +69,7 @@ export const ModuleHoverPopper: React.FC<ModuleHoverPopperProps> = ({
   )
 }
 
-export const StyledModuleHoverPopper = styled(ModuleHoverPopper, { name: 'StyledComponents' })(() => ({
-  zIndex: 2,
-}))
+export const StyledModuleHoverPopper = styled(ModuleHoverPopper, { name: 'StyledComponents' })(() => ({ zIndex: 2 }))
 
 export const StyledCardActions = styled(CardActions, { name: 'StyledCardActions' })(() => ({
   display: 'flex',

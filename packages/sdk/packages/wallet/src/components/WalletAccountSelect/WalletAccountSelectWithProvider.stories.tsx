@@ -8,11 +8,7 @@ const StorybookEntry = {
   argTypes: {},
   component: WalletAccountSelect,
   decorators: [WalletProviderDecorator],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'wallet/WalletAccountSelectWithProvider',
 } as Meta<typeof WalletAccountSelect>
 
@@ -30,14 +26,10 @@ const DefaultSmall = Template.bind({})
 DefaultSmall.args = { size: 'small' }
 
 const DefaultSmallIcon = Template.bind({})
-DefaultSmallIcon.args = {
-  icons: true, size: 'small',
-}
+DefaultSmallIcon.args = { icons: true, size: 'small' }
 
 const IconsOnly = Template.bind({})
-IconsOnly.args = {
-  iconOnly: true, icons: true,
-}
+IconsOnly.args = { iconOnly: true, icons: true }
 
 const IconsOnlySmall = Template.bind({})
 IconsOnlySmall.args = {

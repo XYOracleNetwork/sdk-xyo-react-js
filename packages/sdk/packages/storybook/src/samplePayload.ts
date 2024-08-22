@@ -9,9 +9,7 @@ type TestPayload = Payload<
 
 // needs to be in a function since cjs doesn't support top level awaits
 export const samplePayloadFromBuilder = {
-  ...({
-    schema: 'network.xyo.temp', test: 'hello',
-  } as TestPayload),
+  ...({ schema: 'network.xyo.temp', test: 'hello' } as TestPayload),
   _archive: 'temp',
 }
 
@@ -26,17 +24,13 @@ export const sampleSystemInfoBrowserPayload = {
       name: 'Chrome',
       version: '104.0.0.0',
     },
-    engine: {
-      name: 'Blink',
-    },
+    engine: { name: 'Blink' },
     os: {
       name: 'Windows',
       version: 'NT 10.0',
       versionName: '10',
     },
-    platform: {
-      type: 'desktop',
-    },
+    platform: { type: 'desktop' },
   },
   schema: 'network.xyo.system.info.browser',
 }

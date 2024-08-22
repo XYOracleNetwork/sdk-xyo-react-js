@@ -31,9 +31,7 @@ export const ContractWitnessManifestNode: CreatablePackageManifest = (locator: M
   locator.register(TemporalIndexingDiviner)
   locator.register(EvmTokenInterfaceImplementedDiviner)
   locator.register(
-    new ModuleFactory(EvmContractWitness, {
-      providers: () => [new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)],
-    }),
+    new ModuleFactory(EvmContractWitness, { providers: () => [new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)] }),
   )
 
   return contractWitnessManifest as PackageManifestPayload

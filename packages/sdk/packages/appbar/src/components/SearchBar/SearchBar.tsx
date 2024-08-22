@@ -41,9 +41,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         />
         <ButtonEx
           variant="contained"
-          style={{
-            borderRadius: 0, borderTopLeftRadius: 0,
-          }}
+          style={{ borderRadius: 0, borderTopLeftRadius: 0 }}
           color="secondary"
           onClick={() => onSearch?.(term)}
         >

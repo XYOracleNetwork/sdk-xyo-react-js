@@ -35,9 +35,7 @@ export const DefaultSeedPhrase: React.FC<DefaultSeedPhraseProps> = ({
               open={showSnackBar}
               autoHideDuration={5000}
               onClose={() => setShowSnackBar(false)}
-              anchorOrigin={{
-                horizontal: 'center', vertical: 'top',
-              }}
+              anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
             >
               <Alert severity="success">
                 <AlertTitle>Default Seed Phrase Generated</AlertTitle>

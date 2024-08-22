@@ -78,11 +78,7 @@ const NewPayloadsDecorator: Decorator = (Story, args) => {
 const StorybookEntry = {
   argTypes: {},
   component: PayloadTable,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'payload/FetchMoreTable',
 } as Meta<typeof PayloadTable>
 

@@ -10,9 +10,7 @@ import { useCollapsible } from '../../contexts/index.ts'
 export const CollapsibleDrawer: React.FC<WithChildren<CollapseProps>> = ({
   children, sx, ...props
 }) => {
-  const {
-    collapse, setCollapseEnd,
-  } = useCollapsible()
+  const { collapse, setCollapseEnd } = useCollapsible()
   const theme = useTheme()
 
   const collapsedSize = props.collapsedSize ?? theme.spacing(5)

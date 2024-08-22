@@ -12,9 +12,7 @@ export interface XyOsProfileProps extends PaperProps {
   xns: string
 }
 
-export const XyOsProfile: React.FC<XyOsProfileProps> = ({
-  xns,
-}) => {
+export const XyOsProfile: React.FC<XyOsProfileProps> = ({ xns }) => {
   const theme = useTheme()
   return (
     <FlexGrowCol gap={1} alignItems="flex-start">
@@ -22,9 +20,7 @@ export const XyOsProfile: React.FC<XyOsProfileProps> = ({
         <Avatar
           alt={xns}
           src="https://arietrouw.com/assets/img/arie.jpg"
-          sx={{
-            height: 100, width: 100,
-          }}
+          sx={{ height: 100, width: 100 }}
         />
         <FlexGrowCol width="100%" alignItems="flex-start">
           <Typography variant="h5">{xns}</Typography>

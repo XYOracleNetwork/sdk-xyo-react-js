@@ -10,11 +10,7 @@ import { SimpleCard } from './SimpleCard.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: SimpleCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/SimpleCard',
 } as Meta<typeof SimpleCard>
 

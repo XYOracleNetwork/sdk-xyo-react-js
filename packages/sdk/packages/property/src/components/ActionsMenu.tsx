@@ -7,9 +7,7 @@ import React, { useState } from 'react'
 
 import type { PropertyActionsProps } from './ActionsProps.ts'
 
-export const PropertyActionsMenu: React.FC<PropertyActionsProps> = ({
-  actions, ...props
-}) => {
+export const PropertyActionsMenu: React.FC<PropertyActionsProps> = ({ actions, ...props }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = !!anchorEl
 

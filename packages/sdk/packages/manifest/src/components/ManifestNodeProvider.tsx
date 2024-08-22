@@ -10,9 +10,7 @@ export interface ManifestNodeProviderProps extends PropsWithChildren {
   manifestNodes?: CreatablePackageManifest[]
 }
 
-export const ManifestNodeProvider: React.FC<ManifestNodeProviderProps> = ({
-  children, manifestNodes,
-}) => {
+export const ManifestNodeProvider: React.FC<ManifestNodeProviderProps> = ({ children, manifestNodes }) => {
   const [indexedResultsNode] = usePromise(async () => await buildManifestNodes(manifestNodes), [manifestNodes])
 
   return <NodeProvider node={indexedResultsNode}>{children}</NodeProvider>

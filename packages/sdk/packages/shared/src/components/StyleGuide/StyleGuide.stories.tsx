@@ -6,11 +6,7 @@ import { StyleGuideExample } from './StyleGuide.example.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: StyleGuideExample,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/StyleGuide',
 } as Meta<typeof StyleGuideExample>
 

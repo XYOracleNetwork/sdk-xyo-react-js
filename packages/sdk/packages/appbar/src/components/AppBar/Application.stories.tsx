@@ -17,11 +17,7 @@ import { ApplicationAppBar } from './Application.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: ApplicationAppBar,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'appbar/AppBar/Application',
 } as Meta<typeof ApplicationAppBar>
 

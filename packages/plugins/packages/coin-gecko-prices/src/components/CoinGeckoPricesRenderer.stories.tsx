@@ -7,11 +7,7 @@ import { payloadData, payloadDataMissingAssets } from './storyPayloadData.ts'
 const StorybookEntry = {
   argTypes: {},
   component: CoinGeckoPricesRenderer,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/coin-gecko-prices/CoinGeckoPricesRenderer',
 } as Meta<typeof CoinGeckoPricesRenderer>
 

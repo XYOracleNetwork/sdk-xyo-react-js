@@ -56,31 +56,23 @@ const Template: StoryFn<React.FC<ValidatePayloadProviderPropsEx>> = (props) => {
 }
 
 const InvalidPayload = { schema: 'network.xyo.schema' }
-const ValidPayload = {
-  definition: { $id: 'test.schema' }, schema: 'network.xyo.schema',
-}
+const ValidPayload = { definition: { $id: 'test.schema' }, schema: 'network.xyo.schema' }
 const stubProviderDefaultValue = { provided: true }
 
 const Default = Template.bind({})
-Default.args = {
-  resolvePayloadContext: stubProviderDefaultValue, xyoEmbedPluginContext: stubProviderDefaultValue,
-}
+Default.args = { resolvePayloadContext: stubProviderDefaultValue, xyoEmbedPluginContext: stubProviderDefaultValue }
 
 const ValidationSucceeded = Template.bind({})
 ValidationSucceeded.args = {
   enabled: true,
-  resolvePayloadContext: {
-    payload: ValidPayload, ...stubProviderDefaultValue,
-  },
+  resolvePayloadContext: { payload: ValidPayload, ...stubProviderDefaultValue },
   xyoEmbedPluginContext: stubProviderDefaultValue,
 }
 
 const ValidationFailed = Template.bind({})
 ValidationFailed.args = {
   enabled: true,
-  resolvePayloadContext: {
-    payload: InvalidPayload, ...stubProviderDefaultValue,
-  },
+  resolvePayloadContext: { payload: InvalidPayload, ...stubProviderDefaultValue },
   xyoEmbedPluginContext: stubProviderDefaultValue,
 }
 

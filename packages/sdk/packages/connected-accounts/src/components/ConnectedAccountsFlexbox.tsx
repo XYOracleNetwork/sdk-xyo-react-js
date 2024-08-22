@@ -18,9 +18,7 @@ export const ConnectedAccountsFlexbox = forwardRef<HTMLDivElement, ConnectedAcco
   }, ref) => {
     const theme = useTheme()
 
-    const {
-      totalConnectedAccounts, sortedWallets,
-    } = useDetectedWallets()
+    const { totalConnectedAccounts, sortedWallets } = useDetectedWallets()
 
     return (
       <FlexCol alignItems="stretch" justifyContent="start" gap={2} ref={ref} {...props}>

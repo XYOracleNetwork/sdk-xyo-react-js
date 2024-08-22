@@ -3,9 +3,7 @@ import React from 'react'
 
 import { ShareButton } from './ShareButton.tsx'
 
-export default {
-  title: 'modules/ShareButton',
-} as Meta<typeof ShareButton>
+export default { title: 'modules/ShareButton' } as Meta<typeof ShareButton>
 
 const Template: StoryFn<typeof ShareButton> = (props) => {
   return <ShareButton {...props} />

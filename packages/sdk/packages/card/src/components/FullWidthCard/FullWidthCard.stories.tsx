@@ -7,11 +7,7 @@ import { FullWidthCard } from './FullWidthCard.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: FullWidthCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/FullWidthCard',
 } as Meta<typeof FullWidthCard>
 

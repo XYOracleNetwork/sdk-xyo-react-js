@@ -14,19 +14,13 @@ import { ArchivistCard } from './Card.tsx'
 
 const StorybookEntry = {
   component: ArchivistCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'modules/archivist/ArchivistCard',
 } as Meta<typeof ArchivistCard>
 
 const insertPayload = async (archivist?: ArchivistInstance) => {
   if (archivist) {
-    const payload = {
-      schema: 'network.xyo.payload', timestamp: Date.now(),
-    }
+    const payload = { schema: 'network.xyo.payload', timestamp: Date.now() }
     const insertQuery = { schema: ArchivistInsertQuerySchema }
     const account = await Account.random()
     const builder = await new QueryBoundWitnessBuilder().payloads([insertQuery, payload]).signer(account).query(insertQuery)

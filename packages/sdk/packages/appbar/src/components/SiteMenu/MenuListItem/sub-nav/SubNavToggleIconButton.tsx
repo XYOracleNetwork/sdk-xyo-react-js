@@ -11,9 +11,7 @@ export interface SubNavToggleIconButtonProps extends IconButtonProps {
   setOpenSubNav?: Dispatch<SetStateAction<boolean>>
 }
 
-export const SubNavToggleIconButton: React.FC<SubNavToggleIconButtonProps> = ({
-  setOpenSubNav, openSubNav,
-}) => {
+export const SubNavToggleIconButton: React.FC<SubNavToggleIconButtonProps> = ({ setOpenSubNav, openSubNav }) => {
   const theme = useTheme()
   return (
     <IconButton

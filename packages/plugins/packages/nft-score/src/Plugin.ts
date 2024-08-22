@@ -7,11 +7,7 @@ import { NftScoreRenderer } from './components/index.ts'
 export const NftScoreRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: (payload?: Payload) => payload?.schema === NftScoreSchema,
-    components: {
-      box: {
-        detailsBox: NftScoreRenderer,
-      },
-    },
+    components: { box: { detailsBox: NftScoreRenderer } },
     name: 'NFT Score',
   }),
 }

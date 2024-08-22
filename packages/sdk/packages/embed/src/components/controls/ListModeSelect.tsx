@@ -11,9 +11,7 @@ const listModeSelectId = 'listmode-select-id'
 const listModeSelectLabel = 'List Mode'
 
 export const ListModeSelect: React.FC<SelectExProps<ListMode>> = (props) => {
-  const {
-    listMode, setListMode,
-  } = useListMode()
+  const { listMode, setListMode } = useListMode()
 
   return (
     <SelectEx<ListMode>

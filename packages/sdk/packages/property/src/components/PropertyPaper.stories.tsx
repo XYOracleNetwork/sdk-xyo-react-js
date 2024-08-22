@@ -10,11 +10,7 @@ import type { PropertyPaperProps, PropertyProps } from './Props.ts'
 const StorybookEntry = {
   argTypes: {},
   component: Property,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'property/PropertyPaper',
 } as Meta<typeof Property>
 
@@ -155,9 +151,7 @@ LargeWithValue.args = {
 
 const LargeWithValueAndActions = Template.bind({})
 LargeWithValueAndActions.args = {
-  actions: [{
-    icon: <ReplayIcon />, name: 'ActionOne',
-  }, { name: 'ActionTwo' }],
+  actions: [{ icon: <ReplayIcon />, name: 'ActionOne' }, { name: 'ActionTwo' }],
   badge: true,
   size: 'large',
   tip: 'This is the block hash',
@@ -167,9 +161,7 @@ LargeWithValueAndActions.args = {
 
 const SmallWithValueAndActions = Template.bind({})
 SmallWithValueAndActions.args = {
-  actions: [{
-    icon: <ReplayIcon />, name: 'ActionOne',
-  }, { name: 'ActionTwo' }],
+  actions: [{ icon: <ReplayIcon />, name: 'ActionOne' }, { name: 'ActionTwo' }],
   badge: true,
   size: 'small',
   tip: 'This is the block hash',

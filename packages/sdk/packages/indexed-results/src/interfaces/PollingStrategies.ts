@@ -8,12 +8,8 @@ const continuousPolling = {
 }
 
 export const PollingStrategies: Record<Partial<PollingStrategyNames>, PollingConfig> = {
-  Continuous: {
-    ...continuousPolling,
-  },
-  None: {
-    maxRetries: 1,
-  },
+  Continuous: { ...continuousPolling },
+  None: { maxRetries: 1 },
   TillComplete: {
     ...continuousPolling,
     onFoundResult: () => {

@@ -6,9 +6,7 @@ import React, { forwardRef } from 'react'
 import { EtherchainV2GasPriceCardContent } from './CardContent.tsx'
 import { EtherchainV2GasPriceCardHeader } from './CardHeader.tsx'
 
-export const EtherchainV2GasPriceCard = forwardRef<HTMLDivElement, PayloadRenderProps & CardProps>(({
-  payload, ...props
-}, ref) => {
+export const EtherchainV2GasPriceCard = forwardRef<HTMLDivElement, PayloadRenderProps & CardProps>(({ payload, ...props }, ref) => {
   return (
     <Card ref={ref} {...props}>
       <EtherchainV2GasPriceCardHeader payload={payload} />

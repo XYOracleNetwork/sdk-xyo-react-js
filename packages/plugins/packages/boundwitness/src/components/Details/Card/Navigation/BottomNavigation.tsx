@@ -47,6 +47,4 @@ const BoundWitnessBottomNavigation = forwardRef<HTMLDivElement, BoundWitnessBott
 BoundWitnessBottomNavigation.displayName = 'BoundWitnessBottomNavigation'
 export { BoundWitnessBottomNavigation }
 
-const StyledBottomNavigation = styled(BottomNavigation, { name: 'StyledBottomNavigation' })(() => ({
-  background: 'inherit',
-}))
+const StyledBottomNavigation = styled(BottomNavigation, { name: 'StyledBottomNavigation' })(() => ({ background: 'inherit' }))

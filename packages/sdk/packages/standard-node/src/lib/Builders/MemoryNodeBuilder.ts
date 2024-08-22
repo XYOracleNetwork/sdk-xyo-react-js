@@ -25,16 +25,12 @@ export class MemoryNodeBuilder {
     return assertDefinedEx(this._node, 'this._node was not defined upon create')
   }
 
-  static async create({
-    name, node,
-  }: MemoryNodeBuilderConfig, account?: AccountInstance): Promise<MemoryNodeBuilder> {
+  static async create({ name, node }: MemoryNodeBuilderConfig, account?: AccountInstance): Promise<MemoryNodeBuilder> {
     const instance = new this()
 
     const memoryNode: MemoryNode = node ?? (await MemoryNode.create({
       account,
-      config: {
-        name, schema: NodeConfigSchema,
-      },
+      config: { name, schema: NodeConfigSchema },
     }))
     instance._node = memoryNode
     return instance
@@ -46,20 +42,14 @@ export class MemoryNodeBuilder {
   }
 
   async addArchivistMemory(moduleName?: string, account?: AccountInstance) {
-    const config: MemoryArchivistConfig = {
-      name: moduleName, schema: MemoryArchivistConfigSchema,
-    }
-    const memoryArchivist = await MemoryArchivist.create({
-      account, config,
-    })
+    const config: MemoryArchivistConfig = { name: moduleName, schema: MemoryArchivistConfigSchema }
+    const memoryArchivist = await MemoryArchivist.create({ account, config })
 
     await this.attach(memoryArchivist, true)
   }
 
   async addArchivistStorage(account: AccountInstance, moduleName?: string, namespace?: string) {
-    const config = {
-      name: moduleName, namespace,
-    }
+    const config = { name: moduleName, namespace }
     const { archivist } = await StorageArchivistBuilder.create(config, account, this.node)
 
     await this.attach(archivist, true)

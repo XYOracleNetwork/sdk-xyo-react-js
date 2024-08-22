@@ -13,11 +13,7 @@ const address: Address = toHex(randomBytes(20))
 const StorybookEntry = {
   argTypes: {},
   component: AddressRenderRowBox,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'address/render/AddressRenderRowBox',
 } as Meta<typeof AddressRenderRowBox>
 
@@ -39,9 +35,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithAddress = Template.bind({})
-WithAddress.args = {
-  address,
-}
+WithAddress.args = { address }
 
 const WithIcon = Template.bind({})
 WithIcon.args = {

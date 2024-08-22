@@ -5,9 +5,7 @@ import React from 'react'
 
 import { useValidatePayload } from '../../contexts/index.ts'
 
-export const ValidatePayloadAlert: React.FC<WithChildren<AlertProps>> = ({
-  children, ...props
-}) => {
+export const ValidatePayloadAlert: React.FC<WithChildren<AlertProps>> = ({ children, ...props }) => {
   const {
     validPayload, enabled, schema,
   } = useValidatePayload()

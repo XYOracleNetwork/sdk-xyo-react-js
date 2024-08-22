@@ -14,7 +14,5 @@ export const HeatMapSymbolLayerConfig: (color: string) => Partial<SymbolLayerSpe
     'text-size': 10,
     'visibility': 'none',
   },
-  paint: {
-    'text-color': color,
-  },
+  paint: { 'text-color': color },
 })

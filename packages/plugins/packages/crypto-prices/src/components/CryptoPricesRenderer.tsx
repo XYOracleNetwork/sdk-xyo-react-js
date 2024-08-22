@@ -11,9 +11,7 @@ export interface CryptoPricesRendererProps extends FlexBoxProps {
   payload?: Payload
 }
 
-export const CryptoPricesRenderer: React.FC<CryptoPricesRendererProps> = ({
-  payload, ...props
-}) => {
+export const CryptoPricesRenderer: React.FC<CryptoPricesRendererProps> = ({ payload, ...props }) => {
   const cryptoMarketPayload = payload as CoingeckoCryptoMarketPayload | undefined
   const assets = cryptoMarketPayload?.assets
   return (

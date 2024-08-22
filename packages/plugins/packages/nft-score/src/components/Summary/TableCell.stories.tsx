@@ -7,11 +7,7 @@ import { TableCellSummary } from './TableCellSummary.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: TableCellSummary,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/nft-score/TableCellSummary',
 } as Meta<typeof TableCellSummary>
 

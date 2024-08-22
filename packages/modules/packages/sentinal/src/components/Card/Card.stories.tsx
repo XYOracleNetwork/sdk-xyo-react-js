@@ -26,23 +26,17 @@ const loadFromManifest = async () => {
   locator.register(EvmCallDiviner)
 
   locator.register(
-    new ModuleFactory(EvmCallWitness, {
-      providers: () => [provider],
-    }),
+    new ModuleFactory(EvmCallWitness, { providers: () => [provider] }),
     { 'network.xyo.evm.interface': 'Erc721' },
   )
 
   locator.register(
-    new ModuleFactory(EvmCallWitness, {
-      providers: () => [provider],
-    }),
+    new ModuleFactory(EvmCallWitness, { providers: () => [provider] }),
     { 'network.xyo.evm.interface': 'Erc721Enumerable' },
   )
 
   locator.register(
-    new ModuleFactory(EvmCallWitness, {
-      providers: () => [provider],
-    }),
+    new ModuleFactory(EvmCallWitness, { providers: () => [provider] }),
     { 'network.xyo.evm.interface': 'Erc1155' },
   )
 
@@ -54,11 +48,7 @@ const loadFromManifest = async () => {
 
 const StorybookEntry = {
   component: SentinelCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'modules/sentinel/SentinelCard',
 } as Meta<typeof SentinelCard>
 
@@ -68,9 +58,7 @@ const NftSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
     if (node) {
       const sentinel = asSentinelInstance(await node.resolve('NftInfoSentinel'))
       sentinel?.on('reportEnd', (args) => {
-        const {
-          inPayloads, outPayloads,
-        } = args as ReportEndEventArgs
+        const { inPayloads, outPayloads } = args as ReportEndEventArgs
         console.log(`inPayloads: ${inPayloads?.length}`)
         console.log(`outPayloads: ${outPayloads?.length}`)
       })
@@ -101,9 +89,7 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
     if (node) {
       const sentinel = asSentinelInstance(await node.resolve('NftTokenInfoSentinel'))
       sentinel?.on('reportEnd', (args) => {
-        const {
-          inPayloads, outPayloads,
-        } = args as ReportEndEventArgs
+        const { inPayloads, outPayloads } = args as ReportEndEventArgs
         console.log(`tokensSentinelInPayloads: ${inPayloads?.length}`)
         console.log(`tokensSentinelOutPayloads: ${outPayloads?.length}`)
         console.log(`tokens: ${JSON.stringify(outPayloads, null, 2)}`)
@@ -116,9 +102,7 @@ const NftTokensSentinelTemplate: StoryFn<typeof SentinelCard> = () => {
     if (node) {
       const sentinel = asSentinelInstance(await node.resolve('NftInfoSentinel'))
       sentinel?.on('reportEnd', async (args) => {
-        const {
-          inPayloads, outPayloads,
-        } = args as ReportEndEventArgs
+        const { inPayloads, outPayloads } = args as ReportEndEventArgs
         console.log(`inPayloads: ${inPayloads?.length}`)
         console.log(`outPayloads: ${outPayloads?.length}`)
         const calls = Array(1000).map((_, index) => ({

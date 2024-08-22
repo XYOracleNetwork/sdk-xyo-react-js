@@ -8,16 +8,10 @@ const palette: ThemeOptions['palette'] = {
     default: '#141319',
     paper: '#1C1B20',
   },
-  error: {
-    main: '#ffb4ab',
-  },
+  error: { main: '#ffb4ab' },
   mode: 'dark',
-  primary: {
-    main: '#C9BFFA',
-  },
-  secondary: {
-    main: '#C9C3DA',
-  },
+  primary: { main: '#C9BFFA' },
+  secondary: { main: '#C9C3DA' },
   text: {
     primary: '#100029',
     secondary: '#212023',
@@ -27,9 +21,7 @@ const palette: ThemeOptions['palette'] = {
 export const osThemeOptionsDarkMode: ThemeOptions = {
   components,
   palette,
-  shape: {
-    borderRadius: 10,
-  },
+  shape: { borderRadius: 10 },
   spacing: 16,
   typography,
 }

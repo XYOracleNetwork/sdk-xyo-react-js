@@ -8,11 +8,7 @@ import { XyoFooter } from './Footer.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: XyoFooter,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'footer/Footer',
 } as Meta<typeof XyoFooter>
 

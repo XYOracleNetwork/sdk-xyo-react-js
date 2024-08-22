@@ -10,9 +10,7 @@ export const BoundWitnessRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: (payload?: Payload) => payload?.schema === 'network.xyo.boundwitness',
     components: {
-      box: {
-        detailsBox: BoundWitnessDetailsBox,
-      },
+      box: { detailsBox: BoundWitnessDetailsBox },
       card: {
         content: BoundWitnessCardContent,
         header: BoundWitnessCardHeader,

@@ -8,11 +8,7 @@ import { BoundWitnessSignatureTable } from './SignatureTable.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: BoundWitnessSignatureTable,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'boundwitness/SignatureTable',
 } as Meta<typeof BoundWitnessSignatureTable>
 

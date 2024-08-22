@@ -10,17 +10,9 @@ import {
 import { NetworkSelectEx } from './NetworkSelectEx.tsx'
 
 const StorybookEntry = {
-  argTypes: {
-    responsive: {
-      defaultValue: false,
-    },
-  },
+  argTypes: { responsive: { defaultValue: false } },
   component: NetworkSelectEx,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'network/NetworkSelectEx',
 } as Meta<typeof NetworkSelectEx>
 

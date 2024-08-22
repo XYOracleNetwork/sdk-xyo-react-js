@@ -12,9 +12,7 @@ export interface MapSettingSwitchProps extends SwitchProps {
 export const MapSettingSwitch: React.FC<MapSettingSwitchProps> = ({
   developerMode, field, ...props
 }) => {
-  const {
-    mapSettings, setMapSettings,
-  } = useMapSettings()
+  const { mapSettings, setMapSettings } = useMapSettings()
   const setting = mapSettings?.[field]
 
   const onLocalChange = (event: React.ChangeEvent<HTMLInputElement>) => {

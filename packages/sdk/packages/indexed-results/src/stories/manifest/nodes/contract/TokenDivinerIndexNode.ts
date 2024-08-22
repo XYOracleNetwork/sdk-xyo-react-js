@@ -31,9 +31,7 @@ export const TokenDivinerIndexManifestNode: CreatablePackageManifest = (locator:
   locator.register(TemporalIndexingDiviner)
   locator.register(EvmTokenInterfaceImplementedDiviner)
   locator.register(
-    new ModuleFactory(EvmContractWitness, {
-      providers: () => [new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)],
-    }),
+    new ModuleFactory(EvmContractWitness, { providers: () => [new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)] }),
   )
 
   return tokenDivinerIndexManifest as PackageManifestPayload

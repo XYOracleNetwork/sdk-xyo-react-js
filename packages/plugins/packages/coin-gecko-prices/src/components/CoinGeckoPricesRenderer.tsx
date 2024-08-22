@@ -13,9 +13,7 @@ export interface CoinGeckoPricesRendererProps extends PayloadDetailsRenderProps 
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const CoinGeckoPricesRenderer: React.FC<CoinGeckoPricesRendererProps> = ({
-  payload, ...props
-}) => {
+export const CoinGeckoPricesRenderer: React.FC<CoinGeckoPricesRendererProps> = ({ payload, ...props }) => {
   const coinGeckoPricesPayload = payload ? (payload as CoingeckoCryptoMarketPayload) : undefined
 
   const mappedCoinGeckoPricesPayload = useCoinGeckoToAssetPriceDiviner(coinGeckoPricesPayload)

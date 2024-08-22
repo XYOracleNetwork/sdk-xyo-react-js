@@ -17,11 +17,7 @@ import simpleNodeInlineManifest from './simple-node-inline-manifest.json'
 
 const StorybookEntry = {
   component: PoweredByXyo,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'Badge/PoweredByXyo',
 } as Meta<typeof PoweredByXyo>
 

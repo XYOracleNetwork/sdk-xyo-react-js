@@ -4,9 +4,7 @@ import React from 'react'
 import type { TestComponentProps } from './TestComponent.tsx'
 import { TestComponent } from './TestComponent.tsx'
 
-export default {
-  title: 'modules/os/TestComponent',
-} as Meta
+export default { title: 'modules/os/TestComponent' } as Meta
 
 const Template: StoryFn<React.FC<TestComponentProps>> = (props) => {
   return <TestComponent {...props} />

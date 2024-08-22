@@ -27,16 +27,12 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
   )
 }
 
-export default {
-  title: 'modules/node/NodeBox',
-} as Meta
+export default { title: 'modules/node/NodeBox' } as Meta
 
 const Template: StoryFn<React.FC> = () => {
   const [node] = useWeakProvidedNode() as [WeakRef<MemoryNode>]
 
-  const [account] = useWallet({
-    mnemonic: DefaultSeedPhrase, path: '0',
-  })
+  const [account] = useWallet({ mnemonic: DefaultSeedPhrase, path: '0' })
 
   useAsyncEffect(
 
@@ -46,9 +42,7 @@ const Template: StoryFn<React.FC> = () => {
         try {
           const mod = await TestModule.create({
             account,
-            config: {
-              name: TestModuleName, schema: TestModuleConfigSchema,
-            },
+            config: { name: TestModuleName, schema: TestModuleConfigSchema },
           })
           await nodeInstance.register(mod)
           await nodeInstance.attach(mod.address, true)

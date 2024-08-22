@@ -51,9 +51,7 @@ const Template: StoryFn<typeof WrappedContainer> = (props) => {
           <AddressHistory
             ref={ref}
             addressHistory={sampleAddressHistory}
-            sx={{
-              pr: 2, py: 2,
-            }}
+            sx={{ pr: 2, py: 2 }}
           />
         </ScrollableGridColumn>
         <ScrollableGridColumn

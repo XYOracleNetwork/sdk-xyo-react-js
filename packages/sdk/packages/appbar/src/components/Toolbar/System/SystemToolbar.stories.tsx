@@ -23,11 +23,7 @@ const DefaultMenu = (
 
 const StorybookEntry: Meta = {
   component: SystemToolbar,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'appbar/Toolbar/System',
 }
 

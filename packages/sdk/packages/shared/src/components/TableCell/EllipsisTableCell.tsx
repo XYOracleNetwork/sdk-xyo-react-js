@@ -10,9 +10,7 @@ const EllipsisTableCellRoot = styled(TableCell, {
   name: 'EllipsisTableCell',
   shouldForwardProp: prop => prop !== 'width',
   slot: 'Root',
-})(({ width = '100%' }) => ({
-  width,
-}))
+})(({ width = '100%' }) => ({ width }))
 
 export interface EllipsisTableCellProps extends Omit<TableCellProps, 'ref'> {
   href?: string

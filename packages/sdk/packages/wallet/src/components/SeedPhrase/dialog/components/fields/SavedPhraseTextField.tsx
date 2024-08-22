@@ -15,9 +15,7 @@ export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
 export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
   fullWidth, showPhraseHeader, ...props
 }) => {
-  const {
-    validSeedPhrase, seedPhrase,
-  } = useSeedPhrase()
+  const { validSeedPhrase, seedPhrase } = useSeedPhrase()
 
   const [visible, setVisible] = useState(false)
 

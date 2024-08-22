@@ -3,7 +3,7 @@ import { ProvidedNodeRenderer } from '@xyo-network/react-node-renderer'
 import React from 'react'
 
 import type { SampleNodeModules } from './useBuildSampleNode.ts'
-import { useBuildSampleNode } from './useBuildSampleNode.tsx'
+import { useBuildSampleNode } from './useBuildSampleNode.ts'
 
 const modules: SampleNodeModules = {
   Bridge: 'Bridge',
@@ -12,9 +12,7 @@ const modules: SampleNodeModules = {
   SystemInfoWitness: 'SystemInfoWitness',
 }
 
-export default {
-  title: 'modules/node/useBuildSampleNode',
-} as Meta
+export default { title: 'modules/node/useBuildSampleNode' } as Meta
 
 const Template: StoryFn<React.FC> = (props) => {
   const node = useBuildSampleNode(modules, 'https://api.archivist.xyo.network')

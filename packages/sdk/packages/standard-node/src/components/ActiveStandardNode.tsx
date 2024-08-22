@@ -11,9 +11,7 @@ export interface ActiveStandardNodeProps extends WithChildren {
   nodeNameOrAddress?: string
 }
 
-export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({
-  children, nodeNameOrAddress,
-}) => {
+export const ActiveStandardNode: React.FC<ActiveStandardNodeProps> = ({ children, nodeNameOrAddress }) => {
   const { network } = useNetwork()
   const [node] = useWeakNodeFromNode(nodeNameOrAddress)
   const [activeRemoteNodeAddress, setActiveRemoteNodeAddress] = useState<string>()

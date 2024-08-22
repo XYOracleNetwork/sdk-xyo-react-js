@@ -20,16 +20,12 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
   <TableFooterEx variant={variant}>
     <TableRow>
       <StyledTablePagination
-        rowsPerPageOptions={[5, 10, 25, {
-          label: 'All', value: -1,
-        }]}
+        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
         count={count ?? 0}
         rowsPerPage={rowsPerPage ?? 10}
         page={page ?? 0}
         SelectProps={{
-          inputProps: {
-            'aria-label': 'rows per page',
-          },
+          inputProps: { 'aria-label': 'rows per page' },
           native: true,
         }}
         onPageChange={handleChangePage ?? (() => {})}
@@ -42,9 +38,7 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
 )
 
 const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
-  '& > .MuiToolbar-root': {
-    paddingLeft: theme.spacing(1),
-  },
+  '& > .MuiToolbar-root': { paddingLeft: theme.spacing(1) },
   'borderTop': '1px solid',
   'borderTopColor': theme.palette.divider,
 }))

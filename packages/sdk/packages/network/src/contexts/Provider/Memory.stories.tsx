@@ -44,14 +44,10 @@ const Default = Template.bind({})
 Default.args = {}
 
 const DefaultNetworkName = Template.bind({})
-DefaultNetworkName.args = {
-  defaultNetworkName: 'Main',
-}
+DefaultNetworkName.args = { defaultNetworkName: 'Main' }
 
 const DefaultNetworkConfig = Template.bind({})
-DefaultNetworkConfig.args = {
-  defaultNetworkConfig: defaultNetworkConfigs[2],
-}
+DefaultNetworkConfig.args = { defaultNetworkConfig: defaultNetworkConfigs[2] }
 
 export default StorybookEntry
 

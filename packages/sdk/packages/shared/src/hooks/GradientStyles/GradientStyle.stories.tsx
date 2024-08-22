@@ -51,11 +51,7 @@ const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
 const StorybookEntry = {
   argTypes: {},
   component: GradientTextExample,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'shared/GradientText',
 } as Meta<typeof GradientTextExample>
 

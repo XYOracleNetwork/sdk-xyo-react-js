@@ -27,9 +27,7 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
 }) => {
   const [mapPoints, setMapPoints] = useState<MapPoints>()
   const { mapSettings } = useMapSettings()
-  const {
-    map, mapInitialized,
-  } = useMapBoxInstance()
+  const { map, mapInitialized } = useMapBoxInstance()
 
   /**
    * Needed because of a bug in mapbox taking undefined values for the config options of fitToBounds
@@ -37,9 +35,7 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
    */
   const customFitToBoundsOptions = (zoom?: number): MapOptions['fitBoundsOptions'] => {
     if (zoom !== undefined) {
-      return {
-        maxZoom: zoom,
-      }
+      return { maxZoom: zoom }
     }
     return {}
   }

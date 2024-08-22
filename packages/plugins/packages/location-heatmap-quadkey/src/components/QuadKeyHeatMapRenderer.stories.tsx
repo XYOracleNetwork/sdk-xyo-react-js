@@ -26,11 +26,7 @@ export default {
   },
   component: QuadkeyHeatMapWithSettingsRenderer,
   decorators: [WithMapboxSetup],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'plugin/heat-map/HeatMapWithSettings',
 } as Meta
 
@@ -46,9 +42,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = {
-  payload: quadKeyHeatMapPayload,
-}
+WithData.args = { payload: quadKeyHeatMapPayload }
 
 const WithDevMode = Template.bind({})
 const settings = QuadkeyHeatMapSettings()

@@ -6,11 +6,7 @@ import { DetailsRenderer } from './components/index.ts'
 export const DefaultRenderPlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: () => true,
-    components: {
-      box: {
-        detailsBox: DetailsRenderer,
-      },
-    },
+    components: { box: { detailsBox: DetailsRenderer } },
     name: 'Default',
   }),
 }

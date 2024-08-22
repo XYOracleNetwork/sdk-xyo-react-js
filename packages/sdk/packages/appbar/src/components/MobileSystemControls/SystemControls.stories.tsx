@@ -8,11 +8,7 @@ import { SystemControlsType } from './SystemControlsType.ts'
 const StorybookEntry: Meta = {
   argTypes: {},
   component: SystemControls,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'appbar/System/SystemControls',
 }
 

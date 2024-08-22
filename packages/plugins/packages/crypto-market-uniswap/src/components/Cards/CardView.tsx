@@ -15,9 +15,7 @@ interface UniswapPairsCardsProps extends FlexBoxProps {
   payload?: Payload
 }
 
-export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({
-  payload, ...props
-}) => {
+export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload, ...props }) => {
   const uniswapPayload = payload ? (payload as UniswapCryptoMarketPayload) : undefined
   const [cardViewStyle] = useState(CardViewType.Static)
 

@@ -6,9 +6,7 @@ export interface NodeDrawerProviderProps extends WithChildren {
   defaultOpen?: boolean
 }
 
-export const NodeDrawerProvider: React.FC<NodeDrawerProviderProps> = ({
-  children, defaultOpen = false,
-}) => {
+export const NodeDrawerProvider: React.FC<NodeDrawerProviderProps> = ({ children, defaultOpen = false }) => {
   const [open, setOpen] = useState(() => defaultOpen)
 
   const value = useMemo(() => ({

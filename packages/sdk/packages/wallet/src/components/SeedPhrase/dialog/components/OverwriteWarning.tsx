@@ -5,9 +5,7 @@ import React from 'react'
 import { useSeedPhrase } from '../../../../contexts/index.ts'
 
 export const OverwriteWarning = () => {
-  const {
-    handleCancelOverwrite, handleSave,
-  } = useSeedPhrase()
+  const { handleCancelOverwrite, handleSave } = useSeedPhrase()
   return (
     <Alert
       variant="outlined"

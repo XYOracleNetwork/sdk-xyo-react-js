@@ -32,9 +32,7 @@ export const EthgasstationGasPriceDetailsBox = forwardRef<HTMLDivElement, Payloa
                 <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
                 <Grid container spacing={3}>
                   {parsedPayload
-                  && parsedPayload?.gasPrice?.map(({
-                    price, priorityFee,
-                  }) => (
+                  && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
                     <Grid key={price?.label} item xs={12} sm={6} lg={4}>
                       <GasFeeCard
                         key={price?.label}

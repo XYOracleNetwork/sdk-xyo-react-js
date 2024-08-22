@@ -94,18 +94,12 @@ export class MapSettings {
   // Needs to be static so we ensure controls are only instantiated once
   private static addControls(map: Map, zoom?: number, requestLocation?: boolean) {
     const geolocateControl = new GeolocateControl({
-      fitBoundsOptions: {
-        zoom: zoom || 2,
-      },
-      positionOptions: {
-        enableHighAccuracy: true,
-      },
+      fitBoundsOptions: { zoom: zoom || 2 },
+      positionOptions: { enableHighAccuracy: true },
       trackUserLocation: true,
     })
 
-    const navControl = new NavigationControl({
-      showCompass: false,
-    })
+    const navControl = new NavigationControl({ showCompass: false })
 
     this.geoLocateControl = this.geoLocateControl || geolocateControl
     this.navControl = this.navControl || navControl

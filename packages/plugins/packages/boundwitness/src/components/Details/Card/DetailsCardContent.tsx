@@ -33,9 +33,7 @@ export const DetailsCardContent = forwardRef<HTMLDivElement, DetailsCardContentP
             <FlexGrowCol
               justifyContent="start"
               overflow="scroll"
-              sx={{
-                borderLeft: '1px solid', borderLeftColor: 'divider',
-              }}
+              sx={{ borderLeft: '1px solid', borderLeftColor: 'divider' }}
             >
               {activeTab === 0
                 ? <BoundWitnessPayloadsTable boundwitness={boundwitness} variant="scrollable" />

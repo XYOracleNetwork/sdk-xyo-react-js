@@ -3,21 +3,15 @@ import type { CytoscapeOptions } from 'cytoscape'
 const elements: CytoscapeOptions['elements'] = [
   {
     // node a
-    data: {
-      id: 'a', name: 'element a',
-    },
+    data: { id: 'a', name: 'element a' },
   },
   {
     // node b
-    data: {
-      id: 'b', name: 'element b',
-    },
+    data: { id: 'b', name: 'element b' },
   },
   {
     // node c
-    data: {
-      id: 'c', name: 'element c',
-    },
+    data: { id: 'c', name: 'element c' },
   },
   {
     // edge ab
@@ -36,9 +30,7 @@ const elements: CytoscapeOptions['elements'] = [
 const style: CytoscapeOptions['style'] = [
   {
     selector: 'node',
-    style: {
-      label: 'data(id)',
-    },
+    style: { label: 'data(id)' },
   },
 
   {

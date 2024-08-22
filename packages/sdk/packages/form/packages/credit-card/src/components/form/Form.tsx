@@ -52,11 +52,7 @@ export const CreditCardFormFlexbox: React.FC<CreditCardFormProps> = ({
     <>
       <ErrorRender error={error} />
       <FlexCol
-        sx={{
-          flexDirection: {
-            md: 'row', xs: 'column',
-          },
-        }}
+        sx={{ flexDirection: { md: 'row', xs: 'column' } }}
         width="100%"
         gap={2}
         {...props}

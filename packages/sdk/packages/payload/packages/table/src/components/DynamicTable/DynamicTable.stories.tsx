@@ -13,11 +13,7 @@ import { PayloadDynamicTable } from './Table.tsx'
 const StorybookEntry = {
   argTypes: {},
   component: PayloadDynamicTable,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'payload/DynamicTable',
 } as Meta<typeof PayloadDynamicTable>
 

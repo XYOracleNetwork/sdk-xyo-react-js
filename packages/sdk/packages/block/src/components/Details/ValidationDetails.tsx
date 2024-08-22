@@ -13,9 +13,7 @@ export type BlockValidationDetailsProps = PropertyGroupProps & {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({
-  value, ...props
-}) => {
+export const BlockValidationDetails: React.FC<BlockValidationDetailsProps> = ({ value, ...props }) => {
   const [errors = []] = usePromise(async () => await (value ? new BoundWitnessValidator(value) : undefined)?.validate(), [value])
 
   let elevation = 2

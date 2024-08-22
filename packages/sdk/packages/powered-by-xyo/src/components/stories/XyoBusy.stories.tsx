@@ -6,11 +6,7 @@ import { XyoBusy } from '../XyoBusy.tsx'
 
 const StorybookEntry = {
   component: XyoBusy,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'Badge/XyoBusy',
 } as Meta<typeof XyoBusy>
 

@@ -5,9 +5,7 @@ import { AppSettingsStorageBase } from './StorageBase.ts'
 
 export class AppSettingsStorage extends AppSettingsStorageBase {
   constructor(prefix = 'AppSettings', defaults?: Record<string, unknown>) {
-    super(prefix, {
-      ...appSettingDefault(), ...defaults,
-    })
+    super(prefix, { ...appSettingDefault(), ...defaults })
   }
 
   get darkMode() {

@@ -10,9 +10,7 @@ export const divineIndexedResults = async <T extends Payload = Payload>(node?: N
 
   const { diviners } = config ?? {}
 
-  const {
-    indexedQueries, processIndexedResults,
-  } = config ?? {}
+  const { indexedQueries, processIndexedResults } = config ?? {}
   const parseIndexedResults = processIndexedResults?.parseIndexedResults
 
   if (diviners && node && indexedQueries) {

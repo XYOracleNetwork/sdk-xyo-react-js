@@ -8,11 +8,7 @@ import { WitnessCard } from './Card.tsx'
 
 const StorybookEntry = {
   component: WitnessCard,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'modules/witness/WitnessCard',
 } as Meta<typeof WitnessCard>
 

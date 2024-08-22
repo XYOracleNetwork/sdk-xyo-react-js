@@ -26,6 +26,4 @@ const partialAppThemeOptions: ThemeOptions = {
   spacing: 8,
 }
 
-export const appThemeOptions = {
-  ...themeOptions, ...partialAppThemeOptions,
-}
+export const appThemeOptions = { ...themeOptions, ...partialAppThemeOptions }

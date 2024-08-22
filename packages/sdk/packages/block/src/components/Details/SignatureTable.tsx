@@ -34,9 +34,7 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({
-  block, ...props
-}) => {
+export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
   const [hash] = usePromise(async () => block ? await PayloadHasher.hash(block) : undefined, [block])
 
@@ -51,11 +49,7 @@ export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({
               </Typography>
             </TableCell>
             <TableCell
-              sx={{
-                display: {
-                  md: 'table-cell', xs: 'none',
-                },
-              }}
+              sx={{ display: { md: 'table-cell', xs: 'none' } }}
               align="center"
               width="10px"
             >
@@ -64,11 +58,7 @@ export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({
               </Typography>
             </TableCell>
             <TableCell
-              sx={{
-                display: {
-                  sm: 'table-cell', xs: 'none',
-                },
-              }}
+              sx={{ display: { sm: 'table-cell', xs: 'none' } }}
               align="center"
               width="10px"
             >

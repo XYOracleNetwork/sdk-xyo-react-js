@@ -37,9 +37,7 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
   const [mapHeat, setMapHeat] = useState<MapHeat>()
   const { options } = useDynamicPositioning()
   const { mapSettings } = useMapSettings()
-  const {
-    map, mapInitialized,
-  } = useMapBoxInstance()
+  const { map, mapInitialized } = useMapBoxInstance()
 
   const value: HeatMapInitializerState = useMemo(() => ({
     MapHeat: mapHeat,
@@ -48,9 +46,7 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
 
   useEffect(() => {
     if (mapInitialized && featureSets?.length && featureSets[0].length > 0 && map && featureSetsLayers?.length) {
-      const {
-        lowUsageColor, highUsageColor,
-      } = heatMapColorProps as AnimatedHeatMapColorProps
+      const { lowUsageColor, highUsageColor } = heatMapColorProps as AnimatedHeatMapColorProps
       forget(MapHeat.initializeAnimatedHeatMapSource(featureSetsLayers, featureSets, map, lowUsageColor, highUsageColor))
     }
 

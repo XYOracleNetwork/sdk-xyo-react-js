@@ -23,9 +23,7 @@ export class CreditCardEmailFormControl<TProps extends EmptyObject = EmptyObject
   constructor() {
     super()
     super.setName(CONTROL_NAME)
-    this.setSerializeSettings({
-      sensitive: false, serializable: true,
-    })
+    this.setSerializeSettings({ sensitive: false, serializable: true })
   }
 
   override blurError(value: string) {

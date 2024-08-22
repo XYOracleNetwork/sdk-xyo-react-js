@@ -3,9 +3,7 @@ import {
   Card, CardContent, ClickAwayListener, Fade, Popper, styled, TextField,
 } from '@mui/material'
 import type { RefObject } from 'react'
-import React, {
-  forwardRef, useState,
-} from 'react'
+import React, { forwardRef, useState } from 'react'
 
 import { popperId } from './lib/index.ts'
 import { PopperButtonGroup } from './PopperButtonGroup.tsx'
@@ -45,10 +43,7 @@ export const FavoritePopper = forwardRef<HTMLDivElement, FavoritePopperProps>(
           {({ TransitionProps }) => (
             <Fade {...TransitionProps} timeout={350}>
               <Card>
-                <CardContent sx={{
-                  display: 'flex', gap: 1,
-                }}
-                >
+                <CardContent sx={{ display: 'flex', gap: 1 }}>
                   <TextField
                     autoFocus
                     label="Favorite Name"

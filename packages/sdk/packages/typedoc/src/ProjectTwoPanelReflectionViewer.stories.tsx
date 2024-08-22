@@ -9,17 +9,11 @@ import { ProjectTwoPanelReflectionViewer } from './ProjectTwoPanelReflectionView
 const StorybookEntry = {
   argTypes: {},
   component: ProjectTwoPanelReflectionViewer,
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'typedoc/TypeDocViewer/ProjectTwoPanelReflectionViewer',
 } as Meta<typeof ProjectTwoPanelReflectionViewer>
 
-const Template: StoryFn<typeof ProjectTwoPanelReflectionViewer> = ({
-  reflection, ...props
-}) => {
+const Template: StoryFn<typeof ProjectTwoPanelReflectionViewer> = ({ reflection, ...props }) => {
   return (
     <BrowserRouter>
       <ProjectTwoPanelReflectionViewer height="90vh" reflection={reflection} {...props} />

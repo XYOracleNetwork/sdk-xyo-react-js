@@ -56,10 +56,7 @@ export function TablePaginationActions({
             />
           )
         : null}
-      <Box sx={{
-        flexShrink: 0, ml: 2.5,
-      }}
-      >
+      <Box sx={{ flexShrink: 0, ml: 2.5 }}>
         <IconButton onClick={handleFirstPageButtonClick} disabled={page === 0} aria-label="first page">
           {theme.direction === 'rtl'
             ? <LastPageIcon />

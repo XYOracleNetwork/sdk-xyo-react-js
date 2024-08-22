@@ -25,18 +25,12 @@ const StorybookEntry = {
   argTypes: {},
   component: CollapsibleDrawer,
   decorators: [CollapseProviderDecorator],
-  parameters: {
-    docs: {
-      page: null,
-    },
-  },
+  parameters: { docs: { page: null } },
   title: 'appbar/CollapseDrawer',
 } as Meta<typeof CollapsibleDrawer>
 
 const Template: StoryFn<typeof CollapsibleDrawer> = (args) => {
-  const {
-    collapse, setCollapseEnd,
-  } = useCollapsible()
+  const { collapse, setCollapseEnd } = useCollapsible()
   const theme = useTheme()
   return (
     <FlexRow justifyContent="start">
@@ -54,9 +48,7 @@ const Template: StoryFn<typeof CollapsibleDrawer> = (args) => {
 }
 
 const Default = Template.bind({})
-Default.args = {
-  collapsedSize: '40px',
-}
+Default.args = { collapsedSize: '40px' }
 
 export { Default }
 

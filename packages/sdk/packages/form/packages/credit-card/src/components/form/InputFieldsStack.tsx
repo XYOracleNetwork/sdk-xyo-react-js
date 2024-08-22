@@ -21,9 +21,7 @@ export const InputFieldsStack: React.FC<InputFieldsStackProps> = (props) => {
       <Stack
         gap={2}
         sx={{
-          flexDirection: {
-            md: 'row', xs: 'column',
-          },
+          flexDirection: { md: 'row', xs: 'column' },
           ...sx,
         }}
         {...props}
@@ -34,27 +32,18 @@ export const InputFieldsStack: React.FC<InputFieldsStackProps> = (props) => {
       <Stack
         gap={2}
         sx={{
-          flexDirection: {
-            lg: 'row', xs: 'column',
-          },
+          flexDirection: { lg: 'row', xs: 'column' },
           ...sx,
         }}
         {...props}
       >
-        <Stack width={{
-          lg: '50%', xs: '100%',
-        }}
-        >
+        <Stack width={{ lg: '50%', xs: '100%' }}>
           <CreditCardNumberWithFormControl />
         </Stack>
         <Stack
-          direction={{
-            lg: 'row', xs: 'column',
-          }}
+          direction={{ lg: 'row', xs: 'column' }}
           gap={2}
-          width={{
-            lg: '50%', xs: '100%',
-          }}
+          width={{ lg: '50%', xs: '100%' }}
         >
           <CreditCardCvvWithFormControl />
           <CreditCardExpirationWithFormControl />
@@ -63,23 +52,15 @@ export const InputFieldsStack: React.FC<InputFieldsStackProps> = (props) => {
       <Stack
         gap={2}
         sx={{
-          flexDirection: {
-            md: 'row', xs: 'column',
-          },
+          flexDirection: { md: 'row', xs: 'column' },
           ...sx,
         }}
         {...props}
       >
-        <Stack width={{
-          md: '25%', xs: '100%',
-        }}
-        >
+        <Stack width={{ md: '25%', xs: '100%' }}>
           <CreditCardZipWithFormControl />
         </Stack>
-        <Stack width={{
-          md: '75%', xs: '100%',
-        }}
-        >
+        <Stack width={{ md: '75%', xs: '100%' }}>
           <CreditCardEmailWithFormControl />
         </Stack>
       </Stack>

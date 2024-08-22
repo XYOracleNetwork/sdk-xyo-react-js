@@ -9,9 +9,7 @@ import {
   ContractWitnessManifestNode, TokenDivinerIndexManifestNode, TokenManifestNode,
 } from './nodes/index.ts'
 
-export default {
-  title: 'modules/indexed-results/contract-witness',
-} as Meta
+export default { title: 'modules/indexed-results/contract-witness' } as Meta
 
 const Template: StoryFn = (args) => {
   return (
@@ -46,23 +44,15 @@ const TemplateUseIndexedResultsNoPoll: StoryFn = (args) => {
 }
 
 const Default = Template.bind({})
-Default.args = {
-  manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode],
-}
+Default.args = { manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode] }
 
 const WithUseIndexedResults = TemplateUseIndexedResults.bind({})
-WithUseIndexedResults.args = {
-  manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode],
-}
+WithUseIndexedResults.args = { manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode] }
 
 const WithUseFreshIndexedResults = TemplateUseFreshIndexedResults.bind({})
-WithUseFreshIndexedResults.args = {
-  manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode],
-}
+WithUseFreshIndexedResults.args = { manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode] }
 const WithUseIndexedResultsNoPoll = TemplateUseIndexedResultsNoPoll.bind({})
-WithUseIndexedResultsNoPoll.args = {
-  manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode],
-}
+WithUseIndexedResultsNoPoll.args = { manifestNodes: [TokenManifestNode, ContractWitnessManifestNode, TokenDivinerIndexManifestNode] }
 
 export {
   Default, WithUseFreshIndexedResults, WithUseIndexedResults, WithUseIndexedResultsNoPoll,

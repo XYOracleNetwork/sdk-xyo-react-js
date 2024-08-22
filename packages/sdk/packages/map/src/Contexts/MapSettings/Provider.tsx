@@ -24,9 +24,7 @@ export const MapSettingsProvider: React.FC<WithChildren<MapSettingsProviderProps
   zoom = 1,
 }) => {
   const [mapSettings, setMapSettings] = useState<MapSetting>(defaultMapSettings || {})
-  const {
-    map, mapInitialized,
-  } = useMapBoxInstance()
+  const { map, mapInitialized } = useMapBoxInstance()
 
   const value: MapSettingsState = useMemo(() => ({
     mapSettings,

@@ -12,12 +12,8 @@ export const EthereumGasPriceBlocknativePlugin: PayloadRenderPlugin = {
   ...createPayloadRenderPlugin({
     canRender: (payload?: Payload) => payload?.schema === EthereumGasBlocknativeSchema,
     components: {
-      avatar: {
-        image: EthereumGasPriceAvatar,
-      },
-      box: {
-        detailsBox: BlocknativeGasPriceDetailsBox,
-      },
+      avatar: { image: EthereumGasPriceAvatar },
+      box: { detailsBox: BlocknativeGasPriceDetailsBox },
       card: {
         content: BlocknativeGasPriceCardContent,
         header: BlocknativeGasPriceCardHeader,

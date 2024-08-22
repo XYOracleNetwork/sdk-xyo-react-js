@@ -13,9 +13,7 @@ import type { NetworkProviderProps } from './Props.ts'
 
 const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   const [initialized, setInitialized] = useState(false)
-  const {
-    network, setNetwork,
-  } = useNetwork()
+  const { network, setNetwork } = useNetwork()
 
   const [params, setParams] = useSearchParams()
 

@@ -53,9 +53,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
     <CardEx
       elevation={raised ? 3 : 0}
       sx={{
-        '&:hover': {
-          cursor: interactionVariant == 'button' ? 'pointer' : null,
-        },
+        '&:hover': { cursor: interactionVariant == 'button' ? 'pointer' : null },
         'backgroundColor': alpha(theme.palette.primary.light, 0.05),
         ...sx,
       }}

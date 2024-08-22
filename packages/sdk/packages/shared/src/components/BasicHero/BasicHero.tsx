@@ -52,12 +52,8 @@ const SubLinkSection: React.FC<SubLinkSectionProps> = ({
     <FlexGrowRow
       width="100%"
       sx={{
-        flexDirection: {
-          md: 'row', xs: 'column',
-        },
-        justifyContent: {
-          md: backgroundImageAlignment ? 'flex-start' : 'center', xs: 'center',
-        },
+        flexDirection: { md: 'row', xs: 'column' },
+        justifyContent: { md: backgroundImageAlignment ? 'flex-start' : 'center', xs: 'center' },
       }}
     >
       {subLinkIcon
@@ -181,11 +177,7 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
                 {desc}
               </Typography>
               <FlexGrowRow
-                sx={{
-                  flexDirection: {
-                    lg: 'row', xs: 'column',
-                  },
-                }}
+                sx={{ flexDirection: { lg: 'row', xs: 'column' } }}
                 width="100%"
                 marginTop={1}
               >
