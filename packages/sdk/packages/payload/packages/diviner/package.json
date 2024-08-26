@@ -1,39 +1,30 @@
 {
   "name": "@xyo-network/react-payload-diviner",
+  "version": "3.0.3",
+  "description": "Common React library for all XYO projects that use React",
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
+  ],
+  "homepage": "https://xyo.network",
+  "bugs": {
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues",
+    "email": "support@xyo.network"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "license": "LGPL-3.0-only",
   "author": {
-    "email": "support@xyo.network",
     "name": "XYO Development Team",
+    "email": "support@xyo.network",
     "url": "https://xyo.network"
   },
-  "bugs": {
-    "email": "support@xyo.network",
-    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
-  },
-  "dependencies": {
-    "@xylabs/exists": "^4.0.2",
-    "@xylabs/react-async-effect": "^4.0.3",
-    "@xylabs/react-shared": "^4.0.3",
-    "@xyo-network/diviner-huri": "^3.0.6",
-    "@xyo-network/diviner-payload-abstract": "^3.0.6",
-    "@xyo-network/payload-model": "^3.0.6",
-    "@xyo-network/react-error": "workspace:^",
-    "@xyo-network/react-payload-huri": "workspace:^",
-    "@xyo-network/react-shared": "workspace:^",
-    "react-router-dom": "^6.26.1"
-  },
-  "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.30",
-    "typescript": "^5.5.4"
-  },
-  "peerDependencies": {
-    "@mui/icons-material": "^5",
-    "@mui/material": "^5",
-    "@mui/styles": "^5",
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "description": "Common React library for all XYO projects that use React",
-  "docs": "dist/docs.json",
+  "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
       "import": {
@@ -46,27 +37,41 @@
     "./package.json": "./package.json"
   },
   "module": "dist/browser/index.mjs",
-  "homepage": "https://xyo.network",
-  "keywords": [
-    "xyo",
-    "utility",
-    "typescript",
-    "react"
-  ],
-  "license": "LGPL-3.0-only",
+  "types": "dist/browser/index.d.ts",
+  "scripts": {
+    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\"",
+    "lint-pkg": "npmPkgJsonLint ."
+  },
+  "dependencies": {
+    "@xylabs/exists": "^4.0.5",
+    "@xylabs/react-async-effect": "^4.0.3",
+    "@xylabs/react-shared": "^4.0.3",
+    "@xyo-network/diviner-huri": "^3.0.15",
+    "@xyo-network/diviner-payload-abstract": "^3.0.15",
+    "@xyo-network/payload-model": "^3.0.15",
+    "@xyo-network/react-error": "workspace:^",
+    "@xyo-network/react-payload-huri": "workspace:^",
+    "@xyo-network/react-shared": "workspace:^",
+    "react-router-dom": "^6.26.1"
+  },
+  "devDependencies": {
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "@mui/styles": "^5.16.7",
+    "@xylabs/ts-scripts-yarn3": "^4.0.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^5",
+    "@mui/material": "^5",
+    "@mui/styles": "^5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
-  },
-  "scripts": {
-    "lint-pkg": "npmPkgJsonLint .",
-    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\""
-  },
-  "sideEffects": false,
-  "types": "dist/browser/index.d.ts",
-  "version": "3.0.2",
-  "type": "module"
+  "docs": "dist/docs.json"
 }

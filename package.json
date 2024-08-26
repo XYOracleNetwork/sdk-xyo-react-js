@@ -1,19 +1,56 @@
 {
-  "//": [
-    "devDep"
+  "name": "@xyo-network/sdk-xyo-react",
+  "version": "3.0.3",
+  "description": "Common React library for all XYO projects that use React",
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
   ],
+  "homepage": "https://xyo.network",
+  "bugs": {
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues",
+    "email": "support@xyo.network"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "license": "LGPL-3.0-only",
   "author": {
-    "email": "support@xyo.network",
     "name": "XYO Development Team",
+    "email": "support@xyo.network",
     "url": "https://xyo.network"
   },
-  "bugs": {
-    "email": "support@xyo.network",
-    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues"
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/browser/index.d.ts",
+      "default": "./dist/browser/index.mjs"
+    },
+    "./package.json": "./package.json",
+    "./README.md": "./README.md"
   },
+  "module": "dist/browser/index.mjs",
+  "types": "dist/browser/index.d.ts",
   "workspaces": [
     "packages/**/*"
   ],
+  "scripts": {
+    "build": "xy build",
+    "build-storybook": "storybook build && copyfiles -u 1 storybook-static/**/* docs/storybook",
+    "build-storybook-debug": "storybook build --debug-webpack",
+    "build-typedoc-site": "typedoc",
+    "lint-pkg": "npmPkgJsonLint .",
+    "start": "storybook dev -p 6006"
+  },
+  "resolutions": {
+    "@mui/x-tree-view": "^6.0.0-alpha.1",
+    "ethers": "^6",
+    "typedoc": "0.26.3"
+  },
   "dependencies": {
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
@@ -21,7 +58,7 @@
     "@xyo-network/react-modules": "workspace:^",
     "@xyo-network/react-plugins": "workspace:^",
     "@xyo-network/react-sdk": "workspace:^",
-    "axios": "^1.7.4",
+    "axios": "^1.7.5",
     "geojson": "^0.5.0",
     "mapbox-gl": "^3.6.0",
     "react": "^18.3.1",
@@ -29,7 +66,6 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^5.3.0"
   },
-  "description": "Common React library for all XYO projects that use React",
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@emotion/react": "^11.13.3",
@@ -54,28 +90,22 @@
     "@storybook/test": "^8.2.9",
     "@storybook/theming": "^8.2.9",
     "@stylistic/eslint-plugin": "^2.6.4",
-    "@typescript-eslint/eslint-plugin": "^8.2.0",
-    "@typescript-eslint/parser": "^8.2.0",
-    "@xylabs/eslint-config-flat": "^4.0.0-rc.30",
-    "@xylabs/eslint-config-react-flat": "^4.0.0-rc.30",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "@xylabs/eslint-config-flat": "^4.0.7",
+    "@xylabs/eslint-config-react-flat": "^4.0.7",
     "@xylabs/pixel": "^2.0.1",
     "@xylabs/react-button": "^4.0.3",
     "@xylabs/react-flexbox": "^4.0.3",
     "@xylabs/react-invertible-theme": "^4.0.3",
     "@xylabs/react-pixel": "^4.0.3",
     "@xylabs/react-shared": "^4.0.3",
-    "@xylabs/ts-scripts-yarn3": "^4.0.0-rc.30",
-    "@xylabs/tsconfig-react": "^4.0.0-rc.30",
+    "@xylabs/ts-scripts-yarn3": "^4.0.7",
+    "@xylabs/tsconfig-react": "^4.0.7",
     "chromatic": "^11.7.1",
     "copyfiles": "^2.4.1",
-    "eslint": "^9.9.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-sonarjs": "^2.0.0",
-    "eslint-plugin-workspaces": "^0.10.1",
+    "eslint": "^9.9.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
     "react": "^18.3.1",
@@ -84,58 +114,22 @@
     "react-icons": "^5.3.0",
     "storybook": "^8.2.9",
     "storybook-dark-mode": "^4.0.2",
-    "ts-jest": "^29.2.4",
+    "ts-jest": "^29.2.5",
     "typedoc": "^0.26.6",
     "typescript": "^5.5.4",
     "vite": "^5.4.2"
   },
-  "docs": "dist/docs.json",
-  "exports": {
-    ".": {
-      "types": "./dist/browser/index.d.ts",
-      "default": "./dist/browser/index.mjs"
-    },
-    "./package.json": "./package.json",
-    "./README.md": "./README.md"
-  },
-  "types": "dist/browser/index.d.ts",
-  "module": "dist/browser/index.mjs",
-  "homepage": "https://xyo.network",
-  "keywords": [
-    "xyo",
-    "utility",
-    "typescript",
-    "react"
-  ],
-  "license": "LGPL-3.0-only",
-  "name": "@xyo-network/sdk-xyo-react",
-  "resolutions": {
-    "ethers": "^6",
-    "typedoc": "0.26.3",
-    "@mui/x-tree-view": "^6.0.0-alpha.1"
-  },
-  "resolutions_comment": "We set the above resolutions to make sure we pull in the latest versions of these packages even if some sub packages request earlier versions",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
-  },
-  "scripts": {
-    "build": "xy build",
-    "build-storybook": "storybook build && copyfiles -u 1 storybook-static/**/* docs/storybook",
-    "build-storybook-debug": "storybook build --debug-webpack",
-    "start": "storybook dev -p 6006",
-    "lint-pkg": "npmPkgJsonLint .",
-    "build-typedoc-site": "typedoc"
-  },
-  "sideEffects": false,
-  "version": "3.0.2",
-  "packageManager": "yarn@4.4.0",
+  "packageManager": "yarn@4.4.1",
   "volta": {
     "node": "22.3.0",
     "yarn": "1.22.22"
   },
-  "type": "module"
+  "publishConfig": {
+    "access": "public"
+  },
+  "//": [
+    "devDep"
+  ],
+  "docs": "dist/docs.json",
+  "resolutions_comment": "We set the above resolutions to make sure we pull in the latest versions of these packages even if some sub packages request earlier versions"
 }
