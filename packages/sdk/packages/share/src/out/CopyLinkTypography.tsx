@@ -10,10 +10,8 @@ import React, {
 
 import { CopyIconButton } from './CopyIconButton.tsx'
 import {
-  AnimatedGradientTypography, type ShareLinkProps, splitAroundSubstring,
+  AnimatedGradientTypography, findXnsNameInUrl, type ShareLinkProps, splitAroundSubstring,
 } from './lib/index.ts'
-
-const validTLDs = new Set(['.xyo'])
 
 export interface CopyLinkTypographyProps extends ShareLinkProps, TypographyProps {
   linkVariant?: 'xnsName' | 'basic'
@@ -30,15 +28,7 @@ export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
 
   const parsedXnsName = useMemo(() => {
     if (linkVariant === 'xnsName' && shareUrl) {
-      const url = new URL(shareUrl)
-      const pathParts = url.pathname.split('/')
-      const xnsName = pathParts.find((part) => {
-        if (part.includes('.')) {
-          const tld = part.split('.').pop()
-          return validTLDs.has(`.${tld}`)
-        }
-      })
-
+      const xnsName = findXnsNameInUrl(shareUrl)
       if (xnsName) {
         return splitAroundSubstring(shareUrl, xnsName)
       } else {
