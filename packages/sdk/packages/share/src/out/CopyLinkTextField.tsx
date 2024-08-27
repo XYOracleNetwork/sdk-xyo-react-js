@@ -1,10 +1,8 @@
-import { CopyAllRounded } from '@mui/icons-material'
 import type { StandardTextFieldProps } from '@mui/material'
-import {
-  IconButton, InputAdornment, TextField,
-} from '@mui/material'
-import { forget } from '@xylabs/forget'
-import React, { useState } from 'react'
+import { InputAdornment, TextField } from '@mui/material'
+import React, { useCallback, useState } from 'react'
+
+import { CopyIconButton } from './CopyIconButton.tsx'
 
 export interface CopyLinkTextFieldProps extends StandardTextFieldProps {
   shareLinkName?: string
@@ -16,19 +14,9 @@ export const CopyLinkTextField: React.FC<CopyLinkTextFieldProps> = ({
 }) => {
   const [error, setError] = useState<Error>()
 
-  const copyToClipboard = async (link?: string) => {
-    if (link) {
-      try {
-        await navigator.clipboard.writeText(link)
-      } catch (e) {
-        const message = 'Error copying shareUrl to clipboard'
-        console.error(message, e, link)
-        setError(new Error(message))
-      }
-    } else {
-      console.warn('tried to copy shareUrl before it was generated')
-    }
-  }
+  const onCopyToClipboard = useCallback((error?: Error) => {
+    setError(error)
+  }, [])
 
   return (
     <TextField
@@ -40,9 +28,7 @@ export const CopyLinkTextField: React.FC<CopyLinkTextFieldProps> = ({
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <IconButton aria-label={`copy ${shareLinkName} link`} onClick={() => forget(copyToClipboard(shareUrl))} edge="end">
-              <CopyAllRounded />
-            </IconButton>
+            <CopyIconButton shareLinkName={shareLinkName} shareUrl={shareUrl} onCopyToClipboard={onCopyToClipboard} />
           </InputAdornment>
         ),
       }}
