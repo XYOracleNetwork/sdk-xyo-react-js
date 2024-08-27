@@ -3,9 +3,12 @@ import {
 } from '@mui/material'
 
 const moveBg = keyframes(`
-  to {
-    background-position: var(--bg-size) 0;
-  }
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 0%;
+    }
 `)
 
 /**
@@ -13,17 +16,21 @@ const moveBg = keyframes(`
  */
 export const AnimatedGradientTypography = styled(Typography, { name: 'AnimatedGradientTypography' })(({ theme }) => ({
   'fontWeight': 'bold',
-  '--bg-size': '400%',
-  '--color-one': theme.palette.primary.main,
-  '--color-two': theme.palette.secondary.main,
+  '--color-one': theme.palette.secondary.dark,
+  '--color-two': theme.palette.primary.light,
   'background': `linear-gradient(
-      90deg,
+      .25turn,
       var(--color-one),
       var(--color-two),
       var(--color-one)
-    )
-    0 0 / var(--bg-size) 100%`,
+    )`,
   'color': 'transparent',
   'backgroundClip': 'text',
-  '@media (prefers-reduced-motion: no-preference)': { animation: `${moveBg} 8s linear infinite` },
+  'backgroundSize': '800%',
+  '@media (prefers-reduced-motion: no-preference)': {
+    animationName: moveBg,
+    animationDirection: 'reverse',
+    animationDuration: '2s',
+    animationIterationCount: 'infinite',
+  },
 }))
