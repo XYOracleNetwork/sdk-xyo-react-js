@@ -2,6 +2,7 @@ import { Cancel } from '@mui/icons-material'
 import type { TypographyProps } from '@mui/material'
 import {
   Stack,
+  Tooltip,
   Typography,
 } from '@mui/material'
 import React, {
@@ -26,7 +27,12 @@ export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
 
   const parsedXnsName = useMemo(() => {
     if (shareUrl && xnsNameProp) {
-      return splitAroundSubstring(shareUrl, xnsNameProp)
+      try {
+        const parts = splitAroundSubstring(shareUrl, xnsNameProp)
+        return parts
+      } catch (e) {
+        setError(e as Error)
+      }
     }
   }, [])
 
@@ -44,7 +50,7 @@ export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
           )
         : <Typography sx={{ display: 'inline-flex' }} {...props}>{shareUrl}</Typography>}
       <CopyIconButton onCopyToClipboard={onCopyToClipboard} shareLinkName={shareLinkName} shareUrl={shareUrl} sx={{ display: 'inline-flex' }} />
-      {error ? <Cancel color="error" sx={{ display: 'inline-flex' }} /> : null}
+      {error ? <Tooltip title={error.message}><Cancel color="error" sx={{ display: 'inline-flex' }} /></Tooltip> : null}
     </Stack>
   )
 }

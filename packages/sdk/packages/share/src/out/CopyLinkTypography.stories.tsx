@@ -21,6 +21,10 @@ WithXnsName.args = { shareUrl: 'https://beta.node.xyo.network.com/view/arietrouw
 const WithXnsNameInSubdomain = Template.bind({})
 WithXnsNameInSubdomain.args = { shareUrl: 'https://arietrouw.xyo.network', xnsName: 'arietrouw.xyo' }
 
+const WithError = Template.bind({})
+WithError.args = { shareUrl: 'https://google.com', xnsName: 'foo.xyo' }
+
 export {
-  Default, WithShareUrl, WithXnsNameInSubdomain as WithXnsNameInRootShareUrl, WithXnsName as WithXnsNameShareUrl,
+  Default, WithError,
+  WithShareUrl, WithXnsName, WithXnsNameInSubdomain,
 }

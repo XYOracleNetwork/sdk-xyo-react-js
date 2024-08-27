@@ -3,7 +3,7 @@ export const splitAroundSubstring = (path: string, substring: string): [string, 
   const index = path.indexOf(substring)
 
   if (index === -1) {
-    throw new Error(`Substring "${substring}" not found in path.`)
+    throw new Error(`XNS name "${substring}" not found in path.`)
   }
 
   // Extract the part before the substring
