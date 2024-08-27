@@ -1,5 +1,5 @@
+export * from './CopyLinkStack.tsx'
 export * from './CopyLinkTextField.tsx'
-export * from './CopyLinkTypography.tsx'
 export * from './Dialog.tsx'
 export * from './Explanation.tsx'
 export * from './GenerateShareLinkButton.tsx'

@@ -1,5 +1,5 @@
 import { Cancel } from '@mui/icons-material'
-import type { TypographyProps } from '@mui/material'
+import type { StackProps, TypographyProps } from '@mui/material'
 import {
   Stack,
   Tooltip,
@@ -14,10 +14,13 @@ import {
   AnimatedGradientTypography, type ShareLinkProps, splitAroundSubstring,
 } from './lib/index.ts'
 
-export interface CopyLinkTypographyProps extends ShareLinkProps, TypographyProps {}
+export interface CopyLinkStackProps extends ShareLinkProps, StackProps {
+  xnsEndColor?: string
+  xnsStartColor?: string
+}
 
-export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
-  shareLinkName, shareUrl, xnsName: xnsNameProp, ...props
+export const CopyLinkStack: React.FC<CopyLinkStackProps> = ({
+  shareLinkName, shareUrl, xnsName: xnsNameProp, xnsEndColor, xnsStartColor, ...props
 }) => {
   const [error, setError] = useState<Error>()
 
@@ -39,16 +42,16 @@ export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
   const [part1, xnsName, part3] = parsedXnsName || []
 
   return (
-    <Stack direction="row" alignItems="center" gap={0.25}>
+    <Stack direction="row" alignItems="center" gap={0.25} {...props}>
       {xnsName
         ? (
-            <Stack direction="row">
-              <Typography sx={{ display: 'inline-flex' }} {...props}>{part1}</Typography>
-              <AnimatedGradientTypography sx={{ display: 'inline-flex' }} {...props}>{xnsName}</AnimatedGradientTypography>
-              <Typography sx={{ display: 'inline-flex' }} {...props}>{part3}</Typography>
+            <Stack direction="row" maxWidth="100%" sx={{ overflowX: 'auto' }}>
+              <Typography sx={{ display: 'inline-flex' }}>{part1}</Typography>
+              <AnimatedGradientTypography color1={xnsStartColor} color2={xnsEndColor} sx={{ display: 'inline-flex' }}>{xnsName}</AnimatedGradientTypography>
+              <Typography sx={{ display: 'inline-flex' }}>{part3}</Typography>
             </Stack>
           )
-        : <Typography sx={{ display: 'inline-flex' }} {...props}>{shareUrl}</Typography>}
+        : <Typography sx={{ display: 'inline-flex' }}>{shareUrl}</Typography>}
       <CopyIconButton onCopyToClipboard={onCopyToClipboard} shareLinkName={shareLinkName} shareUrl={shareUrl} sx={{ display: 'inline-flex' }} />
       {error ? <Tooltip title={error.message}><Cancel color="error" sx={{ display: 'inline-flex' }} /></Tooltip> : null}
     </Stack>
