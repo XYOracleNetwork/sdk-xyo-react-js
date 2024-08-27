@@ -6,10 +6,12 @@ import React, { useCallback, useState } from 'react'
 import { CopyIconButton } from './CopyIconButton.tsx'
 import type { ShareLinkProps } from './lib/index.ts'
 
-export interface CopyLinkTypographyProps extends ShareLinkProps, TypographyProps {}
+export interface CopyLinkTypographyProps extends ShareLinkProps, TypographyProps {
+  linkVariant?: 'xnsName' | 'basic'
+}
 
 export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
-  shareLinkName, shareUrl, ...props
+  linkVariant = 'basic', shareLinkName, shareUrl, ...props
 }) => {
   const [error, setError] = useState<Error>()
 
@@ -19,7 +21,8 @@ export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
 
   return (
     <Stack direction="row" alignItems="center" gap={0.5}>
-      <Typography sx={{ display: 'inline-flex' }} {...props}>{shareUrl}</Typography>
+      {linkVariant === 'basic' ? <Typography sx={{ display: 'inline-flex' }} {...props}>{shareUrl}</Typography> : null}
+      {/* {linkVariant === 'basic' ? <Typography sx={{ display: 'inline-flex' }} {...props}>{shareLinkName}</Typography */}
       <CopyIconButton onCopyToClipboard={onCopyToClipboard} shareLinkName={shareLinkName} shareUrl={shareUrl} sx={{ display: 'inline-flex' }} />
       {error ? <Cancel color="error" sx={{ display: 'inline-flex' }} /> : null}
     </Stack>
