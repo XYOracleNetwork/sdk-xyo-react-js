@@ -51,7 +51,14 @@ export const CopyLinkStack: React.FC<CopyLinkStackProps> = ({
               <Typography sx={{ display: 'inline-flex' }}>{part3}</Typography>
             </Stack>
           )
-        : <Typography sx={{ display: 'inline-flex' }}>{shareUrl}</Typography>}
+        : (
+            <Typography sx={{
+              display: 'inline-flex', maxWidth: '100%', overflow: 'auto',
+            }}
+            >
+              {shareUrl}
+            </Typography>
+          )}
       <CopyIconButton onCopyToClipboard={onCopyToClipboard} shareLinkName={shareLinkName} shareUrl={shareUrl} sx={{ display: 'inline-flex' }} />
       {error ? <Tooltip title={error.message}><Cancel color="error" sx={{ display: 'inline-flex' }} /></Tooltip> : null}
     </Stack>
