@@ -10,15 +10,13 @@ import React, {
 
 import { CopyIconButton } from './CopyIconButton.tsx'
 import {
-  AnimatedGradientTypography, findXnsNameInUrl, type ShareLinkProps, splitAroundSubstring,
+  AnimatedGradientTypography, type ShareLinkProps, splitAroundSubstring,
 } from './lib/index.ts'
 
-export interface CopyLinkTypographyProps extends ShareLinkProps, TypographyProps {
-  linkVariant?: 'xnsName' | 'basic'
-}
+export interface CopyLinkTypographyProps extends ShareLinkProps, TypographyProps {}
 
 export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
-  linkVariant = 'basic', shareLinkName, shareUrl, ...props
+  shareLinkName, shareUrl, xnsName: xnsNameProp, ...props
 }) => {
   const [error, setError] = useState<Error>()
 
@@ -27,13 +25,8 @@ export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
   }, [])
 
   const parsedXnsName = useMemo(() => {
-    if (linkVariant === 'xnsName' && shareUrl) {
-      const xnsName = findXnsNameInUrl(shareUrl)
-      if (xnsName) {
-        return splitAroundSubstring(shareUrl, xnsName)
-      } else {
-        setError(new Error('No XNS name found in URL'))
-      }
+    if (shareUrl && xnsNameProp) {
+      return splitAroundSubstring(shareUrl, xnsNameProp)
     }
   }, [])
 
@@ -41,8 +34,7 @@ export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
 
   return (
     <Stack direction="row" alignItems="center" gap={0.25}>
-      {linkVariant === 'basic' ? <Typography sx={{ display: 'inline-flex' }} {...props}>{shareUrl}</Typography> : null}
-      {linkVariant === 'xnsName'
+      {xnsName
         ? (
             <Stack direction="row">
               <Typography sx={{ display: 'inline-flex' }} {...props}>{part1}</Typography>
@@ -50,7 +42,7 @@ export const CopyLinkTypography: React.FC<CopyLinkTypographyProps> = ({
               <Typography sx={{ display: 'inline-flex' }} {...props}>{part3}</Typography>
             </Stack>
           )
-        : null}
+        : <Typography sx={{ display: 'inline-flex' }} {...props}>{shareUrl}</Typography>}
       <CopyIconButton onCopyToClipboard={onCopyToClipboard} shareLinkName={shareLinkName} shareUrl={shareUrl} sx={{ display: 'inline-flex' }} />
       {error ? <Cancel color="error" sx={{ display: 'inline-flex' }} /> : null}
     </Stack>

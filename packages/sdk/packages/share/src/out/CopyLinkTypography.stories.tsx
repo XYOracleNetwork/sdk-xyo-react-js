@@ -15,9 +15,12 @@ Default.args = {}
 const WithShareUrl = Template.bind({})
 WithShareUrl.args = { shareUrl: 'https://google.com' }
 
-const WithXnsNameShareUrl = Template.bind({})
-WithXnsNameShareUrl.args = { linkVariant: 'xnsName', shareUrl: 'https://beta.node.xyo.network.com/view/arietrouw.xyo/profile' }
+const WithXnsName = Template.bind({})
+WithXnsName.args = { shareUrl: 'https://beta.node.xyo.network.com/view/arietrouw.xyo/profile', xnsName: 'arietrouw.xyo' }
+
+const WithXnsNameInSubdomain = Template.bind({})
+WithXnsNameInSubdomain.args = { shareUrl: 'https://arietrouw.xyo.network', xnsName: 'arietrouw.xyo' }
 
 export {
-  Default, WithShareUrl, WithXnsNameShareUrl,
+  Default, WithShareUrl, WithXnsNameInSubdomain as WithXnsNameInRootShareUrl, WithXnsName as WithXnsNameShareUrl,
 }
