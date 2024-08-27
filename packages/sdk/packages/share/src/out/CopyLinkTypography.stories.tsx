@@ -15,4 +15,9 @@ Default.args = {}
 const WithShareUrl = Template.bind({})
 WithShareUrl.args = { shareUrl: 'https://google.com' }
 
-export { Default, WithShareUrl }
+const WithXnsNameShareUrl = Template.bind({})
+WithXnsNameShareUrl.args = { linkVariant: 'xnsName', shareUrl: 'https://beta.node.xyo.network.com/view/arietrouw.xyo/profile' }
+
+export {
+  Default, WithShareUrl, WithXnsNameShareUrl,
+}
