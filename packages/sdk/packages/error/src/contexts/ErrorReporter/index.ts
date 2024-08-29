@@ -1,3 +1,3 @@
 export * from './Provider.tsx'
 export * from './State.ts'
-export * from './useRollbar.tsx'
+export * from './useErrorReporter.tsx'

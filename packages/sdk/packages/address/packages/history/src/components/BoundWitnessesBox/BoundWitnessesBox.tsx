@@ -2,7 +2,7 @@ import { LinearProgress, Slide } from '@mui/material'
 import type { Hash } from '@xylabs/hex'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { ThrownErrorBoundary, useRollbar } from '@xyo-network/react-error'
+import { ThrownErrorBoundary, useErrorReporter } from '@xyo-network/react-error'
 import type { EventNoun, EventVerb } from '@xyo-network/react-event'
 import { useEvent } from '@xyo-network/react-event'
 import React, { forwardRef } from 'react'
@@ -16,7 +16,7 @@ import { NestedBoundWitnessesBox } from './NestedBoundWitnesses/index.ts'
 export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
   const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
-  const { rollbar } = useRollbar()
+  const { rollbar } = useErrorReporter()
   const { loading } = useNestedBoundWitnesses(false)
 
   const [activeBWref] = useEvent<HTMLDivElement, EventNoun, EventVerb, Hash>((noun, _verb, data) =>

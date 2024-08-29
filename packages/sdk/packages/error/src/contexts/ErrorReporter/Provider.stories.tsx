@@ -4,7 +4,7 @@ import React from 'react'
 import Rollbar from 'rollbar'
 
 import { ErrorReporterProvider } from './Provider.tsx'
-import { useRollbar } from './useRollbar.tsx'
+import { useErrorReporter } from './useErrorReporter.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -14,7 +14,7 @@ const StorybookEntry = {
 } as Meta<typeof ErrorReporterProvider>
 
 const RollbarComponent = () => {
-  const { rollbar } = useRollbar()
+  const { rollbar } = useErrorReporter()
   const rollbarFound = typeof rollbar?.error === 'function'
 
   return (

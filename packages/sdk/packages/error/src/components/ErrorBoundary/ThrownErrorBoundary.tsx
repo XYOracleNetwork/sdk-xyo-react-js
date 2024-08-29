@@ -1,9 +1,13 @@
+import { useRollbar } from '@rollbar/react'
 import type { ModuleError } from '@xyo-network/payload-model'
 import { ModuleErrorSchema } from '@xyo-network/payload-model'
-import type { ErrorInfo, ReactNode } from 'react'
+import type {
+  ErrorInfo, FC, ReactNode,
+} from 'react'
 import React, { Component } from 'react'
 import type Rollbar from 'rollbar'
 
+import { useErrorReporter } from '../../contexts/index.ts'
 import { ErrorRender } from '../ErrorRender/index.ts'
 
 export interface ThrownErrorBoundaryProps {
@@ -20,11 +24,11 @@ export interface ThrownErrorBoundaryState {
   xyoError?: ModuleError
 }
 
-export class ThrownErrorBoundary extends Component<ThrownErrorBoundaryProps, ThrownErrorBoundaryState> {
+class ThrownErrorBoundaryInner extends Component<ThrownErrorBoundaryProps, ThrownErrorBoundaryState> {
   override state: ThrownErrorBoundaryState = { xyoError: undefined }
 
   static getDerivedStateFromError(error: Error) {
-    return { hasError: true, xyoError: ThrownErrorBoundary.normalizeError(error) } as ThrownErrorBoundaryState
+    return { hasError: true, xyoError: ThrownErrorBoundaryInner.normalizeError(error) } as ThrownErrorBoundaryState
   }
 
   static normalizeError(error: Error | ModuleError): ModuleError {
@@ -62,4 +66,15 @@ export class ThrownErrorBoundary extends Component<ThrownErrorBoundaryProps, Thr
 
     return children
   }
+}
+
+// calling the hook outside of the component since only can be called in functional component
+export const ThrownErrorBoundary: FC<ThrownErrorBoundaryProps> = ({ rollbar, ...props }) => {
+  const { rollbar: rollbarErrorReporter } = useErrorReporter()
+  let rollbarFromHook: Rollbar | undefined
+  // safely call the hook
+  try {
+    rollbarFromHook = useRollbar()
+  } catch {}
+  return <ThrownErrorBoundaryInner rollbar={rollbar ?? rollbarErrorReporter ?? rollbarFromHook} {...props} />
 }

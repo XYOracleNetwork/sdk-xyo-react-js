@@ -1,4 +1,4 @@
-import { Alert } from '@mui/material'
+import { Alert, Button } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
@@ -9,10 +9,26 @@ const StorybookEntry: Meta = {
   title: 'auth-service/ApiBoundary/ThrownErrorBoundary',
 }
 
+const Thrower: React.FC = () => {
+  const [shouldThrow, setShouldThrow] = React.useState(false)
+  if (shouldThrow) {
+    throw new Error('Test Error')
+  }
+  return (
+    <Button onClick={() => {
+      setShouldThrow(true)
+    }}
+    >
+      Throw Error
+    </Button>
+  )
+}
+
 const Template: StoryFn<typeof ThrownErrorBoundary> = ({ errorComponent }) => {
   return (
     <ThrownErrorBoundary errorComponent={errorComponent} boundaryName="StoryBook">
       <Alert severity="info">Use React Dev Tools to trigger and error within the boundary</Alert>
+      <Thrower />
     </ThrownErrorBoundary>
   )
 }

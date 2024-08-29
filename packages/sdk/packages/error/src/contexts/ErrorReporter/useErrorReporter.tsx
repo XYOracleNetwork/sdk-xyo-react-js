@@ -2,13 +2,11 @@ import { useContext } from 'react'
 
 import { ErrorReporterContext } from './Context.ts'
 
-const useRollbar = () => {
+export const useErrorReporter = () => {
   const context = useContext(ErrorReporterContext)
   if (context === undefined) {
-    console.warn('useRollbar must be used within a ErrorReporterContext')
+    console.warn('useErrorReporter must be used within a ErrorReporterContext')
   }
 
   return context ?? {}
 }
-
-export { useRollbar }
