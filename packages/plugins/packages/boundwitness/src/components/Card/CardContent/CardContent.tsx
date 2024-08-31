@@ -14,14 +14,13 @@ export interface BoundWitnessCardContentProps extends CardContentProps {
   payload?: Payload
 }
 
-// eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
-export const BoundWitnessCardContent = forwardRef<HTMLElement, BoundWitnessCardContentProps>(({
+export const BoundWitnessCardContent = forwardRef<HTMLDivElement, BoundWitnessCardContentProps>(({
   payload, active, ...props
-}) => {
+}, ref) => {
   const boundwitness = payload as Payload<BoundWitness>
 
   return (
-    <CardContentFlex active={active} {...props}>
+    <CardContentFlex ref={ref} active={active} {...props}>
       <CardColumnsFlex>
         <CardColumnTitleH2>Payloads</CardColumnTitleH2>
         <SchemaAvatarGroup schemas={boundwitness?.payload_schemas} />

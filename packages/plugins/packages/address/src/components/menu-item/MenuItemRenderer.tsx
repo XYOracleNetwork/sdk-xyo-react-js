@@ -12,22 +12,16 @@ export const AddressMenuItemRenderer = forwardRef<HTMLLIElement, PayloadRenderPr
 }, ref) => {
   const { address } = (payload as AddressPayload) ?? {}
   return (
-    <>
-      {address
-        ? (
-            <MenuItem ref={ref} value={address} title={address} {...props}>
-              <AddressRenderRowBox address={address} icons />
-              {children}
-            </MenuItem>
-          )
-        : null}
+    <MenuItem ref={ref} value={address} title={address} {...props}>
       {payload === null
         ? <Alert severity="error">Missing Address</Alert>
         : null}
       {payload === undefined
         ? <CircularProgress size={16} />
         : null}
-    </>
+      {address ? <AddressRenderRowBox address={address} icons /> : null}
+      {children}
+    </MenuItem>
   )
 })
 

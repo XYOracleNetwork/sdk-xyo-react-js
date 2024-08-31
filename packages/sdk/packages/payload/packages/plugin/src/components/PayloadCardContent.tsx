@@ -5,10 +5,9 @@ import React, { forwardRef } from 'react'
 
 import type { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
 
-// eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
-export const PayloadCardContent = forwardRef<HTMLElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }) => {
+export const PayloadCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   return (
-    <CardContent {...props}>
+    <CardContent ref={ref} {...props}>
       <PayloadDetails payload={payload} />
     </CardContent>
   )

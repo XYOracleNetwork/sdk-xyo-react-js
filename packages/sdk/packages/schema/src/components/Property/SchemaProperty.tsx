@@ -38,7 +38,7 @@ const useResolveSchema = (schema?: string) => {
 export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
   ({
     showLinkNames = true, showOpenNewWindowLink = true, showStatusIcon = true, titleProps, value, ...props
-  }, forwardedRef) => {
+  }, ref) => {
     const resolvedSchema = useResolveSchema(value)
     const [buttonRef, buttonDispatch] = useEvent<HTMLButtonElement>()
     const [divRef, divDispatch] = useEvent<HTMLDivElement>()
@@ -55,7 +55,7 @@ export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
     }
 
     return (
-      <Property ref={forwardedRef} title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
+      <Property ref={ref} title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
         {value && showStatusIcon
           ? resolvedSchema === null
             ? (

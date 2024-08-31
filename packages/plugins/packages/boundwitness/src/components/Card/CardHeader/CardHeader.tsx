@@ -22,8 +22,8 @@ export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   payload?: Payload
 }
 
-export const BoundWitnessCardHeader = forwardRef<HTMLElement, BoundWitnessCardHeaderProps>(
-  // eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
+export const BoundWitnessCardHeader = forwardRef<HTMLDivElement, BoundWitnessCardHeaderProps>(
+
   ({
     active = false,
     activeBgColor = true,
@@ -34,13 +34,14 @@ export const BoundWitnessCardHeader = forwardRef<HTMLElement, BoundWitnessCardHe
     hideValidation,
     payload,
     ...props
-  }) => {
+  }, ref) => {
     const boundwitness = payload as Payload<BoundWitness>
     const theme = useTheme()
     const hash = usePayloadHash(boundwitness)
 
     return (
       <CardHeaderHash
+        ref={ref}
         active={active}
         activeBgColor={activeBgColor}
         title={(
