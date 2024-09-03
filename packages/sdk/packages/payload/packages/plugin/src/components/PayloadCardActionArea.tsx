@@ -5,11 +5,8 @@ import React, { forwardRef } from 'react'
 
 import type { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
 
-// eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
-export const PayloadCardActionArea = forwardRef<HTMLDivElement, PayloadRenderProps & CardActionAreaProps>(({
-  ref, payload, ...props
-}) => {
-  return <CardActionArea {...props} />
+export const PayloadCardActionArea = forwardRef<HTMLButtonElement, PayloadRenderProps & CardActionAreaProps>(({ payload, ...props }, ref) => {
+  return <CardActionArea ref={ref} {...props} />
 })
 
 PayloadCardActionArea.displayName = 'ButtonExXYLabs'

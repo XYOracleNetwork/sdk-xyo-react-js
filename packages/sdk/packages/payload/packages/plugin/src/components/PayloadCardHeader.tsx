@@ -6,10 +6,9 @@ import React, { forwardRef } from 'react'
 
 import type { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
 
-// eslint-disable-next-line @eslint-react/ensure-forward-ref-using-ref
-export const PayloadCardHeader = forwardRef<HTMLElement, PayloadRenderProps & CardHeaderProps>(({ payload, ...props }) => {
+export const PayloadCardHeader = forwardRef<HTMLElement, PayloadRenderProps & CardHeaderProps>(({ payload, ...props }, ref) => {
   const hash = usePayloadHash(payload)
-  return <CardHeader title="Payload" subheader={hash} avatar={<Identicon size={24} value={hash} />} {...props} />
+  return <CardHeader ref={ref} title="Payload" subheader={hash} avatar={<Identicon size={24} value={hash} />} {...props} />
 })
 
 PayloadCardHeader.displayName = 'PayloadCardHeader'
