@@ -1,2 +1,2 @@
-export * from './WithXnsCapture.ts'
-export * from './XnsNameCapture.tsx'
+export * from './Props.ts'
+export * from './XnsNameCaptureBase.tsx'

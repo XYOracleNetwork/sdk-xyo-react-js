@@ -8,8 +8,6 @@ import type { Dispatch } from 'react'
 import React from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
-// import { useXyoUserEvents } from '../../../../hooks/index.ts'
-
 export interface XnsCaptureSecondaryLinkProps extends LinkExProps {
   event?: string
   funnel?: string
