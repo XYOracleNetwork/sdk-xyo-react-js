@@ -18,9 +18,20 @@ export const XnsNameEstimateTextField: React.FC<NameEstimateTextFieldProps> = ({
     onChangeProp?.(event)
   }
 
+  const handleBlur: StandardTextFieldProps['onBlur'] = (event) => {
+    const onBlurProp = props.onBlur
+
+    if (maskOutput) {
+      const value = event.target.value
+      event.target.value = XnsNameHelper.mask(value, { maskStartEndHyphens: true })
+    }
+    onBlurProp?.(event)
+  }
+
   return (
     <TextField
       // override onChange
+      onBlur={handleBlur}
       onChange={handleChange}
       {...props}
     />
