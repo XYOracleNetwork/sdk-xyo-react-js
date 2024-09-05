@@ -8,10 +8,10 @@ export const XnsNameCaptureWithContext: React.FC<XnsNameCaptureProps> = (props) 
   const routingProps = useXnsNameCaptureRouting(props)
   const providersProps = useXnsNameCaptureProviders(routingProps)
 
-  const updatedProps = useMemo(() => ({
+  const updatedProps = useMemo<XnsNameCaptureProps>(() => ({
     ...props,
-    routingProps,
-    providersProps,
+    ...routingProps,
+    ...providersProps,
   }), [providersProps])
 
   return (

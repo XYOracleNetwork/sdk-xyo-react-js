@@ -1,5 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
+import type { To } from 'react-router'
 
 import { XnsNameCapture } from './XnsNameCapture.tsx'
 
@@ -13,6 +14,6 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithOnBuyName = Template.bind({})
-WithOnBuyName.args = { onBuyName: (name: string) => Promise.resolve(alert(`Buy Name: ${name}`)) }
+WithOnBuyName.args = { navigate: (to: To) => alert(`navigated to: ${to}`), onBuyName: (name: string) => Promise.resolve(alert(`Buy Name: ${name}`)) }
 
 export { Default, WithOnBuyName }
