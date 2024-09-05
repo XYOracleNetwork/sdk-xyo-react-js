@@ -6,7 +6,6 @@ import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { MIN_DOMAIN_LENGTH, XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
 import type { KeyboardEventHandler } from 'react'
 import React, { useCallback, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import { XnsEstimateNameTextField } from '../EstimateName/index.ts'
 import { XnsNameCaptureErrors } from './Errors.tsx'
