@@ -1,13 +1,20 @@
 import type { StandardTextFieldProps, TextFieldProps } from '@mui/material'
-import { TextField } from '@mui/material'
-import { XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
-import React from 'react'
+import {
+  alpha, TextField, useTheme,
+} from '@mui/material'
+import { MIN_DOMAIN_LENGTH, XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
+import React, { useState } from 'react'
 
 export interface XnsEstimateNameTextFieldProps {
   maskOutput?: boolean
 }
 
 export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & TextFieldProps> = ({ maskOutput = true, ...props }) => {
+  const theme = useTheme()
+  const [validLength, setValidLength] = useState(false)
+
+  const inputRef = React.useRef<HTMLInputElement>(null)
+
   // override onChange to mask the input and update the event value
   const handleChange: StandardTextFieldProps['onChange'] = (event) => {
     const onChangeProp = props.onChange
@@ -17,6 +24,10 @@ export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & 
       event.target.value = XnsNameHelper.mask(value)
     }
     onChangeProp?.(event)
+
+    if (inputRef.current) {
+      setValidLength(inputRef.current.value.length >= MIN_DOMAIN_LENGTH)
+    }
   }
 
   const handleBlur: StandardTextFieldProps['onBlur'] = (event) => {
@@ -31,7 +42,8 @@ export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & 
 
   return (
     <TextField
-      // override onChange
+      // sx={{ color: validLength ? theme.palette.text.primary : alpha(theme.palette.text.primary, 0.1) }}
+      inputRef={inputRef}
       onBlur={handleBlur}
       onChange={handleChange}
       {...props}
