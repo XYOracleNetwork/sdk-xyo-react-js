@@ -7,16 +7,25 @@ export interface XnsNameCaptureBuyCallbacks {
   onBuyName: (name: string) => Promise<void>
 }
 
-export interface XnsNameCaptureProviderProps {
+/**
+ * Trackers for user actions
+ */
+export interface XnsNameCaptureTrackingProps {
   mixpanel?: Mixpanel
   userEvents?: UserEventHandler<Record<string, unknown>>
 }
 
+/**
+ * Properties derived from the route and used for navigation
+ */
 export interface XnsNameCaptureRoutingProps {
   paramsString?: string
   to?: string
 }
 
+/**
+ * Base properties for the XnsNameCapture component related to the UI and Events
+ */
 export interface XnsNameCaptureBaseProps {
   autoFocus?: boolean
   buttonText?: string
@@ -30,7 +39,7 @@ export interface XnsNameCaptureBaseProps {
 }
 
 export interface XnsNameCaptureProps extends XnsNameCaptureBaseProps,
-  XnsNameCaptureProviderProps,
+  XnsNameCaptureTrackingProps,
   XnsNameCaptureBuyCallbacks,
   XnsNameCaptureRoutingProps,
   FlexBoxProps
