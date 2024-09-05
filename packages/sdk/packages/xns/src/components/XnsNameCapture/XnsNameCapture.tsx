@@ -23,6 +23,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   funnel = 'xns',
   mixpanel,
   mobileButtonText = 'Buy',
+  navigate,
   onBuyName: onBuyNameProp,
   paramsString = '',
   placement = '',
@@ -36,7 +37,6 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-  const navigate = useNavigate()
 
   const buyDisabled = !xnsName || xnsName.length < MIN_DOMAIN_LENGTH
 
@@ -56,7 +56,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
     if (valid) {
       await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
       await onBuyNameProp?.(xnsName)
-      navigate(`${to}?username=${xnsName}${paramsString}`)
+      navigate?.(`${to}?username=${xnsName}${paramsString}`)
     } else {
       setError(new Error(errors.join(', ')))
     }

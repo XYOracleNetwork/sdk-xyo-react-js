@@ -11,6 +11,8 @@ export interface XnsNameCaptureBuyCallbacks {
  * Trackers for user actions
  */
 export interface XnsNameCaptureTrackingProps {
+  event?: string
+  funnel?: string
   mixpanel?: Mixpanel
   userEvents?: UserEventHandler<Record<string, unknown>>
 }
@@ -19,6 +21,7 @@ export interface XnsNameCaptureTrackingProps {
  * Properties derived from the route and used for navigation
  */
 export interface XnsNameCaptureRoutingProps {
+  navigate?: (to: string) => void
   paramsString?: string
   to?: string
 }
@@ -31,8 +34,6 @@ export interface XnsNameCaptureBaseProps {
   buttonText?: string
   defaultXnsName?: string
   errorUi?: 'alert' | 'toast'
-  event?: string
-  funnel?: string
   mobileButtonText?: string
   placement?: string
   showSecondary?: boolean | ReactNode
