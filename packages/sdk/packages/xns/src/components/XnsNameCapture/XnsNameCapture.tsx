@@ -81,6 +81,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
           value={xnsName ?? ''}
           onKeyDown={onKeyDown}
           onChange={handleChange}
+          onBlur={handleChange}
         />
         <ButtonEx
           disabled={buyDisabled}
