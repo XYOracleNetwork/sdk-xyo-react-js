@@ -9,7 +9,9 @@ export interface XnsEstimateNameTextFieldProps {
   maskOutput?: boolean
 }
 
-export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & TextFieldProps> = ({ maskOutput = true, ...props }) => {
+export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & TextFieldProps> = ({
+  maskOutput = true, onChange: onChangeProp, onBlur: onBlurProp, ...props
+}) => {
   const theme = useTheme()
   const [validLength, setValidLength] = useState(false)
 
@@ -17,8 +19,6 @@ export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & 
 
   // override onChange to mask the input and update the event value
   const handleChange: StandardTextFieldProps['onChange'] = (event) => {
-    const onChangeProp = props.onChange
-
     if (maskOutput) {
       const value = event.target.value
       event.target.value = XnsNameHelper.mask(value)
@@ -31,8 +31,6 @@ export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & 
   }
 
   const handleBlur: StandardTextFieldProps['onBlur'] = (event) => {
-    const onBlurProp = props.onBlur
-
     if (maskOutput) {
       const value = event.target.value
       event.target.value = XnsNameHelper.mask(value, { maskStartEndHyphens: true })
