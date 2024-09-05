@@ -47,6 +47,8 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   }
 
   const onBuyName = useCallback(async () => {
+    if (!xnsName) return
+
     mixpanel?.track(event, {
       Funnel: funnel,
       Placement: placement,
