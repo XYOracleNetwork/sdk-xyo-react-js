@@ -53,7 +53,8 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
       Funnel: funnel,
       Placement: placement,
     })
-    const helper = XnsNameHelper.fromString(xnsName)
+    const formattedXnsName = `${xnsName}.xyo`
+    const helper = XnsNameHelper.fromString(formattedXnsName)
     const [valid, errors] = await helper.validate()
     if (valid) {
       await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
