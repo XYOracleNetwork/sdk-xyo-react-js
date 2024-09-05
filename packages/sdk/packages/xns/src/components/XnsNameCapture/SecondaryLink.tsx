@@ -50,7 +50,7 @@ export const XnsCaptureSecondaryLink: React.FC<XnsCaptureSecondaryLinkProps> = (
         if (valid) {
           await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
           navigate?.(`${to}?username=${xnsName}${paramsString}`)
-          await onBuyName(xnsName)
+          await onBuyName?.(xnsName)
         } else {
           setError?.(new Error(errors.join(', ')))
         }
