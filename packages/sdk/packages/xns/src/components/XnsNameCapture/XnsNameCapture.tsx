@@ -10,8 +10,8 @@ import type { ReactNode } from 'react'
 import React, { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
-import { useXyoUserEvents } from '../../../../hooks/index.ts'
-import { useXnsNameFromUri } from '../../hooks/index.ts'
+// import { useXyoUserEvents } from '../../../../hooks/index.ts'
+// import { useXnsNameFromUri } from '../../hooks/index.ts'
 import { XnsEstimateNameTextField } from '../EstimateName/index.ts'
 import { XnsNameCaptureErrors } from './Errors.tsx'
 import { XnsCaptureSecondaryLink } from './SecondaryLink.jsx'
@@ -44,20 +44,20 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   ...props
 }) => {
   const mixpanel = useMixpanel()
-  const [xnsNameFromUri] = useXnsNameFromUri()
+  // const [xnsNameFromUri] = useXnsNameFromUri()
   const [params] = useSearchParams()
   const [error, setError] = useState<Error | undefined>()
   const signatureParam = params.get('signature')
   const signatureParamString = signatureParam ? `&signature=${encodeURIComponent(signatureParam)}` : ''
-  const [xnsName, setXnsName] = useState<string>(() => xnsNameFromUri ?? '')
+  // const [xnsName, setXnsName] = useState<string>(() => xnsNameFromUri ?? '')
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const navigate = useNavigate()
-  const userEvents = useXyoUserEvents()
+  // const userEvents = useXyoUserEvents()
 
   const handleChange: StandardTextFieldProps['onChange'] = (event) => {
     const NsName = XnsNameHelper.mask(event.target.value)
-    setXnsName(NsName)
+    // setXnsName(NsName)
     setError(undefined)
   }
 
@@ -70,7 +70,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
           inputProps={{ style: { textTransform: 'lowercase' } }}
           variant="outlined"
           size="small"
-          value={xnsName ?? ''}
+          // value={xnsName ?? ''}
           onChange={handleChange}
         />
         <ButtonEx
@@ -78,18 +78,18 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
           color="success"
           endIcon={<KeyboardArrowRightRounded />}
           onClick={async () => {
-            mixpanel?.track(event, {
-              Funnel: funnel,
-              Placement: placement,
-            })
-            const helper = XnsNameHelper.fromString(xnsName)
-            const [valid, errors] = await helper.validate()
-            if (valid) {
-              await userEvents.userClick({ elementName: event, elementType: 'xns-cta' })
-              navigate(`${to}?username=${xnsName}${signatureParamString}`)
-            } else {
-              setError(new Error(errors.join(', ')))
-            }
+            // mixpanel?.track(event, {
+            //   Funnel: funnel,
+            //   Placement: placement,
+            // })
+            // const helper = XnsNameHelper.fromString(xnsName)
+            // const [valid, errors] = await helper.validate()
+            // if (valid) {
+            //   await userEvents.userClick({ elementName: event, elementType: 'xns-cta' })
+            //   navigate(`${to}?username=${xnsName}${signatureParamString}`)
+            // } else {
+            //   setError(new Error(errors.join(', ')))
+            // }
           }}
         >
           {isMobile ? mobileButtonText : buttonText}
@@ -98,7 +98,8 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
       {(showSecondary === true)
         ? (
             <XnsCaptureSecondaryLink
-              xnsName={xnsName}
+              xnsName=""
+              // xnsName={xnsName}
               placement={placement}
               funnel={funnel}
               setError={setError}
