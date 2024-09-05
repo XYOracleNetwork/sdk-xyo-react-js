@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-payload-plugin-resolver",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -44,9 +44,9 @@
   },
   "dependencies": {
     "@xylabs/assert": "^4.0.9",
-    "@xyo-network/payload-model": "^3.1.6",
-    "@xyo-network/payload-plugin": "^3.1.6",
-    "@xyo-network/payloadset-plugin": "^3.1.6",
+    "@xyo-network/payload-model": "^3.1.9",
+    "@xyo-network/payload-plugin": "^3.1.9",
+    "@xyo-network/payloadset-plugin": "^3.1.9",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^"
   },

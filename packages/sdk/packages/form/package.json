@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-form",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },

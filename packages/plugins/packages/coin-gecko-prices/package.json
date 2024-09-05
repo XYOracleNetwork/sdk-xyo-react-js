@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-coin-gecko-prices-plugin",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -43,8 +43,8 @@
     "lint-pkg": "npmPkgJsonLint ."
   },
   "dependencies": {
-    "@xyo-network/coingecko-crypto-market-payload-plugin": "^3.0.16",
-    "@xyo-network/payload-model": "^3.1.6",
+    "@xyo-network/coingecko-crypto-market-payload-plugin": "^3.0.17",
+    "@xyo-network/payload-model": "^3.1.9",
     "@xyo-network/react-aggregate-price-plugin": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^"

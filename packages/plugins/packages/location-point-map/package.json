@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-location-point-map-plugin",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -44,8 +44,8 @@
   },
   "dependencies": {
     "@xylabs/react-flexbox": "^4.2.5",
-    "@xyo-network/location-payload-plugin": "^3.0.16",
-    "@xyo-network/payload-model": "^3.1.6",
+    "@xyo-network/location-payload-plugin": "^3.0.17",
+    "@xyo-network/payload-model": "^3.1.9",
     "@xyo-network/react-map": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "geojson": "0.5.0"

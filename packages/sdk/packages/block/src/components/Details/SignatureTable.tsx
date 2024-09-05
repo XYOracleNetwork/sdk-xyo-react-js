@@ -2,9 +2,10 @@ import type { TableProps } from '@mui/material'
 import {
   Table, TableBody, TableCell, TableHead, TableRow, Typography,
 } from '@mui/material'
+import { usePromise } from '@xylabs/react-promise'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/hash'
-import { ScrollTableOnSm, usePromise } from '@xyo-network/react-shared'
+import { ScrollTableOnSm } from '@xyo-network/react-shared'
 import React from 'react'
 
 import { BlockSignatureTableRow } from './SignatureTableRow.tsx'

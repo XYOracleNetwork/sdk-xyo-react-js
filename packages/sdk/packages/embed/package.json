@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-embed",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -51,12 +51,12 @@
     "@xylabs/react-flexbox": "^4.2.5",
     "@xylabs/react-select": "^4.2.5",
     "@xylabs/react-shared": "^4.2.5",
-    "@xyo-network/huri": "^3.1.6",
-    "@xyo-network/payload-model": "^3.1.6",
+    "@xyo-network/huri": "^3.1.9",
+    "@xyo-network/payload-model": "^3.1.9",
     "@xyo-network/react-error": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/schema-cache": "^3.1.6",
+    "@xyo-network/schema-cache": "^3.1.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

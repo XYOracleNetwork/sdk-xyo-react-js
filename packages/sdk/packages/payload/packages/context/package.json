@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-payload-context",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -46,8 +46,8 @@
     "@xylabs/hex": "^4.0.9",
     "@xylabs/react-async-effect": "^4.2.5",
     "@xylabs/react-shared": "^4.2.5",
-    "@xyo-network/archivist-model": "^3.1.6",
-    "@xyo-network/payload-model": "^3.1.6",
+    "@xyo-network/archivist-model": "^3.1.9",
+    "@xyo-network/payload-model": "^3.1.9",
     "@xyo-network/react-shared": "workspace:^"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "@xylabs/react-async-effect": "^4.2.5",
     "@xylabs/ts-scripts-yarn3": "^4.0.7",
     "@xylabs/tsconfig-react": "^4.0.7",
-    "@xyo-network/archivist-memory": "^3.1.6",
+    "@xyo-network/archivist-memory": "^3.1.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "storybook": "^8.2.9",

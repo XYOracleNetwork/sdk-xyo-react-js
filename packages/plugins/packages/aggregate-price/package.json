@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-aggregate-price-plugin",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -46,8 +46,8 @@
     "@xylabs/decimal-precision": "^4.0.9",
     "@xylabs/react-flexbox": "^4.2.5",
     "@xylabs/react-quick-tip-button": "^4.2.5",
-    "@xyo-network/crypto-asset-payload-plugin": "^3.0.16",
-    "@xyo-network/payload-model": "^3.1.6",
+    "@xyo-network/crypto-asset-payload-plugin": "^3.0.17",
+    "@xyo-network/payload-model": "^3.1.9",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^"
   },

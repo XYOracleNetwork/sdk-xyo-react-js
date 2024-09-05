@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-diviner",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -44,8 +44,8 @@
   },
   "dependencies": {
     "@xylabs/exists": "^4.0.9",
-    "@xyo-network/diviner-model": "^3.1.6",
-    "@xyo-network/module-model": "^3.1.6",
+    "@xyo-network/diviner-model": "^3.1.9",
+    "@xyo-network/module-model": "^3.1.9",
     "@xyo-network/react-node": "workspace:^"
   },
   "devDependencies": {

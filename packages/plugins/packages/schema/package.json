@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-schema-plugin",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -44,10 +44,10 @@
   },
   "dependencies": {
     "@xylabs/react-flexbox": "^4.2.5",
-    "@xyo-network/payload-model": "^3.1.6",
+    "@xyo-network/payload-model": "^3.1.9",
     "@xyo-network/react-payload-details": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
-    "@xyo-network/schema-payload-plugin": "^3.1.6"
+    "@xyo-network/schema-payload-plugin": "^3.1.9"
   },
   "devDependencies": {
     "@emotion/react": "^11.13.3",

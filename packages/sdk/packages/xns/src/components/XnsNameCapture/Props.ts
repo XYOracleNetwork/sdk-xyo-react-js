@@ -2,7 +2,7 @@ import type { UserEventHandler } from '@xylabs/pixel'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { Mixpanel } from 'mixpanel-browser'
 import type { ReactNode } from 'react'
-import type { To } from 'react-router'
+import type { To } from 'react-router-dom'
 
 export interface XnsNameCaptureBuyCallbacks {
   onBuyName?: (name: string) => Promise<void>

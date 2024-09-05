@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-network",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -27,7 +27,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": {
+      "browser": {
         "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
@@ -47,7 +47,7 @@
     "@xylabs/hex": "^4.0.9",
     "@xylabs/react-select": "^4.2.5",
     "@xylabs/react-shared": "^4.2.5",
-    "@xyo-network/network": "^3.1.6",
+    "@xyo-network/network": "^3.1.9",
     "@xyo-network/react-shared": "workspace:^",
     "react-router-dom": "^6.26.1"
   },

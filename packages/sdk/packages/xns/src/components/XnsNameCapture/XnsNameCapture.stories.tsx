@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
-import type { To } from 'react-router'
+import type { To } from 'react-router-dom'
 
 import { XnsNameCapture } from './XnsNameCapture.tsx'
 
