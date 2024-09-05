@@ -17,9 +17,7 @@ export interface XnsNameCaptureRoutingProps {
   to?: string
 }
 
-export type WithXnsCapture<T> = T & { XnsCapture?: React.FC<XnsNameCaptureBaseProps> }
-
-export interface XnsNameCaptureBaseProps extends XnsNameCaptureProviderProps, XnsNameCaptureBuyCallbacks, XnsNameCaptureRoutingProps, FlexBoxProps {
+export interface XnsNameCaptureBaseProps {
   autoFocus?: boolean
   buttonText?: string
   defaultXnsName?: string
@@ -30,3 +28,12 @@ export interface XnsNameCaptureBaseProps extends XnsNameCaptureProviderProps, Xn
   placement?: string
   showSecondary?: boolean | ReactNode
 }
+
+export interface XnsNameCaptureProps extends XnsNameCaptureBaseProps,
+  XnsNameCaptureProviderProps,
+  XnsNameCaptureBuyCallbacks,
+  XnsNameCaptureRoutingProps,
+  FlexBoxProps
+{}
+
+export type WithXnsCapture<T> = T & { XnsCapture?: React.FC<XnsNameCaptureProps> }

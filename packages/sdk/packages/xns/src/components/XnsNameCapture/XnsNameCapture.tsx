@@ -10,10 +10,10 @@ import { useNavigate } from 'react-router-dom'
 
 import { XnsEstimateNameTextField } from '../EstimateName/index.ts'
 import { XnsNameCaptureErrors } from './Errors.tsx'
-import type { XnsNameCaptureBaseProps } from './Props.ts'
+import type { XnsNameCaptureProps } from './Props.ts'
 import { XnsCaptureSecondaryLink } from './SecondaryLink.js'
 
-export const XnsNameCaptureBase: React.FC<XnsNameCaptureBaseProps> = ({
+export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   autoFocus = false,
   buttonText = 'Buy My Name',
   children,
@@ -37,10 +37,6 @@ export const XnsNameCaptureBase: React.FC<XnsNameCaptureBaseProps> = ({
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const navigate = useNavigate()
-
-  // const [params] = useSearchParams()
-  // const signatureParam = params.get('signature')
-  // const signatureParamString = signatureParam ? `&signature=${encodeURIComponent(signatureParam)}` : ''
 
   const buyDisabled = !xnsName || xnsName.length < MIN_DOMAIN_LENGTH
 
