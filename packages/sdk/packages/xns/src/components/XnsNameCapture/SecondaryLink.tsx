@@ -2,15 +2,15 @@ import { ArrowForwardRounded } from '@mui/icons-material'
 import { Stack } from '@mui/material'
 import type { LinkExProps } from '@xylabs/react-link'
 import { LinkEx } from '@xylabs/react-link'
-import { useMixpanel } from '@xylabs/react-mixpanel'
 import { XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
 import type { Dispatch } from 'react'
 import React from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
 
-// import { useXyoUserEvents } from '../../../../hooks/index.ts'
+import type {
+  XnsNameCaptureBuyCallbacks, XnsNameCaptureRoutingProps, XnsNameCaptureTrackingProps,
+} from './Props.ts'
 
-export interface XnsCaptureSecondaryLinkProps extends LinkExProps {
+export interface XnsCaptureSecondaryLinkProps extends XnsNameCaptureTrackingProps, XnsNameCaptureRoutingProps, XnsNameCaptureBuyCallbacks, LinkExProps {
   event?: string
   funnel?: string
   placement?: string
@@ -22,19 +22,18 @@ export interface XnsCaptureSecondaryLinkProps extends LinkExProps {
 export const XnsCaptureSecondaryLink: React.FC<XnsCaptureSecondaryLinkProps> = ({
   event = 'Click to Reservation',
   funnel = 'xns',
+  mixpanel,
+  navigate,
+  onBuyName,
+  paramsString = '',
   placement = '',
   setError,
   text = 'Or make a free reservation',
   to = '/xns/reservation',
+  userEvents,
   xnsName,
   ...props
 }) => {
-  const mixpanel = useMixpanel()
-  // const userEvents = useXyoUserEvents()
-  const navigate = useNavigate()
-  const [params] = useSearchParams()
-  const signatureParam = params.get('signature')
-  const signatureParamString = signatureParam ? `&signature=${encodeURIComponent(signatureParam)}` : ''
   return (
     <LinkEx
       paddingX={0}
@@ -45,11 +44,13 @@ export const XnsCaptureSecondaryLink: React.FC<XnsCaptureSecondaryLinkProps> = (
           Funnel: funnel,
           Placement: placement,
         })
-        const helper = XnsNameHelper.fromString(xnsName)
+        const formattedXnsName = `${xnsName}.xyo`
+        const helper = XnsNameHelper.fromString(formattedXnsName)
         const [valid, errors] = await helper.validate()
         if (valid) {
-          // await userEvents.userClick({ elementName: event, elementType: 'xns-cta' })
-          navigate(`${to}?username=${xnsName}${signatureParamString}`)
+          await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
+          navigate?.(`${to}?username=${xnsName}${paramsString}`)
+          await onBuyName?.(xnsName)
         } else {
           setError?.(new Error(errors.join(', ')))
         }

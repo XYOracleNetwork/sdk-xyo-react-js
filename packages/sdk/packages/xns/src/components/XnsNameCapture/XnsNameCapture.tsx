@@ -2,64 +2,73 @@ import { KeyboardArrowRightRounded } from '@mui/icons-material'
 import type { StandardTextFieldProps } from '@mui/material'
 import { useMediaQuery, useTheme } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import { useMixpanel } from '@xylabs/react-mixpanel'
-import { XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
-import type { ReactNode } from 'react'
-import React, { useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { MIN_DOMAIN_LENGTH, XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
+import type { KeyboardEventHandler } from 'react'
+import React, { useCallback, useState } from 'react'
 
-// import { useXyoUserEvents } from '../../../../hooks/index.ts'
-// import { useXnsNameFromUri } from '../../hooks/index.ts'
 import { XnsEstimateNameTextField } from '../EstimateName/index.ts'
 import { XnsNameCaptureErrors } from './Errors.tsx'
-import { XnsCaptureSecondaryLink } from './SecondaryLink.jsx'
-
-export interface XnsNameCaptureProps extends FlexBoxProps {
-  autoFocus?: boolean
-  buttonText?: string
-  errorUi?: 'alert' | 'toast'
-  event?: string
-  funnel?: string
-  hideSecondaryOption?: boolean
-  mobileButtonText?: string
-  onEnter?: () => void
-  placement?: string
-  showSecondary?: boolean | ReactNode
-  to?: string
-}
+import type { XnsNameCaptureProps } from './Props.ts'
+import { XnsCaptureSecondaryLink } from './SecondaryLink.js'
 
 export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   autoFocus = false,
   buttonText = 'Buy My Name',
+  children,
+  defaultXnsName,
   errorUi = 'alert',
   event = 'Click to Checkout',
-  mobileButtonText = 'Buy',
-  children,
   funnel = 'xns',
+  mixpanel,
+  mobileButtonText = 'Buy',
+  navigate,
+  onBuyName: onBuyNameProp,
+  paramsString = '',
   placement = '',
   showSecondary = false,
   to = '/xns/estimation',
+  userEvents,
   ...props
 }) => {
-  const mixpanel = useMixpanel()
-  // const [xnsNameFromUri] = useXnsNameFromUri()
-  const [params] = useSearchParams()
+  const [xnsName, setXnsName] = useState<string>(() => defaultXnsName ?? '')
   const [error, setError] = useState<Error | undefined>()
-  const signatureParam = params.get('signature')
-  const signatureParamString = signatureParam ? `&signature=${encodeURIComponent(signatureParam)}` : ''
-  // const [xnsName, setXnsName] = useState<string>(() => xnsNameFromUri ?? '')
+
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-  const navigate = useNavigate()
-  // const userEvents = useXyoUserEvents()
+
+  const buyDisabled = !xnsName || xnsName.length < MIN_DOMAIN_LENGTH
 
   const handleChange: StandardTextFieldProps['onChange'] = (event) => {
     const NsName = XnsNameHelper.mask(event.target.value)
-    // setXnsName(NsName)
+    setXnsName(NsName)
     setError(undefined)
   }
+
+  const onBuyName = useCallback(async () => {
+    if (!xnsName) return
+
+    mixpanel?.track(event, {
+      Funnel: funnel,
+      Placement: placement,
+    })
+    const formattedXnsName = `${xnsName}.xyo`
+    const helper = XnsNameHelper.fromString(formattedXnsName)
+    const [valid, errors] = await helper.validate()
+    if (valid) {
+      await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
+      await onBuyNameProp?.(xnsName)
+      navigate?.(`${to}?username=${xnsName}${paramsString}`)
+    } else {
+      setError(new Error(errors.join(', ')))
+    }
+  }, [event, funnel, mixpanel, paramsString, placement, to, userEvents, xnsName])
+
+  const onKeyDown: KeyboardEventHandler<HTMLDivElement> = useCallback(async (event) => {
+    if (event.key === 'Enter' && !buyDisabled) {
+      await onBuyName?.()
+    }
+  }, [buyDisabled, onBuyName])
 
   return (
     <FlexCol gap={showSecondary ? 1.5 : 0} alignItems="center" {...props}>
@@ -67,30 +76,19 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
         <XnsEstimateNameTextField
           autoFocus={autoFocus}
           label="xNS Name"
-          inputProps={{ style: { textTransform: 'lowercase' } }}
           variant="outlined"
           size="small"
-          // value={xnsName ?? ''}
+          value={xnsName ?? ''}
+          onKeyDown={onKeyDown}
           onChange={handleChange}
+          onBlur={handleChange}
         />
         <ButtonEx
+          disabled={buyDisabled}
           variant="contained"
           color="success"
           endIcon={<KeyboardArrowRightRounded />}
-          onClick={async () => {
-            // mixpanel?.track(event, {
-            //   Funnel: funnel,
-            //   Placement: placement,
-            // })
-            // const helper = XnsNameHelper.fromString(xnsName)
-            // const [valid, errors] = await helper.validate()
-            // if (valid) {
-            //   await userEvents.userClick({ elementName: event, elementType: 'xns-cta' })
-            //   navigate(`${to}?username=${xnsName}${signatureParamString}`)
-            // } else {
-            //   setError(new Error(errors.join(', ')))
-            // }
-          }}
+          onClick={onBuyName}
         >
           {isMobile ? mobileButtonText : buttonText}
         </ButtonEx>
@@ -98,17 +96,17 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
       {(showSecondary === true)
         ? (
             <XnsCaptureSecondaryLink
-              xnsName=""
-              // xnsName={xnsName}
+              xnsName={xnsName}
               placement={placement}
               funnel={funnel}
               setError={setError}
             />
           )
         : null}
-      {(typeof showSecondary === 'object')
-        ? showSecondary
-        : null}
+      {
+        // eslint-disable-next-line unicorn/prefer-logical-operator-over-ternary
+        showSecondary ? showSecondary : null
+      }
       {children}
       <XnsNameCaptureErrors error={error} errorUi={errorUi} resetError={() => setError(undefined)} />
     </FlexCol>
