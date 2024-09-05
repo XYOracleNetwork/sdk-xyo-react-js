@@ -42,7 +42,7 @@ export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & 
 
   return (
     <TextField
-      // sx={{ color: validLength ? theme.palette.text.primary : alpha(theme.palette.text.primary, 0.1) }}
+      inputProps={{ style: { color: validLength ? theme.palette.text.primary : alpha(theme.palette.text.primary, 0.5) } }}
       inputRef={inputRef}
       onBlur={handleBlur}
       onChange={handleChange}
