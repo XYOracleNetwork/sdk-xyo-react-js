@@ -8,6 +8,6 @@ export const useXnsNameCaptureProviders = (props: XnsNameCaptureProps) => {
 
   return useMemo(() => ({
     ...props,
-    mixpanel,
+    mixpanel: props.mixpanel ?? mixpanel,
   }), [props, mixpanel])
 }
