@@ -2,6 +2,7 @@ import type { UserEventHandler } from '@xylabs/pixel'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { Mixpanel } from 'mixpanel-browser'
 import type { ReactNode } from 'react'
+import type { To } from 'react-router'
 
 export interface XnsNameCaptureBuyCallbacks {
   onBuyName: (name: string) => Promise<void>
@@ -23,7 +24,7 @@ export interface XnsNameCaptureTrackingProps {
 export interface XnsNameCaptureRoutingProps {
   navigate?: (to: string) => void
   paramsString?: string
-  to?: string
+  to?: To
 }
 
 /**
