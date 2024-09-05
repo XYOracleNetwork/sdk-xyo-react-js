@@ -1,12 +1,13 @@
-import { type StandardTextFieldProps, TextField } from '@mui/material'
+import type { StandardTextFieldProps, TextFieldProps } from '@mui/material'
+import { TextField } from '@mui/material'
 import { XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
 import React from 'react'
 
-export interface NameEstimateTextFieldProps extends StandardTextFieldProps {
+export interface XnsEstimateNameTextFieldProps {
   maskOutput?: boolean
 }
 
-export const XnsNameEstimateTextField: React.FC<NameEstimateTextFieldProps> = ({ maskOutput = true, ...props }) => {
+export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & TextFieldProps> = ({ maskOutput = true, ...props }) => {
   // override onChange to mask the input and update the event value
   const handleChange: StandardTextFieldProps['onChange'] = (event) => {
     const onChangeProp = props.onChange
