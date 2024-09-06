@@ -24,6 +24,7 @@ export interface XnsNameCaptureTrackingProps {
 export interface XnsNameCaptureRoutingProps {
   navigate?: (to: string) => void
   paramsString?: string
+  routingError?: Error
   to?: To
 }
 

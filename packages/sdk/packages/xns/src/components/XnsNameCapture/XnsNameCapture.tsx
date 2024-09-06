@@ -26,13 +26,14 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   onCaptureName: onCaptureNameProp,
   paramsString = '',
   placement = '',
+  routingError,
   showSecondary = false,
   to = '/xns/estimation',
   userEvents,
   ...props
 }) => {
   const [xnsName, setXnsName] = useState<string>(() => defaultXnsName ?? '')
-  const [error, setError] = useState<Error | undefined>()
+  const [error, setError] = useState<Error | undefined>(routingError)
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
