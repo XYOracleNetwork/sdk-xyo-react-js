@@ -6,8 +6,6 @@ import { useXnsNameFromLocation } from './useXnsNameFromLocation.ts'
 
 export const useXnsNameCaptureRouting = (props: XnsNameCaptureProps) => {
   const [params] = useSearchParams()
-  const signatureParam = params.get('signature')
-  const signatureParamString = signatureParam ? `&signature=${encodeURIComponent(signatureParam)}` : ''
 
   const navigate = useNavigate()
 
@@ -18,6 +16,6 @@ export const useXnsNameCaptureRouting = (props: XnsNameCaptureProps) => {
     defaultXnsName: name,
     routingError: error,
     navigate: props.navigate ?? ((to: string) => navigate(to)),
-    paramsString: signatureParamString,
-  }), [props, signatureParamString])
+    paramsString: props.paramsString ? `${props.paramsString}${params.toString()}` : params.toString(),
+  }), [props, params, name, error])
 }
