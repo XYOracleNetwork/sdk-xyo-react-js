@@ -13,6 +13,6 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithOnBuyName = Template.bind({})
-WithOnBuyName.args = { xnsName: 'testing123', onBuyName: (name: string) => Promise.resolve(alert(`Buy Name: ${name}`)) }
+WithOnBuyName.args = { xnsName: 'testing123', onCaptureName: (name: string) => Promise.resolve(alert(`Buy Name: ${name}`)) }
 
 export { Default, WithOnBuyName }

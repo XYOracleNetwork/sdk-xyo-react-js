@@ -27,6 +27,6 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithOnBuyName = Template.bind({})
-WithOnBuyName.args = { navigate: (to: To) => alert(`navigated to: ${to}`), onBuyName: (name: string) => Promise.resolve(alert(`Buy Name: ${name}`)) }
+WithOnBuyName.args = { navigate: (to: To) => alert(`navigated to: ${to}`), onCaptureName: (name: string) => Promise.resolve(alert(`Buy Name: ${name}`)) }
 
 export { Default, WithOnBuyName }

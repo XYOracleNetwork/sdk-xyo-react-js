@@ -23,7 +23,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   mixpanel,
   mobileButtonText = 'Buy',
   navigate,
-  onBuyName: onBuyNameProp,
+  onCaptureName: onCaptureNameProp,
   paramsString = '',
   placement = '',
   showSecondary = false,
@@ -37,7 +37,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
-  const buyDisabled = !xnsName || xnsName.length < MIN_DOMAIN_LENGTH
+  const captureDisabled = !xnsName || xnsName.length < MIN_DOMAIN_LENGTH
 
   const handleChange: StandardTextFieldProps['onChange'] = (event) => {
     const NsName = XnsNameHelper.mask(event.target.value)
@@ -45,9 +45,8 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
     setError(undefined)
   }
 
-  const onBuyName = useCallback(async () => {
-    if (!xnsName) return
-
+  const onCaptureName = useCallback(async () => {
+    if (captureDisabled) return
     mixpanel?.track(event, {
       Funnel: funnel,
       Placement: placement,
@@ -57,7 +56,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
     const [valid, errors] = await helper.validate()
     if (valid) {
       await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
-      await onBuyNameProp?.(xnsName)
+      await onCaptureNameProp?.(xnsName)
       navigate?.(`${to}?username=${xnsName}${paramsString}`)
     } else {
       setError(new Error(errors.join(', ')))
@@ -65,10 +64,10 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   }, [event, funnel, mixpanel, paramsString, placement, to, userEvents, xnsName])
 
   const onKeyDown: KeyboardEventHandler<HTMLDivElement> = useCallback(async (event) => {
-    if (event.key === 'Enter' && !buyDisabled) {
-      await onBuyName?.()
+    if (event.key === 'Enter' && !captureDisabled) {
+      await onCaptureName?.()
     }
-  }, [buyDisabled, onBuyName])
+  }, [captureDisabled, onCaptureName])
 
   return (
     <FlexCol gap={showSecondary ? 1.5 : 0} alignItems="center" {...props}>
@@ -84,11 +83,11 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
           onBlur={handleChange}
         />
         <ButtonEx
-          disabled={buyDisabled}
+          disabled={captureDisabled}
           variant="contained"
           color="success"
           endIcon={<KeyboardArrowRightRounded />}
-          onClick={onBuyName}
+          onClick={onCaptureName}
         >
           {isMobile ? mobileButtonText : buttonText}
         </ButtonEx>

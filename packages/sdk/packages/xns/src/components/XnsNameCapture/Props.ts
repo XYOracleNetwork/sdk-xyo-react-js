@@ -5,7 +5,7 @@ import type { ReactNode } from 'react'
 import type { To } from 'react-router-dom'
 
 export interface XnsNameCaptureBuyCallbacks {
-  onBuyName?: (name: string) => Promise<void>
+  onCaptureName?: (name: string) => Promise<void>
 }
 
 /**
