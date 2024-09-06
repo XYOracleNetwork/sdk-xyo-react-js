@@ -15,6 +15,7 @@ export interface XnsNameCaptureTrackingProps {
   event?: string
   funnel?: string
   mixpanel?: Mixpanel
+  placement?: string
   userEvents?: UserEventHandler<Record<string, unknown>>
 }
 
@@ -37,7 +38,6 @@ export interface XnsNameCaptureBaseProps {
   defaultXnsName?: string
   errorUi?: 'alert' | 'toast'
   mobileButtonText?: string
-  placement?: string
   showSecondary?: boolean | ReactNode
 }
 
