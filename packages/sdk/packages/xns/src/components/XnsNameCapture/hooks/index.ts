@@ -1,2 +1,2 @@
+export * from './routing/index.ts'
 export * from './useXnsNameCaptureProviders.ts'
-export * from './useXnsNameCaptureRouting.ts'
