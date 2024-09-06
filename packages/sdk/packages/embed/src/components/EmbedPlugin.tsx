@@ -1,6 +1,7 @@
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { WithChildren } from '@xylabs/react-shared'
-import { ErrorBoundary, ListModeProvider } from '@xyo-network/react-shared'
+import { ErrorBoundary } from '@xyo-network/react-error'
+import { ListModeProvider } from '@xyo-network/react-shared'
 import React from 'react'
 
 import {
