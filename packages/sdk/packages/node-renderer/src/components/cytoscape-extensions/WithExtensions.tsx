@@ -4,16 +4,15 @@ import coseBilkent from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import euler from 'cytoscape-euler'
 import type { PropsWithChildren } from 'react'
-import React, { useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 
 export const WithExtensions: React.FC<PropsWithChildren> = ({ children }) => {
-  const [initialized, setInitialized] = useState(false)
-  useEffect(() => {
+  const initialized = useMemo(() => {
     cytoscape.use(cola)
     cytoscape.use(dagre)
     cytoscape.use(coseBilkent)
     cytoscape.use(euler)
-    setInitialized(true)
+    return true
   }, [])
 
   return <>{initialized ? children : undefined}</>

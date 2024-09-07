@@ -1,11 +1,10 @@
 import type { Hash } from '@xylabs/hex'
+import { useResetState } from '@xylabs/react-hooks'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
 import type { ContextExProviderProps } from '@xyo-network/react-shared'
-import React, {
-  useEffect, useMemo, useState,
-} from 'react'
+import React, { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ActiveBoundWitnessContext } from '../../contexts/index.ts'
@@ -23,23 +22,12 @@ export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProp
   const archivistString = typeof archivist == 'string' ? archivist : undefined
   const archivistModule = typeof archivist == 'string' ? undefined : archivist
   const { boundwitness: boundwitnessHashFromParam } = useParams()
-  const [activeBoundWitnessHash, setActiveBoundWitnessHash] = useState<Hash>()
-  const [activeBoundWitness, setActiveBoundWitness] = useState<BoundWitness>()
   const [activeArchivist] = useWeakArchivistFromNode(archivistString)
+  const [activeBoundWitnessHash, setActiveBoundWitnessHash] = useResetState<Hash | undefined>(activeBoundWitnessHashProp ?? (boundwitnessHashFromParam as Hash))
+
   const hashes = useMemo(() => (activeBoundWitnessHash ? [activeBoundWitnessHash] : undefined), [activeBoundWitnessHash])
   const [payload] = useWeakArchivistGet(archivistModule ?? activeArchivist, hashes)
-
-  useEffect(() => {
-    setActiveBoundWitnessHash(activeBoundWitnessHashProp ?? (boundwitnessHashFromParam as Hash))
-  }, [activeBoundWitnessHashProp, boundwitnessHashFromParam])
-
-  useEffect(() => {
-    if (activeBoundWitnessHash === undefined) {
-      setActiveBoundWitness(undefined)
-    } else {
-      setActiveBoundWitness(payload?.[0] as BoundWitness)
-    }
-  }, [payload, activeBoundWitnessHash])
+  const activeBoundWitness: BoundWitness | undefined = payload?.at(0) as BoundWitness
 
   return (
     <ActiveBoundWitnessContext.Provider

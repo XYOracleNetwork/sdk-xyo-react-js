@@ -1,41 +1,22 @@
 import type { DiscoveredWallets, EIP6963Connector } from '@xylabs/react-crypto'
-import { AccountsChangedEventName, useWalletDiscovery } from '@xylabs/react-crypto'
-import {
-  useEffect, useMemo, useState,
-} from 'react'
+import { useWalletDiscovery } from '@xylabs/react-crypto'
+import { useMemo } from 'react'
 
-const sortWallets = (wallets: DiscoveredWallets) =>
-  // eslint-disable-next-line unicorn/no-array-reduce
-  Object.values(wallets).reduce((acc, wallet) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    wallet.allowedAccounts.length > 0 ? acc.unshift(wallet) : acc.push(wallet)
-    return acc
-  }, [] as EIP6963Connector[])
+const sortWallets = (wallets: DiscoveredWallets) => {
+  const result: EIP6963Connector[] = []
+
+  for (const wallet of Object.values(wallets)) {
+    if (wallet.allowedAccounts.length > 0)
+      result.unshift(wallet)
+    else
+      result.push(wallet)
+  }
+  return result
+}
 
 export const useDetectedWallets = () => {
   const wallets = useWalletDiscovery()
-  const [refresh, setRefresh] = useState(0)
-  const [sortedWallets, setSortedWallets] = useState<EIP6963Connector[]>([])
-
-  useEffect(() => {
-    setSortedWallets(sortWallets(wallets))
-  }, [wallets, refresh])
-
-  /**
-   * Rely on custom events from the wallet base class to know when accounts are changed.
-   * This approach prevents the need to loop through all wallets and set up individual listeners.
-   */
-  useEffect(() => {
-    const listener: (event: CustomEventInit) => void = () => {
-      setRefresh(refresh => refresh + 1)
-    }
-    // eslint-disable-next-line @eslint-react/web-api/no-leaked-event-listener
-    window.addEventListener(AccountsChangedEventName, listener)
-
-    return () => {
-      window.removeEventListener(AccountsChangedEventName, listener)
-    }
-  }, [wallets])
+  const sortedWallets = useMemo(() => sortWallets(wallets), [wallets])
 
   const totalConnectedAccounts = useMemo(
     () => Object.values(sortedWallets).reduce((acc, wallet) => acc + wallet.allowedAccounts.length, 0),

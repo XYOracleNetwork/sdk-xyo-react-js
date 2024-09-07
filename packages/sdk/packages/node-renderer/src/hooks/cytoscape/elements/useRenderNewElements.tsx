@@ -1,20 +1,17 @@
-import type { CollectionReturnValue, ElementDefinition } from 'cytoscape'
-import { useEffect, useState } from 'react'
+import type { ElementDefinition } from 'cytoscape'
+import { useMemo } from 'react'
 
 import { useCytoscapeInstance } from '../../../contexts/index.ts'
 import { ColaLayout } from '../../../Cytoscape/index.ts'
 
 export const useRenderNewElements = (newElements: ElementDefinition[] = [], hideLabels?: boolean) => {
   const { cy } = useCytoscapeInstance(true)
-  const [renderedElements, setRenderedElements] = useState<CollectionReturnValue>()
 
-  useEffect(() => {
+  return useMemo(() => {
     if (newElements.length > 1) {
       const renderedElements = cy?.deref()?.add(newElements)
-      setRenderedElements(renderedElements)
       cy?.deref()?.layout(ColaLayout).run()
+      return renderedElements
     }
   }, [cy, hideLabels, newElements])
-
-  return renderedElements
 }

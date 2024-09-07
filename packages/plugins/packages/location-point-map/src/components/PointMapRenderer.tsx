@@ -12,7 +12,7 @@ import {
   useMapboxAccessToken,
 } from '@xyo-network/react-map'
 import type { Feature, Point } from 'geojson'
-import React, { useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 
 import { PointMapSettings } from './PointMapSettings.ts'
 
@@ -25,24 +25,20 @@ const PointMapInner: React.FC<PointMapInnerProps> = ({
   accessToken, payload, ...props
 }) => {
   const theme = useTheme()
-  const [feature, setFeature] = useState<Feature<Point>>()
   const locationPayload = payload ? (payload as GeographicCoordinateSystemLocationPayload) : undefined
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken()
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
-  useEffect(() => {
-    if (locationPayload) {
-      // convert location payload to geojson to reuse mapbox map render components
-      setFeature({
+  const feature = useMemo<Feature<Point> | undefined>(() => locationPayload
+    ? {
         geometry: {
           coordinates: [locationPayload?.longitude, locationPayload?.latitude],
           type: 'Point',
         },
         properties: {},
         type: 'Feature',
-      })
-    }
-  }, [locationPayload])
+      }
+    : undefined, [locationPayload])
 
   if (!locationPayload || !locationPayload.latitude || !locationPayload.longitude) {
     return (

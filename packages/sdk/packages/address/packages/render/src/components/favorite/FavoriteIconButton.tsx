@@ -1,10 +1,11 @@
 import type { IconButtonProps } from '@mui/material'
 import { IconButton, styled } from '@mui/material'
+import { useResetState } from '@xylabs/react-hooks'
 import type { WithChildren } from '@xylabs/react-shared'
 import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
 import React, {
-  forwardRef, useEffect, useRef, useState,
+  forwardRef, useRef, useState,
 } from 'react'
 
 import type { FavoriteItemEvent } from '../lib/index.ts'
@@ -26,10 +27,7 @@ export const FavoriteIconButton = forwardRef<HTMLButtonElement, FavoriteIconButt
   }, ref) => {
     const [openPopper, setOpenPopper] = useState(false)
 
-    const [favorite, setFavorite] = useState(favoriteProp)
-    useEffect(() => {
-      setFavorite(favoriteProp)
-    }, [favoriteProp])
+    const [favorite, setFavorite] = useResetState(favoriteProp)
 
     const sharedRef = useShareForwardedRef(ref)
     const [buttonRef, dispatch] = useEvent(undefined, sharedRef)

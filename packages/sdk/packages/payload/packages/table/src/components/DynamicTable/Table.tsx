@@ -16,14 +16,13 @@ import {
   Typography,
   useTheme,
 } from '@mui/material'
+import { useResetState } from '@xylabs/react-hooks'
 import { useBreakpoint } from '@xylabs/react-shared'
 import type { Payload } from '@xyo-network/payload-model'
 import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
-import React, {
-  useEffect, useMemo, useState,
-} from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { PayloadDynamicTableRow } from './DynamicTableRow.tsx'
 import type { PayloadDynamicTableColumnConfig } from './PayloadDynamicTableColumnConfig.ts'
@@ -105,7 +104,7 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
 }) => {
   const breakPoint = useBreakpoint()
   const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
+  const [rowsPerPage, setRowsPerPage] = useResetState(rowsPerPageProp)
   const payloadCount = payloads ? payloads.length : 0
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payloadCount) : 0
@@ -113,10 +112,6 @@ export const PayloadDynamicTable: React.FC<PayloadDynamicTableProps> = ({
   const pagedPayloads = useMemo(() => payloads?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage), [payloads, page, rowsPerPage])
 
   const payloadPairs = usePayloadHashes(pagedPayloads)
-
-  useEffect(() => {
-    setRowsPerPage(rowsPerPageProp)
-  }, [rowsPerPageProp])
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     setPage(newPage)

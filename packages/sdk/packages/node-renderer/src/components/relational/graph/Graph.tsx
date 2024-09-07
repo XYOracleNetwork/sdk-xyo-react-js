@@ -115,7 +115,12 @@ export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelatio
           container,
           ...options,
         })
+        // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
         setCy(newCy)
+      } else {
+        newCy?.destroy()
+        // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
+        setCy(undefined)
       }
       return () => {
         newCy?.destroy()

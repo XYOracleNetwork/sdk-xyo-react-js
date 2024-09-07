@@ -3,13 +3,13 @@ import type { CardProps } from '@mui/material'
 import {
   Card, Divider, IconButton,
 } from '@mui/material'
+import { useResetState } from '@xylabs/react-hooks'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import React, { forwardRef } from 'react'
 
 import { BoundWitnessCardHeader } from '../../Card/index.ts'
 import { DetailsCardContent } from './DetailsCardContent.tsx'
-import { useResetState } from './useResetState.js'
 
 const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(
 
