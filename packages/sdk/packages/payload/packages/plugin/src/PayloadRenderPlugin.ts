@@ -21,6 +21,9 @@ export interface PayloadRenderProps<T extends Payload = Payload> {
 
 export interface PayloadDetailsRenderProps extends PayloadRenderProps {
   active?: boolean
+}
+
+export interface PayloadDetailsListRenderProps extends PayloadDetailsRenderProps {
   listMode?: ListMode
   visibleRows?: number
 }

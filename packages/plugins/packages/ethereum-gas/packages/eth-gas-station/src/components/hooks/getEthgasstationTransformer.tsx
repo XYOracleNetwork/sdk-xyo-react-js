@@ -1,8 +1,7 @@
 import type { EthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation-ethereum-gas-payload-plugin'
 import type { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
-// eslint-disable-next-line @eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks
-export const useEthgasstationTransformer = (payload?: EthereumGasEthgasstationPayload): GasPriceWitnessUIBasePayload | undefined => {
+export const getEthgasstationTransformer = (payload?: EthereumGasEthgasstationPayload): GasPriceWitnessUIBasePayload | undefined => {
   if (payload) {
     return {
       baseFee: {

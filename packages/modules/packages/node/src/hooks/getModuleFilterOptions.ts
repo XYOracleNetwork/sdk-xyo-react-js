@@ -1,7 +1,6 @@
 import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
 
-// eslint-disable-next-line @eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks
-export const useModuleFilterOptions = (config?: ModuleFromNodeConfig) => {
+export const getModuleFilterOptions = (config?: ModuleFromNodeConfig) => {
   const {
     direction, identity, maxDepth,
   } = config ?? {}

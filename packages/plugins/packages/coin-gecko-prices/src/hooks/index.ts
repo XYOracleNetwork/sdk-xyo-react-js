@@ -1,1 +1,1 @@
-export * from './useCoinGeckoToPriceAggregate.tsx'
+export * from './getCoinGeckoToPriceAggregate.tsx'

@@ -1,1 +1,1 @@
-export * from './useEtherscanTransformer.tsx'
+export * from './getEtherscanTransformer.tsx'

@@ -1,20 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ExpandLessRounded as ExpandLessRoundedIcon, ExpandMoreRounded as ExpandMoreRoundedIcon } from '@mui/icons-material'
 import type { CardProps } from '@mui/material'
-import {
-  Card, Divider, IconButton,
-} from '@mui/material'
-import type { BoundWitness } from '@xyo-network/boundwitness-model'
-import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadDetailsListRenderProps } from '@xyo-network/react-payload-plugin'
 import { TableHeightProvider } from '@xyo-network/react-table'
-import React, {
-  forwardRef, useEffect, useState,
-} from 'react'
+import React, { forwardRef } from 'react'
 
-import { BoundWitnessCardHeader } from '../../Card/index.ts'
-import { DetailsCardContent } from './DetailsCardContent.tsx'
+import { BoundWitnessDetailsCardInner } from './DetailsCardInner.tsx'
 
-const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(({ visibleRows, ...props }, ref) => {
+const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsListRenderProps & CardProps>(({ visibleRows, ...props }, ref) => {
   return (
     <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
       <BoundWitnessDetailsCardInner ref={ref} {...props} />
@@ -25,48 +16,3 @@ const BoundWitnessDetailsCard = forwardRef<HTMLDivElement, PayloadDetailsRenderP
 BoundWitnessDetailsCard.displayName = 'BoundWitnessDetailsCard'
 
 export { BoundWitnessDetailsCard }
-
-const BoundWitnessDetailsCardInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & CardProps>(
-
-  ({
-    payload, active: activeProp, listMode, visibleRows, ...props
-  }, ref) => {
-    const boundwitness = payload as BoundWitness
-    const [collapsed, setCollapsed] = useState(!activeProp)
-
-    useEffect(() => {
-      setCollapsed(!activeProp)
-    }, [activeProp])
-
-    return (
-      <Card ref={ref} {...props}>
-        <BoundWitnessCardHeader
-          payload={payload}
-          active={activeProp}
-          activeBgColor={false}
-          hideJSONButton={false}
-          hideValidation={false}
-          hidePreviousHash={false}
-          additionalActions={(
-            <>
-              <Divider
-                flexItem
-                orientation="vertical"
-                sx={{ ml: 2, mr: 1 }}
-              />
-              <IconButton onClick={() => setCollapsed(!collapsed)}>
-                {collapsed
-                  ? <ExpandMoreRoundedIcon />
-                  : <ExpandLessRoundedIcon />}
-              </IconButton>
-            </>
-          )}
-          sx={{ columnGap: 2 }}
-        />
-        <DetailsCardContent boundwitness={boundwitness} collapsed={collapsed} setCollapsed={setCollapsed} ref={ref} />
-      </Card>
-    )
-  },
-)
-
-BoundWitnessDetailsCardInner.displayName = 'BoundWitnessDetailsCardInner'

@@ -1,5 +1,5 @@
 import { Cancel } from '@mui/icons-material'
-import type { StackProps, TypographyProps } from '@mui/material'
+import type { StackProps } from '@mui/material'
 import {
   Stack,
   Tooltip,

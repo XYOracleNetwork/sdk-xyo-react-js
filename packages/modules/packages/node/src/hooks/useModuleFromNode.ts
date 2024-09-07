@@ -4,9 +4,9 @@ import type { ModuleInstance } from '@xyo-network/module-model'
 import { isModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
+import { getModuleFilterOptions } from './getModuleFilterOptions.ts'
 import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
-import { useModuleFromNodeConfigLogger } from './ModuleFromNodeConfig.ts'
-import { useModuleFilterOptions } from './useModuleFilterOptions.ts'
+import { getModuleFromNodeConfigLogger } from './ModuleFromNodeConfig.ts'
 import { useNode } from './useNode.ts'
 
 /** @deprecated use useWeakModuleFromNode */
@@ -15,8 +15,8 @@ export const useModuleFromNode = <T extends ModuleInstance | void = void>(
   config?: T extends ModuleInstance ? ModuleFromNodeConfig<T> : ModuleFromNodeConfig | undefined,
 ): [(T extends ModuleInstance ? T : ModuleInstance) | undefined, Error | undefined] => {
   const [node, nodeError] = useNode(config)
-  const logger = useModuleFromNodeConfigLogger(config)
-  const filterOptions = useModuleFilterOptions(config)
+  const logger = getModuleFromNodeConfigLogger(config)
+  const filterOptions = getModuleFilterOptions(config)
   const [result, setResult] = useState<(T extends ModuleInstance ? T : ModuleInstance) | undefined>()
   const [, error] = usePromise(async () => {
     logger?.debug('useModuleFromNode: resolving')

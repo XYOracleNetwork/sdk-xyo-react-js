@@ -6,13 +6,13 @@ import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { useEtherscanTransformer } from '../hooks/index.ts'
+import { getEtherscanTransformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const EtherscanGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
   const gasPricePayload = payload ? (payload as EthereumGasEtherscanPayload) : undefined
-  const parsedPayload = useEtherscanTransformer(gasPricePayload)
+  const parsedPayload = getEtherscanTransformer(gasPricePayload)
 
   if (isEmpty(gasPricePayload) || gasPricePayload?.status !== '1') {
     return <PayloadDataMissing alertBody="Payload is missing valid gas fee data." sx={{ m: 1 }} />

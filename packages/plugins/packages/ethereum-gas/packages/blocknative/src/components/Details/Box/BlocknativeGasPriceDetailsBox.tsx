@@ -5,23 +5,23 @@ import type { EthereumGasBlocknativePayload } from '@xyo-network/blocknative-eth
 import {
   GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox,
 } from '@xyo-network/react-gas-price'
-import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadDetailsListRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { useBlocknativeTransformer } from '../../hooks/index.ts'
+import { getBlocknativeTransformer } from '../../hooks/index.ts'
 import { RenderTitle } from '../../lib/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const BlocknativeGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
+export const BlocknativeGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsListRenderProps & FlexBoxProps>(
 
   ({
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     payload, listMode, ...props
   }, ref) => {
     const gasPricePayload: EthereumGasBlocknativePayload | undefined = payload ? (payload as EthereumGasBlocknativePayload) : undefined
-    const parsedPayload = useBlocknativeTransformer(gasPricePayload)
+    const parsedPayload = getBlocknativeTransformer(gasPricePayload)
 
     return (
       <>

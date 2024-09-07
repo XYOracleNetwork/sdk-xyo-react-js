@@ -44,7 +44,7 @@ WithData.args = { payload: sampleAddressHistory[1] }
 const WithNestedBWPayloads = Template.bind({})
 WithNestedBWPayloads.args = {
   payload: {
-    _signatures: ['2a6c7e55d2344ec4f839296fcdc88b11dd27b474e832e1227d956838247d7183c2d47c24b4fe1b07c623e039c78babb08f1f12131747673175475c1abf0f719f'],
+    $meta: { signatures: ['2a6c7e55d2344ec4f839296fcdc88b11dd27b474e832e1227d956838247d7183c2d47c24b4fe1b07c623e039c78babb08f1f12131747673175475c1abf0f719f'] },
     addresses: ['db8af7b3084f5a03589af4915e37cbeb3f19afb0'],
     payload_hashes: [
       '1d31053d99a3392f717c7f775df5fc0f999725fb57d705ddcbc01ee4f7288b6d',

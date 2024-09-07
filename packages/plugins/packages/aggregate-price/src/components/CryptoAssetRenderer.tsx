@@ -8,7 +8,7 @@ import React from 'react'
 
 import { CryptoAsset } from './Asset.tsx'
 
-export interface CryptoAssetRendererProps extends PayloadDetailsRenderProps {
+export type CryptoAssetRendererProps = PayloadDetailsRenderProps & {
   payload?: Payload
 }
 

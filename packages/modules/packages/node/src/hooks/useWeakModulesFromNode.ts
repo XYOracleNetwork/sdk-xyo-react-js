@@ -2,8 +2,8 @@ import { usePromise } from '@xylabs/react-promise'
 import type { ModuleFilter, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
+import { getModuleFilterOptions } from './getModuleFilterOptions.ts'
 import type { ModuleFromNodeConfig } from './ModuleFromNodeConfig.ts'
-import { useModuleFilterOptions } from './useModuleFilterOptions.ts'
 import { useNode } from './useNode.ts'
 
 export const useWeakModulesFromNode = (
@@ -12,7 +12,7 @@ export const useWeakModulesFromNode = (
 ): [WeakRef<ModuleInstance>[] | undefined, Error | undefined] => {
   const [node, nodeError] = useNode(config)
   const logger = config?.logger
-  const filterOptions = useModuleFilterOptions()
+  const filterOptions = getModuleFilterOptions()
   const [result, setResult] = useState<WeakRef<ModuleInstance>[] | undefined>()
   const [, error] = usePromise(async () => {
     logger?.debug('useModuleFromNode: resolving')

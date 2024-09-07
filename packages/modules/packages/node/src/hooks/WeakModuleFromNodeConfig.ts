@@ -7,7 +7,6 @@ export type WeakModuleFromNodeConfig = ModuleFilterOptions & {
   node?: WeakRef<NodeInstance> | string
 }
 
-// eslint-disable-next-line @eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks
-export const useWeakModuleFromNodeConfigLogger = (config?: WeakModuleFromNodeConfig) => {
+export const getWeakModuleFromNodeConfigLogger = (config?: WeakModuleFromNodeConfig) => {
   return config?.logger
 }

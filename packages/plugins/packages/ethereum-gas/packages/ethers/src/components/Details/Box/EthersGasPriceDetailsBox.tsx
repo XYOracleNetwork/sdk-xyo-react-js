@@ -4,23 +4,23 @@ import type { EthereumGasEthersPayload } from '@xyo-network/ethers-ethereum-gas-
 import {
   GasFeeCard, GasPriceWitnessHeaderBox, ToggleRawPayloadBox,
 } from '@xyo-network/react-gas-price'
-import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadDetailsListRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { useEthersTransformer } from '../../hooks/index.ts'
+import { getEthersTransformer } from '../../hooks/index.ts'
 import { RenderTitle } from '../../lib/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(
+export const EthersGasPriceDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsListRenderProps & FlexBoxProps>(
 
   ({
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     payload, listMode, ...props
   }, ref) => {
     const gasPricePayload = payload ? (payload as EthereumGasEthersPayload) : undefined
-    const parsedPayload = useEthersTransformer(gasPricePayload)
+    const parsedPayload = getEthersTransformer(gasPricePayload)
 
     return (
       <>

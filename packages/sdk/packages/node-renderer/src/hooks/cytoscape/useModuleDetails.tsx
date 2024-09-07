@@ -1,6 +1,8 @@
 import { usePromise } from '@xylabs/react-promise'
 import type { ModuleInstance } from '@xyo-network/module-model'
-import { useEffect, useState } from 'react'
+import {
+  useCallback, useEffect, useState,
+} from 'react'
 
 import { useCytoscapeInstance } from '../../contexts/index.ts'
 
@@ -17,8 +19,8 @@ export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, on
     }
   }, [moduleAddress, rootModule])
 
-  useEffect(() => {
-    const resizeObserver = new ResizeObserver(() => {
+  const createObserver = useCallback(() => {
+    return new ResizeObserver(() => {
       if (moduleAddress === null) {
         // cytoscape tries to center prematurely without it :(
         setTimeout(() => {
@@ -33,6 +35,10 @@ export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, on
         }, 100)
       }
     })
+  }, [cy, moduleAddress, foundModule])
+
+  useEffect(() => {
+    const resizeObserver = createObserver()
 
     const container = cy?.deref()?.container()
     if (container) {
@@ -48,7 +54,7 @@ export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, on
     if (foundModule) {
       onFoundModule?.()
     }
-  }, [cy, moduleAddress, foundModule, onFoundModule])
+  }, [cy, moduleAddress, foundModule, onFoundModule, createObserver])
 
   // eslint-disable-next-line complexity
   const onModuleDetails = (address?: string | null) => {

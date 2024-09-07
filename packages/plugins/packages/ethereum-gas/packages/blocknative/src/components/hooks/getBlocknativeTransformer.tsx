@@ -1,8 +1,7 @@
 import type { EthereumGasBlocknativePayload } from '@xyo-network/blocknative-ethereum-gas-payload-plugin'
 import type { GasPriceWitnessUIBasePayload } from '@xyo-network/react-gas-price'
 
-// eslint-disable-next-line @eslint-react/hooks-extra/ensure-custom-hooks-using-other-hooks
-export const useBlocknativeTransformer = (payload?: EthereumGasBlocknativePayload): GasPriceWitnessUIBasePayload | undefined => {
+export const getBlocknativeTransformer = (payload?: EthereumGasBlocknativePayload): GasPriceWitnessUIBasePayload | undefined => {
   const blockPrices = payload?.blockPrices?.[0]
   if (blockPrices && blockPrices.estimatedPrices?.length) {
     const estimatedPrices = blockPrices?.estimatedPrices

@@ -1,1 +1,1 @@
-export * from './useEthersTransformer.tsx'
+export * from './getEthersTransformer.tsx'

@@ -17,9 +17,7 @@ Default.args = {}
 
 const WithData = Template.bind({})
 
-WithData.args = {
-  // value: await PayloadBuilder.dataHash(sampleBlock)
-}
+WithData.args = {}
 
 export { Default, WithData }
 

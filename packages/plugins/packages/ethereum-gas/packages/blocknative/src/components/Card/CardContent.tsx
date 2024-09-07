@@ -6,14 +6,14 @@ import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import React, { forwardRef } from 'react'
 
-import { useBlocknativeTransformer } from '../hooks/index.ts'
+import { getBlocknativeTransformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const BlocknativeGasPriceCardContent = forwardRef<HTMLDivElement, Omit<PayloadRenderProps & CardContentProps, 'ref'>>(
   ({ payload, ...props }, ref) => {
     const gasPricePayload = payload ? (payload as EthereumGasBlocknativePayload) : undefined
-    const parsedPayload = useBlocknativeTransformer(gasPricePayload)
+    const parsedPayload = getBlocknativeTransformer(gasPricePayload)
 
     if (isEmpty(gasPricePayload) || !gasPricePayload?.blockPrices?.length) {
       return <PayloadDataMissing alertBody="Payload is missing valid gas fee data." sx={{ m: 1 }} />

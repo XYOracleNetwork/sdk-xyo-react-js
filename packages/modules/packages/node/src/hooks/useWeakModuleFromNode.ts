@@ -4,18 +4,18 @@ import type { ModuleInstance } from '@xyo-network/module-model'
 import { isModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 
-import { useWeakModuleFilterOptions } from './useWeakModuleFilterOptions.ts'
+import { getWeakModuleFilterOptions } from './getWeakModuleFilterOptions.ts'
 import { useWeakNode } from './useWeakNode.ts'
 import type { WeakModuleFromNodeConfig } from './WeakModuleFromNodeConfig.ts'
-import { useWeakModuleFromNodeConfigLogger } from './WeakModuleFromNodeConfig.ts'
+import { getWeakModuleFromNodeConfigLogger } from './WeakModuleFromNodeConfig.ts'
 
 export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
   nameOrAddressOrInstance: string | (T extends ModuleInstance ? T : ModuleInstance) | undefined = undefined,
   config?: WeakModuleFromNodeConfig,
 ): [WeakRef<T extends ModuleInstance ? T : ModuleInstance> | undefined, Error | undefined] => {
   const [node, nodeError] = useWeakNode(config)
-  const logger = useWeakModuleFromNodeConfigLogger(config)
-  const filterOptions = useWeakModuleFilterOptions(config)
+  const logger = getWeakModuleFromNodeConfigLogger(config)
+  const filterOptions = getWeakModuleFilterOptions(config)
   const [result, setResult] = useState<WeakRef<T extends ModuleInstance ? T : ModuleInstance> | undefined>()
   const [, error] = usePromise(async () => {
     logger?.debug('useModuleFromNode: resolving')
