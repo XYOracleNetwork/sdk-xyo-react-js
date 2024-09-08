@@ -1,8 +1,6 @@
 import type { Map } from 'mapbox-gl'
 import type { MutableRefObject } from 'react'
-import {
-  useEffect, useMemo, useState,
-} from 'react'
+import { useEffect, useMemo } from 'react'
 
 /**
  * Inspired by - https://bl.ocks.org/danswick/fc56f37c10d40be62e4feac5984250d2
@@ -13,8 +11,6 @@ export const useDynamicMapResize = (
   mapInstance?: Map,
   active = true,
 ) => {
-  const [dependenciesReady, setDependenciesReady] = useState(false)
-
   const resizer = useMemo(
     () =>
       new ResizeObserver(() => {
@@ -29,9 +25,8 @@ export const useDynamicMapResize = (
     [mapCanvasRef, mapContainerRef, mapInstance],
   )
 
-  useEffect(() => {
-    const dependenciesReady = !!(active && mapInstance && mapContainerRef?.current && mapCanvasRef.current)
-    setDependenciesReady(dependenciesReady)
+  const dependenciesReady = useMemo(() => {
+    return !!(active && mapInstance && mapContainerRef?.current && mapCanvasRef.current)
   }, [active, mapCanvasRef, mapContainerRef, mapInstance])
 
   useEffect(() => {

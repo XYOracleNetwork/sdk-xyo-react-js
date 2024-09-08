@@ -1,6 +1,7 @@
+import { useResetState } from '@xylabs/react-hooks'
 import type { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
 import type { ContextExProviderProps } from '@xyo-network/react-shared'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import { PayloadSetPluginResolverContext } from './Context.ts'
 
@@ -13,11 +14,7 @@ export const PayloadSetPluginResolverProvider: React.FC<PayloadSetPluginResolver
   required = false,
   children,
 }) => {
-  const [resolver, setResolver] = useState<PayloadSetPluginResolver>(resolverProp)
-
-  useEffect(() => {
-    setResolver(resolverProp)
-  }, [resolverProp])
+  const [resolver, setResolver] = useResetState<PayloadSetPluginResolver>(resolverProp)
 
   return (
     <PayloadSetPluginResolverContext.Provider

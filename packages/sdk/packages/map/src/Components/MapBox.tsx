@@ -50,6 +50,7 @@ export const MapBox: React.FC<MapBoxProps> = ({
 
     // Allow external components to control the map
     setMapBoxInstance?.(map)
+    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setMap(map)
 
     // save the map canvas ref to help with resizing

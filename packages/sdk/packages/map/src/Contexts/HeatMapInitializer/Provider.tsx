@@ -1,9 +1,7 @@
 import { forget } from '@xylabs/forget'
 import type { WithChildren } from '@xylabs/react-shared'
 import type { Feature, Polygon } from 'geojson'
-import React, {
-  useEffect, useMemo, useState,
-} from 'react'
+import React, { useEffect, useMemo } from 'react'
 
 import type { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.ts'
 import { useDynamicPositioning } from '../../hooks/index.ts'
@@ -34,10 +32,17 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
   layers,
   zoom,
 }) => {
-  const [mapHeat, setMapHeat] = useState<MapHeat>()
   const { options } = useDynamicPositioning()
   const { mapSettings } = useMapSettings()
   const { map, mapInitialized } = useMapBoxInstance()
+
+  const mapHeat = useMemo(() => {
+    return (map && features?.length)
+      ? new MapHeat({
+        features, map, zoom,
+      })
+      : undefined
+  }, [map, features, zoom])
 
   const value: HeatMapInitializerState = useMemo(() => ({
     MapHeat: mapHeat,
@@ -76,22 +81,13 @@ export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerPro
             map,
             features,
           )
-        } else if (options.zoom && options.center) {
+        } else if (options?.zoom && options.center) {
           map.setZoom(options.zoom)
           map.setCenter(options.center)
         }
       }
     }
   }, [mapHeat, map, mapSettings, fitToPadding, options, mapInitialized, features])
-
-  useEffect(() => {
-    if (map && features?.length) {
-      // Every time we get a new map or features, we make a new class
-      setMapHeat(new MapHeat({
-        features, map, zoom,
-      }))
-    }
-  }, [map, features, zoom])
 
   return <HeatMapInitializerContext.Provider value={value}>{children}</HeatMapInitializerContext.Provider>
 }

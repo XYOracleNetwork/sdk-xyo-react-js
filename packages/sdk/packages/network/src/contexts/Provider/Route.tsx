@@ -1,8 +1,6 @@
 import type { WithChildren } from '@xylabs/react-shared'
 import type { NetworkPayload } from '@xyo-network/network'
-import React, {
-  useCallback, useEffect, useState,
-} from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { defaultNetworkConfigs, findNetworkConfig } from '../../lib/index.ts'
@@ -12,7 +10,6 @@ import { NetworkMemoryProvider } from './Memory.tsx'
 import type { NetworkProviderProps } from './Props.ts'
 
 const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
-  const [initialized, setInitialized] = useState(false)
   const { network, setNetwork } = useNetwork()
 
   const [params, setParams] = useSearchParams()
@@ -44,7 +41,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   )
 
   // sync memory and route storage of network
-  useEffect(() => {
+  const initialized = useMemo(() => {
     if (routeNetwork !== network) {
       if (routeNetwork === undefined && network !== undefined) {
         // if the route does not have a network selected, use what is in the memory context
@@ -54,7 +51,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
         setNetwork?.(routeNetwork)
       }
     }
-    setInitialized(true)
+    return true
   }, [routeNetwork, network, setNetworkParam, setNetwork])
 
   return (

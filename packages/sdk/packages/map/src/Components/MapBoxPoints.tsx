@@ -3,7 +3,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import type { Feature, Point } from 'geojson'
 import type { MapOptions } from 'mapbox-gl'
 import React, {
-  useCallback, useEffect, useState,
+  useCallback, useEffect, useMemo,
 } from 'react'
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts/index.ts'
@@ -25,7 +25,6 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
   zoom,
   ...props
 }) => {
-  const [mapPoints, setMapPoints] = useState<MapPoints>()
   const { mapSettings } = useMapSettings()
   const { map, mapInitialized } = useMapBoxInstance()
 
@@ -39,6 +38,14 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
     }
     return {}
   }
+
+  const mapPoints = useMemo(() => {
+    return (map && features?.length)
+      ? new MapPoints({
+        features, map, zoom,
+      })
+      : undefined
+  }, [map, features, zoom])
 
   const updateFeatures = useCallback(() => {
     if (mapPoints?.isMapReady && features?.length && layers)
@@ -69,14 +76,6 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
     })
     updateFeatures()
   }, [mapPoints, fitToPointsPadding, updateFeatures, zoom])
-
-  useEffect(() => {
-    if (map && features?.length) {
-      setMapPoints(new MapPoints({
-        features, map, zoom,
-      }))
-    }
-  }, [map, features, zoom])
 
   useEffect(() => {
     if (mapInitialized) {

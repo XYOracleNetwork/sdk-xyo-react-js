@@ -1,6 +1,6 @@
+import { useResetState } from '@xylabs/react-hooks'
 import type { WithChildren } from '@xylabs/react-shared'
-import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import { EmbedPluginContext } from './Context.ts'
 import type { EmbedPluginBase } from './State.ts'
@@ -16,11 +16,7 @@ export const EmbedPluginProvider: React.FC<WithChildren<EmbedPluginProviderProps
   plugins,
   embedPluginConfig,
 }) => {
-  const [activePlugin, setActivePlugin] = useState<PayloadRenderPlugin | undefined>(plugins ? plugins[0] : undefined)
-
-  useEffect(() => {
-    setActivePlugin(plugins ? plugins[0] : undefined)
-  }, [plugins])
+  const [activePlugin, setActivePlugin] = useResetState(plugins ? plugins[0] : undefined)
 
   return (
     <EmbedPluginContext.Provider

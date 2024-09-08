@@ -1,16 +1,12 @@
 import type { Address } from '@xylabs/hex'
-import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { usePromise } from '@xylabs/react-promise'
 import type { SchemaListPayload, SchemaListQueryPayload } from '@xyo-network/diviner-schema-list-model'
 import { SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
 import type { WithMeta } from '@xyo-network/payload-model'
 import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
-import {
-  useEffect, useMemo, useState,
-} from 'react'
+import { useMemo } from 'react'
 
 export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDiviner'): [SchemaListPayload | null | undefined, Error | undefined] => {
-  const [schemaList, setSchemaList] = useState<SchemaListPayload | null>()
-  const [error, setError] = useState<Error>()
   const [diviner, divinerError] = useWeakDivinerFromNode(nameOrAddress)
 
   const query: SchemaListQueryPayload[] | undefined = useMemo(
@@ -26,27 +22,12 @@ export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDivi
     [address],
   )
 
-  useEffect(() => {
-    if (diviner === null) {
-      setSchemaList(null)
-      setError(undefined)
-    }
-  }, [diviner])
-
-  useAsyncEffect(
-    async (mounted) => {
+  const [schemaList, error] = usePromise(
+    async () => {
       const divinerInstance = diviner?.deref()
       if (divinerInstance) {
-        try {
-          const response = (await divinerInstance.divine(query)) as WithMeta<SchemaListPayload>[]
-          if (mounted()) {
-            setSchemaList(response?.[0])
-            setError(undefined)
-          }
-        } catch (e) {
-          setError(e as Error)
-          setSchemaList(undefined)
-        }
+        const response = (await divinerInstance.divine(query)) as WithMeta<SchemaListPayload>[]
+        return response.at(0)
       }
     },
     [diviner, divinerError, query],

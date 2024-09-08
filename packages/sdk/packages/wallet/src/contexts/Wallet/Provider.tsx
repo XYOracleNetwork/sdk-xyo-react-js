@@ -1,9 +1,8 @@
+import { useResetState } from '@xylabs/react-hooks'
 import { usePromise } from '@xylabs/react-promise'
 import type { WithChildren } from '@xylabs/react-shared'
 import type { WalletInstance } from '@xyo-network/wallet-model'
-import React, {
-  useEffect, useMemo, useState,
-} from 'react'
+import React, { useMemo } from 'react'
 
 import { WalletContext } from './Context.ts'
 
@@ -18,13 +17,7 @@ export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
   rootWallet = null,
   ...props
 }) => {
-  const [activeAccountIndex, setActiveAccountIndex] = useState(defaultActiveAccountIndex)
-
-  useEffect(() => {
-    if (defaultActiveAccountIndex !== undefined) {
-      setActiveAccountIndex(defaultActiveAccountIndex)
-    }
-  }, [defaultActiveAccountIndex])
+  const [activeAccountIndex, setActiveAccountIndex] = useResetState(defaultActiveAccountIndex)
 
   const [activeAccount = null] = usePromise(async () => await rootWallet?.derivePath(activeAccountIndex.toString()), [activeAccountIndex, rootWallet])
 

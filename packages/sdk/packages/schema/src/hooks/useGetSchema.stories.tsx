@@ -3,9 +3,10 @@ import {
 } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexRow } from '@xylabs/react-flexbox'
+import { useResetState } from '@xylabs/react-hooks'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import { SchemaCache } from '@xyo-network/schema-cache'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import { useGetSchemaPayload } from './useGetSchema.tsx'
 
@@ -13,14 +14,8 @@ SchemaCache.instance.proxy = 'https://beta.api.archivist.xyo.network/domain'
 
 const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
   const exampleSchemas = ['network.xyo.domain', 'network.xyo.payload', 'network.xyo.schema']
-  const [schemaFieldValue, setSchemaFieldValue] = useState('')
+  const [schemaFieldValue, setSchemaFieldValue] = useResetState(schema)
   const { schemaPayload } = useGetSchemaPayload(schemaFieldValue)
-
-  useEffect(() => {
-    if (schema) {
-      setSchemaFieldValue(schema)
-    }
-  }, [schema])
 
   return (
     <>

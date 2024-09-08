@@ -1,7 +1,9 @@
 import { Card, CardContent } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
-import React, { useEffect, useState } from 'react'
+import React, {
+  useEffect, useMemo, useState,
+} from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import {
@@ -59,7 +61,7 @@ const TemplateWithRouteProviderInner: StoryFn<typeof NetworkSelectEx> = (props) 
   const { network } = useNetwork()
   const [uris, setUris] = useState<(string | undefined)[]>([])
 
-  useEffect(() => {
+  useMemo(() => {
     setUris(previous => [...previous, network?.nodes?.find(node => node.type === 'archivist')?.uri])
   }, [network?.nodes])
 

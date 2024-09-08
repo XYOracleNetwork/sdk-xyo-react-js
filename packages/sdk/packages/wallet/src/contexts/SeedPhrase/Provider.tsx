@@ -1,6 +1,7 @@
 import { generateMnemonic, validateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import-x/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
+import { useResetState } from '@xylabs/react-hooks'
 import type { WithChildren } from '@xylabs/react-shared'
 import React, {
   useCallback, useEffect, useMemo, useState,
@@ -31,12 +32,8 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   seedPhrase,
   open,
 }) => {
-  const [phrase, setPhrase] = useState<string | undefined>()
+  const [phrase, setPhrase] = useResetState<string | undefined>(defaultPhrase)
   const [overwriteWarning, setOverwriteWarning] = useState(false)
-
-  useEffect(() => {
-    setPhrase(defaultPhrase)
-  }, [defaultPhrase])
 
   useEffect(() => {
     if (seedPhrase || open) {

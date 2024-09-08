@@ -1,3 +1,4 @@
+/* eslint-disable @eslint-react/hooks-extra/no-direct-set-state-in-use-effect */
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { WithChildren } from '@xylabs/react-shared'

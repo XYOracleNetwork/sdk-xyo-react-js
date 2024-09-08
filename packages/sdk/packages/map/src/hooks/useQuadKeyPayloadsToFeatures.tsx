@@ -1,7 +1,7 @@
 import { exists } from '@xylabs/exists'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import type { Feature, Geometry } from 'geojson'
-import { useEffect, useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import type { NetworkLocationHeatmapQuadkeyAnswerPayload } from '../types/index.ts'
 
@@ -26,7 +26,7 @@ const useQuadKeyPayloadsToFeatures = (payloads?: NetworkLocationHeatmapQuadkeyAn
   const [features, setFeatures] = useState<Feature<Geometry>[]>([])
   const [error, setError] = useState<Error>()
 
-  useEffect(() => {
+  useMemo(() => {
     // Convert Multiple Payloads from Quadkey to GeoJson
     if (Array.isArray(payloads)) {
       if ((payloads)?.filter(exists).length > 0) {

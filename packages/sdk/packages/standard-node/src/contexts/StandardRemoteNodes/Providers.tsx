@@ -1,12 +1,11 @@
+import { useResetState } from '@xylabs/react-hooks'
 import { usePromise } from '@xylabs/react-promise'
 import type { WithChildren } from '@xylabs/react-shared'
 import type { MemoryNode } from '@xyo-network/node-memory'
 import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useWalletContext } from '@xyo-network/react-wallet'
 import type { WalletInstance } from '@xyo-network/wallet-model'
-import React, {
-  useEffect, useMemo, useState,
-} from 'react'
+import React, { useMemo } from 'react'
 
 import { BuildStandardNodes } from '../../lib/index.ts'
 import { StandardNodesContext } from './Context.ts'
@@ -20,11 +19,7 @@ export interface StandardNodesProviderProps extends WithChildren {
 export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({
   children, defaultRemoteNodes, wallet,
 }) => {
-  const [nodes, setNodes] = useState<StandardNodesState['nodes']>(defaultRemoteNodes)
-
-  useEffect(() => {
-    setNodes(defaultRemoteNodes)
-  }, [defaultRemoteNodes])
+  const [nodes, setNodes] = useResetState<StandardNodesState['nodes']>(defaultRemoteNodes)
 
   usePromise(async () => {
     if (wallet) {

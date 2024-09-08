@@ -5,7 +5,7 @@ import { generateMnemonic } from '@scure/bip39'
 // eslint-disable-next-line import-x/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import type { WithChildren } from '@xylabs/react-shared'
-import React, { useEffect, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 export interface DefaultSeedPhraseProps extends WithChildren {
   changeSeedPhrase?: (seedPhrase: string) => void
@@ -18,7 +18,7 @@ export const DefaultSeedPhrase: React.FC<DefaultSeedPhraseProps> = ({
 }) => {
   const [showSnackBar, setShowSnackBar] = useState(false)
 
-  useEffect(() => {
+  useMemo(() => {
     if (!seedPhrase) {
       const mnemonic = generateMnemonic(wordlist, 256)
       changeSeedPhrase?.(mnemonic)

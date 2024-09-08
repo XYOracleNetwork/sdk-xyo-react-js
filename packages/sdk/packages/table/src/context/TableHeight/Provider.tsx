@@ -1,8 +1,7 @@
+import { useResetState } from '@xylabs/react-hooks'
 import type { WithChildren } from '@xylabs/react-shared'
 import type { ContextExProviderProps } from '@xyo-network/react-shared'
-import React, {
-  useEffect, useMemo, useState,
-} from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { TableHeightContext } from './Context.ts'
 
@@ -19,21 +18,16 @@ export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({
   defaultVisibleRows,
   heightFormat = 'px',
 }) => {
-  const [visibleRows, setVisibleRows] = useState(defaultVisibleRows)
-  const [height, setHeight] = useState<number | undefined>()
+  const [visibleRows, setVisibleRows] = useResetState(defaultVisibleRows)
   const [rowHeight, setRowHeight] = useState<number | undefined>()
 
-  const formattedHeight = useMemo(() => (height === undefined ? undefined : `${height}${heightFormat}`), [height, heightFormat])
-
-  useEffect(() => {
-    setVisibleRows(defaultVisibleRows)
-  }, [defaultVisibleRows])
-
-  useEffect(() => {
+  const height = useMemo(() => {
     if (rowHeight !== undefined && visibleRows !== undefined) {
-      setHeight(rowHeight * (visibleRows + additionalRows))
+      return rowHeight * (visibleRows + additionalRows)
     }
   }, [defaultVisibleRows, rowHeight, visibleRows, additionalRows])
+
+  const formattedHeight = useMemo(() => (height === undefined ? undefined : `${height}${heightFormat}`), [height, heightFormat])
 
   const value = useMemo(() => ({
     height: formattedHeight, provided: true, rowHeight, setRowHeight, setVisibleRows, visibleRows,

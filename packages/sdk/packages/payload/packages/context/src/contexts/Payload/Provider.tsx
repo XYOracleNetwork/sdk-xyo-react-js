@@ -3,7 +3,9 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { WithChildren } from '@xylabs/react-shared'
 import type { ArchivistInstance, ArchivistModule } from '@xyo-network/archivist-model'
 import type { Payload } from '@xyo-network/payload-model'
-import React, { useEffect, useState } from 'react'
+import React, {
+  useCallback, useEffect, useState,
+} from 'react'
 
 import { PayloadContext } from './Context.ts'
 
@@ -28,9 +30,10 @@ export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
   const [payload, setPayload] = useState<Payload | null>()
   const [payloadError, setPayloadError] = useState<Error>()
 
-  const refreshPayload = () => {
+  const refreshPayload = useCallback(() => {
+    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setPayload(undefined)
-  }
+  }, [setPayload])
 
   const clearPayload = () => {
     setPayload(null)
