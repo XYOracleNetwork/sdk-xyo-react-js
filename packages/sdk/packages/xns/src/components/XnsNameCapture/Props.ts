@@ -38,6 +38,7 @@ export interface XnsNameCaptureBaseProps {
   defaultXnsName?: string
   errorUi?: 'alert' | 'toast'
   mobileButtonText?: string
+  onNameChange?: (name: string) => void
   showSecondary?: boolean | ReactNode
 }
 

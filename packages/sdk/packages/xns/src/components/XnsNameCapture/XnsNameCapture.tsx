@@ -24,6 +24,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   mobileButtonText = 'Buy',
   navigate,
   onCaptureName: onCaptureNameProp,
+  onNameChange,
   paramsString = '',
   placement = '',
   routingError,
@@ -42,6 +43,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
 
   const handleChange: StandardTextFieldProps['onChange'] = (event) => {
     const NsName = XnsNameHelper.mask(event.target.value)
+    onNameChange?.(NsName)
     setXnsName(NsName)
     setError(undefined)
   }
@@ -62,7 +64,11 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
     } else {
       setError(new Error(errors.join(', ')))
     }
-  }, [event, funnel, mixpanel, paramsString, placement, to, userEvents, xnsName])
+  }, [event, funnel, mixpanel, paramsString, placement, to, userEvents, xnsName, onCaptureNameProp, navigate])
+
+  const onClick = async () => {
+    await onCaptureNameProp?.(xnsName)
+  }
 
   const onKeyDown: KeyboardEventHandler<HTMLDivElement> = useCallback(async (event) => {
     if (event.key === 'Enter' && !captureDisabled) {
@@ -88,7 +94,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
           variant="contained"
           color="success"
           endIcon={<KeyboardArrowRightRounded />}
-          onClick={onCaptureName}
+          onClick={onClick}
         >
           {isMobile ? mobileButtonText : buttonText}
         </ButtonEx>
