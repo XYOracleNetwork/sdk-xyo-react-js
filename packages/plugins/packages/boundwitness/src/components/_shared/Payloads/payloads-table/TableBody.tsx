@@ -48,17 +48,18 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
       {noResults && NoResultRowComponent
         ? <NoResultRowComponent />
         : null}
-      {(payloadHashes
-      && payloadSchemas
-      && payloadHashes.length > 0
-      && payloadHashes?.map((hash, index) => {
-        return (
-          <TableRow ref={tableRowRef} key={boundwitnessHash + hash} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
-            <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
-            <HashTableCell title={hash}>{hash}</HashTableCell>
-          </TableRow>
-        )
-      })) || (
+      {(
+        payloadHashes
+        && payloadSchemas
+        && payloadHashes.length > 0
+        && payloadHashes?.map((hash, index) => {
+          return (
+            <TableRow ref={tableRowRef} key={boundwitnessHash + hash} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
+              <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
+              <HashTableCell title={hash}>{hash}</HashTableCell>
+            </TableRow>
+          )
+        })) || (
         <>
           <TableRowNoData additionalCells={1} />
         </>
