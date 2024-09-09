@@ -66,10 +66,6 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
     }
   }, [event, funnel, mixpanel, paramsString, placement, to, userEvents, xnsName, onCaptureNameProp, navigate])
 
-  const onClick = async () => {
-    await onCaptureNameProp?.(xnsName)
-  }
-
   const onKeyDown: KeyboardEventHandler<HTMLDivElement> = useCallback(async (event) => {
     if (event.key === 'Enter' && !captureDisabled) {
       await onCaptureName?.()
@@ -94,7 +90,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
           variant="contained"
           color="success"
           endIcon={<KeyboardArrowRightRounded />}
-          onClick={onClick}
+          onClick={onCaptureName}
         >
           {isMobile ? mobileButtonText : buttonText}
         </ButtonEx>
