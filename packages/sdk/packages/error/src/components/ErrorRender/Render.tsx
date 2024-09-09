@@ -35,5 +35,5 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
               )}
         </FlexCol>
       )
-    : (<>{children}</> ?? null)
+    : <>{children}</>
 }
