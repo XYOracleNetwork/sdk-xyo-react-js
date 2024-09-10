@@ -9,6 +9,7 @@ import React, { useCallback, useState } from 'react'
 
 import { XnsEstimateNameTextField } from '../EstimateName/index.ts'
 import { XnsNameCaptureErrors } from './Errors.tsx'
+import { navigateWithUsername } from './lib/index.ts'
 import type { XnsNameCaptureProps } from './Props.ts'
 import { XnsCaptureSecondaryLink } from './SecondaryLink.js'
 
@@ -60,7 +61,8 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
     if (valid) {
       await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
       await onCaptureNameProp?.(xnsName)
-      navigate?.(`${to}?username=${xnsName}${paramsString}`)
+
+      navigateWithUsername(xnsName, paramsString, navigate, to)
     } else {
       setError(new Error(errors.join(', ')))
     }

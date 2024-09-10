@@ -53,6 +53,10 @@ WithBadXnsNameInRoute.args = {
   onCaptureName: (name: string) => Promise.resolve(alert(`Buy Name: ${name}`)),
 }
 
+const WithUserName = Template.bind({})
+WithUserName.decorators = [RouteDecorator([['username', 'foobar']])]
+WithUserName.args = { navigate: (to: To) => alert(`navigated to: ${to}`) }
+
 export {
-  Default, WithBadXnsNameInRoute, WithOnCaptureName,
+  Default, WithBadXnsNameInRoute, WithOnCaptureName, WithUserName,
 }
