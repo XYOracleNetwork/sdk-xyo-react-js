@@ -1,5 +1,5 @@
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
-import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
+import type { PayloadDetailsListRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
 import type { UniswapCryptoMarketPayload } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React from 'react'
@@ -7,7 +7,7 @@ import React from 'react'
 import { UniswapPairsCardView } from './Cards/index.ts'
 import { UniswapPairsTableView } from './Table/index.ts'
 
-export const UniswapDetailsRender: React.FC<PayloadDetailsRenderProps & FlexBoxProps> = ({ listMode, ...props }) => {
+export const UniswapDetailsRender: React.FC<PayloadDetailsListRenderProps & FlexBoxProps> = ({ listMode, ...props }) => {
   const { payload } = props
   const uniswapPayload = payload ? (payload as UniswapCryptoMarketPayload) : undefined
 
