@@ -21,6 +21,6 @@ export class MixpanelEvents<TData extends EmptyObject = EmptyObject> {
   }
 
   viewContent<T extends TData>() {
-    return new MixpanelCustomEvent<T>('ViewContext', this.mixpanel)
+    return new MixpanelCustomEvent<T>('ViewContent', this.mixpanel)
   }
 }
