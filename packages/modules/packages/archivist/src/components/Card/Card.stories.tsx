@@ -35,12 +35,12 @@ const clearArchivist = async (archivist?: ArchivistInstance) => {
 
 const Template: StoryFn<typeof ArchivistCard> = () => {
   const [node] = usePromise(async () => {
-    return await MemoryNode.create()
+    return await MemoryNode.create({})
   }, [])
 
   const [mod] = usePromise(async () => {
     if (node) {
-      const newParentModule = await MemoryArchivist.create()
+      const newParentModule = await MemoryArchivist.create({})
       await node?.register(newParentModule)
       await node?.attach(newParentModule.address)
 

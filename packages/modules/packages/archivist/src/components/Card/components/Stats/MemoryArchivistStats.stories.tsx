@@ -22,8 +22,8 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
   useAsyncEffect(
     async () => {
       if (!mod) {
-        const node = await MemoryNode.create()
-        const newParentModule = await MemoryArchivist.create()
+        const node = await MemoryNode.create({})
+        const newParentModule = await MemoryArchivist.create({})
         const newModule = await MemoryArchivist.create({
           config: {
             name: 'MemoryArchivist',

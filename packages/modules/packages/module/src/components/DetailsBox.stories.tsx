@@ -21,7 +21,7 @@ const NodeTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   useAsyncEffect(
 
     async (mounted) => {
-      const node = await MemoryNode.create()
+      const node = await MemoryNode.create({})
       if (mounted()) {
         setNode(node)
       }
@@ -43,7 +43,7 @@ const ArchivistTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   useAsyncEffect(
 
     async (mounted) => {
-      const archivist = await MemoryArchivist.create()
+      const archivist = await MemoryArchivist.create({})
       if (mounted()) {
         setArchivist(archivist)
       }
@@ -65,7 +65,7 @@ const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   useAsyncEffect(
 
     async (mounted) => {
-      const diviner = (await CryptoMarketAssetDiviner.create()) as DivinerInstance
+      const diviner = (await CryptoMarketAssetDiviner.create({})) as DivinerInstance
       if (mounted()) {
         setDiviner(diviner)
       }

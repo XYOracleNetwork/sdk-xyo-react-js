@@ -14,7 +14,7 @@ const StorybookEntry = {
 
 const IdWitnessTemplate: StoryFn<typeof WitnessCard> = () => {
   const [witness] = usePromise(async () => {
-    return await IdWitness.create()
+    return await IdWitness.create({})
   }, [])
 
   return (

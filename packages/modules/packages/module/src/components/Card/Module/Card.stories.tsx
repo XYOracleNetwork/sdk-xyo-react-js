@@ -25,7 +25,7 @@ const Template: StoryFn<typeof ModuleCard> = () => {
 
     async (mounted) => {
       if (!mod) {
-        const newModule = await MemoryArchivist.create()
+        const newModule = await MemoryArchivist.create({})
         if (mounted()) {
           setModule(newModule)
         }
