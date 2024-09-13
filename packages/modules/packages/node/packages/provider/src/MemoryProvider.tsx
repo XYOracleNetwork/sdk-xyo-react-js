@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 import { NodeProvider } from './Node/index.ts'
 
 export type MemoryNodeProviderProps = WithChildren<{
-  moduleParams: ModuleParams<NodeConfig>
+  moduleParams?: ModuleParams<NodeConfig>
   modules?: AttachableModuleInstance[]
   required?: boolean
 }> &
@@ -46,7 +46,7 @@ export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({
   useAsyncEffect(
 
     async (mounted) => {
-      const node = await MemoryNode.create(moduleParams)
+      const node = await MemoryNode.create(moduleParams ?? {})
       if (mounted()) {
         setNode(node)
       }
