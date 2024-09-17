@@ -15,12 +15,13 @@ import {
 } from './lib/index.ts'
 
 export interface CopyLinkStackProps extends ShareLinkProps, StackProps {
+  addToXnsName?: boolean
   xnsEndColor?: string
   xnsStartColor?: string
 }
 
 export const CopyLinkStack: React.FC<CopyLinkStackProps> = ({
-  shareLinkName, shareUrl, xnsName: xnsNameProp, xnsEndColor, xnsStartColor, ...props
+  addToXnsName, shareLinkName, shareUrl, xnsName: xnsNameProp, xnsEndColor, xnsStartColor, ...props
 }) => {
   const [error, setError] = useState<Error>()
 
@@ -29,7 +30,7 @@ export const CopyLinkStack: React.FC<CopyLinkStackProps> = ({
   }, [])
 
   const parsedXnsName = useMemo(() => {
-    if (shareUrl && xnsNameProp) {
+    if (shareUrl && xnsNameProp && addToXnsName) {
       try {
         const parts = splitAroundSubstring(shareUrl, xnsNameProp)
         return parts
@@ -43,7 +44,7 @@ export const CopyLinkStack: React.FC<CopyLinkStackProps> = ({
 
   return (
     <Stack direction="row" alignItems="center" gap={0.25} {...props}>
-      {xnsName
+      {xnsName && addToXnsName
         ? (
             <Stack direction="row" maxWidth="100%" sx={{ overflowX: 'auto' }}>
               <Typography sx={{ display: 'inline-flex' }}>{part1}</Typography>
