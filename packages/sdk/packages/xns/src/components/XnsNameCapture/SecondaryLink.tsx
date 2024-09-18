@@ -2,6 +2,7 @@ import { ArrowForwardRounded } from '@mui/icons-material'
 import { Stack } from '@mui/material'
 import type { LinkExProps } from '@xylabs/react-link'
 import { LinkEx } from '@xylabs/react-link'
+import { useUserEvents } from '@xylabs/react-pixel'
 import { XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
 import type { Dispatch } from 'react'
 import React from 'react'
@@ -11,44 +12,38 @@ import type {
 } from './Props.ts'
 
 export interface XnsCaptureSecondaryLinkProps extends XnsNameCaptureTrackingProps, XnsNameCaptureRoutingProps, XnsNameCaptureBuyCallbacks, LinkExProps {
-  event?: string
-  funnel?: string
-  placement?: string
   setError?: Dispatch<Error | undefined>
   text?: string
   xnsName: string
 }
 
 export const XnsCaptureSecondaryLink: React.FC<XnsCaptureSecondaryLinkProps> = ({
-  event = 'Click to Reservation',
   funnel = 'xns',
-  mixpanel,
   navigate,
   onCaptureName,
   paramsString = '',
+  intent,
   placement = '',
   setError,
   text = 'Or make a free reservation',
   to = '/xns/reservation',
-  userEvents,
   xnsName,
   ...props
 }) => {
+  const userEvents = useUserEvents('warn')
   return (
     <LinkEx
       paddingX={0}
       color="inherit"
       style={{ textDecoration: 'underline', textUnderlineOffset: '5px' }}
       onClick={async () => {
-        mixpanel?.track(event, {
-          Funnel: funnel,
-          Placement: placement,
-        })
         const formattedXnsName = `${xnsName}.xyo`
         const helper = XnsNameHelper.fromString(formattedXnsName)
         const [valid, errors] = await helper.validate()
         if (valid) {
-          await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
+          await userEvents?.userClick({
+            funnel, placement, intent,
+          })
           navigate?.(`${to}?username=${xnsName}${paramsString}`)
           await onCaptureName?.(xnsName)
         } else {
