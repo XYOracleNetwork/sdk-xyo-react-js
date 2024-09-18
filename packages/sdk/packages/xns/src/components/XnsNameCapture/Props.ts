@@ -1,6 +1,4 @@
-import type { UserEventHandler } from '@xylabs/pixel'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
-import type { Mixpanel } from 'mixpanel-browser'
 import type { ReactNode } from 'react'
 import type { To } from 'react-router-dom'
 
@@ -12,11 +10,9 @@ export interface XnsNameCaptureBuyCallbacks {
  * Trackers for user actions
  */
 export interface XnsNameCaptureTrackingProps {
-  event?: string
   funnel?: string
-  mixpanel?: Mixpanel
+  intent?: string
   placement?: string
-  userEvents?: UserEventHandler<Record<string, unknown>>
 }
 
 /**

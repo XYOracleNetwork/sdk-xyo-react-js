@@ -19,9 +19,8 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   children,
   defaultXnsName,
   errorUi = 'alert',
-  event = 'Click to Checkout',
   funnel = 'xns',
-  mixpanel,
+  intent = 'unset',
   mobileButtonText = 'Buy',
   navigate,
   onCaptureName: onCaptureNameProp,
@@ -31,7 +30,6 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   routingError,
   showSecondary = false,
   to = '/xns/estimation',
-  userEvents,
   ...props
 }) => {
   const [xnsName, setXnsName] = useState<string>(() => defaultXnsName ?? '')
@@ -51,22 +49,17 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
 
   const onCaptureName = useCallback(async () => {
     if (captureDisabled) return
-    mixpanel?.track(event, {
-      Funnel: funnel,
-      Placement: placement,
-    })
     const formattedXnsName = `${xnsName}.xyo`
     const helper = XnsNameHelper.fromString(formattedXnsName)
     const [valid, errors] = await helper.validate()
     if (valid) {
-      await userEvents?.userClick({ elementName: event, elementType: 'xns-cta' })
       await onCaptureNameProp?.(xnsName)
 
       navigateWithUsername(xnsName, paramsString, navigate, to)
     } else {
       setError(new Error(errors.join(', ')))
     }
-  }, [event, funnel, mixpanel, paramsString, placement, to, userEvents, xnsName, onCaptureNameProp, navigate])
+  }, [paramsString, to, xnsName, onCaptureNameProp, navigate])
 
   const onKeyDown: KeyboardEventHandler<HTMLDivElement> = useCallback(async (event) => {
     if (event.key === 'Enter' && !captureDisabled) {
@@ -89,6 +82,9 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
         />
         <ButtonEx
           disabled={captureDisabled}
+          funnel={funnel}
+          intent={intent}
+          placement={placement}
           variant="contained"
           color="success"
           endIcon={<KeyboardArrowRightRounded />}
