@@ -16,16 +16,18 @@ import {
 
 export interface CopyLinkStackProps extends ShareLinkProps, StackProps {
   addToXnsName?: boolean
+  copiedLinkText?: string
+  copyLinkText?: string
   xnsEndColor?: string
   xnsStartColor?: string
 }
 
 export const CopyLinkStack: React.FC<CopyLinkStackProps> = ({
-  addToXnsName, shareLinkName, shareUrl, xnsName: xnsNameProp, xnsEndColor, xnsStartColor, ...props
+  addToXnsName, copiedLinkText, copyLinkText, shareLinkName, shareUrl, xnsName: xnsNameProp, xnsEndColor, uploadPayloads, xnsStartColor, ...props
 }) => {
   const [error, setError] = useState<Error>()
 
-  const onCopyToClipboard = useCallback((error?: Error) => {
+  const onClickError = useCallback((error: Error) => {
     setError(error)
   }, [])
 
@@ -60,7 +62,15 @@ export const CopyLinkStack: React.FC<CopyLinkStackProps> = ({
               {shareUrl}
             </Typography>
           )}
-      <CopyIconButton onCopyToClipboard={onCopyToClipboard} shareLinkName={shareLinkName} shareUrl={shareUrl} sx={{ display: 'inline-flex' }} />
+      <CopyIconButton
+        copiedLinkText={copiedLinkText}
+        copyLinkText={copyLinkText}
+        onClickError={onClickError}
+        shareLinkName={shareLinkName}
+        shareUrl={shareUrl}
+        sx={{ display: 'inline-flex' }}
+        uploadPayloads={uploadPayloads}
+      />
       {error ? <Tooltip title={error.message}><Cancel color="error" sx={{ display: 'inline-flex' }} /></Tooltip> : null}
     </Stack>
   )

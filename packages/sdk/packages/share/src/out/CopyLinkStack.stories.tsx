@@ -45,9 +45,20 @@ WithError.args = {
   shareUrl: 'https://google.com', xnsName: 'foo.xyo', addToXnsName: true,
 }
 
+const WithUploadPayloads = Template.bind({})
+WithUploadPayloads.args = {
+  shareUrl: 'https://beta.node.xyo.network.com/view/arietrouw.xyo/profile',
+  xnsName: 'arietrouw.xyo',
+  addToXnsName: true,
+  copiedLinkText: 'Copied and data uploaded!',
+  copyLinkText: 'Copy link and upload data',
+  uploadPayloads: () => Promise.resolve(alert('uploaded payloads')),
+}
+
 export {
   Default, WithError,
   WithNoAddToXnsName,
-  WithShareUrl, WithXnsName, WithXnsNameCustomColors,
+  WithShareUrl, WithUploadPayloads,
+  WithXnsName, WithXnsNameCustomColors,
   WithXnsNameInSubdomain, WithXnsNameShortened,
 }

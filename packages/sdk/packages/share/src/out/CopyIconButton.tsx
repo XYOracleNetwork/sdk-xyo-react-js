@@ -8,28 +8,27 @@ import React, { useState } from 'react'
 import type { ShareLinkProps } from './lib/index.ts'
 
 export interface CopyIconButtonProps extends ButtonProps, ShareLinkProps {
-  onCopyToClipboard?: (error?: Error) => void
+  onClickError?: (error: Error) => void
 }
 
-const CopyLink = 'Copy Link'
-const Copied = 'Copied!'
-
 export const CopyIconButton: React.FC<CopyIconButtonProps> = ({
-  onCopyToClipboard, shareLinkName, shareUrl, ...props
+  copyLinkText, copiedLinkText, onClickError, shareLinkName, shareUrl, uploadPayloads, ...props
 }) => {
+  const CopyLink = copyLinkText ?? 'Copy Link'
+  const Copied = copiedLinkText ?? 'Copied!'
   const [copyTooltipTitle, setCopyToolTipTitle] = useState(CopyLink)
 
   const copyToClipboard = async (link?: string) => {
     if (link) {
       try {
+        await uploadPayloads?.()
         await navigator.clipboard.writeText(link)
-        onCopyToClipboard?.()
         setCopyToolTipTitle(Copied)
         setTimeout(() => setCopyToolTipTitle(CopyLink), 2000)
       } catch (e) {
         const message = 'Error copying shareUrl to clipboard'
         console.error(message, e, link)
-        onCopyToClipboard?.(new Error(message))
+        onClickError?.(new Error(message))
       }
     } else {
       console.warn('tried to copy shareUrl before it was generated')
