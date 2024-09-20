@@ -1,6 +1,6 @@
 import { CopyAllRounded } from '@mui/icons-material'
 import {
-  type ButtonProps, IconButton, Tooltip,
+  type ButtonProps, CircularProgress, IconButton, Tooltip,
 } from '@mui/material'
 import { forget } from '@xylabs/forget'
 import React, { useState } from 'react'
@@ -16,16 +16,21 @@ export const CopyIconButton: React.FC<CopyIconButtonProps> = ({
 }) => {
   const CopyLink = copyLinkText ?? 'Copy Link'
   const Copied = copiedLinkText ?? 'Copied!'
+
   const [copyTooltipTitle, setCopyToolTipTitle] = useState(CopyLink)
+  const [loading, setLoading] = useState(false)
 
   const copyToClipboard = async (link?: string) => {
     if (link) {
       try {
+        setLoading(true)
         await uploadPayloads?.()
         await navigator.clipboard.writeText(link)
         setCopyToolTipTitle(Copied)
         setTimeout(() => setCopyToolTipTitle(CopyLink), 2000)
+        setLoading(false)
       } catch (e) {
+        setLoading(false)
         const message = 'Error copying shareUrl to clipboard'
         console.error(message, e, link)
         onClickError?.(new Error(message))
@@ -37,9 +42,17 @@ export const CopyIconButton: React.FC<CopyIconButtonProps> = ({
 
   return (
     <Tooltip title={copyTooltipTitle}>
-      <IconButton aria-label={`copy ${shareLinkName} link`} onClick={() => forget(copyToClipboard(shareUrl))} edge="end" {...props}>
-        <CopyAllRounded />
-      </IconButton>
+      {loading
+        ? (
+            <IconButton>
+              <CircularProgress size="24px" />
+            </IconButton>
+          )
+        : (
+            <IconButton aria-label={`copy ${shareLinkName} link`} onClick={() => forget(copyToClipboard(shareUrl))} edge="end" {...props}>
+              <CopyAllRounded />
+            </IconButton>
+          )}
     </Tooltip>
   )
 }

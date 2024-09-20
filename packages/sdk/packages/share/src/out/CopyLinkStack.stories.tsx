@@ -52,7 +52,12 @@ WithUploadPayloads.args = {
   addToXnsName: true,
   copiedLinkText: 'Copied and data uploaded!',
   copyLinkText: 'Copy link and upload data',
-  uploadPayloads: () => Promise.resolve(alert('uploaded payloads')),
+  uploadPayloads: () => new Promise((resolve) => {
+    setTimeout(() => {
+      alert('uploaded payloads')
+      resolve()
+    }, 1000)
+  }),
 }
 
 export {
