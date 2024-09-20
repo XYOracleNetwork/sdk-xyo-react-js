@@ -14,7 +14,7 @@ export const CopyLinkTextField: React.FC<CopyLinkTextFieldProps> = ({
 }) => {
   const [error, setError] = useState<Error>()
 
-  const onCopyToClipboard = useCallback((error?: Error) => {
+  const onClickError = useCallback((error?: Error) => {
     setError(error)
   }, [])
 
@@ -28,7 +28,7 @@ export const CopyLinkTextField: React.FC<CopyLinkTextFieldProps> = ({
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <CopyIconButton shareLinkName={shareLinkName} shareUrl={shareUrl} onCopyToClipboard={onCopyToClipboard} />
+            <CopyIconButton shareLinkName={shareLinkName} shareUrl={shareUrl} onClickError={onClickError} />
           </InputAdornment>
         ),
       }}
