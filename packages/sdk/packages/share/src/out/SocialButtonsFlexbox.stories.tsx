@@ -15,4 +15,27 @@ Default.args = {}
 const WithShareUrl = Template.bind({})
 WithShareUrl.args = { shareUrl: 'https://google.com' }
 
-export { Default, WithShareUrl }
+const WithUploadPayloads = Template.bind({})
+WithUploadPayloads.args = {
+  shareUrl: 'https://google.com',
+  uploadPayloads: () => new Promise((resolve) => {
+    setTimeout(() => {
+      alert('uploaded payloads')
+      resolve()
+    }, 1000)
+  }),
+}
+
+const WithUploadPayloadsError = Template.bind({})
+WithUploadPayloadsError.args = {
+  shareUrl: 'https://google.com',
+  uploadPayloads: () => new Promise((_resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error('Error uploading payloads'))
+    }, 1000)
+  }),
+}
+
+export {
+  Default, WithShareUrl, WithUploadPayloads, WithUploadPayloadsError,
+}
