@@ -1,6 +1,6 @@
 import { ChevronRight as ChevronRightIcon, ExpandMore as ExpandMoreIcon } from '@mui/icons-material'
 import { styled, Typography } from '@mui/material'
-import { TreeView } from '@mui/x-tree-view'
+import { SimpleTreeView } from '@mui/x-tree-view'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import React, { useRef } from 'react'
@@ -21,8 +21,7 @@ export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ mod }) 
               <Typography variant="h4">Node Configuration</Typography>
               <StyledTreeView
                 aria-label="file system navigator"
-                defaultCollapseIcon={<ExpandMoreIcon />}
-                defaultExpandIcon={<ChevronRightIcon />}
+                slots={{ collapseIcon: ExpandMoreIcon, expandIcon: ChevronRightIcon }}
                 sx={{ flexGrow: 1 }}
               >
                 <RenderModule mod={mod} idRef={idRef} />
@@ -36,7 +35,7 @@ export const ModuleDescriptionBox: React.FC<ModuleDescriptionProps> = ({ mod }) 
   )
 }
 
-const StyledTreeView = styled(TreeView, { name: 'StyledTreeView' })(() => ({
+const StyledTreeView = styled(SimpleTreeView, { name: 'StyledTreeView' })(() => ({
   height: 'auto',
   maxWidth: 'auto',
 }))

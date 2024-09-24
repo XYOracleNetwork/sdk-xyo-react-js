@@ -41,13 +41,13 @@ export const RenderModule: React.FC<RenderModuleProps> = ({ mod, idRef }) => {
   const { queries, address } = moduleInstance ?? {}
 
   return (
-    <StyledAddressTreeItem nodeId={increment()} label={`address: ${address}`}>
+    <StyledAddressTreeItem itemId={increment()} label={`address: ${address}`}>
       {queries?.map((query, index) => {
-        return <TreeItem key={query} nodeId={increment()} label={`query : ${query}`} sx={{ mb: index === queries.length - 1 ? 1.5 : 0.5 }} />
+        return <TreeItem key={query} itemId={increment()} label={`query : ${query}`} sx={{ mb: index === queries.length - 1 ? 1.5 : 0.5 }} />
       })}
       {childModules && childModules.length > 0
         ? (
-            <TreeItem nodeId={increment()} label="children" sx={{ mb: 0.5 }}>
+            <TreeItem itemId={increment()} label="children" sx={{ mb: 0.5 }}>
               {childModules.map((childModuleRef) => {
                 const childModule = childModuleRef.deref()
                 return childModule ? <RenderModule key={childModule?.address} mod={childModuleRef} idRef={idRef} /> : null
