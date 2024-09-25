@@ -24,12 +24,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         }}
       >
         <TextField
-          InputProps={{
-            color: 'secondary',
-            style: {
-              borderBottomRightRadius: 0, borderTopRightRadius: 0, borderWidth: 0,
-            },
-          }}
           variant="outlined"
           size="small"
           defaultValue={defaultValue}
@@ -37,6 +31,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           onChange={event => setTerm(event.target.value)}
           onKeyDown={(event) => {
             if (event.key === 'Enter') onSearch?.(term)
+          }}
+          slotProps={{
+            input: {
+              color: 'secondary',
+              style: {
+                borderBottomRightRadius: 0, borderTopRightRadius: 0, borderWidth: 0,
+              },
+            },
           }}
         />
         <ButtonEx
