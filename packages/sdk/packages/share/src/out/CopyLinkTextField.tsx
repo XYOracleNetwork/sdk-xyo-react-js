@@ -19,7 +19,7 @@ export const CopyLinkTextField: React.FC<CopyLinkTextFieldProps> = ({
   }, [])
 
   return (
-    (<TextField
+    <TextField
       disabled
       error={!!error}
       helperText={error?.message}
@@ -34,7 +34,8 @@ export const CopyLinkTextField: React.FC<CopyLinkTextFieldProps> = ({
               <CopyIconButton shareLinkName={shareLinkName} shareUrl={shareUrl} onClickError={onClickError} />
             </InputAdornment>
           ),
-        }
-      }} />)
-  );
+        },
+      }}
+    />
+  )
 }
