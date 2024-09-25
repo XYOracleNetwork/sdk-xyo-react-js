@@ -57,12 +57,13 @@ export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & 
   }
 
   return (
-    <TextField
-      inputProps={{ style: { color: validLength ? theme.palette.text.primary : alpha(theme.palette.text.primary, 0.5) } }}
+    (<TextField
       inputRef={inputRef}
       onBlur={handleBlur}
       onChange={handleChange}
       {...props}
-    />
-  )
+      slotProps={{
+        htmlInput: { style: { color: validLength ? theme.palette.text.primary : alpha(theme.palette.text.primary, 0.5) } }
+      }} />)
+  );
 }

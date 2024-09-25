@@ -46,11 +46,13 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
   // eslint-disable-next-line @eslint-react/no-nested-components
   const NavigationCol: React.FC<FlexBoxProps> = (props) => {
     return (
-      <FlexCol {...props}>
+      (<FlexCol {...props}>
         <TextField
           fullWidth
-          InputProps={{ startAdornment: <Search /> }}
           onChange={onSearchTermChange}
+          slotProps={{
+            input: { startAdornment: <Search /> }
+          }}
         />
         <FlexGrowCol marginTop={1} alignItems="stretch">
           <ReflectionTreeViewer
@@ -70,8 +72,8 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
             paddingY={1}
           />
         </FlexGrowCol>
-      </FlexCol>
-    )
+      </FlexCol>)
+    );
   }
 
   // eslint-disable-next-line @eslint-react/no-nested-components
