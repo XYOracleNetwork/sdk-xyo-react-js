@@ -1,6 +1,6 @@
 import { Add, Remove } from '@mui/icons-material'
 import { Typography } from '@mui/material'
-import { TreeItem, TreeView } from '@mui/x-tree-view'
+import { SimpleTreeView, TreeItem } from '@mui/x-tree-view'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React from 'react'
@@ -34,14 +34,13 @@ export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({
       {/*  </> */}
       {/* ) : null} */}
       {/* TODO - when searching do not include categories that dont have children, pull maps out of view */}
-      <TreeView
+      <SimpleTreeView
         aria-label="XYO SDK Documentation"
-        defaultExpandIcon={<Add />}
-        defaultCollapseIcon={<Remove />}
-        defaultExpanded={reflection.groups ? [reflection.groups[0].title] : []}
+        slots={{ collapseIcon: Remove, expandIcon: Add }}
+        expandedItems={reflection.groups ? [reflection.groups[0].title] : []}
       >
         {reflection.groups?.map((group, index) => (
-          <TreeItem key={`primary-${index}`} nodeId={group.title} label={<Typography variant="h6">{group.title}</Typography>}>
+          <TreeItem key={`primary-${index}`} itemId={group.title} label={<Typography variant="h6">{group.title}</Typography>}>
             {group.children.map((child, jndex) => {
               const searchTermTrimmed = searchTerm?.trim().toLowerCase()
               const childReflection = typeof child === 'number' ? lookup?.[child as number] : child
@@ -49,7 +48,7 @@ export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({
                 ? (
                     <TreeItem
                       key={`secondary-${index}- ${jndex}`}
-                      nodeId={`declaration-${childReflection?.id}`}
+                      itemId={`declaration-${childReflection?.id}`}
                       label={childReflection.name}
                       onClick={() => {
                         const hash = `#${childReflection.name}`
@@ -62,7 +61,7 @@ export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({
             })}
           </TreeItem>
         ))}
-      </TreeView>
+      </SimpleTreeView>
     </FlexCol>
   )
 }

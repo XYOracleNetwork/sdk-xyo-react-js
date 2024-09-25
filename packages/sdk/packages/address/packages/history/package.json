@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-address-history",
-  "version": "3.0.23",
+  "version": "4.0.0-rc.1",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -44,12 +44,12 @@
   },
   "dependencies": {
     "@xylabs/hex": "^4.0.10",
-    "@xylabs/react-async-effect": "^4.2.13",
-    "@xylabs/react-flexbox": "^4.2.13",
-    "@xylabs/react-hooks": "^4.2.13",
-    "@xylabs/react-promise": "^4.2.13",
-    "@xylabs/react-quick-tip-button": "^4.2.13",
-    "@xylabs/react-shared": "^4.2.13",
+    "@xylabs/react-async-effect": "^5.0.0-rc.1",
+    "@xylabs/react-flexbox": "^5.0.0-rc.1",
+    "@xylabs/react-hooks": "^5.0.0-rc.1",
+    "@xylabs/react-promise": "^5.0.0-rc.1",
+    "@xylabs/react-quick-tip-button": "^5.0.0-rc.1",
+    "@xylabs/react-shared": "^5.0.0-rc.1",
     "@xyo-network/archivist-model": "^3.1.13",
     "@xyo-network/boundwitness-model": "^3.1.13",
     "@xyo-network/diviner-address-history-model": "^3.1.13",
@@ -69,10 +69,10 @@
   "devDependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^5.16.7",
-    "@mui/material": "^5.16.7",
-    "@mui/styles": "^5.16.7",
-    "@storybook/react": "^8.3.2",
+    "@mui/icons-material": "^6.1.1",
+    "@mui/material": "^6.1.1",
+    "@mui/styles": "^6.1.1",
+    "@storybook/react": "^8.3.3",
     "@xylabs/ts-scripts-yarn3": "^4.0.7",
     "@xylabs/tsconfig-react": "^4.0.7",
     "@xyo-network/react-storybook": "workspace:^",
@@ -84,14 +84,15 @@
   "peerDependencies": {
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@mui/icons-material": "^5",
-    "@mui/material": "^5",
-    "@mui/styles": "^5",
+    "@mui/icons-material": "^6",
+    "@mui/material": "^6",
+    "@mui/styles": "^6",
     "react": "^18",
     "react-dom": "^18"
   },
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "3.0.23"
 }

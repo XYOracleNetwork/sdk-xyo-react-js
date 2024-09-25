@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-webapp",
-  "version": "3.0.23",
+  "version": "4.0.0-rc.1",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -43,14 +43,14 @@
     "lint-pkg": "npmPkgJsonLint ."
   },
   "dependencies": {
-    "@mui/icons-material": "^5.16.7",
-    "@mui/material": "^5.16.7",
-    "@mui/styles": "^5.16.7",
-    "@xylabs/react-async-effect": "^4.2.13",
-    "@xylabs/react-button": "^4.2.13",
-    "@xylabs/react-flexbox": "^4.2.13",
-    "@xylabs/react-pixel": "^4.2.13",
-    "@xylabs/react-shared": "^4.2.13",
+    "@mui/icons-material": "^6.1.1",
+    "@mui/material": "^6.1.1",
+    "@mui/styles": "^6.1.1",
+    "@xylabs/react-async-effect": "^5.0.0-rc.1",
+    "@xylabs/react-button": "^5.0.0-rc.1",
+    "@xylabs/react-flexbox": "^5.0.0-rc.1",
+    "@xylabs/react-pixel": "^5.0.0-rc.1",
+    "@xylabs/react-shared": "^5.0.0-rc.1",
     "@xyo-network/react-app-settings": "workspace:^",
     "@xyo-network/react-appbar": "workspace:^",
     "@xyo-network/react-error": "workspace:^",
@@ -62,13 +62,13 @@
     "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
-    "@storybook/react": "^8.3.2",
+    "@storybook/react": "^8.3.3",
     "@types/react-helmet": "^6.1.11",
-    "@xylabs/react-button": "^4.2.13",
-    "@xylabs/react-flexbox": "^4.2.13",
-    "@xylabs/react-link": "^4.2.13",
-    "@xylabs/react-pixel": "^4.2.13",
-    "@xylabs/react-shared": "^4.2.13",
+    "@xylabs/react-button": "^5.0.0-rc.1",
+    "@xylabs/react-flexbox": "^5.0.0-rc.1",
+    "@xylabs/react-link": "^5.0.0-rc.1",
+    "@xylabs/react-pixel": "^5.0.0-rc.1",
+    "@xylabs/react-shared": "^5.0.0-rc.1",
     "@xylabs/ts-scripts-yarn3": "^4.0.7",
     "@xylabs/tsconfig-react": "^4.0.7",
     "storybook": "^8.3.3",
@@ -77,5 +77,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "3.0.23"
 }
