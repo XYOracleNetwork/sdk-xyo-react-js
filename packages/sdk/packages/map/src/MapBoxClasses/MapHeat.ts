@@ -4,6 +4,7 @@ import { forget } from '@xylabs/forget'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import type { Feature, Polygon } from 'geojson'
 import type {
+  DataDrivenPropertyValueSpecification,
   GeoJSONSource, GeoJSONSourceSpecification, Map, MapOptions,
 } from 'mapbox-gl'
 import { LngLatBounds } from 'mapbox-gl'
@@ -79,7 +80,7 @@ export class MapHeat extends MapBase<Polygon> {
     const highUsageColor = endColor ?? '#FF0000'
 
     // Max density at i=0, min density at i=steps
-    const dynamicFillColor = (factor: number, initialPad: number, i: number) => {
+    const dynamicFillColor = (factor: number, initialPad: number, i: number): DataDrivenPropertyValueSpecification<string> => {
       const sinFade = Math.sin(((i / steps) * Math.PI) / 2)
       const cosFade = Math.cos(((i / steps) * Math.PI) / 2)
       // we want the divisor to always be at least 1x the desired factor but will go up to
