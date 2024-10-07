@@ -30,6 +30,7 @@ const TemplateWithAccessCodes: StoryFn<typeof AccessCodeGateFlexbox> = (args) =>
             onAccessCodeSuccess={onAccessCodeSuccess}
             validAccessCodes={validAccessCodes}
             validateFunction={validateFunction}
+            {...args}
           />
           <Typography variant="caption">Hint: 100519</Typography>
         </FlexCol>
