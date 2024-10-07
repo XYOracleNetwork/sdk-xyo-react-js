@@ -3,7 +3,10 @@ import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
 
+import { useAccessCodes } from '../hooks/index.ts'
 import { AccessCodeGateFlexbox } from './AccessCodeGateFlexbox.tsx'
+
+const ValidAccessCodes = ['100519']
 
 export default {
   component: AccessCodeGateFlexbox,
@@ -15,12 +18,9 @@ const Template: StoryFn<typeof AccessCodeGateFlexbox> = args => (
 )
 
 const TemplateWithAccessCodes: StoryFn<typeof AccessCodeGateFlexbox> = (args) => {
-  const validAccessCodes = ['100519']
-  const [validated, setValidated] = useState(false)
-  const onAccessCodeSuccess = () => {
-    setValidated(true)
-  }
-  const validateFunction = (code?: string) => code?.length === 6
+  const {
+    validated, onAccessCodeSuccess, onCodeInputChange,
+  } = useAccessCodes('storybook-access-codes-test')
 
   return validated
     ? <Alert severity="success">Success!</Alert>
@@ -28,11 +28,14 @@ const TemplateWithAccessCodes: StoryFn<typeof AccessCodeGateFlexbox> = (args) =>
         <FlexCol gap={2}>
           <AccessCodeGateFlexbox
             onAccessCodeSuccess={onAccessCodeSuccess}
-            validAccessCodes={validAccessCodes}
-            validateFunction={validateFunction}
+            validAccessCodes={ValidAccessCodes}
+            validateFunction={onCodeInputChange}
             {...args}
           />
-          <Typography variant="caption">Hint: 100519</Typography>
+          <Typography variant="caption">
+            Hint:
+            {ValidAccessCodes[0]}
+          </Typography>
         </FlexCol>
       )
 }
