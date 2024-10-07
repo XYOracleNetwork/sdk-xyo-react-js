@@ -1,7 +1,7 @@
 import { Alert, Typography } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
-import React, { useState } from 'react'
+import React from 'react'
 
 import { useAccessCodes } from '../hooks/index.ts'
 import { AccessCodeGateFlexbox } from './AccessCodeGateFlexbox.tsx'
