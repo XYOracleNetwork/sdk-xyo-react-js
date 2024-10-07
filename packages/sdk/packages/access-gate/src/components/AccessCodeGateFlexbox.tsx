@@ -12,6 +12,7 @@ import { CodeTextField } from './CodeTextField.tsx'
 
 export interface AccessCodeGateFlexbox extends WithChildren, FlexBoxProps {
   onAccessCodeSuccess?: (code?: string) => void
+  successRedirectDelay?: number
   textFieldHelperText?: string
   userAccessCodes?: string[]
   validAccessCodes?: string[]
@@ -21,6 +22,7 @@ export interface AccessCodeGateFlexbox extends WithChildren, FlexBoxProps {
 export const AccessCodeGateFlexbox: React.FC<AccessCodeGateFlexbox> = ({
   children,
   onAccessCodeSuccess,
+  successRedirectDelay = 1500,
   userAccessCodes,
   validAccessCodes,
   validateFunction,
@@ -43,7 +45,7 @@ export const AccessCodeGateFlexbox: React.FC<AccessCodeGateFlexbox> = ({
         setTimeout(() => {
           setAccessGranted(granted)
           onAccessCodeSuccess?.(codeInput)
-        }, 1500)
+        }, successRedirectDelay)
       } else {
         setValidCode(false)
       }
