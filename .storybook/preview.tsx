@@ -1,10 +1,12 @@
-import { CssBaseline } from '@mui/material';
-import { Decorator } from '@storybook/react';
-import { FlexCol } from '@xylabs/react-flexbox';
-import { InvertibleCssVarsProvider, InvertibleThemeProvider } from '@xylabs/react-invertible-theme';
-import { appThemeOptions, osThemeOptions, themeOptions, webThemeOptions } from '@xyo-network/react-theme';
-import React from 'react';
-import { useDarkMode } from 'storybook-dark-mode';
+import { CssBaseline } from '@mui/material'
+import type { Decorator } from '@storybook/react'
+import { FlexCol } from '@xylabs/react-flexbox'
+import { InvertibleCssVarsProvider, InvertibleThemeProvider } from '@xylabs/react-invertible-theme'
+import {
+  appThemeOptions, osThemeOptions, themeOptions, webThemeOptions,
+} from '@xyo-network/react-theme'
+import React from 'react'
+import { useDarkMode } from 'storybook-dark-mode'
 
 export const globalTypes = {
   theme: {
@@ -21,10 +23,10 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
-};
+}
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     expanded: true,
     matchers: {
@@ -32,11 +34,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  options: {
-    storySort: {
-      method: 'alphabetical'
-    }
-  }
+  options: { storySort: { method: 'alphabetical' } },
 }
 
 const getTheme = (themeName) => {
@@ -44,7 +42,7 @@ const getTheme = (themeName) => {
     Theme: themeOptions,
     AppTheme: appThemeOptions,
     WebTheme: webThemeOptions,
-    OsTheme: osThemeOptions
+    OsTheme: osThemeOptions,
   }
   return themes[themeName]
 }
@@ -61,11 +59,11 @@ const withThemeProvider: Decorator = (Story, context) => {
       <InvertibleCssVarsProvider defaultMode={darkMode ? 'dark' : 'light'}>
         <CssBaseline enableColorScheme />
         <FlexCol alignItems="unset">
-          <Story {...context}/>
+          <Story {...context} />
         </FlexCol>
       </InvertibleCssVarsProvider>
     </InvertibleThemeProvider>
-  );
-};
+  )
+}
 
-export const decorators = [withThemeProvider];
+export const decorators = [withThemeProvider]

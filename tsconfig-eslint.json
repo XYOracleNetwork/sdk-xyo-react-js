@@ -1,4 +1,5 @@
 {
-  "exclude": [".yarn", "./node_modules", "./**/node_modules", "./dist", "./**/dist", "./**/docs", "public", "storybook-static", ".storybook"],
-  "extends": "@xylabs/tsconfig-react"
+  "exclude": [".yarn", "./node_modules", "./**/node_modules", "./dist", "./**/dist", "./**/docs", "public", "storybook-static"],
+  "extends": "@xylabs/tsconfig-react",
+  "include": ["**/*.ts", "**/*.js", "**/*.jsx", "**/*.tsx", "**/*.mjs", ".storybook/**/*.ts*"],
 }
