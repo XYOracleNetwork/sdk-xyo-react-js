@@ -15,17 +15,17 @@ type RouteDecorator = (params: [typeof testableParams[number], string][]) => Dec
 // eslint-disable-next-line react/display-name
 const RouteDecorator: RouteDecorator = params => (Story, args) => {
   // Get the URL object
-  const url = new URL(window.location.href)
+  const url = new URL(globalThis.location.href)
 
   // Remove all stale testable params from the URL
   for (const param of testableParams) url.searchParams.delete(param)
-  window.history.replaceState({}, '', url)
+  globalThis.history.replaceState({}, '', url)
 
   // Add the new testable params to the URL
   for (const [param, value] of params) url.searchParams.set(param, value)
 
   // Replace the URL without reloading
-  window.history.replaceState({}, '', url)
+  globalThis.history.replaceState({}, '', url)
 
   return <Story {...args} />
 }

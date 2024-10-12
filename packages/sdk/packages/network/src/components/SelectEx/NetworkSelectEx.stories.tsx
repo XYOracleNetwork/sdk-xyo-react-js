@@ -45,7 +45,7 @@ const TemplateWithMemoryProvider: StoryFn<typeof NetworkSelectEx> = (props) => {
 }
 
 const TemplateWithRouteProvider: StoryFn<typeof NetworkSelectEx> = (props) => {
-  const url = new URL(window.location.toString())
+  const url = new URL(globalThis.location.toString())
   url.searchParams.set('network', 'main')
   history.pushState({}, '', url)
   return (

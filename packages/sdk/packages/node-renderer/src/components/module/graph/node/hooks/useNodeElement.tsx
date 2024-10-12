@@ -1,7 +1,7 @@
 import type { PopperProps } from '@mui/material'
 import type { NodeSingular } from 'cytoscape'
 import {
-  useEffect, useRef, useState,
+  useEffect, useMemo, useRef, useState,
 } from 'react'
 
 export const useNodeElement = (node?: NodeSingular) => {
@@ -10,15 +10,15 @@ export const useNodeElement = (node?: NodeSingular) => {
   const [boundingBox, setBoundingBox] = useState(node?.renderedBoundingBox())
 
   // Ensure first render clears the previous element when node changes to avoid flicker
-  useEffect(() => {
+  useMemo(() => {
     setCurrentElement(null)
   }, [node])
 
-  useEffect(() => {
-    if (node) {
-      setBoundingBox(node.renderedBoundingBox())
-    }
+  useMemo(() => {
+    setBoundingBox(node?.renderedBoundingBox())
+  }, [node])
 
+  useEffect(() => {
     const listener = () => {
       setBoundingBox(node?.renderedBoundingBox())
     }
@@ -31,7 +31,7 @@ export const useNodeElement = (node?: NodeSingular) => {
   }, [node])
 
   // Once boundingBox state is set and applied to the layout, update the ref
-  useEffect(() => {
+  useMemo(() => {
     setCurrentElement(ref.current)
   }, [boundingBox])
 

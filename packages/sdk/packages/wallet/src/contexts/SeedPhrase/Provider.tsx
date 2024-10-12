@@ -1,5 +1,4 @@
 import { generateMnemonic, validateMnemonic } from '@scure/bip39'
-// eslint-disable-next-line import-x/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { useResetState } from '@xylabs/react-hooks'
 import type { WithChildren } from '@xylabs/react-shared'
@@ -48,13 +47,14 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   }, [])
 
   const handleCancelOverwrite = useCallback(() => {
-    setOverwriteWarning?.(false)
-  }, [])
+    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
+    setOverwriteWarning(false)
+  }, [setOverwriteWarning])
 
   const handleClear = useCallback(() => {
-    setPhrase?.('')
-    setOverwriteWarning?.(false)
-  }, [])
+    setPhrase('')
+    setOverwriteWarning(false)
+  }, [setPhrase, setOverwriteWarning])
 
   const handleSave = useCallback(() => {
     if (!overwriteWarning && seedPhrase && seedPhrase !== phrase) {

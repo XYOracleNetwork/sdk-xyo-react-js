@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 import type { BoundWitnessPayloadTableBodyProps } from './TableBody.tsx'
 import { BoundWitnessPayloadTableBody } from './TableBody.tsx'
@@ -19,7 +19,7 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
   const [bwPayloadHashes, setBWPayloadHashes] = useState<string[]>()
   const [bwPayloadSchemas, setBWPayloadSchemas] = useState<string[]>()
 
-  useEffect(() => {
+  useMemo(() => {
     // if no filter, display all hashes and schemas
     if (!schemaFilter) {
       setBWPayloadHashes(payloadHashes)
@@ -27,7 +27,7 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
     }
   }, [payloadHashes, payloadSchemas, schemaFilter])
 
-  useEffect(() => {
+  useMemo(() => {
     if (payloadSchemas && schemaFilter) {
       const filteredSchemas = payloadSchemas.filter((schema) => {
         return bwFilterType === 'equal' ? schema === schemaFilter : schema !== schemaFilter
@@ -36,7 +36,7 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
     }
   }, [bwFilterType, payloadSchemas, schemaFilter])
 
-  useEffect(() => {
+  useMemo(() => {
     if (payloadHashes && payloadSchemas && schemaFilter) {
       // eslint-disable-next-line unicorn/no-array-reduce
       const filteredHashes = payloadSchemas.reduce<string[]>((acc, schema, index) => {

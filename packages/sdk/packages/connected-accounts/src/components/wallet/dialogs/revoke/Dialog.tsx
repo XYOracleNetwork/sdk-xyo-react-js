@@ -32,7 +32,7 @@ export const RevokeWalletConnectionDialog: React.FC<RevokeWalletConnectionDialog
           {activeProvider?.providerName}
           &apos;s documentation on how to revoke access to this website:
         </Typography>
-        <Typography>{window.location.origin}</Typography>
+        <Typography>{globalThis.location.origin}</Typography>
       </DialogContent>
       <DialogActions>
         <Button variant="contained" onClick={() => props.onClose?.({}, 'escapeKeyDown')}>

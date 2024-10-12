@@ -43,7 +43,7 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({
     small: 10,
   }
 
-  const quickTipSize = sizeFontSize[size] < 16 ? sizeFontSize[size] : 16
+  const quickTipSize = Math.min(sizeFontSize[size], 16)
 
   const theme = useTheme()
 

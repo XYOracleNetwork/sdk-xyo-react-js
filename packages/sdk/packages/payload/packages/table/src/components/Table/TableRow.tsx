@@ -62,7 +62,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const reduceSchemaDepth = (schema?: string, maxSchemaDepth?: number) => {
     if (maxSchemaDepth) {
       const parts = schema?.split('.') ?? []
-      const partsToRemove = parts.length - maxSchemaDepth > 0 ? parts.length - maxSchemaDepth : 0
+      const partsToRemove = Math.max(parts.length - maxSchemaDepth, 0)
       if (partsToRemove > 0) {
         return (
           <>

@@ -1,8 +1,6 @@
 import { exists } from '@xylabs/exists'
 import type { WithChildren } from '@xylabs/react-shared'
-import React, {
-  useEffect, useMemo, useState,
-} from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { useSchemaStats } from '../../../hooks/index.ts'
 import { SchemaContext } from '../Context.ts'
@@ -15,7 +13,7 @@ export const SchemaMemoryProvider: React.FC<WithChildren<SchemaProviderProps>> =
   const [schemaList, setSchemaList] = useState<string[] | undefined>(knownSchemaList)
   const [fetchedSchemaStats] = useSchemaStats()
 
-  useEffect(() => {
+  useMemo(() => {
     if (fetchedSchemaStats) {
       const schemaList = (fetchedSchemaStats.map(({ name }) => name)).filter(exists)
       setSchemaList(schemaList)

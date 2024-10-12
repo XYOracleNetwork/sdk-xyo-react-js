@@ -1,4 +1,3 @@
-// eslint-disable-next-line import-x/no-internal-modules
 import type { Variant } from '@mui/material/styles/createTypography.js'
 import type { EllipsizeBoxProps } from '@xyo-network/react-shared'
 import { EllipsizeBox } from '@xyo-network/react-shared'

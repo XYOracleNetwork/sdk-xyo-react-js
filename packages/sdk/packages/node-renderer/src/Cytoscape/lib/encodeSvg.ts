@@ -15,5 +15,5 @@ export const encodeSvg = (reactElement: ReactElement, color?: string) => {
     svgElement.style.fill = color ?? 'black'
   }
 
-  return `${dataUri}${window.encodeURIComponent(svgElement.outerHTML)}`
+  return `${dataUri}${globalThis.encodeURIComponent(svgElement.outerHTML)}`
 }

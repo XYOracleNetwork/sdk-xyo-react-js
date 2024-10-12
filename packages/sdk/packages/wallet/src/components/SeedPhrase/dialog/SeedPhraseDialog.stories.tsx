@@ -1,6 +1,5 @@
 import { Button, Typography } from '@mui/material'
 import { generateMnemonic } from '@scure/bip39'
-// eslint-disable-next-line import-x/no-internal-modules
 import { wordlist } from '@scure/bip39/wordlists/english'
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'

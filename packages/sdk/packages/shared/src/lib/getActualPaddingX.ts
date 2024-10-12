@@ -54,10 +54,10 @@ export const parsePadding = (padding: string) => {
 }
 
 export const getActualPaddingX = (element: HTMLElement) => {
-  const padding = parsePadding(window.getComputedStyle(element, null).getPropertyValue('padding'))
+  const padding = parsePadding(globalThis.getComputedStyle(element, null).getPropertyValue('padding'))
   const paddingLeft
-    = parseMeausureString(window.getComputedStyle(element, null).getPropertyValue('padding-left') ?? padding?.left, element.clientWidth) ?? 0
+    = parseMeausureString(globalThis.getComputedStyle(element, null).getPropertyValue('padding-left') ?? padding?.left, element.clientWidth) ?? 0
   const paddingRight
-    = parseMeausureString(window.getComputedStyle(element, null).getPropertyValue('padding-right') ?? padding?.right, element.clientWidth) ?? 0
+    = parseMeausureString(globalThis.getComputedStyle(element, null).getPropertyValue('padding-right') ?? padding?.right, element.clientWidth) ?? 0
   return paddingLeft + paddingRight
 }

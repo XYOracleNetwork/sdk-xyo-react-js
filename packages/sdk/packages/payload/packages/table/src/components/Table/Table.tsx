@@ -4,7 +4,7 @@ import type { TableExProps } from '@xyo-network/react-table'
 import { TableEx } from '@xyo-network/react-table'
 import type { ComponentType } from 'react'
 import React, {
-  forwardRef, useEffect, useMemo, useState,
+  forwardRef, useMemo, useState,
 } from 'react'
 
 import type { PayloadTableColumnConfig } from './PayloadTableColumnConfig.ts'
@@ -65,20 +65,20 @@ export const PayloadTableWithRef = forwardRef<HTMLTableElement, PayloadTableProp
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - count || 0) : 0
 
-    useEffect(() => {
+    useMemo(() => {
       setRowsPerPage(rowsPerPageProp)
     }, [rowsPerPageProp])
 
     // React to various prop changes to derive new visible payloads
     // count is needed to show initial payloads added async to the same payloads reference
-    useEffect(() => {
+    useMemo(() => {
       if (payloads) {
         setVisiblePayloads(payloads.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage))
       }
     }, [count, page, payloads, rowsPerPage])
 
     // If the payload reference changes, assume we have a new list and reset current page
-    useEffect(() => {
+    useMemo(() => {
       setPage(0)
     }, [payloads])
 

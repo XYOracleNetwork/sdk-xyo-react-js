@@ -18,7 +18,7 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
 }) => {
   const [expanded, setExpanded] = useState(false)
   const anchorRef = useRef(null)
-  const link = shareLink ?? window.location.href
+  const link = shareLink ?? globalThis.location.href
 
   return (
     <FlexRow gap={1} ref={anchorRef}>
