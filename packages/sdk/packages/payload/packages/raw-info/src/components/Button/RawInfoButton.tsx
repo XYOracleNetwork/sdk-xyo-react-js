@@ -10,7 +10,7 @@ import { RawInfoDialog } from '../shared/index.ts'
 import type { IconSize } from './lib/index.ts'
 import { presetIconSizeValue } from './lib/index.ts'
 
-export interface RawInfoButtonProps extends ButtonExProps, ExpansionProps {
+export type RawInfoButtonProps = ButtonExProps & ExpansionProps & {
   dialogContent?: ReactNode
   iconOnly?: boolean
   iconSize?: number

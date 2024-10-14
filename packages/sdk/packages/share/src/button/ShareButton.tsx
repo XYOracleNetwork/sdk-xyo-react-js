@@ -8,7 +8,7 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import React, { useRef, useState } from 'react'
 
-export interface ShareButtonProps extends ButtonExProps {
+export type ShareButtonProps = ButtonExProps & {
   prepared?: boolean
   shareLink?: string
 }

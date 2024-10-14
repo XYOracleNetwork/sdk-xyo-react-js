@@ -18,7 +18,7 @@ import { PoweredByXyoButton } from './PoweredByXyoButton.tsx'
 export interface PoweredByXyoProps extends FlexBoxProps {
   autoStop?: boolean
   busy?: boolean
-  buttonProps?: PoweredByXyoButtonProps
+  buttonProps?: Omit<PoweredByXyoButtonProps, 'href' | 'to' | 'toOptions'>
   debugDialog?: boolean
   disableAnimation?: boolean
   href?: ButtonExProps['href']
@@ -106,15 +106,28 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
   return (
     <FlexCol alignItems="stretch" position="absolute" bottom="0" left="0" {...props}>
       <Paper sx={{ borderRadius: 0 }}>
-        <PoweredByXyoButton
-          onClick={activeOnButtonClick}
-          href={activeHref}
-          busy={activeBusy}
-          logoHeight={logoHeight}
-          logoTextSize={logoTextSize}
-          fullWidth
-          {...buttonProps}
-        />
+        {activeHref
+          ? (
+              <PoweredByXyoButton
+                onClick={activeOnButtonClick}
+                href={activeHref}
+                busy={activeBusy}
+                logoHeight={logoHeight}
+                logoTextSize={logoTextSize}
+                fullWidth
+                {...buttonProps}
+              />
+            )
+          : (
+              <PoweredByXyoButton
+                onClick={activeOnButtonClick}
+                busy={activeBusy}
+                logoHeight={logoHeight}
+                logoTextSize={logoTextSize}
+                fullWidth
+                {...buttonProps}
+              />
+            )}
       </Paper>
       {debugDialog && debugDialogOpen
         ? <DebugDialog fullScreen open={debugDialogOpen} onClose={() => setDebugDialogOpen(false)} onKeyDown={onKeyDownEscListener} />

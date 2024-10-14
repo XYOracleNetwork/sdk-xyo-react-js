@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { xyoColorLogoText } from '../img/index.ts'
 import { XyoBusy } from './XyoBusy.tsx'
 
-export interface PoweredByXyoButtonProps extends ButtonExProps {
+export type PoweredByXyoButtonProps = ButtonExProps & {
   busy?: boolean
   logoHeight?: number
   logoTextSize?: number
@@ -16,6 +16,8 @@ export interface PoweredByXyoButtonProps extends ButtonExProps {
 export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   busy = false,
   href,
+  to,
+  toOptions,
   logoHeight,
   logoTextSize,
   sx,
@@ -29,26 +31,69 @@ export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   img.addEventListener('load', () => setImageLoaded(true))
   img.src = xyoColorLogoText
   return imageLoaded
-    ? (
-        <ButtonEx
-          href={href}
-          target={target}
-          variant={variant}
-          sx={{
-            borderRadius: 0, padding: 0, ...sx,
-          }}
-          {...props}
-        >
-          <FlexCol padding={0.5}>
-            <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
-              Powered by
-            </Typography>
-            <FlexRow>
-              <XyoBusy busy={busy} />
-              <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
-            </FlexRow>
-          </FlexCol>
-        </ButtonEx>
-      )
+    ? href
+      ? (
+          <ButtonEx
+            href={href}
+            target={target}
+            variant={variant}
+            sx={{
+              borderRadius: 0, padding: 0, ...sx,
+            }}
+            {...props}
+          >
+            <FlexCol padding={0.5}>
+              <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
+                Powered by
+              </Typography>
+              <FlexRow>
+                <XyoBusy busy={busy} />
+                <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
+              </FlexRow>
+            </FlexCol>
+          </ButtonEx>
+        )
+      : to
+        ? (
+            <ButtonEx
+              to={to}
+              toOptions={toOptions}
+              target={target}
+              variant={variant}
+              sx={{
+                borderRadius: 0, padding: 0, ...sx,
+              }}
+              {...props}
+            >
+              <FlexCol padding={0.5}>
+                <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
+                  Powered by
+                </Typography>
+                <FlexRow>
+                  <XyoBusy busy={busy} />
+                  <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
+                </FlexRow>
+              </FlexCol>
+            </ButtonEx>
+          )
+        : (
+            <ButtonEx
+              variant={variant}
+              sx={{
+                borderRadius: 0, padding: 0, ...sx,
+              }}
+              {...props}
+            >
+              <FlexCol padding={0.5}>
+                <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
+                  Powered by
+                </Typography>
+                <FlexRow>
+                  <XyoBusy busy={busy} />
+                  <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
+                </FlexRow>
+              </FlexCol>
+            </ButtonEx>
+          )
     : null
 }

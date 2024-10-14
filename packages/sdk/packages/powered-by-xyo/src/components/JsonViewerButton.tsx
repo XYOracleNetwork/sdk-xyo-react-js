@@ -7,7 +7,7 @@ import type { JsonViewerExProps } from '@xyo-network/react-payload-raw-info'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import React, { useState } from 'react'
 
-export interface JsonViewerButtonProps extends ButtonExProps {
+export type JsonViewerButtonProps = ButtonExProps & {
   jsonViewProps?: Partial<JsonViewerExProps>
   src: object
 }

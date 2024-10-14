@@ -7,6 +7,7 @@ import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import type { ReactElement } from 'react'
 import React from 'react'
+import type { To } from 'react-router-dom'
 
 import { useGradientStyles, useIsSmall } from '../../hooks/index.ts'
 
@@ -40,11 +41,27 @@ interface SubLinkSectionProps {
   subLinkText2?: string
 }
 
-interface ButtonSectionProps {
+interface ButtonSectionBaseProps {
   buttonText?: string
-  href?: string
-  to?: string
 }
+
+interface ButtonSectionHrefProps extends ButtonSectionBaseProps {
+  href?: string
+  to?: never
+}
+
+interface ButtonSectionToProps extends ButtonSectionBaseProps {
+  href?: never
+  to?: To
+}
+
+interface ButtonSectionClickProps extends ButtonSectionBaseProps {
+  href?: never
+  to?: never
+}
+
+type ButtonSectionProps = ButtonSectionHrefProps | ButtonSectionToProps | ButtonSectionClickProps
+
 const SubLinkSection: React.FC<SubLinkSectionProps> = ({
   backgroundImageAlignment, subLinkIcon, subLinkPath, subLinkText1, subLinkText2,
 }) => {
@@ -79,26 +96,59 @@ const ButtonSection: React.FC<ButtonSectionProps> = ({
   href, to, buttonText,
 }) => {
   const isMobile = useIsSmall()
-  return (
-    <ButtonEx
-      fullWidth={true}
-      marginTop={1}
-      marginBottom={1}
-      marginRight={isMobile ? 2 : 1}
-      marginLeft={isMobile ? 2 : 0}
-      target={href ?? '_blank'}
-      to={to}
-      href={href}
-      color="primary"
-      variant="contained"
-      paddingX={3}
-      sx={{ display: href || to ? 'flex' : 'none' }}
-    >
-      {buttonText}
-    </ButtonEx>
-  )
+  return href
+    ? (
+        <ButtonEx
+          fullWidth={true}
+          marginTop={1}
+          marginBottom={1}
+          marginRight={isMobile ? 2 : 1}
+          marginLeft={isMobile ? 2 : 0}
+          target={href ?? '_blank'}
+          href={href}
+          color="primary"
+          variant="contained"
+          paddingX={3}
+          sx={{ display: href || to ? 'flex' : 'none' }}
+        >
+          {buttonText}
+        </ButtonEx>
+      )
+    : to
+      ? (
+          <ButtonEx
+            fullWidth={true}
+            marginTop={1}
+            marginBottom={1}
+            marginRight={isMobile ? 2 : 1}
+            marginLeft={isMobile ? 2 : 0}
+            to={to}
+            color="primary"
+            variant="contained"
+            paddingX={3}
+            sx={{ display: href || to ? 'flex' : 'none' }}
+          >
+            {buttonText}
+          </ButtonEx>
+        )
+      : (
+          <ButtonEx
+            fullWidth={true}
+            marginTop={1}
+            marginBottom={1}
+            marginRight={isMobile ? 2 : 1}
+            marginLeft={isMobile ? 2 : 0}
+            color="primary"
+            variant="contained"
+            paddingX={3}
+            sx={{ display: href || to ? 'flex' : 'none' }}
+          >
+            {buttonText}
+          </ButtonEx>
+        )
 }
 
+// eslint-disable-next-line complexity
 export const BasicHero: React.FC<BasicHeroProps> = ({
   backgroundImage,
   title,
@@ -181,8 +231,16 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
                 width="100%"
                 marginTop={1}
               >
-                <ButtonSection href={button1Href} to={button1To} buttonText={button1Text} />
-                <ButtonSection href={button2Href} to={button2To} buttonText={button2Text} />
+                {
+                  button1Href
+                    ? <ButtonSection href={button1Href} buttonText={button1Text} />
+                    : button1To ? <ButtonSection to={button1To} buttonText={button1Text} /> : <ButtonSection buttonText={button1Text} />
+                }
+                {
+                  button2Href
+                    ? <ButtonSection href={button2Href} buttonText={button2Text} />
+                    : button2To ? <ButtonSection to={button2To} buttonText={button2Text} /> : <ButtonSection buttonText={button2Text} />
+                }
               </FlexGrowRow>
               <SubLinkSection
                 subLinkIcon={subLinkIcon}
