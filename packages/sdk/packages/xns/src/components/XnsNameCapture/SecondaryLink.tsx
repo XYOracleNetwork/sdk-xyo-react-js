@@ -11,7 +11,7 @@ import type {
   XnsNameCaptureBuyCallbacks, XnsNameCaptureRoutingProps, XnsNameCaptureTrackingProps,
 } from './Props.ts'
 
-export interface XnsCaptureSecondaryLinkProps extends XnsNameCaptureTrackingProps, XnsNameCaptureRoutingProps, XnsNameCaptureBuyCallbacks, LinkExProps {
+export type XnsCaptureSecondaryLinkProps = XnsNameCaptureTrackingProps & XnsNameCaptureRoutingProps & XnsNameCaptureBuyCallbacks & LinkExProps & {
   setError?: Dispatch<Error | undefined>
   text?: string
   xnsName: string

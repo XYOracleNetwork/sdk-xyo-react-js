@@ -1,6 +1,6 @@
 import type { TableCellProps } from '@mui/material'
 import { styled, TableCell } from '@mui/material'
-import { LinkEx } from '@xylabs/react-link'
+import { asLinkHrefOrToProps, LinkEx } from '@xylabs/react-link'
 import React, { forwardRef, useMemo } from 'react'
 import type { To } from 'react-router-dom'
 
@@ -36,7 +36,7 @@ export const EllipsisTableCellWithRef = forwardRef<HTMLElement, EllipsisTableCel
       }
       if (href || link || to) {
         return (
-          <LinkEx title={value} to={to} href={href} target={href ? '_blank' : undefined}>
+          <LinkEx title={value} {...asLinkHrefOrToProps({ to, href })} target={href ? '_blank' : undefined}>
             {value}
           </LinkEx>
         )

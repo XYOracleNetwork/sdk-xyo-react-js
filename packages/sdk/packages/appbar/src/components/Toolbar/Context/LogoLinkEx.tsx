@@ -1,4 +1,5 @@
 import { Typography, useTheme } from '@mui/material'
+import { assertEx } from '@xylabs/assert'
 import { FlexRow } from '@xylabs/react-flexbox'
 import type { LinkExProps } from '@xylabs/react-link'
 import { LinkEx } from '@xylabs/react-link'
@@ -6,14 +7,15 @@ import React from 'react'
 
 import { Logo } from './Logo.tsx'
 
-export interface LogoLinkExProps extends LinkExProps {
+export type LogoLinkExProps = LinkExProps & {
   version?: boolean | string
 }
 
 export const LogoLinkEx: React.FC<LogoLinkExProps> = ({
-  to = '/', version = false, ...props
+  to = '/', href, version = false, ...props
 }) => {
   const theme = useTheme()
+  assertEx(href === undefined, 'href is not supported')
   return (
     <LinkEx to={to} {...props}>
       <FlexRow paddingX="4px">
