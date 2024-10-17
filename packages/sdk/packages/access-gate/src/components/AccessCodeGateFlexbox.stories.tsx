@@ -19,7 +19,7 @@ const Template: StoryFn<typeof AccessCodeGateFlexbox> = args => (
 
 const TemplateWithAccessCodes: StoryFn<typeof AccessCodeGateFlexbox> = (args) => {
   const {
-    validated, onAccessCodeSuccess, onCodeInputChange,
+    codeInput, validated, onAccessCodeSuccess, onCodeInputChange, validateCodeInput,
   } = useAccessCodes('storybook-access-codes-test')
 
   return validated
@@ -28,13 +28,18 @@ const TemplateWithAccessCodes: StoryFn<typeof AccessCodeGateFlexbox> = (args) =>
         <FlexCol gap={2}>
           <AccessCodeGateFlexbox
             onAccessCodeSuccess={onAccessCodeSuccess}
+            onCodeInputChange={onCodeInputChange}
             validAccessCodes={ValidAccessCodes}
-            validateFunction={onCodeInputChange}
+            validateFunction={validateCodeInput}
             {...args}
           />
-          <Typography variant="caption">
+          <Typography variant="caption" gutterBottom>
             Hint:
             {ValidAccessCodes[0]}
+          </Typography>
+          <Typography variant="caption">
+            Code Input in Parent:
+            {codeInput}
           </Typography>
         </FlexCol>
       )

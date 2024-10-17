@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 
-export const useAccessCodes = (localStorageKey: string) => {
+export const useAccessCodes = (localStorageKey: string, validCodeLength = 6) => {
   const [validated, setValidated] = useState(false)
   const [codeInput, setCodeInput] = useState('')
 
@@ -14,9 +14,11 @@ export const useAccessCodes = (localStorageKey: string) => {
       setValidated(true)
     }
   }
+  const validateCodeInput = (code?: string) => {
+    return code?.length === validCodeLength
+  }
   const onCodeInputChange = (code?: string) => {
     setCodeInput(code ?? '')
-    return code?.length === 6
   }
   const userAccessCodes = useMemo(() => {
     const storedCodes = localStorage.getItem(localStorageKey)
@@ -27,6 +29,6 @@ export const useAccessCodes = (localStorageKey: string) => {
   }, [])
 
   return {
-    validated, userAccessCodes, onAccessCodeSuccess, onCodeInputChange,
+    codeInput, validated, userAccessCodes, onAccessCodeSuccess, onCodeInputChange, validateCodeInput,
   }
 }

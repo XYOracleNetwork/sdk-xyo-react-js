@@ -17,10 +17,12 @@ export interface AccessCodeGateFlexbox extends WithChildren, FlexBoxProps {
   userAccessCodes?: string[]
   validAccessCodes?: string[]
   validateFunction?: (codeInput?: string) => boolean
+  onCodeInputChange?: (codeInput?: string) => void
 }
 
 export const AccessCodeGateFlexbox: React.FC<AccessCodeGateFlexbox> = ({
   children,
+  onCodeInputChange,
   onAccessCodeSuccess,
   successRedirectDelay = 1500,
   userAccessCodes,
@@ -36,7 +38,15 @@ export const AccessCodeGateFlexbox: React.FC<AccessCodeGateFlexbox> = ({
   const disabled = validateFunction ? !validateFunction(codeInput) : !codeInput
   const validateCode = useCallback((accessCode: string) => (accessCode ? validAccessCodes?.includes(accessCode) : false), [validAccessCodes])
 
+  // keep the parent informed of the code input
+  useEffect(() => {
+    if (onCodeInputChange) {
+      onCodeInputChange(codeInput)
+    }
+  }, [codeInput, onCodeInputChange])
+
   const onEnter = () => {
+    onCodeInputChange?.(codeInput)
     if (codeInput) {
       const granted = validateCode(codeInput)
       if (granted) {
