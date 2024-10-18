@@ -23,6 +23,12 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
     }
   }, [location])
 
+  useEffect(() => {
+    if (error) {
+      globalThis.rollbar?.error(error)
+    }
+  }, [error])
+
   return error
     ? (
         <FlexCol alignItems="stretch" {...props}>
