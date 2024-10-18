@@ -12,12 +12,12 @@ import { CodeTextField } from './CodeTextField.tsx'
 
 export interface AccessCodeGateFlexbox extends WithChildren, FlexBoxProps {
   onAccessCodeSuccess?: (code?: string) => void
+  onCodeInputChange?: (codeInput?: string) => void
   successRedirectDelay?: number
   textFieldHelperText?: string
   userAccessCodes?: string[]
   validAccessCodes?: string[]
   validateFunction?: (codeInput?: string) => boolean
-  onCodeInputChange?: (codeInput?: string) => void
 }
 
 export const AccessCodeGateFlexbox: React.FC<AccessCodeGateFlexbox> = ({
