@@ -5,7 +5,7 @@ import type { PropsWithChildren } from 'react'
 import React, { useEffect } from 'react'
 import { BrowserRouter, useSearchParams } from 'react-router-dom'
 
-import { UtmStorageArchivist } from '../lib/index.ts'
+import { LatestUtmPayload } from '../lib/index.ts'
 import { useCaptureUtmLocation } from './useCaptureUtmLocation.ts'
 
 export default { title: 'advertising/UseCaptureUtmLocation' } as Meta
@@ -36,16 +36,11 @@ const RouterDecorator = (Story: StoryFn) => (
 const Template: StoryFn = () => {
   useCaptureUtmLocation()
 
-  const [payloads] = usePromise(async () => {
-    const archivist = await UtmStorageArchivist()
-    return await archivist.all()
+  const [payload] = usePromise(async () => {
+    return await LatestUtmPayload()
   }, [])
 
-  return (
-    <Box>
-      {payloads?.map(payload => <Box key={payload.$hash}>{JSON.stringify(payload, null, 2)}</Box>)}
-    </Box>
-  )
+  return <Box>{JSON.stringify(payload, null, 2)}</Box>
 }
 
 const Default = Template.bind({})
