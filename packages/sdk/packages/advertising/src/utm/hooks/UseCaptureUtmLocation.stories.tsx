@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import { usePromise } from '@xylabs/react-promise'
-import { Utm } from '@xyo-network/advertising-payload-plugins'
 import type { PropsWithChildren } from 'react'
 import React, { useEffect } from 'react'
 import { BrowserRouter, useSearchParams } from 'react-router-dom'
