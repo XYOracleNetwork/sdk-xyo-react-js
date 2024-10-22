@@ -8585,9 +8585,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-advertising@workspace:packages/sdk/packages/advertising"
   dependencies:
-    "@mui/material": "npm:^6.1.4"
-    "@mui/styles": "npm:^6.1.4"
     "@storybook/react": "npm:^8.3.6"
+    "@xylabs/react-promise": "npm:^5.2.2"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.1"
     "@xylabs/tsconfig-react": "npm:^4.2.1"
     "@xyo-network/advertising-payload-plugins": "npm:^3.1.1"
@@ -8597,10 +8596,9 @@ __metadata:
     storybook: "npm:^8.3.6"
     typescript: "npm:^5.6.3"
   peerDependencies:
-    "@mui/material": ^6
-    "@mui/styles": ^6
     react: ^18
     react-dom: ^18
+    react-router-dom: ^6
   languageName: unknown
   linkType: soft
 
