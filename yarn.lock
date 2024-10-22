@@ -6869,6 +6869,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xyo-network/advertising-payload-plugins@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@xyo-network/advertising-payload-plugins@npm:3.1.1"
+  dependencies:
+    "@xyo-network/payload-model": "npm:^3.2.0"
+  checksum: 10/1a12239105ccef17e73fcfe4e9fd1830013326f2b294b29721a445e5547c128bd7802c127dd76f1eb5f07d139cf8d7fcad2ba410cdcdc2d07876a64700007dcf
+  languageName: node
+  linkType: hard
+
 "@xyo-network/api-models@npm:^3.3.0":
   version: 3.3.0
   resolution: "@xyo-network/api-models@npm:3.3.0"
@@ -8569,6 +8578,28 @@ __metadata:
     "@mui/styles": ^6
     react: ^18
     react-dom: ^18
+  languageName: unknown
+  linkType: soft
+
+"@xyo-network/react-advertising@workspace:^, @xyo-network/react-advertising@workspace:packages/sdk/packages/advertising":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-advertising@workspace:packages/sdk/packages/advertising"
+  dependencies:
+    "@mui/material": "npm:^6.1.4"
+    "@storybook/react": "npm:^8.3.6"
+    "@xylabs/react-promise": "npm:^5.2.2"
+    "@xylabs/ts-scripts-yarn3": "npm:^4.2.1"
+    "@xylabs/tsconfig-react": "npm:^4.2.1"
+    "@xyo-network/advertising-payload-plugins": "npm:^3.1.1"
+    "@xyo-network/archivist-storage": "npm:^3.3.0"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    storybook: "npm:^8.3.6"
+    typescript: "npm:^5.6.3"
+  peerDependencies:
+    react: ^18
+    react-dom: ^18
+    react-router-dom: ^6
   languageName: unknown
   linkType: soft
 
@@ -10723,6 +10754,7 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:^4.2.1"
     "@xyo-network/react-access-gate": "workspace:^"
     "@xyo-network/react-address": "workspace:^"
+    "@xyo-network/react-advertising": "workspace:^"
     "@xyo-network/react-app-settings": "workspace:^"
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-block": "workspace:^"
