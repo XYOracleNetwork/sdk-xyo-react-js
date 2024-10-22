@@ -1,3 +1,4 @@
+import type { Utm } from '@xyo-network/advertising-payload-plugins'
 import { isUtm } from '@xyo-network/advertising-payload-plugins'
 import { StorageArchivist, StorageArchivistConfigSchema } from '@xyo-network/archivist-storage'
 
@@ -23,7 +24,7 @@ export const UtmStorageArchivist = async () => {
   }
 }
 
-export const LatestUtmPayload = async () => {
+export const LatestUtmPayload = async (): Promise<Utm | undefined> => {
   const archivist = await UtmStorageArchivist()
-  return (await archivist.all()).findLast(isUtm)
+  return (await archivist.all()).findLast(isUtm) as Utm
 }
