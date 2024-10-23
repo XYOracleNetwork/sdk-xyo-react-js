@@ -144,7 +144,7 @@ export class FormGroup<
 
     if (control) {
       const listener = this.serializeListeners[name]
-      control.off('valueChanged', listener)
+      control.on('valueChanged', listener)
       delete this.serializeListeners[name]
       delete this._controls[name as KeyOfString<TValue>]
     }
