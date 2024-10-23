@@ -15,14 +15,8 @@ export type PoweredByXyoButtonProps = ButtonExProps & {
 
 export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   busy = false,
-  href,
-  to,
-  toOptions,
   logoHeight,
   logoTextSize,
-  sx,
-  target = '_blank',
-  variant = 'text',
   ...props
 }) => {
   // preloading image to prevent shifting
@@ -31,69 +25,25 @@ export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
   img.addEventListener('load', () => setImageLoaded(true))
   img.src = xyoColorLogoText
   return imageLoaded
-    ? href
-      ? (
-          <ButtonEx
-            href={href}
-            target={target}
-            variant={variant}
-            sx={{
-              borderRadius: 0, padding: 0, ...sx,
-            }}
-            {...props}
-          >
-            <FlexCol padding={0.5}>
-              <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
-                Powered by
-              </Typography>
-              <FlexRow>
-                <XyoBusy busy={busy} />
-                <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
-              </FlexRow>
-            </FlexCol>
-          </ButtonEx>
-        )
-      : to
-        ? (
-            <ButtonEx
-              to={to}
-              toOptions={toOptions}
-              target={target}
-              variant={variant}
-              sx={{
-                borderRadius: 0, padding: 0, ...sx,
-              }}
-              {...props}
-            >
-              <FlexCol padding={0.5}>
-                <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
-                  Powered by
-                </Typography>
-                <FlexRow>
-                  <XyoBusy busy={busy} />
-                  <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
-                </FlexRow>
-              </FlexCol>
-            </ButtonEx>
-          )
-        : (
-            <ButtonEx
-              variant={variant}
-              sx={{
-                borderRadius: 0, padding: 0, ...sx,
-              }}
-              {...props}
-            >
-              <FlexCol padding={0.5}>
-                <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
-                  Powered by
-                </Typography>
-                <FlexRow>
-                  <XyoBusy busy={busy} />
-                  <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
-                </FlexRow>
-              </FlexCol>
-            </ButtonEx>
-          )
+    ? (
+        <ButtonEx
+          {...props}
+          target={props.target ?? '_blank'}
+          variant={props.variant ?? 'text'}
+          sx={{
+            textDecoration: 'none', borderRadius: 0, padding: 0, ...props.sx,
+          }}
+        >
+          <FlexCol padding={0.5}>
+            <Typography style={{ fontSize: logoTextSize ?? 10 }} fontSize="small">
+              Powered by
+            </Typography>
+            <FlexRow>
+              <XyoBusy busy={busy} />
+              <img src={xyoColorLogoText} height={logoHeight ?? 24} width={45} />
+            </FlexRow>
+          </FlexCol>
+        </ButtonEx>
+      )
     : null
 }
