@@ -44,10 +44,10 @@
   },
   "dependencies": {
     "@xylabs/assert": "^4.3.2",
-    "@xylabs/react-hooks": "^5.2.2",
-    "@xyo-network/payload-model": "^3.3.0",
-    "@xyo-network/payload-plugin": "^3.3.0",
-    "@xyo-network/payloadset-plugin": "^3.3.0",
+    "@xylabs/react-hooks": "^5.2.4",
+    "@xyo-network/payload-model": "^3.3.1",
+    "@xyo-network/payload-plugin": "^3.3.1",
+    "@xyo-network/payloadset-plugin": "^3.3.1",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^"
   },
@@ -60,6 +60,7 @@
     "@xylabs/ts-scripts-yarn3": "^4.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0",
     "typescript": "^5.6.3"
   },
   "peerDependencies": {
@@ -69,7 +70,8 @@
     "@mui/material": "^6",
     "@mui/styles": "^6",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-router-dom": "^6"
   },
   "publishConfig": {
     "access": "public"
