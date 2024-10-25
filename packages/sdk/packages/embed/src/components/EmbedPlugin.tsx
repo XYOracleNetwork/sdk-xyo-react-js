@@ -1,5 +1,5 @@
+import { ErrorBoundary } from '@xylabs/react-error'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
-import { ErrorBoundary } from '@xyo-network/react-error'
 import { ListModeProvider } from '@xyo-network/react-shared'
 import type { PropsWithChildren } from 'react'
 import React from 'react'

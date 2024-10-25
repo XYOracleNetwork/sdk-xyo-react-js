@@ -1,5 +1,5 @@
+import { ErrorRender } from '@xylabs/react-error'
 import { ModuleErrorSchema } from '@xyo-network/payload-model'
-import { ErrorRender } from '@xyo-network/react-error'
 import { useBuildHuri } from '@xyo-network/react-payload-huri'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'

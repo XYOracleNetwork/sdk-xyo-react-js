@@ -3,6 +3,7 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import type { ErrorInfo, ReactNode } from 'react'
 import React, { Component } from 'react'
 
+/** @deprecated use from @xylabs/react-error instead */
 export interface ErrorBoundaryProps {
   children: ReactNode
   // fallback as a static ReactNode value
@@ -12,10 +13,12 @@ export interface ErrorBoundaryProps {
   scope?: string
 }
 
+/** @deprecated use from @xylabs/react-error instead */
 export interface ErrorBoundaryState {
   error?: Error
 }
 
+/** @deprecated use from @xylabs/react-error instead */
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props)

@@ -1,6 +1,6 @@
 import type { CardProps } from '@mui/material'
+import { ErrorAlert, ErrorRender } from '@xylabs/react-error'
 import type { ModuleError } from '@xyo-network/payload-model'
-import { ErrorAlert, ErrorRender } from '@xyo-network/react-error'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 

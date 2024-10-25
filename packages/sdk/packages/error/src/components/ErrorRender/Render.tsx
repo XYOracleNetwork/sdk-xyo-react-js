@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { ErrorAlert } from './ErrorAlert.tsx'
 import type { ErrorRenderProps } from './Props.ts'
 
-export const ErrorRender: React.FC<ErrorRenderProps> = ({
+export function ErrorRender<T = void>({
   onCancel,
   error,
   noErrorDisplay = false,
@@ -14,7 +14,7 @@ export const ErrorRender: React.FC<ErrorRenderProps> = ({
   scope,
   useLocation,
   ...props
-}) => {
+}: ErrorRenderProps<T>): JSX.Element {
   const location = useLocation?.()
   useEffect(() => {
     if (location) {

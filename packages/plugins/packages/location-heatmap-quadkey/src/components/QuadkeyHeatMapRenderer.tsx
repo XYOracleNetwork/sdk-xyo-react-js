@@ -1,9 +1,9 @@
 import {
   Alert, AlertTitle, useTheme,
 } from '@mui/material'
+import { ErrorRender } from '@xylabs/react-error'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
-import { ErrorRender } from '@xyo-network/react-error'
 import type {
   MapSetting,
   NetworkLocationHeatmapQuadkeyAnswerPayload,

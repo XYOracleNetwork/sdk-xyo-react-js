@@ -1,11 +1,11 @@
 import { Divider, Paper } from '@mui/material'
 import type { WebAppNavigationType } from '@xylabs/react-app-settings'
+import { ErrorBoundary } from '@xylabs/react-error'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import {
   FlexCol, FlexGrowCol, FlexGrowRow,
 } from '@xylabs/react-flexbox'
 import { ApplicationAppBar, SystemToolbar } from '@xyo-network/react-appbar'
-import { ErrorBoundary } from '@xyo-network/react-error'
 import { Footer } from '@xyo-network/react-footer'
 import type { ReactNode } from 'react'
 import React, { forwardRef } from 'react'

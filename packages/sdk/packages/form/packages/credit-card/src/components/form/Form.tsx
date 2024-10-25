@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material'
+import { ErrorRender } from '@xylabs/react-error'
 import { FlexCol } from '@xylabs/react-flexbox'
-import { ErrorRender } from '@xyo-network/react-error'
 import React, { useState } from 'react'
 
 import { FormGroupCreditCardProvider, useFormGroupWithCreditCardInput } from '../../context/index.ts'

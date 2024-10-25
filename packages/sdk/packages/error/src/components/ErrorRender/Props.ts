@@ -1,11 +1,12 @@
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
-import type { ModuleError } from '@xyo-network/payload-model'
 import type { ReactNode } from 'react'
 import type { Location } from 'react-router-dom'
 
-export interface ErrorRenderProps extends FlexBoxProps {
+export type ErrorEx<T = void> = T extends void ? Error : T | Error
+
+export interface ErrorRenderProps<T = void> extends FlexBoxProps {
   customError?: ReactNode
-  error?: ModuleError | Error
+  error?: ErrorEx<T>
   errorContext?: string
   noErrorDisplay?: boolean
   noReAuth?: boolean

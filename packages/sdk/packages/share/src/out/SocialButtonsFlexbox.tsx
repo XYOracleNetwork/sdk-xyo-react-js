@@ -1,8 +1,8 @@
 import { Typography } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
+import { ErrorRender } from '@xylabs/react-error'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol, FlexRow } from '@xylabs/react-flexbox'
-import { ErrorRender } from '@xyo-network/react-error'
 import React, { useState } from 'react'
 
 import { FacebookSvgIcon, XTwitterSvgIcon } from '../icons/index.ts'

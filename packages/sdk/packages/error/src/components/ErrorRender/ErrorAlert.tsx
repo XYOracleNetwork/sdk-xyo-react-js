@@ -4,25 +4,24 @@ import {
   Alert, AlertTitle, Typography,
 } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
-import type { ModuleError } from '@xyo-network/payload-model'
 import React from 'react'
 
-export interface ErrorAlertProps extends AlertProps {
-  error?: ModuleError | Error | string
+export interface ErrorAlertProps<T = void> extends AlertProps {
+  error?: T | Error | string
   /** @deprecated use scope instead */
   errorContext?: string
   onCancel?: () => void
   scope?: string
 }
 
-export const ErrorAlert: React.FC<ErrorAlertProps> = ({
+export function ErrorAlert<T = void>({
   title = 'Whoops! Something went wrong',
   onCancel,
   error = 'An unknown error occurred',
   errorContext,
   scope,
   ...props
-}) => {
+}: ErrorAlertProps<T>): JSX.Element {
   const finalScope = scope ?? errorContext
   return (
     <Alert severity="error" {...props}>
@@ -41,7 +40,7 @@ export const ErrorAlert: React.FC<ErrorAlertProps> = ({
         <Typography variant="caption" mr={0.5} fontWeight="bold">
           Error:
         </Typography>
-        <Typography variant="caption">{typeof error === 'string' ? error : error?.message}</Typography>
+        <Typography variant="caption">{typeof error === 'string' ? error : (error as Error)?.message}</Typography>
       </div>
       {onCancel
         ? (

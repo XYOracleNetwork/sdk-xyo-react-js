@@ -1,5 +1,6 @@
 // eslint.config.mjs
 
+import plugin from '@stylistic/eslint-plugin'
 import {
   typescriptConfig,
   unicornConfig,
@@ -25,5 +26,5 @@ export default [
       '@typescript-eslint/no-misused-promises': ['off'],
       '@typescript-eslint/consistent-type-imports': ['warn'],
     },
-  },
+  }
 ]
