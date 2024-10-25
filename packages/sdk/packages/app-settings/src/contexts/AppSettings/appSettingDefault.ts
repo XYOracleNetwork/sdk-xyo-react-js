@@ -1,5 +1,6 @@
 import { AppSettingSlug } from './Slug.ts'
 
+/** @deprecated import from @xylabs/react-app-settings instead */
 export const appSettingDefault = (): Record<string, unknown> => {
   return {
     [AppSettingSlug.DarkMode]: false,

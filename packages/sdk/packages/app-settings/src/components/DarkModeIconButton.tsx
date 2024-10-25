@@ -5,6 +5,7 @@ import React from 'react'
 
 import { useAppSettings } from '../contexts/index.ts'
 
+/** @deprecated import from @xylabs/react-app-settings instead */
 export const DarkModeIconButton: React.FC<IconButtonProps> = (props) => {
   const { darkMode, enableDarkMode } = useAppSettings()
 

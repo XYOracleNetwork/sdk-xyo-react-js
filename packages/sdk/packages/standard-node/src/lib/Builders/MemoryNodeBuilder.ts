@@ -1,3 +1,4 @@
+import { assertDefinedEx } from '@xylabs/assert'
 import type { AccountInstance } from '@xyo-network/account-model'
 import type { MemoryArchivistConfig } from '@xyo-network/archivist-memory'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
@@ -6,7 +7,6 @@ import type { AttachableModuleInstance } from '@xyo-network/module-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import type { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
-import { assertDefinedEx } from '@xyo-network/react-shared'
 import type { SentinelConfig } from '@xyo-network/sentinel-model'
 import type { AttachableWitnessInstance, WitnessModule } from '@xyo-network/witness-model'
 
@@ -22,7 +22,7 @@ export class MemoryNodeBuilder {
   private _node: MemoryNode | undefined
 
   get node() {
-    return assertDefinedEx(this._node, 'this._node was not defined upon create')
+    return assertDefinedEx(this._node, () => 'this._node was not defined upon create')
   }
 
   static async create({ name, node }: MemoryNodeBuilderConfig, account?: AccountInstance): Promise<MemoryNodeBuilder> {

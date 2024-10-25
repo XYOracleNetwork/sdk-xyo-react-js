@@ -1,3 +1,4 @@
+import { assertDefinedEx } from '@xylabs/assert'
 import type { AccountInstance } from '@xyo-network/account-model'
 import type { ArchivistModule } from '@xyo-network/archivist-model'
 import { asArchivistInstance } from '@xyo-network/archivist-model'
@@ -5,7 +6,6 @@ import type { StorageArchivistConfig } from '@xyo-network/archivist-storage'
 import { StorageArchivist, StorageArchivistConfigSchema } from '@xyo-network/archivist-storage'
 import type { MemoryNode } from '@xyo-network/node-memory'
 import { asNodeInstance } from '@xyo-network/node-model'
-import { assertDefinedEx } from '@xyo-network/react-shared'
 
 export interface ArchivistBuilderConfig {
   name?: string
@@ -22,7 +22,7 @@ export class StorageArchivistBuilder {
   ) {}
 
   get archivist() {
-    return assertDefinedEx(this._archivist, 'archivist was not defined upon create')
+    return assertDefinedEx(this._archivist, () => 'archivist was not defined upon create')
   }
 
   static async create(config: ArchivistBuilderConfig, account: AccountInstance, node: MemoryNode): Promise<StorageArchivistBuilder> {

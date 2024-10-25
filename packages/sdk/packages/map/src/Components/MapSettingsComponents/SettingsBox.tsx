@@ -1,7 +1,7 @@
 import { Paper, Stack } from '@mui/material'
+import { useAppSettings } from '@xylabs/react-app-settings'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
-import { useAppSettings } from '@xyo-network/react-app-settings'
 import React from 'react'
 
 import { useMapSettings } from '../../Contexts/index.ts'

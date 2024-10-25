@@ -6,10 +6,12 @@ import type { AppSettingsContextProps } from './Context.ts'
 import { AppSettingsContext } from './Context.ts'
 import { AppSettingsStorage } from './Storage.ts'
 
+/** @deprecated import from @xylabs/react-app-settings instead */
 export interface AppSettingsProviderProps<T extends AppSettingsContextProps = AppSettingsContextProps> extends ProviderProps<T> {
   storage?: AppSettingsStorage
 }
 
+/** @deprecated import from @xylabs/react-app-settings instead */
 export const AppSettingsProvider: React.FC<PropsWithChildren<AppSettingsProviderProps>> = ({
   storage,
   value,

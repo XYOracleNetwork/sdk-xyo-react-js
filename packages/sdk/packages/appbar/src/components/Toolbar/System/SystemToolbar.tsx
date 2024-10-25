@@ -1,7 +1,7 @@
 import type { ToolbarProps } from '@mui/material'
 import { Paper, Toolbar } from '@mui/material'
+import { DarkModeIconButton } from '@xylabs/react-app-settings'
 import { FlexRow } from '@xylabs/react-flexbox'
-import { DarkModeIconButton } from '@xyo-network/react-app-settings'
 import type { NetworkSelectExProps } from '@xyo-network/react-network'
 import { NetworkSelectEx } from '@xyo-network/react-network'
 import type { ReactNode } from 'react'

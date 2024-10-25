@@ -1,8 +1,8 @@
+import { assertDefinedEx } from '@xylabs/assert'
 import { useResetState } from '@xylabs/react-hooks'
 import { usePromise } from '@xylabs/react-promise'
 import type { WithChildren } from '@xylabs/react-shared'
 import type { MemoryNode } from '@xyo-network/node-memory'
-import { assertDefinedEx } from '@xyo-network/react-shared'
 import { useWalletContext } from '@xyo-network/react-wallet'
 import type { WalletInstance } from '@xyo-network/wallet-model'
 import React, { useMemo } from 'react'
@@ -35,7 +35,7 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({
   }, [wallet])
 
   const findAddressByName = (name?: string) => {
-    const validNetworkName = assertDefinedEx(name, 'name was not defined')
+    const validNetworkName = assertDefinedEx(name, () => 'name was not defined')
     return nodes?.find(node => node.config.name === validNetworkName)?.address
   }
 

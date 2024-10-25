@@ -1,6 +1,6 @@
-import { assertEx } from '@xylabs/assert'
-import { assertDefinedEx } from '@xyo-network/react-shared'
+import { assertDefinedEx, assertEx } from '@xylabs/assert'
 
+/** @deprecated import from @xylabs/react-app-settings instead */
 export class AppSettingsStorageBase {
   private defaults: Record<string, unknown>
   private prefix: string
@@ -44,7 +44,7 @@ export class AppSettingsStorageBase {
   getString(name: string) {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)
     if (!storedValue) {
-      assertDefinedEx(typeof this.defaults[name] === 'string', 'Default value is not string')
+      assertDefinedEx(typeof this.defaults[name] === 'string', () => 'Default value is not string')
       const defaultValue = this.defaults[name] as string
       assertEx(defaultValue !== undefined, () => `Missing Default for ${name}`)
       return defaultValue
@@ -55,7 +55,7 @@ export class AppSettingsStorageBase {
   getStringArray(name: string) {
     const storedValue = localStorage.getItem(`${this.prefix}|${name}`)?.split(',')
     if (!storedValue) {
-      assertDefinedEx(Array.isArray(this.defaults[name]), 'Default value is not array')
+      assertDefinedEx(Array.isArray(this.defaults[name]), () => 'Default value is not array')
       const defaultValue = this.defaults[name] as string[]
       assertEx(defaultValue !== undefined, () => `Missing Default for ${name}`)
       return defaultValue

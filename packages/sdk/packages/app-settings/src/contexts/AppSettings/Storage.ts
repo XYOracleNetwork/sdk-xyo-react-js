@@ -3,6 +3,7 @@ import { appSettingDefault } from './appSettingDefault.ts'
 import { AppSettingSlug } from './Slug.ts'
 import { AppSettingsStorageBase } from './StorageBase.ts'
 
+/** @deprecated import from @xylabs/react-app-settings instead */
 export class AppSettingsStorage extends AppSettingsStorageBase {
   constructor(prefix = 'AppSettings', defaults?: Record<string, unknown>) {
     super(prefix, { ...appSettingDefault(), ...defaults })

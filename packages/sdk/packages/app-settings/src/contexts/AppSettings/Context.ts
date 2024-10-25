@@ -3,6 +3,7 @@ import { createContext } from 'react'
 import type { WebAppNavigationType } from '../../WebAppNavigationType.ts'
 import { appSettingDefault } from './appSettingDefault.ts'
 
+/** @deprecated import from @xylabs/react-app-settings instead */
 export interface AppSettingsContextProps {
   changeMaxAccounts?: (value: number) => void
   changeNavigationCollapsed?: (value: boolean) => void
@@ -18,4 +19,5 @@ export interface AppSettingsContextProps {
   seedPhrase?: string
 }
 
+/** @deprecated import from @xylabs/react-app-settings instead */
 export const AppSettingsContext = createContext<AppSettingsContextProps>(appSettingDefault())

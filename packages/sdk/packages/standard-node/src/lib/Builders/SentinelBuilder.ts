@@ -1,5 +1,5 @@
+import { assertDefinedEx } from '@xylabs/assert'
 import type { AccountInstance } from '@xyo-network/account-model'
-import { assertDefinedEx } from '@xyo-network/react-shared'
 import type { MemorySentinelParams } from '@xyo-network/sentinel-memory'
 import { MemorySentinel } from '@xyo-network/sentinel-memory'
 import type { SentinelConfig } from '@xyo-network/sentinel-model'
@@ -11,11 +11,11 @@ export class SentinelBuilder {
     private config: SentinelConfig,
     private account: AccountInstance,
   ) {
-    assertDefinedEx(config, 'config was not defined')
+    assertDefinedEx(config, () => 'config was not defined')
   }
 
   get sentinel() {
-    return assertDefinedEx(this._sentinel, 'this._sentinel not defined upon create')
+    return assertDefinedEx(this._sentinel, () => 'this._sentinel not defined upon create')
   }
 
   static async create(config: SentinelConfig, account: AccountInstance): Promise<SentinelBuilder> {
