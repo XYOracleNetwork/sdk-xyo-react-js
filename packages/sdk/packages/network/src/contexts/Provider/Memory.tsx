@@ -1,11 +1,11 @@
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
 
 import { defaultNetworkConfigs } from '../../lib/index.ts'
 import { NetworkContext } from '../Context.ts'
 import type { NetworkProviderProps } from './Props.ts'
 
-export const NetworkMemoryProvider: React.FC<WithChildren<NetworkProviderProps>> = ({
+export const NetworkMemoryProvider: React.FC<PropsWithChildren<NetworkProviderProps>> = ({
   defaultNetworkConfig, defaultNetworkName, ...props
 }) => {
   if (defaultNetworkConfig && defaultNetworkName) {

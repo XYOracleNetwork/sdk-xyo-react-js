@@ -1,11 +1,11 @@
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import type { OpenElevationApiClientConfig } from '../../classes/index.ts'
 import { OpenElevationApiClient } from '../../classes/index.ts'
 import { OpenElevationApiContext } from './Context.ts'
 
-export interface OpenElevationApiProviderProps extends WithChildren {
+export interface OpenElevationApiProviderProps extends PropsWithChildren {
   openElevationApiConfig?: OpenElevationApiClientConfig
 }
 

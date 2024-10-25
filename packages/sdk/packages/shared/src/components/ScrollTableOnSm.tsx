@@ -1,5 +1,5 @@
 import { styled } from '@mui/material'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 const StyledScrollTableOnSm = styled('div')(({ theme }) => ({
@@ -8,6 +8,6 @@ const StyledScrollTableOnSm = styled('div')(({ theme }) => ({
   flexGrow: 1,
 }))
 
-const ScrollTableOnSm: React.FC<WithChildren> = ({ children }) => <StyledScrollTableOnSm>{children}</StyledScrollTableOnSm>
+const ScrollTableOnSm: React.FC<PropsWithChildren> = ({ children }) => <StyledScrollTableOnSm>{children}</StyledScrollTableOnSm>
 
 export { ScrollTableOnSm }

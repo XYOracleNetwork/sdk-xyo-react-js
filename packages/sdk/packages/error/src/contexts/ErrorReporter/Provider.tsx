@@ -1,5 +1,5 @@
 import { useRollbar } from '@rollbar/react'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 import type Rollbar from 'rollbar'
 
@@ -9,7 +9,7 @@ export interface ErrorReporterProviderProps {
   rollbar: Rollbar
 }
 
-const ErrorReporterProvider: React.FC<WithChildren<ErrorReporterProviderProps>> = ({ children, rollbar: rollbarProp }) => {
+const ErrorReporterProvider: React.FC<PropsWithChildren<ErrorReporterProviderProps>> = ({ children, rollbar: rollbarProp }) => {
   let rollbarFromHook: Rollbar | undefined
   // safely call the hook
   try {

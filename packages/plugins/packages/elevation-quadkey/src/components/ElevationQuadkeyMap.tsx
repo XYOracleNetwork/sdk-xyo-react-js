@@ -3,7 +3,6 @@ import {
 } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { Payload } from '@xyo-network/payload-model'
 import {
   HeatMapInitializerProvider,
@@ -13,6 +12,7 @@ import {
   useMapboxAccessToken,
 } from '@xyo-network/react-map'
 import type { Feature, Polygon } from 'geojson'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
 
 import { OpenElevationApiProvider } from '../contexts/index.ts'
@@ -66,7 +66,7 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({
       )
 }
 
-const WithProviders: React.FC<WithChildren> = ({ children }) => (
+const WithProviders: React.FC<PropsWithChildren> = ({ children }) => (
   <OpenElevationApiProvider>
     <MapBoxInstanceProvider>{children}</MapBoxInstanceProvider>
   </OpenElevationApiProvider>

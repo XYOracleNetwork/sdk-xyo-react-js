@@ -1,12 +1,12 @@
 import { exists } from '@xylabs/exists'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
 
 import { useSchemaStats } from '../../../hooks/index.ts'
 import { SchemaContext } from '../Context.ts'
 import type { SchemaProviderProps } from './Props.ts'
 
-export const SchemaMemoryProvider: React.FC<WithChildren<SchemaProviderProps>> = ({
+export const SchemaMemoryProvider: React.FC<PropsWithChildren<SchemaProviderProps>> = ({
   defaultSchema, knownSchemaList, ...props
 }) => {
   const [schema, setSchema] = useState(defaultSchema)

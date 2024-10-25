@@ -1,8 +1,8 @@
 import { Chip } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { SchemaNameToValidatorMap } from '@xyo-network/schema-cache'
 import { SchemaCache } from '@xyo-network/schema-cache'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import { useResolvePayload } from '../ResolvePayloadContext/index.ts'
@@ -13,7 +13,7 @@ export interface ValidatePayloadProviderProps {
   enabled?: boolean
 }
 
-export const ValidatePayloadProvider: React.FC<WithChildren<ValidatePayloadProviderProps>> = ({ children, enabled = false }) => {
+export const ValidatePayloadProvider: React.FC<PropsWithChildren<ValidatePayloadProviderProps>> = ({ children, enabled = false }) => {
   const { payload } = useResolvePayload()
   const [initialized, setInitialized] = useState(false)
   const [valid, setValid] = useState<boolean>()

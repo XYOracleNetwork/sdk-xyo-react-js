@@ -1,5 +1,5 @@
 import { useResetState } from '@xylabs/react-hooks'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import { EmbedPluginContext } from './Context.ts'
@@ -8,7 +8,7 @@ import type { EmbedPluginBase } from './State.ts'
 export type EmbedPluginProviderProps = EmbedPluginBase
 
 /** Expose passed embed plugin props via context */
-export const EmbedPluginProvider: React.FC<WithChildren<EmbedPluginProviderProps>> = ({
+export const EmbedPluginProvider: React.FC<PropsWithChildren<EmbedPluginProviderProps>> = ({
   children,
   refreshTitle,
   timestampLabel,

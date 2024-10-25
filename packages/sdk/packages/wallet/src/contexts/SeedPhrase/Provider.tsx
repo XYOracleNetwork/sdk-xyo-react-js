@@ -1,14 +1,14 @@
 import { generateMnemonic, validateMnemonic } from '@scure/bip39'
 import { wordlist } from '@scure/bip39/wordlists/english'
 import { useResetState } from '@xylabs/react-hooks'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, {
   useCallback, useEffect, useMemo, useState,
 } from 'react'
 
 import { SeedPhraseContext } from './Context.ts'
 
-export interface SeedPhraseProviderProps extends WithChildren {
+export interface SeedPhraseProviderProps extends PropsWithChildren {
   defaultPhrase?: string
   handleChangeSeedPhrase?: (phrase: string) => void
   open?: boolean

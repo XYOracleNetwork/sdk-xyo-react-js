@@ -4,7 +4,7 @@ import type {
 import {
   Box, styled, Typography,
 } from '@mui/material'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, {
   forwardRef, useCallback, useState,
 } from 'react'
@@ -92,7 +92,7 @@ export interface EllipsizeBoxProps extends BoxProps {
   typographyProps?: TypographyWithComponentProps
 }
 
-export const EllipsizeBox = forwardRef<HTMLDivElement, WithChildren<EllipsizeBoxProps>>(
+export const EllipsizeBox = forwardRef<HTMLDivElement, PropsWithChildren<EllipsizeBoxProps>>(
   ({
     children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props
   }, ref) => {

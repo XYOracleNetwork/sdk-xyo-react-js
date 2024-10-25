@@ -4,7 +4,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { useUserEvents } from '@xylabs/react-pixel'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
@@ -38,7 +38,7 @@ export interface WebAppPageProps extends WebAppBodyProps, FlexBoxProps {
   disableGutters?: boolean
 }
 
-export const WebAppPage: React.FC<WithChildren<WebAppPageProps>> = ({
+export const WebAppPage: React.FC<PropsWithChildren<WebAppPageProps>> = ({
   disableGutters,
   disableBreadcrumbGutter,
   title,

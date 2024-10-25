@@ -3,14 +3,14 @@ import { FormControl } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, {
   useCallback, useEffect, useState,
 } from 'react'
 
 import { CodeTextField } from './CodeTextField.tsx'
 
-export interface AccessCodeGateFlexbox extends WithChildren, FlexBoxProps {
+export interface AccessCodeGateFlexbox extends PropsWithChildren, FlexBoxProps {
   onAccessCodeSuccess?: (code?: string) => void
   onCodeInputChange?: (codeInput?: string) => void
   successRedirectDelay?: number

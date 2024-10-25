@@ -1,8 +1,8 @@
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 
 export type EmptyObject = {}
 
-export type ContextExProviderProps<T extends EmptyObject = EmptyObject> = WithChildren<
+export type ContextExProviderProps<T extends EmptyObject = EmptyObject> = PropsWithChildren<
   {
     required?: boolean
   } & T

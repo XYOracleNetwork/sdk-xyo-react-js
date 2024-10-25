@@ -1,12 +1,12 @@
 import { useTheme } from '@mui/material'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { TypographyExProps } from '@xyo-network/react-shared'
 import { useGetTokenData } from '@xyo-network/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import { GasPriceHeadingTypography } from './Heading.tsx'
 
-export interface GasPriceHeaderTypographyProps extends TypographyExProps, WithChildren {
+export interface GasPriceHeaderTypographyProps extends TypographyExProps, PropsWithChildren {
   heading?: string
 }
 

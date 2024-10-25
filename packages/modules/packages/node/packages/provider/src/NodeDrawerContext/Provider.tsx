@@ -1,8 +1,8 @@
-import type { WithChildren } from '@xylabs/react-shared'
 import { NodeDrawerContext } from '@xyo-network/react-node-context'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
 
-export interface NodeDrawerProviderProps extends WithChildren {
+export interface NodeDrawerProviderProps extends PropsWithChildren {
   defaultOpen?: boolean
 }
 

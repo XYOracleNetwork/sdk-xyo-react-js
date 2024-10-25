@@ -2,7 +2,7 @@ import type { CollapseProps } from '@mui/material'
 import { Collapse } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import { SystemControlsType } from '../SystemControlsType.ts'
@@ -12,7 +12,7 @@ interface SystemControlProps extends FlexBoxProps {
   systemControlsType?: SystemControlsType
 }
 
-const SystemControl: React.FC<WithChildren<SystemControlProps>> = ({
+const SystemControl: React.FC<PropsWithChildren<SystemControlProps>> = ({
   children,
   controlElement,
   systemControlsType = SystemControlsType.WindowShade,

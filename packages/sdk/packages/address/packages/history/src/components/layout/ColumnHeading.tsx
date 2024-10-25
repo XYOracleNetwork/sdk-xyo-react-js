@@ -1,10 +1,10 @@
 import { styled } from '@mui/material'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { TypographyExProps } from '@xyo-network/react-shared'
 import { TypographyEx } from '@xyo-network/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
-export const ColumnHeadingTypography: React.FC<WithChildren<TypographyExProps>> = ({ children, ...props }) => {
+export const ColumnHeadingTypography: React.FC<PropsWithChildren<TypographyExProps>> = ({ children, ...props }) => {
   return <StyledColumnHeadingTypography {...props}>{children}</StyledColumnHeadingTypography>
 }
 

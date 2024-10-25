@@ -3,10 +3,10 @@ import {
 } from '@mui/material'
 import { generateMnemonic } from '@scure/bip39'
 import { wordlist } from '@scure/bip39/wordlists/english'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
 
-export interface DefaultSeedPhraseProps extends WithChildren {
+export interface DefaultSeedPhraseProps extends PropsWithChildren {
   changeSeedPhrase?: (seedPhrase: string) => void
   hideDefaultSeedPhraseMessage?: boolean
   seedPhrase?: string

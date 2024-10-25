@@ -1,9 +1,9 @@
-import type { WithChildren } from '@xylabs/react-shared'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import type { PayloadTableProps } from '@xyo-network/react-payload-table'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import { BoundWitnessFilteredPayloadTableBody, BoundWitnessPayloadTableHead } from './payloads-table/index.ts'
@@ -45,7 +45,7 @@ export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableP
   )
 }
 
-export const BoundWitnessPayloadsTableInner: React.FC<WithChildren<BoundWitnessPayloadTableProps>> = ({ children, ...props }) => (
+export const BoundWitnessPayloadsTableInner: React.FC<PropsWithChildren<BoundWitnessPayloadTableProps>> = ({ children, ...props }) => (
   <TableEx {...props}>
     <BoundWitnessPayloadTableHead />
     {children}

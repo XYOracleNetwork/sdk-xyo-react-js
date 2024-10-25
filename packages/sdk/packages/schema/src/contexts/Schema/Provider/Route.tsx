@@ -1,4 +1,4 @@
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, {
   useCallback, useEffect, useMemo,
 } from 'react'
@@ -9,7 +9,7 @@ import { useSchema } from '../use.ts'
 import { SchemaMemoryProvider } from './Memory.tsx'
 import type { SchemaProviderProps } from './Props.ts'
 
-const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
+const SchemaRouteProviderInner: React.FC<PropsWithChildren> = ({ children }) => {
   const {
     schema, setSchema, schemaList,
   } = useSchema()
@@ -61,7 +61,7 @@ const SchemaRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   return <SchemaContext.Provider value={value}>{children}</SchemaContext.Provider>
 }
 
-export const SchemaRouteProvider: React.FC<WithChildren<SchemaProviderProps>> = ({
+export const SchemaRouteProvider: React.FC<PropsWithChildren<SchemaProviderProps>> = ({
   knownSchemaList, defaultSchema, ...props
 }) => {
   return (

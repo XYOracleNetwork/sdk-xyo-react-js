@@ -1,4 +1,4 @@
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, {
   useEffect, useMemo, useState,
 } from 'react'
@@ -16,7 +16,7 @@ export interface MapSettingsProviderProps {
   zoom?: number
 }
 
-export const MapSettingsProvider: React.FC<WithChildren<MapSettingsProviderProps>> = ({
+export const MapSettingsProvider: React.FC<PropsWithChildren<MapSettingsProviderProps>> = ({
   children,
   debugLayerName,
   defaultMapSettings,

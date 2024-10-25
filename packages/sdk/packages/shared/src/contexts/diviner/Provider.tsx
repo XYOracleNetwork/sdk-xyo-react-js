@@ -1,12 +1,11 @@
 import { useResetState } from '@xylabs/react-hooks'
-import type { WithChildren } from '@xylabs/react-shared'
-import type { Context } from 'react'
+import type { Context, PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
 
 import type { ContextExProviderProps } from '../contextEx/index.ts'
 import type { ResolvedDivinerState } from './State.ts'
 
-export interface DivinerProviderProps<D> extends ContextExProviderProps, WithChildren {
+export interface DivinerProviderProps<D> extends ContextExProviderProps, PropsWithChildren {
   context: Context<ResolvedDivinerState<D>>
   diviner?: D
 }

@@ -1,6 +1,5 @@
 /* eslint-disable unicorn/no-array-push-push */
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { AccountInstance } from '@xyo-network/account-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { ModuleFilter } from '@xyo-network/module-model'
@@ -10,6 +9,7 @@ import type { SentinelConfig } from '@xyo-network/sentinel-model'
 import { SentinelConfigSchema } from '@xyo-network/sentinel-model'
 import type { WitnessInstance } from '@xyo-network/witness-model'
 import { asWitnessInstance } from '@xyo-network/witness-model'
+import type { PropsWithChildren } from 'react'
 import React, {
   useEffect, useMemo, useState,
 } from 'react'
@@ -30,7 +30,7 @@ export interface SentinelProviderProps {
   witnesses?: WitnessInstance[]
 }
 
-export const SentinelProvider: React.FC<WithChildren<SentinelProviderProps>> = ({
+export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>> = ({
   account, archivist, children, filter, name, required = false,
 }) => {
   const [sentinel, setSentinel] = useState<MemorySentinel>()

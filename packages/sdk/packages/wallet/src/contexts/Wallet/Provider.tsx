@@ -1,7 +1,7 @@
 import { useResetState } from '@xylabs/react-hooks'
 import { usePromise } from '@xylabs/react-promise'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { WalletInstance } from '@xyo-network/wallet-model'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
 
 import { WalletContext } from './Context.ts'
@@ -11,7 +11,7 @@ export interface WalletProviderProps {
   rootWallet?: WalletInstance | null
 }
 
-export const WalletProvider: React.FC<WithChildren<WalletProviderProps>> = ({
+export const WalletProvider: React.FC<PropsWithChildren<WalletProviderProps>> = ({
   children,
   defaultActiveAccountIndex = 0,
   rootWallet = null,

@@ -1,11 +1,11 @@
 import { useResetState } from '@xylabs/react-hooks'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { ContextExProviderProps } from '@xyo-network/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
 
 import { TableHeightContext } from './Context.ts'
 
-export interface TableHeightProviderProps extends ContextExProviderProps, WithChildren {
+export interface TableHeightProviderProps extends ContextExProviderProps, PropsWithChildren {
   /** @field Account for optional header and footer rows */
   additionalRows?: number
   defaultVisibleRows?: number

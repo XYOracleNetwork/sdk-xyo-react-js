@@ -1,7 +1,7 @@
 import type { CardProps } from '@mui/material'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { ModuleError } from '@xyo-network/payload-model'
 import { ErrorAlert, ErrorRender } from '@xyo-network/react-error'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import { EmbedErrorCard } from './EmbedErrorCard.tsx'
@@ -10,7 +10,7 @@ interface EmbedCardApiErrorRendererProps extends CardProps {
   xyoError?: ModuleError
 }
 
-export const EmbedCardApiErrorRenderer: React.FC<WithChildren<EmbedCardApiErrorRendererProps>> = ({
+export const EmbedCardApiErrorRenderer: React.FC<PropsWithChildren<EmbedCardApiErrorRendererProps>> = ({
   xyoError, children, ...props
 }) => {
   return (

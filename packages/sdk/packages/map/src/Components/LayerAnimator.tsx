@@ -1,6 +1,6 @@
-import type { WithChildren } from '@xylabs/react-shared'
 import { useInterval } from '@xylabs/react-shared'
 import type { Map } from 'mapbox-gl'
+import type { PropsWithChildren } from 'react'
 import React, {
   useCallback, useEffect, useMemo, useRef,
 } from 'react'
@@ -18,7 +18,7 @@ export interface LayerAnimatorProps {
 const timeIncrement = 2000
 const animatedLayerCount = 3
 
-export const LayerAnimator: React.FC<WithChildren<LayerAnimatorProps>> = ({
+export const LayerAnimator: React.FC<PropsWithChildren<LayerAnimatorProps>> = ({
   animateLayers, children, layers, layersInitialized, map,
 }) => {
   const layerIndexQueue = useRef<number[]>([])

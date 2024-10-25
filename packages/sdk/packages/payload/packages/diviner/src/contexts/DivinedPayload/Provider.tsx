@@ -1,7 +1,7 @@
-import type { WithChildren } from '@xylabs/react-shared'
 import { ModuleErrorSchema } from '@xyo-network/payload-model'
 import { ErrorRender } from '@xyo-network/react-error'
 import { useBuildHuri } from '@xyo-network/react-payload-huri'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 
@@ -9,7 +9,7 @@ import { useDivinePayload } from '../PayloadDiviner/index.ts'
 import { DivinedPayloadContext } from './Context.ts'
 import { useDivinedPayload } from './use.ts'
 
-export interface DivinedPayloadProviderProps extends WithChildren {
+export interface DivinedPayloadProviderProps extends PropsWithChildren {
   hash?: string
 }
 
@@ -36,7 +36,7 @@ export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ 
   )
 }
 
-export const DivinedPayloadWithHandleInner: React.FC<WithChildren> = ({ children }) => {
+export const DivinedPayloadWithHandleInner: React.FC<PropsWithChildren> = ({ children }) => {
   const { payloadError } = useDivinedPayload()
 
   return (

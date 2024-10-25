@@ -1,7 +1,7 @@
 import { Grid, styled } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { forwardRef } from 'react'
 
 const GridContainer = styled(Grid, { name: 'GridContainer' })(() => ({
@@ -10,7 +10,7 @@ const GridContainer = styled(Grid, { name: 'GridContainer' })(() => ({
   overflow: 'hidden',
 }))
 
-export interface WrappedContainerProps extends FlexBoxProps, WithChildren {
+export interface WrappedContainerProps extends FlexBoxProps, PropsWithChildren {
   spacing?: number
 }
 

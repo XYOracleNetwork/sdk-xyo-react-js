@@ -1,9 +1,9 @@
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useEffect } from 'react'
 
-export const HideParentsFlexbox: React.FC<WithChildren & FlexBoxProps> = ({ children, ...props }) => {
+export const HideParentsFlexbox: React.FC<PropsWithChildren & FlexBoxProps> = ({ children, ...props }) => {
   useEffect(() => {
     const style = document.createElement('style')
     document.head.append(style)

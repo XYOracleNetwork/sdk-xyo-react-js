@@ -11,7 +11,7 @@ import {
 import { reactConfig } from '@xylabs/eslint-config-react-flat'
 
 export default [
-  { ignores: [...ignores, '.yarn/**', '**/dist/**', 'dist', 'build/**', 'node_modules/**', 'public', 'storybook-static', 'eslint.config.mjs'] },
+  { ignores: [...ignores, '.yarn/**', '**/dist', 'dist', 'build/**', 'public', 'storybook-static', 'eslint.config.mjs'] },
   reactConfig,
   unicornConfig,
   workspacesConfig,

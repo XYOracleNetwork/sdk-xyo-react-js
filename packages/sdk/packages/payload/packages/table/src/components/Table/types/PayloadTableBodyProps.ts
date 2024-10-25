@@ -1,10 +1,9 @@
 import type { TableBodyProps, TableRowProps } from '@mui/material'
 import type { Hash } from '@xylabs/hex'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { Payload } from '@xyo-network/payload-model'
-import type { ComponentType } from 'react'
+import type { ComponentType, PropsWithChildren } from 'react'
 
-export interface PayloadTableBodyProps extends TableBodyProps, WithChildren {
+export interface PayloadTableBodyProps extends TableBodyProps, PropsWithChildren {
   NoResultRowComponent?: ComponentType<TableRowProps>
   archive?: string
   emptyRows?: number

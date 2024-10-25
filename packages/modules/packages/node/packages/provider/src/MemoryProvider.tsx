@@ -1,14 +1,14 @@
 import { forget } from '@xylabs/forget'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { AttachableModuleInstance, ModuleParams } from '@xyo-network/module-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import type { NodeConfig } from '@xyo-network/node-model'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import { NodeProvider } from './Node/index.ts'
 
-export type MemoryNodeProviderProps = WithChildren<{
+export type MemoryNodeProviderProps = PropsWithChildren<{
   moduleParams?: ModuleParams<NodeConfig>
   modules?: AttachableModuleInstance[]
   required?: boolean

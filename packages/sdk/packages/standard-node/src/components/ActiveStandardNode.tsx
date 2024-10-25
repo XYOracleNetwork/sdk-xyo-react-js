@@ -1,13 +1,13 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { WithChildren } from '@xylabs/react-shared'
 import { useNetwork } from '@xyo-network/react-network'
 import { useWeakNodeFromNode } from '@xyo-network/react-node'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import { useStandardNodes } from '../contexts/index.ts'
 import { useActiveNodeAddress } from '../hooks/index.ts'
 
-export interface ActiveStandardNodeProps extends WithChildren {
+export interface ActiveStandardNodeProps extends PropsWithChildren {
   nodeNameOrAddress?: string
 }
 

@@ -1,6 +1,6 @@
 import { forget } from '@xylabs/forget'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { Feature, Polygon } from 'geojson'
+import type { PropsWithChildren } from 'react'
 import React, { useEffect, useMemo } from 'react'
 
 import type { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.ts'
@@ -22,7 +22,7 @@ export interface MapInitializerProviderProps {
   zoom?: number
 }
 
-export const HeatMapInitializerProvider: React.FC<WithChildren<MapInitializerProviderProps>> = ({
+export const HeatMapInitializerProvider: React.FC<PropsWithChildren<MapInitializerProviderProps>> = ({
   children,
   featureSets,
   featureSetsLayers,

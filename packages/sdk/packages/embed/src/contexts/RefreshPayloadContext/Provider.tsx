@@ -1,4 +1,4 @@
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import { RefreshPayloadContext } from './Context.ts'
@@ -8,7 +8,7 @@ export interface RefreshPayloadProps {
   refreshPayload?: boolean
 }
 
-export const RefreshPayloadProvider: React.FC<WithChildren<RefreshPayloadProps>> = ({
+export const RefreshPayloadProvider: React.FC<PropsWithChildren<RefreshPayloadProps>> = ({
   children, onRefresh, refreshPayload,
 }) => {
   const [localRefreshPayload, setRefreshPayload] = useState(refreshPayload)

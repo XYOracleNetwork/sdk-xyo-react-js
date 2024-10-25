@@ -1,10 +1,10 @@
 import { CheckCircleOutline as CheckCircleOutlineIcon, HighlightOff as HighlightOffIcon } from '@mui/icons-material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
 
-interface PhraseHeaderBox extends FlexBoxProps, WithChildren {
+interface PhraseHeaderBox extends FlexBoxProps, PropsWithChildren {
   conditional?: boolean | null
 }
 

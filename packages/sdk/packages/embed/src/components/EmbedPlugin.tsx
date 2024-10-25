@@ -1,7 +1,7 @@
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
 import { ErrorBoundary } from '@xyo-network/react-error'
 import { ListModeProvider } from '@xyo-network/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import {
@@ -11,7 +11,7 @@ import type { EmbedPluginProps } from '../types/index.ts'
 import { EmbedResolver } from './EmbedResolver.tsx'
 import { ValidatePayloadAlert, ValidatePluginsAlert } from './validation-alerts/index.ts'
 
-export const EmbedPluginInner: React.FC<WithChildren<EmbedPluginProps>> = ({
+export const EmbedPluginInner: React.FC<PropsWithChildren<EmbedPluginProps>> = ({
   validateSchema,
   plugins,
   huriPayload,
@@ -43,7 +43,7 @@ export const EmbedPluginInner: React.FC<WithChildren<EmbedPluginProps>> = ({
 
 interface WithResolversProps extends Pick<EmbedPluginProps, 'onRefresh' | 'huriPayload'>, FlexBoxProps {}
 
-const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({
+const WithResolvers: React.FC<PropsWithChildren<WithResolversProps>> = ({
   children, onRefresh, huriPayload,
 }) => {
   return (
@@ -55,7 +55,7 @@ const WithResolvers: React.FC<WithChildren<WithResolversProps>> = ({
   )
 }
 
-const WithValidators: React.FC<WithChildren<{ validateSchema?: boolean }>> = ({ children, validateSchema }) => {
+const WithValidators: React.FC<PropsWithChildren<{ validateSchema?: boolean }>> = ({ children, validateSchema }) => {
   return (
     <ValidatePayloadProvider enabled={validateSchema}>
       <ValidatePluginsAlert>

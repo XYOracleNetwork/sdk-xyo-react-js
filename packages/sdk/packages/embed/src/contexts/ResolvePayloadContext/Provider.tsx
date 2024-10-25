@@ -1,10 +1,10 @@
 /* eslint-disable @eslint-react/hooks-extra/no-direct-set-state-in-use-effect */
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { WithChildren } from '@xylabs/react-shared'
 import { Huri } from '@xyo-network/huri'
 import type { ModuleError, Payload } from '@xyo-network/payload-model'
 import { ModuleErrorSchema } from '@xyo-network/payload-model'
+import type { PropsWithChildren } from 'react'
 import React, { useEffect, useState } from 'react'
 
 import { useRefreshPayload } from '../RefreshPayloadContext/index.ts'
@@ -13,7 +13,7 @@ import type { ResolvePayloadState } from './State.ts'
 
 export type ResolvePayloadProviderProps = Omit<ResolvePayloadState, 'provided'>
 
-export const ResolvePayloadProvider: React.FC<WithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload }) => {
+export const ResolvePayloadProvider: React.FC<PropsWithChildren<ResolvePayloadProviderProps>> = ({ children, huriPayload }) => {
   const [payload, setPayload] = useState<Payload>()
   const [huri, setHuri] = useState<string>()
   const {

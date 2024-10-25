@@ -1,8 +1,8 @@
 import type { Hash } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { ArchivistInstance, ArchivistModule } from '@xyo-network/archivist-model'
 import type { Payload } from '@xyo-network/payload-model'
+import type { PropsWithChildren } from 'react'
 import React, {
   useCallback, useEffect, useState,
 } from 'react'
@@ -20,7 +20,7 @@ export interface PayloadProviderProps {
   required?: boolean
 }
 
-export const PayloadProvider: React.FC<WithChildren<PayloadProviderProps>> = ({
+export const PayloadProvider: React.FC<PropsWithChildren<PayloadProviderProps>> = ({
   archivist,
   cachePayload = true,
   children,

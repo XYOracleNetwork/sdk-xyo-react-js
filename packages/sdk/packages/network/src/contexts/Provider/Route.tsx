@@ -1,5 +1,5 @@
-import type { WithChildren } from '@xylabs/react-shared'
 import type { NetworkPayload } from '@xyo-network/network'
+import type { PropsWithChildren } from 'react'
 import React, { useCallback, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
@@ -9,7 +9,7 @@ import { useNetwork } from '../use.ts'
 import { NetworkMemoryProvider } from './Memory.tsx'
 import type { NetworkProviderProps } from './Props.ts'
 
-const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
+const NetworkRouteProviderInner: React.FC<PropsWithChildren> = ({ children }) => {
   const { network, setNetwork } = useNetwork()
 
   const [params, setParams] = useSearchParams()
@@ -65,7 +65,7 @@ const NetworkRouteProviderInner: React.FC<WithChildren> = ({ children }) => {
   )
 }
 
-export const NetworkRouteProvider: React.FC<WithChildren<NetworkProviderProps>> = ({
+export const NetworkRouteProvider: React.FC<PropsWithChildren<NetworkProviderProps>> = ({
   defaultNetworkConfig, defaultNetworkName, ...props
 }) => {
   return (

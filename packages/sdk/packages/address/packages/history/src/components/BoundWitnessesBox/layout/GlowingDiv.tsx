@@ -1,5 +1,6 @@
-import type { WithChildren } from '@xylabs/react-shared'
-import type { DetailedHTMLProps, HTMLAttributes } from 'react'
+import type {
+  DetailedHTMLProps, HTMLAttributes, PropsWithChildren,
+} from 'react'
 import React, {
   forwardRef, useEffect, useLayoutEffect, useRef,
 } from 'react'
@@ -7,7 +8,7 @@ import React, {
 import { useNestedBoundWitnesses } from '../../../hooks/index.ts'
 import { StyledGlowingDiv } from './StyledGlowingDiv.tsx'
 
-export interface GlowingDivProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, WithChildren {
+export interface GlowingDivProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>, PropsWithChildren {
   hash?: string
 }
 

@@ -1,9 +1,9 @@
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import { CollapsibleContext } from './context.ts'
 
-export interface CollapsibleProviderProps extends WithChildren {
+export interface CollapsibleProviderProps extends PropsWithChildren {
   defaultCollapse?: boolean
   defaultCollapseEnd?: boolean
 }

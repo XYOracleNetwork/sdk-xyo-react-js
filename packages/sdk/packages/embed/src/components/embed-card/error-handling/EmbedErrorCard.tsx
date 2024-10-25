@@ -2,7 +2,7 @@ import type { AlertProps, CardProps } from '@mui/material'
 import {
   Alert, AlertTitle, Card, CardContent, Typography,
 } from '@mui/material'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 interface EmbedErrorCardBaseProps {
@@ -14,7 +14,7 @@ interface EmbedErrorCardBaseProps {
 
 interface EmbedErrorCardProps extends EmbedErrorCardBaseProps, CardProps {}
 
-export const EmbedErrorCard: React.FC<WithChildren<EmbedErrorCardProps>> = (props) => {
+export const EmbedErrorCard: React.FC<PropsWithChildren<EmbedErrorCardProps>> = (props) => {
   const {
     alertProps, error, scope, hideErrorDetails = true, children, ...cardProps
   } = props

@@ -1,12 +1,12 @@
 import type { Address } from '@xylabs/hex'
-import type { WithChildren } from '@xylabs/react-shared'
 import { ErrorRender } from '@xyo-network/react-error'
 import { LoadResult } from '@xyo-network/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import { useAddressHistory } from '../../hooks/index.ts'
 
-export interface AddressHistoryArchivistProps extends WithChildren {
+export interface AddressHistoryArchivistProps extends PropsWithChildren {
   address?: Address
   required?: boolean
 }

@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material'
-import type { WithChildren } from '@xylabs/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import { useRefreshPayload, useResolvePayload } from '../../contexts/index.ts'
@@ -9,7 +9,7 @@ import type { BusyCardProps } from './card/index.ts'
 import { EmbedPluginCard } from './card/index.ts'
 import { EmbedCardApiErrorRenderer } from './error-handling/index.ts'
 
-export interface EmbedPluginCardProps extends WithChildren, EmbedPluginProps, BusyCardProps {}
+export interface EmbedPluginCardProps extends PropsWithChildren, EmbedPluginProps, BusyCardProps {}
 
 export const ApiEmbedPluginCard: React.FC<EmbedPluginCardProps> = ({ children, ...props }) => {
   const {

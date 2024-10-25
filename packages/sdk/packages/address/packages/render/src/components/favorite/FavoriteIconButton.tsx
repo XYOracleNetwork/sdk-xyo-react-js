@@ -1,9 +1,9 @@
 import type { IconButtonProps } from '@mui/material'
 import { IconButton, styled } from '@mui/material'
 import { useResetState } from '@xylabs/react-hooks'
-import type { WithChildren } from '@xylabs/react-shared'
 import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
+import type { PropsWithChildren } from 'react'
 import React, {
   forwardRef, useRef, useState,
 } from 'react'
@@ -14,7 +14,7 @@ import { FavoriteToggleSVG } from './FavoriteToggleSVG.tsx'
 import { popperId } from './lib/index.ts'
 import { FavoritePopper } from './Popper.tsx'
 
-export interface FavoriteIconButtonProps extends WithChildren, IconButtonProps {
+export interface FavoriteIconButtonProps extends PropsWithChildren, IconButtonProps {
   favorite?: FavoriteItemEvent['favorite']
   name?: FavoriteItemEvent['name']
   value?: string

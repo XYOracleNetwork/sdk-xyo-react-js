@@ -1,7 +1,7 @@
 import { darken, useTheme } from '@mui/material'
 import { FlexCol } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { Feature, Polygon } from 'geojson'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import type { AnimatedHeatMapColorProps } from '../Colors/index.ts'
@@ -21,7 +21,7 @@ export interface AnimatedHeatMapProps {
   staticFeatureSet: Feature<Polygon>[]
 }
 
-export const AnimatedHeatMap: React.FC<WithChildren<AnimatedHeatMapProps>> = ({
+export const AnimatedHeatMap: React.FC<PropsWithChildren<AnimatedHeatMapProps>> = ({
   accessToken,
   animatedFeatureSets,
   defaultMapSettings,

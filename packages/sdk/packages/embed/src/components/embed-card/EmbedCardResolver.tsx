@@ -1,14 +1,14 @@
 import { useTheme } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
-import type { WithChildren } from '@xylabs/react-shared'
 import { LoadResult } from '@xyo-network/react-shared'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import { useRefreshPayload, useResolvePayload } from '../../contexts/index.ts'
 import { EmbedCardApiErrorRenderer } from './error-handling/index.ts'
 
-export const EmbedCardResolverFlexBox: React.FC<WithChildren<FlexBoxProps>> = ({ children, ...props }) => {
+export const EmbedCardResolverFlexBox: React.FC<PropsWithChildren<FlexBoxProps>> = ({ children, ...props }) => {
   const {
     payload, notFound, huriError,
   } = useResolvePayload()
