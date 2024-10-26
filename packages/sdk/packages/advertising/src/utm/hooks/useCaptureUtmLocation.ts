@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom'
 import { UtmStorageArchivist } from '../lib/index.ts'
 import { useDefaultUtmPageState, UtmQueryParamStrings } from './useDefaultUtmPageState.ts'
 
-export const useCaptureUtmLocation = (clearAfterCapture = true) => {
+export const useCaptureUtmLocation = (removeAfterCapture = true) => {
   const [{
     utm_campaign, utm_content, utm_medium, utm_source, utm_term,
   }] = useDefaultUtmPageState()
@@ -46,10 +46,12 @@ export const useCaptureUtmLocation = (clearAfterCapture = true) => {
 
   const [,insertError] = usePromise(async () => {
     if (utmPayload && sessionStorageArchivist) {
+      // clear all previous utm payloads
+      await sessionStorageArchivist.clear()
       // insert params into session storage
       await sessionStorageArchivist.insert([utmPayload])
 
-      if (clearAfterCapture) {
+      if (removeAfterCapture) {
         // remove the utm params from the URL
         setSearchParams(() => {
           const newParams = new URLSearchParams()
@@ -60,7 +62,7 @@ export const useCaptureUtmLocation = (clearAfterCapture = true) => {
         })
       }
     }
-  }, [sessionStorageArchivist, utmPayload, clearAfterCapture])
+  }, [sessionStorageArchivist, utmPayload, removeAfterCapture])
 
   return { utmPayload, error: error ?? insertError }
 }
