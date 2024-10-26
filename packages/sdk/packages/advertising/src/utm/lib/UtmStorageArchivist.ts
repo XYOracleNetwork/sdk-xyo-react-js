@@ -26,5 +26,5 @@ export const UtmStorageArchivist = async () => {
 
 export const LatestUtmPayload = async (): Promise<Utm | undefined> => {
   const archivist = await UtmStorageArchivist()
-  return (await archivist.all()).findLast(isUtm) as Utm
+  return (await archivist.next()).find(isUtm) as Utm
 }
