@@ -3,7 +3,6 @@ import type { Meta, StoryFn } from '@storybook/react'
 import { MenuListItemContainer } from '@xylabs/react-appbar'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import { Footer } from '@xyo-network/react-footer'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
