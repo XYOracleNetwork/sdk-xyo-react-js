@@ -2,13 +2,13 @@ import { Divider, useTheme } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react'
+import { MenuSection } from '@xylabs/react-appbar'
 import {
   FlexCol, FlexGrowCol, FlexRow,
 } from '@xylabs/react-flexbox'
+import { CollapsibleProvider, useCollapsible } from '@xylabs/react-shared'
 import React from 'react'
 
-import { CollapsibleProvider, useCollapsible } from '../../contexts/index.ts'
-import { MenuSection } from '../SiteMenu/index.ts'
 import { CollapseToggleFlex } from './CollapseToggle.tsx'
 import { CollapsibleDrawer } from './CollapsibleDrawer.tsx'
 import { menuDataBottom, menuDataTop } from './storyExampleMenuData.tsx'

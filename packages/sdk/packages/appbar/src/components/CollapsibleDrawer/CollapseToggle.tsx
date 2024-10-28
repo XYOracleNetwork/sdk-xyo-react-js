@@ -1,11 +1,10 @@
 import { Icon, useTheme } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
+import { useCollapsible } from '@xylabs/react-shared'
 import React, { useState } from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { VscArrowSmallLeft, VscArrowSmallRight } from 'react-icons/vsc'
-
-import { useCollapsible } from '../../contexts/index.ts'
 
 export const CollapseToggleFlex: React.FC<FlexBoxProps> = (props) => {
   const {

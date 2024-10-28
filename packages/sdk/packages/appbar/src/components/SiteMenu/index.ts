@@ -1,5 +1,0 @@
-export * from './hooks/index.ts'
-export * from './lib/index.ts'
-export * from './Menu.tsx'
-export * from './MenuListItem/index.ts'
-export * from './MenuSection.tsx'

@@ -1,21 +1,21 @@
-import type { ToolbarProps } from '@mui/material'
 import { Toolbar } from '@mui/material'
+import type { ContextToolbarProps } from '@xylabs/react-appbar'
+import type { ReactNode } from 'react'
 import React from 'react'
-import type { To } from 'react-router-dom'
 
 import { LogoLinkEx } from './LogoLinkEx.tsx'
 
-export interface ContextToolbarProps extends ToolbarProps {
-  logoTo?: To
-  version?: boolean
+export interface XyoContextToolbarProps extends ContextToolbarProps {
+  logo?: ReactNode
 }
 
-export const ContextToolbar: React.FC<ContextToolbarProps> = ({
-  logoTo = '/', version = false, ...props
+export const XyoContextToolbar: React.FC<XyoContextToolbarProps> = ({
+  children, logo, logoTo = '/', version = false, ...props
 }) => {
   return (
     <Toolbar {...props}>
-      <LogoLinkEx version={version} to={logoTo} />
+      <LogoLinkEx logo={logo} version={version} to={logoTo} />
+      {children}
     </Toolbar>
   )
 }

@@ -1,5 +1,6 @@
 import { List, Paper } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
+import { MenuListItemContainer } from '@xylabs/react-appbar'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
@@ -10,26 +11,25 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { SearchBar } from '../SearchBar/index.ts'
-import { MenuListItemContainer } from '../SiteMenu/index.ts'
-import { SystemToolbar } from '../Toolbar/index.ts'
-import { ApplicationAppBar } from './Application.tsx'
+import { XyoSystemToolbar } from '../Toolbar/index.ts'
+import { XyoApplicationAppBar } from './Application.tsx'
 
 const StorybookEntry = {
   argTypes: {},
-  component: ApplicationAppBar,
+  component: XyoApplicationAppBar,
   parameters: { docs: { page: null } },
   title: 'appbar/AppBar/Application',
-} as Meta<typeof ApplicationAppBar>
+} as Meta<typeof XyoApplicationAppBar>
 
-const Template: StoryFn<typeof ApplicationAppBar> = (args) => {
+const Template: StoryFn<typeof XyoApplicationAppBar> = (args) => {
   const [wallet] = useWallet({ mnemonic: DefaultSeedPhrase })
   return (
     <WalletProvider rootWallet={wallet}>
       <BrowserRouter>
         <NetworkMemoryProvider>
-          <ApplicationAppBar
+          <XyoApplicationAppBar
             systemToolbar={(
-              <SystemToolbar
+              <XyoSystemToolbar
                 menuItems={(
                   <List>
                     <MenuListItemContainer primary="Hello" />
@@ -39,7 +39,7 @@ const Template: StoryFn<typeof ApplicationAppBar> = (args) => {
             )}
             {...args}
           >
-          </ApplicationAppBar>
+          </XyoApplicationAppBar>
         </NetworkMemoryProvider>
       </BrowserRouter>
     </WalletProvider>
@@ -54,7 +54,7 @@ WithSearchBar.args = {
   children: <SearchBar flexGrow={1} onSearch={term => alert(term)} />,
   color: 'primary',
   systemToolbar: (
-    <SystemToolbar
+    <XyoSystemToolbar
       darkModeButton
       menuItems={(
         <List>
@@ -75,7 +75,7 @@ WithWalletSelectBar.args = {
     </FlexGrowCol>
   ),
   color: 'primary',
-  systemToolbar: <SystemToolbar darkModeButton />,
+  systemToolbar: <XyoSystemToolbar darkModeButton />,
 }
 
 export {

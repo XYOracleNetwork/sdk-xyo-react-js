@@ -2,18 +2,18 @@ import type { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ContextToolbar } from './ContextToolbar.tsx'
+import { XyoContextToolbar } from './ContextToolbar.tsx'
 
 const StorybookEntry = {
   argTypes: {},
-  component: ContextToolbar,
+  component: XyoContextToolbar,
   parameters: { docs: { page: null } },
-  title: 'appbar/Toolbar/Context',
-} as Meta<typeof ContextToolbar>
+  title: 'appbar/Toolbar/XyoContextToolbar',
+} as Meta<typeof XyoContextToolbar>
 
-const Template: StoryFn<typeof ContextToolbar> = args => (
+const Template: StoryFn<typeof XyoContextToolbar> = args => (
   <BrowserRouter>
-    <ContextToolbar {...args}></ContextToolbar>
+    <XyoContextToolbar {...args}></XyoContextToolbar>
   </BrowserRouter>
 )
 

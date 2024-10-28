@@ -1,21 +1,22 @@
 import { Breadcrumbs, List } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
+import { MenuListItemContainer } from '@xylabs/react-appbar'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
-import { MenuListItemContainer } from '@xyo-network/react-appbar'
+import { Footer } from '@xyo-network/react-footer'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WebAppChrome } from './Chrome.tsx'
+import { XyoWebAppChrome } from './Chrome.tsx'
 import type { WebAppPageProps } from './Page.tsx'
 import { WebAppPage } from './Page.tsx'
 
 const StorybookEntry = {
   argTypes: {},
-  component: WebAppChrome,
+  component: XyoWebAppChrome,
   parameters: { docs: { page: null } },
-  title: 'webapp/WebAppChrome',
-} as Meta<typeof WebAppChrome>
+  title: 'webapp/XyoWebAppChrome',
+} as Meta<typeof XyoWebAppChrome>
 
 const rowArray = [32, 64, 128, 256, 512, 1024]
 
@@ -38,10 +39,10 @@ const Children: React.FC<WebAppPageProps> = props => (
   </WebAppPage>
 )
 
-const Template: StoryFn<typeof WebAppChrome> = (args) => {
+const Template: StoryFn<typeof XyoWebAppChrome> = (args) => {
   return (
     <BrowserRouter>
-      <WebAppChrome
+      <XyoWebAppChrome
         menuItems={(
           <List>
             <MenuListItemContainer primary="Hello" />
@@ -50,7 +51,7 @@ const Template: StoryFn<typeof WebAppChrome> = (args) => {
         height="calc(100vh - 2rem)"
         {...args}
       >
-      </WebAppChrome>
+      </XyoWebAppChrome>
     </BrowserRouter>
   )
 }

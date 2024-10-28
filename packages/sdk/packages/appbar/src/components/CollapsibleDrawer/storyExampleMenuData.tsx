@@ -1,3 +1,4 @@
+import type { MenuListItemProps } from '@xylabs/react-appbar'
 import React from 'react'
 import {
   VscAccount,
@@ -14,8 +15,6 @@ import {
   VscTable,
   // eslint-disable-next-line import-x/no-internal-modules
 } from 'react-icons/vsc'
-
-import type { MenuListItemProps } from '../SiteMenu/index.ts'
 
 export const menuDataTop: MenuListItemProps[] = [
   {

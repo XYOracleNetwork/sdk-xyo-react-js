@@ -1,13 +1,12 @@
-import { List } from '@mui/material'
+import { List, Typography } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
+import { MenuListItemContainer } from '@xylabs/react-appbar'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
-import { TypographyEx } from '@xyo-network/react-shared'
 import type { SyntheticEvent } from 'react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { MenuListItemContainer } from '../../SiteMenu/index.ts'
-import { SystemToolbar } from './SystemToolbar.tsx'
+import { XyoSystemToolbar } from './SystemToolbar.tsx'
 
 const DefaultMenu = (
   <List>
@@ -22,15 +21,15 @@ const DefaultMenu = (
 )
 
 const StorybookEntry: Meta = {
-  component: SystemToolbar,
+  component: XyoSystemToolbar,
   parameters: { docs: { page: null } },
   title: 'appbar/Toolbar/System',
 }
 
-const Template: StoryFn<typeof SystemToolbar> = args => (
+const Template: StoryFn<typeof XyoSystemToolbar> = args => (
   <BrowserRouter>
     <NetworkMemoryProvider>
-      <SystemToolbar {...args} />
+      <XyoSystemToolbar {...args} />
     </NetworkMemoryProvider>
   </BrowserRouter>
 )
@@ -41,9 +40,9 @@ Default.args = {}
 const PrecedingChildren = Template.bind({})
 PrecedingChildren.args = {
   precedingChildren: (
-    <TypographyEx variant="body1" mx={0.5}>
+    <Typography variant="body1" mx={0.5}>
       Preceding Child Component
-    </TypographyEx>
+    </Typography>
   ),
 }
 

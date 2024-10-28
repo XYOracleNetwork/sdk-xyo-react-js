@@ -8,18 +8,19 @@ import React from 'react'
 import { Logo } from './Logo.tsx'
 
 export type LogoLinkExProps = LinkExProps & {
+  logo?: React.ReactNode
   version?: boolean | string
 }
 
 export const LogoLinkEx: React.FC<LogoLinkExProps> = ({
-  to = '/', href, version = false, ...props
+  logo, to = '/', href, version = false, ...props
 }) => {
   const theme = useTheme()
-  assertEx(href === undefined, 'href is not supported')
+  assertEx(href === undefined, () => 'href is not supported')
   return (
     <LinkEx to={to} {...props}>
       <FlexRow paddingX="4px">
-        <Logo height="40" width="43" />
+        {logo ?? <Logo height="40" width="43" />}
         {version
           ? (
               <Typography

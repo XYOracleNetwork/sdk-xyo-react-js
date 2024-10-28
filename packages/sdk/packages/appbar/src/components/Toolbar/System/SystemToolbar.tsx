@@ -1,16 +1,14 @@
-import type { ToolbarProps } from '@mui/material'
-import { Paper, Toolbar } from '@mui/material'
-import { DarkModeIconButton } from '@xylabs/react-app-settings'
+import { Paper } from '@mui/material'
+import {
+  type SiteMenuProps, SystemToolbar, type SystemToolbarProps,
+} from '@xylabs/react-appbar'
 import { FlexRow } from '@xylabs/react-flexbox'
 import type { NetworkSelectExProps } from '@xyo-network/react-network'
 import { NetworkSelectEx } from '@xyo-network/react-network'
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import type { SiteMenuProps } from '../../SiteMenu/index.ts'
-import { SiteMenu } from '../../SiteMenu/index.ts'
-
-export interface SystemToolbarProps extends ToolbarProps {
+export interface XyoSystemToolbarProps extends SystemToolbarProps {
   darkModeButton?: boolean
   developerMode?: boolean
   hideNetworkSelect?: boolean
@@ -20,18 +18,15 @@ export interface SystemToolbarProps extends ToolbarProps {
   precedingChildren?: ReactNode
 }
 
-export const SystemToolbar: React.FC<SystemToolbarProps> = ({
+export const XyoSystemToolbar: React.FC<XyoSystemToolbarProps> = ({
   children,
-  darkModeButton = false,
   hideNetworkSelect,
-  menuItems,
   networkSelectProps,
-  onMenuToggle,
   precedingChildren,
   ...props
 }) => {
   return (
-    <Toolbar {...props}>
+    <SystemToolbar {...props}>
       {precedingChildren}
       {hideNetworkSelect
         ? null
@@ -43,12 +38,6 @@ export const SystemToolbar: React.FC<SystemToolbarProps> = ({
             </FlexRow>
           )}
       {children}
-      {darkModeButton
-        ? <DarkModeIconButton color="inherit" />
-        : null}
-      {menuItems
-        ? <SiteMenu onMenuToggle={onMenuToggle}>{menuItems}</SiteMenu>
-        : null}
-    </Toolbar>
+    </SystemToolbar>
   )
 }

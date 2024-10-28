@@ -2,10 +2,9 @@ import type { CollapseProps } from '@mui/material'
 import {
   Collapse, styled, useTheme,
 } from '@mui/material'
+import { useCollapsible } from '@xylabs/react-shared'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
-
-import { useCollapsible } from '../../contexts/index.ts'
 
 export const CollapsibleDrawer: React.FC<PropsWithChildren<CollapseProps>> = ({
   children, sx, ...props

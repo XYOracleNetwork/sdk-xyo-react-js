@@ -1,24 +1,24 @@
 import type { ToolbarProps } from '@mui/material'
-import type { AppBarExProps } from '@xylabs/react-appbar'
-import { AppBarEx } from '@xylabs/react-appbar'
+import type { ApplicationAppBarProps } from '@xylabs/react-appbar'
+import { ApplicationAppBar } from '@xylabs/react-appbar'
 import type { ReactElement } from 'react'
 import React from 'react'
 
-import { ContextToolbar, SystemToolbar } from '../Toolbar/index.ts'
+import { XyoContextToolbar, XyoSystemToolbar } from '../Toolbar/index.ts'
 
-export interface ApplicationAppBarProps extends AppBarExProps {
+export interface XyoApplicationAppBarProps extends ApplicationAppBarProps {
   contextToolbar?: ReactElement<ToolbarProps>
   responsive?: boolean
   systemToolbar?: ReactElement<ToolbarProps>
 }
 
-export const ApplicationAppBar: React.FC<ApplicationAppBarProps> = ({
+export const XyoApplicationAppBar: React.FC<XyoApplicationAppBarProps> = ({
   systemToolbar, contextToolbar, responsive = true, ...props
 }) => {
   return (
-    <AppBarEx
-      systemToolbar={systemToolbar ?? <SystemToolbar />}
-      contextToolbar={contextToolbar ?? <ContextToolbar />}
+    <ApplicationAppBar
+      systemToolbar={systemToolbar ?? <XyoSystemToolbar />}
+      contextToolbar={contextToolbar ?? <XyoContextToolbar />}
       position="sticky"
       responsive={responsive}
       {...props}

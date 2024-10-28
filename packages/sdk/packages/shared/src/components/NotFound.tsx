@@ -3,7 +3,8 @@ import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import React from 'react'
 
-const NotFound: React.FC<FlexBoxProps> = (props) => {
+/** @deprecated use from @@xylabs/react-shared instead */
+export const NotFound: React.FC<FlexBoxProps> = (props) => {
   return (
     <FlexGrowCol {...props}>
       <Typography variant="h2">Sorry!</Typography>
@@ -13,5 +14,3 @@ const NotFound: React.FC<FlexBoxProps> = (props) => {
     </FlexGrowCol>
   )
 }
-
-export { NotFound }
