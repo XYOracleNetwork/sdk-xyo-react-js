@@ -48,9 +48,9 @@ const PropertyBox = forwardRef<HTMLDivElement, PropertyBoxProps>(
           overflow="hidden"
           height={sizeValueHeight[size]}
         >
-          {children ?? (value === undefined)
+          {children ?? ((value === undefined)
             ? <CircularProgress size={16} />
-            : <PropertyValue value={value} typographyVariant={sizeVariants[size]} />}
+            : <PropertyValue value={value} typographyVariant={sizeVariants[size]} />)}
           {value === undefined
             ? null
             : badge
