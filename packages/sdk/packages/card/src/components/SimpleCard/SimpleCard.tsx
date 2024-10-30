@@ -25,6 +25,7 @@ export interface SimpleCardProps extends CardExProps {
 }
 
 export const SimpleCard: React.FC<SimpleCardProps> = ({
+  children,
   desc,
   iconImage,
   interactionVariant = 'card',
@@ -107,6 +108,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
           </Typography>
         </FlexCol>
       </CardContent>
+      {children}
       {interactionVariant == 'button'
         ? (
             <CardActions>

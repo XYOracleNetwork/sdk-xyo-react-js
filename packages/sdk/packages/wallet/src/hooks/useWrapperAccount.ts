@@ -1,4 +1,4 @@
-import type { State as PromiseState } from '@xylabs/react-promise'
+import type { UsePromiseState } from '@xylabs/react-promise'
 import { usePromise } from '@xylabs/react-promise'
 import { HDWallet } from '@xyo-network/account'
 import type { AccountInstance } from '@xyo-network/account-model'
@@ -10,7 +10,7 @@ const globalWrapperWalletMutex = new Mutex()
 
 export const useWrapperAccount = (
   account?: AccountInstance | null,
-): [AccountInstance | null | undefined, Error | undefined, PromiseState | undefined] => {
+): [AccountInstance | null | undefined, Error | undefined, UsePromiseState | undefined] => {
   return usePromise(async () => {
     return await globalWrapperWalletMutex.runExclusive(async () => {
       // if we are expecting to receive a wallet or did receive on, return the override account
