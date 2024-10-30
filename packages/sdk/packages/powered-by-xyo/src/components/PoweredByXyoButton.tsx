@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import type { ButtonExProps } from '@xylabs/react-button'
 import { ButtonEx } from '@xylabs/react-button'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { xyoColorLogoText } from '../img/index.ts'
 import { XyoBusy } from './XyoBusy.tsx'
@@ -21,9 +21,15 @@ export const PoweredByXyoButton: React.FC<PoweredByXyoButtonProps> = ({
 }) => {
   // preloading image to prevent shifting
   const [imageLoaded, setImageLoaded] = useState(false)
-  const img = new Image()
-  img.addEventListener('load', () => setImageLoaded(true))
-  img.src = xyoColorLogoText
+  useEffect(() => {
+    const img = new Image()
+    const onImageLoaded = () => setImageLoaded(true)
+    img.addEventListener('load', onImageLoaded)
+    img.src = xyoColorLogoText
+    return () => {
+      img.removeEventListener('load', onImageLoaded)
+    }
+  }, [])
   return imageLoaded
     ? (
         <ButtonEx
