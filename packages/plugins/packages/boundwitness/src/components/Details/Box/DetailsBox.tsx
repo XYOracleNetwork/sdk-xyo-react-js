@@ -32,35 +32,36 @@ const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsListRend
 BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
 const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
-  const boundwitness = payload as BoundWitness
+  const boundWitness = payload as BoundWitness
+  const partialBoundWitness = boundWitness as Partial<BoundWitness>
   const hash = usePayloadHash(payload)
 
-  const hasBWPayloads = useMemo(() => (boundwitness ? boundwitness.payload_schemas.includes(BoundWitnessSchema) : false), [boundwitness])
+  const hasBWPayloads = useMemo(() => (partialBoundWitness ? partialBoundWitness.payload_schemas?.includes(BoundWitnessSchema) : false), [partialBoundWitness])
 
   return (
     <FlexCol alignItems="stretch" rowGap={4} ref={ref} {...props}>
       <HashHeadingPaper
         hash={hash}
         paperProps={{ sx: { p: 2 } }}
-        AdornmentEnd={<BWActions boundwitness={boundwitness} />}
+        AdornmentEnd={<BWActions boundwitness={boundWitness} />}
         identiconProps={{ p: 0.75, size: 24 }}
       />
       <Divider flexItem />
       <FlexCol alignItems="stretch" rowGap={1} mb={1}>
         <HeadingPaper IconComponent={<VscSymbolNamespace />} heading="Payloads" />
-        <BoundWitnessPayloadsTable boundwitness={boundwitness} />
+        <BoundWitnessPayloadsTable boundwitness={boundWitness} />
       </FlexCol>
       {hasBWPayloads
         ? (
             <FlexCol alignItems="stretch" rowGap={1} mb={1}>
               <HeadingPaper IconComponent={<VscSymbolMethod />} heading="Bound Witnesses" />
-              <BoundWitnessPayloadsTableForBWs boundwitness={boundwitness} />
+              <BoundWitnessPayloadsTableForBWs boundwitness={boundWitness} />
             </FlexCol>
           )
         : null}
       <FlexCol alignItems="stretch" rowGap={1} mb={1}>
         <HeadingPaper IconComponent={<FaSignature />} heading="Signatures" />
-        <BoundWitnessSignatureTable block={boundwitness} />
+        <BoundWitnessSignatureTable block={boundWitness} />
       </FlexCol>
     </FlexCol>
   )
