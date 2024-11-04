@@ -27,12 +27,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "browser": {
-        "types": "./dist/browser/index.d.ts",
-        "default": "./dist/browser/index.mjs"
-      },
       "types": "./dist/browser/index.d.ts",
       "default": "./dist/browser/index.mjs"
+    },
+    "./meta": {
+      "types": "./dist/browser/meta/index.d.ts",
+      "default": "./dist/browser/meta/index.mjs"
     },
     "./package.json": "./package.json"
   },
