@@ -60,13 +60,31 @@ export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
         {value && showStatusIcon
           ? resolvedSchema === null
             ? (
-                <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
+                <IconButton
+                  ref={buttonRef}
+                  size="small"
+                  onClick={() => {
+                    if (!buttonRef.current) {
+                      console.warn('buttonRef.current is null')
+                    }
+                    onClick(buttonDispatch)
+                  }}
+                >
                   <NewReleasesIcon color="warning" fontSize="inherit" />
                 </IconButton>
               )
             : resolvedSchema === undefined
               ? (
-                  <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch)}>
+                  <IconButton
+                    ref={buttonRef}
+                    size="small"
+                    onClick={() => {
+                      if (!buttonRef.current) {
+                        console.warn('buttonRef.current is null')
+                      }
+                      onClick(buttonDispatch)
+                    }}
+                  >
                     <NewReleasesIcon color="disabled" fontSize="inherit" />
                   </IconButton>
                 )
@@ -82,14 +100,47 @@ export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
               <FlexGrowRow ref={divRef} justifyContent="space-between">
                 {showLinkNames
                   ? (
-                      <LinkEx display="block" width="100%" sx={{ cursor: 'pointer' }}>
-                        <PropertyValue value={value} title="view schema" onClick={() => onClick(divDispatch)} />
+                      <LinkEx
+                        display="block"
+                        width="100%"
+                        sx={{ cursor: 'pointer' }}
+                      >
+                        <PropertyValue
+                          value={value}
+                          title="view schema"
+                          onClick={() => {
+                            if (!divRef.current) {
+                              console.warn('divRef.current is null')
+                            }
+                            onClick(divDispatch)
+                          }}
+                        />
                       </LinkEx>
                     )
-                  : <PropertyValue value={value} title="view schema" onClick={() => onClick(divDispatch)} />}
+                  : (
+                      <PropertyValue
+                        value={value}
+                        title="view schema"
+                        onClick={() => {
+                          if (!divRef.current) {
+                            console.warn('divRef.current is null')
+                          }
+                          onClick(divDispatch)
+                        }}
+                      />
+                    )}
                 {showOpenNewWindowLink
                   ? (
-                      <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch, true)}>
+                      <IconButton
+                        ref={buttonRef}
+                        size="small"
+                        onClick={() => {
+                          if (!buttonRef.current) {
+                            console.warn('buttonRef.current is null')
+                          }
+                          onClick(buttonDispatch, true)
+                        }}
+                      >
                         <OpenInNewIcon fontSize="inherit" />
                       </IconButton>
                     )

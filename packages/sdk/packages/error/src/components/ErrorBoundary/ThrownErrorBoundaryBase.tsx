@@ -29,7 +29,7 @@ class ThrownErrorBoundaryInner<T> extends Component<ThrownErrorBoundaryProps<T>,
   override state: ThrownErrorBoundaryState<T> = { errorEx: undefined }
 
   static getDerivedStateFromError<T = void>(error: ErrorEx<T>) {
-    return { hasError: true, xyoError: this.normalizeError<T>(error) } as ThrownErrorBoundaryState<T>
+    return { hasError: true, xyoError: ThrownErrorBoundaryInner.normalizeError<T>(error) } as ThrownErrorBoundaryState<T>
   }
 
   static normalizeError<T>(_error: ErrorEx<T>): T {
