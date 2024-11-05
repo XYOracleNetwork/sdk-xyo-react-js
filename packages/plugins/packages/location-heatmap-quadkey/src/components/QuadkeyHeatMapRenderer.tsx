@@ -4,10 +4,6 @@ import {
 import { ErrorRender } from '@xylabs/react-error'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
-import type {
-  MapSetting,
-  NetworkLocationHeatmapQuadkeyAnswerPayload,
-} from '@xyo-network/react-map'
 import {
   HeatMapInitializerProvider,
   LocationHeatMapLayerBuilder,
@@ -15,9 +11,13 @@ import {
   MapBoxInstanceProvider,
   MapHeatConstants,
   MapSettingsProvider,
+} from '@xyo-network/react-map'
+import {
+  type MapSetting,
+  type NetworkLocationHeatmapQuadkeyAnswerPayload,
   useMapboxAccessToken,
   useQuadKeyPayloadsToFeatures,
-} from '@xyo-network/react-map'
+} from '@xyo-network/react-map-model'
 import type { Feature, Polygon } from 'geojson'
 import React, { useMemo } from 'react'
 

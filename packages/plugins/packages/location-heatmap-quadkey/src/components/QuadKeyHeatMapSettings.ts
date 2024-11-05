@@ -1,4 +1,4 @@
-import { DefaultMapSettings } from '@xyo-network/react-map'
+import { DefaultMapSettings } from '@xyo-network/react-map-model'
 
 const quadkeyHeatMapSettings = () => {
   const quadkeyHeatMapSettings = DefaultMapSettings()

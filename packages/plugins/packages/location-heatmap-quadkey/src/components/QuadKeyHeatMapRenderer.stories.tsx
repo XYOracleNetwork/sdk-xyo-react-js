@@ -1,7 +1,7 @@
 import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react'
-import { MapboxAccessTokenProvider } from '@xyo-network/react-map'
+import { MapboxAccessTokenProvider } from '@xyo-network/react-map-model'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 

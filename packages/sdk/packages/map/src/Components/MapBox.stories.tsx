@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { Button } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
