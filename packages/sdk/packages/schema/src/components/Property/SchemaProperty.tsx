@@ -1,8 +1,9 @@
 import {
   NewReleases as NewReleasesIcon, OpenInNew as OpenInNewIcon, Verified as VerifiedIcon,
 } from '@mui/icons-material'
-import { IconButton } from '@mui/material'
+import { Box, IconButton } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import type { EventDispatch, EventNoun } from '@xyo-network/react-event'
 import { useEvent } from '@xyo-network/react-event'
@@ -78,14 +79,14 @@ export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
           : null}
         {value
           ? (
-              <>
+              <FlexGrowRow ref={divRef} justifyContent="space-between">
                 {showLinkNames
                   ? (
                       <LinkEx display="block" width="100%" sx={{ cursor: 'pointer' }}>
-                        <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />
+                        <PropertyValue value={value} title="view schema" onClick={() => onClick(divDispatch)} />
                       </LinkEx>
                     )
-                  : <PropertyValue ref={divRef} value={value} title="view schema" onClick={() => onClick(divDispatch)} />}
+                  : <PropertyValue value={value} title="view schema" onClick={() => onClick(divDispatch)} />}
                 {showOpenNewWindowLink
                   ? (
                       <IconButton ref={buttonRef} size="small" onClick={() => onClick(buttonDispatch, true)}>
@@ -93,7 +94,7 @@ export const SchemaProperty = forwardRef<HTMLDivElement, SchemaPropertyProps>(
                       </IconButton>
                     )
                   : null}
-              </>
+              </FlexGrowRow>
             )
           : null}
       </Property>
