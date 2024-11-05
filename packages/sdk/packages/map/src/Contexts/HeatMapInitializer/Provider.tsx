@@ -1,9 +1,9 @@
 import { forget } from '@xylabs/forget'
+import type { AnimatedHeatMapColorProps, HeatMapColorProps } from '@xyo-network/react-map-model'
 import type { Feature, Polygon } from 'geojson'
 import type { PropsWithChildren } from 'react'
 import React, { useEffect, useMemo } from 'react'
 
-import type { AnimatedHeatMapColorProps, HeatMapColorProps } from '../../Colors/index.ts'
 import { useDynamicPositioning } from '../../hooks/index.ts'
 import type { MapLayer } from '../../Layers/index.ts'
 import { MapHeat } from '../../MapBoxClasses/index.ts'

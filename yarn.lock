@@ -9087,6 +9087,7 @@ __metadata:
     "@xyo-network/axios": "npm:^2.91.3"
     "@xyo-network/payload-model": "npm:^3.3.2"
     "@xyo-network/react-map": "workspace:^"
+    "@xyo-network/react-map-model": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/sdk-geo": "npm:^3.0.2"
     geojson: "npm:^0.5.0"
@@ -9686,6 +9687,7 @@ __metadata:
     "@xyo-network/location-payload-plugin": "npm:^3.1.1"
     "@xyo-network/payload-model": "npm:^3.3.2"
     "@xyo-network/react-map": "workspace:^"
+    "@xyo-network/react-map-model": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     geojson: "npm:0.5.0"
     react: "npm:^18.3.1"
@@ -9718,6 +9720,7 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:^4.2.3"
     "@xyo-network/payload-model": "npm:^3.3.2"
     "@xyo-network/react-map": "workspace:^"
+    "@xyo-network/react-map-model": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -9769,6 +9772,34 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-map-model@workspace:^, @xyo-network/react-map-model@workspace:packages/sdk/packages/map-model":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-map-model@workspace:packages/sdk/packages/map-model"
+  dependencies:
+    "@mui/icons-material": "npm:^6.1.6"
+    "@mui/material": "npm:^6.1.6"
+    "@mui/styles": "npm:^6.1.6"
+    "@types/geojson": "npm:7946.0.14"
+    "@xylabs/exists": "npm:^4.3.3"
+    "@xylabs/hex": "npm:^4.3.3"
+    "@xylabs/ts-scripts-yarn3": "npm:^4.2.3"
+    "@xylabs/tsconfig-react": "npm:^4.2.3"
+    "@xyo-network/payload-model": "npm:^3.3.2"
+    "@xyo-network/react-network": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/sdk-geo": "npm:^3.0.2"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    typescript: "npm:^5.6.3"
+  peerDependencies:
+    "@mui/icons-material": ^6
+    "@mui/material": ^6
+    "@mui/styles": ^6
+    react: ^18
+    react-dom: ^18
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-map@workspace:^, @xyo-network/react-map@workspace:packages/sdk/packages/map":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-map@workspace:packages/sdk/packages/map"
@@ -9780,18 +9811,14 @@ __metadata:
     "@types/geojson": "npm:7946.0.14"
     "@xylabs/assert": "npm:^4.3.3"
     "@xylabs/delay": "npm:^4.3.3"
-    "@xylabs/exists": "npm:^4.3.3"
     "@xylabs/forget": "npm:^4.3.3"
-    "@xylabs/hex": "npm:^4.3.3"
     "@xylabs/react-app-settings": "npm:^5.2.14"
     "@xylabs/react-flexbox": "npm:^5.2.14"
     "@xylabs/react-shared": "npm:^5.2.14"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.3"
     "@xylabs/tsconfig-react": "npm:^4.2.3"
-    "@xyo-network/payload-model": "npm:^3.3.2"
     "@xyo-network/react-archivist": "workspace:^"
-    "@xyo-network/react-network": "workspace:^"
-    "@xyo-network/react-shared": "workspace:^"
+    "@xyo-network/react-map-model": "workspace:^"
     "@xyo-network/sdk-geo": "npm:^3.0.2"
     mapbox-gl: "npm:^3.7.0"
     react: "npm:^18.3.1"

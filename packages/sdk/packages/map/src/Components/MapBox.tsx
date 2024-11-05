@@ -1,6 +1,7 @@
 // eslint-disable-next-line import-x/no-internal-modules
 import 'mapbox-gl/dist/mapbox-gl.css'
 
+import { MapStyle } from '@xyo-network/react-map-model'
 import type { MapOptions } from 'mapbox-gl'
 import { Map } from 'mapbox-gl'
 import React, {
@@ -9,7 +10,6 @@ import React, {
 
 import { useMapBoxInstance, useMapSettings } from '../Contexts/index.ts'
 import { useDynamicMapResize } from '../hooks/index.ts'
-import { MapStyle } from '../lib/index.ts'
 
 export interface MapBoxProps {
   accessToken: string

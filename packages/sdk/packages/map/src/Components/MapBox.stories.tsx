@@ -3,10 +3,10 @@ import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
+import { DefaultMapSettings } from '@xyo-network/react-map-model'
 import React, { useRef } from 'react'
 
 import { MapBoxInstanceProvider, MapSettingsProvider } from '../Contexts/index.ts'
-import { DefaultMapSettings } from '../Settings/index.ts'
 import { MapBox } from './MapBox.tsx'
 import { MapSettingsBox } from './MapSettingsComponents/index.ts'
 
@@ -34,7 +34,7 @@ const WithMapSettingsDecorator: Decorator = (Story, args) => {
 }
 
 export default {
-  args: { accessToken: process.env.STORYBOOK_MAPBOX_TOKEN },
+  args: { accessToken: import.meta.env.VITE_MAPBOX_TOKEN },
   component: MapBox,
   decorators: [WithMapboxProviders],
   parameters: { docs: { page: null } },

@@ -1,8 +1,7 @@
 import { Typography, useTheme } from '@mui/material'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import type { ColorGradientLegendProps } from '@xyo-network/react-map-model'
 import React from 'react'
-
-import type { ColorGradientLegendProps } from '../../Colors/index.ts'
 
 const ColorGradientLegend: React.FC<ColorGradientLegendProps> = ({
   startColor, endColor, startLabel, endLabel, heading, textColor, ...props

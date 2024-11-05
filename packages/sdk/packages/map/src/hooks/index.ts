@@ -1,5 +1,2 @@
 export * from './useDynamicMapResize.tsx'
 export * from './useDynamicPositioning.tsx'
-export * from './useFindHashes.tsx'
-export * from './useHeatMapColors.tsx'
-export * from './useQuadKeyPayloadsToFeatures.tsx'

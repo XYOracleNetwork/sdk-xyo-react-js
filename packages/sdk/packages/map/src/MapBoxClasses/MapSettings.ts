@@ -1,9 +1,8 @@
+import type { MapSetting } from '@xyo-network/react-map-model'
 import type {
   Map, MapEventOf, MapEventType,
 } from 'mapbox-gl'
 import { GeolocateControl, NavigationControl } from 'mapbox-gl'
-
-import type { MapSetting } from '../Settings/index.ts'
 
 export interface MapSettingsConfig {
   debugLayerName?: string

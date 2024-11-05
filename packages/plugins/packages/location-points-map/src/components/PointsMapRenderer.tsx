@@ -4,13 +4,15 @@ import {
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
 import {
-  isNetworkLocationAnswer,
   LocationPointsMapLayerBuilder,
   MapBoxInstanceProvider,
   MapboxPointsFlexBox,
   MapSettingsProvider,
-  useMapboxAccessToken,
 } from '@xyo-network/react-map'
+import {
+  isNetworkLocationAnswer,
+  useMapboxAccessToken,
+} from '@xyo-network/react-map-model'
 import React from 'react'
 
 import { PointsMapSettings } from './PointsMapSettings.ts'

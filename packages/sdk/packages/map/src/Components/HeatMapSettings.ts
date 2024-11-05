@@ -1,4 +1,4 @@
-import { DefaultMapSettings } from '../Settings/index.ts'
+import { DefaultMapSettings } from '@xyo-network/react-map-model'
 
 const HeatMapSettings = DefaultMapSettings()
 const {

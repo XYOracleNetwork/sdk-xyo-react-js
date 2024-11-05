@@ -9,8 +9,8 @@ import {
   MapboxHeatFlexBox,
   MapBoxInstanceProvider,
   MapSettingsProvider,
-  useMapboxAccessToken,
 } from '@xyo-network/react-map'
+import { useMapboxAccessToken } from '@xyo-network/react-map-model'
 import type { Feature, Polygon } from 'geojson'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'

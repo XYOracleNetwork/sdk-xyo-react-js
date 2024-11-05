@@ -1,9 +1,9 @@
 import {
   NewReleases as NewReleasesIcon, OpenInNew as OpenInNewIcon, Verified as VerifiedIcon,
 } from '@mui/icons-material'
-import { Box, IconButton } from '@mui/material'
+import { IconButton } from '@mui/material'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { FlexGrowRow, FlexRow } from '@xylabs/react-flexbox'
+import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
 import type { EventDispatch, EventNoun } from '@xyo-network/react-event'
 import { useEvent } from '@xyo-network/react-event'

@@ -1,4 +1,4 @@
-import { DefaultMapSettings } from './Settings/index.ts'
+import { DefaultMapSettings } from './settings/index.ts'
 
 export const AnimatedHeatMapSettings = DefaultMapSettings()
 const {

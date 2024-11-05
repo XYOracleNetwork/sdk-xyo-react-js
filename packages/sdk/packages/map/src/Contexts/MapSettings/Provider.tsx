@@ -1,10 +1,10 @@
+import type { MapSetting } from '@xyo-network/react-map-model'
 import type { PropsWithChildren } from 'react'
 import React, {
   useEffect, useMemo, useState,
 } from 'react'
 
 import { MapSettings } from '../../MapBoxClasses/index.ts'
-import type { MapSetting } from '../../Settings/index.ts'
 import { useMapBoxInstance } from '../MapBoxInstance/index.ts'
 import { MapSettingsContext } from './Context.ts'
 import type { MapSettingsState } from './State.ts'

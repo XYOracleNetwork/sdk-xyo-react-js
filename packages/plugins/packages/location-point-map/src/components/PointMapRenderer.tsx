@@ -9,8 +9,8 @@ import {
   MapBoxInstanceProvider,
   MapboxPointsFlexBox,
   MapSettingsProvider,
-  useMapboxAccessToken,
 } from '@xyo-network/react-map'
+import { useMapboxAccessToken } from '@xyo-network/react-map-model'
 import type { Feature, Point } from 'geojson'
 import React, { useMemo } from 'react'
 

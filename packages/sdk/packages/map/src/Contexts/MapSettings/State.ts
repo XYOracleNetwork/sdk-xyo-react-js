@@ -1,6 +1,5 @@
+import type { MapSetting } from '@xyo-network/react-map-model'
 import type { Dispatch } from 'react'
-
-import type { MapSetting } from '../../Settings/index.ts'
 
 export interface MapSettingsState {
   mapSettings?: MapSetting
