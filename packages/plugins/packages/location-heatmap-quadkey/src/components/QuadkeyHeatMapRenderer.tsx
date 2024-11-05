@@ -11,12 +11,12 @@ import {
   MapBoxInstanceProvider,
   MapHeatConstants,
   MapSettingsProvider,
+  useQuadKeyPayloadsToFeatures,
 } from '@xyo-network/react-map'
 import {
   type MapSetting,
   type NetworkLocationHeatmapQuadkeyAnswerPayload,
   useMapboxAccessToken,
-  useQuadKeyPayloadsToFeatures,
 } from '@xyo-network/react-map-model'
 import type { Feature, Polygon } from 'geojson'
 import React, { useMemo } from 'react'

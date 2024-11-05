@@ -5,11 +5,12 @@ import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/reac
 import type { NetworkLocationHeatmapQuadkeyAnswerPayload } from '@xyo-network/react-map-model'
 import {
   AnimatedHeatMapSettings,
-  useFindHashes, useHeatMapColors, useQuadKeyPayloadsToFeatures,
+  useFindHashes, useHeatMapColors,
 } from '@xyo-network/react-map-model'
 import type { Feature, Polygon } from 'geojson'
 import React from 'react'
 
+import { useQuadKeyPayloadsToFeatures } from '../hooks/index.ts'
 import { AnimatedHeatMap } from './AnimatedHeatMap.tsx'
 import { AnimatedHeatMapLegend } from './Legend.tsx'
 
