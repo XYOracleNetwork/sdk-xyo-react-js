@@ -23,6 +23,12 @@ export const defaultNetworkConfigs: NetworkPayload[] = [
     schema: NetworkSchema,
     slug: 'local',
   },
+  {
+    name: 'Custom',
+    nodes: [findArchivistPreset('kerplunk-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],
+    schema: NetworkSchema,
+    slug: 'custom',
+  },
 ]
 
 /** @deprecated use defaultNetworkConfigs instead */
