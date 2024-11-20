@@ -92,7 +92,7 @@ const CardHeaderHash = styled(CardHeader, {
   },
   '& .MuiCardHeader-content': { overflow: 'visible' },
   '&.MuiCardHeader-root': {
-    ...(active && activeBgColor && { backgroundColor: theme.palette.info.dark }),
+    ...(active && activeBgColor && { backgroundColor: theme.palette.info }),
     borderBottom: `1px solid ${theme.palette.divider}`,
     paddingBottom: theme.spacing(1),
     paddingTop: theme.spacing(1),

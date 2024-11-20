@@ -1,28 +1,43 @@
-import { CssBaseline } from '@mui/material'
-import type { Decorator } from '@storybook/react'
-import { FlexCol } from '@xylabs/react-flexbox'
-import { InvertibleCssVarsProvider, InvertibleThemeProvider } from '@xylabs/react-invertible-theme'
 import {
-  appThemeOptions, osThemeOptions, themeOptions, webThemeOptions,
-} from '@xyo-network/react-theme'
+  Box, createTheme, CssBaseline, useTheme,
+} from '@mui/material'
+import type { Decorator } from '@storybook/react'
+import { InvertibleMuiThemeProvider } from '@xylabs/react-invertible-theme'
 import React from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
+
+import {
+  DataismTheme, XyLabsTheme, XYOWebsiteTheme,
+} from './Theme'
+
+const themeNames = ['None', 'XYO Website', 'Dataism', 'XY Labs Website']
 
 export const globalTypes = {
   theme: {
     name: 'ThemeOptions',
     description: 'Global theme for components',
-    defaultValue: 'AppTheme',
     toolbar: {
+      default: 'XYO Website',
       icon: 'eye',
       // Array of plain string values or MenuItem shape (see below)
-      items: ['Theme', 'AppTheme', 'WebTheme', 'OsTheme'],
+      items: themeNames,
       // Property that specifies if the name of the item will be displayed
-      title: true,
+      title: 'None',
       // Change title based on selected value
       dynamicTitle: true,
     },
   },
+}
+
+const getTheme = (themeName) => {
+  const theme = useTheme()
+  const themes = {
+    'None': theme,
+    'XYO Website': XYOWebsiteTheme(theme, false),
+    'Dataism': DataismTheme,
+    'XY Labs Website': XyLabsTheme,
+  }
+  return themes[themeName] ?? {}
 }
 
 export const parameters = {
@@ -37,32 +52,22 @@ export const parameters = {
   options: { storySort: { method: 'alphabetical' } },
 }
 
-const getTheme = (themeName) => {
-  const themes = {
-    Theme: themeOptions,
-    AppTheme: appThemeOptions,
-    WebTheme: webThemeOptions,
-    OsTheme: osThemeOptions,
-  }
-  return themes[themeName]
-}
-
 const withThemeProvider: Decorator = (Story, context) => {
-  // Clear the auth state with each story
-  localStorage.setItem('AuthState', '')
+  if (typeof context.globals.theme !== 'string') {
+    context.globals.theme = 'None'
+  }
 
   const darkMode = useDarkMode()
   const themeOptions = getTheme(context.globals.theme)
+  const theme = createTheme(themeOptions)
 
   return (
-    <InvertibleThemeProvider dark={darkMode} options={themeOptions}>
-      <InvertibleCssVarsProvider defaultMode={darkMode ? 'dark' : 'light'}>
-        <CssBaseline enableColorScheme />
-        <FlexCol alignItems="unset">
-          <Story {...context} />
-        </FlexCol>
-      </InvertibleCssVarsProvider>
-    </InvertibleThemeProvider>
+    <InvertibleMuiThemeProvider theme={theme} defaultMode={darkMode ? 'dark' : 'light'}>
+      <CssBaseline enableColorScheme />
+      <Box>
+        <Story {...context} />
+      </Box>
+    </InvertibleMuiThemeProvider>
   )
 }
 
