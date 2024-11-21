@@ -1,5 +1,6 @@
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/hash'
+import { PayloadBuilder } from '@xyo-network/payload-builder'
 
 // If a boundwitness hash is not found in any other previous_hashes in the history,
 // it is not yet a parent and therefore the youngest
@@ -23,7 +24,7 @@ export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'as
   if (addressHistory?.length) {
     const stack: BoundWitness[] = []
     const youngestBW = await findYoungestBW(addressHistory)
-    const hashes = await PayloadHasher.hashes(addressHistory)
+    const hashes = await Promise.all(addressHistory.map(async bw => await PayloadBuilder.dataHash(bw)))
     if (youngestBW && hashes) {
       // stack starts with you youngest bw and works back up from its previous_hashes[0]
       stack.unshift(youngestBW)
