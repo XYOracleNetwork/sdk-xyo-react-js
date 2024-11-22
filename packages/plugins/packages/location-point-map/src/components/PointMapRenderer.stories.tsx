@@ -1,15 +1,21 @@
 import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react'
+
+interface ImportMeta {
+  env: Record<string, string>
+}
+
+import { GeographicCoordinateSystemLocationSchema } from '@xyo-network/location-payload-plugin'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map-model'
 import React from 'react'
 
 import { PointMapWithSettingsRenderer } from './PointMapRenderer.tsx'
-import { locationPayload } from './storyPayload.tsx'
+import { currentLocationPayload, gcsLocationPayload } from './storyPayload.tsx'
 
 const WithMapboxSetup: Decorator = (Story, context) => {
   return (
-    <MapboxAccessTokenProvider defaultAccessToken={process.env.STORYBOOK_MAPBOX_TOKEN}>
+    <MapboxAccessTokenProvider defaultAccessToken={(import.meta as unknown as ImportMeta).env.STORYBOOK_MAPBOX_TOKEN}>
       <Story {...context} />
     </MapboxAccessTokenProvider>
   )
@@ -33,17 +39,20 @@ const Template: StoryFn<typeof PointMapWithSettingsRenderer> = (args) => {
 const Default = Template.bind({})
 Default.args = {}
 
-const WithData = Template.bind({})
-WithData.args = { payload: locationPayload }
+const WithGCSData = Template.bind({})
+WithGCSData.args = { payload: gcsLocationPayload }
+
+const WithCurrentLocationData = Template.bind({})
+WithCurrentLocationData.args = { payload: currentLocationPayload }
 
 const missingData = {
   result: { features: [] },
-  schema: 'network.xyo.location',
+  schema: GeographicCoordinateSystemLocationSchema,
 }
 
 const WithNoData = Template.bind({})
 WithNoData.args = { payload: missingData }
 
 export {
-  Default, WithData, WithNoData,
+  Default, WithCurrentLocationData, WithGCSData, WithNoData,
 }
