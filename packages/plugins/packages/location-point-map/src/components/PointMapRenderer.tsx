@@ -2,7 +2,6 @@ import {
   Alert, AlertTitle, useTheme,
 } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
-import type { GeographicCoordinateSystemLocationPayload } from '@xyo-network/location-payload-plugin'
 import type { Payload } from '@xyo-network/payload-model'
 import {
   LocationPointsMapLayerBuilder,
@@ -14,6 +13,7 @@ import { useMapboxAccessToken } from '@xyo-network/react-map-model'
 import type { Feature, Point } from 'geojson'
 import React, { useMemo } from 'react'
 
+import { locationPayloadToGCS } from '../GCSTransformers/index.ts'
 import { PointMapSettings } from './PointMapSettings.ts'
 
 export interface PointMapInnerProps extends FlexBoxProps {
@@ -25,7 +25,7 @@ const PointMapInner: React.FC<PointMapInnerProps> = ({
   accessToken, payload, ...props
 }) => {
   const theme = useTheme()
-  const locationPayload = payload ? (payload as GeographicCoordinateSystemLocationPayload) : undefined
+  const locationPayload = payload ? locationPayloadToGCS(payload) : undefined
   const { accessToken: accessTokenFromContext } = useMapboxAccessToken()
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
