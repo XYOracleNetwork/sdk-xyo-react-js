@@ -5,7 +5,7 @@ import type { PayloadRenderPluginBase } from '@xyo-network/react-payload-plugin'
 const validSchemas: Set<string> = new Set([LocationSchema, GeographicCoordinateSystemLocationSchema])
 
 const PointMapRenderPluginMeta: PayloadRenderPluginBase = {
-  canRender: (payload?: Payload) => !(payload && validSchemas.has(payload.schema)),
+  canRender: (payload?: Payload) => !!(payload && validSchemas.has(payload.schema)),
   name: 'Point Map',
 }
 
