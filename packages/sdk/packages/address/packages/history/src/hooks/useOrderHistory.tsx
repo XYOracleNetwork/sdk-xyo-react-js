@@ -1,11 +1,10 @@
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
-import { PayloadHasher } from '@xyo-network/hash'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 
 // If a boundwitness hash is not found in any other previous_hashes in the history,
-// it is not yet a parent and therefore the youngest
-const findYoungestBW = async (addressHistory: BoundWitness[]): Promise<BoundWitness | undefined> => {
-  const addressHistoryPairs = await PayloadHasher.hashPairs(addressHistory)
+// it is not yet a parent and therefore the head
+const getHead = async (addressHistory: BoundWitness[]): Promise<BoundWitness | undefined> => {
+  const addressHistoryPairs = await PayloadBuilder.dataHashPairs(addressHistory)
   return addressHistoryPairs?.find(([_, bwHash]) => {
     const isChild = addressHistory.some(nestedBW => nestedBW.previous_hashes.includes(bwHash))
     return !isChild
@@ -23,8 +22,8 @@ const findParent = (hashes: string[], addressHistory: BoundWitness[], currentChi
 export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'asc' | 'desc' = 'asc') => {
   if (addressHistory?.length) {
     const stack: BoundWitness[] = []
-    const youngestBW = await findYoungestBW(addressHistory)
-    const hashes = await Promise.all(addressHistory.map(async bw => await PayloadBuilder.dataHash(bw)))
+    const youngestBW = await getHead(addressHistory)
+    const hashes = await PayloadBuilder.dataHashes(addressHistory)
     if (youngestBW && hashes) {
       // stack starts with you youngest bw and works back up from its previous_hashes[0]
       stack.unshift(youngestBW)
