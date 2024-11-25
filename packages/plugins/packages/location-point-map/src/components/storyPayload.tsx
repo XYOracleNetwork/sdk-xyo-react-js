@@ -10,7 +10,7 @@ export const gcsLocationPayload = {
 }
 
 export const currentLocationPayload = {
-  schema: 'network.xyo.location',
+  schema: 'network.xyo.location.current',
   currentLocation: {
     coords: {
       accuracy: 600,
