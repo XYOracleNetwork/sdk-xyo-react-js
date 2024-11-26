@@ -11,7 +11,7 @@ export interface AddressTableCellProps extends Omit<EllipsisTableCellProps, 'ref
   link?: boolean
 }
 
-const AddressTableCell = forwardRef<HTMLElement, AddressTableCellProps>(({
+const AddressTableCell = forwardRef<HTMLDivElement, AddressTableCellProps>(({
   value, archive, exploreDomain, link, ...props
 }, ref) => {
   const href = exploreDomain && archive ? `${exploreDomain}/archive/${archive}/address/${value}` : undefined

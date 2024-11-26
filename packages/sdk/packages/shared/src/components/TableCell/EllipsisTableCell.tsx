@@ -26,7 +26,7 @@ export interface EllipsisTableCellProps extends Omit<TableCellProps, 'ref'> {
   width?: string | number
 }
 
-export const EllipsisTableCellWithRef = forwardRef<HTMLElement, EllipsisTableCellProps>(
+export const EllipsisTableCellWithRef = forwardRef<HTMLDivElement, EllipsisTableCellProps>(
   ({
     children, href, link = false, to, value, ...props
   }, ref) => {
@@ -44,8 +44,8 @@ export const EllipsisTableCellWithRef = forwardRef<HTMLElement, EllipsisTableCel
       return value
     }, [children, href, link, to, value])
     return (
-      <EllipsisTableCellRoot ref={ref} {...props}>
-        <EllipsizeBox sx={{ cursor: link || to || href ? 'pointer' : 'inherit' }}>{data}</EllipsizeBox>
+      <EllipsisTableCellRoot {...props}>
+        <EllipsizeBox ref={ref} sx={{ cursor: link || to || href ? 'pointer' : 'inherit' }}>{data}</EllipsizeBox>
       </EllipsisTableCellRoot>
     )
   },
