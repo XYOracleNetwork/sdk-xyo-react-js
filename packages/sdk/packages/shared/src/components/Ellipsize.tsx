@@ -101,7 +101,7 @@ export const EllipsizeBox = forwardRef<HTMLDivElement, PropsWithChildren<Ellipsi
     const sharedRef = useShareForwardedRef(ref)
 
     return (
-      <EllipsizeRoot beforeLineHeight={!!sharedRef && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={ref}>
+      <EllipsizeRoot beforeLineHeight={!!sharedRef && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={sharedRef}>
         <EllipsizeInnerWrap>
           <EllipsizeContentWrap ref={contentWrapRef} component="span" ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
             {children}
