@@ -1,5 +1,5 @@
-import type { AxiosResponse } from '@xyo-network/axios'
-import { axios } from '@xyo-network/axios'
+import type { AxiosResponse } from 'axios'
+import axios from 'axios'
 
 import type {
   LatLngTuple, LookupPostRequest, LookupResponse,

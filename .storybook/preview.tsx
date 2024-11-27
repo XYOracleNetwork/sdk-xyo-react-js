@@ -1,16 +1,17 @@
+import type { Theme } from '@mui/material'
 import {
   Box, createTheme, CssBaseline, useTheme,
 } from '@mui/material'
 import type { Decorator } from '@storybook/react'
 import { InvertibleMuiThemeProvider } from '@xylabs/react-invertible-theme'
+import {
+  DataismTheme, XyLabsTheme, XyoTheme,
+} from '@xylabs/react-theme'
 import React from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
 
-import {
-  DataismTheme, XyLabsTheme, XYOWebsiteTheme,
-} from './Theme'
-
-const themeNames = ['None', 'XYO Website', 'Dataism', 'XY Labs Website']
+const themeNames = ['None', 'XYO', 'Dataism', 'XYLabs'] as const
+type ThemeName = typeof themeNames[number]
 
 export const globalTypes = {
   theme: {
@@ -29,13 +30,13 @@ export const globalTypes = {
   },
 }
 
-const getTheme = (themeName) => {
+const getTheme = (themeName: ThemeName) => {
   const theme = useTheme()
-  const themes = {
-    'None': theme,
-    'XYO Website': XYOWebsiteTheme(theme, false),
-    'Dataism': DataismTheme,
-    'XY Labs Website': XyLabsTheme,
+  const themes: Record<ThemeName, Theme> = {
+    None: theme,
+    XYO: XyoTheme(theme, false),
+    Dataism: DataismTheme(theme, false),
+    XYLabs: XyLabsTheme(theme, false),
   }
   return themes[themeName] ?? {}
 }
