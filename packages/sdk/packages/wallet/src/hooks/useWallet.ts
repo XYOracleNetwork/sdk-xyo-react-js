@@ -9,7 +9,7 @@ export interface WalletHookParams {
   mnemonic?: string
   path?: string
   required?: boolean
-  seed?: Uint8Array | string
+  seed?: ArrayBufferLike | string
   wallet?: WalletInstance | null
 }
 
