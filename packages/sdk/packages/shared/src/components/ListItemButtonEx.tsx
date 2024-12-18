@@ -18,7 +18,7 @@ export const ListItemButtonExTo: React.FC<ListItemButtonExProps> = ({
   const localOnClick = (event: MouseEvent<HTMLDivElement>) => {
     onClick?.(event)
     if (to) {
-      navigate(to, toOptions)
+      void navigate(to, toOptions)
     }
   }
 

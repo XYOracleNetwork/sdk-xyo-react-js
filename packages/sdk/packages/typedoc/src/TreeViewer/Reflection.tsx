@@ -52,7 +52,7 @@ export const ReflectionTreeViewer: React.FC<ReflectionTreeViewerProps> = ({
                       label={childReflection.name}
                       onClick={() => {
                         const hash = `#${childReflection.name}`
-                        navigate({ hash })
+                        void navigate({ hash })
                         document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
                       }}
                     />

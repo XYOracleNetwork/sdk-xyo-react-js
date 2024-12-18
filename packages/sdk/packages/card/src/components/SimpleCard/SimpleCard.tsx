@@ -44,11 +44,11 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
   const isMobile = useIsMobile()
   const localRouteChange = (to: To | undefined) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    to ? navigate(to) : navigate('/404')
+    to ? void navigate(to) : void navigate('/404')
   }
   const externalRouteChange = (href: string | undefined) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    href ? window.open(href) : navigate('/404')
+    href ? void window.open(href) : void navigate('/404')
   }
   return (
     <CardEx

@@ -21,7 +21,7 @@ export const BoundWitnessBoxWithAddressRouter = forwardRef<HTMLDivElement, Bound
     const [listenerRef] = useEvent<HTMLDivElement>((noun, _verb, data) => {
       if (noun === 'address' && data) {
         clearHistory?.()
-        navigate(`${baseRoute}/${data}`)
+        void navigate(`${baseRoute}/${data}`)
       }
     }, sharedRef)
 
