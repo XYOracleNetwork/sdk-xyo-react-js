@@ -24,9 +24,9 @@ export const ModuleCardHeader: React.FC<ModuleRenderProps & CardHeaderProps> = (
           <>
             {mod
               ? moduleTypes.map((moduleType) => {
-                const Icon = getModuleIcons(moduleType, mod)
-                return Icon ? <Icon key={moduleType} fontSize="large" color="primary" /> : null
-              })
+                  const Icon = getModuleIcons(moduleType, mod)
+                  return Icon ? <Icon key={moduleType} fontSize="large" color="primary" /> : null
+                })
               : null}
           </>
         )

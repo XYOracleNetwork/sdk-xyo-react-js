@@ -36,8 +36,8 @@ export const NameViewer: React.FC<NameViewerProps> = ({
         <Chip size="small" label={reflection.kind} />
         {reflection.flags
           ? Object.entries(reflection.flags).map(([flag, value]) => {
-            return value ? <Chip size="small" key={flag} label={trimFlagLabel(flag)} variant="outlined" /> : null
-          })
+              return value ? <Chip size="small" key={flag} label={trimFlagLabel(flag)} variant="outlined" /> : null
+            })
           : null}
       </Stack>
       {document && document?.location.hostname === 'localhost' && (

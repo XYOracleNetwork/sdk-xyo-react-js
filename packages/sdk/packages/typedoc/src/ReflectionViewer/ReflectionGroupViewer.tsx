@@ -43,8 +43,8 @@ export const ReflectionGroupViewer: React.FC<ReflectionGroupViewerProps> = ({
   const visibleChildren
     = hiddenFlags
       ? resolvedChildren.reduce((acc, item) => {
-        return acc + (hide(item.flags, hiddenFlags) ? 0 : 1)
-      }, 0)
+          return acc + (hide(item.flags, hiddenFlags) ? 0 : 1)
+        }, 0)
       : 1
 
   const { hash } = useLocation()

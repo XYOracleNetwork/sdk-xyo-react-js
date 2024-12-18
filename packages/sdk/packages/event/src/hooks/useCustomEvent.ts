@@ -26,7 +26,6 @@ export const useCustomEvent = <TElement extends HTMLElement, TDetail = unknown>(
         : undefined
 
     if (handler && element) {
-      // eslint-disable-next-line @eslint-react/web-api/no-leaked-event-listener
       element?.addEventListener(type, handler)
     }
     return () => {

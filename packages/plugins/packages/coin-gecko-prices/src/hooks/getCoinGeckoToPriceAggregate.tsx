@@ -4,9 +4,9 @@ const mapAssetsToString = (assetValues: Partial<Record<string, number>> | undefi
   return assetValues
   // eslint-disable-next-line unicorn/no-array-reduce
     ? Object.entries(assetValues).reduce<Partial<Record<string, string>>>((accumulator, [symbol, value]) => {
-      accumulator[symbol] = value?.toString()
-      return accumulator
-    }, {})
+        accumulator[symbol] = value?.toString()
+        return accumulator
+      }, {})
     : undefined
 }
 

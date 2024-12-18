@@ -22,8 +22,8 @@ export const TableRowNoData: React.FC<TableRowNoDataProps> = ({
       </StyledTableCell>
       {additionalCells
         ? Array.from({ length: additionalCells })
-          .fill(null)
-          .map((_fill, index) => <StyledTableCell key={index} hideBorder={hideBorder} />)
+            .fill(null)
+            .map((_fill, index) => <StyledTableCell key={index} hideBorder={hideBorder} />)
         : null}
     </TableRow>
   )
