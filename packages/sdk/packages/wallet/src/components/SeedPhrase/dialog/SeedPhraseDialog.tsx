@@ -18,6 +18,7 @@ import {
 export interface SeedPhraseDialogProps extends DialogProps {
   changeSeedPhrase?: (value: string) => void
   seedPhrase?: string
+  showCopyButton?: boolean
 }
 
 export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
@@ -35,7 +36,7 @@ export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
   )
 }
 
-export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) => {
+export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = ({ showCopyButton, ...props }) => {
   const {
     overwriteWarning, seedPhrase, validPhrase,
   } = useSeedPhrase()
@@ -58,7 +59,7 @@ export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = (props) =>
         </NewPhraseTextField>
         <PhraseDialogActions />
         {seedPhrase
-          ? <SavedPhraseTextField />
+          ? <SavedPhraseTextField showCopyButton={showCopyButton} />
           : null}
         {overwriteWarning
           ? <OverwriteWarning />

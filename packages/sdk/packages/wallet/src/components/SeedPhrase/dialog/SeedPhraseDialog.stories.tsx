@@ -23,7 +23,7 @@ const Template: StoryFn<typeof SeedPhraseDialog> = (props) => {
       </Button>
       <Typography>Seed Phrase</Typography>
       <code>{seedPhrase}</code>
-      <SeedPhraseDialog seedPhrase={seedPhrase} changeSeedPhrase={setSeedPhrase} {...props} open={open} onClose={() => setOpen(false)} />
+      <SeedPhraseDialog showCopyButton seedPhrase={seedPhrase} changeSeedPhrase={setSeedPhrase} {...props} open={open} onClose={() => setOpen(false)} />
     </FlexCol>
   )
 }

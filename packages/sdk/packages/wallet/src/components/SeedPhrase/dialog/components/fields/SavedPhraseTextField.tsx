@@ -1,23 +1,45 @@
+import { ContentCopy } from '@mui/icons-material'
 import type { StandardTextFieldProps } from '@mui/material'
 import {
-  Chip, FormControl, FormLabel, TextField,
+  Chip, FormControl, FormLabel, IconButton, TextField,
+  Tooltip,
 } from '@mui/material'
-import React, { useState } from 'react'
+import { FlexRow } from '@xylabs/react-flexbox'
+import React, { useMemo, useState } from 'react'
 
 import { useSeedPhrase } from '../../../../../contexts/index.ts'
 import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages/index.ts'
 
 export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
   fullWidth?: boolean
+  showCopyButton?: boolean
   showPhraseHeader?: boolean
+  visible?: boolean
 }
 
 export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
-  fullWidth, showPhraseHeader, ...props
+  fullWidth, showCopyButton, showPhraseHeader, visible: visibleProp, ...props
 }) => {
   const { validSeedPhrase, seedPhrase } = useSeedPhrase()
 
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(visibleProp)
+
+  useMemo(() => {
+    setVisible(visibleProp)
+  }, [visibleProp])
+
+  const [copied, setCopied] = useState(false)
+  const onCopyPhrase = async () => {
+    if (seedPhrase) {
+      try {
+        await navigator.clipboard.writeText(seedPhrase)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      } catch (e) {
+        console.error('Error copying resolvedSelectedAddress to clipboard', e)
+      }
+    }
+  }
 
   return (
     <FormControl
@@ -27,11 +49,22 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
         display: 'flex', flexDirection: 'column', rowGap: 1,
       }}
     >
-      <Chip
-        label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'}
-        onClick={() => setVisible(!visible)}
-        sx={{ alignSelf: 'center' }}
-      />
+      <FlexRow gap={0.5}>
+        <Chip
+          label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'}
+          onClick={() => setVisible(!visible)}
+          sx={{ alignSelf: 'center' }}
+        />
+        {showCopyButton && visible
+          ? (
+              <Tooltip title={copied ? 'Copied!' : 'Copy'}>
+                <IconButton onClick={() => void onCopyPhrase()}>
+                  <ContentCopy fontSize="small" />
+                </IconButton>
+              </Tooltip>
+            )
+          : null}
+      </FlexRow>
       {visible
         ? (
             <>
