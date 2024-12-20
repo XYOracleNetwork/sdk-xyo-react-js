@@ -1,8 +1,9 @@
 import { ContentCopy } from '@mui/icons-material'
 import type { StandardTextFieldProps } from '@mui/material'
 import {
-  Chip, FormControl, FormLabel, IconButton, TextField,
+  Chip, FormControl, FormLabel, Grow, IconButton, TextField,
   Tooltip,
+  useTheme,
 } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
 import React, { useMemo, useState } from 'react'
@@ -21,6 +22,7 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
   fullWidth, showCopyButton, showPhraseHeader, visible: visibleProp, ...props
 }) => {
   const { validSeedPhrase, seedPhrase } = useSeedPhrase()
+  const theme = useTheme()
 
   const [visible, setVisible] = useState(visibleProp)
 
@@ -55,39 +57,34 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
           onClick={() => setVisible(!visible)}
           sx={{ alignSelf: 'center' }}
         />
-        {showCopyButton && visible
-          ? (
-              <Tooltip title={copied ? 'Copied!' : 'Copy'}>
-                <IconButton onClick={() => void onCopyPhrase()}>
-                  <ContentCopy fontSize="small" />
-                </IconButton>
-              </Tooltip>
-            )
-          : null}
+        <Grow in={showCopyButton && visible}>
+          <Tooltip title={copied ? 'Copied!' : 'Copy'}>
+            <IconButton onClick={() => void onCopyPhrase()}>
+              <ContentCopy fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Grow>
       </FlexRow>
-      {visible
+      {visible && showPhraseHeader
         ? (
-            <>
-              {showPhraseHeader
-                ? (
-                    <FormLabel>
-                      <PhraseHeaderBox conditional={validSeedPhrase}>Saved Seed Phrase</PhraseHeaderBox>
-                    </FormLabel>
-                  )
-                : null}
-              <TextField
-                defaultValue={seedPhrase}
-                disabled
-                error={validSeedPhrase === false}
-                helperText={validSeedPhrase === false ? <InvalidPhraseTypography /> : null}
-                fullWidth
-                maxRows={Number.POSITIVE_INFINITY}
-                multiline
-                {...props}
-              />
-            </>
+            <FormLabel>
+              <PhraseHeaderBox conditional={validSeedPhrase}>Saved Seed Phrase</PhraseHeaderBox>
+            </FormLabel>
           )
         : null}
+      <Grow in={visible}>
+        <TextField
+          defaultValue={seedPhrase}
+          disabled
+          error={validSeedPhrase === false}
+          helperText={validSeedPhrase === false ? <InvalidPhraseTypography /> : null}
+          fullWidth
+          maxRows={Number.POSITIVE_INFINITY}
+          multiline
+          {...props}
+        />
+      </Grow>
+
     </FormControl>
   )
 }
