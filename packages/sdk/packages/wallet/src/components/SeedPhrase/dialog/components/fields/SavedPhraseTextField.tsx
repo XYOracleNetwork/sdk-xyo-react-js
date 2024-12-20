@@ -53,17 +53,25 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
     >
       <FlexRow gap={0.5}>
         <Chip
-          label={visible ? 'Hide Saved Seed Phrase' : 'Reveal Saved Seed Phrase'}
+          label="Show Seed Phrase"
           onClick={() => setVisible(!visible)}
           sx={{ alignSelf: 'center' }}
         />
-        <Grow in={showCopyButton && visible}>
-          <Tooltip title={copied ? 'Copied!' : 'Copy'}>
-            <IconButton onClick={() => void onCopyPhrase()}>
-              <ContentCopy fontSize="small" />
-            </IconButton>
-          </Tooltip>
-        </Grow>
+        <Tooltip title={copied ? 'Copied!' : 'Copy'}>
+          <IconButton
+            onClick={() => void onCopyPhrase()}
+            sx={{
+              height: visible ? 'auto' : 0,
+              opacity: visible ? 1 : 0,
+              overflow: 'hidden',
+              padding: visible ? theme.spacing(1) : 0,
+              transition: 'all .25s ease-in-out',
+              width: visible ? 'max-content' : 0,
+            }}
+          >
+            <ContentCopy fontSize="small" />
+          </IconButton>
+        </Tooltip>
       </FlexRow>
       {visible && showPhraseHeader
         ? (
@@ -72,18 +80,27 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
             </FormLabel>
           )
         : null}
-      <Grow in={visible}>
-        <TextField
-          defaultValue={seedPhrase}
-          disabled
-          error={validSeedPhrase === false}
-          helperText={validSeedPhrase === false ? <InvalidPhraseTypography /> : null}
-          fullWidth
-          maxRows={Number.POSITIVE_INFINITY}
-          multiline
-          {...props}
-        />
-      </Grow>
+      <TextField
+        defaultValue={seedPhrase}
+        disabled
+        error={validSeedPhrase === false}
+        helperText={validSeedPhrase === false ? <InvalidPhraseTypography /> : null}
+        fullWidth
+        maxRows={Number.POSITIVE_INFINITY}
+        multiline
+        slotProps={{
+          input: {
+            style: {
+              height: visible ? 'auto' : '0',
+              overflow: 'hidden',
+              opacity: visible ? 1 : 0,
+              padding: visible ? theme.spacing(1) : 0,
+              transition: 'all .25s ease-in-out',
+            },
+          },
+        }}
+        {...props}
+      />
 
     </FormControl>
   )
