@@ -34,9 +34,9 @@ const getTheme = (themeName: ThemeName) => {
   const theme = useTheme()
   const themes: Record<ThemeName, Theme> = {
     None: theme,
-    XYO: XyoTheme(theme, false),
-    Dataism: DataismTheme(theme, false),
-    XYLabs: XyLabsTheme(theme, false),
+    XYO: XyoTheme(),
+    Dataism: DataismTheme(),
+    XYLabs: XyLabsTheme(),
   }
   return themes[themeName] ?? {}
 }
