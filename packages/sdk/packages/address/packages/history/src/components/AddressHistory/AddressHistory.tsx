@@ -2,7 +2,7 @@ import type { ListProps } from '@mui/material'
 import {
   Divider, List, Skeleton, styled, useTheme,
 } from '@mui/material'
-import type { Address, Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
@@ -17,15 +17,14 @@ const AddressChainList = styled(List, { name: 'AddressChainList' })(() => ({
   padding: 0,
 }))
 
-export interface AddressChainProps extends ListProps {
-  address?: Address
+export interface AddressHistoryProps extends ListProps {
   addressHistory?: BoundWitness[]
   selectable?: boolean
   skeleton?: boolean
 }
 
-const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({
-  address, addressHistory, selectable, skeleton = true, ...props
+const AddressHistory = forwardRef<HTMLUListElement, AddressHistoryProps>(({
+  addressHistory, selectable, skeleton = true, ...props
 }, ref) => {
   const theme = useTheme()
   const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
@@ -44,7 +43,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressChainProps>(({
     <AddressChainList ref={ulRef} {...props}>
       {orderedAddressHistoryPairs
         ? orderedAddressHistoryPairs.map(([bw, bwHash], index) => (
-            <Fragment key={index + (bw.timestamp?.toString() ?? address ?? '')}>
+            <Fragment key={bw._sequence}>
               {index === 0
                 ? null
                 : (

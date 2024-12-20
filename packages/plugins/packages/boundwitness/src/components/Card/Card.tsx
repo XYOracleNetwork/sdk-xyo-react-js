@@ -14,11 +14,11 @@ export interface BoundWitnessCardProps extends CardProps {
 export const BoundWitnessRendererCard: React.FC<BoundWitnessCardProps> = ({
   payload, active, ...props
 }) => {
-  const boundwitness = payload as Payload<BoundWitness>
+  const boundwitness = payload as BoundWitness
 
   return (
     <Card {...props}>
-      <BoundWitnessCardHeader payload={boundwitness} active={active} hideJSONButton hidePreviousHash hideValidation hideTimestamp />
+      <BoundWitnessCardHeader payload={boundwitness} active={active} hideJSONButton hidePreviousHash hideValidation />
       <BoundWitnessCardContent payload={boundwitness} active={active} />
     </Card>
   )

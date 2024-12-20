@@ -17,7 +17,6 @@ export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   additionalActions?: ReactNode
   hideJSONButton?: boolean
   hidePreviousHash?: boolean
-  hideTimestamp?: boolean
   hideValidation?: boolean
   payload?: Payload
 }
@@ -30,12 +29,11 @@ export const BoundWitnessCardHeader = forwardRef<HTMLDivElement, BoundWitnessCar
     additionalActions,
     hideJSONButton,
     hidePreviousHash,
-    hideTimestamp,
     hideValidation,
     payload,
     ...props
   }, ref) => {
-    const boundwitness = payload as Payload<BoundWitness>
+    const boundwitness = payload as BoundWitness
     const theme = useTheme()
     const hash = usePayloadHash(boundwitness)
 
@@ -62,7 +60,6 @@ export const BoundWitnessCardHeader = forwardRef<HTMLDivElement, BoundWitnessCar
             hideJSONButton={hideJSONButton}
             hideValidation={hideValidation}
             hidePreviousHash={hidePreviousHash}
-            hideTimestamp={hideTimestamp}
             boundwitness={boundwitness}
             additionalActions={additionalActions}
           />

@@ -5,7 +5,6 @@ import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
-import type { WithStorageMeta } from '@xyo-network/payload-model'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import type { ReactElement } from 'react'
@@ -17,7 +16,7 @@ import type { BlockTableColumnConfig, BlockTableColumnSlug } from './BlockTableC
 import { blockTableColumnConfigDefaults } from './BlockTableColumnConfig.ts'
 
 export interface BlockTableRowProps extends TableRowProps {
-  block?: WithStorageMeta<BoundWitness>
+  block?: BoundWitness
   columns?: BlockTableColumnConfig
   exploreDomain?: string
   network?: string
