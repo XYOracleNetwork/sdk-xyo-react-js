@@ -5,6 +5,7 @@ import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
+import type { WithStorageMeta } from '@xyo-network/payload-model'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import type { ReactElement } from 'react'
@@ -16,7 +17,7 @@ import type { BlockTableColumnConfig, BlockTableColumnSlug } from './BlockTableC
 import { blockTableColumnConfigDefaults } from './BlockTableColumnConfig.ts'
 
 export interface BlockTableRowProps extends TableRowProps {
-  block?: BoundWitness
+  block?: WithStorageMeta<BoundWitness>
   columns?: BlockTableColumnConfig
   exploreDomain?: string
   network?: string
@@ -39,12 +40,6 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const hash = <HashTableCell key="hash" value={blockHash} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
 
-  const time = (
-    <TableCell key="time" align="center" sx={{ textWrap: 'nowrap' }}>
-      {block?.timestamp ? new Date(block?.timestamp as number).toLocaleString(undefined, { timeStyle: 'medium' }) : '--'}
-    </TableCell>
-  )
-
   const payloads = (
     <TableCell key="payloads" align="center">
       {(block?.payload_hashes ?? []).filter(exists).length}
@@ -65,7 +60,6 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const tableCells: Record<BlockTableColumnSlug, ReactElement> = {
     hash,
-    time,
     payloads,
     valid,
   }

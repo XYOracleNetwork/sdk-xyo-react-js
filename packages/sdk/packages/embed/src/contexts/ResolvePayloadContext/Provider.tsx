@@ -2,7 +2,9 @@
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { Huri } from '@xyo-network/huri'
-import type { ModuleError, Payload } from '@xyo-network/payload-model'
+import type {
+  ModuleError, Payload, WithSources,
+} from '@xyo-network/payload-model'
 import { ModuleErrorSchema } from '@xyo-network/payload-model'
 import type { PropsWithChildren } from 'react'
 import React, { useEffect, useState } from 'react'
@@ -30,7 +32,7 @@ export const ResolvePayloadProvider: React.FC<PropsWithChildren<ResolvePayloadPr
   }, [huriPayload, setRefreshPayload])
 
   const [notFound, setNotFound] = useState<boolean>()
-  const [huriError, setHuriError] = useState<ModuleError>()
+  const [huriError, setHuriError] = useState<WithSources<ModuleError>>()
 
   useAsyncEffect(
     async (mounted) => {
@@ -49,7 +51,7 @@ export const ResolvePayloadProvider: React.FC<PropsWithChildren<ResolvePayloadPr
         } catch (e) {
           const error = e as Error
           setHuriError({
-            message: error.message, schema: ModuleErrorSchema, sources: [],
+            message: error.message, schema: ModuleErrorSchema, $sources: [],
           })
         }
       }
