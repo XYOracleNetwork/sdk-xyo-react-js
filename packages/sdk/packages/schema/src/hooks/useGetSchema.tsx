@@ -1,6 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
-import type { ModuleError } from '@xyo-network/payload-model'
+import type { ModuleError, WithSources } from '@xyo-network/payload-model'
 import { ModuleErrorSchema } from '@xyo-network/payload-model'
 import type { SchemaCacheEntry } from '@xyo-network/schema-cache'
 import { SchemaCache } from '@xyo-network/schema-cache'
@@ -12,7 +12,7 @@ import { useState } from 'react'
  */
 const useGetSchemaPayload = (schema?: string) => {
   const [notFound, setNotFound] = useState(false)
-  const [xyoError, setError] = useState<ModuleError>()
+  const [xyoError, setError] = useState<WithSources<ModuleError>>()
   const [schemaCacheEntry, setSchemaCacheEntry] = useState<SchemaCacheEntry | null | undefined>()
   const [schemaLocal, setSchemaLocal] = useState<string>()
 
@@ -33,7 +33,7 @@ const useGetSchemaPayload = (schema?: string) => {
           console.error(e)
           if (mounted()) {
             setError({
-              message: error.message, schema: ModuleErrorSchema, sources: [],
+              message: error.message, schema: ModuleErrorSchema, $sources: [],
             })
           }
         }

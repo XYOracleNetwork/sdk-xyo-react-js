@@ -9,8 +9,8 @@ import {
   SchemaStatsQuerySchema,
 } from '@xyo-network/diviner-schema-stats-model'
 import { TYPES } from '@xyo-network/node-core-types'
-import type { WithMeta, WithSources } from '@xyo-network/payload-model'
-import { isPayloadOfSchemaTypeWithMeta } from '@xyo-network/payload-model'
+import type { WithSources } from '@xyo-network/payload-model'
+import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
 import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
 import type { Dispatch, SetStateAction } from 'react'
 import { useMemo, useState } from 'react'
@@ -24,7 +24,7 @@ export const useSchemaStats = (
   const [error, setError] = useState<Error>()
   const refreshHistory = () => setRefresh(previous => previous + 1)
 
-  const [schemaList, setSchemaList] = useState<WithSources<WithMeta<SchemaStatsPayload>>[]>()
+  const [schemaList, setSchemaList] = useState<WithSources<SchemaStatsPayload>[]>()
 
   const query: SchemaStatsQueryPayload = useMemo(
     () => ({
@@ -45,8 +45,8 @@ export const useSchemaStats = (
           }
         } else {
           try {
-            const schemas = (await instance.divine([query])).filter(isPayloadOfSchemaTypeWithMeta(SchemaStatsDivinerSchema)) as WithSources<
-              WithMeta<SchemaStatsPayload>
+            const schemas = (await instance.divine([query])).filter(isPayloadOfSchemaType(SchemaStatsDivinerSchema)) as WithSources<
+              SchemaStatsPayload
             >[]
             if (mounted()) {
               setSchemaList(schemas)

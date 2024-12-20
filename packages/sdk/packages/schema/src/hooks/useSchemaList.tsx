@@ -2,7 +2,6 @@ import type { Address } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import type { SchemaListPayload, SchemaListQueryPayload } from '@xyo-network/diviner-schema-list-model'
 import { SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
-import type { WithMeta } from '@xyo-network/payload-model'
 import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
 import { useMemo } from 'react'
 
@@ -26,7 +25,7 @@ export const useSchemaList = (address?: Address, nameOrAddress = 'SchemaListDivi
     async () => {
       const divinerInstance = diviner?.deref()
       if (divinerInstance) {
-        const response = (await divinerInstance.divine(query)) as WithMeta<SchemaListPayload>[]
+        const response = (await divinerInstance.divine(query)) as SchemaListPayload[]
         return response.at(0)
       }
     },
