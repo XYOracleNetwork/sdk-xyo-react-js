@@ -1,16 +1,20 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
+import type { EnumValue } from '@xylabs/object'
+import { Enum } from '@xylabs/object'
 import { Mutex } from 'async-mutex'
 import type { DependencyList } from 'react'
 import {
   useEffect, useMemo, useState,
 } from 'react'
 
-export enum State {
-  pending = 'pending',
-  rejected = 'rejected',
-  resolved = 'resolved',
-}
+export const State = Enum({
+  pending: 'pending',
+  rejected: 'rejected',
+  resolved: 'resolved',
+})
+
+export type State = EnumValue<typeof State>
 
 /**
  * usePromise -

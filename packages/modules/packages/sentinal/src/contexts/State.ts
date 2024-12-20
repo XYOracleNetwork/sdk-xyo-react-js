@@ -1,15 +1,19 @@
+import type { EnumValue } from '@xylabs/object'
+import { Enum } from '@xylabs/object'
 import type { ArchivistModule } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { SentinelModule } from '@xyo-network/sentinel-model'
 import type { WitnessModule } from '@xyo-network/witness-model'
 
-export enum SentinelReportStatus {
-  Idle = 'idle',
-  Queued = 'queued',
-  Started = 'started',
-  Succeeded = 'succeeded',
-  Failed = 'failed',
-}
+export const SentinelReportStatus = Enum({
+  Idle: 'idle',
+  Queued: 'queued',
+  Started: 'started',
+  Succeeded: 'succeeded',
+  Failed: 'failed',
+})
+
+export type SentinelReportStatus = EnumValue<typeof SentinelReportStatus>
 
 export interface SentinelWitnessReportProgress {
   status: SentinelReportStatus
