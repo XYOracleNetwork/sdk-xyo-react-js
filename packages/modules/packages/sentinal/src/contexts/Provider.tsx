@@ -36,7 +36,7 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
   const [sentinel, setSentinel] = useState<MemorySentinel>()
   const [history, setHistory] = useState<BoundWitness[]>()
   const [progress, setProgress] = useState<SentinelReportProgress>({})
-  const [status, setStatus] = useState(SentinelReportStatus.Idle)
+  const [status, setStatus] = useState<SentinelReportStatus>(SentinelReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
   const [witnesses] = useWitnessesFromNode(filter)
 
