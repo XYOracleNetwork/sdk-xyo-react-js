@@ -1,5 +1,6 @@
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
+import type { WithStorageMeta } from '@xyo-network/payload-model'
 
 // If a boundwitness hash is not found in any other previous_hashes in the history,
 // it is not yet a parent and therefore the head
@@ -19,7 +20,7 @@ const findParent = (hashes: string[], addressHistory: BoundWitness[], currentChi
 }
 
 // Note: Assumes there are no orphaned record in the history.
-export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'asc' | 'desc' = 'asc') => {
+export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'asc' | 'desc' = 'asc'): Promise<WithStorageMeta<BoundWitness>[] | undefined> => {
   if (addressHistory?.length) {
     const stack: BoundWitness[] = []
     const youngestBW = await getHead(addressHistory)
@@ -44,7 +45,7 @@ export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'as
 
       const orderedStack = order === 'desc' ? stack.reverse() : stack
 
-      return addressHistory?.length ? orderedStack : undefined
+      return addressHistory?.length ? PayloadBuilder.addStorageMeta(orderedStack) : undefined
     }
   }
   return []

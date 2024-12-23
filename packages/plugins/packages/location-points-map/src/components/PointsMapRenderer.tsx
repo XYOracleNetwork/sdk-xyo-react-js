@@ -13,6 +13,7 @@ import {
   isNetworkLocationAnswer,
   useMapboxAccessToken,
 } from '@xyo-network/react-map-model'
+import type { Feature, Point } from 'geojson'
 import React from 'react'
 
 import { PointsMapSettings } from './PointsMapSettings.ts'
@@ -44,7 +45,7 @@ const PointsMapInner: React.FC<PointsMapInnerProps> = ({
     ? (
         <MapboxPointsFlexBox
           accessToken={accessTokenResolved}
-          features={features}
+          features={features as Feature<Point>[]}
           layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
           height="100%"
           {...props}

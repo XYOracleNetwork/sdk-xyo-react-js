@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-ethereum-gas-price-ethers-plugin",
-  "version": "4.2.14",
+  "version": "4.3.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -44,8 +44,8 @@
   },
   "dependencies": {
     "@xylabs/react-flexbox": "^5.3.13",
-    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^3.1.2",
-    "@xyo-network/payload-model": "^3.5.2",
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^3.2.0",
+    "@xyo-network/payload-model": "^3.6.0",
     "@xyo-network/react-gas-price": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^"
@@ -59,7 +59,7 @@
     "@storybook/react": "^8.4.7",
     "@xylabs/ts-scripts-yarn3": "^4.2.6",
     "@xylabs/tsconfig-react": "^4.2.6",
-    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^3.1.2",
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^3.2.0",
     "@xyo-network/react-storybook": "workspace:^",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -78,5 +78,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.2.14"
 }

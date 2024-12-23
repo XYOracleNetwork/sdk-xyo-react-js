@@ -1,5 +1,4 @@
 import { DataObject as DataObjectIcon } from '@mui/icons-material'
-import { Chip } from '@mui/material'
 import { ellipsize } from '@xylabs/eth-address'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
@@ -17,7 +16,6 @@ export interface BWActionsProps extends FlexBoxProps {
   boundwitness?: BoundWitness
   hideJSONButton?: boolean
   hidePreviousHash?: boolean
-  hideTimestamp?: boolean
   hideValidation?: boolean
 }
 
@@ -27,18 +25,12 @@ export const BWActions: React.FC<BWActionsProps> = ({
   hideJSONButton,
   hideValidation,
   hidePreviousHash,
-  hideTimestamp,
   ...props
 }) => {
   const hash = usePayloadHash(boundwitness)
 
   return (
     <FlexRow {...props}>
-      {hideTimestamp || boundwitness?.timestamp === undefined
-        ? null
-        : (
-            <Chip sx={{ mr: 1 }} label={new Date(boundwitness.timestamp).toLocaleString()} />
-          )}
       {hidePreviousHash || boundwitness?.previous_hashes.length === 0 ? null : <BWPreviousHashQuickTipButton boundwitness={boundwitness} />}
       {hideValidation ? null : <BWVerification boundwitness={boundwitness} />}
       {hideJSONButton

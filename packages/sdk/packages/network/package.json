@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-network",
-  "version": "4.2.14",
+  "version": "4.3.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -43,13 +43,13 @@
     "lint-pkg": "npmPkgJsonLint ."
   },
   "dependencies": {
-    "@xylabs/assert": "^4.4.25",
-    "@xylabs/hex": "^4.4.25",
+    "@xylabs/assert": "^4.4.26",
+    "@xylabs/hex": "^4.4.26",
     "@xylabs/react-select": "^5.3.13",
     "@xylabs/react-shared": "^5.3.13",
-    "@xyo-network/network": "^3.5.2",
+    "@xyo-network/network": "^3.6.0",
     "@xyo-network/react-shared": "workspace:^",
-    "react-router-dom": "^7.0.2"
+    "react-router-dom": "^7.1.0"
   },
   "devDependencies": {
     "@mui/icons-material": "^6.2.1",
@@ -74,5 +74,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.2.14"
 }

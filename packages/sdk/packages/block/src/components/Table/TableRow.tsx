@@ -39,12 +39,6 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const hash = <HashTableCell key="hash" value={blockHash} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
 
-  const time = (
-    <TableCell key="time" align="center" sx={{ textWrap: 'nowrap' }}>
-      {block?.timestamp ? new Date(block?.timestamp as number).toLocaleString(undefined, { timeStyle: 'medium' }) : '--'}
-    </TableCell>
-  )
-
   const payloads = (
     <TableCell key="payloads" align="center">
       {(block?.payload_hashes ?? []).filter(exists).length}
@@ -65,7 +59,6 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const tableCells: Record<BlockTableColumnSlug, ReactElement> = {
     hash,
-    time,
     payloads,
     valid,
   }

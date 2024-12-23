@@ -1,7 +1,7 @@
 import { ContentCopy } from '@mui/icons-material'
 import type { StandardTextFieldProps } from '@mui/material'
 import {
-  Chip, FormControl, FormLabel, Grow, IconButton, TextField,
+  Chip, FormControl, FormLabel, IconButton, TextField,
   Tooltip,
   useTheme,
 } from '@mui/material'
@@ -19,6 +19,7 @@ export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
 }
 
 export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   fullWidth, showCopyButton, showPhraseHeader, visible: visibleProp, ...props
 }) => {
   const { validSeedPhrase, seedPhrase } = useSeedPhrase()

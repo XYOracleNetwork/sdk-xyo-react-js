@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react'
+import type { TableCellProps } from '@mui/material'
 
 export interface TableHeadCell {
   align?: 'left' | 'right' | 'center'
@@ -7,5 +7,5 @@ export interface TableHeadCell {
   label: string
   numeric: boolean
   showOnMobile: boolean
-  width?: CSSProperties['width']
+  width?: TableCellProps['width']
 }

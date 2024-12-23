@@ -2,7 +2,7 @@ import { exists } from '@xylabs/exists'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { HuriPayload } from '@xyo-network/diviner-huri'
 import { HuriSchema } from '@xyo-network/diviner-huri'
-import type { Payload, WithMeta } from '@xyo-network/payload-model'
+import type { Payload } from '@xyo-network/payload-model'
 import { useContextEx } from '@xyo-network/react-shared'
 import type { Dispatch } from 'react'
 import { useEffect, useState } from 'react'
@@ -35,7 +35,7 @@ export const useDivinePayload = <T extends Payload = Payload>(
           const huriPayload: HuriPayload = { huri: [huri], schema: HuriSchema }
           const [payload] = (await diviner?.divine([huriPayload])) ?? []
           if (mounted()) {
-            setPayload(payload ? (payload as WithMeta<T>) : null)
+            setPayload(payload ? (payload as T) : null)
           }
         } catch (ex) {
           if (mounted()) {

@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-crypto-market-uniswap-plugin",
-  "version": "4.2.14",
+  "version": "4.3.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -43,13 +43,13 @@
     "lint-pkg": "npmPkgJsonLint ."
   },
   "dependencies": {
-    "@xylabs/decimal-precision": "^4.4.25",
-    "@xylabs/object": "^4.4.25",
+    "@xylabs/decimal-precision": "^4.4.26",
+    "@xylabs/object": "^4.4.26",
     "@xylabs/react-flexbox": "^5.3.13",
-    "@xyo-network/payload-model": "^3.5.2",
+    "@xyo-network/payload-model": "^3.6.0",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/uniswap-crypto-market-payload-plugin": "^3.1.2"
+    "@xyo-network/uniswap-crypto-market-payload-plugin": "^3.2.0"
   },
   "devDependencies": {
     "@emotion/react": "^11.14.0",
@@ -77,5 +77,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.2.14"
 }
