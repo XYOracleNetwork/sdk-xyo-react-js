@@ -27,6 +27,6 @@ export type NetworkLocationHeatmapQuadkeyAnswerPayload = Payload<
   NetworkLocationAnswerBase<{ density: number; quadkey: string }[]>,
   NetworkLocationHeatmapQuadkeyAnswerSchema
 >
-export const isNetworkLocationHeatmapQuadkeyAnswer = isPayloadOfSchemaType<NetworkLocationHeatmapAnswerPayload>(
+export const isNetworkLocationHeatmapQuadkeyAnswer = isPayloadOfSchemaType<NetworkLocationHeatmapQuadkeyAnswerPayload>(
   NetworkLocationHeatmapQuadkeyAnswerSchema,
 )
