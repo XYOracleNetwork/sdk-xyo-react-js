@@ -26,7 +26,7 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
     result.push({
       address: boundWitness.addresses[i],
       previous_hash: boundWitness.previous_hashes?.[i],
-      signature: boundWitness.$meta?.signatures?.[i] ?? [],
+      signature: boundWitness.$signatures?.[i] ?? [],
     })
   }
   return result

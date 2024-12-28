@@ -65,13 +65,14 @@ export const NftScoreRenderer: React.FC<NftScoreRendererProps> = ({ payload, ...
               </TableHead>
               <TableBody>
                 {categories.map(([category, score]) => {
+                  const typedScore = score as unknown as Score
                   return score
                     ? (
                         <TableRow key={category}>
                           <TableCell key="Category">{category}</TableCell>
-                          <TableCell key="Actual">{score[0]}</TableCell>
-                          <TableCell key="Possible">{score[1]}</TableCell>
-                          <TableCell key="Rating">{getScoreIcon(score)}</TableCell>
+                          <TableCell key="Actual">{typedScore[0]}</TableCell>
+                          <TableCell key="Possible">{typedScore[1]}</TableCell>
+                          <TableCell key="Rating">{getScoreIcon(typedScore)}</TableCell>
                         </TableRow>
                       )
                     : null

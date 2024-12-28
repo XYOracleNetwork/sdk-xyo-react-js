@@ -26,7 +26,13 @@ export const BlockSignatureTableRow: React.FC<BlockSignatureTableRowProps> = ({
 }) => {
   const [errors] = usePromise(
     async () =>
-      hash && address ? await BoundWitnessValidator.validateSignature(toUint8Array(hash), toUint8Array(address), toUint8Array(signature)) : [],
+      hash && address
+        ? await BoundWitnessValidator.validateSignature(
+          toUint8Array(hash).buffer,
+          toUint8Array(address).buffer,
+          toUint8Array(signature)?.buffer,
+        )
+        : [],
     [hash, address, signature],
   )
 

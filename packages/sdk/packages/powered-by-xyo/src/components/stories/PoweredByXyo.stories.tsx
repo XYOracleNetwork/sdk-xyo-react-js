@@ -13,7 +13,7 @@ import React, { useState } from 'react'
 
 import type { PoweredByXyoProps } from '../PoweredByXyo.tsx'
 import { PoweredByXyo } from '../PoweredByXyo.tsx'
-import simpleNodeInlineManifest from './simple-node-inline-manifest.json'
+import { simpleNodeInlineManifest } from './manifest.ts'
 
 const StorybookEntry = {
   component: PoweredByXyo,

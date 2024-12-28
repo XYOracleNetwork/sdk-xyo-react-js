@@ -15,7 +15,7 @@ import { InfuraProvider } from 'ethers'
 import React from 'react'
 
 import { SentinelCard } from './Card.tsx'
-import NftSentinelManifest from './NftSentinel.json'
+import { NftSentinelManifest } from './manifest.ts'
 
 const loadFromManifest = async () => {
   const mnemonic = 'later puppy sound rebuild rebuild noise ozone amazing hope broccoli crystal grief'

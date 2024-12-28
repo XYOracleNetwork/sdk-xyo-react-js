@@ -17,7 +17,7 @@ import type { CreatablePackageManifest } from '@xyo-network/react-manifest'
 import { TimestampWitness } from '@xyo-network/witness-timestamp'
 import { InfuraProvider } from 'ethers'
 
-import contractWitnessManifest from './contract-witness-index-node.json'
+import contractWitnessManifest from './contract-witness-index-node.json' assert { type: 'json' }
 
 export const ContractWitnessManifestNode: CreatablePackageManifest = (locator: ModuleFactoryLocator): PackageManifestPayload => {
   locator.register(MemoryArchivist)

@@ -9,7 +9,7 @@ import React from 'react'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer.tsx'
 
-const address: Address = toHex(randomBytes(20))
+const address: Address = toHex(randomBytes(20).buffer)
 const payload: AddressPayload = {
   address,
   schema: AddressSchema,

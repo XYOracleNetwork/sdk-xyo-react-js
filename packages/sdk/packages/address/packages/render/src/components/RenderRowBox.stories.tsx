@@ -8,7 +8,7 @@ import React, { useState } from 'react'
 import type { FavoriteItemEvent } from './lib/index.ts'
 import { AddressRenderRowBox } from './RenderRowBox.tsx'
 
-const address: Address = toHex(randomBytes(20))
+const address: Address = toHex(randomBytes(20).buffer)
 
 const StorybookEntry = {
   argTypes: {},
