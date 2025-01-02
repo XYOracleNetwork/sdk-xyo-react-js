@@ -20,11 +20,12 @@ export interface SeedPhraseDialogProps extends DialogProps {
   changeSeedPhrase?: (value: string) => void
   dialogTitle?: ReactNode
   seedPhrase?: string
+  seedPhraseTextFieldTitle?: ReactNode
   showCopyButton?: boolean
 }
 
 export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
-  changeSeedPhrase, dialogTitle = 'Update Your Seed Phrase', seedPhrase, ...props
+  changeSeedPhrase, dialogTitle = 'Update Your Seed Phrase', seedPhrase, seedPhraseTextFieldTitle = 'New Seed Phrase', ...props
 }) => {
   return (
     <SeedPhraseProvider
@@ -33,13 +34,13 @@ export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
       open={props.open}
       saveCallback={() => props.onClose?.({}, 'escapeKeyDown')}
     >
-      <SeedPhraseDialogInner dialogTitle={dialogTitle} {...props} />
+      <SeedPhraseDialogInner dialogTitle={dialogTitle} seedPhraseTextFieldTitle={seedPhraseTextFieldTitle} {...props} />
     </SeedPhraseProvider>
   )
 }
 
 export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = ({
-  dialogTitle, showCopyButton, ...props
+  dialogTitle, seedPhraseTextFieldTitle, showCopyButton, ...props
 }) => {
   const {
     overwriteWarning, seedPhrase, validPhrase,
@@ -60,9 +61,10 @@ export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = ({
         display: 'flex', flexDirection: 'column', rowGap: 2,
       }}
       >
+
         <NewPhraseTextField>
           <FormLabel>
-            <PhraseHeaderBox conditional={validPhrase}>New Seed Phrase</PhraseHeaderBox>
+            <PhraseHeaderBox conditional={validPhrase}>{seedPhraseTextFieldTitle}</PhraseHeaderBox>
           </FormLabel>
         </NewPhraseTextField>
         <PhraseDialogActions />
