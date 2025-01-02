@@ -16,10 +16,10 @@ import {
   Typography,
   useTheme,
 } from '@mui/material'
+import { ThrownErrorBoundary } from '@xylabs/react-error'
 import { useResetState } from '@xylabs/react-hooks'
 import { useBreakpoint } from '@xylabs/react-shared'
 import type { Payload } from '@xyo-network/payload-model'
-import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
 import React, { useMemo, useState } from 'react'

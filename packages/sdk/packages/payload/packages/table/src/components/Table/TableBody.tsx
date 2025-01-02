@@ -1,7 +1,7 @@
 import {
   Alert, TableBody, Typography,
 } from '@mui/material'
-import { ThrownErrorBoundary } from '@xyo-network/react-error'
+import { ThrownErrorBoundary } from '@xylabs/react-error'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
 import React from 'react'

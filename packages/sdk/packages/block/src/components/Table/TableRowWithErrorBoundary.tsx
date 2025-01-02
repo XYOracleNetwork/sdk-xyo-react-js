@@ -1,6 +1,6 @@
 import { Alert, Typography } from '@mui/material'
+import { ThrownErrorBoundary } from '@xylabs/react-error'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
-import { ThrownErrorBoundary } from '@xyo-network/react-error'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React from 'react'
 
