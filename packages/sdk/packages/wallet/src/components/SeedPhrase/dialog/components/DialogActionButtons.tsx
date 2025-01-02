@@ -23,7 +23,7 @@ export const DialogActionButtons: React.FC<DialogActionButtonsProps> = ({ onClos
       <Button variant="outlined" onClick={wrappedOnClose}>
         Cancel
       </Button>
-      <Button variant="contained" onClick={handleSave}>
+      <Button type="submit" variant="contained" onClick={handleSave}>
         Save
       </Button>
     </DialogActions>
