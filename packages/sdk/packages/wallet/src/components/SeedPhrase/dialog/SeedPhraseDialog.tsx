@@ -2,6 +2,7 @@ import type { DialogProps } from '@mui/material'
 import {
   Dialog, DialogContent, DialogTitle, FormLabel,
 } from '@mui/material'
+import type { ReactNode } from 'react'
 import React from 'react'
 
 import { SeedPhraseProvider, useSeedPhrase } from '../../../contexts/index.ts'
@@ -17,12 +18,13 @@ import {
 
 export interface SeedPhraseDialogProps extends DialogProps {
   changeSeedPhrase?: (value: string) => void
+  dialogTitle?: ReactNode
   seedPhrase?: string
   showCopyButton?: boolean
 }
 
 export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
-  changeSeedPhrase, seedPhrase, ...props
+  changeSeedPhrase, dialogTitle = 'Update Your Seed Phrase', seedPhrase, ...props
 }) => {
   return (
     <SeedPhraseProvider
@@ -31,21 +33,27 @@ export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
       open={props.open}
       saveCallback={() => props.onClose?.({}, 'escapeKeyDown')}
     >
-      <SeedPhraseDialogInner {...props} />
+      <SeedPhraseDialogInner dialogTitle={dialogTitle} {...props} />
     </SeedPhraseProvider>
   )
 }
 
-export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = ({ showCopyButton, ...props }) => {
+export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = ({
+  dialogTitle, showCopyButton, ...props
+}) => {
   const {
     overwriteWarning, seedPhrase, validPhrase,
   } = useSeedPhrase()
 
   return (
     <Dialog aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description" fullWidth maxWidth="sm" {...props}>
-      <DialogTitle id="alert-dialog-title">
-        Update Your Seed Phrase
-        {' '}
+      <DialogTitle
+        id="alert-dialog-title"
+        sx={{
+          alignItems: 'center', display: 'inline-flex', flexDirection: 'row',
+        }}
+      >
+        {dialogTitle}
         <SeedPhraseIconButton />
       </DialogTitle>
       <DialogContent sx={{
