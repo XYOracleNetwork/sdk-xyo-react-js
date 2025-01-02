@@ -56,7 +56,8 @@ export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
         <Chip
           label="Show Seed Phrase"
           onClick={() => setVisible(!visible)}
-          sx={{ alignSelf: 'center' }}
+          // Margin is set to 2px to match the Copy Button size and remove jumping during animation
+          sx={{ alignSelf: 'center', my: '2px' }}
         />
         <Tooltip title={copied ? 'Copied!' : 'Copy'}>
           <IconButton
