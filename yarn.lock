@@ -2341,7 +2341,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^6.2.1, @mui/icons-material@npm:^6.3.0":
+"@mui/icons-material@npm:^6.3.0":
   version: 6.3.0
   resolution: "@mui/icons-material@npm:6.3.0"
   dependencies:
@@ -2357,7 +2357,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^6.2.1, @mui/material@npm:^6.3.0":
+"@mui/material@npm:^6.3.0":
   version: 6.3.0
   resolution: "@mui/material@npm:6.3.0"
   dependencies:
@@ -2433,7 +2433,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/styles@npm:^6.2.1, @mui/styles@npm:^6.3.0":
+"@mui/styles@npm:^6.3.0":
   version: 6.3.0
   resolution: "@mui/styles@npm:6.3.0"
   dependencies:
@@ -2763,7 +2763,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollbar/react@npm:0.12.0-beta, @rollbar/react@npm:^0.12.0-beta":
+"@rollbar/react@npm:^0.12.0-beta":
   version: 0.12.0-beta
   resolution: "@rollbar/react@npm:0.12.0-beta"
   dependencies:
@@ -4089,13 +4089,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 18.3.11
-  resolution: "@types/react@npm:18.3.11"
+"@types/react@npm:^18.3.18":
+  version: 18.3.18
+  resolution: "@types/react@npm:18.3.18"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/a36f0707fdfe9fe19cbe5892bcdab0f042ecadb501ea4e1c39519943f3e74cffbd31e892d3860f5c87cf33f5f223552b246a552bed0087b95954f2cb39d5cf65
+  checksum: 10/7fdd8b853e0d291d4138133f93f8d5c333da918e5804afcea61a923aab4bdfc9bb15eb21a5640959b452972b8715ddf10ffb12b3bd071898b9e37738636463f2
   languageName: node
   linkType: hard
 
@@ -4469,12 +4469,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/api@npm:^4.4.25":
-  version: 4.4.31
-  resolution: "@xylabs/api@npm:4.4.31"
+"@xylabs/api@npm:^4.4.34":
+  version: 4.4.34
+  resolution: "@xylabs/api@npm:4.4.34"
   dependencies:
+    "@xylabs/object": "npm:^4.4.34"
     axios: "npm:^1.7.9"
-  checksum: 10/a807f6c99de0bff96903ddc004b1a46a833eed329953bdf4b80cd745ab50ad61cfda7f8517ab969ecd3e904f1e72ac5e1d936dac4f77668480b37dd164c42b13
+  checksum: 10/d4b98da0fc828bff6f04fe69ae8605df25f317b8663ea749641981a37dba6b39f95ed2695b464f0d9b31802c0c1c6eefecfb6f55b8ac4d1a037ba552e4bf3541
   languageName: node
   linkType: hard
 
@@ -4497,7 +4498,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/assert@npm:^4.0.10, @xylabs/assert@npm:^4.4.25, @xylabs/assert@npm:^4.4.34":
+"@xylabs/assert@npm:^4.0.10, @xylabs/assert@npm:^4.4.34":
   version: 4.4.34
   resolution: "@xylabs/assert@npm:4.4.34"
   checksum: 10/404a7198d58cdfe70da56019c3458e68a235596971901647330ffe381883de8aaf16f592aac479046c6ec2dc0612bc3534daa11ed08973ead5c821b712cec959
@@ -4523,7 +4524,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/delay@npm:^4.4.25, @xylabs/delay@npm:^4.4.34":
+"@xylabs/delay@npm:^4.4.34":
   version: 4.4.34
   resolution: "@xylabs/delay@npm:4.4.34"
   dependencies:
@@ -4576,7 +4577,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/eth-address@npm:^4.4.25, @xylabs/eth-address@npm:^4.4.34":
+"@xylabs/eth-address@npm:^4.4.34":
   version: 4.4.34
   resolution: "@xylabs/eth-address@npm:4.4.34"
   dependencies:
@@ -4593,7 +4594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/forget@npm:^4.4.25, @xylabs/forget@npm:^4.4.34":
+"@xylabs/forget@npm:^4.4.34":
   version: 4.4.34
   resolution: "@xylabs/forget@npm:4.4.34"
   dependencies:
@@ -4622,15 +4623,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/log@npm:^4.4.25":
-  version: 4.4.31
-  resolution: "@xylabs/log@npm:4.4.31"
+"@xylabs/log@npm:^4.4.34":
+  version: 4.4.34
+  resolution: "@xylabs/log@npm:4.4.34"
   peerDependencies:
     rollbar: ^2
   peerDependenciesMeta:
     rollbar:
       optional: true
-  checksum: 10/12bf8025fe477912685e60716ade1efd4357b92a9506ab96923008b6332e845c51d464700a4161a4a6036d360c451c2b82ebb4abe84e362473a4fc96da7dff16
+  checksum: 10/ea39ca4571130f251ff2fe7491ca3ce87ea36fd1d62db641f6740feb90db86de2bc2d8850af6899fbe543e58432913c828cc2b4892fabe7a937824ce7020a358
   languageName: node
   linkType: hard
 
@@ -4643,7 +4644,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/object@npm:^4.0.10, @xylabs/object@npm:^4.4.25, @xylabs/object@npm:^4.4.34":
+"@xylabs/object@npm:^4.0.10, @xylabs/object@npm:^4.4.34":
   version: 4.4.34
   resolution: "@xylabs/object@npm:4.4.34"
   dependencies:
@@ -4678,7 +4679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/promise@npm:^4.4.25, @xylabs/promise@npm:^4.4.34":
+"@xylabs/promise@npm:^4.4.34":
   version: 4.4.34
   resolution: "@xylabs/promise@npm:4.4.34"
   dependencies:
@@ -4687,133 +4688,132 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-animation@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-animation@npm:5.3.14"
+"@xylabs/react-animation@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-animation@npm:5.3.15"
   dependencies:
     "@react-spring/web": "npm:^9.7.5"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/d29811b3fced9907b66696b3b31c8a9956e5327810444de61435fac8fd7e97e049a70c60499fd6f8d9115d7028a22c1389444b4a96875edb2764c1eb7d2c3c27
+  checksum: 10/c6f3bde47a158b8953fda746feabce0912e0a0f8c7cedc0c01959c45de0e7cf154d59252eee7682c9e94cb11c40e5bfbd63f78305f0266aa5492e11a2f30a5ea
   languageName: node
   linkType: hard
 
-"@xylabs/react-app-settings@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-app-settings@npm:5.3.14"
+"@xylabs/react-app-settings@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-app-settings@npm:5.3.15"
   dependencies:
-    "@xylabs/assert": "npm:^4.4.25"
-    "@xylabs/object": "npm:^4.4.25"
+    "@xylabs/assert": "npm:^4.4.34"
+    "@xylabs/object": "npm:^4.4.34"
   peerDependencies:
     "@mui/icons-material": ^6
     "@mui/material": ^6
     "@mui/styles": ^6
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 10/a8ba205e7f5452ebc56602e466b1490c8a8d8ec2ebdb9c7cbea62dc7396d180e8c07b5add84f0c99c5fe803dc0e006776433f37507ce967d9c0302ea1d5d6f59
+  checksum: 10/9462fbc3b2297a974627510d6abfeb9826fa6fba146c66ad2f840d6ee30254f109389af5cbcdf0c7fe7feb2036896b7193d6e99b67f8a18a314a8c86bdad311c
   languageName: node
   linkType: hard
 
-"@xylabs/react-appbar@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-appbar@npm:5.3.14"
+"@xylabs/react-appbar@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-appbar@npm:5.3.15"
   dependencies:
-    "@xylabs/assert": "npm:^4.4.25"
-    "@xylabs/react-app-settings": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-link": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/assert": "npm:^4.4.34"
+    "@xylabs/react-app-settings": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-link": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
   peerDependencies:
     "@mui/icons-material": ^6
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
     react-router-dom: ^7
-  checksum: 10/4e1ff10d07640dd965252a18b5457a43a5eaadd40d750eb78129fd4345550ad8139b200fdbd2fc1ec2509ac78a9e69627c2403fc856243d72709d8c41edffdde
+  checksum: 10/75cd909e93e7c809cb0f283459d2c6b672eb008dbd12700a4fc331753828588f7a1685b7a8de0039415a6167d4c14150b1e2754586304e9e25ccaefa2bf0a5dd
   languageName: node
   linkType: hard
 
-"@xylabs/react-async-effect@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-async-effect@npm:5.3.14"
+"@xylabs/react-async-effect@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-async-effect@npm:5.3.15"
   dependencies:
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-promise": "npm:^5.3.15"
   peerDependencies:
     react: ^18
-  checksum: 10/28a3c775492d76b43b2fa4b6fd3afd7e217091b4456a50c78dfc67957055b5ff729d8e3637ab9b16aec1a616afc0b96e8face4033295ef22dee1e47b738c0506
+  checksum: 10/a6b285703ccf8a75198c83362a6792d67cdb4d65074cb0bfc30a113e418c5fe453cb4d349f48586e074bacc345b2ab550b8a0bd5dc1a9d9d12ba85b159490d64
   languageName: node
   linkType: hard
 
-"@xylabs/react-button@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-button@npm:5.3.14"
+"@xylabs/react-button@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-button@npm:5.3.15"
   dependencies:
-    "@xylabs/react-pixel": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
-    react-router-dom: "npm:^7.0.2"
+    "@xylabs/react-pixel": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
+    react-router-dom: "npm:^7.1.1"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/9f0ade23e22b0fcf626791b202c0c26ac8084848c653f226db2c4174009403ac414fc898b91e906f2161aa13897846051b56ac33157d308a0e78873c1fe5c04f
+  checksum: 10/12bebbdfe80bbfd55f86fe4e673f1d3b8674d20ddef6c9601acca17db6ab9d265a90bd21034020b42096f713dfa39d6dc510d28dfe20342dac0f7b2e9b5ace2b
   languageName: node
   linkType: hard
 
-"@xylabs/react-crypto@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-crypto@npm:5.3.14"
+"@xylabs/react-crypto@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-crypto@npm:5.3.15"
   dependencies:
     "@emotion/react": "npm:^11.14.0"
     "@emotion/styled": "npm:^11.14.0"
     "@metamask/providers": "npm:^18.3.1"
-    "@xylabs/assert": "npm:^4.4.25"
-    "@xylabs/eth-address": "npm:^4.4.25"
-    "@xylabs/forget": "npm:^4.4.25"
-    "@xylabs/promise": "npm:^4.4.25"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-identicon": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/assert": "npm:^4.4.34"
+    "@xylabs/eth-address": "npm:^4.4.34"
+    "@xylabs/forget": "npm:^4.4.34"
+    "@xylabs/promise": "npm:^4.4.34"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-identicon": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     ethers: "npm:^6.13.4"
     lru-cache: "npm:^11.0.2"
-    react-router-dom: "npm:^7.0.2"
-    viem: "npm:^2.21.55"
+    react-router-dom: "npm:^7.1.1"
+    viem: "npm:^2.22.1"
     webextension-polyfill: "npm:^0.12.0"
   peerDependencies:
     "@mui/icons-material": ^6
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/23c13ee0730aebe16b099445003e3bac91d31ddce1ed99392b5a266b4e28ce7ad046e8deddf55e3264b296ad96d29e8908ea92b4fd83dc6e20727a6c7ed07b35
+  checksum: 10/93831a6efee9750c4071b3fadfec36698497786c342894a345428abdd758cd809e667af6521ac64aa398934db32102dd14e4916a3a240d3a8a9a123dd13dc6bf
   languageName: node
   linkType: hard
 
-"@xylabs/react-dialogs@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-dialogs@npm:5.3.14"
+"@xylabs/react-dialogs@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-dialogs@npm:5.3.15"
   dependencies:
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     axios: "npm:^1.7.9"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/9acba920b1d16ce4d6d8cd600e62bda200b197a1a7407e1d8e0eed8fbb3e89b1660a06c93ffa6dbd95f338fbb04b23ad1fd36c2dbdb7e7eafdbc1d0a60062c49
+  checksum: 10/027a0176a752f4d7b76b4b053947b65c70ba4b6063af044a46e3b0c9be25a6a6c7023477fd32b1768334fb842ca3daf06913fc20cfdb77ccba54fb5f99613d1d
   languageName: node
   linkType: hard
 
-"@xylabs/react-error@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-error@npm:5.3.14"
+"@xylabs/react-error@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-error@npm:5.3.15"
   dependencies:
-    "@rollbar/react": "npm:0.12.0-beta"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     prop-types: "npm:^15.8.1"
   peerDependencies:
     "@mui/icons-material": ^6
@@ -4825,58 +4825,58 @@ __metadata:
   peerDependenciesMeta:
     rollbar:
       optional: true
-  checksum: 10/52824eda4ec8b0352cff9fab40f9010edad324203a00eb9c5b5cd3af70f0daf1db7f2ff5770500a55ec37f469ed96fbdcb4c07467607d1e747f1eac0c24d74e7
+  checksum: 10/d75ab331e507f5e8caa9d3665fbb25d6c2921cb406949092e385b673221fa0fdb3598dba5ffd0167d296e7a743dff2dd5f68e6baf42fcf8a25154c8922101fbf
   languageName: node
   linkType: hard
 
-"@xylabs/react-flexbox@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-flexbox@npm:5.3.14"
+"@xylabs/react-flexbox@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-flexbox@npm:5.3.15"
   dependencies:
-    "@xylabs/delay": "npm:^4.4.25"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/delay": "npm:^4.4.34"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/cb09d6327d172e39eef91de8508fb2de4217642dd72d4d7c91bc84c4c9d0ccf7aba140c8b474fc6b6e0e4d8679dd9b96b097b6cee3a8209c926b072b64279a28
+  checksum: 10/164579e9bae265f0640b533f553f76f297c9f0b75040a0db467e57362d9b54d1f34c24cd6e076200a19314c65ea10aa06cd7af274697c5d0bd7acb5a569a6469
   languageName: node
   linkType: hard
 
-"@xylabs/react-hooks@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-hooks@npm:5.3.14"
+"@xylabs/react-hooks@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-hooks@npm:5.3.15"
   peerDependencies:
     "@mui/icons-material": ^6
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
     react-router-dom: ^7
-  checksum: 10/3bd760d3dbe4a51181f3942fa257ab960b41e4afa0c2e4ad10cb2cc9c8d46d2ecc62aa4f7a59309d28071e6cd011e0bbe87fe7d1a8db5feea840a4fe303fea3a
+  checksum: 10/fbd5fb4129aa45498ce0f52d6e6e483f7d1f2616c8d3dd623edfd4b9769412eb6ea8b2f2be8999a33b57c6a8fb52e032467c57769a505912a2e2725e3833fc50
   languageName: node
   linkType: hard
 
-"@xylabs/react-identicon@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-identicon@npm:5.3.14"
+"@xylabs/react-identicon@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-identicon@npm:5.3.15"
   dependencies:
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     md5: "npm:^2.3.0"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/6805b5259ffb23b01d62ac258dae059c3245a56f07956b057f4e7f2e34de328a3641d2a3375b21fadadfa6f5857eb3eae2397a0e55d4ef79b8ff360cbf4e2ed4
+  checksum: 10/11d4df639c04a2f4f72923abb43377f27bab70b3db4224da26862077e60d0a35e3dc5619a59c4ddf45ebf935fb239c210f8f0f1edfcc8e1456c73f8cc55d4533
   languageName: node
   linkType: hard
 
-"@xylabs/react-invertible-theme@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-invertible-theme@npm:5.3.14"
+"@xylabs/react-invertible-theme@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-invertible-theme@npm:5.3.15"
   dependencies:
-    "@xylabs/react-animation": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-animation": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     deepmerge: "npm:^4.3.1"
     rfdc: "npm:^1.4.1"
   peerDependencies:
@@ -4884,46 +4884,46 @@ __metadata:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/8f7e5c68ced026df6af8e333f7441e477c438a434a5289ea8c6682cc389cce857f960bc413e06810841294cca2b974d04899f0969db6b70188e5aff5e256c9db
+  checksum: 10/09b72bdea397dd8bce9c9295e5322fafcb608b7621935255b7a2d5d33429d99ddee83d76782e566855e900f770c0d75555ad7bac8c88526a74d043b2924ae7b8
   languageName: node
   linkType: hard
 
-"@xylabs/react-link@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-link@npm:5.3.14"
+"@xylabs/react-link@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-link@npm:5.3.15"
   dependencies:
-    "@xylabs/react-pixel": "npm:^5.3.14"
-    react-router-dom: "npm:^7.0.2"
+    "@xylabs/react-pixel": "npm:^5.3.15"
+    react-router-dom: "npm:^7.1.1"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/dd554f51e2308b1518bf47bf565239b03875a6ac533dc085c6efe5b0b23ddc29dfb2a2253ef868f7dae0bd47267895563e84450ba1a5f96f6bd43b0c55f0072c
+  checksum: 10/7d7975ede50bf86eaddaffc976508b20bead15e14fe69d91e8861774c56f8b45e11640fac6dcd2f28b44bb55efa52e2db7bd8eea3d64e96275d347d54f4a311d
   languageName: node
   linkType: hard
 
-"@xylabs/react-number-status@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-number-status@npm:5.3.14"
+"@xylabs/react-number-status@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-number-status@npm:5.3.15"
   dependencies:
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     numeral: "npm:^2.0.6"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/d881814d5c5784ad3dfdd7465ec3ca02ddbd9256f8f8d0c4c6c1cfa64f0abca91afec7780c3d855d16bdf8b82cc2366dbdb847fdb596223b9b705d874c1b310b
+  checksum: 10/4c4abe79fcd3b676030482816f9a43d37a1052d64dd3e3777c34c30ab1caf9f021f2ee1fe91e155e5838187424c0f9db4e5358ec67ed887dd8d89f83da1f8a01
   languageName: node
   linkType: hard
 
-"@xylabs/react-pixel@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-pixel@npm:5.3.14"
+"@xylabs/react-pixel@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-pixel@npm:5.3.15"
   dependencies:
-    "@xylabs/assert": "npm:^4.4.25"
-    "@xylabs/delay": "npm:^4.4.25"
-    "@xylabs/object": "npm:^4.4.25"
+    "@xylabs/assert": "npm:^4.4.34"
+    "@xylabs/delay": "npm:^4.4.34"
+    "@xylabs/object": "npm:^4.4.34"
     "@xylabs/pixel": "npm:^2.0.6"
     query-string: "npm:^9.1.1"
   peerDependencies:
@@ -4932,100 +4932,100 @@ __metadata:
   peerDependenciesMeta:
     mixpanel-browser:
       optional: true
-  checksum: 10/7f12ac63555a75cac8839393b04b334a6abcb28c361acea3f6b4dc4d5ce474e24c58e66b4d803dd96d92cc86dad539bca85b16365f8f9bb2d1f638634e6950a0
+  checksum: 10/97d9aed0da7e04b9cbda38034865dfb2556f62bfda23265ddeda47431e95143b40f517efc9d6f180c11df6c9cb4598b830d536b10d606429f33534491d2db195
   languageName: node
   linkType: hard
 
-"@xylabs/react-promise@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-promise@npm:5.3.14"
+"@xylabs/react-promise@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-promise@npm:5.3.15"
   dependencies:
     async-mutex: "npm:^0.5.0"
   peerDependencies:
     react: ^18
-  checksum: 10/4b37b66a2e0c7e3e77f5d9ca735a8247534fe997781da1913a97d765364a727a84fa3b266c3baa94b11c18aebb81ed883a9ba32f77df78ba6cd1956444914922
+  checksum: 10/2e64d0699e9a0c4495a2394b2c5135ffde21db332bfe957d4c4613f42e391984637b56c476d2d546b12ea8c1f64170089d67e699706f33a5ca60313c034beb70
   languageName: node
   linkType: hard
 
-"@xylabs/react-quick-tip-button@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-quick-tip-button@npm:5.3.14"
+"@xylabs/react-quick-tip-button@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-quick-tip-button@npm:5.3.15"
   dependencies:
-    "@xylabs/react-dialogs": "npm:^5.3.14"
+    "@xylabs/react-dialogs": "npm:^5.3.15"
   peerDependencies:
     "@mui/icons-material": ^6
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/b95167a17c4d0b5804f16cfe15d71a3f352c81a665199c78c07f7864bfa91cca8baba26f65a723e5ec380dd64911d7bdfc0d7e9de9ef5ca9b26dbf630574a372
+  checksum: 10/a897e01b87d1969656a06a77aa6a70c9b36c61961eaea80f2d482afbbd321797781d7eef019e90758066fd691a21c18c7ae4317da9e0429aba6cfda9c768a353
   languageName: node
   linkType: hard
 
-"@xylabs/react-select@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-select@npm:5.3.14"
+"@xylabs/react-select@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-select@npm:5.3.15"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/9ad5eb91aeb6ae0a10c592eb5d529b55b563ba3f06fb666658d6c5b8e6883692d192cadd9e3779d0b1189f07629bcb4bf636e0dff3348a9ec5110646b2d16cec
+  checksum: 10/889f4885715b4ad77c9ee6f4fd5d2d67810b0de3b44478dfafc085140dcc2f9052cc2a7afad0debb08e9714270cb8f4331b47795d2dd89b62e6a3120858001d8
   languageName: node
   linkType: hard
 
-"@xylabs/react-shared@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-shared@npm:5.3.14"
+"@xylabs/react-shared@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-shared@npm:5.3.15"
   dependencies:
-    "@xylabs/api": "npm:^4.4.25"
-    "@xylabs/log": "npm:^4.4.25"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
+    "@xylabs/api": "npm:^4.4.34"
+    "@xylabs/log": "npm:^4.4.34"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/10e5c74ab8740585fa27e3a3b0a5aa5306a2fc99264711d836f57a9ae88d95b73d2e09f70f93b7f8fc24e6cce6cf7bf5449667cf072585f3878aa136cadd7482
+  checksum: 10/d648cb319fc192f6c76641b56b813e05019a8a02694204367a6a286a0581e6c2d96139a77e898d07957051b6fd314e3170c8863c6d8968f070cc5525a10f7529
   languageName: node
   linkType: hard
 
-"@xylabs/react-theme@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-theme@npm:5.3.14"
+"@xylabs/react-theme@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-theme@npm:5.3.15"
   dependencies:
-    "@mui/icons-material": "npm:^6.2.1"
+    "@mui/icons-material": "npm:^6.3.0"
     "@react-spring/web": "npm:^9.7.5"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-invertible-theme": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-invertible-theme": "npm:^5.3.15"
     react-dom: "npm:^18.3.1"
-    react-router-dom: "npm:^7.0.2"
+    react-router-dom: "npm:^7.1.1"
     recharts: "npm:^2.15.0"
   peerDependencies:
     "@mui/material": ^6
     react: ^18
     react-dom: ^18
-  checksum: 10/7389fce1e8127caba5aae8446c9c1be7dcc5f09cc14ade39a0a09d806e44c77bb5b58ff4be81b6e6dca8021cd3b664099a036a0d0945dbba063f907e7f0a4d44
+  checksum: 10/756801236a808a3bce5ddb4499de67df5c6466e5345d629ff0ca6f5dd8b0ff55e3cb0a421b76b5465248f6bfff57a8dd82e003abc877d1766a85e39a48e6c02b
   languageName: node
   linkType: hard
 
-"@xylabs/react-webapp@npm:^5.3.14":
-  version: 5.3.14
-  resolution: "@xylabs/react-webapp@npm:5.3.14"
+"@xylabs/react-webapp@npm:^5.3.15":
+  version: 5.3.15
+  resolution: "@xylabs/react-webapp@npm:5.3.15"
   dependencies:
-    "@mui/icons-material": "npm:^6.2.1"
-    "@mui/material": "npm:^6.2.1"
-    "@mui/styles": "npm:^6.2.1"
-    "@xylabs/react-app-settings": "npm:^5.3.14"
-    "@xylabs/react-appbar": "npm:^5.3.14"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-error": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-pixel": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@mui/icons-material": "npm:^6.3.0"
+    "@mui/material": "npm:^6.3.0"
+    "@mui/styles": "npm:^6.3.0"
+    "@xylabs/react-app-settings": "npm:^5.3.15"
+    "@xylabs/react-appbar": "npm:^5.3.15"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-error": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-pixel": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     react-helmet: "npm:^6.1.0"
-    react-router-dom: "npm:^7.0.2"
-  checksum: 10/60377d229148805e425abf234a5dee59bf334b413171375bb646be2662e5cb8ec2739a461eff4aec9c1a3fd5d9a8f1e19ca52f55263d4a848e9f332182428a2c
+    react-router-dom: "npm:^7.1.1"
+  checksum: 10/2edc26e543bfede1b6de4266a754c30f6190a9df5734fbc8df6b43ce5bb18d2964178abc7eee60356958e7a72c39c97af8272ec0b57053f22bf0999c84b23f16
   languageName: node
   linkType: hard
 
@@ -6859,8 +6859,8 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     react: "npm:^18.3.1"
@@ -6886,13 +6886,13 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-error": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-quick-tip-button": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-error": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-quick-tip-button": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/archivist-model": "npm:^3.6.9"
@@ -6968,9 +6968,9 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-identicon": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-identicon": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-event": "workspace:^"
@@ -7023,7 +7023,7 @@ __metadata:
   dependencies:
     "@mui/material": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/advertising-payload-plugins": "npm:^3.2.7"
@@ -7051,8 +7051,8 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/decimal-precision": "npm:^4.4.34"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-quick-tip-button": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-quick-tip-button": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/crypto-asset-payload-plugin": "npm:^3.2.7"
@@ -7111,11 +7111,11 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/assert": "npm:^4.4.34"
     "@xylabs/object": "npm:^4.4.34"
-    "@xylabs/react-appbar": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-link": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/react-appbar": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-link": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-network": "workspace:^"
@@ -7146,10 +7146,10 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/exists": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/account": "npm:^3.6.9"
@@ -7193,10 +7193,10 @@ __metadata:
     "@xylabs/eth-address": "npm:^4.4.34"
     "@xylabs/exists": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/boundwitness-model": "npm:^3.6.9"
@@ -7243,11 +7243,11 @@ __metadata:
     "@xylabs/arraybuffer": "npm:^4.4.34"
     "@xylabs/eth-address": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-identicon": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-quick-tip-button": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-identicon": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-quick-tip-button": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/boundwitness-model": "npm:^3.6.9"
@@ -7289,7 +7289,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-shared": "workspace:^"
@@ -7348,8 +7348,8 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-crypto": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-crypto": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-table": "workspace:^"
@@ -7378,7 +7378,7 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/decimal-precision": "npm:^4.4.34"
     "@xylabs/object": "npm:^4.4.34"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
@@ -7410,7 +7410,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/coingecko-crypto-market-payload-plugin": "npm:^3.2.7"
@@ -7499,7 +7499,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     react: "npm:^18.3.1"
@@ -7522,8 +7522,8 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
@@ -7558,12 +7558,12 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/delay": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-error": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-select": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-error": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-select": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/huri": "npm:^3.6.9"
@@ -7594,9 +7594,9 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@rollbar/react": "npm:^0.12.0-beta"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-error": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-error": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
@@ -7630,7 +7630,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/blocknative-ethereum-gas-payload-plugin": "npm:^3.2.7"
@@ -7683,7 +7683,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "npm:^3.2.7"
@@ -7717,7 +7717,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/ethers-ethereum-gas-payload-plugin": "npm:^3.2.7"
@@ -7751,7 +7751,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": "npm:^3.2.7"
@@ -7785,7 +7785,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "npm:^3.2.7"
@@ -7850,8 +7850,8 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-quick-tip-button": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-quick-tip-button": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/gas-price-payload-plugin": "npm:^3.2.7"
@@ -7897,8 +7897,8 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/assert": "npm:^4.4.34"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-link": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-link": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     react: "npm:^18.3.1"
@@ -7925,9 +7925,9 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/assert": "npm:^4.4.34"
     "@xylabs/object": "npm:^4.4.34"
-    "@xylabs/react-error": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-error": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/archivist-storage": "npm:^3.6.9"
@@ -8008,7 +8008,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-card": "workspace:^"
@@ -8037,8 +8037,8 @@ __metadata:
     "@xylabs/exists": "npm:^4.4.34"
     "@xylabs/forget": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/retry": "npm:^4.4.34"
     "@xylabs/timer": "npm:^4.4.34"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
@@ -8088,8 +8088,8 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-error": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-error": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
@@ -8124,7 +8124,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/api": "npm:^3.6.9"
@@ -8159,7 +8159,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
@@ -8191,7 +8191,7 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@scure/bip39": "npm:^1.5.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/account": "npm:^3.6.9"
@@ -8257,9 +8257,9 @@ __metadata:
     "@xylabs/delay": "npm:^4.4.34"
     "@xylabs/exists": "npm:^4.4.34"
     "@xylabs/forget": "npm:^4.4.34"
-    "@xylabs/react-app-settings": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/react-app-settings": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-archivist": "workspace:^"
@@ -8288,11 +8288,11 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/eth-address": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-crypto": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-crypto": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/archivist": "npm:^3.6.9"
@@ -8358,9 +8358,9 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/assert": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-select": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-select": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/network": "npm:^3.6.9"
@@ -8387,7 +8387,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/crypto-nft-payload-plugin": "npm:^3.2.7"
@@ -8436,7 +8436,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@xylabs/forget": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/module-model": "npm:^3.6.9"
@@ -8470,10 +8470,10 @@ __metadata:
     "@types/react-dom": "npm:^18.3.5"
     "@xylabs/exists": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-identicon": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-identicon": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/account-model": "npm:^3.6.9"
@@ -8529,9 +8529,9 @@ __metadata:
     "@xylabs/exists": "npm:^4.4.34"
     "@xylabs/logger": "npm:^4.4.34"
     "@xylabs/object": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/module-abstract": "npm:^3.6.9"
@@ -8561,7 +8561,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     date-fns: "npm:^4.1.0"
@@ -8587,7 +8587,7 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/archivist-memory": "npm:^3.6.9"
@@ -8618,10 +8618,10 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/forget": "npm:^4.4.34"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-quick-tip-button": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-quick-tip-button": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/hash": "npm:^3.6.9"
@@ -8656,9 +8656,9 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@xylabs/exists": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-error": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-error": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xyo-network/diviner-huri": "npm:^3.6.9"
     "@xyo-network/diviner-payload-abstract": "npm:^3.6.9"
@@ -8685,7 +8685,7 @@ __metadata:
     "@mui/icons-material": "npm:^6.3.0"
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xyo-network/diviner-huri": "npm:^3.6.9"
     "@xyo-network/diviner-model": "npm:^3.6.9"
@@ -8713,7 +8713,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@xylabs/assert": "npm:^4.4.34"
-    "@xylabs/react-hooks": "npm:^5.3.14"
+    "@xylabs/react-hooks": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
     "@xyo-network/payload-plugin": "npm:^3.6.9"
@@ -8745,8 +8745,8 @@ __metadata:
     "@mui/icons-material": "npm:^6.3.0"
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-identicon": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-identicon": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
     "@xyo-network/react-payload-details": "workspace:^"
@@ -8777,10 +8777,10 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@textea/json-viewer": "npm:^4.0.1"
     "@xylabs/object": "npm:^4.4.34"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-invertible-theme": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-invertible-theme": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/payload-builder": "npm:^3.6.9"
@@ -8813,9 +8813,9 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/delay": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/hash": "npm:^3.6.9"
@@ -8964,7 +8964,7 @@ __metadata:
     "@mui/icons-material": "npm:^6.3.0"
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
     "@xyo-network/react-payload-details": "workspace:^"
@@ -8995,10 +8995,10 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/delay": "npm:^4.4.34"
     "@xylabs/forget": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xyo-network/account": "npm:^3.6.9"
     "@xyo-network/archivist-model": "npm:^3.6.9"
@@ -9039,8 +9039,8 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/diviner-forecasting-model": "npm:^3.6.9"
@@ -9073,10 +9073,10 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-identicon": "npm:^5.3.14"
-    "@xylabs/react-quick-tip-button": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-identicon": "npm:^5.3.15"
+    "@xylabs/react-quick-tip-button": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-shared": "workspace:^"
@@ -9102,7 +9102,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/bowser-system-info-plugin": "npm:^3.2.7"
@@ -9131,7 +9131,7 @@ __metadata:
     "@mui/icons-material": "npm:^6.3.0"
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xyo-network/payload-model": "npm:^3.6.9"
     "@xyo-network/react-payload-details": "workspace:^"
@@ -9163,12 +9163,12 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/exists": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-link": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-select": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-link": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-select": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/bridge-http": "npm:^3.6.9"
@@ -9280,10 +9280,10 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/exists": "npm:^4.4.34"
     "@xylabs/object": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/account": "npm:^3.6.9"
@@ -9333,10 +9333,10 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@types/react-helmet": "npm:^6.1.11"
     "@xylabs/forget": "npm:^4.4.34"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-error": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-link": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-error": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-link": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -9363,13 +9363,13 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-appbar": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-link": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-quick-tip-button": "npm:^5.3.14"
+    "@xylabs/react-appbar": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-link": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-quick-tip-button": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/payload-builder": "npm:^3.6.9"
@@ -9399,10 +9399,10 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/assert": "npm:^4.4.34"
     "@xylabs/hex": "npm:^4.4.34"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-shared": "npm:^5.3.14"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-shared": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/account-model": "npm:^3.6.9"
@@ -9470,7 +9470,7 @@ __metadata:
     "@mui/material": "npm:^6.3.0"
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
-    "@xylabs/react-hooks": "npm:^5.3.14"
+    "@xylabs/react-hooks": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-shared": "workspace:^"
@@ -9516,8 +9516,8 @@ __metadata:
     "@mui/x-tree-view": "npm:^7.23.2"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/assert": "npm:^4.4.34"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-payload-raw-info": "workspace:^"
@@ -9544,7 +9544,7 @@ __metadata:
     "@xylabs/object": "npm:^4.4.34"
     "@xylabs/pixel": "npm:^2.0.6"
     "@xylabs/promise": "npm:^4.4.34"
-    "@xylabs/react-pixel": "npm:^5.3.14"
+    "@xylabs/react-pixel": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     mixpanel-browser: "npm:^2.58.0"
@@ -9600,15 +9600,15 @@ __metadata:
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/eth-address": "npm:^4.4.34"
     "@xylabs/object": "npm:^4.4.34"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-crypto": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-hooks": "npm:^5.3.14"
-    "@xylabs/react-identicon": "npm:^5.3.14"
-    "@xylabs/react-number-status": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
-    "@xylabs/react-quick-tip-button": "npm:^5.3.14"
-    "@xylabs/react-select": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-crypto": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-hooks": "npm:^5.3.15"
+    "@xylabs/react-identicon": "npm:^5.3.15"
+    "@xylabs/react-number-status": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
+    "@xylabs/react-quick-tip-button": "npm:^5.3.15"
+    "@xylabs/react-select": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/account": "npm:^3.6.9"
@@ -9643,13 +9643,13 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@types/react-helmet": "npm:^6.1.11"
-    "@xylabs/react-appbar": "npm:^5.3.14"
-    "@xylabs/react-async-effect": "npm:^5.3.14"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-link": "npm:^5.3.14"
-    "@xylabs/react-pixel": "npm:^5.3.14"
-    "@xylabs/react-webapp": "npm:^5.3.14"
+    "@xylabs/react-appbar": "npm:^5.3.15"
+    "@xylabs/react-async-effect": "npm:^5.3.15"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-link": "npm:^5.3.15"
+    "@xylabs/react-pixel": "npm:^5.3.15"
+    "@xylabs/react-webapp": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-appbar": "workspace:^"
@@ -9675,9 +9675,9 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/exists": "npm:^4.4.34"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-promise": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-promise": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/id-plugin": "npm:^3.2.7"
@@ -9711,10 +9711,10 @@ __metadata:
     "@mui/styles": "npm:^6.3.0"
     "@storybook/react": "npm:^8.4.7"
     "@xylabs/pixel": "npm:^2.0.6"
-    "@xylabs/react-button": "npm:^5.3.14"
-    "@xylabs/react-flexbox": "npm:^5.3.14"
-    "@xylabs/react-link": "npm:^5.3.14"
-    "@xylabs/react-pixel": "npm:^5.3.14"
+    "@xylabs/react-button": "npm:^5.3.15"
+    "@xylabs/react-flexbox": "npm:^5.3.15"
+    "@xylabs/react-link": "npm:^5.3.15"
+    "@xylabs/react-pixel": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/xns-record-payloadset-plugins": "npm:^3.2.7"
@@ -9809,7 +9809,7 @@ __metadata:
     "@xylabs/eslint-config-flat": "npm:^4.2.6"
     "@xylabs/eslint-config-react-flat": "npm:^4.2.6"
     "@xylabs/pixel": "npm:^2.0.6"
-    "@xylabs/react-theme": "npm:^5.3.14"
+    "@xylabs/react-theme": "npm:^5.3.15"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/react-modules": "workspace:^"
@@ -16586,9 +16586,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ox@npm:0.1.2":
-  version: 0.1.2
-  resolution: "ox@npm:0.1.2"
+"ox@npm:0.6.0":
+  version: 0.6.0
+  resolution: "ox@npm:0.6.0"
   dependencies:
     "@adraffy/ens-normalize": "npm:^1.10.1"
     "@noble/curves": "npm:^1.6.0"
@@ -16602,7 +16602,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/cba00f13289599ff03cee3dbc19167c1d0f01829379d119f962b4e951ee2bf0d14491c7a45974e6a2a745117b13b22e9e4131d285e1f5247ea4e1cbc43c5c3d8
+  checksum: 10/b089b2d09035def8d3f6d17ab1dd792fd7f1a4d8e008aa96bc50a8cef24ddb8e608ec828f4d83cf959b080a7c854921449e4d061f45f6dee944f48bd0971e60f
   languageName: node
   linkType: hard
 
@@ -17326,7 +17326,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^7.0.2, react-router-dom@npm:^7.1.1":
+"react-router-dom@npm:^7.1.1":
   version: 7.1.1
   resolution: "react-router-dom@npm:7.1.1"
   dependencies:
@@ -20768,9 +20768,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"viem@npm:^2.21.55":
-  version: 2.21.55
-  resolution: "viem@npm:2.21.55"
+"viem@npm:^2.22.1":
+  version: 2.22.1
+  resolution: "viem@npm:2.22.1"
   dependencies:
     "@noble/curves": "npm:1.7.0"
     "@noble/hashes": "npm:1.6.1"
@@ -20778,7 +20778,7 @@ __metadata:
     "@scure/bip39": "npm:1.5.0"
     abitype: "npm:1.0.7"
     isows: "npm:1.0.6"
-    ox: "npm:0.1.2"
+    ox: "npm:0.6.0"
     webauthn-p256: "npm:0.0.10"
     ws: "npm:8.18.0"
   peerDependencies:
@@ -20786,7 +20786,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/4fbcac7d9c909b3807a49a271343f60d70f0f5c42dabc7971de3bed3f619a7bdfe6e9820457477131b0c4c59e4c8de8f36d562b0642534bb35fd1b4961ba5775
+  checksum: 10/4a6b101ee98b86b55406c81ca44703b9622b635e6ce441dc21f7dcf26accf2a6c96530556d38f101c629a24a5aa38d6fbfb0ec37601da9d0a30969cf96b48559
   languageName: node
   linkType: hard
 
