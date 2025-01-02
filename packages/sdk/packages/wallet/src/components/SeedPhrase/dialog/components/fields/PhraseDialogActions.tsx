@@ -9,11 +9,11 @@ export const PhraseDialogActions = () => {
   } = useSeedPhrase()
   return (
     <DialogActions sx={{ justifyContent: 'center' }}>
-      <Button variant="outlined" onClick={handleClear}>
-        Clear
-      </Button>
       <Button disabled={overwriteWarning} variant="contained" onClick={handleGenerate}>
         Generate
+      </Button>
+      <Button variant="outlined" onClick={handleClear}>
+        Clear
       </Button>
     </DialogActions>
   )
