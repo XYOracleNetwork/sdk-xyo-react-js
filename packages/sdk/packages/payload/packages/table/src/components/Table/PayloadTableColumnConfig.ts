@@ -1,17 +1,10 @@
+import type { TableColumnConfig, TableColumnNames } from './lib/index.ts'
+
+export type PayloadTableColumnConfig = TableColumnConfig<PayloadTableColumnSlug>
+
 export type PayloadTableColumnSlug = 'hash' | 'schema' | 'valid'
 
-export interface PayloadTableColumnConfig<T = PayloadTableColumnSlug> {
-  xs?: T[]
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  sm?: T[]
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  md?: T[]
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  lg?: T[]
-  xl?: T[]
-}
-
-export const payloadColumnNames: Record<PayloadTableColumnSlug, string> = {
+export const payloadColumnNames: TableColumnNames<PayloadTableColumnSlug> = {
   hash: 'Hash',
   schema: 'Schema',
   valid: 'Valid',

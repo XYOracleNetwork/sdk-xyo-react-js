@@ -3,7 +3,7 @@ import type { Hash } from '@xylabs/hex'
 import type { Payload } from '@xyo-network/payload-model'
 import type { ComponentType, PropsWithChildren } from 'react'
 
-export interface PayloadTableBodyProps extends TableBodyProps, PropsWithChildren {
+export interface PayloadTableBodyProps<TPayload extends Payload = Payload> extends TableBodyProps, PropsWithChildren {
   NoResultRowComponent?: ComponentType<TableRowProps>
   archive?: string
   emptyRows?: number
@@ -12,5 +12,5 @@ export interface PayloadTableBodyProps extends TableBodyProps, PropsWithChildren
   noResults?: boolean
   onHashClick?: (value: Hash) => void
   onRowClick?: (value: Payload) => void
-  payloads?: Payload[]
+  payloads?: TPayload[]
 }
