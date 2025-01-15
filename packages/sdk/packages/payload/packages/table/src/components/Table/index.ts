@@ -1,3 +1,4 @@
+export * from './lib/index.ts'
 export * from './PayloadTableColumnConfig.ts'
 export * from './Table.tsx'
 export * from './TablePagination.tsx'
