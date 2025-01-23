@@ -1,8 +1,6 @@
-export type TableColumnSlugs = string
-
 export type TableColumnNames<T extends string> = Record<T, string>
 
-export interface TableColumnConfig<T extends TableColumnSlugs> {
+export interface TableColumnConfig<T> {
   xs?: T[]
   // eslint-disable-next-line @typescript-eslint/member-ordering
   sm?: T[]
