@@ -7,6 +7,9 @@ import React, { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { PayloadTable } from './Table.tsx'
+import { PayloadTableBody } from './TableBody.tsx'
+import { PayloadTableFooter } from './TableFooter.tsx'
+import { PayloadTableHead } from './TableHead.tsx'
 
 const StorybookEntry = {
   argTypes: {},
@@ -51,7 +54,12 @@ const payloads: Payload[] = [
 ]
 
 const WithData = Template.bind({})
-WithData.args = { payloads }
+WithData.args = {
+  payloads,
+  PayloadTableBodyComponent: PayloadTableBody,
+  PayloadTableHeadComponent: PayloadTableHead,
+  PayloadTableFooterComponent: PayloadTableFooter,
+}
 
 const WithOutStickyHeaderFooter = Template.bind({})
 WithOutStickyHeaderFooter.args = {
