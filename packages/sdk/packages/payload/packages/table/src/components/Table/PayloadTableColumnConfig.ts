@@ -2,7 +2,7 @@ import type { TableColumnConfig, TableColumnNames } from './lib/index.ts'
 
 export type PayloadTableColumnConfig = TableColumnConfig<PayloadTableColumnSlug>
 
-export type PayloadTableColumnSlug = 'hash' | 'schema' | 'valid'
+export type PayloadTableColumnSlug = 'hash' | 'schema' | 'valid' | string
 
 export const payloadColumnNames: TableColumnNames<PayloadTableColumnSlug> = {
   hash: 'Hash',
