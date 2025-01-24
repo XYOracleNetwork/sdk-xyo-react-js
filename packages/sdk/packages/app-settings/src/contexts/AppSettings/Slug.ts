@@ -1,5 +1,5 @@
-import type { EnumValue } from '@xylabs/object'
-import { Enum } from '@xylabs/object'
+import type { EnumValue } from '@xylabs/enum'
+import { Enum } from '@xylabs/enum'
 
 /** @deprecated import from @xylabs/react-app-settings instead */
 export const AppSettingSlug = Enum({

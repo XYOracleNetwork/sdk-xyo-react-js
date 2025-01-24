@@ -1,5 +1,5 @@
-import type { EnumValue } from '@xylabs/object'
-import { Enum } from '@xylabs/object'
+import type { EnumValue } from '@xylabs/enum'
+import { Enum } from '@xylabs/enum'
 import type { ArchivistModule } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { SentinelModule } from '@xyo-network/sentinel-model'

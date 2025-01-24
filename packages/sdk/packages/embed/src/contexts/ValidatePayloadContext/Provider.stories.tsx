@@ -13,6 +13,7 @@ import type { ValidatePayloadProviderProps } from './Provider.tsx'
 import { ValidatePayloadProvider } from './Provider.tsx'
 import { useValidatePayload } from './use.ts'
 
+// eslint-disable-next-line @eslint-react/no-unstable-context-value
 const EmbedDecorator: Decorator<ValidatePayloadProviderPropsEx> = (Story, { args }) => {
   const {
     xyoEmbedPluginContext, resolvePayloadContext, ...props
