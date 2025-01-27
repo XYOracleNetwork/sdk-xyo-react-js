@@ -1,0 +1,75 @@
+{
+  "name": "@xyo-network/react-debug",
+  "version": "4.3.11",
+  "description": "Common React library for all XYO projects that use React",
+  "keywords": [
+    "xyo",
+    "utility",
+    "typescript",
+    "react"
+  ],
+  "homepage": "https://xyo.network",
+  "bugs": {
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js/issues",
+    "email": "support@xyo.network"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XYOracleNetwork/sdk-xyo-react-js.git"
+  },
+  "license": "LGPL-3.0-only",
+  "author": {
+    "name": "XYO Development Team",
+    "email": "support@xyo.network",
+    "url": "https://xyo.network"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "browser": {
+        "types": "./dist/browser/index.d.ts",
+        "default": "./dist/browser/index.mjs"
+      },
+      "types": "./dist/browser/index.d.ts",
+      "default": "./dist/browser/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "dist/browser/index.mjs",
+  "types": "dist/browser/index.d.ts",
+  "scripts": {
+    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\"",
+    "lint-pkg": "npmPkgJsonLint ."
+  },
+  "dependencies": {
+    "@xylabs/react-flexbox": "^5.3.18",
+    "@xyo-network/boundwitness-builder": "^3.6.11",
+    "@xyo-network/boundwitness-validator": "^3.6.11",
+    "@xyo-network/payload-builder": "^3.6.11",
+    "@xyo-network/payload-model": "^3.6.11"
+  },
+  "devDependencies": {
+    "@mui/icons-material": "^6.4.1",
+    "@mui/material": "^6.4.1",
+    "@mui/styles": "^6.4.1",
+    "@storybook/react": "^8.5.1",
+    "@xylabs/ts-scripts-yarn3": "^4.2.6",
+    "@xylabs/tsconfig-react": "^4.2.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "storybook": "^8.5.1",
+    "typescript": "^5.7.3"
+  },
+  "peerDependencies": {
+    "@mui/icons-material": "^6",
+    "@mui/material": "^6",
+    "@mui/styles": "^6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "docs": "dist/docs.json"
+}
