@@ -1,7 +1,7 @@
 // Inspired from https://github.com/bsonntag/react-use-promise
 
-import type { EnumValue } from '@xylabs/object'
-import { Enum } from '@xylabs/object'
+import type { EnumValue } from '@xylabs/enum'
+import { Enum } from '@xylabs/enum'
 import { Mutex } from 'async-mutex'
 import type { DependencyList } from 'react'
 import {
