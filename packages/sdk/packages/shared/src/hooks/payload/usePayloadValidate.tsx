@@ -4,7 +4,7 @@ import type { Payload } from '@xyo-network/payload-model'
 import { isAnyPayload } from '@xyo-network/payload-model'
 import { useMemo } from 'react'
 
-export type ValidatedResponse = { error?: Error; payload?: Payload }
+import type { ValidatedResponse } from './types/index.ts'
 
 export const usePayloadValidate = <TPayload extends Payload>(input?: string): ValidatedResponse => {
   return useMemo(() => {
