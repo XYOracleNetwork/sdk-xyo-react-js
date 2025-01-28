@@ -61,7 +61,7 @@ const withThemeProvider: Decorator = (Story, context) => {
 
   const darkMode = useDarkMode()
   const themeOptions = getTheme(context.globals.theme)
-  const theme = createTheme(themeOptions)
+  const theme = themeOptions
 
   return (
     <InvertibleMuiThemeProvider theme={theme} defaultMode={darkMode ? 'dark' : 'light'}>
