@@ -3482,7 +3482,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:8.5.2, @storybook/react@npm:^8.5.2":
+"@storybook/react@npm:8.5.2, @storybook/react@npm:^8.5.1, @storybook/react@npm:^8.5.2":
   version: 8.5.2
   resolution: "@storybook/react@npm:8.5.2"
   dependencies:
@@ -5036,7 +5036,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-flexbox@npm:^5.3.22":
+"@xylabs/react-flexbox@npm:^5.3.18, @xylabs/react-flexbox@npm:^5.3.22":
   version: 5.3.22
   resolution: "@xylabs/react-flexbox@npm:5.3.22"
   dependencies:
@@ -7638,6 +7638,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xyo-network/react-debug@workspace:packages/sdk/packages/debug":
+  version: 0.0.0-use.local
+  resolution: "@xyo-network/react-debug@workspace:packages/sdk/packages/debug"
+  dependencies:
+    "@mui/icons-material": "npm:^6.4.1"
+    "@mui/material": "npm:^6.4.1"
+    "@mui/styles": "npm:^6.4.1"
+    "@storybook/react": "npm:^8.5.1"
+    "@xylabs/react-error": "npm:^5.3.22"
+    "@xylabs/react-flexbox": "npm:^5.3.18"
+    "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
+    "@xylabs/tsconfig-react": "npm:^4.2.6"
+    "@xyo-network/react-payload-raw-info": "workspace:^"
+    "@xyo-network/react-shared": "workspace:^"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    storybook: "npm:^8.5.1"
+    typescript: "npm:^5.7.3"
+  peerDependencies:
+    "@mui/icons-material": ^6
+    "@mui/material": ^6
+    "@mui/styles": ^6
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  languageName: unknown
+  linkType: soft
+
 "@xyo-network/react-default-plugin@workspace:^, @xyo-network/react-default-plugin@workspace:packages/plugins/packages/default":
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-default-plugin@workspace:packages/plugins/packages/default"
@@ -9565,6 +9592,7 @@ __metadata:
     "@mui/material": "npm:^6.4.1"
     "@mui/styles": "npm:^6.4.1"
     "@storybook/react": "npm:^8.5.2"
+    "@xylabs/assert": "npm:^4.5.1"
     "@xylabs/hex": "npm:^4.5.1"
     "@xylabs/react-appbar": "npm:^5.3.22"
     "@xylabs/react-button": "npm:^5.3.22"
@@ -9575,6 +9603,8 @@ __metadata:
     "@xylabs/react-quick-tip-button": "npm:^5.3.22"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
+    "@xyo-network/boundwitness-model": "npm:^3.7.0"
+    "@xyo-network/boundwitness-validator": "npm:^3.7.0"
     "@xyo-network/payload-builder": "npm:^3.7.0"
     "@xyo-network/payload-model": "npm:^3.7.0"
     "@xyo-network/react-event": "workspace:^"
@@ -19683,7 +19713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:^8.5.2":
+"storybook@npm:^8.5.1, storybook@npm:^8.5.2":
   version: 8.5.2
   resolution: "storybook@npm:8.5.2"
   dependencies:

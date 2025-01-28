@@ -5,12 +5,12 @@ import {
 import type { Decorator } from '@storybook/react'
 import { InvertibleMuiThemeProvider } from '@xylabs/react-invertible-theme'
 import {
-  DataismTheme, XyLabsTheme, XyoTheme,
+  DataismTheme, XyLabsTheme, XyosTheme, XyoTheme,
 } from '@xylabs/react-theme'
 import React from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
 
-const themeNames = ['None', 'XYO', 'Dataism', 'XYLabs'] as const
+const themeNames = ['None', 'XYO', 'Dataism', 'XYLabs', 'xyOS'] as const
 type ThemeName = typeof themeNames[number]
 
 export const globalTypes = {
@@ -34,7 +34,8 @@ const getTheme = (themeName: ThemeName) => {
   const theme = useTheme()
   const themes: Record<ThemeName, Theme> = {
     None: theme,
-    XYO: XyoTheme(),
+    XYO: XyoTheme(theme, false),
+    xyOS: XyosTheme(),
     Dataism: DataismTheme(),
     XYLabs: XyLabsTheme(),
   }
