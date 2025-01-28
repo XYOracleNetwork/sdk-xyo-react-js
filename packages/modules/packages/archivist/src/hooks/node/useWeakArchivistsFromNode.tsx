@@ -1,15 +1,15 @@
 import { exists } from '@xylabs/exists'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import { asArchivistInstance } from '@xyo-network/archivist-model'
-import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleIdentifier } from '@xyo-network/module-model'
 import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
 import { useWeakModulesFromNode } from '@xyo-network/react-node'
 
 export const useWeakArchivistsFromNode = (
-  filter?: ModuleFilter,
+  ids?: ModuleIdentifier[],
   config?: ModuleFromNodeConfig,
 ): [WeakRef<ArchivistInstance>[] | null | undefined, Error | undefined] => {
-  const [modules, error] = useWeakModulesFromNode(filter, config)
+  const [modules, error] = useWeakModulesFromNode(ids, config)
   if (error) {
     return [null, error]
   }

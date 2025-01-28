@@ -1,15 +1,15 @@
 import type { DivinerInstance } from '@xyo-network/diviner-model'
 import { isDivinerInstance } from '@xyo-network/diviner-model'
-import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleIdentifier } from '@xyo-network/module-model'
 import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
 import { useModulesFromNode } from '@xyo-network/react-node'
 
 /** @deprecated use useWeakDivinersFromNode */
 export const useDivinersFromNode = (
-  filter?: ModuleFilter,
+  ids?: ModuleIdentifier[],
   config?: ModuleFromNodeConfig,
 ): [DivinerInstance[] | null | undefined, Error | undefined] => {
-  const [modules, error] = useModulesFromNode(filter, config)
+  const [modules, error] = useModulesFromNode(ids, config)
   if (error) {
     return [null, error]
   }

@@ -1,15 +1,15 @@
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import { isArchivistInstance } from '@xyo-network/archivist-model'
-import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleIdentifier } from '@xyo-network/module-model'
 import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
 import { useModulesFromNode } from '@xyo-network/react-node'
 
 /** @deprecated use useWeakArchivistsFromNode */
 export const useArchivistsFromNode = (
-  filter?: ModuleFilter,
+  ids?: ModuleIdentifier[],
   config?: ModuleFromNodeConfig,
 ): [ArchivistInstance[] | null | undefined, Error | undefined] => {
-  const [modules, error] = useModulesFromNode(filter, config)
+  const [modules, error] = useModulesFromNode(ids, config)
   if (error) {
     return [null, error]
   }

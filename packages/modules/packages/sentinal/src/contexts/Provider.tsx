@@ -2,7 +2,7 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { AccountInstance } from '@xyo-network/account-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
-import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleIdentifier } from '@xyo-network/module-model'
 import { useWitnessesFromNode } from '@xyo-network/react-witness'
 import { MemorySentinel } from '@xyo-network/sentinel-memory'
 import type { SentinelConfig } from '@xyo-network/sentinel-model'
@@ -24,21 +24,21 @@ export interface SentinelProviderProps {
   /** @deprecated - sentinel no longer uses archive but relies on an archivist */
   archive?: string
   archivist?: string
-  filter?: ModuleFilter
+  ids?: ModuleIdentifier[]
   name?: string
   required?: boolean
   witnesses?: WitnessInstance[]
 }
 
 export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>> = ({
-  account, archivist, children, filter, name, required = false,
+  account, archivist, children, ids, name, required = false,
 }) => {
   const [sentinel, setSentinel] = useState<MemorySentinel>()
   const [history, setHistory] = useState<BoundWitness[]>()
   const [progress, setProgress] = useState<SentinelReportProgress>({})
   const [status, setStatus] = useState<SentinelReportStatus>(SentinelReportStatus.Idle)
   const [reportingErrors, setReportingErrors] = useState<Error[]>()
-  const [witnesses] = useWitnessesFromNode(filter)
+  const [witnesses] = useWitnessesFromNode(ids)
 
   useAsyncEffect(
 

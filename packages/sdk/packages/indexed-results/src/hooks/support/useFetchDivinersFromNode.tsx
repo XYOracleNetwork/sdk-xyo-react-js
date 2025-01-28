@@ -1,3 +1,4 @@
+import { exists } from '@xylabs/exists'
 import { usePromise } from '@xylabs/react-promise'
 import type { DivinerInstance } from '@xyo-network/diviner-model'
 import { isDivinerInstance } from '@xyo-network/diviner-model'
@@ -12,7 +13,7 @@ export const useFetchDivinersFromNode = (config?: IndexedResultsConfig) => {
 
   const [diviners] = usePromise<DivinerInstance[]>(async () => {
     if (divinerNames) {
-      const resolvedDiviners = node ? await node.resolve({ name: divinerNames }) : []
+      const resolvedDiviners = node ? (await Promise.all(divinerNames.map(id => node.resolve(id)))).filter(exists) : []
       const foundDiviners = resolvedDiviners.filter(mod => isDivinerInstance(mod)) as DivinerInstance[]
       return foundDiviners
     }

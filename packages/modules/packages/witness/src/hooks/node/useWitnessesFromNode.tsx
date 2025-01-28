@@ -1,14 +1,14 @@
-import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleIdentifier } from '@xyo-network/module-model'
 import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
 import { useModulesFromNode } from '@xyo-network/react-node'
 import type { WitnessInstance } from '@xyo-network/witness-model'
 import { isWitnessInstance } from '@xyo-network/witness-model'
 
 export const useWitnessesFromNode = (
-  filter?: ModuleFilter,
+  ids?: ModuleIdentifier[],
   config?: ModuleFromNodeConfig,
 ): [WitnessInstance[] | null | undefined, Error | undefined] => {
-  const [modules, error] = useModulesFromNode(filter, config)
+  const [modules, error] = useModulesFromNode(ids, config)
   if (error) {
     return [null, error]
   }

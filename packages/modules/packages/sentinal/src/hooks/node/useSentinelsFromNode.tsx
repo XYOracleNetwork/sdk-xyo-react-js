@@ -1,14 +1,14 @@
-import type { ModuleFilter } from '@xyo-network/module-model'
+import type { ModuleIdentifier } from '@xyo-network/module-model'
 import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
 import { useModulesFromNode } from '@xyo-network/react-node'
 import type { SentinelInstance } from '@xyo-network/sentinel-model'
 import { isSentinelInstance } from '@xyo-network/sentinel-model'
 
 export const useSentinelsFromNode = (
-  filter?: ModuleFilter,
+  ids?: ModuleIdentifier[],
   config?: ModuleFromNodeConfig,
 ): [SentinelInstance[] | null | undefined, Error | undefined] => {
-  const [modules, error] = useModulesFromNode(filter, config)
+  const [modules, error] = useModulesFromNode(ids, config)
   if (error) {
     return [null, error]
   }

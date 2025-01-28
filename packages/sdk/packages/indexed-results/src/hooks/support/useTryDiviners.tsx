@@ -1,3 +1,4 @@
+import { exists } from '@xylabs/exists'
 import type { DivinerInstance } from '@xyo-network/diviner-model'
 import { isDivinerInstance } from '@xyo-network/diviner-model'
 import type { Payload } from '@xyo-network/payload-model'
@@ -28,7 +29,7 @@ export const useTryDiviners = <T extends Payload = Payload>(config?: IndexedResu
     let divinerCount = 0
 
     if (config?.diviners && node) {
-      const resolvedDiviners = await node.resolve({ name: config.diviners })
+      const resolvedDiviners = (await Promise.all(config.diviners.map(id => node.resolve(id)))).filter(exists)
       const diviners = resolvedDiviners.filter(mod => isDivinerInstance(mod)) as DivinerInstance[]
 
       if (diviners && diviners?.length > 0) {
