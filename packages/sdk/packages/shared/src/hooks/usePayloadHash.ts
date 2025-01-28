@@ -2,7 +2,7 @@ import { assertEx } from '@xylabs/assert'
 import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
-import type { Payload } from '@xyo-network/payload-model'
+import { isAnyPayload, type Payload } from '@xyo-network/payload-model'
 import { useMemo } from 'react'
 
 export const usePayloadHash = <TPayload extends Payload>(payload: TPayload | undefined | null) => {
@@ -29,12 +29,12 @@ export const useValidatedPayload = <TPayload extends Payload>(input?: string): V
   return useMemo(() => {
     if (!input) return {}
     try {
-      const validJson = JSON.parse(input)
-      assertEx(typeof validJson === 'object', () => 'Invalid JSON')
-      const validSchema = assertEx('schema' in validJson ? validJson['schema'] : undefined, () => 'Missing schema')
-      return { payload: new PayloadBuilder({ schema: validSchema }).fields(validJson).build() as TPayload }
+      const object = JSON.parse(input)
+      const validPayload = assertEx(isAnyPayload(object) ? object : null, () => 'Invalid payload')
+      const { schema, ...fields } = validPayload
+      return { payload: new PayloadBuilder({ schema }).fields(fields).build() as TPayload }
     } catch (error) {
       return { error: error as Error }
     }
-  }, [])
+  }, [input])
 }
