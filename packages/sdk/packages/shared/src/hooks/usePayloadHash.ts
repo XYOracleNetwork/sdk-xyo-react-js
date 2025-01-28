@@ -7,6 +7,10 @@ export const usePayloadHash = <TPayload extends Payload>(payload: TPayload | und
   return usePromise(async () => (payload ? await PayloadBuilder.dataHash(payload) : undefined), [payload])[0]
 }
 
+export const usePayloadRootHash = <TPayload extends Payload>(payload: TPayload | undefined | null) => {
+  return usePromise(async () => (payload ? await PayloadBuilder.hash(payload) : undefined), [payload])[0]
+}
+
 export const usePayloadHashes = <TPayload extends Payload>(payloads: TPayload[] | undefined | null) => {
   return usePromise(
     async () =>
