@@ -5,7 +5,7 @@ import {
 import { ErrorRender } from '@xylabs/react-error'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
-import { usePayloadRootHash, useValidatedPayload } from '@xyo-network/react-shared'
+import { usePayloadRootHash, usePayloadValidate } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
 
 const defaultPayload = '{ "schema": "network.xyo.test", "foo": true }'
@@ -13,7 +13,7 @@ const defaultPayload = '{ "schema": "network.xyo.test", "foo": true }'
 export const PayloadDebugger: React.FC = () => {
   const theme = useTheme()
   const [input, setInput] = useState<string>(defaultPayload)
-  const { payload, error } = useValidatedPayload(input)
+  const { payload, error } = usePayloadValidate(input)
   const valid = !!payload
   const rootHash = usePayloadRootHash(payload)
   const dataHash = usePayloadRootHash(payload)
