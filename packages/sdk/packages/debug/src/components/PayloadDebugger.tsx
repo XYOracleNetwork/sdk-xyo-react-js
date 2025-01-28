@@ -36,9 +36,9 @@ export const PayloadDebugger: React.FC = () => {
               )
             : null}
           <ErrorRender error={error} />
-          {valid ? <Chip avatar={<CheckCircle color="success" />} label="Valid" /> : null}
+          {valid ? <Chip avatar={<CheckCircle color="success" />} label="Protocol Valid" /> : null}
           {rootHash ? <Chip label={`Root Hash: ${rootHash}`} title={rootHash} /> : null}
-          { dataHash ? <Chip label={`Data Hash: ${dataHash}`} title={dataHash} /> : null}
+          {dataHash ? <Chip label={`Data Hash: ${dataHash}`} title={dataHash} /> : null}
         </FlexCol>
       </Grid2>
     </Grid2>
