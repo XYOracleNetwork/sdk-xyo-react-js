@@ -1,1 +1,1 @@
-export const foo = true
+export * from './components/index.ts'
