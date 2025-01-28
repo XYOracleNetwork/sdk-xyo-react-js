@@ -1,6 +1,5 @@
-import { CheckCircle } from '@mui/icons-material'
 import {
-  Chip, FormControl, Grid2, Paper, TextField, useTheme,
+  FormControl, Grid2, Paper, TextField, useTheme,
 } from '@mui/material'
 import { ErrorRender } from '@xylabs/react-error'
 import { FlexCol } from '@xylabs/react-flexbox'
@@ -8,6 +7,7 @@ import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import React, { useState } from 'react'
 
 import { useDebugPayload } from '../hooks/index.ts'
+import { ValidationChips } from './shared/index.ts'
 
 const defaultPayload = '{ "schema": "network.xyo.test", "foo": true }'
 
@@ -37,9 +37,7 @@ export const PayloadDebugger: React.FC = () => {
               )
             : null}
           <ErrorRender error={error} />
-          {valid ? <Chip avatar={<CheckCircle color="success" />} label="Protocol Valid" /> : null}
-          {rootHash ? <Chip label={`Root Hash: ${rootHash}`} title={rootHash} /> : null}
-          {dataHash ? <Chip label={`Data Hash: ${dataHash}`} title={dataHash} /> : null}
+          <ValidationChips valid={valid} rootHash={rootHash} dataHash={dataHash} />
         </FlexCol>
       </Grid2>
     </Grid2>
