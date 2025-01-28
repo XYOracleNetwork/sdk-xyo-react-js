@@ -5,18 +5,19 @@ import {
 import { ErrorRender } from '@xylabs/react-error'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
-import { usePayloadRootHash, usePayloadValidate } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
+
+import { useDebugPayload } from '../hooks/index.ts'
 
 const defaultPayload = '{ "schema": "network.xyo.test", "foo": true }'
 
 export const PayloadDebugger: React.FC = () => {
   const theme = useTheme()
   const [input, setInput] = useState<string>(defaultPayload)
-  const { payload, error } = usePayloadValidate(input)
-  const valid = !!payload
-  const rootHash = usePayloadRootHash(payload)
-  const dataHash = usePayloadRootHash(payload)
+
+  const {
+    payload, error, rootHash, dataHash, valid,
+  } = useDebugPayload(input)
 
   return (
     <Grid2 container justifyContent="center">
