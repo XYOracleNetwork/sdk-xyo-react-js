@@ -15,7 +15,7 @@ export const usePayloadValidate = <TPayload extends Payload>(input?: string): Va
       const { schema, ...fields } = validPayload
       return { payload: new PayloadBuilder({ schema }).fields(fields).build() as TPayload }
     } catch (error) {
-      return { error: error as Error }
+      return { errors: [error as Error] }
     }
   }, [input])
 }
