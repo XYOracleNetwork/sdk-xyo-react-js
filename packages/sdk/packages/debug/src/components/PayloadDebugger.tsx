@@ -14,7 +14,7 @@ export const PayloadDebugger: React.FC = () => {
   const [input, setInput] = useState<string>(defaultPayload)
 
   const {
-    payload, error, rootHash, dataHash, valid,
+    payload, errors, rootHash, dataHash, valid,
   } = useDebugPayload(input)
 
   return (
@@ -28,7 +28,7 @@ export const PayloadDebugger: React.FC = () => {
             <TextField value={input} multiline minRows={10} maxRows={Infinity} name="payload" onChange={e => setInput(e.target.value)} />
           </FormControl>
           <JsonPayloadLikeViewerEx value={payload} />
-          <ErrorRender error={error} />
+          {errors.map(error => <ErrorRender key={error?.message} error={error} />)}
           <ValidationChips valid={valid} rootHash={rootHash} dataHash={dataHash} />
         </FlexCol>
       </Grid2>

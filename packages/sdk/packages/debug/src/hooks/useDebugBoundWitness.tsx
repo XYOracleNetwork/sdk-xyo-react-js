@@ -1,33 +1,15 @@
-import { usePromise } from '@xylabs/react-promise'
-import type { BoundWitness } from '@xyo-network/boundwitness-model'
-import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
-
-import { useDebugPayload } from './useDebugPayload.tsx'
+import { usePayloadRootHash, useValidateBoundWitness } from '@xyo-network/react-shared'
 
 export const useDebugBoundWitness = (input?: string) => {
-  const {
-    payload, error: payloadError, rootHash, dataHash,
-  } = useDebugPayload(input)
+  const { payload: boundWitness, errors } = useValidateBoundWitness(input)
 
-  const [validation, validationError] = usePromise(async () => {
-    if (!payload) return
-
-    const errors = await new BoundWitnessValidator(payload as BoundWitness).validate()
-    return {
-      boundWitness: payload,
-      valid: errors.length === 0,
-      errors,
-    }
-  }, [payload])
-
-  const {
-    boundWitness, valid: validBoundWitness, errors: boundWitnessValidationErrors,
-  } = validation ?? {}
+  const rootHash = usePayloadRootHash(boundWitness)
+  const dataHash = usePayloadRootHash(boundWitness)
 
   return {
     boundWitness,
-    errors: [payloadError, ...boundWitnessValidationErrors ?? [], validationError].filter<Error>(error => !!error),
-    valid: validBoundWitness,
+    errors: errors ?? [],
+    valid: errors ? errors.length === 0 : true,
     rootHash,
     dataHash,
   }
