@@ -1,3 +1,4 @@
+import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import type {
   Payload,
   Sequence,
@@ -14,9 +15,9 @@ import { PayloadListContext } from './Context.tsx'
 import { useNextPayloads } from './hooks/index.ts'
 import type { PayloadListState } from './State.ts'
 
-type PayloadListProviderProps = PropsWithChildren
+type PayloadListProviderProps = PropsWithChildren & { archivist?: ArchivistInstance }
 
-export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({ children }) => {
+export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({ archivist, children }) => {
   /**
    * A list of payloads
    * NOTE: it is designed to be a stable reference where new items are added to the end of the existing array
@@ -79,7 +80,15 @@ export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({ childr
     return true
   }
 
-  const { fetchMorePayloads, error: newPayloadsError } = useNextPayloads(setLoading, cursor, totalPayloads, updateTotalPayloads, clearNewPayloads)
+  const { fetchMorePayloads, error: newPayloadsError } = useNextPayloads(
+    setLoading,
+    cursor,
+    totalPayloads,
+    updateTotalPayloads,
+    clearNewPayloads,
+    undefined,
+    archivist,
+  )
 
   const value = useMemo<PayloadListState>(() => ({
     errors: [newPayloadsError],
