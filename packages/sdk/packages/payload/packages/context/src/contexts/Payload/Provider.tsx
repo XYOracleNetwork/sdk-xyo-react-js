@@ -1,5 +1,5 @@
 import type { Hash } from '@xylabs/hex'
-import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { usePromise } from '@xylabs/react-promise'
 import type { ArchivistInstance, ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import type { Payload } from '@xyo-network/payload-model'
 import type { PropsWithChildren } from 'react'
@@ -48,7 +48,7 @@ export const PayloadProvider: React.FC<PropsWithChildren<PayloadProviderProps>> 
    * payload === undefined - ready to attempt to fetch
    * payload === null - tried to fetch and was unsuccessful
    */
-  useAsyncEffect(
+  usePromise(
     async () => {
       if (hash && archivist && payload === undefined) {
         try {
@@ -64,7 +64,7 @@ export const PayloadProvider: React.FC<PropsWithChildren<PayloadProviderProps>> 
     [hash, archivist, payload],
   )
 
-  useAsyncEffect(
+  usePromise(
     async () => {
       if (cachePayload && archivist && payload) {
         await archivist.insert([payload])

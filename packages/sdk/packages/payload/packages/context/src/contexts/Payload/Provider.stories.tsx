@@ -2,7 +2,7 @@ import {
   Box, Button, CircularProgress,
 } from '@mui/material'
 import type { Decorator, StoryFn } from '@storybook/react'
-import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { usePromise } from '@xylabs/react-promise'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
@@ -17,7 +17,7 @@ const PayloadProviderDecorator: Decorator = (Story, args) => {
   const [archivist, setArchivist] = useState<ArchivistInstance>()
   const testPayloadHash = usePayloadHash(testPayload)
 
-  useAsyncEffect(
+  usePromise(
     async () => {
       const memoryArchivist = await MemoryArchivist.create({ config: { schema: MemoryArchivistConfigSchema } })
       await memoryArchivist.insert([testPayload])
