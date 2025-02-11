@@ -6,6 +6,7 @@ import { useEffect, useMemo } from 'react'
 import { UpdateTotalPayloadsConditions } from '../lib/index.ts'
 import type { PayloadListState } from '../State.ts'
 
+/** Update the reference for totalPayloads based off certain conditions */
 export const useUpdateTotalPayloads = (
   newPayloads?: WithStorageMeta<Payload>[],
   cursor?: Sequence,
