@@ -1,6 +1,6 @@
 import { assertDefinedEx } from '@xylabs/assert'
 import type { AccountInstance } from '@xyo-network/account-model'
-import type { ArchivistModule } from '@xyo-network/archivist-model'
+import type { ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import { asArchivistInstance } from '@xyo-network/archivist-model'
 import type { StorageArchivistConfig } from '@xyo-network/archivist-storage'
 import { StorageArchivist, StorageArchivistConfigSchema } from '@xyo-network/archivist-storage'
@@ -13,7 +13,7 @@ export interface ArchivistBuilderConfig {
 }
 export class StorageArchivistBuilder {
   private _archivist: StorageArchivist | undefined
-  private remoteArchivist: ArchivistModule | undefined
+  private remoteArchivist: ArchivistModuleInstance | undefined
 
   protected constructor(
     private config: ArchivistBuilderConfig,

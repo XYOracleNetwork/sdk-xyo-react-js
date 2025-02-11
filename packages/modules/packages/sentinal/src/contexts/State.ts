@@ -1,6 +1,6 @@
 import type { EnumValue } from '@xylabs/enum'
 import { Enum } from '@xylabs/enum'
-import type { ArchivistModule } from '@xyo-network/archivist-model'
+import type { ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { SentinelModule } from '@xyo-network/sentinel-model'
 import type { WitnessModule } from '@xyo-network/witness-model'
@@ -21,7 +21,7 @@ export interface SentinelWitnessReportProgress {
 }
 
 export interface SentinelArchivistApiReportProgress {
-  archivist: ArchivistModule
+  archivist: ArchivistModuleInstance
   status: SentinelReportStatus
 }
 

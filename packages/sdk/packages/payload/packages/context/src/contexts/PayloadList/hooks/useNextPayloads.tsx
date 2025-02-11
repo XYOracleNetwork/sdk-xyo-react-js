@@ -1,4 +1,4 @@
-import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { usePromise } from '@xylabs/react-promise'
 import type { ArchivistInstance, NextOptions } from '@xyo-network/archivist-model'
 import type { Payload, WithStorageMeta } from '@xyo-network/payload-model'
 import { useMemo, useState } from 'react'
@@ -27,7 +27,7 @@ export const useNextPayloads = (
     }
   }, [clearPayloads])
 
-  useAsyncEffect(
+  usePromise(
     async () => {
       if (archivistInstance && fetchMore) {
         updateLoading?.(true)

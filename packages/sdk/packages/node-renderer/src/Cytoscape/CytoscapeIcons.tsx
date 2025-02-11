@@ -1,3 +1,4 @@
+import type { SvgIconComponent } from '@mui/icons-material'
 import {
   BubbleChartRounded as BubbleChartRoundedIcon,
   Hub as HubIcon,
@@ -7,12 +8,10 @@ import {
   TimerRounded as TimerRoundedIcon,
   VisibilityRounded as VisibilityRoundedIcon,
 } from '@mui/icons-material'
-import type { SvgIconTypeMap } from '@mui/material'
-import type { OverridableComponent } from '@mui/material/OverridableComponent.js'
 
 import type { CyNodeModuleTypes } from './lib/index.ts'
 
-export const CyIconSet: Record<CyNodeModuleTypes, OverridableComponent<SvgIconTypeMap<{}, 'svg'>>> = {
+export const CyIconSet: Record<CyNodeModuleTypes, SvgIconComponent> = {
   archivist: Inventory2RoundedIcon,
   bridge: InsertLinkRoundedIcon,
   diviner: BubbleChartRoundedIcon,

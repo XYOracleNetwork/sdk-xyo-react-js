@@ -1,6 +1,6 @@
 import type { Hash } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { ArchivistInstance, ArchivistModule } from '@xyo-network/archivist-model'
+import type { ArchivistInstance, ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import type { Payload } from '@xyo-network/payload-model'
 import type { PropsWithChildren } from 'react'
 import React, {
@@ -13,7 +13,7 @@ export interface PayloadProviderProps {
   /** @deprecated - no longer used */
   archive?: string
   /** @deprecated - use archivist prop instead */
-  archivePayloadWrapper?: ArchivistModule
+  archivePayloadWrapper?: ArchivistModuleInstance
   archivist?: ArchivistInstance
   cachePayload?: boolean
   hash?: Hash
