@@ -1,4 +1,6 @@
-import type { Payload, WithStorageMeta } from '@xyo-network/payload-model'
+import type {
+  Payload, Sequence, WithStorageMeta,
+} from '@xyo-network/payload-model'
 import { useCallback, useState } from 'react'
 
 export const useTotalPayloads = () => {
@@ -7,6 +9,11 @@ export const useTotalPayloads = () => {
    * NOTE: it is designed to be a stable reference where new items are added to the end of the existing array
    */
   const [totalPayloads, setTotalPayloads] = useState<WithStorageMeta<Payload>[] | undefined>([])
+
+  /**
+   * A hash used as a cursor to fetch the next page of payloads
+   */
+  const [cursor, setCursor] = useState<Sequence>()
 
   const updateTotalPayloads = useCallback((additionalPayloads?: WithStorageMeta<Payload>[]) => {
     if (additionalPayloads && additionalPayloads.length > 0) {
@@ -34,7 +41,11 @@ export const useTotalPayloads = () => {
     setTotalPayloadsCount(count)
   }, [])
 
+  const updateCursor = useCallback((newCursor?: Sequence) => {
+    setCursor(newCursor)
+  }, [])
+
   return {
-    totalPayloads, totalPayloadsCount, updateTotalPayloads, updateTotalPayloadsCount,
+    cursor, totalPayloads, totalPayloadsCount, updateCursor, updateTotalPayloads, updateTotalPayloadsCount,
   }
 }
