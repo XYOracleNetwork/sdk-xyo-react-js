@@ -4955,6 +4955,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-async-effect@npm:^5.3.23":
+  version: 5.3.23
+  resolution: "@xylabs/react-async-effect@npm:5.3.23"
+  dependencies:
+    "@xylabs/react-promise": "npm:^5.3.23"
+  peerDependencies:
+    react: ^18
+  checksum: 10/efbd715b7af123852c7dab4c44f2bf41cb3a08e04fdc9311d14c8f13f87572dd0e5856972fdb28aa20a6456161ca56ace5a0f057a03bf1de10e86c7b6064a525
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-button@npm:^5.3.22":
   version: 5.3.22
   resolution: "@xylabs/react-button@npm:5.3.22"
@@ -5154,6 +5165,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-promise@npm:^5.3.23":
+  version: 5.3.23
+  resolution: "@xylabs/react-promise@npm:5.3.23"
+  dependencies:
+    async-mutex: "npm:^0.5.0"
+  peerDependencies:
+    react: ^18
+  checksum: 10/d049a66f62bf0b980a54ffd3bdc3984b7a7aecb13119f212a76c1cd651b3375664db4758ab0fa43770561329a51ee8925c62d9e6e2da72308637c88a8c00cf44
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-quick-tip-button@npm:^5.3.22":
   version: 5.3.22
   resolution: "@xylabs/react-quick-tip-button@npm:5.3.22"
@@ -5191,6 +5213,21 @@ __metadata:
     react: ^18
     react-dom: ^18
   checksum: 10/9e884a89885af104318eef9e256ee482efea4da1d11661706e3cf8c5fa47b19d6ef5fccf7bdcd57d94bb5235d840ecfc7f0aeb3f930410545667908eeb9e3f91
+  languageName: node
+  linkType: hard
+
+"@xylabs/react-shared@npm:^5.3.23":
+  version: 5.3.23
+  resolution: "@xylabs/react-shared@npm:5.3.23"
+  dependencies:
+    "@xylabs/api": "npm:^4.5.1"
+    "@xylabs/log": "npm:^4.5.1"
+    "@xylabs/react-async-effect": "npm:^5.3.23"
+  peerDependencies:
+    "@mui/material": ^6
+    react: ^18
+    react-dom: ^18
+  checksum: 10/d57c1d6e194ec1e344a1745e3ea075e75082553a6b0fc80203fcff5ddc04c7c0983c55f29bfa5db43a23eea791075c18c60eaa8a58dbfe8081bc79883b31b15a
   languageName: node
   linkType: hard
 
@@ -8820,11 +8857,14 @@ __metadata:
     "@storybook/react": "npm:^8.5.2"
     "@xylabs/hex": "npm:^4.5.1"
     "@xylabs/react-async-effect": "npm:^5.3.22"
+    "@xylabs/react-shared": "npm:^5.3.23"
     "@xylabs/ts-scripts-yarn3": "npm:^4.2.6"
     "@xylabs/tsconfig-react": "npm:^4.2.6"
     "@xyo-network/archivist-memory": "npm:^3.7.1"
     "@xyo-network/archivist-model": "npm:^3.7.1"
     "@xyo-network/payload-model": "npm:^3.7.1"
+    "@xyo-network/react-event": "workspace:^"
+    "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
