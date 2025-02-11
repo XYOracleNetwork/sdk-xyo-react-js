@@ -8,7 +8,7 @@ import type { PayloadListState } from '../State.ts'
 import { useUpdateTotalPayloads } from './useUpdateTotalPayloads.ts'
 
 export const useNextPayloads = (
-  setLoading?: Dispatch<SetStateAction<boolean>>,
+  updateLoading?: (loading: boolean) => void,
   totalPayloads?: WithStorageMeta<Payload>[],
   updateTotalPayloads?: PayloadListState['updateTotalPayloads'],
   clearPayloads = 0,
@@ -30,18 +30,18 @@ export const useNextPayloads = (
   useAsyncEffect(
     async () => {
       if (archivistInstance && fetchMore) {
-        setLoading?.(true)
+        updateLoading?.(true)
         try {
           const payloads = await archivistInstance.next(nextOptions)
           setNewPayloads(payloads)
           setError(undefined)
           setFetchMore(false)
-          setLoading?.(false)
+          updateLoading?.(false)
         } catch (e) {
           setError(e as Error)
           setNewPayloads(undefined)
           setFetchMore(false)
-          setLoading?.(false)
+          updateLoading?.(false)
         }
       }
     },
