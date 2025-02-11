@@ -1,8 +1,6 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { ArchivistInstance, NextOptions } from '@xyo-network/archivist-model'
-import type {
-  Payload, Sequence, WithStorageMeta,
-} from '@xyo-network/payload-model'
+import type { Payload, WithStorageMeta } from '@xyo-network/payload-model'
 import type { Dispatch, SetStateAction } from 'react'
 import { useMemo, useState } from 'react'
 
@@ -11,18 +9,15 @@ import { useUpdateTotalPayloads } from './useUpdateTotalPayloads.ts'
 
 export const useNextPayloads = (
   setLoading?: Dispatch<SetStateAction<boolean>>,
-  cursor?: Sequence,
   totalPayloads?: WithStorageMeta<Payload>[],
   updateTotalPayloads?: PayloadListState['updateTotalPayloads'],
   clearPayloads = 0,
-  limit = 100,
   archivistInstance?: ArchivistInstance,
+  nextOptions?: NextOptions,
 ) => {
   const [newPayloads, setNewPayloads] = useState<WithStorageMeta<Payload>[]>()
   const [error, setError] = useState<Error>()
   const [fetchMore, setFetchMore] = useState(true)
-
-  const nextOptions = useMemo<NextOptions>(() => ({ limit, cursor }), [limit, cursor])
 
   useMemo(() => {
     if (clearPayloads) {
@@ -53,7 +48,7 @@ export const useNextPayloads = (
     [archivistInstance, fetchMore, nextOptions],
   )
 
-  useUpdateTotalPayloads(newPayloads, cursor, totalPayloads, updateTotalPayloads)
+  useUpdateTotalPayloads(newPayloads, nextOptions?.cursor, totalPayloads, updateTotalPayloads)
 
   return {
     fetchMorePayloads: () => setFetchMore(true), newPayloads, error,
