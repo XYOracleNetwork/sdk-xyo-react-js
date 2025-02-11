@@ -2,9 +2,7 @@ import type { ContextExState } from '@xylabs/react-shared'
 import type {
   Payload, Sequence, WithStorageMeta,
 } from '@xyo-network/payload-model'
-import type {
-  Dispatch, RefObject, SetStateAction,
-} from 'react'
+import type { RefObject } from 'react'
 
 export type PayloadListState = ContextExState & {
   cursor?: Sequence
@@ -15,9 +13,9 @@ export type PayloadListState = ContextExState & {
   /** DOM Ref that has an event listener for page change events and update scroll position */
   scrollRef?: RefObject<HTMLTableElement>
   scrollToTop?: number
-  setCursor?: Dispatch<SetStateAction<Sequence | undefined>>
-  setLoading?: Dispatch<SetStateAction<boolean>>
   totalPayloads?: Payload[]
   totalPayloadsCount?: number
+  updateCursor?: (sequence: Sequence) => void
+  updateLoading?: (loading: boolean) => void
   updateTotalPayloads?: (additionalPayloads?: WithStorageMeta<Payload>[]) => boolean
 }
