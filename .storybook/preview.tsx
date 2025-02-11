@@ -1,6 +1,6 @@
 import type { Theme } from '@mui/material'
 import {
-  Box, createTheme, CssBaseline, useTheme,
+  Box, CssBaseline, useTheme,
 } from '@mui/material'
 import type { Decorator } from '@storybook/react'
 import { InvertibleMuiThemeProvider } from '@xylabs/react-invertible-theme'
