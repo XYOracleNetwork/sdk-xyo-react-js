@@ -15,7 +15,7 @@ export const useUpdateTotalPayloads = (
 ) => {
   const { fromScratch, mergeWithExistingPayloads } = UpdateTotalPayloadsConditions
 
-  // get the last hash of the new payloads whenever they come in
+  // get the last sequence of the new payloads whenever they come in
   const isNewLastPayload = useMemo(
     () => {
       const lastPayload = newPayloads?.at(-1)
