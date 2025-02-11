@@ -1,9 +1,5 @@
 import type { ArchivistInstance, NextOptions } from '@xyo-network/archivist-model'
-import type {
-  Payload,
-  Sequence,
-  WithStorageMeta,
-} from '@xyo-network/payload-model'
+import type { Sequence } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import type { PaginationNouns } from '@xyo-network/react-payload-table'
 import type { PropsWithChildren } from 'react'
@@ -12,7 +8,7 @@ import React, {
 } from 'react'
 
 import { PayloadListContext } from './Context.tsx'
-import { useNextPayloads } from './hooks/index.ts'
+import { useNextPayloads, useTotalPayloads } from './hooks/index.ts'
 import type { PayloadListState } from './State.ts'
 
 export interface PayloadListProviderProps extends PropsWithChildren {
@@ -23,18 +19,9 @@ export interface PayloadListProviderProps extends PropsWithChildren {
 export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({
   archivist, children, nextOptions: nextOptionsProp,
 }) => {
-  /**
-   * A list of payloads
-   * NOTE: it is designed to be a stable reference where new items are added to the end of the existing array
-   */
-  const [totalPayloads, setTotalPayloads] = useState<WithStorageMeta<Payload>[] | undefined>([])
-
-  /**
-   * The total number of payloads
-   * NOTE: this property is meant to change when the total number of payloads changes
-   * Components should react to this change and not the array reference of totalPayloads
-   */
-  const [totalPayloadsCount, setTotalPayloadsCount] = useState(0)
+  const {
+    totalPayloads, totalPayloadsCount, updateTotalPayloads, updateTotalPayloadsCount,
+  } = useTotalPayloads()
 
   /**
    * A hash used as a cursor to fetch the next page of payloads
@@ -63,27 +50,12 @@ export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({
   })
 
   const resetList = useCallback(() => {
-    setTotalPayloads([])
-    setTotalPayloadsCount(0)
+    updateTotalPayloads([])
+    updateTotalPayloadsCount(0)
     setCursor(undefined)
     setLoading(false)
     setClearNewPayloads(previous => previous + 1)
   }, [])
-
-  const updateTotalPayloads = (additionalPayloads?: WithStorageMeta<Payload>[]) => {
-    if (additionalPayloads && additionalPayloads.length > 0) {
-      setTotalPayloads((previous) => {
-        if (previous) {
-          // Add the new payloads to the end of the existing array
-          previous?.push(...additionalPayloads)
-          setTotalPayloadsCount(previous?.length)
-        }
-        // Always return the previous reference to prevent unnecessary renders
-        return previous
-      })
-    }
-    return true
-  }
 
   const nextOptions = useMemo(() => ({
     ...nextOptionsProp,
