@@ -3,14 +3,14 @@ import type { ArchivistInstance, NextOptions } from '@xyo-network/archivist-mode
 import type { Payload, WithStorageMeta } from '@xyo-network/payload-model'
 import { useMemo, useState } from 'react'
 
-import type { PayloadListState } from '../State.ts'
+import type { TotalPayloadsState } from '../State.ts'
 import { useUpdateTotalPayloads } from './useUpdateTotalPayloads.ts'
 
 /** Fetch the next set of payloads via archivist.next and update the totalPayloads array */
 export const useNextPayloads = (
   updateLoading?: (loading: boolean) => void,
   totalPayloads?: WithStorageMeta<Payload>[],
-  updateTotalPayloads?: PayloadListState['updateTotalPayloads'],
+  updateTotalPayloads?: TotalPayloadsState['updateTotalPayloads'],
   archivistInstance?: ArchivistInstance,
   nextOptions?: NextOptions,
 ) => {
