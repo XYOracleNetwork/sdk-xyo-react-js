@@ -22,12 +22,12 @@ export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({
   archivist, children, nextOptions: nextOptionsProp,
 }) => {
   const {
-    cursor, onNext, totalPayloads, totalPayloadsCount, updateTotalPayloads, updateTotalPayloadsCount, updateCursor,
+    cursor, updateCursorFromLastItem, totalPayloads, totalPayloadsCount, updateTotalPayloads, updateTotalPayloadsCount, updateCursor,
   } = useTotalPayloads()
 
   const {
     loading, updateLoading, scrollToTop, scrollRef,
-  } = useTableUi(onNext)
+  } = useTableUi(updateCursorFromLastItem)
 
   const resetList = useCallback(() => {
     updateTotalPayloads([])
