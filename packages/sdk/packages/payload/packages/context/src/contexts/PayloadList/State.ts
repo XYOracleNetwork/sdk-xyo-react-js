@@ -23,7 +23,7 @@ export interface TotalPayloadsState {
 
 export interface PayloadListState extends ContextExState {
   errors?: (Error | undefined)[]
-  payloadState?: TotalPayloadsState
   resetList?: () => void
+  totalPayloadsState?: TotalPayloadsState
   uiState?: UIState
 }

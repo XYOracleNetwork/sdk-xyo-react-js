@@ -6,7 +6,9 @@ import { PayloadListContext } from './Context.tsx'
 import {
   useNextPayloads, useTableUi, useTotalPayloads,
 } from './hooks/index.ts'
-import type { PayloadListState, UIState } from './State.ts'
+import type {
+  PayloadListState, TotalPayloadsState, UIState,
+} from './State.ts'
 
 export interface PayloadListProviderProps extends PropsWithChildren {
   archivist?: ArchivistInstance
@@ -52,33 +54,38 @@ export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({
     nextOptions,
   )
 
-  const uiState: UIState = useMemo(() => ({
-    loading,
-    scrollRef,
-    scrollTo,
-    updateLoading,
-  }), [loading, scrollRef, scrollToTop])
+  const uiState: UIState = useMemo(() => {
+    const uiState: UIState = {
+      loading,
+      scrollRef,
+      scrollToTop,
+      updateLoading,
+    }
+    return uiState
+  }, [loading, scrollRef, scrollToTop])
 
-  const totalPayloadsState = useMemo(() => ({
-    cursor,
-    fetchMorePayloads,
-    totalPayloads,
-    totalPayloadsCount,
-    updateCursor,
-    updateTotalPayloads,
-  }), [cursor, fetchMorePayloads, totalPayloads, totalPayloadsCount])
+  const totalPayloadsState = useMemo(() => {
+    const totalPayloadsState: TotalPayloadsState = {
+      cursor,
+      fetchMorePayloads,
+      totalPayloads,
+      totalPayloadsCount,
+      updateCursor,
+      updateTotalPayloads,
+    }
+    return totalPayloadsState
+  }, [cursor, fetchMorePayloads, totalPayloads, totalPayloadsCount])
 
-  const value = useMemo<PayloadListState>(() => ({
-    errors: [newPayloadsError],
-    provided: true,
-    resetList,
-    totalPayloadsState,
-    uiState,
-  }), [
-    newPayloadsError,
-    resetList,
-    uiState,
-    totalPayloadsState])
+  const value = useMemo(() => {
+    const payloadListState: PayloadListState = {
+      errors: [newPayloadsError],
+      provided: true,
+      totalPayloadsState,
+      resetList,
+      uiState,
+    }
+    return payloadListState
+  }, [newPayloadsError, totalPayloadsState, resetList, uiState])
 
   return (
     <PayloadListContext.Provider
