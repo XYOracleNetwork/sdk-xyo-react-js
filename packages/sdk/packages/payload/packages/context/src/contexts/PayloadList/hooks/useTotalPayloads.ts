@@ -45,7 +45,14 @@ export const useTotalPayloads = () => {
     setCursor(newCursor)
   }, [])
 
+  const updateCursorFromLastItem = () => {
+    const lastItem = totalPayloads?.at(-1)
+    if (lastItem) {
+      updateCursor(lastItem._sequence)
+    }
+  }
+
   return {
-    cursor, totalPayloads, totalPayloadsCount, updateCursor, updateTotalPayloads, updateTotalPayloadsCount,
+    cursor, updateCursorFromLastItem, totalPayloads, totalPayloadsCount, updateCursor, updateTotalPayloads, updateTotalPayloadsCount,
   }
 }
