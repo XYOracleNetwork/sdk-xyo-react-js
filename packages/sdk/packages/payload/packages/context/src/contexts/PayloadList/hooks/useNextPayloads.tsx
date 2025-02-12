@@ -11,13 +11,13 @@ export const useNextPayloads = (
   updateLoading?: (loading: boolean) => void,
   totalPayloads?: WithStorageMeta<Payload>[],
   updateTotalPayloads?: PayloadListState['updateTotalPayloads'],
-  clearPayloads = 0,
   archivistInstance?: ArchivistInstance,
   nextOptions?: NextOptions,
 ) => {
   const [newPayloads, setNewPayloads] = useState<WithStorageMeta<Payload>[]>()
   const [error, setError] = useState<Error>()
   const [fetchMore, setFetchMore] = useState(true)
+  const [clearPayloads, setClearPayloads] = useState(0)
 
   useMemo(() => {
     if (clearPayloads) {
@@ -51,6 +51,10 @@ export const useNextPayloads = (
   useUpdateTotalPayloads(newPayloads, nextOptions?.cursor, totalPayloads, updateTotalPayloads)
 
   return {
-    fetchMorePayloads: () => setFetchMore(true), newPayloads, error,
+    clearNewPayloads: clearPayloads,
+    updateClearNewPayloads: setClearPayloads,
+    error,
+    fetchMorePayloads: () => setFetchMore(true),
+    newPayloads,
   }
 }
