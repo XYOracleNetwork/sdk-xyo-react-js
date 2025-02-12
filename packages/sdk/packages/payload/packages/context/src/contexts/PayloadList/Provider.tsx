@@ -6,7 +6,7 @@ import { PayloadListContext } from './Context.tsx'
 import {
   useNextPayloads, useTableUi, useTotalPayloads,
 } from './hooks/index.ts'
-import type { PayloadListState } from './State.ts'
+import type { PayloadListState, UIState } from './State.ts'
 
 export interface PayloadListProviderProps extends PropsWithChildren {
   archivist?: ArchivistInstance
@@ -52,34 +52,33 @@ export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({
     nextOptions,
   )
 
-  // TODO - split these into separate contexts
+  const uiState: UIState = useMemo(() => ({
+    loading,
+    scrollRef,
+    scrollTo,
+    updateLoading,
+  }), [loading, scrollRef, scrollToTop])
+
+  const totalPayloadsState = useMemo(() => ({
+    cursor,
+    fetchMorePayloads,
+    totalPayloads,
+    totalPayloadsCount,
+    updateCursor,
+    updateTotalPayloads,
+  }), [cursor, fetchMorePayloads, totalPayloads, totalPayloadsCount])
+
   const value = useMemo<PayloadListState>(() => ({
     errors: [newPayloadsError],
-    fetchMorePayloads,
-    loading,
-    cursor,
     provided: true,
     resetList,
-    scrollRef,
-    scrollToTop,
-    updateLoading,
-    updateCursor,
-    totalPayloads,
-    totalPayloadsCount,
-    updateTotalPayloads,
+    totalPayloadsState,
+    uiState,
   }), [
-    fetchMorePayloads,
-    loading,
     newPayloadsError,
-    cursor,
     resetList,
-    scrollRef,
-    scrollToTop,
-    updateLoading,
-    updateCursor,
-    totalPayloads,
-    totalPayloadsCount,
-    updateTotalPayloads])
+    uiState,
+    totalPayloadsState])
 
   return (
     <PayloadListContext.Provider
