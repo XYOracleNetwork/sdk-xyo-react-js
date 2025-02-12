@@ -12,9 +12,14 @@ import type { PayloadListState } from './State.ts'
 
 export interface PayloadListProviderProps extends PropsWithChildren {
   archivist?: ArchivistInstance
+  // NOTE: Be sure your nextOptions have a higher limit then the pageSize of the list/table
   nextOptions?: NextOptions
 }
 
+/**
+ * Provider for the PayloadListContext
+ * NOTE: Be sure your nextOptions have a higher limit then the pageSize of the list/table
+ */
 export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({
   archivist, children, nextOptions: nextOptionsProp,
 }) => {
