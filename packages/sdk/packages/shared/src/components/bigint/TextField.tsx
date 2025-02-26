@@ -45,6 +45,7 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
       const bigInitValue = BigInt(fixedValue)
       onChangeBigInt?.(bigInitValue)
     } catch (e) {
+      console.error(e)
       setError(e as Error)
     }
     // run bigInt callback
