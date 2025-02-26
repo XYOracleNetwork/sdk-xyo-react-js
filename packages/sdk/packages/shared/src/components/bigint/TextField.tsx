@@ -40,10 +40,10 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
 
   useMemo(() => {
     const fixedValue = value * (10 ** fixedPoint)
+    setError(undefined)
     try {
       const bigInitValue = BigInt(fixedValue)
       onChangeBigInt?.(bigInitValue)
-      setError(undefined)
     } catch (e) {
       setError(e as Error)
     }
