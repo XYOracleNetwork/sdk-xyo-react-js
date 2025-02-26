@@ -5,11 +5,12 @@ import React from 'react'
 
 export interface FixedPointPopoverProps extends PopoverProps {
   fixedPoint?: number
+  minFixedPoint?: number
   onFixedPointChange?: (value: number) => void
 }
 
 export const FixedPointPopover: React.FC<FixedPointPopoverProps> = ({
-  fixedPoint, onFixedPointChange, ...props
+  fixedPoint, minFixedPoint: minimumPoint, onFixedPointChange, ...props
 }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fixedPointInteger = Number.parseInt(event.target.value, 10)
@@ -18,7 +19,7 @@ export const FixedPointPopover: React.FC<FixedPointPopoverProps> = ({
 
   return (
     <Popover slotProps={{ paper: { sx: { p: 2 } } }} {...props}>
-      <TextField value={fixedPoint} onChange={handleChange} type="number" />
+      <TextField slotProps={{ htmlInput: { min: minimumPoint } }} value={fixedPoint} onChange={handleChange} type="number" />
       <FormHelperText>Set the Fixed Point</FormHelperText>
     </Popover>
   )

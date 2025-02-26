@@ -50,6 +50,8 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
     // run bigInt callback
   }, [value, fixedPoint])
 
+  const minFixedPoint = rawValue.split('.')[1]?.length
+
   return (
     <>
       <TextField
@@ -65,6 +67,7 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
                   anchorEl={ref.current}
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                   fixedPoint={fixedPoint}
+                  minFixedPoint={minFixedPoint}
                   onClose={() => setOpen(false)}
                   onFixedPointChange={onFixedPointChange}
                   open={open}
