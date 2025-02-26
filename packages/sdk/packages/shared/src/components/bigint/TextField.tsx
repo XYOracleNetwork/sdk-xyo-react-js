@@ -39,8 +39,3 @@ export const WithFormControl: React.FC<WithFormControlProps> = ({ textFieldProps
     <BigIntTextField {...textFieldProps} />
   </FormControl>
 )
-
-export const BigIntInput = {
-  TextField: BigIntTextField,
-  WithFormControl,
-}
