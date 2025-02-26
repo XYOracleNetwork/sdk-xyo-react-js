@@ -28,16 +28,20 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
     onChange?.(event)
     // remove all alpha characters but allow decimals
     const filteredValue = event.target.value.replaceAll(/[^\d.]/g, '')
+    // only allow one decimal point
     if (filteredValue.split('.').length > 2) return
     setRawValue(filteredValue)
 
+    // parse the raw filtered raw value
     const value = Number.parseFloat(filteredValue || '0')
+    // if the value is NaN set it to 0
     if (Number.isNaN(value)) setValue(0)
     setValue(value)
   }
 
   const onFixedPointChange = (fixedPoint: number) => setFixedPoint(fixedPoint)
 
+  // on value or point changes, run the bigInt callback
   useMemo(() => {
     const fixedValue = value * (10 ** fixedPoint)
     setError(undefined)
@@ -51,7 +55,13 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
     // run bigInt callback
   }, [value, fixedPoint])
 
+  // prevent the fixed point from being less than the number of decimal places
   const minFixedPoint = rawValue.split('.')[1]?.length
+
+  const resolvedHelperText = useMemo(() => {
+    if (error) return 'Cannot convert to BigInt'
+    return helperText ?? 'Enter a number'
+  }, [helperText, error])
 
   return (
     <>
@@ -90,7 +100,7 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
         value={rawValue}
         {...props}
       />
-      <FormHelperText>{helperText ?? 'Enter a number'}</FormHelperText>
+      <FormHelperText>{resolvedHelperText}</FormHelperText>
     </>
   )
 }
