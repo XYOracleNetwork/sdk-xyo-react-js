@@ -4,7 +4,7 @@ import {
 } from '@mui/material'
 import type { FocusEventHandler } from 'react'
 import React, {
-  useMemo, useRef, useState,
+  useEffect, useMemo, useRef, useState,
 } from 'react'
 
 import { FixedPointPopover } from './FixedPointPopover.tsx'
@@ -42,18 +42,21 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
   const onFixedPointChange = (fixedPoint: number) => setFixedPoint(fixedPoint)
 
   // on value or point changes, run the bigInt callback
-  useMemo(() => {
+  const bigIntValue = useMemo(() => {
     const fixedValue = value * (10 ** fixedPoint)
     setError(undefined)
     try {
-      const bigInitValue = BigInt(fixedValue)
-      onChangeFixedPoint?.(bigInitValue)
+      return BigInt(fixedValue)
     } catch (e) {
       console.error(e)
       setError(e as Error)
     }
     // run bigInt callback
   }, [value, fixedPoint])
+
+  useEffect(() => {
+    if (bigIntValue) onChangeFixedPoint?.(bigIntValue)
+  }, [bigIntValue])
 
   // prevent the fixed point from being less than the number of decimal places
   const minFixedPoint = rawValue.split('.')[1]?.length
