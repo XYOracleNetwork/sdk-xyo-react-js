@@ -10,11 +10,11 @@ import React, {
 import { FixedPointPopover } from './FixedPointPopover.tsx'
 
 export interface BigIntTextFieldProps extends StandardTextFieldProps {
-  onChangeBigInt?: (value: bigint) => void
+  onChangeFixedPoint?: (value: bigint) => void
 }
 
 export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
-  helperText, onChangeBigInt, onChange, ...props
+  helperText, onChangeFixedPoint, onChange, ...props
 }) => {
   const [value, setValue] = useState<number>(0)
   const [rawValue, setRawValue] = useState<string>('')
@@ -47,7 +47,7 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
     setError(undefined)
     try {
       const bigInitValue = BigInt(fixedValue)
-      onChangeBigInt?.(bigInitValue)
+      onChangeFixedPoint?.(bigInitValue)
     } catch (e) {
       console.error(e)
       setError(e as Error)
