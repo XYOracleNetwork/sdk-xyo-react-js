@@ -6,12 +6,13 @@ import type { ChangeEventHandler } from 'react'
 import React from 'react'
 
 export interface BigIntTextFieldProps extends StandardTextFieldProps {
+  helperText?: string
   hideHelperText?: boolean
   onChangeBigInt?: (value: bigint) => void
 }
 
 export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
-  hideHelperText, onChangeBigInt, onChange, ...props
+  helperText, hideHelperText, onChangeBigInt, onChange, ...props
 }) => {
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     // callback for string value
@@ -25,7 +26,7 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
   return (
     <>
       <TextField onChange={handleChange} type="string" {...props} />
-      {hideHelperText ? null : <FormHelperText>Enter a base 10 number</FormHelperText>}
+      {hideHelperText ? null : <FormHelperText>{helperText ?? 'Enter a base 10 number'}</FormHelperText>}
     </>
   )
 }
