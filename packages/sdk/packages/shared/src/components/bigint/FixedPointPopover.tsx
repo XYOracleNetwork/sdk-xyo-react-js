@@ -14,6 +14,7 @@ export const FixedPointPopover: React.FC<FixedPointPopoverProps> = ({
 }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fixedPointInteger = Number.parseInt(event.target.value, 10)
+    if (Number.isNaN(fixedPointInteger)) return
     onFixedPointChange?.(fixedPointInteger)
   }
 
