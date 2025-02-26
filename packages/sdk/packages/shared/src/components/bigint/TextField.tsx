@@ -1,13 +1,14 @@
 import type { FormControlProps, StandardTextFieldProps } from '@mui/material'
 import {
-  Avatar, FormControl, FormHelperText, IconButton, InputAdornment, TextField,
+  FormControl, FormHelperText, TextField,
 } from '@mui/material'
 import type { FocusEventHandler } from 'react'
 import React, {
-  useEffect, useMemo, useRef, useState,
+  useEffect, useMemo,
+  useState,
 } from 'react'
 
-import { FixedPointPopover } from './FixedPointPopover.tsx'
+import { FixedPointInputAdornment } from './InputAdornment.tsx'
 
 export interface BigIntTextFieldProps extends StandardTextFieldProps {
   onChangeFixedPoint?: (value: bigint) => void
@@ -20,8 +21,6 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
   const [rawValue, setRawValue] = useState<string>('')
   const [fixedPoint, setFixedPoint] = useState(18)
   const [error, setError] = useState<Error>()
-  const ref = useRef<HTMLButtonElement>(null)
-  const [open, setOpen] = useState(false)
 
   const handleChange: FocusEventHandler<HTMLTextAreaElement> = (event) => {
     // run standard callback
@@ -76,27 +75,12 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
           htmlInput: { pattern: '[0-9]*[.]?[0-9]*' },
           input: {
             startAdornment: (
-              <InputAdornment position="start">
-                <FixedPointPopover
-                  anchorEl={ref.current}
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                  fixedPoint={fixedPoint}
-                  minFixedPoint={minFixedPoint}
-                  onClose={() => setOpen(false)}
-                  onFixedPointChange={onFixedPointChange}
-                  open={open}
-                />
-                <IconButton size="small" ref={ref} onClick={() => setOpen(!open)}>
-                  <Avatar sx={{
-                    fontSize: '.75rem',
-                    height: '20px',
-                    width: '20px',
-                  }}
-                  >
-                    {fixedPoint}
-                  </Avatar>
-                </IconButton>
-              </InputAdornment>
+              <FixedPointInputAdornment
+                position="start"
+                fixedPoint={fixedPoint}
+                minFixedPoint={minFixedPoint}
+                onFixedPointChange={onFixedPointChange}
+              />
             ),
           },
         }}
