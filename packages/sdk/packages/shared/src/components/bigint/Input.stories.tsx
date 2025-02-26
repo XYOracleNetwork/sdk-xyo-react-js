@@ -19,6 +19,7 @@ const Template: StoryFn<typeof BigIntInput.WithFormControl> = (args) => {
         ? (
             <Typography>
               BigInt:
+              {' '}
               {bigIntString}
             </Typography>
           )

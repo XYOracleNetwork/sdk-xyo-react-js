@@ -25,7 +25,7 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
 
   return (
     <>
-      <TextField onChange={handleChange} type="string" {...props} />
+      <TextField onChange={handleChange} type="number" {...props} />
       {hideHelperText ? null : <FormHelperText>{helperText ?? 'Enter a base 10 number'}</FormHelperText>}
     </>
   )
