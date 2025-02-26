@@ -92,11 +92,11 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
   )
 }
 
-export interface WithFormControlProps extends FormControlProps {
+export interface InputWithFormControlProps extends FormControlProps {
   textFieldProps?: BigIntTextFieldProps
 }
 
-export const WithFormControl: React.FC<WithFormControlProps> = ({ textFieldProps, ...props }) => (
+export const WithFormControl: React.FC<InputWithFormControlProps> = ({ textFieldProps, ...props }) => (
   <FormControl {...props}>
     <BigIntTextField {...textFieldProps} />
   </FormControl>
