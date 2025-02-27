@@ -11,15 +11,17 @@ import React, {
 import { FixedPointInputAdornment } from './InputAdornment.tsx'
 
 export interface BigIntTextFieldProps extends StandardTextFieldProps {
+  defaultFixedPoint?: number
+  hideAdornment?: boolean
   onChangeFixedPoint?: (value: bigint) => void
 }
 
 export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
-  helperText, onChangeFixedPoint, onChange, ...props
+  defaultFixedPoint = 18, helperText, hideAdornment, onChangeFixedPoint, onChange, ...props
 }) => {
   const [value, setValue] = useState<number>(0)
   const [rawValue, setRawValue] = useState<string>('')
-  const [fixedPoint, setFixedPoint] = useState(18)
+  const [fixedPoint, setFixedPoint] = useState(defaultFixedPoint)
   const [error, setError] = useState<Error>()
 
   const handleChange: FocusEventHandler<HTMLTextAreaElement> = (event) => {
@@ -74,13 +76,16 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
         slotProps={{
           htmlInput: { pattern: '[0-9]*[.]?[0-9]*' },
           input: {
-            startAdornment: (
-              <FixedPointInputAdornment
-                position="start"
-                fixedPoint={fixedPoint}
-                minFixedPoint={minFixedPoint}
-                onFixedPointChange={onFixedPointChange}
-              />
+            startAdornment: (hideAdornment
+              ? null
+              : (
+                  <FixedPointInputAdornment
+                    position="start"
+                    fixedPoint={fixedPoint}
+                    minFixedPoint={minFixedPoint}
+                    onFixedPointChange={onFixedPointChange}
+                  />
+                )
             ),
           },
         }}

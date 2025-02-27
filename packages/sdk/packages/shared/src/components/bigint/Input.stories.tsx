@@ -7,7 +7,7 @@ import { BigIntInput } from './Input.ts'
 
 export default { title: 'Input/Bigint/WithFormControl', component: BigIntInput.WithFormControl } as Meta<typeof BigIntInput.WithFormControl>
 
-const Template: StoryFn<typeof BigIntInput.WithFormControl> = (args) => {
+const Template: StoryFn<typeof BigIntInput.WithFormControl> = ({ textFieldProps, ...args }) => {
   const [bigIntString, setBigIntString] = useState('')
 
   const onChangeFixedPoint = (value: bigint) => {
@@ -16,7 +16,7 @@ const Template: StoryFn<typeof BigIntInput.WithFormControl> = (args) => {
 
   return (
     <FlexCol alignItems="start" gap={2}>
-      <BigIntInput.WithFormControl textFieldProps={{ onChangeFixedPoint }} {...args} />
+      <BigIntInput.WithFormControl textFieldProps={{ ...textFieldProps, onChangeFixedPoint }} {...args} />
       {bigIntString
         ? (
             <Typography>
@@ -33,4 +33,12 @@ const Template: StoryFn<typeof BigIntInput.WithFormControl> = (args) => {
 const Default = Template.bind({})
 Default.args = {}
 
-export { Default }
+const WithHiddenAdornment = Template.bind({})
+WithHiddenAdornment.args = { textFieldProps: { hideAdornment: true } }
+
+const WithHelperText = Template.bind({})
+WithHelperText.args = { textFieldProps: { helperText: 'Enter Amount', hideAdornment: true } }
+
+export {
+  Default, WithHelperText, WithHiddenAdornment,
+}
