@@ -8,10 +8,10 @@ import { BigIntInput } from './Input.ts'
 export default { title: 'Input/Bigint/WithFormControl', component: BigIntInput.WithFormControl } as Meta<typeof BigIntInput.WithFormControl>
 
 const Template: StoryFn<typeof BigIntInput.WithFormControl> = ({ textFieldProps, ...args }) => {
-  const [bigIntString, setBigIntString] = useState('')
+  const [bigIntString, setBigIntString] = useState<string>()
 
-  const onChangeFixedPoint = (value: bigint) => {
-    setBigIntString(value.toString())
+  const onChangeFixedPoint = (value?: bigint) => {
+    setBigIntString(value?.toString())
   }
 
   return (

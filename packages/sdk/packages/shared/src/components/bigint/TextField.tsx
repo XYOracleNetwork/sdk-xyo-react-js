@@ -13,13 +13,13 @@ import { FixedPointInputAdornment } from './InputAdornment.tsx'
 export interface BigIntTextFieldProps extends StandardTextFieldProps {
   defaultFixedPoint?: number
   hideAdornment?: boolean
-  onChangeFixedPoint?: (value: bigint) => void
+  onChangeFixedPoint?: (value?: bigint) => void
 }
 
 export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
   defaultFixedPoint = 18, helperText, hideAdornment, onChangeFixedPoint, onChange, ...props
 }) => {
-  const [value, setValue] = useState<number>(0)
+  const [value, setValue] = useState<number | undefined>()
   const [rawValue, setRawValue] = useState<string>('')
   const [fixedPoint, setFixedPoint] = useState(defaultFixedPoint)
   const [error, setError] = useState<Error>()
@@ -34,9 +34,9 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
     setRawValue(filteredValue)
 
     // parse the raw filtered raw value
-    const value = Number.parseFloat(filteredValue || '0')
+    const value = Number.parseFloat(filteredValue)
     // if the value is NaN set it to 0
-    if (Number.isNaN(value)) setValue(0)
+    if (Number.isNaN(value)) setValue(undefined)
     setValue(value)
   }
 
@@ -44,19 +44,24 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
 
   // on value or point changes, run the bigInt callback
   const bigIntValue = useMemo(() => {
-    const fixedValue = value * (10 ** fixedPoint)
-    setError(undefined)
-    try {
-      return BigInt(fixedValue)
-    } catch (e) {
-      console.error(e)
-      setError(e as Error)
+    if (value) {
+      const fixedValue = value * (10 ** fixedPoint)
+      setError(undefined)
+      try {
+        return BigInt(fixedValue)
+      } catch (e) {
+        console.error(e)
+        setError(e as Error)
+        return
+      }
+    } else {
+      return
     }
     // run bigInt callback
   }, [value, fixedPoint])
 
   useEffect(() => {
-    if (bigIntValue) onChangeFixedPoint?.(bigIntValue)
+    onChangeFixedPoint?.(bigIntValue)
   }, [bigIntValue])
 
   // prevent the fixed point from being less than the number of decimal places
