@@ -1,10 +1,10 @@
-import type { Stylesheet } from 'cytoscape'
+import type { StylesheetCSS } from 'cytoscape'
 
 import type { CyNodeModuleTypes } from './lib/index.ts'
 
-export const NodeWithName = (color?: string, outlineColor?: string): Stylesheet => ({
+export const NodeWithName = (color?: string, outlineColor?: string): StylesheetCSS => ({
   selector: 'node[name]',
-  style: {
+  css: {
     color,
     'font-family': 'Lexend Deca, Helvetica, sans-serif',
     'font-size': 12,
@@ -16,9 +16,9 @@ export const NodeWithName = (color?: string, outlineColor?: string): Stylesheet 
   },
 })
 
-export const Node = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string, hideLabels = false): Stylesheet => ({
+export const Node = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string, hideLabels = false): StylesheetCSS => ({
   selector: 'node',
-  style: {
+  css: {
     'background-color': bgColor,
     'background-height': '75%',
     'background-image': elem => icons[elem.data('type') as CyNodeModuleTypes],
@@ -28,14 +28,14 @@ export const Node = (icons: Record<CyNodeModuleTypes, string>, bgColor?: string,
   },
 })
 
-export const NodeAsRoot = (bgColor?: string) => ({
+export const NodeAsRoot = (bgColor?: string): StylesheetCSS => ({
   selector: '.activeNode',
-  style: { 'background-color': bgColor },
+  css: { 'background-color': bgColor },
 })
 
-export const EdgeStyled = (lineColor?: string, targetArrowColor?: string) => ({
+export const EdgeStyled = (lineColor?: string, targetArrowColor?: string): StylesheetCSS => ({
   selector: 'edge',
-  style: {
+  css: {
     'curve-style': 'bezier',
     'line-color': lineColor,
     'line-opacity': 0.1,
