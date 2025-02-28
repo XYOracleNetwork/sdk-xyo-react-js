@@ -14,7 +14,7 @@ export interface BigIntTextFieldProps extends StandardTextFieldProps {
   defaultRawValue?: string
   hideAdornment?: boolean
   onChangeFixedPoint?: (value?: bigint) => void
-  resetValue?: boolean
+  resetValue?: number
 }
 
 export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
