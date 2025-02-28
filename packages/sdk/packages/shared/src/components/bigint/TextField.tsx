@@ -4,31 +4,35 @@ import {
 } from '@mui/material'
 import type { FocusEventHandler } from 'react'
 import React, {
-  useEffect, useMemo,
-  useState,
+  useEffect, useMemo, useState,
 } from 'react'
 
 import { FixedPointInputAdornment } from './InputAdornment.tsx'
 
 export interface BigIntTextFieldProps extends StandardTextFieldProps {
   defaultFixedPoint?: number
+  defaultRawValue?: string
   hideAdornment?: boolean
   onChangeFixedPoint?: (value?: bigint) => void
+  resetValue?: boolean
 }
 
 export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
-  defaultFixedPoint = 18, helperText, hideAdornment, onChangeFixedPoint, onChange, ...props
+  defaultFixedPoint = 18, defaultRawValue, helperText, hideAdornment, onChangeFixedPoint, onChange, resetValue, ...props
 }) => {
   const [value, setValue] = useState<number | undefined>()
   const [rawValue, setRawValue] = useState<string>('')
   const [fixedPoint, setFixedPoint] = useState(defaultFixedPoint)
   const [error, setError] = useState<Error>()
 
-  const handleChange: FocusEventHandler<HTMLTextAreaElement> = (event) => {
-    // run standard callback
-    onChange?.(event)
+  useMemo(() => {
+    setRawValue('')
+    setValue(undefined)
+  }, [resetValue])
+
+  const handleRawValueChange = (rawValue: string) => {
     // remove all alpha characters but allow decimals
-    const filteredValue = event.target.value.replaceAll(/[^\d.]/g, '')
+    const filteredValue = rawValue.replaceAll(/[^\d.]/g, '')
     // only allow one decimal point
     if (filteredValue.split('.').length > 2) return
     setRawValue(filteredValue)
@@ -38,6 +42,20 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
     // if the value is NaN set it to 0
     if (Number.isNaN(value)) setValue(undefined)
     setValue(value)
+  }
+
+  useMemo(() => {
+    if (defaultRawValue) {
+      handleRawValueChange(defaultRawValue)
+    } else {
+      setValue(undefined)
+    }
+  }, [defaultRawValue])
+
+  const handleChange: FocusEventHandler<HTMLTextAreaElement> = (event) => {
+    // run standard callback
+    onChange?.(event)
+    handleRawValueChange(event.target.value)
   }
 
   const onFixedPointChange = (fixedPoint: number) => setFixedPoint(fixedPoint)
