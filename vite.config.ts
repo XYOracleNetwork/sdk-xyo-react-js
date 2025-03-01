@@ -2,7 +2,7 @@ import react from '@vitejs/plugin-react-swc'
 import { config } from 'dotenv'
 import { defineConfig } from 'vite'
 import Checker from 'vite-plugin-checker'
-import { default as topLevelAwait } from 'vite-plugin-top-level-await'
+import topLevelAwait from 'vite-plugin-top-level-await'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

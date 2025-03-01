@@ -21,16 +21,16 @@ export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRen
     <CardContent ref={ref} {...props}>
       <Grid container spacing={3}>
         {gasPricePayload
-        && FeePerGasValues.map(value => (
-          <Grid key={value} item xs={12} sm={6} lg={3}>
-            <GasFeeCard
-              speedPaperElevation={4}
-              gasPrice={gasPricePayload?.feePerGas[value]}
-              priorityFee={gasPricePayload.priorityFeePerGas[value]}
-              speed={FeePerGasToSpeed[value]}
-            />
-          </Grid>
-        ))}
+          && FeePerGasValues.map(value => (
+            <Grid key={value} item xs={12} sm={6} lg={3}>
+              <GasFeeCard
+                speedPaperElevation={4}
+                gasPrice={gasPricePayload?.feePerGas[value]}
+                priorityFee={gasPricePayload.priorityFeePerGas[value]}
+                speed={FeePerGasToSpeed[value]}
+              />
+            </Grid>
+          ))}
       </Grid>
     </CardContent>
   )

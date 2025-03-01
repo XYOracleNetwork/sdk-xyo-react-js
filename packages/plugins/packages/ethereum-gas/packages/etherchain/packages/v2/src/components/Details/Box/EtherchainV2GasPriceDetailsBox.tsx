@@ -32,17 +32,17 @@ export const EtherchainV2GasPriceDetailsBox = forwardRef<HTMLDivElement, Payload
                 <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
                 <Grid container spacing={3}>
                   {parsedPayload
-                  && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
-                    <Grid key={price?.label} item xs={22} sm={6} lg={3}>
-                      <GasFeeCard
-                        key={price?.label}
-                        gasPrice={price?.value}
-                        speed={price?.label}
-                        priorityFee={priorityFee?.value}
-                        priorityFeeLabel={priorityFee?.label}
-                      />
-                    </Grid>
-                  ))}
+                    && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
+                      <Grid key={price?.label} item xs={22} sm={6} lg={3}>
+                        <GasFeeCard
+                          key={price?.label}
+                          gasPrice={price?.value}
+                          speed={price?.label}
+                          priorityFee={priorityFee?.value}
+                          priorityFeeLabel={priorityFee?.label}
+                        />
+                      </Grid>
+                    ))}
                 </Grid>
                 <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" />
               </FlexCol>

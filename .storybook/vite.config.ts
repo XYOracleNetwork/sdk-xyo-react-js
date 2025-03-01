@@ -1,6 +1,6 @@
 import { config } from 'dotenv'
 import { defineConfig } from 'vite'
-import { default as topLevelAwait } from 'vite-plugin-top-level-await'
+import topLevelAwait from 'vite-plugin-top-level-await'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TopLevelAwaitPlugin = topLevelAwait as any
