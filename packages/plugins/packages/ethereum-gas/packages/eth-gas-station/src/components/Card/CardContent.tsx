@@ -4,13 +4,15 @@ import type { EthereumGasEthgasstationPayload } from '@xyo-network/ethgasstation
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import { getEthgasstationTransformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthgasstationGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
+export const EthgasstationGasPriceCardContent = ({
+  ref, payload, ...props
+}: PayloadRenderProps & CardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const gasPricePayload = payload ? (payload as EthereumGasEthgasstationPayload) : undefined
   const parsedPayload = getEthgasstationTransformer(gasPricePayload)
 
@@ -37,6 +39,6 @@ export const EthgasstationGasPriceCardContent = forwardRef<HTMLDivElement, Paylo
       <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" pr={1} />
     </CardContent>
   )
-})
+}
 
 EthgasstationGasPriceCardContent.displayName = 'EthgasstationGasPriceCardContent'

@@ -88,10 +88,10 @@ export const PayloadListProvider: React.FC<PayloadListProviderProps> = ({
   }, [newPayloadsError, totalPayloadsState, resetList, uiState])
 
   return (
-    <PayloadListContext.Provider
+    <PayloadListContext
       value={value}
     >
       {children}
-    </PayloadListContext.Provider>
+    </PayloadListContext>
   )
 }

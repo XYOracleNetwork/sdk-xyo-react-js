@@ -1,7 +1,7 @@
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import { PayloadDataDetails } from './DataDetails.tsx'
 import { PayloadJsonDetails } from './JsonDetails.tsx'
@@ -15,9 +15,9 @@ export type PayloadDetailsProps = FlexBoxProps & {
   payload?: Payload
 }
 
-export const PayloadDetails = forwardRef<HTMLDivElement, PayloadDetailsProps>(({
-  paper, payload, ...props
-}, ref) => {
+export const PayloadDetails = ({
+  ref, paper, payload, ...props
+}: PayloadDetailsProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   return (
     <FlexCol gap={1} justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} ref={ref} {...props}>
       <PayloadDataDetails paper={paper} size="large" badge payload={payload} />
@@ -25,6 +25,6 @@ export const PayloadDetails = forwardRef<HTMLDivElement, PayloadDetailsProps>(({
       <PayloadJsonDetails paper={paper} payload={payload} />
     </FlexCol>
   )
-})
+}
 
 PayloadDetails.displayName = 'PayloadDetails'

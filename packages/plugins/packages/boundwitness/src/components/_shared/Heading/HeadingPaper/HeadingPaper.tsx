@@ -1,6 +1,6 @@
 import type { PaperProps } from '@mui/material'
 import { Paper, styled } from '@mui/material'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import { BWHeading } from '../Heading.tsx'
 import type { BWHeadingProps } from '../HeadingProps.tsx'
@@ -9,7 +9,7 @@ export interface HeadingPaperProps extends BWHeadingProps {
   paperProps?: PaperProps
 }
 
-const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>((props, ref) => {
+const HeadingPaper = ({ ref, ...props }: HeadingPaperProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const {
     AdornmentStart, AdornmentEnd, paperProps,
   } = props
@@ -23,7 +23,7 @@ const HeadingPaper = forwardRef<HTMLDivElement, HeadingPaperProps>((props, ref) 
       <BWHeading {...bwHeadingProps} />
     </StyledHeadingPaper>
   )
-})
+}
 
 HeadingPaper.displayName = 'HeadingPaper'
 

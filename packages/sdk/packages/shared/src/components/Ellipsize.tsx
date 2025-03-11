@@ -5,9 +5,7 @@ import {
   Box, styled, Typography,
 } from '@mui/material'
 import type { PropsWithChildren } from 'react'
-import React, {
-  forwardRef, useCallback, useState,
-} from 'react'
+import React, { useCallback, useState } from 'react'
 
 import { useShareForwardedRef } from '../hooks/index.ts'
 
@@ -92,23 +90,21 @@ export interface EllipsizeBoxProps extends BoxProps {
   typographyProps?: TypographyWithComponentProps
 }
 
-export const EllipsizeBox = forwardRef<HTMLDivElement, PropsWithChildren<EllipsizeBoxProps>>(
-  ({
-    children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props
-  }, ref) => {
-    // Allow syncing of :before pseudo element height with contentWrapHeight
-    const { contentWrapRef, contentWrapHeight } = useClientHeight()
-    const sharedRef = useShareForwardedRef(ref)
+export const EllipsizeBox = ({
+  ref, children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props
+}: PropsWithChildren<EllipsizeBoxProps> & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+  // Allow syncing of :before pseudo element height with contentWrapHeight
+  const { contentWrapRef, contentWrapHeight } = useClientHeight()
+  const sharedRef = useShareForwardedRef(ref)
 
-    return (
-      <EllipsizeRoot beforeLineHeight={!!sharedRef && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={sharedRef}>
-        <EllipsizeInnerWrap>
-          <EllipsizeContentWrap ref={contentWrapRef} component="span" ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
-            {children}
-          </EllipsizeContentWrap>
-        </EllipsizeInnerWrap>
-      </EllipsizeRoot>
-    )
-  },
-)
+  return (
+    <EllipsizeRoot beforeLineHeight={!!sharedRef && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={sharedRef}>
+      <EllipsizeInnerWrap>
+        <EllipsizeContentWrap ref={contentWrapRef} component="span" ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
+          {children}
+        </EllipsizeContentWrap>
+      </EllipsizeInnerWrap>
+    </EllipsizeRoot>
+  )
+}
 EllipsizeBox.displayName = 'EllipsizeBox'

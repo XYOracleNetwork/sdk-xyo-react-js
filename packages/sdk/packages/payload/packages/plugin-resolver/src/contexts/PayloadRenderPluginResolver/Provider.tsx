@@ -20,7 +20,7 @@ export const PayloadRenderPluginResolverProvider: React.FC<PayloadRenderPluginRe
   }), [resolver, setResolver])
 
   return (
-    <PayloadRenderPluginResolverContext.Provider
+    <PayloadRenderPluginResolverContext
       value={value}
     >
       {resolver
@@ -28,6 +28,6 @@ export const PayloadRenderPluginResolverProvider: React.FC<PayloadRenderPluginRe
         : required
           ? null
           : children}
-    </PayloadRenderPluginResolverContext.Provider>
+    </PayloadRenderPluginResolverContext>
   )
 }

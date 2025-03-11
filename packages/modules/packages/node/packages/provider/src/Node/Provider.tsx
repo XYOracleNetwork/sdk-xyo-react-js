@@ -14,8 +14,8 @@ export const NodeProvider: React.FC<PropsWithChildren<NodeProviderProps>> = ({ n
   const value = useMemo(() => ({ node: memoNode, provided: true }), [memoNode])
 
   return (
-    <NodeContext.Provider value={value}>
+    <NodeContext value={value}>
       {children}
-    </NodeContext.Provider>
+    </NodeContext>
   )
 }

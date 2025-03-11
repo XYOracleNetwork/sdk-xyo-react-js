@@ -33,11 +33,11 @@ export const WalletProvider: React.FC<PropsWithChildren<WalletProviderProps>> = 
     setActiveAccountIndex])
 
   return (
-    <WalletContext.Provider
+    <WalletContext
       value={value}
       {...props}
     >
       {children}
-    </WalletContext.Provider>
+    </WalletContext>
   )
 }

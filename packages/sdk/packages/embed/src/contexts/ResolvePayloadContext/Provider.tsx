@@ -68,11 +68,11 @@ export const ResolvePayloadProvider: React.FC<PropsWithChildren<ResolvePayloadPr
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <ResolvePayloadContext.Provider value={{
+    <ResolvePayloadContext value={{
       huri, huriError, notFound, payload, provided: true, refreshHuri, setPayload,
     }}
     >
       {children}
-    </ResolvePayloadContext.Provider>
+    </ResolvePayloadContext>
   )
 }

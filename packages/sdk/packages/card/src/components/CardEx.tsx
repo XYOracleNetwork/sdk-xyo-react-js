@@ -1,15 +1,15 @@
 import type { CardProps } from '@mui/material'
 import { Card } from '@mui/material'
 import { useGradientStyles } from '@xyo-network/react-shared'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 export interface CardExProps extends CardProps {
   gradient?: 'border' | 'background'
 }
 
-export const CardExWithRef = forwardRef<HTMLDivElement, CardExProps>(({
-  style, gradient, ...props
-}, ref) => {
+export const CardExWithRef = ({
+  ref, style, gradient, ...props
+}: CardExProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const { styles } = useGradientStyles()
   const gradientStyle
     = gradient === 'border'
@@ -27,7 +27,7 @@ export const CardExWithRef = forwardRef<HTMLDivElement, CardExProps>(({
       {...props}
     />
   )
-})
+}
 
 CardExWithRef.displayName = 'CardEx'
 

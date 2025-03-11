@@ -47,11 +47,11 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({
     nodes])
 
   return (
-    <StandardNodesContext.Provider
+    <StandardNodesContext
       value={value}
     >
       {children}
-    </StandardNodesContext.Provider>
+    </StandardNodesContext>
   )
 }
 

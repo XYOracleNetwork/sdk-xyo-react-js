@@ -30,7 +30,7 @@ export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProp
   const activeBoundWitness: BoundWitness | undefined = payload?.at(0) as BoundWitness
 
   return (
-    <ActiveBoundWitnessContext.Provider
+    <ActiveBoundWitnessContext
       // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         activeBoundWitness,
@@ -40,6 +40,6 @@ export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProp
       }}
     >
       {children}
-    </ActiveBoundWitnessContext.Provider>
+    </ActiveBoundWitnessContext>
   )
 }

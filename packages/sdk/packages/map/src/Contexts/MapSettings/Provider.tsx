@@ -39,5 +39,5 @@ export const MapSettingsProvider: React.FC<PropsWithChildren<MapSettingsProvider
     }
   }, [debugLayerName, map, mapInitialized, mapSettings, requestLocation, zoom])
 
-  return <MapSettingsContext.Provider value={value}>{children}</MapSettingsContext.Provider>
+  return <MapSettingsContext value={value}>{children}</MapSettingsContext>
 }

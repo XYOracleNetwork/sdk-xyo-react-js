@@ -104,10 +104,10 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
     validate])
 
   return (
-    <SeedPhraseContext.Provider
+    <SeedPhraseContext
       value={value}
     >
       {children}
-    </SeedPhraseContext.Provider>
+    </SeedPhraseContext>
   )
 }

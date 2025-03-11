@@ -22,5 +22,5 @@ export const MapBoxInstanceProvider: React.FC<PropsWithChildren> = ({ children }
     }
   }, [map, mapInitialized, setMapInitialized])
 
-  return <MapBoxInstanceContext.Provider value={value}>{children}</MapBoxInstanceContext.Provider>
+  return <MapBoxInstanceContext value={value}>{children}</MapBoxInstanceContext>
 }

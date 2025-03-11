@@ -7,9 +7,11 @@ import type { QuickTipButtonProps } from '@xylabs/react-quick-tip-button'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
-const InvalidIcon = forwardRef<SVGSVGElement, SvgIconProps>((props, ref) => <CancelRoundedIcon color="error" ref={ref} {...props} />)
+const InvalidIcon = ({ ref, ...props }: SvgIconProps) =>
+  <CancelRoundedIcon color="error" ref={ref} {...props} />
+
 InvalidIcon.displayName = 'InvalidIcon'
 
 export interface BWVerification extends QuickTipButtonProps {

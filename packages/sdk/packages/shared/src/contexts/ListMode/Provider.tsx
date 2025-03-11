@@ -19,10 +19,10 @@ export const ListModeProvider: React.FC<PropsWithChildren<ListModeProviderProps>
     setListMode])
 
   return (
-    <ListModeContext.Provider
+    <ListModeContext
       value={value}
     >
       {children}
-    </ListModeContext.Provider>
+    </ListModeContext>
   )
 }

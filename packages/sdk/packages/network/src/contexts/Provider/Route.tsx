@@ -55,12 +55,12 @@ const NetworkRouteProviderInner: React.FC<PropsWithChildren> = ({ children }) =>
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <NetworkContext.Provider value={{
+    <NetworkContext value={{
       network, networks: defaultNetworkConfigs, provided: true, setNetwork: setNetworkLocal,
     }}
     >
       {network ? children : null}
-    </NetworkContext.Provider>
+    </NetworkContext>
   )
 }
 

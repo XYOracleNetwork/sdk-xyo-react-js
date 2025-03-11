@@ -14,8 +14,8 @@ export const NodeDrawerProvider: React.FC<NodeDrawerProviderProps> = ({ children
   }), [open])
 
   return (
-    <NodeDrawerContext.Provider value={value}>
+    <NodeDrawerContext value={value}>
       {children}
-    </NodeDrawerContext.Provider>
+    </NodeDrawerContext>
   )
 }

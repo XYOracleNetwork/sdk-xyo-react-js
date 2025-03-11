@@ -16,7 +16,7 @@ import coseBilkentLayout from 'cytoscape-cose-bilkent'
 import dagre from 'cytoscape-dagre'
 import eulerLayout from 'cytoscape-euler'
 import React, {
-  forwardRef, useEffect, useRef, useState,
+  useEffect, useRef, useState,
 } from 'react'
 
 import type { NodeRelationalGraphProps } from '../../lib/index.ts'
@@ -72,120 +72,118 @@ const ModuleHoverDetails: React.FC<ModuleHoverDetailsProps> = ({
   )
 }
 
-export const NodeRelationalGraphFlexBox = forwardRef<HTMLDivElement, NodeRelationalGraphProps>(
-  ({
-    actions, children, node, layout, layoutOptions, showDetails, detail, options, onHover, ...props
-  }, ref) => {
-    const theme = useTheme()
-    const [cy, setCy] = useState<Core>()
-    const cytoscapeRef = useRef<HTMLDivElement>()
-    const [hoverPosition, setHoverBoundingBox] = useState<{ x1: number; x2: number; y1: number; y2: number }>()
-    const [hoverAddress, setHoverAddress] = useState<Address>()
+export const NodeRelationalGraphFlexBox = ({
+  ref, actions, children, node, layout, layoutOptions, showDetails, detail, options, onHover, ...props
+}: NodeRelationalGraphProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+  const theme = useTheme()
+  const [cy, setCy] = useState<Core>()
+  const cytoscapeRef = useRef<HTMLDivElement>(null)
+  const [hoverPosition, setHoverBoundingBox] = useState<{ x1: number; x2: number; y1: number; y2: number }>()
+  const [hoverAddress, setHoverAddress] = useState<Address>()
 
-    const [moduleInstance] = useWeakModuleFromNode(hoverAddress, { node })
+  const [moduleInstance] = useWeakModuleFromNode(hoverAddress, { node })
 
-    useEffect(() => {
-      cy?.on('mouseover tap', ({ target }) => {
-        const cyNode = target as NodeSingular
-        const bb = cyNode?.renderedBoundingBox?.()
-        setHoverBoundingBox(bb)
-        const id = cyNode.id?.()
-        if (id) {
-          if (id.includes('/')) {
-            setHoverAddress(undefined)
-            onHover?.()
-          } else {
-            setHoverAddress(asAddress(id))
-            onHover?.(asAddress(id))
-          }
+  useEffect(() => {
+    cy?.on('mouseover tap', ({ target }) => {
+      const cyNode = target as NodeSingular
+      const bb = cyNode?.renderedBoundingBox?.()
+      setHoverBoundingBox(bb)
+      const id = cyNode.id?.()
+      if (id) {
+        if (id.includes('/')) {
+          setHoverAddress(undefined)
+          onHover?.()
+        } else {
+          setHoverAddress(asAddress(id))
+          onHover?.(asAddress(id))
         }
-      })
-    }, [onHover, cy])
+      }
+    })
+  }, [onHover, cy])
 
-    const handleReset = () => {
-      cy?.reset()
+  const handleReset = () => {
+    cy?.reset()
+    applyLayout(cy, layout ?? 'euler', layoutOptions)
+  }
+
+  useEffect(() => {
+    let newCy: Core | undefined
+    const container = cytoscapeRef.current
+    if (container) {
+      newCy = cytoscape({
+        container,
+        ...options,
+      })
+      // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
+      setCy(newCy)
+    } else {
+      newCy?.destroy()
+      // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
+      setCy(undefined)
+    }
+    return () => {
+      newCy?.destroy()
+      setCy(undefined)
+    }
+  }, [options, cytoscapeRef, layoutOptions])
+
+  useEffect(() => {
+    if (cy) {
+      loadLayout(layout)
       applyLayout(cy, layout ?? 'euler', layoutOptions)
     }
+  }, [cy, layoutOptions, layout])
 
-    useEffect(() => {
-      let newCy: Core | undefined
-      const container = cytoscapeRef.current
-      if (container) {
-        newCy = cytoscape({
-          container,
-          ...options,
-        })
-        // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
-        setCy(newCy)
-      } else {
-        newCy?.destroy()
-        // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
-        setCy(undefined)
-      }
-      return () => {
-        newCy?.destroy()
-        setCy(undefined)
-      }
-    }, [options, cytoscapeRef, layoutOptions])
-
-    useEffect(() => {
-      if (cy) {
-        loadLayout(layout)
-        applyLayout(cy, layout ?? 'euler', layoutOptions)
-      }
-    }, [cy, layoutOptions, layout])
-
-    return (
-      <FlexCol id="relational-graph-wrapper" ref={ref} {...props}>
-        {hoverAddress && hoverPosition
+  return (
+    <FlexCol id="relational-graph-wrapper" ref={ref} {...props}>
+      {hoverAddress && hoverPosition
+        ? (
+            <Box position="absolute" top={hoverPosition.y1} left={hoverPosition.x1} zIndex={100}>
+              <ModuleHoverDetails address={hoverAddress} name={moduleInstance?.deref()?.id ?? 'Unknown'} />
+            </Box>
+          )
+        : null}
+      <FlexRow justifyContent="start" width="100%">
+        {actions === null
+          ? null
+          : actions
+            ? (
+                <ButtonGroup>
+                  {actions}
+                  <Button size="small" variant="contained" onClick={handleReset}>
+                    Reset View
+                  </Button>
+                </ButtonGroup>
+              )
+            : (
+                <Button size="small" variant="contained" onClick={handleReset}>
+                  Reset
+                </Button>
+              )}
+      </FlexRow>
+      <FlexGrowRow width="100%" alignItems="start">
+        {showDetails
           ? (
-              <Box position="absolute" top={hoverPosition.y1} left={hoverPosition.x1} zIndex={100}>
-                <ModuleHoverDetails address={hoverAddress} name={moduleInstance?.deref()?.id ?? 'Unknown'} />
-              </Box>
+              <FlexCol height="100%" width="85%">
+                {detail}
+              </FlexCol>
             )
           : null}
-        <FlexRow justifyContent="start" width="100%">
-          {actions === null
-            ? null
-            : actions
-              ? (
-                  <ButtonGroup>
-                    {actions}
-                    <Button size="small" variant="contained" onClick={handleReset}>
-                      Reset View
-                    </Button>
-                  </ButtonGroup>
-                )
-              : (
-                  <Button size="small" variant="contained" onClick={handleReset}>
-                    Reset
-                  </Button>
-                )}
-        </FlexRow>
-        <FlexGrowRow width="100%" alignItems="start">
-          {showDetails
-            ? (
-                <FlexCol height="100%" width="85%">
-                  {detail}
-                </FlexCol>
-              )
-            : null}
-          <FlexCol
-            justifyContent="start"
-            classes="cytoscape-wrap"
-            width={showDetails ? '15%' : '100%'}
-            height={showDetails ? '50%' : '100%'}
-            border={showDetails ? `1px solid ${theme.palette.divider}` : undefined}
-          >
-            {/* Cytoscape Element */}
-            <FlexCol alignItems="stretch" position="absolute" width="100%" height="100%" ref={cytoscapeRef} />
-            {children}
-          </FlexCol>
-        </FlexGrowRow>
-      </FlexCol>
-    )
-  },
-)
+        <FlexCol
+          justifyContent="start"
+          classes="cytoscape-wrap"
+          width={showDetails ? '15%' : '100%'}
+          height={showDetails ? '50%' : '100%'}
+          border={showDetails ? `1px solid ${theme.palette.divider}` : undefined}
+        >
+          {/* Cytoscape Element */}
+          <FlexCol alignItems="stretch" position="absolute" width="100%" height="100%" ref={cytoscapeRef} />
+          {children}
+        </FlexCol>
+      </FlexGrowRow>
+    </FlexCol>
+  )
+}
 
 NodeRelationalGraphFlexBox.displayName = 'NodeRelationalGraph'
 

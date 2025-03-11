@@ -34,8 +34,8 @@ export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({
   }), [formattedHeight, rowHeight, setRowHeight, setVisibleRows, visibleRows])
 
   return (
-    <TableHeightContext.Provider value={value}>
+    <TableHeightContext value={value}>
       {children}
-    </TableHeightContext.Provider>
+    </TableHeightContext>
   )
 }

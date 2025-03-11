@@ -6,7 +6,7 @@ import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import type { PayloadDetailsListRenderProps, PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableHeightProvider } from '@xyo-network/react-table'
-import React, { forwardRef, useMemo } from 'react'
+import React, { useMemo } from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
 // eslint-disable-next-line import-x/no-internal-modules
@@ -21,17 +21,21 @@ import {
   HeadingPaper,
 } from '../../_shared/index.ts'
 
-const BoundWitnessDetailsBox = forwardRef<HTMLDivElement, PayloadDetailsListRenderProps & FlexBoxProps>(({ visibleRows, ...props }, ref) => {
+const BoundWitnessDetailsBox = ({
+  ref, visibleRows, ...props
+}: PayloadDetailsListRenderProps & FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   return (
     <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
       <BoundWitnessDetailsBoxInner ref={ref} {...props} />
     </TableHeightProvider>
   )
-})
+}
 
 BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
-const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRenderProps & FlexBoxProps>(({ payload, ...props }, ref) => {
+const BoundWitnessDetailsBoxInner = ({
+  ref, payload, ...props
+}: PayloadDetailsRenderProps & FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const boundWitness = payload as BoundWitness
   const partialBoundWitness = boundWitness as Partial<BoundWitness>
   const hash = usePayloadHash(payload)
@@ -65,7 +69,7 @@ const BoundWitnessDetailsBoxInner = forwardRef<HTMLDivElement, PayloadDetailsRen
       </FlexCol>
     </FlexCol>
   )
-})
+}
 
 BoundWitnessDetailsBoxInner.displayName = 'BoundWitnessDetailsBoxInner'
 

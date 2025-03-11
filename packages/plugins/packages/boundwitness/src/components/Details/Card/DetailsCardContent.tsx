@@ -5,7 +5,7 @@ import type { CardContentExProps } from '@xyo-network/react-card'
 import { CardContentEx } from '@xyo-network/react-card'
 import { useTableHeight } from '@xyo-network/react-table'
 import type { Dispatch, SetStateAction } from 'react'
-import React, { forwardRef, useState } from 'react'
+import React, { useState } from 'react'
 
 import {
   BoundWitnessPayloadsTable, BoundWitnessPayloadsTableForBWs, BoundWitnessSignatureTable,
@@ -18,9 +18,9 @@ export interface DetailsCardContentProps extends CardContentExProps {
   setCollapsed?: Dispatch<SetStateAction<boolean>>
 }
 
-export const DetailsCardContent = forwardRef<HTMLDivElement, DetailsCardContentProps>(({
-  collapsed, boundwitness, setCollapsed, ...props
-}, ref) => {
+export const DetailsCardContent = ({
+  ref, collapsed, boundwitness, setCollapsed, ...props
+}: DetailsCardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const { height } = useTableHeight()
   const [activeTab, setActiveTab] = useState(0)
 
@@ -58,6 +58,6 @@ export const DetailsCardContent = forwardRef<HTMLDivElement, DetailsCardContentP
       </Collapse>
     </CardContentEx>
   )
-})
+}
 
 DetailsCardContent.displayName = 'DetailsCardContent'

@@ -3,7 +3,7 @@ import { Grid, styled } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { PropsWithChildren, ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 export interface AddressHistoryColumnProps extends GridProps, PropsWithChildren {
   heading?: ReactNode
@@ -28,9 +28,9 @@ const Scrollable = styled(FlexCol, { name: 'Scrollable' })(({ theme }) => ({
   },
 }))
 
-const ScrollableGridColumn = forwardRef<HTMLDivElement, AddressHistoryColumnProps>(({
-  children, heading, scrollableProps, ...props
-}, ref) => {
+const ScrollableGridColumn = ({
+  ref, children, heading, scrollableProps, ...props
+}: AddressHistoryColumnProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   return (
     <GridColumn ref={ref} {...props}>
       {heading}
@@ -39,7 +39,7 @@ const ScrollableGridColumn = forwardRef<HTMLDivElement, AddressHistoryColumnProp
       </FlexCol>
     </GridColumn>
   )
-})
+}
 
 ScrollableGridColumn.displayName = 'ScrollableGridColumn'
 

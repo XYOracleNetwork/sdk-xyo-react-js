@@ -3,14 +3,16 @@ import { CardContent, Grid } from '@mui/material'
 import { GasFeeCard } from '@xyo-network/react-gas-price'
 import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import type { FeeDataPayload } from '../lib/index.ts'
 import { FeePerGasToSpeed, FeePerGasValues } from '../lib/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
+export const EthereumGasPriceCardContent = ({
+  ref, payload, ...props
+}: PayloadRenderProps & CardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined
 
   if ([isEmpty(gasPricePayload?.feePerGas), isEmpty(gasPricePayload?.priorityFeePerGas)].some(Boolean)) {
@@ -34,6 +36,6 @@ export const EthereumGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRen
       </Grid>
     </CardContent>
   )
-})
+}
 
 EthereumGasPriceCardContent.displayName = 'EthereumGasPriceCardContent'

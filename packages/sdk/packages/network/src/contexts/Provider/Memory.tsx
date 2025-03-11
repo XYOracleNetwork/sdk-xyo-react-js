@@ -20,7 +20,7 @@ export const NetworkMemoryProvider: React.FC<PropsWithChildren<NetworkProviderPr
     network, networks: defaultNetworkConfigs, provided: true, setNetwork,
   }), [network, setNetwork])
 
-  return <NetworkContext.Provider value={value} {...props} />
+  return <NetworkContext value={value} {...props} />
 }
 
 /** @deprecated use NetworkMemoryProvider instead */

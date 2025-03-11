@@ -4,7 +4,7 @@ import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { Payload } from '@xyo-network/payload-model'
 import { PayloadDataDetails, PayloadJsonDetails } from '@xyo-network/react-payload-details'
 import type { PropsWithChildren } from 'react'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import { BlockPayloads } from './Payloads.tsx'
 import { BlockSignatureDetails } from './SignatureDetails.tsx'
@@ -17,9 +17,9 @@ export interface BlockDetailsProps extends PropsWithChildren, FlexBoxProps {
   payloads?: Payload[]
 }
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-const BlockDetails = forwardRef<unknown, BlockDetailsProps>(({
-  paper, block, payloads, children, ...props
-}, ref) => {
+const BlockDetails = ({
+  ref, paper, block, payloads, children, ...props
+}: BlockDetailsProps & { ref?: React.RefObject<unknown | null> }) => {
   return (
     <FlexCol justifyContent="flex-start" alignItems="stretch" gap={1} ref={ref} {...props}>
       <PayloadDataDetails paper={paper} payload={block} size="large" badge />
@@ -30,7 +30,7 @@ const BlockDetails = forwardRef<unknown, BlockDetailsProps>(({
       {children}
     </FlexCol>
   )
-})
+}
 
 BlockDetails.displayName = 'BlockDetails [XYO]'
 

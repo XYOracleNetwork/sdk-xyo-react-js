@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material'
 import type { IdenticonProps } from '@xylabs/react-identicon'
 import { Identicon } from '@xylabs/react-identicon'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import type { HeadingPaperProps } from '../HeadingPaper/index.ts'
 import { HeadingPaper } from '../HeadingPaper/index.ts'
@@ -11,9 +11,9 @@ export interface HashHeadingPaperProps extends HeadingPaperProps {
   identiconProps?: IdenticonProps
 }
 
-const HashHeadingPaper = forwardRef<HTMLDivElement, HashHeadingPaperProps>(({
-  hash, identiconProps, ...props
-}, ref) => {
+const HashHeadingPaper = ({
+  ref, hash, identiconProps, ...props
+}: HashHeadingPaperProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const theme = useTheme()
 
   return (
@@ -38,7 +38,7 @@ const HashHeadingPaper = forwardRef<HTMLDivElement, HashHeadingPaperProps>(({
       {...props}
     />
   )
-})
+}
 
 HashHeadingPaper.displayName = 'HashHeadingPaper'
 

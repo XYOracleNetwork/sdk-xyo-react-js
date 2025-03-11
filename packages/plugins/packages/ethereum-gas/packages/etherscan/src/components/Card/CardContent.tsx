@@ -4,13 +4,15 @@ import type { EthereumGasEtherscanPayload } from '@xyo-network/etherscan-ethereu
 import { GasFeeCard, ToggleRawPayloadBox } from '@xyo-network/react-gas-price'
 import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { PayloadDataMissing } from '@xyo-network/react-shared'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import { getEtherscanTransformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EtherscanGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRenderProps & CardContentProps>(({ payload, ...props }, ref) => {
+export const EtherscanGasPriceCardContent = ({
+  ref, payload, ...props
+}: PayloadRenderProps & CardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const gasPricePayload = payload ? (payload as EthereumGasEtherscanPayload) : undefined
   const parsedPayload = getEtherscanTransformer(gasPricePayload)
 
@@ -37,6 +39,6 @@ export const EtherscanGasPriceCardContent = forwardRef<HTMLDivElement, PayloadRe
       <ToggleRawPayloadBox gasPricePayload={gasPricePayload} alignItems="start" pr={1} />
     </CardContent>
   )
-})
+}
 
 EtherscanGasPriceCardContent.displayName = 'EtherscanGasPriceCardContent'

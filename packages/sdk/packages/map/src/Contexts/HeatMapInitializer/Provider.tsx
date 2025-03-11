@@ -89,5 +89,5 @@ export const HeatMapInitializerProvider: React.FC<PropsWithChildren<MapInitializ
     }
   }, [mapHeat, map, mapSettings, fitToPadding, options, mapInitialized, features])
 
-  return <HeatMapInitializerContext.Provider value={value}>{children}</HeatMapInitializerContext.Provider>
+  return <HeatMapInitializerContext value={value}>{children}</HeatMapInitializerContext>
 }

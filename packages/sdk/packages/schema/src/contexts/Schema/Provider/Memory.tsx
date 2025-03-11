@@ -24,5 +24,5 @@ export const SchemaMemoryProvider: React.FC<PropsWithChildren<SchemaProviderProp
     provided: true, schema, schemaList: knownSchemaList ?? schemaList, setSchema, setSchemaList,
   }), [schema, schemaList, knownSchemaList])
 
-  return <SchemaContext.Provider value={value} {...props} />
+  return <SchemaContext value={value} {...props} />
 }
