@@ -15,11 +15,11 @@ export const RefreshPayloadProvider: React.FC<PropsWithChildren<RefreshPayloadPr
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <RefreshPayloadContext.Provider value={{
+    <RefreshPayloadContext value={{
       onRefresh, provided: true, refreshPayload: localRefreshPayload, setRefreshPayload,
     }}
     >
       {children}
-    </RefreshPayloadContext.Provider>
+    </RefreshPayloadContext>
   )
 }

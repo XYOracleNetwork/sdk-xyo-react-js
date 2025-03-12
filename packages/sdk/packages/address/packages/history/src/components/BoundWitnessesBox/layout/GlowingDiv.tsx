@@ -2,7 +2,7 @@ import type {
   DetailedHTMLProps, HTMLAttributes, PropsWithChildren,
 } from 'react'
 import React, {
-  forwardRef, useEffect, useLayoutEffect, useRef,
+  useEffect, useLayoutEffect, useRef,
 } from 'react'
 
 import { useNestedBoundWitnesses } from '../../../hooks/index.ts'
@@ -12,9 +12,9 @@ export interface GlowingDivProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
   hash?: string
 }
 
-export const GlowingDiv = forwardRef<HTMLDivElement, GlowingDivProps>(({
-  hash, children, ...props
-}, ref) => {
+export const GlowingDiv = ({
+  ref, hash, children, ...props
+}: GlowingDivProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const { clickedExistingHash, setClickedExistingHash } = useNestedBoundWitnesses()
   const internalRef = useRef<HTMLDivElement | null>(null)
 
@@ -50,6 +50,6 @@ export const GlowingDiv = forwardRef<HTMLDivElement, GlowingDivProps>(({
       {children}
     </StyledGlowingDiv>
   )
-})
+}
 
 GlowingDiv.displayName = 'GlowingDiv'

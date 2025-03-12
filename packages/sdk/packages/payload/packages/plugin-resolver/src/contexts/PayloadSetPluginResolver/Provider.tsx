@@ -17,7 +17,7 @@ export const PayloadSetPluginResolverProvider: React.FC<PayloadSetPluginResolver
   const [resolver, setResolver] = useResetState<PayloadSetPluginResolver>(resolverProp)
 
   return (
-    <PayloadSetPluginResolverContext.Provider
+    <PayloadSetPluginResolverContext
       // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         provided: true,
@@ -30,6 +30,6 @@ export const PayloadSetPluginResolverProvider: React.FC<PayloadSetPluginResolver
         : required
           ? null
           : children}
-    </PayloadSetPluginResolverContext.Provider>
+    </PayloadSetPluginResolverContext>
   )
 }

@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-sdk",
-  "version": "4.4.11",
+  "version": "5.0.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -28,10 +28,10 @@
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/browser/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
-      "types": "./dist/browser/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
@@ -82,12 +82,12 @@
     "@mui/icons-material": "^6.4.7",
     "@mui/material": "^6.4.7",
     "@mui/styles": "^6.4.7",
-    "@types/react": "^18",
+    "@types/react": "^19.0.10",
     "@xylabs/pixel": "^2.0.6",
-    "@xylabs/ts-scripts-yarn3": "^5.1.14",
-    "@xylabs/tsconfig-react": "^5.1.14",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@xylabs/ts-scripts-yarn3": "^6.0.5",
+    "@xylabs/tsconfig-react": "^6.0.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^7.3.0",
     "typescript": "^5.8.2"
@@ -99,13 +99,14 @@
     "@mui/material": "^6",
     "@mui/styles": "^6",
     "@xylabs/pixel": "^2",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^19",
+    "react-dom": "^19",
     "react-helmet": "^6",
     "react-router-dom": "^7"
   },
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.4.11"
 }

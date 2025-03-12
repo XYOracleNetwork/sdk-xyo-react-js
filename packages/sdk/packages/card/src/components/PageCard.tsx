@@ -3,7 +3,7 @@ import type { CardHeaderProps } from '@mui/material'
 import { CardHeader, IconButton } from '@mui/material'
 import { TypographyEx } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import type { CardExProps } from './CardEx.tsx'
 import { CardEx } from './CardEx.tsx'
@@ -14,9 +14,9 @@ export interface PageCardProps extends CardExProps {
   subheader?: CardHeaderProps['subheader']
 }
 
-const PageCardWithRef = forwardRef<HTMLDivElement, PageCardProps>(({
-  subheader, title, onRefresh, children, action, style, ...props
-}, ref) => {
+const PageCardWithRef = ({
+  ref, subheader, title, onRefresh, children, action, style, ...props
+}: PageCardProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   return (
     <CardEx
       style={{
@@ -50,7 +50,7 @@ const PageCardWithRef = forwardRef<HTMLDivElement, PageCardProps>(({
       {children}
     </CardEx>
   )
-})
+}
 
 PageCardWithRef.displayName = 'PageCard'
 

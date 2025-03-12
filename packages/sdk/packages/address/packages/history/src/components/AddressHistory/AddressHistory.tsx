@@ -8,7 +8,7 @@ import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useEvent } from '@xyo-network/react-event'
 import { usePayloadHashes, useShareForwardedRef } from '@xyo-network/react-shared'
-import React, { forwardRef, Fragment } from 'react'
+import React, { Fragment } from 'react'
 
 import { orderedHistory, useActiveBoundWitness } from '../../hooks/index.ts'
 
@@ -23,9 +23,9 @@ export interface AddressHistoryProps extends ListProps {
   skeleton?: boolean
 }
 
-const AddressHistory = forwardRef<HTMLUListElement, AddressHistoryProps>(({
-  addressHistory, selectable, skeleton = true, ...props
-}, ref) => {
+const AddressHistory = ({
+  ref, addressHistory, selectable, skeleton = true, ...props
+}: AddressHistoryProps & { ref?: React.RefObject<HTMLUListElement | null> }) => {
   const theme = useTheme()
   const { setActiveBoundWitnessHash, activeBoundWitnessHash } = useActiveBoundWitness(!!selectable)
   const sharedRef = useShareForwardedRef<HTMLUListElement>(ref)
@@ -72,7 +72,7 @@ const AddressHistory = forwardRef<HTMLUListElement, AddressHistoryProps>(({
           )}
     </AddressChainList>
   )
-})
+}
 
 AddressHistory.displayName = 'AddressHistory'
 export { AddressHistory }

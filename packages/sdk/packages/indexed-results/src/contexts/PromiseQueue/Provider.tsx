@@ -8,8 +8,8 @@ export const PromiseQueueProvider: React.FC<PropsWithChildren> = ({ children }) 
   const value = useMemo(() => ({ provided: true, queue: new PromiseQueue() }), [])
 
   return (
-    <PromiseQueueContext.Provider value={value}>
+    <PromiseQueueContext value={value}>
       {children}
-    </PromiseQueueContext.Provider>
+    </PromiseQueueContext>
   )
 }

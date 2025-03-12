@@ -58,7 +58,7 @@ const SchemaRouteProviderInner: React.FC<PropsWithChildren> = ({ children }) => 
     provided: true, schema, schemaList, setSchema: setSchemaLocal,
   }), [schema, schemaList, setSchemaLocal])
 
-  return <SchemaContext.Provider value={value}>{children}</SchemaContext.Provider>
+  return <SchemaContext value={value}>{children}</SchemaContext>
 }
 
 export const SchemaRouteProvider: React.FC<PropsWithChildren<SchemaProviderProps>> = ({

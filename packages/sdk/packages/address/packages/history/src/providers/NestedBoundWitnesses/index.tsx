@@ -9,11 +9,11 @@ export const NestedBoundWitnessesProvider: React.FC<PropsWithChildren> = ({ chil
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <NestedBoundWitnessesContext.Provider value={{
+    <NestedBoundWitnessesContext value={{
       clickedExistingHash, loading, provided: true, setClickedExistingHash, setLoading,
     }}
     >
       {children}
-    </NestedBoundWitnessesContext.Provider>
+    </NestedBoundWitnessesContext>
   )
 }

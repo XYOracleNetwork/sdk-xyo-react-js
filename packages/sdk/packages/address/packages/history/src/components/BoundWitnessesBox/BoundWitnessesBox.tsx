@@ -5,7 +5,7 @@ import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import type { EventNoun, EventVerb } from '@xyo-network/react-event'
 import { useEvent } from '@xyo-network/react-event'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import { useActiveBoundWitness, useNestedBoundWitnesses } from '../../hooks/index.ts'
 import { ActiveBWFlexBox } from './ActiveBoundWitness/index.ts'
@@ -13,7 +13,7 @@ import { BWErrorAlert } from './Errors/index.ts'
 import { useBoundWitnessClickHandler } from './hooks/index.ts'
 import { NestedBoundWitnessesBox } from './NestedBoundWitnesses/index.ts'
 
-export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props, ref) => {
+export const BoundWitnessesBox = ({ ref, ...props }: FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
   const { rollbar } = useErrorReporter()
@@ -37,6 +37,6 @@ export const BoundWitnessesBox = forwardRef<HTMLDivElement, FlexBoxProps>((props
       </FlexGrowCol>
     </ThrownErrorBoundary>
   )
-})
+}
 
 BoundWitnessesBox.displayName = 'BoundWitnessesBox'

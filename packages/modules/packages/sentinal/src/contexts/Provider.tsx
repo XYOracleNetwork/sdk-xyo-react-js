@@ -133,9 +133,9 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
   return !required || sentinel
 
     ? (
-        <SentinelContext.Provider value={value}>
+        <SentinelContext value={value}>
           {children}
-        </SentinelContext.Provider>
+        </SentinelContext>
       )
     : null
 }

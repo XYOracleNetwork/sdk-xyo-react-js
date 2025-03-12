@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-embed",
-  "version": "4.4.11",
+  "version": "5.0.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -28,10 +28,10 @@
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/browser/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
-      "types": "./dist/browser/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
@@ -46,28 +46,28 @@
     "@mui/icons-material": "^6.4.7",
     "@mui/material": "^6.4.7",
     "@mui/styles": "^6.4.7",
-    "@xylabs/delay": "^4.5.10",
-    "@xylabs/react-async-effect": "^5.3.25",
-    "@xylabs/react-error": "^5.3.25",
-    "@xylabs/react-flexbox": "^5.3.25",
-    "@xylabs/react-hooks": "^5.3.25",
-    "@xylabs/react-select": "^5.3.25",
-    "@xylabs/react-shared": "^5.3.25",
-    "@xyo-network/huri": "^3.9.35",
-    "@xyo-network/payload-model": "^3.9.35",
+    "@xylabs/delay": "^4.6.0",
+    "@xylabs/react-async-effect": "^6.0.0",
+    "@xylabs/react-error": "^6.0.0",
+    "@xylabs/react-flexbox": "^6.0.0",
+    "@xylabs/react-hooks": "^6.0.0",
+    "@xylabs/react-select": "^6.0.0",
+    "@xylabs/react-shared": "^6.0.0",
+    "@xyo-network/huri": "^3.9.37",
+    "@xyo-network/payload-model": "^3.9.37",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/schema-cache": "^3.9.35",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@xyo-network/schema-cache": "^3.9.37",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@storybook/react": "^8.6.4",
-    "@types/react": "^18",
-    "@xylabs/ts-scripts-yarn3": "^5.1.14",
-    "@xylabs/tsconfig-react": "^5.1.14",
+    "@types/react": "^19.0.10",
+    "@xylabs/ts-scripts-yarn3": "^6.0.5",
+    "@xylabs/tsconfig-react": "^6.0.5",
     "@xyo-network/react-aggregate-price-plugin": "workspace:^",
     "@xyo-network/react-crypto-market-uniswap-plugin": "workspace:^",
     "react-router-dom": "^7.3.0",
@@ -82,5 +82,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.4.11"
 }

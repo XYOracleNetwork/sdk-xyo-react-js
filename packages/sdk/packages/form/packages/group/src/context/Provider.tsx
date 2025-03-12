@@ -25,11 +25,11 @@ export const FormGroupPayloadProvider = ({
 
   return (
 
-    <FormGroupBaseContext.Provider
+    <FormGroupBaseContext
       value={value}
       {...props}
     >
       {children}
-    </FormGroupBaseContext.Provider>
+    </FormGroupBaseContext>
   )
 }

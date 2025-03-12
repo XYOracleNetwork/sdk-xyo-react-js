@@ -30,9 +30,9 @@ export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ 
   }), [payload, payloadError, setPayload])
 
   return (
-    <DivinedPayloadContext.Provider value={value}>
+    <DivinedPayloadContext value={value}>
       {children}
-    </DivinedPayloadContext.Provider>
+    </DivinedPayloadContext>
   )
 }
 

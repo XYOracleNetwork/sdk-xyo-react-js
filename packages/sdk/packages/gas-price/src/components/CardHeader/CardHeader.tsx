@@ -1,5 +1,5 @@
 import type { CardProps } from '@mui/material'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import type { GasPriceWitnessUIBasePayload } from '../../types/index.ts'
 import { GasPriceHeaderActionsBox, GasPriceHeaderTypography } from '../HeaderComponents/index.ts'
@@ -9,9 +9,9 @@ export interface GasPriceCardHeaderProps extends CardProps {
   parsedPayload?: GasPriceWitnessUIBasePayload
   title?: string
 }
-export const GasPriceWitnessCardHeader = forwardRef<HTMLDivElement, GasPriceCardHeaderProps>(({
-  title, parsedPayload, ...props
-}, ref) => (
+export const GasPriceWitnessCardHeader = ({
+  ref, title, parsedPayload, ...props
+}: GasPriceCardHeaderProps & { ref?: React.RefObject<HTMLDivElement | null> }) => (
   <StyledCardHeader
     title={<GasPriceHeaderTypography heading={title} />}
     action={(
@@ -26,6 +26,6 @@ export const GasPriceWitnessCardHeader = forwardRef<HTMLDivElement, GasPriceCard
     ref={ref}
     {...props}
   />
-))
+)
 
 GasPriceWitnessCardHeader.displayName = 'GasPriceWitnessCardHeader'

@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-webapp",
-  "version": "4.4.11",
+  "version": "5.0.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -28,10 +28,10 @@
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/browser/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
-      "types": "./dist/browser/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
@@ -46,35 +46,36 @@
     "@mui/icons-material": "^6.4.7",
     "@mui/material": "^6.4.7",
     "@mui/styles": "^6.4.7",
-    "@xylabs/react-async-effect": "^5.3.25",
-    "@xylabs/react-button": "^5.3.25",
-    "@xylabs/react-flexbox": "^5.3.25",
-    "@xylabs/react-pixel": "^5.3.25",
-    "@xylabs/react-webapp": "^5.3.25",
+    "@xylabs/react-async-effect": "^6.0.0",
+    "@xylabs/react-button": "^6.0.0",
+    "@xylabs/react-flexbox": "^6.0.0",
+    "@xylabs/react-pixel": "^6.0.0",
+    "@xylabs/react-webapp": "^6.0.0",
     "@xyo-network/react-appbar": "workspace:^",
     "@xyo-network/react-footer": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^7.3.0"
   },
   "devDependencies": {
     "@storybook/react": "^8.6.4",
-    "@types/react": "^18",
+    "@types/react": "^19.0.10",
     "@types/react-helmet": "^6.1.11",
-    "@xylabs/react-appbar": "^5.3.25",
-    "@xylabs/react-button": "^5.3.25",
-    "@xylabs/react-flexbox": "^5.3.25",
-    "@xylabs/react-link": "^5.3.25",
-    "@xylabs/react-pixel": "^5.3.25",
-    "@xylabs/ts-scripts-yarn3": "^5.1.14",
-    "@xylabs/tsconfig-react": "^5.1.14",
+    "@xylabs/react-appbar": "^6.0.0",
+    "@xylabs/react-button": "^6.0.0",
+    "@xylabs/react-flexbox": "^6.0.0",
+    "@xylabs/react-link": "^6.0.0",
+    "@xylabs/react-pixel": "^6.0.0",
+    "@xylabs/ts-scripts-yarn3": "^6.0.5",
+    "@xylabs/tsconfig-react": "^6.0.5",
     "storybook": "^8.6.4",
     "typescript": "^5.8.2"
   },
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.4.11"
 }

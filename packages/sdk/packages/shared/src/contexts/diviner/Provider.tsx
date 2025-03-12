@@ -12,7 +12,7 @@ export interface DivinerProviderProps<D> extends ContextExProviderProps, PropsWi
 
 /** Exposes a resolved diviner */
 export const ResolvedDivinerProvider = <D,>({
-  diviner: divinerProp, required = false, children, context,
+  diviner: divinerProp, required = false, children, context: Context,
 }: DivinerProviderProps<D>) => {
   const [diviner, setDiviner] = useResetState<D | undefined>(divinerProp)
 
@@ -33,7 +33,7 @@ export const ResolvedDivinerProvider = <D,>({
     setDiviner, divinerProp])
 
   return (
-    <context.Provider
+    <Context
       value={value}
     >
       {diviner
@@ -41,6 +41,6 @@ export const ResolvedDivinerProvider = <D,>({
         : required
           ? null
           : children}
-    </context.Provider>
+    </Context>
   )
 }

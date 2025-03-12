@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-manifest",
-  "version": "4.4.11",
+  "version": "5.0.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -28,10 +28,10 @@
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/browser/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
-      "types": "./dist/browser/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
@@ -44,28 +44,28 @@
   },
   "dependencies": {
     "@scure/bip39": "^1.5.4",
-    "@xylabs/react-promise": "^5.3.25",
-    "@xyo-network/account": "^3.9.35",
-    "@xyo-network/manifest": "^3.9.35",
-    "@xyo-network/module-factory-locator": "^3.9.35",
+    "@xylabs/react-promise": "^6.0.0",
+    "@xyo-network/account": "^3.9.37",
+    "@xyo-network/manifest": "^3.9.37",
+    "@xyo-network/module-factory-locator": "^3.9.37",
     "@xyo-network/react-node-provider": "workspace:^",
-    "@xyo-network/wallet-model": "^3.9.35"
+    "@xyo-network/wallet-model": "^3.9.37"
   },
   "devDependencies": {
     "@mui/icons-material": "^6.4.7",
     "@mui/material": "^6.4.7",
     "@mui/styles": "^6.4.7",
     "@storybook/react": "^8.6.4",
-    "@types/react": "^18",
-    "@xylabs/ts-scripts-yarn3": "^5.1.14",
-    "@xylabs/tsconfig-react": "^5.1.14",
-    "@xyo-network/diviner-abstract": "^3.9.35",
-    "@xyo-network/diviner-model": "^3.9.35",
-    "@xyo-network/diviner-payload-memory": "^3.9.35",
-    "@xyo-network/payload-model": "^3.9.35",
-    "@xyo-network/witness-timestamp": "^3.9.35",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@types/react": "^19.0.10",
+    "@xylabs/ts-scripts-yarn3": "^6.0.5",
+    "@xylabs/tsconfig-react": "^6.0.5",
+    "@xyo-network/diviner-abstract": "^3.9.37",
+    "@xyo-network/diviner-model": "^3.9.37",
+    "@xyo-network/diviner-payload-memory": "^3.9.37",
+    "@xyo-network/payload-model": "^3.9.37",
+    "@xyo-network/witness-timestamp": "^3.9.37",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "storybook": "^8.6.4",
     "typescript": "^5.8.2"
   },
@@ -73,11 +73,12 @@
     "@mui/icons-material": "^6",
     "@mui/material": "^6",
     "@mui/styles": "^6",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^19",
+    "react-dom": "^19"
   },
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.4.11"
 }

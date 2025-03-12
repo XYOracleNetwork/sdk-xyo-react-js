@@ -16,8 +16,8 @@ export const CytoscapeInstanceProvider: React.FC<CytoscapeInstanceProviderProps>
   }), [cy, setCy])
 
   return (
-    <CytoscapeInstanceContext.Provider value={value}>
+    <CytoscapeInstanceContext value={value}>
       {children}
-    </CytoscapeInstanceContext.Provider>
+    </CytoscapeInstanceContext>
   )
 }

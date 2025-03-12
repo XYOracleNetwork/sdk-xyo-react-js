@@ -1,7 +1,7 @@
 import type { CardContentProps } from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { Payload } from '@xyo-network/payload-model'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import { AddressAvatarGroup } from './AddressAvatarGroup.tsx'
 import {
@@ -14,9 +14,9 @@ export interface BoundWitnessCardContentProps extends CardContentProps {
   payload?: Payload
 }
 
-export const BoundWitnessCardContent = forwardRef<HTMLDivElement, BoundWitnessCardContentProps>(({
-  payload, active, ...props
-}, ref) => {
+export const BoundWitnessCardContent = ({
+  ref, payload, active, ...props
+}: BoundWitnessCardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const boundwitness = payload as Payload<BoundWitness>
 
   return (
@@ -31,6 +31,6 @@ export const BoundWitnessCardContent = forwardRef<HTMLDivElement, BoundWitnessCa
       </CardColumnsFlex>
     </CardContentFlex>
   )
-})
+}
 
 BoundWitnessCardContent.displayName = 'BoundWitnessCardContent'

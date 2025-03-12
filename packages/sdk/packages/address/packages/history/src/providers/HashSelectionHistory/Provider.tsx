@@ -85,7 +85,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
   }
 
   return (
-    <HashSelectionHistoryContext.Provider
+    <HashSelectionHistoryContext
       // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         addSelection,
@@ -98,6 +98,6 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
       }}
     >
       {children}
-    </HashSelectionHistoryContext.Provider>
+    </HashSelectionHistoryContext>
   )
 }

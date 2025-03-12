@@ -1,7 +1,7 @@
 import type { CardContentProps } from '@mui/material'
 import { CardContent, styled } from '@mui/material'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
-import React, { forwardRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 const CardContentExRoot = styled(CardContent, {
   name: 'CardContentEx',
@@ -23,9 +23,9 @@ export type CardContentExProps = CardContentProps & {
   variant?: 'scrollable' | 'normal'
 }
 
-export const CardContentExWithRef = forwardRef<HTMLDivElement | null, CardContentExProps>(({
-  scrollToTop = 0, refreshRef = 0, ...props
-}, ref) => {
+export const CardContentExWithRef = ({
+  ref, scrollToTop = 0, refreshRef = 0, ...props
+}: CardContentExProps & { ref?: React.RefObject<HTMLDivElement | null | null> }) => {
   const sharedRef = useShareForwardedRef<HTMLDivElement>(ref, refreshRef)
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const CardContentExWithRef = forwardRef<HTMLDivElement | null, CardConten
   }, [sharedRef, scrollToTop])
 
   return <CardContentExRoot ref={sharedRef} {...props} />
-})
+}
 
 CardContentExWithRef.displayName = 'CardContentEx'
 

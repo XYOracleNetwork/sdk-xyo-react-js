@@ -23,11 +23,11 @@ export const FormGroupCreditCardProvider: React.FC<FormGroupCreditCardProviderPr
 
   return (
 
-    <FormGroupCreditCardContext.Provider
+    <FormGroupCreditCardContext
       value={value}
       {...props}
     >
       {children}
-    </FormGroupCreditCardContext.Provider>
+    </FormGroupCreditCardContext>
   )
 }

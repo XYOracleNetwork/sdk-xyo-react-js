@@ -5,8 +5,10 @@ import React, { forwardRef } from 'react'
 
 import type { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
 
-export const PayloadCardActionArea = forwardRef<HTMLButtonElement, PayloadRenderProps & CardActionAreaProps>(({ payload, ...props }, ref) => {
+export const PayloadCardActionArea = ({
+  ref, payload, ...props
+}: PayloadRenderProps & CardActionAreaProps & { ref?: React.RefObject<HTMLButtonElement | null> }) => {
   return <CardActionArea ref={ref} {...props} />
-})
+}
 
 PayloadCardActionArea.displayName = 'ButtonExXYLabs'

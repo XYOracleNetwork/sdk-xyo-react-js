@@ -7,8 +7,8 @@ export type CustomEventDispatch<T = unknown> = (detail: T) => boolean | void
 export const useCustomEvent = <TElement extends HTMLElement, TDetail = unknown>(
   type: string,
   listener?: CustomEventDispatch<TDetail>,
-  customRef?: RefObject<TElement>,
-): [RefObject<TElement>, CustomEventDispatch<TDetail>] => {
+  customRef?: RefObject<TElement | null>,
+): [RefObject<TElement | null>, CustomEventDispatch<TDetail>] => {
   // eslint-disable-next-line @eslint-react/no-create-ref
   const ref = customRef ?? createRef<TElement>()
   useEffect(() => {

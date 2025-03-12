@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-theme",
-  "version": "4.4.11",
+  "version": "5.0.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -28,10 +28,10 @@
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/browser/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
-      "types": "./dist/browser/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
@@ -43,16 +43,17 @@
     "lint-pkg": "npmPkgJsonLint ."
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^5.1.14",
+    "@xylabs/ts-scripts-yarn3": "^6.0.5",
     "typescript": "^5.8.2"
   },
   "peerDependencies": {
     "@mui/material": "^6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19",
+    "react-dom": "^19"
   },
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.4.11"
 }

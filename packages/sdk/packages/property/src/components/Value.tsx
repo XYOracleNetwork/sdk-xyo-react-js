@@ -1,16 +1,16 @@
 import type { Variant } from '@mui/material/styles/createTypography.js'
 import type { EllipsizeBoxProps } from '@xyo-network/react-shared'
 import { EllipsizeBox } from '@xyo-network/react-shared'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 export interface PropertyValueProps extends Omit<EllipsizeBoxProps, 'ref'> {
   typographyVariant?: Variant
   value?: string | number | boolean | null
 }
 
-export const PropertyValue = forwardRef<HTMLDivElement, PropertyValueProps>(({
-  typographyVariant = 'body1', value, ...props
-}, ref) => {
+export const PropertyValue = ({
+  ref, typographyVariant = 'body1', value, ...props
+}: PropertyValueProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   return value === undefined
     ? null
     : (
@@ -25,6 +25,6 @@ export const PropertyValue = forwardRef<HTMLDivElement, PropertyValueProps>(({
           {value}
         </EllipsizeBox>
       )
-})
+}
 
 PropertyValue.displayName = 'PropertyValue'

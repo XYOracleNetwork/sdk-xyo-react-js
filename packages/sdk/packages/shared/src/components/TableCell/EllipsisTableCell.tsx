@@ -1,7 +1,7 @@
 import type { TableCellProps } from '@mui/material'
 import { styled, TableCell } from '@mui/material'
 import { asLinkHrefOrToProps, LinkEx } from '@xylabs/react-link'
-import React, { forwardRef, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import type { To } from 'react-router-dom'
 
 import { EllipsizeBox } from '../Ellipsize.tsx'
@@ -26,30 +26,28 @@ export interface EllipsisTableCellProps extends Omit<TableCellProps, 'ref'> {
   width?: string | number
 }
 
-export const EllipsisTableCellWithRef = forwardRef<HTMLDivElement, EllipsisTableCellProps>(
-  ({
-    children, href, link = false, to, value, ...props
-  }, ref) => {
-    const data = useMemo(() => {
-      if (children) {
-        return children
-      }
-      if (href || link || to) {
-        return (
-          <LinkEx title={value} {...asLinkHrefOrToProps({ to, href })} target={href ? '_blank' : undefined}>
-            {value}
-          </LinkEx>
-        )
-      }
-      return value
-    }, [children, href, link, to, value])
-    return (
-      <EllipsisTableCellRoot {...props}>
-        <EllipsizeBox ref={ref} sx={{ cursor: link || to || href ? 'pointer' : 'inherit' }}>{data}</EllipsizeBox>
-      </EllipsisTableCellRoot>
-    )
-  },
-)
+export const EllipsisTableCellWithRef = ({
+  ref, children, href, link = false, to, value, ...props
+}: EllipsisTableCellProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+  const data = useMemo(() => {
+    if (children) {
+      return children
+    }
+    if (href || link || to) {
+      return (
+        <LinkEx title={value} {...asLinkHrefOrToProps({ to, href })} target={href ? '_blank' : undefined}>
+          {value}
+        </LinkEx>
+      )
+    }
+    return value
+  }, [children, href, link, to, value])
+  return (
+    <EllipsisTableCellRoot {...props}>
+      <EllipsizeBox ref={ref} sx={{ cursor: link || to || href ? 'pointer' : 'inherit' }}>{data}</EllipsizeBox>
+    </EllipsisTableCellRoot>
+  )
+}
 
 EllipsisTableCellWithRef.displayName = 'EllipsisTableCell'
 export const EllipsisTableCell = EllipsisTableCellWithRef

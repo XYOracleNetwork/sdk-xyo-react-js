@@ -17,11 +17,11 @@ export const OpenElevationApiProvider: React.FC<OpenElevationApiProviderProps> =
   }
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <OpenElevationApiContext.Provider value={{
+    <OpenElevationApiContext value={{
       client, lookupLocations, provided: true, setClient,
     }}
     >
       {children}
-    </OpenElevationApiContext.Provider>
+    </OpenElevationApiContext>
   )
 }

@@ -19,7 +19,7 @@ export const EmbedPluginProvider: React.FC<PropsWithChildren<EmbedPluginProvider
   const [activePlugin, setActivePlugin] = useResetState(plugins ? plugins[0] : undefined)
 
   return (
-    <EmbedPluginContext.Provider
+    <EmbedPluginContext
       // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         activePlugin,
@@ -32,6 +32,6 @@ export const EmbedPluginProvider: React.FC<PropsWithChildren<EmbedPluginProvider
       }}
     >
       {children}
-    </EmbedPluginContext.Provider>
+    </EmbedPluginContext>
   )
 }

@@ -57,7 +57,7 @@ export const AppSettingsProvider: React.FC<PropsWithChildren<AppSettingsProvider
   }
 
   return (
-    <AppSettingsContext.Provider
+    <AppSettingsContext
       // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         changeMaxAccounts,
@@ -78,6 +78,6 @@ export const AppSettingsProvider: React.FC<PropsWithChildren<AppSettingsProvider
       {...props}
     >
       {children}
-    </AppSettingsContext.Provider>
+    </AppSettingsContext>
   )
 }

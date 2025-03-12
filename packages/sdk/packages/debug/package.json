@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-debug",
-  "version": "4.3.22",
+  "version": "5.0.0-rc.2",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -28,10 +28,10 @@
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/browser/index.d.ts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
-      "types": "./dist/browser/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
@@ -43,8 +43,8 @@
     "lint-pkg": "npmPkgJsonLint ."
   },
   "dependencies": {
-    "@xylabs/react-error": "^5.3.25",
-    "@xylabs/react-flexbox": "^5.3.25",
+    "@xylabs/react-error": "^6.0.0",
+    "@xylabs/react-flexbox": "^6.0.0",
     "@xyo-network/react-payload-raw-info": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
     "react-router-dom": "^7.3.0"
@@ -54,11 +54,11 @@
     "@mui/material": "^6.4.7",
     "@mui/styles": "^6.4.7",
     "@storybook/react": "^8.6.4",
-    "@types/react": "^18",
-    "@xylabs/ts-scripts-yarn3": "^5.1.14",
-    "@xylabs/tsconfig-react": "^5.1.14",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@types/react": "^19.0.10",
+    "@xylabs/ts-scripts-yarn3": "^6.0.5",
+    "@xylabs/tsconfig-react": "^6.0.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "storybook": "^8.6.4",
     "typescript": "^5.8.2"
   },
@@ -66,11 +66,12 @@
     "@mui/icons-material": "^6",
     "@mui/material": "^6",
     "@mui/styles": "^6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19",
+    "react-dom": "^19"
   },
   "publishConfig": {
     "access": "public"
   },
-  "docs": "dist/docs.json"
+  "docs": "dist/docs.json",
+  "stableVersion": "4.3.22"
 }

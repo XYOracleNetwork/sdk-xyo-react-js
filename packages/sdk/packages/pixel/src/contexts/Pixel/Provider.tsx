@@ -18,10 +18,10 @@ export const PixelProvider: React.FC<PropsWithChildren<PixelProviderProps>> = (p
   }), [XyPixel.instance])
 
   return (
-    <PixelContext.Provider
+    <PixelContext
       value={value}
     >
       {children}
-    </PixelContext.Provider>
+    </PixelContext>
   )
 }

@@ -75,7 +75,7 @@ export const PayloadProvider: React.FC<PropsWithChildren<PayloadProviderProps>> 
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <PayloadContext.Provider value={{
+    <PayloadContext value={{
       clearPayload, payload, payloadError, provided: true, refreshPayload, setPayload,
     }}
     >
@@ -84,6 +84,6 @@ export const PayloadProvider: React.FC<PropsWithChildren<PayloadProviderProps>> 
         : required
           ? null
           : children}
-    </PayloadContext.Provider>
+    </PayloadContext>
   )
 }

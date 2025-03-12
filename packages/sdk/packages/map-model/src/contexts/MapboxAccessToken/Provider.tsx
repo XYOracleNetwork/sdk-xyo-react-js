@@ -15,7 +15,7 @@ export const MapboxAccessTokenProvider: React.FC<PropsWithChildren<MapboxAccessT
   }), [accessToken, defaultAccessToken, setAccessToken])
 
   return (
-    <MapboxAccessTokenContext.Provider
+    <MapboxAccessTokenContext
       value={value}
       {...props}
     />

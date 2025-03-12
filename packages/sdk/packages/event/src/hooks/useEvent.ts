@@ -15,8 +15,8 @@ export type EventDispatch<TNoun = EventNoun, TVerb = EventVerb, TData = string> 
 
 export const useEvent = <T extends HTMLElement, TNoun = EventNoun, TVerb = EventVerb, TData = string>(
   listener?: EventDispatch<TNoun, TVerb, TData>,
-  sharableRef?: RefObject<T>,
-): [RefObject<T>, EventDispatch<TNoun, TVerb, TData>] => {
+  sharableRef?: RefObject<T | null>,
+): [RefObject<T | null>, EventDispatch<TNoun, TVerb, TData>] => {
   const [ref, customDispatch] = useCustomEvent<T, Event<TNoun, TVerb, TData>>(
     'xyo',
     listener
