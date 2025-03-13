@@ -17,7 +17,7 @@ import type { CreatablePackageManifest } from '@xyo-network/react-manifest'
 import { TimestampWitness } from '@xyo-network/witness-timestamp'
 import { InfuraProvider } from 'ethers'
 
-import tokenDivinerIndexManifest from './token-diviner-index.json' assert { type: 'json' }
+import tokenDivinerIndexManifest from './token-diviner-index.json' with { type: 'json' }
 
 export const TokenDivinerIndexManifestNode: CreatablePackageManifest = (locator: ModuleFactoryLocator): PackageManifestPayload => {
   locator.register(MemoryArchivist)

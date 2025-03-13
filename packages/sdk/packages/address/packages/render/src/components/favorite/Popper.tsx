@@ -10,7 +10,7 @@ import { PopperButtonGroup } from './PopperButtonGroup.tsx'
 
 export interface FavoritePopperProps extends PopperProps {
   favorite?: boolean
-  favoriteRef?: RefObject<HTMLElement>
+  favoriteRef?: RefObject<HTMLElement | null>
   name?: string
   onClickAway?: (event: MouseEvent | TouchEvent) => void
   onConfirmFavorite?: (name?: string, newFavoriteState?: boolean) => void

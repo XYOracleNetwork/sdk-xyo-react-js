@@ -26,18 +26,20 @@ export const CreditCardNumberWithFormControl: React.FC<WithFormControlProps> = (
       formControlError={error}
       inputRef={inputRef}
       inputMode={inputMode}
-      inputProps={{
-        'aria-label': fieldLabel, autoComplete, autoCorrect, id, inputMode, name, spellCheck,
-      }}
-      InputProps={{
-        startAdornment:
-          type.length > 0
-            ? (
-                <InputAdornment position="start">
-                  <img height="30px" width="40px" src={CreditCardData[type].icon} />
-                </InputAdornment>
-              )
-            : null,
+      slotProps={{
+        htmlInput: {
+          'aria-label': fieldLabel, autoComplete, autoCorrect, id, inputMode, name, spellCheck,
+        },
+        input: {
+          startAdornment:
+              type.length > 0
+                ? (
+                    <InputAdornment position="start">
+                      <img height="30px" width="40px" src={CreditCardData[type].icon} />
+                    </InputAdornment>
+                  )
+                : null,
+        },
       }}
       value={value}
       {...cardProps}

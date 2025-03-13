@@ -21,7 +21,7 @@ export function ErrorAlert<T = void>({
   errorContext,
   scope,
   ...props
-}: ErrorAlertProps<T>): JSX.Element {
+}: ErrorAlertProps<T>) {
   const finalScope = scope ?? errorContext
   return (
     <Alert severity="error" {...props}>

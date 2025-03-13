@@ -28,7 +28,7 @@ export const ReflectionGroupTreeViewer: React.FC<ReflectionGroupViewerProps> = (
               <div key={reflection.id}>
                 {renderer({
                   lookup, margin: 1, reflection,
-                })}
+                }) as React.ReactNode}
               </div>
             )
           : null

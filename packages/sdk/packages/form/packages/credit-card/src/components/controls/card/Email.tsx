@@ -23,8 +23,10 @@ export const CreditCardEmailWithFormControl: React.FC<WithFormControlProps> = ({
       formControl={creditCardFormControl}
       formControlError={error}
       inputMode={inputMode}
-      inputProps={{
-        'aria-label': `${fieldLabel} for your purchase`, autoComplete, autoCorrect, id, name, spellCheck,
+      slotProps={{
+        htmlInput: {
+          'aria-label': `${fieldLabel} for your purchase`, autoComplete, autoCorrect, id, name, spellCheck,
+        },
       }}
       inputRef={inputRef}
       value={value}

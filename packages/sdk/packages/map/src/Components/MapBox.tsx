@@ -22,8 +22,8 @@ export const MapBox: React.FC<MapBoxProps> = ({
   accessToken, darkMode = false, options, zoom = 2, ...props
 }) => {
   const [map, setMap] = useState<Map>()
-  const mapContainerRef = useRef<HTMLDivElement | null>(null)
-  const mapCanvasRef = useRef<HTMLCanvasElement | null>(null)
+  const mapContainerRef = useRef<HTMLDivElement>(null)
+  const mapCanvasRef = useRef<HTMLCanvasElement>(null)
   const { setMapBoxInstance, map: mapInstance } = useMapBoxInstance()
   const { mapSettings } = useMapSettings()
 
@@ -54,7 +54,7 @@ export const MapBox: React.FC<MapBoxProps> = ({
     setMap(map)
 
     // save the map canvas ref to help with resizing
-    mapCanvasRef.current = document.querySelector('.mapboxgl-canvas')
+    mapCanvasRef.current = document.querySelector('.mapboxgl-canvas') as HTMLCanvasElement | null
 
     console.log('Created Map')
 
@@ -66,7 +66,7 @@ export const MapBox: React.FC<MapBoxProps> = ({
 
   return (
     <div
-      ref={el => (mapContainerRef.current = el)}
+      ref={(el) => { mapContainerRef.current = el }}
       style={{
         bottom: 0,
         left: 0,

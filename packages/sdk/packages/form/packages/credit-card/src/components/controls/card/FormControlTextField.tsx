@@ -15,7 +15,7 @@ export interface FormControlTextFieldProps extends StandardTextFieldProps {
 
 export const FormControlTextField = ({
   ref, formControl, formControlError, fieldLabel = '', ...props
-}: FormControlTextFieldProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: FormControlTextFieldProps) => {
   const { name } = formControl?.props ?? {}
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {

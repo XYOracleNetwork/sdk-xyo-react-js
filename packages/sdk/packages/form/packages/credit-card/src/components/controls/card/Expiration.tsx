@@ -24,8 +24,10 @@ export const CreditCardExpirationWithFormControl: React.FC<WithFormControlProps>
       fieldLabel={fieldLabel}
       formControlError={error}
       inputMode={inputMode}
-      inputProps={{
-        'aria-label': `${fieldLabel} of the card`, autoComplete, autoCorrect, id, name, spellCheck,
+      slotProps={{
+        htmlInput: {
+          'aria-label': `${fieldLabel} of the card`, autoComplete, autoCorrect, id, name, spellCheck,
+        },
       }}
       value={value}
       {...expirationProps}

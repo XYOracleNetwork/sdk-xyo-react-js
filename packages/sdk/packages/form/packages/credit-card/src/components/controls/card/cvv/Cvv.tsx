@@ -21,8 +21,10 @@ export const CreditCardCvvWithFormControl: React.FC<WithFormControlProps> = ({
       formControl={creditCardFormControl}
       formControlError={error}
       inputMode={inputMode}
-      inputProps={{
-        'aria-label': `${fieldLabel} number on the back of your card`, autoComplete, autoCorrect, id, name, spellCheck,
+      slotProps={{
+        htmlInput: {
+          'aria-label': `${fieldLabel} number on the back of your card`, autoComplete, autoCorrect, id, name, spellCheck,
+        },
       }}
       inputRef={inputRef}
       value={value}

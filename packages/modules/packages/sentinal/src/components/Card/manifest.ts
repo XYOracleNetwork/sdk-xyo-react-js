@@ -1,1 +1,1 @@
-export { default as NftSentinelManifest } from './NftSentinel.json' assert { type: 'json' }
+export { default as NftSentinelManifest } from './NftSentinel.json' with { type: 'json' }

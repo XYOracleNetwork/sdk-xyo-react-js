@@ -53,6 +53,7 @@ export const ReflectionGroupViewer: React.FC<ReflectionGroupViewerProps> = ({
       document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
     }
   }, [hash, autoScroll])
+
   return visibleChildren > 0
     ? (
         <FlexCol title="ReflectionGroupViewer" {...props}>
@@ -67,7 +68,7 @@ export const ReflectionGroupViewer: React.FC<ReflectionGroupViewerProps> = ({
                   <div id={reflection.name} key={reflection.id}>
                     {renderer({
                       hiddenFlags, lookup, margin: 1, padding: 1, reflection,
-                    })}
+                    }) as React.ReactNode}
                   </div>
                 )
               : null

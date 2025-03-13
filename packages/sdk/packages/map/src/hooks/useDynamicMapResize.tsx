@@ -1,13 +1,13 @@
 import type { Map } from 'mapbox-gl'
-import type { MutableRefObject } from 'react'
+import type { RefObject } from 'react'
 import { useEffect, useMemo } from 'react'
 
 /**
  * Inspired by - https://bl.ocks.org/danswick/fc56f37c10d40be62e4feac5984250d2
  */
 export const useDynamicMapResize = (
-  mapContainerRef: MutableRefObject<HTMLDivElement | null>,
-  mapCanvasRef: MutableRefObject<HTMLCanvasElement | null>,
+  mapContainerRef: RefObject<HTMLDivElement | null>,
+  mapCanvasRef: RefObject<HTMLCanvasElement | null>,
   mapInstance?: Map,
   active = true,
 ) => {

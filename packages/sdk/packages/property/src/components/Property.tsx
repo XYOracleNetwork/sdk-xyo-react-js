@@ -80,7 +80,7 @@ const PropertyPaper = ({
 }
 PropertyPaper.displayName = 'PropertyPaper'
 
-export const Property = ({ ref, ...props }: PropertyProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const Property: React.FC<PropertyProps> = ({ ref, ...props }) => {
   return props.paper ? <PropertyPaper ref={ref} {...props} /> : <PropertyBox ref={ref} {...props} />
 }
 Property.displayName = 'Property'

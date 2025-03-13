@@ -30,8 +30,10 @@ export const NameWithFormControl: React.FC<NameWithFormControlProps> = ({
       formControl={creditCardFormControl}
       formControlError={error}
       inputMode={inputMode}
-      inputProps={{
-        'aria-label': `${fieldLabel} name on your card`, autoComplete, autoCorrect, id, name, spellCheck, tabIndex,
+      slotProps={{
+        htmlInput: {
+          'aria-label': `${fieldLabel} name on your card`, autoComplete, autoCorrect, id, name, spellCheck, tabIndex,
+        },
       }}
       inputRef={inputRef}
       value={value}
