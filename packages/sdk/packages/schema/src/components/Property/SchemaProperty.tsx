@@ -36,9 +36,9 @@ const useResolveSchema = (schema?: string) => {
   return entry
 }
 
-export const SchemaProperty = ({
-  ref, showLinkNames = true, showOpenNewWindowLink = true, showStatusIcon = true, titleProps, value, ...props
-}: SchemaPropertyProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const SchemaProperty: React.FC<SchemaPropertyProps> = ({
+  showLinkNames = true, showOpenNewWindowLink = true, showStatusIcon = true, titleProps, value, ...props
+}) => {
   const resolvedSchema = useResolveSchema(value)
   const [buttonRef, buttonDispatch] = useEvent<HTMLButtonElement>()
   const [divRef, divDispatch] = useEvent<HTMLDivElement>()
@@ -55,7 +55,7 @@ export const SchemaProperty = ({
   }
 
   return (
-    <Property ref={ref} title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
+    <Property title="Schema" value={value} tip="Schema sent with the payload" titleProps={titleProps} {...props}>
       {value && showStatusIcon
         ? resolvedSchema === null
           ? (

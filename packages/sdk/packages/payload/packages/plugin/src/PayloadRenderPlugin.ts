@@ -38,9 +38,9 @@ export interface PayloadRenderPluginBase {
 }
 
 export interface PayloadRenderPluginCardComponents {
-  actionArea: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & CardActionAreaProps>>
-  content: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & CardContentProps>>
-  header: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & CardHeaderProps>>
+  actionArea: ComponentType<PayloadRenderProps & CardActionAreaProps>
+  content: ComponentType<PayloadRenderProps & CardContentProps>
+  header: ComponentType<PayloadRenderProps & CardHeaderProps>
 }
 
 export interface PayloadRenderPluginAvatarComponents {
@@ -52,8 +52,8 @@ export interface PayloadRenderPluginTableComponents {
 }
 
 export interface PayloadRenderPluginMenuComponents {
-  item: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & MenuItemProps>>
-  list: ForwardRefExoticComponent<PropsWithoutRef<PayloadRenderProps & MenuListProps>>
+  item: ComponentType<PayloadRenderProps & MenuItemProps>
+  list: ComponentType<PayloadRenderProps & MenuListProps>
 }
 
 export interface PayloadRenderPluginBoxComponents {

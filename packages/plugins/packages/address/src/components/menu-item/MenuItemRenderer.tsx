@@ -7,9 +7,9 @@ import { AddressRenderRowBox } from '@xyo-network/react-address-render'
 import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import React from 'react'
 
-export const AddressMenuItemRenderer = ({
+export const AddressMenuItemRenderer: React.FC<PayloadRenderProps & MenuItemProps> = ({
   ref, children, payload, ...props
-}: PayloadRenderProps & MenuItemProps & { ref?: React.RefObject<HTMLLIElement | null> }) => {
+}) => {
   const { address } = (payload as AddressPayload) ?? {}
   return (
     <MenuItem ref={ref} value={address} title={address} {...props}>

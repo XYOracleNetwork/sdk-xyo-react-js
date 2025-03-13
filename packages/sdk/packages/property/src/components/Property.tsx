@@ -12,9 +12,9 @@ import type {
 import { PropertyTitle } from './Title.tsx'
 import { PropertyValue } from './Value.tsx'
 
-const PropertyBox = ({
-  ref, titleProps, title, value, children, size = 'medium', tip, actions, required, badge = false, ...props
-}: PropertyBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+const PropertyBox: React.FC<PropertyBoxProps> = ({
+  titleProps, title, value, children, size = 'medium', tip, actions, required, badge = false, ...props
+}) => {
   const sizeValueHeight: Record<SizeProp, number> = {
     large: 48,
     medium: 36,
@@ -28,7 +28,7 @@ const PropertyBox = ({
   }
 
   return (
-    <FlexRow ref={ref} flexDirection="column" minWidth={0} alignItems="stretch" overflow="hidden" {...props}>
+    <FlexRow flexDirection="column" minWidth={0} alignItems="stretch" overflow="hidden" {...props}>
       {title === undefined
         ? null
         : (
@@ -61,9 +61,9 @@ const PropertyBox = ({
 }
 PropertyBox.displayName = 'PropertyBox'
 
-const PropertyPaper = ({
+const PropertyPaper: React.FC<PropertyPaperProps> = ({
   ref, style, variant, elevation = 2, square, ...props
-}: PropertyPaperProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}) => {
   return (
     <Paper
       ref={ref}
@@ -80,7 +80,7 @@ const PropertyPaper = ({
 }
 PropertyPaper.displayName = 'PropertyPaper'
 
-export const Property: React.FC<PropertyProps> = ({ ref, ...props }) => {
-  return props.paper ? <PropertyPaper ref={ref} {...props} /> : <PropertyBox ref={ref} {...props} />
+export const Property: React.FC<PropertyProps> = ({ ...props }) => {
+  return props.paper ? <PropertyPaper {...props} /> : <PropertyBox {...props} />
 }
 Property.displayName = 'Property'

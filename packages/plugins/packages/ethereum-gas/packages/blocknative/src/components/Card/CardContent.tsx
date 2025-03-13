@@ -10,9 +10,7 @@ import { getBlocknativeTransformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const BlocknativeGasPriceCardContent = ({
-  ref, payload, ...props
-}: Omit<PayloadRenderProps & CardContentProps, 'ref'> & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const BlocknativeGasPriceCardContent: React.FC<PayloadRenderProps & CardContentProps> = ({ payload, ...props }) => {
   const gasPricePayload = payload ? (payload as EthereumGasBlocknativePayload) : undefined
   const parsedPayload = getBlocknativeTransformer(gasPricePayload)
 
@@ -22,7 +20,6 @@ export const BlocknativeGasPriceCardContent = ({
 
   return (
     <CardContent
-      ref={ref}
       sx={{
         display: 'flex', flexDirection: 'column', rowGap: 4,
       }}

@@ -15,11 +15,11 @@ export type PayloadDetailsProps = FlexBoxProps & {
   payload?: Payload
 }
 
-export const PayloadDetails = ({
-  ref, paper, payload, ...props
-}: PayloadDetailsProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const PayloadDetails: React.FC<PayloadDetailsProps> = ({
+  paper, payload, ...props
+}) => {
   return (
-    <FlexCol gap={1} justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} ref={ref} {...props}>
+    <FlexCol gap={1} justifyContent="flex-start" alignItems="stretch" marginTop={2} marginBottom={8} {...props}>
       <PayloadDataDetails paper={paper} size="large" badge payload={payload} />
       <PayloadValidationDetails paper={paper} value={payload} />
       <PayloadJsonDetails paper={paper} payload={payload} />

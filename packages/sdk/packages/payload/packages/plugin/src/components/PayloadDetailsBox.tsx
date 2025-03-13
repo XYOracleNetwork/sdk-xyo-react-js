@@ -4,8 +4,8 @@ import React from 'react'
 
 import type { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
 
-const PayloadDetailsBox = ({ ref, ...props }: PayloadRenderProps & FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
-  return <PayloadDetails ref={ref} {...props} />
+const PayloadDetailsBox: React.FC<PayloadRenderProps & FlexBoxProps> = (props) => {
+  return <PayloadDetails {...props} />
 }
 
 PayloadDetailsBox.displayName = 'PayloadDetailsBox'

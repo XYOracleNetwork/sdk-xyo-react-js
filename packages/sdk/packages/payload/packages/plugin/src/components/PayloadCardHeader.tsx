@@ -6,11 +6,9 @@ import React from 'react'
 
 import type { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
 
-export const PayloadCardHeader = ({
-  ref, payload, ...props
-}: PayloadRenderProps & CardHeaderProps & { ref?: React.RefObject<HTMLElement | null> }) => {
+export const PayloadCardHeader: React.FC<PayloadRenderProps & CardHeaderProps> = ({ payload, ...props }) => {
   const hash = usePayloadHash(payload)
-  return <CardHeader ref={ref} title="Payload" subheader={hash} avatar={<Identicon size={24} value={hash} />} {...props} />
+  return <CardHeader title="Payload" subheader={hash} avatar={<Identicon size={24} value={hash} />} {...props} />
 }
 
 PayloadCardHeader.displayName = 'PayloadCardHeader'

@@ -5,11 +5,9 @@ import React from 'react'
 
 import type { PayloadRenderProps } from '../PayloadRenderPlugin.ts'
 
-export const PayloadCardContent = ({
-  ref, payload, ...props
-}: PayloadRenderProps & CardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const PayloadCardContent: React.FC<PayloadRenderProps & CardContentProps> = ({ payload, ...props }) => {
   return (
-    <CardContent ref={ref} {...props}>
+    <CardContent {...props}>
       <PayloadDetails payload={payload} />
     </CardContent>
   )

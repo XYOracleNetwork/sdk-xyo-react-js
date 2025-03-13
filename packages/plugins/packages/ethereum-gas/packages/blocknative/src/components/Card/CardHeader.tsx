@@ -7,10 +7,10 @@ import React from 'react'
 import { getBlocknativeTransformer } from '../hooks/index.ts'
 import { RenderTitle } from '../lib/index.ts'
 
-export const BlocknativeGasPriceCardHeader = ({ ref, payload }: PayloadRenderProps & CardHeaderProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const BlocknativeGasPriceCardHeader: React.FC<PayloadRenderProps & CardHeaderProps> = ({ payload }) => {
   const gasPricePayload = payload ? (payload as EthereumGasBlocknativePayload) : undefined
   const parsedPayload = getBlocknativeTransformer(gasPricePayload)
-  return <GasPriceWitnessCardHeader title={RenderTitle} parsedPayload={parsedPayload} ref={ref} />
+  return <GasPriceWitnessCardHeader title={RenderTitle} parsedPayload={parsedPayload} />
 }
 
 BlocknativeGasPriceCardHeader.displayName = 'BlocknativeGasPriceCardHeader'

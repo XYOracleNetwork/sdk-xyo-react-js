@@ -72,9 +72,9 @@ const ModuleHoverDetails: React.FC<ModuleHoverDetailsProps> = ({
   )
 }
 
-export const NodeRelationalGraphFlexBox = ({
-  ref, actions, children, node, layout, layoutOptions, showDetails, detail, options, onHover, ...props
-}: NodeRelationalGraphProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
+  actions, children, node, layout, layoutOptions, showDetails, detail, options, onHover, ...props
+}) => {
   const theme = useTheme()
   const [cy, setCy] = useState<Core>()
   const cytoscapeRef = useRef<HTMLDivElement>(null)
@@ -135,7 +135,7 @@ export const NodeRelationalGraphFlexBox = ({
   }, [cy, layoutOptions, layout])
 
   return (
-    <FlexCol id="relational-graph-wrapper" ref={ref} {...props}>
+    <FlexCol id="relational-graph-wrapper" {...props}>
       {hoverAddress && hoverPosition
         ? (
             <Box position="absolute" top={hoverPosition.y1} left={hoverPosition.x1} zIndex={100}>
