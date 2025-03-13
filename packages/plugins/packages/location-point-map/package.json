@@ -27,17 +27,17 @@
   "type": "module",
   "exports": {
     ".": {
+      "browser": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/browser/index.mjs"
+      },
       "types": "./dist/types/index.d.ts",
       "default": "./dist/browser/index.mjs"
-    },
-    "./meta": {
-      "types": "./dist/browser/meta/index.d.ts",
-      "default": "./dist/browser/meta/index.mjs"
     },
     "./package.json": "./package.json"
   },
   "module": "dist/browser/index.mjs",
-  "types": "dist/browser/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\"",
     "lint-pkg": "npmPkgJsonLint ."
