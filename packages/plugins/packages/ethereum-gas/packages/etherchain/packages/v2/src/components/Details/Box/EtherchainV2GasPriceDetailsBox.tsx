@@ -14,10 +14,10 @@ import { RenderTitle } from '../../lib/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EtherchainV2GasPriceDetailsBox = ({
+export const EtherchainV2GasPriceDetailsBox: React.FC<PayloadDetailsListRenderProps & FlexBoxProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ref, payload, listMode, ...props
-}: PayloadDetailsListRenderProps & FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+  payload, listMode, ...props
+}) => {
   const gasPricePayload: EthereumGasEtherchainV2Payload | undefined = payload ? (payload as EthereumGasEtherchainV2Payload) : undefined
   const parsedPayload = getEtherchainV2Transformer(gasPricePayload)
 
@@ -26,7 +26,7 @@ export const EtherchainV2GasPriceDetailsBox = ({
       {isEmpty(gasPricePayload) || !gasPricePayload?.data?.standard
         ? <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
         : (
-            <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+            <FlexCol alignItems="start" rowGap={4} {...props}>
               <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
               <Grid container spacing={3}>
                 {parsedPayload

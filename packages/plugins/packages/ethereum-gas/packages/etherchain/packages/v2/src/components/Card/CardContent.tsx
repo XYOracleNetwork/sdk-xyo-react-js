@@ -10,9 +10,7 @@ import { getEtherchainV2Transformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EtherchainV2GasPriceCardContent = ({
-  ref, payload, ...props
-}: PayloadRenderProps & CardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const EtherchainV2GasPriceCardContent: React.FC<PayloadRenderProps & CardContentProps> = ({ payload, ...props }) => {
   const gasPricePayload = payload ? (payload as EthereumGasEtherchainV2Payload) : undefined
   const parsedPayload = getEtherchainV2Transformer(gasPricePayload)
 
@@ -22,7 +20,6 @@ export const EtherchainV2GasPriceCardContent = ({
 
   return (
     <CardContent
-      ref={ref}
       sx={{
         display: 'flex', flexDirection: 'column', rowGap: 4,
       }}

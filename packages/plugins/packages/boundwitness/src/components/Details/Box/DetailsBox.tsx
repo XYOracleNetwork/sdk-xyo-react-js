@@ -21,21 +21,19 @@ import {
   HeadingPaper,
 } from '../../_shared/index.ts'
 
-const BoundWitnessDetailsBox = ({
-  ref, visibleRows, ...props
-}: PayloadDetailsListRenderProps & FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+const BoundWitnessDetailsBox: React.FC<PayloadDetailsListRenderProps & FlexBoxProps> = ({ visibleRows, ...props }) => {
   return (
     <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
-      <BoundWitnessDetailsBoxInner ref={ref} {...props} />
+      <BoundWitnessDetailsBoxInner {...props} />
     </TableHeightProvider>
   )
 }
 
 BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
-const BoundWitnessDetailsBoxInner = ({
+const BoundWitnessDetailsBoxInner: React.FC<PayloadDetailsRenderProps & FlexBoxProps> = ({
   ref, payload, ...props
-}: PayloadDetailsRenderProps & FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}) => {
   const boundWitness = payload as BoundWitness
   const partialBoundWitness = boundWitness as Partial<BoundWitness>
   const hash = usePayloadHash(payload)

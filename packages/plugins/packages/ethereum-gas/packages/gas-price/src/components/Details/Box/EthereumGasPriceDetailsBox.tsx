@@ -12,10 +12,10 @@ import { GasPriceHeaderBox } from './components/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthereumGasPriceDetailsBox = ({
+export const EthereumGasPriceDetailsBox: React.FC<PayloadDetailsListRenderProps & FlexBoxProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ref, payload, listMode, ...props
-}: PayloadDetailsListRenderProps & FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+  payload, listMode, ...props
+}) => {
   const gasPricePayload: FeeDataPayload | undefined = payload ? (payload as FeeDataPayload) : undefined
 
   return (
@@ -23,7 +23,7 @@ export const EthereumGasPriceDetailsBox = ({
       {[isEmpty(gasPricePayload?.feePerGas), isEmpty(gasPricePayload?.priorityFeePerGas)].some(Boolean)
         ? <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
         : (
-            <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+            <FlexCol alignItems="start" rowGap={4} {...props}>
               <GasPriceHeaderBox heading="Gas Fee Estimate" timestamp={gasPricePayload?.timestamp} baseFee={gasPricePayload?.baseFee} />
               <Grid container spacing={3}>
                 {gasPricePayload

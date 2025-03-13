@@ -17,11 +17,11 @@ import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import type { PayloadRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
-import type { HashTableCellProps } from '@xyo-network/react-shared'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import type { ComponentType } from 'react'
 import React, { useMemo } from 'react'
 
+import type { TableCellRenderer } from '../lib/index.ts'
 import type {
   PayloadDynamicTableColumnConfig,
   PayloadDynamicTableColumnSlug,
@@ -51,7 +51,8 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   const [validationErrors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = validationErrors.length === 0
   const payloadFieldCount = payload ? Object.keys(PayloadHasher.hashFields(payload)).length : 0
-  const hash: React.FC<HashTableCellProps> = props => (
+
+  const hash: TableCellRenderer = props => (
     <HashTableCell
       key="hash"
       align="left"
@@ -64,7 +65,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     />
   )
 
-  const schema: React.FC<TableCellProps> = props => (
+  const schema: TableCellRenderer = props => (
     <TableCell key="payloads" align="left" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {payload?.schema}
@@ -72,7 +73,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     </TableCell>
   )
 
-  const details: React.FC<TableCellProps> = props => (
+  const details: TableCellRenderer = props => (
     <TableCell key="payloads" align="left" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {payloadFieldCount}
@@ -80,13 +81,13 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     </TableCell>
   )
 
-  const render: React.FC<TableCellProps> = (props) => {
+  const render: TableCellRenderer = (props) => {
     const Render: ComponentType<PayloadRenderProps & TableCellProps> | undefined
       = payload ? resolver?.resolve(payload)?.components.table.cell : undefined
     return Render ? <Render payload={payload} {...props} /> : <TableCell key="payloads" align="left" {...props}></TableCell>
   }
 
-  const icon: React.FC<TableCellProps> = (props) => {
+  const icon: TableCellRenderer = (props) => {
     const Avatar: ComponentType<PayloadRenderProps & AvatarProps> | undefined
       = payload ? resolver?.resolve(payload)?.components.avatar.image : undefined
 
@@ -99,7 +100,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     )
   }
 
-  const valid: React.FC<TableCellProps> = props => (
+  const valid: TableCellRenderer = props => (
     <TableCell key="valid" align="center" {...props}>
       {isValid === undefined && payload != undefined
         ? <WarningAmberRoundedIcon fontSize="small" color="warning" />
@@ -112,7 +113,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     </TableCell>
   )
 
-  const tableCells: Record<PayloadDynamicTableColumnSlug, React.FC<TableCellProps>> = {
+  const tableCells: Record<PayloadDynamicTableColumnSlug, TableCellRenderer> = {
     details,
     hash,
     icon,

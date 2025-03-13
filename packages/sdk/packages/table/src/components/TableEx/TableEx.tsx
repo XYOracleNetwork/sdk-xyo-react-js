@@ -9,11 +9,9 @@ export interface TableExProps extends PropsWithChildren, TableProps {
   variant?: TableExVariants
 }
 
-const TableExInner = ({
-  ref, children, ...props
-}: TableExProps & { ref?: React.RefObject<HTMLTableElement | null> }) => {
+const TableExInner: React.FC<TableExProps> = ({ children, ...props }) => {
   return (
-    <Table ref={ref} {...props}>
+    <Table {...props}>
       {children}
     </Table>
   )
@@ -21,11 +19,11 @@ const TableExInner = ({
 
 TableExInner.displayName = 'TableExInner'
 
-export const TableExWithRef = ({
-  ref, variant, children, ...props
-}: TableExProps & { ref?: React.RefObject<HTMLTableElement | null> }) => {
+export const TableExWithRef: React.FC<TableExProps> = ({
+  variant, children, ...props
+}) => {
   return (
-    <TableExInner stickyHeader={variant === 'scrollable'} ref={ref} {...props}>
+    <TableExInner stickyHeader={variant === 'scrollable'} {...props}>
       {children}
     </TableExInner>
   )

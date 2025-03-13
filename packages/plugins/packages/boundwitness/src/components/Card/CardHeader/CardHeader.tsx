@@ -21,16 +21,15 @@ export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   payload?: Payload
 }
 
-export const BoundWitnessCardHeader = ({
-  ref, active = false, activeBgColor = true, additionalActions, hideJSONButton, hidePreviousHash, hideValidation, payload, ...props
-}: BoundWitnessCardHeaderProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const BoundWitnessCardHeader: React.FC<BoundWitnessCardHeaderProps> = ({
+  active = false, activeBgColor = true, additionalActions, hideJSONButton, hidePreviousHash, hideValidation, payload, ...props
+}) => {
   const boundwitness = payload as BoundWitness
   const theme = useTheme()
   const hash = usePayloadHash(boundwitness)
 
   return (
     <CardHeaderHash
-      ref={ref}
       active={active}
       activeBgColor={activeBgColor}
       title={(

@@ -7,7 +7,7 @@ import React from 'react'
 
 import type { FeeDataPayload } from '../lib/index.ts'
 
-export const EthereumGasPriceCardHeader = ({ ref, payload }: PayloadRenderProps & CardHeaderProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const EthereumGasPriceCardHeader: React.FC<PayloadRenderProps & CardHeaderProps> = ({ payload }) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined
 
   return (
@@ -20,7 +20,6 @@ export const EthereumGasPriceCardHeader = ({ ref, payload }: PayloadRenderProps 
           blockNumber={gasPricePayload?.blockNumber ? Number.parseInt(gasPricePayload?.blockNumber) : undefined}
         />
       )}
-      ref={ref}
     />
   )
 }

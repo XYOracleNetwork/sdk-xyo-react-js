@@ -3,7 +3,7 @@ import {
   ErrorOutlineRounded as ErrorOutlineRoundedIcon,
   WarningAmberRounded as WarningAmberRoundedIcon,
 } from '@mui/icons-material'
-import type { TableCellProps, TableRowProps } from '@mui/material'
+import type { TableRowProps } from '@mui/material'
 import {
   alpha, TableCell, TableRow, Typography,
 } from '@mui/material'
@@ -16,6 +16,7 @@ import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import React, { useMemo } from 'react'
 
+import type { TableCellRenderer } from '../lib/index.ts'
 import type { PayloadTableColumnConfig, PayloadTableColumnSlug } from './PayloadTableColumnConfig.ts'
 import { payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig.ts'
 
@@ -45,7 +46,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const [errors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = errors.length === 0
 
-  const hash: React.FC<TableCellProps> = props => (
+  const hash: TableCellRenderer = props => (
     <HashTableCell
       key="hash"
       archive={archive}
@@ -78,7 +79,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     return schema
   }
 
-  const schema: React.FC<TableCellProps> = props => (
+  const schema: TableCellRenderer = props => (
     <TableCell title={payload?.schema} key="payloads" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {reduceSchemaDepth(payload?.schema, maxSchemaDepth)}
@@ -86,7 +87,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     </TableCell>
   )
 
-  const valid: React.FC<TableCellProps> = props => (
+  const valid: TableCellRenderer = props => (
     <TableCell key="valid" align="center" {...props}>
       {isValid === undefined && payload != undefined
         ? <WarningAmberRoundedIcon fontSize="small" color="warning" />
@@ -99,7 +100,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     </TableCell>
   )
 
-  const tableCells: Record<PayloadTableColumnSlug, React.FC<TableCellProps>> = {
+  const tableCells: Record<PayloadTableColumnSlug, TableCellRenderer> = {
     hash,
     schema,
     valid,

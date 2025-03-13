@@ -10,9 +10,9 @@ import { getEthersTransformer } from '../hooks/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthersGasPriceCardContent = ({
+export const EthersGasPriceCardContent: React.FC<PayloadRenderProps & CardContentProps> = ({
   ref, payload, ...props
-}: PayloadRenderProps & CardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}) => {
   const gasPricePayload = payload ? (payload as EthereumGasEthersPayload) : undefined
   const parsedPayload = getEthersTransformer(gasPricePayload)
 

@@ -13,10 +13,10 @@ import { RenderTitle } from '../../lib/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthersGasPriceDetailsBox = ({
+export const EthersGasPriceDetailsBox: React.FC<PayloadDetailsListRenderProps & FlexBoxProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ref, payload, listMode, ...props
-}: PayloadDetailsListRenderProps & FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+  payload, listMode, ...props
+}) => {
   const gasPricePayload = payload ? (payload as EthereumGasEthersPayload) : undefined
   const parsedPayload = getEthersTransformer(gasPricePayload)
 
@@ -25,7 +25,7 @@ export const EthersGasPriceDetailsBox = ({
       {isEmpty(gasPricePayload) || !gasPricePayload?.maxFeePerGas
         ? <PayloadDataMissing alertBody="Payload is missing valid gas fee data." />
         : (
-            <FlexCol alignItems="start" rowGap={4} {...props} ref={ref}>
+            <FlexCol alignItems="start" rowGap={4} {...props}>
               <GasPriceWitnessHeaderBox heading={RenderTitle} parsedPayload={parsedPayload} />
               {parsedPayload
                 && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (

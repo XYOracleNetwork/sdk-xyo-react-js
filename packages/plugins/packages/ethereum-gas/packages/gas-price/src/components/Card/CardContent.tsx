@@ -10,9 +10,7 @@ import { FeePerGasToSpeed, FeePerGasValues } from '../lib/index.ts'
 
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
-export const EthereumGasPriceCardContent = ({
-  ref, payload, ...props
-}: PayloadRenderProps & CardContentProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const EthereumGasPriceCardContent: React.FC<PayloadRenderProps & CardContentProps> = ({ payload, ...props }) => {
   const gasPricePayload = payload ? (payload as FeeDataPayload) : undefined
 
   if ([isEmpty(gasPricePayload?.feePerGas), isEmpty(gasPricePayload?.priorityFeePerGas)].some(Boolean)) {
@@ -20,7 +18,7 @@ export const EthereumGasPriceCardContent = ({
   }
 
   return (
-    <CardContent ref={ref} {...props}>
+    <CardContent {...props}>
       <Grid container spacing={3}>
         {gasPricePayload
           && FeePerGasValues.map(value => (

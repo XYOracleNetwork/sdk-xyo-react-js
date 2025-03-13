@@ -34,9 +34,8 @@ export interface PayloadTableProps extends TableExProps {
   rowsPerPage?: number
 }
 
-export const PayloadTableWithRef = (
+export const PayloadTableWithRef: React.FC<PayloadTableProps> = (
   {
-    ref,
     exploreDomain,
     archive,
     onHashClick,
@@ -53,7 +52,7 @@ export const PayloadTableWithRef = (
     loading = false,
     variant = 'scrollable',
     ...props
-  }: PayloadTableProps & { ref?: React.RefObject<HTMLTableElement | null> },
+  },
 ) => {
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp)
@@ -107,7 +106,7 @@ export const PayloadTableWithRef = (
   }, [loading, visiblePayloads])
 
   return (
-    <TableEx variant={variant} ref={ref} {...props}>
+    <TableEx variant={variant} {...props}>
       <PayloadTableHeadComponent columns={columns} />
       <PayloadTableBodyComponent
         payloads={visiblePayloads}

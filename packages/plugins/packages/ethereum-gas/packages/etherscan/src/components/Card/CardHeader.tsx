@@ -7,10 +7,10 @@ import React from 'react'
 import { getEtherscanTransformer } from '../hooks/index.ts'
 import { RenderTitle } from '../lib/index.ts'
 
-export const EtherscanGasPriceCardHeader = ({ ref, payload }: PayloadRenderProps & CardHeaderProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const EtherscanGasPriceCardHeader: React.FC<PayloadRenderProps & CardHeaderProps> = ({ payload }) => {
   const gasPricePayload = payload ? (payload as EthereumGasEtherscanPayload) : undefined
   const parsedPayload = getEtherscanTransformer(gasPricePayload)
-  return <GasPriceWitnessCardHeader title={RenderTitle} parsedPayload={parsedPayload} ref={ref} />
+  return <GasPriceWitnessCardHeader title={RenderTitle} parsedPayload={parsedPayload} />
 }
 
 EtherscanGasPriceCardHeader.displayName = 'EtherscanGasPriceCardHeader'

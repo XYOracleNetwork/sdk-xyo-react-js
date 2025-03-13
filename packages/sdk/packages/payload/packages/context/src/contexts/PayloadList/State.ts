@@ -7,7 +7,7 @@ import type { RefObject } from 'react'
 export interface UIState {
   loading?: boolean
   /** DOM Ref that has an event listener for page change events and update scroll position */
-  scrollRef?: RefObject<HTMLTableElement>
+  scrollRef?: RefObject<HTMLTableElement | null>
   scrollToTop?: number
   updateLoading?: (loading: boolean) => void
 }
