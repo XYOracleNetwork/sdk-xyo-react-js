@@ -14,7 +14,7 @@ export interface GlowingDivProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
 
 export const GlowingDiv = ({
   ref, hash, children, ...props
-}: GlowingDivProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: GlowingDivProps) => {
   const { clickedExistingHash, setClickedExistingHash } = useNestedBoundWitnesses()
   const internalRef = useRef<HTMLDivElement | null>(null)
 

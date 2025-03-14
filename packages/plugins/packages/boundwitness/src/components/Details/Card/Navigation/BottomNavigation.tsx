@@ -19,7 +19,7 @@ export interface BoundWitnessBottomNavigationProps extends BottomNavigationProps
 
 const BoundWitnessBottomNavigation = ({
   ref, activeTab = 0, setActiveTab, boundWitness, ...props
-}: BoundWitnessBottomNavigationProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: BoundWitnessBottomNavigationProps) => {
   const payloadCount = boundWitness?.payload_schemas.filter(schema => schema !== BoundWitnessSchema).length ?? 0
   const boundWitnessCount = boundWitness?.payload_schemas.filter(schema => schema === BoundWitnessSchema).length ?? 0
   const signers = boundWitness?.addresses.length ?? 0

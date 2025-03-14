@@ -13,7 +13,7 @@ import { DetailsCardContent } from './DetailsCardContent.tsx'
 
 const BoundWitnessDetailsCardInner = ({
   ref, payload, active, ...props
-}: PayloadDetailsRenderProps & CardProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: PayloadDetailsRenderProps & CardProps) => {
   const boundwitness = payload as BoundWitness
   const [collapsed, setCollapsed] = useResetState<boolean>(!active)
 

@@ -11,5 +11,6 @@ export interface BWHeadingProps extends FlexBoxProps {
   fallbackText?: string
   heading?: string
   headingProps?: TypographyProps
+  ref?: React.Ref<HTMLDivElement>
   size?: HeadingTextSizes
 }

@@ -12,7 +12,7 @@ const EllipsisTableCellRoot = styled(TableCell, {
   slot: 'Root',
 })(({ width = '100%' }) => ({ width }))
 
-export interface EllipsisTableCellProps extends Omit<TableCellProps, 'ref'> {
+export interface EllipsisTableCellProps extends TableCellProps {
   href?: string
   link?: boolean
   to?: To
@@ -28,7 +28,7 @@ export interface EllipsisTableCellProps extends Omit<TableCellProps, 'ref'> {
 
 export const EllipsisTableCellWithRef = ({
   ref, children, href, link = false, to, value, ...props
-}: EllipsisTableCellProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: EllipsisTableCellProps) => {
   const data = useMemo(() => {
     if (children) {
       return children

@@ -3,7 +3,7 @@ import React from 'react'
 import type { EllipsisTableCellProps } from './EllipsisTableCell.tsx'
 import { EllipsisTableCell } from './EllipsisTableCell.tsx'
 
-export interface AddressTableCellProps extends Omit<EllipsisTableCellProps, 'ref'> {
+export interface AddressTableCellProps extends EllipsisTableCellProps {
   /** @deprecated - archives are no longer supported */
   archive?: string
   /** @deprecated - use events instead */
@@ -13,7 +13,7 @@ export interface AddressTableCellProps extends Omit<EllipsisTableCellProps, 'ref
 
 const AddressTableCell = ({
   ref, value, archive, exploreDomain, link, ...props
-}: AddressTableCellProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: AddressTableCellProps) => {
   const href = exploreDomain && archive ? `${exploreDomain}/archive/${archive}/address/${value}` : undefined
   const to = exploreDomain === undefined && archive ? `/archive/${archive}/address/${value}` : undefined
 

@@ -11,7 +11,7 @@ export interface GasPriceCardHeaderProps extends CardProps {
 }
 export const GasPriceWitnessCardHeader = ({
   ref, title, parsedPayload, ...props
-}: GasPriceCardHeaderProps & { ref?: React.RefObject<HTMLDivElement | null> }) => (
+}: GasPriceCardHeaderProps) => (
   <StyledCardHeader
     title={<GasPriceHeaderTypography heading={title} />}
     action={(

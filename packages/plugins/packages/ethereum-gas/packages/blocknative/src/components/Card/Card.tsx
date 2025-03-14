@@ -8,7 +8,7 @@ import { BlocknativeGasPriceCardHeader } from './CardHeader.tsx'
 
 export const BlocknativeGasPriceCard = ({
   ref, payload, ...props
-}: PayloadRenderProps & CardProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: PayloadRenderProps & CardProps) => {
   return (
     <Card ref={ref} {...props}>
       <BlocknativeGasPriceCardHeader payload={payload} />

@@ -3,14 +3,14 @@ import type { EllipsizeBoxProps } from '@xyo-network/react-shared'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import React from 'react'
 
-export interface PropertyValueProps extends Omit<EllipsizeBoxProps, 'ref'> {
+export interface PropertyValueProps extends EllipsizeBoxProps {
   typographyVariant?: Variant
   value?: string | number | boolean | null
 }
 
 export const PropertyValue = ({
   ref, typographyVariant = 'body1', value, ...props
-}: PropertyValueProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: PropertyValueProps) => {
   return value === undefined
     ? null
     : (

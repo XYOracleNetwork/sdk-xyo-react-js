@@ -14,7 +14,7 @@ export interface ConnectedAccountsFlexboxProps extends FlexBoxProps {
 
 export const ConnectedAccountsFlexbox = ({
   ref, ignoreConnectDialog, onIgnoreConnectDialog, ...props
-}: ConnectedAccountsFlexboxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: ConnectedAccountsFlexboxProps) => {
   const theme = useTheme()
 
   const { totalConnectedAccounts, sortedWallets } = useDetectedWallets()

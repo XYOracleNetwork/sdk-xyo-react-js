@@ -8,7 +8,7 @@ import { EthgasstationGasPriceCardHeader } from './CardHeader.tsx'
 
 export const EthgasstationGasPriceCard = ({
   ref, payload, ...props
-}: PayloadRenderProps & CardProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: PayloadRenderProps & CardProps) => {
   return (
     <Card ref={ref} {...props}>
       <EthgasstationGasPriceCardHeader payload={payload} />

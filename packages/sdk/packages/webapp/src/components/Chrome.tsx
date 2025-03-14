@@ -7,7 +7,7 @@ export interface XyoWebAppChromeProps extends WebAppChromeProps {}
 
 export const XyoWebAppChrome = ({
   ref, appbar, footer, footerElevation = 4, navigationType = 'menu', ...props
-}: XyoWebAppChromeProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: XyoWebAppChromeProps) => {
   return (
     <WebAppChrome
       ref={ref}

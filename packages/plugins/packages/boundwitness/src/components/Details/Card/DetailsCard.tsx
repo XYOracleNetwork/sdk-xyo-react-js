@@ -7,7 +7,7 @@ import { BoundWitnessDetailsCardInner } from './DetailsCardInner.tsx'
 
 const BoundWitnessDetailsCard = ({
   ref, visibleRows, ...props
-}: PayloadDetailsListRenderProps & CardProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: PayloadDetailsListRenderProps & CardProps) => {
   return (
     <TableHeightProvider defaultVisibleRows={visibleRows} additionalRows={1}>
       <BoundWitnessDetailsCardInner ref={ref} {...props} />

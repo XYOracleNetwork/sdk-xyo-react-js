@@ -92,7 +92,7 @@ export interface EllipsizeBoxProps extends BoxProps {
 
 export const EllipsizeBox = ({
   ref, children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props
-}: PropsWithChildren<EllipsizeBoxProps> & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: PropsWithChildren<EllipsizeBoxProps>) => {
   // Allow syncing of :before pseudo element height with contentWrapHeight
   const { contentWrapRef, contentWrapHeight } = useClientHeight()
   const sharedRef = useShareForwardedRef(ref)

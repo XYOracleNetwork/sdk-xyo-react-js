@@ -5,7 +5,7 @@ import React from 'react'
 
 export const SectionSpacingRow = ({
   ref, children, sx, ...props
-}: FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: FlexBoxProps) => {
   const theme = useTheme()
   return (
     <FlexGrowRow

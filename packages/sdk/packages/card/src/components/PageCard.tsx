@@ -16,7 +16,7 @@ export interface PageCardProps extends CardExProps {
 
 const PageCardWithRef = ({
   ref, subheader, title, onRefresh, children, action, style, ...props
-}: PageCardProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: PageCardProps) => {
   return (
     <CardEx
       style={{

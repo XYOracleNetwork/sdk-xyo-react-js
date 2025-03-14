@@ -13,7 +13,7 @@ import { BWErrorAlert } from './Errors/index.ts'
 import { useBoundWitnessClickHandler } from './hooks/index.ts'
 import { NestedBoundWitnessesBox } from './NestedBoundWitnesses/index.ts'
 
-export const BoundWitnessesBox = ({ ref, ...props }: FlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+export const BoundWitnessesBox = ({ ref, ...props }: FlexBoxProps) => {
   const { activeBoundWitness, activeBoundWitnessHash } = useActiveBoundWitness(false)
   const { boundwitnessClick } = useBoundWitnessClickHandler()
   const { rollbar } = useErrorReporter()

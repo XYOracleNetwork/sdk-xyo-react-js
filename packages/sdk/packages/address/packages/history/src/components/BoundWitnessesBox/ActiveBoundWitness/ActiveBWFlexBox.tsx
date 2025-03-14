@@ -13,7 +13,7 @@ export interface ActiveBWFlexBoxProps extends FlexBoxProps {
 
 const ActiveBWFlexBox = ({
   ref, visibleRows, ...props
-}: ActiveBWFlexBoxProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: ActiveBWFlexBoxProps) => {
   const { activeBoundWitness } = useActiveBoundWitness(false)
   return (
     <FlexGrowCol alignItems="stretch" justifyContent={activeBoundWitness ? 'start' : 'center'} ref={ref} {...props}>

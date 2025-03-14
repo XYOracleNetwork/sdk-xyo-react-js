@@ -13,7 +13,7 @@ export interface HashHeadingPaperProps extends HeadingPaperProps {
 
 const HashHeadingPaper = ({
   ref, hash, identiconProps, ...props
-}: HashHeadingPaperProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: HashHeadingPaperProps) => {
   const theme = useTheme()
 
   return (

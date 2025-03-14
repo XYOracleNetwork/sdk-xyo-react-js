@@ -18,7 +18,7 @@ export interface FavoritePopperProps extends PopperProps {
 export const FavoritePopper = (
   {
     ref, name: nameProp, favorite, favoriteRef, onClickAway, onConfirmFavorite, ...props
-  }: FavoritePopperProps & { ref?: React.RefObject<HTMLDivElement | null> },
+  }: FavoritePopperProps,
 ) => {
   const [name, setName] = useState(() => nameProp)
 

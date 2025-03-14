@@ -30,7 +30,7 @@ const Scrollable = styled(FlexCol, { name: 'Scrollable' })(({ theme }) => ({
 
 const ScrollableGridColumn = ({
   ref, children, heading, scrollableProps, ...props
-}: AddressHistoryColumnProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
+}: AddressHistoryColumnProps) => {
   return (
     <GridColumn ref={ref} {...props}>
       {heading}

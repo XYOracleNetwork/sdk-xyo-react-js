@@ -16,7 +16,7 @@ export interface WrappedContainerProps extends FlexBoxProps, PropsWithChildren {
 
 const WrappedContainer = ({
   ref, children, spacing, ...props
-}: WrappedContainerProps & { ref?: React.RefObject<HTMLDivElement | null> }) => (
+}: WrappedContainerProps) => (
   <FlexGrowCol ref={ref} {...props}>
     <GridContainer container spacing={spacing}>
       {children}
