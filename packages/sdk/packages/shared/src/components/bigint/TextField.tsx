@@ -54,7 +54,7 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
   // on value or point changes, run the bigInt callback
   const bigIntValue = useMemo(() => {
     if (rawValue) {
-      const fixedValue = toFixedPoint(rawValue)
+      const fixedValue = toFixedPoint(rawValue, fixedPoint)
       setError(undefined)
       try {
         return fixedValue
