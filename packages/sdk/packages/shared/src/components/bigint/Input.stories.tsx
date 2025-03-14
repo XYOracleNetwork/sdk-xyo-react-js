@@ -40,6 +40,13 @@ const Template: StoryFn<typeof BigIntInput.WithFormControl> = ({ textFieldProps,
 const Default = Template.bind({})
 Default.args = {}
 
+const WithDefaultFixedPoint = Template.bind({})
+WithDefaultFixedPoint.args = {
+  textFieldProps: {
+    helperText: 'Enter Amount', hideAdornment: true, defaultRawValue: '1', defaultFixedPoint: 0,
+  },
+}
+
 const WithDefaultValue = Template.bind({})
 WithDefaultValue.args = {
   textFieldProps: {
@@ -54,5 +61,5 @@ const WithHelperText = Template.bind({})
 WithHelperText.args = { textFieldProps: { helperText: 'Enter Amount', hideAdornment: true } }
 
 export {
-  Default, WithDefaultValue, WithHelperText, WithHiddenAdornment,
+  Default, WithDefaultFixedPoint, WithDefaultValue, WithHelperText, WithHiddenAdornment,
 }
