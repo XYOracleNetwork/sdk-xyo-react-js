@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-ethereum-gas-price-etherchain-plugins",
-  "version": "5.0.4",
+  "version": "5.0.5",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -38,10 +38,6 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/types/index.d.ts",
-  "scripts": {
-    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\"",
-    "lint-pkg": "npmPkgJsonLint ."
-  },
   "dependencies": {
     "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^"

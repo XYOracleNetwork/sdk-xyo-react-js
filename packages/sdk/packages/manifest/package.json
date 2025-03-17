@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/react-manifest",
-  "version": "5.0.4",
+  "version": "5.0.5",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -38,10 +38,6 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/types/index.d.ts",
-  "scripts": {
-    "license": "yarn license-checker --exclude \"MIT, ISC, Apache-2.0, BSD, BSD-2-Clause, CC-BY-4.0, Unlicense, CC-BY-3.0, CC0-1.0\"",
-    "lint-pkg": "npmPkgJsonLint ."
-  },
   "dependencies": {
     "@scure/bip39": "^1.5.4",
     "@xylabs/react-promise": "^6.0.6",

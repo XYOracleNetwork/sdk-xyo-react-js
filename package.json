@@ -1,6 +1,6 @@
 {
   "name": "@xyo-network/sdk-xyo-react",
-  "version": "5.0.4",
+  "version": "5.0.5",
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -43,7 +43,6 @@
     "build-storybook": "storybook build && copyfiles -u 1 storybook-static/**/* docs/storybook",
     "build-storybook-debug": "storybook build --debug-webpack",
     "build-typedoc-site": "typedoc",
-    "lint-pkg": "npmPkgJsonLint .",
     "start": "storybook dev -p 6006"
   },
   "resolutions": {
@@ -87,6 +86,7 @@
     "@vitejs/plugin-react-swc": "^3.8.0",
     "@xylabs/eslint-config-flat": "^6.1.4",
     "@xylabs/eslint-config-react-flat": "^6.1.4",
+    "@xylabs/react-invertible-theme": "^6.0.6",
     "@xylabs/react-theme": "^6.0.6",
     "@xylabs/ts-scripts-yarn3": "^6.1.4",
     "@xylabs/tsconfig-react": "^6.1.4",
@@ -95,6 +95,7 @@
     "dotenv": "^16.4.7",
     "eslint": "^9.22.0",
     "eslint-import-resolver-typescript": "^4.1.1",
+    "knip": "^5.46.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-helmet": "^6.1.0",
