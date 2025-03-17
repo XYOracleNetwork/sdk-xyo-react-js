@@ -27,7 +27,7 @@ export const WalletConnectionsTableRow: React.FC<WalletConnectionsTableRowProps>
 
   const currentAccount = currentAccountFromWallet?.toString() ? [currentAccountFromWallet.toString()] : []
   const totalAccounts = (additionalAccounts?.length ?? 0) + (currentAccount?.length ?? 0)
-  const connected = !!(currentAccount?.length ?? 0 > 0)
+  const connected = !!(currentAccount?.length)
   const {
     icon, name, rdns,
   } = useMemo(() => providerInfo ?? {

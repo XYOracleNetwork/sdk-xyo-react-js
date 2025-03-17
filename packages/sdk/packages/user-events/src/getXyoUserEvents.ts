@@ -6,5 +6,6 @@ import { XyoUserEvents } from './XyoUserEvents.ts'
 let instance: XyoUserEvents
 
 export const getXyoUserEvents = (mixpanelToken?: string) => {
-  return instance = instance ?? XyoUserEvents.get(mixpanelToken ? mixpanel.init(mixpanelToken) : undefined)
+  instance = instance ?? XyoUserEvents.get(mixpanelToken ? mixpanel.init(mixpanelToken) : undefined)
+  return instance
 }

@@ -20,11 +20,11 @@ export interface ReflectionGroupViewerProps extends ReflectionViewerProps<Contai
 
 const hide = (flags?: ReflectionFlags, hiddenFlags: FlagFilter[] = []) => {
   let hide = false
-  hiddenFlags.map((hiddenFlag) => {
+  for (const hiddenFlag of hiddenFlags) {
     if (flags?.[hiddenFlag]) {
       hide = true
     }
-  })
+  }
   return hide
 }
 

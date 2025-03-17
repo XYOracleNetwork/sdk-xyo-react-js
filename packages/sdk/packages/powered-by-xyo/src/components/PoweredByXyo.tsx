@@ -54,7 +54,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
           if (event.shiftKey && event.altKey) {
             setDebugDialogOpen(true)
           } else if (href) {
-            window.open(href)
+            window.open(href, undefined, 'noopener,noreferrer')
           }
         }
       : undefined) ?? onButtonClick
@@ -75,7 +75,7 @@ export const PoweredByXyo: React.FC<PoweredByXyoProps> = ({
       } else if (activeNode) {
         const mods = await activeNode?.resolve('*')
         mods?.map((mod) => {
-          mod.on('moduleBusy', ({ mod, busy }) => {
+          return mod.on('moduleBusy', ({ mod, busy }) => {
             busyMap[(mod as Module).address] = busy
             if (autoStop) {
               forget(

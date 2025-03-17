@@ -9,21 +9,21 @@ import React from 'react'
 export const TableCellSummary: React.FC<PayloadRenderProps & TableCellProps> = ({ payload, ...props }) => {
   const payloadTyped = payload as UniswapCryptoMarketPayload
   const makeTokenList = (payloadData: UniswapCryptoPair[]) => {
-    const tokenList: string[] = []
+    const tokenList: Set<string> = new Set()
     {
-      payloadData.map(pair => pair.tokens.map(token => (tokenList.includes(token.symbol) ? null : tokenList.push(token.symbol))))
+      for (const pair of payloadData) for (const token of pair.tokens) tokenList.add(token.symbol)
     }
     console.log(tokenList)
-    return tokenList
+    return [...tokenList]
   }
 
   const makeTokenImageList = (tokenNameData: TokenData[]) => {
-    const tokenImageList: string[] = []
+    const tokenImageList: Set<string> = new Set()
     {
-      tokenNameData.map(token => (tokenImageList.includes(token.icon) ? null : tokenImageList.push(token.icon)))
+      for (const token of tokenNameData) (tokenImageList.add(token.icon))
     }
     console.log(tokenImageList)
-    return tokenImageList
+    return [...tokenImageList]
   }
 
   const payloadTokenList = makeTokenList(payloadTyped.pairs)

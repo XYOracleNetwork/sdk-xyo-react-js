@@ -55,7 +55,7 @@ export class CreditCardCvvFormControl<TProps extends EmptyObject = EmptyObject> 
 
   override changeError(value: string) {
     const unmasked = this.unmask(value)
-    const match = unmasked.match(this.patternStrict)
+    const match = RegExp(this.patternStrict).exec(unmasked)
     if (match) {
       const num = this.cardNumberFormControl.value
       const max = this.getCardNumberCvcMax(num)

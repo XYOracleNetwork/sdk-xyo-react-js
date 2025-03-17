@@ -20,6 +20,6 @@ export class MixpanelEventHandler<T extends EmptyObject> extends XyoEventHandler
   }
 
   override async xnsPurchaseSuccess(fields: XnsPurchaseSuccessFields) {
-    await this.mixpanel.track('Purchase', fields)
+    return await Promise.resolve(this.mixpanel.track('Purchase', fields))
   }
 }

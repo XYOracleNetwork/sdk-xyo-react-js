@@ -43,7 +43,7 @@ export const orderedHistory = async (addressHistory?: BoundWitness[], order: 'as
         }
       }
 
-      const orderedStack = order === 'desc' ? stack.reverse() : stack
+      const orderedStack = order === 'desc' ? stack.toReversed() : stack
 
       return addressHistory?.length ? PayloadBuilder.addStorageMeta(orderedStack) : undefined
     }

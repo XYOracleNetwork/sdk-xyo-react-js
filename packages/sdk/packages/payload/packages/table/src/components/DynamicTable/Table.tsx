@@ -44,7 +44,7 @@ interface TablePaginationActionsProps {
   rowsPerPage: number
 }
 
-function TablePaginationActions(props: TablePaginationActionsProps) {
+const TablePaginationActions: React.FC<TablePaginationActionsProps> = (props) => {
   const theme = useTheme()
   const {
     count, page, rowsPerPage, onPageChange,

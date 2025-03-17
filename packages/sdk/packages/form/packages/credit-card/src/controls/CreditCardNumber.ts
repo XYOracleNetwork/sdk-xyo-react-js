@@ -47,7 +47,7 @@ export class CreditCardNumberFormControl<TProps extends EmptyObject = EmptyObjec
 
   override changeError(value: string) {
     const unmasked = unmask(value)
-    const match = unmasked.match(this.patternStrict)
+    const match = RegExp(this.patternStrict).exec(unmasked)
     if (match) {
       const numberValidation = valid.number(unmasked)
       if (!numberValidation.isPotentiallyValid) {

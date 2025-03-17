@@ -23,8 +23,6 @@ export const parseModuleType = (mod?: ModuleInstance): CyNodeModuleTypes => {
       type = 'sentinel'
     } else if (isWitnessModule(mod)) {
       type = 'witness'
-    } else {
-      type = 'module'
     }
   }
   return type

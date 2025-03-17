@@ -83,7 +83,7 @@ interface EnhancedTableProps {
   rowCount: number
 }
 
-function EnhancedTableHead(props: EnhancedTableProps) {
+function EnhancedTableHead(props: Readonly<EnhancedTableProps>) {
   const { order, orderBy } = props
   // const createSortHandler = (property: string) => (event: React.MouseEvent<unknown>) => {
   //   onRequestSort(event, property)

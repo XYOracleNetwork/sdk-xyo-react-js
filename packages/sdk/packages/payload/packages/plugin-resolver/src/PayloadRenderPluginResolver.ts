@@ -12,11 +12,11 @@ export class PayloadRenderPluginResolver {
     }
     const defaultPlugin = this.schemaDefaultPlugin.get(payload.schema)
     const result = defaultPlugin ? [defaultPlugin] : []
-    this.plugins.some((plugin) => {
+    for (const plugin of this.plugins) {
       if (defaultPlugin !== plugin && plugin.canRender(payload)) {
         result.push(plugin)
       }
-    })
+    }
     return result
   }
 

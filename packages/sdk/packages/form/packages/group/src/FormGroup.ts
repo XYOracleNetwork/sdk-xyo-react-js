@@ -100,11 +100,6 @@ export class FormGroup<
   async getSerializedValue(name: string, sensitive = false): Promise<string | undefined> {
     const storage = sensitive ? this.sensitiveStorage : this.nonSensitiveStorage
     if (storage) {
-      if (!storage) {
-        console.warn(`Cannot return value for ${name}. No storage set`)
-        return
-      }
-
       const savedState = await storage.get()
       if (savedState && name in savedState) {
         const savedValue = savedState[name as keyof typeof savedState] as string
@@ -118,6 +113,8 @@ export class FormGroup<
         }
         return savedValue
       }
+    } else {
+      console.warn(`Cannot return value for ${name}. No storage set`)
     }
   }
 

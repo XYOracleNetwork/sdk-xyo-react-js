@@ -25,7 +25,7 @@ export type CardContentExProps = CardContentProps & {
 
 export const CardContentExWithRef = ({
   ref, scrollToTop = 0, refreshRef = 0, ...props
-}: CardContentExProps & { ref?: React.RefObject<HTMLDivElement | null | null> }) => {
+}: CardContentExProps & { ref?: React.RefObject<HTMLDivElement | null> }) => {
   const sharedRef = useShareForwardedRef<HTMLDivElement>(ref, refreshRef)
 
   useEffect(() => {

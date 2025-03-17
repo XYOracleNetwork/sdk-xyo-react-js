@@ -45,7 +45,7 @@ export abstract class FormControlBase<TProps extends EmptyObject = EmptyObject> 
     // check for pattern validation
     if (this.unmask && this.pattern) {
       const unmasked = this.unmask(value)
-      const match = unmasked.match(this.pattern)
+      const match = RegExp(this.pattern).exec(unmasked)
       // set the new value before checking for errors
       super.setValue(this.mask ? this.mask(unmasked) : unmasked, setOptions)
       if (match) {

@@ -31,8 +31,8 @@ export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props
     async () => {
       const instance = archivist?.deref()
       if (instance) {
-        const [commitBW] = await (await testQueryCommitBoundWitnessBuilder).build()
-        const [clearBW] = await (await testQueryClearBoundWitnessBuilder).build()
+        const [commitBW] = await testQueryCommitBoundWitnessBuilder.build()
+        const [clearBW] = await testQueryClearBoundWitnessBuilder.build()
         setQueryableCommit(await instance?.queryable(commitBW, [testQueryCommit]))
         setQueryableClear(await instance?.queryable(clearBW, [testQueryClear]))
       }

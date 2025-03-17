@@ -9,11 +9,11 @@ import type { FlagFilter, ReflectionViewerProps } from './ReflectionViewerProps.
 
 const hide = (flags?: ReflectionFlags, hiddenFlags: FlagFilter[] = []) => {
   let hide = false
-  hiddenFlags.map((hiddenFlag) => {
+  for (const hiddenFlag of hiddenFlags) {
     if (flags?.[hiddenFlag]) {
       hide = true
     }
-  })
+  }
   return hide
 }
 

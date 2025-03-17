@@ -20,7 +20,7 @@ export interface TablePaginationActionsProps {
 
 export function TablePaginationActions({
   count, enableNextPage, loading, onPageChange, page, rowsPerPage,
-}: TablePaginationActionsProps) {
+}: Readonly<TablePaginationActionsProps>) {
   const theme = useTheme()
   const [paginationRef, paginationDispatch] = useEvent<HTMLButtonElement, PaginationNouns>()
 

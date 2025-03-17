@@ -39,7 +39,7 @@ export class CreditCardZipFormControl<TProps extends EmptyObject = EmptyObject> 
 
   override changeError(value: string) {
     const unmasked = this.unmask(value)
-    const match = unmasked.match(this.patternStrict)
+    const match = RegExp(this.patternStrict).exec(unmasked)
     if (match) {
       const postalCodeValidation = valid.postalCode(value)
       if (postalCodeValidation.isPotentiallyValid) {

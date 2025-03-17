@@ -27,7 +27,7 @@ export class CreditCardEmailFormControl<TProps extends EmptyObject = EmptyObject
   }
 
   override blurError(value: string) {
-    const match = value.match(this.patternStrict)
+    const match = RegExp(this.patternStrict).exec(value)
     this.updateValidation(match)
   }
 

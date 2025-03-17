@@ -28,9 +28,7 @@ const isScore = (entry: [unknown, unknown]): entry is [string, Score] => {
   if (typeof key !== 'string') return false
   if (!Array.isArray(value)) return false
   if (value.length !== 2) return false
-  if (typeof value[0] !== 'number') return false
-  if (typeof value[1] !== 'number') return false
-  return true
+  return !(typeof value[0] === 'number' && typeof value[1] === 'number')
 }
 
 const getScoreIcon = (score: Score) => {

@@ -1,5 +1,6 @@
 import type { EmptyObject } from '@xylabs/object'
 import type { UserEventHandler } from '@xylabs/pixel'
+import type { Promisable } from '@xylabs/promise'
 
 export interface XnsPurchaseFields extends EmptyObject {
   name: string
@@ -22,9 +23,9 @@ export interface XnsPurchaseFailureFields extends XnsPurchaseFields {
 }
 
 export interface XnsPurchaseEventHandlerInterface<TData extends EmptyObject> extends UserEventHandler<TData> {
-  xnsPurchaseAttempted<T extends TData>(fields: T | XnsPurchaseAttemptedFields): Promise<void>
+  xnsPurchaseAttempted<T extends TData>(fields: T | XnsPurchaseAttemptedFields): Promisable<void>
 
-  xnsPurchaseFailure<T extends TData>(fields: T | XnsPurchaseFailureFields): Promise<void>
+  xnsPurchaseFailure<T extends TData>(fields: T | XnsPurchaseFailureFields): Promisable<void>
 
-  xnsPurchaseSuccess<T extends TData>(fields: T | XnsPurchaseSuccessFields): Promise<void>
+  xnsPurchaseSuccess<T extends TData>(fields: T | XnsPurchaseSuccessFields): Promisable<void>
 }

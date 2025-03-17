@@ -43,7 +43,7 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
     })
   }, [itemRenderer, lookup, reflection, hiddenFlags])
 
-  // eslint-disable-next-line @eslint-react/no-nested-components
+  // eslint-disable-next-line @eslint-react/no-nested-component-definitions
   const NavigationCol: React.FC<FlexBoxProps> = (props) => {
     return (
       <FlexCol {...props}>
@@ -74,7 +74,7 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
     )
   }
 
-  // eslint-disable-next-line @eslint-react/no-nested-components
+  // eslint-disable-next-line @eslint-react/no-nested-component-definitions
   const DetailsCol: React.FC<FlexBoxProps> = (props) => {
     return (
       <FlexGrowCol {...props}>

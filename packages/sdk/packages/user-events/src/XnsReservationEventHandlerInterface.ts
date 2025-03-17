@@ -1,5 +1,6 @@
 import type { EmptyObject } from '@xylabs/object'
 import type { UserEventHandler } from '@xylabs/pixel'
+import type { Promisable } from '@xylabs/promise'
 
 export interface XnsReservationFields extends EmptyObject {
   email_hash: string
@@ -15,9 +16,9 @@ export interface XnsReservationFailureFields extends XnsReservationFields {
 }
 
 export interface XnsReservationEventHandlerInterface<TData extends EmptyObject> extends UserEventHandler<TData> {
-  xnsReservationAttempted<T extends TData>(fields: T | XnsReservationAttemptedFields): Promise<void>
+  xnsReservationAttempted<T extends TData>(fields: T | XnsReservationAttemptedFields): Promisable<void>
 
-  xnsReservationFailure<T extends TData>(fields: T | XnsReservationFailureFields): Promise<void>
+  xnsReservationFailure<T extends TData>(fields: T | XnsReservationFailureFields): Promisable<void>
 
-  xnsReservationSuccess<T extends TData>(fields: T | XnsReservationSuccessFields): Promise<void>
+  xnsReservationSuccess<T extends TData>(fields: T | XnsReservationSuccessFields): Promisable<void>
 }

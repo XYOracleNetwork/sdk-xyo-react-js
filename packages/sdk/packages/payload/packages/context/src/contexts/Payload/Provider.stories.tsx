@@ -59,7 +59,6 @@ const Template: StoryFn<React.FC> = () => {
       {payload === undefined
         ? <CircularProgress />
         : null}
-      {payload === null ? null : null}
       {payload
         ? <pre>{JSON.stringify(payload, null, 2)}</pre>
         : null}
