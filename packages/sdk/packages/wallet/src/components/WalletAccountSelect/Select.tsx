@@ -7,6 +7,7 @@ import React from 'react'
 
 import { useWalletContext } from '../../contexts/index.ts'
 import { useWallet } from '../../hooks/index.ts'
+import { RenderedAccountMenuItem } from './RenderedMenuItem.tsx'
 
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxProps, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 
@@ -33,7 +34,7 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
   ...props
 }) => {
   const {
-    activeAccountIndex = 0, setActiveAccountIndex, rootWallet,
+    activeAccountIndex, setActiveAccountIndex, rootWallet,
   } = useWalletContext()
   const disabled = !rootWallet || activeAccountIndex === undefined
 
@@ -45,70 +46,49 @@ export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
               margin="dense"
               disabled={disabled}
               renderValue={(selectedAccountIndex) => {
-                // eslint-disable-next-line @eslint-react/no-nested-component-definitions
-                const Item: React.FC = () => {
-                  const [selectedAccount] = useWallet({ path: selectedAccountIndex.toString(), wallet: rootWallet })
-                  const customName = selectedAccount ? addressNames?.[selectedAccount.address] : undefined
-                  const favorite = !!selectedAccount && selectedAccount.address in (addressNames ?? {})
-                  return (
-                    <MenuItem
-                      value={selectedAccountIndex}
-                      sx={{
-                        minHeight: 0, paddingBottom: 0, paddingTop: 0,
-                      }}
-                    >
-                      <AddressRenderRowBox
-                        disableSharedRef={true}
-                        flexGrow={1}
-                        address={selectedAccount?.address}
-                        iconOnly={iconOnly}
-                        iconSize={iconSize}
-                        icons={icons}
-                        name={customName}
-                        favorite={favorite}
-                        showFavorite={showFavorite}
-                      />
-                    </MenuItem>
-                  )
-                }
-                return <Item />
+                return (
+                  <RenderedAccountMenuItem
+                    addressNames={addressNames}
+                    iconOnly={iconOnly}
+                    iconSize={iconSize}
+                    icons={icons}
+                    rootWallet={rootWallet}
+                    selectedAccountIndex={selectedAccountIndex}
+                    showFavorite={showFavorite}
+                  />
+                )
               }}
-              value={activeAccountIndex}
+              value={activeAccountIndex === undefined ? '' : activeAccountIndex}
               onChange={event => setActiveAccountIndex?.(Number.parseInt(`${event.target.value}`))}
               size={size}
               variant={variant}
               {...props}
             >
-              {arrayRange(maxAccounts).map((index) => {
-                // eslint-disable-next-line @eslint-react/no-nested-component-definitions
-                const Item: React.FC = () => {
-                  const [account] = useWallet({ path: index.toString(), wallet: rootWallet })
-                  const customName = account ? addressNames?.[account.address] : undefined
-                  const favorite = !!account && account.address in (addressNames ?? {})
-                  return (
-                    <MenuItem
-                      key={account?.address}
-                      value={index}
-                      sx={{
-                        minHeight: 0, paddingBottom: 0, paddingTop: 0,
-                      }}
-                    >
-                      <AddressRenderRowBox
-                        disableSharedRef={true}
-                        flexGrow={1}
-                        address={account?.address}
-                        favorite={favorite}
-                        iconOnly={iconOnly}
-                        iconSize={iconSize}
-                        icons={icons}
-                        name={customName}
-                        showFavorite={showFavorite}
-                      />
-                    </MenuItem>
-                  )
-                }
-
-                return <Item key={index} />
+              {rootWallet && arrayRange(maxAccounts).map((index) => {
+                const [account] = useWallet({ path: index.toString(), wallet: rootWallet })
+                const customName = account ? addressNames?.[account.address] : undefined
+                const favorite = !!account && account.address in (addressNames ?? {})
+                return (
+                  <MenuItem
+                    key={account?.address}
+                    value={index}
+                    sx={{
+                      minHeight: 0, paddingBottom: 0, paddingTop: 0,
+                    }}
+                  >
+                    <AddressRenderRowBox
+                      disableSharedRef={true}
+                      flexGrow={1}
+                      address={account?.address}
+                      favorite={favorite}
+                      iconOnly={iconOnly}
+                      iconSize={iconSize}
+                      icons={icons}
+                      name={customName}
+                      showFavorite={showFavorite}
+                    />
+                  </MenuItem>
+                )
               })}
             </SelectEx>
           )
