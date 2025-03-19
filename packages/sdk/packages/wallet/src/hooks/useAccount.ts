@@ -37,9 +37,11 @@ export const useAccount = ({
     try {
       if (!validationError) {
         if (wallet) {
-          return await wallet?.derivePath?.(`${index ?? 0}'\0`)
+          const path = `${index ?? 0}'\0`
+          return await wallet?.derivePath?.(path)
         } else if (rootWallet) {
-          return await rootWallet?.derivePath?.(`${index ?? activeAccountIndex ?? 0}'\0`)
+          const path = `${index ?? activeAccountIndex ?? 0}'\/0`
+          return await rootWallet?.derivePath?.(path)
         }
       }
     } catch (ex) {
