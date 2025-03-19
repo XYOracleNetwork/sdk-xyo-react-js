@@ -22,15 +22,14 @@ const Template: StoryFn<typeof WalletAccountSelectBar> = (args) => {
 
 const WithFavoritesTemplate: StoryFn<typeof WalletAccountSelectBar> = (args) => {
   const [wallets] = useWallets(PATHS)
-  const castWallets = wallets as WalletInstance[] | undefined
   return (
     <WalletAccountSelectBar
       addressNames={
-        castWallets
+        wallets
           ? {
-              [castWallets[0]?.address]: 'first address',
-              [castWallets[1]?.address]: undefined,
-              [castWallets[2]?.address]: 'sixth address',
+              [wallets[0]?.address]: 'first address',
+              [wallets[1]?.address]: undefined,
+              [wallets[2]?.address]: 'sixth address',
             }
           : {}
       }
