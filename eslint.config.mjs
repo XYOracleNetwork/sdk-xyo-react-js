@@ -9,6 +9,7 @@ import {
 import { reactConfig } from '@xylabs/eslint-config-react-flat'
 
 export default [
+  { ignores: ['eslint.config.mjs'] },
   typescriptConfig,
   unicornConfig,
   workspacesConfig,
