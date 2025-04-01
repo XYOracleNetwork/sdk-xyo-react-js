@@ -16,11 +16,11 @@ const testQueryCommitBoundWitnessBuilder = new QueryBoundWitnessBuilder().query(
 const testQueryClear = { schema: ArchivistClearQuerySchema }
 const testQueryClearBoundWitnessBuilder = new QueryBoundWitnessBuilder().query(testQueryClear)
 
-export interface ArchivistDetails extends FlexBoxProps {
+export interface ArchivistDetailsProps extends FlexBoxProps {
   address?: string
 }
 
-export const ArchivistDetails: React.FC<ArchivistDetails> = ({ address, ...props }) => {
+export const ArchivistDetails: React.FC<ArchivistDetailsProps> = ({ address, ...props }) => {
   const [archivist] = useWeakArchivistFromNode(address)
   const [payloads, setPayloads] = useState<Payload[]>()
   const [refresh, setRefresh] = useState(0)

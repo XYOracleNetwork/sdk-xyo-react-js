@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react'

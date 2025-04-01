@@ -29,7 +29,7 @@ const UtmStub: React.FC<PropsWithChildren> = ({ children }) => {
   return children
 }
 
-const RouterDecorator = (Story: StoryFn) => (
+const RouterDecorator = (Story: React.ElementType) => (
   <BrowserRouter>
     <UtmStub>
       <Story />

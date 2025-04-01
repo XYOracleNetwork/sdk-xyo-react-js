@@ -54,7 +54,7 @@ const Template: StoryFn<typeof MapBox> = (args) => {
 }
 
 const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
-  const containerRef = useRef<HTMLDivElement | null>()
+  const containerRef = useRef<HTMLDivElement | null>(null)
   const handleClick = () => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.style.minWidth
@@ -68,7 +68,7 @@ const ContainerResizeTemplate: StoryFn<typeof MapBox> = (args) => {
         Toggle Container minWidth
       </Button>
       <div
-        ref={ref => (containerRef.current = ref)}
+        ref={containerRef}
         style={{
           minHeight: 'calc(100vh - 2rem)', minWidth: '100%', position: 'relative', transition: 'min-width 300ms ease',
         }}

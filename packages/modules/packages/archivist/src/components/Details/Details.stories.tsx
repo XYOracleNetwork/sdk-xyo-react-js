@@ -1,10 +1,12 @@
 import type { Meta, StoryFn } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { ArchivistModule } from '@xyo-network/archivist-model'
+import type { ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import { NodeProvider } from '@xyo-network/react-node'
+import type { FC } from 'react'
 import React, { useState } from 'react'
 
 import { useWeakArchivistFromNode } from '../../hooks/index.ts'
+import type { ArchivistDetailsProps } from './Details.tsx'
 import { ArchivistDetails } from './Details.tsx'
 
 const StorybookEntry = {
@@ -22,7 +24,7 @@ const TemplateInner: StoryFn<typeof ArchivistDetails> = (args) => {
 
 const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   const [archivist] = useWeakArchivistFromNode()
-  const [archivistWithData, setArchivistWithData] = useState<ArchivistModule>()
+  const [archivistWithData, setArchivistWithData] = useState<ArchivistModuleInstance>()
 
   useAsyncEffect(
     async (mounted) => {
@@ -39,15 +41,19 @@ const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   return <ArchivistDetails address={archivistWithData?.address} {...args}></ArchivistDetails>
 }
 
+const TemplateInnerComponent = TemplateInner as FC<ArchivistDetailsProps>
+
 const TemplateWithNoData: StoryFn<typeof ArchivistDetails> = args => (
   <NodeProvider>
-    <TemplateInner {...args}></TemplateInner>
+    <TemplateInnerComponent {...args}></TemplateInnerComponent>
   </NodeProvider>
 )
 
+const TemplateInnerWithDataComponent = TemplateInnerWithData as FC<ArchivistDetailsProps>
+
 const TemplateWithData: StoryFn<typeof ArchivistDetails> = args => (
   <NodeProvider>
-    <TemplateInnerWithData {...args}></TemplateInnerWithData>
+    <TemplateInnerWithDataComponent {...args}></TemplateInnerWithDataComponent>
   </NodeProvider>
 )
 

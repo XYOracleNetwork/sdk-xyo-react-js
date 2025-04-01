@@ -8,11 +8,13 @@ export type JsonViewerExProps = JsonViewerProps
 
 export const JsonViewerEx: React.FC<JsonViewerExProps> = (props) => {
   const theme = useTheme()
-  const { darkMode } = useColorSchemeEx()
+  const { mode, systemMode } = useColorSchemeEx()
+
+  const darkMode = mode === 'dark' || (mode === 'system' && systemMode === 'dark')
 
   return (
     <JsonViewer
-      theme={darkMode ? 'dark' : 'light'}
+      theme={mode ? 'dark' : 'light'}
       collapseStringsAfterLength={50}
       style={{
         background: darkMode ? theme.palette.background.paper : theme.palette.grey[200],

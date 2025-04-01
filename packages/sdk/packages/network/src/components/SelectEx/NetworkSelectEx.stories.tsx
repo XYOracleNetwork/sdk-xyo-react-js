@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
+import type { FC } from 'react'
 import React, {
   useEffect, useMemo, useState,
 } from 'react'
@@ -9,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom'
 import {
   NetworkMemoryProvider, NetworkRouteProvider, useNetwork,
 } from '../../contexts/index.ts'
+import type { NetworkSelectExProps } from './NetworkSelectEx.tsx'
 import { NetworkSelectEx } from './NetworkSelectEx.tsx'
 
 const StorybookEntry = {
@@ -57,7 +59,7 @@ const TemplateWithRouteProvider: StoryFn<typeof NetworkSelectEx> = (props) => {
   )
 }
 
-const TemplateWithRouteProviderInner: StoryFn<typeof NetworkSelectEx> = (props) => {
+const TemplateWithRouteProviderInner: FC<NetworkSelectExProps> = (props) => {
   const { network } = useNetwork()
   const [uris, setUris] = useState<(string | undefined)[]>([])
 

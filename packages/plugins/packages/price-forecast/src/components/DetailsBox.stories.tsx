@@ -32,7 +32,7 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
   const [showPayloads, setShowPayloads] = useState(false)
   const forecastPayloadRef = useRef<HTMLParagraphElement>(null)
   const sourcePayloadsRef = useRef<HTMLParagraphElement>(null)
-  const handleClick = (ref: RefObject<HTMLParagraphElement>) => {
+  const handleClick = (ref: RefObject<HTMLParagraphElement | null>) => {
     setShowPayloads(!showPayloads)
     if (ref.current) ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
