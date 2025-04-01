@@ -1,6 +1,5 @@
 export * from './GradientStyles/index.ts'
 export * from './payload/index.ts'
 export * from './useDataState.ts'
-export * from './useIsMobile.ts'
 export * from './useMediaQuery.ts'
 export * from './useShareForwardRef.ts'

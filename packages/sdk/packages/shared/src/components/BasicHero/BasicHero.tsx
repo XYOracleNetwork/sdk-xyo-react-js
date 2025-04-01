@@ -5,11 +5,12 @@ import { ButtonEx } from '@xylabs/react-button'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'
+import { useIsSmall } from '@xylabs/react-theme'
 import type { ReactElement } from 'react'
 import React from 'react'
 import type { To } from 'react-router-dom'
 
-import { useGradientStyles, useIsSmall } from '../../hooks/index.ts'
+import { useGradientStyles } from '../../hooks/index.ts'
 
 export interface BasicHeroProps extends FlexBoxProps {
   backgroundColor?: string

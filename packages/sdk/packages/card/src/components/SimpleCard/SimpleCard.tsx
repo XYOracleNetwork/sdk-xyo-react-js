@@ -3,7 +3,7 @@ import {
   alpha, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme,
 } from '@mui/material'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
-import { useIsMobile } from '@xyo-network/react-shared'
+import { useIsSmall } from '@xylabs/react-theme'
 import type { ReactNode } from 'react'
 import React, { useState } from 'react'
 import type { To } from 'react-router-dom'
@@ -41,7 +41,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
   const theme = useTheme()
   const [raised, setRaised] = useState(false)
   const navigate = useNavigate()
-  const isMobile = useIsMobile()
+  const isSmall = useIsSmall()
   const localRouteChange = (to: To | undefined) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     to ? void navigate(to) : void navigate('/404')
@@ -59,13 +59,13 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
         ...sx,
       }}
       onMouseEnter={() =>
-        isMobile
+        isSmall
           ? null
           : interactionVariant == 'button'
             ? setRaised(true)
             : null}
       onMouseLeave={() =>
-        isMobile
+        isSmall
           ? null
           : interactionVariant == 'button'
             ? setRaised(false)

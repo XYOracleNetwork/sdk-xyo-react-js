@@ -4,7 +4,7 @@ import {
   alpha, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography, useTheme, Zoom,
 } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { useIsSmall } from '@xyo-network/react-shared'
+import { useIsSmall } from '@xylabs/react-theme'
 import type { ReactNode } from 'react'
 import React, { useState } from 'react'
 import type { To } from 'react-router-dom'
