@@ -25,7 +25,7 @@ export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload
       {/* <CardViewToggle cardViewStyle={cardViewStyle} setCardViewStyle={setCardViewStyle} /> */}
       <Grid container spacing={1}>
         {uniswapPayload?.pairs.map((pair: UniswapCryptoPair, index) => (
-          <Grid item xs={12} md={4} key={index}>
+          <Grid size={{ xs: 12, md: 4 }} key={index}>
             <Card style={{ width: '100%' }}>
               <CardContent>
                 {cardViewStyle == CardViewType.Static

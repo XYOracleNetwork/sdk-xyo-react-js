@@ -1,5 +1,5 @@
 import {
-  FormControl, Grid2,
+  FormControl, Grid,
   TextField,
 } from '@mui/material'
 import { ErrorRender } from '@xylabs/react-error'
@@ -21,8 +21,8 @@ export const BoundWitnessDebugger: React.FC<BoundWitnessDebuggerProps> = ({ defa
   } = useDebugBoundWitness(input)
 
   return (
-    <Grid2 container justifyContent="center">
-      <Grid2
+    <Grid container justifyContent="center">
+      <Grid
         size={{ xs: 12, sm: 6 }}
       >
         <FlexCol gap={2} width="100%" alignItems="start">
@@ -34,7 +34,7 @@ export const BoundWitnessDebugger: React.FC<BoundWitnessDebuggerProps> = ({ defa
           {errors.map(error => <ErrorRender key={error?.message} error={error} />)}
           <ValidationChips valid={valid} rootHash={rootHash} dataHash={dataHash} />
         </FlexCol>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   )
 }

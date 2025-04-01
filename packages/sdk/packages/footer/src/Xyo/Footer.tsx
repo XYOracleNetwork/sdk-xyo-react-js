@@ -42,22 +42,22 @@ export const XyoFooter: React.FC<FooterProps> = ({
   return (
     <Footer alwaysFooterLinksProps={alwaysFooterLinksProps ?? { footerLinks }} {...props}>
       <Grid container>
-        <Grid item xs={12} md={2}>
+        <Grid size={{ xs: 12, md: 2 }}>
           <SocialLinks alignItems="flex-start" />
         </Grid>
-        <Grid item xs={6} md={2}>
+        <Grid size={{ xs: 6, md: 2 }}>
           <NetworkLinks alignItems="flex-start" />
         </Grid>
-        <Grid item xs={6} md={2}>
+        <Grid size={{ xs: 6, md: 2 }}>
           <TokenLinks alignItems="flex-start" />
         </Grid>
-        <Grid item xs={6} md={2}>
+        <Grid size={{ xs: 6, md: 2 }}>
           <DeveloperLinks alignItems="flex-start" />
         </Grid>
-        <Grid item xs={6} md={2}>
+        <Grid size={{ xs: 6, md: 2 }}>
           <MoreLinks alignItems="flex-start" />
         </Grid>
-        <Grid item xs={6} md={2}>
+        <Grid size={{ xs: 6, md: 2 }}>
           <SupportLinks alignItems="flex-start" />
         </Grid>
       </Grid>

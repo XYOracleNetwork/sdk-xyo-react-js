@@ -31,7 +31,12 @@ export const EtherchainV2GasPriceDetailsBox: React.FC<PayloadDetailsListRenderPr
               <Grid container spacing={3}>
                 {parsedPayload
                   && parsedPayload?.gasPrice?.map(({ price, priorityFee }) => (
-                    <Grid key={price?.label} item xs={22} sm={6} lg={3}>
+                    <Grid
+                      key={price?.label}
+                      size={{
+                        xs: 12, sm: 6, lg: 3,
+                      }}
+                    >
                       <GasFeeCard
                         key={price?.label}
                         gasPrice={price?.value}

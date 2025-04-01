@@ -10,7 +10,7 @@ export interface CardExProps extends CardProps {
 export const CardExWithRef = ({
   ref, style, gradient, ...props
 }: CardExProps) => {
-  const { styles } = useGradientStyles()
+  const styles = useGradientStyles()
   const gradientStyle
     = gradient === 'border'
       ? styles.border

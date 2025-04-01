@@ -22,7 +22,12 @@ export const EthereumGasPriceCardContent: React.FC<PayloadRenderProps & CardCont
       <Grid container spacing={3}>
         {gasPricePayload
           && FeePerGasValues.map(value => (
-            <Grid key={value} item xs={12} sm={6} lg={3}>
+            <Grid
+              key={value}
+              size={{
+                xs: 12, sm: 6, lg: 3,
+              }}
+            >
               <GasFeeCard
                 speedPaperElevation={4}
                 gasPrice={gasPricePayload?.feePerGas[value]}

@@ -34,7 +34,12 @@ export const BlocknativeGasPriceCardContent: React.FC<PayloadRenderProps & CardC
       >
         {parsedPayload
           && parsedPayload?.gasPrice?.map(({ price }) => (
-            <Grid key={price?.label} item xs={12} sm={6} md={5} lg={3}>
+            <Grid
+              key={price?.label}
+              size={{
+                xs: 12, sm: 6, md: 5, lg: 3,
+              }}
+            >
               <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
             </Grid>
           ))}

@@ -1,5 +1,5 @@
 import {
-  Container, Grid, Typography,
+  Container, Grid, styled, Typography,
 } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
@@ -172,7 +172,10 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
   ...props
 }) => {
   const isMobile = useIsSmall()
-  const { classes } = useGradientStyles()
+  const styles = useGradientStyles()
+
+  const StyledSpan = styled('span')({ ...styles.heading })
+
   return (
     <FlexGrowCol
       sx={{
@@ -205,7 +208,10 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
             justifyContent: { xs: 'center' },
           }}
         >
-          <Grid item xs={12} sm={8} md={backgroundImage ? 6 : 8} lg={backgroundImage ? 6 : 8}>
+          <Grid size={{
+            xs: 12, sm: 8, md: backgroundImage ? 6 : 8, lg: backgroundImage ? 6 : 8,
+          }}
+          >
             <FlexGrowCol paddingY={2} sx={{ alignItems: { xs: backgroundImage && !isMobile ? 'flex-start' : 'center' } }}>
               <Typography variant="h1" component="h1" gutterBottom textAlign={backgroundImage && !isMobile ? 'left' : 'center'}>
                 {title
@@ -213,10 +219,10 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
                   : null}
                 {gradientTitle
                   ? (
-                      <span className={classes().heading}>
+                      <StyledSpan>
                         {' '}
                         {` ${gradientTitle}`}
-                      </span>
+                      </StyledSpan>
                     )
                   : null}
                 {title2
@@ -251,7 +257,7 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
               />
             </FlexGrowCol>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             {heroImage
               ? <img src={heroImage} width="100%" />
               : null}

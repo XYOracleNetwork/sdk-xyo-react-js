@@ -26,7 +26,12 @@ export const CryptoAssetRenderer: React.FC<CryptoAssetRendererProps> = ({ payloa
       <Grid container spacing={1} justifyContent="center">
         {cryptoAssetPayload
           ? Object.entries(cryptoAssetPayload.assets).map(([asset, priceInfo]) => (
-              <Grid item key={asset} xs={12} md={6} lg={4} xl={3}>
+              <Grid
+                key={asset}
+                size={{
+                  xs: 12, md: 6, lg: 4, xl: 3,
+                }}
+              >
                 <CryptoAsset style={{ height: '100%' }} asset={asset} priceInfo={priceInfo} />
               </Grid>
             ))

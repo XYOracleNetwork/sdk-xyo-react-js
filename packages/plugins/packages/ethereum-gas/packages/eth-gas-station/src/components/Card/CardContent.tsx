@@ -28,7 +28,12 @@ export const EthgasstationGasPriceCardContent: React.FC<PayloadRenderProps & Car
       <Grid container spacing={3}>
         {parsedPayload
           && parsedPayload?.gasPrice?.map(({ price }) => (
-            <Grid key={price?.label} item xs={12} sm={6} lg={4}>
+            <Grid
+              key={price?.label}
+              size={{
+                xs: 12, sm: 6, lg: 4,
+              }}
+            >
               <GasFeeCard gasPrice={price?.value} speed={price?.label} speedPaperElevation={4} />
             </Grid>
           ))}

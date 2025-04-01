@@ -8,8 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { useGradientStyles } from './GradientStyles.tsx'
 
 const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
-  const { classes } = useGradientStyles()
-  const classNames = classes()
+  const styles = useGradientStyles()
   return (
     <FlexCol alignItems="stretch" {...props}>
       <Typography variant="h4" gutterBottom>
@@ -22,13 +21,13 @@ const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
       <Typography variant="h5" gutterBottom>
         Lorem ipsum dolor sit amet consectetur,
         {' '}
-        <span className={classNames.heading}>adipisicing elit.</span>
+        <span style={styles.heading}>adipisicing elit.</span>
       </Typography>
       <Typography variant="subtitle2" gutterBottom paddingTop={3}>
         Body Text
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
-      <Typography variant="h5" gutterBottom className={classNames.heading}>
+      <Typography variant="h5" gutterBottom style={styles.heading}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas,
         suscipit ea vel dicta quasi hic, deserunt tempore, natus optio veritatis dolor?
       </Typography>
@@ -36,7 +35,7 @@ const GradientTextExample: React.FC<FlexBoxProps> = (props) => {
         Caption
       </Typography>
       <Divider sx={{ marginY: '8px' }} />
-      <Typography variant="caption" gutterBottom className={classNames.heading}>
+      <Typography variant="caption" gutterBottom style={styles.heading}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint perspiciatis aliquam consequuntur nisi alias impedit ducimus ipsa voluptas,
         suscipit ea vel dicta quasi hic, deserunt tempore, natus optio veritatis dolor?
       </Typography>

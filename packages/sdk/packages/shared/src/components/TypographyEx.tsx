@@ -9,6 +9,6 @@ export interface TypographyExProps extends TypographyProps {
 }
 
 export const TypographyEx: React.FC<TypographyExProps> = ({ gradient, ...props }) => {
-  const { classes } = useGradientStyles()
-  return <Typography className={gradient === 'text' ? classes().heading : undefined} {...props} />
+  const styles = useGradientStyles()
+  return <Typography style={gradient === 'text' ? styles.heading : undefined} {...props} />
 }

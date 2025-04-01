@@ -1,5 +1,5 @@
 import {
-  FormControl, Grid2, TextField,
+  FormControl, Grid, TextField,
 } from '@mui/material'
 import { ErrorRender } from '@xylabs/react-error'
 import { FlexCol } from '@xylabs/react-flexbox'
@@ -18,8 +18,8 @@ export const PayloadDebugger: React.FC = () => {
   } = useDebugPayload(input)
 
   return (
-    <Grid2 container justifyContent="center">
-      <Grid2
+    <Grid container justifyContent="center">
+      <Grid
         size={{ xs: 12, sm: 6 }}
       >
         <FlexCol gap={2} width="100%" alignItems="start">
@@ -31,7 +31,7 @@ export const PayloadDebugger: React.FC = () => {
           {errors.map(error => <ErrorRender key={error?.message} error={error} />)}
           <ValidationChips valid={valid} rootHash={rootHash} dataHash={dataHash} />
         </FlexCol>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   )
 }

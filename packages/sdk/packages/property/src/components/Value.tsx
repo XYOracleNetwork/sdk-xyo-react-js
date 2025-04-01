@@ -1,10 +1,10 @@
-import type { Variant } from '@mui/material/styles/createTypography.js'
+import type { TypographyVariant } from '@mui/material'
 import type { EllipsizeBoxProps } from '@xyo-network/react-shared'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import React from 'react'
 
 export interface PropertyValueProps extends EllipsizeBoxProps {
-  typographyVariant?: Variant
+  typographyVariant?: TypographyVariant
   value?: string | number | boolean | null
 }
 

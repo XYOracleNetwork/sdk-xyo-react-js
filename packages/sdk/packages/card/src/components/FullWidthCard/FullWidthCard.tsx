@@ -4,7 +4,7 @@ import {
   alpha, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography, useTheme, Zoom,
 } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { useIsMobile } from '@xyo-network/react-shared'
+import { useIsSmall } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
 import React, { useState } from 'react'
 import type { To } from 'react-router-dom'
@@ -27,7 +27,7 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({
   const theme = useTheme()
   const [raised, setRaised] = useState(false)
   const navigate = useNavigate()
-  const isMobile = useIsMobile()
+  const isMobile = useIsSmall()
 
   const localRouteChange = (to: To | undefined) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -74,7 +74,7 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({
 
       <CardContent>
         <Grid container alignItems="center" paddingY={2} paddingX={2}>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             {typeof name === 'string'
               ? (
                   <Typography fontWeight={700} variant="h2" textAlign="left" paddingBottom={1}>
@@ -83,12 +83,12 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({
                 )
               : name}
           </Grid>
-          <Grid item xs={12} md={5}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <Typography variant="body1" fontWeight={400} textAlign="left">
               {desc}
             </Typography>
           </Grid>
-          <Grid item xs={1} display={isMobile ? 'none' : 'flex'} justifyContent="center">
+          <Grid size={{ xs: 1 }} display={isMobile ? 'none' : 'flex'} justifyContent="center">
             <Zoom in={raised}>
               <IconButton
                 color="primary"

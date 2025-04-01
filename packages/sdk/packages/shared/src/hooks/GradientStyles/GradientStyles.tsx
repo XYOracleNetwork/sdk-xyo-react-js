@@ -1,5 +1,4 @@
-import { useTheme } from '@mui/material'
-import { makeStyles } from '@mui/styles'
+import { makeStyles, useTheme } from '@mui/material'
 import type { CSSProperties } from 'react'
 
 export interface GradientStyles {
@@ -51,6 +50,5 @@ export const colorfulGradientDarkMode = () => {
 export const useGradientStyles = () => {
   const theme = useTheme()
   const styles = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
-  const classes = makeStyles(styles)
-  return { classes, styles }
+  return styles
 }

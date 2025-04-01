@@ -1,40 +1,25 @@
 import type { KnipConfig } from 'knip'
 
-type WorkspaceConfig = Exclude<KnipConfig['workspaces'], undefined>[keyof KnipConfig['workspaces']]
+const ignoreDependencies = [
+  '@xylabs/ts-scripts-yarn3',
+]
 
-const defaultWorkspaceConfig: WorkspaceConfig = {
-  entry: ['src/index.ts', 'src/index-*.ts'],
-  project: ['src/**/*.ts'],
-  ignore: ['xy.config.ts'],
-  ignoreDependencies: [
-    '@xylabs/tsconfig*',
-    '@xylabs/ts-scripts-yarn3',
-  ],
-  typescript: {
-    config: [
-      'tsconfig.json',
-    ],
-  },
-}
+const rootIgnoreDependencies = [
+  ...ignoreDependencies,
+  '@typescript-eslint/eslint-plugin',
+  '@typescript-eslint/parser',
+  'eslint',
+  'eslint-import-resolver-typescript',
+]
+
+const entry = ['src/index.ts', 'src/index-node.ts', 'src/index-browser.ts', '*.ts', '*.mjs']
+const project = ['src/**/*.ts*']
 
 const config: KnipConfig = {
-  workspaces: {
-    '.': {
-      ...defaultWorkspaceConfig,
-      ignoreDependencies: [
-        'eslint',
-        '@typescript-eslint/eslint-plugin',
-        'eslint-import-resolver-typescript',
-        'reflect-metadata',
-        '@typescript-eslint/parser',
-      ],
-    },
-    'packages/*': { ...defaultWorkspaceConfig },
-    'packages/*/packages/*': { ...defaultWorkspaceConfig },
-    'packages/*/packages/*/packages/*': { ...defaultWorkspaceConfig },
-    'packages/*/packages/*/packages/*/packages/*': { ...defaultWorkspaceConfig },
-    'packages/*/packages/*/packages/*/packages/*/packages/*': { ...defaultWorkspaceConfig },
-  },
+  ignoreDependencies: rootIgnoreDependencies,
+  entry,
+  project,
+  workspaces: {},
 }
 
 export default config

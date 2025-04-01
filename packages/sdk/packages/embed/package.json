@@ -39,9 +39,6 @@
   "module": "dist/browser/index.mjs",
   "types": "dist/types/index.d.ts",
   "dependencies": {
-    "@mui/icons-material": "^6.4.10",
-    "@mui/material": "^6.4.10",
-    "@mui/styles": "^6.4.10",
     "@xylabs/delay": "^4.7.15",
     "@xylabs/react-async-effect": "^6.1.0",
     "@xylabs/react-error": "^6.1.0",
@@ -60,6 +57,8 @@
   "devDependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7",
+    "@mui/material": "^7",
     "@storybook/react": "^8.6.11",
     "@types/react": "^19.0.12",
     "@xylabs/ts-scripts-yarn3": "^6.2.0",
@@ -73,6 +72,8 @@
   "peerDependencies": {
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@mui/icons-material": ">=6 <=7",
+    "@mui/material": ">=6 <=7",
     "react-router-dom": "^7"
   },
   "publishConfig": {
