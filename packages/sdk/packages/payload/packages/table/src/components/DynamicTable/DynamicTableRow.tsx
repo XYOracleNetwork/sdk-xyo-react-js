@@ -11,7 +11,7 @@ import {
 } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { PayloadHasher } from '@xyo-network/hash'
+import { PayloadBuilder } from '@xyo-network/payload-builder'
 import type { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
@@ -50,7 +50,7 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
   const { resolver } = usePayloadRenderPluginResolver()
   const [validationErrors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = validationErrors.length === 0
-  const payloadFieldCount = payload ? Object.keys(PayloadHasher.hashFields(payload)).length : 0
+  const payloadFieldCount = payload ? Object.keys(PayloadBuilder.hashableFields(payload)).length : 0
 
   const hash: TableCellRenderer = props => (
     <HashTableCell

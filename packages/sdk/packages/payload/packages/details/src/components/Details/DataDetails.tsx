@@ -4,7 +4,7 @@ import {
 } from '@mui/material'
 import { forget } from '@xylabs/forget'
 import { ButtonEx } from '@xylabs/react-button'
-import { PayloadHasher } from '@xyo-network/hash'
+import { PayloadBuilder } from '@xyo-network/payload-builder'
 import type { Payload } from '@xyo-network/payload-model'
 import type { PropertyAction, PropertyProps } from '@xyo-network/react-property'
 import { Property } from '@xyo-network/react-property'
@@ -23,7 +23,7 @@ export type PayloadDataDetailsProps = PropertyProps & {
 export const PayloadDataDetails: React.FC<PayloadDataDetailsProps> = ({
   size, badge, payload, ...props
 }) => {
-  const payloadString = payload ? JSON.stringify(PayloadHasher.hashFields(payload), null, 2) : ''
+  const payloadString = payload ? JSON.stringify(PayloadBuilder.hashableFields(payload), null, 2) : ''
 
   const [viewSourceOpen, setViewSourceOpen] = useState(false)
   const hash = usePayloadHash(payload)

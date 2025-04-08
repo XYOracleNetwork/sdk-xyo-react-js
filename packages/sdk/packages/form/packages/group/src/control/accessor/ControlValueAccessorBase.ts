@@ -1,5 +1,5 @@
+import type { BaseParams } from '@xylabs/base'
 import { forget } from '@xylabs/forget'
-import type { BaseParams } from '@xylabs/object'
 import { BaseEmitter } from '@xyo-network/module-event-emitter'
 
 import type {

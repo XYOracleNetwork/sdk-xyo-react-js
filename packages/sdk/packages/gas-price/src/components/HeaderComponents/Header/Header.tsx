@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material'
 import type { TypographyExProps } from '@xyo-network/react-shared'
-import { useGetTokenData } from '@xyo-network/react-shared'
+import { getTokenData } from '@xyo-network/react-shared'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 
@@ -14,7 +14,7 @@ export const GasPriceHeaderTypography: React.FC<GasPriceHeaderTypographyProps> =
   heading, children, ...props
 }) => {
   const theme = useTheme()
-  const [ethData] = useGetTokenData(['eth'])
+  const [ethData] = getTokenData(['eth'])
   const networkIcon = <img height={theme.spacing(4)} src={ethData.icon} />
 
   return (

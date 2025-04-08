@@ -7,7 +7,7 @@ import {
   FlexCol, FlexGrowRow, FlexRow,
 } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
-import { PayloadHasher } from '@xyo-network/hash'
+import { PayloadBuilder } from '@xyo-network/payload-builder'
 import type { Payload } from '@xyo-network/payload-model'
 import React from 'react'
 
@@ -20,7 +20,7 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
   noTitle = false, payload, ...props
 }) => {
   const theme = useTheme()
-  const payloadString = payload ? JSON.stringify(PayloadHasher.hashFields(payload), null, 2) : ''
+  const payloadString = payload ? JSON.stringify(PayloadBuilder.hashableFields(payload), null, 2) : ''
 
   return (
     <FlexCol alignItems="stretch" {...props}>

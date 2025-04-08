@@ -4,7 +4,8 @@ import {
 } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import {
-  TokenBar, TokenSummary, useGetTokenData,
+  getTokenData,
+  TokenBar, TokenSummary,
 } from '@xyo-network/react-shared'
 import type { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React from 'react'
@@ -16,7 +17,7 @@ interface StaticTokenSummaryProps {
 export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ tokenPayload }) => {
   const theme = useTheme()
   const isLightMode = theme.palette.mode === 'light'
-  const [tokenInfo0, tokenInfo1] = useGetTokenData([tokenPayload.tokens[0].symbol, tokenPayload.tokens[1].symbol])
+  const [tokenInfo0, tokenInfo1] = getTokenData([tokenPayload.tokens[0].symbol, tokenPayload.tokens[1].symbol])
   const [token0, token1] = tokenPayload.tokens
 
   const paperProps: PaperProps = {

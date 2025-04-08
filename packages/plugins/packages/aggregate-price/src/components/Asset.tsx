@@ -7,7 +7,8 @@ import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import type { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
 import {
-  TokenBar, TokenSummary, useGetTokenData,
+  getTokenData,
+  TokenBar, TokenSummary,
 } from '@xyo-network/react-shared'
 import React, { Fragment } from 'react'
 
@@ -22,7 +23,7 @@ export const CryptoAsset: React.FC<CryptoAssetProps> = ({
   const theme = useTheme()
   const isLightMode = theme.palette.mode !== 'dark'
 
-  const [tokenInfo] = useGetTokenData([asset])
+  const [tokenInfo] = getTokenData([asset])
 
   const tokenBarBgProps: PaperProps = {
     sx: {

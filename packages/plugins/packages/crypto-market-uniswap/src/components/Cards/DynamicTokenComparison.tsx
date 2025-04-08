@@ -3,7 +3,8 @@ import { Divider, IconButton } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexGrowCol, FlexGrowRow } from '@xylabs/react-flexbox'
 import {
-  TokenBar, TokenSummary, useGetTokenData,
+  getTokenData,
+  TokenBar, TokenSummary,
 } from '@xyo-network/react-shared'
 import type { UniswapCryptoPair } from '@xyo-network/uniswap-crypto-market-payload-plugin'
 import React, { useState } from 'react'
@@ -14,7 +15,7 @@ export interface TokenComparisonSummaryProps {
 
 export const DynamicTokenComparison: React.FC<TokenComparisonSummaryProps> = ({ tokenPayload }) => {
   const [baseToken0, setBaseToken0] = useState(true)
-  const [tokenInfo0, tokenInfo1] = useGetTokenData([tokenPayload.tokens[baseToken0 ? 0 : 1].symbol, tokenPayload.tokens[baseToken0 ? 1 : 0].symbol])
+  const [tokenInfo0, tokenInfo1] = getTokenData([tokenPayload.tokens[baseToken0 ? 0 : 1].symbol, tokenPayload.tokens[baseToken0 ? 1 : 0].symbol])
   const token0 = tokenPayload.tokens[baseToken0 ? 0 : 1]
   const token1 = tokenPayload.tokens[baseToken0 ? 1 : 0]
 
