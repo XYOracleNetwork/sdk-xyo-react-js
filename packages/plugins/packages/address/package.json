@@ -39,18 +39,18 @@
   "module": "dist/browser/index.mjs",
   "types": "dist/types/index.d.ts",
   "dependencies": {
-    "@xyo-network/module-model": "^3.12.0",
+    "@xyo-network/module-model": "^3.12.1",
     "@xyo-network/react-address-render": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^"
   },
   "devDependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^7.0.1",
-    "@mui/material": "^7.0.1",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
     "@storybook/react": "^8.6.12",
     "@types/react": "^19.1.0",
-    "@xylabs/hex": "^4.8.0",
+    "@xylabs/hex": "^4.8.1",
     "@xylabs/ts-scripts-yarn3": "^6.2.1",
     "@xylabs/tsconfig-react": "^6.2.1",
     "@xyo-network/react-event": "workspace:^",
@@ -63,8 +63,8 @@
   "peerDependencies": {
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@mui/icons-material": ">=6 <=7",
-    "@mui/material": ">=6 <=7",
+    "@mui/icons-material": ">=6 <8",
+    "@mui/material": ">=6 <8",
     "ethers": "^6",
     "react": "^19",
     "react-dom": "^19"

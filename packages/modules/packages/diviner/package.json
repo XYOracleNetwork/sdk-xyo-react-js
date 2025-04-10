@@ -39,9 +39,9 @@
   "module": "dist/browser/index.mjs",
   "types": "dist/types/index.d.ts",
   "dependencies": {
-    "@xylabs/exists": "^4.8.0",
-    "@xyo-network/diviner-model": "^3.12.0",
-    "@xyo-network/module-model": "^3.12.0",
+    "@xylabs/exists": "^4.8.1",
+    "@xyo-network/diviner-model": "^3.12.1",
+    "@xyo-network/module-model": "^3.12.1",
     "@xyo-network/react-node": "workspace:^"
   },
   "devDependencies": {
@@ -50,8 +50,8 @@
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@mui/icons-material": ">=6 <=7",
-    "@mui/material": ">=6 <=7",
+    "@mui/icons-material": ">=6 <8",
+    "@mui/material": ">=6 <8",
     "react": "^19",
     "react-dom": "^19"
   },

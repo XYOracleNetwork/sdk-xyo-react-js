@@ -39,16 +39,16 @@
   "module": "dist/browser/index.mjs",
   "types": "dist/types/index.d.ts",
   "dependencies": {
-    "@xylabs/react-flexbox": "^6.1.13",
-    "@xyo-network/crypto-nft-payload-plugin": "^3.5.0",
-    "@xyo-network/crypto-nft-score-model": "^3.5.0",
-    "@xyo-network/payload-model": "^3.12.0",
+    "@xylabs/react-flexbox": "^6.1.14",
+    "@xyo-network/crypto-nft-payload-plugin": "^3.5.1",
+    "@xyo-network/crypto-nft-score-model": "^3.5.1",
+    "@xyo-network/payload-model": "^3.12.1",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^"
   },
   "devDependencies": {
-    "@mui/icons-material": "^7.0.1",
-    "@mui/material": "^7.0.1",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
     "@storybook/react": "^8.6.12",
     "@types/react": "^19.1.0",
     "@xylabs/ts-scripts-yarn3": "^6.2.1",
@@ -60,8 +60,8 @@
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@mui/icons-material": ">=6 <=7",
-    "@mui/material": ">=6 <=7",
+    "@mui/icons-material": ">=6 <8",
+    "@mui/material": ">=6 <8",
     "react": "^19",
     "react-dom": "^19"
   },
