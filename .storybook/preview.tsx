@@ -1,13 +1,12 @@
 import type { Theme } from '@mui/material'
 import {
-  Box, CssBaseline, useTheme,
+  Box, CssBaseline, ThemeProvider, useColorScheme, useTheme,
 } from '@mui/material'
 import type { Decorator } from '@storybook/react'
-import { InvertibleMuiThemeProvider } from '@xylabs/react-invertible-theme'
 import {
   DataismTheme, XyLabsTheme, XyosTheme, XyoTheme,
 } from '@xylabs/react-theme'
-import React from 'react'
+import React, { FC } from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
 
 const themeNames = ['None', 'XYO', 'Dataism', 'XYLabs', 'xyOS'] as const
@@ -63,13 +62,24 @@ const withThemeProvider: Decorator = (Story, context) => {
   const themeOptions = getTheme(context.globals.theme)
   const theme = themeOptions
 
+  const Inner = () => {
+    const {mode, setMode} = useColorScheme()
+    if (darkMode && (mode !== 'dark')) {
+      setMode('dark')
+    }
+    if (!darkMode && (mode !== 'light')) {
+      setMode('light')
+    }
+    return <Box>
+      <Story {...context} />
+    </Box>
+  }
+
   return (
-    <InvertibleMuiThemeProvider theme={theme} defaultMode={darkMode ? 'dark' : 'light'}>
+    <ThemeProvider theme={theme} defaultMode={darkMode ? 'dark' : 'light'}>
       <CssBaseline enableColorScheme />
-      <Box>
-        <Story {...context} />
-      </Box>
-    </InvertibleMuiThemeProvider>
+      <Inner/>
+    </ThemeProvider>
   )
 }
 
