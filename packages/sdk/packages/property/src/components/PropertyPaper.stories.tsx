@@ -57,28 +57,28 @@ WithUndefinedData.args = { title: 'Block Hash' }
 const WithData = Template.bind({})
 WithData.args = {
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const WithDataSmall = Template.bind({})
 WithDataSmall.args = {
   size: 'small',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const WithDataCompare = TemplateWithCompare.bind({})
 WithDataCompare.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const WithDataCompareOutlined = TemplateWithCompare.bind({})
 WithDataCompareOutlined.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
   variant: 'outlined',
 }
 
@@ -86,7 +86,7 @@ const WithDataCompareElevation = TemplateWithCompare.bind({})
 WithDataCompareElevation.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
   variant: 'elevation',
 }
 
@@ -96,7 +96,7 @@ WithDataAndBadgeSmall.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const WithDataAndBadgeMedium = Template.bind({})
@@ -105,7 +105,7 @@ WithDataAndBadgeMedium.args = {
   size: 'medium',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const WithDataAndBadgeLarge = Template.bind({})
@@ -114,14 +114,14 @@ WithDataAndBadgeLarge.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const WithTip = Template.bind({})
 WithTip.args = {
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const WithTipAndBadge = Template.bind({})
@@ -129,7 +129,7 @@ WithTipAndBadge.args = {
   badge: true,
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const WithActions = Template.bind({})
@@ -137,7 +137,7 @@ WithActions.args = {
   actions: [{ name: 'ActionOne' }, { name: 'ActionTwo' }],
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const LargeWithValue = Template.bind({})
@@ -146,7 +146,7 @@ LargeWithValue.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const LargeWithValueAndActions = Template.bind({})
@@ -156,7 +156,7 @@ LargeWithValueAndActions.args = {
   size: 'large',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 const SmallWithValueAndActions = Template.bind({})
@@ -166,7 +166,7 @@ SmallWithValueAndActions.args = {
   size: 'small',
   tip: 'This is the block hash',
   title: 'Block Hash',
-  // value: await PayloadBuilder.dataHash(sampleBlock),
+  value: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
 }
 
 export {

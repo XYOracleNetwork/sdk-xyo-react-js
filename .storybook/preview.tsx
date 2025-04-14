@@ -77,7 +77,6 @@ const withThemeProvider: Decorator = (Story, context) => {
 
   return (
     <ThemeProvider theme={theme} defaultMode={darkMode ? 'dark' : 'light'}>
-      <CssBaseline enableColorScheme />
       <Inner/>
     </ThemeProvider>
   )

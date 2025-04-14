@@ -1,10 +1,11 @@
 import type { TypographyVariant } from '@mui/material'
 import {
-  darken, lighten, Typography, useTheme,
+  darken, lighten, Typography, useColorScheme, useTheme,
 } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
+import { useIsDark } from '@xylabs/react-theme'
 import type { SizeProp } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
 import React from 'react'
@@ -46,12 +47,14 @@ export const PropertyTitle: React.FC<PropertyTitleProps> = ({
   const quickTipSize = Math.min(sizeFontSize[size], 16)
 
   const theme = useTheme()
+  const {} = useColorScheme()
+  const isDark = useIsDark()
 
   return (
     <FlexRow
       bgcolor={
-        theme.palette.mode === 'dark'
-          ? lighten(theme.palette.background.paper, 0.05 * elevation)
+        isDark
+          ? darken(theme.palette.background.paper, 0.75 * elevation)
           : darken(theme.palette.background.paper, 0.025 * elevation)
       }
       alignItems="center"
