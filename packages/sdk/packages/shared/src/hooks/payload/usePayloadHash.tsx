@@ -3,7 +3,12 @@ import { usePromise } from '@xylabs/react-promise'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { type Payload } from '@xyo-network/payload-model'
 
+/** @deprecated use usePayloadDataHash or usePayloadRootHash instead */
 export const usePayloadHash = <TPayload extends Payload>(payload: TPayload | undefined | null) => {
+  return usePayloadRootHash(payload)
+}
+
+export const usePayloadDataHash = <TPayload extends Payload>(payload: TPayload | undefined | null) => {
   return usePromise(async () => (payload ? await PayloadBuilder.dataHash(payload) : undefined), [payload])[0]
 }
 
