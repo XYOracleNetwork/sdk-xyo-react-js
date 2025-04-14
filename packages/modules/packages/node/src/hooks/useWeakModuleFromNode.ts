@@ -46,7 +46,6 @@ export const useWeakModuleFromNode = <T extends ModuleInstance | void = void>(
       return result
     }
     logger?.debug('Result: No Node')
-    return
   }, [node, nameOrAddressOrInstance])
   return [result, nodeError ?? error]
 }
