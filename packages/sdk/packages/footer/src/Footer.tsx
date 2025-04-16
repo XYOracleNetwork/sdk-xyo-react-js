@@ -1,7 +1,11 @@
 import type { ContainerProps } from '@mui/material'
-import { Container, useTheme } from '@mui/material'
+import {
+  Container, CssBaseline, Experimental_CssVarsProvider, ThemeProvider, useTheme,
+} from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { useIsDark } from '@xylabs/react-theme'
+import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import type { FooterAlwaysLinksProps } from './AlwaysLinks.tsx'
@@ -21,7 +25,8 @@ export const Footer: React.FC<FooterProps> = ({
     setMore(!more)
   }
 
-  const theme = useTheme()
+  const darkMode = useIsDark()
+  console.log('darkMode', darkMode)
 
   return (
     <FlexCol
@@ -34,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({
       {more && dynamicHeight
         ? (
             <FlexCol alignItems="stretch">
-              <FlexRow bottom={-1} position="absolute" width="100%" bgcolor={theme.palette.background.default}>
+              <FlexRow paper bottom={-1} position="absolute" width="100%">
                 {container && container !== 'none'
                   ? <Container>{children}</Container>
                   : children}

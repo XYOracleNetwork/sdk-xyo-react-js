@@ -3602,6 +3602,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-animation@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "@xylabs/react-animation@npm:6.2.1"
+  dependencies:
+    "@react-spring/web": "npm:^9.7.5"
+    "@xylabs/react-flexbox": "npm:^6.2.1"
+  peerDependencies:
+    "@mui/material": ">=6 <8"
+    react: ^19
+    react-dom: ^19
+  checksum: 10/7461a41f6ee76a3cd1b2f7e38aff8fb9a2e30f2f0326ac47f6bdc8e190362c54fc93a351f043714801bba047ff9ead6246be728a8ec42ed632bd824b250ecfdc
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-app-settings@npm:^6.2.1":
   version: 6.2.1
   resolution: "@xylabs/react-app-settings@npm:6.2.1"
@@ -6759,6 +6773,7 @@ __metadata:
     "@xylabs/assert": "npm:^4.8.5"
     "@xylabs/react-flexbox": "npm:^6.2.1"
     "@xylabs/react-link": "npm:^6.2.1"
+    "@xylabs/react-theme": "npm:^6.2.1"
     "@xylabs/ts-scripts-yarn3": "npm:^6.2.1"
     "@xylabs/tsconfig-react": "npm:^6.2.1"
     react: "npm:^19.1.0"
@@ -8325,6 +8340,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-theme@workspace:packages/sdk/packages/theme"
   dependencies:
+    "@xylabs/react-animation": "npm:^6.2.1"
     "@xylabs/ts-scripts-yarn3": "npm:^6.2.1"
     typescript: "npm:^5.8.3"
   peerDependencies:

@@ -36,7 +36,6 @@ const footerLinks = [
 
 export const XyoFooter: React.FC<FooterProps> = ({
   alwaysFooterLinksProps,
-
   ...props
 }) => {
   return (
