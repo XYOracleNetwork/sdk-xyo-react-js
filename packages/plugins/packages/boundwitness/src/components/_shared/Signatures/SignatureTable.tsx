@@ -3,7 +3,7 @@ import {
 } from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
-import { usePayloadHash } from '@xyo-network/react-shared'
+import { usePayloadDataHash, usePayloadHash } from '@xyo-network/react-shared'
 import type { TableExProps } from '@xyo-network/react-table'
 import { TableCellEx, TableEx } from '@xyo-network/react-table'
 import React from 'react'
@@ -34,7 +34,7 @@ const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
 
 export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
-  const hash = usePayloadHash(block)
+  const dataHash = usePayloadDataHash(block)
 
   return (
     <TableEx {...props}>
@@ -74,13 +74,13 @@ export const BoundWitnessSignatureTable: React.FC<BoundWitnessSignatureTableProp
         {!signatureData || signatureData.length === 0
           ? <TableRowNoData additionalCells={3} />
           : null}
-        {signatureData.map((data, index) => {
+        {signatureData.map((data) => {
           return (
             <BoundWitnessSignatureTableRow
-              key={`${data.signature}-${data.previous_hash}-${index}`}
+              key={`${data.signature}-${data.previous_hash}`}
               address={data.address}
               previousHash={data.previous_hash}
-              hash={hash}
+              dataHash={dataHash}
               signature={data.signature}
               clickableFields={['address']}
             />

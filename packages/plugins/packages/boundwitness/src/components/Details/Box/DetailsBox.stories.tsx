@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react'
 import type { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
-import React, { createRef } from 'react'
+import React, { useRef } from 'react'
 
 import { BoundWitnessDetailsBox } from './DetailsBox.tsx'
 
@@ -14,8 +14,7 @@ const StorybookEntry = {
 } as Meta<typeof BoundWitnessDetailsBox>
 
 const Template: StoryFn<typeof BoundWitnessDetailsBox> = (args) => {
-  // eslint-disable-next-line @eslint-react/no-create-ref
-  const sharedRef = createRef<HTMLDivElement>()
+  const sharedRef = useRef<HTMLDivElement>(null)
   useEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`), sharedRef)
   useEvent<HTMLDivElement>(() => console.log('2nd Listener'), sharedRef)
   useEvent<HTMLDivElement>(() => console.log('3rd Listener'), sharedRef)

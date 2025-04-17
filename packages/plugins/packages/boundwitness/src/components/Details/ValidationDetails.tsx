@@ -30,8 +30,8 @@ export const BoundWitnessValidationDetails: React.FC<BoundWitnessValidationDetai
           errors.length > 0
             ? (
                 <FlexCol flexWrap="wrap">
-                  {errors.map((error, index) => {
-                    return <Typography key={index}>{error.toString()}</Typography>
+                  {errors.map((error) => {
+                    return <Typography key={error.name}>{error.toString()}</Typography>
                   })}
                 </FlexCol>
               )

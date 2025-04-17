@@ -14,13 +14,13 @@ export interface BoundWitnessCardContentProps extends CardContentProps {
   payload?: Payload
 }
 
-export const BoundWitnessCardContent: React.FC<BoundWitnessCardContentProps> = ({
-  payload, active, ...props
-}) => {
+export const BoundWitnessCardContent = ({
+  ref, payload, active, ...props
+}: BoundWitnessCardContentProps & { ref?: React.Ref<HTMLDivElement | null> }) => {
   const boundwitness = payload as Payload<BoundWitness>
 
   return (
-    <CardContentFlex active={active} {...props}>
+    <CardContentFlex ref={ref} active={active} {...props}>
       <CardColumnsFlex>
         <CardColumnTitleH2>Payloads</CardColumnTitleH2>
         <SchemaAvatarGroup schemas={boundwitness?.payload_schemas} />

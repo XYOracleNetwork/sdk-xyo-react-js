@@ -1,7 +1,8 @@
 import { ExpandLessRounded as ExpandLessRoundedIcon, ExpandMoreRounded as ExpandMoreRoundedIcon } from '@mui/icons-material'
 import type { CardProps } from '@mui/material'
 import {
-  Card, Divider, IconButton,
+  Card,
+  Divider, IconButton,
 } from '@mui/material'
 import { useResetState } from '@xylabs/react-hooks'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
@@ -13,7 +14,7 @@ import { DetailsCardContent } from './DetailsCardContent.tsx'
 
 const BoundWitnessDetailsCardInner = ({
   ref, payload, active, ...props
-}: PayloadDetailsRenderProps & CardProps) => {
+}: PayloadDetailsRenderProps & CardProps & { ref?: React.Ref<HTMLDivElement | null> }) => {
   const boundwitness = payload as BoundWitness
   const [collapsed, setCollapsed] = useResetState<boolean>(!active)
 

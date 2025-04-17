@@ -16,7 +16,7 @@ export interface BoundWitnessDetailsProps extends FlexBoxProps {
 
 const BoundWitnessDetails = ({
   ref, paper, payload, children, ...props
-}: BoundWitnessDetailsProps & { ref?: React.RefObject<unknown | null> }) => {
+}: BoundWitnessDetailsProps & { ref?: React.Ref<unknown | null> }) => {
   const boundwitness = payload as BoundWitness | undefined
   return (
     <FlexCol justifyContent="flex-start" alignItems="stretch" gap={1} ref={ref} {...props}>

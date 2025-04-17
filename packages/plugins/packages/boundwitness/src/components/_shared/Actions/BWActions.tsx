@@ -8,7 +8,7 @@ import { usePayloadHash } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import { BWPreviousHashQuickTipButton } from './PreviousHash.tsx'
+import { BWPreviousHashQuickTipButton } from './previous-hash/index.ts'
 import { BWVerification } from './Verification.tsx'
 
 export interface BWActionsProps extends FlexBoxProps {
@@ -17,6 +17,8 @@ export interface BWActionsProps extends FlexBoxProps {
   hideJSONButton?: boolean
   hidePreviousHash?: boolean
   hideValidation?: boolean
+  priorActions?: ReactNode
+  validationIconColors?: boolean
 }
 
 export const BWActions: React.FC<BWActionsProps> = ({
@@ -25,14 +27,17 @@ export const BWActions: React.FC<BWActionsProps> = ({
   hideJSONButton,
   hideValidation,
   hidePreviousHash,
+  priorActions,
+  validationIconColors,
   ...props
 }) => {
   const hash = usePayloadHash(boundwitness)
 
   return (
     <FlexRow {...props}>
+      {priorActions}
       {hidePreviousHash || boundwitness?.previous_hashes.length === 0 ? null : <BWPreviousHashQuickTipButton boundwitness={boundwitness} />}
-      {hideValidation ? null : <BWVerification boundwitness={boundwitness} />}
+      {hideValidation ? null : <BWVerification iconColors={validationIconColors} boundwitness={boundwitness} />}
       {hideJSONButton
         ? null
         : (

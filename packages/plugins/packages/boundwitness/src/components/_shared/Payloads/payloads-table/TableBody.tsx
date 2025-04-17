@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   TableBody, TableCell, TableRow,
 } from '@mui/material'
@@ -60,9 +59,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
             </TableRow>
           )
         })) || (
-        <>
-          <TableRowNoData additionalCells={1} />
-        </>
+        <TableRowNoData additionalCells={1} />
       )}
     </TableBody>
   )

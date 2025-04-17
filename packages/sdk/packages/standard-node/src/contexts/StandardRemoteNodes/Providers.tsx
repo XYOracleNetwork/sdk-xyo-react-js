@@ -1,20 +1,20 @@
 import { assertDefinedEx } from '@xylabs/assert'
 import { useResetState } from '@xylabs/react-hooks'
 import { usePromise } from '@xylabs/react-promise'
-import type { WithChildren } from '@xylabs/react-shared'
 import type { MemoryNode } from '@xyo-network/node-memory'
 import { useWalletContext } from '@xyo-network/react-wallet'
 import type { WalletInstance } from '@xyo-network/wallet-model'
+import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
 
 import { BuildStandardNodes } from '../../lib/index.ts'
 import { StandardNodesContext } from './Context.ts'
 import type { StandardNodesState } from './State.ts'
 
-export interface StandardNodesProviderProps extends WithChildren {
+export type StandardNodesProviderProps = PropsWithChildren<{
   defaultRemoteNodes?: StandardNodesState['nodes']
   wallet?: WalletInstance | null
-}
+}>
 
 export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({
   children, defaultRemoteNodes, wallet,

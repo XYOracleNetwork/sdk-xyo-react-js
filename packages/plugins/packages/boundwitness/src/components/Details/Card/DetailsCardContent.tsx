@@ -20,7 +20,7 @@ export interface DetailsCardContentProps extends CardContentExProps {
 
 export const DetailsCardContent = ({
   ref, collapsed, boundwitness, setCollapsed, ...props
-}: DetailsCardContentProps) => {
+}: DetailsCardContentProps & { ref?: React.Ref<HTMLDivElement | null> }) => {
   const { height } = useTableHeight()
   const [activeTab, setActiveTab] = useState(0)
 

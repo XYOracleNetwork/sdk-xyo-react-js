@@ -1,6 +1,6 @@
 import type { TypographyVariant } from '@mui/material'
 import {
-  darken, lighten, Typography, useColorScheme, useTheme,
+  darken, Typography, useColorScheme, useTheme,
 } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexRow } from '@xylabs/react-flexbox'

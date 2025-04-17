@@ -1,6 +1,7 @@
 import type { TableRowProps } from '@mui/material'
 import {
-  Link, TableCell, TableRow, Typography,
+  Link, TableCell, TableRow,
+  Typography,
 } from '@mui/material'
 import { toUint8Array } from '@xylabs/arraybuffer'
 import { ellipsize } from '@xylabs/eth-address'
@@ -9,7 +10,6 @@ import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useEvent } from '@xyo-network/react-event'
 import { AddressTableCell } from '@xyo-network/react-shared'
 import React from 'react'
-// eslint-disable-next-line import-x/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
 type clickableFields = 'address' | 'signature'
@@ -18,7 +18,7 @@ export interface BoundWitnessSignatureTableRowProps extends TableRowProps {
   address?: string
   archive?: string
   clickableFields?: clickableFields[]
-  hash?: string
+  dataHash?: string
   previousHash?: string | null
   signature?: string
 }
@@ -27,21 +27,21 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
   address,
   archive,
   clickableFields,
-  hash,
+  dataHash,
   previousHash,
   signature,
   ...props
 }) => {
   const [errors] = usePromise(
     async () =>
-      hash && address
+      dataHash && address
         ? await BoundWitnessValidator.validateSignature(
-          toUint8Array(hash).buffer,
+          toUint8Array(dataHash).buffer,
           toUint8Array(address).buffer,
           toUint8Array(signature)?.buffer,
         )
         : [],
-    [hash, address, signature],
+    [dataHash, address, signature],
   )
 
   const [addressRef, addressDispatch] = useEvent<HTMLTableCellElement>()

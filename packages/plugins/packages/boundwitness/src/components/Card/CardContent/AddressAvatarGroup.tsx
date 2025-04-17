@@ -17,8 +17,8 @@ export const AddressAvatarGroup: React.FC<AddressAvatarGroupProps> = ({
 
   return (
     <AvatarGroup max={maxAvatars} total={addresses?.length} {...props}>
-      {addresses?.map((address, index) => (
-        <Avatar key={index + address} title={address} ref={ref} sx={{ bgcolor: 'background.paper' }}>
+      {addresses?.map(address => (
+        <Avatar key={address} title={address} ref={ref} sx={{ bgcolor: 'background.paper' }}>
           <Identicon value={address} position="absolute" p={0.25} top={0} bottom={0} left={0} right={0} size={size} />
         </Avatar>
       ))}

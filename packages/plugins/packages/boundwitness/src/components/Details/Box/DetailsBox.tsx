@@ -7,9 +7,7 @@ import type { PayloadDetailsListRenderProps, PayloadDetailsRenderProps } from '@
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import React, { useMemo } from 'react'
-// eslint-disable-next-line import-x/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
-// eslint-disable-next-line import-x/no-internal-modules
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 import {
@@ -31,9 +29,7 @@ const BoundWitnessDetailsBox: React.FC<PayloadDetailsListRenderProps & FlexBoxPr
 
 BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
-const BoundWitnessDetailsBoxInner: React.FC<PayloadDetailsRenderProps & FlexBoxProps> = ({
-  ref, payload, ...props
-}) => {
+const BoundWitnessDetailsBoxInner: React.FC<PayloadDetailsRenderProps & FlexBoxProps> = ({ payload, ...props }) => {
   const boundWitness = payload as BoundWitness
   const partialBoundWitness = boundWitness as Partial<BoundWitness>
   const hash = usePayloadHash(payload)
@@ -41,7 +37,7 @@ const BoundWitnessDetailsBoxInner: React.FC<PayloadDetailsRenderProps & FlexBoxP
   const hasBWPayloads = useMemo(() => (partialBoundWitness ? partialBoundWitness.payload_schemas?.includes(BoundWitnessSchema) : false), [partialBoundWitness])
 
   return (
-    <FlexCol alignItems="stretch" rowGap={4} ref={ref} {...props}>
+    <FlexCol alignItems="stretch" rowGap={4} {...props}>
       <HashHeadingPaper
         hash={hash}
         paperProps={{ sx: { p: 2 } }}

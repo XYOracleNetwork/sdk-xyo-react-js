@@ -1,6 +1,5 @@
 import type { PaperProps } from '@mui/material'
 import { Paper, styled } from '@mui/material'
-import type { Ref } from 'react'
 import React from 'react'
 
 import { BWHeading } from '../Heading.tsx'
@@ -10,15 +9,12 @@ export interface HeadingPaperProps extends BWHeadingProps {
   paperProps?: PaperProps
 }
 
-const HeadingPaper = ({ ref, ...props }: HeadingPaperProps & { ref?: Ref<HTMLDivElement> }) => {
+const HeadingPaper = ({ ref, ...props }: HeadingPaperProps & { ref?: React.Ref<HTMLDivElement | null> }) => {
   const {
     AdornmentStart, AdornmentEnd, paperProps,
   } = props
 
-  const {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    paperProps: excludedPaperProps, ...bwHeadingProps
-  } = props
+  const { paperProps: excludedPaperProps, ...bwHeadingProps } = props
   return (
     <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...paperProps}>
       <BWHeading {...bwHeadingProps} />
