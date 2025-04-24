@@ -2,9 +2,9 @@ import { styled } from '@mui/material'
 
 export const StyledGlowingDiv = styled('div', { name: 'StyledGlowingDiv' })(({ theme }) => {
   const glowAnimationSteps = {
-    '0%': { boxShadow: `0 0 10px -10px ${theme.palette.secondary.light}` },
-    '100%': { boxShadow: `0 0 10px -10px ${theme.palette.secondary.light}` },
-    '50%': { boxShadow: `0 0 10px 10px ${theme.palette.secondary.light}` },
+    '0%': { boxShadow: `0 0 10px -10px ${theme.vars.palette.secondary.light}` },
+    '100%': { boxShadow: `0 0 10px -10px ${theme.vars.palette.secondary.light}` },
+    '50%': { boxShadow: `0 0 10px 10px ${theme.vars.palette.secondary.light}` },
   }
   const glowAnimationProps = {
     animationDuration: '1s',

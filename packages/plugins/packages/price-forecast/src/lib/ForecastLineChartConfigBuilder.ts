@@ -1,4 +1,5 @@
 import type { Theme } from '@mui/material'
+import { useIsDark } from '@xylabs/react-theme'
 import type { ForecastPayload } from '@xyo-network/diviner-forecasting-model'
 import type {
   ChartData, ChartDataset, ChartOptions, LegendOptions, Point, ScaleChartOptions,
@@ -126,11 +127,11 @@ export class ForecastLineChartConfigBuilder {
   }
 
   protected parseTheme(theme: Theme) {
-    const dark = theme.palette.mode === 'dark'
+    const dark = useIsDark()
     return {
-      dataSetColorPrimary: theme.palette.primary.light,
-      dataSetColorSecondary: theme.palette.secondary.light,
-      gridColor: dark ? theme.palette.grey[800] : theme.palette.grey[300],
+      dataSetColorPrimary: theme.vars.palette.primary.light,
+      dataSetColorSecondary: theme.vars.palette.secondary.light,
+      gridColor: dark ? theme.vars.palette.grey[800] : theme.vars.palette.grey[300],
     }
   }
 

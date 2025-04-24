@@ -40,5 +40,5 @@ export const PayloadTableFooter: React.FC<PayloadTableFooterProps> = ({
 const StyledTablePagination = styled(TablePagination)(({ theme }) => ({
   '& > .MuiToolbar-root': { paddingLeft: theme.spacing(1) },
   'borderTop': '1px solid',
-  'borderTopColor': theme.palette.divider,
+  'borderTopColor': theme.vars.palette.divider,
 }))

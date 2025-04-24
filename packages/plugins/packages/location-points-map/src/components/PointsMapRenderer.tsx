@@ -46,7 +46,7 @@ const PointsMapInner: React.FC<PointsMapInnerProps> = ({
         <MapboxPointsFlexBox
           accessToken={accessTokenResolved}
           features={features as Feature<Point>[]}
-          layers={LocationPointsMapLayerBuilder(theme.palette.secondary.main)}
+          layers={LocationPointsMapLayerBuilder(theme.vars.palette.secondary.main)}
           height="100%"
           {...props}
         />

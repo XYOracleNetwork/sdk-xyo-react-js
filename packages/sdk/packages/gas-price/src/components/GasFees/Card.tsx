@@ -31,7 +31,7 @@ export const GasFeeCard: React.FC<GasFeeCardProps> = ({
           flexDirection: 'column', flexGrow: 1, p: 0, rowGap: 2,
         }}
       >
-        <FlexGrowCol bgcolor={theme.palette.secondary.dark} alignItems="start" p={2} rowGap={1.5} color={theme.palette.common.white}>
+        <FlexGrowCol bgcolor={theme.vars.palette.secondary.dark} alignItems="start" p={2} rowGap={1.5} color={theme.vars.palette.common.white}>
           <GasPriceBox gasPrice={gasPrice} />
           {priorityFee
             ? <PriorityFeeBox priorityFee={priorityFee} priorityFeeLabel={priorityFeeLabel} />

@@ -27,7 +27,7 @@ export const ConnectedAccountsFlexbox = ({
         </Typography>
         {totalConnectedAccounts
           ? (
-              <Typography variant="subtitle1" color={theme.palette.secondary.main} sx={{ opacity: 0.5 }}>
+              <Typography variant="subtitle1" color={theme.vars.palette.secondary.main} sx={{ opacity: 0.5 }}>
                 Total Connected Accounts:
                 {' '}
                 {totalConnectedAccounts}

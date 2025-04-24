@@ -1,8 +1,7 @@
 import type { PaperProps } from '@mui/material'
-import {
-  Link, Paper, useTheme,
-} from '@mui/material'
+import { Link, Paper } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
+import { useIsDark } from '@xylabs/react-theme'
 import {
   getTokenData,
   TokenBar, TokenSummary,
@@ -15,14 +14,13 @@ interface StaticTokenSummaryProps {
 }
 
 export const StaticTokenComparison: React.FC<StaticTokenSummaryProps> = ({ tokenPayload }) => {
-  const theme = useTheme()
-  const isLightMode = theme.palette.mode === 'light'
+  const dark = useIsDark()
   const [tokenInfo0, tokenInfo1] = getTokenData([tokenPayload.tokens[0].symbol, tokenPayload.tokens[1].symbol])
   const [token0, token1] = tokenPayload.tokens
 
   const paperProps: PaperProps = {
     sx: {
-      bgcolor: isLightMode ? '#F6F5FA' : 'inherit',
+      bgcolor: dark ? 'inherit' : '#F6F5FA',
       border: 'none',
     },
   }

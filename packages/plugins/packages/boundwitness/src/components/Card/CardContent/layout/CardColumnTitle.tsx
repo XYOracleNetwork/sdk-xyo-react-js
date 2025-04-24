@@ -3,7 +3,7 @@ import { styled, Typography } from '@mui/material'
 import React from 'react'
 
 export const CardColumnTitle = styled(Typography, { name: 'CardColumnTitle' })(({ theme }) => ({
-  color: theme.palette.text.primary,
+  color: theme.vars.palette.text.primary,
   fontWeight: 500,
 }))
 

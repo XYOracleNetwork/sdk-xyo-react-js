@@ -24,7 +24,7 @@ export const GenerateShareLinkButton: React.FC<GenerateShareLinkButtonProps> = (
 
 const StyledCircularProgress = styled(CircularProgress, { name: 'StyledCircularProgress' })(({ theme }) => ({
   // ensure the color of the spinner is the same as the button color
-  color: theme.palette.getContrastText(theme.palette.primary.main),
+  color: theme.vars.palette.primary.contrastText,
   height: '20px',
   opacity: '.87',
   width: '20px',

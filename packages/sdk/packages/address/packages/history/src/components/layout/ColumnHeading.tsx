@@ -9,7 +9,7 @@ export const ColumnHeadingTypography: React.FC<PropsWithChildren<TypographyExPro
 }
 
 const StyledColumnHeadingTypography = styled(TypographyEx, { name: 'styledColumnHeadingTypography' })(({ theme }) => ({
-  borderBottom: `1px solid ${theme.palette.divider}`,
+  borderBottom: `1px solid ${theme.vars.palette.divider}`,
   fontWeight: 200,
   paddingBottom: theme.spacing(1),
   textTransform: 'uppercase',

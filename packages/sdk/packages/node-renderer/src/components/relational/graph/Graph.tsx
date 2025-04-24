@@ -174,7 +174,7 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
           classes="cytoscape-wrap"
           width={showDetails ? '15%' : '100%'}
           height={showDetails ? '50%' : '100%'}
-          border={showDetails ? `1px solid ${theme.palette.divider}` : undefined}
+          border={showDetails ? `1px solid ${theme.vars.palette.divider}` : undefined}
         >
           {/* Cytoscape Element */}
           <FlexCol alignItems="stretch" position="absolute" width="100%" height="100%" ref={cytoscapeRef} />

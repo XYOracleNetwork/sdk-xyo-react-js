@@ -26,7 +26,7 @@ export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
         hideAvatar
           ? <></>
           : (
-              <Avatar sx={{ bgcolor: (theme: Theme) => theme.palette.primary.main }} aria-label={activePlugin?.name}>
+              <Avatar sx={{ bgcolor: (theme: Theme) => theme.vars.palette.primary.main }} aria-label={activePlugin?.name}>
                 {activePlugin?.name?.charAt(0)}
               </Avatar>
             )

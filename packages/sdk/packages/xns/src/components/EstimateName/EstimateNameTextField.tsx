@@ -1,7 +1,6 @@
 import type { StandardTextFieldProps, TextFieldProps } from '@mui/material'
-import {
-  alpha, TextField, useTheme,
-} from '@mui/material'
+import { TextField, useTheme } from '@mui/material'
+import { alphaCss } from '@xylabs/react-theme'
 import { MIN_DOMAIN_LENGTH, XnsNameHelper } from '@xyo-network/xns-record-payloadset-plugins'
 import React, {
   useLayoutEffect, useMemo, useRef, useState,
@@ -62,7 +61,7 @@ export const XnsEstimateNameTextField: React.FC<XnsEstimateNameTextFieldProps & 
       onBlur={handleBlur}
       onChange={handleChange}
       {...props}
-      slotProps={{ htmlInput: { style: { color: validLength ? theme.palette.text.primary : alpha(theme.palette.text.primary, 0.5) } } }}
+      slotProps={{ htmlInput: { style: { color: validLength ? theme.vars.palette.text.primary : alphaCss(theme.vars.palette.text.primary, 0.5) } } }}
     />
   )
 }

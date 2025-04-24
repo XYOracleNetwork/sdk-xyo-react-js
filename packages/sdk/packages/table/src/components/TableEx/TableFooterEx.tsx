@@ -10,7 +10,7 @@ const TableFooterExRoot = styled(TableFooter, {
   shouldForwardProp: propName => propName !== 'scrollable',
   slot: 'Root',
 })<TableFooterExProps>(({ variant, theme }) => ({
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.vars.palette.background.default,
   bottom: 'unset',
   position: 'relative',
   ...(variant === 'scrollable' && {

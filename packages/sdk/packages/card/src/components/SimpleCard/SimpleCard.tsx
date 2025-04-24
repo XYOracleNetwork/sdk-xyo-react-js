@@ -1,9 +1,9 @@
 import { ArrowForwardRounded as ArrowForwardRoundedIcon } from '@mui/icons-material'
 import {
-  alpha, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme,
+  CardActions, CardContent, CardMedia, IconButton, Typography, useTheme,
 } from '@mui/material'
 import { FlexCol, FlexGrowCol } from '@xylabs/react-flexbox'
-import { useIsSmall } from '@xylabs/react-theme'
+import { alphaCss, useIsSmall } from '@xylabs/react-theme'
 import type { ReactNode } from 'react'
 import React, { useState } from 'react'
 import type { To } from 'react-router-dom'
@@ -55,7 +55,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
       elevation={raised ? 3 : 0}
       sx={{
         '&:hover': { cursor: interactionVariant == 'button' ? 'pointer' : null },
-        'backgroundColor': alpha(theme.palette.primary.light, 0.05),
+        'backgroundColor': alphaCss(theme.vars.palette.primary.light, 0.05),
         ...sx,
       }}
       onMouseEnter={() =>

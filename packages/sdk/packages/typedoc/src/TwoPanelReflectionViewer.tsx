@@ -65,7 +65,7 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
             hiddenFlags={hiddenFlags}
             reflection={reflection}
             lookup={lookup}
-            border={`1px solid ${theme.palette.grey['300']}`}
+            border={`1px solid ${theme.vars.palette.grey['300']}`}
             borderRadius={1}
             paddingY={1}
           />
@@ -90,7 +90,7 @@ export const TwoPanelReflectionViewer: React.FC<ContainerReflectionViewerProps> 
             overflow="scroll"
             borderRadius={1}
             padding={1}
-            border={`1px solid ${theme.palette.grey['300']}`}
+            border={`1px solid ${theme.vars.palette.grey['300']}`}
           >
             {reflectionGroups}
           </FlexCol>

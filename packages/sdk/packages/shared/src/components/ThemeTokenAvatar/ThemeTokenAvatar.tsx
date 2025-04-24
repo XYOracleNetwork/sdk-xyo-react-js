@@ -4,5 +4,5 @@ import React from 'react'
 
 export const ThemeTokenAvatar: React.FC<AvatarProps> = ({ ...props }) => {
   const theme = useTheme()
-  return <Avatar sx={{ background: theme.palette.common.white }} {...props} />
+  return <Avatar sx={{ background: theme.vars.palette.common.white }} {...props} />
 }

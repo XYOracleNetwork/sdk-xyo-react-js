@@ -38,8 +38,8 @@ const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({
   const accessTokenResolved = accessToken ?? accessTokenFromContext
 
   const layers = useMemo(() => {
-    return LocationHeatMapLayerBuilder(theme.palette.secondary.main)
-  }, [theme.palette.secondary.main])
+    return LocationHeatMapLayerBuilder(theme.vars.palette.secondary.main)
+  }, [theme.vars.palette.secondary.main])
 
   return (
     <ErrorRender error={error} errorContext="QuadKeyHeatMapRenderer">
@@ -47,7 +47,7 @@ const QuadkeyHeatMapInner: React.FC<QuadkeyHeatMapInnerProps> = ({
         ? (
             <HeatMapInitializerProvider
               features={features as Feature<Polygon>[]}
-              heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
+              heatMapColorProps={{ staticMapColor: theme.vars.palette.secondary.main }}
               layers={layers}
             >
               <MapboxHeatFlexBox accessToken={accessTokenResolved} features={features as Feature<Polygon>[]} developerMode={developerMode} {...props} />

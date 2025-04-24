@@ -26,7 +26,7 @@ const PropertyGroupBox: React.FC<PropertyGroupBoxProps> = ({
                 {childrenArray?.map((child, index) => {
                   return child
                     ? (
-                        <FlexGrowRow key={index} borderLeft={1} borderColor={theme.palette.divider}>
+                        <FlexGrowRow key={index} borderLeft={1} borderColor={theme.vars.palette.divider}>
                           {child}
                         </FlexGrowRow>
                       )

@@ -19,7 +19,7 @@ const useHeatMapColors = () => {
     heading: 'Network Usage',
     startColor: staticMapColor,
     startLabel: 'Low',
-    textColor: theme.palette.common.white,
+    textColor: theme.vars.palette.common.white,
   }
 
   return { heatMapColorProps, legendProps }

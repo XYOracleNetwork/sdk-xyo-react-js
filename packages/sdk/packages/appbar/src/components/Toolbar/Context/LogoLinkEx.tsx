@@ -27,13 +27,13 @@ export const LogoLinkEx: React.FC<LogoLinkExProps> = ({
                 position="absolute"
                 borderRadius={1}
                 right={6}
-                color={theme.palette.getContrastText(theme.palette.text.primary)}
+                color={theme.vars.palette.primary.main}
                 bottom={0}
-                bgcolor={theme.palette.text.primary}
+                bgcolor={theme.vars.palette.primary.contrastText}
                 paddingX="2px"
                 lineHeight={1}
                 variant="caption"
-                border={`1px ${theme.palette.getContrastText(theme.palette.primary.main)} solid`}
+                border={`1px ${theme.vars.palette.primary.main} solid`}
               >
                 {typeof version === 'string' ? version : '2.1'}
               </Typography>

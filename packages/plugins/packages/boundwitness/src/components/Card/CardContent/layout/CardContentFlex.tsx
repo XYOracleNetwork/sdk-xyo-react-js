@@ -1,6 +1,5 @@
-import {
-  alpha, CardContent, styled,
-} from '@mui/material'
+import { CardContent, styled } from '@mui/material'
+import { alphaCss } from '@xylabs/react-theme'
 
 export interface CardContentFlexProps {
   active?: boolean
@@ -9,7 +8,7 @@ export interface CardContentFlexProps {
 export const CardContentFlex = styled(CardContent, { name: 'CardContentFlex', shouldForwardProp: prop => prop !== 'active' })<CardContentFlexProps>(
   ({ theme, active }) => ({
     [':last-child']: { paddingBottom: theme.spacing(1) },
-    ...(active && { background: alpha(theme.palette.secondary.dark, 0.33) }),
+    ...(active && { background: alphaCss(theme.vars.palette.secondary.dark, 0.33) }),
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',

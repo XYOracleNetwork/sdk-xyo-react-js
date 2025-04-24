@@ -1,10 +1,10 @@
 import { ArrowForwardRounded as ArrowForwardRoundedIcon } from '@mui/icons-material'
 import type { CardProps } from '@mui/material'
 import {
-  alpha, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography, useTheme, Zoom,
+  Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography, useTheme, Zoom,
 } from '@mui/material'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
-import { useIsSmall } from '@xylabs/react-theme'
+import { alphaCss, useIsSmall } from '@xylabs/react-theme'
 import type { ReactNode } from 'react'
 import React, { useState } from 'react'
 import type { To } from 'react-router-dom'
@@ -45,7 +45,7 @@ export const FullWidthCard: React.FC<FullWidthCardProps> = ({
       {...props}
       sx={{
         '&:hover': { cursor: 'pointer' },
-        'backgroundColor': alpha(theme.palette.primary.light, 0.05),
+        'backgroundColor': alphaCss(theme.vars.palette.primary.light, 0.05),
       }}
       onMouseEnter={() =>
         isMobile

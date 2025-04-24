@@ -60,17 +60,17 @@ export const XyOsProfile: React.FC<XyOsProfileProps> = ({ xns }) => {
         </Typography>
         <FlexGrowRow justifyContent="flex-start" width="100%" gap={1}>
           <Avatar sx={{
-            color: theme.palette.primary.main, height: 50, width: 50,
+            color: theme.vars.palette.primary.main, height: 50, width: 50,
           }}
           >
           </Avatar>
           <Avatar sx={{
-            color: theme.palette.primary.main, height: 50, width: 50,
+            color: theme.vars.palette.primary.main, height: 50, width: 50,
           }}
           >
           </Avatar>
           <Avatar sx={{
-            color: theme.palette.primary.main, height: 50, width: 50,
+            color: theme.vars.palette.primary.main, height: 50, width: 50,
           }}
           >
           </Avatar>

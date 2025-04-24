@@ -1,10 +1,11 @@
 import type { CardProps, PaperProps } from '@mui/material'
 import {
-  Card, CardContent, Divider, Link, Paper, useTheme,
+  Card, CardContent, Divider, Link, Paper,
 } from '@mui/material'
 import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
+import { useIsDark } from '@xylabs/react-theme'
 import type { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
 import {
   getTokenData,
@@ -20,14 +21,13 @@ export interface CryptoAssetProps extends CardProps {
 export const CryptoAsset: React.FC<CryptoAssetProps> = ({
   asset, priceInfo, ...props
 }) => {
-  const theme = useTheme()
-  const isLightMode = theme.palette.mode !== 'dark'
+  const isDarkMode = useIsDark()
 
   const [tokenInfo] = getTokenData([asset])
 
   const tokenBarBgProps: PaperProps = {
     sx: {
-      bgcolor: isLightMode ? '#F6F5FA' : 'inherit',
+      bgcolor: isDarkMode ? 'inherit' : '#F6F5FA',
       border: 'none',
     },
   }

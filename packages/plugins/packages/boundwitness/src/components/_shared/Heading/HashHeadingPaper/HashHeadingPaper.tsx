@@ -28,7 +28,7 @@ const HashHeadingPaper = ({
                 size={Number.parseInt(theme.spacing(3).replace('px', ''))}
                 p={0.25}
                 value={hash}
-                sx={{ background: theme.palette.background.paper }}
+                sx={{ background: theme.vars.palette.background.paper }}
                 {...identiconProps}
               />
             )

@@ -58,7 +58,7 @@ const Template: StoryFn<typeof TableEx> = (args) => {
             count={25}
             page={1}
             rowsPerPage={5}
-            style={{ borderTop: '1px solid', borderTopColor: theme.palette.divider }}
+            style={{ borderTop: '1px solid', borderTopColor: theme.vars.palette.divider }}
             SelectProps={{
               inputProps: { 'aria-label': 'rows per page' },
               native: true,

@@ -7,7 +7,7 @@ import { SystemControlsUnstyled } from './SystemControlsUnstyled.tsx'
 const SystemControlsRoot = styled(SystemControlsUnstyled, { name: 'SystemControls', slot: 'Root' })<SystemControlsUnstyledProps>(({ theme }) => ({
   // shared defaults
   ['&']: {
-    '.toggle': { backgroundColor: theme.palette.primary.main },
+    '.toggle': { backgroundColor: theme.vars.palette.primary.main },
     'alignItems': 'start',
     'zIndex': 1,
   },

@@ -33,7 +33,7 @@ export const PayloadHashSourceDetails: React.FC<PayloadHashSourceDetailsProps> =
             </FlexRow>
           )}
       <FlexRow>
-        <FlexGrowRow background border={1} borderColor={theme.palette.divider} justifyContent="start">
+        <FlexGrowRow background border={1} borderColor={theme.vars.palette.divider} justifyContent="start">
           <Typography
             padding={2}
             fontFamily="monospace"

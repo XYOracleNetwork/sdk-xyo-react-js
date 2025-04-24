@@ -1,6 +1,6 @@
 import type { Theme } from '@mui/material'
 import {
-  Box, CssBaseline, ThemeProvider, useColorScheme, useTheme,
+  Box, createTheme, CssBaseline, ThemeProvider, useColorScheme, useTheme,
 } from '@mui/material'
 import type { Decorator } from '@storybook/react'
 import {
@@ -32,7 +32,13 @@ export const globalTypes = {
 const getTheme = (themeName: ThemeName) => {
   const theme = useTheme()
   const themes: Record<ThemeName, Theme> = {
-    None: theme,
+    'None': createTheme({
+      colorSchemes: {
+        dark: {},
+        light: {},
+      },
+      cssVariables: { colorSchemeSelector: 'class' },
+    }),
     XYO: XyoTheme(theme, false),
     xyOS: XyosTheme(),
     Dataism: DataismTheme(),

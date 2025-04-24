@@ -1,6 +1,6 @@
-import { alpha } from '@mui/material'
+import { alphaCss } from '@xylabs/react-theme'
 
 export const DataLineStyles = (color?: string) => ({
-  backgroundColor: color ? alpha(color, 0.5) : undefined,
+  backgroundColor: color ? alphaCss(color, 0.5) : undefined,
   borderColor: color,
 })

@@ -1,4 +1,4 @@
-import { makeStyles, useTheme } from '@mui/material'
+import { useIsDark } from '@xylabs/react-theme'
 import type { CSSProperties } from 'react'
 
 export interface GradientStyles {
@@ -48,7 +48,7 @@ export const colorfulGradientDarkMode = () => {
 }
 
 export const useGradientStyles = () => {
-  const theme = useTheme()
-  const styles = theme.palette.mode === 'dark' ? colorfulGradientDarkMode() : colorfulGradientLightMode()
+  const dark = useIsDark()
+  const styles = dark ? colorfulGradientDarkMode() : colorfulGradientLightMode()
   return styles
 }

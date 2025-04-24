@@ -42,7 +42,7 @@ export const BoundWitnessCardHeader = ({
               size={Number.parseInt(theme.spacing(2.5).replace('px', ''))}
               p={0.5}
               value={hash}
-              sx={{ background: theme.palette.background.paper }}
+              sx={{ background: theme.vars.palette.background.paper }}
             />
           )}
         />
@@ -80,8 +80,8 @@ const CardHeaderHash = styled(CardHeader, {
   },
   '& .MuiCardHeader-content': { overflow: 'visible' },
   '&.MuiCardHeader-root': {
-    ...(active && activeBgColor && { backgroundColor: theme.palette.info }),
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    ...(active && activeBgColor && { backgroundColor: theme.vars.palette.info }),
+    borderBottom: `1px solid ${theme.vars.palette.divider}`,
     paddingBottom: theme.spacing(1),
     paddingTop: theme.spacing(1),
   },

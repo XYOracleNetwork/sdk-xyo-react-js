@@ -24,7 +24,7 @@ export const DeclarationContainerReflectionViewer: React.FC<DeclarationContainer
     <ContainerReflectionViewer
       title="DeclarationContainerReflectionViewer"
       paper={hash.slice(1) === reflection.name}
-      bgcolor={hash.slice(1) === reflection.name ? theme.palette.background.default : undefined}
+      bgcolor={hash.slice(1) === reflection.name ? theme.vars.palette.background.default : undefined}
       lookup={lookup}
       itemRenderer={itemRenderer}
       reflection={reflection}

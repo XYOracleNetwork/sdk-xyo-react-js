@@ -22,8 +22,8 @@ export const AnimatedGradientTypography = styled(Typography, { name: 'AnimatedGr
 }) => {
   return {
     // Set the color variables for the gradient
-    '--color-one': color1 ?? theme.palette.secondary.dark,
-    '--color-two': color2 ?? theme.palette.primary.light,
+    '--color-one': color1 ?? theme.vars.palette.secondary.dark,
+    '--color-two': color2 ?? theme.vars.palette.primary.light,
     // set the gradient so it has the same start and end color for looping effect
     'background': `linear-gradient(
       .25turn,
@@ -48,7 +48,7 @@ export const AnimatedGradientTypography = styled(Typography, { name: 'AnimatedGr
     // reset for users that prefer reduced motion
     '@media (prefers-reduced-motion)': {
       background: 'none',
-      color: theme.palette.text.primary,
+      color: theme.vars.palette.text.primary,
     },
   }
 })

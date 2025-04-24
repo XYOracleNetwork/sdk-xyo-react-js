@@ -13,7 +13,7 @@ export const useIcons = () => {
     // eslint-disable-next-line unicorn/no-array-reduce
     return Object.entries(CyIconSet).reduce((acc, [name, IconComponent]) => {
       const icon = <IconComponent fontSize="small" />
-      acc[name as CyNodeModuleTypes] = encodeSvg(icon, theme.palette.getContrastText(theme.palette.text.primary))
+      acc[name as CyNodeModuleTypes] = encodeSvg(icon, theme.vars.palette.primary.contrastText)
       return acc
     }, iconMap)
   }, [theme.palette])

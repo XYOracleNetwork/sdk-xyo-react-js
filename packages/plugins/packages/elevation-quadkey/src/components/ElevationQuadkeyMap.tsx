@@ -41,8 +41,8 @@ const ElevationQuadkeyMapInner: React.FC<ElevationQuadkeyMapInnerProps> = ({
             ? (
                 <HeatMapInitializerProvider
                   features={features as Feature<Polygon>[]}
-                  heatMapColorProps={{ staticMapColor: theme.palette.secondary.main }}
-                  layers={ElevationExtrusionLayerBuilder(theme.palette.secondary.main)}
+                  heatMapColorProps={{ staticMapColor: theme.vars.palette.secondary.main }}
+                  layers={ElevationExtrusionLayerBuilder(theme.vars.palette.secondary.main)}
                 >
                   <MapboxHeatFlexBox
                     developerMode={developerMode}
