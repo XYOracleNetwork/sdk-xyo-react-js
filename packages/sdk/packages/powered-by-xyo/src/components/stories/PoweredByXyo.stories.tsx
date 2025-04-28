@@ -3,12 +3,13 @@ import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
-import { HDWallet } from '@xyo-network/account'
 import { asArchivistInstance } from '@xyo-network/archivist-model'
 import type { PackageManifestPayload } from '@xyo-network/manifest'
 import { ManifestWrapper } from '@xyo-network/manifest'
+import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import type { NodeInstance } from '@xyo-network/node-model'
 import { NodeProvider } from '@xyo-network/react-node'
+import { HDWallet } from '@xyo-network/wallet'
 import React, { useState } from 'react'
 
 import type { PoweredByXyoProps } from '../PoweredByXyo.tsx'
@@ -32,7 +33,7 @@ const TemplateWithNodeContainer: StoryFn<typeof PoweredByXyo> = (props: PoweredB
   useAsyncEffect(
     async () => {
       const wallet = await HDWallet.random()
-      const manifest = new ManifestWrapper(simpleNodeInlineManifest as PackageManifestPayload, wallet)
+      const manifest = new ManifestWrapper(simpleNodeInlineManifest as PackageManifestPayload, wallet, new ModuleFactoryLocator())
       const [node] = await manifest.loadNodes()
       setNode(node)
     },

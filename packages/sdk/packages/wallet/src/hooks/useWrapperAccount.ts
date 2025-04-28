@@ -1,7 +1,7 @@
 import type { UsePromiseState } from '@xylabs/react-promise'
 import { usePromise } from '@xylabs/react-promise'
-import { HDWallet } from '@xyo-network/account'
 import type { AccountInstance } from '@xyo-network/account-model'
+import { HDWallet } from '@xyo-network/wallet'
 import type { WalletInstance } from '@xyo-network/wallet-model'
 import { Mutex } from 'async-mutex'
 

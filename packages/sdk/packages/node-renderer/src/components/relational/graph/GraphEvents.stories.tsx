@@ -2,7 +2,7 @@ import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { ArchivistConfigSchema, MemoryArchivist } from '@xyo-network/archivist'
+import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { NodeProvider, useWeakProvidedNode } from '@xyo-network/react-node'
@@ -22,7 +22,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
     async () => {
       const node = await MemoryNode.create({ config: { name: 'GlobalNode', schema: NodeConfigSchema } })
 
-      const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: ArchivistConfigSchema } })
+      const archivist = await MemoryArchivist.create({ config: { name: 'RootStorageArchivist', schema: MemoryArchivistConfigSchema } })
       await node.register(archivist)
       await node.attach(archivist.address, true)
 

@@ -1,5 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import { HDWallet } from '@xyo-network/account'
+import { HDWallet } from '@xyo-network/wallet'
 import type { WalletInstance } from '@xyo-network/wallet-model'
 import { useState } from 'react'
 

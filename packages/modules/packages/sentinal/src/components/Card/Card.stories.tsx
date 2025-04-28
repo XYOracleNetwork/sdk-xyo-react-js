@@ -1,7 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
-import { HDWallet } from '@xyo-network/account'
 import {
   EvmCallDiviner, EvmCallWitness, EvmCallWitnessConfigSchema,
 } from '@xyo-network/evm-call-witness'
@@ -11,6 +10,7 @@ import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
 import { ModuleFactory } from '@xyo-network/module-model'
 import type { ReportEndEventArgs } from '@xyo-network/sentinel-model'
 import { asSentinelInstance } from '@xyo-network/sentinel-model'
+import { HDWallet } from '@xyo-network/wallet'
 import { InfuraProvider } from 'ethers'
 import React from 'react'
 

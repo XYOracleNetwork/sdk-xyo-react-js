@@ -3,14 +3,15 @@ import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist'
+import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import { NodeProvider, useWeakProvidedNode } from '@xyo-network/react-node'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import { useWallet, WalletProvider } from '@xyo-network/react-wallet'
-import { MemorySentinel, SentinelConfigSchema } from '@xyo-network/sentinel'
+import { SentinelConfigSchema } from '@xyo-network/sentinel'
+import { MemorySentinel } from '@xyo-network/sentinel-memory'
 import React, { useState } from 'react'
 
 import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox.tsx'

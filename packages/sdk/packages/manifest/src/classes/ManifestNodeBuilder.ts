@@ -1,11 +1,11 @@
 import { generateMnemonic } from '@scure/bip39'
 import { wordlist } from '@scure/bip39/wordlists/english'
-import { HDWallet } from '@xyo-network/account'
 import type {
   Manifest, ModuleManifest, PackageManifestPayload,
 } from '@xyo-network/manifest'
 import { ManifestWrapper } from '@xyo-network/manifest'
 import { ModuleFactoryLocator } from '@xyo-network/module-factory-locator'
+import { HDWallet } from '@xyo-network/wallet'
 import type { WalletInstance } from '@xyo-network/wallet-model'
 
 import type { CreatablePackageManifest } from '../types/index.ts'
