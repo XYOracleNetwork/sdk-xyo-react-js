@@ -14,7 +14,8 @@ import type { MapBaseConfig } from './MapBase.ts'
 import { MapBase } from './MapBase.ts'
 
 export class MapHeat extends MapBase<Polygon> {
-  static readonly animationStarted = false
+  // eslint-disable-next-line sonarjs/public-static-readonly
+  static animationStarted = false
 
   config: MapBaseConfig<Polygon>
   constructor(config: MapBaseConfig<Polygon>) {
