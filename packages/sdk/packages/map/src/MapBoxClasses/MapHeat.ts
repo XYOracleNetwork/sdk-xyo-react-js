@@ -14,7 +14,7 @@ import type { MapBaseConfig } from './MapBase.ts'
 import { MapBase } from './MapBase.ts'
 
 export class MapHeat extends MapBase<Polygon> {
-  static animationStarted = false
+  static readonly animationStarted = false
 
   config: MapBaseConfig<Polygon>
   constructor(config: MapBaseConfig<Polygon>) {

@@ -1,11 +1,8 @@
 import type { ContainerProps } from '@mui/material'
-import {
-  Container, CssBaseline, Experimental_CssVarsProvider, ThemeProvider, useTheme,
-} from '@mui/material'
+import { Container } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { useIsDark } from '@xylabs/react-theme'
-import type { PropsWithChildren } from 'react'
 import React, { useState } from 'react'
 
 import type { FooterAlwaysLinksProps } from './AlwaysLinks.tsx'

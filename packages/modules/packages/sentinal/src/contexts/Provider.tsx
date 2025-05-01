@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-array-push-push */
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { AccountInstance } from '@xyo-network/account-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
@@ -67,8 +66,6 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
             setReportingErrors([new Error(`Witness failed [${mod?.config?.name ?? mod.address}]`)])
           }
         }),
-      )
-      offCallbacks.push(
         sentinel.on('reportStart', () => {
           if (mounted()) {
             setProgress({ archivists: {}, witnesses: {} })
@@ -92,8 +89,6 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
                 })
               }
             }),
-          )
-          offCallbacks.push(
             witness.on('observeStart', ({ mod }) => {
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {

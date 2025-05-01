@@ -102,8 +102,6 @@ export class CreditCardNumberFormControl<TProps extends EmptyObject = EmptyObjec
         return newCursor
       }
     }
-
-    return
   }
 
   override mask(value: ValidControlValue = '') {

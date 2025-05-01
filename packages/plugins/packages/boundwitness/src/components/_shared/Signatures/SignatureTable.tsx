@@ -3,7 +3,7 @@ import {
 } from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
-import { usePayloadDataHash, usePayloadHash } from '@xyo-network/react-shared'
+import { usePayloadDataHash } from '@xyo-network/react-shared'
 import type { TableExProps } from '@xyo-network/react-table'
 import { TableCellEx, TableEx } from '@xyo-network/react-table'
 import React from 'react'

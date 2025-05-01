@@ -24,7 +24,8 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
   ...props
 }) => {
   const {
-    payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows, noResults, NoResultRowComponent, ...tableProps
+    // payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows,
+    noResults, NoResultRowComponent, ...tableProps
   } = props
   const ref = useRef<HTMLTableSectionElement | null>(null)
   const [tableRef, dispatch] = useEvent<HTMLTableSectionElement>(undefined, ref)
