@@ -55,7 +55,7 @@ export const SimpleCard: React.FC<SimpleCardProps> = ({
       elevation={raised ? 3 : 0}
       sx={{
         '&:hover': { cursor: interactionVariant == 'button' ? 'pointer' : null },
-        'backgroundColor': alphaCss(theme.vars.palette.primary.light, 0.05),
+        'backgroundColor': alphaCss(theme.vars.palette.primary.main, 0.05),
         ...sx,
       }}
       onMouseEnter={() =>
