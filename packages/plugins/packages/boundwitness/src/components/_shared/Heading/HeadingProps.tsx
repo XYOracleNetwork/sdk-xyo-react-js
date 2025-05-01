@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 
 export type HeadingTextSizes = 'small' | 'medium' | 'large'
 
-export interface BWHeadingProps extends FlexBoxProps {
+export interface HeadingFlexboxProps extends FlexBoxProps {
   AdornmentEnd?: ReactNode
   AdornmentStart?: ReactNode
   IconComponent?: ReactNode

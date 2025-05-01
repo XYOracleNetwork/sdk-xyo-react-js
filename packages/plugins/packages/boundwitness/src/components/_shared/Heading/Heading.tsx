@@ -3,9 +3,9 @@ import { FlexGrowRow } from '@xylabs/react-flexbox'
 import { EllipsizeBox } from '@xyo-network/react-shared'
 import React, { useRef } from 'react'
 
-import type { BWHeadingProps, HeadingTextSizes } from './HeadingProps.tsx'
+import type { HeadingFlexboxProps, HeadingTextSizes } from './HeadingProps.tsx'
 
-export const BWHeading: React.FC<BWHeadingProps> = ({
+export const HeadingFlexbox: React.FC<HeadingFlexboxProps> = ({
   AdornmentEnd,
   AdornmentStart,
   heading,
@@ -47,3 +47,6 @@ export const BWHeading: React.FC<BWHeadingProps> = ({
     </FlexGrowRow>
   )
 }
+
+/** @deprecated - use HeadingFlexbox instead */
+export const BWHeading = HeadingFlexbox

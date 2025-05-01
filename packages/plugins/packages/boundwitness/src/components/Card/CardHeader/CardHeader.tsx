@@ -10,7 +10,7 @@ import { usePayloadHash } from '@xyo-network/react-shared'
 import type { ReactNode } from 'react'
 import React from 'react'
 
-import { BWActions, BWHeading } from '../../_shared/index.ts'
+import { BWActions, HeadingFlexbox } from '../../_shared/index.ts'
 
 export interface BoundWitnessCardHeaderProps extends CardHeaderProps {
   active?: boolean
@@ -35,7 +35,7 @@ export const BoundWitnessCardHeader = ({
       active={active}
       activeBgColor={activeBgColor}
       title={(
-        <BWHeading
+        <HeadingFlexbox
           heading={hash}
           IconComponent={(
             <Identicon

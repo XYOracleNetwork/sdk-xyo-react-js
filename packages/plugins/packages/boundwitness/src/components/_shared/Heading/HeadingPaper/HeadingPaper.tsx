@@ -2,14 +2,14 @@ import type { PaperProps } from '@mui/material'
 import { Paper, styled } from '@mui/material'
 import React from 'react'
 
-import { BWHeading } from '../Heading.tsx'
-import type { BWHeadingProps } from '../HeadingProps.tsx'
+import { HeadingFlexbox } from '../Heading.tsx'
+import type { HeadingFlexboxProps } from '../HeadingProps.tsx'
 
-export interface HeadingPaperProps extends BWHeadingProps {
+export interface HeadingPaperProps extends HeadingFlexboxProps {
   paperProps?: PaperProps
 }
 
-const HeadingPaper = ({ ref, ...props }: HeadingPaperProps & { ref?: React.Ref<HTMLDivElement | null> }) => {
+export const HeadingPaper = ({ ref, ...props }: HeadingPaperProps & { ref?: React.Ref<HTMLDivElement | null> }) => {
   const {
     AdornmentStart, AdornmentEnd, paperProps,
   } = props
@@ -18,14 +18,10 @@ const HeadingPaper = ({ ref, ...props }: HeadingPaperProps & { ref?: React.Ref<H
   const { paperProps: excludedPaperProps, ...bwHeadingProps } = props
   return (
     <StyledHeadingPaper hasAdornmentStart={!!AdornmentStart} hasAdornmentEnd={!!AdornmentEnd} elevation={4} ref={ref} {...paperProps}>
-      <BWHeading {...bwHeadingProps} />
+      <HeadingFlexbox {...bwHeadingProps} />
     </StyledHeadingPaper>
   )
 }
-
-HeadingPaper.displayName = 'HeadingPaper'
-
-export { HeadingPaper }
 
 interface StyledHeadingPaperProps extends PaperProps {
   hasAdornmentEnd?: boolean
