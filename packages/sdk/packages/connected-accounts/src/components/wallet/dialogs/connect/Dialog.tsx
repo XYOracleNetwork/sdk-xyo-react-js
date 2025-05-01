@@ -30,7 +30,7 @@ export const ConnectWalletDialog: React.FC<ConnectWalletDialogProps> = ({
 
   return (
     <Dialog
-      PaperProps={{ sx: { display: 'flex', gap: 4 } }}
+      slotProps={{ paper: { sx: { display: 'flex', gap: 4 } } }}
       {...props}
     >
       <DialogTitle sx={{ textAlign: 'center' }}>XYO Wants To Access The Blockchain on Your Behalf</DialogTitle>

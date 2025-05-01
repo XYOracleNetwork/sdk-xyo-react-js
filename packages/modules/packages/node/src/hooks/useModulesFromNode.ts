@@ -34,7 +34,6 @@ export const useModulesFromNode = (ids?: ModuleIdentifier[], config?: ModuleFrom
       return await refreshModules()
     }
     console.log('Result: No Node')
-    return
   }, [node, ids])
   return [result, nodeError ?? error]
 }

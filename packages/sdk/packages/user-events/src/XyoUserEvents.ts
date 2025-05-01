@@ -21,6 +21,7 @@ import { XyoEventHandler } from './XyoEventHandler.ts'
 import type { XyoEventHandlerInterface, XyoNewsletterSignupFields } from './XyoEventHandlerInterface.ts'
 
 export class XyoUserEvents<TData extends EmptyObject = EmptyObject> extends UserEventHandler<TData> {
+  // eslint-disable-next-line sonarjs/public-static-readonly
   static instance: XyoUserEvents<EmptyObject>
 
   protected handlers: XyoEventHandlerInterface<TData>[]
