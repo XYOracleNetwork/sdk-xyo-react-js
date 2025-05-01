@@ -18,7 +18,9 @@ export interface MapSettingsConfig {
  * Methods are pure functions dedicated to map manipulation
  */
 export class MapSettings {
+  // eslint-disable-next-line sonarjs/public-static-readonly
   static geoLocateControl: GeolocateControl | undefined
+  // eslint-disable-next-line sonarjs/public-static-readonly
   static mapListeners = {
     logData: (ev?: MapEventOf<MapEventType>, map?: Map) => {
       const target = map || ev?.target
@@ -29,7 +31,9 @@ export class MapSettings {
     },
   }
 
+  // eslint-disable-next-line sonarjs/public-static-readonly
   static navControl: NavigationControl | undefined
+  // eslint-disable-next-line sonarjs/public-static-readonly
   static requestLocation: boolean | undefined
 
   static toggleControls(value: boolean | undefined, map: Map, zoom?: number, requestLocation?: boolean) {
