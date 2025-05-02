@@ -7,7 +7,9 @@ import type { PayloadDetailsListRenderProps, PayloadDetailsRenderProps } from '@
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableHeightProvider } from '@xyo-network/react-table'
 import React, { useMemo } from 'react'
+// eslint-disable-next-line import-x/no-internal-modules
 import { FaSignature } from 'react-icons/fa'
+// eslint-disable-next-line import-x/no-internal-modules
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 import {
