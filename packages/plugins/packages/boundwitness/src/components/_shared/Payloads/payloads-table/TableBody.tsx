@@ -9,9 +9,9 @@ import { HashTableCell } from '@xyo-network/react-shared'
 import { useTableHeight } from '@xyo-network/react-table'
 import React, { useLayoutEffect, useRef } from 'react'
 
-export interface BoundWitnessPayloadTableBodyProps extends PayloadTableBodyProps {
+export interface BoundWitnessPayloadTableBodyProps<TNoun extends EventNoun = EventNoun> extends PayloadTableBodyProps {
   boundwitnessHash?: string
-  eventNoun?: EventNoun
+  eventNoun?: TNoun
   payloadHashes?: string[]
   payloadSchemas?: string[]
 }
