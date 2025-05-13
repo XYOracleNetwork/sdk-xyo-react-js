@@ -16,13 +16,13 @@ export interface BoundWitnessPayloadTableBodyProps<TNoun extends EventNoun = Eve
   payloadSchemas?: string[]
 }
 
-export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = ({
+export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = <TNoun extends EventNoun = EventNoun>({
   boundwitnessHash,
-  eventNoun = 'payload',
+  eventNoun = 'payload' as TNoun,
   payloadHashes,
   payloadSchemas,
   ...props
-}) => {
+}: BoundWitnessPayloadTableBodyProps<TNoun>) => {
   const {
     // payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows,
     noResults, NoResultRowComponent, ...tableProps
