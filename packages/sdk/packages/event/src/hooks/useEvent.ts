@@ -2,7 +2,7 @@ import type { RefObject } from 'react'
 
 import { useCustomEvent } from './useCustomEvent.ts'
 
-export type EventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature' | 'schema'
+export type EventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature' | 'schema' | string
 export type EventVerb = 'click' | 'favorite'
 
 export interface Event<TNoun = EventNoun, TVerb = EventVerb, TData = string> {
