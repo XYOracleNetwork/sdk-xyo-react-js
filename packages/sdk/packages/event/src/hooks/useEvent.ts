@@ -2,7 +2,9 @@ import type { RefObject } from 'react'
 
 import { useCustomEvent } from './useCustomEvent.ts'
 
-export type EventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature' | 'schema' | string
+export type EventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature' | 'schema'
+export type ExtendEventNoun<Extension extends string = string> = Extension | EventNoun
+
 export type EventVerb = 'click' | 'favorite'
 
 export interface Event<TNoun = EventNoun, TVerb = EventVerb, TData = string> {
@@ -11,9 +13,9 @@ export interface Event<TNoun = EventNoun, TVerb = EventVerb, TData = string> {
   verb: TVerb
 }
 
-export type EventDispatch<TNoun = EventNoun, TVerb = EventVerb, TData = string> = (noun: TNoun, verb: TVerb, data?: TData) => boolean | void
+export type EventDispatch<TNoun = ExtendEventNoun, TVerb = EventVerb, TData = string> = (noun: TNoun, verb: TVerb, data?: TData) => boolean | void
 
-export const useEvent = <T extends HTMLElement, TNoun = EventNoun, TVerb = EventVerb, TData = string>(
+export const useEvent = <T extends HTMLElement, TNoun = ExtendEventNoun, TVerb = EventVerb, TData = string>(
   listener?: EventDispatch<TNoun, TVerb, TData>,
   sharableRef?: RefObject<T | null>,
 ): [RefObject<T | null>, EventDispatch<TNoun, TVerb, TData>] => {

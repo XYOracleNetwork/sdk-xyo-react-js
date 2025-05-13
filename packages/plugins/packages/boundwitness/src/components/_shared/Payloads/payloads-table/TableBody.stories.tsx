@@ -1,0 +1,45 @@
+import type { Meta, StoryFn } from '@storybook/react'
+import { type ExtendEventNoun, useEvent } from '@xyo-network/react-event'
+import React from 'react'
+
+import { BoundWitnessPayloadTableBody } from './TableBody.tsx'
+
+const data = {
+  payloadHashes: [
+    '1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
+    'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890',
+  ],
+  payloadSchemas: [
+    'network.xyo.test',
+    'network.xyo.test',
+  ],
+}
+
+type CustomNoun = ExtendEventNoun<'customNoun'>
+
+export default {
+  title: 'plugin/boundwitness/Payloads/Table/Body',
+  component: BoundWitnessPayloadTableBody,
+} as Meta
+
+const Template: StoryFn<typeof BoundWitnessPayloadTableBody> = args => <BoundWitnessPayloadTableBody {...args} />
+const TemplateWithCustomNouns: StoryFn<typeof BoundWitnessPayloadTableBody<CustomNoun>>
+  = (args) => {
+    const [ref] = useEvent<HTMLTableSectionElement>((noun, verb, data) => {
+      console.log(`${noun}|${verb}|${data}`)
+    })
+    return <BoundWitnessPayloadTableBody<CustomNoun> ref={ref} {...args} />
+  }
+
+const Default = Template.bind({})
+Default.args = {}
+
+const WithData = Template.bind({})
+WithData.args = { ...data }
+
+const WithCustomNouns = TemplateWithCustomNouns.bind({})
+WithCustomNouns.args = { ...data, eventNoun: 'customNoun' }
+
+export {
+  Default, WithCustomNouns, WithData,
+}

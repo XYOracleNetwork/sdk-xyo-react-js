@@ -1,37 +1,37 @@
 import {
   TableBody, TableCell, TableRow,
 } from '@mui/material'
-import type { EventNoun } from '@xyo-network/react-event'
+import type { ExtendEventNoun } from '@xyo-network/react-event'
 import { useEvent } from '@xyo-network/react-event'
 import type { PayloadTableBodyProps } from '@xyo-network/react-payload-table'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { HashTableCell } from '@xyo-network/react-shared'
 import { useTableHeight } from '@xyo-network/react-table'
-import React, { useLayoutEffect, useRef } from 'react'
+import type { RefObject } from 'react'
+import React, { useLayoutEffect } from 'react'
 
-export interface BoundWitnessPayloadTableBodyProps<TNoun extends EventNoun = EventNoun> extends PayloadTableBodyProps {
+export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun = ExtendEventNoun> extends PayloadTableBodyProps {
+  /** @deprecated - no longer used */
   boundwitnessHash?: string
   eventNoun?: TNoun
   payloadHashes?: string[]
   payloadSchemas?: string[]
 }
 
-export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBodyProps> = <TNoun extends EventNoun = EventNoun>({
-  boundwitnessHash,
+export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = ExtendEventNoun>({
   eventNoun = 'payload' as TNoun,
   payloadHashes,
   payloadSchemas,
+  ref,
   ...props
 }: BoundWitnessPayloadTableBodyProps<TNoun>) => {
   const {
     // payloads, archive, maxSchemaDepth, onRowClick, exploreDomain, emptyRows,
     noResults, NoResultRowComponent, ...tableProps
   } = props
-  const ref = useRef<HTMLTableSectionElement | null>(null)
-  const [tableRef, dispatch] = useEvent<HTMLTableSectionElement>(undefined, ref)
 
   const { setRowHeight } = useTableHeight()
-  const tableRowRef = useRef<HTMLTableRowElement | null>(null)
+  const [tableRowRef, dispatch] = useEvent<HTMLTableRowElement>(undefined, ref as RefObject<HTMLTableRowElement | null> | undefined)
 
   const handleOnClick = (hash: string) => {
     dispatch(eventNoun, 'click', hash)
@@ -44,7 +44,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
   })
 
   return (
-    <TableBody ref={tableRef} {...tableProps}>
+    <TableBody {...tableProps}>
       {noResults && NoResultRowComponent
         ? <NoResultRowComponent />
         : null}
@@ -54,7 +54,7 @@ export const BoundWitnessPayloadTableBody: React.FC<BoundWitnessPayloadTableBody
         && payloadHashes.length > 0
         && payloadHashes?.map((hash, index) => {
           return (
-            <TableRow ref={tableRowRef} key={boundwitnessHash + hash} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
+            <TableRow ref={tableRowRef} key={hash} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
               <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
               <HashTableCell title={hash}>{hash}</HashTableCell>
             </TableRow>
