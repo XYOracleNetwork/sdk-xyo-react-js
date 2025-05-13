@@ -1,7 +1,7 @@
 import {
   TableBody, TableCell, TableRow,
 } from '@mui/material'
-import type { ExtendEventNoun } from '@xyo-network/react-event'
+import type { EventNoun, ExtendEventNoun } from '@xyo-network/react-event'
 import { useEvent } from '@xyo-network/react-event'
 import type { PayloadTableBodyProps } from '@xyo-network/react-payload-table'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
@@ -10,7 +10,7 @@ import { useTableHeight } from '@xyo-network/react-table'
 import type { RefObject } from 'react'
 import React, { useLayoutEffect } from 'react'
 
-export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun = ExtendEventNoun> extends PayloadTableBodyProps {
+export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun = EventNoun> extends PayloadTableBodyProps {
   /** @deprecated - no longer used */
   boundwitnessHash?: string
   eventNoun?: TNoun
@@ -18,7 +18,7 @@ export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun
   payloadSchemas?: string[]
 }
 
-export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = ExtendEventNoun>({
+export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = EventNoun>({
   eventNoun = 'payload' as TNoun,
   payloadHashes,
   payloadSchemas,

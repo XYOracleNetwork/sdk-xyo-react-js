@@ -1,5 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react'
-import { type ExtendEventNoun, useEvent } from '@xyo-network/react-event'
+import {
+  type EventNoun, type ExtendEventNoun,
+  useEvent,
+} from '@xyo-network/react-event'
 import React from 'react'
 
 import { BoundWitnessPayloadTableBody } from './TableBody.tsx'
@@ -22,7 +25,7 @@ export default {
   component: BoundWitnessPayloadTableBody,
 } as Meta
 
-const Template: StoryFn<typeof BoundWitnessPayloadTableBody> = args => <BoundWitnessPayloadTableBody {...args} />
+const Template: StoryFn<typeof BoundWitnessPayloadTableBody<EventNoun>> = args => <BoundWitnessPayloadTableBody {...args} />
 const TemplateWithCustomNouns: StoryFn<typeof BoundWitnessPayloadTableBody<CustomNoun>>
   = (args) => {
     const [ref] = useEvent<HTMLTableSectionElement>((noun, verb, data) => {
@@ -35,7 +38,7 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { ...data }
+WithData.args = { ...data, eventNoun: 'boundwitness' }
 
 const WithCustomNouns = TemplateWithCustomNouns.bind({})
 WithCustomNouns.args = { ...data, eventNoun: 'customNoun' }
