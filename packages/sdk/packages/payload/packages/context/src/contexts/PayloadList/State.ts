@@ -21,9 +21,9 @@ export interface TotalPayloadsState {
   updateTotalPayloads?: (additionalPayloads?: WithStorageMeta<Payload>[]) => boolean
 }
 
-export interface PayloadListState extends ContextExState {
+export type PayloadListState = ContextExState<{
   errors?: (Error | undefined)[]
   resetList?: () => void
   totalPayloadsState?: TotalPayloadsState
   uiState?: UIState
-}
+}>
