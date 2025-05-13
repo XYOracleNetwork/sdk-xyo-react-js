@@ -1,7 +1,7 @@
-import type { ContextExState } from '@xyo-network/react-shared'
+import type { ContextExState } from '@xylabs/react-shared'
 import type { Dispatch, SetStateAction } from 'react'
 
-export interface SeedPhraseContextState extends ContextExState {
+export type SeedPhraseContextState = ContextExState<{
   handleCancelOverwrite?: () => void
   handleChangeSeedPhrase?: (value: string) => void
   handleClear?: () => void
@@ -15,4 +15,4 @@ export interface SeedPhraseContextState extends ContextExState {
   validPhrase?: boolean | null
   validSeedPhrase?: boolean | null
   validate?: (passedPhrase?: string) => boolean | null
-}
+}>

@@ -14,7 +14,7 @@ import React, {
 } from 'react'
 
 import { SentinelContext } from './Context.ts'
-import type { SentinelReportProgress } from './State.ts'
+import type { SentinelContextState, SentinelReportProgress } from './State.ts'
 import { SentinelReportStatus } from './State.ts'
 
 export interface SentinelProviderProps {
@@ -121,7 +121,7 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
     setHistory(sentinel?.history as BoundWitness[])
   }, [sentinel])
 
-  const value = useMemo(() => ({
+  const value: SentinelContextState = useMemo(() => ({
     history, progress, provided: true, reportingErrors, sentinel, status,
   }), [history, progress, reportingErrors, sentinel, status])
 

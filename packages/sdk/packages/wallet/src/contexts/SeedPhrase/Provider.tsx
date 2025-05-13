@@ -7,6 +7,7 @@ import React, {
 } from 'react'
 
 import { SeedPhraseContext } from './Context.ts'
+import type { SeedPhraseContextState } from './State.ts'
 
 export interface SeedPhraseProviderProps extends PropsWithChildren {
   defaultPhrase?: string
@@ -74,7 +75,7 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   const validSeedPhrase = useMemo(() => validate?.(seedPhrase), [seedPhrase])
   const validPhrase = useMemo(() => validate?.(phrase), [phrase])
 
-  const value = useMemo(() => ({
+  const value: SeedPhraseContextState = useMemo(() => ({
     handleCancelOverwrite,
     handleChangeSeedPhrase,
     handleClear,

@@ -1,5 +1,6 @@
 import type { EnumValue } from '@xylabs/enum'
 import { Enum } from '@xylabs/enum'
+import type { ContextExState } from '@xylabs/react-shared'
 import type { ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { SentinelModule } from '@xyo-network/sentinel-model'
@@ -30,10 +31,10 @@ export interface SentinelReportProgress {
   witnesses?: Record<string, SentinelWitnessReportProgress>
 }
 
-export interface SentinelContextState {
+export type SentinelContextState = ContextExState<{
   history?: BoundWitness[]
   progress?: SentinelReportProgress
   reportingErrors?: Error[]
   sentinel?: SentinelModule
   status?: SentinelReportStatus
-}
+}>

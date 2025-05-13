@@ -1,4 +1,4 @@
-import { useContextEx } from '@xyo-network/react-shared'
+import { useContextEx } from '@xylabs/react-shared'
 
 import { PayloadPluginResolverContext } from './Context.ts'
 

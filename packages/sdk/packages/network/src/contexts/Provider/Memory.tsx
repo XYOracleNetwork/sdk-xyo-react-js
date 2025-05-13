@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react'
 
 import { defaultNetworkConfigs } from '../../lib/index.ts'
 import { NetworkContext } from '../Context.ts'
+import type { NetworkContextState } from '../State.ts'
 import type { NetworkProviderProps } from './Props.ts'
 
 export const NetworkMemoryProvider: React.FC<PropsWithChildren<NetworkProviderProps>> = ({
@@ -16,7 +17,7 @@ export const NetworkMemoryProvider: React.FC<PropsWithChildren<NetworkProviderPr
 
   const [network, setNetwork] = useState(defaultNetworkConfig ?? resolvedDefaultNetworkConfig ?? defaultNetworkConfigs[0])
 
-  const value = useMemo(() => ({
+  const value: NetworkContextState = useMemo(() => ({
     network, networks: defaultNetworkConfigs, provided: true, setNetwork,
   }), [network, setNetwork])
 

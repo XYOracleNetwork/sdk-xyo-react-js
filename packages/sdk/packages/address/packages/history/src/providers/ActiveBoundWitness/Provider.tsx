@@ -1,9 +1,9 @@
 import type { Hash } from '@xylabs/hex'
 import { useResetState } from '@xylabs/react-hooks'
+import type { ContextExProviderProps } from '@xylabs/react-shared'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { useWeakArchivistFromNode, useWeakArchivistGet } from '@xyo-network/react-archivist'
-import type { ContextExProviderProps } from '@xyo-network/react-shared'
 import React, { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 

@@ -1,6 +1,6 @@
 import { useResetState } from '@xylabs/react-hooks'
+import type { ContextExProviderProps } from '@xylabs/react-shared'
 import type { PayloadSetPluginResolver } from '@xyo-network/payloadset-plugin'
-import type { ContextExProviderProps } from '@xyo-network/react-shared'
 import React from 'react'
 
 import { PayloadSetPluginResolverContext } from './Context.ts'

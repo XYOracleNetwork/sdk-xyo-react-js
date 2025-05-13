@@ -5,6 +5,7 @@ import React, { useMemo } from 'react'
 import type { FormGroupParams } from '../FormGroup.ts'
 import { FormGroup } from '../FormGroup.ts'
 import { FormGroupBaseContext } from './Context.ts'
+import type { FormGroupContextWithPayloadState } from './State.ts'
 
 export interface FormGroupPayloadProviderProps<TStorage extends Payload = Payload> extends PropsWithChildren {
   params?: FormGroupParams<TStorage>
@@ -21,7 +22,7 @@ export const FormGroupPayloadProvider = ({
     return formGroup
   }, [params])
 
-  const value = useMemo(() => ({ formGroup, provided: true }), [formGroup])
+  const value: FormGroupContextWithPayloadState = useMemo(() => ({ formGroup, provided: true }), [formGroup])
 
   return (
 

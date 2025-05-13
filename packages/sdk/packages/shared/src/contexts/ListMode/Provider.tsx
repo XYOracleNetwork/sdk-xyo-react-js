@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react'
 
 import type { ListMode } from '../../models/index.ts'
 import { ListModeContext } from './Context.ts'
+import type { ListModeContextState } from './State.ts'
 
 export interface ListModeProviderProps {
   defaultListMode?: ListMode
@@ -11,7 +12,7 @@ export interface ListModeProviderProps {
 export const ListModeProvider: React.FC<PropsWithChildren<ListModeProviderProps>> = ({ children, defaultListMode }) => {
   const [listMode, setListMode] = useState(defaultListMode ?? 'default')
 
-  const value = useMemo(() => ({
+  const value: ListModeContextState = useMemo(() => ({
     listMode,
     provided: true,
     setListMode,

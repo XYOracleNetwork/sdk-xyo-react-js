@@ -39,7 +39,7 @@ export const StandardNodesProvider: React.FC<StandardNodesProviderProps> = ({
     return nodes?.find(node => node.config.name === validNetworkName)?.address
   }
 
-  const value = useMemo(() => ({
+  const value: StandardNodesState = useMemo(() => ({
     findAddressByName,
     nodes,
     provided: true,

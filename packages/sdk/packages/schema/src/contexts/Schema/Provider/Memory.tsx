@@ -4,6 +4,7 @@ import React, { useMemo, useState } from 'react'
 
 import { useSchemaStats } from '../../../hooks/index.ts'
 import { SchemaContext } from '../Context.ts'
+import type { SchemaContextState } from '../State.ts'
 import type { SchemaProviderProps } from './Props.ts'
 
 export const SchemaMemoryProvider: React.FC<PropsWithChildren<SchemaProviderProps>> = ({
@@ -20,7 +21,7 @@ export const SchemaMemoryProvider: React.FC<PropsWithChildren<SchemaProviderProp
     }
   }, [fetchedSchemaStats])
 
-  const value = useMemo(() => ({
+  const value: SchemaContextState = useMemo(() => ({
     provided: true, schema, schemaList: knownSchemaList ?? schemaList, setSchema, setSchemaList,
   }), [schema, schemaList, knownSchemaList])
 

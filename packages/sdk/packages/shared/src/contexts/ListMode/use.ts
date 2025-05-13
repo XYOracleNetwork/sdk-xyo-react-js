@@ -1,4 +1,5 @@
-import { useContextEx } from '../contextEx/index.ts'
+import { useContextEx } from '@xylabs/react-shared'
+
 import { ListModeContext } from './Context.ts'
 
 export const useListMode = (required = false) => {

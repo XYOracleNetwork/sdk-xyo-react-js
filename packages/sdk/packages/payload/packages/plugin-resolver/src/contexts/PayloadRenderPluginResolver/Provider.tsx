@@ -1,8 +1,9 @@
-import type { ContextExProviderProps } from '@xyo-network/react-shared'
+import type { ContextExProviderProps } from '@xylabs/react-shared'
 import React, { useMemo, useState } from 'react'
 
 import type { PayloadRenderPluginResolver } from '../../PayloadRenderPluginResolver.ts'
 import { PayloadRenderPluginResolverContext } from './Context.ts'
+import type { PayloadRenderPluginResolverState } from './State.ts'
 
 export type PayloadRenderPluginResolverProviderProps = ContextExProviderProps<{
   resolver: PayloadRenderPluginResolver
@@ -15,7 +16,7 @@ export const PayloadRenderPluginResolverProvider: React.FC<PayloadRenderPluginRe
 }) => {
   const [resolver, setResolver] = useState<PayloadRenderPluginResolver>(resolverProp)
 
-  const value = useMemo(() => ({
+  const value: PayloadRenderPluginResolverState = useMemo(() => ({
     resolver, provided: true, setResolver,
   }), [resolver, setResolver])
 

@@ -1,5 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import { useContextEx, useProvided } from '@xyo-network/react-shared'
+import { useContextEx, useProvided } from '@xylabs/react-shared'
 import type { WalletInstance } from '@xyo-network/wallet-model'
 
 import { WalletContext } from './Context.ts'

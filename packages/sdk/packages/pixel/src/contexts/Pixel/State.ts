@@ -1,6 +1,6 @@
 import type { XyPixel } from '@xylabs/pixel'
-import type { ContextExState } from '@xyo-network/react-shared'
+import type { ContextExState } from '@xylabs/react-shared'
 
-export interface PixelContextState extends ContextExState {
+export type PixelContextState = ContextExState<{
   pixel?: XyPixel
-}
+}>

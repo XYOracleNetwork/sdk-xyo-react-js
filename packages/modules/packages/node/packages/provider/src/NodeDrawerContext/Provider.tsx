@@ -1,3 +1,4 @@
+import type { NodeDrawerState } from '@xyo-network/react-node-context'
 import { NodeDrawerContext } from '@xyo-network/react-node-context'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
@@ -9,7 +10,7 @@ export interface NodeDrawerProviderProps extends PropsWithChildren {
 export const NodeDrawerProvider: React.FC<NodeDrawerProviderProps> = ({ children, defaultOpen = false }) => {
   const [open, setOpen] = useState(() => defaultOpen)
 
-  const value = useMemo(() => ({
+  const value: NodeDrawerState = useMemo(() => ({
     open, provided: true, setOpen,
   }), [open])
 

@@ -1,7 +1,7 @@
-import type { ContextExState } from '@xyo-network/react-shared'
+import type { ContextExState } from '@xylabs/react-shared'
 import type { Dispatch, SetStateAction } from 'react'
 
-export interface NodeDrawerState extends ContextExState {
+export type NodeDrawerState = ContextExState<{
   open?: boolean
   setOpen?: Dispatch<SetStateAction<boolean>>
-}
+}>

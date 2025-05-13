@@ -1,8 +1,8 @@
-import type { ContextExState } from '@xyo-network/react-shared'
+import type { ContextExState } from '@xylabs/react-shared'
 import type { WalletInstance } from '@xyo-network/wallet-model'
 import type { Dispatch } from 'react'
 
-export interface WalletContextState extends ContextExState {
+export type WalletContextState = ContextExState<{
   /** Currently selected account */
   activeAccount?: WalletInstance | null
   /** Currently selected index */
@@ -11,4 +11,4 @@ export interface WalletContextState extends ContextExState {
   rootWallet?: WalletInstance | null
   /** Set currently selected index */
   setActiveAccountIndex?: Dispatch<number>
-}
+}>

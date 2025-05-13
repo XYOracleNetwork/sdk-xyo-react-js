@@ -1,5 +1,6 @@
+import type { ContextExState } from '@xylabs/react-shared'
 import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
-import type { ContextExState, ListMode } from '@xyo-network/react-shared'
+import type { ListMode } from '@xyo-network/react-shared'
 import type { Dispatch, SetStateAction } from 'react'
 
 export interface EmbedPluginVisibilityConfig {
@@ -30,7 +31,7 @@ export interface EmbedPluginBase {
   timestampLabel?: string
 }
 
-export interface EmbedPluginState extends EmbedPluginBase, ContextExState {
+export type EmbedPluginState = ContextExState<EmbedPluginBase & {
   activePlugin?: PayloadRenderPlugin
   setActivePlugin?: Dispatch<SetStateAction<PayloadRenderPlugin | undefined>>
-}
+}>

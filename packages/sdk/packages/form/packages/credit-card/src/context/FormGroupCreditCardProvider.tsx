@@ -1,5 +1,5 @@
 import type { Payload } from '@xyo-network/payload-model'
-import type { FormGroupParams } from '@xyo-network/react-form-group'
+import type { FormGroupContextWithPayloadState, FormGroupParams } from '@xyo-network/react-form-group'
 import { FormGroup } from '@xyo-network/react-form-group'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
@@ -19,7 +19,7 @@ export const FormGroupCreditCardProvider: React.FC<FormGroupCreditCardProviderPr
     return formGroup
   }, [params])
 
-  const value = useMemo(() => ({ formGroup, provided: true }), [formGroup])
+  const value: FormGroupContextWithPayloadState<CreditCardInput, CreditCardInput> = useMemo(() => ({ formGroup, provided: true }), [formGroup])
 
   return (
 

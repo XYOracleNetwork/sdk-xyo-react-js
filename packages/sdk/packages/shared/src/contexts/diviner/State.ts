@@ -1,8 +1,7 @@
+import type { ContextExState } from '@xylabs/react-shared'
 import type { Dispatch, SetStateAction } from 'react'
 
-import type { ContextExState } from '../contextEx/index.ts'
-
-export interface ResolvedDivinerState<T> extends ContextExState {
+export type ResolvedDivinerState<T> = ContextExState<{
   diviner?: T
   setDiviner?: Dispatch<SetStateAction<T | undefined>>
-}
+}>

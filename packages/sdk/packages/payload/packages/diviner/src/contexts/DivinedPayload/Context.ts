@@ -1,4 +1,4 @@
-import { createContextEx } from '@xyo-network/react-shared'
+import { createContextEx } from '@xylabs/react-shared'
 
 import type { DivinedPayloadState } from './State.ts'
 

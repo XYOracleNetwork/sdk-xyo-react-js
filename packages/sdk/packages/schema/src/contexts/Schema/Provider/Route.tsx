@@ -5,6 +5,7 @@ import React, {
 import { useSearchParams } from 'react-router-dom'
 
 import { SchemaContext } from '../Context.ts'
+import type { SchemaContextState } from '../State.ts'
 import { useSchema } from '../use.ts'
 import { SchemaMemoryProvider } from './Memory.tsx'
 import type { SchemaProviderProps } from './Props.ts'
@@ -54,7 +55,7 @@ const SchemaRouteProviderInner: React.FC<PropsWithChildren> = ({ children }) => 
     }
   }, [routeSchema, schema, setSchemaParam, setSchema, setSchemaLocal])
 
-  const value = useMemo(() => ({
+  const value: SchemaContextState = useMemo(() => ({
     provided: true, schema, schemaList, setSchema: setSchemaLocal,
   }), [schema, schemaList, setSchemaLocal])
 

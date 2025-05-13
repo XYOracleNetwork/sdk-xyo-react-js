@@ -1,4 +1,5 @@
 import type { NodeInstance } from '@xyo-network/node-model'
+import type { NodeContextState } from '@xyo-network/react-node-context'
 import { NodeContext } from '@xyo-network/react-node-context'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
@@ -11,7 +12,7 @@ export const NodeProvider: React.FC<PropsWithChildren<NodeProviderProps>> = ({ n
   // save a reference to it
   const memoNode = useMemo(() => node, [node])
 
-  const value = useMemo(() => ({ node: memoNode, provided: true }), [memoNode])
+  const value: NodeContextState = useMemo(() => ({ node: memoNode, provided: true }), [memoNode])
 
   return (
     <NodeContext value={value}>

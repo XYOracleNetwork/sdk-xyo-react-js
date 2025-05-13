@@ -5,6 +5,7 @@ import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
 
 import { WalletContext } from './Context.ts'
+import type { WalletContextState } from './State.ts'
 
 export interface WalletProviderProps {
   defaultActiveAccountIndex?: number
@@ -21,7 +22,7 @@ export const WalletProvider: React.FC<PropsWithChildren<WalletProviderProps>> = 
 
   const [activeAccount = null] = usePromise(async () => await rootWallet?.derivePath(activeAccountIndex.toString()), [activeAccountIndex, rootWallet])
 
-  const value = useMemo(() => ({
+  const value: WalletContextState = useMemo(() => ({
     activeAccount,
     activeAccountIndex,
     provided: true,

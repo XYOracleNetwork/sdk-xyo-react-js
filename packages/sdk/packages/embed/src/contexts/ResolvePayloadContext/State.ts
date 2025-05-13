@@ -1,8 +1,8 @@
+import type { ContextExState } from '@xylabs/react-shared'
 import type { ModuleError, Payload } from '@xyo-network/payload-model'
-import type { ContextExState } from '@xyo-network/react-shared'
 import type { Dispatch, SetStateAction } from 'react'
 
-export interface ResolvePayloadState extends ContextExState {
+export type ResolvePayloadState = ContextExState<{
   huri?: string
   huriError?: ModuleError
   huriPayload?: string | Payload
@@ -10,4 +10,4 @@ export interface ResolvePayloadState extends ContextExState {
   payload?: Payload
   refreshHuri?: () => void
   setPayload?: Dispatch<SetStateAction<Payload | undefined>>
-}
+}>

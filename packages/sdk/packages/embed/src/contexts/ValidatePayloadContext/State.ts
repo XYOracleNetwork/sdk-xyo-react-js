@@ -1,7 +1,7 @@
-import type { ContextExState } from '@xyo-network/react-shared'
+import type { ContextExState } from '@xylabs/react-shared'
 
-export interface ValidatePayloadState extends ContextExState {
+export type ValidatePayloadState = ContextExState<{
   enabled?: boolean
   schema?: string
   validPayload?: boolean
-}
+}>

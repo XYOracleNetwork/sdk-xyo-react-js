@@ -18,15 +18,18 @@ const EmbedDecorator: Decorator<ValidatePayloadProviderPropsEx> = (Story, { args
     xyoEmbedPluginContext, resolvePayloadContext, ...props
   } = args
   console.log(resolvePayloadContext)
-  return (
-    <RefreshPayloadProvider>
-      <ResolvePayloadContext value={resolvePayloadContext}>
-        <EmbedPluginContext value={xyoEmbedPluginContext}>
-          <Story {...props} />
-        </EmbedPluginContext>
-      </ResolvePayloadContext>
-    </RefreshPayloadProvider>
-  )
+  if (resolvePayloadContext.provided && xyoEmbedPluginContext.provided) {
+    return (
+      <RefreshPayloadProvider>
+        <ResolvePayloadContext value={resolvePayloadContext}>
+          <EmbedPluginContext value={xyoEmbedPluginContext}>
+            <Story {...props} />
+          </EmbedPluginContext>
+        </ResolvePayloadContext>
+      </RefreshPayloadProvider>
+    )
+  }
+  return <></>
 }
 
 const StorybookEntry: Meta<ValidatePayloadProviderPropsEx> = {
@@ -65,14 +68,14 @@ Default.args = { resolvePayloadContext: stubProviderDefaultValue, xyoEmbedPlugin
 const ValidationSucceeded = Template.bind({})
 ValidationSucceeded.args = {
   enabled: true,
-  resolvePayloadContext: { payload: ValidPayload, ...stubProviderDefaultValue },
+  resolvePayloadContext: { payload: ValidPayload, ...stubProviderDefaultValue } as ResolvePayloadState,
   xyoEmbedPluginContext: stubProviderDefaultValue,
 }
 
 const ValidationFailed = Template.bind({})
 ValidationFailed.args = {
   enabled: true,
-  resolvePayloadContext: { payload: InvalidPayload, ...stubProviderDefaultValue },
+  resolvePayloadContext: { payload: InvalidPayload, ...stubProviderDefaultValue } as ResolvePayloadState,
   xyoEmbedPluginContext: stubProviderDefaultValue,
 }
 

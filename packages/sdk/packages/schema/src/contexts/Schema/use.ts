@@ -1,4 +1,4 @@
-import { useContextEx } from '@xyo-network/react-shared'
+import { useContextEx } from '@xylabs/react-shared'
 
 import { SchemaContext } from './Context.ts'
 import type { SchemaContextState } from './State.ts'

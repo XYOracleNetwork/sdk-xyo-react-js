@@ -1,9 +1,10 @@
 import { useResetState } from '@xylabs/react-hooks'
-import type { ContextExProviderProps } from '@xyo-network/react-shared'
+import type { ContextExProviderProps } from '@xylabs/react-shared'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
 
 import { TableHeightContext } from './Context.ts'
+import type { TableHeightState } from './State.ts'
 
 export interface TableHeightProviderProps extends ContextExProviderProps, PropsWithChildren {
   /** @field Account for optional header and footer rows */
@@ -29,7 +30,7 @@ export const TableHeightProvider: React.FC<TableHeightProviderProps> = ({
 
   const formattedHeight = useMemo(() => (height === undefined ? undefined : `${height}${heightFormat}`), [height, heightFormat])
 
-  const value = useMemo(() => ({
+  const value: TableHeightState = useMemo(() => ({
     height: formattedHeight, provided: true, rowHeight, setRowHeight, setVisibleRows, visibleRows,
   }), [formattedHeight, rowHeight, setRowHeight, setVisibleRows, visibleRows])
 

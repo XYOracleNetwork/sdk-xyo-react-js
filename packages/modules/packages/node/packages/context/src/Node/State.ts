@@ -1,4 +1,5 @@
+import type { ContextExState } from '@xylabs/react-shared'
 import type { NodeInstance } from '@xyo-network/node-model'
-export interface NodeContextState {
+export type NodeContextState = ContextExState<{
   node?: NodeInstance | null
-}
+}>

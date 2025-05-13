@@ -7,6 +7,7 @@ import { useParams, useSearchParams } from 'react-router-dom'
 
 import { useDivinePayload } from '../PayloadDiviner/index.ts'
 import { DivinedPayloadContext } from './Context.ts'
+import type { DivinedPayloadState } from './State.ts'
 import { useDivinedPayload } from './use.ts'
 
 export interface DivinedPayloadProviderProps extends PropsWithChildren {
@@ -25,7 +26,7 @@ export const DivinedPayloadProvider: React.FC<DivinedPayloadProviderProps> = ({ 
 
   const [payload, setPayload, payloadError] = useDivinePayload(huriUri)
 
-  const value = useMemo(() => ({
+  const value: DivinedPayloadState = useMemo(() => ({
     payload, payloadError, provided: true, setPayload,
   }), [payload, payloadError, setPayload])
 

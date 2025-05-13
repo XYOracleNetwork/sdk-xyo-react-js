@@ -1,7 +1,7 @@
-import type { ContextExState } from '@xyo-network/react-shared'
+import type { ContextExState } from '@xylabs/react-shared'
 
 import type { PromiseQueue } from '../../classes/index.ts'
 
-export interface PromiseQueueState extends ContextExState {
+export type PromiseQueueState = ContextExState<{
   queue?: PromiseQueue
-}
+}>

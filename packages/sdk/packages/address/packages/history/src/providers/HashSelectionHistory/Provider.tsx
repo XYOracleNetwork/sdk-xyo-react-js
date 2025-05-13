@@ -1,10 +1,10 @@
 import type { Hash } from '@xylabs/hex'
+import type { ContextExProviderProps } from '@xylabs/react-shared'
 import { useMounted } from '@xylabs/react-shared'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import type { ModuleError, WithStorageMeta } from '@xyo-network/payload-model'
-import type { ContextExProviderProps } from '@xyo-network/react-shared'
 import type { PropsWithChildren } from 'react'
 import React, {
   useCallback, useEffect, useState,
