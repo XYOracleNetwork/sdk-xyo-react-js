@@ -16,15 +16,13 @@ export type PayloadJsonDetailsProps = PropertyGroupProps & {
 export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({
   jsonViewProps, payload, ...props
 }) => {
-  const { breakpoints, palette } = useTheme()
+  const { breakpoints } = useTheme()
   const belowSm = useMediaQuery(breakpoints.down('sm'))
 
   let elevation = 2
   if (props.paper) {
     elevation += props.elevation ?? 0
   }
-
-  const jsonTheme = palette.mode === 'dark' ? 'dark' : 'light'
 
   return (
     <PropertyGroup titleProps={{ elevation }} title="JSON" tip="The raw JSON of the payload" {...props}>
@@ -37,10 +35,9 @@ export const PayloadJsonDetails: React.FC<PayloadJsonDetailsProps> = ({
       >
         <JsonViewerEx
           groupArraysAfterLength={20}
-          style={{ backgroundColor: undefined, overflow: 'hidden' }}
+          style={{ overflow: 'hidden' }}
           value={payload}
           enableClipboard
-          theme={jsonTheme}
           collapseStringsAfterLength={belowSm ? 24 : 32}
           {...jsonViewProps}
         />
