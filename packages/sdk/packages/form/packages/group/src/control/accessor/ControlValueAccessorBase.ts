@@ -1,6 +1,6 @@
 import type { BaseParams } from '@xylabs/base'
 import { forget } from '@xylabs/forget'
-import { BaseEmitter } from '@xyo-network/module-event-emitter'
+import { ModuleBaseEmitter } from '@xyo-network/module-event-emitter'
 
 import type {
   ControlSerializeSettings, ControlValueAccessor, SetOptions,
@@ -26,7 +26,7 @@ export class ControlValueAccessorBase<
   TValue = ValidControlValue,
   TEventData extends ControlValueAccessorBaseEvents<TValue> = ControlValueAccessorBaseEvents<TValue>,
 >
-  extends BaseEmitter<BaseParams, TEventData>
+  extends ModuleBaseEmitter<BaseParams, TEventData>
   implements ControlValueAccessor<TValue> {
   private _error: string = ''
 
