@@ -3,7 +3,7 @@ import {
 } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import { WithRefDecorator } from '@xyo-network/react-storybook'
 import React from 'react'
 

@@ -1,7 +1,7 @@
 import {
   Box, Button, CircularProgress,
 } from '@mui/material'
-import type { Decorator, StoryFn } from '@storybook/react'
+import type { Decorator, StoryFn } from '@storybook/react-vite'
 import { usePromise } from '@xylabs/react-promise'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'

@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 import React from 'react'
 
 import { useActiveBoundWitness } from '../../hooks/index.ts'

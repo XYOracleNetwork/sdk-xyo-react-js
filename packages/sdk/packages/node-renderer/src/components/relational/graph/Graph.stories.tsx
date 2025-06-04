@@ -1,7 +1,7 @@
 import { Button, ButtonGroup } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'

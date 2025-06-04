@@ -1,6 +1,6 @@
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 
 interface ImportMeta {
   env: Record<string, string>

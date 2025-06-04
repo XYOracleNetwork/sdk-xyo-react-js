@@ -1,6 +1,6 @@
 import { Replay as ReplayIcon } from '@mui/icons-material'
 import { TextField } from '@mui/material'
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import React from 'react'
 

@@ -1,7 +1,7 @@
 import { Divider, useTheme } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import { MenuSection } from '@xylabs/react-appbar'
 import {
   FlexCol, FlexGrowCol, FlexRow,

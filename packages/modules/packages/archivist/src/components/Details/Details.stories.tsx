@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import { NodeProvider } from '@xyo-network/react-node'

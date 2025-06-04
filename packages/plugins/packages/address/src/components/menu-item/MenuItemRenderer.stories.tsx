@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import type { Address } from '@xylabs/hex'
 import { toHex } from '@xylabs/hex'
 import type { AddressPayload } from '@xyo-network/module-model'

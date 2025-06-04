@@ -2,7 +2,7 @@
 
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map-model'
 import React from 'react'
 

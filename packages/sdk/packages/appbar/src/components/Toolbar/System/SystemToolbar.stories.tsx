@@ -1,5 +1,5 @@
 import { List, Typography } from '@mui/material'
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { MenuListItemContainer } from '@xylabs/react-appbar'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'
 import type { SyntheticEvent } from 'react'

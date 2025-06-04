@@ -1,7 +1,7 @@
 import {
   FormControl, TextField, Typography,
 } from '@mui/material'
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { useResetState } from '@xylabs/react-hooks'
 import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'

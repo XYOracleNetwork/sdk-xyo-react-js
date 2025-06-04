@@ -1,6 +1,6 @@
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import { useEvent } from '@xyo-network/react-event'
 import React from 'react'
 

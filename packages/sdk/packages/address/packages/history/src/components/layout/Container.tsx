@@ -8,6 +8,7 @@ const GridContainer = styled(Grid, { name: 'GridContainer' })(() => ({
   flexGrow: 1,
   height: '100%',
   overflow: 'hidden',
+  width: '100%',
 }))
 
 export interface WrappedContainerProps extends FlexBoxProps, PropsWithChildren {

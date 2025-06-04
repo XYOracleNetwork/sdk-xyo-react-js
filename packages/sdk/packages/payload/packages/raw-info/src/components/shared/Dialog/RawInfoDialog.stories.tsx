@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { toJson } from '@xylabs/object'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'

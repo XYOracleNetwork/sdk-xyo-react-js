@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 import {
   typescriptConfig,
   unicornConfig,
@@ -23,4 +26,5 @@ export default [
       '@typescript-eslint/no-misused-promises': ['off'],
     },
   },
-]
+  ...storybook.configs["flat/recommended"]
+];

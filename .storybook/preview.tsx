@@ -1,13 +1,12 @@
 import type { Theme } from '@mui/material'
 import {
-  Box, createTheme, CssBaseline, ThemeProvider, useColorScheme, useTheme,
+  Box, createTheme, CssBaseline, Stack, ThemeProvider, useColorScheme, useTheme,
 } from '@mui/material'
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 import {
   DataismTheme, XyLabsTheme, XyosTheme, XyoTheme,
 } from '@xylabs/react-theme'
-import React, { FC } from 'react'
-import { useDarkMode } from 'storybook-dark-mode'
+import React, { FC, useMemo } from 'react'
 
 const themeNames = ['None', 'XYO', 'Dataism', 'XYLabs', 'xyOS'] as const
 type ThemeName = typeof themeNames[number]
@@ -64,26 +63,14 @@ const withThemeProvider: Decorator = (Story, context) => {
     context.globals.theme = 'None'
   }
 
-  const darkMode = useDarkMode()
   const themeOptions = getTheme(context.globals.theme)
   const theme = themeOptions
 
-  const Inner = () => {
-    const {mode, setMode} = useColorScheme()
-    if (darkMode && (mode !== 'dark')) {
-      setMode('dark')
-    }
-    if (!darkMode && (mode !== 'light')) {
-      setMode('light')
-    }
-    return <Box>
-      <Story {...context} />
-    </Box>
-  }
-
   return (
-    <ThemeProvider theme={theme} defaultMode={darkMode ? 'dark' : 'light'}>
-      <Inner/>
+    <ThemeProvider theme={theme}>
+       <Stack alignItems="stretch">
+        <Story {...context} />
+      </Stack>
     </ThemeProvider>
   )
 }

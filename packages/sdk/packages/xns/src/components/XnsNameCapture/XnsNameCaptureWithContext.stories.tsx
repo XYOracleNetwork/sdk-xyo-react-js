@@ -1,6 +1,6 @@
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import React from 'react'
 import type { To } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'

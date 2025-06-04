@@ -1,4 +1,4 @@
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 import { DefaultSeedPhrase } from '@xyo-network/react-storybook'
 import type { WalletInstance } from '@xyo-network/wallet-model'
 import React, { useMemo, useState } from 'react'

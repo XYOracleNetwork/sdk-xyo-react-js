@@ -1,7 +1,7 @@
 import { Button, Typography } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import { delay } from '@xylabs/delay'
 import type { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'

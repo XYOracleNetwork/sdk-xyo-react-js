@@ -4,7 +4,7 @@ import {
 } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 

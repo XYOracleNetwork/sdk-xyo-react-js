@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { useEvent } from '@xyo-network/react-event'
 import { randomizedSampleAddressHistory, sampleAddressHistory } from '@xyo-network/react-storybook'
 import React from 'react'

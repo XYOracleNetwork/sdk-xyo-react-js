@@ -2,7 +2,7 @@
 import { Button } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { DefaultMapSettings } from '@xyo-network/react-map-model'
 import React, { useRef } from 'react'

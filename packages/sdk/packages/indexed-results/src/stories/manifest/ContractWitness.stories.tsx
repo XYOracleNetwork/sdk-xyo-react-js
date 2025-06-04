@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { ManifestNodeProvider } from '@xyo-network/react-manifest'
 import React from 'react'
 

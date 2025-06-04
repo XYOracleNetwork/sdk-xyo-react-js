@@ -1,5 +1,5 @@
 import { List, Paper } from '@mui/material'
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { MenuListItemContainer } from '@xylabs/react-appbar'
 import { FlexGrowCol } from '@xylabs/react-flexbox'
 import { NetworkMemoryProvider } from '@xyo-network/react-network'

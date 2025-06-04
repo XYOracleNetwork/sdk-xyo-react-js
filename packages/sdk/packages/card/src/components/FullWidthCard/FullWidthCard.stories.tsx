@@ -1,5 +1,5 @@
 /* eslint-disable @stylistic/max-len */
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 

@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
-} from '@storybook/react'
+} from '@storybook/react-vite'
 import React from 'react'
 
 import type { EmbedPluginState } from '../EmbedPluginContext/index.ts'

@@ -1,7 +1,7 @@
 import {
   Button, ButtonGroup, Typography,
 } from '@mui/material'
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { ForecastPayloadSchema } from '@xyo-network/diviner-forecasting-model'
 import type { RefObject } from 'react'

@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@mui/material'
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { FC } from 'react'
 import React, {

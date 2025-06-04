@@ -1,5 +1,5 @@
 import { Breadcrumbs, List } from '@mui/material'
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { MenuListItemContainer } from '@xylabs/react-appbar'
 import { FlexRow } from '@xylabs/react-flexbox'
 import { LinkEx } from '@xylabs/react-link'

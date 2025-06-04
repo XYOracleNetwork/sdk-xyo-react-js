@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import { usePromise } from '@xylabs/react-promise'
 import type { PropsWithChildren } from 'react'
 import React, { useEffect } from 'react'

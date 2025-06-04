@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react'
+import type { Meta, StoryFn } from '@storybook/react-vite'
 import type { Hash } from '@xylabs/hex'
 import type { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
