@@ -14,7 +14,7 @@ import { RenderTitle } from '../../lib/index.ts'
 const isEmpty = (obj?: object) => Object.keys(obj ?? {}).length === 0
 
 export const EthersGasPriceDetailsBox: React.FC<PayloadDetailsListRenderProps & FlexBoxProps> = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   payload, listMode, ...props
 }) => {
   const gasPricePayload = payload ? (payload as EthereumGasEthersPayload) : undefined

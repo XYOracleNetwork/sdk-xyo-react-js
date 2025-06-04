@@ -37,8 +37,8 @@ export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({
 
       {showQueries
         ? mod?.queries.map((query) => {
-          return <FlexRow key={query}>{query}</FlexRow>
-        })
+            return <FlexRow key={query}>{query}</FlexRow>
+          })
         : null}
       {children}
     </FlexCol>

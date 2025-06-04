@@ -75,10 +75,7 @@ WithDataAndMaxSchemaDepth.args = {
 
 const WithInvalid = Template.bind({})
 
-const {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  schema, ...badPayload
-} = sampleIdPayload
+const { schema, ...badPayload } = sampleIdPayload
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

@@ -22,10 +22,7 @@ const TemplateWithContent: StoryFn<typeof ShareOutDialog> = (props) => {
   const [shareUrl, setShareUrl] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    open: unused, ...restProps
-  } = props
+  const { open: unused, ...restProps } = props
 
   const cardImg = <img src="https://picsum.photos/100/100" height="100px" width="100px" />
   const shareLinkName = 'My Share Link'

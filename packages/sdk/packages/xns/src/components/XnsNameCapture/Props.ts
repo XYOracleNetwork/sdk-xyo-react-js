@@ -42,7 +42,6 @@ export interface XnsNameCaptureProps extends XnsNameCaptureBaseProps,
   XnsNameCaptureTrackingProps,
   XnsNameCaptureBuyCallbacks,
   XnsNameCaptureRoutingProps,
-  FlexBoxProps
-{}
+  FlexBoxProps {}
 
 export type WithXnsCapture<T> = T & { XnsCapture?: React.FC<XnsNameCaptureProps> }

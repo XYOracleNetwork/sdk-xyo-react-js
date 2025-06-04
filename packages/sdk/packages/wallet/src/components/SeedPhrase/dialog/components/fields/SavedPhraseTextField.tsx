@@ -19,7 +19,7 @@ export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
 }
 
 export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   fullWidth, showCopyButton, showPhraseHeader, visible: visibleProp, ...props
 }) => {
   const { validSeedPhrase, seedPhrase } = useSeedPhrase()

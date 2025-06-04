@@ -16,14 +16,14 @@ export const PayloadTableHead: React.FC<PayloadTableHeadProps<PayloadTableColumn
       <TableRow>
         {breakPoint
           ? columnsMemo[breakPoint]?.map((column, index) => {
-            return (
-              <TableCell key={index} width={index === 0 ? '100%' : undefined} align={index === 0 ? 'left' : 'center'}>
-                <Typography variant="body2" noWrap>
-                  {payloadColumnNames[column]}
-                </Typography>
-              </TableCell>
-            )
-          })
+              return (
+                <TableCell key={index} width={index === 0 ? '100%' : undefined} align={index === 0 ? 'left' : 'center'}>
+                  <Typography variant="body2" noWrap>
+                    {payloadColumnNames[column]}
+                  </Typography>
+                </TableCell>
+              )
+            })
           : null}
       </TableRow>
     </TableHead>
