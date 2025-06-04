@@ -1,4 +1,5 @@
 import {
+  Link,
   TableBody, TableCell, TableRow,
 } from '@mui/material'
 import type { EventNoun, ExtendEventNoun } from '@xyo-network/react-event'
@@ -10,15 +11,17 @@ import { useTableHeight } from '@xyo-network/react-table'
 import type { RefObject } from 'react'
 import React, { useLayoutEffect } from 'react'
 
+type clickableFields = 'hash'
+
 export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun = EventNoun> extends PayloadTableBodyProps {
-  /** @deprecated - no longer used */
-  boundwitnessHash?: string
+  clickableFields?: clickableFields[]
   eventNoun?: TNoun
   payloadHashes?: string[]
   payloadSchemas?: string[]
 }
 
 export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = EventNoun>({
+  clickableFields,
   eventNoun = 'payload' as TNoun,
   payloadHashes,
   payloadSchemas,
@@ -48,20 +51,26 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = Eve
       {noResults && NoResultRowComponent
         ? <NoResultRowComponent />
         : null}
-      {(
-        payloadHashes
-        && payloadSchemas
-        && payloadHashes.length > 0
-        && payloadHashes?.map((hash, index) => {
-          return (
-            <TableRow ref={tableRowRef} key={hash} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
-              <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
-              <HashTableCell title={hash}>{hash}</HashTableCell>
-            </TableRow>
-          )
-        })) || (
-        <TableRowNoData additionalCells={1} />
-      )}
+      {payloadHashes && payloadSchemas && payloadHashes.length > 0
+        ? payloadHashes.map((hash, index) => {
+            return (
+              <TableRow ref={tableRowRef} key={hash} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
+                <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
+                <HashTableCell title={hash}>
+                  {clickableFields?.includes('hash')
+                    ? (
+                        <Link>
+                          {hash}
+                        </Link>
+                      )
+                    : hash}
+                </HashTableCell>
+              </TableRow>
+            )
+          })
+        : (
+            <TableRowNoData additionalCells={1} />
+          )}
     </TableBody>
   )
 }
