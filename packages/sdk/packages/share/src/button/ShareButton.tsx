@@ -1,6 +1,8 @@
 import {
-  Facebook as FacebookIcon, Share as ShareIcon, Twitter as TwitterIcon,
+  Facebook as FacebookIcon, Share as ShareIcon,
+  X as XIcon,
 } from '@mui/icons-material'
+import type { PopoverProps } from '@mui/material'
 import { Popover } from '@mui/material'
 import type { ButtonExProps } from '@xylabs/react-button'
 import { ButtonEx } from '@xylabs/react-button'
@@ -11,17 +13,18 @@ import React, { useRef, useState } from 'react'
 export type ShareButtonProps = ButtonExProps & {
   prepared?: boolean
   shareLink?: string
+  slot?: { popover?: PopoverProps }
 }
 
 export const ShareButton: React.FC<ShareButtonProps> = ({
-  prepared = true, shareLink, ...props
+  prepared = true, shareLink, slot, ...props
 }) => {
   const [expanded, setExpanded] = useState(false)
   const anchorRef = useRef(null)
   const link = shareLink ?? globalThis.location.href
 
   return (
-    <FlexRow gap={1} ref={anchorRef}>
+    <FlexRow gap={1}>
       <ButtonEx
         variant="text"
         minWidth={32}
@@ -32,19 +35,28 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
         }}
         {...props}
       >
-        <ShareIcon htmlColor="gray" fontSize="small" />
+        <ShareIcon htmlColor="gray" fontSize="small" ref={anchorRef} />
       </ButtonEx>
-      <Popover open={prepared ? expanded : false} anchorEl={anchorRef.current} onClose={() => setExpanded(false)} transitionDuration={500}>
+      <Popover
+        open={prepared ? expanded : false}
+        anchorEl={anchorRef.current}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        onClose={() => setExpanded(false)}
+        transitionDuration={500}
+        sx={{
+          ml: 1, top: -4, ...slot?.popover?.sx,
+        }}
+        {...slot?.popover}
+      >
         <FlexRow gap={0.5} padding={0.5}>
           <LinkEx
             lineHeight={0}
-            style={{ color: '#1da1f2' }}
             onClick={() => {
-              window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(link)}`)
+              window.open(`https://x.com/intent/tweet?url=${encodeURIComponent(link)}`)
               setExpanded(false)
             }}
           >
-            <TwitterIcon fontSize="small" />
+            <XIcon fontSize="small" />
           </LinkEx>
           <LinkEx
             lineHeight={0}
