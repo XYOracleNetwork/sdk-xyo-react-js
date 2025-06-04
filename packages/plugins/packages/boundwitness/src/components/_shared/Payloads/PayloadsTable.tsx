@@ -23,14 +23,12 @@ export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> 
         noResults={boundwitness?.payload_hashes.length === 0}
         payloadHashes={boundwitness?.payload_hashes}
         payloadSchemas={boundwitness?.payload_schemas}
-        boundwitnessHash={boundwitness ? hash : ''}
       />
     </BoundWitnessPayloadsTableInner>
   )
 }
 
 export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableProps> = ({ boundwitness, ...props }) => {
-  const hash = usePayloadHash(boundwitness)
   return (
     <BoundWitnessPayloadsTableInner {...props}>
       <BoundWitnessFilteredPayloadTableBody
@@ -39,7 +37,6 @@ export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableP
         noResults={boundwitness?.payload_hashes.length === 0}
         payloadHashes={boundwitness?.payload_hashes}
         payloadSchemas={boundwitness?.payload_schemas}
-        boundwitnessHash={boundwitness ? hash : ''}
       />
     </BoundWitnessPayloadsTableInner>
   )
