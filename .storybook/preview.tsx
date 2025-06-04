@@ -1,12 +1,13 @@
 import type { Theme } from '@mui/material'
 import {
-  Box, createTheme, CssBaseline, Stack, ThemeProvider, useColorScheme, useTheme,
+  createTheme,
+  Stack, ThemeProvider, useColorScheme, useTheme
 } from '@mui/material'
 import type { Decorator } from '@storybook/react-vite'
 import {
   DataismTheme, XyLabsTheme, XyosTheme, XyoTheme,
 } from '@xylabs/react-theme'
-import React, { FC, useMemo } from 'react'
+import React, { useEffect } from 'react'
 
 const themeNames = ['None', 'XYO', 'Dataism', 'XYLabs', 'xyOS'] as const
 type ThemeName = typeof themeNames[number]
@@ -26,6 +27,19 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
+  mode: {
+    name: 'Color Mode',
+    description: 'Global color mode for components',
+    toolbar: {
+      icon: 'circlehollow',
+      items: [
+        { value: 'light', icon: 'sun', title: 'Light Mode' },
+        { value: 'dark', icon: 'moon', title: 'Dark Mode' },
+        { value: 'system', icon: 'circlehollow', title: 'System Mode' },
+      ],
+      default: 'light',
+    },
+  }
 }
 
 const getTheme = (themeName: ThemeName) => {
@@ -75,4 +89,15 @@ const withThemeProvider: Decorator = (Story, context) => {
   )
 }
 
-export const decorators = [withThemeProvider]
+const withModeSelector: Decorator = (Story, context) => {
+  const { mode } = context.globals
+  const { setMode: setMuiMode } = useColorScheme()
+
+  useEffect(() => {
+    setMuiMode(mode)
+  }, [mode])
+
+  return <Story {...context} />
+}
+
+export const decorators = [withModeSelector, withThemeProvider]
