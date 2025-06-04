@@ -16,6 +16,7 @@ type clickableFields = 'address' | 'signature'
 
 export interface BoundWitnessSignatureTableRowProps extends TableRowProps {
   address?: string
+  /** @deprecated - archives no longer used */
   archive?: string
   clickableFields?: clickableFields[]
   dataHash?: string
@@ -36,10 +37,10 @@ export const BoundWitnessSignatureTableRow: React.FC<BoundWitnessSignatureTableR
     async () =>
       dataHash && address
         ? await BoundWitnessValidator.validateSignature(
-          toUint8Array(dataHash).buffer,
-          toUint8Array(address).buffer,
-          toUint8Array(signature)?.buffer,
-        )
+            toUint8Array(dataHash).buffer,
+            toUint8Array(address).buffer,
+            toUint8Array(signature)?.buffer,
+          )
         : [],
     [dataHash, address, signature],
   )
