@@ -18,11 +18,12 @@ export const LogoLinkEx: React.FC<LogoLinkExProps> = ({
   const theme = useTheme()
   assertEx(href === undefined, () => 'href is not supported')
   return (
-    <LinkEx to={to} {...props}>
+    <LinkEx to={to} sx={{ 'opacity': 0.8, '&:hover': { opacity: 1 } }} {...props}>
       <FlexRow paddingX="4px">
         {logo ?? <Logo height="40" width="43" />}
-        {version
-          ? (
+        {version === undefined
+          ? null
+          : (
               <Typography
                 position="absolute"
                 borderRadius={1}
@@ -37,8 +38,7 @@ export const LogoLinkEx: React.FC<LogoLinkExProps> = ({
               >
                 {typeof version === 'string' ? version : '2.1'}
               </Typography>
-            )
-          : null}
+            )}
       </FlexRow>
     </LinkEx>
   )
