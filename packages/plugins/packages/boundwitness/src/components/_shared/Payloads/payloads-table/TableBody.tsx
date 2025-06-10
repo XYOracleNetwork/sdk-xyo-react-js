@@ -54,7 +54,7 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = Eve
       {payloadHashes && payloadSchemas && payloadHashes.length > 0
         ? payloadHashes.map((hash, index) => {
             return (
-              <TableRow ref={tableRowRef} key={hash} onClick={() => handleOnClick(hash)} sx={{ cursor: 'pointer' }}>
+              <TableRow ref={tableRowRef} key={hash} onClick={() => handleOnClick(hash)}>
                 <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
                 <HashTableCell title={hash}>
                   {clickableFields?.includes('hash')
