@@ -21,8 +21,10 @@ import type { PayloadTableColumnConfig, PayloadTableColumnSlug } from './Payload
 import { payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig.ts'
 
 export interface PayloadTableRowProps extends TableRowProps {
+  /** @deprecated - archives are no longer used */
   archive?: string
   columns?: PayloadTableColumnConfig
+  /** @deprecated - use event listeners instead of link building via props */
   exploreDomain?: string
   maxSchemaDepth?: number
   network?: string
@@ -31,9 +33,7 @@ export interface PayloadTableRowProps extends TableRowProps {
 }
 
 export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
-  archive,
   columns,
-  exploreDomain,
   maxSchemaDepth,
   network: networkProp,
   onHashClick,
@@ -49,12 +49,10 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const hash: TableCellRenderer = props => (
     <HashTableCell
       key="hash"
-      archive={archive}
       width="100%"
       value={payloadHash}
       onHashClick={onHashClick}
       dataType="payload"
-      exploreDomain={exploreDomain}
       network={networkProp ?? network?.slug}
       {...props}
     />

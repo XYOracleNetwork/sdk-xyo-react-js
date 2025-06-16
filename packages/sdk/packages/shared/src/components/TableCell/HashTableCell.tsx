@@ -6,20 +6,20 @@ import type { EllipsisTableCellProps } from './EllipsisTableCell.tsx'
 import { EllipsisTableCell } from './EllipsisTableCell.tsx'
 
 export interface HashTableCellProps extends EllipsisTableCellProps {
+  /** @deprecated - archives are no longer used */
   archive?: string
   dataType?: 'block' | 'payload'
+  /** @deprecated - use event listeners instead of link building via props */
   exploreDomain?: string
   network?: string
   onHashClick?: (value: Hash) => void
 }
 
 export const HashTableCell: React.FC<HashTableCellProps> = ({
-  value, archive, dataType, network, exploreDomain, onHashClick, ...props
+  value, dataType, network, onHashClick, ...props
 }) => {
   const ref = useRef<HTMLTableCellElement | null>(null)
   const [tableCellRef, dispatch] = useEvent<HTMLTableCellElement>(undefined, ref)
-  const hashPath = `/${dataType}/hash/${value}?network=${network ?? 'main'}`
-  const explorePath = archive ? `/archive/${archive}${hashPath}` : hashPath
 
   const handleCellClick = () => {
     if (onHashClick) {
@@ -34,8 +34,6 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({
       onClick={handleCellClick}
       ref={tableCellRef}
       value={value}
-      href={exploreDomain ? `${exploreDomain}${explorePath}}` : undefined}
-      to={exploreDomain ? undefined : explorePath}
       {...props}
     />
   )

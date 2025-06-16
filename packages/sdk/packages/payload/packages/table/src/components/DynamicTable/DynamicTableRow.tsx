@@ -29,17 +29,17 @@ import type {
 import { payloadDynamicTableColumnConfigDefaults } from './PayloadDynamicTableColumnConfig.ts'
 
 export interface PayloadDynamicTableRowProps extends TableRowProps {
+  /** @deprecated - archives are no longer used */
   archive?: string
   columns?: PayloadDynamicTableColumnConfig
+  /** @deprecated - use event listeners instead of link building via props */
   exploreDomain?: string
   network?: string
   payload?: Payload & { sources?: string[] }
 }
 
 export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
-  archive,
   columns,
-  exploreDomain,
   network: networkProp,
   payload,
   ...props
@@ -56,10 +56,8 @@ export const PayloadDynamicTableRow: React.FC<PayloadDynamicTableRowProps> = ({
     <HashTableCell
       key="hash"
       align="left"
-      archive={archive}
       value={payloadHash}
       dataType="payload"
-      exploreDomain={exploreDomain}
       network={networkProp ?? network?.slug}
       {...props}
     />
