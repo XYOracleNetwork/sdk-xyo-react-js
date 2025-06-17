@@ -46,7 +46,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
     <HashTableCell key="hash" value={blockHash} dataType="block" network={networkProp ?? network?.slug}>
       {clickableFields?.includes('hash')
         ? (
-            <Link>{blockHash}</Link>
+            <Link sx={{ cursor: 'pointer' }}>{blockHash}</Link>
           )
         : blockHash}
     </HashTableCell>
