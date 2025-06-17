@@ -61,7 +61,6 @@ const getTheme = (themeName: ThemeName) => {
 }
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     expanded: true,
     matchers: {
