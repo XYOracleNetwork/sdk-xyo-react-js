@@ -2,6 +2,7 @@ import {
   TableBody, TableCell, TableHead, TableRow,
 } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
+import { isDefined } from '@xylabs/typeof'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
 import React from 'react'
@@ -11,7 +12,7 @@ import type { BlockTableProps } from './BlockTableProps.ts'
 import { BlockTableRowWithErrorBoundary } from './TableRowWithErrorBoundary.tsx'
 
 export const BlockTable: React.FC<BlockTableProps> = ({
-  exploreDomain,
+  clickableFields,
   onRowClick,
   blocks,
   columns,
@@ -21,7 +22,7 @@ export const BlockTable: React.FC<BlockTableProps> = ({
 }) => {
   const breakPoint = useBreakpoint()
   const blockPairs = usePayloadHashes(blocks)
-  return breakPoint
+  return isDefined(breakPoint)
     ? (
         <TableEx variant={variant} {...props}>
           <TableHead>
@@ -38,10 +39,10 @@ export const BlockTable: React.FC<BlockTableProps> = ({
           <TableBody>
             {blockPairs?.map(([block, hash], index) => (
               <BlockTableRowWithErrorBoundary
+                clickableFields={clickableFields}
                 key={hash}
                 block={block}
                 index={index}
-                exploreDomain={exploreDomain}
                 onRowClick={onRowClick}
                 columns={columns}
               />

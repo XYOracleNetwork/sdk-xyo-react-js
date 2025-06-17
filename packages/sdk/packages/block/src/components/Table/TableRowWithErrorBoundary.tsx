@@ -4,17 +4,20 @@ import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React from 'react'
 
+import type { BlockTableColumnSlug } from './BlockTableColumnConfig.ts'
 import type { BlockTableRowProps } from './TableRow.tsx'
 import { BlockTableRow } from './TableRow.tsx'
 
 interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
+  clickableFields?: BlockTableColumnSlug[]
+  /** @deprecated - use events to build links instead of passing props */
   exploreDomain?: string
   index: number
   onRowClick?: (value: BoundWitness) => void
 }
 
 const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({
-  block, columns, onRowClick, index, exploreDomain,
+  block, columns, onRowClick, index,
 }) => {
   const hash = usePayloadHash(block)
   return (
@@ -33,7 +36,6 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
               )}
             >
               <BlockTableRow
-                exploreDomain={exploreDomain}
                 block={block}
                 columns={columns}
                 onClick={

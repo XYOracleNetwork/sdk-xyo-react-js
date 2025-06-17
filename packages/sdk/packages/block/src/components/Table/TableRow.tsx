@@ -1,14 +1,17 @@
 import type { TableRowProps } from '@mui/material'
-import { TableCell, TableRow } from '@mui/material'
+import {
+  Link, TableCell, TableRow,
+} from '@mui/material'
 import { exists } from '@xylabs/exists'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
+import { isDefined } from '@xylabs/typeof'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import type { ReactElement } from 'react'
-import React from 'react'
+import React, { useMemo } from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { MdClear, MdDone } from 'react-icons/md'
 
@@ -17,15 +20,17 @@ import { blockTableColumnConfigDefaults } from './BlockTableColumnConfig.ts'
 
 export interface BlockTableRowProps extends TableRowProps {
   block?: BoundWitness
+  clickableFields?: BlockTableColumnSlug[]
   columns?: BlockTableColumnConfig
+  /** @deprecated - use events to build links instead of passing props */
   exploreDomain?: string
   network?: string
 }
 
 export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   block,
+  clickableFields,
   columns,
-  exploreDomain,
   network: networkProp,
   ...props
 }) => {
@@ -37,7 +42,15 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
 
   const blockHash = usePayloadHash(block)
 
-  const hash = <HashTableCell key="hash" value={blockHash} dataType="block" exploreDomain={exploreDomain} network={networkProp ?? network?.slug} />
+  const hash = useMemo(() => (
+    <HashTableCell key="hash" value={blockHash} dataType="block" network={networkProp ?? network?.slug}>
+      {clickableFields?.includes('hash')
+        ? (
+            <Link>{blockHash}</Link>
+          )
+        : blockHash}
+    </HashTableCell>
+  ), [blockHash, network, networkProp])
 
   const payloads = (
     <TableCell key="payloads" align="center">
@@ -63,7 +76,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
     valid,
   }
 
-  return breakPoint
+  return isDefined(breakPoint)
     ? (
         <TableRow style={{ maxWidth: '100vw' }} {...props}>
           {(columns ?? blockTableColumnConfigDefaults())[breakPoint]?.map((column) => {
