@@ -187,6 +187,27 @@ export const payloadData = {
   timestamp: 1_659_071_465_718,
 }
 
+export const payloadDataMissingSymbol = {
+  pairs: [
+    {
+      tokens: [
+        {
+          address: '0x55296f69f40Ea6d20E478533C15A6B08B654E758',
+          symbol: 'FOO',
+          value: 0.000_006_889_28,
+        },
+        {
+          address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+          symbol: 'BAR',
+          value: 145_153,
+        },
+      ],
+    },
+  ],
+  schema: 'network.xyo.crypto.market.uniswap',
+  timestamp: 1_659_071_465_718,
+}
+
 export const payloadDataMissingPairs = {
   pairs: [],
   schema: 'network.xyo.crypto.market.uniswap',
