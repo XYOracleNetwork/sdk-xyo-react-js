@@ -71,7 +71,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   )
 
   const reduceSchemaDepth = (schema?: string, maxSchemaDepth?: number) => {
-    if (maxSchemaDepth) {
+    if (isDefined(maxSchemaDepth)) {
       const parts = schema?.split('.') ?? []
       const partsToRemove = Math.max(parts.length - maxSchemaDepth, 0)
       if (partsToRemove > 0) {
@@ -123,7 +123,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
 
   const columnsMemo = useMemo(() => columns ?? payloadTableColumnConfigDefaults(), [columns])
 
-  return breakPoint
+  return isDefined(breakPoint)
     ? (
         <TableRow style={{ maxWidth: '100vw' }} {...props}>
           {columnsMemo[breakPoint]?.map((column) => {
