@@ -5,11 +5,12 @@ import {
 } from '@mui/icons-material'
 import type { TableRowProps } from '@mui/material'
 import {
-  alpha, TableCell, TableRow, Typography,
+  alpha, Link, TableCell, TableRow, Typography,
 } from '@mui/material'
 import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
+import { isDefined } from '@xylabs/typeof'
 import type { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useNetwork } from '@xyo-network/react-network'
@@ -23,6 +24,7 @@ import { payloadTableColumnConfigDefaults } from './PayloadTableColumnConfig.ts'
 export interface PayloadTableRowProps extends TableRowProps {
   /** @deprecated - archives are no longer used */
   archive?: string
+  clickableFields?: PayloadTableColumnSlug[]
   columns?: PayloadTableColumnConfig
   /** @deprecated - use event listeners instead of link building via props */
   exploreDomain?: string
@@ -33,6 +35,7 @@ export interface PayloadTableRowProps extends TableRowProps {
 }
 
 export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
+  clickableFields,
   columns,
   maxSchemaDepth,
   network: networkProp,
@@ -50,12 +53,21 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
     <HashTableCell
       key="hash"
       width="100%"
-      value={payloadHash}
       onHashClick={onHashClick}
       dataType="payload"
       network={networkProp ?? network?.slug}
       {...props}
-    />
+    >
+      {isDefined(payloadHash) && (
+        <>
+          {clickableFields?.includes('hash')
+            ? (
+                <Link>{payloadHash}</Link>
+              )
+            : payloadHash}
+        </>
+      )}
+    </HashTableCell>
   )
 
   const reduceSchemaDepth = (schema?: string, maxSchemaDepth?: number) => {
@@ -80,7 +92,12 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const schema: TableCellRenderer = props => (
     <TableCell title={payload?.schema} key="payloads" align="center" {...props}>
       <Typography fontFamily="monospace" variant="body2" noWrap>
-        {reduceSchemaDepth(payload?.schema, maxSchemaDepth)}
+        {clickableFields?.includes('schema')
+          ? (
+              <Link>{reduceSchemaDepth(payload?.schema, maxSchemaDepth)}</Link>
+            )
+          : reduceSchemaDepth(payload?.schema, maxSchemaDepth)}
+
       </Typography>
     </TableCell>
   )

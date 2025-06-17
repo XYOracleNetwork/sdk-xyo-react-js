@@ -11,9 +11,8 @@ import type { PayloadTableBodyProps } from './types/index.ts'
 
 export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
   children,
-  exploreDomain,
+  clickableFields,
   payloads,
-  archive,
   maxSchemaDepth,
   onHashClick,
   onRowClick,
@@ -43,8 +42,8 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
             )}
           >
             <PayloadTableRow
+              clickableFields={clickableFields}
               maxSchemaDepth={maxSchemaDepth}
-              archive={archive}
               onClick={
                 onRowClick
                   ? () => {
@@ -53,7 +52,6 @@ export const PayloadTableBody: React.FC<PayloadTableBodyProps> = ({
                   : undefined
               }
               onHashClick={onHashClick}
-              exploreDomain={exploreDomain}
               payload={payload}
             />
           </ThrownErrorBoundary>

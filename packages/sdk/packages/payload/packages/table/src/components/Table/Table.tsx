@@ -5,7 +5,7 @@ import { TableEx } from '@xyo-network/react-table'
 import type { ComponentType } from 'react'
 import React, { useMemo, useState } from 'react'
 
-import type { PayloadTableColumnConfig } from './PayloadTableColumnConfig.ts'
+import type { PayloadTableColumnConfig, PayloadTableColumnSlug } from './PayloadTableColumnConfig.ts'
 import { PayloadTableBody } from './TableBody.tsx'
 import { PayloadTableFooter } from './TableFooter.tsx'
 import { PayloadTableHead } from './TableHead.tsx'
@@ -18,10 +18,13 @@ export interface PayloadTableProps extends TableExProps {
   PayloadTableBodyComponent?: ComponentType<PayloadTableBodyProps>
   PayloadTableFooterComponent?: ComponentType<PayloadTableFooterProps>
   PayloadTableHeadComponent?: ComponentType<PayloadTableHeadProps>
+  /** @deprecated - archives are no longer used */
   archive?: string
+  clickableFields?: PayloadTableColumnSlug[]
   columns?: PayloadTableColumnConfig
   /** Total number of payloads passed */
   count?: number
+  /** @deprecated - use events to build links instead of passing props */
   exploreDomain?: string
   /** External trigger to fetch more payloads */
   fetchMorePayloads?: () => void
@@ -36,8 +39,6 @@ export interface PayloadTableProps extends TableExProps {
 
 export const PayloadTableWithRef: React.FC<PayloadTableProps> = (
   {
-    exploreDomain,
-    archive,
     onHashClick,
     onRowClick,
     fetchMorePayloads,
@@ -102,7 +103,7 @@ export const PayloadTableWithRef: React.FC<PayloadTableProps> = (
   }
 
   const noResults = useMemo(() => {
-    return !loading && (!visiblePayloads || visiblePayloads.length === 0)
+    return !loading && (visiblePayloads.length === 0)
   }, [loading, visiblePayloads])
 
   return (
@@ -110,8 +111,6 @@ export const PayloadTableWithRef: React.FC<PayloadTableProps> = (
       <PayloadTableHeadComponent columns={columns} />
       <PayloadTableBodyComponent
         payloads={visiblePayloads}
-        exploreDomain={exploreDomain}
-        archive={archive}
         maxSchemaDepth={maxSchemaDepth}
         onRowClick={onRowClick}
         onHashClick={onHashClick}
