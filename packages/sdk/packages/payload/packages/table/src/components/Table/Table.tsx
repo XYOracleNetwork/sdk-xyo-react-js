@@ -39,6 +39,7 @@ export interface PayloadTableProps extends TableExProps {
 
 export const PayloadTableWithRef: React.FC<PayloadTableProps> = (
   {
+    clickableFields,
     onHashClick,
     onRowClick,
     fetchMorePayloads,
@@ -110,6 +111,7 @@ export const PayloadTableWithRef: React.FC<PayloadTableProps> = (
     <TableEx variant={variant} {...props}>
       <PayloadTableHeadComponent columns={columns} />
       <PayloadTableBodyComponent
+        clickableFields={clickableFields}
         payloads={visiblePayloads}
         maxSchemaDepth={maxSchemaDepth}
         onRowClick={onRowClick}

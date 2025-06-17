@@ -1,5 +1,6 @@
 import { Chip } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react-vite'
+import { isDefined } from '@xylabs/typeof'
 import type { Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload } from '@xyo-network/react-storybook'
@@ -10,30 +11,6 @@ import { PayloadTable } from './Table.tsx'
 import { PayloadTableBody } from './TableBody.tsx'
 import { PayloadTableFooter } from './TableFooter.tsx'
 import { PayloadTableHead } from './TableHead.tsx'
-
-const StorybookEntry = {
-  argTypes: {},
-  component: PayloadTable,
-  parameters: { docs: { page: null } },
-  title: 'payload/Table',
-} as Meta<typeof PayloadTable>
-
-const Template: StoryFn<typeof PayloadTable> = (args) => {
-  const [eventData, setEventData] = useState<string | undefined>()
-  const [ref] = useEvent<HTMLTableElement>((_noun, _verb, data) => setEventData(data))
-
-  return (
-    <BrowserRouter>
-      {eventData
-        ? <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} />
-        : null}
-      <PayloadTable ref={ref} {...args}></PayloadTable>
-    </BrowserRouter>
-  )
-}
-
-const Default = Template.bind({})
-Default.args = {}
 
 const payloads: Payload[] = [
   sampleIdPayload,
@@ -53,12 +30,40 @@ const payloads: Payload[] = [
   sampleSystemInfoBrowserPayload,
 ]
 
+const StorybookEntry = {
+  argTypes: {},
+  component: PayloadTable,
+  parameters: { docs: { page: null } },
+  title: 'payload/Table',
+} as Meta<typeof PayloadTable>
+
+const Template: StoryFn<typeof PayloadTable> = (args) => {
+  const [eventData, setEventData] = useState<string | undefined>()
+  const [ref] = useEvent<HTMLTableElement>((_noun, _verb, data) => {
+    console.log('Event received:', _noun, _verb, data)
+    setEventData(data)
+  })
+
+  return (
+    <BrowserRouter>
+      {isDefined(eventData)
+        ? <Chip label={`EventData: ${eventData}`} onDelete={() => setEventData(undefined)} />
+        : null}
+      <PayloadTable ref={ref} {...args}></PayloadTable>
+    </BrowserRouter>
+  )
+}
+
+const Default = Template.bind({})
+Default.args = {}
+
 const WithData = Template.bind({})
 WithData.args = {
   payloads,
   PayloadTableBodyComponent: PayloadTableBody,
   PayloadTableHeadComponent: PayloadTableHead,
   PayloadTableFooterComponent: PayloadTableFooter,
+  clickableFields: ['hash'],
 }
 
 const WithOutStickyHeaderFooter = Template.bind({})

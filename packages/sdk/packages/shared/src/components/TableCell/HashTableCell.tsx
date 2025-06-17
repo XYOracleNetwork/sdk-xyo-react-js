@@ -25,7 +25,7 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({
     if (onHashClick) {
       onHashClick(value as Hash)
     } else {
-      dispatch?.('hash', 'click', value as Hash)
+      dispatch?.('hash', 'click', value)
     }
   }
 

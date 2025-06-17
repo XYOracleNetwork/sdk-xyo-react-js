@@ -51,18 +51,19 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
 
   const hash: TableCellRenderer = props => (
     <HashTableCell
-      key="hash"
-      width="100%"
-      onHashClick={onHashClick}
       dataType="payload"
+      key="hash"
       network={networkProp ?? network?.slug}
+      onHashClick={onHashClick}
+      value={payloadHash}
+      width="100%"
       {...props}
     >
       {isDefined(payloadHash) && (
         <>
           {clickableFields?.includes('hash')
             ? (
-                <Link>{payloadHash}</Link>
+                <Link sx={{ cursor: 'pointer' }}>{payloadHash}</Link>
               )
             : payloadHash}
         </>
@@ -94,7 +95,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
       <Typography fontFamily="monospace" variant="body2" noWrap>
         {clickableFields?.includes('schema')
           ? (
-              <Link>{reduceSchemaDepth(payload?.schema, maxSchemaDepth)}</Link>
+              <Link sx={{ cursor: 'pointer' }}>{reduceSchemaDepth(payload?.schema, maxSchemaDepth)}</Link>
             )
           : reduceSchemaDepth(payload?.schema, maxSchemaDepth)}
 
