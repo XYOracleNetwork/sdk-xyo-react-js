@@ -17,7 +17,7 @@ interface TableRowWithErrorBoundaryProps extends BlockTableRowProps {
 }
 
 const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> = ({
-  block, columns, onRowClick, index,
+  block, clickableFields, columns, onRowClick, index,
 }) => {
   const hash = usePayloadHash(block)
   return (
@@ -37,6 +37,7 @@ const BlockTableRowWithErrorBoundary: React.FC<TableRowWithErrorBoundaryProps> =
             >
               <BlockTableRow
                 block={block}
+                clickableFields={clickableFields}
                 columns={columns}
                 onClick={
                   onRowClick
