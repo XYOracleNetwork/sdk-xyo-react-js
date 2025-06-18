@@ -13,6 +13,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { isDefined } from '@xylabs/typeof'
 import type { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
+import { useEvent } from '@xyo-network/react-event'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import React, { useMemo } from 'react'
@@ -46,6 +47,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
   const breakPoint = useBreakpoint()
   const payloadHash = usePayloadHash(payload)
   const { network } = useNetwork()
+  const [ref, dispatch] = useEvent<HTMLAnchorElement>()
   const [errors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = errors.length === 0
 
@@ -63,7 +65,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
         <>
           {clickableFields?.includes('hash')
             ? (
-                <Link sx={{ cursor: 'pointer' }}>{payloadHash}</Link>
+                <Link onClick={() => dispatch('hash', 'click', payloadHash)} ref={ref} sx={{ cursor: 'pointer' }}>{payloadHash}</Link>
               )
             : payloadHash}
         </>

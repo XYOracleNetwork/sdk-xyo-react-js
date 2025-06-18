@@ -40,7 +40,6 @@ const StorybookEntry = {
 const Template: StoryFn<typeof PayloadTable> = (args) => {
   const [eventData, setEventData] = useState<string | undefined>()
   const [ref] = useEvent<HTMLTableElement>((_noun, _verb, data) => {
-    console.log('Event received:', _noun, _verb, data)
     setEventData(data)
   })
 
