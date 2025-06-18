@@ -1,6 +1,7 @@
 export * from './Ampersand.tsx'
 export * from './BasicHero/index.ts'
 export * from './bigint/index.ts'
+export * from './Copy/index.ts'
 export * from './Ellipsize.tsx'
 export * from './LabeledTextFieldWrapper.tsx'
 export * from './ListItemButtonEx.tsx'
