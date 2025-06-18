@@ -36,7 +36,7 @@ export const HeadingFlexbox: React.FC<HeadingFlexboxProps> = ({
       {AdornmentStart}
       {IconComponent}
       <EllipsizeBox
-        innerWrapProps={{ sx: { alignItems: 'unset' } }}
+        innerWrapProps={{ sx: { alignItems: 'unset', display: 'block' } }}
         title={headingText}
         width="100%"
         typographyProps={{ variant: sizeParser(size), ...headingProps }}
