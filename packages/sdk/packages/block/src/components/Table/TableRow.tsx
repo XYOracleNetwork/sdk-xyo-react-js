@@ -8,6 +8,7 @@ import { useBreakpoint } from '@xylabs/react-shared'
 import { isDefined } from '@xylabs/typeof'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
+import { useEvent } from '@xyo-network/react-event'
 import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import type { ReactElement } from 'react'
@@ -35,18 +36,23 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-
   const { network } = useNetwork()
-
+  const blockHash = usePayloadHash(block)
   const [errors = []] = usePromise(async () => await (block ? new BoundWitnessValidator(block).validate() : undefined), [block])
 
-  const blockHash = usePayloadHash(block)
+  const [ref, dispatch] = useEvent<HTMLAnchorElement>()
 
   const hash = useMemo(() => (
     <HashTableCell key="hash" value={blockHash} dataType="block" network={networkProp ?? network?.slug}>
       {clickableFields?.includes('hash')
         ? (
-            <Link sx={{ cursor: 'pointer' }}>{blockHash}</Link>
+            <Link
+              onClick={() => dispatch('hash', 'click', blockHash)}
+              ref={ref}
+              sx={{ cursor: 'pointer' }}
+            >
+              {blockHash}
+            </Link>
           )
         : blockHash}
     </HashTableCell>

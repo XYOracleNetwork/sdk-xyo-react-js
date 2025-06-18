@@ -22,7 +22,6 @@ const Template: StoryFn<typeof BlockTable> = ({ blocks: blocksProp, ...args }) =
   const [blocks, setBlocks] = useState<BoundWitness[]>(blocksProp ?? [])
   const [eventData, setEventData] = useState<string | undefined>()
   const [ref] = useEvent<HTMLTableElement>((_noun, _verb, data) => {
-    console.log('Event received:', _noun, _verb, data)
     setEventData(data)
   })
 
