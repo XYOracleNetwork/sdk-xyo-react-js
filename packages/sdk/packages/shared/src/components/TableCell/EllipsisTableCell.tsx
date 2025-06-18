@@ -44,7 +44,13 @@ export const EllipsisTableCellWithRef = ({
   }, [children, href, link, to, value])
   return (
     <EllipsisTableCellRoot {...props}>
-      <EllipsizeBox ref={ref} sx={{ cursor: link || to || href ? 'pointer' : 'inherit' }}>{data}</EllipsizeBox>
+      <EllipsizeBox
+        innerWrapProps={{ sx: { display: 'flex', alignItems: 'center' } }}
+        ref={ref}
+        sx={{ cursor: link || to || href ? 'pointer' : 'inherit' }}
+      >
+        {data}
+      </EllipsizeBox>
     </EllipsisTableCellRoot>
   )
 }
