@@ -19,19 +19,10 @@ export const HashTableCell: React.FC<HashTableCellProps> = ({
   value, dataType, network, onHashClick, ...props
 }) => {
   const ref = useRef<HTMLTableCellElement | null>(null)
-  const [tableCellRef, dispatch] = useEvent<HTMLTableCellElement>(undefined, ref)
-
-  const handleCellClick = () => {
-    if (onHashClick) {
-      onHashClick(value as Hash)
-    } else {
-      dispatch?.('hash', 'click', value)
-    }
-  }
+  const [tableCellRef] = useEvent<HTMLTableCellElement>(undefined, ref)
 
   return (
     <EllipsisTableCell
-      onClick={handleCellClick}
       ref={tableCellRef}
       value={value}
       {...props}
