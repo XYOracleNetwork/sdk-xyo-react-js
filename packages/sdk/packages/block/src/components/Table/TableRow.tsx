@@ -9,7 +9,6 @@ import { isDefined } from '@xylabs/typeof'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useEvent } from '@xyo-network/react-event'
-import { useNetwork } from '@xyo-network/react-network'
 import { HashTableCell, usePayloadHash } from '@xyo-network/react-shared'
 import type { ReactElement } from 'react'
 import React, { useMemo } from 'react'
@@ -25,6 +24,7 @@ export interface BlockTableRowProps extends TableRowProps {
   columns?: BlockTableColumnConfig
   /** @deprecated - use events to build links instead of passing props */
   exploreDomain?: string
+  /** @deprecated - use events to build links instead of passing props */
   network?: string
 }
 
@@ -32,18 +32,16 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
   block,
   clickableFields,
   columns,
-  network: networkProp,
   ...props
 }) => {
   const breakPoint = useBreakpoint()
-  const { network } = useNetwork()
   const blockHash = usePayloadHash(block)
   const [errors = []] = usePromise(async () => await (block ? new BoundWitnessValidator(block).validate() : undefined), [block])
 
   const [ref, dispatch] = useEvent<HTMLAnchorElement>()
 
   const hash = useMemo(() => (
-    <HashTableCell key="hash" value={blockHash} dataType="block" network={networkProp ?? network?.slug}>
+    <HashTableCell key="hash" value={blockHash} dataType="block">
       {clickableFields?.includes('hash')
         ? (
             <Link
@@ -56,7 +54,7 @@ export const BlockTableRow: React.FC<BlockTableRowProps> = ({
           )
         : blockHash}
     </HashTableCell>
-  ), [blockHash, network, networkProp])
+  ), [blockHash])
 
   const payloads = (
     <TableCell key="payloads" align="center">

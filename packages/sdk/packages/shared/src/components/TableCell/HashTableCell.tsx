@@ -11,12 +11,13 @@ export interface HashTableCellProps extends EllipsisTableCellProps {
   dataType?: 'block' | 'payload'
   /** @deprecated - use event listeners instead of link building via props */
   exploreDomain?: string
+  /** @deprecated - use event listeners instead of link building via props */
   network?: string
   onHashClick?: (value: Hash) => void
 }
 
 export const HashTableCell: React.FC<HashTableCellProps> = ({
-  value, dataType, network, onHashClick, ...props
+  value, dataType, onHashClick, ...props
 }) => {
   const ref = useRef<HTMLTableCellElement | null>(null)
   const [tableCellRef] = useEvent<HTMLTableCellElement>(undefined, ref)
