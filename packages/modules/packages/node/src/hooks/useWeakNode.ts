@@ -1,4 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
+import { isDefined } from '@xylabs/typeof'
 import type { NodeInstance } from '@xyo-network/node-model'
 import { asNodeInstance } from '@xyo-network/node-model'
 
@@ -11,8 +12,8 @@ export const useWeakNode = (config?: WeakModuleFromNodeConfig | undefined): [Wea
   const [providedNode] = useWeakProvidedNode()
   const [nodeAddressNode, error] = usePromise(async () => {
     const providedNodeInstance = providedNode?.deref()
-    if (providedNodeInstance && nodeAddress) {
-      return new WeakRef(asNodeInstance(await providedNodeInstance.resolve(nodeAddress), 'Module is not a node'))
+    if (providedNodeInstance && isDefined(nodeAddress)) {
+      return new WeakRef(asNodeInstance(await providedNodeInstance.resolve(nodeAddress), () => 'Module is not a node', { required: true }))
     }
   }, [providedNode, nodeAddress])
   return [nodeAddressNode ?? nodeInstance ?? providedNode ?? undefined, error]
