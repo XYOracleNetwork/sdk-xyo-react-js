@@ -52,7 +52,7 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = Eve
             return (
               <TableRow ref={tableRowRef} key={hash}>
                 <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
-                <HashTableCell title={hash}>
+                <HashTableCell title={hash} value={hash}>
                   {clickableFields?.includes('hash')
                     ? (
                         <Link
