@@ -38,7 +38,7 @@ const StyledHeadingPaper = styled(Paper, {
   display: 'flex',
   flexDirection: 'row',
   overflow: 'hidden',
-  padding: theme.spacing(1),
+  padding: theme.spacing(1.5),
   ...(hasAdornmentStart && { paddingLeft: 0 }),
   ...(hasAdornmentEnd && { paddingRight: 0 }),
   ...((hasAdornmentStart || hasAdornmentEnd) && { paddingBottom: 0, paddingTop: 0 }),
