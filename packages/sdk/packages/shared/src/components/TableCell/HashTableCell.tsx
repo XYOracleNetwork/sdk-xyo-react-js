@@ -1,6 +1,5 @@
 import type { Hash } from '@xylabs/hex'
-import { useEvent } from '@xyo-network/react-event'
-import React, { useRef } from 'react'
+import React from 'react'
 
 import type { EllipsisTableCellProps } from './EllipsisTableCell.tsx'
 import { EllipsisTableCell } from './EllipsisTableCell.tsx'
@@ -13,18 +12,15 @@ export interface HashTableCellProps extends EllipsisTableCellProps {
   exploreDomain?: string
   /** @deprecated - use event listeners instead of link building via props */
   network?: string
+  /** @deprecated - onClick instead */
   onHashClick?: (value: Hash) => void
 }
 
 export const HashTableCell: React.FC<HashTableCellProps> = ({
-  value, dataType, onHashClick, ...props
+  ref, value, dataType, ...props
 }) => {
-  const ref = useRef<HTMLTableCellElement | null>(null)
-  const [tableCellRef] = useEvent<HTMLTableCellElement>(undefined, ref)
-
   return (
     <EllipsisTableCell
-      ref={tableCellRef}
       value={value}
       {...props}
     />
