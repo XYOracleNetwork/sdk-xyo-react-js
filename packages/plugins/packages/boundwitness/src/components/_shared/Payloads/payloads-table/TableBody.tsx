@@ -36,10 +36,6 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = Eve
   const { setRowHeight } = useTableHeight()
   const [tableRowRef, dispatch] = useEvent<HTMLTableRowElement>(undefined, ref as RefObject<HTMLTableRowElement | null> | undefined)
 
-  const handleOnClick = (hash: string) => {
-    dispatch(eventNoun, 'click', hash)
-  }
-
   useLayoutEffect(() => {
     if (tableRowRef.current) {
       setRowHeight?.(tableRowRef.current.offsetHeight)
@@ -54,12 +50,17 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = Eve
       {payloadHashes && payloadSchemas && payloadHashes.length > 0
         ? payloadHashes.map((hash, index) => {
             return (
-              <TableRow ref={tableRowRef} key={hash} onClick={() => handleOnClick(hash)}>
+              <TableRow ref={tableRowRef} key={hash}>
                 <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
                 <HashTableCell title={hash}>
                   {clickableFields?.includes('hash')
                     ? (
-                        <Link>
+                        <Link
+                          sx={{ cursor: 'pointer' }}
+                          onClick={() => {
+                            dispatch(eventNoun, 'click', hash)
+                          }}
+                        >
                           {hash}
                         </Link>
                       )

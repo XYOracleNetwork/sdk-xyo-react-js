@@ -29,7 +29,7 @@ const Template: StoryFn<typeof BoundWitnessPayloadTableBody<EventNoun>> = args =
 const TemplateWithCustomNouns: StoryFn<typeof BoundWitnessPayloadTableBody<CustomNoun>>
   = (args) => {
     const [ref] = useEvent<HTMLTableSectionElement>((noun, verb, data) => {
-      console.log(`${noun}|${verb}|${data}`)
+      alert(`${noun}|${verb}|${data}`)
     })
     return <BoundWitnessPayloadTableBody<CustomNoun> ref={ref} {...args} />
   }
@@ -43,7 +43,9 @@ WithData.args = {
 }
 
 const WithCustomNouns = TemplateWithCustomNouns.bind({})
-WithCustomNouns.args = { ...data, eventNoun: 'customNoun' }
+WithCustomNouns.args = {
+  ...data, eventNoun: 'customNoun', clickableFields: ['hash'],
+}
 
 export {
   Default, WithCustomNouns, WithData,
