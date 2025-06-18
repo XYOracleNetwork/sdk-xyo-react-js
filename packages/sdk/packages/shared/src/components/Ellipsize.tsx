@@ -4,6 +4,7 @@ import type {
 import {
   Box, styled, Typography,
 } from '@mui/material'
+import { isDefined } from '@xylabs/typeof'
 import type { PropsWithChildren } from 'react'
 import React, { useCallback, useState } from 'react'
 
@@ -34,7 +35,7 @@ const EllipsizeRoot = styled(Box, {
       float: 'left',
       visibility: 'hidden',
       // since we are `display: block`, lineHeight is the height
-      ...(beforeLineHeight && { lineHeight: beforeLineHeight }),
+      ...(isDefined(beforeLineHeight) && { lineHeight: beforeLineHeight }),
     },
   },
 }))
@@ -87,19 +88,25 @@ export type TypographyWithComponentProps<D extends React.ElementType = Typograph
 export interface EllipsizeBoxProps extends BoxProps {
   disableSharedRef?: boolean
   ellipsisPosition?: 'start' | 'end'
+  innerWrapProps?: BoxProps
   typographyProps?: TypographyWithComponentProps
 }
 
 export const EllipsizeBox = ({
-  ref, children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props
+  ref, innerWrapProps, children, ellipsisPosition = 'start', disableSharedRef, typographyProps, ...props
 }: PropsWithChildren<EllipsizeBoxProps>) => {
   // Allow syncing of :before pseudo element height with contentWrapHeight
   const { contentWrapRef, contentWrapHeight } = useClientHeight()
   const sharedRef = useShareForwardedRef(ref)
 
   return (
-    <EllipsizeRoot beforeLineHeight={!!sharedRef && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={sharedRef}>
-      <EllipsizeInnerWrap>
+    <EllipsizeRoot beforeLineHeight={isDefined(sharedRef) && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={sharedRef}>
+      <EllipsizeInnerWrap
+        {...innerWrapProps}
+        sx={{
+          display: 'flex', alignItems: 'center', ...innerWrapProps?.sx,
+        }}
+      >
         <EllipsizeContentWrap ref={contentWrapRef} component="span" ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
           {children}
         </EllipsizeContentWrap>
