@@ -45,7 +45,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
 }) => {
   const breakPoint = useBreakpoint()
   const payloadHash = usePayloadHash(payload)
-  const [ref, dispatch] = useEvent<HTMLAnchorElement>()
+  const [anchorRef, dispatch] = useEvent<HTMLAnchorElement>()
   const [errors = []] = usePromise(async () => (payload ? await new PayloadValidator(payload).validate() : undefined), [payload])
   const isValid = errors.length === 0
 
@@ -62,7 +62,7 @@ export const PayloadTableRow: React.FC<PayloadTableRowProps> = ({
         <>
           {clickableFields?.includes('hash')
             ? (
-                <Link onClick={() => dispatch('hash', 'click', payloadHash)} ref={ref} sx={{ cursor: 'pointer' }}>{payloadHash}</Link>
+                <Link onClick={() => dispatch('hash', 'click', payloadHash)} ref={anchorRef} sx={{ cursor: 'pointer' }}>{payloadHash}</Link>
               )
             : payloadHash}
         </>
