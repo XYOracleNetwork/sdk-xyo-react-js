@@ -45,7 +45,6 @@ export const EllipsisTableCellWithRef = ({
   return (
     <EllipsisTableCellRoot {...props}>
       <EllipsizeBox
-        innerWrapProps={{ sx: { display: 'flex', alignItems: 'center' } }}
         ref={ref}
         sx={{ cursor: link || to || href ? 'pointer' : 'inherit' }}
       >
