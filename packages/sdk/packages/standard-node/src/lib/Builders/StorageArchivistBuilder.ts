@@ -52,7 +52,7 @@ export class StorageArchivistBuilder {
   }
 
   async findParentArchivist() {
-    const node = asNodeInstance(this.node, 'node not defined')
+    const node = asNodeInstance(this.node, 'node not defined', { required: true })
     const bridge = (await node.resolve('RemoteNodeBridge'))
     if (bridge) {
       try {

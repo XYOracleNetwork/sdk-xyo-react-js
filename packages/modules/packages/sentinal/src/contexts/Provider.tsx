@@ -80,7 +80,7 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: outPayloads?.length ? SentinelReportStatus.Succeeded : SentinelReportStatus.Failed,
-                witness: asWitnessInstance(mod, () => `Module is not a witness [${mod.id}]`),
+                witness: asWitnessInstance(mod, () => `Module is not a witness [${mod.id}]`, { required: true }),
               }
               if (mounted()) {
                 setProgress({
@@ -93,7 +93,7 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
               const witnesses = progress.witnesses ?? {}
               witnesses[witness.address] = {
                 status: SentinelReportStatus.Started,
-                witness: asWitnessInstance(mod, () => `Module is not a witness [${mod.id}]`),
+                witness: asWitnessInstance(mod, () => `Module is not a witness [${mod.id}]`, { required: true }),
               }
               if (mounted()) {
                 setProgress({
