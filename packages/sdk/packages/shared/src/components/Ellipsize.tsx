@@ -98,14 +98,13 @@ export const EllipsizeBox = ({
   // Allow syncing of :before pseudo element height with contentWrapHeight
   const { contentWrapRef, contentWrapHeight } = useClientHeight()
   const sharedRef = useShareForwardedRef(ref)
+  const { sx: innerWrapSx, ...remainingInnerWrapProps } = innerWrapProps ?? {}
 
   return (
     <EllipsizeRoot beforeLineHeight={isDefined(sharedRef) && !disableSharedRef ? contentWrapHeight : undefined} {...props} ref={sharedRef}>
       <EllipsizeInnerWrap
-        {...innerWrapProps}
-        sx={{
-          display: 'flex', alignItems: 'center', ...innerWrapProps?.sx,
-        }}
+        {...remainingInnerWrapProps}
+        sx={{ ...innerWrapSx }}
       >
         <EllipsizeContentWrap ref={contentWrapRef} component="span" ellipsisPosition={ellipsisPosition} variant="body2" {...typographyProps}>
           {children}
