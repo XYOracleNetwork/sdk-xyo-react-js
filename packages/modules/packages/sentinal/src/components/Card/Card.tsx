@@ -10,8 +10,8 @@ import { SentinelCardActions } from './CardActions.tsx'
 import { SentinelCardContent } from './CardContent.tsx'
 import { SentinelCardHeader } from './CardHeader.tsx'
 
-export type SentinelCardProps = CardProps &
-  ModuleRenderProps<SentinelInstance> & {
+export type SentinelCardProps = CardProps
+  & ModuleRenderProps<SentinelInstance> & {
     inPayloads?: Payload[]
   }
 

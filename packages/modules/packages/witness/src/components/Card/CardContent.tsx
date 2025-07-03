@@ -7,8 +7,8 @@ import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import type { WitnessInstance } from '@xyo-network/witness-model'
 import React from 'react'
 
-export type WitnessCardContentProps = ModuleRenderProps<WitnessInstance> &
-  CardContentProps & {
+export type WitnessCardContentProps = ModuleRenderProps<WitnessInstance>
+  & CardContentProps & {
     observation?: Payload[]
   }
 

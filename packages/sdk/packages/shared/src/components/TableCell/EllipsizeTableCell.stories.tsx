@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-clear-text-protocols */
 import {
   Table, TableBody, TableCell, TableHead, TableRow,
 } from '@mui/material'

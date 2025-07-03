@@ -8,8 +8,8 @@ import React from 'react'
 import { useNetwork } from '../../contexts/index.ts'
 import { findNetworkConfig } from '../../lib/index.ts'
 
-export type NetworkSelectExProps = Omit<SelectExProps<string>, 'variant'> &
-  Partial<SelectExProps<string>> & {
+export type NetworkSelectExProps = Omit<SelectExProps<string>, 'variant'>
+  & Partial<SelectExProps<string>> & {
     responsive?: boolean
   }
 

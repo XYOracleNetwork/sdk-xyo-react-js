@@ -5,8 +5,8 @@ import { ModuleCardActions } from '@xyo-network/react-module'
 import type { WitnessInstance } from '@xyo-network/witness-model'
 import React from 'react'
 
-export type WitnessCardActionsProps = ModuleRenderProps<WitnessInstance> &
-  CardActionsProps & {
+export type WitnessCardActionsProps = ModuleRenderProps<WitnessInstance>
+  & CardActionsProps & {
     onObserve?: (mod?: WitnessInstance) => void
   }
 

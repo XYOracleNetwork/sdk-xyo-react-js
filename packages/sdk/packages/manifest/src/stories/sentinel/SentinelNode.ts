@@ -7,8 +7,8 @@ import { AddDayDiviner } from '../modules/index.ts'
 import sentinelManifest from './sentinel-manifest.json' with { type: 'json' }
 
 export const SentinelManifestNode: CreatablePackageManifest = (locator: ModuleFactoryLocator): PackageManifestPayload => {
-  locator.register(TimestampWitness)
-  locator.register(AddDayDiviner)
+  locator.register(TimestampWitness.factory())
+  locator.register(AddDayDiviner.factory())
 
   return sentinelManifest as PackageManifestPayload
 }

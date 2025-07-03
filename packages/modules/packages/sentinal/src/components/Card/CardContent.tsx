@@ -7,8 +7,8 @@ import { JsonViewerEx } from '@xyo-network/react-payload-raw-info'
 import type { SentinelInstance } from '@xyo-network/sentinel-model'
 import React from 'react'
 
-export type SentinelCardContentProps = ModuleRenderProps<SentinelInstance> &
-  CardContentProps & {
+export type SentinelCardContentProps = ModuleRenderProps<SentinelInstance>
+  & CardContentProps & {
     report?: Payload[]
   }
 

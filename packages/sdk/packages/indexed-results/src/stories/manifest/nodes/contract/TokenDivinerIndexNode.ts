@@ -1,6 +1,6 @@
 import { MemoryArchivist } from '@xyo-network/archivist-memory'
 import { MemoryBoundWitnessDiviner } from '@xyo-network/diviner-boundwitness-memory'
-import { MemoryPayloadDiviner } from '@xyo-network/diviner-payload-memory'
+import { GenericPayloadDiviner } from '@xyo-network/diviner-payload-generic'
 import {
   TemporalIndexingDiviner,
   TemporalIndexingDivinerDivinerQueryToIndexQueryDiviner,
@@ -8,6 +8,7 @@ import {
   TemporalIndexingDivinerIndexQueryResponseToDivinerQueryResponseDiviner,
   TemporalIndexingDivinerStateToIndexCandidateDiviner,
 } from '@xyo-network/diviner-temporal-indexing-memory'
+import type { EvmContractWitnessParams } from '@xyo-network/evm-contract-witness'
 import { EvmContractWitness } from '@xyo-network/evm-contract-witness'
 import { EvmTokenInterfaceImplementedDiviner } from '@xyo-network/evm-token-interface-diviner'
 import type { PackageManifestPayload } from '@xyo-network/manifest'
@@ -20,18 +21,21 @@ import { InfuraProvider } from 'ethers'
 import tokenDivinerIndexManifest from './token-diviner-index.json' with { type: 'json' }
 
 export const TokenDivinerIndexManifestNode: CreatablePackageManifest = (locator: ModuleFactoryLocator): PackageManifestPayload => {
-  locator.register(MemoryArchivist)
-  locator.register(MemoryBoundWitnessDiviner)
-  locator.register(MemoryPayloadDiviner)
-  locator.register(TimestampWitness)
-  locator.register(TemporalIndexingDivinerDivinerQueryToIndexQueryDiviner)
-  locator.register(TemporalIndexingDivinerIndexCandidateToIndexDiviner)
-  locator.register(TemporalIndexingDivinerIndexQueryResponseToDivinerQueryResponseDiviner)
-  locator.register(TemporalIndexingDivinerStateToIndexCandidateDiviner)
-  locator.register(TemporalIndexingDiviner)
-  locator.register(EvmTokenInterfaceImplementedDiviner)
+  locator.register(MemoryArchivist.factory())
+  locator.register(MemoryBoundWitnessDiviner.factory())
+  locator.register(GenericPayloadDiviner.factory())
+  locator.register(TimestampWitness.factory())
+  locator.register(TemporalIndexingDivinerDivinerQueryToIndexQueryDiviner.factory())
+  locator.register(TemporalIndexingDivinerIndexCandidateToIndexDiviner.factory())
+  locator.register(TemporalIndexingDivinerIndexQueryResponseToDivinerQueryResponseDiviner.factory())
+  locator.register(TemporalIndexingDivinerStateToIndexCandidateDiviner.factory())
+  locator.register(TemporalIndexingDiviner.factory())
+  locator.register(EvmTokenInterfaceImplementedDiviner.factory())
   locator.register(
-    new ModuleFactory(EvmContractWitness, { providers: () => [new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)] }),
+    new ModuleFactory(
+      EvmContractWitness,
+      { providers: () => [new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)] } as Partial<EvmContractWitnessParams>,
+    ),
   )
 
   return tokenDivinerIndexManifest as PackageManifestPayload

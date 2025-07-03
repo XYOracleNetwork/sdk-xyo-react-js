@@ -1,6 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
+import type { EvmCallWitnessParams } from '@xyo-network/evm-call-witness'
 import {
   EvmCallDiviner, EvmCallWitness, EvmCallWitnessConfigSchema,
 } from '@xyo-network/evm-call-witness'
@@ -23,20 +24,20 @@ const loadFromManifest = async () => {
   const provider = new InfuraProvider('homestead', process.env.STORYBOOK_INFURA_PROJECT_ID)
 
   const locator = new ModuleFactoryLocator()
-  locator.register(EvmCallDiviner)
+  locator.register(EvmCallDiviner.factory())
 
   locator.register(
-    new ModuleFactory(EvmCallWitness, { providers: () => [provider] }),
+    new ModuleFactory(EvmCallWitness, { providers: () => [provider] } as Partial<EvmCallWitnessParams>),
     { 'network.xyo.evm.interface': 'Erc721' },
   )
 
   locator.register(
-    new ModuleFactory(EvmCallWitness, { providers: () => [provider] }),
+    new ModuleFactory(EvmCallWitness, { providers: () => [provider] } as Partial<EvmCallWitnessParams>),
     { 'network.xyo.evm.interface': 'Erc721Enumerable' },
   )
 
   locator.register(
-    new ModuleFactory(EvmCallWitness, { providers: () => [provider] }),
+    new ModuleFactory(EvmCallWitness, { providers: () => [provider] } as Partial<EvmCallWitnessParams>),
     { 'network.xyo.evm.interface': 'Erc1155' },
   )
 

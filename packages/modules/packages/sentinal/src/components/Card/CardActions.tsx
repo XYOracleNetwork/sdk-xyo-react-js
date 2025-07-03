@@ -5,8 +5,8 @@ import { ModuleCardActions } from '@xyo-network/react-module'
 import type { SentinelInstance } from '@xyo-network/sentinel-model'
 import React from 'react'
 
-export type SentinelCardActionsProps = ModuleRenderProps<SentinelInstance> &
-  CardActionsProps & {
+export type SentinelCardActionsProps = ModuleRenderProps<SentinelInstance>
+  & CardActionsProps & {
     onReport?: (mod?: SentinelInstance) => void
   }
 

@@ -11,9 +11,9 @@ import { RenderedAccountMenuItem } from './RenderedMenuItem.tsx'
 
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxProps, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 
-export type WalletAccountSelectProps = SharedAddressRenderRowBoxProps &
-  Omit<SelectProps<number>, 'variant'> &
-  Partial<SelectProps<number>> & {
+export type WalletAccountSelectProps = SharedAddressRenderRowBoxProps
+  & Omit<SelectProps<number>, 'variant'>
+  & Partial<SelectProps<number>> & {
     addressNames?: Record<string, string | undefined>
     maxAccounts?: number
   }

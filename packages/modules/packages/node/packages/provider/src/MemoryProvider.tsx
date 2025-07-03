@@ -12,8 +12,8 @@ export type MemoryNodeProviderProps = PropsWithChildren<{
   moduleParams?: ModuleParams<NodeConfig>
   modules?: AttachableModuleInstance[]
   required?: boolean
-}> &
-ModuleParams<NodeConfig>
+}>
+& ModuleParams<NodeConfig>
 
 export const MemoryNodeProvider: React.FC<MemoryNodeProviderProps> = ({
   children, modules, moduleParams,

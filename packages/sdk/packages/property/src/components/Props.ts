@@ -21,13 +21,13 @@ export type PropertyFieldBaseProps = PropertyBaseProps & {
   value?: string | number | boolean | null
 }
 
-export type PropertyBoxProps = PropertyFieldBaseProps &
-  FlexBoxProps & {
+export type PropertyBoxProps = PropertyFieldBaseProps
+  & FlexBoxProps & {
     paper?: false
   }
 
-export type PropertyPaperProps = PropertyFieldBaseProps &
-  PaperProps & {
+export type PropertyPaperProps = PropertyFieldBaseProps
+  & PaperProps & {
     paper: true
   }
 
@@ -35,13 +35,13 @@ export type PropertyProps = PropertyBoxProps | PropertyPaperProps
 
 export type PropertyGroupBaseProps = PropertyBaseProps
 
-export type PropertyGroupBoxProps = PropertyGroupBaseProps &
-  FlexBoxProps & {
+export type PropertyGroupBoxProps = PropertyGroupBaseProps
+  & FlexBoxProps & {
     paper?: false
   }
 
-export type PropertyGroupPaperProps = PropertyGroupBaseProps &
-  PaperProps & {
+export type PropertyGroupPaperProps = PropertyGroupBaseProps
+  & PaperProps & {
     paper: true
   }
 

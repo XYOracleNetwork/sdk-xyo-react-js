@@ -22,7 +22,7 @@ export const sampleSystemInfoBrowserPayload = {
   bowser: {
     browser: {
       name: 'Chrome',
-      // eslint-disable-next-line sonarjs/no-hardcoded-ip
+
       version: '104.0.0.0',
     },
     engine: { name: 'Blink' },
