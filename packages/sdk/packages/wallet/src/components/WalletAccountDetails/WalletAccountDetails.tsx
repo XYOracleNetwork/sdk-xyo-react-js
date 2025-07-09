@@ -9,11 +9,13 @@ import React from 'react'
 
 import { useAccount } from '../../hooks/index.ts'
 
+/** @public */
 export interface WalletAccountDetailsProps extends FlexBoxProps {
   account?: WalletInstance
   exploreUrl?: string
 }
 
+/** @public */
 export const WalletAccountDetails: React.FC<WalletAccountDetailsProps> = ({
   exploreUrl = 'https://explore.xyo.network', account, ...props
 }) => {

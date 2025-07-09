@@ -2,6 +2,7 @@ import type { TypographyProps } from '@mui/material'
 import { Link, Typography } from '@mui/material'
 import React from 'react'
 
+/** @public */
 export const InvalidPhraseTypography: React.FC<TypographyProps> = props => (
   <Typography variant="caption" color="error" {...props}>
     Invalid seed phrase. See -

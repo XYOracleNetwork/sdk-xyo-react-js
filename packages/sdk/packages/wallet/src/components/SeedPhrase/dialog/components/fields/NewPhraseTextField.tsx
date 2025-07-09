@@ -6,11 +6,13 @@ import React from 'react'
 import { useSeedPhrase } from '../../../../../contexts/index.ts'
 import { colorParser, InvalidPhraseTypography } from './validation-messages/index.ts'
 
+/** @public */
 export interface NewPhraseTextFieldProps extends StandardTextFieldProps {
   children?: ReactNode
   disableColor?: boolean
 }
 
+/** @public */
 export const NewPhraseTextField: React.FC<NewPhraseTextFieldProps> = ({
   children, disableColor, ...props
 }) => {

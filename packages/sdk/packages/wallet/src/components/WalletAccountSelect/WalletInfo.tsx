@@ -9,10 +9,12 @@ import React from 'react'
 import { useRootWallet, useSelectedWalletAccount } from '../../contexts/index.ts'
 import { useAccount, useWallet } from '../../hooks/index.ts'
 
+/** @public */
 export interface WalletErrorProps {
   error?: Error
 }
 
+/** @public */
 export const WalletError: React.FC<WalletErrorProps> = ({ error }) => {
   return error
     ? (
@@ -34,11 +36,13 @@ export const WalletError: React.FC<WalletErrorProps> = ({ error }) => {
     : null
 }
 
+/** @public */
 export interface WalletIdenticonProps {
   account?: AccountInstance | null
   name: string
 }
 
+/** @public */
 export const WalletIdenticon: React.FC<WalletIdenticonProps> = ({ account, name }) => {
   return (
     <div style={{ width: 20 }}>
@@ -72,6 +76,7 @@ export const WalletIdenticon: React.FC<WalletIdenticonProps> = ({ account, name 
   )
 }
 
+/** @public */
 export const RootWalletInfo: React.FC<FlexBoxProps> = (props) => {
   const [wallet, error] = useRootWallet()
   return (
@@ -82,6 +87,7 @@ export const RootWalletInfo: React.FC<FlexBoxProps> = (props) => {
   )
 }
 
+/** @public */
 export const SelectedWalletInfo: React.FC<FlexBoxProps> = (props) => {
   const [wallet, error] = useSelectedWalletAccount()
   return (
@@ -92,6 +98,7 @@ export const SelectedWalletInfo: React.FC<FlexBoxProps> = (props) => {
   )
 }
 
+/** @public */
 export const WalletInfo: React.FC<FlexBoxProps> = (props) => {
   const [wallet, error] = useWallet()
   return (
@@ -102,6 +109,7 @@ export const WalletInfo: React.FC<FlexBoxProps> = (props) => {
   )
 }
 
+/** @public */
 export const AccountInfo: React.FC<FlexBoxProps> = (props) => {
   const [account, error] = useAccount()
   return (

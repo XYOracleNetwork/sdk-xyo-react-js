@@ -4,6 +4,7 @@ import React from 'react'
 
 import { useSeedPhrase } from '../../../../contexts/index.ts'
 
+/** @public */
 export const OverwriteWarning = () => {
   const { handleCancelOverwrite, handleSave } = useSeedPhrase()
   return (

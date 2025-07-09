@@ -5,6 +5,7 @@ import React from 'react'
 
 import { useWallet } from '../../hooks/index.ts'
 
+/** @public */
 export interface RenderedAccountMenuItemProps extends MenuItemProps {
   addressNames?: Record<string, string | undefined>
   iconOnly?: boolean
@@ -15,6 +16,7 @@ export interface RenderedAccountMenuItemProps extends MenuItemProps {
   showFavorite?: boolean
 }
 
+/** @public */
 export const RenderedAccountMenuItem: React.FC<RenderedAccountMenuItemProps> = ({
   selectedAccountIndex,
   rootWallet,

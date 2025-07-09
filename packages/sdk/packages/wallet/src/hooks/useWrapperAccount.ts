@@ -8,6 +8,7 @@ import { Mutex } from 'async-mutex'
 let globalWrapperWallet: WalletInstance | undefined
 const globalWrapperWalletMutex = new Mutex()
 
+/** @public */
 export const useWrapperAccount = (
   account?: AccountInstance | null,
 ): [AccountInstance | null | undefined, Error | undefined, UsePromiseState | undefined] => {

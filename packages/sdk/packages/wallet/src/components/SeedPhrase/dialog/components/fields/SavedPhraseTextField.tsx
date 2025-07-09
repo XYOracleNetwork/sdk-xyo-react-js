@@ -11,6 +11,7 @@ import React, { useMemo, useState } from 'react'
 import { useSeedPhrase } from '../../../../../contexts/index.ts'
 import { InvalidPhraseTypography, PhraseHeaderBox } from './validation-messages/index.ts'
 
+/** @public */
 export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
   fullWidth?: boolean
   showCopyButton?: boolean
@@ -18,6 +19,7 @@ export interface SavedPhraseTextFieldProps extends StandardTextFieldProps {
   visible?: boolean
 }
 
+/** @public */
 export const SavedPhraseTextField: React.FC<SavedPhraseTextFieldProps> = ({
 
   fullWidth, showCopyButton, showPhraseHeader, visible: visibleProp, ...props

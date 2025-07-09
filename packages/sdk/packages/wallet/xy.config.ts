@@ -4,6 +4,7 @@ const config: XyTsupConfig = {
     browser: { src: true },
     node: {},
     neutral: {},
+    tsup: { options: { outDir: 'build' } },
   },
 }
 

@@ -4,11 +4,13 @@ import { FlexRow } from '@xylabs/react-flexbox'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo } from 'react'
 
-interface PhraseHeaderBox extends FlexBoxProps, PropsWithChildren {
+/** @public */
+export interface PhraseHeaderBoxProps extends FlexBoxProps, PropsWithChildren {
   conditional?: boolean | null
 }
 
-export const PhraseHeaderBox: React.FC<PhraseHeaderBox> = ({
+/** @public */
+export const PhraseHeaderBox: React.FC<PhraseHeaderBoxProps> = ({
   children, conditional, ...props
 }) => {
   const state = useMemo(() => {

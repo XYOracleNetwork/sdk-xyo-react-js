@@ -14,6 +14,7 @@ import {
 } from '@mui/material'
 import React, { useState } from 'react'
 
+/** @internal */
 export const SeedPhraseIconButton: React.FC<IconButtonProps> = (props) => {
   const [open, setOpen] = useState(false)
   const onClose = () => setOpen(false)

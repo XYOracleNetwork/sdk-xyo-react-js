@@ -4,6 +4,7 @@ import React from 'react'
 
 import { WalletAccountSelect } from './Select.tsx'
 
+/** @public */
 export interface WalletAccountSelectBarProps extends FlexBoxProps {
   addressNames?: Record<string, string | undefined>
   iconOnly?: boolean
@@ -14,6 +15,7 @@ export interface WalletAccountSelectBarProps extends FlexBoxProps {
   size?: 'small' | 'medium'
 }
 
+/** @public */
 export const WalletAccountSelectBar: React.FC<WalletAccountSelectBarProps> = ({
   addressNames,
   iconOnly,

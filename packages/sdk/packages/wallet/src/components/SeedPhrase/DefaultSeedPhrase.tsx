@@ -6,12 +6,14 @@ import { wordlist } from '@scure/bip39/wordlists/english'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
 
+/** @public */
 export interface DefaultSeedPhraseProps extends PropsWithChildren {
   changeSeedPhrase?: (seedPhrase: string) => void
   hideDefaultSeedPhraseMessage?: boolean
   seedPhrase?: string
 }
 
+/** @public */
 export const DefaultSeedPhrase: React.FC<DefaultSeedPhraseProps> = ({
   changeSeedPhrase, children, hideDefaultSeedPhraseMessage, seedPhrase,
 }) => {

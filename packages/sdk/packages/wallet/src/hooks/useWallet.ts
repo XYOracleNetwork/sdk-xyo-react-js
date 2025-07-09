@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 import { useSelectedWalletAccount, useWalletContext } from '../contexts/index.ts'
 
+/** @public */
 export interface WalletHookParams {
   mnemonic?: string
   path?: string
@@ -13,6 +14,7 @@ export interface WalletHookParams {
   wallet?: WalletInstance | null
 }
 
+/** @public */
 export const useWallet = ({
   mnemonic, wallet, path, required = false, seed,
 }: WalletHookParams = {}): [

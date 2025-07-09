@@ -7,6 +7,7 @@ import {
   useRootWallet, useWalletContext, useWalletProvided,
 } from '../contexts/index.ts'
 
+/** @public */
 export interface AccountHookParams {
   account?: AccountInstance
   index?: number
@@ -14,6 +15,7 @@ export interface AccountHookParams {
   wallet?: WalletInstance
 }
 
+/** @public */
 export const useAccount = ({
   wallet, account, index, required = false,
 }: AccountHookParams = {}): [

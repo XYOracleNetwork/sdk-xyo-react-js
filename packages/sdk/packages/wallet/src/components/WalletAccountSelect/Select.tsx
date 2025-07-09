@@ -11,6 +11,7 @@ import { RenderedAccountMenuItem } from './RenderedMenuItem.tsx'
 
 type SharedAddressRenderRowBoxProps = Pick<AddressRenderRowBoxProps, 'iconOnly' | 'iconSize' | 'icons' | 'showFavorite'>
 
+/** @public */
 export type WalletAccountSelectProps = SharedAddressRenderRowBoxProps
   & Omit<SelectProps<number>, 'variant'>
   & Partial<SelectProps<number>> & {
@@ -22,6 +23,7 @@ const arrayRange = (length: number, start = 0) => {
   return [...Array.from({ length }).keys()].map(x => x + start)
 }
 
+/** @public */
 export const WalletAccountSelect: React.FC<WalletAccountSelectProps> = ({
   addressNames,
   iconOnly,

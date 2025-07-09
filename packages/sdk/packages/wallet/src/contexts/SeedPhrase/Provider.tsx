@@ -9,6 +9,7 @@ import React, {
 import { SeedPhraseContext } from './Context.ts'
 import type { SeedPhraseContextState } from './State.ts'
 
+/** @public */
 export interface SeedPhraseProviderProps extends PropsWithChildren {
   defaultPhrase?: string
   handleChangeSeedPhrase?: (phrase: string) => void
@@ -24,6 +25,7 @@ const validate = (passedPhrase?: string) => {
   return validateMnemonic(passedPhrase, wordlist)
 }
 
+/** @public */
 export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   children,
   defaultPhrase,

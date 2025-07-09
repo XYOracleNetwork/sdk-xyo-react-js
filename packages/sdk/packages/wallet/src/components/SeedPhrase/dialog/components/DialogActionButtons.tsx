@@ -5,10 +5,12 @@ import React from 'react'
 
 import { useSeedPhrase } from '../../../../contexts/index.ts'
 
-interface DialogActionButtonsProps extends DialogActionsProps {
+/** @public */
+export interface DialogActionButtonsProps extends DialogActionsProps {
   onClose?: DialogProps['onClose']
 }
 
+/** @public */
 export const DialogActionButtons: React.FC<DialogActionButtonsProps> = ({ onClose, ...props }) => {
   const { handleSave, setPhrase } = useSeedPhrase()
 

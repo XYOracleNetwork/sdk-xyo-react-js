@@ -7,11 +7,13 @@ import React, { useMemo } from 'react'
 import { WalletContext } from './Context.ts'
 import type { WalletContextState } from './State.ts'
 
+/** @public */
 export interface WalletProviderProps {
   defaultActiveAccountIndex?: number
   rootWallet?: WalletInstance | null
 }
 
+/** @public */
 export const WalletProvider: React.FC<PropsWithChildren<WalletProviderProps>> = ({
   children,
   defaultActiveAccountIndex = 0,

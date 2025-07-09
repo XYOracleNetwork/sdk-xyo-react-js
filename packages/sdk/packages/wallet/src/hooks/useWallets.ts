@@ -4,11 +4,13 @@ import type { WalletInstance } from '@xyo-network/wallet-model'
 import { useWalletContext } from '../contexts/index.ts'
 import { useWallet } from './useWallet.ts'
 
+/** @public */
 export interface WalletsHookParams {
   paths: string[]
   wallet?: WalletInstance | null
 }
 
+/** @public */
 export const useWallets = ({ wallet, paths }: WalletsHookParams): [WalletInstance[] | null | undefined, Error | undefined] => {
   const walletContextProvided = useWalletContext(false)
   const [foundWallet] = useWallet({ wallet })

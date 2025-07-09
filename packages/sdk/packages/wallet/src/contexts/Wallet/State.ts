@@ -2,6 +2,7 @@ import type { ContextExState } from '@xylabs/react-shared'
 import type { WalletInstance } from '@xyo-network/wallet-model'
 import type { Dispatch } from 'react'
 
+/** @public */
 export type WalletContextState = ContextExState<{
   /** Currently selected account */
   activeAccount?: WalletInstance | null

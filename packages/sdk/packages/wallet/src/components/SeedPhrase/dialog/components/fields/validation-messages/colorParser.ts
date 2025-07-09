@@ -1,3 +1,4 @@
+/** @public */
 export const colorParser = (conditional?: boolean | null) => {
   switch (conditional) {
     case true: {

@@ -5,6 +5,7 @@ import {
 import type { Dispatch, SetStateAction } from 'react'
 import React from 'react'
 
+/** @public */
 export interface OutOfBoundsSnackBarProps extends SnackbarProps {
   activeAccountIndex?: number
   desiredMaximumAccounts?: number
@@ -12,6 +13,7 @@ export interface OutOfBoundsSnackBarProps extends SnackbarProps {
   showSnackBar?: boolean
 }
 
+/** @public */
 export const OutOfBoundsSnackBar: React.FC<OutOfBoundsSnackBarProps> = ({
   activeAccountIndex,
   desiredMaximumAccounts,

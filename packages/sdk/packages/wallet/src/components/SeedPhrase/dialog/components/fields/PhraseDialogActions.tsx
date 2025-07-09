@@ -3,6 +3,7 @@ import React from 'react'
 
 import { useSeedPhrase } from '../../../../../contexts/index.ts'
 
+/** @public */
 export const PhraseDialogActions = () => {
   const {
     handleClear, handleGenerate, overwriteWarning,

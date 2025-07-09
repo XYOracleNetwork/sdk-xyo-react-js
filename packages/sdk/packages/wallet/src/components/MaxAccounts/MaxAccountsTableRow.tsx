@@ -7,12 +7,14 @@ import React, { useState } from 'react'
 
 import { OutOfBoundsSnackBar } from './OutOfBoundsSnackBar.tsx'
 
+/** @public */
 export interface MaxAccountsTableRow extends TableRowProps {
   activeAccountIndex?: number
   changeMaxAccounts?: (maxAccounts: number) => void
   maxAccounts?: number
 }
 
+/** @public */
 export const MaxAccountsTableRow: React.FC<MaxAccountsTableRow> = ({
   activeAccountIndex, changeMaxAccounts, maxAccounts,
 }) => {

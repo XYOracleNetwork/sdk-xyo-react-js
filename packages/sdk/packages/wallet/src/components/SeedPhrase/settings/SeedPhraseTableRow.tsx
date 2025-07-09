@@ -8,11 +8,13 @@ import React, { useState } from 'react'
 import { SeedPhraseIconButton } from '../_shared/index.ts'
 import { SeedPhraseDialog } from '../dialog/index.ts'
 
+/** @public */
 export interface SeedPhraseTableRowProps extends TableRowProps {
   changeSeedPhrase?: (seedPhrase: string) => void
   seedPhrase?: string
 }
 
+/** @public */
 export const SeedPhraseTableRow: React.FC<SeedPhraseTableRowProps> = ({
   changeSeedPhrase, seedPhrase, ...props
 }) => {

@@ -16,6 +16,7 @@ import {
   SavedPhraseTextField,
 } from './components/index.ts'
 
+/** @public */
 export interface SeedPhraseDialogProps extends DialogProps {
   changeSeedPhrase?: (value: string) => void
   dialogTitle?: ReactNode
@@ -24,6 +25,7 @@ export interface SeedPhraseDialogProps extends DialogProps {
   showCopyButton?: boolean
 }
 
+/** @public */
 export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
   changeSeedPhrase, dialogTitle = 'Update Your Seed Phrase', seedPhrase, seedPhraseTextFieldTitle = 'New Seed Phrase', ...props
 }) => {
@@ -39,6 +41,7 @@ export const SeedPhraseDialog: React.FC<SeedPhraseDialogProps> = ({
   )
 }
 
+/** @public */
 export const SeedPhraseDialogInner: React.FC<SeedPhraseDialogProps> = ({
   dialogTitle, seedPhraseTextFieldTitle, showCopyButton, ...props
 }) => {

@@ -1,6 +1,7 @@
 import type { ContextExState } from '@xylabs/react-shared'
 import type { Dispatch, SetStateAction } from 'react'
 
+/** @public */
 export type SeedPhraseContextState = ContextExState<{
   handleCancelOverwrite?: () => void
   handleChangeSeedPhrase?: (value: string) => void
