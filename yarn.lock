@@ -1026,7 +1026,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor@npm:^7.0.0":
+"@microsoft/api-extractor@npm:^7.52.8":
   version: 7.52.8
   resolution: "@microsoft/api-extractor@npm:7.52.8"
   dependencies:
@@ -3679,12 +3679,69 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/ts-scripts-yarn3@npm:^7.0.0-rc.4":
+  version: 7.0.0-rc.4
+  resolution: "@xylabs/ts-scripts-yarn3@npm:7.0.0-rc.4"
+  dependencies:
+    "@microsoft/api-extractor": "npm:^7.52.8"
+    async-mutex: "npm:^0.5.0"
+    chalk: "npm:^5.4.1"
+    cosmiconfig: "npm:^9.0.0"
+    cosmiconfig-typescript-loader: "npm:^6.1.0"
+    cpy: "npm:^11.1.0"
+    deepmerge: "npm:^4.3.1"
+    dependency-cruiser: "npm:^16.10.4"
+    eslint: "npm:^9.30.1"
+    find-up: "npm:^7.0.0"
+    glob: "npm:^11.0.3"
+    license-checker: "npm:^25.0.1"
+    parse-git-config: "npm:^3.0.0"
+    picomatch: "npm:^4.0.2"
+    publint: "npm:^0.3.12"
+    rimraf: "npm:^6.0.1"
+    sort-package-json: "npm:^3.4.0"
+    tsc-prog: "npm:^2.3.0"
+    tsup: "npm:8.5.0"
+    typedoc: "npm:^0.28.7"
+    types-package-json: "npm:^2.0.39"
+    yargs: "npm:^18.0.0"
+  peerDependencies:
+    typescript: ^5
+  bin:
+    package-build: dist/bin/package/build.mjs
+    package-build-only: dist/bin/package/build-only.mjs
+    package-clean: dist/bin/package/clean.mjs
+    package-compile: dist/bin/package/compile.mjs
+    package-compile-only: dist/bin/package/compile-only.mjs
+    package-copy-assets-cjs: dist/bin/package/copy-assets-cjs.mjs
+    package-copy-assets-esm: dist/bin/package/copy-assets-esm.mjs
+    package-cycle: dist/bin/package/cycle.mjs
+    package-fix: dist/bin/package/fix.mjs
+    package-gen-docs: dist/bin/package/gen-docs.mjs
+    package-lint: dist/bin/package/lint.mjs
+    package-publint: dist/bin/package/publint.mjs
+    package-recompile: dist/bin/package/recompile.mjs
+    package-relint: dist/bin/package/relint.mjs
+    xy: dist/bin/xy.mjs
+  checksum: 10/c80eef34e217305581b3dec25a5f5096bd6d8fb96d7c50806899b5742301ee1946b46f78f261e12201a0ec83ab6e7c10c7e67a7f4549bcaee5ce8b2084a25aed
+  languageName: node
+  linkType: hard
+
 "@xylabs/tsconfig-dom@npm:^6.5.14":
   version: 6.5.14
   resolution: "@xylabs/tsconfig-dom@npm:6.5.14"
   dependencies:
     "@xylabs/tsconfig": "npm:^6.5.14"
   checksum: 10/004da785599ee67d5e8b30ac0d8444997d57295c9fdbd7363bb941971a8b0d96b529af8f4dec87cace15f192d694cb1911fb8cc7b49e5bc3407efe41f84a471b
+  languageName: node
+  linkType: hard
+
+"@xylabs/tsconfig-dom@npm:^7.0.0-rc.4":
+  version: 7.0.0-rc.4
+  resolution: "@xylabs/tsconfig-dom@npm:7.0.0-rc.4"
+  dependencies:
+    "@xylabs/tsconfig": "npm:^7.0.0-rc.4"
+  checksum: 10/dd58a50ec0e2b5c810dc9c2cae27231b2821a49aa3542b2fa0f98f61cf62c262cb7f2518ef75ff30a464be5c47a34042fdde7fa85f76b5a86c27533988a2a3f4
   languageName: node
   linkType: hard
 
@@ -3697,10 +3754,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/tsconfig-react@npm:^7.0.0-rc.4":
+  version: 7.0.0-rc.4
+  resolution: "@xylabs/tsconfig-react@npm:7.0.0-rc.4"
+  dependencies:
+    "@xylabs/tsconfig-dom": "npm:^7.0.0-rc.4"
+  checksum: 10/af63c8315390afdc43630846fc6834e2420689cc059409612cb22cee548a2bf79d06efee269830514692afd14203073d02140b35c50355a19835e6767f511b8e
+  languageName: node
+  linkType: hard
+
 "@xylabs/tsconfig@npm:^6.5.14":
   version: 6.5.14
   resolution: "@xylabs/tsconfig@npm:6.5.14"
   checksum: 10/a1ddffe24940a924200074ab91c77eba129547b83f129a405d4b69a6f4cfd10f54822834e46044052bd230af8b5d3ab0eaf8d0b7e2ba90d6dc8dc11ea3b63de2
+  languageName: node
+  linkType: hard
+
+"@xylabs/tsconfig@npm:^7.0.0-rc.4":
+  version: 7.0.0-rc.4
+  resolution: "@xylabs/tsconfig@npm:7.0.0-rc.4"
+  checksum: 10/f1d578474816a44cabe4aaac1d0b300beee04156c0bcc39ab6b249d8053b6776ca20cd6a8c279c81c3e537e8da3ce0bd2d99ab4262aa72487ea05a2f695f9da4
   languageName: node
   linkType: hard
 
@@ -7962,7 +8035,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet@workspace:packages/sdk/packages/wallet"
   dependencies:
-    "@microsoft/api-extractor": "npm:^7.0.0"
+    "@microsoft/api-extractor": "npm:^7.52.8"
     "@mui/icons-material": "npm:^7.2.0"
     "@mui/material": "npm:^7.2.0"
     "@scure/bip39": "npm:^1.6.0"
@@ -7980,8 +8053,8 @@ __metadata:
     "@xylabs/react-quick-tip-button": "npm:^6.3.7"
     "@xylabs/react-select": "npm:^6.3.7"
     "@xylabs/react-shared": "npm:^6.3.7"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.14"
-    "@xylabs/tsconfig-react": "npm:^6.5.14"
+    "@xylabs/ts-scripts-yarn3": "npm:^7.0.0-rc.4"
+    "@xylabs/tsconfig-react": "npm:^7.0.0-rc.4"
     "@xyo-network/account-model": "npm:^4.0.2"
     "@xyo-network/react-address-render": "workspace:^"
     "@xyo-network/react-network": "workspace:^"
@@ -8176,7 +8249,7 @@ __metadata:
     "@xyo-network/react-sdk": "workspace:^"
     chromatic: "npm:^13.1.2"
     copyfiles: "npm:^2.4.1"
-    dotenv: "npm:^17.1.0"
+    dotenv: "npm:^17.2.0"
     eslint: "npm:^9.30.1"
     eslint-import-resolver-typescript: "npm:^4.4.4"
     eslint-plugin-storybook: "npm:9.0.16"
@@ -10018,10 +10091,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^17.1.0":
-  version: 17.1.0
-  resolution: "dotenv@npm:17.1.0"
-  checksum: 10/fa8c04b2c490baf38b29f50ef4d3a10e753f6df033c7ca195f10129ca4b0c699b72f85e38c57a516090ead019841228891562677b0929eb89974a23f01a983d5
+"dotenv@npm:^17.2.0":
+  version: 17.2.0
+  resolution: "dotenv@npm:17.2.0"
+  checksum: 10/73d57d7ed8ae46e45c0b1dea382de3f180e71d20a3a4e10a13a3d5271a08639166e6647bb6dc0fa160ea440a55e85ff9be233150d9037d268c823cb72859d87f
   languageName: node
   linkType: hard
 

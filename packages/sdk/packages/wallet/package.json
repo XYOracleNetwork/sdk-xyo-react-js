@@ -28,20 +28,16 @@
   "exports": {
     ".": {
       "browser": {
-        "types": "./dist/types/index.d.ts",
+        "types": "./dist/browser/index.d.ts",
         "default": "./dist/browser/index.mjs"
       },
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/browser/index.d.ts",
       "default": "./dist/browser/index.mjs"
     },
     "./package.json": "./package.json"
   },
   "module": "dist/browser/index.mjs",
-  "types": "dist/types/index.d.ts",
-  "scripts": {
-    "build-types": "api-extractor run --local",
-    "package-compile": "yarn package-compile-only && yarn build-types"
-  },
+  "types": "dist/browser/index.d.ts",
   "dependencies": {
     "@scure/bip39": "^1.6.0",
     "@xylabs/eth-address": "^4.12.44",
@@ -61,7 +57,7 @@
     "async-mutex": "^0.5.0"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.0.0",
+    "@microsoft/api-extractor": "^7.52.8",
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "@storybook/react-vite": "^9.0.16",
@@ -69,8 +65,8 @@
     "@xylabs/enum": "^4.12.44",
     "@xylabs/react-identicon": "^6.3.7",
     "@xylabs/react-quick-tip-button": "^6.3.7",
-    "@xylabs/ts-scripts-yarn3": "^6.5.14",
-    "@xylabs/tsconfig-react": "^6.5.14",
+    "@xylabs/ts-scripts-yarn3": "^7.0.0-rc.4",
+    "@xylabs/tsconfig-react": "^7.0.0-rc.4",
     "@xyo-network/react-storybook": "workspace:^",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
