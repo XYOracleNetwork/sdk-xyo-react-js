@@ -1,5 +1,5 @@
+import type { EventUnsubscribeFunction } from '@xylabs/events'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { EventUnsubscribeFunction } from '@xyo-network/module-events'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import { isNodeInstance } from '@xyo-network/node-model'
 import type { ElementDefinition } from 'cytoscape'

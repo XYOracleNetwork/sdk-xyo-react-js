@@ -625,7 +625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-react/eslint-plugin@npm:^1.52.2, @eslint-react/eslint-plugin@npm:^1.52.3":
+"@eslint-react/eslint-plugin@npm:^1.52.3":
   version: 1.52.3
   resolution: "@eslint-react/eslint-plugin@npm:1.52.3"
   dependencies:
@@ -712,15 +712,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/core@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "@eslint/core@npm:0.12.0"
-  dependencies:
-    "@types/json-schema": "npm:^7.0.15"
-  checksum: 10/ee8a2c65ee49af727e167b180a8672739e468ad0b1b9ac52558e61bb120f1a93af23f9e723e0e58f273adfe30ccd98167b59598c7be07440489fa38f669b59ae
-  languageName: node
-  linkType: hard
-
 "@eslint/core@npm:^0.13.0":
   version: 0.13.0
   resolution: "@eslint/core@npm:0.13.0"
@@ -772,15 +763,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/json@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "@eslint/json@npm:0.12.0"
+"@eslint/json@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "@eslint/json@npm:0.13.0"
   dependencies:
-    "@eslint/core": "npm:^0.12.0"
-    "@eslint/plugin-kit": "npm:^0.2.7"
+    "@eslint/core": "npm:^0.14.0"
+    "@eslint/plugin-kit": "npm:^0.3.1"
     "@humanwhocodes/momoa": "npm:^3.3.4"
     natural-compare: "npm:^1.4.0"
-  checksum: 10/b19c00b981dbcde8645dbc6c1c206f095ac1a85ee4c9ea9962402740712d747772994d032c3865289efd51deeab5f4a27b434126da682c2db278428ee96c41d5
+  checksum: 10/8d4ee8ce7a0170beadbbad1d7274eb00ddc9d0c4bdf3b94314342eefd36fb873e8b3509ad4309f1a13b935a11d3872fe1a9d78e91c8b37f9e914edbdbf92e028
   languageName: node
   linkType: hard
 
@@ -2620,7 +2611,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^8.36.0, @typescript-eslint/eslint-plugin@npm:^8.37.0":
+"@typescript-eslint/eslint-plugin@npm:^8.37.0":
   version: 8.37.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.37.0"
   dependencies:
@@ -2641,7 +2632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^8.36.0, @typescript-eslint/parser@npm:^8.37.0":
+"@typescript-eslint/parser@npm:^8.37.0":
   version: 8.37.0
   resolution: "@typescript-eslint/parser@npm:8.37.0"
   dependencies:
@@ -3106,14 +3097,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/eslint-config-flat@npm:^6.5.18":
-  version: 6.5.18
-  resolution: "@xylabs/eslint-config-flat@npm:6.5.18"
+"@xylabs/eslint-config-flat@npm:^7.0.0-rc.24, @xylabs/eslint-config-flat@npm:next":
+  version: 7.0.0-rc.24
+  resolution: "@xylabs/eslint-config-flat@npm:7.0.0-rc.24"
   dependencies:
-    "@eslint/json": "npm:^0.12.0"
+    "@eslint/json": "npm:^0.13.0"
     "@stylistic/eslint-plugin": "npm:^5.1.0"
-    "@typescript-eslint/eslint-plugin": "npm:^8.36.0"
-    "@typescript-eslint/parser": "npm:^8.36.0"
+    "@typescript-eslint/eslint-plugin": "npm:^8.37.0"
+    "@typescript-eslint/parser": "npm:^8.37.0"
     eslint-plugin-import-x: "npm:^4.16.1"
     eslint-plugin-markdown: "npm:^5.1.0"
     eslint-plugin-simple-import-sort: "npm:^12.1.1"
@@ -3124,23 +3115,23 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^8.32.1
     "@typescript-eslint/parser": ^8.32.1
     eslint: ^9
-  checksum: 10/8d4df9ef66dc3d7f3ab912156f735fa5763cf93bbb916c77ce7ac75e37a63a41710940d6d8d81790d0f8ae23b9a50a0a23eaef038e40bc43626a3a874e5a6098
+  checksum: 10/f8f729df0c9231c85f0d06e5fbdc1cd333d7bec8a56e9af5d98b74acc053f3326a66647aa03a6758e71eceaf0ed67cdadfe3070d19950efdb5806786301645c0
   languageName: node
   linkType: hard
 
-"@xylabs/eslint-config-react-flat@npm:^6.5.18":
-  version: 6.5.18
-  resolution: "@xylabs/eslint-config-react-flat@npm:6.5.18"
+"@xylabs/eslint-config-react-flat@npm:next":
+  version: 7.0.0-rc.24
+  resolution: "@xylabs/eslint-config-react-flat@npm:7.0.0-rc.24"
   dependencies:
-    "@eslint-react/eslint-plugin": "npm:^1.52.2"
-    "@typescript-eslint/parser": "npm:^8.36.0"
-    "@xylabs/eslint-config-flat": "npm:^6.5.18"
+    "@eslint-react/eslint-plugin": "npm:^1.52.3"
+    "@typescript-eslint/parser": "npm:^8.37.0"
+    "@xylabs/eslint-config-flat": "npm:^7.0.0-rc.24"
     eslint-plugin-react: "npm:^7.37.5"
     eslint-plugin-react-refresh: "npm:^0.4.20"
     globals: "npm:^16.3.0"
   peerDependencies:
     eslint: ^9
-  checksum: 10/fcd8f6d229101957b7be601f8ec71b03ff24c6b177a0f144cd1c708a527062a320232bf6226f11076178d31e4870d09e441cd22c93bfdc321b877203a2542d01
+  checksum: 10/717c12694b20ce9e453e458881bf023b3bd8155ae3eae59005a59d0312ce9355f70056a1758e3aeab81dabe610cf9f9313c4b64162a0b1fd28bc53190146abac
   languageName: node
   linkType: hard
 
@@ -3656,52 +3647,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/ts-scripts-yarn3@npm:^6.5.18":
-  version: 6.5.18
-  resolution: "@xylabs/ts-scripts-yarn3@npm:6.5.18"
-  dependencies:
-    async-mutex: "npm:^0.5.0"
-    chalk: "npm:^5.4.1"
-    cosmiconfig: "npm:^9.0.0"
-    cosmiconfig-typescript-loader: "npm:^6.1.0"
-    cpy: "npm:^11.1.0"
-    deepmerge: "npm:^4.3.1"
-    dependency-cruiser: "npm:^16.10.4"
-    eslint: "npm:^9.30.1"
-    find-up: "npm:^7.0.0"
-    glob: "npm:^11.0.3"
-    license-checker: "npm:^25.0.1"
-    parse-git-config: "npm:^3.0.0"
-    picomatch: "npm:^4.0.2"
-    publint: "npm:^0.3.12"
-    sort-package-json: "npm:^3.4.0"
-    tsc-prog: "npm:^2.3.0"
-    tsup: "npm:8.5.0"
-    typedoc: "npm:^0.28.7"
-    yargs: "npm:^18.0.0"
-  peerDependencies:
-    typescript: ^5
-  bin:
-    package-build: dist/bin/package/build.mjs
-    package-build-only: dist/bin/package/build-only.mjs
-    package-clean: dist/bin/package/clean.mjs
-    package-compile: dist/bin/package/compile.mjs
-    package-compile-only: dist/bin/package/compile-only.mjs
-    package-compile-types: dist/bin/package/compile-types.mjs
-    package-copy-assets-cjs: dist/bin/package/copy-assets-cjs.mjs
-    package-copy-assets-esm: dist/bin/package/copy-assets-esm.mjs
-    package-cycle: dist/bin/package/cycle.mjs
-    package-fix: dist/bin/package/fix.mjs
-    package-gen-docs: dist/bin/package/gen-docs.mjs
-    package-lint: dist/bin/package/lint.mjs
-    package-publint: dist/bin/package/publint.mjs
-    package-recompile: dist/bin/package/recompile.mjs
-    package-relint: dist/bin/package/relint.mjs
-    xy: dist/bin/xy.mjs
-  checksum: 10/f9cbe9e3810fcd3ecf9f54216ac570851a4d0945165c42f5025ecd0c6068aebf328da7afc22fd74c854301fb64a742de5b4b2908f9b8267e9173db84be170b12
-  languageName: node
-  linkType: hard
-
 "@xylabs/ts-scripts-yarn3@npm:^7.0.0-rc.23":
   version: 7.0.0-rc.23
   resolution: "@xylabs/ts-scripts-yarn3@npm:7.0.0-rc.23"
@@ -3751,12 +3696,52 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/tsconfig-dom@npm:^6.5.18":
-  version: 6.5.18
-  resolution: "@xylabs/tsconfig-dom@npm:6.5.18"
+"@xylabs/ts-scripts-yarn3@npm:next":
+  version: 7.0.0-rc.24
+  resolution: "@xylabs/ts-scripts-yarn3@npm:7.0.0-rc.24"
   dependencies:
-    "@xylabs/tsconfig": "npm:^6.5.18"
-  checksum: 10/4ddd73a2dd98d8bf193841f1b8f9b98313ece61848aeff8ff6612ab18f7d803abe5293330ea599844e4fcb05d2f79a1bc205ecce3084413f4d29c693b5fc89af
+    async-mutex: "npm:^0.5.0"
+    chalk: "npm:^5.4.1"
+    cosmiconfig: "npm:^9.0.0"
+    cosmiconfig-typescript-loader: "npm:^6.1.0"
+    cpy: "npm:^11.1.0"
+    deepmerge: "npm:^4.3.1"
+    dependency-cruiser: "npm:^16.10.4"
+    eslint: "npm:^9.31.0"
+    find-up: "npm:^7.0.0"
+    get-tsconfig: "npm:^4.10.1"
+    glob: "npm:^11.0.3"
+    license-checker: "npm:^25.0.1"
+    parse-git-config: "npm:^3.0.0"
+    picomatch: "npm:^4.0.2"
+    publint: "npm:^0.3.12"
+    rollup: "npm:^4.45.0"
+    rollup-plugin-dts: "npm:^6.2.1"
+    rollup-plugin-node-externals: "npm:^8.0.1"
+    sort-package-json: "npm:^3.4.0"
+    tsc-prog: "npm:^2.3.0"
+    tsup: "npm:8.5.0"
+    typedoc: "npm:^0.28.7"
+    yargs: "npm:^18.0.0"
+  peerDependencies:
+    typescript: ^5
+  bin:
+    package-build: dist/bin/package/build.mjs
+    package-build-only: dist/bin/package/build-only.mjs
+    package-clean: dist/bin/package/clean.mjs
+    package-compile: dist/bin/package/compile.mjs
+    package-compile-only: dist/bin/package/compile-only.mjs
+    package-copy-assets-cjs: dist/bin/package/copy-assets-cjs.mjs
+    package-copy-assets-esm: dist/bin/package/copy-assets-esm.mjs
+    package-cycle: dist/bin/package/cycle.mjs
+    package-fix: dist/bin/package/fix.mjs
+    package-gen-docs: dist/bin/package/gen-docs.mjs
+    package-lint: dist/bin/package/lint.mjs
+    package-publint: dist/bin/package/publint.mjs
+    package-recompile: dist/bin/package/recompile.mjs
+    package-relint: dist/bin/package/relint.mjs
+    xy: dist/bin/xy.mjs
+  checksum: 10/1beb7b5a7ac9cf2bb7c1fd016572931f4c158e814ccc2b3992fb085f18a9e21c31cfdd865cacba03bb41c71eeba8cd3b2f0b5e34dfa287ed97c9070b379c04c8
   languageName: node
   linkType: hard
 
@@ -3769,12 +3754,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/tsconfig-react@npm:^6.5.18":
-  version: 6.5.18
-  resolution: "@xylabs/tsconfig-react@npm:6.5.18"
+"@xylabs/tsconfig-dom@npm:^7.0.0-rc.24":
+  version: 7.0.0-rc.24
+  resolution: "@xylabs/tsconfig-dom@npm:7.0.0-rc.24"
   dependencies:
-    "@xylabs/tsconfig-dom": "npm:^6.5.18"
-  checksum: 10/dea1a4ec481138a6a420fc8f8edb6914362d2059f0d830dee9cdde2e0648ebb90f3d8aefcd61a56bf4f35982ad3bf8d4508595aea54a730ed13559c8bff67b05
+    "@xylabs/tsconfig": "npm:^7.0.0-rc.24"
+  checksum: 10/efd3df351e1773df486193b6a31b90bc6e1a69bc773173b3af487cdb88d47b65df3475c5dcf472e4f15a9035d2075ce50f6d32cf0eb45e7e7d825745b8aa2688
   languageName: node
   linkType: hard
 
@@ -3787,10 +3772,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/tsconfig@npm:^6.5.18":
-  version: 6.5.18
-  resolution: "@xylabs/tsconfig@npm:6.5.18"
-  checksum: 10/db02f8f9490f670bb20efdb6ddfaea4a2c01f09f70aa8c6fba3757445bd80612061ff016639b5c5e73f3c1c4338cf6bd045f9944cac06776659b7d5dea795aff
+"@xylabs/tsconfig-react@npm:next":
+  version: 7.0.0-rc.24
+  resolution: "@xylabs/tsconfig-react@npm:7.0.0-rc.24"
+  dependencies:
+    "@xylabs/tsconfig-dom": "npm:^7.0.0-rc.24"
+  checksum: 10/2384f3def6663683059907be22c75c876eaedceee86d94f0b0c05305f524360e09a08e183eef7fd649ec5c7d8d1072e3fdc10f32c97552d19c1ddb40b49d51df
   languageName: node
   linkType: hard
 
@@ -3798,6 +3785,13 @@ __metadata:
   version: 7.0.0-rc.23
   resolution: "@xylabs/tsconfig@npm:7.0.0-rc.23"
   checksum: 10/ba75b4dfb2fb2768903b209aa6aa6ec9f3e8f7308e3a60538362d15b5e6577d2e40826990e9db4ae865a4c088baf47e129e6317ff0c1d80c9d1c9c2a08351606
+  languageName: node
+  linkType: hard
+
+"@xylabs/tsconfig@npm:^7.0.0-rc.24":
+  version: 7.0.0-rc.24
+  resolution: "@xylabs/tsconfig@npm:7.0.0-rc.24"
+  checksum: 10/7883f8a9e83a5ad04a3239ffb58c00c196c3de2b581ce48b94e7b826d58f916427dda650c90f8a5fc8ee3e44c7d9d0f6c92d2dc6953482e8950707d264cda86d
   languageName: node
   linkType: hard
 
@@ -5048,13 +5042,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xyo-network/module-events@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "@xyo-network/module-events@npm:4.1.1"
-  checksum: 10/18ba70645fa2b344a3e5aebb55cbfb7e2279666f443314a8d9b7ffa24106a1b72f3667193bf6a5dd72163262e09e85d652699759bf09e1454accaaf7f959c194
-  languageName: node
-  linkType: hard
-
 "@xyo-network/module-factory-locator@npm:^4.1.1":
   version: 4.1.1
   resolution: "@xyo-network/module-factory-locator@npm:4.1.1"
@@ -5408,8 +5395,8 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-button": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     storybook: "npm:^9.0.16"
@@ -5440,8 +5427,8 @@ __metadata:
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-quick-tip-button": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/archivist-model": "npm:^4.1.1"
     "@xyo-network/boundwitness-model": "npm:^4.1.1"
     "@xyo-network/diviner-address-history-model": "npm:^4.1.1"
@@ -5479,8 +5466,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/hex": "npm:^4.13.15"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/module-model": "npm:^4.1.1"
     "@xyo-network/react-address-render": "workspace:^"
     "@xyo-network/react-event": "workspace:^"
@@ -5511,8 +5498,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-hooks": "npm:^6.3.10"
     "@xylabs/react-identicon": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     ethers: "npm:^6.15.0"
@@ -5539,7 +5526,7 @@ __metadata:
     "@mui/icons-material": "npm:^7.2.0"
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/react-address-history": "workspace:^"
     "@xyo-network/react-address-render": "workspace:^"
     react: "npm:^19.1.0"
@@ -5561,8 +5548,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-promise": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/advertising-payload-plugins": "npm:^4.0.0"
     "@xyo-network/archivist-storage": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
@@ -5591,8 +5578,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-quick-tip-button": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/crypto-asset-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -5618,7 +5605,7 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/assert": "npm:^4.13.15"
     "@xylabs/enum": "npm:^4.13.15"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     typescript: "npm:^5.8.3"
@@ -5645,8 +5632,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-link": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
@@ -5679,14 +5666,13 @@ __metadata:
     "@xylabs/react-button": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/account": "npm:^4.1.1"
     "@xyo-network/archivist-memory": "npm:^4.1.1"
     "@xyo-network/archivist-model": "npm:^4.1.1"
     "@xyo-network/boundwitness-builder": "npm:^4.1.1"
     "@xyo-network/boundwitness-model": "npm:^4.1.1"
-    "@xyo-network/module-events": "npm:^4.1.1"
     "@xyo-network/module-model": "npm:^4.1.1"
     "@xyo-network/module-wrapper": "npm:^4.1.1"
     "@xyo-network/node-memory": "npm:^4.1.1"
@@ -5726,8 +5712,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xylabs/typeof": "npm:^4.13.15"
     "@xyo-network/boundwitness-model": "npm:^4.1.1"
     "@xyo-network/boundwitness-validator": "npm:^4.1.1"
@@ -5775,8 +5761,8 @@ __metadata:
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-quick-tip-button": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/boundwitness-model": "npm:^4.1.1"
     "@xyo-network/boundwitness-validator": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
@@ -5816,8 +5802,8 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     react: "npm:^19.1.0"
@@ -5843,8 +5829,8 @@ __metadata:
     "@mui/material": "npm:^7.2.0"
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/coingecko-crypto-market-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
@@ -5872,8 +5858,8 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-crypto": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-table": "workspace:^"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -5901,8 +5887,8 @@ __metadata:
     "@xylabs/enum": "npm:^4.13.15"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -5930,8 +5916,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/coingecko-crypto-market-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -5960,8 +5946,8 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-error": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-payload-raw-info": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     react: "npm:^19.1.0"
@@ -5982,7 +5968,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-default-plugin@workspace:packages/plugins/packages/default"
   dependencies:
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     typescript: "npm:^5.8.3"
@@ -5998,7 +5984,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-details-plugin@workspace:packages/plugins/packages/details"
   dependencies:
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     typescript: "npm:^5.8.3"
@@ -6015,8 +6001,8 @@ __metadata:
   resolution: "@xyo-network/react-diviner@workspace:packages/modules/packages/diviner"
   dependencies:
     "@xylabs/exists": "npm:^4.13.15"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/diviner-model": "npm:^4.1.1"
     "@xyo-network/module-model": "npm:^4.1.1"
     "@xyo-network/react-node": "workspace:^"
@@ -6037,8 +6023,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     storybook: "npm:^9.0.16"
@@ -6061,8 +6047,8 @@ __metadata:
     "@xylabs/react-async-effect": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-map-model": "workspace:^"
@@ -6099,8 +6085,8 @@ __metadata:
     "@xylabs/react-hooks": "npm:^6.3.10"
     "@xylabs/react-select": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/huri": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
@@ -6134,8 +6120,8 @@ __metadata:
     "@xylabs/react-button": "npm:^6.3.10"
     "@xylabs/react-error": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     prop-types: "npm:^15.8.1"
     react: "npm:^19.1.0"
@@ -6167,8 +6153,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/blocknative-ethereum-gas-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-gas-price": "workspace:^"
@@ -6191,7 +6177,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-ethereum-gas-price-etherchain-plugins@workspace:packages/plugins/packages/ethereum-gas/packages/etherchain"
   dependencies:
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     typescript: "npm:^5.8.3"
@@ -6214,8 +6200,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/etherchain-ethereum-gas-v2-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-gas-price": "workspace:^"
@@ -6245,8 +6231,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/ethers-ethereum-gas-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-gas-price": "workspace:^"
@@ -6276,8 +6262,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/etherscan-ethereum-gas-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-gas-price": "workspace:^"
@@ -6307,8 +6293,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/ethgasstation-ethereum-gas-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-gas-price": "workspace:^"
@@ -6336,7 +6322,7 @@ __metadata:
     "@mui/icons-material": "npm:^7.2.0"
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/react-ethereum-gas-price-blocknative-plugin": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-etherchain-plugins": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-ethers-plugin": "workspace:^"
@@ -6367,8 +6353,8 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-quick-tip-button": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/gas-price-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-gas-price": "workspace:^"
@@ -6392,7 +6378,7 @@ __metadata:
   resolution: "@xyo-network/react-event@workspace:packages/sdk/packages/event"
   dependencies:
     "@xylabs/assert": "npm:^4.13.15"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     typescript: "npm:^5.8.3"
   peerDependencies:
     react: ^19
@@ -6412,8 +6398,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-link": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     react-icons: "npm:^5.5.0"
@@ -6441,8 +6427,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/archivist-storage": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-form-group": "workspace:^"
@@ -6475,11 +6461,10 @@ __metadata:
     "@xylabs/object": "npm:^4.13.15"
     "@xylabs/promise": "npm:^4.13.15"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/archivist-model": "npm:^4.1.1"
     "@xyo-network/module-event-emitter": "npm:^4.1.1"
-    "@xyo-network/module-events": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -6497,8 +6482,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-form@workspace:packages/sdk/packages/form"
   dependencies:
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-form-credit-card": "workspace:^"
     "@xyo-network/react-form-group": "workspace:^"
     react: "npm:^19.1.0"
@@ -6522,8 +6507,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     react: "npm:^19.1.0"
@@ -6554,8 +6539,8 @@ __metadata:
     "@xylabs/react-shared": "npm:^6.3.10"
     "@xylabs/retry": "npm:^4.13.15"
     "@xylabs/timer": "npm:^4.13.15"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/archivist-memory": "npm:^4.1.1"
     "@xyo-network/boundwitness-model": "npm:^4.1.1"
     "@xyo-network/diviner-boundwitness-memory": "npm:^4.1.1"
@@ -6606,8 +6591,8 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-error": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-map-model": "workspace:^"
@@ -6638,8 +6623,8 @@ __metadata:
     "@types/geojson": "npm:^7946.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/api": "npm:^4.1.1"
     "@xyo-network/location-payload-plugin": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
@@ -6670,8 +6655,8 @@ __metadata:
     "@types/geojson": "npm:^7946.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-map-model": "workspace:^"
@@ -6698,8 +6683,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-promise": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/diviner-abstract": "npm:^4.1.1"
     "@xyo-network/diviner-model": "npm:^4.1.1"
     "@xyo-network/diviner-payload-generic": "npm:^4.1.1"
@@ -6734,8 +6719,8 @@ __metadata:
     "@xylabs/enum": "npm:^4.13.15"
     "@xylabs/hex": "npm:^4.13.15"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-network": "workspace:^"
     geojson: "npm:^0.5.0"
@@ -6767,8 +6752,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-map-model": "workspace:^"
     "@xyo-network/sdk-geo": "npm:^3.0.3"
@@ -6801,8 +6786,8 @@ __metadata:
     "@xylabs/react-crypto": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/archivist": "npm:^4.1.1"
     "@xyo-network/archivist-memory": "npm:^4.1.1"
     "@xyo-network/crypto-asset-plugin": "npm:^4.0.0"
@@ -6832,8 +6817,8 @@ __metadata:
     "@mui/icons-material": "npm:^7.2.0"
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-archivist": "workspace:^"
     "@xyo-network/react-diviner": "workspace:^"
     "@xyo-network/react-module": "workspace:^"
@@ -6864,8 +6849,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-select": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/network": "npm:^4.1.1"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -6889,8 +6874,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/crypto-nft-payload-plugin": "npm:^4.0.0"
     "@xyo-network/crypto-nft-score-model": "npm:^4.0.0"
     "@xyo-network/payload-model": "npm:^4.1.1"
@@ -6916,8 +6901,8 @@ __metadata:
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/module-model": "npm:^4.1.1"
     "@xyo-network/node-model": "npm:^4.1.1"
     react: "npm:^19.1.0"
@@ -6941,8 +6926,8 @@ __metadata:
     "@xylabs/forget": "npm:^4.13.15"
     "@xylabs/react-async-effect": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/module-model": "npm:^4.1.1"
     "@xyo-network/node-memory": "npm:^4.1.1"
     "@xyo-network/node-model": "npm:^4.1.1"
@@ -6978,8 +6963,8 @@ __metadata:
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/account-model": "npm:^4.1.1"
     "@xyo-network/archivist": "npm:^4.1.1"
     "@xyo-network/archivist-memory": "npm:^4.1.1"
@@ -6988,7 +6973,6 @@ __metadata:
     "@xyo-network/bridge-model": "npm:^4.1.1"
     "@xyo-network/diviner-model": "npm:^4.1.1"
     "@xyo-network/id-plugin": "npm:^4.0.0"
-    "@xyo-network/module-events": "npm:^4.1.1"
     "@xyo-network/module-model": "npm:^4.1.1"
     "@xyo-network/node-memory": "npm:^4.1.1"
     "@xyo-network/node-model": "npm:^4.1.1"
@@ -7036,8 +7020,8 @@ __metadata:
     "@xylabs/react-async-effect": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xylabs/typeof": "npm:^4.13.15"
     "@xyo-network/module-abstract": "npm:^4.1.1"
     "@xyo-network/module-model": "npm:^4.1.1"
@@ -7069,8 +7053,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     date-fns: "npm:^4.1.0"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -7096,8 +7080,8 @@ __metadata:
     "@xylabs/hex": "npm:^4.13.15"
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/archivist-memory": "npm:^4.1.1"
     "@xyo-network/archivist-model": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
@@ -7131,8 +7115,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-quick-tip-button": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/payload-builder": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/payload-validator": "npm:^4.1.1"
@@ -7168,7 +7152,7 @@ __metadata:
     "@xylabs/react-error": "npm:^6.3.10"
     "@xylabs/react-hooks": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/diviner-huri": "npm:^4.1.1"
     "@xyo-network/diviner-payload-abstract": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
@@ -7193,7 +7177,7 @@ __metadata:
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-promise": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/diviner-huri": "npm:^4.1.1"
     "@xyo-network/diviner-model": "npm:^4.1.1"
     "@xyo-network/react-network": "workspace:^"
@@ -7221,7 +7205,7 @@ __metadata:
     "@xylabs/assert": "npm:^4.13.15"
     "@xylabs/react-hooks": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/payload-plugin": "npm:^4.1.1"
     "@xyo-network/payloadset-plugin": "npm:^4.1.1"
@@ -7250,7 +7234,7 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-identicon": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -7281,8 +7265,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/payload-builder": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-shared": "workspace:^"
@@ -7314,8 +7298,8 @@ __metadata:
     "@xylabs/react-hooks": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xylabs/typeof": "npm:^4.13.15"
     "@xyo-network/payload-builder": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
@@ -7351,7 +7335,7 @@ __metadata:
     "@mui/icons-material": "npm:^7.2.0"
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/react-payload-context": "workspace:^"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-diviner": "workspace:^"
@@ -7382,8 +7366,8 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/pixel": "npm:^4.13.15"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     typescript: "npm:^5.8.3"
@@ -7404,8 +7388,8 @@ __metadata:
     "@mui/icons-material": "npm:^7.2.0"
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-address-plugin": "workspace:^"
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
     "@xyo-network/react-boundwitness-plugin": "workspace:^"
@@ -7442,7 +7426,7 @@ __metadata:
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7473,7 +7457,7 @@ __metadata:
     "@xylabs/react-button": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/account": "npm:^4.1.1"
     "@xyo-network/archivist-model": "npm:^4.1.1"
     "@xyo-network/bridge-model": "npm:^4.1.1"
@@ -7515,8 +7499,8 @@ __metadata:
     "@xylabs/react-async-effect": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/diviner-forecasting-model": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7549,8 +7533,8 @@ __metadata:
     "@xylabs/react-identicon": "npm:^6.3.10"
     "@xylabs/react-quick-tip-button": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/typeof": "npm:^4.1.1"
     react: "npm:^19.1.0"
@@ -7574,8 +7558,8 @@ __metadata:
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-async-effect": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/bowser-system-info-plugin": "npm:^4.0.0"
     "@xyo-network/node-model": "npm:^4.1.1"
     "@xyo-network/react-node-renderer": "workspace:^"
@@ -7602,7 +7586,7 @@ __metadata:
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/payload-model": "npm:^4.1.1"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -7637,8 +7621,8 @@ __metadata:
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-select": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/bridge-http": "npm:^4.1.1"
     "@xyo-network/diviner-schema-list-model": "npm:^4.1.1"
     "@xyo-network/diviner-schema-stats-model": "npm:^4.1.1"
@@ -7679,8 +7663,8 @@ __metadata:
     "@mui/material": "npm:^7.2.0"
     "@types/react": "npm:^19.1.8"
     "@xylabs/pixel": "npm:^4.13.15"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-access-gate": "workspace:^"
     "@xyo-network/react-address": "workspace:^"
     "@xyo-network/react-advertising": "workspace:^"
@@ -7744,8 +7728,8 @@ __metadata:
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/account": "npm:^4.1.1"
     "@xyo-network/account-model": "npm:^4.1.1"
     "@xyo-network/archivist-model": "npm:^4.1.1"
@@ -7794,7 +7778,7 @@ __metadata:
     "@xylabs/react-error": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-link": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     react-helmet: "npm:^6.1.0"
@@ -7830,8 +7814,8 @@ __metadata:
     "@xylabs/react-quick-tip-button": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/boundwitness-model": "npm:^4.1.1"
     "@xyo-network/boundwitness-validator": "npm:^4.1.1"
     "@xyo-network/payload-builder": "npm:^4.1.1"
@@ -7862,8 +7846,8 @@ __metadata:
     "@xylabs/react-hooks": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/account-model": "npm:^4.1.1"
     "@xyo-network/archivist-memory": "npm:^4.1.1"
     "@xyo-network/archivist-model": "npm:^4.1.1"
@@ -7902,8 +7886,8 @@ __metadata:
     "@mui/material": "npm:^7.2.0"
     "@storybook/react-vite": "npm:^9.0.16"
     "@types/react": "npm:^19.1.8"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/boundwitness-model": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
     react: "npm:^19.1.0"
@@ -7928,8 +7912,8 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/react-hooks": "npm:^6.3.10"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-storybook": "workspace:^"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -7949,7 +7933,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-theme@workspace:packages/sdk/packages/theme"
   dependencies:
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     typescript: "npm:^5.8.3"
   peerDependencies:
     "@mui/material": ^6
@@ -7973,8 +7957,8 @@ __metadata:
     "@xylabs/assert": "npm:^4.13.15"
     "@xylabs/react-button": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-payload-raw-info": "workspace:^"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -8002,8 +7986,8 @@ __metadata:
     "@xylabs/pixel": "npm:^4.13.15"
     "@xylabs/promise": "npm:^4.13.15"
     "@xylabs/react-pixel": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     mixpanel-browser: "npm:^2.66.0"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -8028,7 +8012,7 @@ __metadata:
     "@types/react": "npm:^19.1.8"
     "@xylabs/assert": "npm:^4.13.15"
     "@xylabs/react-shared": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
     "@xyo-network/metamask-connector": "npm:^4.1.1"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -8102,8 +8086,8 @@ __metadata:
     "@xylabs/react-link": "npm:^6.3.10"
     "@xylabs/react-pixel": "npm:^6.3.10"
     "@xylabs/react-webapp": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
@@ -8133,8 +8117,8 @@ __metadata:
     "@xylabs/react-button": "npm:^6.3.10"
     "@xylabs/react-flexbox": "npm:^6.3.10"
     "@xylabs/react-promise": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/id-plugin": "npm:^4.0.0"
     "@xyo-network/module-model": "npm:^4.1.1"
     "@xyo-network/payload-model": "npm:^4.1.1"
@@ -8167,8 +8151,8 @@ __metadata:
     "@xylabs/react-link": "npm:^6.3.10"
     "@xylabs/react-pixel": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/xns-record-payloadset-plugins": "npm:^4.0.0"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -8248,12 +8232,12 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8.37.0"
     "@typescript-eslint/parser": "npm:^8.37.0"
     "@vitejs/plugin-react-swc": "npm:^3.10.2"
-    "@xylabs/eslint-config-flat": "npm:^6.5.18"
-    "@xylabs/eslint-config-react-flat": "npm:^6.5.18"
+    "@xylabs/eslint-config-flat": "npm:next"
+    "@xylabs/eslint-config-react-flat": "npm:next"
     "@xylabs/react-invertible-theme": "npm:^6.3.10"
     "@xylabs/react-theme": "npm:^6.3.10"
-    "@xylabs/ts-scripts-yarn3": "npm:^6.5.18"
-    "@xylabs/tsconfig-react": "npm:^6.5.18"
+    "@xylabs/ts-scripts-yarn3": "npm:next"
+    "@xylabs/tsconfig-react": "npm:next"
     "@xyo-network/react-modules": "workspace:^"
     "@xyo-network/react-plugins": "workspace:^"
     "@xyo-network/react-sdk": "workspace:^"
@@ -10893,7 +10877,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.30.1, eslint@npm:^9.31.0":
+"eslint@npm:^9.31.0":
   version: 9.31.0
   resolution: "eslint@npm:9.31.0"
   dependencies:
