@@ -1,13 +1,13 @@
 import type { Theme } from '@mui/material'
 import {
-  createTheme,
-  Stack, ThemeProvider, useColorScheme, useTheme
+  createTheme, CssBaseline,
+  ThemeProvider, useColorScheme, useTheme
 } from '@mui/material'
 import type { Decorator } from '@storybook/react-vite'
 import {
   DataismTheme, XyLabsTheme, XyosTheme, XyoTheme,
 } from '@xylabs/react-theme'
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 
 const themeNames = ['None', 'XYO', 'Dataism', 'XYLabs', 'xyOS'] as const
 type ThemeName = typeof themeNames[number]
@@ -79,21 +79,28 @@ const withThemeProvider: Decorator = (Story, context) => {
   const themeOptions = getTheme(context.globals.theme)
   const theme = themeOptions
 
+  // SB does not adjust the background color based off the color scheme, so we need to do it manually
+  useLayoutEffect(() => {
+    const body = document.getElementsByTagName('body')[0]
+    if (body) {
+      body.style.backgroundColor = themeOptions.vars?.palette?.background?.paper || 'transparent'
+    }
+  }, [themeOptions])
+
   return (
-    <ThemeProvider theme={theme}>
-       <Stack alignItems="stretch">
+    <ThemeProvider theme={theme} defaultMode={'dark'}>
+      <CssBaseline enableColorScheme />
         <Story {...context} />
-      </Stack>
     </ThemeProvider>
   )
 }
 
 const withModeSelector: Decorator = (Story, context) => {
   const { mode } = context.globals
-  const { setMode: setMuiMode } = useColorScheme()
+  const { setMode } = useColorScheme()
 
   useEffect(() => {
-    setMuiMode(mode)
+    setMode(mode)
   }, [mode])
 
   return <Story {...context} />
