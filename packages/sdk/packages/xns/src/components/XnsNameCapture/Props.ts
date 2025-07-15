@@ -32,6 +32,7 @@ export interface XnsNameCaptureBaseProps {
   autoFocus?: boolean
   buttonText?: string
   defaultXnsName?: string
+  disabled?: boolean
   errorUi?: 'alert' | 'toast'
   mobileButtonText?: string
   onNameChange?: (name: string) => void

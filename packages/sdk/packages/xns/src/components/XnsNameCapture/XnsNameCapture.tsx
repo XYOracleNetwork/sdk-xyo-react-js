@@ -18,6 +18,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
   buttonText = 'Buy My Name',
   children,
   defaultXnsName,
+  disabled,
   errorUi = 'alert',
   funnel = 'xns',
   intent = 'unset',
@@ -72,6 +73,7 @@ export const XnsNameCapture: React.FC<XnsNameCaptureProps> = ({
       <FlexRow gap={1}>
         <XnsEstimateNameTextField
           autoFocus={autoFocus}
+          disabled={disabled}
           label="xNS Name"
           variant="outlined"
           size="small"
