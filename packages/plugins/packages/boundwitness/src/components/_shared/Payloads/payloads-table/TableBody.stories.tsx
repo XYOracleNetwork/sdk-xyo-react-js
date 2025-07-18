@@ -25,7 +25,13 @@ export default {
   component: BoundWitnessPayloadTableBody,
 } as Meta
 
-const Template: StoryFn<typeof BoundWitnessPayloadTableBody<EventNoun>> = args => <BoundWitnessPayloadTableBody {...args} />
+const Template: StoryFn<typeof BoundWitnessPayloadTableBody<EventNoun>> = (args) => {
+  const [ref] = useEvent<HTMLTableSectionElement>((noun, verb, data) => {
+    alert(`${noun}|${verb}|${data}`)
+  })
+  return <BoundWitnessPayloadTableBody ref={ref} {...args} />
+}
+
 const TemplateWithCustomNouns: StoryFn<typeof BoundWitnessPayloadTableBody<CustomNoun>>
   = (args) => {
     const [ref] = useEvent<HTMLTableSectionElement>((noun, verb, data) => {
@@ -38,13 +44,16 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { ...data, clickableFields: ['payload'] }
+WithData.args = { ...data }
+
+const WithClickableFields = Template.bind({})
+WithClickableFields.args = { ...data, clickableFields: ['schema'] }
 
 const WithCustomNouns = TemplateWithCustomNouns.bind({})
 WithCustomNouns.args = {
-  ...data, eventNoun: 'customNoun', clickableFields: ['customNoun'],
+  ...data, eventNoun: 'customNoun', clickableFields: ['hash'],
 }
 
 export {
-  Default, WithCustomNouns, WithData,
+  Default, WithClickableFields, WithCustomNouns, WithData,
 }

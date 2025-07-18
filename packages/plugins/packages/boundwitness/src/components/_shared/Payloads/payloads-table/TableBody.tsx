@@ -11,16 +11,22 @@ import { useTableHeight } from '@xyo-network/react-table'
 import type { RefObject } from 'react'
 import React, { useLayoutEffect } from 'react'
 
-export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun<string> = EventNoun> extends PayloadTableBodyProps {
-  clickableFields?: TNoun[]
+type ClickableFields = 'hash' | 'schema'
+
+export interface BoundWitnessPayloadTableBodyProps<
+  TNoun extends ExtendEventNoun<string> = EventNoun,
+> extends PayloadTableBodyProps {
+  clickableFields?: ClickableFields[]
   eventNoun?: TNoun
   payloadHashes?: string[]
   payloadSchemas?: string[]
 }
 
-export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun<string> = EventNoun>({
+export const BoundWitnessPayloadTableBody = <
+  TNoun extends ExtendEventNoun<string> = EventNoun,
+>({
   clickableFields,
-  eventNoun = 'payload' as TNoun,
+  eventNoun: eventNounOverride,
   payloadHashes,
   payloadSchemas,
   ref,
@@ -40,6 +46,21 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun<strin
     }
   })
 
+  const RenderedCell: React.FC<{ field: ClickableFields; value: string }> = ({ field, value }) => {
+    return clickableFields?.includes(field)
+      ? (
+          <Link
+            sx={{ cursor: 'pointer' }}
+            onClick={() => {
+              dispatch (eventNounOverride ?? field as TNoun, 'click', value)
+            }}
+          >
+            {value}
+          </Link>
+        )
+      : value
+  }
+
   return (
     <TableBody {...tableProps}>
       {noResults && NoResultRowComponent
@@ -49,20 +70,11 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun<strin
         ? payloadHashes.map((hash, index) => {
             return (
               <TableRow ref={tableRowRef} key={hash}>
-                <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
+                <TableCell title={payloadSchemas[index]}>
+                  <RenderedCell field="schema" value={payloadSchemas[index]} />
+                </TableCell>
                 <HashTableCell title={hash} value={hash}>
-                  {clickableFields?.includes(eventNoun)
-                    ? (
-                        <Link
-                          sx={{ cursor: 'pointer' }}
-                          onClick={() => {
-                            dispatch(eventNoun, 'click', hash)
-                          }}
-                        >
-                          {hash}
-                        </Link>
-                      )
-                    : hash}
+                  <RenderedCell field="hash" value={hash} />
                 </HashTableCell>
               </TableRow>
             )

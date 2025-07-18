@@ -10,7 +10,8 @@ export interface BoundWitnessFilteredPayloadTableBodyProps extends BoundWitnessP
 
 export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFilteredPayloadTableBodyProps> = ({
   bwFilterType = 'equal',
-  eventNoun = 'payload',
+  clickableFields,
+  eventNoun,
   payloadHashes,
   payloadSchemas,
   schemaFilter,
@@ -48,5 +49,13 @@ export const BoundWitnessFilteredPayloadTableBody: React.FC<BoundWitnessFiltered
       setBWPayloadHashes(filteredHashes)
     }
   }, [bwFilterType, payloadHashes, payloadSchemas, schemaFilter])
-  return <BoundWitnessPayloadTableBody payloadHashes={bwPayloadHashes} payloadSchemas={bwPayloadSchemas} eventNoun={eventNoun} {...props} />
+  return (
+    <BoundWitnessPayloadTableBody
+      payloadHashes={bwPayloadHashes}
+      payloadSchemas={bwPayloadSchemas}
+      clickableFields={clickableFields}
+      eventNoun={eventNoun}
+      {...props}
+    />
+  )
 }

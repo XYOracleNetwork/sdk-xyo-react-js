@@ -1,7 +1,7 @@
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
+import type { ExtendEventNoun } from '@xyo-network/react-event'
 import type { PayloadTableProps } from '@xyo-network/react-payload-table'
-import { usePayloadHash } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
@@ -10,14 +10,18 @@ import { BoundWitnessFilteredPayloadTableBody, BoundWitnessPayloadTableHead } fr
 
 export interface BoundWitnessPayloadTableProps extends PayloadTableProps {
   boundwitness?: BoundWitness
+  clickableFields?: ExtendEventNoun[]
+  eventNoun?: ExtendEventNoun
 }
 
-export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> = ({ boundwitness, ...props }) => {
-  const hash = usePayloadHash(boundwitness)
+export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> = ({
+  boundwitness, clickableFields, eventNoun = 'payload', ...props
+}) => {
   return (
     <BoundWitnessPayloadsTableInner {...props}>
       <BoundWitnessFilteredPayloadTableBody
-        eventNoun="payload"
+        clickableFields={clickableFields}
+        eventNoun={eventNoun}
         schemaFilter={BoundWitnessSchema}
         bwFilterType="notEqual"
         noResults={boundwitness?.payload_hashes.length === 0}
@@ -28,11 +32,14 @@ export const BoundWitnessPayloadsTable: React.FC<BoundWitnessPayloadTableProps> 
   )
 }
 
-export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableProps> = ({ boundwitness, ...props }) => {
+export const BoundWitnessPayloadsTableForBWs: React.FC<BoundWitnessPayloadTableProps> = ({
+  boundwitness, clickableFields, eventNoun = 'boundwitness', ...props
+}) => {
   return (
     <BoundWitnessPayloadsTableInner {...props}>
       <BoundWitnessFilteredPayloadTableBody
-        eventNoun="boundwitness"
+        clickableFields={clickableFields}
+        eventNoun={eventNoun}
         schemaFilter={BoundWitnessSchema}
         noResults={boundwitness?.payload_hashes.length === 0}
         payloadHashes={boundwitness?.payload_hashes}
