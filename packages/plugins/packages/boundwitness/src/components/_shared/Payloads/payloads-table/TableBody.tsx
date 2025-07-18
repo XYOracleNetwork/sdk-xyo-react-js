@@ -11,16 +11,14 @@ import { useTableHeight } from '@xyo-network/react-table'
 import type { RefObject } from 'react'
 import React, { useLayoutEffect } from 'react'
 
-type clickableFields = 'payload'
-
-export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun = EventNoun> extends PayloadTableBodyProps {
-  clickableFields?: clickableFields[]
+export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun<string> = EventNoun> extends PayloadTableBodyProps {
+  clickableFields?: TNoun[]
   eventNoun?: TNoun
   payloadHashes?: string[]
   payloadSchemas?: string[]
 }
 
-export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = EventNoun>({
+export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun<string> = EventNoun>({
   clickableFields,
   eventNoun = 'payload' as TNoun,
   payloadHashes,
@@ -34,7 +32,7 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = Eve
   } = props
 
   const { setRowHeight } = useTableHeight()
-  const [tableRowRef, dispatch] = useEvent<HTMLTableRowElement>(undefined, ref as RefObject<HTMLTableRowElement | null> | undefined)
+  const [tableRowRef, dispatch] = useEvent<HTMLTableRowElement, TNoun>(undefined, ref as RefObject<HTMLTableRowElement | null> | undefined)
 
   useLayoutEffect(() => {
     if (tableRowRef.current) {
@@ -53,7 +51,7 @@ export const BoundWitnessPayloadTableBody = <TNoun extends ExtendEventNoun = Eve
               <TableRow ref={tableRowRef} key={hash}>
                 <TableCell title={payloadSchemas[index]}>{payloadSchemas[index]}</TableCell>
                 <HashTableCell title={hash} value={hash}>
-                  {clickableFields?.includes('payload')
+                  {clickableFields?.includes(eventNoun)
                     ? (
                         <Link
                           sx={{ cursor: 'pointer' }}

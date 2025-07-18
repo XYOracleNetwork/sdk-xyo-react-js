@@ -38,13 +38,11 @@ const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = {
-  ...data, eventNoun: 'boundwitness', clickableFields: ['hash'],
-}
+WithData.args = { ...data, clickableFields: ['payload'] }
 
 const WithCustomNouns = TemplateWithCustomNouns.bind({})
 WithCustomNouns.args = {
-  ...data, eventNoun: 'customNoun', clickableFields: ['hash'],
+  ...data, eventNoun: 'customNoun', clickableFields: ['customNoun'],
 }
 
 export {

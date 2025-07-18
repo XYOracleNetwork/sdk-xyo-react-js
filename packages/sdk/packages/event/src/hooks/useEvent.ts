@@ -3,11 +3,11 @@ import type { RefObject } from 'react'
 import { useCustomEvent } from './useCustomEvent.ts'
 
 export type EventNoun = 'payload' | 'boundwitness' | 'address' | 'hash' | 'signature' | 'schema'
-export type ExtendEventNoun<Extension extends string = string> = Extension | EventNoun
+export type ExtendEventNoun<Extension extends string | void = void> = Extension extends string ? Extension : EventNoun
 
 export type EventVerb = 'click' | 'favorite'
 
-export interface Event<TNoun = EventNoun, TVerb = EventVerb, TData = string> {
+export interface Event<TNoun = ExtendEventNoun, TVerb = EventVerb, TData = string> {
   data?: TData
   noun: TNoun
   verb: TVerb
