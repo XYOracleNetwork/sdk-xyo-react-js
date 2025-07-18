@@ -6,11 +6,12 @@ import { TableEx } from '@xyo-network/react-table'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 
+import type { ClickableFields } from './payloads-table/index.ts'
 import { BoundWitnessFilteredPayloadTableBody, BoundWitnessPayloadTableHead } from './payloads-table/index.ts'
 
 export interface BoundWitnessPayloadTableProps extends PayloadTableProps {
   boundwitness?: BoundWitness
-  clickableFields?: ExtendEventNoun[]
+  clickableFields?: ClickableFields[]
   eventNoun?: ExtendEventNoun
 }
 

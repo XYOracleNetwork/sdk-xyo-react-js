@@ -11,11 +11,9 @@ import { useTableHeight } from '@xyo-network/react-table'
 import type { RefObject } from 'react'
 import React, { useLayoutEffect } from 'react'
 
-type ClickableFields = 'hash' | 'schema'
+export type ClickableFields = 'hash' | 'schema'
 
-export interface BoundWitnessPayloadTableBodyProps<
-  TNoun extends ExtendEventNoun<string> = EventNoun,
-> extends PayloadTableBodyProps {
+export interface BoundWitnessPayloadTableBodyProps<TNoun extends ExtendEventNoun<string> = EventNoun> extends PayloadTableBodyProps {
   clickableFields?: ClickableFields[]
   eventNoun?: TNoun
   payloadHashes?: string[]

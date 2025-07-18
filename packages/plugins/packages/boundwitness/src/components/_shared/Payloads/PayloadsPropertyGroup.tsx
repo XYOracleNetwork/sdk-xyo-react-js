@@ -4,11 +4,12 @@ import type { PropertyGroupProps } from '@xyo-network/react-property'
 import { PropertyGroup } from '@xyo-network/react-property'
 import React from 'react'
 
+import type { ClickableFields } from './payloads-table/index.ts'
 import { BoundWitnessPayloadsTable } from './PayloadsTable.tsx'
 
 export type BoundWitnessPayloadsProps = PropertyGroupProps & {
   payload?: BoundWitness
-  payloadTableProps?: PayloadTableProps
+  payloadTableProps?: PayloadTableProps & { clickableFields?: ClickableFields[] }
 }
 
 export const BoundWitnessPayloads: React.FC<BoundWitnessPayloadsProps> = ({
