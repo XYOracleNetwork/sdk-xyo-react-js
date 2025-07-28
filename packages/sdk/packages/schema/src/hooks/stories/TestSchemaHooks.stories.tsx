@@ -59,7 +59,7 @@ export default {
 
 const Template: StoryFn<React.FC> = () => {
   SchemaCache.instance.proxy = `${apiConfig.apiDomain}/domain`
-  const [addressText, setAddressText] = useState<Address>('')
+  const [addressText, setAddressText] = useState<Address>('' as Address)
   const [address, setAddress] = useState<Address>()
   const [schemaStats, schemaStatsError] = useSchemaStats(address)
   const [schemaList, schemaListError] = useSchemaList(address)

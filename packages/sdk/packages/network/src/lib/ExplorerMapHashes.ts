@@ -12,6 +12,6 @@ export const ExplorerMapHashes: { animatedAnswerHashes: Hash[]; staticAnswerHash
     '463808eb74d3d87e6563970e0301a493577f8cd1b501e6e0ffa5e027ad2cea95',
     '15b21acea2e3fd9d1ace3768a72636ee7bdf67a6f8e0807bfa2273dea2207555',
     '32d377bfe7ebe382598c54dd13f8af7510e0a1e2fd2e913311fdd58e517e5e2e',
-  ],
-  staticAnswerHash: 'c7bbf61f61cfd4a1b2def160c28136fc1d100d39fbdb67b227a2c6e558d9d3a5',
+  ] as Hash[],
+  staticAnswerHash: 'c7bbf61f61cfd4a1b2def160c28136fc1d100d39fbdb67b227a2c6e558d9d3a5' as Hash,
 }

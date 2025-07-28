@@ -1,6 +1,6 @@
 import type { IconButtonProps } from '@mui/material'
 import { IconButton } from '@mui/material'
-import { toJson } from '@xylabs/object'
+import { toSafeJson } from '@xylabs/object'
 import type { MouseEventHandler, ReactNode } from 'react'
 import React, { useMemo, useState } from 'react'
 
@@ -26,7 +26,7 @@ export const RawInfoIconButton = (
 ) => {
   const [open, setOpen] = useState(false)
   const size = presetIconSizeValue(presetIconSize)
-  const json = useMemo(() => toJson(rawValue), [rawValue])
+  const json = useMemo(() => toSafeJson(rawValue), [rawValue])
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation()

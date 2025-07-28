@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
+import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { AddressHistoryDiviner, AddressHistoryDivinerConfigSchema } from '@xyo-network/diviner-address-history'
 import type { DivinerInstance } from '@xyo-network/diviner-model'
@@ -17,7 +18,7 @@ const Template: StoryFn<typeof DivinerCard> = () => {
       if (!mod) {
         const newModule = (await AddressHistoryDiviner.create({
           config: {
-            address: '',
+            address: '' as Address,
             name: 'AddressHistoryDiviner',
             schema: AddressHistoryDivinerConfigSchema,
           },

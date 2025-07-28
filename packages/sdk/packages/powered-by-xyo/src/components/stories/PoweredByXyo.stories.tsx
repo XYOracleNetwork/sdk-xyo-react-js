@@ -1,5 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
 import { delay } from '@xylabs/delay'
+import type { Hash } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
@@ -47,7 +48,7 @@ const TemplateWithNodeContainer: StoryFn<typeof PoweredByXyo> = (props: PoweredB
         let calls = 1
         while (calls) {
           calls--
-          await archivist.get([''])
+          await archivist.get(['' as Hash])
           await delay(100)
         }
       }

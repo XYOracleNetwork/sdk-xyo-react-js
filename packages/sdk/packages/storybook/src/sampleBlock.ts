@@ -1,6 +1,6 @@
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 
-export const sampleBlock: BoundWitness = {
+export const sampleBlock = {
   $signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
   addresses: ['9c6df83b84297985d3ccc1f721ba1c2e3608c751'],
   payload_hashes: [
@@ -21,8 +21,9 @@ export const sampleBlock: BoundWitness = {
   ],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
-}
-export const sampleBlockWithBoundWitnessPayload: BoundWitness = {
+} as BoundWitness
+
+export const sampleBlockWithBoundWitnessPayload = {
   $signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
   addresses: ['9c6df83b84297985d3ccc1f721ba1c2e3608c751'],
   payload_hashes: [
@@ -43,4 +44,4 @@ export const sampleBlockWithBoundWitnessPayload: BoundWitness = {
   ],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
-}
+} as BoundWitness

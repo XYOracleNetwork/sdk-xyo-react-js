@@ -1,1 +1,1 @@
-import type {} from '@mui/material/themeCssVarsAugmentation'
+import '@mui/material/themeCssVarsAugmentation'

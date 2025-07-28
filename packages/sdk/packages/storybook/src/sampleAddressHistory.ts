@@ -1,7 +1,8 @@
+import type { Hex } from '@xylabs/hex'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 
-export const sampleAddressHistory: BoundWitness[] = [
+export const sampleAddressHistory = [
   {
     $signatures: [
       '186de1122640fc9d6577765e0b0f6822860994a0fbd1f80354963f89eebc3da01d0a68c36d2c6facab89bd777964c0d5b76103eb35b7900cc69bb1b90231117e',
@@ -62,9 +63,9 @@ export const sampleAddressHistory: BoundWitness[] = [
     previous_hashes: [null],
     schema: BoundWitnessSchema,
   },
-]
+] as BoundWitness[]
 
-export const randomizedSampleAddressHistory: BoundWitness[] = [
+export const randomizedSampleAddressHistory = [
   {
     $signatures: [
       '35c4aa262694cdf6c72f473e4e2a4b164b35a5f228a6ed1c8345b8a6b7b0d192d6868fc038a09258f2b7016d04157640d7555109102e3c072556f8c4c002543f',
@@ -125,4 +126,4 @@ export const randomizedSampleAddressHistory: BoundWitness[] = [
     previous_hashes: ['322e48abf142b99635ea51c73d7d6225c04514348ffd3c37399c39b0e17d4972'],
     schema: BoundWitnessSchema,
   },
-]
+] as BoundWitness[]

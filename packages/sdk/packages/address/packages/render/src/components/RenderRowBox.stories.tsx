@@ -1,6 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import type { Address } from '@xylabs/hex'
-import { toHex } from '@xylabs/hex'
+import { asAddress, toHex } from '@xylabs/hex'
 import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
 import React, { useState } from 'react'
@@ -8,7 +7,7 @@ import React, { useState } from 'react'
 import type { FavoriteItemEvent } from './lib/index.ts'
 import { AddressRenderRowBox } from './RenderRowBox.tsx'
 
-const address: Address = toHex(randomBytes(20).buffer)
+const address = asAddress(toHex(randomBytes(20).buffer), true)
 
 const StorybookEntry = {
   argTypes: {},

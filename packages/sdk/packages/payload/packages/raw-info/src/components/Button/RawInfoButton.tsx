@@ -1,4 +1,4 @@
-import { toJson } from '@xylabs/object'
+import { toSafeJson } from '@xylabs/object'
 import type { ButtonExProps } from '@xylabs/react-button'
 import { ButtonEx } from '@xylabs/react-button'
 import type { MouseEventHandler, ReactNode } from 'react'
@@ -33,7 +33,7 @@ export const RawInfoButton: React.FC<RawInfoButtonProps> = ({
 }) => {
   const [open, setOpen] = useState(false)
   const size = presetIconSizeValue(presetIconSize)
-  const json = useMemo(() => toJson(rawValue), [rawValue])
+  const json = useMemo(() => toSafeJson(rawValue), [rawValue])
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation()

@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import { toJson } from '@xylabs/object'
+import { toSafeJson } from '@xylabs/object'
 import { FlexCol } from '@xylabs/react-flexbox'
 import type { Payload } from '@xyo-network/payload-model'
 import React from 'react'
@@ -28,7 +28,7 @@ const Default = Template.bind({})
 const WithPayload = Template.bind({})
 WithPayload.args = {
   dialogContent: 'This is a test',
-  jsonValue: toJson(TestPayload),
+  jsonValue: toSafeJson(TestPayload),
   open: true,
 }
 

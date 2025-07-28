@@ -3,7 +3,7 @@ import type { ArchivistPreset } from '@xyo-network/react-network'
 import { useNetwork } from '@xyo-network/react-network'
 import { useMemo } from 'react'
 
-const animatedAnswerHashesConst: Hash[] = [
+const animatedAnswerHashesConst = [
   '79af071f451fc7af10d009dc63236ef9a9b211732c1ee0c06f028fcecf2336c5',
   '531bfba6d8dfefd3bcc888aca54cdbbd4574ed2b3ec551b230845a1f9a608898',
   'c874412b4faa4947de81372fd1ba12fdd6f43f5e408622b7f357cb2bcb3f17cb',
@@ -15,9 +15,9 @@ const animatedAnswerHashesConst: Hash[] = [
   '463808eb74d3d87e6563970e0301a493577f8cd1b501e6e0ffa5e027ad2cea95',
   '15b21acea2e3fd9d1ace3768a72636ee7bdf67a6f8e0807bfa2273dea2207555',
   '32d377bfe7ebe382598c54dd13f8af7510e0a1e2fd2e913311fdd58e517e5e2e,',
-]
+] as Hash[]
 
-const staticAnswerHashConst: Hash = 'c7bbf61f61cfd4a1b2def160c28136fc1d100d39fbdb67b227a2c6e558d9d3a5'
+const staticAnswerHashConst = 'c7bbf61f61cfd4a1b2def160c28136fc1d100d39fbdb67b227a2c6e558d9d3a5' as Hash
 
 export const useFindHashes = () => {
   const { network } = useNetwork()

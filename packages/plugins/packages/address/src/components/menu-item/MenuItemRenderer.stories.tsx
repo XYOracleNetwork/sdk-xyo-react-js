@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
 import type { Address } from '@xylabs/hex'
-import { toHex } from '@xylabs/hex'
+import { toAddress, toHex } from '@xylabs/hex'
 import type { AddressPayload } from '@xyo-network/module-model'
 import { AddressSchema } from '@xyo-network/module-model'
 import { useEvent } from '@xyo-network/react-event'
@@ -9,7 +9,7 @@ import React from 'react'
 
 import { AddressMenuItemRenderer } from './MenuItemRenderer.tsx'
 
-const address: Address = toHex(randomBytes(20).buffer)
+const address: Address = toAddress(toHex(randomBytes(20).buffer))
 const payload: AddressPayload = {
   address,
   schema: AddressSchema,
