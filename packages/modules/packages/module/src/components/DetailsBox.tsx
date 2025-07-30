@@ -1,4 +1,4 @@
-import { EthAddress } from '@xylabs/eth-address'
+import { EthAddressWrapper } from '@xylabs/eth-address'
 import { ButtonEx } from '@xylabs/react-button'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
@@ -32,7 +32,7 @@ export const ModuleDetailsBox: React.FC<ModuleRenderProps & FlexBoxProps> = ({
                 : null
             })
           : null}
-        <EthAccountBox address={EthAddress.fromString(mod?.address)} />
+        <EthAccountBox address={EthAddressWrapper.fromString(mod?.address)} />
       </FlexRow>
 
       {showQueries

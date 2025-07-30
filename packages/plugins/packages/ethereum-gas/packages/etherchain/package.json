@@ -38,12 +38,16 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
     "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

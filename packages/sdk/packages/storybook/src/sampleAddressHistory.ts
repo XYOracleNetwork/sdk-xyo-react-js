@@ -1,4 +1,3 @@
-import type { Hex } from '@xylabs/hex'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 

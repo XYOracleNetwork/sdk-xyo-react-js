@@ -38,20 +38,24 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
-    "@xylabs/object": "^4.15.0",
-    "@xylabs/pixel": "^4.15.0",
-    "@xylabs/promise": "^4.15.0",
-    "@xylabs/react-pixel": "^6.4.0",
+    "@xylabs/object": "^5.0.0",
+    "@xylabs/pixel": "^5.0.0",
+    "@xylabs/promise": "^5.0.0",
+    "@xylabs/react-pixel": "^7.0.0",
     "mixpanel-browser": "^2.67.0"
   },
   "devDependencies": {
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "@types/mixpanel-browser": "^2.66.0",
-    "@types/react": "^19.1.8",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
-    "@xylabs/tsconfig-react": "^7.0.1",
+    "@types/react": "^19.1.9",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
+    "@xylabs/tsconfig-react": "^7.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.7.1",

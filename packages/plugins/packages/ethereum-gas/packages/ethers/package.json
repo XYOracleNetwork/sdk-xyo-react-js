@@ -38,9 +38,13 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
-    "@xylabs/react-flexbox": "^6.4.0",
-    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^4.1.1",
+    "@xylabs/react-flexbox": "^7.0.0",
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^5.0.0",
     "@xyo-network/react-gas-price": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^",
     "@xyo-network/react-shared": "workspace:^"
@@ -51,11 +55,11 @@
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "@storybook/react-vite": "^9.0.18",
-    "@types/react": "^19.1.8",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
-    "@xylabs/tsconfig-react": "^7.0.1",
-    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^4.1.1",
-    "@xyo-network/payload-model": "^4.3.0",
+    "@types/react": "^19.1.9",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
+    "@xylabs/tsconfig-react": "^7.0.2",
+    "@xyo-network/ethers-ethereum-gas-payload-plugin": "^5.0.0",
+    "@xyo-network/payload-model": "^5.0.0",
     "@xyo-network/react-storybook": "workspace:^",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

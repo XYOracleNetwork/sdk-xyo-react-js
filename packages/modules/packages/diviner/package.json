@@ -38,15 +38,19 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
-    "@xylabs/exists": "^4.15.0",
-    "@xyo-network/diviner-model": "^4.3.0",
-    "@xyo-network/module-model": "^4.3.0",
+    "@xylabs/exists": "^5.0.0",
+    "@xyo-network/diviner-model": "^5.0.0",
+    "@xyo-network/module-model": "^5.0.0",
     "@xyo-network/react-node": "workspace:^"
   },
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
-    "@xylabs/tsconfig-react": "^7.0.1",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
+    "@xylabs/tsconfig-react": "^7.0.2",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

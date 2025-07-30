@@ -38,18 +38,22 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
-    "@xylabs/react-promise": "^6.4.0",
-    "@xyo-network/diviner-huri": "^4.3.0",
-    "@xyo-network/diviner-model": "^4.3.0",
+    "@xylabs/react-promise": "^7.0.0",
+    "@xyo-network/diviner-huri": "^5.0.0",
+    "@xyo-network/diviner-model": "^5.0.0",
     "@xyo-network/react-network": "workspace:^",
     "react-router-dom": "^7.7.1"
   },
   "devDependencies": {
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
-    "@types/react": "^19.1.8",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
+    "@types/react": "^19.1.9",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "typescript": "^5.8.3"

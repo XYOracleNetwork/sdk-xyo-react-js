@@ -11,7 +11,6 @@ export const useShareForwardedRef = <T>(forwardedRef: ForwardedRef<T> | null | u
     }
     if (typeof forwardedRef === 'function') {
       forwardedRef(innerRef.current)
-      return
     } else {
       forwardedRef.current = innerRef.current
     }

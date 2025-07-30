@@ -38,8 +38,12 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "devDependencies": {
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

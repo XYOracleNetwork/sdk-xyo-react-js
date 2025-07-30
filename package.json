@@ -35,6 +35,10 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "workspaces": [
     "packages/**/*"
   ],
@@ -63,16 +67,16 @@
     "@storybook/react-vite": "^9.0.18",
     "@stylistic/eslint-plugin": "^5.2.2",
     "@types/node": "^24.1.0",
-    "@types/react": "^19.1.8",
+    "@types/react": "^19.1.9",
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.38.0",
     "@vitejs/plugin-react-swc": "^3.11.0",
-    "@xylabs/eslint-config-flat": "^7.0.1",
-    "@xylabs/eslint-config-react-flat": "^7.0.1",
-    "@xylabs/react-invertible-theme": "^6.4.0",
-    "@xylabs/react-theme": "^6.4.0",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
-    "@xylabs/tsconfig-react": "^7.0.1",
+    "@xylabs/eslint-config-flat": "^7.0.2",
+    "@xylabs/eslint-config-react-flat": "^7.0.2",
+    "@xylabs/react-invertible-theme": "^7.0.0",
+    "@xylabs/react-theme": "^7.0.0",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
+    "@xylabs/tsconfig-react": "^7.0.2",
     "chromatic": "^13.1.2",
     "copyfiles": "^2.4.1",
     "dotenv": "^17.2.1",
@@ -89,7 +93,7 @@
     "typedoc": "^0.28.8",
     "typescript": "^5.8.3",
     "vite": "^7.0.6",
-    "vite-plugin-checker": "^0.10.1",
+    "vite-plugin-checker": "^0.10.2",
     "vite-plugin-top-level-await": "^1.6.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"

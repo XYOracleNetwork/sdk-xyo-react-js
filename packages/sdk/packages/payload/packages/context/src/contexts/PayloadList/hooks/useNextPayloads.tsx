@@ -1,5 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import type { ArchivistInstance, NextOptions } from '@xyo-network/archivist-model'
+import type { ArchivistInstance, ArchivistNextOptions } from '@xyo-network/archivist-model'
 import type { Payload, WithStorageMeta } from '@xyo-network/payload-model'
 import { useMemo, useState } from 'react'
 
@@ -12,7 +12,7 @@ export const useNextPayloads = (
   totalPayloads?: WithStorageMeta<Payload>[],
   updateTotalPayloads?: TotalPayloadsState['updateTotalPayloads'],
   archivistInstance?: ArchivistInstance,
-  nextOptions?: NextOptions,
+  nextOptions?: ArchivistNextOptions,
 ) => {
   const [newPayloads, setNewPayloads] = useState<WithStorageMeta<Payload>[]>()
   const [error, setError] = useState<Error>()

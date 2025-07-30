@@ -38,8 +38,12 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
-    "@xylabs/react-flexbox": "^6.4.0",
+    "@xylabs/react-flexbox": "^7.0.0",
     "@xyo-network/react-payload-details": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^"
   },
@@ -48,9 +52,9 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
-    "@types/react": "^19.1.8",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
-    "@xyo-network/payload-model": "^4.3.0",
+    "@types/react": "^19.1.9",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
+    "@xyo-network/payload-model": "^5.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "typescript": "^5.8.3"

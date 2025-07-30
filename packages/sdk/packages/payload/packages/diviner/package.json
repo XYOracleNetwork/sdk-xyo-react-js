@@ -38,23 +38,27 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
-    "@xylabs/exists": "^4.15.0",
-    "@xylabs/react-async-effect": "^6.4.0",
-    "@xylabs/react-error": "^6.4.0",
-    "@xylabs/react-hooks": "^6.4.0",
-    "@xylabs/react-shared": "^6.4.0",
-    "@xyo-network/diviner-huri": "^4.3.0",
-    "@xyo-network/diviner-payload-abstract": "^4.3.0",
-    "@xyo-network/payload-model": "^4.3.0",
+    "@xylabs/exists": "^5.0.0",
+    "@xylabs/react-async-effect": "^7.0.0",
+    "@xylabs/react-error": "^7.0.0",
+    "@xylabs/react-hooks": "^7.0.0",
+    "@xylabs/react-shared": "^7.0.0",
+    "@xyo-network/diviner-huri": "^5.0.0",
+    "@xyo-network/diviner-payload-abstract": "^5.0.0",
+    "@xyo-network/payload-model": "^5.0.0",
     "@xyo-network/react-payload-huri": "workspace:^",
     "react-router-dom": "^7.7.1"
   },
   "devDependencies": {
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
-    "@types/react": "^19.1.8",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
+    "@types/react": "^19.1.9",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "typescript": "^5.8.3"

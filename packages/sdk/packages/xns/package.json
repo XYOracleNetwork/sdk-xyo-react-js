@@ -38,21 +38,25 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
-    "@xylabs/react-button": "^6.4.0",
-    "@xylabs/react-flexbox": "^6.4.0",
-    "@xylabs/react-link": "^6.4.0",
-    "@xylabs/react-pixel": "^6.4.0",
-    "@xylabs/react-theme": "^6.4.0",
-    "@xyo-network/xns-record-payloadset-plugins": "^4.1.1"
+    "@xylabs/react-button": "^7.0.0",
+    "@xylabs/react-flexbox": "^7.0.0",
+    "@xylabs/react-link": "^7.0.0",
+    "@xylabs/react-pixel": "^7.0.0",
+    "@xylabs/react-theme": "^7.0.0",
+    "@xyo-network/xns-record-payloadset-plugins": "^5.0.0"
   },
   "devDependencies": {
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "@storybook/react-vite": "^9.0.18",
-    "@types/react": "^19.1.8",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
-    "@xylabs/tsconfig-react": "^7.0.1",
+    "@types/react": "^19.1.9",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
+    "@xylabs/tsconfig-react": "^7.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.7.1",

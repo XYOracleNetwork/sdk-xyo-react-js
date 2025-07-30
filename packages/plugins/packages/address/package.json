@@ -38,6 +38,10 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
     "@xyo-network/react-address-render": "workspace:^",
     "@xyo-network/react-payload-plugin": "workspace:^"
@@ -48,11 +52,11 @@
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "@storybook/react-vite": "^9.0.18",
-    "@types/react": "^19.1.8",
-    "@xylabs/hex": "^4.15.0",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
-    "@xylabs/tsconfig-react": "^7.0.1",
-    "@xyo-network/module-model": "^4.3.0",
+    "@types/react": "^19.1.9",
+    "@xylabs/hex": "^5.0.0",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
+    "@xylabs/tsconfig-react": "^7.0.2",
+    "@xyo-network/module-model": "^5.0.0",
     "@xyo-network/react-event": "workspace:^",
     "ethers": "^6.15.0",
     "react": "^19.1.1",

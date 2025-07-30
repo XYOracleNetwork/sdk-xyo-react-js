@@ -1,6 +1,6 @@
 import type { TableCellProps } from '@mui/material'
 import { TableCell } from '@mui/material'
-import { EthAddress } from '@xylabs/eth-address'
+import { EthAddressWrapper } from '@xylabs/eth-address'
 import { EthAccountBox } from '@xylabs/react-crypto'
 import React from 'react'
 
@@ -11,7 +11,7 @@ export const ModuleTableCell: React.FC<ModuleRenderProps & TableCellProps> = ({
 }) => {
   return (
     <TableCell {...props}>
-      <EthAccountBox address={EthAddress.fromString(mod?.address)} />
+      <EthAccountBox address={EthAddressWrapper.fromString(mod?.address)} />
       {children}
     </TableCell>
   )

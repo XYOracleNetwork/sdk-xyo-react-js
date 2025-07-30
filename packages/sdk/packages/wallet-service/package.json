@@ -38,16 +38,20 @@
   },
   "module": "dist/browser/index.mjs",
   "types": "dist/browser/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
-    "@xylabs/assert": "^4.15.0",
-    "@xylabs/react-shared": "^6.4.0",
-    "@xyo-network/metamask-connector": "^4.3.0"
+    "@xylabs/assert": "^5.0.0",
+    "@xylabs/react-shared": "^7.0.0",
+    "@xyo-network/metamask-connector": "^5.0.0"
   },
   "devDependencies": {
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
-    "@types/react": "^19.1.8",
-    "@xylabs/ts-scripts-yarn3": "^7.0.1",
+    "@types/react": "^19.1.9",
+    "@xylabs/ts-scripts-yarn3": "^7.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "typescript": "^5.8.3"
