@@ -33,11 +33,11 @@ export const CodeTextField: React.FC<CodeTextFieldProps> = ({
         </InputAdornment>
       ),
     }}
-    onKeyUp={event => (event.key === 'Enter' && !disabled ? onEnter?.() : null)}
+    onKeyUp={(event: KeyboardEvent) => (event.key === 'Enter' && !disabled ? onEnter?.() : null)}
     autoFocus
     size="small"
     value={codeInput ?? ''}
-    onChange={event => setCodeInput?.(event.target.value)}
+    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setCodeInput?.(event.target.value)}
     {...props}
   />
 )

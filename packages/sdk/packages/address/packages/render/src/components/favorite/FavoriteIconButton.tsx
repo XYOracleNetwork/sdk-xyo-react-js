@@ -42,15 +42,15 @@ export const FavoriteIconButton = ({
     <IconButtonCondensed
       aria-describedby={popperId}
       ref={buttonRef}
-      onClick={(event) => {
+      onClick={(event: MouseEvent) => {
         event.stopPropagation()
         setOpenPopper(!openPopper)
       }}
-      onTouchStart={(event) => {
+      onTouchStart={(event: TouchEvent) => {
         event.stopPropagation()
         setOpenPopper(!openPopper)
       }}
-      onMouseDown={e => e.stopPropagation()}
+      onMouseDown={(event: MouseEvent) => event.stopPropagation()}
       sx={{ lineHeight: 0, p: 0.25 }}
       {...props}
     >

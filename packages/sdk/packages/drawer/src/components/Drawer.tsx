@@ -43,7 +43,7 @@ export const DrawerEx: React.FC<DrawerExProps> = ({
       <StyledDrawerContentPaper
         widthVariant={widthVariant}
         elevation={16}
-        onClick={event => event.stopPropagation()}
+        onClick={(event: MouseEvent) => event.stopPropagation()}
         sx={{ width: widthVariant === 'full' ? '100%' : undefined }}
       >
         {title || subTitle

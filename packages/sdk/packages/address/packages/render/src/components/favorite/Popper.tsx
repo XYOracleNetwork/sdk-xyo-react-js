@@ -1,6 +1,6 @@
 import type { PopperProps } from '@mui/material'
 import {
-  Card, CardContent, ClickAwayListener, Fade, Popper, styled, TextField,
+  Card, CardContent, ClickAwayListener, Fade, Popper, TextField,
 } from '@mui/material'
 import type { RefObject } from 'react'
 import React, { useState } from 'react'
@@ -24,12 +24,13 @@ export const FavoritePopper = (
 
   return (
     <ClickAwayListener onClickAway={onClickAway ?? (() => null)}>
-      <PopperStyled
+      <Popper
         id={popperId}
         anchorEl={favoriteRef?.current}
         onClick={e => e.stopPropagation()}
         onTouchStart={e => e.stopPropagation()}
         transition
+        style={{ zIndex: 9999 }}
         ref={ref}
         {...props}
       >
@@ -50,12 +51,9 @@ export const FavoritePopper = (
             </Card>
           </Fade>
         )}
-      </PopperStyled>
+      </Popper>
     </ClickAwayListener>
   )
 }
 
 FavoritePopper.displayName = 'FavoritePopper'
-
-// Ensure the popper is over all other mui portal elements
-const PopperStyled = styled(Popper, { name: 'PopperStyled' })(() => ({ zIndex: 9999 }))

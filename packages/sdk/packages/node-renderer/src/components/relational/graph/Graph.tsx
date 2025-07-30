@@ -13,8 +13,6 @@ import type { Core, NodeSingular } from 'cytoscape'
 import cytoscape from 'cytoscape'
 import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
-import dagre from 'cytoscape-dagre'
-import eulerLayout from 'cytoscape-euler'
 import React, {
   useEffect, useRef, useState,
 } from 'react'
@@ -27,14 +25,6 @@ const applyLayout = (cy?: cytoscape.Core, name = 'cola', options?: object) => {
 
 const loadLayout = (layout = 'cola') => {
   switch (layout) {
-    case 'dagre': {
-      cytoscape.use(dagre)
-      break
-    }
-    case 'euler': {
-      cytoscape.use(eulerLayout)
-      break
-    }
     case 'cose-bilkent': {
       cytoscape.use(coseBilkentLayout)
       break
