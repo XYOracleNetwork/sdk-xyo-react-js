@@ -3,7 +3,9 @@ import { IconButton, styled } from '@mui/material'
 import { useResetState } from '@xylabs/react-hooks'
 import { useEvent } from '@xyo-network/react-event'
 import { useShareForwardedRef } from '@xyo-network/react-shared'
-import type { PropsWithChildren } from 'react'
+import type {
+  MouseEvent, PropsWithChildren, TouchEvent,
+} from 'react'
 import React, { useRef, useState } from 'react'
 
 import type { FavoriteItemEvent } from '../lib/index.ts'

@@ -3,7 +3,9 @@ import type { TextFieldProps } from '@mui/material'
 import {
   InputAdornment, styled, TextField,
 } from '@mui/material'
-import type { Dispatch, SetStateAction } from 'react'
+import type {
+  Dispatch, KeyboardEvent, SetStateAction,
+} from 'react'
 import React from 'react'
 
 export type CodeTextFieldProps = TextFieldProps & {
