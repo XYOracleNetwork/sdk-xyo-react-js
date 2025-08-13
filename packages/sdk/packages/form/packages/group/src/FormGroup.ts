@@ -35,13 +35,16 @@ export class FormGroup<
 > extends AbstractControl {
   private _controls = {} as Record<KeyOfString<TValue>, AbstractControl>
 
+  private fgParams?: FormGroupParams<TStorageValue>
+
   private serializeListeners: Record<string, ValueChangeEventListener> = {}
 
   private serializedSensitiveState = {} as Record<KeyOfString<TStorageValue>, string>
   private serializedState = {} as Record<KeyOfString<TStorageValue>, string>
 
-  constructor(private fgParams?: FormGroupParams<TStorageValue>) {
+  constructor(fgParams?: FormGroupParams<TStorageValue>) {
     super()
+    this.fgParams = fgParams
   }
 
   get errorSummary() {

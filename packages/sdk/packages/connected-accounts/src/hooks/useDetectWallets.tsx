@@ -6,10 +6,12 @@ const sortWallets = (wallets: DiscoveredWallets) => {
   const result: EIP6963Connector[] = []
 
   for (const wallet of Object.values(wallets)) {
-    if (wallet.allowedAccounts.length > 0)
-      result.unshift(wallet)
-    else
-      result.push(wallet)
+    if (wallet) {
+      if (wallet.allowedAccounts.length > 0)
+        result.unshift(wallet)
+      else
+        result.push(wallet)
+    }
   }
   return result
 }

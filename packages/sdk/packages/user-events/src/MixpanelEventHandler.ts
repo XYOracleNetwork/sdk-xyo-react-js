@@ -8,10 +8,12 @@ import { XyoEventHandler } from './XyoEventHandler.ts'
 import type { XyoEventHandlerInterface } from './XyoEventHandlerInterface.ts'
 
 export class MixpanelEventHandler<T extends EmptyObject> extends XyoEventHandler<T> implements XyoEventHandlerInterface<T> {
+  protected mixpanel: Mixpanel
   protected mixpanelEvents: MixpanelEvents
 
-  constructor(protected mixpanel: Mixpanel) {
+  constructor(mixpanel: Mixpanel) {
     super()
+    this.mixpanel = mixpanel
     this.mixpanelEvents = new MixpanelEvents(mixpanel)
   }
 

@@ -3,7 +3,12 @@ import { MixpanelCustomEvent, MixpanelPageViewEvent } from '@xylabs/react-pixel'
 import type { Mixpanel } from 'mixpanel-browser'
 
 export class MixpanelEvents<TData extends EmptyObject = EmptyObject> {
-  constructor(protected mixpanel: Mixpanel) {}
+  protected mixpanel: Mixpanel
+
+  constructor(mixpanel: Mixpanel) {
+    this.mixpanel = mixpanel
+  }
+
   custom<T extends TData>(name: string) {
     return new MixpanelCustomEvent<T>(name, this.mixpanel)
   }

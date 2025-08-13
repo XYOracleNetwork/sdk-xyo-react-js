@@ -13,13 +13,20 @@ export interface ArchivistBuilderConfig {
 }
 export class StorageArchivistBuilder {
   private _archivist: StorageArchivist | undefined
+  private account: AccountInstance
+  private config: ArchivistBuilderConfig
+  private node?: MemoryNode
   private remoteArchivist: ArchivistModuleInstance | undefined
 
   protected constructor(
-    private config: ArchivistBuilderConfig,
-    private account: AccountInstance,
-    private node?: MemoryNode,
-  ) {}
+    config: ArchivistBuilderConfig,
+    account: AccountInstance,
+    node?: MemoryNode,
+  ) {
+    this.config = config
+    this.account = account
+    this.node = node
+  }
 
   get archivist() {
     return assertDefinedEx(this._archivist, () => 'archivist was not defined upon create')

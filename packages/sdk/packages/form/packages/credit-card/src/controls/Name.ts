@@ -4,12 +4,15 @@ import { FormControlBase } from '@xyo-network/react-form-group'
 export class NameFormControl<TProps extends EmptyObject = EmptyObject> extends FormControlBase<TProps> {
   override required = true
 
+  private nameLabel: string
+
   constructor(
-    private nameLabel: string,
+    nameLabel: string,
     autoCompleteLabel: string,
     placeHolder: string,
   ) {
     super()
+    this.nameLabel = nameLabel
     super.setName(nameLabel)
     this.setSerializeSettings({ sensitive: false, serializable: true })
     this.invalidMessage = `${nameLabel} name is missing.`

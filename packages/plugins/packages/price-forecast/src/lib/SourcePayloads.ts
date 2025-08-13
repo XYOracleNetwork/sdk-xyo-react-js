@@ -4,9 +4,12 @@ import type { Point } from 'chart.js'
 import { MockSourcePayloads } from './MockSourcePayloads.ts'
 
 export class SourcePayloads {
+  sourcePayloads: Payload[]
   sourcePrices: Point[] = []
 
-  constructor(public sourcePayloads: Payload[]) {}
+  constructor(sourcePayloads: Payload[]) {
+    this.sourcePayloads = sourcePayloads
+  }
 
   get payloads() {
     return this.sourcePayloads

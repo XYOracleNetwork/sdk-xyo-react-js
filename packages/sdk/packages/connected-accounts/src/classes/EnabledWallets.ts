@@ -69,7 +69,11 @@ export class EnabledEthWalletConnections {
     }
 
     // eslint-disable-next-line unicorn/no-array-for-each
-    Object.entries(wallets).forEach(addWallet.bind(this))
+    Object.entries(wallets).forEach((wallet) => {
+      if (wallet !== undefined) {
+        addWallet.bind(this)
+      }
+    })
     this.ethWalletsState = newWallets
     this.emitChange()
   }

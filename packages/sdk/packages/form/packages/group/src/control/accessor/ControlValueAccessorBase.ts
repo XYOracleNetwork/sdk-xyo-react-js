@@ -38,8 +38,11 @@ export class ControlValueAccessorBase<
 
   private _value = undefined as TValue
 
-  constructor(private config: ControlValueAccessorBaseConfig) {
+  private config: ControlValueAccessorBaseConfig
+
+  constructor(config: ControlValueAccessorBaseConfig) {
     super({})
+    this.config = config
   }
 
   /**

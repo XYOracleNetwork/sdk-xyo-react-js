@@ -7,11 +7,16 @@ import type { SentinelConfig } from '@xyo-network/sentinel-model'
 export class SentinelBuilder {
   private _sentinel: MemorySentinel | undefined
 
+  private account: AccountInstance
+  private config: SentinelConfig
+
   protected constructor(
-    private config: SentinelConfig,
-    private account: AccountInstance,
+    config: SentinelConfig,
+    account: AccountInstance,
   ) {
     assertDefinedEx(config, () => 'config was not defined')
+    this.config = config
+    this.account = account
   }
 
   get sentinel() {

@@ -4,7 +4,11 @@ import type { Payload } from '@xyo-network/payload-model'
 import type { FormGroupStorage } from './FormGroupStorage.ts'
 
 export class ArchivistFormGroupStorage implements FormGroupStorage {
-  constructor(private archivist: ArchivistInstance) {}
+  private archivist: ArchivistInstance
+
+  constructor(archivist: ArchivistInstance) {
+    this.archivist = archivist
+  }
 
   async clear() {
     await this.archivist.clear?.()

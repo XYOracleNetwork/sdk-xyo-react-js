@@ -14,12 +14,22 @@ export class ManifestNodeBuilder {
   locatedManifests: Manifest[] = []
   manifestWrapper: ManifestWrapper<void> | undefined
 
+  private locator: ModuleFactoryLocator
+  private manifestNodes: CreatablePackageManifest[]
+  private topLevelNodeIndex: number
+  private wallet?: WalletInstance
+
   constructor(
-    private manifestNodes: CreatablePackageManifest[] = [],
-    private wallet?: WalletInstance,
-    private locator: ModuleFactoryLocator = new ModuleFactoryLocator(),
-    private topLevelNodeIndex = 0,
-  ) {}
+    manifestNodes?: CreatablePackageManifest[],
+    wallet?: WalletInstance,
+    locator?: ModuleFactoryLocator,
+    topLevelNodeIndex?: number,
+  ) {
+    this.manifestNodes = manifestNodes ?? []
+    this.wallet = wallet
+    this.locator = locator ?? new ModuleFactoryLocator()
+    this.topLevelNodeIndex = topLevelNodeIndex ?? 0
+  }
 
   async create() {
     this.locatedManifests = (await Promise.all(this.manifestNodes.map(manifestNode => manifestNode(this.locator).nodes))).flat()
