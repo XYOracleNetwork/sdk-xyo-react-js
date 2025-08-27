@@ -2,7 +2,7 @@ import {
   Alert, AlertTitle, Snackbar,
 } from '@mui/material'
 import { generateMnemonic } from '@scure/bip39'
-import { wordlist } from '@scure/bip39/wordlists/english'
+import { wordlist } from '@scure/bip39/wordlists/english.js'
 import type { PropsWithChildren } from 'react'
 import React, { useMemo, useState } from 'react'
 

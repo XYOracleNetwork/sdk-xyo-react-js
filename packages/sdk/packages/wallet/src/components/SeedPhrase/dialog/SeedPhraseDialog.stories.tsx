@@ -1,6 +1,6 @@
 import { Button, Typography } from '@mui/material'
 import { generateMnemonic } from '@scure/bip39'
-import { wordlist } from '@scure/bip39/wordlists/english'
+import { wordlist } from '@scure/bip39/wordlists/english.js'
 import type { Meta, StoryFn } from '@storybook/react-vite'
 import { FlexCol } from '@xylabs/react-flexbox'
 import React, { useState } from 'react'
