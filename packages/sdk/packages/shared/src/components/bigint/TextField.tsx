@@ -17,11 +17,12 @@ export interface BigIntTextFieldProps extends StandardTextFieldProps {
   defaultRawValue?: string
   hideAdornment?: boolean
   onChangeFixedPoint?: (value?: bigint) => void
+  onChangeFormatted?: (value?: string) => void
   resetValue?: number
 }
 
 export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
-  defaultFixedPoint = 18, defaultRawValue, helperText, hideAdornment, onChangeFixedPoint, onChange, resetValue, ...props
+  defaultFixedPoint = 18, defaultRawValue, helperText, hideAdornment, onChangeFixedPoint, onChangeFormatted, onChange, resetValue, ...props
 }) => {
   const [rawValue, setRawValue] = useState<string>('')
   const [fixedPoint, setFixedPoint] = useState(defaultFixedPoint)
@@ -42,7 +43,10 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
     // run standard callback
     onChange?.(event)
     const formattedValue = formatBigIntInput(event.target.value)
-    if (formattedValue) setRawValue(formattedValue)
+    if (formattedValue) {
+      setRawValue(formattedValue)
+      onChangeFormatted?.(formattedValue)
+    }
   }
 
   const onFixedPointChange = (fixedPoint: number) => setFixedPoint(fixedPoint)
