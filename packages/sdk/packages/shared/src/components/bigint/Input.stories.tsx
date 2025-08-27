@@ -9,10 +9,15 @@ export default { title: 'Input/Bigint/WithFormControl', component: BigIntInput.W
 
 const Template: StoryFn<typeof BigIntInput.WithFormControl> = ({ textFieldProps, ...args }) => {
   const [bigIntString, setBigIntString] = useState<string>()
+  const [bigIntFormattedString, setBigIntFormattedString] = useState<string>()
   const [resetValue, setResetValue] = useState(0)
 
   const onChangeFixedPoint = (value?: bigint) => {
     setBigIntString(value?.toString())
+  }
+
+  const onChangeFormatted = (value?: string) => {
+    setBigIntFormattedString(value)
   }
 
   return (
@@ -20,7 +25,7 @@ const Template: StoryFn<typeof BigIntInput.WithFormControl> = ({ textFieldProps,
       <Button variant="contained" onClick={() => setResetValue(resetValue + 1)}>Reset</Button>
       <BigIntInput.WithFormControl
         textFieldProps={{
-          ...textFieldProps, resetValue, onChangeFixedPoint,
+          ...textFieldProps, resetValue, onChangeFixedPoint, onChangeFormatted,
         }}
         {...args}
       />
@@ -30,6 +35,15 @@ const Template: StoryFn<typeof BigIntInput.WithFormControl> = ({ textFieldProps,
               BigInt:
               {' '}
               {bigIntString}
+            </Typography>
+          )
+        : null}
+      {bigIntFormattedString
+        ? (
+            <Typography>
+              BigIntFormattedString:
+              {' '}
+              {bigIntFormattedString}
             </Typography>
           )
         : null}

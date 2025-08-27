@@ -40,10 +40,12 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
   }, [defaultRawValue])
 
   const handleChange: FocusEventHandler<HTMLTextAreaElement> = (event) => {
-    // run standard callback
+    // run standard callback with raw event
     onChange?.(event)
+
     const formattedValue = formatBigIntInput(event.target.value)
-    if (formattedValue) {
+    if (isDefined(formattedValue)) {
+      // if value was formatted, update the state and run the formatted change callback
       setRawValue(formattedValue)
       onChangeFormatted?.(formattedValue)
     }
