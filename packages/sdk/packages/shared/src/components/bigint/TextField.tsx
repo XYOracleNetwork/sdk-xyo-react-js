@@ -1,3 +1,4 @@
+import { isDefined } from '@xylabs/typeof'
 import type { FormControlProps, StandardTextFieldProps } from '@mui/material'
 import {
   FormControl, FormHelperText, TextField,
@@ -9,6 +10,7 @@ import React, {
 } from 'react'
 
 import { FixedPointInputAdornment } from './InputAdornment.tsx'
+import { formatBigIntInput } from './helpers/index.ts'
 
 export interface BigIntTextFieldProps extends StandardTextFieldProps {
   defaultFixedPoint?: number
@@ -29,24 +31,18 @@ export const BigIntTextField: React.FC<BigIntTextFieldProps> = ({
     setRawValue('')
   }, [resetValue])
 
-  const handleRawValueChange = (rawValue: string) => {
-    // remove all alpha characters but allow decimals
-    const filteredValue = rawValue.replaceAll(/[^\d.]/g, '')
-    // only allow one decimal point
-    if (filteredValue.split('.').length > 2) return
-    setRawValue(filteredValue)
-  }
-
   useMemo(() => {
-    if (defaultRawValue) {
-      handleRawValueChange(defaultRawValue)
+    if (isDefined(defaultRawValue)) {
+      const formattedValue = formatBigIntInput(defaultRawValue)
+      if (formattedValue) setRawValue(formattedValue)
     }
   }, [defaultRawValue])
 
   const handleChange: FocusEventHandler<HTMLTextAreaElement> = (event) => {
     // run standard callback
     onChange?.(event)
-    handleRawValueChange(event.target.value)
+    const formattedValue = formatBigIntInput(event.target.value)
+    if (formattedValue) setRawValue(formattedValue)
   }
 
   const onFixedPointChange = (fixedPoint: number) => setFixedPoint(fixedPoint)
