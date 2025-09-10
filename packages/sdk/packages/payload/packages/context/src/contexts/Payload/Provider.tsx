@@ -3,9 +3,7 @@ import { usePromise } from '@xylabs/react-promise'
 import type { ArchivistInstance, ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import type { Payload } from '@xyo-network/payload-model'
 import type { PropsWithChildren } from 'react'
-import React, {
-  useCallback, useEffect, useState,
-} from 'react'
+import React, { useCallback, useState } from 'react'
 
 import { PayloadContext } from './Context.ts'
 
@@ -31,17 +29,12 @@ export const PayloadProvider: React.FC<PropsWithChildren<PayloadProviderProps>> 
   const [payloadError, setPayloadError] = useState<Error>()
 
   const refreshPayload = useCallback(() => {
-    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setPayload(undefined)
   }, [setPayload])
 
   const clearPayload = () => {
     setPayload(null)
   }
-
-  useEffect(() => {
-    refreshPayload()
-  }, [archivist, hash])
 
   /**
    * Key States
