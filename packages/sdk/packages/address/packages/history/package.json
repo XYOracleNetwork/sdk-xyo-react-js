@@ -62,8 +62,7 @@
     "@xyo-network/react-diviner": "workspace:^",
     "@xyo-network/react-event": "workspace:^",
     "@xyo-network/react-shared": "workspace:^",
-    "@xyo-network/react-table": "workspace:^",
-    "react-router-dom": "~7.9.1"
+    "@xyo-network/react-table": "workspace:^"
   },
   "devDependencies": {
     "@emotion/react": "~11.14.0",
@@ -79,6 +78,7 @@
     "@xyo-network/react-storybook": "workspace:^",
     "react": "~19.1.1",
     "react-dom": "~19.1.1",
+    "react-router-dom": "^7",
     "storybook": "~9.1.7",
     "typescript": "~5.9.2",
     "vite": "~7.1.7"
@@ -87,7 +87,8 @@
     "@mui/icons-material": ">=6 <8",
     "@mui/material": ">=6 <8",
     "react": "~19",
-    "react-dom": "~19"
+    "react-dom": "~19",
+    "react-router-dom": "^7"
   },
   "publishConfig": {
     "access": "public"
