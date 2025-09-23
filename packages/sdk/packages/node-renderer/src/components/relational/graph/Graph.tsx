@@ -10,7 +10,9 @@ import {
 import { Identicon } from '@xylabs/react-identicon'
 import { isDefined } from '@xylabs/typeof'
 import { useWeakModuleFromNode } from '@xyo-network/react-node'
-import type { Core, NodeSingular } from 'cytoscape'
+import type {
+  Core, EventHandler, NodeSingular,
+} from 'cytoscape'
 import cytoscape from 'cytoscape'
 import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
@@ -89,7 +91,7 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
   const [moduleInstance] = useWeakModuleFromNode(hoverAddress, { node })
 
   useEffect(() => {
-    cy?.on('mouseover tap', ({ target }) => {
+    const listener: EventHandler = ({ target }) => {
       const cyNode = target as NodeSingular
       const bb = cyNode?.renderedBoundingBox?.()
       setHoverBoundingBox(bb)
@@ -103,7 +105,12 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
           onHover?.(asAddress(id))
         }
       }
-    })
+    }
+    cy?.on('mouseover tap', listener)
+
+    return () => {
+      cy?.off('mouseover tap', listener)
+    }
   }, [onHover, cy])
 
   const handleReset = () => {
