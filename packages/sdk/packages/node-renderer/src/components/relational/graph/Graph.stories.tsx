@@ -83,6 +83,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
 
 export default {
   component: NodeRelationalGraphFlexBox,
+  parameters: { layout: 'fullscreen' },
   title: 'node/renderer/NodeRelationalGraph',
 } as Meta
 
@@ -108,10 +109,10 @@ const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (prop
   return (
     <div>
       <ButtonGroup>
-        <Button onClick={() => setLayout('dagre')}>Dagre</Button>
-        <Button onClick={() => setLayout('euler')}>Euler</Button>
-        <Button onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
-        <Button onClick={() => setLayout('cola')}>Cola</Button>
+        <Button variant={layout === 'dagre' ? 'contained' : 'outlined'} onClick={() => setLayout('dagre')}>Dagre</Button>
+        <Button variant={layout === 'euler' ? 'contained' : 'outlined'} onClick={() => setLayout('euler')}>Euler</Button>
+        <Button variant={layout === 'cose-bilkent' ? 'contained' : 'outlined'} onClick={() => setLayout('cose-bilkent')}>CoseBilkent</Button>
+        <Button variant={layout === 'cola' ? 'contained' : 'outlined'} onClick={() => setLayout('cola')}>Cola</Button>
       </ButtonGroup>
       <ProvidedNodeRenderer {...props} layout={layout} />
     </div>
@@ -169,31 +170,26 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
   )
 }
 
-const defaultProps = {
-  height: 'calc(100vh - 20px)',
-  width: '100%',
-}
-
 const Default = Template.bind({})
 Default.args = {}
 
 const WithData = Template.bind({})
-WithData.args = { options, ...defaultProps }
+WithData.args = { options }
 
 const WithDescribe = TemplateDescribe.bind({})
-WithDescribe.args = { ...defaultProps }
+WithDescribe.args = {}
 WithDescribe.decorators = [MemoryNodeDecorator]
 
 const WithCustomAddress = TemplateCustomAddress.bind({})
-WithCustomAddress.args = { ...defaultProps }
+WithCustomAddress.args = {}
 WithCustomAddress.decorators = [MemoryNodeDecorator]
 
 const WithAttachDetach = TemplateAttachDetach.bind({})
-WithAttachDetach.args = { ...defaultProps }
+WithAttachDetach.args = {}
 WithAttachDetach.decorators = [MemoryNodeDecorator]
 
 const WithProvidedNodeRenderer = TemplateProvidedNodeRenderer.bind({})
-WithProvidedNodeRenderer.args = { ...defaultProps }
+WithProvidedNodeRenderer.args = {}
 WithProvidedNodeRenderer.decorators = [MemoryNodeDecorator]
 
 export {
