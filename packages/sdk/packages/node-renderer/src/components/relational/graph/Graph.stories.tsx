@@ -107,7 +107,10 @@ const TemplateCustomAddress: StoryFn<typeof NodeRelationalGraphFlexBox> = (props
 const TemplateProvidedNodeRenderer: StoryFn<typeof ProvidedNodeRenderer> = (props) => {
   const [layout, setLayout] = useState<'dagre' | 'euler' | 'cose-bilkent' | 'cola'>('euler')
   return (
-    <div>
+    <div style={{
+      height: '100vh', width: '100vw', position: 'relative',
+    }}
+    >
       <ButtonGroup>
         <Button variant={layout === 'dagre' ? 'contained' : 'outlined'} onClick={() => setLayout('dagre')}>Dagre</Button>
         <Button variant={layout === 'euler' ? 'contained' : 'outlined'} onClick={() => setLayout('euler')}>Euler</Button>
