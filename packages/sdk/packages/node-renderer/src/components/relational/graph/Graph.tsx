@@ -14,6 +14,7 @@ import type { Core, NodeSingular } from 'cytoscape'
 import cytoscape from 'cytoscape'
 import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
+import dagre from 'cytoscape-dagre'
 import euler from 'cytoscape-euler'
 import React, {
   useEffect, useRef, useState,
@@ -36,6 +37,14 @@ const loadLayout = (layout = 'cola') => {
       break
     }
     case 'euler': {
+      cytoscape.use(euler)
+      break
+    }
+    case 'dagre': {
+      cytoscape.use(dagre)
+      break
+    }
+    default: {
       cytoscape.use(euler)
       break
     }
@@ -126,7 +135,7 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
   useEffect(() => {
     if (cy) {
       loadLayout(layout)
-      applyLayout(cy, layout ?? 'euler', layoutOptions)
+      applyLayout(cy, layout ?? 'cola', layoutOptions)
     }
   }, [cy, layoutOptions, layout])
 

@@ -7658,6 +7658,7 @@ __metadata:
     cytoscape: "npm:~3.33.1"
     cytoscape-cola: "npm:~2.5.1"
     cytoscape-cose-bilkent: "npm:~4.1.0"
+    cytoscape-dagre: "npm:~2.5.0"
     cytoscape-euler: "npm:~1.2.3"
     react: "npm:~19.1.1"
     react-dom: "npm:~19.1.1"
@@ -10446,6 +10447,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cytoscape-dagre@npm:~2.5.0":
+  version: 2.5.0
+  resolution: "cytoscape-dagre@npm:2.5.0"
+  dependencies:
+    dagre: "npm:^0.8.5"
+  peerDependencies:
+    cytoscape: ^3.2.22
+  checksum: 10/118321e9a5547880a50a36b9d53beaa8d46089e077e0bca2109655b05be0805152ec30f3401c07b95055278017b5f8d0b17ebada13b75e0f8a53b19c0c7595e1
+  languageName: node
+  linkType: hard
+
 "cytoscape-euler@npm:~1.2.3":
   version: 1.2.3
   resolution: "cytoscape-euler@npm:1.2.3"
@@ -10599,6 +10611,16 @@ __metadata:
   version: 3.0.1
   resolution: "d3-timer@npm:3.0.1"
   checksum: 10/004128602bb187948d72c7dc153f0f063f38ac7a584171de0b45e3a841ad2e17f1e40ad396a4af9cce5551b6ab4a838d5246d23492553843d9da4a4050a911e2
+  languageName: node
+  linkType: hard
+
+"dagre@npm:^0.8.5":
+  version: 0.8.5
+  resolution: "dagre@npm:0.8.5"
+  dependencies:
+    graphlib: "npm:^2.1.8"
+    lodash: "npm:^4.17.15"
+  checksum: 10/f39899e29e9090581d67177ef6e2dd3ca5d7f764fbf3de81758d879bba66fee6fd8802d41d0c5d3d9a0563b334e99e1454a8d6ab4ce17e8e4f50836a3a403fdd
   languageName: node
   linkType: hard
 
@@ -12622,6 +12644,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphlib@npm:^2.1.8":
+  version: 2.1.8
+  resolution: "graphlib@npm:2.1.8"
+  dependencies:
+    lodash: "npm:^4.17.15"
+  checksum: 10/37cbd851d3c1fb99f3174750ccaa22305d23d11746e5df81a38ba3bf25c0ba29cd9658ba69a0159ea81d56c28e8e875033eeaaa7167d838419fae08d9cd2c62c
+  languageName: node
+  linkType: hard
+
 "grid-index@npm:^1.1.0":
   version: 1.1.0
   resolution: "grid-index@npm:1.1.0"
@@ -13687,7 +13718,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:~4.17.15":
+"lodash@npm:^4.17.15, lodash@npm:~4.17.15":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10/c08619c038846ea6ac754abd6dd29d2568aa705feb69339e836dfa8d8b09abbb2f859371e86863eda41848221f9af43714491467b5b0299122431e202bb0c532

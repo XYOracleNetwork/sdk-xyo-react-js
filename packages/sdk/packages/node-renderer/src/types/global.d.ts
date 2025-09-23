@@ -12,3 +12,8 @@ declare module 'cytoscape-euler' {
   const ext: cytoscape.Ext
   export = ext
 }
+
+declare module 'cytoscape-dagre' {
+  const ext: cytoscape.Ext
+  export = ext
+}
