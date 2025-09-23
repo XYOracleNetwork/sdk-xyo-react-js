@@ -13,6 +13,7 @@ import type { Core, NodeSingular } from 'cytoscape'
 import cytoscape from 'cytoscape'
 import cola from 'cytoscape-cola'
 import coseBilkentLayout from 'cytoscape-cose-bilkent'
+import euler from 'cytoscape-euler'
 import React, {
   useEffect, useRef, useState,
 } from 'react'
@@ -31,6 +32,10 @@ const loadLayout = (layout = 'cola') => {
     }
     case 'cola': {
       cytoscape.use(cola)
+      break
+    }
+    case 'euler': {
+      cytoscape.use(euler)
       break
     }
   }

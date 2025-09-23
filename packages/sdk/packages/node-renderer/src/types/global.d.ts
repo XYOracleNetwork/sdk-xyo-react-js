@@ -7,3 +7,8 @@ declare module 'cytoscape-cose-bilkent' {
   const ext: cytoscape.Ext
   export = ext
 }
+
+declare module 'cytoscape-euler' {
+  const ext: cytoscape.Ext
+  export = ext
+}
