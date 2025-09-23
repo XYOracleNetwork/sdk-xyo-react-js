@@ -1,4 +1,7 @@
 import { usePromise } from '@xylabs/react-promise'
+import {
+  isDefined, isDefinedNotNull, isTruthy,
+} from '@xylabs/typeof'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import {
   useCallback, useEffect, useState,
@@ -13,7 +16,7 @@ export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, on
   const [foundModule] = usePromise(async () => {
     if (moduleAddress === null) return null
     const rootModuleInstance = rootModule?.deref()
-    if (moduleAddress && rootModuleInstance) {
+    if (isDefined(moduleAddress) && isDefined(rootModuleInstance)) {
       const foundModule = await rootModuleInstance.resolve(moduleAddress)
       return foundModule ?? null
     }
@@ -63,14 +66,14 @@ export const useModuleDetails = (rootModule?: WeakRef<ModuleInstance> | null, on
     const foundModuleNode = cy?.deref()?.nodes(`[id="${foundModule?.address}"]`)
     const notModuleNode = cy?.deref()?.nodes(`[id != "${address}"]`)
 
-    if (address) {
+    if (isTruthy(address)) {
       // address was passed so we set the node to active styles
       moduleNode?.toggleClass('activeNode', true)
       notModuleNode?.toggleClass('activeNode', false)
     } else {
       // no address was passes so we reset the state
       notModuleNode?.toggleClass('activeNode', false)
-      const activeNode = foundModuleNode?.length ? foundModuleNode : rootModuleNode
+      const activeNode = isDefinedNotNull(foundModuleNode) && foundModuleNode.length > 0 ? foundModuleNode : rootModuleNode
       activeNode?.toggleClass('activeNode', true)
     }
     setModuleAddress(address)

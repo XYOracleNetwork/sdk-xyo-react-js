@@ -8,6 +8,7 @@ import {
   FlexCol, FlexGrowRow, FlexRow,
 } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
+import { isDefined } from '@xylabs/typeof'
 import { useWeakModuleFromNode } from '@xyo-network/react-node'
 import type { Core, NodeSingular } from 'cytoscape'
 import cytoscape from 'cytoscape'
@@ -84,7 +85,7 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
       const bb = cyNode?.renderedBoundingBox?.()
       setHoverBoundingBox(bb)
       const id = cyNode.id?.()
-      if (id) {
+      if (isDefined(id)) {
         if (id.includes('/')) {
           setHoverAddress(undefined)
           onHover?.()
@@ -141,7 +142,7 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
       <FlexRow justifyContent="start" width="100%">
         {actions === null
           ? null
-          : actions
+          : isDefined(actions)
             ? (
                 <ButtonGroup>
                   {actions}

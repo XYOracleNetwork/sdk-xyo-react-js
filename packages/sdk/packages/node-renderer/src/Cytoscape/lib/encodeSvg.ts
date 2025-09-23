@@ -1,3 +1,4 @@
+import { isDefined } from '@xylabs/typeof'
 import type { ReactElement } from 'react'
 // eslint-disable-next-line import-x/no-internal-modules
 import { renderToStaticMarkup } from 'react-dom/server'
@@ -9,7 +10,7 @@ export const encodeSvg = (reactElement: ReactElement, color?: string) => {
 
   const doc = new DOMParser().parseFromString(svgString, 'text/html')
   const svgElement = doc.querySelectorAll('svg')[0]
-  if (svgElement) {
+  if (isDefined(svgElement)) {
     svgElement.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
     svgElement.setAttribute('height', '100')
     svgElement.style.fill = color ?? 'black'

@@ -1,4 +1,5 @@
 import { exists } from '@xylabs/exists'
+import { isFalsy } from '@xylabs/typeof'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import type { ElementDefinition } from 'cytoscape'
 
@@ -67,7 +68,7 @@ export const CytoscapeElements = {
   },
 
   normalizeName(name?: string) {
-    if (!name) return
+    if (isFalsy(name)) return
     if (name.length > this.MaxNameLength) return `${name.slice(0, 20)}...`
     return name
   },

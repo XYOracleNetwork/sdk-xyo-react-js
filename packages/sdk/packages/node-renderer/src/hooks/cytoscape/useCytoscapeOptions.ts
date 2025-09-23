@@ -1,3 +1,4 @@
+import { isDefined } from '@xylabs/typeof'
 import type { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 
@@ -15,7 +16,7 @@ export const useCytoscapeOptions = (
   const resolvedStyle = style ?? defaultStyle
 
   const options = useMemo<CytoscapeOptions | undefined>(() => {
-    if (elements && resolvedLayout && resolvedStyle) {
+    if (elements && isDefined(resolvedLayout) && isDefined(resolvedStyle)) {
       return {
         elements,
         layout: resolvedLayout,
