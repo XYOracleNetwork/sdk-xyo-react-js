@@ -42,6 +42,9 @@ export const payloadData: CoingeckoCryptoMarketPayload = {
     xyo: {
       btc: 3.792_26e-7, dai: 0.008_741_69, eth: 0.000_005_353_785, eur: 0.008_447_92, link: 0.001_193_7, usd: 0.008_725_19,
     },
+    xl1: {
+      btc: 3.792_26e-7, dai: 0.008_741_69, eth: 0.000_005_353_785, eur: 0.008_447_92, link: 0.001_193_7, usd: 0.008_725_19,
+    },
   },
   schema: CoingeckoCryptoMarketSchema,
   timestamp: 1_659_625_815_232,
