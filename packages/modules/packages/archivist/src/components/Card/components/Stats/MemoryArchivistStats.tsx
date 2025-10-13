@@ -55,32 +55,29 @@ export const MemoryArchivistsStats: React.FC<MemoryArchivistStatsProps> = ({ arc
 
   const payloads = useMemo(() => (all === null ? [] : all?.filter(payload => payload.schema !== BoundWitnessSchema)), [all])
   const boundWitnesses = useMemo(() => (all === null ? [] : all?.filter(payload => payload.schema === BoundWitnessSchema)), [all])
-  const addresses = useMemo(
-    () =>
-      all?.reduce(
-        (prev, payload) => {
-          const w = asBoundWitness(payload)
-          if (w?.addresses)
-            for (const address of w?.addresses ?? []) {
-              prev[address] = (prev[address] ?? 0) + 1
-            }
-          return prev
-        },
-        {} as Record<string, number>,
-      ) ?? {},
-    [all],
-  )
-  const schemas = useMemo(
-    () =>
-      all?.reduce(
-        (prev, payload) => {
-          prev[payload.schema] = (prev[payload.schema] ?? 0) + 1
-          return prev
-        },
-        {} as Record<string, number>,
-      ) ?? {},
-    [all],
-  )
+  const addresses = useMemo(() => {
+    const addressCounts: Record<string, number> = {}
+    if (all) {
+      for (const payload of all) {
+        const w = asBoundWitness(payload)
+        if (w?.addresses) {
+          for (const address of w.addresses) {
+            addressCounts[address] = (addressCounts[address] ?? 0) + 1
+          }
+        }
+      }
+    }
+    return addressCounts
+  }, [all])
+  const schemas = useMemo(() => {
+    const schemaCounts: Record<string, number> = {}
+    if (all) {
+      for (const payload of all) {
+        schemaCounts[payload.schema] = (schemaCounts[payload.schema] ?? 0) + 1
+      }
+    }
+    return schemaCounts
+  }, [all])
 
   return <ArchivistStats addresses={addresses} boundWitnesses={boundWitnesses} payloads={payloads} schemas={schemas} />
 }

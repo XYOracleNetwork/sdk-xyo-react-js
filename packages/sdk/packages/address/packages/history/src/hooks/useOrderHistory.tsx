@@ -15,7 +15,7 @@ const getHead = async (addressHistory: BoundWitness[]): Promise<BoundWitness | u
 // find the index in addressHistory of the parent by comparing possible parent hashes
 // to the current child's previous_hashes[0]
 const findParent = (hashes: string[], addressHistory: BoundWitness[], currentChild?: BoundWitness) => {
-  const nextParentIndex = hashes?.findIndex(hash => hash === currentChild?.previous_hashes[0])
+  const nextParentIndex = hashes?.indexOf(currentChild?.previous_hashes[0] || '')
   return addressHistory[nextParentIndex]
 }
 
