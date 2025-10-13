@@ -43,6 +43,14 @@ export const TokenData: TokenData[] = [
     uniqueTokenId: 'btc',
   },
   {
+    coinmarketcapLink: 'https://coinmarketcap.com/currencies/xl1/',
+    etherscanLink: 'https://etherscan.io/token/0xf72ae3e0da743033abd7a407557d684c1ae66aed',
+    icon: tokenImages.xl1,
+    readableName: 'XL1',
+    tokenSymbol: 'xl1',
+    uniqueTokenId: 'xl1',
+  },
+  {
     coinmarketcapLink: 'https://coinmarketcap.com/currencies/xyo/',
     etherscanLink: 'https://etherscan.io/token/0x55296f69f40ea6d20e478533c15a6b08b654e758',
     icon: tokenImages.xyo,

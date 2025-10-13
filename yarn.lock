@@ -1065,6 +1065,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jsep-plugin/assignment@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@jsep-plugin/assignment@npm:1.3.0"
+  peerDependencies:
+    jsep: ^0.4.0||^1.0.0
+  checksum: 10/0c93b703d84af95b4be9fb6c23fbdbe7c7b6985b41c98fd10386cd54686ed1eb751cb39f5d54abcb621e4da2a0900a3b2a852e5bf7f2d322b756db3b22e42a45
+  languageName: node
+  linkType: hard
+
+"@jsep-plugin/regex@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@jsep-plugin/regex@npm:1.0.4"
+  peerDependencies:
+    jsep: ^0.4.0||^1.0.0
+  checksum: 10/0ea6ba81f03955972b762fd9fbc8e3fd7e1c1c12e52ce3d4366e23c0a63c8bff8528687b8b3d8f641cf9f626f8bf5a7841efcd31a2489fe967e1900e5738ee3a
+  languageName: node
+  linkType: hard
+
 "@kurkle/color@npm:^0.3.0":
   version: 0.3.4
   resolution: "@kurkle/color@npm:0.3.4"
@@ -2884,6 +2902,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/luxon@npm:~3.7.1":
+  version: 3.7.1
+  resolution: "@types/luxon@npm:3.7.1"
+  checksum: 10/c7bc164c278393ea0be938f986c74b4cddfab9013b1aff4495b016f771ded1d5b7b7b4825b2c7f0b8799edce19c5f531c28ff434ab3dedf994ac2d99a20fd4c4
+  languageName: node
+  linkType: hard
+
 "@types/mapbox__point-geometry@npm:^0.1.4":
   version: 0.1.4
   resolution: "@types/mapbox__point-geometry@npm:0.1.4"
@@ -3593,6 +3618,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/assert@npm:~5.0.12":
+  version: 5.0.12
+  resolution: "@xylabs/assert@npm:5.0.12"
+  checksum: 10/b36aa0ab964eb58232fadaaf55c41f138e58eba807b499c9481163fcec978007683635af6aec1cdc3bf4cd79fda6cba80d27983030d0e30aaa0c5019a0f7c3c1
+  languageName: node
+  linkType: hard
+
 "@xylabs/axios@npm:~5.0.11":
   version: 5.0.11
   resolution: "@xylabs/axios@npm:5.0.11"
@@ -4084,6 +4116,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xylabs/react-promise@npm:~7.1.2":
+  version: 7.1.2
+  resolution: "@xylabs/react-promise@npm:7.1.2"
+  dependencies:
+    async-mutex: "npm:~0.5.0"
+  peerDependencies:
+    react: ~19
+  checksum: 10/dda5f36c14faed799b9b71a8ae6b147fb4d2a4eba6e4e8d9e5d2c5c114de74e13addf4bddb1560f294b2f24cf0c95bb35d3264733219055985f80797f129c798
+  languageName: node
+  linkType: hard
+
 "@xylabs/react-quick-tip-button@npm:~7.1.0":
   version: 7.1.0
   resolution: "@xylabs/react-quick-tip-button@npm:7.1.0"
@@ -4301,6 +4344,13 @@ __metadata:
   version: 5.0.11
   resolution: "@xylabs/typeof@npm:5.0.11"
   checksum: 10/d89abc4c4f7b5440fca29bc636ee31de2e37f9b264781638106987b6b69f1433a78915b98307dcb6b849c7f55d1a364255133a73bcd018e612c7634937ba5f78
+  languageName: node
+  linkType: hard
+
+"@xylabs/typeof@npm:~5.0.12":
+  version: 5.0.12
+  resolution: "@xylabs/typeof@npm:5.0.12"
+  checksum: 10/53e59b290f18b689ec19e4060f8cd54df419480fa1f352bcdf447e7688284b479dbaf07feb42b5764b55dec7324d7efbe088d051a7eb54533be0c0b5a0c740da
   languageName: node
   linkType: hard
 
@@ -4726,6 +4776,16 @@ __metadata:
     "@xyo-network/payload-model": "npm:~5.1.0"
     "@xyo-network/payload-plugin": "npm:~5.1.0"
   checksum: 10/f4a16e06f3a60e3222f587a99d507eda91c91f0f70cdee73e69fb2086bbca125cbfb11292e8b7b99087de93f85ec9aa2beb204fb7ee3b5f5c9fc55ed95974e47
+  languageName: node
+  linkType: hard
+
+"@xyo-network/coingecko-crypto-market-payload-plugin@npm:~5.1.3":
+  version: 5.1.3
+  resolution: "@xyo-network/coingecko-crypto-market-payload-plugin@npm:5.1.3"
+  dependencies:
+    "@xyo-network/payload-model": "npm:~5.1.2"
+    "@xyo-network/payload-plugin": "npm:~5.1.2"
+  checksum: 10/14122ffad1001c07837f8a3990f0768846746d83ba90e1887c087f52f01599e22f98b1f2e1b0f8e026ae132edec5edb582150dc0fc02e2f469d6a850f564e4bf
   languageName: node
   linkType: hard
 
@@ -6099,19 +6159,27 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.2"
     "@mui/material": "npm:~7.3.2"
     "@storybook/react-vite": "npm:~9.1.7"
+    "@types/luxon": "npm:~3.7.1"
     "@types/react": "npm:~19.1.13"
+    "@xylabs/assert": "npm:~5.0.12"
     "@xylabs/decimal-precision": "npm:~5.0.11"
     "@xylabs/react-flexbox": "npm:~7.1.0"
+    "@xylabs/react-promise": "npm:~7.1.2"
     "@xylabs/react-quick-tip-button": "npm:~7.1.0"
     "@xylabs/react-theme": "npm:~7.1.0"
     "@xylabs/ts-scripts-yarn3": "npm:~7.1.7"
     "@xylabs/tsconfig": "npm:~7.1.7"
     "@xylabs/tsconfig-dom": "npm:~7.1.7"
     "@xylabs/tsconfig-react": "npm:~7.1.7"
+    "@xylabs/typeof": "npm:~5.0.12"
+    "@xyo-network/coingecko-crypto-market-payload-plugin": "npm:~5.1.3"
     "@xyo-network/crypto-asset-payload-plugin": "npm:~5.1.0"
     "@xyo-network/payload-model": "npm:~5.1.2"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
+    axios: "npm:^1.12.2"
+    jsonpath-plus: "npm:^10.3.0"
+    luxon: "npm:^3.7.2"
     react: "npm:~19.1.1"
     react-dom: "npm:~19.1.1"
     react-router-dom: "npm:^7"
@@ -6121,8 +6189,11 @@ __metadata:
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    axios: ^1
+    jsonpath-plus: ^10
+    luxon: ^3
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -9699,6 +9770,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^1.12.2, axios@npm:~1.12.2":
+  version: 1.12.2
+  resolution: "axios@npm:1.12.2"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.4"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10/886a79770594eaad76493fecf90344b567bd956240609b5dcd09bd0afe8d3e6f1ad6d3257a93a483b6192b409d4b673d9515a34619e3e3ed1b2c0ec2a83b20ba
+  languageName: node
+  linkType: hard
+
 "axios@npm:~1.11.0":
   version: 1.11.0
   resolution: "axios@npm:1.11.0"
@@ -9707,17 +9789,6 @@ __metadata:
     form-data: "npm:^4.0.4"
     proxy-from-env: "npm:^1.1.0"
   checksum: 10/232df4af7a4e4e07baa84621b9cc4b0c518a757b4eacc7f635c0eb3642cb98dff347326739f24b891b3b4481b7b838c79a3a0c4819c9fbc1fc40232431b9c5dc
-  languageName: node
-  linkType: hard
-
-"axios@npm:~1.12.2":
-  version: 1.12.2
-  resolution: "axios@npm:1.12.2"
-  dependencies:
-    follow-redirects: "npm:^1.15.6"
-    form-data: "npm:^4.0.4"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: 10/886a79770594eaad76493fecf90344b567bd956240609b5dcd09bd0afe8d3e6f1ad6d3257a93a483b6192b409d4b673d9515a34619e3e3ed1b2c0ec2a83b20ba
   languageName: node
   linkType: hard
 
@@ -13440,6 +13511,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsep@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "jsep@npm:1.4.0"
+  checksum: 10/935824fe6ac28fcff3cd13878f508f99f6c13e7f0f53ec9fca0d3db465e6dd15f8af030bcdc75a38b07c78359c656647435923a26aceb91607027021f00c17f2
+  languageName: node
+  linkType: hard
+
 "jsesc@npm:^3.0.2, jsesc@npm:^3.1.0":
   version: 3.1.0
   resolution: "jsesc@npm:3.1.0"
@@ -13519,6 +13597,20 @@ __metadata:
     graceful-fs:
       optional: true
   checksum: 10/513aac94a6eff070767cafc8eb4424b35d523eec0fcd8019fe5b975f4de5b10a54640c8d5961491ddd8e6f562588cf62435c5ddaf83aaf0986cd2ee789e0d7b9
+  languageName: node
+  linkType: hard
+
+"jsonpath-plus@npm:^10.3.0":
+  version: 10.3.0
+  resolution: "jsonpath-plus@npm:10.3.0"
+  dependencies:
+    "@jsep-plugin/assignment": "npm:^1.3.0"
+    "@jsep-plugin/regex": "npm:^1.0.4"
+    jsep: "npm:^1.4.0"
+  bin:
+    jsonpath: bin/jsonpath-cli.js
+    jsonpath-plus: bin/jsonpath-cli.js
+  checksum: 10/082302334414c7c5ab0cc8239563118f7f14bb2949d001b009f436491d00f94a7a293eed3eaf61ffdaf72f6fda9d25198a4280c4f68a4c403154ca7ed2bd0dc9
   languageName: node
   linkType: hard
 
