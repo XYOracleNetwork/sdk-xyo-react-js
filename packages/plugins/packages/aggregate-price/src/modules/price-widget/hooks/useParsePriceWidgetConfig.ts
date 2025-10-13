@@ -9,13 +9,13 @@ import { useMemo } from 'react'
 import { isPriceWidgetConfig, type PriceWidgetConfig } from '../models/index.ts'
 import { useApiCall } from './useApiCall.ts'
 
-export interface HandlePayloadResult extends PriceWidgetConfig {
+export interface ParsedPriceWidgetResult extends PriceWidgetConfig {
   error?: Error
   name?: string
   price?: string
-  relativeTime?: string
+  relativeTime?: string | null
   result?: CoingeckoCryptoMarketPayload
-  retry: () => void
+  retry?: () => void
   timestamp?: number
 }
 
@@ -33,7 +33,7 @@ const normalizeTimestamp = (timestamp?: number | string) => {
   }
 }
 
-export const useHandlePayload = (payload?: Payload) => {
+export const useParsePriceWidgetConfig = (payload?: Payload) => {
   const priceWidgetConfig = useMemo(
     () => (payload ? assertEx(isPriceWidgetConfig(payload) ? (payload as PriceWidgetConfig) : null, () => 'Invalid payload') : undefined),
     [payload],
@@ -41,8 +41,8 @@ export const useHandlePayload = (payload?: Payload) => {
 
   const [result, error, , retry] = useApiCall<CoingeckoCryptoMarketPayload>(priceWidgetConfig?.source)
 
-  return useMemo(() => {
-    if (!result) return {} as HandlePayloadResult
+  const ret: ParsedPriceWidgetResult = useMemo(() => {
+    if (!result) return {} as ParsedPriceWidgetResult
     const normalizedTimestamp = normalizeTimestamp(result?.timestamp)
     let price: string = 'none'
     for (const path of priceWidgetConfig?.priceJsonPaths || []) {
@@ -52,7 +52,7 @@ export const useHandlePayload = (payload?: Payload) => {
       }
     }
 
-    return result && priceWidgetConfig && normalizedTimestamp
+    return isDefined(result) && priceWidgetConfig && isDefined(normalizedTimestamp)
       ? ({
           ...priceWidgetConfig,
           // Custom Fields for easier ui rendering
@@ -63,7 +63,9 @@ export const useHandlePayload = (payload?: Payload) => {
           result,
           retry,
           timestamp: normalizedTimestamp,
-        } as HandlePayloadResult)
-      : ({} as HandlePayloadResult)
+        })
+      : ({} as ParsedPriceWidgetResult)
   }, [error, priceWidgetConfig, result, retry])
+
+  return ret
 }
