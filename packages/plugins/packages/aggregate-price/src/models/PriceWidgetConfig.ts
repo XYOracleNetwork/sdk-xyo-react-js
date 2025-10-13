@@ -16,8 +16,6 @@ export type PriceWidgetConfigFields = {
   priceJsonPaths: string[]
   // Source of the data - i.e. API endpoint
   source: string
-  // Version of the config
-  version?: string
 }
 
 export type PriceWidgetConfig = Payload<PriceWidgetConfigFields, PriceWidgetConfigSchema>
