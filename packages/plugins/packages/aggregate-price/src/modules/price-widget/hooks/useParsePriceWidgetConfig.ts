@@ -1,6 +1,6 @@
 import { assertEx } from '@xylabs/assert'
 import { isDefined, isDefinedNotNull } from '@xylabs/typeof'
-import type { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import type { CryptoMarketAssetPayload } from '@xyo-network/crypto-asset-payload-plugin'
 import type { Payload } from '@xyo-network/payload-model'
 import { JSONPath } from 'jsonpath-plus'
 import { DateTime } from 'luxon'
@@ -14,7 +14,7 @@ export interface ParsedPriceWidgetResult extends PriceWidgetConfigFields {
   name?: string
   price?: string
   relativeTime?: string | null
-  result?: CoingeckoCryptoMarketPayload
+  result?: CryptoMarketAssetPayload
   retry?: () => void
   timestamp?: number
 }
@@ -39,7 +39,7 @@ export const useParsePriceWidgetConfig = (payload?: Payload) => {
     [payload],
   )
 
-  const [result, error, , retry] = useApiCall<CoingeckoCryptoMarketPayload>(priceWidgetConfig?.source)
+  const [result, error, , retry] = useApiCall<CryptoMarketAssetPayload>(priceWidgetConfig?.source)
 
   const ret: ParsedPriceWidgetResult = useMemo(() => {
     if (!result) return {} as ParsedPriceWidgetResult
