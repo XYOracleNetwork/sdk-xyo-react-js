@@ -21,3 +21,17 @@ export type PriceWidgetConfigFields = {
 export type PriceWidgetConfig = Payload<PriceWidgetConfigFields, PriceWidgetConfigSchema>
 
 export const isPriceWidgetConfig = isPayloadOfSchemaType<PriceWidgetConfig>(PriceWidgetConfigSchema)
+
+export const isPriceWidgetConfigLike = (obj: unknown): obj is PriceWidgetConfigFields => {
+  if (typeof obj !== 'object' || obj === null) return false
+  const o = obj as PriceWidgetConfigFields
+  return (
+    typeof o.currency === 'string'
+    && typeof o.decimals === 'number'
+    && Array.isArray(o.priceJsonPaths)
+    && o.priceJsonPaths.every(p => typeof p === 'string')
+    && typeof o.source === 'string'
+    && (o.buyLink === undefined || typeof o.buyLink === 'string')
+    && (o.iconSrc === undefined || typeof o.iconSrc === 'string')
+  )
+}

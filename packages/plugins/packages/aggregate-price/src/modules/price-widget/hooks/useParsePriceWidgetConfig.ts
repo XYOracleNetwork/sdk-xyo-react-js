@@ -6,10 +6,10 @@ import { JSONPath } from 'jsonpath-plus'
 import { DateTime } from 'luxon'
 import { useMemo } from 'react'
 
-import { isPriceWidgetConfig, type PriceWidgetConfig } from '../models/index.ts'
+import { isPriceWidgetConfigLike, type PriceWidgetConfigFields } from '../models/index.ts'
 import { useApiCall } from './useApiCall.ts'
 
-export interface ParsedPriceWidgetResult extends PriceWidgetConfig {
+export interface ParsedPriceWidgetResult extends PriceWidgetConfigFields {
   error?: Error
   name?: string
   price?: string
@@ -35,7 +35,7 @@ const normalizeTimestamp = (timestamp?: number | string) => {
 
 export const useParsePriceWidgetConfig = (payload?: Payload) => {
   const priceWidgetConfig = useMemo(
-    () => (payload ? assertEx(isPriceWidgetConfig(payload) ? (payload as PriceWidgetConfig) : null, () => 'Invalid payload') : undefined),
+    () => (payload ? assertEx(isPriceWidgetConfigLike(payload) ? payload : null, () => 'Invalid payload') : undefined),
     [payload],
   )
 
