@@ -1,5 +1,5 @@
 import { assertEx } from '@xylabs/assert'
-import { isDefined } from '@xylabs/typeof'
+import { isDefined, isDefinedNotNull } from '@xylabs/typeof'
 import type { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import type { Payload } from '@xyo-network/payload-model'
 import { JSONPath } from 'jsonpath-plus'
@@ -46,8 +46,9 @@ export const useParsePriceWidgetConfig = (payload?: Payload) => {
     const normalizedTimestamp = normalizeTimestamp(result?.timestamp)
     let price: string = 'none'
     for (const path of priceWidgetConfig?.priceJsonPaths || []) {
-      price = JSONPath({ json: result, path })[0]
-      if (isDefined(price)) {
+      const foundPrice = JSONPath({ json: result, path })[0]
+      if (isDefinedNotNull(foundPrice)) {
+        price = foundPrice
         break
       }
     }
