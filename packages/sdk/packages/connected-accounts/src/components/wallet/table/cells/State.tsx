@@ -1,4 +1,5 @@
 import { Switch, TableCell } from '@mui/material'
+import { isDefined } from '@xylabs/typeof'
 import type { ChangeEvent } from 'react'
 import React, { useMemo } from 'react'
 
@@ -12,11 +13,11 @@ export const ConnectedWalletState: React.FC<ConnectedWalletTableCellProps> = ({
     disableWallet, enableWallet, wallets,
   } = useEnabledWallets()
 
-  const enabled = useMemo(() => (walletRdns ? wallets[walletRdns].enabled : false), [wallets, walletRdns])
+  const enabled = useMemo(() => (isDefined(walletRdns) ? wallets[walletRdns]?.enabled : false), [wallets, walletRdns])
 
   const handleClick = (event: ChangeEvent<HTMLInputElement>) => {
     const checked = event.target?.checked
-    if (walletRdns) {
+    if (isDefined(walletRdns)) {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       checked ? enableWallet?.(walletRdns) : disableWallet?.(walletRdns)
     }
