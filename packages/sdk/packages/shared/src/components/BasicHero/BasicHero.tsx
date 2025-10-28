@@ -171,6 +171,7 @@ export const BasicHero: React.FC<BasicHeroProps> = ({
   subLinkIcon,
   sx,
   ...props
+// eslint-disable-next-line complexity
 }) => {
   const isMobile = useIsSmall()
   const styles = useGradientStyles()
