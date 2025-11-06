@@ -11,12 +11,12 @@ export interface RefreshPayloadProps {
 export const RefreshPayloadProvider: React.FC<PropsWithChildren<RefreshPayloadProps>> = ({
   children, onRefresh, refreshPayload,
 }) => {
-  const [localRefreshPayload, setRefreshPayload] = useState(refreshPayload)
+  const [localRefreshPayload, setLocalRefreshPayload] = useState(refreshPayload)
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <RefreshPayloadContext value={{
-      onRefresh, provided: true, refreshPayload: localRefreshPayload, setRefreshPayload,
+      onRefresh, provided: true, refreshPayload: localRefreshPayload, setRefreshPayload: setLocalRefreshPayload,
     }}
     >
       {children}

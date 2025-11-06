@@ -1,9 +1,12 @@
 import { CardContent } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
+import { isTruthy } from '@xylabs/typeof'
 import { useListMode } from '@xyo-network/react-shared'
 import React from 'react'
 
-import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.ts'
+import {
+  useEmbedPluginState, usePluginProps, useResolvePayload,
+} from '../../../contexts/index.ts'
 import { EmbedRenderSelect, ListModeSelectFormControl } from '../../controls/index.ts'
 import type { BusyCardProps } from './BusyCard.tsx'
 import { BusyCard } from './BusyCard.tsx'
@@ -15,7 +18,8 @@ export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
     activePlugin: ActivePlugin, plugins, hideElementsConfig,
   } = useEmbedPluginState()
   const { listMode } = useListMode()
-  const supportsListMode = ActivePlugin?.components?.box?.listModes?.length ?? 0 > 1
+  const { pluginProps } = usePluginProps()
+  const supportsListMode = isTruthy(ActivePlugin?.components?.box?.listModes?.length) ? true : false
 
   return (
     <BusyCard {...props}>
@@ -35,7 +39,7 @@ export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
         : null}
       <CardContent sx={{ height: '100%' }}>
         {ActivePlugin
-          ? <ActivePlugin.components.box.detailsBox payload={payload} {...(supportsListMode && { listMode })} />
+          ? <ActivePlugin.components.box.detailsBox payload={payload} {...pluginProps} {...(supportsListMode && { listMode })} />
           : null}
       </CardContent>
     </BusyCard>

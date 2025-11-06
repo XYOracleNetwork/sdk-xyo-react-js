@@ -4,6 +4,7 @@ import {
   Avatar, CardHeader, Chip,
 } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
+import { isDefined } from '@xylabs/typeof'
 import React from 'react'
 
 import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.ts'
@@ -33,7 +34,7 @@ export const EmbedCardHeader: React.FC<CardHeaderProps> = () => {
       }
       action={(
         <FlexRow flexWrap="wrap" columnGap={0.5}>
-          {timestamp
+          {isDefined(timestamp) && !Number.isNaN(timestamp)
             ? hideTimestamp && hideRefreshButton
               ? ''
               : (
