@@ -1,9 +1,9 @@
 import type { ContextExState } from '@xylabs/react-shared'
 
-export type PluginProps = React.PropsWithChildren
+export type PluginProps = Record<string, unknown>
 
 export interface PluginPropsStateFields {
-  pluginProps: Record<string, unknown>
+  pluginProps: PluginProps | undefined
 }
 
 export type PluginPropsState = ContextExState<PluginPropsStateFields>

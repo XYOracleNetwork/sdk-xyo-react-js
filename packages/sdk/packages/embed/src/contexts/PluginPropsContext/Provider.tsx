@@ -7,11 +7,11 @@ import { PluginPropsContext } from './context.ts'
 import type { PluginProps, PluginPropsState } from './state.ts'
 
 export interface PluginPropsProviderProps extends PropsWithChildren {
-  pluginProps: PluginProps
+  pluginProps?: PluginProps
 }
 
 export const PluginPropsProvider: React.FC<PluginPropsProviderProps> = ({ children, pluginProps: pluginPropsProp }) => {
-  const [pluginProps, setPluginProps] = useState<PluginProps>(pluginPropsProp)
+  const [pluginProps, setPluginProps] = useState<PluginProps | undefined>(pluginPropsProp)
 
   useEffect(() => {
     // needs to be in useEffect since we are in a provider
