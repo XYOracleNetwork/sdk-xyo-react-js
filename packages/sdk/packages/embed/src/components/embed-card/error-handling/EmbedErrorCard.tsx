@@ -2,6 +2,7 @@ import type { AlertProps, CardProps } from '@mui/material'
 import {
   Alert, AlertTitle, Card, CardContent, Typography,
 } from '@mui/material'
+import { isDefined } from '@xylabs/typeof'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 
@@ -34,7 +35,7 @@ const DefaultErrorAlert: React.FC<EmbedErrorCardBaseProps> = ({
   return (
     <Alert severity="error" {...alertProps}>
       <AlertTitle>Whoops! Something went wrong</AlertTitle>
-      {scope
+      {isDefined(scope)
         ? (
             <Typography variant="caption">
               Scope:

@@ -1,6 +1,7 @@
 /* eslint-disable @eslint-react/hooks-extra/no-direct-set-state-in-use-effect */
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { isDefined } from '@xylabs/typeof'
 import { Huri } from '@xyo-network/huri'
 import type {
   ModuleError, Payload, WithSources,
@@ -36,7 +37,7 @@ export const ResolvePayloadProvider: React.FC<PropsWithChildren<ResolvePayloadPr
 
   useAsyncEffect(
     async (mounted) => {
-      if (huri && !refreshPayload) {
+      if (isDefined(huri) && !refreshPayload) {
         try {
           const huriInstance = new Huri(huri)
           const result = await huriInstance.fetch()
@@ -61,7 +62,7 @@ export const ResolvePayloadProvider: React.FC<PropsWithChildren<ResolvePayloadPr
 
   const refreshHuri = () => {
     onRefresh?.()
-    if (huri) {
+    if (isDefined(huri)) {
       setRefreshPayload?.(false)
     }
   }

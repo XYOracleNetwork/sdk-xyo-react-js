@@ -1,5 +1,6 @@
 import { CardContent } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
+import { isTruthy } from '@xylabs/typeof'
 import { useListMode } from '@xyo-network/react-shared'
 import React from 'react'
 
@@ -18,7 +19,7 @@ export const EmbedPluginCard: React.FC<BusyCardProps> = ({ ...props }) => {
   } = useEmbedPluginState()
   const { listMode } = useListMode()
   const { pluginProps } = usePluginProps()
-  const supportsListMode = ActivePlugin?.components?.box?.listModes?.length ?? 0 > 1
+  const supportsListMode = isTruthy(ActivePlugin?.components?.box?.listModes?.length) ? true : false
 
   return (
     <BusyCard {...props}>
