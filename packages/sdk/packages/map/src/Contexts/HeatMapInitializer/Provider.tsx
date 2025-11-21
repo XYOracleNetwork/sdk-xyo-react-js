@@ -39,8 +39,8 @@ export const HeatMapInitializerProvider: React.FC<PropsWithChildren<MapInitializ
   const mapHeat = useMemo(() => {
     return (map && features?.length)
       ? new MapHeat({
-        features, map, zoom,
-      })
+          features, map, zoom,
+        })
       : undefined
   }, [map, features, zoom])
 

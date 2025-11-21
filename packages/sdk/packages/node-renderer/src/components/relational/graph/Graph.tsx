@@ -126,11 +126,9 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
         container,
         ...options,
       })
-      // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
       setCy(newCy)
     } else {
       newCy?.destroy()
-      // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
       setCy(undefined)
     }
     return () => {

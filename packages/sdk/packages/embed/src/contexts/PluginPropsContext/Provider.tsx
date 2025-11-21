@@ -15,7 +15,6 @@ export const PluginPropsProvider: React.FC<PluginPropsProviderProps> = ({ childr
 
   useEffect(() => {
     // needs to be in useEffect since we are in a provider
-    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setPluginProps(pluginPropsProp)
   }, [pluginPropsProp])
 

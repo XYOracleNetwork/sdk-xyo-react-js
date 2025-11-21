@@ -18,7 +18,6 @@ export const PayloadSetPluginResolverProvider: React.FC<PayloadSetPluginResolver
 
   return (
     <PayloadSetPluginResolverContext
-      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         provided: true,
         resolver,

@@ -54,8 +54,7 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
           tasks: witnesses?.map(mod => ({ mod: mod.address })),
         } as SentinelConfig,
       })
-      const offCallbacks: (() => void)[] = []
-      offCallbacks.push(
+      const offCallbacks: (() => void)[] = [
         sentinel.on('reportEnd', ({ mod, outPayloads }) => {
           if (mounted()) {
             setProgress({
@@ -72,7 +71,7 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
             setStatus(SentinelReportStatus.Started)
           }
         }),
-      )
+      ]
       if (witnesses)
         for (const witness of witnesses) {
           offCallbacks.push(
@@ -117,7 +116,6 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
   )
 
   useEffect(() => {
-    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setHistory(sentinel?.history as BoundWitness[])
   }, [sentinel])
 

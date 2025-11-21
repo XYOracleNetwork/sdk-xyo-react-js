@@ -17,14 +17,12 @@ export const NodeDetails: React.FC<NodeViewerProps> = ({ mod, ...props }) => {
     <FlexCol alignItems="stretch" {...props}>
       {children
         ? (
-            <>
-              <FlexCol alignItems="stretch" marginY={1}>
-                {children?.map((child) => {
-                  const instance = child.deref()
-                  return instance ? <ModuleAccordion key={instance.address} mod={instance} /> : null
-                })}
-              </FlexCol>
-            </>
+            <FlexCol alignItems="stretch" marginY={1}>
+              {children?.map((child) => {
+                const instance = child.deref()
+                return instance ? <ModuleAccordion key={instance.address} mod={instance} /> : null
+              })}
+            </FlexCol>
           )
         : null}
     </FlexCol>

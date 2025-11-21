@@ -23,7 +23,6 @@ export const useDivinePayload = <T extends Payload = Payload>(
   useEffect(() => {
     // we do this to clear the payload when the diviner changes
     if (diviner) {
-      // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
       setPayload(undefined)
     }
   }, [diviner])
@@ -60,7 +59,6 @@ export const useDivinePayloads = <T extends Payload = Payload>(
   useEffect(() => {
     if (diviner) {
       // clear payloads when diviner changes
-      // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
       setPayloads(undefined)
     }
   }, [diviner])

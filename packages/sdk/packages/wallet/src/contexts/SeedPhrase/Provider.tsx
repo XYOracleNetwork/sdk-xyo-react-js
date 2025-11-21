@@ -50,7 +50,6 @@ export const SeedPhraseProvider: React.FC<SeedPhraseProviderProps> = ({
   }, [])
 
   const handleCancelOverwrite = useCallback(() => {
-    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setOverwriteWarning(false)
   }, [setOverwriteWarning])
 

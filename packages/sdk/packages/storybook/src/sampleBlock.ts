@@ -1,4 +1,4 @@
-import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness, Signed } from '@xyo-network/boundwitness-model'
 
 export const sampleBlock = {
   $signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
@@ -21,7 +21,7 @@ export const sampleBlock = {
   ],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
-} as BoundWitness
+} as Signed<BoundWitness>
 
 export const sampleBlockWithBoundWitnessPayload = {
   $signatures: ['d0969a4edd2cbb55f879bb68733a36509dab7516c52e3066fd2e248ee80f98e36bdd56a0711140cfbc55106d4c65fe7ed58df8c03c5d360b34d3c74ea3b6fe1f'],
@@ -44,4 +44,4 @@ export const sampleBlockWithBoundWitnessPayload = {
   ],
   previous_hashes: [null],
   schema: 'network.xyo.boundwitness',
-} as BoundWitness
+} as Signed<BoundWitness>

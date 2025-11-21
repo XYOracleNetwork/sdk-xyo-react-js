@@ -4,8 +4,7 @@ import type { ReflectionViewerProps } from '../ReflectionViewerProps.tsx'
 import type { TypeBuilder } from './TypeBuilder.ts'
 
 export const buildReferenceString = (typeObj: ReferenceType, reflectionViewer: React.FC<ReflectionViewerProps>, typeBuilder: TypeBuilder) => {
-  const parts: string[] = []
-  parts.push(typeObj.name)
+  const parts: string[] = [typeObj.name]
   if (typeObj.typeArguments) {
     parts.push(
       '<',

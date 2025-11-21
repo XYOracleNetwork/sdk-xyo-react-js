@@ -1,4 +1,3 @@
-/* eslint-disable @eslint-react/hooks-extra/no-direct-set-state-in-use-effect */
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { isDefined } from '@xylabs/typeof'
@@ -68,7 +67,6 @@ export const ResolvePayloadProvider: React.FC<PropsWithChildren<ResolvePayloadPr
   }
 
   return (
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <ResolvePayloadContext value={{
       huri, huriError, notFound, payload, provided: true, refreshHuri, setPayload,
     }}

@@ -5,7 +5,7 @@ import {
   Divider, IconButton,
 } from '@mui/material'
 import { useResetState } from '@xylabs/react-hooks'
-import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness, Signed } from '@xyo-network/boundwitness-model'
 import type { PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import React from 'react'
 
@@ -15,7 +15,7 @@ import { DetailsCardContent } from './DetailsCardContent.tsx'
 const BoundWitnessDetailsCardInner = ({
   ref, payload, active, ...props
 }: PayloadDetailsRenderProps & CardProps & { ref?: React.Ref<HTMLDivElement | null> }) => {
-  const boundwitness = payload as BoundWitness
+  const boundwitness = payload as Signed<BoundWitness>
   const [collapsed, setCollapsed] = useResetState<boolean>(!active)
 
   return (

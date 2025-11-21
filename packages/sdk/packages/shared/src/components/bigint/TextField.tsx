@@ -1,16 +1,16 @@
-import { isDefined } from '@xylabs/typeof'
 import type { FormControlProps, StandardTextFieldProps } from '@mui/material'
 import {
   FormControl, FormHelperText, TextField,
 } from '@mui/material'
 import { toFixedPoint } from '@xylabs/decimal-precision'
+import { isDefined } from '@xylabs/typeof'
 import type { FocusEventHandler } from 'react'
 import React, {
   useEffect, useMemo, useState,
 } from 'react'
 
-import { FixedPointInputAdornment } from './InputAdornment.tsx'
 import { formatBigIntInput } from './helpers/index.ts'
+import { FixedPointInputAdornment } from './InputAdornment.tsx'
 
 export interface BigIntTextFieldProps extends StandardTextFieldProps {
   defaultFixedPoint?: number

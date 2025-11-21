@@ -149,7 +149,6 @@ const ButtonSection: React.FC<ButtonSectionProps> = ({
         )
 }
 
-// eslint-disable-next-line complexity
 export const BasicHero: React.FC<BasicHeroProps> = ({
   backgroundImage,
   title,

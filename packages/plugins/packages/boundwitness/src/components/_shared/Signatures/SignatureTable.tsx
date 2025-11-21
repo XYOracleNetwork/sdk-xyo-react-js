@@ -1,7 +1,7 @@
 import {
   TableBody, TableHead, TableRow, Typography,
 } from '@mui/material'
-import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness, Signed } from '@xyo-network/boundwitness-model'
 import { TableRowNoData } from '@xyo-network/react-payload-table'
 import { usePayloadDataHash } from '@xyo-network/react-shared'
 import type { TableExProps } from '@xyo-network/react-table'
@@ -11,7 +11,7 @@ import React from 'react'
 import { BoundWitnessSignatureTableRow } from './SignatureTableRow.tsx'
 
 export interface BoundWitnessSignatureTableProps extends TableExProps {
-  block?: BoundWitness
+  block?: Signed<BoundWitness>
 }
 
 interface SignatureData {
@@ -20,7 +20,7 @@ interface SignatureData {
   signature?: string
 }
 
-const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
+const signatureDataFromBoundWitness = (boundWitness: Signed<BoundWitness>) => {
   const result: SignatureData[] = []
   for (let i = 0; i < boundWitness.addresses.length; i++) {
     result.push({

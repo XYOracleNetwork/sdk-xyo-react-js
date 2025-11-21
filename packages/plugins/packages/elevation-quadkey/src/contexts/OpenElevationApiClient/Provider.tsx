@@ -16,7 +16,6 @@ export const OpenElevationApiProvider: React.FC<OpenElevationApiProviderProps> =
     return await client.lookupPost(locations)
   }
   return (
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <OpenElevationApiContext value={{
       client, lookupLocations, provided: true, setClient,
     }}

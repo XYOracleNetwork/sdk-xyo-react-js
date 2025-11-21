@@ -14,7 +14,6 @@ export const RefreshPayloadProvider: React.FC<PropsWithChildren<RefreshPayloadPr
   const [localRefreshPayload, setLocalRefreshPayload] = useState(refreshPayload)
 
   return (
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <RefreshPayloadContext value={{
       onRefresh, provided: true, refreshPayload: localRefreshPayload, setRefreshPayload: setLocalRefreshPayload,
     }}

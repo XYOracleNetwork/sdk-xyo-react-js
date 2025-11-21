@@ -1,4 +1,3 @@
-/* eslint-disable @eslint-react/hooks-extra/no-direct-set-state-in-use-effect */
 import { FormControl } from '@mui/material'
 import { ButtonEx } from '@xylabs/react-button'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'

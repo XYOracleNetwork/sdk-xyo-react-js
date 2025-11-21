@@ -20,28 +20,26 @@ export const NewPhraseTextField: React.FC<NewPhraseTextFieldProps> = ({
     phrase, setPhrase, validPhrase,
   } = useSeedPhrase()
   return (
-    <>
-      <FormControl
+    <FormControl
+      fullWidth
+      size="small"
+      sx={{
+        display: 'flex', flexDirection: 'column', rowGap: 1,
+      }}
+    >
+      {children}
+      <TextField
+        focused
+        color={disableColor ? undefined : colorParser(validPhrase)}
+        error={validPhrase === false}
+        helperText={validPhrase === false ? <InvalidPhraseTypography /> : null}
         fullWidth
-        size="small"
-        sx={{
-          display: 'flex', flexDirection: 'column', rowGap: 1,
-        }}
-      >
-        {children}
-        <TextField
-          focused
-          color={disableColor ? undefined : colorParser(validPhrase)}
-          error={validPhrase === false}
-          helperText={validPhrase === false ? <InvalidPhraseTypography /> : null}
-          fullWidth
-          maxRows={Number.POSITIVE_INFINITY}
-          multiline
-          onChange={e => setPhrase?.(e.target.value)}
-          value={phrase}
-          {...props}
-        />
-      </FormControl>
-    </>
+        maxRows={Number.POSITIVE_INFINITY}
+        multiline
+        onChange={e => setPhrase?.(e.target.value)}
+        value={phrase}
+        {...props}
+      />
+    </FormControl>
   )
 }

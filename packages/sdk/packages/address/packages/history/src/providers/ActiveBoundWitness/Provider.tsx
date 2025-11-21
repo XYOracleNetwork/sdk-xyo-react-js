@@ -31,7 +31,6 @@ export const ActiveBoundWitnessProvider: React.FC<ActiveBoundWitnessProviderProp
 
   return (
     <ActiveBoundWitnessContext
-      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         activeBoundWitness,
         activeBoundWitnessHash,

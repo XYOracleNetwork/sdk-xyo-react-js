@@ -3,7 +3,7 @@ import {
   Table, TableBody, TableCell, TableHead, TableRow, Typography,
 } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
-import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness, Signed } from '@xyo-network/boundwitness-model'
 import { PayloadHasher } from '@xyo-network/hash'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 import React from 'react'
@@ -12,7 +12,7 @@ import { BlockSignatureTableRow } from './SignatureTableRow.tsx'
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export interface BlockSignatureTableProps extends TableProps {
-  block?: BoundWitness
+  block?: Signed<BoundWitness>
 }
 
 interface SignatureData {
@@ -22,7 +22,7 @@ interface SignatureData {
 }
 
 /** @deprecated use from @xyo-network/react-default-plugin instead */
-const signatureDataFromBoundWitness = (boundWitness: BoundWitness) => {
+const signatureDataFromBoundWitness = (boundWitness: Signed<BoundWitness>) => {
   const result: SignatureData[] = []
   for (let i = 0; i < boundWitness.addresses.length; i++) {
     result.push({

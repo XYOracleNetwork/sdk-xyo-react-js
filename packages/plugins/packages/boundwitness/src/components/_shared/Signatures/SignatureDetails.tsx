@@ -1,4 +1,4 @@
-import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness, Signed } from '@xyo-network/boundwitness-model'
 import type { PropertyGroupProps } from '@xyo-network/react-property'
 import { PropertyGroup } from '@xyo-network/react-property'
 import React from 'react'
@@ -6,7 +6,7 @@ import React from 'react'
 import { BoundWitnessSignatureTable } from './SignatureTable.tsx'
 
 export type BoundWitnessSignatureDetailsProps = PropertyGroupProps & {
-  block?: BoundWitness
+  block?: Signed<BoundWitness>
 }
 
 export const BoundWitnessSignatureDetails: React.FC<BoundWitnessSignatureDetailsProps> = ({ block, ...props }) => {

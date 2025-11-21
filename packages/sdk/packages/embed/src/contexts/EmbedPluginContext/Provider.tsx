@@ -20,7 +20,6 @@ export const EmbedPluginProvider: React.FC<PropsWithChildren<EmbedPluginProvider
 
   return (
     <EmbedPluginContext
-      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         activePlugin,
         embedPluginConfig,

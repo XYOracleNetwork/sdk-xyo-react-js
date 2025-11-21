@@ -26,13 +26,11 @@ const SystemControlsUnstyled: React.FC<SystemControlsUnstyledProps> = ({
           <SystemControl
             systemControlsType={systemControlsType}
             controlElement={(
-              <>
-                <FlexRow className="control-wrap">
-                  <Paper variant="elevation" elevation={0}>
-                    <NetworkSelectEx responsive={false} className="network-ex" />
-                  </Paper>
-                </FlexRow>
-              </>
+              <FlexRow className="control-wrap">
+                <Paper variant="elevation" elevation={0}>
+                  <NetworkSelectEx responsive={false} className="network-ex" />
+                </Paper>
+              </FlexRow>
             )}
           />
         </FlexCol>

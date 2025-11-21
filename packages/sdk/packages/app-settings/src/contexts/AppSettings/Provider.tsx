@@ -58,7 +58,6 @@ export const AppSettingsProvider: React.FC<PropsWithChildren<AppSettingsProvider
 
   return (
     <AppSettingsContext
-      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         changeMaxAccounts,
         changeNavigationCollapsed,

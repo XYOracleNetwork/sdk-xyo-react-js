@@ -8,7 +8,6 @@ export const NestedBoundWitnessesProvider: React.FC<PropsWithChildren> = ({ chil
   const [clickedExistingHash, setClickedExistingHash] = useState<string>()
 
   return (
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <NestedBoundWitnessesContext value={{
       clickedExistingHash, loading, provided: true, setClickedExistingHash, setLoading,
     }}

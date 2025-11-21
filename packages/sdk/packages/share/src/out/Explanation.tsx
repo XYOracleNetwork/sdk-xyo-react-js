@@ -14,18 +14,16 @@ export const ShareOutExplanation: React.FC<ShareOutExplanationProps> = ({ toolTi
   // eslint-disable-next-line @stylistic/max-len
   const title = toolTipTitle ?? 'In order for your data to be publicly viewable, it needs to be saved to the XYO Network Public Archivist.  Public data can be seen by your friends, and XYO can generate preview images for easier sharing on social media.'
   return (
-    <>
-      <FlexGrowRow alignItems="center">
-        <Typography variant="body2" paddingRight={0.5}>
-          What am I sharing?
-        </Typography>
-        <Tooltip
-          title={title}
-          placement="bottom"
-        >
-          <InfoOutlined fontSize="small" sx={{ fontSize: theme.typography.caption.fontSize }} />
-        </Tooltip>
-      </FlexGrowRow>
-    </>
+    <FlexGrowRow alignItems="center">
+      <Typography variant="body2" paddingRight={0.5}>
+        What am I sharing?
+      </Typography>
+      <Tooltip
+        title={title}
+        placement="bottom"
+      >
+        <InfoOutlined fontSize="small" sx={{ fontSize: theme.typography.caption.fontSize }} />
+      </Tooltip>
+    </FlexGrowRow>
   )
 }

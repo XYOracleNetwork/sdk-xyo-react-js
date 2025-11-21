@@ -1,7 +1,7 @@
 import { Divider } from '@mui/material'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
-import type { BoundWitness } from '@xyo-network/boundwitness-model'
+import type { BoundWitness, Signed } from '@xyo-network/boundwitness-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
 import type { PayloadDetailsListRenderProps, PayloadDetailsRenderProps } from '@xyo-network/react-payload-plugin'
 import { usePayloadHash } from '@xyo-network/react-shared'
@@ -32,8 +32,8 @@ const BoundWitnessDetailsBox: React.FC<PayloadDetailsListRenderProps & FlexBoxPr
 BoundWitnessDetailsBox.displayName = 'BoundWitnessDetailsBox'
 
 const BoundWitnessDetailsBoxInner: React.FC<PayloadDetailsRenderProps & FlexBoxProps> = ({ payload, ...props }) => {
-  const boundWitness = payload as BoundWitness
-  const partialBoundWitness = boundWitness as Partial<BoundWitness>
+  const boundWitness = payload as Signed<BoundWitness>
+  const partialBoundWitness = boundWitness as Partial<Signed<BoundWitness>>
   const hash = usePayloadHash(payload)
 
   const hasBWPayloads = useMemo(() => (partialBoundWitness ? partialBoundWitness.payload_schemas?.includes(BoundWitnessSchema) : false), [partialBoundWitness])

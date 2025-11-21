@@ -1,3 +1,4 @@
+/* eslint-disable react-x/jsx-no-iife */
 import {
   Alert, Snackbar, useMediaQuery, useTheme,
 } from '@mui/material'

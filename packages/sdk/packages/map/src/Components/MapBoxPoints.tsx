@@ -42,8 +42,8 @@ export const MapboxPointsFlexBox: React.FC<MapboxPointsFlexBoxProps> = ({
   const mapPoints = useMemo(() => {
     return (map && features?.length)
       ? new MapPoints({
-        features, map, zoom,
-      })
+          features, map, zoom,
+        })
       : undefined
   }, [map, features, zoom])
 

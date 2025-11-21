@@ -33,9 +33,7 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
   const [error, setError] = useState<ModuleError>()
 
   const clearHistory = useCallback(() => {
-    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setHashSelectionHistory([])
-    // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     setNestedBoundWitnesses({})
     return true
   }, [setHashSelectionHistory, setNestedBoundWitnesses])
@@ -86,7 +84,6 @@ export const HashSelectionHistoryProvider: React.FC<HashSelectionHistoryProvider
 
   return (
     <HashSelectionHistoryContext
-      // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         addSelection,
         clearHistory,

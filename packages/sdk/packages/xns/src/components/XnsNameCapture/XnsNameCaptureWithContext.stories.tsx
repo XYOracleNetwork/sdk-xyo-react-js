@@ -12,7 +12,6 @@ export default { title: 'modules/xns/XnsNameCaptureWithContext' } as Meta
 const testableParams = ['signature', 'username'] as const
 type RouteDecorator = (params: [typeof testableParams[number], string][]) => Decorator
 
-// eslint-disable-next-line react/display-name
 const RouteDecorator: RouteDecorator = params => (Story, args) => {
   // Get the URL object
   const url = new URL(globalThis.location.href)

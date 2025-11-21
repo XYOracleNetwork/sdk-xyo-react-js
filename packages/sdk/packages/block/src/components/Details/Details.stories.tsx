@@ -18,7 +18,6 @@ const StorybookEntry = {
 } as Meta<typeof BlockDetails>
 
 const Template: StoryFn<typeof BlockDetails> = (args) => {
-  // eslint-disable-next-line @eslint-react/no-create-ref
   const sharedRef = createRef<HTMLDivElement>()
   useEvent<HTMLDivElement>((noun, verb, data) => console.log(`[${noun}|${verb}|${data}]`), sharedRef)
   useEvent<HTMLDivElement>(() => console.log('2nd Listener'), sharedRef)
