@@ -22,6 +22,8 @@ export default [
   reactConfig,
   {
     rules: {
+      'no-warning-comments': ['warn', { terms: ['note'], location: 'anywhere' }],
+      '@typescript-eslint/strict-boolean-expressions': ['off'],
       '@eslint-react/no-array-index-key': ['off'],
       '@typescript-eslint/no-misused-promises': ['off'],
     },
